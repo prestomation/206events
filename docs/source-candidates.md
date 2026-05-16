@@ -372,18 +372,3 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - ❌ Not Viable: Brouwer's Cafe — WordPress events archive (24 pages of past events), no upcoming events and no ICS feed
 - ❌ Not Viable: Queer Bar — confirmed multi-promoter Eventbrite, no single venue organizer ID; Squarespace page returns 0 items
 
-### 2026-05-15 — Source discovery: literary/community, outdoors, arts
-- ✅ Added: Seattle City of Literature Community Calendar — Tockify ICS (`scolcalendar`), 115 upcoming events — `sources/external/seattle-city-of-lit.yaml` — Tags: Books, Arts, Community
-- 💡 Candidate: The Mountaineers (Seattle Program Center) — Plone ICS (`/ics_view`), 20 upcoming public events, 7700 Sand Point Way NE — Tags: Outdoors, Community
-- ❌ Not Viable: Queen Anne Farmers Market — Squarespace site but no events collection, only 5 seasonal recurring dates (not a structured events calendar)
-- ❌ Not Viable: Seattle Chamber Music Society — already evaluated 2026-05-07 as `notviable` (multi-venue, low Seattle focus, no ICS)
-
-### 2026-05-16 — Source discovery: Arts & culture, outdoors, community
-- ✅ Added: Seattle Japanese Garden — Squarespace — 30+ events — PR #324 — Tags: Arts, Museums
-- ❌ Not Viable: Skylark Cafe — Webflow site, Eventbrite events from multiple promoters (no single venue organizer ID), no ICS feed
-- ❌ Not Viable: Seattle Aquarium — SiteWrench API requires authentication; client-side rendered events
-
-### 2026-05-17 — Source discovery: Arts/culture, outdoors, community, beer
-- ✅ Added: Seattle Chinese Garden — Squarespace — 2 confirmed upcoming events (Annual Auction & Banquet, Bamboo Circle Celebration) — Tags: Arts, Community, West Seattle
-- ❌ Not Viable: The Mountaineers — Plone ICS feed exists (795 events) but all are internal club activities (skills clinics, committee meetings) with no LOCATION data; not public-facing events
-- ❌ Not Viable: Seattle Uncorked — SiteGround captcha (HTTP 202) blocks all requests; flagged blocked
