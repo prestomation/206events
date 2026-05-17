@@ -1,0 +1,24 @@
+geo:
+  lat: 47.6028
+  lng: -122.3303
+  label: City Hall Park, Seattle
+name: bikemobile-city-hall-park
+friendlyname: BikeMobile at City Hall Park
+description: Free and low-cost drop-in bike maintenance and bicycles from Bike Works' BikeMobile, parked at City Hall Park in Pioneer Square.
+schedule: 1st and 3rd Tuesday
+timezone: America/Los_Angeles
+duration: PT3H
+start_time: "13:00"
+location: City Hall Park, 450 3rd Ave, Seattle, WA 98104
+url: https://bikeworks.org/bike-shop/bike-mobile/
+tags:
+  - Cycling
+  - Pioneer Square
+months:
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
