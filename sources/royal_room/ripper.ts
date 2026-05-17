@@ -66,7 +66,7 @@ export default class RoyalRoomRipper implements IRipper {
                 continue;
             }
 
-            const m = link.startDate.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
+            const m = link.startDate.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})/);
             if (!m) {
                 errors.push({ type: 'ParseError', reason: `Unparseable start_date: ${link.startDate}`, context: link.title });
                 continue;
@@ -75,7 +75,7 @@ export default class RoyalRoomRipper implements IRipper {
             const eventDate = ZonedDateTime.of(
                 LocalDateTime.of(
                     parseInt(m[1]), parseInt(m[2]), parseInt(m[3]),
-                    parseInt(m[4]), parseInt(m[5])
+                    parseInt(m[4]), parseInt(m[5]), parseInt(m[6])
                 ),
                 zone
             );
