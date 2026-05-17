@@ -53,11 +53,21 @@ The steering file provides essential context for making informed decisions about
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
 2. Make commits to the feature branch
-3. Open a Pull Request to merge into main — create it as **non-draft** so auto-merge is eligible
-4. Immediately enable auto-merge via `mcp__github__enable_pr_auto_merge` (squash method) — do this right after creating the PR, before CI finishes, or GitHub will reject it
-5. Auto-merge will fire once all required checks pass and conversation resolution requirements are met
+3. Open a Pull Request — the harness creates it as a **draft** by default; that's fine
+4. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
+5. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review:
+   - If Q has **blocking comments**: address each one, push fixes, re-trigger Q (see re-review template below), and wait for Q's next pass
+   - Once Q gives **all ✅** and all comments are confidently addressed:
+     a. Resolve all open review threads using `mcp__github__pull_request_review_write` with `method: resolve_thread` (requires the thread's `PRRT_...` node ID — see note below)
+     b. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
+     c. **If CI is still running** → enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash). It will fire automatically when checks go green.
+     d. **If CI already passed** → merge directly: `mcp__github__merge_pull_request` (squash)
 
-This ensures proper code review and prevents breaking the production deployment. Do NOT create PRs as drafts — GitHub silently disables auto-merge on draft PRs.
+**If auto-merge gets blocked** (e.g. by unresolved conversation threads that couldn't be resolved programmatically), fall back to `mcp__github__merge_pull_request` directly.
+
+**Never call `enable_pr_auto_merge` on a draft PR** — GitHub rejects it silently. Always convert to ready-for-review first.
+
+**Note on resolving review threads:** `mcp__github__pull_request_review_write` with `resolve_thread` requires a `PRRT_...` GraphQL node ID. These IDs are not currently returned by `get_review_comments` — if you can't obtain the ID, skip this step and proceed; unresolved threads may block auto-merge, in which case fall back to direct merge.
 
 **After pushing follow-up commits to a PR, you MUST post a top-level PR comment that re-triggers Amazon Q with explicit feedback asks.** The bare `/q review` trigger has proven unreliable — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the new commits against the following dimensions:
 
@@ -84,7 +94,7 @@ Please re-review the latest commit(s) on this PR with feedback on:
 
 Without an explicit re-review trigger, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
 
-**After addressing a review comment, resolve its thread** using `mcp__github__resolve_review_thread`. Do this either after pushing the fix that addresses it, or after posting a reply with strong reasoning why no action will be taken. Leaving threads open after they've been addressed creates noise and makes it unclear what still needs attention.
+**After addressing a review comment**, reply to the thread with your reasoning (fix pushed or explanation of why no action is needed), then resolve the thread using `mcp__github__pull_request_review_write` with `method: resolve_thread`. Leaving threads open after they've been addressed creates noise and may block auto-merge.
 
 ## Calendar Integration Strategy
 
@@ -355,29 +365,30 @@ sources/
 - Test deduplication across multiple parseEvents calls
 - Ensure graceful handling of missing or malformed data
 
-## Authenticated Proxy
+## Out-of-band Proxy
 
-Some upstream sites (e.g., AXS, AMC) block requests from GitHub Actions runner IPs with 403 errors. An authenticated Lambda proxy in AWS forwards these requests from non-blocked IPs.
+Some upstream sites (e.g., AXS, AMC) block requests from GitHub Actions runner IPs with 403 errors. The project handles these by running affected sources on a separate "out-of-band" runner (a home server with a residential IP), uploading the results to S3, and having the main GitHub Actions build download those pre-fetched outputs.
 
-See **`infra/authenticated-proxy/README.md`** for deployment and architecture details.
+See **`docs/outofband.md`** for the full architecture and **`infra/authenticated-proxy/README.md`** for the supporting AWS infrastructure (S3 bucket, IAM roles).
 
-### Enabling the proxy for a ripper
+### Enabling outofband for a ripper
 
-Add `proxy: true` to the ripper's `ripper.yaml`:
+Add `proxy: "outofband"` to the ripper's `ripper.yaml`:
 
 ```yaml
 name: amc
-proxy: true
+proxy: "outofband"
 url: "https://graph.amctheatres.com/graphql"
 ```
 
-When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch calls for that ripper are routed through the Lambda proxy. If `PROXY_URL` is not set (local development), requests go directly to the upstream.
+The schema in `lib/config/schema.ts` only accepts `"outofband"` or `false` — there is no `proxy: true`.
+
+When set, the main GitHub Actions build **skips** the ripper entirely. The out-of-band cron runner (`scripts/generate-outofband.ts`) executes it from a residential IP and uploads its `.ics` plus a `outofband-report.json` entry to S3. The main build then downloads those artifacts via `scripts/download-outofband.ts`.
 
 ### How it works
 
-- `lib/config/proxy-fetch.ts` exports `proxyFetch` and `getFetchForConfig` utilities
-- Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) automatically use the proxy when the config flag is set
-- Custom rippers that implement `IRipper` directly should use `getFetchForConfig(ripper.config)` to get a proxy-aware fetch function
+- `lib/config/proxy-fetch.ts` exposes `getFetchForConfig(config)` — a passthrough today since outofband sources run on a clean network and use plain `fetch`. The earlier in-process Lambda-proxy mechanism has been retired.
+- Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) call `getFetchForConfig` automatically. Custom rippers that implement `IRipper` directly should do the same so they remain compatible if the proxy mechanism returns.
 
 ### Enabling the proxy for an external ICS calendar
 
@@ -656,7 +667,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 **Cause:** The upstream website is blocking requests from GitHub Actions runner IPs.
 
 **Fix:**
-1. Add `proxy: true` to the ripper's `ripper.yaml`
+1. Add `proxy: "outofband"` to the ripper's `ripper.yaml` (the schema only accepts `"outofband"` or `false` — `proxy: true` will fail Zod validation and the ripper will be dropped silently into `configErrors`)
 2. If the ripper uses direct `fetch()` calls (custom `IRipper` implementations), refactor to use the proxy-aware fetch:
    ```typescript
    import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
@@ -670,7 +681,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
        }
    }
    ```
-3. Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers already handle proxy automatically — just add `proxy: true` to the YAML.
+3. Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers already use `getFetchForConfig` automatically — just add `proxy: "outofband"` to the YAML.
 
 #### HTTP 403 from External Calendars
 
