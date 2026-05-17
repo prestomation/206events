@@ -61,11 +61,13 @@ The steering file provides essential context for making informed decisions about
 4. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
 5. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review:
    - If Q has **blocking comments**: address each one, push fixes, re-trigger Q (see re-review template below), and wait for Q's next pass
-   - Once Q gives **all ✅** and all comments are confidently addressed:
+   - Once Q gives **all ✅** and all comments are confidently addressed, do the following **immediately, in the same turn** — do not wait for the build to finish first:
      a. Resolve all open review threads using `mcp__github__pull_request_review_write` with `method: resolve_thread` (requires the thread's `PRRT_...` node ID — see note below)
      b. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
      c. **If CI is still running** → enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash). It will fire automatically when checks go green.
      d. **If CI already passed** → merge directly: `mcp__github__merge_pull_request` (squash)
+
+   **Why "immediately, in the same turn":** the webhook subscription only fires on CI **failures and review comments** — a green build produces no event. If you wait for CI to confirm green before enabling auto-merge, you'll be waiting forever; the PR just sits ready-but-unmerged until something else wakes the session. Flip to ready and enable auto-merge the moment Q is green, and let the checks prove you wrong rather than waiting for them to prove you right.
 
 **If auto-merge gets blocked** (e.g. by unresolved conversation threads that couldn't be resolved programmatically), fall back to `mcp__github__merge_pull_request` directly.
 
