@@ -237,7 +237,6 @@ def best_venue_score(
     venue_queries: list[str],
     event: dict,
     ripper_friendly_by_ics: dict[str, str],
-    venues_by_friendly: dict[str, dict],
     poster_host: str,
 ) -> VenueScore:
     if not venue_queries and not poster_host:
@@ -529,14 +528,11 @@ def score_events(
     ics_to_source: dict[str, dict],
 ) -> list[ScoredEvent]:
     ics_to_friendly: dict[str, str] = {ics: src.get("friendly", "") for ics, src in ics_to_source.items()}
-    venues_by_friendly: dict[str, dict] = {}
 
     scored: list[ScoredEvent] = []
     for ev in events:
         ts = best_title_score(title_queries, ev)
-        vs = best_venue_score(
-            venue_queries, ev, ics_to_friendly, venues_by_friendly, poster_host
-        )
+        vs = best_venue_score(venue_queries, ev, ics_to_friendly, poster_host)
         ds = date_score(poster_date, ev)
         os_, oq = best_org_score(org_queries, ev)
 
