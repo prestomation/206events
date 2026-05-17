@@ -9,6 +9,8 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache and fill OpenStreetMap IDs on venues
 - **`skills/calendar-verification/SKILL.md`** — Verify recurring calendars and `expectEmpty` sources against their live URLs and auto-fix safe drift via PR
 - **`skills/event-uncertainty-resolver/SKILL.md`** — Resolve outstanding `UncertaintyError` entries (typically unknown start times) by investigating the source page and writing values into `event-uncertainty-cache.json`
+- **`skills/event-lookup/SKILL.md`** — Fuzzy-search the published `events-index.json` / `manifest.json` / `venues.json` to answer "is this event already in 206.events, and which source covers it?"
+- **`skills/source-from-event/SKILL.md`** — Default handler for any **event poster image** (or text request describing an event the user wants covered). Uses `event-lookup` to check coverage, then either reports it's covered, hands off a parse-gap fix to `build-report`, or hands off a new-source add to `source-discovery`
 
 ## Adding New Calendar Sources
 
