@@ -1,9 +1,18 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { HTMLElement } from "node-html-parser";
 import { ChronoUnit, Duration, LocalDateTime, ZonedDateTime, ZoneRegion } from "@js-joda/core";
-import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
+import { RipperEvent, RipperCalendarEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const MONTHS: Record<string, number> = {
     'January': 1, 'February': 2, 'March': 3, 'April': 4,
@@ -52,6 +61,27 @@ export default class MoPOPRipper extends HTMLRipper {
                     } else {
                         this.seenEvents.add(parsed.id!);
                         events.push(parsed);
+                        // Detect duration uncertainty: JSON-LD without endDate
+                        // (or with a non-positive end-start interval) falls
+                        // back to a 4-hour guess in parseJsonLdEvent.
+                        const startMs = item.startDate;
+                        const endMs = item.endDate;
+                        const endParsed = endMs ? this.parseIsoDate(endMs) : null;
+                        const intervalOk = endParsed
+                            ? parsed.date.until(endParsed, ChronoUnit.MINUTES) > 0
+                            : false;
+                        if (!intervalOk) {
+                            events.push({
+                                type: "Uncertainty",
+                                reason: endMs
+                                    ? `JSON-LD endDate not after startDate ("${startMs}" → "${endMs}")`
+                                    : "JSON-LD Event omitted endDate",
+                                source: "mopop",
+                                unknownFields: ["duration"],
+                                event: parsed,
+                                partialFingerprint: simpleHash(`${startMs ?? ''}|${endMs ?? ''}`),
+                            });
+                        }
                     }
                 }
             } catch {
@@ -105,6 +135,19 @@ export default class MoPOPRipper extends HTMLRipper {
                 };
 
                 events.push(event);
+
+                // CMS data-date attributes carry only a date; the parser
+                // defaults to 10 AM + 4 h. Flag both as uncertain so the
+                // resolver can replace them with the real times.
+                const uncertainty: UncertaintyError = {
+                    type: "Uncertainty",
+                    reason: `CMS event listing carries only a date ("${dateStr}")`,
+                    source: "mopop",
+                    unknownFields: ["startTime", "duration"],
+                    event,
+                    partialFingerprint: simpleHash(dateStr),
+                };
+                events.push(uncertainty);
             } catch (error) {
                 events.push({
                     type: "ParseError",

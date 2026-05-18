@@ -1,8 +1,17 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId, ChronoUnit } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const BASE_URL = "https://www.discoverslu.com";
 const AJAX_URL = "https://www.discoverslu.com/wp-admin/admin-ajax.php";
@@ -23,7 +32,7 @@ const MONTH_MAP: Record<string, number> = {
  *   "March 30 - April 3"       — cross-month date range (uses first day)
  *   "March 30 - April 3, 2026" — cross-month range with year (uses first day)
  */
-function parseFeatureTag(tagText: string): { month: number; day: number; hour: number; minute: number } | null {
+function parseFeatureTag(tagText: string): { month: number; day: number; hour: number; minute: number; timeGuessed: boolean } | null {
     const text = tagText.trim();
 
     // Format: "Month Day, H:MM am/pm"
@@ -37,7 +46,7 @@ function parseFeatureTag(tagText: string): { month: number; day: number; hour: n
         const ampm = withTime[5].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
-        return { month, day, hour, minute };
+        return { month, day, hour, minute, timeGuessed: false };
     }
 
     // Format: "Month Day-Day, H:MM am/pm" (same-month range with time, use first day + time)
@@ -51,7 +60,7 @@ function parseFeatureTag(tagText: string): { month: number; day: number; hour: n
         const ampm = rangeWithTime[5].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
-        return { month, day, hour, minute };
+        return { month, day, hour, minute, timeGuessed: false };
     }
 
     // Format: "Month Day - Month Day[, Year]" (cross-month range, use first day)
@@ -60,7 +69,7 @@ function parseFeatureTag(tagText: string): { month: number; day: number; hour: n
         const month = MONTH_MAP[crossMonth[1].toLowerCase()];
         if (!month) return null;
         const day = parseInt(crossMonth[2]);
-        return { month, day, hour: 10, minute: 0 }; // default to 10 AM
+        return { month, day, hour: 10, minute: 0, timeGuessed: true }; // default to 10 AM
     }
 
     // Format: "Month Day-Day[, Year]" (same-month range, use first day) or "Month Day" (no time)
@@ -69,7 +78,7 @@ function parseFeatureTag(tagText: string): { month: number; day: number; hour: n
         const month = MONTH_MAP[dateOnly[1].toLowerCase()];
         if (!month) return null;
         const day = parseInt(dateOnly[2]);
-        return { month, day, hour: 10, minute: 0 }; // default to 10 AM
+        return { month, day, hour: 10, minute: 0, timeGuessed: true }; // default to 10 AM
     }
 
     return null;
@@ -207,6 +216,24 @@ export function parseEventsFromHtml(
             };
 
             events.push(event);
+
+            // Duration is always a 2h guess on Discover SLU; when the source
+            // also omits the start time we tack startTime onto the unknown
+            // fields.
+            const unknownFields: UncertaintyField[] = parsed.timeGuessed
+                ? ["startTime", "duration"]
+                : ["duration"];
+            const uncertainty: UncertaintyError = {
+                type: "Uncertainty",
+                reason: parsed.timeGuessed
+                    ? `Date tag had no time ("${tagText}")`
+                    : "Discover SLU listing has a start time but no end time",
+                source: "discover_slu",
+                unknownFields,
+                event,
+                partialFingerprint: simpleHash(tagText),
+            };
+            events.push(uncertainty);
         } catch (error) {
             const errorMessage = error instanceof Error ? error.message : String(error);
             events.push({

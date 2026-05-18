@@ -1,8 +1,17 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneRegion, ChronoUnit } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { parse } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const MONTHS: Record<string, number> = {
     'January': 1, 'February': 2, 'March': 3, 'April': 4,
@@ -19,6 +28,14 @@ const LOCATION_PACCAR_IMAX = 39;
 interface ParsedDate {
     startDate: ZonedDateTime;
     duration: Duration;
+    // Fields the parser had to guess because the source omitted them.
+    // Populated for hero-date strings like "Month Day" (no time) or
+    // "Month Day, 4 pm" (no end time).
+    unknownFields?: UncertaintyField[];
+    // The raw source text the parser examined; used as part of the
+    // partialFingerprint so cache entries invalidate when upstream
+    // updates the hero copy.
+    rawText?: string;
 }
 
 export default class PacificScienceCenterRipper implements IRipper {
@@ -161,6 +178,18 @@ export default class PacificScienceCenterRipper implements IRipper {
                 };
 
                 events.push(calendarEvent);
+
+                if (parsed.unknownFields && parsed.unknownFields.length > 0) {
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: `Hero date string lacked ${parsed.unknownFields.join(' and ')}: "${heroDateText}"`,
+                        source: "pac_sci",
+                        unknownFields: parsed.unknownFields,
+                        event: calendarEvent,
+                        partialFingerprint: simpleHash(parsed.rawText ?? heroDateText),
+                    };
+                    events.push(uncertainty);
+                }
             } catch (error) {
                 events.push({
                     type: "ParseError",
@@ -365,6 +394,7 @@ export default class PacificScienceCenterRipper implements IRipper {
             );
 
             let duration: Duration;
+            const unknownFields: UncertaintyField[] = [];
             if (endTime) {
                 const endDate = ZonedDateTime.of(
                     LocalDateTime.of(year, month, day, endTime.hour, endTime.minute),
@@ -376,9 +406,10 @@ export default class PacificScienceCenterRipper implements IRipper {
                 duration = Duration.ofMinutes(minutes);
             } else {
                 duration = Duration.ofHours(2);
+                unknownFields.push("duration");
             }
 
-            return { startDate, duration };
+            return { startDate, duration, unknownFields, rawText: text };
         }
 
         // Try: "Month Day - Month Day" (multi-day)
@@ -422,6 +453,9 @@ export default class PacificScienceCenterRipper implements IRipper {
             const explicitYear = dateOnly[3] ? parseInt(dateOnly[3]) : null;
             const year = explicitYear || this.inferYear(month, day);
 
+            // Source supplied only a date — we publish a midnight + 24h
+            // span as a placeholder and flag both the start time and
+            // duration so the resolver can replace them with the real values.
             const startDate = ZonedDateTime.of(
                 LocalDateTime.of(year, month, day, 0, 0),
                 timezone
@@ -429,7 +463,9 @@ export default class PacificScienceCenterRipper implements IRipper {
 
             return {
                 startDate,
-                duration: Duration.ofHours(24)
+                duration: Duration.ofHours(24),
+                unknownFields: ["startTime", "duration"],
+                rawText: text,
             };
         }
 

@@ -205,10 +205,12 @@ describe('AXSRipper', () => {
 
         const events = ripper.parseEvents(sampleData, timezone, config);
         const errors = events.filter(e => 'type' in e) as RipperError[];
+        // Filter to ParseErrors only — Uncertainty errors are also emitted
+        // for every event because the AXS API never exposes a duration.
+        const parseErrors = errors.filter(e => e.type === 'ParseError');
 
-        expect(errors).toHaveLength(1);
-        expect(errors[0].type).toBe('ParseError');
-        expect(errors[0].reason).toContain('Could not parse date');
+        expect(parseErrors).toHaveLength(1);
+        expect(parseErrors[0].reason).toContain('Could not parse date');
     });
 
     it('skips events with missing title', () => {

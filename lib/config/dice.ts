@@ -1,9 +1,18 @@
 import { Duration, LocalDateTime, ZoneId, ChronoUnit, ZonedDateTime, DateTimeFormatter } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import '@js-joda/timezone';
 
 const MAX_PAGES = 10;
 const DICE_API_URL = "https://events-api.dice.fm/v1/events";
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 /**
  * Shared ripper for venues that use the DICE ticketing platform.
@@ -50,7 +59,7 @@ export class DICERipper implements IRipper {
 
             try {
                 const rawEvents = await this.fetchAllEvents(venueName, apiKey);
-                calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone, defaultLocation, defaultDurationHours);
+                calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone, defaultLocation, defaultDurationHours, ripper.config.name, cal.name);
             } catch (error) {
                 calendars[cal.name].events = [{
                     type: "ParseError",
@@ -100,7 +109,7 @@ export class DICERipper implements IRipper {
         return events;
     }
 
-    public parseEvents(events: any[], timezone: ZoneId, defaultLocation: string, defaultDurationHours: number = 3): RipperEvent[] {
+    public parseEvents(events: any[], timezone: ZoneId, defaultLocation: string, defaultDurationHours: number = 3, source: string = '', calendarName?: string): RipperEvent[] {
         const results: RipperEvent[] = [];
         const seenIds = new Set<string>();
 
@@ -139,8 +148,12 @@ export class DICERipper implements IRipper {
                 const eventZone = event.timezone ? ZoneId.of(event.timezone) : timezone;
                 const startDate = utcZoned.withZoneSameInstant(eventZone);
 
-                // Calculate duration from end time, fall back to defaultDurationHours
+                // Calculate duration from end time, fall back to defaultDurationHours.
+                // When upstream doesn't expose date_end we publish the default
+                // and flag the duration as uncertain so the resolver can replace
+                // it with a real value on a later build.
                 let duration = Duration.ofHours(defaultDurationHours);
+                let durationUncertain = false;
                 if (event.date_end) {
                     const endUtcDateTime = LocalDateTime.parse(
                         event.date_end.replace('Z', ''),
@@ -151,7 +164,11 @@ export class DICERipper implements IRipper {
                     const seconds = startDate.until(endDate, ChronoUnit.SECONDS);
                     if (seconds > 0) {
                         duration = Duration.ofSeconds(seconds);
+                    } else {
+                        durationUncertain = true;
                     }
+                } else {
+                    durationUncertain = true;
                 }
 
                 // Build location from API address field, fall back to defaultLocation
@@ -195,6 +212,19 @@ export class DICERipper implements IRipper {
                 };
 
                 results.push(calEvent);
+
+                if (durationUncertain) {
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: "DICE listing did not include an end time",
+                        source,
+                        calendar: calendarName,
+                        unknownFields: ["duration"],
+                        event: calEvent,
+                        partialFingerprint: simpleHash(`${event.date}|${event.date_end ?? ''}`),
+                    };
+                    results.push(uncertainty);
+                }
             } catch (error) {
                 results.push({
                     type: "ParseError",

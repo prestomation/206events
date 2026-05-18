@@ -1,7 +1,16 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const BASE_URL = "https://fryemuseum.org";
 const MUSEUM_ADDRESS = "Frye Art Museum, 704 Terry Ave, Seattle, WA 98104";
@@ -137,7 +146,7 @@ export default class FryeArtMuseumRipper implements IRipper {
             }];
         }
 
-        const { hour, minute, durationMinutes } = this.parseTime(timeText);
+        const { hour, minute, durationMinutes, startTimeGuessed, durationGuessed } = this.parseTime(timeText);
 
         let eventDate: ZonedDateTime;
         try {
@@ -168,7 +177,23 @@ export default class FryeArtMuseumRipper implements IRipper {
             url: canonicalUrl,
         };
 
-        return [event];
+        const results: RipperEvent[] = [event];
+        const unknownFields: UncertaintyField[] = [];
+        if (startTimeGuessed) unknownFields.push("startTime");
+        if (durationGuessed) unknownFields.push("duration");
+        if (unknownFields.length > 0) {
+            results.push({
+                type: "Uncertainty",
+                reason: startTimeGuessed
+                    ? `Event-page time element unrecognised: "${timeText}"`
+                    : "Event-page time has a start but no end",
+                source: "frye_art_museum",
+                unknownFields,
+                event,
+                partialFingerprint: simpleHash(`${dateText}|${timeText}`),
+            });
+        }
+        return results;
     }
 
     public isRecurringPattern(dateText: string): boolean {
@@ -211,7 +236,7 @@ export default class FryeArtMuseumRipper implements IRipper {
         return { year, month, day };
     }
 
-    public parseTime(timeText: string): { hour: number; minute: number; durationMinutes: number } {
+    public parseTime(timeText: string): { hour: number; minute: number; durationMinutes: number; startTimeGuessed: boolean; durationGuessed: boolean } {
         // Handle en-dash (–) and hyphen (-) as range separator
         // Formats: "2–4 pm", "2:30–4 pm", "10 am–12 pm", "11 am–1:30 pm", "6:30 pm"
         const normalised = timeText.replace(/\u2013/g, "-"); // en-dash to hyphen
@@ -247,7 +272,7 @@ export default class FryeArtMuseumRipper implements IRipper {
                 (endHour * 60 + endMin) - (startHour * 60 + startMin),
                 30
             );
-            return { hour: startHour, minute: startMin, durationMinutes };
+            return { hour: startHour, minute: startMin, durationMinutes, startTimeGuessed: false, durationGuessed: false };
         }
 
         // Single time: "6:30 pm"
@@ -258,10 +283,10 @@ export default class FryeArtMuseumRipper implements IRipper {
             const period = singleMatch[3].toLowerCase();
             if (period === "pm" && hour !== 12) hour += 12;
             if (period === "am" && hour === 12) hour = 0;
-            return { hour, minute, durationMinutes: 120 };
+            return { hour, minute, durationMinutes: 120, startTimeGuessed: false, durationGuessed: true };
         }
 
         // Unparseable time — default to 10am, 2 hours (museum opens at 11am, but programs vary)
-        return { hour: 10, minute: 0, durationMinutes: 120 };
+        return { hour: 10, minute: 0, durationMinutes: 120, startTimeGuessed: true, durationGuessed: true };
     }
 }

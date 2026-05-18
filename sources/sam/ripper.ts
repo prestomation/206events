@@ -1,9 +1,18 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, DayOfWeek, TemporalAdjusters, ZoneRegion } from "@js-joda/core";
-import { IRipper, ParseError, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, ParseError, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const LOCATION_ADDRESSES: Record<string, string> = {
     "Seattle Art Museum": "Seattle Art Museum, 1300 First Avenue, Seattle, WA 98101",
@@ -235,6 +244,24 @@ export default class SAMRipper implements IRipper {
             try {
                 const event = articleToEvent(article, timezone);
                 calendars[calendarName].events.push(event);
+                if ("date" in event) {
+                    const timeRange = parseTimeRange(article.timeText);
+                    if (!timeRange) {
+                        // No parseable time on the listing — the parser
+                        // defaulted to 10 AM + 2 h; flag both.
+                        calendars[calendarName].events.push({
+                            type: "Uncertainty",
+                            reason: article.timeText
+                                ? `Could not parse time text "${article.timeText}"`
+                                : "Listing had no time text",
+                            source: "sam",
+                            calendar: calendarName,
+                            unknownFields: ["startTime", "duration"],
+                            event,
+                            partialFingerprint: simpleHash(article.timeText),
+                        });
+                    }
+                }
             } catch (error) {
                 calendars[calendarName].events.push({
                     type: "ParseError",
