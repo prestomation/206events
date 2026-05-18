@@ -1,0 +1,10 @@
+name: pioneer-square-market
+description: "Pioneer Square Market Network"
+url: "https://pioneersquaremarket.net/markets"
+friendlyLink: https://pioneersquaremarket.net/markets
+tags: ["Community", "Pioneer Square", "Music"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Pioneer Square Market Network"
+    timezone: America/Los_Angeles
