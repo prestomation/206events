@@ -4,7 +4,7 @@ status: added
 firstSeen: 2026-05-18
 lastChecked: 2026-05-18
 tags: [Community, Arts]
-pr:
+pr: 356
 ---
 **Seattle Urban Native Nonprofits (SUNN)** — `https://www.seattleurbannatives.org/events-calendar` — Squarespace events-stacked collection — Tags: Community, Arts
 
