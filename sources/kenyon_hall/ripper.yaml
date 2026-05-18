@@ -1,0 +1,14 @@
+name: kenyon_hall
+type: squarespace
+description: "Kenyon Hall"
+url: "https://www.kenyonhall.org/events"
+friendlyLink: https://www.kenyonhall.org/events
+tags: ["Music", "Comedy", "Arts", "West Seattle"]
+geo:
+  lat: 47.5316606
+  lng: -122.3761768
+  label: "Kenyon Hall, 7904 35th Ave SW, Seattle, WA 98126"
+calendars:
+  - name: all-events
+    friendlyname: "Kenyon Hall"
+    timezone: America/Los_Angeles
