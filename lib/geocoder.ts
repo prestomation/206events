@@ -512,6 +512,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'oxbow farm & conservation center, 10819 carnation duvall road northeast, carnation, wa': { lat: 47.5699, lng: -121.9010 },
   'phinney center campus: blue (upper) building, 6532 phinney ave. n., seattle, wa': { lat: 47.6797, lng: -122.3549 },
   'phinney center campus: brick (lower) building, 6532 phinney ave. n., seattle': { lat: 47.6797, lng: -122.3549 },
+  'everett performing arts center, 2710 wetmore ave, everett, wa 98201': { lat: 47.9815, lng: -122.2075 },
   'pud auditorium theater, 2320 california st, everett, wa': { lat: 47.9784, lng: -122.2071 },
   'stottle winery covington tasting room, 16783 southeast 272nd street, covington, wa': { lat: 47.3628, lng: -122.1151 },
   'the great hall, 1119 eighth avenue, seattle, 98101': { lat: 47.6087, lng: -122.3295 },
