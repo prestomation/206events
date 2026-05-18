@@ -1,0 +1,15 @@
+name: yerbana
+type: eventbrite
+description: "Yerbana"
+url: "https://www.yerbana.com/yoga-in-the-park"
+friendlyLink: https://www.yerbana.com/yoga-in-the-park
+tags: ["Community", "Parks", "Wallingford"]
+geo: null
+calendars:
+  - name: yerbana
+    friendlyname: "Yerbana"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "46758311953"
+      defaultLocation: "Gas Works Park, 2101 N Northlake Way, Seattle, WA 98103"
+      defaultDurationHours: 2
