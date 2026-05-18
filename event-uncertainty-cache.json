@@ -12728,6 +12728,184 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.masoncountyforestfestival.com"
+    },
+    "events12:all-american-musical-2026-05-20": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-21": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-22": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-23": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-24": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "reason": "Village Theatre Everett schedule shows no performances on Mondays or Tuesdays",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "reason": "Village Theatre Everett schedule shows no performances on Mondays or Tuesdays",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-27": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-28": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-29": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-30": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-05-31": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-06-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "reason": "Village Theatre Everett schedule shows no performances on Mondays or Tuesdays",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-06-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "reason": "Village Theatre Everett schedule shows no performances on Mondays or Tuesdays",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-06-03": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-06-04": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-06-05": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-06-06": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
+    },
+    "events12:all-american-musical-2026-06-07": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 8400
+      },
+      "resolvedAt": "2026-05-18",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/see-a-show/grease/",
+      "partialFingerprint": "1p783r0-until2026-06-07-tu"
     }
   }
 }
