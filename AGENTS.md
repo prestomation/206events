@@ -59,9 +59,16 @@ The steering file provides essential context for making informed decisions about
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
 2. Make commits to the feature branch
-3. Open a Pull Request — the harness creates it as a **draft** by default; that's fine
-4. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
-5. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review:
+3. **Before pushing**, rebase the feature branch onto the latest `origin/main`
+   (`git fetch origin main && git rebase origin/main`). Web sessions are
+   started against a snapshot of main, so other PRs may have merged while
+   your branch was being prepared; rebasing keeps CI honest and avoids the
+   PR sitting against a stale base. Re-rebase before each follow-up push if
+   the session has been alive long enough that new commits could have
+   landed (e.g. after addressing review comments).
+4. Open a Pull Request — the harness creates it as a **draft** by default; that's fine
+5. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
+6. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review:
    - If Q has **blocking comments**: address each one, push fixes, re-trigger Q (see re-review template below), and wait for Q's next pass
    - Once Q gives **all ✅** and all comments are confidently addressed, do the following **immediately, in the same turn** — do not wait for the build to finish first:
      a. Resolve all open review threads using `mcp__github__pull_request_review_write` with `method: resolve_thread` (requires the thread's `PRRT_...` node ID — see note below)
