@@ -1,8 +1,8 @@
 ---
 name: "The Royal Room"
-status: candidate
+status: added
 firstSeen: 2026-05-08
-lastChecked: 2026-05-08
+lastChecked: 2026-05-18
 ---
 **The Royal Room** — `https://theroyalroomseattle.com/` — 5000 Rainier Ave S — Tags: Music, Columbia City
 

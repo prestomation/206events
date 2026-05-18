@@ -1,11 +1,11 @@
 ---
 name: "Seattle City of Literature"
-status: candidate
+status: added
 platform: Tockify
 url: https://www.seattlecityoflit.org/community-calendar
 tags: [Books, Arts, Community]
 firstSeen: 2026-05-16
-lastChecked: 2026-05-16
+lastChecked: 2026-05-18
 ---
 Seattle City of Literature maintains a community calendar of literary events
 at `seattlecityoflit.org/community-calendar`, powered by **Tockify**. Events
