@@ -1,8 +1,17 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId, OffsetDateTime } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const VENUE_ADDRESS = "Rainier Arts Center, 3515 S Alaska St, Seattle, WA 98118";
 const TIMEZONE = ZoneId.of("America/Los_Angeles");
@@ -180,6 +189,9 @@ export default class RainierArtsCenterRipper implements IRipper {
         let eventDate: ZonedDateTime;
         let durationMinutes: number;
         const endDateStr = eventData['endDate'] as string | undefined;
+        const unknownFields: UncertaintyField[] = [];
+        let uncertaintyReason = "";
+        let uncertaintyFingerprintInput = startDateStr;
 
         // ISO datetime format: "2026-04-04T13:00:00-07:00"
         if (startDateStr.includes('T')) {
@@ -197,10 +209,19 @@ export default class RainierArtsCenterRipper implements IRipper {
                     const endOdt = OffsetDateTime.parse(endDateStr);
                     const endZdt = endOdt.atZoneSameInstant(TIMEZONE);
                     const diff = Duration.between(eventDate, endZdt).toMinutes();
-                    durationMinutes = diff > 0 ? diff : 120;
+                    if (diff > 0) {
+                        durationMinutes = diff;
+                    } else {
+                        durationMinutes = 120;
+                        unknownFields.push("duration");
+                        uncertaintyReason = `endDate is not after startDate ("${endDateStr}")`;
+                    }
                 } else {
                     durationMinutes = 120;
+                    unknownFields.push("duration");
+                    uncertaintyReason = "schema.org Event did not include endDate";
                 }
+                uncertaintyFingerprintInput = `${startDateStr}|${endDateStr ?? ''}`;
             } catch (e) {
                 return [{
                     type: "ParseError" as const,
@@ -243,6 +264,14 @@ export default class RainierArtsCenterRipper implements IRipper {
                 }];
             }
             durationMinutes = parsed.durationMinutes;
+            if (parsed.startTimeGuessed) unknownFields.push("startTime");
+            if (parsed.durationGuessed) unknownFields.push("duration");
+            if (unknownFields.length > 0) {
+                uncertaintyReason = parsed.startTimeGuessed
+                    ? `MEC time text unrecognised: "${timeText}"`
+                    : `MEC time text had a start but no end: "${timeText}"`;
+            }
+            uncertaintyFingerprintInput = `${startDateStr}|${timeText}`;
         }
 
         // --- Title ---
@@ -285,7 +314,19 @@ export default class RainierArtsCenterRipper implements IRipper {
             url: (eventData['url'] as string | undefined) || url,
         };
 
-        return [event];
+        const results: RipperEvent[] = [event];
+        if (unknownFields.length > 0) {
+            const uncertainty: UncertaintyError = {
+                type: "Uncertainty",
+                reason: uncertaintyReason || "Schema.org Event omitted one or more fields",
+                source: "rainier_arts_center",
+                unknownFields,
+                event,
+                partialFingerprint: simpleHash(uncertaintyFingerprintInput),
+            };
+            results.push(uncertainty);
+        }
+        return results;
     }
 
     /** Strip WordPress shortcodes (e.g. [embed]…[/embed]) and normalise whitespace. */
@@ -300,7 +341,7 @@ export default class RainierArtsCenterRipper implements IRipper {
      * Parse a time range like "8:00 pm - 9:30 pm" into start hour/minute and duration.
      * Falls back to 7 pm / 2-hour duration when the format is unrecognised.
      */
-    public parseTime(timeText: string): { hour: number; minute: number; durationMinutes: number } {
+    public parseTime(timeText: string): { hour: number; minute: number; durationMinutes: number; startTimeGuessed: boolean; durationGuessed: boolean } {
         // Range: "8:00 pm - 9:30 pm" or "11:00 am - 2:00 pm"
         const rangeMatch = timeText.match(
             /^(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*[-–]\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i
@@ -323,7 +364,7 @@ export default class RainierArtsCenterRipper implements IRipper {
             let durationMinutes = (endHour * 60 + endMin) - (startHour * 60 + startMin);
             if (durationMinutes < 0) durationMinutes += 24 * 60; // handle midnight-spanning events
             durationMinutes = Math.max(durationMinutes, 30);
-            return { hour: startHour, minute: startMin, durationMinutes };
+            return { hour: startHour, minute: startMin, durationMinutes, startTimeGuessed: false, durationGuessed: false };
         }
 
         // Single time: "6:30 pm"
@@ -334,10 +375,10 @@ export default class RainierArtsCenterRipper implements IRipper {
             const period = singleMatch[3].toLowerCase();
             if (period === 'pm' && hour !== 12) hour += 12;
             if (period === 'am' && hour === 12) hour = 0;
-            return { hour, minute, durationMinutes: 120 };
+            return { hour, minute, durationMinutes: 120, startTimeGuessed: false, durationGuessed: true };
         }
 
         // Default for unparseable time: 7 pm, 2 hours
-        return { hour: 19, minute: 0, durationMinutes: 120 };
+        return { hour: 19, minute: 0, durationMinutes: 120, startTimeGuessed: true, durationGuessed: true };
     }
 }

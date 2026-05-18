@@ -1,9 +1,18 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
+import { RipperCalendarEvent, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
 import { HTMLElement } from 'node-html-parser';
 
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 /**
  * Parses a time string like "6pm", "6:30pm", "10am" into hours and minutes.
@@ -22,9 +31,18 @@ function parseTimeComponent(raw: string): { hour: number; minute: number } | nul
 
 /**
  * Parses a 19hz.info time cell like "Thu: Feb 19 (6:30pm-9:30pm)" or "(8pm)".
- * Returns start hour/minute and duration in minutes (defaults to 180 min if no end time).
+ * Returns start hour/minute, duration in minutes, and flags describing which
+ * fields were guessed (so the caller can pair the event with an
+ * UncertaintyError). Defaults to 8 pm / 3 hours when the cell is unrecognised
+ * — both start time and duration are flagged as uncertain in that case.
  */
-export function parseTimeCell(text: string): { hour: number; minute: number; durationMinutes: number } {
+export function parseTimeCell(text: string): {
+    hour: number;
+    minute: number;
+    durationMinutes: number;
+    startTimeGuessed: boolean;
+    durationGuessed: boolean;
+} {
     // Match "(start-end)" or "(start)"
     const rangeMatch = text.match(/\((\d{1,2}(?::\d{2})?(?:am|pm))-(\d{1,2}(?::\d{2})?(?:am|pm))\)/i);
     if (rangeMatch) {
@@ -35,7 +53,11 @@ export function parseTimeCell(text: string): { hour: number; minute: number; dur
             let endMins = end.hour * 60 + end.minute;
             // Handle events crossing midnight (use < to avoid treating equal start/end as 24h)
             if (endMins < startMins) endMins += 24 * 60;
-            return { hour: start.hour, minute: start.minute, durationMinutes: endMins - startMins };
+            return {
+                hour: start.hour, minute: start.minute,
+                durationMinutes: endMins - startMins,
+                startTimeGuessed: false, durationGuessed: false,
+            };
         }
     }
 
@@ -44,12 +66,19 @@ export function parseTimeCell(text: string): { hour: number; minute: number; dur
     if (singleMatch) {
         const start = parseTimeComponent(singleMatch[1]);
         if (start) {
-            return { hour: start.hour, minute: start.minute, durationMinutes: 180 };
+            return {
+                hour: start.hour, minute: start.minute,
+                durationMinutes: 180,
+                startTimeGuessed: false, durationGuessed: true,
+            };
         }
     }
 
     // Default: 8pm, 3 hours
-    return { hour: 20, minute: 0, durationMinutes: 180 };
+    return {
+        hour: 20, minute: 0, durationMinutes: 180,
+        startTimeGuessed: true, durationGuessed: true,
+    };
 }
 
 export default class Hz19Ripper extends HTMLRipper {
@@ -91,7 +120,7 @@ export default class Hz19Ripper extends HTMLRipper {
 
             // Parse time from cells[0]
             const timeText = cells[0]?.text ?? '';
-            const { hour, minute, durationMinutes } = parseTimeCell(timeText);
+            const { hour, minute, durationMinutes, startTimeGuessed, durationGuessed } = parseTimeCell(timeText);
 
             // Venue: text in cells[1] after the link, before the city in parentheses
             const eventCellText = cells[1]?.text ?? '';
@@ -121,6 +150,23 @@ export default class Hz19Ripper extends HTMLRipper {
                 };
 
                 events.push(event);
+
+                if (startTimeGuessed || durationGuessed) {
+                    const unknownFields = startTimeGuessed
+                        ? ["startTime", "duration"] as const
+                        : ["duration"] as const;
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: startTimeGuessed
+                            ? `19hz time cell unrecognised: "${timeText}"`
+                            : "19hz listing has a start time but no end time",
+                        source: "19hz",
+                        unknownFields: [...unknownFields],
+                        event,
+                        partialFingerprint: simpleHash(timeText),
+                    };
+                    events.push(uncertainty);
+                }
             } catch (error) {
                 events.push({
                     type: "ParseError",

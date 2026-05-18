@@ -1,5 +1,5 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
@@ -7,6 +7,15 @@ const PAGE_SIZE = 200;
 const LOOKAHEAD_MONTHS = 3;
 const MAX_RETRIES = 4;
 const BASE_DELAY_MS = 2000;
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 /**
  * Shared ripper for venues that use the Ticketmaster Discovery API v2.
@@ -46,7 +55,7 @@ export class TicketmasterRipper implements IRipper {
             if (!venueId) continue;
 
             const rawEvents = await this.fetchVenueEvents(apiKey, venueId);
-            const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config);
+            const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config, ripper.config.name, cal.name);
             calendars[cal.name].events = parsed;
         }
 
@@ -99,7 +108,7 @@ export class TicketmasterRipper implements IRipper {
         throw new Error("unreachable");
     }
 
-    public parseEvents(eventsData: any[], timezone: any, config: any): RipperEvent[] {
+    public parseEvents(eventsData: any[], timezone: any, config: any, source: string = '', calendarName?: string): RipperEvent[] {
         const events: RipperEvent[] = [];
 
         for (const event of eventsData) {
@@ -113,8 +122,8 @@ export class TicketmasterRipper implements IRipper {
                 const status = event.dates?.status?.code;
                 if (status === 'cancelled' || status === 'canceled') continue;
 
-                const date = this.parseDate(event.dates, timezone);
-                if (!date) {
+                const parseResult = this.parseDateWithUncertainty(event.dates, timezone);
+                if (!parseResult) {
                     events.push({
                         type: "ParseError",
                         reason: `Could not parse date for event: ${event.name}`,
@@ -122,6 +131,7 @@ export class TicketmasterRipper implements IRipper {
                     });
                     continue;
                 }
+                const { date, startTimeUnknown } = parseResult;
 
                 const venue = event._embedded?.venues?.[0];
                 let location = config?.venueName || '';
@@ -156,6 +166,31 @@ export class TicketmasterRipper implements IRipper {
                 };
 
                 events.push(calEvent);
+
+                // The Ticketmaster Discovery API never returns an end time,
+                // so duration is always the 2-hour placeholder above. Flag
+                // every event as duration-uncertain. When the start time was
+                // also missing (localDate only) we add startTime to the
+                // unknown fields too.
+                const unknownFields: UncertaintyField[] = startTimeUnknown
+                    ? ["startTime", "duration"]
+                    : ["duration"];
+                const start = event.dates?.start ?? {};
+                const fingerprint = simpleHash(
+                    `${start.localDate ?? ''}|${start.localTime ?? ''}|${start.dateTime ?? ''}`
+                );
+                const uncertainty: UncertaintyError = {
+                    type: "Uncertainty",
+                    reason: startTimeUnknown
+                        ? "Ticketmaster listing has date only (no start time); duration also unavailable from API"
+                        : "Ticketmaster API does not expose event duration",
+                    source,
+                    calendar: calendarName,
+                    unknownFields,
+                    event: calEvent,
+                    partialFingerprint: fingerprint,
+                };
+                events.push(uncertainty);
             } catch (error) {
                 events.push({
                     type: "ParseError",
@@ -168,28 +203,30 @@ export class TicketmasterRipper implements IRipper {
         return events;
     }
 
-    private parseDate(dates: any, timezone: any): ZonedDateTime | null {
+    private parseDateWithUncertainty(dates: any, timezone: any): { date: ZonedDateTime; startTimeUnknown: boolean } | null {
         if (!dates?.start) return null;
 
         const start = dates.start;
 
         if (start.localDate && start.localTime) {
             const dt = LocalDateTime.parse(`${start.localDate}T${start.localTime}`);
-            return ZonedDateTime.of(dt, timezone);
+            return { date: ZonedDateTime.of(dt, timezone), startTimeUnknown: false };
         }
 
         if (start.dateTime) {
             try {
                 const instant = ZonedDateTime.parse(start.dateTime).toInstant();
-                return ZonedDateTime.ofInstant(instant, timezone);
+                return { date: ZonedDateTime.ofInstant(instant, timezone), startTimeUnknown: false };
             } catch {
                 return null;
             }
         }
 
         if (start.localDate) {
+            // Source has only a date — we publish a 19:30 placeholder and
+            // flag the start time as uncertain via UncertaintyError.
             const dt = LocalDateTime.parse(`${start.localDate}T19:30:00`);
-            return ZonedDateTime.of(dt, timezone);
+            return { date: ZonedDateTime.of(dt, timezone), startTimeUnknown: true };
         }
 
         return null;

@@ -1,8 +1,17 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const MUSEUM_ADDRESS = "National Nordic Museum, 2655 NW Market St, Seattle, WA 98107";
 const TIMEZONE = ZoneId.of("America/Los_Angeles");
@@ -46,8 +55,28 @@ export default class NationalNordicMuseumRipper implements IRipper {
                 if (/^CANCELLED\b/i.test(card.title)) continue;
 
                 const result = this.parseEvent(card);
-                if ('date' in result) events.push(result);
-                else errors.push(result);
+                if ('date' in result) {
+                    events.push(result);
+                    // Flag uncertain fields based on what parseTime had to guess.
+                    const { startTimeGuessed, durationGuessed } = this.parseTime(card.timeText);
+                    const unknownFields: UncertaintyField[] = [];
+                    if (startTimeGuessed) unknownFields.push("startTime");
+                    if (durationGuessed) unknownFields.push("duration");
+                    if (unknownFields.length > 0) {
+                        errors.push({
+                            type: "Uncertainty",
+                            reason: startTimeGuessed
+                                ? `Time element unrecognised: "${card.timeText}"`
+                                : "Listing has a start time but no end time",
+                            source: "national_nordic_museum",
+                            unknownFields,
+                            event: result,
+                            partialFingerprint: simpleHash(card.timeText),
+                        });
+                    }
+                } else {
+                    errors.push(result);
+                }
             }
 
             const nextLink = html.querySelector('a.pagination__link[rel="next"]');
@@ -160,7 +189,7 @@ export default class NationalNordicMuseumRipper implements IRipper {
         return { year, month, day };
     }
 
-    public parseTime(timeText: string): { hour: number; minute: number; durationMinutes: number } {
+    public parseTime(timeText: string): { hour: number; minute: number; durationMinutes: number; startTimeGuessed: boolean; durationGuessed: boolean } {
         const normalised = timeText.replace(/–/g, "-").replace(/\s+/g, " ");
 
         const rangeMatch = normalised.match(
@@ -189,7 +218,7 @@ export default class NationalNordicMuseumRipper implements IRipper {
             }
 
             const durationMinutes = Math.max((endHour * 60 + endMin) - (startHour * 60 + startMin), 30);
-            return { hour: startHour, minute: startMin, durationMinutes };
+            return { hour: startHour, minute: startMin, durationMinutes, startTimeGuessed: false, durationGuessed: false };
         }
 
         const singleMatch = normalised.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i);
@@ -199,9 +228,9 @@ export default class NationalNordicMuseumRipper implements IRipper {
             const period = singleMatch[3].toLowerCase();
             if (period === "pm" && hour !== 12) hour += 12;
             if (period === "am" && hour === 12) hour = 0;
-            return { hour, minute, durationMinutes: 120 };
+            return { hour, minute, durationMinutes: 120, startTimeGuessed: false, durationGuessed: true };
         }
 
-        return { hour: 10, minute: 0, durationMinutes: 120 };
+        return { hour: 10, minute: 0, durationMinutes: 120, startTimeGuessed: true, durationGuessed: true };
     }
 }

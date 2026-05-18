@@ -1,8 +1,19 @@
 import { Duration, LocalDateTime, ZoneId, ChronoUnit } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import '@js-joda/timezone';
 
 const MAX_PAGES = 100;
+
+// Deterministic hash for partialFingerprint. We only need stability, not
+// crypto strength — the value invalidates cache entries when source content
+// changes (e.g. upstream finally publishes an end time).
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 /**
  * Shared ripper for organizers that use the Eventbrite ticketing platform.
@@ -50,7 +61,7 @@ export class EventbriteRipper implements IRipper {
 
             try {
                 const rawEvents = await this.fetchAllEvents(organizerId, token);
-                calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone, defaultLocation, defaultDurationHours);
+                calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone, defaultLocation, defaultDurationHours, ripper.config.name, cal.name);
             } catch (error) {
                 calendars[cal.name].events = [{
                     type: "ParseError",
@@ -102,7 +113,7 @@ export class EventbriteRipper implements IRipper {
         return events;
     }
 
-    public parseEvents(events: any[], timezone: ZoneId, defaultLocation: string, defaultDurationHours: number = 2): RipperEvent[] {
+    public parseEvents(events: any[], timezone: ZoneId, defaultLocation: string, defaultDurationHours: number = 2, source: string = '', calendarName?: string): RipperEvent[] {
         const results: RipperEvent[] = [];
         const seenIds = new Set<string>();
 
@@ -138,8 +149,12 @@ export class EventbriteRipper implements IRipper {
                 const eventZone = eventZoneStr ? ZoneId.of(eventZoneStr) : timezone;
                 const startDate = startDt.atZone(eventZone);
 
-                // Calculate duration from end time, fall back to defaultDurationHours
+                // Calculate duration from end time, fall back to defaultDurationHours.
+                // When the source omits the end time we publish a placeholder
+                // duration but pair it with an UncertaintyError so the resolver
+                // can fill in the real duration on a later build.
                 let duration = Duration.ofHours(defaultDurationHours);
+                let durationUncertain = false;
                 const endLocal = event.end?.local;
                 if (endLocal) {
                     const endDt = LocalDateTime.parse(endLocal);
@@ -147,7 +162,11 @@ export class EventbriteRipper implements IRipper {
                     const seconds = startDate.until(endDate, ChronoUnit.SECONDS);
                     if (seconds > 0) {
                         duration = Duration.ofSeconds(seconds);
+                    } else {
+                        durationUncertain = true;
                     }
+                } else {
+                    durationUncertain = true;
                 }
 
                 // Format location from venue, fall back to defaultLocation
@@ -178,6 +197,19 @@ export class EventbriteRipper implements IRipper {
                 };
 
                 results.push(calEvent);
+
+                if (durationUncertain) {
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: "Eventbrite listing did not include an end time",
+                        source,
+                        calendar: calendarName,
+                        unknownFields: ["duration"],
+                        event: calEvent,
+                        partialFingerprint: simpleHash(`${startLocal}|${endLocal ?? ''}`),
+                    };
+                    results.push(uncertainty);
+                }
             } catch (error) {
                 results.push({
                     type: "ParseError",

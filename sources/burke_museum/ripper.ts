@@ -1,7 +1,16 @@
 import { Duration, LocalDate, LocalDateTime, DayOfWeek, TemporalAdjusters, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
+import { RipperCalendarEvent, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
 import { HTMLElement } from 'node-html-parser';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const LOCATION = "Burke Museum, 4300 15th Ave NE, Seattle, WA 98105";
 const BASE_URL = "https://www.burkemuseum.org";
@@ -168,12 +177,15 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                 let startHour = 10; // default to 10 AM
                 let startMinute = 0;
                 let durationHours = 2;
+                let timeGuessed = false;
 
                 const timeResult = parseTimeRange(dateTimeText);
                 if (timeResult) {
                     startHour = timeResult.start.hour;
                     startMinute = timeResult.start.minute;
                     durationHours = timeResult.durationHours;
+                } else {
+                    timeGuessed = true;
                 }
 
                 const eventDate = ZonedDateTime.of(
@@ -216,6 +228,20 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                 };
 
                 events.push(event);
+
+                if (timeGuessed) {
+                    // No time found in the date/time text — both start and
+                    // duration are 10 AM / 2 h placeholders.
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: `No time found in "${dateTimeText}"`,
+                        source: "burke_museum",
+                        unknownFields: ["startTime", "duration"],
+                        event,
+                        partialFingerprint: simpleHash(dateTimeText),
+                    };
+                    events.push(uncertainty);
+                }
             } catch (error) {
                 const errorMessage = error instanceof Error ? error.message : String(error);
                 events.push({

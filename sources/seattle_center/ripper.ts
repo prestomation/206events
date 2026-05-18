@@ -1,8 +1,17 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneRegion } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const MONTHS: Record<string, number> = {
     'January': 1, 'February': 2, 'March': 3, 'April': 4,
@@ -97,6 +106,28 @@ export default class SeattleCenterRipper implements IRipper {
 
                 const parsed = this.parseEventSection(eventRow, currentDate, timezone);
                 events.push(parsed);
+                if ("date" in parsed) {
+                    const timeTextEl = eventRow.querySelector('.event-list__time');
+                    const timeText = timeTextEl ? timeTextEl.text.trim() : '';
+                    const isAllDay = /all\s*day/i.test(timeText);
+                    // All-day events: source said "All Day" but we publish
+                    // midnight + 12 h as a placeholder — both start time and
+                    // duration are guesses. Timed events use the parsed start
+                    // time but always default duration to 2 h.
+                    const unknownFields: UncertaintyField[] = isAllDay
+                        ? ["startTime", "duration"]
+                        : ["duration"];
+                    events.push({
+                        type: "Uncertainty",
+                        reason: isAllDay
+                            ? `Source listed "All Day"; precise start time and duration not given`
+                            : "Source does not expose an end time",
+                        source: "seattle_center",
+                        unknownFields,
+                        event: parsed,
+                        partialFingerprint: simpleHash(`${currentDate ?? ''}|${timeText}`),
+                    });
+                }
             }
         }
 

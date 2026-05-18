@@ -1,9 +1,18 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { HTMLElement } from "node-html-parser";
 import { ChronoUnit, Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
+import { RipperEvent, RipperCalendarEvent, UncertaintyError } from "../../lib/config/schema.js";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 export default class HiddenHallRipper extends HTMLRipper {
     private seenEvents = new Set<string>();
@@ -30,6 +39,23 @@ export default class HiddenHallRipper extends HTMLRipper {
                         if (this.seenEvents.has(parsed.id!)) continue;
                         this.seenEvents.add(parsed.id!);
                         events.push(parsed);
+
+                        // JSON-LD endDate is optional; when it's missing the
+                        // parser falls back to a 2-hour guess. Pair the event
+                        // with an UncertaintyError so the resolver can fill in
+                        // the real duration on a later build.
+                        const endDateParsed = item.endDate ? true : false;
+                        if (!endDateParsed) {
+                            const uncertainty: UncertaintyError = {
+                                type: "Uncertainty",
+                                reason: "JSON-LD Event omitted endDate",
+                                source: "hidden_hall",
+                                unknownFields: ["duration"],
+                                event: parsed,
+                                partialFingerprint: simpleHash(`${item.startDate}|`),
+                            };
+                            events.push(uncertainty);
+                        }
                     }
                 }
             } catch (error) {

@@ -1,8 +1,17 @@
 import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 /**
  * Squarespace event item as returned by the ?format=json endpoint.
@@ -87,6 +96,18 @@ export class SquarespaceRipper implements IRipper {
                     const event = this.mapEvent(sqEvent, cal.timezone, baseUrl);
                     if (event) {
                         calendars[cal.name].events.push(event);
+                        if (sqEvent.endDate === undefined || sqEvent.endDate === null || sqEvent.endDate - sqEvent.startDate <= 0) {
+                            const uncertainty: UncertaintyError = {
+                                type: "Uncertainty",
+                                reason: "Squarespace event omitted endDate",
+                                source: ripper.config.name,
+                                calendar: cal.name,
+                                unknownFields: ["duration"],
+                                event,
+                                partialFingerprint: simpleHash(`${sqEvent.startDate}|${sqEvent.endDate ?? ''}`),
+                            };
+                            calendars[cal.name].events.push(uncertainty);
+                        }
                     }
                 } catch (error) {
                     calendars[cal.name].events.push({

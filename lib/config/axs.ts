@@ -1,9 +1,18 @@
 import { ZonedDateTime, Duration, LocalDateTime } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const execFileAsync = promisify(execFile);
 
@@ -37,7 +46,7 @@ export class AXSRipper implements IRipper {
 
             try {
                 const rawEvents = await this.fetchVenueEvents(venueId, venueSlug);
-                const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config);
+                const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config, ripper.config.name, cal.name);
                 calendars[cal.name].events = parsed;
             } catch (error) {
                 calendars[cal.name].events = [{
@@ -142,7 +151,7 @@ export class AXSRipper implements IRipper {
         }
     }
 
-    public parseEvents(eventsData: any[], timezone: any, config: any): RipperEvent[] {
+    public parseEvents(eventsData: any[], timezone: any, config: any, source: string = '', calendarName?: string): RipperEvent[] {
         const events: RipperEvent[] = [];
         const seenEvents = new Set<string>();
 
@@ -192,6 +201,21 @@ export class AXSRipper implements IRipper {
                 };
 
                 events.push(calEvent);
+
+                // AXS does not expose an end time; the 2-hour duration above
+                // is a guess. Flag every event as duration-uncertain so the
+                // resolver can replace it with a real value (e.g. from the
+                // venue's own programming page) on a later build.
+                const uncertainty: UncertaintyError = {
+                    type: "Uncertainty",
+                    reason: "AXS API does not expose event duration",
+                    source,
+                    calendar: calendarName,
+                    unknownFields: ["duration"],
+                    event: calEvent,
+                    partialFingerprint: simpleHash(`${event.date ?? ''}|${eventId}`),
+                };
+                events.push(uncertainty);
             } catch (error) {
                 events.push({
                     type: "ParseError",

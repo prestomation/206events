@@ -1,10 +1,19 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 const LOCATION_SUFFIX = ", Waterfront Park, Seattle, WA";
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 /**
  * Parse a YYYYMMDDHHMM datetime string into a ZonedDateTime in America/Los_Angeles.
@@ -51,25 +60,31 @@ function parseTimePart(part: string): { hour: number; minute: number; meridiem: 
  *   "11:30 am‑3:30 pm" → 4 hours
  *   "6:30‑10 pm"     → 3.5 hours
  */
-export function parseDuration(timeRange: string): Duration {
+/**
+ * Internal: parse a time range and return both the duration and a flag
+ * indicating whether the result is a fallback guess. Exported as the
+ * 2-tuple variant for the ripper; the legacy `parseDuration` wrapper
+ * returns only the Duration for backwards-compatible tests.
+ */
+export function parseDurationWithMeta(timeRange: string): { duration: Duration; uncertain: boolean } {
     // Separator is U+2011 (non-breaking hyphen) or regular hyphen between numbers
     // We split on the non-breaking hyphen between the two time parts
     const parts = timeRange.split(/\u2011/);
 
     if (parts.length < 2) {
-        return Duration.ofHours(2);
+        return { duration: Duration.ofHours(2), uncertain: true };
     }
 
     const startPart = parseTimePart(parts[0]);
     const endPart = parseTimePart(parts[1]);
 
     if (!startPart || !endPart) {
-        return Duration.ofHours(2);
+        return { duration: Duration.ofHours(2), uncertain: true };
     }
 
     // End always has explicit meridiem
     if (!endPart.meridiem) {
-        return Duration.ofHours(2);
+        return { duration: Duration.ofHours(2), uncertain: true };
     }
 
     // Apply end meridiem to start if start has none
@@ -89,10 +104,14 @@ export function parseDuration(timeRange: string): Duration {
     const diff = endMinutes - startMinutes;
 
     if (diff <= 0) {
-        return Duration.ofHours(2);
+        return { duration: Duration.ofHours(2), uncertain: true };
     }
 
-    return Duration.ofMinutes(diff);
+    return { duration: Duration.ofMinutes(diff), uncertain: false };
+}
+
+export function parseDuration(timeRange: string): Duration {
+    return parseDurationWithMeta(timeRange).duration;
 }
 
 /**
@@ -170,7 +189,10 @@ export function parseEventsFromHtml(
 
             // Time range from h3.date-time for duration calculation
             const timeEl = item.querySelector("h3.date-time");
-            const duration = timeEl ? parseDuration(timeEl.textContent.trim()) : Duration.ofHours(2);
+            const timeText = timeEl ? timeEl.textContent.trim() : "";
+            const { duration, uncertain: durationUncertain } = timeEl
+                ? parseDurationWithMeta(timeText)
+                : { duration: Duration.ofHours(2), uncertain: true };
 
             // Venue from third h3 (after date and time-range h3s)
             const allH3s = item.querySelectorAll("h3");
@@ -205,6 +227,20 @@ export function parseEventsFromHtml(
             };
 
             events.push(event);
+
+            if (durationUncertain) {
+                const uncertainty: UncertaintyError = {
+                    type: "Uncertainty",
+                    reason: timeEl
+                        ? `Could not parse time range "${timeText}"`
+                        : "Event card had no time element",
+                    source: "waterfront_park",
+                    unknownFields: ["duration"],
+                    event,
+                    partialFingerprint: simpleHash(timeText),
+                };
+                events.push(uncertainty);
+            }
         } catch (error) {
             const msg = error instanceof Error ? error.message : String(error);
             events.push({

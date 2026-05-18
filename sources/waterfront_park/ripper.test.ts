@@ -216,12 +216,16 @@ describe('parseEventsFromHtml (sample data)', () => {
         expect(first.description).toContain('Seattle Public Library');
     });
 
-    test('produces no errors for well-formed sample data', () => {
+    test('produces no parse errors for well-formed sample data', () => {
         const html = loadSampleHtml();
         const seenEvents = new Set<string>();
         const events = parseEventsFromHtml(html, seenEvents);
         const errors = events.filter(e => 'type' in e) as RipperError[];
-        expect(errors.length).toBe(0);
+        // Uncertainty errors are expected for cards without parseable time
+        // ranges; they pair each event with a placeholder duration. Filter
+        // them out — this test guards against true ParseErrors only.
+        const parseErrors = errors.filter(e => e.type !== 'Uncertainty');
+        expect(parseErrors.length).toBe(0);
     });
 });
 
