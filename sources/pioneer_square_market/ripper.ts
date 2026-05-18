@@ -61,6 +61,11 @@ export default class PioneerSquareMarketRipper implements IRipper {
         const events: RipperCalendarEvent[] = [];
 
         for (const item of data) {
+            // Skip non-WA events (e.g. Vancouver BC FIFA World Cup matches) without
+            // counting them as parse errors — this is an intentional content filter.
+            const state = item.venue_location?.state;
+            if (state && state !== 'WA') continue;
+
             const result = this.parseEvent(item);
             if ('date' in result) {
                 events.push(result);
@@ -81,15 +86,6 @@ export default class PioneerSquareMarketRipper implements IRipper {
 
     parseEvent(item: PublicEvent): RipperCalendarEvent | RipperError {
         const venue = item.venue_location ?? {};
-
-        // Exclude events explicitly outside Washington state
-        if (venue.state && venue.state !== 'WA') {
-            return {
-                type: 'ParseError',
-                reason: `Skipping non-WA event (state: ${venue.state})`,
-                context: item.title,
-            };
-        }
 
         let date: ZonedDateTime;
         try {
