@@ -3,8 +3,10 @@ import { Duration, ZonedDateTime, ZoneOffset } from "@js-joda/core";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
-const SUPABASE_URL = "https://wbgpmtpprcdxfmttrrzv.supabase.co";
-const ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndiZ3BtdHBwcmNkeGZtdHRycnp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEwNDIwMTQsImV4cCI6MjA1NjYxODAxNH0.oC1hP574sRJUXH0VgPnO2BS9SyotaUm8YXIKtgBe508";
+// Public anon key — intentionally visible in the site's client-side JS bundle.
+// Override via env var to allow key rotation without a code change.
+const SUPABASE_URL = process.env.PIONEER_SQUARE_MARKET_SUPABASE_URL || "https://wbgpmtpprcdxfmttrrzv.supabase.co";
+const ANON_KEY = process.env.PIONEER_SQUARE_MARKET_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndiZ3BtdHBwcmNkeGZtdHRycnp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEwNDIwMTQsImV4cCI6MjA1NjYxODAxNH0.oC1hP574sRJUXH0VgPnO2BS9SyotaUm8YXIKtgBe508";
 const BASE_EVENT_URL = "https://pioneersquaremarket.net/events";
 const DEFAULT_DURATION_HOURS = 3;
 
@@ -48,7 +50,12 @@ export default class PioneerSquareMarketRipper implements IRipper {
         });
         if (!res.ok) throw new Error(`Supabase API returned HTTP ${res.status}`);
 
-        const data: PublicEvent[] = await res.json();
+        let data: PublicEvent[];
+        try {
+            data = await res.json();
+        } catch (error) {
+            throw new Error(`Failed to parse Supabase API response: ${error instanceof Error ? error.message : String(error)}`);
+        }
 
         const errors: RipperError[] = [];
         const events: RipperCalendarEvent[] = [];
