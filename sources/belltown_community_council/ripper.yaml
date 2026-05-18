@@ -1,3 +1,4 @@
+# verified: 2026-05-18 ok
 name: belltown-community-council
 description: "Belltown Community Council"
 url: "https://public-api.wordpress.com/rest/v1.1/sites/belltown-cc.org/posts?number=50&fields=ID,title,URL,content&orderby=date&order=DESC"
