@@ -8,6 +8,8 @@ geo:
   lat: 47.5316606
   lng: -122.3761768
   label: "Kenyon Hall, 7904 35th Ave SW, Seattle, WA 98126"
+  osmType: way
+  osmId: 236745540
 calendars:
   - name: all-events
     friendlyname: "Kenyon Hall"
