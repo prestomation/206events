@@ -1,0 +1,11 @@
+name: seattle-urban-native-nonprofits
+type: squarespace
+description: "Seattle Urban Native Nonprofits (SUNN)"
+url: "https://www.seattleurbannatives.org/events-calendar"
+friendlyLink: https://www.seattleurbannatives.org/events-calendar
+tags: ["Community", "Arts"]
+geo: null
+calendars:
+  - name: seattle-urban-native-nonprofits
+    friendlyname: "Seattle Urban Native Nonprofits"
+    timezone: America/Los_Angeles
