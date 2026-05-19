@@ -30,7 +30,7 @@ const PNW_BBOX = {
   lngMax: -120.0,
 };
 
-const VENUES_JSON_MAX_KB = 100;
+const VENUES_JSON_MAX_KB = 500;
 
 // Every doc in the index links directly to other files. All of these are
 // required to exist on disk for the discovery API to be usable.

@@ -1,5 +1,6 @@
 import { RipperLoader } from "./config/loader.js";
 import { writeFile, mkdir, readFile, appendFile } from "fs/promises";
+import { existsSync } from "fs";
 import {
   RipperConfig,
   RipperError,
@@ -895,15 +896,20 @@ END:VCALENDAR`;
       for (const cal of source.calendars) {
         allCalendarIcsUrls.push(cal.icsFile);
         if (cal.hasFutureEvents) {
-          calendarsWithFutureEvents.add(cal.icsFile);
-          calendarEntries.push({
-            name: cal.name,
-            friendlyName: cal.friendlyName,
-            icsUrl: cal.icsFile,
-            rssUrl: cal.icsFile.replace(".ics", ".rss"),
-            tags: cal.tags,
-          });
-          console.log(`[outofband] Registered ${cal.icsFile} (${cal.events} events)`);
+          const icsOnDisk = existsSync(`output/${cal.icsFile}`);
+          if (icsOnDisk) {
+            calendarsWithFutureEvents.add(cal.icsFile);
+            calendarEntries.push({
+              name: cal.name,
+              friendlyName: cal.friendlyName,
+              icsUrl: cal.icsFile,
+              rssUrl: cal.icsFile.replace(".ics", ".rss"),
+              tags: cal.tags,
+            });
+            console.log(`[outofband] Registered ${cal.icsFile} (${cal.events} events)`);
+          } else {
+            console.log(`[outofband] Skipping ${cal.icsFile} — ICS file missing from output/ (S3 download unavailable)`);
+          }
         } else {
           console.log(`[outofband] Skipping ${cal.icsFile} — no future events (${cal.errors.length} error(s))`);
         }
