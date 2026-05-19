@@ -34,7 +34,8 @@ export default class BallardFCRipper implements IRipper {
         const calConfig = ripper.config.calendars[0];
 
         const res = await this.fetchFn(SCHEDULE_URL, {
-            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' }
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' },
+            signal: AbortSignal.timeout(30000),
         });
         if (!res.ok) throw new Error(`Schedule page returned ${res.status}`);
 
