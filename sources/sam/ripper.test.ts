@@ -111,6 +111,22 @@ describe('SAMRipper', () => {
             });
         });
 
+        it('parses multi-session time with comma (first session)', () => {
+            const result = parseTimeRange('11:30 am, 1:30 pm');
+            expect(result).toEqual({
+                start: { hour: 11, minute: 30 },
+                end: { hour: 13, minute: 30 }
+            });
+        });
+
+        it('parses multi-session time with three sessions (uses first)', () => {
+            const result = parseTimeRange('10 am, 1 pm, 3 pm');
+            expect(result).toEqual({
+                start: { hour: 10, minute: 0 },
+                end: { hour: 13, minute: 0 }
+            });
+        });
+
         it('returns null for invalid input', () => {
             expect(parseTimeRange('invalid time')).toBeNull();
         });
