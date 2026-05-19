@@ -1,17 +1,16 @@
 ---
 name: Ballard FC
-status: investigating
-platform: SportsEngine
+status: added
+platform: SportsEngine (custom HTML scraper)
 url: https://www.goballardfc.com/schedule/
 tags: [Sports, Ballard]
 firstSeen: 2026-05-08
-lastChecked: 2026-05-18
+lastChecked: 2026-05-19
+pr: pending
 ---
 
 USL League Two amateur men's soccer team based in Seattle's Ballard
-neighborhood. Plays home matches at Memorial Stadium (and historically
-at Interbay Stadium). 2026 season schedule is published on the team
-site but no ICS subscription URL is exposed.
+neighborhood. Plays home matches at Interbay Stadium (1700 15th Ave W area).
 
 Investigated 2026-05-18:
 - Site uses **SportsEngine** (not Squarespace as originally suspected)
@@ -22,4 +21,7 @@ Investigated 2026-05-18:
 - Sister club Salmon Bay FC (USL W League women's side) shares the same
   site and would be addable in the same source
 
-Custom HTML scraper is feasible but low priority — keep investigating.
+Implemented 2026-05-19:
+- Custom HTML ripper parses `GameContainer HomeGame` divs from schedule page
+- 7 home games confirmed (May 15 – July 12, 2026)
+- Tags: Sports, Ballard

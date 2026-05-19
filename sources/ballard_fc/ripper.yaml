@@ -1,0 +1,13 @@
+name: ballard_fc
+description: "Ballard FC"
+url: "https://www.goballardfc.com/schedule/"
+friendlyLink: https://www.goballardfc.com/schedule/
+tags: ["Sports", "Ballard"]
+geo:
+  lat: 47.6468
+  lng: -122.3800
+  label: "Interbay Stadium, Seattle, WA"
+calendars:
+  - name: ballard-fc
+    friendlyname: "Ballard FC"
+    timezone: America/Los_Angeles
