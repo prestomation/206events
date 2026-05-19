@@ -49,10 +49,29 @@ export function parseTime(timeStr: string): { hour: number; minute: number } | n
  * Parse a time range like "10 am–5 pm", "1:30–4 pm", "3–4 pm".
  * The en-dash (–) or hyphen (-) separates start and end.
  * When the start time has no am/pm, it inherits from the end time.
+ * Also handles multi-session times like "11:30 am, 1:30 pm" — uses the
+ * first time as the start and estimates duration from the gap to the second time.
  */
 export function parseTimeRange(text: string): { start: { hour: number; minute: number }; end: { hour: number; minute: number } } | null {
     // Normalize dashes
     const normalized = text.replace(/\u2013/g, '-').replace(/&ndash;/g, '-').trim();
+
+    // Try multi-session format first: "11:30 am, 1:30 pm"
+    // Split on comma, parse each time, use first as start
+    const commaParts = normalized.split(',');
+    if (commaParts.length >= 2) {
+        const firstTime = parseTime(commaParts[0].trim());
+        const secondTime = parseTime(commaParts[1].trim());
+        if (firstTime && secondTime) {
+            // Use first time as start, estimate end from gap to second session
+            // (events typically run until the second session starts)
+            let endMinutes = secondTime.hour * 60 + secondTime.minute;
+            const startMinutes = firstTime.hour * 60 + firstTime.minute;
+            // If second session is before first, assume next day (unlikely but safe)
+            if (endMinutes < startMinutes) endMinutes += 24 * 60;
+            return { start: firstTime, end: { hour: Math.floor(endMinutes / 60) % 24, minute: endMinutes % 60 } };
+        }
+    }
 
     const rangeMatch = normalized.match(/^(\d{1,2}(?::\d{2})?)\s*(am|pm)?\s*-\s*(\d{1,2}(?::\d{2})?)\s*(am|pm)$/i);
     if (!rangeMatch) {
