@@ -4,7 +4,7 @@ status: added
 firstSeen: 2026-05-08
 lastChecked: 2026-05-19
 tags: [Music, Nightlife]
-pr: pending
+pr: 359
 ---
 **Kremwerk + Timbre Room + Cherry** — Queer electronic/nightlife venue complex in Denny Triangle — Tags: Music, Nightlife
 
@@ -17,6 +17,7 @@ Re-investigated 2026-05-18:
 - Built-in `dice` ripper type supported: `venueName: "Kremwerk Complex"`
 - Address: 1809 Minor Ave, Seattle WA 98101 (Denny Triangle / First Hill)
 - Note: Cannot verify exact DICE API venue name without `DICE_API_KEY` — needs CI verification
+- CI confirmed: 7 events returned with `venueName: "Kremwerk Complex"` ✅
 
 Implemented 2026-05-19:
 - Added `sources/kremwerk/ripper.yaml` using `type: dice`, `venueName: "Kremwerk Complex"`
