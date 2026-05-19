@@ -117,7 +117,7 @@ export default class BallardFCRipper implements IRipper {
             );
         }
 
-        const dateStr = `${eventDate.year()}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const dateStr = `${eventDate.year()}-${String(eventDate.monthValue()).padStart(2, '0')}-${String(eventDate.dayOfMonth()).padStart(2, '0')}`;
         const id = `ballard-fc-${dateStr}`;
         const summary = `Ballard FC ${opponentName}`;
 
