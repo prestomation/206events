@@ -68,7 +68,7 @@ export function parseTimeRange(text: string): { start: { hour: number; minute: n
             let endMinutes = secondTime.hour * 60 + secondTime.minute;
             const startMinutes = firstTime.hour * 60 + firstTime.minute;
             // If second session is before first, assume next day (unlikely but safe)
-            if (endMinutes <= startMinutes) endMinutes += 24 * 60;
+            if (endMinutes < startMinutes) endMinutes += 24 * 60;
             return { start: firstTime, end: { hour: Math.floor(endMinutes / 60) % 24, minute: endMinutes % 60 } };
         }
     }
