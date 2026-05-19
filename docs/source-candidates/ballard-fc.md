@@ -6,7 +6,7 @@ url: https://www.goballardfc.com/schedule/
 tags: [Sports, Ballard]
 firstSeen: 2026-05-08
 lastChecked: 2026-05-19
-pr: pending
+pr: 361
 ---
 
 USL League Two amateur men's soccer team based in Seattle's Ballard
