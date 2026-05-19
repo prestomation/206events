@@ -35,16 +35,19 @@ describe('parseAddeventatcDate', () => {
 
     it('handles 12:00 pm as noon', () => {
         const result = parseAddeventatcDate('10/10/2026 12:00 pm');
+        expect(result).not.toBeNull();
         expect(result!.hour()).toBe(12);
     });
 
     it('handles 12:00 am as midnight', () => {
         const result = parseAddeventatcDate('11/20/2026 12:00 am');
+        expect(result).not.toBeNull();
         expect(result!.hour()).toBe(0);
     });
 
     it('parses evening PM time', () => {
         const result = parseAddeventatcDate('11/20/2026 5:00 pm');
+        expect(result).not.toBeNull();
         expect(result!.hour()).toBe(17);
     });
 

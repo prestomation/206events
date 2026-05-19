@@ -85,7 +85,12 @@ export function parseEventsFromHtml(html: string, url: string): (RipperCalendarE
         }
 
         const tzStr = extractSpanText(block, "timezone") || "America/Los_Angeles";
-        const zone = ZoneId.of(tzStr);
+        let zone: ZoneId;
+        try {
+            zone = ZoneId.of(tzStr);
+        } catch {
+            zone = ZoneId.of("America/Los_Angeles");
+        }
         const startDate = ZonedDateTime.of(startLocal, zone);
 
         let duration = Duration.ofHours(6);
