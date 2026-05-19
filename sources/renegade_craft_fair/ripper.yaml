@@ -1,0 +1,10 @@
+name: renegade-craft-fair
+description: "Renegade Craft Fair"
+url: "https://www.renegadecraft.com/events/"
+friendlyLink: https://www.renegadecraft.com/city/seattle/
+tags: ["MakersMarket"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Renegade Craft Fair"
+    timezone: America/Los_Angeles
