@@ -194,18 +194,7 @@ calendars:
       venue: "Nectar Lounge"
 
   # --- Queen Anne ---
-  - name: kexp-studio
-    friendlyname: "KEXP Studio"
-    geo:
-      lat: 47.6231
-      lng: -122.3551
-      label: "KEXP Studio, 472 1st Ave N, Seattle, WA 98109"
-      osmType: node
-      osmId: 3886776643
-    timezone: America/Los_Angeles
-    tags: ["QueenAnne"]
-    config:
-      venue: "KEXP Studio"
+  # KEXP Studio: now covered by dedicated ripper at sources/kexp/
   - name: bad-bar
     friendlyname: "Bad Bar"
     expectEmpty: true

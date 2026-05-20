@@ -1,0 +1,16 @@
+# verified: 2026-05-20 ok
+name: kexp
+description: "KEXP"
+url: "https://www.kexp.org/events/kexp-events/?category=in-studio"
+friendlyLink: https://www.kexp.org/events/
+tags: ["Music", "QueenAnne"]
+geo:
+  lat: 47.6231
+  lng: -122.3551
+  label: "KEXP, 472 1st Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 3886776643
+calendars:
+  - name: kexp-studio
+    friendlyname: "KEXP Studio Sessions"
+    timezone: America/Los_Angeles

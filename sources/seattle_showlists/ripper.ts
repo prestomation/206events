@@ -40,7 +40,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Hidden Hall":          { address: "400 N 35th St, Seattle, WA 98103", skip: true },
 
     // --- INCLUDE: per-venue calendars ---
-    "KEXP Studio":          { address: "472 1st Ave N, Seattle, WA 98109" },
+    "KEXP Studio":          { address: "472 1st Ave N, Seattle, WA 98109", skip: true },
     "Baba Yaga":            { address: "124 S Washington St, Seattle, WA 98104" },
     "Europa":               { address: "401 2nd Ave S, Seattle, WA 98104" },
     "Bad Bar":              { address: "819 5th Ave N, Seattle, WA 98109" },
