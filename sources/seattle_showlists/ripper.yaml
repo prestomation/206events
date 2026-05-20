@@ -62,19 +62,7 @@ calendars:
       venue: "Vermillion"
 
   # --- Belltown ---
-  - name: belltown-yacht-club
-    friendlyname: "Belltown Yacht Club"
-    geo:
-      lat: 47.6154
-      lng: -122.3498
-      label: "Belltown Yacht Club, 2320 1st Ave, Seattle, WA 98121"
-      osmChecked: 2026-05-09
-      osmType: node
-      osmId: 9997743299
-    timezone: America/Los_Angeles
-    tags: ["Belltown"]
-    config:
-      venue: "Belltown Yacht Club"
+  # Belltown Yacht Club: now covered by dedicated DICE ripper at sources/belltown_yacht_club/
   - name: hotel-crocodile
     friendlyname: "Hotel Crocodile"
     geo:
