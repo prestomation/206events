@@ -1,0 +1,20 @@
+name: nonsequitur
+type: eventbrite
+description: "Nonsequitur / Wayward Music Series"
+url: "https://www.eventbrite.com/o/nonsequitur-39003233763/"
+friendlyLink: https://www.waywardmusic.org
+tags: ["Music", "Arts", "Wallingford"]
+geo:
+  lat: 47.6642701
+  lng: -122.3311925
+  label: "Chapel Performance Space at Good Shepherd Center, 4649 Sunnyside Ave N, Seattle, WA 98103"
+  osmType: way
+  osmId: 51805186
+calendars:
+  - name: nonsequitur
+    friendlyname: "Nonsequitur / Wayward Music Series"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "39003233763"
+      defaultLocation: "Chapel Performance Space at Good Shepherd Center, 4649 Sunnyside Ave N, Seattle, WA 98103"
+      defaultDurationHours: 2
