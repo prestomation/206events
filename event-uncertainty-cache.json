@@ -17481,6 +17481,965 @@
       "resolvedAt": "2026-05-18",
       "source": "agent",
       "partialFingerprint": "3hcvme"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af-FGd": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af0soK": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af0s_K": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af-Jjd": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af0sQd": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af0s7S": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af000N": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "stg:tm-vvG1HZ_FCwrmR_": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "stg:tm-vvG1HZ_aNjVOyI": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "wamu-theater:tm-vvG1HZ_dps6Dzd": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "wamu-theater:tm-vvG1HZ_ahS4xpm": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "lumen-field:tm-vvG1HZbz2c9_tG": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "lumen-field:lumen-field": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqKF_S": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration or confirmed start time for ballpark tour events",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqfF_z": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration or confirmed start time for ballpark tour events",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46284": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46285": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46286": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46287": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46288": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46289": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46304": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46305": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46306": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46307": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46308": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46309": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-storm-vs-connecticut": {
+      "unresolvable": true,
+      "reason": "No official end time or duration listed on Seattle Center event page; basketball game duration varies",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-storm-vs-connecticut-x46765": {
+      "unresolvable": true,
+      "reason": "No official end time or duration listed on Seattle Center event page; basketball game duration varies",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-storm-vs-los-angeles": {
+      "unresolvable": true,
+      "reason": "No official end time or duration listed on Seattle Center event page; basketball game duration varies",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-storm-vs-golden-state-x46770": {
+      "unresolvable": true,
+      "reason": "No official end time or duration listed on Seattle Center event page; basketball game duration varies",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:stars-on-ice-2026-tour": {
+      "unresolvable": true,
+      "reason": "No official end time listed on Seattle Center event page; calendar hint suggests ~3h but is a system default",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:folklife-festival-2026": {
+      "unresolvable": true,
+      "reason": "Listed as 'All Day' on Seattle Center event page; multi-day festival with variable programming hours",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:folklife-festival-2026-x47115": {
+      "unresolvable": true,
+      "reason": "Listed as 'All Day' on Seattle Center event page; multi-day festival with variable programming hours",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:folklife-festival-2026-x47116": {
+      "unresolvable": true,
+      "reason": "Listed as 'All Day' on Seattle Center event page; multi-day festival with variable programming hours",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-opening-day": {
+      "unresolvable": true,
+      "reason": "Listed as 'All Day' on Seattle Center event page; fan experience open throughout day with various scheduled activities",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-x47236": {
+      "unresolvable": true,
+      "reason": "Listed as 'All Day' on Seattle Center event page; fan experience open throughout day with various scheduled activities",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:lets-play-sea-26-kexp-gathering-space-fan-experience-x47530": {
+      "unresolvable": true,
+      "reason": "Listed as 'All Day' on Seattle Center event page; fan experience open throughout day with various scheduled activities",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:the-play-that-goes-wrong-x44679": {
+      "unresolvable": true,
+      "reason": "No official run time listed on Seattle Center event page; calendar metadata suggests ~2.5h but is a system default",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:the-play-that-goes-wrong-x44680": {
+      "unresolvable": true,
+      "reason": "No official run time listed on Seattle Center event page; calendar metadata suggests ~2.5h but is a system default",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:the-play-that-goes-wrong-x44681": {
+      "unresolvable": true,
+      "reason": "No official run time listed on Seattle Center event page; calendar metadata suggests ~2.5h but is a system default",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:indigenous-people-festival-x47552": {
+      "unresolvable": true,
+      "reason": "No end time or duration listed on Seattle Center event page; only start time of 5:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:indigenous-people-festival": {
+      "unresolvable": true,
+      "reason": "Listed as 'All Day' on Seattle Center event page; no specific start or end times",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:school-performances-2026": {
+      "unresolvable": true,
+      "reason": "No official end time listed on Seattle Center event page; calendar metadata suggests ~2.5h but is a system default",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6878-202606011000": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page (seafair.org/summer-kickoff/); only start time of 10 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6884-202607211500": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page (waterfrontparkseattle.org); only start time of 3 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6886-202608011000": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page (waterfrontparkseattle.org); only start time of 10 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6886-202608021000": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page (waterfrontparkseattle.org); only start time of 10 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6871-202608141000": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page (waterfrontparkseattle.org); only start time of 10 AM provided for each day",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6871-202608151000": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page (waterfrontparkseattle.org); only start time of 10 AM provided for each day",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6871-202608161000": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page (waterfrontparkseattle.org); only start time of 10 AM provided for each day",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6887-202608221200": {
+      "unresolvable": true,
+      "reason": "No hours listed on encantoarts.org for Encanto Arts Music Festival",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6873-202608231200": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page (waterfrontparkseattle.org); only start time of 12 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "waterfront-park:waterfront-park-6890-202609071500": {
+      "unresolvable": true,
+      "reason": "No hours listed on roar-events.com for The Pink Party",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-honey-scavenger-hunt": {
+      "unresolvable": true,
+      "reason": "Week-long scavenger hunt with clues going live at 10am; no end time listed on event page",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-history-cafe-field-notes": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 6:30 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-blood-drive-may-21": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/blood-drive-may-21/"
+    },
+    "discover-slu:discover-slu-baraka-bakery-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/baraka-bakery-2/"
+    },
+    "discover-slu:discover-slu-bloom-in-sound": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 7:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-standard-matcha": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/standard-matcha/"
+    },
+    "discover-slu:discover-slu-photography-fundamentals": {
+      "unresolvable": true,
+      "reason": "Full day class; no end time listed on event page",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 10:00 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-video-part-2-2026-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 12:30 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-cannon-beach": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 1:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-aapi-owned-business-pop-up-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 11:00 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026/"
+    },
+    "discover-slu:discover-slu-guest-chef-night-reyes": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 5:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-how-to-pack-a-backpack-workshop-2-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 6:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-sofar-2026-2-3": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 7:30 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-spring-sunset-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 12:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-ripples-of-time": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 1:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 10:00 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-wooden-boat-storytime-2026-2-2": {
+      "fields": {
+        "duration": 2700
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/wooden-boat-storytime-2026-2-2/"
+    },
+    "discover-slu:discover-slu-flow-state": {
+      "unresolvable": true,
+      "reason": "No explicit end time on event page; description mentions 1hr yoga plus social hour but no confirmed end time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2/"
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2/"
+    },
+    "discover-slu:discover-slu-sip-shop-social": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 4:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-guest-chef-night-tinsley": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 5:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-jazzed-downbeat-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 6:30 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-best-of-gage-2026": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/best-of-gage-2026/"
+    },
+    "discover-slu:discover-slu-seattle-dragon-boat-festival-2024-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 9:00 AM provided; more details coming soon per page",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 9:30 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-photo-essentials-2-2026-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 12:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-jazzed-jamboree-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 1:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-public-sail-2026-2-2": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/public-sail-2026-2-2/"
+    },
+    "discover-slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 10:00 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2/"
+    },
+    "discover-slu:discover-slu-guest-chef-night-tartaglia-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 5:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-gobble-up-slu-2026": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 10:00 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-boating-sunset": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 12:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 10:00 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-wooden-boat-storytime-2026-2-2-2": {
+      "fields": {
+        "duration": 2700
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/wooden-boat-storytime-2026-2-2-2/"
+    },
+    "discover-slu:discover-slu-ease-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/ease-2/"
+    },
+    "discover-slu:discover-slu-toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2/"
+    },
+    "discover-slu:discover-slu-video-fundamentals-1-2026-2-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 12:30 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2/"
+    },
+    "discover-slu:discover-slu-america-250-tour": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only boarding start time of 6:30 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-guest-chef-night-murray": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 5:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-summer-jazz-lab-performance": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 12:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 9:30 AM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-tugboat-tuesdays-2026-2": {
+      "unresolvable": true,
+      "reason": "No end time listed on event page; only start time of 5:00 PM provided",
+      "resolvedAt": "2026-05-20",
+      "source": "agent"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46290": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "wj5hzz"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46291": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "2n1h7k"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46292": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "17s1ie9"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46293": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "dvxhlu"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46294": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "1j0xisj"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46295": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "10ohj7d"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46296": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "6sdiey"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46297": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "ok25c"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46298": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "15tk3c1"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46299": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "bxg2jm"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46300": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "1h2g3qb"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46301": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "n6c2xw"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46302": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "1sbc44l"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46303": {
+      "unresolvable": true,
+      "reason": "Public art installation open during park hours; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "yf83c6"
+    },
+    "seattle-center:seattle-storm-vs-washington-x46766": {
+      "unresolvable": true,
+      "reason": "No official end time listed on Seattle Center event page",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "1oxureh"
+    },
+    "seattle-center:seattle-storm-vs-washington": {
+      "unresolvable": true,
+      "reason": "No official end time listed on Seattle Center event page",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "o663cv"
+    },
+    "seattle-center:seattle-storm-vs-phoenix": {
+      "unresolvable": true,
+      "reason": "No official end time listed on Seattle Center event page",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "urdlts"
+    },
+    "seattle-center:folklife-festival-2026-x47117": {
+      "unresolvable": true,
+      "reason": "All-day multi-day festival; no fixed start time",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "wj5hzz"
+    },
+    "seattle-center:toyota-sotas-drive-tour-x47546": {
+      "unresolvable": true,
+      "reason": "Source listed 'All Day'; precise start time and duration not given",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "dvxhlu"
+    },
+    "seattle-center:toyota-sotas-drive-tour-x47547": {
+      "unresolvable": true,
+      "reason": "Source listed 'All Day'; precise start time and duration not given",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "1j0xisj"
+    },
+    "seattle-center:toyota-sotas-drive-tour-x47548": {
+      "unresolvable": true,
+      "reason": "Source listed 'All Day'; precise start time and duration not given",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "10ohj7d"
+    },
+    "seattle-center:toyota-sotas-drive-tour": {
+      "unresolvable": true,
+      "reason": "No end time listed; page says 'More Info Coming Soon'",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "wz9lsn"
+    },
+    "seattle-center:yugioh-x47453": {
+      "unresolvable": true,
+      "reason": "Source listed 'All Day'; precise start time and duration not given",
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "fingerprint": "6sdiey"
+    },
+    "seattle-center:pagdiriwang-philippine-festival": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/pagdiriwang-philippine-festival",
+      "fingerprint": "1sbc44l"
+    },
+    "seattle-center:pagdiriwang-philippine-festival-web-use": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/pagdiriwang-philippine-festival",
+      "fingerprint": "yf83c6"
+    },
+    "seattle-center:artists-at-the-center-stephcynie": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/artists-at-the-center-stephcynie",
+      "fingerprint": "zrkc8x"
+    },
+    "seattle-center:artists-at-the-center-oroki-productions": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/artists-at-the-center-oroki-productions",
+      "fingerprint": "l8oy3b"
+    },
+    "seattle-center:artists-at-the-center-f-rock-inc": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/artists-at-the-center-f-rock-inc",
+      "fingerprint": "a621xx"
+    },
+    "seattle-center:all-lang-all-lang-performance-1": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/all-lang-all-lang-performance-1",
+      "fingerprint": "1dwn64l"
+    },
+    "seattle-center:all-lang-x44648": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/all-lang-x44648",
+      "fingerprint": "1xs0z9v"
+    },
+    "seattle-center:all-lang-x44649": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/all-lang-x44649",
+      "fingerprint": "zdrryz"
+    },
+    "seattle-center:all-lang": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/all-lang",
+      "fingerprint": "1khuoli"
+    },
+    "seattle-center:all-lang-x47205": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/all-lang-x47205",
+      "fingerprint": "1p68zcv"
+    },
+    "seattle-center:all-lang-x44651": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/all-lang-x44651",
+      "fingerprint": "1p68zcv"
+    },
+    "seattle-center:all-lang-x44652": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/all-lang-x44652",
+      "fingerprint": "qrzs1z"
+    },
+    "seattle-center:all-lang-x44653": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/all-lang-x44653",
+      "fingerprint": "1pci3lr"
+    },
+    "seattle-center:louis-tomlinson-how-did-we-get-here-world-tour": {
+      "fields": {
+        "duration": 16200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/louis-tomlinson-how-did-we-get-here-world-tour",
+      "fingerprint": "11ipa9"
+    },
+    "seattle-center:california-repercussions-rock-seattle": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/california-repercussions-rock-seattle",
+      "fingerprint": "33f5t5"
+    },
+    "seattle-center:emerald-city-cardfest-x46943": {
+      "fields": {
+        "duration": 27000
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/emerald-city-cardfest-x46943",
+      "fingerprint": "120m7nc"
+    },
+    "seattle-center:emerald-city-cardfest": {
+      "fields": {
+        "duration": 27000
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/emerald-city-cardfest",
+      "fingerprint": "8arb3t"
+    },
+    "seattle-center:season-encore": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/season-encore",
+      "fingerprint": "qy8wav"
     }
   }
 }
