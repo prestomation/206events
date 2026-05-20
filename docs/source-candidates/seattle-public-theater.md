@@ -4,7 +4,7 @@ status: added
 firstSeen: 2026-05-08
 lastChecked: 2026-05-20
 tags: [Theatre, "Green Lake"]
-pr: pending
+pr: 371
 ---
 **Seattle Public Theater** — `https://www.seattlepublictheater.org/calendar-2` — 7312 W Green Lake Dr N, Seattle, WA 98103 (Green Lake neighborhood). Squarespace site with confirmed `?format=json` endpoint returning 5 future events.
 
