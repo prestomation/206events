@@ -1,0 +1,11 @@
+name: seattle-film-society
+type: squarespace
+description: "Seattle Film Society"
+url: "https://www.seattlefilmsociety.com/calendar"
+friendlyLink: https://www.seattlefilmsociety.com/calendar
+tags: ["Movies", "Arts"]
+geo: null
+calendars:
+  - name: seattle-film-society
+    friendlyname: "Seattle Film Society"
+    timezone: America/Los_Angeles
