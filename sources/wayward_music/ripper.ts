@@ -54,6 +54,9 @@ export function parseEvent(post: WPPost, timezone: ZoneRegion): RipperCalendarEv
 export default class WaywardMusicRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
+        if (!ripper.config.calendars || ripper.config.calendars.length === 0) {
+            throw new Error('No calendars configured for Wayward Music ripper');
+        }
         const calConfig = ripper.config.calendars[0];
         const timezone = calConfig.timezone;
 
@@ -89,7 +92,9 @@ export default class WaywardMusicRipper implements IRipper {
             const url = `${WP_API_URL}?categories=${EVENT_CATEGORY_ID}&per_page=100&order=asc&orderby=date&after=${encodeURIComponent(after)}&_fields=id,title,date,link,excerpt&page=${page}`;
             const res = await fetchFn(url);
             if (!res.ok) {
-                if (res.status === 400) break;
+                // WordPress returns 400 when requesting a page beyond the last available;
+                // only treat it as end-of-results on page 2+ (page 1 400 is a real error).
+                if (res.status === 400 && page > 1) break;
                 throw new Error(`WP REST API returned ${res.status} ${res.statusText}`);
             }
             const batch: WPPost[] = await res.json();
