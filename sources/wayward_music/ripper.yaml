@@ -1,0 +1,15 @@
+name: wayward-music
+description: "Wayward Music Series"
+url: "https://www.waywardmusic.org/"
+friendlyLink: https://www.waywardmusic.org
+tags: ["Music", "Arts", "Wallingford"]
+geo:
+  lat: 47.6642701
+  lng: -122.3311925
+  label: "Chapel Performance Space at Good Shepherd Center, 4649 Sunnyside Ave N, Seattle, WA 98103"
+  osmType: way
+  osmId: 51805186
+calendars:
+  - name: wayward-music
+    friendlyname: "Wayward Music Series"
+    timezone: America/Los_Angeles

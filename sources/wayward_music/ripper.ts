@@ -1,0 +1,103 @@
+import { Duration, LocalDateTime, ZonedDateTime, ZoneRegion } from "@js-joda/core";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, ParseError } from "../../lib/config/schema.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { decode } from "html-entities";
+import '@js-joda/timezone';
+
+const WP_API_URL = "https://www.waywardmusic.org/wp-json/wp/v2/posts";
+const EVENT_CATEGORY_ID = 1;
+const DEFAULT_DURATION_HOURS = 2;
+const DEFAULT_LOCATION = "Chapel Performance Space at Good Shepherd Center, 4649 Sunnyside Ave N, Seattle, WA 98103";
+
+interface WPPost {
+    id: number;
+    date: string;
+    link: string;
+    title: { rendered: string };
+    excerpt: { rendered: string };
+}
+
+export function parseDescription(excerpt: string): string {
+    return decode(
+        excerpt
+            .replace(/<a[^>]*class="read-more"[^>]*>[\s\S]*?<\/a>/g, '')
+            .replace(/<[^>]+>/g, '')
+            .replace(/\s+/g, ' ')
+            .trim()
+    );
+}
+
+export function parseEvent(post: WPPost, timezone: ZoneRegion): RipperCalendarEvent | ParseError {
+    let date: ZonedDateTime;
+    try {
+        date = ZonedDateTime.of(LocalDateTime.parse(post.date), timezone);
+    } catch {
+        return {
+            type: "ParseError",
+            reason: `Unparseable date: ${post.date}`,
+            context: post.title.rendered,
+        };
+    }
+
+    return {
+        id: `wayward-music-${post.id}`,
+        ripped: new Date(),
+        date,
+        duration: Duration.ofHours(DEFAULT_DURATION_HOURS),
+        summary: decode(post.title.rendered),
+        description: parseDescription(post.excerpt.rendered),
+        location: DEFAULT_LOCATION,
+        url: post.link,
+    };
+}
+
+export default class WaywardMusicRipper implements IRipper {
+    public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const fetchFn = getFetchForConfig(ripper.config);
+        const calConfig = ripper.config.calendars[0];
+        const timezone = calConfig.timezone;
+
+        const after = new Date().toISOString().replace(/\.\d{3}Z$/, '');
+        const posts = await this.fetchEvents(fetchFn, after);
+
+        const events: RipperCalendarEvent[] = [];
+        const errors: ParseError[] = [];
+
+        for (const post of posts) {
+            const result = parseEvent(post, timezone);
+            if ('date' in result) {
+                events.push(result);
+            } else {
+                errors.push(result);
+            }
+        }
+
+        return [{
+            name: calConfig.name,
+            friendlyname: calConfig.friendlyname,
+            events,
+            errors,
+            tags: calConfig.tags ?? ripper.config.tags ?? [],
+            parent: ripper.config,
+        }];
+    }
+
+    private async fetchEvents(fetchFn: FetchFn, after: string): Promise<WPPost[]> {
+        const posts: WPPost[] = [];
+        let page = 1;
+        while (true) {
+            const url = `${WP_API_URL}?categories=${EVENT_CATEGORY_ID}&per_page=100&order=asc&orderby=date&after=${encodeURIComponent(after)}&_fields=id,title,date,link,excerpt&page=${page}`;
+            const res = await fetchFn(url);
+            if (!res.ok) {
+                if (res.status === 400) break;
+                throw new Error(`WP REST API returned ${res.status} ${res.statusText}`);
+            }
+            const batch: WPPost[] = await res.json();
+            if (batch.length === 0) break;
+            posts.push(...batch);
+            if (batch.length < 100) break;
+            page++;
+        }
+        return posts;
+    }
+}

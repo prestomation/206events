@@ -1,16 +1,20 @@
 ---
 name: Wayward Music Series (WordPress site)
-status: investigating
-platform: WordPress
-url: https://www.waywardmusic.org/events/
+status: added
+platform: WordPress REST API
+url: https://www.waywardmusic.org/
 tags: [Music, Arts, Wallingford]
 firstSeen: 2026-05-20
 lastChecked: 2026-05-20
+pr: TBD
 ---
 
-The Wayward Music Series website (waywardmusic.org) lists events directly on
-a WordPress-based events page. 15+ upcoming events visible at time of
-discovery. No ICS export found. Covered via the Nonsequitur Eventbrite source
-(`sources/nonsequitur`) which typically has the same events — investigate
-whether the WordPress site has additional events not posted to Eventbrite
-before implementing a separate ripper.
+Implemented 2026-05-20 as `sources/wayward_music/ripper.ts`. Uses the WordPress
+REST API (`/wp-json/wp/v2/posts?categories=1`) to fetch upcoming events from the
+`Event` post category. The WordPress post `date` field stores the actual event
+datetime in local time (America/Los_Angeles). 14 upcoming events confirmed at
+implementation time.
+
+The WordPress site includes events not ticketed through Eventbrite (the existing
+Nonsequitur source covers ~2 overlapping events with "NonSeq:" prefix). The
+additional events are free/donation concerts by the same venue.
