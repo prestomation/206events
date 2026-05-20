@@ -1,0 +1,15 @@
+name: flying-lion-brewing
+description: "Flying Lion Brewing"
+url: "https://flyinglionbrewing.com/events.html"
+friendlyLink: https://flyinglionbrewing.com/events.html
+tags: ["Beer", "Columbia City"]
+geo:
+  lat: 47.5560371
+  lng: -122.2843370
+  label: "Flying Lion Brewing, 5041 Rainier Ave S, Seattle, WA 98118"
+  osmType: node
+  osmId: 4882419724
+calendars:
+  - name: flying-lion-brewing
+    friendlyname: "Flying Lion Brewing"
+    timezone: America/Los_Angeles
