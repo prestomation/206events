@@ -30,9 +30,9 @@ export function parseArticle(article: HTMLElement): RipperCalendarEvent | ParseE
         return { type: 'ParseError', reason: 'Missing calendar widget', context: title };
     }
 
-    const startText = calWidget.querySelector('span.start')?.textContent.trim();
-    const endText = calWidget.querySelector('span.end')?.textContent.trim();
-    const timezoneText = calWidget.querySelector('span.timezone')?.textContent.trim() ?? 'America/Los_Angeles';
+    const startText = calWidget.querySelector('span.start')?.textContent?.trim();
+    const endText = calWidget.querySelector('span.end')?.textContent?.trim();
+    const timezoneText = calWidget.querySelector('span.timezone')?.textContent?.trim() ?? 'America/Los_Angeles';
 
     if (!startText) {
         return { type: 'ParseError', reason: 'Missing start time in calendar widget', context: title };

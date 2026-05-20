@@ -65,7 +65,8 @@ const NO_TITLE_ARTICLE = `
 
 describe('parseArticle', () => {
     it('parses a public event correctly', () => {
-        const article = parseHtml(PUBLIC_ARTICLE).querySelector('article')!;
+        const article = parseHtml(PUBLIC_ARTICLE).querySelector('article');
+        if (!article) throw new Error('Article element not found in PUBLIC_ARTICLE fixture');
         const result = parseArticle(article);
 
         expect('date' in result).toBe(true);
@@ -83,7 +84,8 @@ describe('parseArticle', () => {
     });
 
     it('parses a private event (caller decides to exclude it)', () => {
-        const article = parseHtml(PRIVATE_ARTICLE).querySelector('article')!;
+        const article = parseHtml(PRIVATE_ARTICLE).querySelector('article');
+        if (!article) throw new Error('Article element not found in PRIVATE_ARTICLE fixture');
         const result = parseArticle(article);
 
         expect('date' in result).toBe(true);
@@ -94,7 +96,8 @@ describe('parseArticle', () => {
     });
 
     it('returns ParseError when calendar widget is missing', () => {
-        const article = parseHtml(NO_WIDGET_ARTICLE).querySelector('article')!;
+        const article = parseHtml(NO_WIDGET_ARTICLE).querySelector('article');
+        if (!article) throw new Error('Article element not found in NO_WIDGET_ARTICLE fixture');
         const result = parseArticle(article);
 
         expect('type' in result).toBe(true);
@@ -105,7 +108,8 @@ describe('parseArticle', () => {
     });
 
     it('returns ParseError when title element is missing', () => {
-        const article = parseHtml(NO_TITLE_ARTICLE).querySelector('article')!;
+        const article = parseHtml(NO_TITLE_ARTICLE).querySelector('article');
+        if (!article) throw new Error('Article element not found in NO_TITLE_ARTICLE fixture');
         const result = parseArticle(article);
 
         expect('type' in result).toBe(true);
