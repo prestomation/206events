@@ -50,10 +50,10 @@ describe('FlyingLionBrewingRipper', () => {
         const calEvents = events.filter(e => 'date' in e) as any[];
         const monday = calEvents.find((e: any) => e.summary === 'Monday Run Club');
         expect(monday).toBeDefined();
-        expect(monday.date.year()).toBe(2026);
-        expect(monday.date.monthValue()).toBe(5);
-        expect(monday.date.dayOfMonth()).toBe(18);
-        expect(monday.date.hour()).toBe(18); // 6 PM
+        expect(monday!.date.year()).toBe(2026);
+        expect(monday!.date.monthValue()).toBe(5);
+        expect(monday!.date.dayOfMonth()).toBe(18);
+        expect(monday!.date.hour()).toBe(18); // 6 PM
     });
 
     it('parses trivia event with correct duration', () => {
@@ -62,7 +62,7 @@ describe('FlyingLionBrewingRipper', () => {
         const trivia = calEvents.find((e: any) => e.summary === 'Wednesday Trivia');
         expect(trivia).toBeDefined();
         // 7:30 PM - 9:00 PM = 90 minutes
-        expect(trivia.duration.toMinutes()).toBe(90);
+        expect(trivia!.duration.toMinutes()).toBe(90);
     });
 
     it('parses chess club with correct duration', () => {
@@ -71,7 +71,7 @@ describe('FlyingLionBrewingRipper', () => {
         const chess = calEvents.find((e: any) => e.summary === 'Sunday Chess Club');
         expect(chess).toBeDefined();
         // 6:00 PM - 9:00 PM = 180 minutes = 3 hours
-        expect(chess.duration.toMinutes()).toBe(180);
+        expect(chess!.duration.toMinutes()).toBe(180);
     });
 
     it('filters out past events', () => {

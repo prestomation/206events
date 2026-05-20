@@ -33,7 +33,11 @@ function parseDate(dateStr: string): LocalDate | null {
     if (!m) return null;
     const month = MONTH_MAP[m[1]];
     if (!month) return null;
-    return LocalDate.of(parseInt(m[3], 10), month, parseInt(m[2], 10));
+    try {
+        return LocalDate.of(parseInt(m[3], 10), month, parseInt(m[2], 10));
+    } catch {
+        return null;
+    }
 }
 
 function slugify(s: string): string {
