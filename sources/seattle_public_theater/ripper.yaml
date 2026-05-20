@@ -1,0 +1,16 @@
+name: seattle-public-theater
+type: squarespace
+description: "Seattle Public Theater"
+url: "https://www.seattlepublictheater.org/calendar-2"
+friendlyLink: https://www.seattlepublictheater.org
+tags: ["Theatre", "Green Lake"]
+geo:
+  lat: 47.6821341
+  lng: -122.3398325
+  label: "Seattle Public Theater, 7312 W Green Lake Dr N, Seattle, WA 98103"
+  osmType: node
+  osmId: 2463139542
+calendars:
+  - name: seattle-public-theater
+    friendlyname: "Seattle Public Theater"
+    timezone: America/Los_Angeles
