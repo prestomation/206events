@@ -7,6 +7,8 @@ geo:
   lat: 47.6468
   lng: -122.3800
   label: "Interbay Stadium, Seattle, WA"
+  osmType: way
+  osmId: 365742481
 calendars:
   - name: ballard-fc
     friendlyname: "Ballard FC"
