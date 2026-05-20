@@ -6,7 +6,7 @@ url: https://events.seattleu.edu/
 tags: [Education, Community, "Capitol Hill"]
 firstSeen: 2026-05-20
 lastChecked: 2026-05-20
-pr: TBD
+pr: 374
 ---
 **Seattle University** — `https://events.seattleu.edu/` — Localist calendar platform with public ICS feed.
 
