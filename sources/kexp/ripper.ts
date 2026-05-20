@@ -87,14 +87,15 @@ export default class KexpRipper implements IRipper {
 
         const events: RipperCalendarEvent[] = [];
         const errors: ParseError[] = [];
-        const seen = new Set<string>();
+        const seen = new Set<string | undefined>();
 
         for (const article of articles) {
             const result = parseArticle(article);
             if ('date' in result) {
+                const key = result.id ?? result.url;
                 // Only public sessions appear on the event calendar; private recordings are excluded
-                if (result.summary.includes('(OPEN TO THE PUBLIC)') && !seen.has(result.id)) {
-                    seen.add(result.id);
+                if (result.summary.includes('(OPEN TO THE PUBLIC)') && !seen.has(key)) {
+                    seen.add(key);
                     events.push(result);
                 }
             } else {

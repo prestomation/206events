@@ -129,13 +129,14 @@ describe('parseArticle with sample HTML', () => {
 
         const events = [];
         const errors = [];
-        const seen = new Set<string>();
+        const seen = new Set<string | undefined>();
 
         for (const article of articles) {
             const result = parseArticle(article);
             if ('date' in result) {
-                if (result.summary.includes('(OPEN TO THE PUBLIC)') && !seen.has(result.id)) {
-                    seen.add(result.id);
+                const key = result.id ?? result.url;
+                if (result.summary.includes('(OPEN TO THE PUBLIC)') && !seen.has(key)) {
+                    seen.add(key);
                     events.push(result);
                 }
             } else {
