@@ -45,7 +45,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Europa":               { address: "401 2nd Ave S, Seattle, WA 98104" },
     "Bad Bar":              { address: "819 5th Ave N, Seattle, WA 98109" },
     "Barboza":              { address: "925 E Pike St, Seattle, WA 98122", skip: true },
-    "Belltown Yacht Club":  { address: "2320 1st Ave, Seattle, WA 98121" },
+    "Belltown Yacht Club":  { address: "2320 1st Ave, Seattle, WA 98121", skip: true },
     "Black &amp; Tan Hall": { address: "5608 Rainier Ave S, Seattle, WA 98118" }, // server sends HTML entity
     "Black Lodge":          { address: "427 Eastlake Ave E, Seattle, WA 98109" },
     "Blue Moon Tavern":     { address: "712 NE 45th St, Seattle, WA 98105" },

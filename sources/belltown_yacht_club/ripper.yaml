@@ -1,0 +1,20 @@
+name: belltown_yacht_club
+type: dice
+description: "Belltown Yacht Club"
+url: "https://events-api.dice.fm/v1/events?filter[venues][]=Belltown+Yacht+Club"
+friendlyLink: https://dice.fm/venue/belltown-yacht-club-b7mo
+tags: ["Music", "Belltown"]
+geo:
+  lat: 47.6140747
+  lng: -122.3468379
+  label: "Belltown Yacht Club, 2320 1st Ave, Seattle, WA 98121"
+  osmType: node
+  osmId: 9997743299
+calendars:
+  - name: belltown-yacht-club
+    friendlyname: "Belltown Yacht Club"
+    timezone: America/Los_Angeles
+    config:
+      venueName: "Belltown Yacht Club"
+      defaultLocation: "2320 1st Ave, Seattle, WA 98121"
+      defaultDurationHours: 3
