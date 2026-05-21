@@ -1,0 +1,14 @@
+name: pacific-place
+description: "Pacific Place"
+url: "https://api.mallmaverick.com/properties/790/events?api_key=6c36171ab3f3b2c5b734ac841bc078b4"
+friendlyLink: https://pacificplaceseattle.com/events
+tags: ["Downtown", "Community"]
+geo:
+  lat: 47.6126
+  lng: -122.3358
+  label: "Pacific Place, 600 Pine St, Seattle, WA 98101"
+  osmChecked: 2026-05-21
+calendars:
+  - name: all-events
+    friendlyname: "Pacific Place"
+    timezone: America/Los_Angeles
