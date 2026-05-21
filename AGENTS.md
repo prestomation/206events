@@ -384,6 +384,8 @@ sources/
 
 Some upstream sites (e.g., AXS, AMC) block requests from GitHub Actions runner IPs with 403 errors. The project handles these by running affected sources on a separate "out-of-band" runner (a home server with a residential IP), uploading the results to S3, and having the main GitHub Actions build download those pre-fetched outputs.
 
+**When to use `proxy: outofband`:** Only when the source is confirmed accessible from the Claude Code web environment (returns data, not a CAPTCHA or 403) but CI/GitHub Actions blocks it. If the source is inaccessible from Claude Code web, do not add it as an outofband source — record the block in `docs/source-candidates/<slug>.md` and move on. Never implement a source whose data shape you have not seen.
+
 See **`docs/outofband.md`** for the full architecture and **`infra/authenticated-proxy/README.md`** for the supporting AWS infrastructure (S3 bucket, IAM roles).
 
 ### Enabling outofband for a ripper
@@ -408,7 +410,7 @@ When set, the main GitHub Actions build **skips** the ripper entirely. The out-o
 ### Enabling the proxy for an external ICS calendar
 
 External calendars (`sources/external/<name>.yaml`) can also be marked
-`proxy: outofband` when their ICS URL 403s from GitHub Actions:
+`proxy: outofband` when their ICS URL 403s from GitHub Actions but is accessible from the Claude Code web environment:
 
 ```yaml
 # sources/external/example.yaml
