@@ -3,7 +3,7 @@ name: "Seattle Indian Health Board"
 status: added
 firstSeen: 2026-05-08
 lastChecked: 2026-05-21
-pr: pending
+pr: 379
 ---
 **Seattle Indian Health Board** — `https://www.sihb.org/events/` — Custom HTML scraper — Tags: Community
 
