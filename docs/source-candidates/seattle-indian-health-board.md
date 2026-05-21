@@ -1,9 +1,12 @@
 ---
 name: "Seattle Indian Health Board"
-status: candidate
+status: added
 firstSeen: 2026-05-08
-lastChecked: 2026-05-16
+lastChecked: 2026-05-21
+pr: 379
 ---
-**Seattle Indian Health Board** — `https://www.sihb.org/events/` — WordPress (Apache/Bluehost) — Tags: Community
+**Seattle Indian Health Board** — `https://www.sihb.org/events/` — Custom HTML scraper — Tags: Community
 
-Probed 2026-05-16: Site loads (200), WordPress confirmed (`/wp-json/` link header). The `?ical=1` Tribe Events ICS export returns HTML (not ICS) — either Tribe Events not installed or ICS export disabled. Would need custom HTML scraper or further investigation of the events page structure.
+Probed 2026-05-16: Site loads (200), WordPress confirmed. No ICS/Tribe Events export available.
+
+Implemented 2026-05-21: Custom HTML ripper parsing the "Upcoming Events" grid section. Events have structured date/time/location data in the `entry-footer`. Events held at various Seattle locations (SIHB clinic, Seattle Center). `expectEmpty: true` because the organization posts events incrementally (monthly Family Saturday series + annual events).
