@@ -118,6 +118,17 @@ describe('Pacific Place Ripper', () => {
         expect(err.reason).toContain('array');
     });
 
+    test('returns ParseError on missing start_date', async () => {
+        const ripper = new PacificPlaceRipper();
+        const events = await ripper.parseEvents([
+            { id: 998, status: 'active', name: 'No start', end_date: '2026-06-01T00:00:00.000Z', eventable: { type: 'Property' } }
+        ], testDate, {});
+        expect(events.filter(e => 'summary' in e)).toHaveLength(0);
+        const err = events[0] as RipperError;
+        expect(err.type).toBe('ParseError');
+        expect(err.reason).toContain('missing start_date');
+    });
+
     test('returns ParseError on malformed start_date', async () => {
         const ripper = new PacificPlaceRipper();
         const events = await ripper.parseEvents([

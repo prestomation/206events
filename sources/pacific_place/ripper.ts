@@ -36,6 +36,15 @@ export default class PacificPlaceRipper extends JSONRipper {
             // events; these are mall-store happy hours / weekly specials.
             if (!event.end_date || event.no_end_date === true) continue;
 
+            if (!event.start_date) {
+                events.push({
+                    type: "ParseError",
+                    reason: `Event ${eventId} missing start_date`,
+                    context: JSON.stringify(event).substring(0, 200) + "..."
+                });
+                continue;
+            }
+
             try {
                 const startInstant = Instant.parse(event.start_date);
                 const endInstant = Instant.parse(event.end_date);
