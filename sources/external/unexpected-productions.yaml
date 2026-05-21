@@ -1,9 +1,15 @@
-geo: null
+# verified: 2026-05-21 ok — 30 events
+geo:
+  lat: 47.6083380
+  lng: -122.3402630
+  label: "Market Theater, 1428 Post Alley, Seattle, WA 98101"
+  osmType: node
+  osmId: 2397493563
 name: unexpected-productions
 friendlyname: Unexpected Productions
-description: Seattle's oldest improv theater in Pike Place Market - 10+ shows per week including Theatresports
+description: Seattle's pioneering improv comedy theater at Market Theater in Pike Place Market, presenting Seattle Theatresports, Improv Happy Hour, and original ensemble productions
 icsUrl: https://www.unexpectedproductions.org/?post_type=tribe_events&ical=1&eventDisplay=list
-infoUrl: https://www.unexpectedproductions.org/
+infoUrl: https://www.unexpectedproductions.org/events/
 tags:
-  - Theatre
+  - Comedy
   - Pike Place
