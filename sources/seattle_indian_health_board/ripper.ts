@@ -154,7 +154,7 @@ export default class SIHBRipper implements IRipper {
                 const endTimeStr = timeSpans[1]?.textContent?.trim();
 
                 const startTime = startTimeStr ? parseTime(startTimeStr) : LocalTime.of(12, 0);
-                if (!startTime) {
+                if (startTimeStr && !startTime) {
                     events.push({ type: "ParseError", reason: `Unparseable time: ${startTimeStr}`, context: title });
                     continue;
                 }
