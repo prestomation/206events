@@ -17,4 +17,4 @@ Investigated 2026-05-21:
 - `geo: null` — multi-venue presenter (Chapel Performance Space, various Seattle halls)
 - Tags: Music, Arts
 
-Corrected 2026-05-21: Source was incorrectly added as `proxy: outofband` in PR #375 before confirming accessibility from Claude Code web. Removed `sources/external/early-music-seattle.yaml` in PR #TBD. Status set to `blocked` (SiteGround CAPTCHA blocks from both Claude Code web and CI). Re-investigate if SiteGround protection is removed or a direct ICS URL is found that bypasses the challenge.
+Corrected 2026-05-21: Source was incorrectly added as `proxy: outofband` in PR #375 before confirming accessibility from Claude Code web. Removed `sources/external/early-music-seattle.yaml` in PR #376. Status set to `blocked` (SiteGround CAPTCHA blocks from both Claude Code web and CI). Re-investigate if SiteGround protection is removed or a direct ICS URL is found that bypasses the challenge.
