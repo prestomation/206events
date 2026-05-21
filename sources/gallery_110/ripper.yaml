@@ -1,0 +1,17 @@
+name: gallery-110
+type: squarespace
+description: "Gallery 110"
+url: "https://gallery110.com/events"
+friendlyLink: https://gallery110.com/events
+tags: ["Arts", "Pioneer Square"]
+geo:
+  lat: 47.6012826
+  lng: -122.3300690
+  label: "Gallery 110, 110 3rd Ave S, Seattle, WA 98104"
+  osmType: node
+  osmId: 2351711856
+  osmChecked: 2026-05-21
+calendars:
+  - name: all-events
+    friendlyname: "Gallery 110"
+    timezone: America/Los_Angeles
