@@ -4,7 +4,7 @@ status: added
 firstSeen: 2026-05-21
 lastChecked: 2026-05-21
 tags: [Community]
-pr: TBD
+pr: 377
 ---
 **Access Events — Seattle** — `https://accessevents.org/cities/seattle/` — Tags: Community
 
