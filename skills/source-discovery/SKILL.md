@@ -87,8 +87,7 @@ the source of truth — update it as the candidate's situation changes:
   ("no public calendar", "not Seattle", "platform requires browser").
 - **Source blocked**: Flip `status: blocked` with the reason
   ("Cloudflare bot protection", "needs paid API key").
-- **Source needs the proxy**: `status: proxy` and note the
-  `proxy: "outofband"` requirement.
+- **Source needs the proxy**: `status: proxy` — only when the source was confirmed working in Claude Code web but CI blocks it. Note the `proxy: "outofband"` requirement and which CI run confirmed it.
 
 Each candidate is one file, so two PRs touching different candidates
 never conflict on this directory.
@@ -143,18 +142,11 @@ To implement:
    | **404 / 410 / DNS failure** | Our URL was wrong or the source has moved | Do not implement yet. Update the candidate entry to `🔍 Investigating` and search for the correct URL. Only mark `❌ Not Viable` once no working URL can be found. |
    | **403 / 429 / connection reset** | Blocked — but by what? | See below |
 
-   **Claude Code web note:** When running on Claude Code web (claude.ai/code), the agent shares IP infrastructure with GitHub Actions runners. Any 403 you see from `curl` or `WebFetch` in this environment is indistinguishable from what CI would see — treat it the same as a sandbox-only block (see below) unless there is clear evidence of a CAPTCHA or browser-only requirement. Do NOT mark a source `notviable` solely because it 403s from Claude Code web; flag it `status: proxy` for outofband investigation instead.
+   **`proxy: outofband` rule:** Only set `proxy: outofband` when you can verify the source returns data in the Claude Code web environment but CI (GitHub Actions) blocks it. The workflow is:
+   - **Fetch succeeds here (200 + data)** → implement normally. If CI then returns 403, add `proxy: outofband` in a follow-up PR.
+   - **Fetch fails here (403 / CAPTCHA / connection reset / non-200)** → do NOT implement. Record what you observed in `docs/source-candidates/<slug>.md` with `status: blocked` (for CAPTCHA/Cloudflare) or `status: candidate` (for transient issues worth retrying), and move on.
 
-   **Diagnosing a 403:** This is ambiguous. To distinguish a sandbox-only block from a permanent one:
-   - Does the domain resolve and do other pages load? (DNS works, site is live)
-   - Does the response body look like a normal website, or a Cloudflare/CAPTCHA challenge page?
-   - Is the venue clearly active (social media, Google Maps, etc.)?
-
-   If the block appears **sandbox-only** (site is clearly live, domain resolves, no Cloudflare challenge): the outofband Lambda proxy can likely reach it. Set `status: proxy` in the candidate's `docs/source-candidates/<slug>.md` and proceed with implementation using `proxy: "outofband"` in `ripper.yaml`. Note in the PR that live event count can only be confirmed from outofband build logs.
-
-   If the block appears **permanent** (Cloudflare JS challenge, CAPTCHA, applies to real browsers too): set `status: blocked` as usual.
-
-   **Do not guess at the data shape** if you cannot fetch the source. An implementation written against an inaccessible URL is a guess — it will either produce 0 events or parse errors in CI. Only write parser code once you have seen a real sample response.
+   **Do not guess at the data shape** if you cannot fetch the source. An implementation written against an inaccessible URL is a guess — it will produce 0 events or parse errors. Only implement once you have seen a real sample response.
 
 3. **Spawn a coding agent**: `sessions_spawn(runtime="acp", agentId="claude", cwd=<repo_path>)` with the full implementation spec including ripper type, URL, config details, geo coordinates, tags, and (if applicable) `proxy: "outofband"` requirement
 4. **Push and open PR**: `scripts/push_and_pr.sh`
@@ -210,9 +202,9 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Flag dead sources** — but don't disable them without human approval
 - **Respect the existing tag system** — adding a new tag is just using it in a source's `tags:` field. The build no longer requires registration in a central allow-list; it does fail on near-duplicate spellings (e.g. `"Capitol Hill"` vs `"CapitolHill"`). Check `lib/config/tags.ts` for the preferred spellings before introducing a new tag.
 - **Tags should reflect a venue's PRIMARY identity** — only add a tag if the venue is primarily known for that category. A music venue that occasionally hosts comedy nights gets `Music` but NOT `Comedy`. A venue that is equally known for both (e.g., a comedy club that also does music) can have both. When in doubt, use fewer tags.
-- **Validate the live source before implementing** — always attempt a fetch before writing parser code. A 200 with events is the only green light to implement. A 404 means the URL was wrong — keep searching. A 403 from the sandbox may mean outofband proxy is needed, not that the source is dead. Never implement a source you cannot fetch; an implementation written against an inaccessible URL is a guess.
+- **Validate the live source before implementing** — always attempt a fetch before writing parser code. A 200 with events in the Claude Code web environment is the only green light to implement. A 404 means the URL was wrong — keep searching. A 403, CAPTCHA, or any non-200 in Claude Code web means the source is blocked here; record it as `status: blocked` and move on — do not implement. Never implement a source you cannot fetch; an implementation written against an inaccessible URL is a guess.
 - **Never add a source that returns 0 events** — new sources must produce at least 1 event in CI before merging. The build now fails on new sources with 0 events (no `expectEmpty` exemption for brand-new sources). A source with 0 events has no proven data pipeline. Keep as `🔍 Investigating` until the correct URL or data shape is found.
-- **Proxy-blocked sources get `status: proxy`** — if a source is blocked from the sandbox but is clearly live (domain resolves, site is active), implement with `proxy: "outofband"` and set `status: proxy` in the candidate's `docs/source-candidates/<slug>.md`. Validate event count from outofband build logs, not PR preview.
+- **`proxy: outofband` requires local verification** — only use it when you have confirmed the source returns data in the Claude Code web environment but CI 403s it. If the source is inaccessible from Claude Code web (CAPTCHA, Cloudflare, connection refused), record it as `status: blocked` in `docs/source-candidates/<slug>.md` with notes on what you observed, and do not implement it.
 - **A 404 is not "not viable"** — it means the URL was wrong. Update the candidate to `🔍 Investigating` and keep searching for the correct URL. Only mark `❌ Not Viable` when no working URL can be found after investigation.
 - **Iterate with Q until clean** — don't request human review until Amazon Q has no blocking comments.
 - **Parse methods must never return null** — new custom rippers must have parse methods that return `RipperCalendarEvent | RipperError` (never `null`). Filters and dedup belong in the caller, not the parse method. TypeScript enforces this at compile time. See AGENTS.md "Parse Methods Must Never Return Null" for the required pattern.
