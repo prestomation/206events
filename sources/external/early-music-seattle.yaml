@@ -1,0 +1,11 @@
+geo: null
+name: early-music-seattle
+friendlyname: Early Music Seattle
+description: Seattle's premier early music presenter — international historical performance ensembles and world music festivals at venues across the Pacific Northwest
+icsUrl: https://earlymusicseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list
+proxy: outofband
+expectEmpty: true
+infoUrl: https://earlymusicseattle.org/calendar/
+tags:
+  - Music
+  - Arts
