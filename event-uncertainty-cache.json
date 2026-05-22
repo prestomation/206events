@@ -16851,9 +16851,8 @@
     "tractor-tavern:tm-rZ7HnEZ1Af048N": {
       "unresolvable": true,
       "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "bi282d"
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
     },
     "tractor-tavern:tm-rZ7HnEZ1Af-kvS": {
       "unresolvable": true,
@@ -18810,6 +18809,167 @@
     "tractor-tavern:tm-rZ7HnEZ1Af-k8S": {
       "unresolvable": true,
       "reason": "Concert venue listing shows no end time on TicketWeb",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-living-voices-within-the-silence-2-2-2": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-05-22",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/living-voices-within-the-silence-2-2-2/"
+    },
+    "mopop:mopop-youth-soccer-clinic-hosted-by-uw-men-s-soccer-2026-06-13": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-22",
+      "source": "agent",
+      "evidence": "https://www.mopop.org/events/youth-soccer-clinic-hosted-by-uw-mens-soccer"
+    },
+    "19hz:19hz-2026/06/05-Chapstick: A Sapphic Night Out": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/07/13-FEM&M, Russelbuck, passengerprincess": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/08/08-FRICKTION: DJ Nanoos": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-seattle-dragon-boat-festival-2026": {
+      "unresolvable": true,
+      "reason": "Event page lists start time (9:00am) but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-beginners-camping-workshop-2-2-2": {
+      "unresolvable": true,
+      "reason": "Event page lists start time (6:00pm) but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47590": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47591": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47592": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47593": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47594": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47595": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47596": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47597": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47598": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47599": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47600": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47601": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47602": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47603": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47604": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47605": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47606": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47607": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47608": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
       "resolvedAt": "2026-05-22",
       "source": "agent"
     }
