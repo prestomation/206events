@@ -151,6 +151,18 @@ calendars:
       venue: "Black Lodge"
 
   # --- Georgetown ---
+  - name: georgetown-liquor-company
+    friendlyname: "Georgetown Liquor Company"
+    geo:
+      lat: 47.5532
+      lng: -122.3214
+      label: "Georgetown Liquor Company, 5501 Airport Way S, Seattle, WA 98108"
+      osmType: node
+      osmId: 2396888050
+    timezone: America/Los_Angeles
+    tags: ["Georgetown"]
+    config:
+      venue: "Georgetown Liquor Company"
   - name: slims-last-chance
     friendlyname: "Slim's Last Chance"
     geo:
