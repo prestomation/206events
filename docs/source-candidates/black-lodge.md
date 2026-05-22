@@ -6,7 +6,7 @@ url: https://dice.fm/venue/the-black-lodge-qppa
 tags: [Music, Eastlake]
 firstSeen: 2026-05-22
 lastChecked: 2026-05-22
-pr: TBD
+pr: 385
 ---
 
 **The Black Lodge** — 429 Eastlake Ave E, Seattle, WA 98109 — DICE venue — Tags: Music, Eastlake
