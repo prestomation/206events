@@ -1,0 +1,18 @@
+name: black_lodge
+type: dice
+description: "The Black Lodge"
+url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Black+Lodge"
+friendlyLink: https://dice.fm/venue/the-black-lodge-qppa
+tags: ["Music", "Eastlake"]
+geo:
+  lat: 47.62295
+  lng: -122.329458
+  label: "The Black Lodge, 429 Eastlake Ave E, Seattle, WA 98109"
+calendars:
+  - name: black-lodge
+    friendlyname: "The Black Lodge"
+    timezone: America/Los_Angeles
+    config:
+      venueName: "The Black Lodge"
+      defaultLocation: "429 Eastlake Ave E, Seattle, WA 98109"
+      defaultDurationHours: 3
