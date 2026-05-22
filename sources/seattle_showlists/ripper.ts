@@ -56,6 +56,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Hotel Crocodile":      { address: "2505 1st Ave, Seattle, WA 98121" },
     "Add-A-Ball":           { address: "314 N 36th St, Seattle, WA 98103" },
     "Nectar Lounge":        { address: "412 N 36th St, Seattle, WA 98103" },
+    "Georgetown Liquor Company": { address: "5501 Airport Way S, Seattle, WA 98108" },
     "Slim's Last Chance":   { address: "5606 1st Ave S, Seattle, WA 98108" },
     "Skylark":              { address: "3803 Delridge Way SW, Seattle, WA 98106" },
     "The Triple Door":      { address: "216 Union St, Seattle, WA 98101", skip: true },
