@@ -1,10 +1,15 @@
-geo: null
+geo:
+  lat: 47.6161894
+  lng: -122.3179930
+  label: "Hugo House, 1634 11th Ave, Seattle, WA 98122"
+  osmType: node
+  osmId: 9657301875
 name: hugo-house
 friendlyname: Hugo House
-description: Hugo House
-icsUrl: https://hugohouse.org/programs-events/?ical=1&tribe_display=list
+description: Seattle's literary center in Capitol Hill, hosting author readings, writing workshops, writing circles, silent reading nights, open mics, and community literary events.
+icsUrl: https://hugohouse.org/?post_type=tribe_events&ical=1&eventDisplay=list
 infoUrl: https://hugohouse.org/programs-events/
 tags:
+  - Books
   - Arts
-  - Community
   - Capitol Hill
