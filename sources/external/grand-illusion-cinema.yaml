@@ -1,4 +1,9 @@
-geo: null
+geo:
+  lat: 47.6647430
+  lng: -122.3128370
+  label: "Grand Illusion Cinema, 1403 NE 50th St, Seattle, WA 98105"
+  osmType: node
+  osmId: 2323840144
 name: grand-illusion-cinema
 friendlyname: Grand Illusion Cinema
 description: Nonprofit microcinema in the University District showing independent, experimental, and classic films

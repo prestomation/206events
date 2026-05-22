@@ -1,4 +1,9 @@
-geo: null
+geo:
+  lat: 47.6132215
+  lng: -122.3051662
+  label: "Central Cinema, 1411 21st Ave, Seattle, WA 98122"
+  osmType: node
+  osmId: 1766895957
 name: central-cinema
 friendlyname: Central Cinema
 description: Dinner theater showing classic, cult, and independent films with food and drinks on Capitol Hill

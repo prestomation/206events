@@ -1,9 +1,15 @@
-geo: null
+geo:
+  lat: 47.6090191
+  lng: -122.3299377
+  label: "Town Hall Seattle, 1119 8th Ave, Seattle, WA 98101"
+  osmType: way
+  osmId: 140675988
 name: town-hall-seattle
 friendlyname: Town Hall Seattle
-description: Nonprofit civic venue hosting 350+ events per year - talks, performances, and civic discourse
+description: Nonprofit civic venue in First Hill hosting 350+ events per year — author talks, music concerts, science lectures, civic debates, and community performances.
 icsUrl: https://townhallseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list
 infoUrl: https://townhallseattle.org/events/
 tags:
-  - Community
   - Arts
+  - Music
+  - Books
