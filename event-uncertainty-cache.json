@@ -18440,6 +18440,378 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/season-encore",
       "fingerprint": "qy8wav"
+    },
+    "19hz:19hz-2026/05/22-Nick Bertossi": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/05/25-Monday Moves": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/05/26-Modbang": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/05/30-Sophia Stel": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/05/30-A Rave Named 5051": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/06/05-Chapstick": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/06/05-Pervert": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/06/26-Cut Chemist": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/07/13-FEM&M": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/07/14-Max Cooper": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/07/31-MONIC": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/08/08-ISOxo": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/08/08-FRICKTION": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/08/09-ISOxo": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "19hz:19hz-2026/09/20-Thievery Corporation": {
+      "unresolvable": true,
+      "reason": "19hz listing has a start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "crocodile:tm-rZ7HnEZ1Af0Mbd": {
+      "unresolvable": true,
+      "reason": "Concert venue listing shows no end time on TicketWeb",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "crocodile:tm-rZ7HnEZ1Af0EqS": {
+      "unresolvable": true,
+      "reason": "Concert venue listing shows no end time on TicketWeb",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-pike-place-express-2026": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-05-22",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/pike-place-express"
+    },
+    "discover-slu:discover-slu-pike-place-express-2026-2-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-05-22",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/pike-place-express-2026-2-2/"
+    },
+    "discover-slu:discover-slu-kith-kin-bakery": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-22",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/kith-kin-bakery/"
+    },
+    "discover-slu:discover-slu-yusumi-bakery-2": {
+      "unresolvable": true,
+      "reason": "Event runs until sold out - no fixed end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-living-voices": {
+      "unresolvable": true,
+      "reason": "Event page lists start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-block-print-workshop": {
+      "unresolvable": true,
+      "reason": "Event page lists start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-seattle-dragon-boat-festival": {
+      "unresolvable": true,
+      "reason": "Event page not found (404)",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-2026-slu-farmers-market-2": {
+      "unresolvable": true,
+      "reason": "Event page not found (404)",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-beginners-camping-workshop": {
+      "unresolvable": true,
+      "reason": "Event page not found (404)",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-history-cafe-shelf-life": {
+      "unresolvable": true,
+      "reason": "Event page lists start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-drink-draw-pride": {
+      "unresolvable": true,
+      "reason": "Event page lists start time (6:00pm) but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-2026-slu-farmers-market-2-2-2": {
+      "unresolvable": true,
+      "reason": "Event page not found (404)",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "discover-slu:discover-slu-pressed-flower-art-workshop": {
+      "unresolvable": true,
+      "reason": "Event page lists start time but no end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "events12:dining-cruise-2026-05-29": {
+      "unresolvable": true,
+      "reason": "GetYourGuide page inaccessible (403); dining cruise is a ticketed activity with times varying by booking",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "events12:dining-cruise-2026-05-30": {
+      "unresolvable": true,
+      "reason": "GetYourGuide page inaccessible (403); dining cruise is a ticketed activity with times varying by booking",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "mopop:mopop-youth-soccer-clinic": {
+      "unresolvable": true,
+      "reason": "Event page not found (404)",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47590": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47591": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47592": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47593": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47594": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47595": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47596": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47597": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47598": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47599": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47600": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47601": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47602": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47603": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47604": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47605": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47606": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47607": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-x47608": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced experience - no fixed start time or duration",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "stg:tm-vvG1HZ_aNjgYyz": {
+      "unresolvable": true,
+      "reason": "Show listing on Ticketmaster does not include end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "stg:tm-vvG1HZ_aksl_Li": {
+      "unresolvable": true,
+      "reason": "Show listing on Ticketmaster does not include end time",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "t-mobile-park:tm-vvG1HZbgRmSEGt": {
+      "unresolvable": true,
+      "reason": "Baseball game duration varies; no end time on Ticketmaster",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "t-mobile-park:tm-vvG1HZbgRmVEGi": {
+      "unresolvable": true,
+      "reason": "Baseball game duration varies; no end time on Ticketmaster",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEq4b_W": {
+      "unresolvable": true,
+      "reason": "Ballpark tour - specific start time and duration not listed on Ticketmaster",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "t-mobile-park:tm-vvG1HZbM3CEUtA": {
+      "unresolvable": true,
+      "reason": "Ballpark tour - specific start time and duration not listed on Ticketmaster",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af0Pkd": {
+      "unresolvable": true,
+      "reason": "Concert venue listing shows no end time on TicketWeb",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af0xxd": {
+      "unresolvable": true,
+      "reason": "Concert venue listing shows no end time on TicketWeb",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af-k8S": {
+      "unresolvable": true,
+      "reason": "Concert venue listing shows no end time on TicketWeb",
+      "resolvedAt": "2026-05-22",
+      "source": "agent"
     }
   }
 }
