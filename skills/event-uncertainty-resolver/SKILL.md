@@ -110,10 +110,48 @@ the source data fingerprint changes), so a bad entry sticks around
 displaying the wrong time on every build. Always cite the source page
 as `--evidence`, and prefer marking unresolvable over guessing.
 
+## Pruning stale entries
+
+The cache accumulates entries that the build no longer touches — events
+that dropped off their source page, or whose source name was renamed.
+Use the `prune` subcommand to drop them. Flags are independent and
+additive; pass any combination.
+
+```bash
+# See what would be removed without uploading.
+python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py prune \
+  --orphan-prefixes \
+  --date-in-key-older-than 7 \
+  --lastseen-older-than 30 \
+  --dry-run
+
+# Apply (uploads to S3).
+python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py prune \
+  --orphan-prefixes \
+  --date-in-key-older-than 7 \
+  --lastseen-older-than 30
+```
+
+Flag reference:
+
+- `--orphan-prefixes` — drops entries whose `source:` prefix doesn't
+  match any current `name:` field under `sources/*/ripper.yaml` or
+  `sources/external/*.yaml`. Run from the repo root (or pass
+  `--repo-root PATH`). Catches entries left behind by source renames.
+- `--date-in-key-older-than DAYS` — drops entries whose key embeds a
+  parseable date (`YYYY-MM-DD`, `YYYY/MM/DD`, `YYYYMMDD`) older than
+  today − DAYS. Cheap; covers the common `events12:slug-2026-05-19`
+  shape. Skips opaque-ID keys like `climate-pledge-arena:tm-…`.
+- `--lastseen-older-than DAYS` — drops entries whose `lastSeen` (or
+  `resolvedAt` fallback) is older than today − DAYS. Covers
+  opaque-ID keys too: every build stamps `lastSeen` on entries it
+  consulted, so untouched entries naturally age out.
+
 ## ⚠️ Never read event-uncertainty-cache.json directly into context
 
 The cache will grow with every resolution. Use the script's `stats`,
-`outstanding`, and `resolve` subcommands; never `cat` the whole file.
+`outstanding`, `resolve`, and `prune` subcommands; never `cat` the
+whole file.
 
 ## How this fits with build-report
 

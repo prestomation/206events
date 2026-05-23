@@ -7,6 +7,7 @@ import type {
 } from './config/schema.js';
 import {
     lookupUncertaintyCache,
+    uncertaintyCacheKey,
     type UncertaintyCache,
     type UncertaintyResolutionFields,
 } from './event-uncertainty-cache.js';
@@ -24,6 +25,11 @@ export interface UncertaintyMergeResult {
     events: RipperCalendarEvent[];
     errors: RipperError[];
     stats: UncertaintyMergeStats;
+    // Cache keys that produced a hit (resolved or unresolvable). The
+    // caller stamps `lastSeen` on these entries before persisting the
+    // cache, which feeds the prune-by-staleness path. Misses are not
+    // included — there's no entry to stamp.
+    touchedKeys: string[];
 }
 
 // Append a short caveat to the event description for unresolved or
@@ -110,6 +116,7 @@ export function applyUncertaintyResolutions(
         acknowledgedUnresolvable: 0,
         outstanding: 0,
     };
+    const touchedKeys: string[] = [];
 
     // Index uncertainty errors by the event id they reference. A given
     // event id may have at most one UncertaintyError (rippers should
@@ -148,12 +155,14 @@ export function applyUncertaintyResolutions(
         if (lookup.kind === 'resolved' && lookup.entry?.fields) {
             for (const err of matchingErrors) errorsToDrop.add(err);
             stats.resolved += matchingErrors.length;
+            touchedKeys.push(uncertaintyCacheKey(source, event.id));
             return applyResolution(event, lookup.entry.fields);
         }
 
         if (lookup.kind === 'unresolvable') {
             for (const err of matchingErrors) errorsToDrop.add(err);
             stats.acknowledgedUnresolvable += matchingErrors.length;
+            touchedKeys.push(uncertaintyCacheKey(source, event.id));
             const allUnknownFields = Array.from(new Set(matchingErrors.flatMap(e => e.unknownFields)));
             return {
                 ...event,
@@ -172,5 +181,5 @@ export function applyUncertaintyResolutions(
 
     const updatedErrors = errors.filter(e => !errorsToDrop.has(e));
 
-    return { events: updatedEvents, errors: updatedErrors, stats };
+    return { events: updatedEvents, errors: updatedErrors, stats, touchedKeys };
 }
