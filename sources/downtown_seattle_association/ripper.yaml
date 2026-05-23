@@ -4,27 +4,50 @@ description: "Downtown Seattle Association Events Calendar"
 url: "https://downtownseattle.org/wp-json/tribe/events/v1/events"
 friendlyLink: https://downtownseattle.org
 geo: null
+tags:
+  - Downtown
 calendars:
   - name: pioneer-park
     friendlyname: "Pioneer Park Events"
     timezone: America/Los_Angeles
     config:
       venue_id: 53757
-  # - name: westlake-park # Westlake park is currently closed for construction
-  #   friendlyname: "Westlake Park Events"
-  #   timezone: America/Los_Angeles
-  #   config:
-  #     venue_id: 53732
+    tags:
+      - Pioneer Square
+    geo:
+      lat: 47.6022204
+      lng: -122.3339432
+      osmType: way
+      osmId: 52781879
+  - name: westlake-park
+    friendlyname: "Westlake Park Events"
+    timezone: America/Los_Angeles
+    config:
+      venue_id: 53732
+    geo:
+      lat: 47.6109138
+      lng: -122.3369896
+      osmType: way
+      osmId: 8097291
   - name: occidental-square
     friendlyname: "Occidental Square Events"
     timezone: America/Los_Angeles
     config:
       venue_id: 53729
+    tags:
+      - Pioneer Square
+    geo:
+      lat: 47.6004770
+      lng: -122.3331470
+      osmType: way
+      osmId: 174692555
   - name: bell-street-park
     friendlyname: "Bell Street Park Events"
     timezone: America/Los_Angeles
     config:
       venue_id: 53974
+    tags:
+      - Belltown
     geo:
       lat: 47.6149
       lng: -122.3445
@@ -35,6 +58,8 @@ calendars:
     timezone: America/Los_Angeles
     config:
       venue_id: 56426
+    tags:
+      - Pike Place
     geo:
       lat: 47.6089
       lng: -122.3403
