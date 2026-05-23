@@ -207,6 +207,27 @@ export default class FryeArtMuseumRipper implements IRipper {
     }
 
     public parseDate(dateText: string): { year: number; month: number; day: number } | null {
+        // Handle date ranges with en/em-dash: "June 5–June 7, 2026" → use start date (June 5, 2026)
+        if (/[–—]/.test(dateText)) {
+            const yearMatch = dateText.match(/(\d{4})/);
+            const rangeYear = yearMatch ? parseInt(yearMatch[1], 10) : null;
+            const startPart = dateText.split(/[–—]/)[0].trim();
+            const startMatch = startPart.match(/^(\w+)\s+(\d{1,2})(?:,\s*(\d{4}))?$/);
+            if (!startMatch) return null;
+            const startMonth = MONTHS[startMatch[1]];
+            if (!startMonth) return null;
+            const startDay = parseInt(startMatch[2], 10);
+            const startYear = parseInt(startMatch[3] ?? '') || rangeYear;
+            if (startYear) return { year: startYear, month: startMonth, day: startDay };
+            // Year inference for ranges without an explicit year
+            const now = LocalDate.now();
+            let inferredYear = now.year();
+            try {
+                if (LocalDate.of(inferredYear, startMonth, startDay).isBefore(now.minusDays(7))) inferredYear += 1;
+            } catch { return null; }
+            return { year: inferredYear, month: startMonth, day: startDay };
+        }
+
         // Format: "February 22, 2026" or "February 22"
         const match = dateText.match(/^(\w+)\s+(\d{1,2})(?:,\s*(\d{4}))?$/);
         if (!match) return null;

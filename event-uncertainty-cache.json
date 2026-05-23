@@ -15766,9 +15766,9 @@
     "stg:tm-vvG1HZ_aKG45dD": {
       "unresolvable": true,
       "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-05-18",
+      "resolvedAt": "2026-05-23",
       "source": "agent",
-      "partialFingerprint": "1xe2czn"
+      "partialFingerprint": "1c72u3q"
     },
     "stg:tm-vvG1HZ_1Nra2vb": {
       "unresolvable": true,
@@ -18972,6 +18972,106 @@
       "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
       "resolvedAt": "2026-05-22",
       "source": "agent"
+    },
+    "mopop:mopop-sensory-friendly-days-2026-09-21": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "evidence": "https://www.mopop.org/events/sensory-friendly-days",
+      "partialFingerprint": "oi7shw"
+    },
+    "19hz:19hz-2026/06/13-The Pink Park Afters w/ Eru-O-Steve": {
+      "unresolvable": true,
+      "reason": "19hz listings do not publish end times; DICE event page returns 403",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "partialFingerprint": "1nbr2cm"
+    },
+    "19hz:19hz-2026/06/21-Ego Renegade": {
+      "unresolvable": true,
+      "reason": "19hz listings do not publish end times; Facebook event page does not expose scheduling details",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "partialFingerprint": "ast0e3"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47609": {
+      "unresolvable": true,
+      "reason": "Virtual self-directed event with participation window spanning May 16 - July 15; no fixed start time on June 9",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47609",
+      "partialFingerprint": "19o43qg"
+    },
+    "frye-art-museum:frye-3876": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 5400
+      },
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "evidence": "https://fryemuseum.org/calendar/event/summer-2026-exhibitions-weekend-celebration",
+      "partialFingerprint": "10bunu9"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_AJoHuxF": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "partialFingerprint": "1pfgnkb"
+    },
+    "stg:tm-vvG1HZ_1RnMXrD": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "partialFingerprint": "1pfgnkb"
+    },
+    "stg:tm-vvG1HZ_1RnyCLF": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "partialFingerprint": "175egd8"
+    },
+    "stg:tm-vvG1HZ_FEnxjGd": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "partialFingerprint": "1tn26u2"
+    },
+    "t-mobile-park:tm-vvG1HZbgRmg9GY": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "partialFingerprint": "184wxsq"
+    },
+    "t-mobile-park:tm-vvG1HZbM3CIptG": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; startTime also missing",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "partialFingerprint": "1wvk3a2"
+    },
+    "crocodile:tm-rZ7HnEZ1AfPeAK": {
+      "unresolvable": true,
+      "reason": "TicketWeb listing shows start time only (10pm); no end time published",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "evidence": "https://www.ticketweb.com/event/house-party-a-the-crocodile-tickets/14942153",
+      "partialFingerprint": "1d3z8ro"
+    },
+    "discover-slu:discover-slu-sofar-2026-2": {
+      "unresolvable": true,
+      "reason": "Event page lists start time (7:30pm) but no end time for the concert",
+      "resolvedAt": "2026-05-23",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/sofar-2026-2/",
+      "partialFingerprint": "a1o39u"
     }
   }
 }

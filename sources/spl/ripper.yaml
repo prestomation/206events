@@ -77,7 +77,6 @@ calendars:
   - name: international-district
     friendlyname: "SPL - International District/Chinatown Branch"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       branch: "International District/Chinatown Branch"
     tags: ["International District"]
@@ -138,6 +137,7 @@ calendars:
   - name: west-seattle
     friendlyname: "SPL - West Seattle Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       branch: "West Seattle Branch"
     tags: ["West Seattle"]

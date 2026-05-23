@@ -228,6 +228,14 @@ describe('FryeArtMuseumRipper', () => {
             expect(ripper.parseDate('invalid')).toBeNull();
         });
 
+        it('parses en-dash date range, returning start date', () => {
+            const ripper = new FryeArtMuseumRipper();
+            // Full month names on both sides
+            expect(ripper.parseDate('June 5–June 7, 2026')).toEqual({ year: 2026, month: 6, day: 5 });
+            // Day-only on the end side
+            expect(ripper.parseDate('June 5–7, 2026')).toEqual({ year: 2026, month: 6, day: 5 });
+        });
+
         it('parses all months correctly', () => {
             const ripper = new FryeArtMuseumRipper();
             const months = [

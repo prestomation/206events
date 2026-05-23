@@ -3,7 +3,6 @@ description: "Seattle Indian Health Board"
 url: "https://www.sihb.org/events/"
 friendlyLink: https://www.sihb.org/events/
 tags: ["Community"]
-expectEmpty: true
 geo: null
 calendars:
   - name: seattle-indian-health-board
