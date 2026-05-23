@@ -123,15 +123,26 @@ export default class SeattleShowlistsRipper implements IRipper {
 
         const jsShows: ShowlistEvent[] = JSON.parse(match[1]);
 
-        // Also extract HTML-only shows (data-venue="" items not present in the JS feed).
-        // Only merge shows for venues already in VENUE_CONFIG so we don't introduce
-        // unknown-venue ParseErrors for venues we haven't configured yet.
+        // Merge HTML-only venue data. The JS feed has data-venue="" shows with venueName: ''
+        // (empty). The HTML renders those same items with the real venue name in
+        // data-venue-title. Two cases to handle:
+        //   1. Show exists in JS with venueName '' → patch venueName from HTML.
+        //   2. Show exists only in HTML (not in JS at all) → add it if venue is in VENUE_CONFIG.
+        // Only patch/add for venues already in VENUE_CONFIG so we don't surface unknown-venue
+        // ParseErrors for venues we haven't configured yet.
         const htmlShows = this.extractHtmlShows(html);
-        const seenIds = new Set(jsShows.map(s => s.id));
+        const idToIndex = new Map(jsShows.map((s, i) => [s.id, i] as [number, number]));
         for (const show of htmlShows) {
-            if (!seenIds.has(show.id) && VENUE_CONFIG[show.venueName] !== undefined) {
+            if (VENUE_CONFIG[show.venueName] === undefined) continue;
+            const existingIdx = idToIndex.get(show.id);
+            if (existingIdx !== undefined) {
+                // Patch the empty-venueName JS entry with the real venue name from HTML.
+                if (!jsShows[existingIdx].venueName) {
+                    jsShows[existingIdx] = { ...jsShows[existingIdx], venueName: show.venueName };
+                }
+            } else {
                 jsShows.push(show);
-                seenIds.add(show.id);
+                idToIndex.set(show.id, jsShows.length - 1);
             }
         }
 

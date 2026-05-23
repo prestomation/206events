@@ -62,7 +62,7 @@ describe('SeattleShowlistsRipper', () => {
             expect(() => ripper.extractShowData(html)).toThrow('Could not find window.upcomingShows');
         });
 
-        it('should merge HTML-only shows for known venues', () => {
+        it('should add HTML-only shows not present in JS feed for known venues', () => {
             const html = `<html><head><script>
     window.upcomingShows = [{"date":"20260601","title":"JS Show","id":100,"venueName":"Europa"}];
   </script></head><body><ul>
@@ -84,7 +84,25 @@ describe('SeattleShowlistsRipper', () => {
             expect(shows[1].venueName).toBe('Georgetown Liquor Company');
         });
 
-        it('should not duplicate shows already in the JS feed', () => {
+        it('should patch empty venueName in JS data from HTML for known venues', () => {
+            // Real scenario: the JS feed has the show but with venueName: '' (empty).
+            // The HTML data-venue-title has the real venue name.
+            const html = `<html><head><script>
+    window.upcomingShows = [{"date":"20260523","title":"BUGS, Life Rips","id":972717,"venueName":""}];
+  </script></head><body><ul>
+    <li data-venue="" class="showlist-item" data-show-id="972717" data-show-date="20260523">
+      <a data-show-title="BUGS, Life Rips" href="https://glcseattle.com/events">BUGS, Life Rips</a>
+      <a class="venue-title" data-venue-title="Georgetown Liquor Company">Georgetown Liquor Company</a>
+    </li>
+  </ul></body></html>`;
+
+            const shows = ripper.extractShowData(html);
+            expect(shows).toHaveLength(1);
+            expect(shows[0].id).toBe(972717);
+            expect(shows[0].venueName).toBe('Georgetown Liquor Company');
+        });
+
+        it('should not overwrite non-empty venueName already in JS feed', () => {
             const html = `<html><head><script>
     window.upcomingShows = [{"date":"20260601","title":"Already There","id":200,"venueName":"Georgetown Liquor Company"}];
   </script></head><body><ul>
@@ -97,6 +115,7 @@ describe('SeattleShowlistsRipper', () => {
             const shows = ripper.extractShowData(html);
             expect(shows).toHaveLength(1);
             expect(shows[0].id).toBe(200);
+            expect(shows[0].venueName).toBe('Georgetown Liquor Company');
         });
     });
 
