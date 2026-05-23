@@ -93,11 +93,17 @@ Check `uncertaintyStats` and `uncertainEvents` in the build health output.
 ❓ Event uncertainty: 0 outstanding ✅
 ```
 
+Even when nothing is outstanding, run the prune step from
+`skills/event-uncertainty-resolver/SKILL.md` (step 5) so stale cache
+entries don't accumulate between resolver invocations. A single
+dry-run + apply pass is enough.
+
 **If outstanding entries exist:**
-Read `skills/event-uncertainty-resolver/SKILL.md` and follow it completely to resolve the outstanding uncertainty entries.
+Read `skills/event-uncertainty-resolver/SKILL.md` and follow it completely to resolve the outstanding uncertainty entries. The pruning step (5) runs as part of that workflow.
 
 After the event-uncertainty-resolver completes, include a uncertainty fix summary in your reply:
 - How many resolved vs. how many marked unresolvable
+- How many cache entries pruned (and by what reason)
 - Cumulative cache size after the run
 
 These are not build failures — they are todos for an LLM to investigate. The

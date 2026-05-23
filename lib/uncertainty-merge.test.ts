@@ -39,6 +39,7 @@ describe('applyUncertaintyResolutions', () => {
         expect(result.events).toEqual([event]);
         expect(result.errors).toEqual([]);
         expect(result.stats).toEqual({ resolved: 0, acknowledgedUnresolvable: 0, outstanding: 0 });
+        expect(result.touchedKeys).toEqual([]);
     });
 
     it('keeps the error and appends a pending note when the cache misses', () => {
@@ -54,6 +55,8 @@ describe('applyUncertaintyResolutions', () => {
         expect(result.errors).toEqual([err]);
         expect(result.stats.outstanding).toBe(1);
         expect(result.stats.resolved).toBe(0);
+        // No cache entry exists yet — nothing to stamp.
+        expect(result.touchedKeys).toEqual([]);
     });
 
     it('handles missing description gracefully when appending the pending note', () => {
@@ -87,6 +90,7 @@ describe('applyUncertaintyResolutions', () => {
         expect(result.events[0].date.zone().id()).toBe('America/Los_Angeles');
         expect(result.errors).toEqual([]);
         expect(result.stats.resolved).toBe(1);
+        expect(result.touchedKeys).toEqual(['events12:sample-event-2026-02-14']);
     });
 
     it('applies a resolved duration and location from the cache', () => {
@@ -131,6 +135,8 @@ describe('applyUncertaintyResolutions', () => {
         expect(result.errors).toEqual([]);
         expect(result.events[0].description).toContain('could not be verified');
         expect(result.stats.acknowledgedUnresolvable).toBe(1);
+        // Unresolvable entries are still entries — they need lastSeen too.
+        expect(result.touchedKeys).toEqual(['events12:sample-event-2026-02-14']);
     });
 
     it('preserves unrelated errors and unrelated events', () => {
@@ -198,5 +204,44 @@ describe('applyUncertaintyResolutions', () => {
         expect(result.events[0]).toEqual(event);
         expect(result.errors).toEqual([err]);
         expect(result.stats.outstanding).toBe(0);
+        expect(result.touchedKeys).toEqual([]);
+    });
+
+    it('reports touchedKeys for every resolved and unresolvable hit across many events', () => {
+        const eventA = makeEvent({ id: 'event-a' });
+        const eventB = makeEvent({ id: 'event-b' });
+        const eventC = makeEvent({ id: 'event-c' }); // miss — no cache entry
+        const errA = makeUncertainty(eventA, ['startTime']);
+        const errB = makeUncertainty(eventB, ['startTime']);
+        const errC = makeUncertainty(eventC, ['startTime']);
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'events12:event-a': {
+                    fields: { startTime: '19:00' },
+                    resolvedAt: '2026-05-17',
+                    source: 'agent',
+                },
+                'events12:event-b': {
+                    unresolvable: true,
+                    resolvedAt: '2026-05-17',
+                    source: 'agent',
+                },
+            },
+        };
+
+        const result = applyUncertaintyResolutions(
+            [eventA, eventB, eventC],
+            [errA, errB, errC],
+            cache,
+            'events12',
+        );
+
+        // Both the resolved and the unresolvable hits get stamped;
+        // the miss for event-c does not (no entry to stamp).
+        expect(result.touchedKeys.sort()).toEqual([
+            'events12:event-a',
+            'events12:event-b',
+        ]);
     });
 });

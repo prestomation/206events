@@ -392,6 +392,7 @@ export const main = async () => {
     acknowledgedUnresolvable: 0,
     outstanding: 0,
   };
+  const uncertaintyTouchedKeys = new Set<string>();
 
   try {
     // Create the output directory
@@ -616,6 +617,7 @@ export const main = async () => {
       uncertaintyTotals.resolved += merged.stats.resolved;
       uncertaintyTotals.acknowledgedUnresolvable += merged.stats.acknowledgedUnresolvable;
       uncertaintyTotals.outstanding += merged.stats.outstanding;
+      for (const key of merged.touchedKeys) uncertaintyTouchedKeys.add(key);
     }
   }
 
@@ -1128,10 +1130,19 @@ END:VCALENDAR`;
   // Save updated geo-cache
   await saveGeoCache(geoCache, 'geo-cache.json');
 
-  // Persist the uncertainty cache (currently a no-op in the build itself
-  // since rippers don't write to it — resolutions arrive via the
-  // event-uncertainty-resolver skill — but we round-trip so a future
-  // build-time writer wouldn't silently drop entries).
+  // Stamp lastSeen on every cache entry consulted by this build. The
+  // prune subcommand in skills/event-uncertainty-resolver/scripts/
+  // uncertainty-cache.py uses this to drop entries no longer touched
+  // by any ripper (the only signal that catches opaque-ID keys).
+  const today = LocalDate.now().toString();
+  for (const key of uncertaintyTouchedKeys) {
+    const entry = uncertaintyCache.entries[key];
+    if (entry) entry.lastSeen = today;
+  }
+
+  // Persist the uncertainty cache. Resolutions still arrive via the
+  // event-uncertainty-resolver skill, but we now also write lastSeen
+  // stamps on touched entries.
   await saveUncertaintyCache(uncertaintyCache, 'event-uncertainty-cache.json');
 
   const eventsIndexJson = JSON.stringify(eventsIndex);

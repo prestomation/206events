@@ -19,6 +19,11 @@ export interface UncertaintyCacheEntry {
     source: 'manual' | 'agent';
     evidence?: string;         // URL the resolver used to verify the values
     partialFingerprint?: string;
+    // ISO date YYYY-MM-DD of the most recent build that consulted this
+    // entry. Stamped by lib/calendar_ripper.ts after applyUncertaintyResolutions
+    // returns its touchedKeys. Absent on entries that predate this field;
+    // prune logic falls back to resolvedAt in that case.
+    lastSeen?: string;
 }
 
 export interface UncertaintyCache {

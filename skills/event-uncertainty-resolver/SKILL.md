@@ -70,7 +70,35 @@ Fingerprints carried by the `UncertaintyError` (the
 entry so it gets invalidated when the source data changes (e.g., when
 upstream finally posts a real time).
 
-### 5. Re-trigger the build
+### 5. Prune stale cache entries
+
+Run after every resolve pass so the cache stays the size of the actual
+work queue, not the historical work queue.
+
+```bash
+# Always start with --dry-run and review the breakdown.
+python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py prune \
+  --orphan-prefixes \
+  --date-in-key-older-than 7 \
+  --dry-run
+
+# Apply (uploads to S3).
+python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py prune \
+  --orphan-prefixes \
+  --date-in-key-older-than 7
+```
+
+The two flags above are safe on every run. **Hold off on
+`--lastseen-older-than`** until the build-time `lastSeen` stamp has had
+time to populate across multiple build cycles — adding it on day one
+would nuke entries that simply haven't been touched yet. From roughly
+30 days after the lastSeen feature lands, add `--lastseen-older-than 30`
+to the same invocation; it sweeps the opaque-ID tail (Ticketmaster
+etc.) that the date-in-key heuristic can't see.
+
+See the [flag reference](#prune-flag-reference) below for details.
+
+### 6. Re-trigger the build
 
 ```bash
 # (Requires the gh CLI when available; otherwise skip — the daily build
@@ -81,10 +109,11 @@ gh workflow run "Generate Calendars and Publish to GitHub Pages" --ref main
 After the build runs, fetch `https://206.events/build-errors.json` and
 verify the resolved entries no longer appear in `uncertainEvents`.
 
-### 6. Report results
+### 7. Report results
 
 In your reply, include:
 - Number resolved vs. marked unresolvable
+- Number of entries pruned (broken down by reason)
 - Remaining outstanding count
 - A few examples of fixed events (title, date, resolved field)
 
@@ -110,10 +139,35 @@ the source data fingerprint changes), so a bad entry sticks around
 displaying the wrong time on every build. Always cite the source page
 as `--evidence`, and prefer marking unresolvable over guessing.
 
+## Prune flag reference
+
+The `prune` subcommand has three independent, additive flags. Pass any
+combination; running with no flags prints help and exits.
+
+- `--orphan-prefixes` — drops entries whose `source:` prefix doesn't
+  match any current `name:` field under `sources/*/ripper.yaml` or
+  `sources/external/*.yaml`. Run from the repo root (or pass
+  `--repo-root PATH`). Catches entries left behind by source renames.
+- `--date-in-key-older-than DAYS` — drops entries whose key embeds a
+  parseable date (`YYYY-MM-DD`, `YYYY/MM/DD`, `YYYYMMDD`) older than
+  today − DAYS. Cheap; covers the common `events12:slug-2026-05-19`
+  shape. Skips opaque-ID keys like `climate-pledge-arena:tm-…`.
+- `--lastseen-older-than DAYS` — drops entries whose `lastSeen` (or
+  `resolvedAt` fallback) is older than today − DAYS. Covers
+  opaque-ID keys too: every build stamps `lastSeen` on entries it
+  consulted, so untouched entries naturally age out. **Don't enable
+  until the lastSeen feature has been live for ≥ DAYS days** — older
+  entries fall back to `resolvedAt`, which doesn't reflect recent
+  activity, so an early run would over-prune.
+
+`--dry-run` prints the deletion list grouped by reason without
+uploading; always use it before the real run.
+
 ## ⚠️ Never read event-uncertainty-cache.json directly into context
 
 The cache will grow with every resolution. Use the script's `stats`,
-`outstanding`, and `resolve` subcommands; never `cat` the whole file.
+`outstanding`, `resolve`, and `prune` subcommands; never `cat` the
+whole file.
 
 ## How this fits with build-report
 
