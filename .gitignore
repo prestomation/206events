@@ -9,3 +9,4 @@ newZeroEventSources.txt
 *.zip
 coverage/
 .channel-workspace.json
+__pycache__/
