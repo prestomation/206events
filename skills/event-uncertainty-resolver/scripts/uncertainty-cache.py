@@ -191,6 +191,13 @@ def collect_canonical_source_names(repo_root):
     """Read sources/*/ripper.yaml and external/*.yaml; return the set of canonical
     source-name prefixes (the `name:` field). External calendars are addressed by
     their own name as well, so we include both.
+
+    Intentionally parses by line scan instead of importing PyYAML — this script
+    runs in environments where the only guaranteed dependency is the Python
+    stdlib (boto3 via aws-cli subprocess, urllib for HTTP). The `name:` field
+    is always at the top of each YAML doc in this repo, so a line-level grep
+    is robust enough; if the convention ever drifts, this function will return
+    a smaller set and the dry-run breakdown will surface the regression.
     """
     names = set()
     for path in glob.glob(os.path.join(repo_root, "sources", "*", "ripper.yaml")):
@@ -284,7 +291,8 @@ def cmd_prune(args):
     for reason in to_remove.values():
         by_reason[reason] = by_reason.get(reason, 0) + 1
 
-    print(f"\nEntries to remove ({len(to_remove)}):")
+    label = "Entries marked for removal (dry-run)" if args.dry_run else "Entries to remove"
+    print(f"\n{label} ({len(to_remove)}):")
     for reason, n in sorted(by_reason.items(), key=lambda x: -x[1]):
         print(f"  - {reason}: {n}")
 
