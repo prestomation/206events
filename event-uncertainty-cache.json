@@ -19072,6 +19072,12 @@
       "source": "agent",
       "evidence": "https://www.discoverslu.com/events/sofar-2026-2/",
       "partialFingerprint": "a1o39u"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47610": {
+      "unresolvable": true,
+      "reason": "Virtual self-paced event \u2014 participants complete on their own time (May 16\u2013July 15); no fixed schedule",
+      "resolvedAt": "2026-05-23",
+      "source": "agent"
     }
   }
 }

@@ -121,7 +121,63 @@ export default class SeattleShowlistsRipper implements IRipper {
             throw new Error("Could not find window.upcomingShows data in page");
         }
 
-        return JSON.parse(match[1]);
+        const jsShows: ShowlistEvent[] = JSON.parse(match[1]);
+
+        // Merge HTML-only venue data. The JS feed has data-venue="" shows with venueName: ''
+        // (empty). The HTML renders those same items with the real venue name in
+        // data-venue-title. Two cases to handle:
+        //   1. Show exists in JS with venueName '' → patch venueName from HTML.
+        //   2. Show exists only in HTML (not in JS at all) → add it if venue is in VENUE_CONFIG.
+        // Only patch/add for venues already in VENUE_CONFIG so we don't surface unknown-venue
+        // ParseErrors for venues we haven't configured yet.
+        const htmlShows = this.extractHtmlShows(html);
+        const idToIndex = new Map(jsShows.map((s, i) => [s.id, i] as [number, number]));
+        for (const show of htmlShows) {
+            if (VENUE_CONFIG[show.venueName] === undefined) continue;
+            const existingIdx = idToIndex.get(show.id);
+            if (existingIdx !== undefined) {
+                // Patch the empty-venueName JS entry with the real venue name from HTML.
+                if (!jsShows[existingIdx].venueName) {
+                    jsShows[existingIdx] = { ...jsShows[existingIdx], venueName: show.venueName };
+                }
+            } else {
+                jsShows.push(show);
+                idToIndex.set(show.id, jsShows.length - 1);
+            }
+        }
+
+        return jsShows;
+    }
+
+    // Parse shows from HTML list items that have data-venue="" (venues not in the JS feed).
+    public extractHtmlShows(html: string): ShowlistEvent[] {
+        const shows: ShowlistEvent[] = [];
+        const liPattern = /<li[^>]+data-venue=""[^>]+data-show-id="(\d+)"[^>]+data-show-date="(\d{8})"[^>]*>([\s\S]*?)<\/li>/g;
+        let m: RegExpExecArray | null;
+        while ((m = liPattern.exec(html)) !== null) {
+            const [, idStr, date, inner] = m;
+            const titleMatch = inner.match(/data-show-title="([^"]*)"/);
+            const venueMatch = inner.match(/data-venue-title="([^"]+)"/);
+            if (titleMatch && venueMatch) {
+                shows.push({
+                    date,
+                    title: this.decodeHtmlEntities(titleMatch[1]),
+                    id: parseInt(idStr),
+                    venueName: venueMatch[1],
+                });
+            }
+        }
+        return shows;
+    }
+
+    private decodeHtmlEntities(s: string): string {
+        return s
+            .replace(/&amp;/g, '&')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'")
+            .replace(/&apos;/g, "'");
     }
 
     /** Detect venues in the data that aren't in VENUE_CONFIG so we know to update the map. */

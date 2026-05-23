@@ -61,6 +61,120 @@ describe('SeattleShowlistsRipper', () => {
             const html = '<html><body>No data here</body></html>';
             expect(() => ripper.extractShowData(html)).toThrow('Could not find window.upcomingShows');
         });
+
+        it('should add HTML-only shows not present in JS feed for known venues', () => {
+            const html = `<html><head><script>
+    window.upcomingShows = [{"date":"20260601","title":"JS Show","id":100,"venueName":"Europa"}];
+  </script></head><body><ul>
+    <li data-venue="" class="showlist-item" data-show-id="200" data-show-date="20260615">
+      <a data-show-title="GLC Show" href="https://glcseattle.com/events">GLC Show</a>
+      <a class="venue-title" data-venue-title="Georgetown Liquor Company">Georgetown Liquor Company</a>
+    </li>
+    <li data-venue="" class="showlist-item" data-show-id="300" data-show-date="20260620">
+      <a data-show-title="Unknown Venue Show" href="#">Unknown Venue Show</a>
+      <a class="venue-title" data-venue-title="Some Unknown Venue">Some Unknown Venue</a>
+    </li>
+  </ul></body></html>`;
+
+            const shows = ripper.extractShowData(html);
+            // JS show + GLC show (known venue), but not "Some Unknown Venue"
+            expect(shows).toHaveLength(2);
+            expect(shows[0].title).toBe('JS Show');
+            expect(shows[1].title).toBe('GLC Show');
+            expect(shows[1].venueName).toBe('Georgetown Liquor Company');
+        });
+
+        it('should patch empty venueName in JS data from HTML for known venues', () => {
+            // Real scenario: the JS feed has the show but with venueName: '' (empty).
+            // The HTML data-venue-title has the real venue name.
+            const html = `<html><head><script>
+    window.upcomingShows = [{"date":"20260523","title":"BUGS, Life Rips","id":972717,"venueName":""}];
+  </script></head><body><ul>
+    <li data-venue="" class="showlist-item" data-show-id="972717" data-show-date="20260523">
+      <a data-show-title="BUGS, Life Rips" href="https://glcseattle.com/events">BUGS, Life Rips</a>
+      <a class="venue-title" data-venue-title="Georgetown Liquor Company">Georgetown Liquor Company</a>
+    </li>
+  </ul></body></html>`;
+
+            const shows = ripper.extractShowData(html);
+            expect(shows).toHaveLength(1);
+            expect(shows[0].id).toBe(972717);
+            expect(shows[0].venueName).toBe('Georgetown Liquor Company');
+        });
+
+        it('should not overwrite non-empty venueName already in JS feed', () => {
+            const html = `<html><head><script>
+    window.upcomingShows = [{"date":"20260601","title":"Already There","id":200,"venueName":"Georgetown Liquor Company"}];
+  </script></head><body><ul>
+    <li data-venue="" class="showlist-item" data-show-id="200" data-show-date="20260601">
+      <a data-show-title="Already There" href="#">Already There</a>
+      <a class="venue-title" data-venue-title="Georgetown Liquor Company">Georgetown Liquor Company</a>
+    </li>
+  </ul></body></html>`;
+
+            const shows = ripper.extractShowData(html);
+            expect(shows).toHaveLength(1);
+            expect(shows[0].id).toBe(200);
+            expect(shows[0].venueName).toBe('Georgetown Liquor Company');
+        });
+    });
+
+    describe('extractHtmlShows', () => {
+        it('should parse shows from HTML list items with data-venue=""', () => {
+            const html = `<ul>
+  <li data-venue="" class="showlist-item" data-show-id="972717" data-show-date="20260523">
+    <a href="https://glcseattle.com/events" data-show-title="BUGS, Life Rips">BUGS, Life Rips</a>
+    <a class="venue-title" data-venue-title="Georgetown Liquor Company">Georgetown Liquor Company</a>
+  </li>
+</ul>`;
+            const shows = ripper.extractHtmlShows(html);
+            expect(shows).toHaveLength(1);
+            expect(shows[0].id).toBe(972717);
+            expect(shows[0].date).toBe('20260523');
+            expect(shows[0].title).toBe('BUGS, Life Rips');
+            expect(shows[0].venueName).toBe('Georgetown Liquor Company');
+        });
+
+        it('should decode HTML entities in titles', () => {
+            const html = `<ul>
+  <li data-venue="" class="showlist-item" data-show-id="1" data-show-date="20260601">
+    <a data-show-title="Joe Robinson &amp; Ernest Aines">Joe Robinson &amp; Ernest Aines</a>
+    <a class="venue-title" data-venue-title="Georgetown Liquor Company">Georgetown Liquor Company</a>
+  </li>
+</ul>`;
+            const shows = ripper.extractHtmlShows(html);
+            expect(shows).toHaveLength(1);
+            expect(shows[0].title).toBe('Joe Robinson & Ernest Aines');
+        });
+
+        it('should skip items missing show-title or venue-title', () => {
+            const html = `<ul>
+  <li data-venue="" class="showlist-item" data-show-id="1" data-show-date="20260601">
+    <a data-show-title="Show Without Venue">Show Without Venue</a>
+  </li>
+  <li data-venue="" class="showlist-item" data-show-id="2" data-show-date="20260601">
+    <a class="venue-title" data-venue-title="Georgetown Liquor Company">Georgetown Liquor Company</a>
+  </li>
+</ul>`;
+            const shows = ripper.extractHtmlShows(html);
+            expect(shows).toHaveLength(0);
+        });
+
+        it('should ignore regular showlist items (data-venue set)', () => {
+            const html = `<ul>
+  <li data-venue="Nectar Lounge" class="showlist-item" data-show-id="1" data-show-date="20260601">
+    <a data-show-title="Normal Show">Normal Show</a>
+    <a class="venue-title" data-venue-title="Nectar Lounge">Nectar Lounge</a>
+  </li>
+  <li data-venue="" class="showlist-item" data-show-id="2" data-show-date="20260601">
+    <a data-show-title="HTML Show">HTML Show</a>
+    <a class="venue-title" data-venue-title="Georgetown Liquor Company">Georgetown Liquor Company</a>
+  </li>
+</ul>`;
+            const shows = ripper.extractHtmlShows(html);
+            expect(shows).toHaveLength(1);
+            expect(shows[0].title).toBe('HTML Show');
+        });
     });
 
     describe('parseEvents', () => {
