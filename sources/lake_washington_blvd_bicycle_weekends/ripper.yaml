@@ -1,0 +1,16 @@
+name: lake-washington-blvd-bicycle-weekends
+description: "Lake Washington Boulevard Bicycle Weekends"
+url: "https://parkways.seattle.gov/2026/04/13/mayor-announces-bicycle-weekends-on-lake-washington-boulevard/"
+friendlyLink: https://www.seattle.gov/parks/parks/lake-washington-boulevard
+tags:
+  - Cycling
+  - Parks
+  - Seward Park
+geo:
+  lat: 47.566
+  lng: -122.2555
+  label: Lake Washington Boulevard, Seattle
+calendars:
+  - name: bicycle-weekends
+    friendlyname: "Lake Washington Blvd Bicycle Weekends"
+    timezone: America/Los_Angeles
