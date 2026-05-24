@@ -69,6 +69,7 @@ export const TAG_CATEGORIES = {
         'Nightlife',
         'OpenMic',
         'Pub Trivia',
+        'Running',
         'Sports',
         'Theatre',
         'Trivia',
