@@ -23,3 +23,12 @@ IP-reputation blocks).
 
 High value if unblocked (covers ~hundreds of Seattle events). Updated
 2026-05-07.
+
+**Per-location request: #397 (Magnuson Park Hangar 30)** — confirmed the
+same block (`HTTP 403, server: awselb/2.0`) for the Hangar 30 location
+page (`/seattle/locations/magnuson-park-hangar-30/l38287/`). Same
+mechanism, no separate fix possible. The issue author already noted
+this is a dup of the existing Everout candidate and suggested per-organizer
+sources (NW Mineralogical Society shows, beer/cider festivals, vintage
+markets) as a fallback path — those would need to be filed individually.
+Re-checked 2026-05-24.
