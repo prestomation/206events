@@ -1,0 +1,25 @@
+---
+name: "West Seattle Junction — Movies on the Wall"
+status: investigating
+platform: Custom HTML (unconfirmed)
+url: https://westseattlejunction.org/movies-on-the-wall/
+tags: [Movies, "West Seattle"]
+firstSeen: 2026-05-24
+lastChecked: 2026-05-24
+issue: 398
+---
+Free outdoor summer film series projected on the side of the West
+Seattle Junction Hi-Yu building, organized by the West Seattle
+Junction Association.
+
+Filed under #398 as one of the bundled neighborhood outdoor-movie
+series. As of 2026-05-24 the West Seattle Junction site was returning
+HTTP 503 to live fetches from Claude Code web, so a parser cannot be
+written against actual data. Per the source-discovery skill rule, an
+implementation written against an inaccessible URL is a guess — keep
+this as `investigating` until the site is reachable and we can
+confirm the listing format / whether a 2026 schedule has been posted.
+
+Next action: re-fetch `https://westseattlejunction.org/movies-on-the-wall/`
+in a future cycle and downgrade to `notviable` / upgrade to `candidate`
+based on what's there.

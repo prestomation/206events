@@ -1,0 +1,13 @@
+name: movies-at-the-mural
+description: "Movies at the Mural (Seattle Center)"
+url: "https://www.seattlecenter.com/events/featured-events/movies-at-the-mural"
+friendlyLink: https://www.seattlecenter.com/events/featured-events/movies-at-the-mural
+tags: ["Movies", "QueenAnne"]
+geo:
+  lat: 47.6224
+  lng: -122.353
+  label: "Mural Amphitheatre, Seattle Center, 305 Harrison St, Seattle, WA 98109"
+calendars:
+  - name: all-events
+    friendlyname: "Movies at the Mural"
+    timezone: America/Los_Angeles
