@@ -3,7 +3,7 @@ name: "Seattle Pro Musica"
 status: added
 firstSeen: 2026-05-14
 lastChecked: 2026-05-24
-pr: pending
+pr: 396
 ---
 **Seattle Pro Musica** — `https://www.seattlepromusica.org/calendar` — Squarespace — Tags: Music, Arts
 
