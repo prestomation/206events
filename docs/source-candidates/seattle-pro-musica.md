@@ -1,8 +1,9 @@
 ---
 name: "Seattle Pro Musica"
-status: investigating
+status: added
 firstSeen: 2026-05-14
-lastChecked: 2026-05-16
+lastChecked: 2026-05-24
+pr: pending
 ---
 **Seattle Pro Musica** — `https://www.seattlepromusica.org/calendar` — Squarespace — Tags: Music, Arts
 
@@ -20,3 +21,8 @@ Verified 2026-05-16:
 - **No upcoming events are currently on their site** — ensemble is between seasons
 - The `data.past` fallback in `SquarespaceRipper` was implemented (PR #318) and will pick up events when they post their next season
 - Re-evaluate when Seattle Pro Musica posts 2026–27 season events (typically August–September)
+
+Verified 2026-05-24:
+- `data.upcoming` now has 8 events! 2026-27 season posted.
+- Concerts: December (Bastyr Chapel + SFB Church), March (SFB Church), May (St. James Cathedral + Trinity Lutheran)
+- Implemented as `type: squarespace` in `sources/seattle_pro_musica/ripper.yaml` — `geo: null` (multi-venue touring ensemble)
