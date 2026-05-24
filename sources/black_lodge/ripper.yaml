@@ -8,6 +8,8 @@ geo:
   lat: 47.62295
   lng: -122.329458
   label: "The Black Lodge, 429 Eastlake Ave E, Seattle, WA 98109"
+  osmType: node
+  osmId: 2399978743
 calendars:
   - name: black-lodge
     friendlyname: "The Black Lodge"
