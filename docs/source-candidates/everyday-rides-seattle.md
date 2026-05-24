@@ -6,7 +6,7 @@ url: https://everydayrides.com/cities/seattle-wa
 tags: [Cycling]
 firstSeen: 2026-05-24
 lastChecked: 2026-05-24
-pr:
+pr: 393
 ---
 
 Free, community-powered calendar of Seattle-area cycling events.
