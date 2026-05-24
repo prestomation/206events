@@ -64,11 +64,16 @@ export function parseDoorsTime(bodyText: string): LocalTime | null {
 }
 
 // Pick the year for a (month, day) pair: use the soonest occurrence whose
-// date is not in the past relative to `now`'s local date.
-export function inferYear(month: number, day: number, now: ZonedDateTime): number {
-    const today = now.toLocalDate();
-    const thisYear = LocalDate.of(now.year(), month, day);
-    return thisYear.isBefore(today) ? now.year() + 1 : now.year();
+// date is not in the past relative to `now`'s local date. Returns null when
+// the (month, day) is not a real calendar date in either year (e.g. Feb 30).
+export function inferYear(month: number, day: number, now: ZonedDateTime): number | null {
+    try {
+        const today = now.toLocalDate();
+        const thisYear = LocalDate.of(now.year(), month, day);
+        return thisYear.isBefore(today) ? now.year() + 1 : now.year();
+    } catch {
+        return null;
+    }
 }
 
 function slugify(s: string): string {
@@ -106,7 +111,23 @@ export function parsePanel(
     const doorsTime = parseDoorsTime(bodyText) ?? LocalTime.of(19, 0);
 
     const year = inferYear(parsed.month, parsed.day, now);
-    const date = ZonedDateTime.of(LocalDate.of(year, parsed.month, parsed.day), doorsTime, zone);
+    if (year === null) {
+        return {
+            type: 'ParseError',
+            reason: `Invalid calendar date in heading: month=${parsed.month}, day=${parsed.day}`,
+            context: heading,
+        };
+    }
+    let date: ZonedDateTime;
+    try {
+        date = ZonedDateTime.of(LocalDate.of(year, parsed.month, parsed.day), doorsTime, zone);
+    } catch {
+        return {
+            type: 'ParseError',
+            reason: `Invalid calendar date: ${year}-${parsed.month}-${parsed.day}`,
+            context: heading,
+        };
+    }
 
     if (date.isBefore(now)) return null;
 

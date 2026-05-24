@@ -10,6 +10,7 @@ import {
     parseHeading,
     parseDoorsTime,
     inferYear,
+    parsePanel,
     parsePanelsFromHtml,
 } from './ripper.js';
 
@@ -91,6 +92,27 @@ describe('inferYear', () => {
 
     it('keeps the current year for today', () => {
         expect(inferYear(NOW.monthValue(), NOW.dayOfMonth(), NOW)).toBe(NOW.year());
+    });
+
+    it('returns null for an invalid calendar date (Feb 30)', () => {
+        expect(inferYear(2, 30, NOW)).toBeNull();
+    });
+
+    it('returns null for an invalid calendar date (Apr 31)', () => {
+        expect(inferYear(4, 31, NOW)).toBeNull();
+    });
+});
+
+describe('parsePanel invalid-date handling', () => {
+    it('returns ParseError when the heading parses but the date is impossible', () => {
+        const html = parse('<div class="fusion-panel">'
+            + '<span class="fusion-toggle-heading">Wednesday, Feb 30th: NEVERLAND</span>'
+            + '<div class="panel-body">Doors Open at: 7:00pm Movie starts at 9:00pm: NEVERLAND</div>'
+            + '</div>');
+        const panel = html.querySelector('.fusion-panel')!;
+        const result = parsePanel(panel, NOW, PACIFIC);
+        expect(result).not.toBeNull();
+        expect(result!).toHaveProperty('type', 'ParseError');
     });
 });
 
