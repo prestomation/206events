@@ -68,7 +68,8 @@ The steering file provides essential context for making informed decisions about
    landed (e.g. after addressing review comments).
 4. Open a Pull Request — the harness creates it as a **draft** by default; that's fine
 5. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
-6. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review:
+6. **Immediately post a top-level `/q review` comment** with the explicit feedback-ask template below — do **not** rely on Q's auto-review-on-PR-open. Q's first-pass review is submitted with `state: COMMENTED`, which sometimes doesn't trigger the PR-activity webhook, so the session sits idle waiting for a review that already landed. Posting an explicit `/q review` reliably wakes the session when Q replies. The same template applies on the first pass and every follow-up — see the "Re-review template" section below.
+7. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review:
    - If Q has **blocking comments**: address each one, push fixes, re-trigger Q (see re-review template below), and wait for Q's next pass
    - Once Q gives **all ✅** and all comments are confidently addressed, do the following **immediately, in the same turn** — do not wait for the build to finish first:
      a. Resolve all open review threads using `mcp__github__pull_request_review_write` with `method: resolve_thread` (requires the thread's `PRRT_...` node ID — see note below)
@@ -84,7 +85,14 @@ The steering file provides essential context for making informed decisions about
 
 **Note on resolving review threads:** `mcp__github__pull_request_review_write` with `resolve_thread` requires a `PRRT_...` GraphQL node ID. These IDs are not currently returned by `get_review_comments` — if you can't obtain the ID, skip this step and proceed; unresolved threads may block auto-merge, in which case fall back to direct merge.
 
-**After pushing follow-up commits to a PR, you MUST post a top-level PR comment that re-triggers Amazon Q with explicit feedback asks.** The bare `/q review` trigger has proven unreliable — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the new commits against the following dimensions:
+### Re-review template
+
+**On every push to a PR — both the initial push that opens the PR and every follow-up push — you MUST post a top-level PR comment that explicitly triggers Amazon Q with concrete feedback asks.** Two reasons it's not optional:
+
+1. **Webhook coverage gap on first pass.** Q's first-pass review submitted automatically when a PR opens is filed with `state: COMMENTED`, and that classification has been observed not to trigger a `<github-webhook-activity>` event. The session then sits waiting for a review that already landed (and that already has blocking inline comments). Posting an explicit `/q review` produces a separate top-level PR comment when Q replies, which reliably wakes the session.
+2. **Anchoring on stale commits.** Without an explicit re-review trigger after follow-up commits, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
+
+The bare `/q review` trigger has proven unreliable on its own — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the commits against the following dimensions:
 
 - Repository standards (conventions documented in AGENTS.md, CLAUDE.md, and `.kiro/steering.md`)
 - Correctness (logic bugs, edge cases, off-by-one, missing null checks)
@@ -98,7 +106,7 @@ Template:
 ```
 /q review
 
-Please re-review the latest commit(s) on this PR with feedback on:
+Please review (or re-review) this PR with feedback on:
 - Repository standards (AGENTS.md / CLAUDE.md / steering)
 - Correctness
 - Security
@@ -107,7 +115,7 @@ Please re-review the latest commit(s) on this PR with feedback on:
 - <any PR-specific area worth highlighting>
 ```
 
-Without an explicit re-review trigger, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
+Use the same template on the first push (immediately after opening the PR) and on every follow-up push.
 
 **After addressing a review comment**, reply to the thread with your reasoning (fix pushed or explanation of why no action is needed), then resolve the thread using `mcp__github__pull_request_review_write` with `method: resolve_thread`. Leaving threads open after they've been addressed creates noise and may block auto-merge.
 
