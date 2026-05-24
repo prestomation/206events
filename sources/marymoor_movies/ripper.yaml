@@ -1,0 +1,13 @@
+name: marymoor-movies
+description: "KeyBank Outdoor Movies at Marymoor Park"
+url: "https://www.epiceap.com/movies-at-marymoor/"
+friendlyLink: https://www.epiceap.com/movies-at-marymoor/
+tags: ["Movies"]
+geo:
+  lat: 47.6608
+  lng: -122.1186
+  label: "KeyBank Outdoor Movies at Marymoor Park, 6046 W Lake Sammamish Pkwy NE, Redmond, WA 98052"
+calendars:
+  - name: all-events
+    friendlyname: "Outdoor Movies at Marymoor Park"
+    timezone: America/Los_Angeles
