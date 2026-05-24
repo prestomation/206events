@@ -8,6 +8,8 @@ geo:
   lat: 47.5540
   lng: -122.3864
   label: "West Seattle Runner, 2743 California Ave SW, Seattle, WA 98116"
+  osmType: node
+  osmId: 9823557318
 calendars:
   - name: all-events
     friendlyname: "West Seattle Runner"
