@@ -1,21 +1,20 @@
 ---
 name: "Seattle Pride"
-status: candidate
-platform: Craft CMS
+status: added
+platform: Custom HTML
 url: https://seattlepride.org/events
-tags: [Community, Capitol Hill]
+tags: [Community]
 firstSeen: 2026-05-22
-lastChecked: 2026-05-22
+lastChecked: 2026-05-24
+pr: 1
 ---
 
-Seattle Pride organizes the annual Seattle Pride Parade (June 28, 2026) and related
-events throughout June including PrideFest, community events, and the Pride in the
-Park concert.
+Seattle Pride community event calendar for the LGBTQ+ community in Seattle and the
+broader Pacific Northwest. Aggregates Pride Month events including the annual Seattle
+Pride Parade (June 28, 2026), Pride in the Park, community events, and more.
 
-Investigated 2026-05-22:
-- Site uses Craft CMS (not a supported built-in type)
-- No ICS/iCal feed found
-- June-focused (Pride Month) with ~10 events listed for May–August 2026
-- Would require a custom HTML scraper for Craft CMS event listings
-- Low priority: annual festival with limited programming outside Pride Month
-- Re-evaluate when implementing seasonal/festival sources
+Implemented 2026-05-24:
+- Custom HTML ripper parsing `.wrap_card` divs from the events listing page
+- Fetches individual event detail pages for venue/address
+- 35 events scraped (May–August 2026), primarily Seattle-area LGBTQ+ events
+- Source: `sources/seattle_pride/`

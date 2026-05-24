@@ -1,0 +1,11 @@
+# verified: 2026-05-24 ok
+name: seattle-pride
+description: "Seattle Pride"
+url: "https://seattlepride.org/events"
+friendlyLink: "https://seattlepride.org/events"
+tags: ["Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Pride Events"
+    timezone: America/Los_Angeles
