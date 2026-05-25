@@ -49,15 +49,11 @@ describe('parseFestalDate', () => {
         expect(result).toEqual({ startYear: 2026, startMonth: 4, startDay: 10, durationHours: 24 });
     });
 
-    it('returns null for postponed entries', () => {
+    it('returns null for unrecognized format (postponed notice)', () => {
         expect(parseFestalDate('Festival Postponed. Date TBD', NOW)).toBeNull();
     });
 
-    it('returns null for TBD dates', () => {
-        expect(parseFestalDate('Date TBD', NOW)).toBeNull();
-    });
-
-    it('returns null for unrecognized format', () => {
+    it('returns null for unrecognized format (prose string)', () => {
         expect(parseFestalDate('Next summer sometime', NOW)).toBeNull();
     });
 

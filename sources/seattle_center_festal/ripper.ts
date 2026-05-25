@@ -52,7 +52,6 @@ export interface FestalDate {
 
 export function parseFestalDate(dateStr: string, now: ZonedDateTime): FestalDate | null {
     const s = dateStr.trim();
-    if (/postponed|tbd/i.test(s)) return null;
 
     // Cross-month range: "Oct 31-Nov 1" or "October 31-November 1, 2026"
     const crossMonthMatch = s.match(
@@ -65,7 +64,7 @@ export function parseFestalDate(dateStr: string, now: ZonedDateTime): FestalDate
         if (!startMonth || !endMonth) return null;
         const startDay = parseInt(d1Raw, 10);
         const endDay = parseInt(d2Raw, 10);
-        const startYear = yearStr ? parseInt(yearStr, 10) : (inferYear(startMonth, startDay, now) ?? 0);
+        const startYear = yearStr ? parseInt(yearStr, 10) : inferYear(startMonth, startDay, now);
         if (!startYear) return null;
         try {
             const endYear = endMonth < startMonth ? startYear + 1 : startYear;
@@ -88,7 +87,7 @@ export function parseFestalDate(dateStr: string, now: ZonedDateTime): FestalDate
         if (!startMonth) return null;
         const startDay = parseInt(d1Raw, 10);
         const endDay = parseInt(d2Raw, 10);
-        const startYear = yearStr ? parseInt(yearStr, 10) : (inferYear(startMonth, startDay, now) ?? 0);
+        const startYear = yearStr ? parseInt(yearStr, 10) : inferYear(startMonth, startDay, now);
         if (!startYear) return null;
         const days = endDay - startDay + 1;
         return { startYear, startMonth, startDay, durationHours: days * 8 };
@@ -101,7 +100,7 @@ export function parseFestalDate(dateStr: string, now: ZonedDateTime): FestalDate
         const startMonth = MONTHS[m.toLowerCase()];
         if (!startMonth) return null;
         const startDay = parseInt(dRaw, 10);
-        const startYear = yearStr ? parseInt(yearStr, 10) : (inferYear(startMonth, startDay, now) ?? 0);
+        const startYear = yearStr ? parseInt(yearStr, 10) : inferYear(startMonth, startDay, now);
         if (!startYear) return null;
         return { startYear, startMonth, startDay, durationHours: 8 };
     }
