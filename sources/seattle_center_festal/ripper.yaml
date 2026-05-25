@@ -7,6 +7,8 @@ geo:
   lat: 47.6205
   lng: -122.3493
   label: "Seattle Center, 305 Harrison St, Seattle, WA 98109"
+  osmType: way
+  osmId: 4755066
 calendars:
   - name: all-events
     friendlyname: "Seattle Center Festál"

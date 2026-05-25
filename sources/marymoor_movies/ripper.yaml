@@ -7,6 +7,8 @@ geo:
   lat: 47.6608
   lng: -122.1186
   label: "KeyBank Outdoor Movies at Marymoor Park, 6046 W Lake Sammamish Pkwy NE, Redmond, WA 98052"
+  osmType: relation
+  osmId: 6641326
 calendars:
   - name: all-events
     friendlyname: "Outdoor Movies at Marymoor Park"
