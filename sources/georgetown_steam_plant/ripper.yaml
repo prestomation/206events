@@ -1,0 +1,16 @@
+name: georgetown-steam-plant
+type: squarespace
+description: "Georgetown Steam Plant"
+url: "https://www.georgetownsteamplant.org/events"
+friendlyLink: https://www.georgetownsteamplant.org/events
+tags: ["Arts", "Community", "Georgetown"]
+geo:
+  lat: 47.5427907
+  lng: -122.3162649
+  label: "Georgetown Steam Plant, 6505 13th Ave S, Seattle, WA 98108"
+  osmType: way
+  osmId: 460348213
+calendars:
+  - name: all-events
+    friendlyname: "Georgetown Steam Plant"
+    timezone: America/Los_Angeles
