@@ -323,13 +323,6 @@
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/blue-man-group/"
     },
-    "events12:free-things-to-do-2026-05-17": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
     "events12:free-things-to-do-2026-05-18": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1925,13 +1918,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:taste-of-seattle-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
     },
     "events12:taste-of-seattle-2026-05-18": {
       "unresolvable": true,
@@ -4971,13 +4957,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-05-18": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -6196,13 +6175,6 @@
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
     },
-    "events12:sailboat-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
     "events12:sailboat-2026-05-18": {
       "unresolvable": true,
       "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
@@ -7371,13 +7343,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:baseball-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
     },
     "events12:baseball-2026-05-18": {
       "unresolvable": true,
@@ -11306,13 +11271,6 @@
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
     },
-    "events12:rugby-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
     "events12:rugby-2026-05-18": {
       "unresolvable": true,
       "reason": "Season-span listing across multiple dates; each home game has different start time",
@@ -11459,13 +11417,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:musical-cabaret-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
     },
     "events12:musical-cabaret-2026-05-18": {
       "unresolvable": true,
@@ -11818,51 +11769,6 @@
       "source": "agent",
       "evidence": "https://emeraldcitytrapeze.com/revolt-of-the-tails-celestial-circus/"
     },
-    "events12:uw-dance-show-2026-05-17": {
-      "fields": {
-        "startTime": "14:00",
-        "duration": 5400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://dance.washington.edu/events/2026-05-14/mfa-dance-concert-2026"
-    },
-    "events12:university-street-fair-2026-05-17": {
-      "fields": {
-        "startTime": "11:00",
-        "duration": 25200
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://udistrictseattle.com/streetfair"
-    },
-    "events12:powwow-2026-05-17": {
-      "fields": {
-        "startTime": "12:00",
-        "duration": 14400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.skagit.edu/powwow/"
-    },
-    "events12:norwegian-day-2026-05-17": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 7200
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://may17th.squarespace.com/"
-    },
-    "events12:south-sound-family-fair-2026-05-17": {
-      "fields": {
-        "startTime": "11:00",
-        "duration": 21600
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://laceyparks.org/funfair/"
-    },
     "events12:tacoma-museum-night-2026-05-21": {
       "fields": {
         "startTime": "16:00",
@@ -12048,41 +11954,6 @@
       "source": "agent",
       "evidence": "https://biteofgreeceseattle.com/"
     },
-    "events12:j-c-superstar-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Page did not return performance schedule",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.5thavenue.org/shows/2025-26/jesus-christ-superstar/"
-    },
-    "events12:opera-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Seattle Opera page returned only a loading screen",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattleopera.org/performances-events/carmen/"
-    },
-    "events12:gemstones-fossils-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Event page does not list specific opening hours",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://elementalendeavors.com/seattle-mineral-market"
-    },
-    "events12:viking-festival-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 daily schedule on separate page not accessible",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://vikingfest.org/"
-    },
-    "events12:seattle-film-festival-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Film festival homepage \u2014 individual screening times not listed; vary by program",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.siff.net/festival"
-    },
     "events12:art-walks-2026-05-21": {
       "unresolvable": true,
       "reason": "City art walk info page \u2014 individual neighborhood walk times not specified",
@@ -12153,13 +12024,6 @@
       "source": "agent",
       "evidence": "https://nwfolklife.org/festival/home.html"
     },
-    "events12:phantom-of-the-opera-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
     "events12:phantom-of-the-opera-2026-05-18": {
       "unresolvable": true,
       "reason": "Event page did not return performance schedule content",
@@ -12208,13 +12072,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:world-explorer-show-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Seattle Symphony page returned HTTP 403 \u2014 could not retrieve show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattlesymphony.org/en/benaroyahall/bh-calendar/2025-2026/25-nat-geo-6"
     },
     "events12:world-explorer-show-2026-05-18": {
       "unresolvable": true,
@@ -12299,13 +12156,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://fever.pxf.io/Kj6j5x"
-    },
-    "events12:jazz-wine-in-chelan-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 per-day schedules not listed; vary by performance",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.chelanwinejazz.com"
     },
     "events12:international-festival-2026-05-30": {
       "unresolvable": true,
@@ -13780,370 +13630,6 @@
       "source": "agent",
       "partialFingerprint": "vpuyjo"
     },
-    "discover_slu:discover-slu-honey-scavenger-hunt": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zjl33k"
-    },
-    "discover_slu:discover-slu-trivia-nights-at-king-leroy-3-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "iypwau"
-    },
-    "discover_slu:discover-slu-meet-greet-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zo9i9"
-    },
-    "discover_slu:discover-slu-van-gogh-night": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ucgtyb"
-    },
-    "discover_slu:discover-slu-spring-reset": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ucgtyb"
-    },
-    "discover_slu:discover-slu-history-cafe-field-notes": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "f8uq33"
-    },
-    "discover_slu:discover-slu-blood-drive-may-21": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1bz089k"
-    },
-    "discover_slu:discover-slu-bloom-in-sound": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qmlnqk"
-    },
-    "discover_slu:discover-slu-standard-matcha": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "16w23vf"
-    },
-    "discover_slu:discover-slu-photography-fundamentals": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1dj1o0u"
-    },
-    "discover_slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1u6hjz6"
-    },
-    "discover_slu:discover-slu-video-part-2-2026-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ojtgl4"
-    },
-    "discover_slu:discover-slu-cannon-beach": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1yvg5z7"
-    },
-    "discover_slu:discover-slu-aapi-owned-business-pop-up-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "lf6145"
-    },
-    "discover_slu:discover-slu-made-in-slu-event-2026": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "6dpf5k"
-    },
-    "discover_slu:discover-slu-guest-chef-night-reyes": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "19jxdqb"
-    },
-    "discover_slu:discover-slu-how-to-pack-a-backpack-workshop-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1o8bnyc"
-    },
-    "discover_slu:discover-slu-sofar-2026-2-3": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "3x99zc"
-    },
-    "discover_slu:discover-slu-spring-sunset-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "3g89w0"
-    },
-    "discover_slu:discover-slu-ripples-of-time": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1i5l4lk"
-    },
-    "discover_slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "feouim"
-    },
-    "discover_slu:discover-slu-wooden-boat-storytime-2026-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "u334qn"
-    },
-    "discover_slu:discover-slu-flow-state": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "u334qn"
-    },
-    "discover_slu:discover-slu-toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "18rhfbl"
-    },
-    "discover_slu:discover-slu-supper-fan-club-ww": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1klqkvf"
-    },
-    "discover_slu:discover-slu-galaxy-lighthouse": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1w14waz"
-    },
-    "discover_slu:discover-slu-made-in-slu-event-2026-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x88a51"
-    },
-    "discover_slu:discover-slu-sip-shop-social": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "l8s6ee"
-    },
-    "discover_slu:discover-slu-guest-chef-night-tinsley": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "wo6hty"
-    },
-    "discover_slu:discover-slu-jazzed-downbeat-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1be85u2"
-    },
-    "discover_slu:discover-slu-best-of-gage-2026": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "tf6j1h"
-    },
-    "discover_slu:discover-slu-seattle-dragon-boat-festival-2024-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dunmt3"
-    },
-    "discover_slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dwb0l6"
-    },
-    "discover_slu:discover-slu-photo-essentials-2-2026-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "f3rmhk"
-    },
-    "discover_slu:discover-slu-jazzed-jamboree-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "12hphc0"
-    },
-    "discover_slu:discover-slu-public-sail-2026-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "r28746"
-    },
-    "discover_slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "r28746"
-    },
-    "discover_slu:discover-slu-made-in-slu-event-2026-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1mjvgs8"
-    },
-    "discover_slu:discover-slu-guest-chef-night-tartaglia-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1ozfs3n"
-    },
-    "discover_slu:discover-slu-gobble-up-slu-2026": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "b2m8bs"
-    },
-    "discover_slu:discover-slu-boating-sunset": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "14fet4r"
-    },
-    "discover_slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1gdvdrd"
-    },
-    "discover_slu:discover-slu-wooden-boat-storytime-2026-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1v29nze"
-    },
-    "discover_slu:discover-slu-ease-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1v3x1rh"
-    },
-    "discover_slu:discover-slu-toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "apjwl8"
-    },
-    "discover_slu:discover-slu-video-fundamentals-1-2026-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ar7adb"
-    },
-    "discover_slu:discover-slu-tugboat-tuesdays-2026": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qjnb5h"
-    },
-    "discover_slu:discover-slu-made-in-slu-event-2026-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1w0fxvs"
-    },
-    "discover_slu:discover-slu-america-250-tour": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "120p0d4"
-    },
-    "discover_slu:discover-slu-guest-chef-night-murray": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "k1ndkj"
-    },
-    "discover_slu:discover-slu-summer-jazz-lab-performance": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "t8islb"
-    },
-    "discover_slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "b3pv0y"
-    },
     "lumen-field:tm-Z7r9jZ1A743f9": {
       "unresolvable": true,
       "reason": "Ticketmaster API does not expose event duration",
@@ -14276,496 +13762,6 @@
       "resolvedAt": "2026-05-18",
       "source": "agent",
       "partialFingerprint": "1jdzlpm"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46283": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "h4xgeb"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46284": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1m9xhl0"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46285": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "13xhhzu"
-    },
-    "seattle_center:seattle-storm-vs-connecticut": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1o8uaex"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46286": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "a1dh7f"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46287": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1f6die4"
-    },
-    "seattle_center:folklife-festival-2026": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1f6die4"
-    },
-    "seattle_center:seattle-storm-vs-connecticut-x46765": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "t4hbv"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46288": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "la9hlp"
-    },
-    "seattle_center:folklife-festival-2026-x47115": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "la9hlp"
-    },
-    "seattle_center:stars-on-ice-2026-tour": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "164dmrg"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46289": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1qf9ise"
-    },
-    "seattle_center:folklife-festival-2026-x47116": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1qf9ise"
-    },
-    "seattle_center:seattle-storm-vs-washington-x46766": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1oxureh"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46290": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "wj5hzz"
-    },
-    "seattle_center:folklife-festival-2026-x47117": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "wj5hzz"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46291": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "2n1h7k"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46292": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "17s1ie9"
-    },
-    "seattle_center:seattle-storm-vs-washington": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "o663cv"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46293": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dvxhlu"
-    },
-    "seattle_center:toyota-sotas-drive-tour-x47546": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dvxhlu"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46294": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1j0xisj"
-    },
-    "seattle_center:toyota-sotas-drive-tour-x47547": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1j0xisj"
-    },
-    "seattle_center:artists-at-the-center-stephcynie": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zrkc8x"
-    },
-    "seattle_center:all-lang-all-lang-performance-1": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1dwn64l"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46295": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "10ohj7d"
-    },
-    "seattle_center:toyota-sotas-drive-tour-x47548": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "10ohj7d"
-    },
-    "seattle_center:all-lang-x44648": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1xs0z9v"
-    },
-    "seattle_center:artists-at-the-center-oroki-productions": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "l8oy3b"
-    },
-    "seattle_center:all-lang-x44649": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zdrryz"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46296": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "6sdiey"
-    },
-    "seattle_center:yugioh-x47453": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "6sdiey"
-    },
-    "seattle_center:toyota-sotas-drive-tour": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "wz9lsn"
-    },
-    "seattle_center:california-repercussions-rock-seattle": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "33f5t5"
-    },
-    "seattle_center:artists-at-the-center-f-rock-inc": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "a621xx"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46297": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ok25c"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46298": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "15tk3c1"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46299": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "bxg2jm"
-    },
-    "seattle_center:seattle-storm-vs-phoenix": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "urdlts"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46300": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1h2g3qb"
-    },
-    "seattle_center:louis-tomlinson-how-did-we-get-here-world-tour": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "11ipa9"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46301": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "n6c2xw"
-    },
-    "seattle_center:all-lang": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1khuoli"
-    },
-    "seattle_center:pagdiriwang-philippine-festival": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1sbc44l"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46302": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1sbc44l"
-    },
-    "seattle_center:emerald-city-cardfest-x46943": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "120m7nc"
-    },
-    "seattle_center:all-lang-x47205": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1p68zcv"
-    },
-    "seattle_center:all-lang-x44651": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1p68zcv"
-    },
-    "seattle_center:all-lang-x44652": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qrzs1z"
-    },
-    "seattle_center:pagdiriwang-philippine-festival-web-use": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "yf83c6"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46303": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "yf83c6"
-    },
-    "seattle_center:emerald-city-cardfest": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8arb3t"
-    },
-    "seattle_center:all-lang-x44653": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1pci3lr"
-    },
-    "seattle_center:season-encore": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qy8wav"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46304": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "4j42jr"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46305": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "19o43qg"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46306": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rbo45a"
-    },
-    "seattle_center:seattle-storm-vs-los-angeles": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1f0oycc"
-    },
-    "seattle_center:lets-play-sea-26-armory-fan-experience-opening-day": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1wgo5bz"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46307": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1wgo5bz"
-    },
-    "seattle_center:the-play-that-goes-wrong-x44679": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zfwvoh"
-    },
-    "seattle_center:lets-play-sea-26-armory-fan-experience-x47236": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "12kk4jk"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46308": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "12kk4jk"
-    },
-    "seattle_center:the-play-that-goes-wrong-x44680": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "144b6fu"
-    },
-    "seattle_center:indigenous-people-festival-x47552": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "lh361p"
-    },
-    "seattle_center:seattle-storm-vs-golden-state-x46770": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1qm378e"
-    },
-    "seattle_center:the-play-that-goes-wrong-x44681": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "5q1z4y"
-    },
-    "seattle_center:lets-play-sea-26-kexp-gathering-space-fan-experience-x47530": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8og3r5"
-    },
-    "seattle_center:indigenous-people-festival": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8og3r5"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46309": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8og3r5"
     },
     "stg:tm-vvG1HZ_dps1lz2": {
       "unresolvable": true,
@@ -16690,76 +15686,6 @@
       "resolvedAt": "2026-05-18",
       "source": "agent",
       "partialFingerprint": "12ytpg"
-    },
-    "waterfront_park:waterfront-park-6878-202606011000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6884-202607211500": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"3 pm\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "xatm"
-    },
-    "waterfront_park:waterfront-park-6886-202608011000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6886-202608021000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6871-202608141000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6871-202608151000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6871-202608161000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6887-202608221200": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"12 pm\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rukws"
-    },
-    "waterfront_park:waterfront-park-6873-202608231200": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"12 pm\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rukws"
-    },
-    "waterfront_park:waterfront-park-6890-202609071500": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"3 pm\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "xatm"
     },
     "pacific-science-center:103791": {
       "fields": {
@@ -18704,6 +17630,2003 @@
       "resolvedAt": "2026-05-24",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
+    },
+    "events12:taste-of-pike-place-2026-05-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-05-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-05-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-05-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-05-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-05-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-05-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-06-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-09-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-10-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-11-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "events12:taste-of-pike-place-2026-12-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
+      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
+    },
+    "discover-slu:discover-slu-the-glow-lounge": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/the-glow-lounge/",
+      "partialFingerprint": "1lhv6iv"
+    },
+    "discover-slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source page shows only start time (10:00 AM), no end time listed",
+      "partialFingerprint": "6mzase"
+    },
+    "discover-slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source page shows only start time (10:00 AM), no end time listed",
+      "partialFingerprint": "1bbjjmq"
+    },
+    "discover-slu:discover-slu-monets-cottage": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Source page shows only start time (1:00 PM), no end time listed",
+      "partialFingerprint": "f9uidf"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47612": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Virtual 5K event; participants complete anytime between May 16-July 15; no specific start time",
+      "partialFingerprint": "12kk4jk"
+    },
+    "t-mobile-park:tm-vvG1HZbgRmUMGS": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Ticketmaster API does not expose game duration; source page inaccessible from WebFetch (certificate error)",
+      "partialFingerprint": "1p04iq7"
+    },
+    "t-mobile-park:tm-vvG1HZbM3CtJtO": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Ticketmaster listing has date only; source page inaccessible from WebFetch (certificate error)",
+      "partialFingerprint": "1wvk4rg"
+    },
+    "events12:party-at-uw-2026-05-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "u6ja39-until2026-05-01-tu"
+    },
+    "events12:restaurant-week-2026-05-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "yenqaf-until2026-05-02-tu"
+    },
+    "events12:restaurant-week-2026-05-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "yenqaf-until2026-05-02-tu"
+    },
+    "events12:irrigation-festival-2026-05-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:irrigation-festival-2026-05-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:irrigation-festival-2026-05-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:irrigation-festival-2026-05-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:irrigation-festival-2026-05-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:irrigation-festival-2026-05-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:irrigation-festival-2026-05-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:irrigation-festival-2026-05-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:irrigation-festival-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+    },
+    "events12:apple-blossom-festival-2026-05-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "cn1c1n-until2026-05-01-tu"
+    },
+    "events12:rowing-races-2026-05-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "131leh6-until2026-05-02-tu"
+    },
+    "events12:obstacle-race-2026-05-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "xtq4de-until2026-05-03-tu"
+    },
+    "events12:obstacle-race-2026-05-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "xtq4de-until2026-05-03-tu"
+    },
+    "events12:tacoma-races-2026-05-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "f1aajz-until2026-05-03-tu"
+    },
+    "events12:tacoma-races-2026-05-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "f1aajz-until2026-05-03-tu"
+    },
+    "events12:dancing-to-american-music-2026-05-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "extgje-until2026-05-09-tu"
+    },
+    "events12:dancing-to-american-music-2026-05-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "extgje-until2026-05-09-tu"
+    },
+    "events12:dancing-to-american-music-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "extgje-until2026-05-09-tu"
+    },
+    "events12:seattle-film-festival-2026-05-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:seattle-film-festival-2026-05-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "x74a3g-until2026-05-17-tu"
+    },
+    "events12:film-party-2026-05-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "dwodbe-until2026-05-08-tu"
+    },
+    "events12:wine-walk-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "stistc-until2026-05-09-tu"
+    },
+    "events12:run-in-the-u-district-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1djyvpq-until2026-05-09-tu"
+    },
+    "events12:annual-garage-sale-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "12vdvr3-until2026-05-09-tu"
+    },
+    "events12:edmonds-jazz-festival-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1cjtdy5-until2026-05-09-tu"
+    },
+    "events12:tasting-in-puyallup-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "k2ekxj-until2026-05-09-tu"
+    },
+    "events12:whidbey-island-festival-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1fwyp7x-until2026-05-09-tu"
+    },
+    "events12:mother-s-day-cruise-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "10nu6os-until2026-05-10-tu"
+    },
+    "events12:mother-s-day-cruise-2026-05-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "10nu6os-until2026-05-10-tu"
+    },
+    "events12:bavarian-festival-2026-05-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "16w38mi-until2026-05-10-tu"
+    },
+    "events12:bavarian-festival-2026-05-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "16w38mi-until2026-05-10-tu"
+    },
+    "events12:mother-s-day-restaurants-2026-05-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "gc2pin-until2026-05-10-tu"
+    },
+    "events12:eastside-wine-tasting-2026-05-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "9thdm1-until2026-05-14-tu"
+    },
+    "events12:uw-dance-show-2026-05-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1knmkco-until2026-05-17-tu"
+    },
+    "events12:uw-dance-show-2026-05-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1knmkco-until2026-05-17-tu"
+    },
+    "events12:uw-dance-show-2026-05-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1knmkco-until2026-05-17-tu"
+    },
+    "events12:jazz-wine-in-chelan-2026-05-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1n3i64g-until2026-05-17-tu"
+    },
+    "events12:jazz-wine-in-chelan-2026-05-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1n3i64g-until2026-05-17-tu"
+    },
+    "events12:jazz-wine-in-chelan-2026-05-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "1n3i64g-until2026-05-17-tu"
+    },
+    "events12:west-seattle-wine-tasting-2026-05-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "il1cx2-until2026-05-15-tu"
+    },
+    "events12:viking-festival-2026-05-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "116y8z2-until2026-05-17-tu"
+    },
+    "events12:viking-festival-2026-05-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "116y8z2-until2026-05-17-tu"
+    },
+    "events12:roller-derby-2026-05-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "t0locy-until2026-05-16-tu"
+    },
+    "events12:dragon-boats-in-tacoma-2026-05-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "ec443y-until2026-05-16-tu"
+    },
+    "events12:powwow-2026-05-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "13mtftz-until2026-05-17-tu"
+    },
+    "events12:soccer-2026-05-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-25",
+      "source": "agent",
+      "reason": "Past event; source provided date range only, no specific start time",
+      "partialFingerprint": "151l47d-until2026-05-16-tu"
     }
   }
 }

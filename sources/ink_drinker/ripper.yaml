@@ -14,3 +14,4 @@ calendars:
   - name: all-events
     friendlyname: "The Ink Drinker"
     timezone: America/Los_Angeles
+    expectEmpty: true

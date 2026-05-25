@@ -10,6 +10,8 @@ geo:
   lat: 47.566
   lng: -122.2555
   label: Lake Washington Boulevard, Seattle
+  osmType: relation
+  osmId: 5141519
 calendars:
   - name: bicycle-weekends
     friendlyname: "Lake Washington Blvd Bicycle Weekends"

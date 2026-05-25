@@ -7,6 +7,8 @@ geo:
   lat: 47.6224
   lng: -122.353
   label: "Mural Amphitheatre, Seattle Center, 305 Harrison St, Seattle, WA 98109"
+  osmType: way
+  osmId: 394282416
 calendars:
   - name: all-events
     friendlyname: "Movies at the Mural"
