@@ -19627,6 +19627,15 @@
       "source": "agent",
       "reason": "Past event; source provided date range only, no specific start time",
       "partialFingerprint": "151l47d-until2026-05-16-tu"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1AfP6AS": {
+      "status": "unresolvable",
+      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration; TicketWeb source page shows start time only (8:00 PM PDT), no end time listed.",
+      "unknownFields": [
+        "duration"
+      ],
+      "partialFingerprint": "1tn26u2"
     }
   }
 }
