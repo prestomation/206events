@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import SpectrumDanceRipper from './ripper.js';
 import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
 import { LocalDate, ZoneRegion } from '@js-joda/core';
@@ -180,23 +180,31 @@ describe('SpectrumDanceRipper', () => {
     });
 
     it('should parse real sample data', async () => {
-        const fs = await import('fs');
-        const path = await import('path');
-        const samplePath = path.join(new URL('.', import.meta.url).pathname, 'sample-data.json');
-        const raw = JSON.parse(fs.readFileSync(samplePath, 'utf8'));
-        const performancesByDate = raw.performancesByDateDisplay ?? {};
-        const performances: any[] = [];
-        for (const datePerfs of Object.values(performancesByDate) as any[][]) {
-            performances.push(...datePerfs);
+        // Sample dates are 05/20/2026–05/24/2026. Pin the clock so the
+        // parser's "skip past events" filter doesn't drop them once the
+        // calendar passes those dates.
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2026-05-01T12:00:00Z'));
+        try {
+            const fs = await import('fs');
+            const path = await import('path');
+            const samplePath = path.join(new URL('.', import.meta.url).pathname, 'sample-data.json');
+            const raw = JSON.parse(fs.readFileSync(samplePath, 'utf8'));
+            const performancesByDate = raw.performancesByDateDisplay ?? {};
+            const performances: any[] = [];
+            for (const datePerfs of Object.values(performancesByDate) as any[][]) {
+                performances.push(...datePerfs);
+            }
+
+            const events = ripper.parseEvents(performances, timezone);
+            const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+            const errors = events.filter(e => 'type' in e) as RipperError[];
+
+            expect(errors).toHaveLength(0);
+            expect(calEvents.length).toBeGreaterThan(0);
+            expect(calEvents[0].location).toContain('Spectrum Dance Theater');
+        } finally {
+            vi.useRealTimers();
         }
-
-        const events = ripper.parseEvents(performances, timezone);
-        const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
-        const errors = events.filter(e => 'type' in e) as RipperError[];
-
-        expect(errors).toHaveLength(0);
-        // All 5 performances are in May 2026 (future)
-        expect(calEvents.length).toBeGreaterThan(0);
-        expect(calEvents[0].location).toContain('Spectrum Dance Theater');
     });
 });

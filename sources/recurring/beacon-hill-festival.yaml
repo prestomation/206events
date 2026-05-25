@@ -1,0 +1,20 @@
+geo:
+  lat: 47.5682883
+  lng: -122.3103663
+  label: Jefferson Park
+  osmType: relation
+  osmId: 537386
+name: beacon-hill-festival
+friendlyname: Beacon Hill Festival
+description: Annual community festival hosted by Seattle Parks and Recreation at Jefferson Park on Beacon Hill. Live music, talent show, art walk, kite making, bounce houses, food trucks, and free pottery, painting, gardening, and self-defense classes.
+schedule: 1st Saturday
+months: [6]
+timezone: America/Los_Angeles
+duration: PT5H
+start_time: "11:00"
+location: Jefferson Park, 3801 Beacon Ave S, Seattle, WA 98108
+url: https://parkways.seattle.gov/?s=beacon+hill+festival
+tags:
+  - Community
+  - Beacon Hill
+  - Parks
