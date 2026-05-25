@@ -15,14 +15,6 @@ The same event scraped from multiple sources (e.g., a concert listed on both a v
 
 Add a `Comedy` tag to `lib/config/tags.ts` and implement rippers for Seattle comedy venues. Several are already documented in `docs/source-candidates.md` with confirmed Eventbrite organizer IDs. This would fill a clear content gap — comedy is one of the most popular event categories with no tag or dedicated sources today.
 
-## Seattle Center Festal — Recurring Cultural Festivals
-
-Seattle Center Festal is a series of 25 free cultural festivals running February through November, celebrating diverse communities. Add all 25 as recurring entries in `sources/recurring.yaml`. This would provide excellent multicultural event coverage with no scraping required.
-
-2026 schedule includes: Tet in Seattle (Feb), Irish Festival (Mar), French Fest (Mar), Cherry Blossom & Japanese Cultural Festival (Apr), AANHPI Heritage Month (May), A Glimpse of China (May), Spirit of Africa (May), Pagdiriwang Philippine Festival (Jun), Indigenous People Festival (Jun), Seattle Iranian Festival (Jun), Polish Festival (Jul), Seattle Arab Festival (Jul), A Day in Punjab (Aug), Tibet Fest (Aug), BrasilFest (Aug), Festival Sundiata / Black Arts Fest (Aug), Live Aloha Hawaiian Cultural Festival (Sep), Sea Mar Fiestas Patrias (Sep), Italian Festival (Sep), CroatiaFest (Oct), Turkfest (Oct), Dia de Muertos Festival (Oct-Nov), Diwali: Lights of India (Nov), Seattle Hmong New Year (Nov).
-
-Needs confirmation of exact dates each year — check https://www.seattlecenter.com/events/featured-events/festal annually.
-
 ## Columbia City Night Market — Monthly Recurring
 
 Held every third Saturday, 6-10 PM, year-round on 37th Ave S. Organized by Peace Peloton, features 60+ local vendors, food trucks, live music, and a beer garden. Prioritizes Black-owned businesses. Add as a recurring entry with schedule `"every third Saturday"`. Tags: Community, Food, Columbia City.
