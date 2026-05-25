@@ -12,8 +12,9 @@ through November each year. Each festival celebrates a distinct cultural
 community through music, dance, food, and art.
 
 Live fetch on 2026-05-25 confirmed the dedicated page returns all festivals
-with title, date, and description in a consistent `h3` / `p > strong` HTML
-structure. 15 upcoming festivals for the remainder of 2026.
+with title, date, and description in a consistent `h2.fifty-fifty__title` /
+`.fifty-fifty__content > b` HTML structure. 16 upcoming festivals for the
+remainder of 2026.
 
 Implemented as a custom HTML ripper that parses the featured-events page,
 handles same-month and cross-month date ranges, skips postponed entries, and
