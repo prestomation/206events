@@ -11,11 +11,24 @@ import { parseFestalDate, parseFestalSection, parseFestalFromHtml } from './ripp
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PACIFIC = ZoneId.of('America/Los_Angeles');
 
-// Fixed "now": May 25, 2026 noon Pacific — all 2026 Festál events after May are upcoming
+// Fixed "now": May 25, 2026 noon Pacific.
+// The May 22-25 Folklife festival ends at 7pm on May 25, so it's still active at noon.
 const NOW = ZonedDateTime.of(LocalDateTime.of(2026, 5, 25, 12, 0), PACIFIC);
 
 function loadSampleHtml() {
     return fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
+}
+
+// Helpers to build minimal HTML fragments matching the real page structure
+function makeFestalSection(href: string, title: string, dateText: string, desc = 'Description.') {
+    return (
+        '<div class="fifty-fifty__header">' +
+        `<h2 class="fifty-fifty__title"><a href="${href}">${title}</a></h2>` +
+        '</div>' +
+        '<div class="fifty-fifty__content">' +
+        `<b>${dateText}</b><br>${desc}` +
+        '</div>'
+    );
 }
 
 describe('parseFestalDate', () => {
@@ -25,30 +38,31 @@ describe('parseFestalDate', () => {
         expect(result).toEqual({ startYear: 2026, startMonth: 5, startDay: 22, durationHours: 80 });
     });
 
-    it('parses a same-month 2-day range without year', () => {
+    it('parses a same-month 2-day range with explicit year', () => {
         // 2 days: (2-1)*24+8 = 32h, spanning Jun 6 11am → Jun 7 7pm
-        const result = parseFestalDate('Jun 6-7', NOW);
+        const result = parseFestalDate('June 6-7, 2026', NOW);
         expect(result).toEqual({ startYear: 2026, startMonth: 6, startDay: 6, durationHours: 32 });
     });
 
-    it('parses a single day without year', () => {
-        const result = parseFestalDate('Jun 13', NOW);
+    it('parses a single day with explicit year', () => {
+        const result = parseFestalDate('June 13, 2026', NOW);
         expect(result).toEqual({ startYear: 2026, startMonth: 6, startDay: 13, durationHours: 8 });
     });
 
-    it('parses a single day with explicit year', () => {
-        const result = parseFestalDate('Jul 11, 2026', NOW);
+    it('parses a single day abbreviated month without year', () => {
+        const result = parseFestalDate('Jul 11', NOW);
         expect(result).toEqual({ startYear: 2026, startMonth: 7, startDay: 11, durationHours: 8 });
     });
 
-    it('parses a cross-month range (Oct 31-Nov 1)', () => {
-        // 2 days: (2-1)*24+8 = 32h, spanning Oct 31 11am → Nov 1 7pm
-        const result = parseFestalDate('Oct 31-Nov 1', NOW);
+    it('parses a cross-month range with spaces and year (real page format)', () => {
+        // "October 31 - November 1, 2026" — live page uses spaces around the hyphen
+        // 2 days: (2-1)*24+8 = 32h
+        const result = parseFestalDate('October 31 - November 1, 2026', NOW);
         expect(result).toEqual({ startYear: 2026, startMonth: 10, startDay: 31, durationHours: 32 });
     });
 
     it('parses a 3-day same-month range', () => {
-        // 3 days: (3-1)*24+8 = 56h, spanning Apr 10 11am → Apr 12 7pm
+        // 3 days: (3-1)*24+8 = 56h
         const result = parseFestalDate('Apr 10-12, 2026', NOW);
         expect(result).toEqual({ startYear: 2026, startMonth: 4, startDay: 10, durationHours: 56 });
     });
@@ -69,75 +83,73 @@ describe('parseFestalDate', () => {
 });
 
 describe('parseFestalSection', () => {
-    it('returns null for an h3 with no anchor', () => {
-        const html = parse('<div><h3>No anchor here</h3><p><strong>Jun 6-7</strong><br>Desc.</p></div>');
-        const h3 = html.querySelector('h3')!;
-        expect(parseFestalSection(h3, NOW, PACIFIC)).toBeNull();
+    it('returns null for a PDF link (intro section)', () => {
+        const html = parse(makeFestalSection('/Documents/schedule.pdf', 'Festál: History', 'General info text'));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
+        expect(parseFestalSection(h2, NOW, PACIFIC)).toBeNull();
+    });
+
+    it('returns null for an external link', () => {
+        const html = parse(makeFestalSection('https://example.com/', 'Podcast', 'Listen now'));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
+        expect(parseFestalSection(h2, NOW, PACIFIC)).toBeNull();
     });
 
     it('returns null for a postponed festival', () => {
-        const html = parse(
-            '<div>' +
-            '<h3><a href="/events/festivals/test">Test Festival</a></h3>' +
-            '<p><strong>Festival Postponed. Date TBD</strong><br>Description.</p>' +
-            '</div>'
-        );
-        const h3 = html.querySelector('h3')!;
-        expect(parseFestalSection(h3, NOW, PACIFIC)).toBeNull();
+        const html = parse(makeFestalSection(
+            '/events/featured-events/festal/iranian',
+            'Seattle Iranian Festival',
+            'Festival Postponed. Date TBD'
+        ));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
+        expect(parseFestalSection(h2, NOW, PACIFIC)).toBeNull();
+    });
+
+    it('returns null for an intro section with non-date bold text', () => {
+        const html = parse(makeFestalSection(
+            '/Documents/2026_schedule.pdf',
+            'Festál: Nearly Three Decades',
+            'Visit the festival pages listed below for more information.'
+        ));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
+        expect(parseFestalSection(h2, NOW, PACIFIC)).toBeNull();
     });
 
     it('returns null for a fully past event', () => {
-        const html = parse(
-            '<div>' +
-            '<h3><a href="/events/festivals/folklife">Northwest Folklife Festival</a></h3>' +
-            '<p><strong>May 22-25, 2026</strong><br>Description.</p>' +
-            '</div>'
-        );
-        const h3 = html.querySelector('h3')!;
-        // May 22-25 ends at 7pm on May 25; NOW is May 26 noon — fully past
+        const html = parse(makeFestalSection(
+            '/events/festivals/northwest-folklife',
+            'Northwest Folklife Festival',
+            'May 22-25, 2026'
+        ));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
+        // May 22-25 ends at 7pm on May 25; May 26 noon is fully past
         const afterFestival = ZonedDateTime.of(LocalDateTime.of(2026, 5, 26, 12, 0), PACIFIC);
-        expect(parseFestalSection(h3, afterFestival, PACIFIC)).toBeNull();
+        expect(parseFestalSection(h2, afterFestival, PACIFIC)).toBeNull();
     });
 
-    it('keeps a multi-day event that started before now but has not yet ended', () => {
-        const html = parse(
-            '<div>' +
-            '<h3><a href="/events/festivals/folklife">Northwest Folklife Festival</a></h3>' +
-            '<p><strong>May 22-25, 2026</strong><br>Description.</p>' +
-            '</div>'
-        );
-        const h3 = html.querySelector('h3')!;
+    it('keeps a multi-day event still in progress on its last day', () => {
+        const html = parse(makeFestalSection(
+            '/events/festivals/northwest-folklife',
+            'Northwest Folklife Festival',
+            'May 22-25, 2026'
+        ));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
         // May 22-25 ends at 7pm on May 25; noon on May 25 is still during the festival
-        expect(parseFestalSection(h3, NOW, PACIFIC)).not.toBeNull();
-        const result = parseFestalSection(h3, NOW, PACIFIC);
-        expect(result).toHaveProperty('date');
-    });
-
-    it('returns ParseError for an unrecognizable date', () => {
-        const html = parse(
-            '<div>' +
-            '<h3><a href="/events/festivals/test">Test Festival</a></h3>' +
-            '<p><strong>Sometime in the future</strong><br>Description.</p>' +
-            '</div>'
-        );
-        const h3 = html.querySelector('h3')!;
-        const result = parseFestalSection(h3, NOW, PACIFIC);
+        const result = parseFestalSection(h2, NOW, PACIFIC);
         expect(result).not.toBeNull();
-        expect(result).toHaveProperty('type', 'ParseError');
+        expect(result).toHaveProperty('date');
     });
 
     it('parses a valid future single-day festival', () => {
-        const html = parse(
-            '<div>' +
-            '<h3><a href="/events/featured-events/festal/indigenous">Indigenous People Festival</a></h3>' +
-            '<p><strong>Jun 13</strong><br>Traditional music and dance.</p>' +
-            '</div>'
-        );
-        const h3 = html.querySelector('h3')!;
-        const result = parseFestalSection(h3, NOW, PACIFIC);
+        const html = parse(makeFestalSection(
+            '/events/featured-events/festal/indigenous-people-festival',
+            'Indigenous People Festival',
+            'June 13, 2026'
+        ));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
+        const result = parseFestalSection(h2, NOW, PACIFIC);
         expect(result).not.toBeNull();
-        expect(result).toHaveProperty('date');
-        if (!('date' in result!)) return;
+        if (!result || !('date' in result)) return;
         expect(result.date.monthValue()).toBe(6);
         expect(result.date.dayOfMonth()).toBe(13);
         expect(result.date.hour()).toBe(11);
@@ -145,41 +157,40 @@ describe('parseFestalSection', () => {
         expect(result.summary).toBe('Indigenous People Festival');
     });
 
-    it('builds absolute URLs for relative hrefs', () => {
-        const html = parse(
-            '<div>' +
-            '<h3><a href="/events/festivals/folklife">Northwest Folklife</a></h3>' +
-            '<p><strong>Jun 20</strong><br>Desc.</p>' +
-            '</div>'
-        );
-        const h3 = html.querySelector('h3')!;
-        const result = parseFestalSection(h3, NOW, PACIFIC);
+    it('builds absolute URLs from relative hrefs', () => {
+        const html = parse(makeFestalSection(
+            '/events/featured-events/festal/pagdiriwang-philippine-festival',
+            'Pagdiriwang Philippine Festival',
+            'June 6-7, 2026'
+        ));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
+        const result = parseFestalSection(h2, NOW, PACIFIC);
         if (!result || !('date' in result)) return;
-        expect(result.url).toBe('https://www.seattlecenter.com/events/festivals/folklife');
+        expect(result.url).toBe('https://www.seattlecenter.com/events/featured-events/festal/pagdiriwang-philippine-festival');
     });
 
     it('generates a stable ID from year, month, day, and title', () => {
-        const html = parse(
-            '<div>' +
-            '<h3><a href="/events/festivals/test">Pagdiriwang Philippine Festival</a></h3>' +
-            '<p><strong>Jun 6-7</strong><br>Desc.</p>' +
-            '</div>'
-        );
-        const h3 = html.querySelector('h3')!;
-        const result = parseFestalSection(h3, NOW, PACIFIC);
+        const html = parse(makeFestalSection(
+            '/events/featured-events/festal/pagdiriwang-philippine-festival',
+            'Pagdiriwang Philippine Festival',
+            'June 6-7, 2026'
+        ));
+        const h2 = html.querySelector('h2.fifty-fifty__title')!;
+        const result = parseFestalSection(h2, NOW, PACIFIC);
         if (!result || !('date' in result)) return;
         expect(result.id).toBe('seattle-center-festal-2026-06-06-pagdiriwang-philippine-festival');
     });
 });
 
 describe('parseFestalFromHtml (integration)', () => {
-    it('extracts 4 events from sample data at noon on the last day of a multi-day festival', () => {
+    it('extracts 4 events: Northwest Folklife still running + 3 future festivals', () => {
         const html = parse(loadSampleHtml());
         const { events, errors } = parseFestalFromHtml(html, NOW, PACIFIC);
         expect(errors).toHaveLength(0);
-        // 4 events: Northwest Folklife (still running — ends May 25 7pm, NOW is noon),
-        //           Pagdiriwang (Jun 6-7), Indigenous People (Jun 13), Día de Muertos (Oct 31-Nov 1)
-        // Skipped: Iranian Festival (postponed)
+        // 4 events: Northwest Folklife (ends May 25 7pm, NOW is noon),
+        //           Pagdiriwang (Jun 6-7), Indigenous People (Jun 13),
+        //           Día de Muertos (Oct 31-Nov 1)
+        // Skipped: PDF intro, Iranian Festival (postponed), external podcast link
         expect(events).toHaveLength(4);
     });
 
@@ -189,24 +200,29 @@ describe('parseFestalFromHtml (integration)', () => {
         const { events } = parseFestalFromHtml(html, afterFestival, PACIFIC);
         const titles = events.map(e => e.summary);
         expect(titles).not.toContain('Northwest Folklife Festival');
-        expect(events).toHaveLength(3); // only the 3 future events remain
+        expect(events).toHaveLength(3);
     });
 
     it('skips the postponed Iranian Festival', () => {
         const html = parse(loadSampleHtml());
         const { events } = parseFestalFromHtml(html, NOW, PACIFIC);
-        const titles = events.map(e => e.summary);
-        expect(titles).not.toContain('Seattle Iranian Festival');
+        expect(events.map(e => e.summary)).not.toContain('Seattle Iranian Festival');
     });
 
-    it('sets correct duration for a 2-day festival (spans 11am day-1 to 7pm day-2)', () => {
+    it('skips the PDF intro section', () => {
+        const html = parse(loadSampleHtml());
+        const { events } = parseFestalFromHtml(html, NOW, PACIFIC);
+        expect(events.map(e => e.summary)).not.toContain('Festál: Nearly Three Decades & Still Going Strong');
+    });
+
+    it('sets correct duration for a 2-day festival (Jun 6-7: 32h)', () => {
         const html = parse(loadSampleHtml());
         const { events } = parseFestalFromHtml(html, NOW, PACIFIC);
         const pagdiriwang = events.find(e => e.summary === 'Pagdiriwang Philippine Festival')!;
         expect(pagdiriwang.duration.toHours()).toBe(32); // (2-1)*24+8 = 32h
     });
 
-    it('sets correct duration for a cross-month festival (Oct 31-Nov 1)', () => {
+    it('sets correct duration for cross-month festival (Oct 31-Nov 1: 32h)', () => {
         const html = parse(loadSampleHtml());
         const { events } = parseFestalFromHtml(html, NOW, PACIFIC);
         const diadeMuertos = events.find(e => e.summary.includes('Muertos'))!;
@@ -215,7 +231,7 @@ describe('parseFestalFromHtml (integration)', () => {
         expect(diadeMuertos.date.dayOfMonth()).toBe(31);
     });
 
-    it('sets the Seattle Center as default location', () => {
+    it('all events have Seattle Center as their location', () => {
         const html = parse(loadSampleHtml());
         const { events } = parseFestalFromHtml(html, NOW, PACIFIC);
         for (const event of events) {

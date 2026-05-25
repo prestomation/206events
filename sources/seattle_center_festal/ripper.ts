@@ -110,41 +110,38 @@ export function parseFestalDate(dateStr: string, now: ZonedDateTime): FestalDate
     return null;
 }
 
+// h2 is an h2.fifty-fifty__title element; its parent is .fifty-fifty__header,
+// whose next sibling is .fifty-fifty__content containing the <b> date.
 export function parseFestalSection(
-    h3: HTMLElement,
+    h2: HTMLElement,
     now: ZonedDateTime,
     zone: ZoneId
 ): RipperCalendarEvent | ParseError | null {
-    const anchor = h3.querySelector('a');
+    const anchor = h2.querySelector('a');
     if (!anchor) return null;
+
+    const href = anchor.getAttribute('href') ?? '';
+    // Skip PDFs, external links, and non-festival page entries
+    if (!href || href.endsWith('.pdf') || /^https?:\/\//i.test(href)) return null;
 
     const title = decode(anchor.textContent).replace(/\s+/g, ' ').trim();
     if (!title) return null;
 
-    const href = anchor.getAttribute('href') ?? undefined;
-    const url = href ? absolutize(href) : undefined;
+    const url = absolutize(href);
 
-    // Walk forward to the next <p> sibling
-    let sibling = h3.nextElementSibling;
-    while (sibling && sibling.tagName.toLowerCase() !== 'p') {
-        sibling = sibling.nextElementSibling;
-    }
-    if (!sibling) return null;
+    // h2 is inside .fifty-fifty__header; content is in the next sibling div
+    const contentDiv = h2.parentNode?.nextElementSibling;
+    if (!contentDiv) return null;
 
-    const strong = sibling.querySelector('strong');
-    if (!strong) return null;
-    const dateStr = decode(strong.textContent).replace(/\s+/g, ' ').trim();
+    const bold = contentDiv.querySelector('b');
+    if (!bold) return null;
+    const dateStr = decode(bold.textContent).replace(/\s+/g, ' ').trim();
 
-    if (/postponed|tbd/i.test(dateStr)) return null;
+    if (/postponed/i.test(dateStr)) return null;
 
     const parsed = parseFestalDate(dateStr, now);
-    if (!parsed) {
-        return {
-            type: 'ParseError',
-            reason: `Could not parse Festál date: "${dateStr}"`,
-            context: title,
-        };
-    }
+    // Return null (not ParseError) for entries with non-date bold text (e.g. intro sections)
+    if (!parsed) return null;
 
     let startDate: ZonedDateTime;
     try {
@@ -164,8 +161,8 @@ export function parseFestalSection(
     const endDate = startDate.plus(Duration.ofHours(parsed.durationHours));
     if (endDate.isBefore(now)) return null;
 
-    const paraText = decode(sibling.textContent).replace(/\s+/g, ' ').trim();
-    const description = paraText.replace(dateStr, '').replace(/^\s*[,.\s]+/, '').trim() || undefined;
+    const contentText = decode(contentDiv.textContent).replace(/\s+/g, ' ').trim();
+    const description = contentText.replace(dateStr, '').replace(/^\s*[,.\s]+/, '').trim() || undefined;
 
     const mm = String(parsed.startMonth).padStart(2, '0');
     const dd = String(parsed.startDay).padStart(2, '0');
@@ -190,8 +187,8 @@ export function parseFestalFromHtml(
     const events: RipperCalendarEvent[] = [];
     const errors: ParseError[] = [];
 
-    for (const h3 of html.querySelectorAll('h3')) {
-        const result = parseFestalSection(h3, now, zone);
+    for (const h2 of html.querySelectorAll('h2.fifty-fifty__title')) {
+        const result = parseFestalSection(h2, now, zone);
         if (result === null) continue;
         if ('date' in result) events.push(result);
         else errors.push(result);
