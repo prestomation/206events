@@ -1,0 +1,13 @@
+name: seattle-center-festal
+description: "Seattle Center Festál"
+url: "https://www.seattlecenter.com/events/featured-events/festal"
+friendlyLink: https://www.seattlecenter.com/events/featured-events/festal
+tags: ["Community", "Arts", "QueenAnne"]
+geo:
+  lat: 47.6205
+  lng: -122.3493
+  label: "Seattle Center, 305 Harrison St, Seattle, WA 98109"
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Center Festál"
+    timezone: America/Los_Angeles
