@@ -1,11 +1,12 @@
+# verified: 2026-05-25 drift-fixed (start_time 18:00→12:00, duration PT4H→PT9H)
 geo: null
 name: georgetown-artwalk
 friendlyname: Georgetown Art Attack
 description: Monthly art walk in the Georgetown neighborhood
 schedule: 2nd Saturday
 timezone: America/Los_Angeles
-duration: PT4H
-start_time: 18:00
+duration: PT9H
+start_time: "12:00"
 location: Georgetown neighborhood, Seattle
 url: https://georgetownseattle.org/art-attack/
 tags:
