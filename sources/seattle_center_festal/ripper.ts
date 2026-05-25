@@ -71,7 +71,8 @@ export function parseFestalDate(dateStr: string, now: ZonedDateTime): FestalDate
             const startLD = LocalDate.of(startYear, startMonth, startDay);
             const endLD = LocalDate.of(endYear, endMonth, endDay);
             const days = startLD.until(endLD, ChronoUnit.DAYS) + 1;
-            return { startYear, startMonth, startDay, durationHours: days * 8 };
+            // Span from 11am on day 1 to 7pm on last day: (days-1)*24h + 8h
+            return { startYear, startMonth, startDay, durationHours: (days - 1) * 24 + 8 };
         } catch {
             return null;
         }
@@ -90,7 +91,8 @@ export function parseFestalDate(dateStr: string, now: ZonedDateTime): FestalDate
         const startYear = yearStr ? parseInt(yearStr, 10) : inferYear(startMonth, startDay, now);
         if (!startYear) return null;
         const days = endDay - startDay + 1;
-        return { startYear, startMonth, startDay, durationHours: days * 8 };
+        // Span from 11am on day 1 to 7pm on last day: (days-1)*24h + 8h
+        return { startYear, startMonth, startDay, durationHours: (days - 1) * 24 + 8 };
     }
 
     // Single day: "Mar 22" or "Jul 11, 2026"
@@ -159,7 +161,8 @@ export function parseFestalSection(
         };
     }
 
-    if (startDate.isBefore(now)) return null;
+    const endDate = startDate.plus(Duration.ofHours(parsed.durationHours));
+    if (endDate.isBefore(now)) return null;
 
     const paraText = decode(sibling.textContent).replace(/\s+/g, ' ').trim();
     const description = paraText.replace(dateStr, '').replace(/^\s*[,.\s]+/, '').trim() || undefined;

@@ -20,13 +20,15 @@ function loadSampleHtml() {
 
 describe('parseFestalDate', () => {
     it('parses a same-month range with explicit year', () => {
+        // 4 days: (4-1)*24+8 = 80h, spanning May 22 11am → May 25 7pm
         const result = parseFestalDate('May 22-25, 2026', NOW);
-        expect(result).toEqual({ startYear: 2026, startMonth: 5, startDay: 22, durationHours: 32 });
+        expect(result).toEqual({ startYear: 2026, startMonth: 5, startDay: 22, durationHours: 80 });
     });
 
     it('parses a same-month 2-day range without year', () => {
+        // 2 days: (2-1)*24+8 = 32h, spanning Jun 6 11am → Jun 7 7pm
         const result = parseFestalDate('Jun 6-7', NOW);
-        expect(result).toEqual({ startYear: 2026, startMonth: 6, startDay: 6, durationHours: 16 });
+        expect(result).toEqual({ startYear: 2026, startMonth: 6, startDay: 6, durationHours: 32 });
     });
 
     it('parses a single day without year', () => {
@@ -40,13 +42,15 @@ describe('parseFestalDate', () => {
     });
 
     it('parses a cross-month range (Oct 31-Nov 1)', () => {
+        // 2 days: (2-1)*24+8 = 32h, spanning Oct 31 11am → Nov 1 7pm
         const result = parseFestalDate('Oct 31-Nov 1', NOW);
-        expect(result).toEqual({ startYear: 2026, startMonth: 10, startDay: 31, durationHours: 16 });
+        expect(result).toEqual({ startYear: 2026, startMonth: 10, startDay: 31, durationHours: 32 });
     });
 
     it('parses a 3-day same-month range', () => {
+        // 3 days: (3-1)*24+8 = 56h, spanning Apr 10 11am → Apr 12 7pm
         const result = parseFestalDate('Apr 10-12, 2026', NOW);
-        expect(result).toEqual({ startYear: 2026, startMonth: 4, startDay: 10, durationHours: 24 });
+        expect(result).toEqual({ startYear: 2026, startMonth: 4, startDay: 10, durationHours: 56 });
     });
 
     it('returns null for unrecognized format (postponed notice)', () => {
@@ -82,7 +86,7 @@ describe('parseFestalSection', () => {
         expect(parseFestalSection(h3, NOW, PACIFIC)).toBeNull();
     });
 
-    it('returns null for a past event', () => {
+    it('returns null for a fully past event', () => {
         const html = parse(
             '<div>' +
             '<h3><a href="/events/festivals/folklife">Northwest Folklife Festival</a></h3>' +
@@ -90,8 +94,23 @@ describe('parseFestalSection', () => {
             '</div>'
         );
         const h3 = html.querySelector('h3')!;
-        // May 22-25 is before NOW (May 25 noon) — should be filtered
-        expect(parseFestalSection(h3, NOW, PACIFIC)).toBeNull();
+        // May 22-25 ends at 7pm on May 25; NOW is May 26 noon — fully past
+        const afterFestival = ZonedDateTime.of(LocalDateTime.of(2026, 5, 26, 12, 0), PACIFIC);
+        expect(parseFestalSection(h3, afterFestival, PACIFIC)).toBeNull();
+    });
+
+    it('keeps a multi-day event that started before now but has not yet ended', () => {
+        const html = parse(
+            '<div>' +
+            '<h3><a href="/events/festivals/folklife">Northwest Folklife Festival</a></h3>' +
+            '<p><strong>May 22-25, 2026</strong><br>Description.</p>' +
+            '</div>'
+        );
+        const h3 = html.querySelector('h3')!;
+        // May 22-25 ends at 7pm on May 25; noon on May 25 is still during the festival
+        expect(parseFestalSection(h3, NOW, PACIFIC)).not.toBeNull();
+        const result = parseFestalSection(h3, NOW, PACIFIC);
+        expect(result).toHaveProperty('date');
     });
 
     it('returns ParseError for an unrecognizable date', () => {
@@ -154,20 +173,23 @@ describe('parseFestalSection', () => {
 });
 
 describe('parseFestalFromHtml (integration)', () => {
-    it('extracts 3 upcoming events from sample data', () => {
+    it('extracts 4 events from sample data at noon on the last day of a multi-day festival', () => {
         const html = parse(loadSampleHtml());
         const { events, errors } = parseFestalFromHtml(html, NOW, PACIFIC);
         expect(errors).toHaveLength(0);
-        // 3 upcoming: Pagdiriwang (Jun 6-7), Indigenous People (Jun 13), Día de Muertos (Oct 31-Nov 1)
-        // Filtered: Northwest Folklife (May 22-25 past), Iranian Festival (postponed)
-        expect(events).toHaveLength(3);
+        // 4 events: Northwest Folklife (still running — ends May 25 7pm, NOW is noon),
+        //           Pagdiriwang (Jun 6-7), Indigenous People (Jun 13), Día de Muertos (Oct 31-Nov 1)
+        // Skipped: Iranian Festival (postponed)
+        expect(events).toHaveLength(4);
     });
 
-    it('filters out the past Northwest Folklife Festival', () => {
+    it('filters out Northwest Folklife once it has fully ended', () => {
+        const afterFestival = ZonedDateTime.of(LocalDateTime.of(2026, 5, 26, 12, 0), PACIFIC);
         const html = parse(loadSampleHtml());
-        const { events } = parseFestalFromHtml(html, NOW, PACIFIC);
+        const { events } = parseFestalFromHtml(html, afterFestival, PACIFIC);
         const titles = events.map(e => e.summary);
         expect(titles).not.toContain('Northwest Folklife Festival');
+        expect(events).toHaveLength(3); // only the 3 future events remain
     });
 
     it('skips the postponed Iranian Festival', () => {
@@ -177,18 +199,18 @@ describe('parseFestalFromHtml (integration)', () => {
         expect(titles).not.toContain('Seattle Iranian Festival');
     });
 
-    it('sets correct duration for a 2-day festival', () => {
+    it('sets correct duration for a 2-day festival (spans 11am day-1 to 7pm day-2)', () => {
         const html = parse(loadSampleHtml());
         const { events } = parseFestalFromHtml(html, NOW, PACIFIC);
         const pagdiriwang = events.find(e => e.summary === 'Pagdiriwang Philippine Festival')!;
-        expect(pagdiriwang.duration.toHours()).toBe(16); // 2 days × 8 hours
+        expect(pagdiriwang.duration.toHours()).toBe(32); // (2-1)*24+8 = 32h
     });
 
     it('sets correct duration for a cross-month festival (Oct 31-Nov 1)', () => {
         const html = parse(loadSampleHtml());
         const { events } = parseFestalFromHtml(html, NOW, PACIFIC);
         const diadeMuertos = events.find(e => e.summary.includes('Muertos'))!;
-        expect(diadeMuertos.duration.toHours()).toBe(16); // 2 days × 8 hours
+        expect(diadeMuertos.duration.toHours()).toBe(32); // (2-1)*24+8 = 32h
         expect(diadeMuertos.date.monthValue()).toBe(10);
         expect(diadeMuertos.date.dayOfMonth()).toBe(31);
     });
