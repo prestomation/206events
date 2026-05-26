@@ -16,4 +16,7 @@ joining summer 2026.
 Eventbrite organizer `120887697562` (`railspur-seattle`) returned 0 upcoming
 events on 2026-05-16 — may be between programming cycles or events are listed
 under individual venue organizers rather than the umbrella RailSpur account.
-Re-check next cycle before implementing.
+
+Re-checked 2026-05-26: Still 0 upcoming events on the RailSpur organizer page.
+Events appear to be listed under individual venue organizers (e.g., Populus Seattle).
+Continue checking in future cycles.
