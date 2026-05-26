@@ -1,0 +1,16 @@
+name: columbia-city-gallery
+description: "Columbia City Gallery"
+url: "https://columbiacitygallery.com/wp-json/tribe/events/v1/events"
+friendlyLink: https://columbiacitygallery.com/events/
+tags: ["Arts"]
+geo:
+  lat: 47.5581191
+  lng: -122.2849735
+  label: "Columbia City Gallery, 4864 Rainier Ave S, Seattle, WA 98118"
+  osmType: node
+  osmId: 2338546702
+calendars:
+  - name: all-events
+    friendlyname: "Columbia City Gallery"
+    timezone: America/Los_Angeles
+    tags: ["Columbia City"]

@@ -1,16 +1,18 @@
 ---
 name: "Columbia City Gallery"
-status: candidate
+status: added
 firstSeen: 2026-05-25
-lastChecked: 2026-05-25
+lastChecked: 2026-05-26
 tags: [Arts, Community, Columbia City]
 url: https://www.columbiacitygallery.com
+pr: TBD
 ---
 Nonprofit artists' cooperative in Columbia City with regular public programming: life drawing sessions, juried shows, artist talks, and workshops. Columbia City / South Seattle neighborhood currently underrepresented in the calendar.
 
 Investigated 2026-05-26:
-- Platform: WordPress (standard), no Tribe Events ICS export detected
-- Events page: https://www.columbiacitygallery.com/events/
-- No ICS feed or API endpoint accessible
-- HTML-only event listings; would require custom HTML scraping
-- Low priority until other higher-confidence sources are exhausted
+- Platform: WordPress with **The Events Calendar (Tribe Events)** plugin
+- Tribe Events REST API confirmed: `https://columbiacitygallery.com/wp-json/tribe/events/v1/events`
+- 15 upcoming events returned (exhibitions, receptions, life drawing sessions)
+- API returns `start_date_details` / `end_date_details` in same format as Downtown Seattle Association
+- Implemented as `sources/columbia_city_gallery/` using custom ripper (Tribe Events v1 API + pagination)
+- Tags: Arts, Columbia City
