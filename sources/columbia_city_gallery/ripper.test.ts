@@ -92,4 +92,31 @@ describe('Columbia City Gallery Ripper', () => {
         expect('type' in events[0]).toBe(true);
         expect((events[0] as any).type).toBe('ParseError');
     });
+
+    test('returns ParseError for event missing date details', async () => {
+        const ripper = new ColumbiacityGalleryRipper();
+        const date = ZonedDateTime.parse('2026-05-26T00:00:00-07:00[America/Los_Angeles]');
+
+        const events = await ripper.parseEvents({ events: [{ id: 1, title: 'Bad Event' }] }, date, {});
+
+        expect(events.length).toBe(1);
+        expect('type' in events[0]).toBe(true);
+        expect((events[0] as any).type).toBe('ParseError');
+        expect((events[0] as any).reason).toContain('Missing date details');
+    });
+
+    test('uses timezone from date parameter', async () => {
+        const jsonData = JSON.parse(
+            fs.readFileSync(path.join(__dirname, 'sample-data.json'), 'utf8')
+        );
+        const ripper = new ColumbiacityGalleryRipper();
+        const date = ZonedDateTime.parse('2026-05-26T00:00:00-07:00[America/Los_Angeles]');
+
+        const events = await ripper.parseEvents(jsonData, date, {});
+        const timedEvent = events.find(
+            e => 'summary' in e && (e as RipperCalendarEvent).summary === 'Portrait Life Drawing Session'
+        ) as RipperCalendarEvent;
+
+        expect(timedEvent.date.zone().toString()).toBe('America/Los_Angeles');
+    });
 });

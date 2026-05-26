@@ -1,4 +1,4 @@
-import { LocalDateTime, ZonedDateTime, Duration, ZoneId } from "@js-joda/core";
+import { LocalDateTime, ZonedDateTime, Duration } from "@js-joda/core";
 import { Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { JSONRipper } from "../../lib/config/jsonscrapper.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
@@ -22,7 +22,7 @@ export default class ColumbiacityGalleryRipper extends JSONRipper {
             if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
 
             const jsonData = await res.json();
-            totalPages = jsonData.total_pages ?? 1;
+            totalPages = Math.max(1, parseInt(jsonData.total_pages) || 1);
 
             const cal = ripper.config.calendars[0];
             const pageEvents = await this.parseEvents(
@@ -45,7 +45,7 @@ export default class ColumbiacityGalleryRipper extends JSONRipper {
         }];
     }
 
-    protected async parseEvents(jsonData: any, _date: ZonedDateTime, _config: any): Promise<RipperEvent[]> {
+    protected async parseEvents(jsonData: any, date: ZonedDateTime, _config: any): Promise<RipperEvent[]> {
         if (!jsonData.events || !Array.isArray(jsonData.events)) {
             return [{
                 type: "ParseError",
@@ -54,12 +54,21 @@ export default class ColumbiacityGalleryRipper extends JSONRipper {
             }];
         }
 
-        const zone = ZoneId.of("America/Los_Angeles");
+        const zone = date.zone();
         const events: RipperEvent[] = [];
 
         for (const event of jsonData.events) {
             try {
                 const startDetails = event.start_date_details;
+                const endDetails = event.end_date_details;
+                if (!startDetails || !endDetails) {
+                    events.push({
+                        type: "ParseError",
+                        reason: "Missing date details",
+                        context: JSON.stringify(event).substring(0, 100) + "...",
+                    });
+                    continue;
+                }
                 const startLocal = LocalDateTime.of(
                     parseInt(startDetails.year),
                     parseInt(startDetails.month),
@@ -70,7 +79,6 @@ export default class ColumbiacityGalleryRipper extends JSONRipper {
                 );
                 const eventDate = startLocal.atZone(zone);
 
-                const endDetails = event.end_date_details;
                 const endLocal = LocalDateTime.of(
                     parseInt(endDetails.year),
                     parseInt(endDetails.month),
