@@ -56,7 +56,7 @@ export default class SPLAuthorsRipper implements IRipper {
     }
 
     private getWeeksFromLookahead(lookahead?: Period): number {
-        if (!lookahead) return 52;
+        if (!lookahead) return 6;
         const days = lookahead.days() + lookahead.months() * 30 + lookahead.years() * 365;
         return Math.max(1, Math.ceil(days / 7));
     }
