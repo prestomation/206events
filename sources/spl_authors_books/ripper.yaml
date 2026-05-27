@@ -1,0 +1,12 @@
+name: spl-authors-books
+friendlyname: "Seattle Public Library — Authors & Books"
+description: "Seattle Public Library"
+url: "https://www.trumba.com/calendars/kalendaro.json?filterview=ProgramAuthorsBooks"
+friendlyLink: https://www.spl.org/programs-and-services/authors-and-books/authors-and-books-calendar
+tags: ["Books", "Education"]
+lookahead: P1Y
+geo: null
+calendars:
+  - name: authors-books
+    friendlyname: "SPL — Authors & Books"
+    timezone: America/Los_Angeles
