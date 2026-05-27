@@ -1,0 +1,18 @@
+geo:
+  lat: 47.6213
+  lng: -122.3207
+  label: "Julia's on Broadway, 300 Broadway E, Seattle, WA 98102"
+name: le-faux-sunday-brunch
+friendlyname: Le Faux at Julia's on Broadway — Sunday Brunch
+description: Weekly Sunday drag brunch show at Julia's on Broadway in Capitol Hill.
+schedule: every Sunday
+timezone: America/Los_Angeles
+duration: PT2H
+start_time: "13:00"
+location: 300 Broadway E, Seattle, WA 98102
+url: https://lefauxproductions.simpletix.com
+tags:
+  - Nightlife
+  - Capitol Hill
+  - Theatre
+months: [4, 5, 6, 7, 8, 9, 10]
