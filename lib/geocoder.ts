@@ -530,6 +530,8 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'cascadia college': { lat: 47.7608677, lng: -122.1922103 },
   'newcastle cemetery': { lat: 47.5318872, lng: -122.1673852 },
   'woodinville sports club': { lat: 47.7393494, lng: -122.1426478 },
+  // Nominatim fails on "Council Chambers, 600 4th Ave., Floor, Seattle, WA" due to truncated "Floor" suffix
+  'council chambers, 600 4th ave., floor, seattle, wa': { lat: 47.6038904, lng: -122.3300986 },
 };
 
 /**

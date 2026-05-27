@@ -1,15 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:live-theater-2026-05-19": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8100
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/"
-    },
     "events12:live-theater-2026-05-20": {
       "fields": {
         "startTime": "19:30",
@@ -322,20 +313,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/blue-man-group/"
-    },
-    "events12:free-things-to-do-2026-05-18": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:free-things-to-do-2026-05-19": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
     },
     "events12:free-things-to-do-2026-05-20": {
       "unresolvable": true,
@@ -1918,20 +1895,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:taste-of-seattle-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:taste-of-seattle-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
     },
     "events12:taste-of-seattle-2026-05-20": {
       "unresolvable": true,
@@ -4957,20 +4920,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:soccer-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-05-20": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -6175,20 +6124,6 @@
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
     },
-    "events12:sailboat-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:sailboat-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
     "events12:sailboat-2026-05-20": {
       "unresolvable": true,
       "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
@@ -7343,20 +7278,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:baseball-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
-    "events12:baseball-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
     },
     "events12:baseball-2026-05-20": {
       "unresolvable": true,
@@ -11271,20 +11192,6 @@
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
     },
-    "events12:rugby-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:rugby-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
     "events12:rugby-2026-05-20": {
       "unresolvable": true,
       "reason": "Season-span listing across multiple dates; each home game has different start time",
@@ -11417,20 +11324,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:musical-cabaret-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
-    },
-    "events12:musical-cabaret-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
     },
     "events12:musical-cabaret-2026-05-20": {
       "unresolvable": true,
@@ -12024,20 +11917,6 @@
       "source": "agent",
       "evidence": "https://nwfolklife.org/festival/home.html"
     },
-    "events12:phantom-of-the-opera-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:phantom-of-the-opera-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
     "events12:phantom-of-the-opera-2026-05-20": {
       "unresolvable": true,
       "reason": "Event page did not return performance schedule content",
@@ -12072,20 +11951,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:world-explorer-show-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Seattle Symphony page returned HTTP 403 \u2014 could not retrieve show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattlesymphony.org/en/benaroyahall/bh-calendar/2025-2026/25-nat-geo-6"
-    },
-    "events12:world-explorer-show-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Seattle Symphony page returned HTTP 403 \u2014 could not retrieve show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattlesymphony.org/en/benaroyahall/bh-calendar/2025-2026/25-nat-geo-6"
     },
     "events12:music-by-candlelight-2026-05-21": {
       "unresolvable": true,
@@ -19229,404 +19094,165 @@
       "reason": "Ticketmaster listing has date only; source page inaccessible from WebFetch (certificate error)",
       "partialFingerprint": "1wvk4rg"
     },
-    "events12:party-at-uw-2026-05-01": {
+    "climate-pledge-arena:tm-vvG1HZ_d9E2Trt": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "u6ja39-until2026-05-01-tu"
+      "partialFingerprint": "1sx642o",
+      "evidence": "https://www.ticketmaster.com/j-cole-the-falloff-tour-seattle-washington-08-25-2026/event/0F006435E73FF7A9"
     },
-    "events12:restaurant-week-2026-05-01": {
+    "climate-pledge-arena:tm-vvG1HZ_knaGVwh": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "yenqaf-until2026-05-02-tu"
+      "partialFingerprint": "xu12xl",
+      "evidence": "https://www.ticketmaster.com/seattle-storm-vs-toronto-tempo-seattle-washington-08-26-2026/event/0F00646A89334C9B"
     },
-    "events12:restaurant-week-2026-05-02": {
+    "crocodile:tm-rZ7HnEZ1Af0bqS": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "yenqaf-until2026-05-02-tu"
+      "partialFingerprint": "j844ns",
+      "evidence": "https://www.ticketweb.com/event/gimme-gimme-disco-the-crocodile-tickets/14918773"
     },
-    "events12:irrigation-festival-2026-05-01": {
+    "crocodile:tm-rZ7HnEZ1AfPovd": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "ly5cy",
+      "evidence": "https://www.ticketweb.com/event/bosnian-takeover-emir-djulovic-the-crocodile-tickets/14951043"
     },
-    "events12:irrigation-festival-2026-05-02": {
+    "discover-slu:discover-slu-supper-fan-club-ww": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Discover SLU listing has a start time but no end time",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "1klqkvf",
+      "evidence": "https://www.discoverslu.com/events/supper-fan-club-ww/"
     },
-    "events12:irrigation-festival-2026-05-03": {
+    "discover-slu:discover-slu-galaxy-lighthouse": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Discover SLU listing has a start time but no end time",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "1w14waz",
+      "evidence": "https://www.discoverslu.com/events/galaxy-lighthouse/"
     },
-    "events12:irrigation-festival-2026-05-04": {
+    "discover-slu:discover-slu-kickoff-summer-with-pure-green": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Discover SLU listing has a start time but no end time",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "t246l3",
+      "evidence": "https://www.discoverslu.com/events/kickoff-summer-with-pure-green/"
     },
-    "events12:irrigation-festival-2026-05-05": {
+    "discover-slu:discover-slu-tugboat-tuesdays-2026": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Discover SLU listing has a start time but no end time",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "qjnb5h",
+      "evidence": "https://www.discoverslu.com/events/tugboat-tuesdays-2026/"
     },
-    "events12:irrigation-festival-2026-05-06": {
+    "discover-slu:discover-slu-tugboat-tuesdays-2026-2-2": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Discover SLU listing has a start time but no end time",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "1souk4d",
+      "evidence": "https://www.discoverslu.com/events/tugboat-tuesdays-2026-2-2/"
     },
-    "events12:irrigation-festival-2026-05-07": {
+    "lumen-field:tm-vvG1HZ_a1YZbUJ": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "xu12xl",
+      "evidence": "https://www.ticketmaster.com/karol-g-viajando-por-el-mundo-seattle-washington-08-26-2026/event/0F006492B0018DA6"
     },
-    "events12:irrigation-festival-2026-05-08": {
+    "stg:tm-vvG1HZ_1RnDmLO": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "1opkksx",
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-08-25-2026/event/0F0064ABEAEEE7E0"
     },
-    "events12:irrigation-festival-2026-05-09": {
+    "stg:tm-vvG1HZ_1RnHXLx": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1dq4o4q-until2026-05-09-tu"
+      "partialFingerprint": "10skj83",
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-08-26-2026/event/0F0064ABEAF3E7E2"
     },
-    "events12:apple-blossom-festival-2026-05-01": {
+    "stg:tm-vvG1HZ_FNjDl95": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "cn1c1n-until2026-05-01-tu"
+      "partialFingerprint": "15062hu",
+      "evidence": "https://www.ticketmaster.com/bill-callahan-seattle-washington-08-26-2026/event/0F006488DCEEB5CB"
     },
-    "events12:rowing-races-2026-05-02": {
+    "t-mobile-park:tm-vvG1HZbgRmMEGg": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "131leh6-until2026-05-02-tu"
+      "partialFingerprint": "1134h5d",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-philadelphia-phillies-seattle-washington-08-25-2026/event/0F00635BEEDE7335"
     },
-    "events12:obstacle-race-2026-05-02": {
+    "t-mobile-park:tm-vvG1HZbgRmz9GB": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "xtq4de-until2026-05-03-tu"
+      "partialFingerprint": "17f0v1c",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-philadelphia-phillies-seattle-washington-08-26-2026/event/0F00635BEEE1733A"
     },
-    "events12:obstacle-race-2026-05-03": {
+    "t-mobile-park:tm-vvG1HZbM3CnJtn": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster listing has date only (no start time); duration also unavailable from API",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "xtq4de-until2026-05-03-tu"
+      "partialFingerprint": "1wvk68u",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-26-2026/event/0F0063748EAA6A6A"
     },
-    "events12:tacoma-races-2026-05-02": {
+    "t-mobile-park:tm-vvG1HZbM3CnktN": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster listing has date only (no start time); duration also unavailable from API",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "f1aajz-until2026-05-03-tu"
+      "partialFingerprint": "1wvk5i5",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-25-2026/event/0F0063748EA86A63"
     },
-    "events12:tacoma-races-2026-05-03": {
+    "tractor-tavern:tm-rZ7HnEZ1AfP6ad": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "f1aajz-until2026-05-03-tu"
+      "partialFingerprint": "r9r6sc",
+      "evidence": "https://www.ticketweb.com/event/bowievision-w-jealous-dogs-at-tractor-tickets/14947243"
     },
-    "events12:dancing-to-american-music-2026-05-07": {
+    "tractor-tavern:tm-rZ7HnEZ1AfP6AS": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "extgje-until2026-05-09-tu"
+      "partialFingerprint": "1tn26u2",
+      "evidence": "https://www.ticketweb.com/event/guerrilla-candys-25th-anniversary-w-tractor-tickets/14947173"
     },
-    "events12:dancing-to-american-music-2026-05-08": {
+    "tractor-tavern:tm-rZ7HnEZ1Afr8Gd": {
       "unresolvable": true,
-      "resolvedAt": "2026-05-25",
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-27",
       "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "extgje-until2026-05-09-tu"
-    },
-    "events12:dancing-to-american-music-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "extgje-until2026-05-09-tu"
-    },
-    "events12:seattle-film-festival-2026-05-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-08": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-15": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:film-party-2026-05-08": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "dwodbe-until2026-05-08-tu"
-    },
-    "events12:wine-walk-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "stistc-until2026-05-09-tu"
-    },
-    "events12:run-in-the-u-district-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1djyvpq-until2026-05-09-tu"
-    },
-    "events12:annual-garage-sale-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "12vdvr3-until2026-05-09-tu"
-    },
-    "events12:edmonds-jazz-festival-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1cjtdy5-until2026-05-09-tu"
-    },
-    "events12:tasting-in-puyallup-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "k2ekxj-until2026-05-09-tu"
-    },
-    "events12:whidbey-island-festival-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1fwyp7x-until2026-05-09-tu"
-    },
-    "events12:mother-s-day-cruise-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "10nu6os-until2026-05-10-tu"
-    },
-    "events12:mother-s-day-cruise-2026-05-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "10nu6os-until2026-05-10-tu"
-    },
-    "events12:bavarian-festival-2026-05-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "16w38mi-until2026-05-10-tu"
-    },
-    "events12:bavarian-festival-2026-05-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "16w38mi-until2026-05-10-tu"
-    },
-    "events12:mother-s-day-restaurants-2026-05-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "gc2pin-until2026-05-10-tu"
-    },
-    "events12:eastside-wine-tasting-2026-05-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "9thdm1-until2026-05-14-tu"
-    },
-    "events12:uw-dance-show-2026-05-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1knmkco-until2026-05-17-tu"
-    },
-    "events12:uw-dance-show-2026-05-15": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1knmkco-until2026-05-17-tu"
-    },
-    "events12:uw-dance-show-2026-05-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1knmkco-until2026-05-17-tu"
-    },
-    "events12:jazz-wine-in-chelan-2026-05-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1n3i64g-until2026-05-17-tu"
-    },
-    "events12:jazz-wine-in-chelan-2026-05-15": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1n3i64g-until2026-05-17-tu"
-    },
-    "events12:jazz-wine-in-chelan-2026-05-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "1n3i64g-until2026-05-17-tu"
-    },
-    "events12:west-seattle-wine-tasting-2026-05-15": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "il1cx2-until2026-05-15-tu"
-    },
-    "events12:viking-festival-2026-05-15": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "116y8z2-until2026-05-17-tu"
-    },
-    "events12:viking-festival-2026-05-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "116y8z2-until2026-05-17-tu"
-    },
-    "events12:roller-derby-2026-05-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "t0locy-until2026-05-16-tu"
-    },
-    "events12:dragon-boats-in-tacoma-2026-05-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "ec443y-until2026-05-16-tu"
-    },
-    "events12:powwow-2026-05-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "13mtftz-until2026-05-17-tu"
-    },
-    "events12:soccer-2026-05-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Past event; source provided date range only, no specific start time",
-      "partialFingerprint": "151l47d-until2026-05-16-tu"
+      "partialFingerprint": "15062hu",
+      "evidence": "https://www.ticketweb.com/event/belles-w-racyne-parker-tractor-tickets/14790303"
     }
   }
 }
