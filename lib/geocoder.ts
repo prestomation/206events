@@ -532,6 +532,14 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'woodinville sports club': { lat: 47.7393494, lng: -122.1426478 },
   // Nominatim fails on "Council Chambers, 600 4th Ave., Floor, Seattle, WA" due to truncated "Floor" suffix
   'council chambers, 600 4th ave., floor, seattle, wa': { lat: 47.6038904, lng: -122.3300986 },
+  // 19hz uses "Church Cantina" and "New Frontier Lounge" without leading "The";
+  // Nominatim returns no results for these short names but they are already known.
+  'church cantina': { lat: 47.6253, lng: -122.3222 },
+  'new frontier lounge': { lat: 47.6677, lng: -122.3829 },
+  // Magnuson Park Building 30 is a historic NOAA/arts building inside Warren G. Magnuson Park
+  'magnuson park building 30 lower conference room, seattle, wa': { lat: 47.6795, lng: -122.2544 },
+  // University of Puget Sound verified address: 1567 N Union Ave, Tacoma, WA 98416
+  'university of puget sound, 1567 north union avenue, tacoma, washington, 98416': { lat: 47.2643, lng: -122.4842 },
 };
 
 /**
