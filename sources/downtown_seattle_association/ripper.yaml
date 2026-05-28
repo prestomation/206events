@@ -44,6 +44,7 @@ calendars:
   - name: bell-street-park
     friendlyname: "Bell Street Park Events"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       venue_id: 53974
     tags:
