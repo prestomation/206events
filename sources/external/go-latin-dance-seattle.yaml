@@ -1,7 +1,8 @@
+# verified: 2026-05-23 ok — 13 events, ical=1 endpoint, proper times/locations
 geo: null
 name: go-latin-dance-seattle
-friendlyname: Go Latin Dance Seattle
-description: Seattle-area Latin dance social calendar covering Salsa, Bachata, Zouk, and Kizomba events at ballrooms and studios across the city.
+friendlyname: GO Latin Dance Seattle
+description: Seattle-area Latin dance socials, parties, and classes — salsa, bachata, zouk, kizomba, and more across Seattle and nearby venues.
 icsUrl: https://golatindance.com/events/category/seattle/?ical=1
 infoUrl: https://golatindance.com/events/category/seattle/
 tags:

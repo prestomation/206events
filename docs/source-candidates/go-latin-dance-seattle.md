@@ -1,21 +1,16 @@
 ---
-name: "Go Latin Dance Seattle"
 status: added
-platform: ICS (Tribe Events)
+slug: go-latin-dance-seattle
+name: GO Latin Dance Seattle
 url: https://golatindance.com/events/category/seattle/
+platform: WordPress / The Events Calendar (Tribe)
+icsUrl: https://golatindance.com/events/category/seattle/?ical=1
 tags: [Dance]
-firstSeen: 2026-05-25
-lastChecked: 2026-05-25
-pr: 
+pr: 390
 ---
-ICS feed at `https://golatindance.com/events/category/seattle/?ical=1` returns
-11 upcoming events (Seattle category filter). Events are Latin dance socials —
-Salsa, Bachata, Zouk, Kizomba — at venues across the Seattle area including
-Reverie Ballroom (Capitol Hill), Sueños de Salsa (Roosevelt), Salsa Con Todo
-(Fremont area), and Sea Monster Lounge. Some events in Shoreline and Eastside
-(Kirkland, Bellevue) — feed is Seattle-focused with a few metro-area events,
-which is within the Seattle quality gate. Feed confirmed working 2026-05-25
-(200 OK, proper DTSTART/DTEND with America/Los_Angeles timezone, 11 VEVENTs).
 
-Implemented as `sources/external/go-latin-dance-seattle.yaml`. Tags: Dance.
-geo: null (multi-venue).
+Seattle-area Latin dance socials, classes, and parties — salsa, bachata, zouk, kizomba.
+Covers Sea Monster Lounge, Reverie Ballroom, Salsa Con Todo, Sueños de Salsa, Seattle Harbor, and more.
+Events include proper start/end times, venue addresses, descriptions, and per-event URLs.
+ICS feed verified 2026-05-23 with 13+ upcoming events (Seattle category filter).
+Some events in Shoreline and Eastside (Kirkland, Bellevue) — within the Seattle quality gate.
