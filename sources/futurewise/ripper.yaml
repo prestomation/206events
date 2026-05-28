@@ -1,0 +1,11 @@
+# verified: 2026-05-28 ok
+name: futurewise
+description: "Futurewise"
+url: "https://futurewise.org/events/"
+friendlyLink: https://futurewise.org/events/
+tags: ["Activism", "Community"]
+geo: null
+calendars:
+  - name: events
+    friendlyname: "Futurewise"
+    timezone: America/Los_Angeles
