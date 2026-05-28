@@ -135,7 +135,13 @@ export default class CobysCafeRipper implements IRipper {
         startHour: number; startMinute: number;
         endHour: number; endMinute: number;
     } | null {
+        // Normalize Unicode Mathematical bold/italic chars (e.g. 𝗣𝗠 → PM, 𝗠𝗮𝘆 → May)
+        // so the regexes below can match regardless of styling.
+        text = text.normalize('NFKC');
+
         const monthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
+
+        // Primary pattern: "Month Day from StartTime–EndTimePM"
         const re = new RegExp(
             `(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
             `(${monthPattern})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
@@ -144,8 +150,28 @@ export default class CobysCafeRipper implements IRipper {
             'i'
         );
 
-        const match = text.match(re);
-        if (!match) return null;
+        // Alternate pattern: "between StartTime–EndTimePM on [Weekday,] Month Day"
+        // Matches e.g. "between 1 PM–3 PM on Saturday, May 30"
+        const reAlt = new RegExp(
+            `between\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
+            `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
+            `\\s+on\\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
+            `(${monthPattern})\\s+(\\d{1,2})`,
+            'i'
+        );
+
+        let match = text.match(re);
+        if (match) {
+            // Primary pattern matched — fall through to shared parsing below
+        } else {
+            const altMatch = text.match(reAlt);
+            if (!altMatch) return null;
+            // Rearrange altMatch captures to align with the primary pattern's named slots:
+            // primary: [, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]
+            // alt:     [, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm, monthName, dayStr]
+            const [full, sh, sm, sa, eh, em, ea, mon, day] = altMatch;
+            match = [full, mon, day, sh, sm, sa, eh, em, ea];
+        }
 
         const [, monthName, dayStr, startHourStr, startMinStr, startAmPm,
             endHourStr, endMinStr, endAmPm] = match;
