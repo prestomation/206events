@@ -2,6 +2,7 @@ name: NWMetalCalendar
 description: NW Metal Calendar
 url: https://www.nocleansinging.com/nw-metal-calendar/
 friendlyLink: https://www.nocleansinging.com
+proxy: "outofband"
 tags: ["Music"]
 geo: null
 calendars:

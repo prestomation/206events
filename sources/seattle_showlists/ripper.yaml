@@ -164,6 +164,7 @@ calendars:
     tags: ["Georgetown"]
     config:
       venue: "Georgetown Liquor Company"
+
   - name: slims-last-chance
     friendlyname: "Slim's Last Chance"
     geo:
