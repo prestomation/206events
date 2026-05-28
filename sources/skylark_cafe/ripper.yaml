@@ -1,0 +1,15 @@
+name: skylark_cafe
+description: "Skylark Café & Club"
+url: "https://www.skylarkcafe.com/calendar"
+friendlyLink: https://www.skylarkcafe.com/calendar
+tags: ["Music", "West Seattle"]
+geo:
+  lat: 47.5700038
+  lng: -122.3625235
+  label: "Skylark Café & Club, 3803 Delridge Way SW, Seattle, WA 98106"
+  osmType: node
+  osmId: 2375665576
+calendars:
+  - name: all-events
+    friendlyname: "Skylark Café & Club"
+    timezone: America/Los_Angeles
