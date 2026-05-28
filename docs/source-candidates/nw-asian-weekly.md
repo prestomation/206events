@@ -6,7 +6,7 @@ url: https://nwasianweekly.com/community-calendar/?ical=1
 tags: [Community, Arts]
 firstSeen: 2026-05-28
 lastChecked: 2026-05-28
-pr: TBD
+pr: 420
 ---
 **Northwest Asian Weekly Community Calendar** — External ICS (`https://nwasianweekly.com/community-calendar/?ical=1`) — AAPI community events calendar from the Pacific Northwest's leading Asian American newspaper.
 
