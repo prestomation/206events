@@ -57,7 +57,7 @@ export default class SkylarkCafeRipper implements IRipper {
         const linkHref = linkEl?.getAttribute('href');
 
         if (!title) {
-            return { type: 'ParseError', reason: 'Missing event title', context: item.rawText.substring(0, 100) };
+            return { type: 'ParseError', reason: 'Missing event title', context: item.rawText.slice(0, 100) };
         }
         if (!dateStr) {
             return { type: 'ParseError', reason: `Missing date for: ${title}`, context: title };
@@ -69,7 +69,7 @@ export default class SkylarkCafeRipper implements IRipper {
         }
 
         // Only use the ticket link if the div doesn't have w-condition-invisible and the href isn't '#'
-        let url = linkHref ? `${BASE_URL}${linkHref}` : `${BASE_URL}/calendar`;
+        let url = linkHref ? new URL(linkHref, BASE_URL).href : `${BASE_URL}/calendar`;
         if (ticketsDiv && !ticketsDiv.classList.contains('w-condition-invisible')) {
             const ticketLink = ticketsDiv.querySelector('a.button');
             const ticketHref = ticketLink?.getAttribute('href');
