@@ -81,7 +81,7 @@ export default class SkylarkCafeRipper implements IRipper {
         const description = descEl ? decode(descEl.textContent.trim()) : undefined;
 
         // Stable ID derived from the event URL slug
-        const slugMatch = linkHref?.match(/\/global-events\/([^/?#]+)/);
+        const slugMatch = linkHref ? linkHref.match(/\/global-events\/([^/?#]+)/) : null;
         const id = slugMatch ? `skylark-${slugMatch[1]}` : `skylark-${title}-${dateStr}`.toLowerCase().replace(/[^a-z0-9-]/g, '-');
 
         const event: RipperCalendarEvent = {
