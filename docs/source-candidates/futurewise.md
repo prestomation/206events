@@ -1,11 +1,12 @@
 ---
 name: "Futurewise"
-status: candidate
+status: added
 platform: Custom HTML (Pie Calendar / FullCalendar inline JSON)
 url: https://futurewise.org/events/
 tags: [Activism, Community]
 firstSeen: 2026-05-28
 lastChecked: 2026-05-28
+pr: 419
 ---
 
 Statewide land-use and housing nonprofit headquartered in Seattle. Hosts a

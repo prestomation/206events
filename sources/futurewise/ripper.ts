@@ -21,6 +21,9 @@ export default class FuturewiseRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);
         const calConfig = ripper.config.calendars[0];
+        if (!calConfig) {
+            throw new Error('Futurewise ripper requires at least one calendar configuration');
+        }
 
         const res = await this.fetchFn(ripper.config.url.href, {
             headers: { 'User-Agent': 'Mozilla/5.0' }
