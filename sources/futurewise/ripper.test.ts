@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import FuturewiseRipper from './ripper.js';
 import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
 import fs from 'fs';
@@ -29,6 +29,14 @@ describe('FuturewiseRipper - extractEventSourcesJson', () => {
         expect(parsed[0].title).toBe('a [b] c');
     });
 
+    test('handles escaped quotes inside string values', () => {
+        const html = '<script>eventSources: [[{"title":"a \\"quoted\\" thing","start":"2026-01-01T00:00:00"}]]</script>';
+        const raw = ripper.extractEventSourcesJson(html);
+        expect(raw).not.toBeNull();
+        const parsed = JSON.parse(raw!);
+        expect(parsed[0].title).toBe('a "quoted" thing');
+    });
+
     test('returns null when no eventSources block is present', () => {
         expect(ripper.extractEventSourcesJson('<html>no calendar</html>')).toBeNull();
     });
@@ -53,76 +61,107 @@ describe('FuturewiseRipper - parseLocalDateTime', () => {
     });
 });
 
+describe('FuturewiseRipper - decodeHtmlEntities', () => {
+    const ripper = new FuturewiseRipper();
+
+    test('decodes numeric entities like &#8211;', () => {
+        expect(ripper.decodeHtmlEntities('Week &#8211; Workshop')).toBe('Week – Workshop');
+    });
+
+    test('decodes hex entities like &#x27;', () => {
+        expect(ripper.decodeHtmlEntities('it&#x27;s on')).toBe("it's on");
+    });
+
+    test('decodes named entities', () => {
+        expect(ripper.decodeHtmlEntities('A &amp; B &mdash; C &nbsp;D')).toBe('A & B — C  D');
+    });
+});
+
+describe('FuturewiseRipper - parseEvent', () => {
+    const ripper = new FuturewiseRipper();
+    const fixedNow = new Date('2026-05-01T00:00:00Z');
+
+    test('returns ParseError for unparseable start', () => {
+        const result = ripper.parseEvent(
+            { title: 'X', start: 'bad', end: '2026-05-30T18:00:00', permalink: 'https://x/y' },
+            fixedNow
+        );
+        expect('type' in result).toBe(true);
+        expect((result as RipperError).type).toBe('ParseError');
+    });
+
+    test('defaults to 1-hour duration when end < start', () => {
+        const result = ripper.parseEvent(
+            { title: 'Broken', start: '2026-06-01T18:00:00', end: '2026-06-01T17:00:00', permalink: 'https://x/y' },
+            fixedNow
+        );
+        expect('date' in result).toBe(true);
+        const event = result as RipperCalendarEvent;
+        expect(event.duration.toMillis()).toBe(60 * 60 * 1000);
+    });
+
+    test('uses permalink as the stable event id', () => {
+        const url = 'https://futurewise.org/some-event/';
+        const result = ripper.parseEvent(
+            { title: 'X', start: '2026-06-01T18:00:00', end: '2026-06-01T19:00:00', permalink: url },
+            fixedNow
+        );
+        expect((result as RipperCalendarEvent).id).toBe(url);
+        expect((result as RipperCalendarEvent).url).toBe(url);
+    });
+});
+
 describe('FuturewiseRipper - parseEvents (sample data)', () => {
-    test('parses events from a real Futurewise events page', () => {
+    beforeEach(() => {
+        // Sample was captured on 2026-05-28; pin "now" before that so future events survive
+        // the past-event filter in parseEvents.
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2026-01-01T00:00:00Z'));
+    });
+
+    afterEach(() => {
+        vi.useRealTimers();
+    });
+
+    test('parses upcoming events from a real Futurewise events page', () => {
         const ripper = new FuturewiseRipper();
-        // Sample was captured on 2026-05-28; pin "now" before that so future events survive the past-event filter.
-        const fixedNow = new Date('2026-01-01T00:00:00Z');
-        const original = Date;
-        // @ts-ignore — monkey-patch for the duration of this test
-        global.Date = class extends original {
-            constructor(...args: any[]) {
-                if (args.length === 0) {
-                    super(fixedNow.getTime());
-                } else {
-                    // @ts-ignore
-                    super(...args);
-                }
-            }
-            static now() { return fixedNow.getTime(); }
-        };
-        try {
-            const html = loadSample();
-            const results = ripper.parseEvents(html);
-            const events = results.filter((r): r is RipperCalendarEvent => 'date' in r);
+        const results = ripper.parseEvents(loadSample());
+        const events = results.filter((r): r is RipperCalendarEvent => 'date' in r);
 
-            expect(events.length).toBeGreaterThan(0);
+        expect(events.length).toBeGreaterThan(0);
 
-            const beepBeep = events.find(e => e.summary === 'CCC Bus Ride Along!');
-            expect(beepBeep).toBeDefined();
-            expect(beepBeep!.date.year()).toBe(2026);
-            expect(beepBeep!.date.monthValue()).toBe(5);
-            expect(beepBeep!.date.dayOfMonth()).toBe(30);
-            expect(beepBeep!.date.hour()).toBe(9);
-            expect(beepBeep!.date.minute()).toBe(30);
-            expect(beepBeep!.url).toBe('https://futurewise.org/ccc-bus-ride-along/');
-            // 9:30 → 18:00 = 8h30m = 30600s
-            expect(beepBeep!.duration.seconds()).toBe(30600);
-            expect(beepBeep!.id).toBe(beepBeep!.url);
-        } finally {
-            global.Date = original;
-        }
+        const beepBeep = events.find(e => e.summary === 'CCC Bus Ride Along!');
+        expect(beepBeep).toBeDefined();
+        expect(beepBeep!.date.year()).toBe(2026);
+        expect(beepBeep!.date.monthValue()).toBe(5);
+        expect(beepBeep!.date.dayOfMonth()).toBe(30);
+        expect(beepBeep!.date.hour()).toBe(9);
+        expect(beepBeep!.date.minute()).toBe(30);
+        expect(beepBeep!.url).toBe('https://futurewise.org/ccc-bus-ride-along/');
+        // 9:30 → 18:00 = 8h30m = 30600s
+        expect(beepBeep!.duration.seconds()).toBe(30600);
+        expect(beepBeep!.id).toBe(beepBeep!.url);
     });
 
     test('skips the placeholder Page-typed entry', () => {
         const ripper = new FuturewiseRipper();
-        const fixedNow = new Date('2026-01-01T00:00:00Z');
-        const original = Date;
-        // @ts-ignore
-        global.Date = class extends original {
-            constructor(...args: any[]) {
-                if (args.length === 0) super(fixedNow.getTime());
-                // @ts-ignore
-                else super(...args);
-            }
-            static now() { return fixedNow.getTime(); }
-        };
-        try {
-            const html = loadSample();
-            const events = ripper.parseEvents(html).filter((r): r is RipperCalendarEvent => 'date' in r);
-            expect(events.find(e => e.summary === 'Our Events')).toBeUndefined();
-        } finally {
-            global.Date = original;
-        }
+        const events = ripper.parseEvents(loadSample()).filter((r): r is RipperCalendarEvent => 'date' in r);
+        expect(events.find(e => e.summary === 'Our Events')).toBeUndefined();
+    });
+
+    test('drops events whose end is already in the past', () => {
+        vi.setSystemTime(new Date('2099-01-01T00:00:00Z'));
+        const ripper = new FuturewiseRipper();
+        const events = ripper.parseEvents(loadSample()).filter((r): r is RipperCalendarEvent => 'date' in r);
+        expect(events).toEqual([]);
     });
 
     test('decodes HTML entities in titles', () => {
         const ripper = new FuturewiseRipper();
         const html = `<script>eventSources: [[{"title":"Affordable Housing Week &#8211; Comp Plan Workshop","start":"2099-01-01T15:30:00","end":"2099-01-01T17:00:00","permalink":"https://x/y","postType":"Post","postId":1}]]</script>`;
         const events = ripper.parseEvents(html).filter((r): r is RipperCalendarEvent => 'date' in r);
-        // The decoder handles &mdash;/&ndash; but the JSON itself encodes &#8211; — confirm the literal text survives unmangled.
         expect(events).toHaveLength(1);
-        expect(events[0].summary).toContain('Affordable Housing Week');
+        expect(events[0].summary).toBe('Affordable Housing Week – Comp Plan Workshop');
     });
 
     test('reports a ParseError when eventSources is missing', () => {

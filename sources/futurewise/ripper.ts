@@ -54,10 +54,23 @@ export default class FuturewiseRipper implements IRipper {
         }
 
         const now = new Date();
+        const nowMs = now.getTime();
         const out: RipperEvent[] = [];
         for (const pe of parsed) {
+            // Pre-parse filter: the events page reserves a placeholder Page-typed entry
+            // ("Our Events") that has no real event data. Skip without erroring.
+            if (pe.postType === 'Page') continue;
+
             const result = this.parseEvent(pe, now);
-            if (result !== null) out.push(result);
+
+            // Post-parse filter: drop events whose end is already in the past so the ICS
+            // stays focused on upcoming. Done in the caller, not parseEvent, so the parse
+            // method itself never silently drops items.
+            if ('date' in result) {
+                const endMs = result.date.toInstant().toEpochMilli() + result.duration.toMillis();
+                if (endMs < nowMs) continue;
+            }
+            out.push(result);
         }
         return out;
     }
@@ -93,10 +106,7 @@ export default class FuturewiseRipper implements IRipper {
         return null;
     }
 
-    parseEvent(pe: PieCalEvent, now: Date): RipperEvent | null {
-        // Skip the dummy "Our Events" Page-typed entry that the calendar uses as a placeholder.
-        if (pe.postType === 'Page') return null;
-
+    parseEvent(pe: PieCalEvent, now: Date): RipperEvent {
         const start = this.parseLocalDateTime(pe.start);
         const end = this.parseLocalDateTime(pe.end);
         if (!start) {
@@ -108,10 +118,6 @@ export default class FuturewiseRipper implements IRipper {
 
         const startZdt = ZonedDateTime.of(start, TIMEZONE);
         const endZdt = ZonedDateTime.of(end, TIMEZONE);
-
-        // Drop past events to keep the ICS focused on upcoming. We compare against `now`
-        // rather than start-of-day so events still in progress are kept.
-        if (endZdt.toInstant().toEpochMilli() < now.getTime()) return null;
 
         let durationMs = endZdt.toInstant().toEpochMilli() - startZdt.toInstant().toEpochMilli();
         if (durationMs <= 0) {
@@ -145,15 +151,15 @@ export default class FuturewiseRipper implements IRipper {
         }
     }
 
-    private decodeHtmlEntities(text: string): string {
+    decodeHtmlEntities(text: string): string {
         return text
+            .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+            .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
             .replace(/&amp;/g, '&')
             .replace(/&lt;/g, '<')
             .replace(/&gt;/g, '>')
             .replace(/&quot;/g, '"')
-            .replace(/&#039;/g, "'")
-            .replace(/&#39;/g, "'")
-            .replace(/&#x27;/g, "'")
+            .replace(/&apos;/g, "'")
             .replace(/&mdash;/g, '—')
             .replace(/&ndash;/g, '–')
             .replace(/&nbsp;/g, ' ');
