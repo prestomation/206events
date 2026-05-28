@@ -1,0 +1,100 @@
+<!doctype html><html><head><title>Futurewise Events</title></head><body><div id="calendar"></div><script>
+let piecalAJAX = {
+            ajaxURL: "https://futurewise.org/wp-admin/admin-ajax.php",
+            ajaxNonce: "93b63a232a"
+            }
+
+            let alreadyExpandedOccurrences = [];
+
+            function piecalPrepareCustomViewsForCalendar( views ) {
+                let supportedEventHandlers = [
+                    'eventDataTransform',
+                    'dateClick',
+                    'eventClick', 
+                    'eventDidMount', 
+                    'dayCellDidMount', 
+                    'viewDidMount', 
+                    'viewWillUnmount',
+                    'dayHeaderContent',
+                    'dayHeaderDidMount'
+                ];
+
+                for( let view in views ) {
+                    let viewProps = views[view];
+
+                    for( let prop in viewProps ) {
+                        if( supportedEventHandlers.includes( prop ) ) {
+                            let eventHandlerCode = viewProps[prop];
+
+                            let handlerFunction = new Function( 'info', eventHandlerCode );
+
+                            viewProps[prop] = handlerFunction;
+                        }
+                    }
+
+                    // Remove customProps since we don't want those output inside the calendar object
+                    delete viewProps.customProps;
+
+                    // Add in the $atts['duration'] value if the view has a duration property.
+                    if( viewProps.duration ) {
+                        viewProps.duration = {
+                            months: 2                        };
+                    }
+                }
+
+                return views;
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                var pieCalendarFirstLoad = true;
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    headerToolbar: false,
+                    initialView: "dayGridMonth",
+                    editable: false,
+                    eventSources: [[{"title":"SST: Learn to Tell Your Story","start":"2026-05-28T17:30:00","end":"2026-05-28T19:30:00","details":"The Shaping Spokane Together Housing Coalition invites you to join us for a powerful and interactive storytelling training.\u00a0 We will cover the components of effective storytelling in the community, pu...","permalink":"https:\/\/futurewise.org\/sst-learn-to-tell-your-story\/","postType":"Post","postId":4137},{"title":"CCC Bus Ride Along!","start":"2026-05-30T09:30:00","end":"2026-05-30T18:00:00","details":"Saturday, May 30, 2026\r\n9:30\u202fAM\u00a0\u00a06:00\u202fPM\r\nGoogle Calendar\u00a0\u00a0ICS\r\nBEEP BEEP! The Complete Communities Coalition is bussing around Seattle with City Leadership and we're coming to a neighborhood center n...","permalink":"https:\/\/futurewise.org\/ccc-bus-ride-along\/","postType":"Post","postId":4128},{"title":"CCC: The Dig x House Our Neighbors","start":"2026-05-20T18:00:00","end":"2026-05-20T22:00:00","details":"Wednesday, May 20, 2026 - 6:00\u202fPM\u00a0\u00a010:00\u202fPM\r\nStoup Brewing1158 BroadwaySeattle, WA, 98122United States\u00a0(map)\r\nGoogle Calendar\u00a0\u00a0ICS\r\nHouse Our Neighbors is hosting their May social in Capitol Hill and,...","permalink":"https:\/\/futurewise.org\/ccc-the-dig-x-house-our-neighbors\/","postType":"Post","postId":4124},{"title":"CCC: Affordable Housing Week &#8211; Comp Plan Workshop","start":"2026-05-19T15:30:00","end":"2026-05-19T17:00:00","details":"Affordable Housing Week: Comp Plan Workshop\r\n3:30\u202fPM\u00a0\u00a05:00\u202fPM\r\nJefferson Park Lawn Bowling Clubhouse\u00a0(map)\r\nGoogle Calendar\u00a0\u00a0ICS\r\nJoin the Housing Development Consortium, the Complete Communities Coal...","permalink":"https:\/\/futurewise.org\/ccc-comp-plan-workshop\/","postType":"Post","postId":4116},{"title":"CCC: Volunteer at Folklife","start":"2026-05-24T12:00:00","end":"2026-05-24T15:00:00","details":"","permalink":"https:\/\/futurewise.org\/ccc-volunteer-at-folklife\/","postType":"Post","postId":4112},{"title":"CCC: Volunteer at Folklife","start":"2026-05-23T12:00:00","end":"2026-05-23T15:00:00","details":"Join Futurewise at Farmers Markets and events across Seattle to share information around the city\u2019s\u00a0Comprehensive Plan. These are relaxed, low-pressure opportunities; any level of knowledge on the sub...","permalink":"https:\/\/futurewise.org\/4096-2\/","postType":"Post","postId":4096},{"title":"CCC: Volunteer at the Columbia City Farmers Market","start":"2026-05-20T16:00:00","end":"2026-05-20T18:00:00","details":"Join Futurewise at Farmers Markets and events across Seattle to share information around the city\u2019s\u00a0Comprehensive Plan. These are relaxed, low-pressure opportunities; any level of knowledge on the sub...","permalink":"https:\/\/futurewise.org\/4092-2\/","postType":"Post","postId":4092},{"title":"CCC: Volunteer at the U District Street Fair","start":"2026-05-17T12:00:00","end":"2026-05-17T15:00:00","details":"Join Futurewise at Farmers Markets and events across Seattle to share information around the city\u2019s\u00a0Comprehensive Plan. These are relaxed, low-pressure opportunities; any level of knowledge on the sub...","permalink":"https:\/\/futurewise.org\/volunteer-at-the-u-district-street-fair-2\/","postType":"Post","postId":4084},{"title":"CCC: Volunteer at the U District Street Fair","start":"2026-05-16T12:00:00","end":"2026-05-16T15:00:00","details":"Join Futurewise at Farmers Markets across Seattle to share information around the city\u2019s\u00a0Comprehensive Plan. These are relaxed, low-pressure opportunities; any level of knowledge on the subject is wel...","permalink":"https:\/\/futurewise.org\/volunteer-at-the-u-district-street-fair\/","postType":"Post","postId":4082},{"title":"CCC: Volunteer at the Columbia City Farmers Market","start":"2026-05-13T16:00:00","end":"2026-05-13T18:00:00","details":"Join Futurewise at Farmers Markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, low-pressure opportunities; any level of knowledge on the subject is wel...","permalink":"https:\/\/futurewise.org\/4074-2\/","postType":"Post","postId":4074},{"title":"Volunteer at the West Seattle Farmers Market","start":"2026-05-10T11:00:00","end":"2026-05-10T14:00:00","details":"Join Futurewise at Farmers Markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, low-pressure opportunities; any level of knowledge on the subject is wel...","permalink":"https:\/\/futurewise.org\/may-volunteer-opportunities\/","postType":"Post","postId":4067},{"title":"April Comp Plan Happy Hour","start":"2026-04-29T18:00:00","end":"2026-04-29T19:30:00","details":"It's time to celebrate our growing community and get more plugged in to our priorities. This April we're hanging out in Georgetown at Star Brass Works Lounge to talk all things social housing. Did you...","permalink":"https:\/\/futurewise.org\/april-comp-plan-happy-hour\/","postType":"Post","postId":4041},{"title":"Virtual: Seattle Volunteer &amp; Public Comment Training","start":"2026-03-31T18:00:00","end":"2026-03-31T19:30:00","details":"RSVP\n\n\n\n\n\n\n\n\ud83c\udfe1Volunteer and Public Comment Training\ud83c\udfe1\nDate:\u00a0Tuesday, March 31st, 2026Time: 6pm-7:30pmLocation:\u00a0Online (Zoom)\nCalling all housing advocates!\nWith Phase Two of Seattle's Comprehensive Plan...","permalink":"https:\/\/futurewise.org\/virtual-seattle-volunteer-public-comment-training\/","postType":"Post","postId":3991},{"title":"Seattle Comp Plan: Public Hearing &amp; Rally","start":"2026-04-06T12:00:00","end":"2026-04-06T13:00:00","details":"RSVP to rally with us!\n\n\n\n\u00a0\n\n\n\n\nLet's Rally!\u00a0\nDate:\u00a0Monday, April 6th, 2026Time:\u00a012pm-1pmLocation:\u00a0655 4th Ave, Seattle, 98104\u00a0[REGISTER]\nPhase Two of Seattle's Comprehensive Plan is in progress, and ...","permalink":"https:\/\/futurewise.org\/seattle-comp-plan-public-hearing-rally\/","postType":"Post","postId":3989},{"title":"March Comp Planning Happy Hour","start":"2026-03-18T18:00:00","end":"2026-03-18T19:30:00","details":"RSVP For March 18th!\n\n\n\nEach month we host a community happy hour in a different neighborhood to get to know our neighbors, and learn more about Seattle\u2019s Comprehensive Plan!&nbsp;\n\n\n\nComp Planning Ha...","permalink":"https:\/\/futurewise.org\/march-comp-planning-happy-hour\/","postType":"Post","postId":3977},{"title":"PARTNER: Affordable Home Ownership Info Session w\/ Habitat for Humanity","start":"2026-05-06T18:00:00","end":"2026-05-06T19:00:00","details":"Futurewise friend Habitat for Humanity for Seattle, King, and Kittitas County is hosting information sessions, virtual and in-person, to share resources on homeownership program opportunities. This is...","permalink":"https:\/\/futurewise.org\/partner-affordable-home-ownership-info-session-w-habitat-for-humanity-2\/","postType":"Post","postId":3975},{"title":"PARTNER: Affordable Home Ownership Info Session w\/ Habitat for Humanity","start":"2026-04-01T18:00:00","end":"2026-04-01T19:00:00","details":"Futurewise friend Habitat for Humanity for Seattle, King, and Kittitas County is hosting information sessions, virtual and in-person, to share resources on homeownership program opportunities. This is...","permalink":"https:\/\/futurewise.org\/partner-h4h-apr1\/","postType":"Post","postId":3970},{"title":"PARTNER: Affordable Home Ownership Info Session w\/ Habitat for Humanity","start":"2026-03-04T18:00:00","end":"2026-03-04T19:00:00","details":"Futurewise friend Habitat for Humanity for Seattle, King, and Kittitas County is hosting information sessions, virtual and in-person, to share resources on homeownership program opportunities. This is...","permalink":"https:\/\/futurewise.org\/partner-affordable-home-ownership-info-session-w-habitat-for-humanity\/","postType":"Post","postId":3951},{"title":"Farmers Markets with Futurewise&mdash; West Seattle","start":"2026-03-29T11:00:00","end":"2026-03-29T13:00:00","details":"&nbsp;\r\nRSVP for February and March market opportunities here\r\n\r\nJoin Futurewise at neighborhood markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, lo...","permalink":"https:\/\/futurewise.org\/farmers-markets-with-futurewise-mar-29-in-west-seattle\/","postType":"Post","postId":3943},{"title":"Farmers Markets with Futurewise&mdash; Capitol Hill","start":"2026-03-08T11:00:00","end":"2026-03-08T13:00:00","details":"&nbsp;\r\nRSVP for February and March market opportunities here\r\n\r\nJoin Futurewise at neighborhood markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, lo...","permalink":"https:\/\/futurewise.org\/farmers-markets-with-futurewise-mar8\/","postType":"Post","postId":3939},{"title":"Farmers Markets with Futurewise&mdash;University District","start":"2026-03-21T11:00:00","end":"2026-03-21T13:00:00","details":"&nbsp;\r\nRSVP for February and March market opportunities here\r\n\r\nJoin Futurewise at neighborhood markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, lo...","permalink":"https:\/\/futurewise.org\/farmers-markets-with-futurewise-mar21\/","postType":"Post","postId":3936},{"title":"Farmers Markets with Futurewise&mdash;University District","start":"2026-02-28T11:00:00","end":"2026-02-28T13:00:00","details":"&nbsp;\r\nRSVP for February and March market opportunities here\r\n\r\nJoin Futurewise at neighborhood markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, lo...","permalink":"https:\/\/futurewise.org\/farmers-markets-with-futurewise-feb28\/","postType":"Post","postId":3932},{"title":"February Comp Planning Happy Hour","start":"2026-02-25T18:00:00","end":"2026-02-25T19:30:00","details":"RSVP For February 25th!\n\n\n\nEach month we host a community happy hour in a different neighborhood to get to know our neighbors, and learn more about Seattle\u2019s Comprehensive Plan!&nbsp;\n\n\n\nComprehensive...","permalink":"https:\/\/futurewise.org\/february-comp-planning-happy-hour\/","postType":"Post","postId":3807},{"title":"Livestream: Middle Housing Policy Roundtable","start":"2026-01-28T14:00:00","end":"2026-01-28T14:30:00","details":"Right now in Olympia, WA lawmakers are considering a number of bills that can help Washington communities build more affordable housing, more quickly, in more places. Futurewise is supporting a few ke...","permalink":"https:\/\/futurewise.org\/livestream-middle-housing-policy-roundtable\/","postType":"Post","postId":3673},{"title":"Training: Navigating Legislative Session","start":"2026-01-13T18:00:00","end":"2026-01-13T19:00:00","details":"Curious about how the legislative session works? Not sure how to find your legislator or more information about a bill? Overwhelmed with where to start?\r\nJoin us Tuesday, 1\/13 from 6-7pm over zoom to ...","permalink":"https:\/\/futurewise.org\/2026-navigating-session\/","postType":"Post","postId":3539},{"title":"Seattle Comprehensive Plan Happy Hour","start":"2026-01-14T18:00:00","end":"2026-01-14T19:30:00","details":"&nbsp;\r\nRSVP For January 14th!\r\n\r\nEvery month, we\u2019re hosting community happy hours to get to know our neighbors, and learn more about Seattle\u2019s Comprehensive Plan!\u00a0\r\nWhether you\u2019ve been following the ...","permalink":"https:\/\/futurewise.org\/seattle-comprehensive-plan-happy-hour\/","postType":"Post","postId":3427},{"title":"Farmers Markets with Futurewise&mdash; West Seattle","start":"2025-12-14T10:00:00","end":"2025-12-14T13:00:00","details":"&nbsp;\r\nRSVP for December market opportunities here\r\n\r\nJoin Futurewise at neighborhood markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, low-pressure...","permalink":"https:\/\/futurewise.org\/farmers-markets-with-futurewise-west-seattle\/","postType":"Post","postId":3128},{"title":"2026 Legislative Kickoff","start":"2025-12-03T18:00:00","end":"2025-12-03T19:00:00","details":"Join the Futurewise 2026 Legislative Campaign! Our Kickoff Meeting will provide an opportunity to learn about issues affecting Washington, discuss our priorities for the upcoming year from rent stabil...","permalink":"https:\/\/futurewise.org\/2026-legislative-kickoff\/","postType":"Post","postId":2919},{"title":"Farmers Markets with Futurewise&mdash; Phinney Ridge","start":"2025-12-13T10:00:00","end":"2025-12-13T13:00:00","details":"&nbsp;\r\nRSVP for December market opportunities here\r\n\r\nJoin Futurewise at neighborhood markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, low-pressure...","permalink":"https:\/\/futurewise.org\/farmers-markets-with-futurewise-phinney-ridge-2\/","postType":"Post","postId":2900},{"title":"Farmers Markets with Futurewise&mdash; U District","start":"2025-11-08T10:00:00","end":"2025-11-08T13:00:00","details":"&nbsp;\r\nRSVP For November farmers markets\r\n\r\nJoin Futurewise at Farmers Markets across Seattle to share information around the city's Comprehensive Plan. These are relaxed, low-pressure opportunities;...","permalink":"https:\/\/futurewise.org\/farmers-market-ud\/","postType":"Post","postId":2886},{"title":"Demo Event new name different account update name","start":"2025-02-21T20:30:00","end":"2025-02-21T12:30:00","details":"Demo event description..\n\n\n\nNew paragraph.\n\n\n\nNew paragraph.","permalink":"https:\/\/futurewise.org\/demo-event\/","postType":"Post","postId":2237},{"title":"Our Events","start":"2025-05-17T12:36:48","end":"2025-05-17T12:36:51","details":"Register Today\r\n\r\n\r\n\r\n\r\n&nbsp;","permalink":"https:\/\/futurewise.org\/our-events\/","postType":"Page","postId":1742}]],
+                    direction: "ltr",
+                    contentHeight: "auto",
+                    locale: "en-US",
+                    eventTimeFormat: {"hour":"numeric","minute":"2-digit","meridiem":"short"},
+                    dayHeaderFormat: { weekday: 'long' },
+                    views: piecalPrepareCustomViewsForCalendar({"listUpcoming":{"type":"listMonth","duration":{"months":2},"customProps":{"niceName":"List - Upcoming"}}}),
+                    eventClick: function( info ) {
+                        info = piecalJS.eventClick( info, {
+                            appendOffset: false                        } );
+
+                        Alpine.store('calendarEngine').showPopover = false;
+window.location.href = Alpine.store('calendarEngine').eventUrl ?? Alpine.store('calendarEngine').permalink;
+                    },
+                    eventDataTransform: function(event) {  
+                        event = piecalJS.eventDataTransform( event );
+
+                        
+                        return event;  
+                    },
+                    dateClick: function( info ) {
+                        info = piecalJS.dateClick( info );
+
+                                            },
+                    eventDidMount: function( info ) {
+                        info = piecalJS.eventDidMount( info );
+
+                                            },
+                    dayCellDidMount: function( info ) {
+                        info = piecalJS.dayCellDidMount( info );
+
+                                            },
+                    dayHeaderContent: function( info ) {
+                        info = piecalJS.dayHeaderContent( info );
+
+                        
+                        return info.text;
+                    },
+                    dayHeaderDidMount: function( info ) {
+                        info = piecalJS.dayHeaderDidMount( info );
+
+                                            },
+                                    });
+                    calendar.render();
+                    window.calendar = calendar;
+</script></body></html>
