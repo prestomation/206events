@@ -19253,6 +19253,127 @@
       "source": "agent",
       "partialFingerprint": "15062hu",
       "evidence": "https://www.ticketweb.com/event/belles-w-racyne-parker-tractor-tickets/14790303"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-featuring-dia-de-muertos-festival-vendors": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "fields": {
+        "startTime": "10:00",
+        "duration": 36000
+      },
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-marketplace-featuring-dia-de-muertos-festival-vendors"
+    },
+    "seattle-center:mundo-catrina-cultural-procession-web-use": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "fields": {
+        "duration": 3600
+      },
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/mundo-catrina-cultural-procession-web-use"
+    },
+    "19hz:19hz-2026/05/29-cafenico, Fantim": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "19hz:19hz-2026/05/30-Chomper": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "19hz:19hz-2026/06/05-In/Tandem": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "19hz:19hz-2026/06/13-CRUISE/DISCO": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "19hz:19hz-2026/06/27-Club Milk": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "19hz:19hz-2026/07/11-Rabbit Junk": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "19hz:19hz-2026/07/25-Matte Blvck": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "19hz:19hz-2026/09/05-Lost Kingdom": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "19hz:19hz-2026/10/02-Whethan": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_FNbilAD": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; source page returns 403 from web environment"
+    },
+    "crocodile:tm-rZ7HnEZ1AfP8PS": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; source page returns 403 from web environment"
+    },
+    "crocodile:tm-rZ7HnEZ1AfPf7N": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; source page returns 403 from web environment"
+    },
+    "lumen-field:tm-vvG1HZ_F5JIEKw": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; source page returns 403 from web environment"
+    },
+    "stg:tm-vvG1HZ_1RnWXLt": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; source page returns 403 from web environment"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqpIQd": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; source page returns 403 from web environment"
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2-2": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "fields": {
+        "duration": 10800
+      },
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2-2/"
+    },
+    "discover-slu:discover-slu-clint-smith": {
+      "resolvedAt": "2026-05-28",
+      "source": "agent",
+      "unresolvable": true,
+      "reason": "Event page lists 7pm start time but no end time \u2014 duration unresolvable"
     }
   }
 }
