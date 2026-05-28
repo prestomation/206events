@@ -83,6 +83,29 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
         expect(ripper.parseDateTimeFromText("This is the Members Free RSVP Link")).toBeNull();
         expect(ripper.parseDateTimeFromText('')).toBeNull();
     });
+
+    test('parses Unicode bold PM and month (e.g. "𝗙𝗿𝗶𝗱𝗮𝘆, 𝗠𝗮𝘆 29 from 5-6:30𝗣𝗠")', () => {
+        // Cobys Cafe uses Mathematical Sans-Serif Bold chars (U+1D5D4 block) in descriptions.
+        // 𝗙𝗿𝗶𝗱𝗮𝘆 → Friday, 𝗠𝗮𝘆 → May, 𝗣𝗠 → PM after NFKC normalization.
+        const result = ripper.parseDateTimeFromText('𝗙𝗿𝗶𝗱𝗮𝘆, 𝗠𝗮𝘆 29 from 5-6:30𝗣𝗠');
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(5);
+        expect(result!.day).toBe(29);
+        expect(result!.startHour).toBe(17);
+        expect(result!.endHour).toBe(18);
+        expect(result!.endMinute).toBe(30);
+    });
+
+    test('parses "between StartTime–EndTime on Weekday, Month Day" format', () => {
+        const result = ripper.parseDateTimeFromText('Join us anytime between 1 PM–3 PM on Saturday, May 30 during café hours');
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(5);
+        expect(result!.day).toBe(30);
+        expect(result!.startHour).toBe(13);
+        expect(result!.startMinute).toBe(0);
+        expect(result!.endHour).toBe(15);
+        expect(result!.endMinute).toBe(0);
+    });
 });
 
 describe('CobysCafeRipper - parseProductHtml', () => {
