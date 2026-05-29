@@ -1,0 +1,353 @@
+{
+    "@odata.count": 8,
+    "@search.coverage": null,
+    "@search.facets": {
+        "CategoryIds": [
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "14222",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "19851",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "23924",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "23925",
+                "count": 1
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "2462",
+                "count": 4
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "2999",
+                "count": 1
+            }
+        ],
+        "BenefitNames": [
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Free Food",
+                "count": 3
+            }
+        ],
+        "Theme": [
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Arts",
+                "count": 2
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "GroupBusiness",
+                "count": 2
+            },
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": "Social",
+                "count": 4
+            }
+        ],
+        "BranchId": [
+            {
+                "type": 0,
+                "from": null,
+                "to": null,
+                "value": 224582,
+                "count": 8
+            }
+        ]
+    },
+    "value": [
+        {
+            "id": "12469457",
+            "institutionId": 152,
+            "organizationId": 347669,
+            "organizationIds": [],
+            "branchId": 224582,
+            "branchIds": [],
+            "organizationName": "Traditional Chinese Dance",
+            "organizationProfilePicture": "3eebebba-8951-494a-999a-d1dc8021a7ed70e97eda-2f06-4db0-b480-96b045a7b908.jpg",
+            "organizationNames": [],
+            "name": "TCD 4TH ANNUAL SPRING SHOWCASE",
+            "description": "<p>ITS TIME! \ud83e\udd41\ud83e\udd41\ud83e\udd41&hellip;For everyone&rsquo;s favorite annual showcase ever! It's time for YOU, yes YOU to immerse yourself in TCD&rsquo;s 4TH ANNUAL SHOWCASE! We are back with an expansive range of cultural dances, ranging from as soft as a spring breeze\ud83c\udf38\ud83d\udca8 to as sharp as a knife\ud83d\udd2a</p>\r\n<p>\ud83d\uddd3\ufe0f Date: May 23th, 2026<br />\ud83d\udccd Location: Kane Hall 130<br />\ud83c\udf9f\ufe0f Ticket Price: $8 for UW students, $12 for non-UW, $16 at door</p>\r\n<p>We are so honored and humbled to have the opportunity to participate in a multitude of cultural events throughout UW and the greater Seattle area. Not to downplay our previous performances, but we saved the best for last! We are so excited to finally reveal what we have been working on for the past 8 months at our showcase! Awaiting you are the beautiful solo and group dances prepared by members of TCD. Keep checking our page for updates and sneak peaks as we approach the date!\ud83c\udf1f</p>\r\n<p>BUT WAIT\u203c\ufe0f\u203c\ufe0f There is more! We are excited to announce VOLUNTEER OPPORTUNITIES!!! If you decide to lend your valuable time to us, food and drinks will be provided!\ud83c\udf55\ud83e\udd64 These will work for volunteer opportunities!</p>\r\n<p><a href=\"https://huskylink.washington.edu/submitter/organization/tcduw/eventsubmission/docs.google.com/forms/d/e/1FAIpQLSdWoZc2iesIWU34aftjkcn6kzeuE-mEbwpvIwYGAdHOeRnHdQ/viewform\">TICKETS</a> AND <a href=\"https://huskylink.washington.edu/submitter/organization/tcduw/eventsubmission/docs.google.com/forms/d/e/1FAIpQLSfXBn0hQztqLBNUmDYI6d5-DFx7Apr376xU373DLA8FjC_8Fg/viewform\">VOLUNTEER</a> FORMS ARE LINKED HERE \ud83e\udee1 We hope to see you there\ud83d\udc97</p>\r\n<p>Thank you to our sponsors ASUW, HUB, GPSS, SAF, CSF, ECC, Alumni Association, and Office of Minority Affairs &amp; Diversity. It wouldn&rsquo;t have been possible without your support! Also a huge thank you to Coco for providing drinks for our members and volunteers!</p>\r\n<p>The University of Washington is committed to providing access, equal opportunity and reasonable accommodation in its services, programs, activities, education and employment for individuals with disabilities. To request disability accommodation contact the Disability Services Office at least ten days in advance at: 206.543.6450/V, 206.543.6452/TTY, 206.685.7264 (FAX), or e-mail at dso@u.washington.edu</p>\r\n<p>Disability Accommodations Statement: &ldquo;The University of Washington is committed to providing access, equal opportunity, and reasonable accommodations in its services, programs, activities, education, and employment for individuals with disabilities. To request disability accommodation, contact the Disability Service Office at least one day in advance by phone at 206.543.6450, 206.543.6452/TTY, 206.685.7264/FAX, or email at dso@uw.edu&rdquo;</p>\r\n<p>Disclaimer Statement: &ldquo;The views expressed at this program are not necessarily those of the Kelly Ethnic Cultural Center, Office of Minority Affairs &amp; Diversity, and the Services and the Activities Fee Committee.&rdquo;</p>",
+            "location": "Kane Hall Room 130",
+            "startsOn": "2026-05-23T23:00:00+00:00",
+            "endsOn": "2026-05-24T01:30:00+00:00",
+            "imagePath": "812c8a57-b6e7-41dc-9420-d0f3535309f62bbd0bfb-6f27-40a4-adcc-da970cfb2b49.png",
+            "theme": "Arts",
+            "categoryIds": [],
+            "categoryNames": [],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "47.656620",
+            "longitude": "-122.309150",
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 1.0
+        },
+        {
+            "id": "12473886",
+            "institutionId": 152,
+            "organizationId": 330317,
+            "organizationIds": [],
+            "branchId": 224582,
+            "branchIds": [],
+            "organizationName": "The Women's Network at UW ",
+            "organizationProfilePicture": "0eaefd20-6dad-4f83-80ff-fe28940de5eb0dce38bf-095c-4c62-add7-f2ed9c2985d6.jpg",
+            "organizationNames": [],
+            "name": "End-of-year Social + Senior Send-Off",
+            "description": "<p>Join us for our end-of-year social + Senior Send-Off \ud83c\udf93\u2728<br /><br />We&rsquo;re closing out the year with a cozy celebration for our TWN community, especially our graduating seniors. Come hang out, take photos, grab snacks, and toast to everything you&rsquo;ve accomplished this year.<br /><br />Whether you&rsquo;re graduating or coming back next year, this is your chance to celebrate our seniors and spend time with friends before summer starts!</p>",
+            "location": "The Accolade Sky Lounge",
+            "startsOn": "2026-05-28T01:00:00+00:00",
+            "endsOn": "2026-05-28T02:00:00+00:00",
+            "imagePath": "c0a3ef90-2856-4bb1-b0f1-322edb6e90db58072b67-fa44-4b89-a801-91b2ee75335c.png",
+            "theme": "Social",
+            "categoryIds": [
+                "2462",
+                "19851",
+                "23925"
+            ],
+            "categoryNames": [
+                "Club Meeting",
+                "Cultural Celebration",
+                "Gaming"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "47.657830",
+            "longitude": "-122.315380",
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 1.0
+        },
+        {
+            "id": "12454688",
+            "institutionId": 152,
+            "organizationId": 415785,
+            "organizationIds": [],
+            "branchId": 224582,
+            "branchIds": [],
+            "organizationName": "Bartering Club at UW",
+            "organizationProfilePicture": null,
+            "organizationNames": [],
+            "name": "Sustainability Roundtable",
+            "description": "<p>Please join us for a Sustainability Roundtable on May 27th from 6-7:30pm featuring a variety of UW RSOs related to sustainability, advocacy, and community-building. Participating RSOs and students will have the opportunity to share their goals, collaborate on future initiatives, and create a strong base for sustainable action on campus. If your RSO is interested in participating, please email sal32@uw.edu by 5/20. Everyone is welcome!</p>",
+            "location": "Mary Gates Hall Rm 206",
+            "startsOn": "2026-05-28T01:00:00+00:00",
+            "endsOn": "2026-05-28T02:30:00+00:00",
+            "imagePath": "259306e7-ce2f-42e9-9d56-5dd5fc88e67186bae1fb-f996-4957-99ac-48f33d8b21a8.png",
+            "theme": "Social",
+            "categoryIds": [
+                "2999",
+                "23924"
+            ],
+            "categoryNames": [
+                "Presentation/Workshop",
+                "Networking"
+            ],
+            "benefitNames": [
+                "Free Food"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "47.654730",
+            "longitude": "-122.307650",
+            "recScore": null,
+            "rsvpTotal": 1,
+            "@search.score": 1.0
+        },
+        {
+            "id": "12444029",
+            "institutionId": 152,
+            "organizationId": 419655,
+            "organizationIds": [],
+            "branchId": 224582,
+            "branchIds": [],
+            "organizationName": "Bird Buddies ",
+            "organizationProfilePicture": "6e417840-07dc-444a-8bd1-daf183a35b07437aaef7-9d94-4ea9-b23e-e64161e4ba7e.jpg",
+            "organizationNames": [],
+            "name": "Bird Buddies Bi-Weekly Meeting",
+            "description": "<p>Join Bird Buddies at our bi-weekly meetings where we do fun activities to make friends, learn about local birds, and plan our next off-campus birdwatching expedition !</p>",
+            "location": "MEB 251",
+            "startsOn": "2026-05-28T23:30:00+00:00",
+            "endsOn": "2026-05-29T00:30:00+00:00",
+            "imagePath": "ce1a281f-9804-4bf5-9390-dede28c2e26ecdc1cf39-e7a5-4137-b1a8-9bf5c3ad454f.png",
+            "theme": "Social",
+            "categoryIds": [
+                "2462"
+            ],
+            "categoryNames": [
+                "Club Meeting"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": null,
+            "longitude": null,
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.99742
+        },
+        {
+            "id": "12475521",
+            "institutionId": 152,
+            "organizationId": 275653,
+            "organizationIds": [],
+            "branchId": 224582,
+            "branchIds": [],
+            "organizationName": "Young Democratic Socialists of America at UW",
+            "organizationProfilePicture": "e9255a04-42a7-4a81-8ef0-c1b41a60e607599aa9e1-bf66-41d3-acff-936364aa97a3.png",
+            "organizationNames": [],
+            "name": "General Member Meeting",
+            "description": "<p>General Membership&nbsp;Meeting of the YDSA discussing our actions and introducing new members!</p>",
+            "location": "Savery 164",
+            "startsOn": "2026-05-29T01:00:00+00:00",
+            "endsOn": "2026-05-29T02:30:00+00:00",
+            "imagePath": null,
+            "theme": "GroupBusiness",
+            "categoryIds": [
+                "2462"
+            ],
+            "categoryNames": [
+                "Club Meeting"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "47.658340",
+            "longitude": "-122.307130",
+            "recScore": null,
+            "rsvpTotal": 0,
+            "@search.score": 99.99079
+        },
+        {
+            "id": "12382183",
+            "institutionId": 152,
+            "organizationId": 424542,
+            "organizationIds": [],
+            "branchId": 224582,
+            "branchIds": [],
+            "organizationName": "Urban Accessibility Group",
+            "organizationProfilePicture": "78ffdcac-312a-4f00-abc5-7d4c72a1006a56a24a89-1470-43e6-91d1-ba7ec1d1a2de.png",
+            "organizationNames": [],
+            "name": "UAG General Meeting",
+            "description": "<p>Meeting to discuss our plans for our next walk audit of a Seattle-area community. All are welcome to attend, regardless of UAG membership!</p>",
+            "location": "Odegaard Study Rm. 316",
+            "startsOn": "2026-06-02T22:30:00+00:00",
+            "endsOn": "2026-06-02T23:30:00+00:00",
+            "imagePath": "5b20b97a-d5f3-4acc-ab7b-930a237820bb74dad29c-229d-4cb2-b8f0-9213d60311e3.png",
+            "theme": "GroupBusiness",
+            "categoryIds": [
+                "2462"
+            ],
+            "categoryNames": [
+                "Club Meeting"
+            ],
+            "benefitNames": [],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "47.656440",
+            "longitude": "-122.310410",
+            "recScore": null,
+            "rsvpTotal": 3,
+            "@search.score": 99.46849
+        },
+        {
+            "id": "12382155",
+            "institutionId": 152,
+            "organizationId": 275095,
+            "organizationIds": [],
+            "branchId": 224582,
+            "branchIds": [],
+            "organizationName": "The Foundation for International Understanding Through Students (FIUTS) Student Board",
+            "organizationProfilePicture": "41b877e0-c585-4e87-bee9-4d5edc580f10c7d63050-5166-4d0f-ba7e-f4eaa62effba.png",
+            "organizationNames": [],
+            "name": "Wednesday Lunch",
+            "description": "<p>FIUTS Wednesday Lunch is a wonderful place to meet people from all over the world and find out about what's happening at FIUTS. It happens every first Wednesday of each month.&nbsp;<strong>FIUTS Wednesday Lunch</strong> is the longest-running international gathering in the U District! Join us once a month for FREE food, fun games and great conversation.</p>",
+            "location": "Fiuts Office Hall",
+            "startsOn": "2026-06-03T18:30:00+00:00",
+            "endsOn": "2026-06-03T20:30:00+00:00",
+            "imagePath": "c5841d94-314a-4d5e-9636-43337fdecbb0ed99eed6-3c12-40a3-9096-695a9c683eca.png",
+            "theme": "Social",
+            "categoryIds": [],
+            "categoryNames": [],
+            "benefitNames": [
+                "Free Food"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "47.659300",
+            "longitude": "-122.317980",
+            "recScore": null,
+            "rsvpTotal": 2,
+            "@search.score": 99.37895
+        },
+        {
+            "id": "12477766",
+            "institutionId": 152,
+            "organizationId": 224582,
+            "organizationIds": [],
+            "branchId": 224582,
+            "branchIds": [],
+            "organizationName": "Student Activities Office",
+            "organizationProfilePicture": "c2327ae2-4b91-451f-a756-8c8bb7f2629ad44a32ae-407a-4c86-a1c8-6f88c06995f4.jpg",
+            "organizationNames": [],
+            "name": "Fun 4 Finals",
+            "description": "<p>Come relax on the HUB Lawn and have fun before finals! We will have free popsicles, free crafts, face painting, music and games. Free and open to all students. <br /><br />For more information or to request accommodations email sao@uw.edu&nbsp;</p>",
+            "location": "HUB Lawn",
+            "startsOn": "2026-06-04T18:30:00+00:00",
+            "endsOn": "2026-06-04T21:30:00+00:00",
+            "imagePath": "c5c4ed75-61c6-4f07-981a-a06a72aae9b41b960e1e-5b99-43bc-8deb-adb670a2331e.png",
+            "theme": "Arts",
+            "categoryIds": [
+                "14222"
+            ],
+            "categoryNames": [
+                "Fair or Festival"
+            ],
+            "benefitNames": [
+                "Free Food"
+            ],
+            "visibility": "Public",
+            "status": "Approved",
+            "latitude": "47.655380",
+            "longitude": "-122.305080",
+            "recScore": null,
+            "rsvpTotal": 1,
+            "@search.score": 99.27126
+        }
+    ]
+}

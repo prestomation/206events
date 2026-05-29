@@ -1,0 +1,10 @@
+name: uw-huskylink
+description: "University of Washington — HuskyLink Student Organizations"
+url: "https://huskylink.washington.edu/api/discovery/event/search?endsAfter={yyyy-MM-dd}T00:00:00Z&orderByField=endsOn&orderByDirection=ascending&status=Approved&take=500"
+friendlyLink: https://huskylink.washington.edu/events
+tags: ["Community", "University District"]
+geo: null
+calendars:
+  - name: rso-events
+    friendlyname: "UW HuskyLink — Student Organization Events"
+    timezone: America/Los_Angeles
