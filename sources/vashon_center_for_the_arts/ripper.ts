@@ -105,6 +105,9 @@ export function processData(
 export default class VashonCenterForTheArtsRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
+        if (!ripper.config.calendars || ripper.config.calendars.length === 0) {
+            throw new Error('vashon-center-for-the-arts: ripper.yaml must define at least one calendar');
+        }
         const calConfig = ripper.config.calendars[0];
         const zone = ZoneId.of(calConfig.timezone.toString());
         const now = ZonedDateTime.now(zone);
