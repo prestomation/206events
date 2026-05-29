@@ -122,10 +122,32 @@ describe("createBrowserbaseFetch", () => {
         process.env.BROWSERBASE_API_KEY = "my-api-key";
         const fetchFn = createBrowserbaseFetch();
 
-        mockFetch.mockResolvedValueOnce(fakeResponse("error", 500));
+        mockFetch.mockResolvedValueOnce(fakeResponse("error: unauthorized", 401));
 
         await expect(fetchFn("https://example.com/")).rejects.toThrow(
-            "Browserbase fetch failed: HTTP 500"
+            "Browserbase fetch failed: HTTP 401 — error: unauthorized"
+        );
+    });
+
+    it("includes response body in error message for debugging", async () => {
+        process.env.BROWSERBASE_API_KEY = "my-api-key";
+        const fetchFn = createBrowserbaseFetch();
+
+        mockFetch.mockResolvedValueOnce(fakeResponse("some long error message that should be truncated because it exceeds two hundred characters".repeat(3), 500));
+
+        await expect(fetchFn("https://example.com/")).rejects.toThrow(
+            "Browserbase fetch failed: HTTP 500 — some long error message that should be truncated because it exceeds two hundred characterssome long error message that should be truncated because it exceeds"
+        );
+    });
+
+    it("throws on malformed JSON response from Browserbase API", async () => {
+        process.env.BROWSERBASE_API_KEY = "my-api-key";
+        const fetchFn = createBrowserbaseFetch();
+
+        mockFetch.mockResolvedValueOnce(fakeResponse("not json at all", 200));
+
+        await expect(fetchFn("https://example.com/")).rejects.toThrow(
+            "Browserbase API returned invalid JSON (HTTP 200)"
         );
     });
 

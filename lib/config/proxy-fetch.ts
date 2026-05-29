@@ -49,9 +49,15 @@ export function createBrowserbaseFetch(): FetchFn {
             }),
         });
         if (!response.ok) {
-            throw new Error(`Browserbase fetch failed: HTTP ${response.status}`);
+            const body = await response.text().catch(() => "");
+            throw new Error(`Browserbase fetch failed: HTTP ${response.status} — ${body.slice(0, 200)}`);
         }
-        const data = await response.json() as { statusCode: number; content: string; contentType: string };
+        let data: { statusCode: number; content: string; contentType: string };
+        try {
+            data = await response.json() as { statusCode: number; content: string; contentType: string };
+        } catch {
+            throw new Error(`Browserbase API returned invalid JSON (HTTP ${response.status})`);
+        }
         return new Response(data.content, {
             status: data.statusCode,
             headers: { "Content-Type": data.contentType },
