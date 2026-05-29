@@ -1,0 +1,15 @@
+name: duwamish_tribe
+description: "Duwamish Longhouse & Cultural Center"
+url: "https://www.duwamishtribe.org/events"
+friendlyLink: https://www.duwamishtribe.org/events-1
+tags: ["Community", "Arts", "Parks"]
+geo:
+  lat: 47.5608833
+  lng: -122.3520189
+  label: "Duwamish Longhouse & Cultural Center, 4705 West Marginal Way SW, Seattle, WA 98106"
+  osmType: way
+  osmId: 228915487
+calendars:
+  - name: all-events
+    friendlyname: "Duwamish Longhouse & Cultural Center"
+    timezone: America/Los_Angeles
