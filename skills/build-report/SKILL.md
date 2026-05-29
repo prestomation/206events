@@ -48,10 +48,22 @@ If the error looks transient (network timeout, temporary 5xx):
 - Do nothing, it'll resolve on its own
 
 #### 🚫 HTTP 403 / Persistent Fetch Failures
-If a source returns 403 or consistently fails to fetch:
-- Flag it in the report
-- If the source works when fetched from outside CI (e.g., locally or out-of-band), it likely needs `proxy: "outofband"` (the only valid non-false value per the schema)
-- After 10+ consecutive failures, consider adding it as an out-of-band source
+If a source returns 403 or consistently fails to fetch, follow the proxy escalation ladder:
+
+| Rung | Config | When |
+|------|--------|------|
+| 1 | `proxy: false` (default) | Source works from GitHub Actions |
+| 2 | `proxy: "outofband"` | Source works from home IP but CI 403s it |
+| 3 | `proxy: "browserbase"` | JS challenge (e.g. SiteGround sgcaptcha) blocks even residential IP |
+
+**Escalation is one rung at a time, one PR at a time:**
+1. **No proxy yet and CI 403s it?** → Add `proxy: "outofband"` in a PR. The out-of-band runner fetches from a residential IP.
+2. **Already `proxy: outofband` and still failing?** → Escalate to `proxy: "browserbase"` in a follow-up PR. Browserbase executes JS to bypass bot detection.
+3. **Already `proxy: browserbase` and still failing?** → Flag in the report for human review. The source may need a custom ripper or alternative URL.
+
+**Never skip escalation steps.** Each step requires its own PR so the failure is observable.
+
+- After 10+ consecutive failures, escalate to the next rung
 - Do NOT disable the ripper without human approval
 
 #### ❌ Only Disable if Source is Clearly Gone

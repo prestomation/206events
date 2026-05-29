@@ -14,6 +14,7 @@ import {
   serializeRipperErrors,
   serializeRipperError,
 } from "./config/schema.js";
+import { createBrowserbaseFetch } from "./config/proxy-fetch.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords } from "./geocoder.js";
 import {
   loadUncertaintyCache,
@@ -553,8 +554,11 @@ export const main = async () => {
       liveExternalCalendars,
       async (calendar): Promise<ExternalFetchResult> => {
         try {
-          console.log(`Fetching external calendar: ${calendar.friendlyname}`);
-          const response = await fetch(calendar.icsUrl, {
+          console.log(`Fetching external calendar: ${calendar.friendlyname}${calendar.proxy ? ` (proxy: ${calendar.proxy})` : ''}`);
+          const fetchFn = calendar.proxy === "browserbase"
+            ? createBrowserbaseFetch()
+            : (url: string | URL, init?: RequestInit) => fetch(url, init);
+          const response = await fetchFn(calendar.icsUrl, {
             headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' }
           });
           if (!response.ok) {
