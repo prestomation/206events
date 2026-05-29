@@ -13,6 +13,20 @@ function parseToInstant(s: string): Instant {
     return OffsetDateTime.parse(s).toInstant();
 }
 
+// Bounded debug description for ParseError `context` — avoid running
+// `JSON.stringify` on potentially huge payloads, which would allocate
+// before the substring trim.
+function describeShape(value: unknown): string {
+    if (value === null) return "null";
+    if (value === undefined) return "undefined";
+    if (Array.isArray(value)) return `array(len=${value.length})`;
+    if (typeof value === "object") {
+        const keys = Object.keys(value as object).slice(0, 8).join(",");
+        return `object{${keys}}`;
+    }
+    return `${typeof value}:${String(value).substring(0, 100)}`;
+}
+
 export default class HuskyLinkRipper extends JSONRipper {
     private seenIds = new Set<string>();
 
@@ -27,7 +41,7 @@ export default class HuskyLinkRipper extends JSONRipper {
             return [{
                 type: "ParseError",
                 reason: "Invalid JSON structure: expected an object with a `value` array",
-                context: JSON.stringify(jsonData).substring(0, 200)
+                context: describeShape(jsonData)
             }];
         }
 
@@ -36,8 +50,8 @@ export default class HuskyLinkRipper extends JSONRipper {
         for (const ev of jsonData.value) {
             const result = this.parseEvent(ev, zone);
             if ('date' in result) {
-                if (this.seenIds.has(result.id!)) continue;
-                this.seenIds.add(result.id!);
+                if (result.id && this.seenIds.has(result.id)) continue;
+                if (result.id) this.seenIds.add(result.id);
                 events.push(result);
             } else {
                 events.push(result);
@@ -56,7 +70,7 @@ export default class HuskyLinkRipper extends JSONRipper {
             return {
                 type: "ParseError",
                 reason: "Event is missing required fields (id, name, or startsOn)",
-                context: id ? `id=${id}` : JSON.stringify(ev).substring(0, 200)
+                context: id ? `id=${id}` : describeShape(ev)
             };
         }
 
