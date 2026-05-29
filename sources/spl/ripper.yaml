@@ -55,6 +55,7 @@ calendars:
   - name: fremont
     friendlyname: "SPL - Fremont Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       branch: "Fremont Branch"
     tags: ["Fremont"]
