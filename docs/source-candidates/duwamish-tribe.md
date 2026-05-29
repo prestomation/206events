@@ -6,7 +6,7 @@ url: https://www.duwamishtribe.org/events-1
 tags: [Community, Arts, Parks]
 firstSeen: 2026-05-29
 lastChecked: 2026-05-29
-pr: pending
+pr: 428
 ---
 
 **Duwamish Longhouse & Cultural Center** — 4705 West Marginal Way SW, Seattle, WA 98106.
