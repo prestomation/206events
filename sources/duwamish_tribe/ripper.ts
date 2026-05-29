@@ -117,8 +117,8 @@ export async function fetchDuwamishEvents(
     const nowMs = now.toInstant().toEpochMilli();
 
     for (let offset = 0; offset <= FUTURE_MONTHS; offset++) {
-        const date = new Date(now.year(), now.monthValue() - 1 + offset, 1);
-        const monthYear = `${MONTH_NAMES[date.getMonth()]}-${date.getFullYear()}`;
+        const targetDate = now.plusMonths(offset);
+        const monthYear = `${MONTH_NAMES[targetDate.monthValue() - 1]}-${targetDate.year()}`;
 
         const url = new URL(baseUrl.href);
         url.searchParams.set("format", "json");
@@ -155,7 +155,7 @@ export async function fetchDuwamishEvents(
         for (const item of items) {
             // Skip private events and past events
             if (/private/i.test(item.title)) continue;
-            if (item.startDate <= nowMs) continue;
+            if (item.startDate < nowMs) continue;
 
             const result = parseItem(item, now, zone);
             if ("date" in result) {
@@ -175,6 +175,9 @@ export default class DuwamishTribeRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);
         const calConfig = ripper.config.calendars[0];
+        if (!calConfig) {
+            throw new Error("No calendars configured for duwamish_tribe ripper");
+        }
         const zone = ZoneId.of(calConfig.timezone.toString());
         const now = ZonedDateTime.now(zone);
 
