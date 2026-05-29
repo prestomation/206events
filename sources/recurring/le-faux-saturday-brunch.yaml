@@ -2,6 +2,8 @@ geo:
   lat: 47.6213
   lng: -122.3207
   label: "Julia's on Broadway, 300 Broadway E, Seattle, WA 98102"
+  osmType: node
+  osmId: 2131716660
 name: le-faux-saturday-brunch
 friendlyname: Le Faux at Julia's on Broadway — Saturday Brunch
 description: Weekly Saturday drag brunch show at Julia's on Broadway in Capitol Hill.

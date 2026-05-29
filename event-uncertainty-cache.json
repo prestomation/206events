@@ -1,24 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:live-theater-2026-05-20": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8100
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/"
-    },
-    "events12:live-theater-2026-05-21": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8100
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/"
-    },
     "events12:live-theater-2026-05-22": {
       "fields": {
         "startTime": "19:30",
@@ -313,20 +295,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/blue-man-group/"
-    },
-    "events12:free-things-to-do-2026-05-20": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:free-things-to-do-2026-05-21": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
     },
     "events12:free-things-to-do-2026-05-22": {
       "unresolvable": true,
@@ -1895,20 +1863,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:taste-of-seattle-2026-05-20": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:taste-of-seattle-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
     },
     "events12:taste-of-seattle-2026-05-22": {
       "unresolvable": true,
@@ -4920,20 +4874,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-05-20": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:soccer-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-05-22": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -6124,20 +6064,6 @@
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
     },
-    "events12:sailboat-2026-05-20": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:sailboat-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
     "events12:sailboat-2026-05-22": {
       "unresolvable": true,
       "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
@@ -7278,20 +7204,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:baseball-2026-05-20": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
-    "events12:baseball-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
     },
     "events12:baseball-2026-05-22": {
       "unresolvable": true,
@@ -11192,20 +11104,6 @@
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
     },
-    "events12:rugby-2026-05-20": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:rugby-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
     "events12:rugby-2026-05-22": {
       "unresolvable": true,
       "reason": "Season-span listing across multiple dates; each home game has different start time",
@@ -11324,20 +11222,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:musical-cabaret-2026-05-20": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
-    },
-    "events12:musical-cabaret-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
     },
     "events12:musical-cabaret-2026-05-22": {
       "unresolvable": true,
@@ -11626,15 +11510,6 @@
       "source": "agent",
       "evidence": "https://www.hotstovesociety.com/store/events/"
     },
-    "events12:trapeze-show-2026-05-21": {
-      "fields": {
-        "startTime": "20:00",
-        "duration": 5400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://emeraldcitytrapeze.com/protege-2026-curbside-stories/"
-    },
     "events12:trapeze-show-2026-05-22": {
       "fields": {
         "startTime": "20:00",
@@ -11661,15 +11536,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://emeraldcitytrapeze.com/revolt-of-the-tails-celestial-circus/"
-    },
-    "events12:tacoma-museum-night-2026-05-21": {
-      "fields": {
-        "startTime": "16:00",
-        "duration": 14400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.fosswaterwayseaport.org/education-pages/free-3rd-thursday"
     },
     "events12:memorial-day-ceremonies-2026-05-23": {
       "fields": {
@@ -11847,20 +11713,6 @@
       "source": "agent",
       "evidence": "https://biteofgreeceseattle.com/"
     },
-    "events12:art-walks-2026-05-21": {
-      "unresolvable": true,
-      "reason": "City art walk info page \u2014 individual neighborhood walk times not specified",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattle.gov/arts/experience/art-walks"
-    },
-    "events12:eastside-party-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Event article page \u2014 no specific start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.425magazine.com/live-events/best-of-425-party-2026/article_0aea6ffa-f58c-11ef-ac34-7333174d5f4d.html"
-    },
     "events12:national-park-day-2026-05-25": {
       "unresolvable": true,
       "reason": "NPS free entrance days page \u2014 park opening times vary by individual park",
@@ -11917,20 +11769,6 @@
       "source": "agent",
       "evidence": "https://nwfolklife.org/festival/home.html"
     },
-    "events12:phantom-of-the-opera-2026-05-20": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:phantom-of-the-opera-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
     "events12:phantom-of-the-opera-2026-05-22": {
       "unresolvable": true,
       "reason": "Event page did not return performance schedule content",
@@ -11951,13 +11789,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:music-by-candlelight-2026-05-21": {
-      "unresolvable": true,
-      "reason": "Fever affiliate link \u2014 cannot determine show times from redirect URL",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://fever.pxf.io/Kj6j5x"
     },
     "events12:music-by-candlelight-2026-05-22": {
       "unresolvable": true,
@@ -12035,26 +11866,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.masoncountyforestfestival.com"
-    },
-    "events12:all-american-musical-2026-05-20": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8400
-      },
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "evidence": "https://villagetheatre.org/see-a-show/grease/",
-      "partialFingerprint": "1p783r0-until2026-06-07-tu"
-    },
-    "events12:all-american-musical-2026-05-21": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8400
-      },
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "evidence": "https://villagetheatre.org/see-a-show/grease/",
-      "partialFingerprint": "1p783r0-until2026-06-07-tu"
     },
     "events12:all-american-musical-2026-05-22": {
       "fields": {
@@ -12213,34 +12024,6 @@
       "source": "agent",
       "evidence": "https://villagetheatre.org/see-a-show/grease/",
       "partialFingerprint": "1p783r0-until2026-06-07-tu"
-    },
-    "19hz:19hz-2026/05/18-Brothertiger, Hotel Pools": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1x4o3z2"
-    },
-    "19hz:19hz-2026/05/18-Electric Blue": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1x4o3z2"
-    },
-    "19hz:19hz-2026/05/19-St. Lucia": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1eqmubp"
-    },
-    "19hz:19hz-2026/05/19-Sina Bathaie": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qno7ss"
     },
     "19hz:19hz-2026/05/22-Mayday: Karma": {
       "unresolvable": true,
@@ -15613,16 +15396,6 @@
       "evidence": "https://www.discoverslu.com/events/steamship-sunday-2026/",
       "partialFingerprint": "6s4gxw"
     },
-    "mopop:mopop-sensory-friendly-days-2026-05-20": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 25200
-      },
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "evidence": "https://www.mopop.org/events/sensory-friendly-days",
-      "partialFingerprint": "grpei7"
-    },
     "mopop:mopop-willy-wonka-supper-fan-club-2026-06-08": {
       "fields": {
         "startTime": "18:00",
@@ -17358,11 +17131,10 @@
     },
     "crocodile:tm-rZ7HnEZ1AfPeAK": {
       "unresolvable": true,
-      "reason": "TicketWeb listing shows start time only (10pm); no end time published",
-      "resolvedAt": "2026-05-23",
-      "source": "agent",
-      "evidence": "https://www.ticketweb.com/event/house-party-a-the-crocodile-tickets/14942153",
-      "partialFingerprint": "1d3z8ro"
+      "reason": "Ticketmaster API does not expose event duration; event page returns HTTP 403",
+      "partialFingerprint": "1mxkx08",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
     },
     "discover-slu:discover-slu-sofar-2026-2": {
       "unresolvable": true,
@@ -19375,1713 +19147,93 @@
       "unresolvable": true,
       "reason": "Event page lists 7pm start time but no end time \u2014 duration unresolvable"
     },
-    "events12:dancing-to-american-music-2026-05-07": {
-      "fields": {
-        "startTime": "20:00",
-        "duration": 9000
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://meanycenter.org/tickets/2026-05/production/mark-morris-dance-group"
-    },
-    "events12:dancing-to-american-music-2026-05-08": {
-      "fields": {
-        "startTime": "20:00",
-        "duration": 9000
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://meanycenter.org/tickets/2026-05/production/mark-morris-dance-group"
-    },
-    "events12:dancing-to-american-music-2026-05-09": {
-      "fields": {
-        "startTime": "20:00",
-        "duration": 9000
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://meanycenter.org/tickets/2026-05/production/mark-morris-dance-group"
-    },
-    "events12:live-theater-2026-05-19": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8100
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/"
-    },
-    "events12:free-things-to-do-2026-05-16": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:free-things-to-do-2026-05-17": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:free-things-to-do-2026-05-18": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:free-things-to-do-2026-05-19": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:taste-of-seattle-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:taste-of-seattle-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:taste-of-seattle-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:soccer-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:soccer-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:soccer-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:soccer-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:sailboat-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:sailboat-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:sailboat-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:baseball-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
-    "events12:baseball-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
-    "events12:baseball-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
-    "events12:rugby-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:rugby-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:rugby-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:musical-cabaret-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
-    },
-    "events12:musical-cabaret-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
-    },
-    "events12:musical-cabaret-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
-    },
-    "events12:musical-cabaret-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
-    },
-    "events12:uw-dance-show-2026-05-16": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 5400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://dance.washington.edu/events/2026-05-14/mfa-dance-concert-2026"
-    },
-    "events12:uw-dance-show-2026-05-17": {
-      "fields": {
-        "startTime": "14:00",
-        "duration": 5400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://dance.washington.edu/events/2026-05-14/mfa-dance-concert-2026"
-    },
-    "events12:party-at-uw-2026-05-01": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 14400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://windermere.ticketspice.com/2026-party-on-the-cut"
-    },
-    "events12:rowing-races-2026-05-02": {
-      "fields": {
-        "startTime": "10:15",
-        "duration": 10800
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://windermerecup.com/"
-    },
-    "events12:museum-day-2026-05-07": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 25200
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.burkemuseum.org/tickets?date=2026-05-07"
-    },
-    "events12:wine-walk-2026-05-09": {
-      "fields": {
-        "startTime": "16:00",
-        "duration": 10800
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.tickettomato.com/event/9797/queen-anne-spring-wine-walk"
-    },
-    "events12:annual-garage-sale-2026-05-09": {
-      "fields": {
-        "startTime": "09:00",
-        "duration": 21600
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://westseattleblog.com/category/community-garage-sale-day/"
-    },
-    "events12:eastside-wine-tasting-2026-05-14": {
-      "fields": {
-        "startTime": "17:30",
-        "duration": 9000
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.tickettomato.com/event/9976/the-old-bellevue-spring-wine-walk"
-    },
-    "events12:west-seattle-wine-tasting-2026-05-15": {
-      "fields": {
-        "startTime": "17:00",
-        "duration": 14400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://wsjunction.org/annual-event/wine-walk/"
-    },
-    "events12:dragon-boats-in-tacoma-2026-05-16": {
-      "fields": {
-        "startTime": "08:00",
-        "duration": 28800
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.tacomadragonboat.org/rdbf/"
-    },
-    "events12:university-street-fair-2026-05-16": {
-      "fields": {
-        "startTime": "11:00",
-        "duration": 28800
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://udistrictseattle.com/streetfair"
-    },
-    "events12:university-street-fair-2026-05-17": {
-      "fields": {
-        "startTime": "11:00",
-        "duration": 25200
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://udistrictseattle.com/streetfair"
-    },
-    "events12:powwow-2026-05-16": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 14400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.skagit.edu/powwow/"
-    },
-    "events12:powwow-2026-05-17": {
-      "fields": {
-        "startTime": "12:00",
-        "duration": 14400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.skagit.edu/powwow/"
-    },
-    "events12:norwegian-day-2026-05-17": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 7200
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://may17th.squarespace.com/"
-    },
-    "events12:south-sound-family-fair-2026-05-16": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 28800
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://laceyparks.org/funfair/"
-    },
-    "events12:south-sound-family-fair-2026-05-17": {
-      "fields": {
-        "startTime": "11:00",
-        "duration": 21600
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://laceyparks.org/funfair/"
-    },
-    "events12:restaurant-week-2026-05-01": {
-      "unresolvable": true,
-      "reason": "General restaurant week info page \u2014 no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://srweek.org"
-    },
-    "events12:restaurant-week-2026-05-02": {
-      "unresolvable": true,
-      "reason": "General restaurant week info page \u2014 no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://srweek.org"
-    },
-    "events12:irrigation-festival-2026-05-01": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:irrigation-festival-2026-05-02": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:irrigation-festival-2026-05-03": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:irrigation-festival-2026-05-04": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:irrigation-festival-2026-05-05": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:irrigation-festival-2026-05-06": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:irrigation-festival-2026-05-07": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:irrigation-festival-2026-05-08": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:irrigation-festival-2026-05-09": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific daily start time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "http://www.irrigationfestival.com/"
-    },
-    "events12:apple-blossom-festival-2026-05-01": {
-      "unresolvable": true,
-      "reason": "Multi-day festival homepage \u2014 no specific opening time listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.appleblossom.org/"
-    },
-    "events12:obstacle-race-2026-05-02": {
-      "unresolvable": true,
-      "reason": "Source page shows 2027 dates, not confirming a May 2-3 2026 event",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.spartan.com/en/races/seattle-spring"
-    },
-    "events12:obstacle-race-2026-05-03": {
-      "unresolvable": true,
-      "reason": "Source page shows 2027 dates, not confirming a May 2-3 2026 event",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.spartan.com/en/races/seattle-spring"
-    },
-    "events12:tacoma-races-2026-05-02": {
-      "unresolvable": true,
-      "reason": "Multiple races with different start times (8am 5K/10K, 9am marathon)",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://tcmaevents.com/tacoma-city-marathon/"
-    },
-    "events12:tacoma-races-2026-05-03": {
-      "unresolvable": true,
-      "reason": "Multiple races with different start times (7:30am marathon)",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://tcmaevents.com/tacoma-city-marathon/"
-    },
-    "events12:film-party-2026-05-08": {
-      "unresolvable": true,
-      "reason": "Page did not load \u2014 could not determine start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://grandcinema.com/movie/253-short-film-party-2/"
-    },
-    "events12:wine-train-2026-05-08": {
-      "unresolvable": true,
-      "reason": "Source page shows June 19 2026 event; no May 8 event confirmed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://shop.trainmuseum.org/SelectEvent.aspx?eventid=1000062"
-    },
-    "events12:run-in-the-u-district-2026-05-09": {
-      "unresolvable": true,
-      "reason": "Fundraising homepage \u2014 no specific event start time for May 9",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www2.breakthrought1d.org/site/SPageServer?pagename=btb_homepage"
-    },
-    "events12:edmonds-jazz-festival-2026-05-09": {
-      "unresolvable": true,
-      "reason": "Festival page does not list start times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://daybreakersrotary.com/events/jazz/"
-    },
-    "events12:tasting-in-puyallup-2026-05-09": {
-      "unresolvable": true,
-      "reason": "Source page shows October 2026 event \u2014 no May 9 event confirmed on this page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.puyallupmainstreet.com/signature-events/sip-puyallup/"
-    },
-    "events12:whidbey-island-festival-2026-05-09": {
-      "unresolvable": true,
-      "reason": "Festival page does not list specific start times; schedule page linked separately",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.penncovewaterfestival.org/"
-    },
-    "events12:mother-s-day-cruise-2026-05-09": {
-      "unresolvable": true,
-      "reason": "Multiple cruise options with different times: Brunch 11am, Dinner 5pm \u2014 cannot determine which applies",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://waterwayscruises.com/special-event-cruises/"
-    },
-    "events12:mother-s-day-cruise-2026-05-10": {
-      "unresolvable": true,
-      "reason": "Multiple cruise options with different times: Brunch 11am, Dinner 5pm \u2014 cannot determine which applies",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://waterwayscruises.com/special-event-cruises/"
-    },
-    "events12:mother-s-day-restaurants-2026-05-10": {
-      "unresolvable": true,
-      "reason": "General restaurant listicle page \u2014 no specific event time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.gayot.com/restaurants/best-seattle-wa-top10-mothers-day-brunch_25se.html"
-    },
-    "events12:bavarian-festival-2026-05-09": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 specific daily opening times not listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://leavenworth.org/maifest/"
-    },
-    "events12:bavarian-festival-2026-05-10": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 specific daily opening times not listed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://leavenworth.org/maifest/"
-    },
-    "events12:roller-derby-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Organization page shows no event for May 16, 2026",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.zeffy.com/en-US/organizations/jet-city-roller-derby"
-    },
-    "events12:j-c-superstar-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Page did not return performance schedule",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.5thavenue.org/shows/2025-26/jesus-christ-superstar/"
-    },
-    "events12:j-c-superstar-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Page did not return performance schedule",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.5thavenue.org/shows/2025-26/jesus-christ-superstar/"
-    },
-    "events12:opera-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Seattle Opera page returned only a loading screen",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattleopera.org/performances-events/carmen/"
-    },
-    "events12:opera-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Seattle Opera page returned only a loading screen",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattleopera.org/performances-events/carmen/"
-    },
-    "events12:gemstones-fossils-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Event page does not list specific opening hours",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://elementalendeavors.com/seattle-mineral-market"
-    },
-    "events12:gemstones-fossils-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Event page does not list specific opening hours",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://elementalendeavors.com/seattle-mineral-market"
-    },
-    "events12:viking-festival-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 daily schedule on separate page not accessible",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://vikingfest.org/"
-    },
-    "events12:viking-festival-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 daily schedule on separate page not accessible",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://vikingfest.org/"
-    },
-    "events12:seattle-film-festival-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Film festival homepage \u2014 individual screening times not listed; vary by program",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.siff.net/festival"
-    },
-    "events12:seattle-film-festival-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Film festival homepage \u2014 individual screening times not listed; vary by program",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.siff.net/festival"
-    },
-    "events12:phantom-of-the-opera-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:phantom-of-the-opera-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:phantom-of-the-opera-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:phantom-of-the-opera-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:world-explorer-show-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Seattle Symphony page returned HTTP 403 \u2014 could not retrieve show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattlesymphony.org/en/benaroyahall/bh-calendar/2025-2026/25-nat-geo-6"
-    },
-    "events12:world-explorer-show-2026-05-18": {
-      "unresolvable": true,
-      "reason": "Seattle Symphony page returned HTTP 403 \u2014 could not retrieve show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattlesymphony.org/en/benaroyahall/bh-calendar/2025-2026/25-nat-geo-6"
-    },
-    "events12:world-explorer-show-2026-05-19": {
-      "unresolvable": true,
-      "reason": "Seattle Symphony page returned HTTP 403 \u2014 could not retrieve show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seattlesymphony.org/en/benaroyahall/bh-calendar/2025-2026/25-nat-geo-6"
-    },
-    "events12:jazz-wine-in-chelan-2026-05-16": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 per-day schedules not listed; vary by performance",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.chelanwinejazz.com"
-    },
-    "events12:jazz-wine-in-chelan-2026-05-17": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 per-day schedules not listed; vary by performance",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.chelanwinejazz.com"
-    },
-    "discover_slu:discover-slu-honey-scavenger-hunt": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zjl33k"
-    },
-    "discover_slu:discover-slu-trivia-nights-at-king-leroy-3-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "iypwau"
-    },
-    "discover_slu:discover-slu-meet-greet-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zo9i9"
-    },
-    "discover_slu:discover-slu-van-gogh-night": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ucgtyb"
-    },
-    "discover_slu:discover-slu-spring-reset": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ucgtyb"
-    },
-    "discover_slu:discover-slu-history-cafe-field-notes": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "f8uq33"
-    },
-    "discover_slu:discover-slu-blood-drive-may-21": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1bz089k"
-    },
-    "discover_slu:discover-slu-bloom-in-sound": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qmlnqk"
-    },
-    "discover_slu:discover-slu-standard-matcha": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "16w23vf"
-    },
-    "discover_slu:discover-slu-photography-fundamentals": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1dj1o0u"
-    },
-    "discover_slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1u6hjz6"
-    },
-    "discover_slu:discover-slu-video-part-2-2026-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ojtgl4"
-    },
-    "discover_slu:discover-slu-cannon-beach": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1yvg5z7"
-    },
-    "discover_slu:discover-slu-aapi-owned-business-pop-up-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "lf6145"
-    },
-    "discover_slu:discover-slu-made-in-slu-event-2026": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "6dpf5k"
-    },
-    "discover_slu:discover-slu-guest-chef-night-reyes": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "19jxdqb"
-    },
-    "discover_slu:discover-slu-how-to-pack-a-backpack-workshop-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1o8bnyc"
-    },
-    "discover_slu:discover-slu-sofar-2026-2-3": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "3x99zc"
-    },
-    "discover_slu:discover-slu-spring-sunset-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "3g89w0"
-    },
-    "discover_slu:discover-slu-ripples-of-time": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1i5l4lk"
-    },
-    "discover_slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "feouim"
-    },
-    "discover_slu:discover-slu-wooden-boat-storytime-2026-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "u334qn"
-    },
-    "discover_slu:discover-slu-flow-state": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "u334qn"
-    },
-    "discover_slu:discover-slu-toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "18rhfbl"
-    },
-    "discover_slu:discover-slu-supper-fan-club-ww": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1klqkvf"
-    },
-    "discover_slu:discover-slu-galaxy-lighthouse": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1w14waz"
-    },
-    "discover_slu:discover-slu-made-in-slu-event-2026-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x88a51"
-    },
-    "discover_slu:discover-slu-sip-shop-social": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "l8s6ee"
-    },
-    "discover_slu:discover-slu-guest-chef-night-tinsley": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "wo6hty"
-    },
-    "discover_slu:discover-slu-jazzed-downbeat-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1be85u2"
-    },
-    "discover_slu:discover-slu-best-of-gage-2026": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "tf6j1h"
-    },
-    "discover_slu:discover-slu-seattle-dragon-boat-festival-2024-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dunmt3"
-    },
-    "discover_slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dwb0l6"
-    },
-    "discover_slu:discover-slu-photo-essentials-2-2026-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "f3rmhk"
-    },
-    "discover_slu:discover-slu-jazzed-jamboree-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "12hphc0"
-    },
-    "discover_slu:discover-slu-public-sail-2026-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "r28746"
-    },
-    "discover_slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "r28746"
-    },
-    "discover_slu:discover-slu-made-in-slu-event-2026-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1mjvgs8"
-    },
-    "discover_slu:discover-slu-guest-chef-night-tartaglia-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1ozfs3n"
-    },
-    "discover_slu:discover-slu-gobble-up-slu-2026": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "b2m8bs"
-    },
-    "discover_slu:discover-slu-boating-sunset": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "14fet4r"
-    },
-    "discover_slu:discover-slu-rei-run-2026-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1gdvdrd"
-    },
-    "discover_slu:discover-slu-wooden-boat-storytime-2026-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1v29nze"
-    },
-    "discover_slu:discover-slu-ease-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1v3x1rh"
-    },
-    "discover_slu:discover-slu-toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "apjwl8"
-    },
-    "discover_slu:discover-slu-video-fundamentals-1-2026-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ar7adb"
-    },
-    "discover_slu:discover-slu-tugboat-tuesdays-2026": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qjnb5h"
-    },
-    "discover_slu:discover-slu-made-in-slu-event-2026-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1w0fxvs"
-    },
-    "discover_slu:discover-slu-america-250-tour": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "120p0d4"
-    },
-    "discover_slu:discover-slu-guest-chef-night-murray": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "k1ndkj"
-    },
-    "discover_slu:discover-slu-summer-jazz-lab-performance": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "t8islb"
-    },
-    "discover_slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Discover SLU listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "b3pv0y"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46283": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "h4xgeb"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46284": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1m9xhl0"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46285": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "13xhhzu"
-    },
-    "seattle_center:seattle-storm-vs-connecticut": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1o8uaex"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46286": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "a1dh7f"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46287": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1f6die4"
-    },
-    "seattle_center:folklife-festival-2026": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1f6die4"
-    },
-    "seattle_center:seattle-storm-vs-connecticut-x46765": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "t4hbv"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46288": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "la9hlp"
-    },
-    "seattle_center:folklife-festival-2026-x47115": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "la9hlp"
-    },
-    "seattle_center:stars-on-ice-2026-tour": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "164dmrg"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46289": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1qf9ise"
-    },
-    "seattle_center:folklife-festival-2026-x47116": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1qf9ise"
-    },
-    "seattle_center:seattle-storm-vs-washington-x46766": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1oxureh"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46290": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "wj5hzz"
-    },
-    "seattle_center:folklife-festival-2026-x47117": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "wj5hzz"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46291": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "2n1h7k"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46292": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "17s1ie9"
-    },
-    "seattle_center:seattle-storm-vs-washington": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "o663cv"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46293": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dvxhlu"
-    },
-    "seattle_center:toyota-sotas-drive-tour-x47546": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dvxhlu"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46294": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1j0xisj"
-    },
-    "seattle_center:toyota-sotas-drive-tour-x47547": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1j0xisj"
-    },
-    "seattle_center:artists-at-the-center-stephcynie": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zrkc8x"
-    },
-    "seattle_center:all-lang-all-lang-performance-1": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1dwn64l"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46295": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "10ohj7d"
-    },
-    "seattle_center:toyota-sotas-drive-tour-x47548": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "10ohj7d"
-    },
-    "seattle_center:all-lang-x44648": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1xs0z9v"
-    },
-    "seattle_center:artists-at-the-center-oroki-productions": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "l8oy3b"
-    },
-    "seattle_center:all-lang-x44649": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zdrryz"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46296": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "6sdiey"
-    },
-    "seattle_center:yugioh-x47453": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "6sdiey"
-    },
-    "seattle_center:toyota-sotas-drive-tour": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "wz9lsn"
-    },
-    "seattle_center:california-repercussions-rock-seattle": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "33f5t5"
-    },
-    "seattle_center:artists-at-the-center-f-rock-inc": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "a621xx"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46297": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "ok25c"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46298": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "15tk3c1"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46299": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "bxg2jm"
-    },
-    "seattle_center:seattle-storm-vs-phoenix": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "urdlts"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46300": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1h2g3qb"
-    },
-    "seattle_center:louis-tomlinson-how-did-we-get-here-world-tour": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "11ipa9"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46301": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "n6c2xw"
-    },
-    "seattle_center:all-lang": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1khuoli"
-    },
-    "seattle_center:pagdiriwang-philippine-festival": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1sbc44l"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46302": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1sbc44l"
-    },
-    "seattle_center:emerald-city-cardfest-x46943": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "120m7nc"
-    },
-    "seattle_center:all-lang-x47205": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1p68zcv"
-    },
-    "seattle_center:all-lang-x44651": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1p68zcv"
-    },
-    "seattle_center:all-lang-x44652": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qrzs1z"
-    },
-    "seattle_center:pagdiriwang-philippine-festival-web-use": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "yf83c6"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46303": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "yf83c6"
-    },
-    "seattle_center:emerald-city-cardfest": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8arb3t"
-    },
-    "seattle_center:all-lang-x44653": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1pci3lr"
-    },
-    "seattle_center:season-encore": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "qy8wav"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46304": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "4j42jr"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46305": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "19o43qg"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46306": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rbo45a"
-    },
-    "seattle_center:seattle-storm-vs-los-angeles": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1f0oycc"
-    },
-    "seattle_center:lets-play-sea-26-armory-fan-experience-opening-day": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1wgo5bz"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46307": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1wgo5bz"
-    },
-    "seattle_center:the-play-that-goes-wrong-x44679": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "zfwvoh"
-    },
-    "seattle_center:lets-play-sea-26-armory-fan-experience-x47236": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "12kk4jk"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46308": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "12kk4jk"
-    },
-    "seattle_center:the-play-that-goes-wrong-x44680": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "144b6fu"
-    },
-    "seattle_center:indigenous-people-festival-x47552": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "lh361p"
-    },
-    "seattle_center:seattle-storm-vs-golden-state-x46770": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1qm378e"
-    },
-    "seattle_center:the-play-that-goes-wrong-x44681": {
-      "unresolvable": true,
-      "reason": "Source does not expose an end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "5q1z4y"
-    },
-    "seattle_center:lets-play-sea-26-kexp-gathering-space-fan-experience-x47530": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8og3r5"
-    },
-    "seattle_center:indigenous-people-festival": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8og3r5"
-    },
-    "seattle_center:seattle-center-sculpture-walk-2026-x46309": {
-      "unresolvable": true,
-      "reason": "Source listed \"All Day\"; precise start time and duration not given",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8og3r5"
-    },
-    "waterfront_park:waterfront-park-6878-202606011000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6884-202607211500": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"3 pm\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "xatm"
-    },
-    "waterfront_park:waterfront-park-6886-202608011000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6886-202608021000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6871-202608141000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6871-202608151000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6871-202608161000": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"10 am\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rtakt"
-    },
-    "waterfront_park:waterfront-park-6887-202608221200": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"12 pm\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rukws"
-    },
-    "waterfront_park:waterfront-park-6873-202608231200": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"12 pm\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "rukws"
-    },
-    "waterfront_park:waterfront-park-6890-202609071500": {
-      "unresolvable": true,
-      "reason": "Could not parse time range \"3 pm\"",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "xatm"
-    },
-    "events12:seattle-film-festival-2026-05-07": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-08": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-09": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-10": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-11": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-12": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-13": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-14": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:seattle-film-festival-2026-05-15": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "x74a3g-until2026-05-17-tu"
-    },
-    "events12:jazz-wine-in-chelan-2026-05-14": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1n3i64g-until2026-05-17-tu"
-    },
-    "events12:jazz-wine-in-chelan-2026-05-15": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1n3i64g-until2026-05-17-tu"
-    },
-    "events12:viking-festival-2026-05-15": {
-      "unresolvable": true,
-      "reason": "Multi-day festival listing; individual day start times not listed on source",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "116y8z2-until2026-05-17-tu"
-    },
     "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47589": {
       "unresolvable": true,
       "resolvedAt": "2026-05-21",
       "source": "agent",
       "reason": "Self-guided virtual event; page states 'All Day' with no fixed start time",
       "partialFingerprint": "13xhhzu"
+    },
+    "discover-slu:discover-slu-pike-place-express-2026-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "partialFingerprint": "196ourn",
+      "resolvedAt": "2026-05-29",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/pike-place-express-2026-2/"
+    },
+    "discover-slu:discover-slu-pike-place-express-2026-2-2-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "partialFingerprint": "1yic1eu",
+      "resolvedAt": "2026-05-29",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/pike-place-express-2026-2-2-2/"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_Fn4_F1W": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; event page returns HTTP 403",
+      "partialFingerprint": "1l151r1",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
+    },
+    "crocodile:tm-rZ7HnEZ1AfPbvd": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; event page returns HTTP 403",
+      "partialFingerprint": "1s7ouqu",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
+    },
+    "crocodile:tm-rZ7HnEZ1Afxprd": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; event page returns HTTP 403",
+      "partialFingerprint": "wf6gnz",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
+    },
+    "lumen-field:tm-vvG1HZbz27QIo0": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; event page returns HTTP 403",
+      "partialFingerprint": "18o5r4y",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
+    },
+    "stg:tm-vvG1HZ_1RnTCLw": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; event page returns HTTP 403",
+      "partialFingerprint": "1nzoi1j",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
+    },
+    "stg:tm-vvG1HZ_1RlZrLD": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; event page returns HTTP 403",
+      "partialFingerprint": "18o5r4y",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
+    },
+    "stg:tm-vvG1HZ_dDr-npW": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration; event page returns HTTP 403",
+      "partialFingerprint": "1nzoi1j",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEq9zQF": {
+      "unresolvable": true,
+      "reason": "Ticketmaster date-only listing; no start time available; event page returns HTTP 403",
+      "partialFingerprint": "1wvk7q8",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47613": {
+      "unresolvable": true,
+      "reason": "Virtual experience; participants complete anytime May 16\u2013July 15; no specific start time for June 13",
+      "partialFingerprint": "8og3r5",
+      "resolvedAt": "2026-05-29",
+      "source": "agent"
     }
   }
 }
