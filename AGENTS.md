@@ -390,15 +390,23 @@ sources/
 
 ## Out-of-band Proxy
 
-Some upstream sites (e.g., AXS, AMC) block requests from GitHub Actions runner IPs with 403 errors. The project handles these by running affected sources on a separate "out-of-band" runner (a home server with a residential IP), uploading the results to S3, and having the main GitHub Actions build download those pre-fetched outputs.
+Some upstream sites block automated requests from GitHub Actions runner IPs. The project has a 3-rung proxy escalation ladder — **never skip rungs**, and each escalation is a separate PR so you can observe the failure before moving up.
 
-**When to use `proxy: outofband`:** Only when the source is confirmed accessible from the Claude Code web environment (returns data, not a CAPTCHA or 403) but CI/GitHub Actions blocks it. If the source is inaccessible from Claude Code web, do not add it as an outofband source — record the block in `docs/source-candidates/<slug>.md` and move on. Never implement a source whose data shape you have not seen.
+### Proxy escalation ladder
 
-See **`docs/outofband.md`** for the full architecture and **`infra/authenticated-proxy/README.md`** for the supporting AWS infrastructure (S3 bucket, IAM roles).
+| Rung | Config | How it works | When to use |
+|------|--------|--------------|-------------|
+| 1 | `proxy: false` (default) | Direct fetch from CI | Source works from GitHub Actions |
+| 2 | `proxy: "outofband"` | Residential IP fetches, uploads to S3, CI downloads | Source works from Claude Code/home IP but CI 403s it |
+| 3 | `proxy: "browserbase"` | Browserbase Fetch API executes JS, bypasses bot detection | JS challenge (e.g. SiteGround sgcaptcha) blocks even residential IP |
 
-### Enabling outofband for a ripper
+**Escalation is always one rung at a time, one PR at a time.** If a source fails at rung 1 (CI 403), add `proxy: "outofband"` in a PR. If it still fails out-of-band (captured in the outofband report), escalate to `proxy: "browserbase"` in a follow-up PR. You must observe each failure before escalating. A source should never go from `proxy: false` directly to `proxy: "browserbase"`.
 
-Add `proxy: "outofband"` to the ripper's `ripper.yaml`:
+See **`docs/outofband.md`** for the out-of-band architecture and **`infra/authenticated-proxy/README.md`** for the supporting AWS infrastructure (S3 bucket, IAM roles). See **`docs/browserbase-proxy-plan.md`** for the Browserbase proxy design.
+
+### Rung 2: Enabling outofband
+
+For **rippers**, add `proxy: "outofband"` to `ripper.yaml`:
 
 ```yaml
 name: amc
@@ -406,22 +414,9 @@ proxy: "outofband"
 url: "https://graph.amctheatres.com/graphql"
 ```
 
-The schema in `lib/config/schema.ts` only accepts `"outofband"` or `false` — there is no `proxy: true`.
-
-When set, the main GitHub Actions build **skips** the ripper entirely. The out-of-band cron runner (`scripts/generate-outofband.ts`) executes it from a residential IP and uploads its `.ics` plus a `outofband-report.json` entry to S3. The main build then downloads those artifacts via `scripts/download-outofband.ts`.
-
-### How it works
-
-- `lib/config/proxy-fetch.ts` exposes `getFetchForConfig(config)` — a passthrough today since outofband sources run on a clean network and use plain `fetch`. The earlier in-process Lambda-proxy mechanism has been retired.
-- Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) call `getFetchForConfig` automatically. Custom rippers that implement `IRipper` directly should do the same so they remain compatible if the proxy mechanism returns.
-
-### Enabling the proxy for an external ICS calendar
-
-External calendars (`sources/external/<name>.yaml`) can also be marked
-`proxy: outofband` when their ICS URL 403s from GitHub Actions but is accessible from the Claude Code web environment:
+For **external ICS calendars** (`sources/external/<name>.yaml`):
 
 ```yaml
-# sources/external/example.yaml
 - name: example
   friendlyname: "Example Blocked Feed"
   icsUrl: "https://example.com/calendar.ics"
@@ -429,14 +424,32 @@ External calendars (`sources/external/<name>.yaml`) can also be marked
   geo: null
 ```
 
-The out-of-band runner (`scripts/generate-outofband.ts`) fetches the ICS
-from its residential IP, writes it to `output/external-<name>.ics`, and
-records an entry under `report.externalCalendars` in `outofband-report.json`.
-The main GitHub Actions build skips the live fetch for these calendars and
-picks up the pre-fetched ICS file via `download-outofband.ts`. If the
-outofband report is missing or has no entry for the calendar (e.g. on a
-fork PR with no S3 credentials), the calendar is silently absent from the
-build — same as outofband rippers.
+The schema in `lib/config/schema.ts` accepts `"outofband"`, `"browserbase"`, or `false`.
+
+When set, the main GitHub Actions build **skips** the ripper/external entirely. The out-of-band cron runner (`scripts/generate-outofband.ts`) executes it from a residential IP and uploads its `.ics` plus a `outofband-report.json` entry to S3. The main build then downloads those artifacts via `scripts/download-outofband.ts`.
+
+### Rung 3: Enabling browserbase
+
+For **external ICS calendars**, change `proxy` from `outofband` to `browserbase`:
+
+```yaml
+- name: earshot-jazz
+  friendlyname: "Earshot Jazz"
+  icsUrl: "https://www.earshot.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  proxy: browserbase
+  geo: null
+```
+
+Browserbase sources are **fetched live** in the main build — no S3, no out-of-band runner. The Browserbase Fetch API (`POST https://api.browserbase.com/v1/fetch`) executes JavaScript and follows redirects, bypassing bot detection (e.g. SiteGround sgcaptcha). Requires `BROWSERBASE_API_KEY` secret in GitHub Actions.
+
+`lib/config/proxy-fetch.ts` provides `createBrowserbaseFetch()` and `getFetchForConfig()` — base classes and built-in rippers call `getFetchForConfig` automatically. Custom rippers that implement `IRipper` directly should do the same.
+
+### How proxy-fetch works
+
+- `getFetchForConfig(config)` returns the right fetch function based on `config.proxy`:
+  - `false` → standard `fetch`
+  - `"outofband"` → standard `fetch` (outofband sources run on a clean network and use plain fetch)
+  - `"browserbase"` → `createBrowserbaseFetch()` (routes through Browserbase API)
 
 ## Parse Methods Must Never Return Null
 

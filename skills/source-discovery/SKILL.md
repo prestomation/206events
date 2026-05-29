@@ -87,7 +87,9 @@ the source of truth — update it as the candidate's situation changes:
   ("no public calendar", "not Seattle", "platform requires browser").
 - **Source blocked**: Flip `status: blocked` with the reason
   ("Cloudflare bot protection", "needs paid API key").
-- **Source needs the proxy**: `status: proxy` — only when the source was confirmed working in Claude Code web but CI blocks it. Note the `proxy: "outofband"` requirement and which CI run confirmed it.
+- **Source needs a proxy**: `status: proxy` — the source was confirmed working locally but CI blocks it. Note which proxy rung is needed:
+  - `proxy: "outofband"` — CI 403s it but home IP works. Note which CI run confirmed the failure.
+  - `proxy: "browserbase"` — CI and home IP both fail (JS challenge, e.g. SiteGround sgcaptcha). Note which out-of-band run confirmed the failure.
 
 Each candidate is one file, so two PRs touching different candidates
 never conflict on this directory.
@@ -142,9 +144,20 @@ To implement:
    | **404 / 410 / DNS failure** | Our URL was wrong or the source has moved | Do not implement yet. Update the candidate entry to `🔍 Investigating` and search for the correct URL. Only mark `❌ Not Viable` once no working URL can be found. |
    | **403 / 429 / connection reset** | Blocked — but by what? | See below |
 
-   **`proxy: outofband` rule:** Only set `proxy: outofband` when you can verify the source returns data in the Claude Code web environment but CI (GitHub Actions) blocks it. The workflow is:
-   - **Fetch succeeds here (200 + data)** → implement normally. If CI then returns 403, add `proxy: outofband` in a follow-up PR.
-   - **Fetch fails here (403 / CAPTCHA / connection reset / non-200)** → do NOT implement. Record what you observed in `docs/source-candidates/<slug>.md` with `status: blocked` (for CAPTCHA/Cloudflare) or `status: candidate` (for transient issues worth retrying), and move on.
+   **Proxy escalation ladder:** When a source works locally but fails in CI, escalate one rung at a time. Each escalation is a **separate PR** — you must observe the failure before moving up.
+
+   | Rung | Config | When |
+   |------|--------|------|
+   | 1 | `proxy: false` (default) | Source works from GitHub Actions |
+   | 2 | `proxy: "outofband"` | Source works from Claude Code/home IP but CI 403s it |
+   | 3 | `proxy: "browserbase"` | JS challenge (e.g. SiteGround sgcaptcha) blocks even residential IP |
+
+   **Workflow:**
+   - **Fetch succeeds locally (200 + data)** → implement with no proxy, push PR. If CI fetches successfully, done (rung 1).
+   - **CI returns 403/captcha** → add `proxy: "outofband"` in a follow-up PR. If out-of-band report shows success, done (rung 2).
+   - **Out-of-band also fails (captcha/JS challenge)** → escalate to `proxy: "browserbase"` in another follow-up PR (rung 3).
+   - **Never skip rungs.** A source should never go from `proxy: false` directly to `proxy: "browserbase"`.
+   - **Fetch fails locally (403 / CAPTCHA / connection reset / non-200)** → do NOT implement. Record what you observed in `docs/source-candidates/<slug>.md` with `status: blocked` or `status: candidate`, and move on.
 
    **Do not guess at the data shape** if you cannot fetch the source. An implementation written against an inaccessible URL is a guess — it will produce 0 events or parse errors. Only implement once you have seen a real sample response.
 
@@ -204,7 +217,7 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Tags should reflect a venue's PRIMARY identity** — only add a tag if the venue is primarily known for that category. A music venue that occasionally hosts comedy nights gets `Music` but NOT `Comedy`. A venue that is equally known for both (e.g., a comedy club that also does music) can have both. When in doubt, use fewer tags.
 - **Validate the live source before implementing** — always attempt a fetch before writing parser code. A 200 with events in the Claude Code web environment is the only green light to implement. A 404 means the URL was wrong — keep searching. A 403, CAPTCHA, or any non-200 in Claude Code web means the source is blocked here; record it as `status: blocked` and move on — do not implement. Never implement a source you cannot fetch; an implementation written against an inaccessible URL is a guess.
 - **Never add a source that returns 0 events** — new sources must produce at least 1 event in CI before merging. The build now fails on new sources with 0 events (no `expectEmpty` exemption for brand-new sources). A source with 0 events has no proven data pipeline. Keep as `🔍 Investigating` until the correct URL or data shape is found.
-- **`proxy: outofband` requires local verification** — only use it when you have confirmed the source returns data in the Claude Code web environment but CI 403s it. If the source is inaccessible from Claude Code web (CAPTCHA, Cloudflare, connection refused), record it as `status: blocked` in `docs/source-candidates/<slug>.md` with notes on what you observed, and do not implement it.
+- **Proxy escalation is one rung at a time** — never skip from `proxy: false` directly to `proxy: "browserbase"`. Try rung 1 (direct fetch), then rung 2 (`proxy: "outofband"`), then rung 3 (`proxy: "browserbase"`). Each escalation is a separate PR so you can observe the failure. If the source is inaccessible even locally (CAPTCHA, Cloudflare, connection refused), record it as `status: blocked` in `docs/source-candidates/<slug>.md` with notes on what you observed, and do not implement it.
 - **A 404 is not "not viable"** — it means the URL was wrong. Update the candidate to `🔍 Investigating` and keep searching for the correct URL. Only mark `❌ Not Viable` when no working URL can be found after investigation.
 - **Iterate with Q until clean** — don't request human review until Amazon Q has no blocking comments.
 - **Parse methods must never return null** — new custom rippers must have parse methods that return `RipperCalendarEvent | RipperError` (never `null`). Filters and dedup belong in the caller, not the parse method. TypeScript enforces this at compile time. See AGENTS.md "Parse Methods Must Never Return Null" for the required pattern.
