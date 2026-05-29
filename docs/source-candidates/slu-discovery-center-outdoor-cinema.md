@@ -1,11 +1,11 @@
 ---
 name: "South Lake Union Discovery Center — Outdoor Cinema"
-status: investigating
+status: notviable
 platform: unknown
 url: https://www.discoveryslu.com/calendar
 tags: [Movies, "South Lake Union"]
 firstSeen: 2026-05-24
-lastChecked: 2026-05-24
+lastChecked: 2026-05-29
 issue: 398
 ---
 Outdoor summer film series historically run at the South Lake Union
@@ -18,7 +18,6 @@ DNS-routed only within a private network. The Discovery Center itself
 has been quiet about public programming in recent years, so this may
 ultimately resolve to `notviable`.
 
-Next action: re-attempt the fetch in a future cycle; if still
-unreachable, check whether the SLU outdoor cinema series has been
-moved to a different organizer (e.g. SDOT's outdoor movie nights,
-Amazon's HQ programming) or has simply stopped happening.
+Re-checked 2026-05-29: `discoveryslu.com` still returns no response (connection
+refused / no output). Site appears fully offline. Downgrading to `notviable`
+until evidence of an active replacement venue or programmer is found.
