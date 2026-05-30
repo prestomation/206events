@@ -1,0 +1,16 @@
+geo: null
+name: furry-5k
+friendlyname: Furry 5K Fun Run & Walk
+description: Annual dog-friendly 5K run/walk at Seward Park benefiting the Seattle Animal Shelter Foundation. Held the second Sunday of June.
+schedule: 2nd Sunday
+timezone: America/Los_Angeles
+duration: PT3H
+start_time: "11:30"
+location: Seward Park, 5900 Lake Washington Blvd S, Seattle, WA 98118
+url: https://furry5k.com/
+months: [6]
+tags:
+  - Running
+  - Dogs
+  - Community
+  - Seward Park

@@ -1,0 +1,13 @@
+name: vashon-center-for-the-arts
+description: "Vashon Center for the Arts"
+url: "https://system.spektrix.com/vashoncenter/api/v3"
+friendlyLink: https://vashoncenterforthearts.org/events/
+tags: ["Theatre", "Music", "Arts", "Vashon"]
+geo:
+  lat: 47.4287555
+  lng: -122.4601317
+  label: "Vashon Center for the Arts, 19600 Vashon Hwy SW, Vashon, WA 98070"
+calendars:
+  - name: vashon-center-for-the-arts
+    friendlyname: "Vashon Center for the Arts"
+    timezone: America/Los_Angeles

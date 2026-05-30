@@ -1,0 +1,124 @@
+{
+  "events": [
+    {
+      "id": "44601AVBDVLNHRGJHQBVDLKSCHSSDGBJK",
+      "name": "Brett Dennen: Art is Life",
+      "duration": 90,
+      "firstInstanceDateTime": "2026-06-10T19:30:00",
+      "lastInstanceDateTime": "2026-06-10T19:30:00",
+      "attribute_Jackrabbit": false,
+      "attribute_Category": "Performing Arts",
+      "attribute_Genre": "Rock & Indie",
+      "description": "$45 General | $43 Senior | Youth Free",
+      "imageUrl": ""
+    },
+    {
+      "id": "32401ANQMVQVNTGTQHTSGSGJCPVKHDGKP",
+      "name": "2026 PianoF\u00eate",
+      "duration": 90,
+      "firstInstanceDateTime": "2026-07-08T19:30:00",
+      "lastInstanceDateTime": "2026-07-11T19:30:00",
+      "attribute_Jackrabbit": false,
+      "attribute_Category": "Performing Arts",
+      "attribute_Genre": "Piano",
+      "description": "$125 PASS | Youth FREE",
+      "imageUrl": "https://system.spektrix.com/vashoncenter/files/967e2782-b464-4259-821b-4bc6d38da98d.jpg"
+    },
+    {
+      "id": "15601ATMPBSJPVHGDQLTKHTGJDDNPRJJP",
+      "name": "Albiani Art Talks",
+      "duration": 0,
+      "firstInstanceDateTime": "2026-05-10T14:00:00",
+      "lastInstanceDateTime": "2026-05-10T14:00:00",
+      "attribute_Jackrabbit": false,
+      "attribute_Category": "Performing Arts",
+      "attribute_Genre": "Lectures",
+      "description": "$25 General | $23 Senior | Youth FREE",
+      "imageUrl": ""
+    },
+    {
+      "id": "25001ADDVSKQBVSNBTBDPCMQTVGBHJDPN",
+      "name": " Advanced Intermediate Ballet and Pointe | Wednesday Session",
+      "duration": 0,
+      "firstInstanceDateTime": "2026-02-04T01:00:00",
+      "lastInstanceDateTime": "2026-06-10T01:00:00",
+      "attribute_Jackrabbit": true,
+      "attribute_Category": "Dance Spring",
+      "attribute_Genre": "Dance",
+      "description": "Ages 12-18 | Wednesdays | 5:15-6:30pm & Thursdays | 4:30-5:30pm | Both Class Sessions Required\r\n\r\n",
+      "imageUrl": ""
+    }
+  ],
+  "instances": [
+    {
+      "id": "40802ADCBTNPLKVLNBPLBDDJHJQHRRGBN",
+      "event": {
+        "id": "25001ADDVSKQBVSNBTBDPCMQTVGBHJDPN"
+      },
+      "start": "2026-02-04T01:00:00",
+      "startUtc": "2026-02-04T09:00:00",
+      "cancelled": false,
+      "isOnSale": false
+    },
+    {
+      "id": "23001ARCVCNHNNNCLVMBNCMRGPKGBRCSK",
+      "event": {
+        "id": "15601ATMPBSJPVHGDQLTKHTGJDDNPRJJP"
+      },
+      "start": "2026-05-10T14:00:00",
+      "startUtc": "2026-05-10T21:00:00",
+      "cancelled": false,
+      "isOnSale": false
+    },
+    {
+      "id": "41602ACQKSQHLPVVRQGPMQSJQTTRRKTRJ",
+      "event": {
+        "id": "25001ADDVSKQBVSNBTBDPCMQTVGBHJDPN"
+      },
+      "start": "2026-06-10T01:00:00",
+      "startUtc": "2026-06-10T08:00:00",
+      "cancelled": false,
+      "isOnSale": false
+    },
+    {
+      "id": "73401APJTQRQMNDQCLBJRTVNGHRMDLQCV",
+      "event": {
+        "id": "44601AVBDVLNHRGJHQBVDLKSCHSSDGBJK"
+      },
+      "start": "2026-06-10T19:30:00",
+      "startUtc": "2026-06-11T02:30:00",
+      "cancelled": false,
+      "isOnSale": true
+    },
+    {
+      "id": "52601ALNQMVKQDJJCGKRVQDPBPDVCPDPT",
+      "event": {
+        "id": "32401ANQMVQVNTGTQHTSGSGJCPVKHDGKP"
+      },
+      "start": "2026-07-08T19:30:00",
+      "startUtc": "2026-07-09T02:30:00",
+      "cancelled": false,
+      "isOnSale": true
+    },
+    {
+      "id": "52801ANDDVVVVLHPQNVDLNNNCBBSTGNKP",
+      "event": {
+        "id": "32401ANQMVQVNTGTQHTSGSGJCPVKHDGKP"
+      },
+      "start": "2026-07-09T19:30:00",
+      "startUtc": "2026-07-10T02:30:00",
+      "cancelled": false,
+      "isOnSale": false
+    },
+    {
+      "id": "52402ABBQQBJTCVDTJGBSPTNLDHSMTHLN",
+      "event": {
+        "id": "32401ANQMVQVNTGTQHTSGSGJCPVKHDGKP"
+      },
+      "start": "2026-07-10T19:30:00",
+      "startUtc": "2026-07-11T02:30:00",
+      "cancelled": false,
+      "isOnSale": false
+    }
+  ]
+}
