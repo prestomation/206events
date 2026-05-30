@@ -28,6 +28,9 @@ const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june',
 export default class LidI5Ripper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
+        if (!ripper.config.calendars || ripper.config.calendars.length === 0) {
+            throw new Error('Lid I-5 ripper requires at least one calendar configuration');
+        }
         const calConfig = ripper.config.calendars[0];
 
         const res = await fetchFn(ripper.config.url.toString(), {
@@ -46,8 +49,11 @@ export default class LidI5Ripper implements IRipper {
         for (const { href, text } of this.extractTourLinks(html)) {
             const result = this.parseTourLink(href, text);
             if ('date' in result) {
-                if (seen.has(result.id!)) continue;
-                seen.add(result.id!);
+                // parseTourLink always sets an id, but the type is optional;
+                // guard explicitly rather than asserting non-null.
+                if (!result.id) continue;
+                if (seen.has(result.id)) continue;
+                seen.add(result.id);
                 if (!result.date.isBefore(now)) events.push(result);
             } else {
                 errors.push(result);
@@ -144,6 +150,9 @@ export default class LidI5Ripper implements IRipper {
     }
 
     private to24Hour(hour: number, ampm: string | undefined): number {
+        // No meridiem — leave the hour as-is (already 24-hour, or the caller
+        // inherited the start meridiem before calling).
+        if (!ampm) return hour;
         if (ampm === 'pm' && hour !== 12) return hour + 12;
         if (ampm === 'am' && hour === 12) return 0;
         return hour;

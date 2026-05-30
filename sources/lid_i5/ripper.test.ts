@@ -65,6 +65,16 @@ describe('LidI5Ripper - parseTourLink', () => {
         if ('date' in a && 'date' in b) expect(a.id).toBe(b.id);
     });
 
+    test('falls back to a date-based id when the URL has no upstream id', () => {
+        const result = ripper.parseTourLink(
+            'https://give.seattleparksfoundation.org/event/lid-i-5-walking-tour',
+            'Wednesday, August 19, 2026, 5:30 PM – 7:00',
+        );
+        expect('date' in result).toBe(true);
+        if (!('date' in result)) return;
+        expect(result.id).toBe('lidi5-2026-8-19');
+    });
+
     test('returns a ParseError (never null) when no date is present', () => {
         const result = ripper.parseTourLink(
             'https://give.seattleparksfoundation.org/event/lid-i-5-walking-tour/e999999',
