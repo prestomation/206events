@@ -1,15 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:live-theater-2026-05-22": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8100
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/"
-    },
     "events12:live-theater-2026-05-23": {
       "fields": {
         "startTime": "19:30",
@@ -295,13 +286,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/blue-man-group/"
-    },
-    "events12:free-things-to-do-2026-05-22": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
     },
     "events12:free-things-to-do-2026-05-23": {
       "unresolvable": true,
@@ -1863,13 +1847,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:taste-of-seattle-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
     },
     "events12:taste-of-seattle-2026-05-23": {
       "unresolvable": true,
@@ -4874,13 +4851,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-05-23": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -6064,13 +6034,6 @@
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
     },
-    "events12:sailboat-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
     "events12:sailboat-2026-05-23": {
       "unresolvable": true,
       "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
@@ -7204,13 +7167,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:baseball-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
     },
     "events12:baseball-2026-05-23": {
       "unresolvable": true,
@@ -11104,13 +11060,6 @@
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
     },
-    "events12:rugby-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
     "events12:rugby-2026-05-23": {
       "unresolvable": true,
       "reason": "Season-span listing across multiple dates; each home game has different start time",
@@ -11222,13 +11171,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:musical-cabaret-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
     },
     "events12:musical-cabaret-2026-05-23": {
       "unresolvable": true,
@@ -11510,15 +11452,6 @@
       "source": "agent",
       "evidence": "https://www.hotstovesociety.com/store/events/"
     },
-    "events12:trapeze-show-2026-05-22": {
-      "fields": {
-        "startTime": "20:00",
-        "duration": 5400
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://emeraldcitytrapeze.com/protege-2026-curbside-stories/"
-    },
     "events12:teenage-acrobats-2026-05-29": {
       "fields": {
         "startTime": "19:00",
@@ -11741,13 +11674,6 @@
       "source": "agent",
       "evidence": "https://www.glazerscamera.com/pages/workshops"
     },
-    "events12:folklife-music-and-dance-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 daily opening times not listed; schedule on separate page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://nwfolklife.org/festival/home.html"
-    },
     "events12:folklife-music-and-dance-2026-05-23": {
       "unresolvable": true,
       "reason": "Festival homepage \u2014 daily opening times not listed; schedule on separate page",
@@ -11769,13 +11695,6 @@
       "source": "agent",
       "evidence": "https://nwfolklife.org/festival/home.html"
     },
-    "events12:phantom-of-the-opera-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
     "events12:phantom-of-the-opera-2026-05-23": {
       "unresolvable": true,
       "reason": "Event page did not return performance schedule content",
@@ -11789,13 +11708,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:music-by-candlelight-2026-05-22": {
-      "unresolvable": true,
-      "reason": "Fever affiliate link \u2014 cannot determine show times from redirect URL",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://fever.pxf.io/Kj6j5x"
     },
     "events12:music-by-candlelight-2026-05-23": {
       "unresolvable": true,
@@ -11866,16 +11778,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.masoncountyforestfestival.com"
-    },
-    "events12:all-american-musical-2026-05-22": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8400
-      },
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "evidence": "https://villagetheatre.org/see-a-show/grease/",
-      "partialFingerprint": "1p783r0-until2026-06-07-tu"
     },
     "events12:all-american-musical-2026-05-23": {
       "fields": {
@@ -12024,20 +11926,6 @@
       "source": "agent",
       "evidence": "https://villagetheatre.org/see-a-show/grease/",
       "partialFingerprint": "1p783r0-until2026-06-07-tu"
-    },
-    "19hz:19hz-2026/05/22-Mayday: Karma": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "k23uab"
-    },
-    "19hz:19hz-2026/05/22-Zaman: Middle Eastern House": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "k23uab"
     },
     "19hz:19hz-2026/05/23-GRIZTRONICS: GRiZ, Subtronics, Of the Trees, LSDREAM, Boogie T, ALLEYCVT": {
       "unresolvable": true,
@@ -16512,12 +16400,6 @@
       "evidence": "https://www.seattlecenter.com/events/event-calendar/season-encore",
       "fingerprint": "qy8wav"
     },
-    "19hz:19hz-2026/05/22-Nick Bertossi": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-22",
-      "source": "agent"
-    },
     "19hz:19hz-2026/05/25-Monday Moves": {
       "unresolvable": true,
       "reason": "19hz listing has a start time but no end time",
@@ -19234,6 +19116,272 @@
       "partialFingerprint": "8og3r5",
       "resolvedAt": "2026-05-29",
       "source": "agent"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_knaHfMk": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "11dcb0y"
+    },
+    "lumen-field:tm-vvG1HZ_A3P3HDY": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "fk5f7y"
+    },
+    "mccaw-hall:tm-vvG1HZ_5r4xFUw": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1kc6i8t"
+    },
+    "stg:tm-vvG1HZ_1RlvmLX": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1f9nyum"
+    },
+    "stg:tm-vvG1HZ_1RleXOk": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "crdpxw"
+    },
+    "stg:tm-vvG1HZ_63uEPEv": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1jh9i4d"
+    },
+    "stg:tm-vvG1HZ_5wtmhhP": {
+      "unresolvable": true,
+      "reason": "Ticketmaster API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1c7um5d"
+    },
+    "crocodile:tm-rZ7HnEZ1AfPO1d": {
+      "unresolvable": true,
+      "reason": "Ticketweb API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1lqo5wc"
+    },
+    "crocodile:tm-rZ7HnEZ1AfPOGd": {
+      "unresolvable": true,
+      "reason": "Ticketweb API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1zv8de"
+    },
+    "crocodile:tm-rZ7HnEZ1AfPp0S": {
+      "unresolvable": true,
+      "reason": "Ticketweb API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "2qhfo6"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1AfxpqN": {
+      "unresolvable": true,
+      "reason": "Ticketweb API does not expose event duration",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1mfsyev"
+    },
+    "discover-slu:discover-slu-creamy-cone-2026": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "cszdt9",
+      "evidence": "https://www.discoverslu.com/events/creamy-cone-2026/"
+    },
+    "discover-slu:discover-slu-smallish-seattle": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1m6c4lr",
+      "evidence": "https://www.discoverslu.com/events/smallish-seattle/"
+    },
+    "discover-slu:discover-slu-work-of-fiction": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1m6c4lr",
+      "evidence": "https://www.discoverslu.com/events/work-of-fiction/"
+    },
+    "discover-slu:discover-slu-creamy-cone-2026-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "x88a51",
+      "evidence": "https://www.discoverslu.com/events/creamy-cone-2026-2/"
+    },
+    "discover-slu:discover-slu-creamy-cone-2026-2-2-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1mjvgs8",
+      "evidence": "https://www.discoverslu.com/events/creamy-cone-2026-2-2-2/"
+    },
+    "discover-slu:discover-slu-pinched": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "7vpz51",
+      "evidence": "https://www.discoverslu.com/events/pinched/"
+    },
+    "discover-slu:discover-slu-global-running-week": {
+      "unresolvable": true,
+      "reason": "DiscoverSLU listing has a start time but no end time; no end time found on event page",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1ucqh8u"
+    },
+    "discover-slu:discover-slu-national-trails-day-celebration": {
+      "unresolvable": true,
+      "reason": "DiscoverSLU listing has a start time but no end time; no end time found on event page",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1tpms4w"
+    },
+    "discover-slu:discover-slu-chantey-sing-2026-2-2-2": {
+      "unresolvable": true,
+      "reason": "DiscoverSLU listing has a start time but no end time; no end time found on event page",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1mrz3hj"
+    },
+    "discover-slu:discover-slu-pet-patch": {
+      "unresolvable": true,
+      "reason": "DiscoverSLU listing has a start time but no end time; no end time found on event page",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "b4pxxi"
+    },
+    "discover-slu:discover-slu-dont-tell-comedy-3": {
+      "unresolvable": true,
+      "reason": "DiscoverSLU listing has a start time but no end time; no end time found on event page",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "jt6hkx"
+    },
+    "discover-slu:discover-slu-sofar-2026": {
+      "unresolvable": true,
+      "reason": "DiscoverSLU listing has a start time but no end time; no end time found on event page",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "db6jzz"
+    },
+    "pacific-science-center:396182": {
+      "unresolvable": true,
+      "reason": "Laser Pride has multiple shows on June 28; event ID maps to the series, not a specific showtime",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "6s4gxw"
+    },
+    "pacific-science-center:128791": {
+      "unresolvable": true,
+      "reason": "Brewology postponed to November 21; no specific show time announced",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "10voauw"
+    },
+    "seattle-center:mundo-catrina-cultural-procession": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1qkx4oh",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/mundo-catrina-cultural-procession"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-limited-schedule-viewing-also-available-at-kexp-gathering-space": {
+      "fields": {
+        "startTime": "14:50",
+        "duration": 29400
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "8og3r5",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-armory-fan-experience-limited-schedule-viewing-also-available-at-kexp-gathering-space"
+    },
+    "seattle-center:the-play-that-goes-wrong-x44682": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "aeg9wb",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/the-play-that-goes-wrong-x44682"
+    },
+    "seattle-center:washington-brewers-festival": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "lncaal",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/washington-brewers-festival"
+    },
+    "seattle-center:school-performances-2026-x47213": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "ww8aov",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/school-performances-2026-x47213"
+    },
+    "seattle-center:the-play-that-goes-wrong-x44683": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1b1b4kj",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/the-play-that-goes-wrong-x44683"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-x47238": {
+      "fields": {
+        "startTime": "09:30",
+        "duration": 41400
+      },
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "1dtg4xu",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-armory-fan-experience-x47238"
+    },
+    "seattle-center:alex-warren-little-orphan-alex-live": {
+      "unresolvable": true,
+      "reason": "No reliable end time: calendar metadata shows 11:29pm which is a data entry error; no confirmed end time on page",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "5wb3du"
+    },
+    "events12:eastside-bike-ride-2026-05-30": {
+      "unresolvable": true,
+      "reason": "Past event; no start time was listed in source data at time of review",
+      "resolvedAt": "2026-05-30",
+      "source": "agent",
+      "partialFingerprint": "n05siz-until2026-05-30-tu"
     }
   }
 }
