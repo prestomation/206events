@@ -105,7 +105,7 @@ export function parseDachaEvents(
 
         // ID: slug from URL + start datetime digits, stable across builds.
         const slug = event.url.split('/').filter(Boolean).pop() ?? '';
-        const startClean = event.startDate.replace(/[^0-9T]/g, '').substring(0, 13);
+        const startClean = event.startDate.replace(/[^0-9T]/g, '').substring(0, 15);
         const id = `dacha-${slug}-${startClean}`;
 
         const location = event.location?.address?.streetAddress
@@ -176,6 +176,7 @@ export default class DachaTheatreRipper implements IRipper {
         }
 
         const calConfig = ripper.config.calendars[0];
+        if (!calConfig) throw new Error("Dacha Theatre ripper requires at least one calendar configuration");
         return [{
             name: calConfig.name,
             friendlyname: calConfig.friendlyname,
