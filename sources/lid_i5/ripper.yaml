@@ -1,0 +1,13 @@
+name: lid-i5
+description: "Lid I-5"
+url: "https://lidi5.org/tours/"
+friendlyLink: https://lidi5.org/tours/
+tags: ["Community", "Activism", "Parks", "Downtown"]
+geo:
+  lat: 47.6067854
+  lng: -122.3286673
+  label: "Optum parking lot, 703 Marion St, Seattle, WA 98104"
+calendars:
+  - name: tours
+    friendlyname: "Lid I-5 Tours"
+    timezone: America/Los_Angeles
