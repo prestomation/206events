@@ -90,6 +90,7 @@ calendars:
   - name: magnolia
     friendlyname: "SPL - Magnolia Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       branch: "Magnolia Branch"
   - name: newholly
@@ -110,6 +111,7 @@ calendars:
   - name: queen-anne
     friendlyname: "SPL - Queen Anne Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       branch: "Queen Anne Branch"
     tags: ["QueenAnne"]
