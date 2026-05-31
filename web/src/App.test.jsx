@@ -62,7 +62,8 @@ describe('App206 redesign', () => {
     global.fetch = vi.fn(mockFetch)
   })
 
-  const waitDiscover = () => waitFor(() => expect(screen.getByText('Discover')).toBeInTheDocument())
+  // "Discover" appears in the nav AND the page heading; wait on a card instead.
+  const waitDiscover = () => waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
 
   it('renders the Discover view with channels', async () => {
     render(<App />)
@@ -78,8 +79,10 @@ describe('App206 redesign', () => {
     expect(catBtn).toBeTruthy()
     fireEvent.click(catBtn)
     // "Music" and "Movies" are activity tags, so they become category options.
-    await waitFor(() => expect(screen.getByText('Movies')).toBeInTheDocument())
-    expect(screen.getByText('Music')).toBeInTheDocument()
+    await waitFor(() => expect(container.querySelector('.a-dd-menu')).toBeTruthy())
+    const labels = [...container.querySelectorAll('.a-dd-menu .a-dd-item-label')].map((e) => e.textContent)
+    expect(labels).toContain('Movies')
+    expect(labels).toContain('Music')
   })
 
   it('switches Discover to Events mode and lists events by day', async () => {
