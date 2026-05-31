@@ -341,20 +341,29 @@ export function ChannelDetail({ icsUrl }) {
         </div>
       </div>
 
-      <button className="btn btn-blue" style={{ width: '100%', marginBottom: 10 }}
-        onClick={() => app.subscribeChannel(channel)}>{Ico.cal}Add to my calendar app</button>
-      <div style={{ display: 'flex', gap: 9, marginBottom: 22 }}>
+      <a className="btn btn-blue" style={{ width: '100%', marginBottom: 10 }}
+        href={app.createWebcalUrl(channel.cal.icsUrl, channel.cal.originalIcsUrl)}>
+        {Ico.cal}Add to my calendar app
+      </a>
+      <div style={{ display: 'flex', gap: 9, marginBottom: 10 }}>
         <button className={`btn ${following ? 'btn-ink' : 'btn-ghost'}`} style={{ flex: 1, minWidth: 0, height: 44, fontSize: 13.5 }}
           onClick={() => app.toggleFollow(icsUrl)}>
           {following ? <><span style={{ width: 16, height: 16 }}>{Ico.check}</span>Following</> : <>♥ Follow</>}
         </button>
         <a className="btn btn-ghost" style={{ flex: 1, minWidth: 0, height: 44, fontSize: 13.5 }}
-          href={app.createGoogleCalendarUrl(channel.cal.icsUrl, channel.cal.originalIcsUrl)}>{Ico.google}Google</a>
+          href={app.createGoogleCalendarUrl(channel.cal.icsUrl, channel.cal.originalIcsUrl)}
+          target="_blank" rel="noopener noreferrer">{Ico.google}Google</a>
         {channel.cal.rssUrl && (
           <a className="btn btn-ghost" style={{ flex: 1, minWidth: 0, height: 44, fontSize: 13.5, color: 'var(--amber)' }}
-            href={channel.cal.rssUrl}>{Ico.rss}RSS</a>
+            href={channel.cal.rssUrl} target="_blank" rel="noopener noreferrer">{Ico.rss}RSS</a>
         )}
       </div>
+      <button className="btn btn-ghost" style={{ width: '100%', marginBottom: 22, height: 40, fontSize: 13.5 }}
+        onClick={() => {
+          const link = app.createHttpsUrl(channel.cal.icsUrl, channel.cal.originalIcsUrl)
+          navigator.clipboard?.writeText(link)
+          app.flash('Subscription link copied ✓')
+        }}>{Ico.cal}Copy subscription link</button>
 
       {channel.distributed && (
         <div className="a-note">

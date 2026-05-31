@@ -869,8 +869,11 @@ function App() {
   }
 
   const createGoogleCalendarUrl = (icsUrl, originalIcsUrl) => {
-    const webcalUrl = createWebcalUrl(icsUrl, originalIcsUrl)
-    return `webcal://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(webcalUrl)}`
+    // Google Calendar "Add by URL" subscribe. Must be an https(/http) feed URL —
+    // a webcal: cid silently fails in the browser (hands off to an absent OS
+    // handler), which is why the button appeared to do nothing.
+    const httpsUrl = createHttpsUrl(icsUrl, originalIcsUrl)
+    return `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(httpsUrl)}`
   }
 
   const copyToClipboard = async (text, buttonElement) => {

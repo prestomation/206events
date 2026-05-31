@@ -181,12 +181,6 @@ export function App206(props) {
     if (!was) { const ch = channelByIcsUrl.get(icsUrl); flash(`Following ${ch ? ch.name : 'calendar'}`) }
   }, [favoritesSet, toggleFavorite, channelByIcsUrl, flash])
 
-  const subscribeChannel = useCallback((channel) => {
-    const url = createWebcalUrl(channel.cal.icsUrl, channel.cal.originalIcsUrl)
-    flash('Opening your calendar app…')
-    try { window.location.href = url } catch { /* noop */ }
-  }, [createWebcalUrl, flash])
-
   const saveArea = useCallback(() => { go('you'); flash('Add a location filter below') }, [go, flash])
 
   const todayLabel = useMemo(() =>
@@ -212,7 +206,7 @@ export function App206(props) {
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     hasActiveFilters, toast, todayLabel,
     // handlers
-    go, openChannel, openEvent, back, toggleFilter, flash, subscribeChannel, saveArea,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
   }
 
   let content

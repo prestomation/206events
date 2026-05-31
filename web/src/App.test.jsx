@@ -100,6 +100,23 @@ describe('App206 redesign', () => {
     await waitFor(() => expect(screen.getByText('Add to my calendar app')).toBeInTheDocument())
   })
 
+  it('channel detail calendar actions use working links (webcal anchor, https Google, copy)', async () => {
+    render(<App />)
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    fireEvent.click(screen.getByText('Neumos'))
+    await waitFor(() => expect(screen.getByText('Add to my calendar app')).toBeInTheDocument())
+    // "Add to my calendar app" is a real webcal anchor (not a dead button).
+    const subscribe = screen.getByText('Add to my calendar app').closest('a')
+    expect(subscribe).toBeTruthy()
+    expect(subscribe.getAttribute('href')).toMatch(/^webcal:/)
+    // Google opens a real https Google "add by URL" link in a new tab.
+    const google = screen.getByText('Google').closest('a')
+    expect(google.getAttribute('href')).toMatch(/^https:\/\/calendar\.google\.com/)
+    expect(google.getAttribute('target')).toBe('_blank')
+    // Copy fallback exists for desktop users without a webcal handler.
+    expect(screen.getByText('Copy subscription link')).toBeInTheDocument()
+  })
+
   it('navigates to Following and shows the empty feed prompt', async () => {
     render(<App />)
     await waitDiscover()
