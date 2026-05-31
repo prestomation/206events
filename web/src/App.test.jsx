@@ -32,11 +32,14 @@ const mockEvents = [
   { icsUrl: 'test-ripper-cal1.ics', summary: 'Jazz Night', description: 'Live jazz', location: 'Neumos, Capitol Hill', date: toJoda(future(2)), lat: 47.61, lng: -122.32 },
   { icsUrl: 'test-ripper-cal2.ics', summary: 'Movie Premiere', description: 'A film', location: 'SIFF', date: toJoda(future(3)) },
 ]
-const mockVenues = [{
-  name: 'neumos', friendlyName: 'Neumos', tags: ['Music', 'Capitol Hill'], kind: 'ripper',
-  geo: { lat: 47.61, lng: -122.32, label: 'Capitol Hill' },
-  calendars: [{ name: 'cal1', friendlyName: 'Neumos', links: { ics: { href: 'test-ripper-cal1.ics' } } }],
-}]
+const mockVenues = {
+  generated: '',
+  venues: [{
+    name: 'neumos', friendlyName: 'Neumos', tags: ['Music', 'Capitol Hill'], kind: 'ripper',
+    geo: { lat: 47.61, lng: -122.32, label: 'Capitol Hill' },
+    calendars: [{ name: 'cal1', friendlyName: 'Neumos', links: { ics: { href: 'test-ripper-cal1.ics' } } }],
+  }],
+}
 
 function mockFetch(url) {
   const u = String(url)
@@ -59,24 +62,29 @@ describe('App206 redesign', () => {
     global.fetch = vi.fn(mockFetch)
   })
 
+  const waitDiscover = () => waitFor(() => expect(screen.getByText('Discover')).toBeInTheDocument())
+
   it('renders the Discover view with channels', async () => {
     render(<App />)
-    await waitFor(() => expect(screen.getByText('BROWSE BY')).toBeInTheDocument())
+    await waitDiscover()
     expect(screen.getByText('Neumos')).toBeInTheDocument()
     expect(screen.getByText('SIFF')).toBeInTheDocument()
   })
 
-  it('surfaces category chips derived from real tags', async () => {
-    render(<App />)
-    await waitFor(() => expect(screen.getByText('BROWSE BY')).toBeInTheDocument())
-    // "Music" and "Movies" are activity tags → become category chips
-    expect(screen.getAllByText('Music').length).toBeGreaterThan(0)
-    expect(screen.getAllByText('Movies').length).toBeGreaterThan(0)
+  it('exposes Category and Neighborhood filter dropdowns', async () => {
+    const { container } = render(<App />)
+    await waitDiscover()
+    const catBtn = [...container.querySelectorAll('.a-dd-btn')].find((b) => b.textContent.includes('Category'))
+    expect(catBtn).toBeTruthy()
+    fireEvent.click(catBtn)
+    // "Music" and "Movies" are activity tags, so they become category options.
+    await waitFor(() => expect(screen.getByText('Movies')).toBeInTheDocument())
+    expect(screen.getByText('Music')).toBeInTheDocument()
   })
 
   it('switches Discover to Events mode and lists events by day', async () => {
     render(<App />)
-    await waitFor(() => expect(screen.getByText('BROWSE BY')).toBeInTheDocument())
+    await waitDiscover()
     fireEvent.click(screen.getByText('Events').closest('button'))
     await waitFor(() => expect(screen.getByText('Jazz Night')).toBeInTheDocument())
     expect(screen.getByText('Movie Premiere')).toBeInTheDocument()
@@ -91,14 +99,14 @@ describe('App206 redesign', () => {
 
   it('navigates to Following and shows the empty feed prompt', async () => {
     render(<App />)
-    await waitFor(() => expect(screen.getByText('BROWSE BY')).toBeInTheDocument())
+    await waitDiscover()
     clickNav('Following')
     await waitFor(() => expect(screen.getByText('Your feed is empty')).toBeInTheDocument())
   })
 
   it('navigates to You and shows the source sections', async () => {
     render(<App />)
-    await waitFor(() => expect(screen.getByText('BROWSE BY')).toBeInTheDocument())
+    await waitDiscover()
     clickNav('You')
     await waitFor(() => expect(screen.getByText('Saved searches')).toBeInTheDocument())
     expect(screen.getByText('Location filters')).toBeInTheDocument()
@@ -112,10 +120,30 @@ describe('App206 redesign', () => {
     await waitFor(() => expect(screen.getByText('1 calendars')).toBeInTheDocument())
   })
 
-  it('opens the search overlay from the top bar', async () => {
+  it('search is a single top-bar input that filters Events and shows an active-filter chip', async () => {
     render(<App />)
-    await waitFor(() => expect(screen.getByText('BROWSE BY')).toBeInTheDocument())
-    fireEvent.click(screen.getByText('Search events & venues…').closest('button'))
-    await waitFor(() => expect(screen.getByPlaceholderText('Search events, venues, neighborhoods…')).toBeInTheDocument())
+    await waitDiscover()
+    // Exactly one search input, no duplicate search bar.
+    const inputs = screen.getAllByPlaceholderText('Search events & venues…')
+    expect(inputs.length).toBe(1)
+    fireEvent.click(screen.getByText('Events').closest('button'))
+    await waitFor(() => expect(screen.getByText('Jazz Night')).toBeInTheDocument())
+    fireEvent.change(inputs[0], { target: { value: 'jazz' } })
+    // Debounced commit narrows the list and shows the active-filter chip.
+    await waitFor(() => expect(screen.getByText(/Searching:/)).toBeInTheDocument(), { timeout: 2000 })
+    await waitFor(() => expect(screen.queryByText('Movie Premiere')).not.toBeInTheDocument())
+    expect(screen.getByText('Jazz Night')).toBeInTheDocument()
+  })
+
+  it('clearing the active search chip removes the filter', async () => {
+    const { container } = render(<App />)
+    await waitDiscover()
+    fireEvent.click(screen.getByText('Events').closest('button'))
+    const input = screen.getAllByPlaceholderText('Search events & venues…')[0]
+    fireEvent.change(input, { target: { value: 'jazz' } })
+    await waitFor(() => expect(screen.getByText(/Searching:/)).toBeInTheDocument(), { timeout: 2000 })
+    fireEvent.click(container.querySelector('.a-fchip-x'))
+    await waitFor(() => expect(screen.queryByText(/Searching:/)).not.toBeInTheDocument())
+    expect(screen.getByText('Movie Premiere')).toBeInTheDocument()
   })
 })

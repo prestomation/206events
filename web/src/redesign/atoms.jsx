@@ -119,17 +119,49 @@ export function DayList({ groups, withReason = false }) {
   )
 }
 
-export function CategoryChips({ categories, active, onSelect }) {
+// Dismissible chips showing every active filter, so the user always knows the
+// list is filtered. Search also offers a one-tap "Save to feed".
+export function ActiveFilters() {
+  const app = useApp206()
+  const q = app.query.trim()
+  const scopeLabel = { today: 'Today', weekend: 'This weekend' }[app.dateScope]
+  const saved = q && app.searchFilters.some((f) => f.toLowerCase() === q.toLowerCase())
+  if (!app.hasActiveFilters) return null
   return (
-    <div className="a-chips">
-      <button className={`mk-pill ${!active ? 'mk-pill--active' : 'mk-pill--ghost'}`}
-        onClick={() => onSelect(null)} style={{ flex: '0 0 auto' }}>All</button>
-      {categories.map((tag) => (
-        <button key={tag} className={`mk-pill ${active === tag ? 'mk-pill--active' : 'mk-pill--ghost'}`}
-          onClick={() => onSelect(active === tag ? null : tag)} style={{ flex: '0 0 auto' }}>
-          <CatDot tag={tag} size={7} />{formatTagLabel(tag)}
-        </button>
-      ))}
+    <div className="a-activefilters">
+      {q && (
+        <span className="a-fchip a-fchip--search">
+          <span style={{ width: 13, height: 13, flex: '0 0 auto' }}>{Ico.search}</span>
+          <span className="a-fchip-label">Searching: “{q}”</span>
+          {!saved && (
+            <button className="a-fchip-save" onClick={() => app.addSearchFilter(q)} title="Save this search to your feed">Save</button>
+          )}
+          <button className="a-fchip-x" onClick={app.clearSearch} aria-label="Clear search">
+            <span style={{ width: 12, height: 12 }}>{Ico.close}</span>
+          </button>
+        </span>
+      )}
+      {app.category && (
+        <FilterChip icon={<CatDot tag={app.category} size={8} />} label={formatTagLabel(app.category)} onClear={() => app.setCategory(null)} />
+      )}
+      {app.neighborhood && (
+        <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.pin}</span>} label={formatTagLabel(app.neighborhood)} onClear={() => app.setNeighborhood(null)} />
+      )}
+      {scopeLabel && (
+        <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.clock}</span>} label={scopeLabel} onClear={() => app.setDateScope('all')} />
+      )}
     </div>
+  )
+}
+
+function FilterChip({ icon, label, onClear }) {
+  return (
+    <span className="a-fchip">
+      <span style={{ display: 'inline-flex', flex: '0 0 auto' }}>{icon}</span>
+      <span className="a-fchip-label">{label}</span>
+      <button className="a-fchip-x" onClick={onClear} aria-label={`Clear ${label}`}>
+        <span style={{ width: 12, height: 12 }}>{Ico.close}</span>
+      </button>
+    </span>
   )
 }

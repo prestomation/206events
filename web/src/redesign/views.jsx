@@ -1,29 +1,50 @@
 // Composite views for the redesigned UI: Discover, Following, You (config),
 // ChannelDetail, EventDetail, SearchView.
 
-import { useState, useMemo, useRef, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
-import { ChannelAvatar, CatDot, FollowPill, DayList, CategoryChips } from './atoms.jsx'
+import { ChannelAvatar, CatDot, DayList, ActiveFilters } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
-import {
-  upcomingIndexEvents, groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent,
-} from './viewModels.js'
+import { FilterDropdown } from './shell.jsx'
+import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import { EventDescription } from '../components/EventDescription.jsx'
 import { formatTagLabel } from '../utils/format.js'
-import { isNeighborhoodTag } from './categories.js'
+import { tagGroup, CATEGORY_GROUP_ORDER } from './categories.js'
 
 // Cap for the Discover "Events" list — the full upcoming window is thousands
 // of events; render the soonest slice to keep the DOM light.
 const EVENTS_MODE_CAP = 200
 
+// Build grouped dropdown options for the Category filter (taxonomy groups), and
+// a flat option list for Neighborhood — each with a live calendar count.
+function useCategoryGroups(app) {
+  return useMemo(() => {
+    const byGroup = new Map()
+    for (const tag of app.categoryTags) {
+      const g = tagGroup(tag)
+      if (!byGroup.has(g)) byGroup.set(g, [])
+      byGroup.get(g).push({ value: tag, label: formatTagLabel(tag), count: app.calendarsPerTag.get(tag) || 0 })
+    }
+    return CATEGORY_GROUP_ORDER
+      .filter((g) => byGroup.has(g))
+      .map((g) => ({ label: g, options: byGroup.get(g).sort((a, b) => a.label.localeCompare(b.label)) }))
+  }, [app.categoryTags, app.calendarsPerTag])
+}
+function useNeighborhoodOptions(app) {
+  return useMemo(() => app.neighborhoodTags.map((tag) => ({
+    value: tag, label: formatTagLabel(tag), count: app.calendarsPerTag.get(tag) || 0,
+  })), [app.neighborhoodTags, app.calendarsPerTag])
+}
+
 /* ------------------------------------------------------------- Discover --- */
 export function DiscoverView() {
   const app = useApp206()
-  const [axis, setAxis] = useState('hood')
-  const [cat, setCat] = useState(null)
+  const categoryGroups = useCategoryGroups(app)
+  const neighborhoodOptions = useNeighborhoodOptions(app)
+  const flatCategoryOptions = useMemo(() => categoryGroups.flatMap((g) => g.options), [categoryGroups])
 
   return (
     <div style={{ padding: '2px var(--pad) 20px' }}>
@@ -38,55 +59,46 @@ export function DiscoverView() {
         </div>
       </div>
 
-      <CategoryChips categories={app.categoryTags} active={cat} onSelect={setCat} />
+      <div className="a-filterbar">
+        <FilterDropdown label="Category" icon={Ico.grid} value={app.category}
+          options={flatCategoryOptions} groups={categoryGroups} onSelect={app.setCategory} />
+        <FilterDropdown label="Neighborhood" icon={Ico.pin} value={app.neighborhood}
+          options={neighborhoodOptions} onSelect={app.setNeighborhood} />
+      </div>
 
-      {app.emphasis === 'calendars' ? (
-        <>
-          <div className="a-browseby">
-            <span className="a-eyebrow" style={{ color: 'var(--ink-4)' }}>BROWSE BY</span>
-            <div className="a-seg" style={{ background: 'transparent', padding: 0, gap: 6 }}>
-              <button className={axis === 'hood' ? 'on' : ''} style={{ height: 30, background: axis === 'hood' ? 'var(--surface-2)' : 'transparent' }} onClick={() => setAxis('hood')}>{Ico.pin}Neighborhood</button>
-              <button className={axis === 'cat' ? 'on' : ''} style={{ height: 30, background: axis === 'cat' ? 'var(--surface-2)' : 'transparent' }} onClick={() => setAxis('cat')}>{Ico.grid}Category</button>
-            </div>
-          </div>
-          <CalendarsMode axis={axis} cat={cat} />
-        </>
-      ) : (
-        <div style={{ marginTop: 16 }}><EventsMode cat={cat} /></div>
-      )}
+      <ActiveFilters />
+
+      {app.emphasis === 'calendars' ? <CalendarsMode /> : <div style={{ marginTop: 8 }}><EventsMode /></div>}
     </div>
   )
 }
 
-function CalendarsMode({ axis, cat }) {
+// Filter channels by the active category + neighborhood, then group by hood.
+function CalendarsMode() {
   const app = useApp206()
-  let channels = app.channels
-  if (cat) channels = channels.filter((c) => c.tags.includes(cat))
-
   const groups = useMemo(() => {
-    if (axis === 'hood') {
-      const byHood = new Map()
-      const citywide = []
-      for (const c of channels) {
-        if (c.distributed || !c.hood) { citywide.push(c); continue }
-        if (!byHood.has(c.hood)) byHood.set(c.hood, [])
-        byHood.get(c.hood).push(c)
-      }
-      const out = [...byHood.entries()].sort((a, b) => a[0].localeCompare(b[0]))
-        .map(([label, keys]) => ({ label, channels: keys }))
-      if (citywide.length) out.push({ label: 'Citywide · multiple venues', channels: citywide })
-      return out
+    let channels = app.channels
+    if (app.category) channels = channels.filter((c) => c.tags.includes(app.category))
+    if (app.neighborhood) channels = channels.filter((c) => c.tags.includes(app.neighborhood))
+    if (app.query.trim()) {
+      const q = app.query.trim().toLowerCase()
+      channels = channels.filter((c) =>
+        c.name.toLowerCase().includes(q) || c.tags.some((t) => t.toLowerCase().includes(q)))
     }
-    // category axis — multi-membership: a channel appears under each category tag
-    const byCat = new Map()
-    for (const tag of app.categoryTags) {
-      const members = channels.filter((c) => c.tags.includes(tag))
-      if (members.length) byCat.set(tag, members)
+    const byHood = new Map()
+    const citywide = []
+    for (const c of channels) {
+      if (c.distributed || !c.hood) { citywide.push(c); continue }
+      if (!byHood.has(c.hood)) byHood.set(c.hood, [])
+      byHood.get(c.hood).push(c)
     }
-    return [...byCat.entries()].map(([tag, keys]) => ({ label: formatTagLabel(tag), tag, channels: keys }))
-  }, [axis, channels, app.categoryTags])
+    const out = [...byHood.entries()].sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([label, keys]) => ({ label, channels: keys }))
+    if (citywide.length) out.push({ label: 'Citywide · multiple venues', channels: citywide })
+    return out
+  }, [app.channels, app.category, app.neighborhood, app.query])
 
-  if (!groups.length) return <div className="a-empty">No calendars in this category yet.</div>
+  if (!groups.length) return <div className="a-empty">No calendars match these filters.</div>
 
   return (
     <div>
@@ -105,21 +117,24 @@ function CalendarsMode({ axis, cat }) {
   )
 }
 
-function EventsMode({ cat }) {
+function EventsMode() {
   const app = useApp206()
   const groups = useMemo(() => {
     let evs = app.upcomingEvents
-    if (cat) {
+    if (app.category || app.neighborhood) {
       evs = evs.filter((e) => {
         const ch = app.channelByIcsUrl.get(e.icsUrl)
-        return ch && ch.tags.includes(cat)
+        if (!ch) return false
+        if (app.category && !ch.tags.includes(app.category)) return false
+        if (app.neighborhood && !ch.tags.includes(app.neighborhood)) return false
+        return true
       })
     }
     if (app.query) evs = app.matchEvents(app.query, evs)
     // Cap the rendered set: a 6-month all-events list is thousands of rows.
     // Events are already date-sorted, so this keeps the soonest.
     return groupIndexEventsByDay(evs.slice(0, EVENTS_MODE_CAP))
-  }, [app.upcomingEvents, cat, app.query, app.channelByIcsUrl])
+  }, [app.upcomingEvents, app.category, app.neighborhood, app.query, app.channelByIcsUrl])
   if (!groups.length) return <div className="a-empty">No events match.</div>
   return <DayList groups={groups} />
 }
@@ -127,7 +142,27 @@ function EventsMode({ cat }) {
 /* ------------------------------------------------------------ Following --- */
 export function FollowingView() {
   const app = useApp206()
-  const groups = app.feedGroups
+  // The feed is already date-scoped; additionally narrow by the active
+  // category / neighborhood / search filters so they apply here too.
+  const groups = useMemo(() => {
+    let gs = app.feedGroups
+    const narrow = (e) => {
+      if (app.category || app.neighborhood) {
+        const ch = app.channelByIcsUrl.get(e.icsUrl)
+        if (app.category && !(ch && ch.tags.includes(app.category))) return false
+        if (app.neighborhood && !(ch && ch.tags.includes(app.neighborhood))) return false
+      }
+      return true
+    }
+    if (app.category || app.neighborhood) {
+      gs = gs.map((g) => ({ ...g, events: g.events.filter(narrow) })).filter((g) => g.events.length)
+    }
+    if (app.query.trim()) {
+      gs = gs.map((g) => ({ ...g, events: app.matchEvents(app.query, g.events) })).filter((g) => g.events.length)
+    }
+    return gs
+  }, [app.feedGroups, app.category, app.neighborhood, app.query, app.channelByIcsUrl])
+
   const counts = { cal: app.favoritesSet.size, place: app.geoFilters.length, search: app.searchFilters.length }
   const total = groups.reduce((n, g) => n + g.events.length, 0)
 
@@ -143,6 +178,8 @@ export function FollowingView() {
         </button>
       </div>
 
+      <ActiveFilters />
+
       <button className="a-feedlegend" onClick={() => app.go('you')} title="Manage what feeds this">
         <span style={{ fontSize: 12, color: 'var(--ink-3)', fontWeight: 600 }}>Feeding this:</span>
         <span className="prov-chip prov-cal"><span style={{ width: 12, height: 12 }}>{Ico.cal}</span>{counts.cal} calendars</span>
@@ -153,6 +190,11 @@ export function FollowingView() {
 
       {total ? (
         <DayList groups={groups} withReason />
+      ) : app.hasActiveFilters ? (
+        <div className="a-empty" style={{ textAlign: 'center', padding: '40px 0' }}>
+          <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink-2)', marginBottom: 6 }}>No feed events match these filters</div>
+          <div style={{ fontSize: 13.5 }}>Clear a filter above to see more.</div>
+        </div>
       ) : (
         <div className="a-empty" style={{ textAlign: 'center', padding: '40px 0' }}>
           <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink-2)', marginBottom: 6 }}>Your feed is empty</div>
@@ -430,53 +472,6 @@ export function EventDetail({ event }) {
             )
           })}
         </>
-      )}
-    </div>
-  )
-}
-
-/* ----------------------------------------------------------- SearchView --- */
-export function SearchView() {
-  const app = useApp206()
-  const inputRef = useRef(null)
-  useEffect(() => { inputRef.current && inputRef.current.focus() }, [])
-  const q = app.query.trim()
-  const results = useMemo(() => (q ? groupIndexEventsByDay(app.matchEvents(q, app.upcomingEvents)) : []), [q, app.upcomingEvents])
-  const total = results.reduce((n, g) => n + g.events.length, 0)
-  const suggestions = ['jazz', 'outdoor', 'comedy', 'market', 'art', 'capitol hill']
-  const alreadySaved = app.searchFilters.some((f) => f.toLowerCase() === q.toLowerCase())
-
-  return (
-    <div style={{ padding: '2px var(--pad) 24px', maxWidth: 760, margin: '0 auto' }}>
-      <div style={{ display: 'flex', gap: 10, alignItems: 'center', margin: '8px 0 16px' }}>
-        <div className="a-search" style={{ flex: 1 }}>
-          <span style={{ width: 19, height: 19, flex: '0 0 auto' }}>{Ico.search}</span>
-          <input ref={inputRef} value={app.query} onChange={(e) => app.setQuery(e.target.value)} placeholder="Search events, venues, neighborhoods…"
-            style={{ flex: 1, minWidth: 0, border: 'none', background: 'none', fontFamily: 'inherit', fontSize: 15, color: 'var(--ink)', outline: 'none' }} />
-          {app.query && <button onClick={() => app.setQuery('')} style={{ width: 22, height: 22, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.close}</button>}
-        </div>
-        <button className="btn btn-ghost" style={{ height: 42, flex: '0 0 auto' }} onClick={app.back}>Cancel</button>
-      </div>
-
-      {!q ? (
-        <div>
-          <div className="a-eyebrow" style={{ marginBottom: 11 }}>TRY</div>
-          <div style={{ display: 'flex', gap: 9, flexWrap: 'wrap' }}>
-            {suggestions.map((s) => <button key={s} className="mk-pill mk-pill--ghost" onClick={() => app.setQuery(s)}>{s}</button>)}
-          </div>
-        </div>
-      ) : (
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginBottom: 6, flexWrap: 'wrap' }}>
-            <div className="a-eyebrow">{total} {total === 1 ? 'RESULT' : 'RESULTS'} FOR “{q}”</div>
-            <button className={`btn ${alreadySaved ? 'btn-ghost' : 'btn-blue'}`} style={{ height: 38, fontSize: 13 }}
-              disabled={alreadySaved} onClick={() => app.addSearchFilter(q)}>
-              {alreadySaved ? <><span style={{ width: 15, height: 15 }}>{Ico.check}</span>Saved to feed</> : <>{Ico.plus}Save this search</>}
-            </button>
-          </div>
-          <p style={{ fontSize: 12.5, color: 'var(--ink-3)', marginBottom: 8 }}>Saving adds matching events to your feed automatically — including future ones.</p>
-          {total ? <DayList groups={results} /> : <div className="a-empty">No events match “{q}”.</div>}
-        </div>
       )}
     </div>
   )

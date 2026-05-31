@@ -1,5 +1,6 @@
 // App shell chrome: top bar, desktop rail, mobile bottom nav, map panel, toast.
 
+import { useState, useEffect, useRef } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { Brand } from './atoms.jsx'
@@ -12,16 +13,62 @@ const NAV_ITEMS = [
   { id: 'you', label: 'You', icon: Ico.user },
 ]
 
+const SUGGESTIONS = ['jazz', 'outdoor', 'comedy', 'market', 'art', 'capitol hill']
+
+// The single search bar lives in the top bar on every screen. Local input state
+// updates immediately for a responsive caret; a debounced effect commits to the
+// app-wide `query` (which drives filtering), so typing never rebuilds the index
+// per keystroke.
 export function TopBar() {
   const app = useApp206()
   const items = NAV_ITEMS.filter((it) => it.id !== 'you')
+  const [text, setText] = useState(app.query)
+  const [focused, setFocused] = useState(false)
+  const wrapRef = useRef(null)
+
+  // Keep the input in sync when the query is cleared elsewhere (e.g. chip ✕).
+  useEffect(() => { setText(app.query) }, [app.query])
+  // Debounce commits into the global query.
+  useEffect(() => {
+    const id = setTimeout(() => { if (text !== app.query) app.setQuery(text) }, 200)
+    return () => clearTimeout(id)
+  }, [text]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Close suggestions on outside click.
+  useEffect(() => {
+    if (!focused) return
+    const onDown = (e) => { if (wrapRef.current && !wrapRef.current.contains(e.target)) setFocused(false) }
+    document.addEventListener('mousedown', onDown)
+    return () => document.removeEventListener('mousedown', onDown)
+  }, [focused])
+
+  const commit = (v) => { setText(v); app.setQuery(v); setFocused(false) }
+  const clear = () => { setText(''); app.setQuery(''); }
+
   return (
     <div className="a-topbar">
       <Brand />
-      <button className="a-search" onClick={app.openSearch} style={{ cursor: 'text' }}>
-        <span style={{ width: 19, height: 19, flex: '0 0 auto' }}>{Ico.search}</span>
-        <span className="tx">Search events &amp; venues…</span>
-      </button>
+      <div className="a-search-wrap" ref={wrapRef}>
+        <div className="a-search">
+          <span style={{ width: 19, height: 19, flex: '0 0 auto' }}>{Ico.search}</span>
+          <input className="a-search-input" value={text} onChange={(e) => setText(e.target.value)}
+            onFocus={() => setFocused(true)} placeholder="Search events & venues…"
+            aria-label="Search events and venues" />
+          {text && <button className="a-search-x" onClick={clear} aria-label="Clear search">
+            <span style={{ width: 16, height: 16 }}>{Ico.close}</span>
+          </button>}
+        </div>
+        {focused && !text && (
+          <div className="a-suggest">
+            <div className="a-eyebrow" style={{ padding: '2px 4px 8px' }}>TRY</div>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              {SUGGESTIONS.map((s) => (
+                <button key={s} className="mk-pill mk-pill--ghost" onMouseDown={(e) => { e.preventDefault(); commit(s) }}>{s}</button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
       <nav className="a-topnav">
         {items.map((it) => (
           <button key={it.id} className={`${app.section === it.id ? 'on' : ''} ${it.mobileOnly ? 'a-mapTabHide' : ''}`}
@@ -29,6 +76,56 @@ export function TopBar() {
         ))}
       </nav>
       <button className="a-iconbtn" onClick={app.toggleFilter} title="Filter by date">{Ico.filter}</button>
+    </div>
+  )
+}
+
+// Generic labelled dropdown (button → popup menu). Used for Category and
+// Neighborhood browse filters. `options` = [{ value, label, count }].
+export function FilterDropdown({ label, icon, value, options, onSelect, groups }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  useEffect(() => {
+    if (!open) return
+    const onDown = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    document.addEventListener('mousedown', onDown)
+    return () => document.removeEventListener('mousedown', onDown)
+  }, [open])
+
+  const active = options.find((o) => o.value === value)
+  const pick = (v) => { onSelect(v); setOpen(false) }
+
+  const renderOption = (o) => (
+    <button key={o.value} className={`a-dd-item ${o.value === value ? 'on' : ''}`} onClick={() => pick(o.value)}>
+      <span className="a-dd-item-label">{o.label}</span>
+      {o.count != null && <span className="a-dd-item-count">{o.count}</span>}
+      {o.value === value && <span className="a-dd-item-check" style={{ width: 14, height: 14 }}>{Ico.check}</span>}
+    </button>
+  )
+
+  return (
+    <div className="a-dd" ref={ref}>
+      <button className={`a-dd-btn ${value ? 'on' : ''}`} onClick={() => setOpen((v) => !v)}>
+        {icon && <span style={{ width: 16, height: 16, flex: '0 0 auto' }}>{icon}</span>}
+        <span>{active ? active.label : label}</span>
+        <span className="a-dd-caret" style={{ width: 14, height: 14 }}>{Ico.arrow}</span>
+      </button>
+      {open && (
+        <div className="a-dd-menu">
+          <button className={`a-dd-item ${!value ? 'on' : ''}`} onClick={() => pick(null)}>
+            <span className="a-dd-item-label">All {label.toLowerCase()}</span>
+            {!value && <span className="a-dd-item-check" style={{ width: 14, height: 14 }}>{Ico.check}</span>}
+          </button>
+          {groups
+            ? groups.map((g) => (
+              <div key={g.label} className="a-dd-group">
+                <div className="a-dd-grouphdr">{g.label}</div>
+                {g.options.map(renderOption)}
+              </div>
+            ))
+            : options.map(renderOption)}
+        </div>
+      )}
     </div>
   )
 }

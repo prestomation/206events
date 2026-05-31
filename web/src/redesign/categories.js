@@ -50,20 +50,26 @@ const CATEGORY_PRIORITY = [
   'Nightlife',
 ]
 
-// Tags that count as a browsable "category" (everything except neighborhoods
-// and the Special bucket). Derived from the canonical taxonomy.
-const CATEGORY_TAG_GROUPS = ['Activities', 'Markets', 'Community']
-export const CATEGORY_TAG_SET = new Set(
-  CATEGORY_TAG_GROUPS.flatMap((g) => TAG_CATEGORIES[g] || [])
-)
+// Display order for the content-category dropdown groups.
+export const CATEGORY_GROUP_ORDER = ['Activities', 'Markets', 'Community', 'Other']
 
+// A "content category" tag is anything browsable on the category axis: every
+// tag EXCEPT neighborhoods and the Special ("All") bucket. Uncategorized tags
+// fall into "Other" via categoryFor() and are surfaced too — nothing hidden.
 export function isCategoryTag(tag) {
-  return CATEGORY_TAG_SET.has(tag) || categoryFor(tag) === 'Activities' ||
-    categoryFor(tag) === 'Markets' || categoryFor(tag) === 'Community'
+  const c = categoryFor(tag)
+  return c !== 'Neighborhoods' && c !== 'Special'
 }
 
 export function isNeighborhoodTag(tag) {
   return categoryFor(tag) === 'Neighborhoods'
+}
+
+// Taxonomy group a content-category tag belongs to (for dropdown grouping):
+// Activities / Markets / Community / Other.
+export function tagGroup(tag) {
+  const c = categoryFor(tag)
+  return CATEGORY_GROUP_ORDER.includes(c) ? c : 'Other'
 }
 
 // Stable hashed fallback hue for an uncategorized tag, so its dot/avatar color
@@ -75,8 +81,11 @@ function hashHue(str) {
 }
 
 export function colorForTag(tag) {
+  if (!tag) return CATEGORY_COLORS.default
   const cat = TAG_TO_CATEGORY[tag]
   if (cat) return CATEGORY_COLORS[cat]
+  // Any other content tag (including uncategorized "Other") gets a stable
+  // hashed hue so its dot/avatar color is consistent build-to-build.
   if (isCategoryTag(tag)) return `hsl(${hashHue(tag)} 45% 38%)`
   return CATEGORY_COLORS.default
 }

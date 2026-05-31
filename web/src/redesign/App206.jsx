@@ -6,10 +6,11 @@ import { useState, useMemo, useRef, useCallback, useEffect } from 'react'
 import Fuse from 'fuse.js'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
-import { DiscoverView, FollowingView, YouView, ChannelDetail, EventDetail, SearchView } from './views.jsx'
+import { DiscoverView, FollowingView, YouView, ChannelDetail, EventDetail } from './views.jsx'
 import { HealthDashboard } from '../components/HealthDashboard.jsx'
 import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, parseIndexDate } from './viewModels.js'
-import { isCategoryTag } from './categories.js'
+import { isCategoryTag, isNeighborhoodTag } from './categories.js'
+import { eventKey } from '../lib/eventKey.js'
 
 const FUSE_THRESHOLD = 0.1
 
@@ -31,11 +32,14 @@ export function App206(props) {
   const [section, setSection] = useState('discover')
   const [openCh, setOpenCh] = useState(null)        // icsUrl
   const [openEventObj, setOpenEventObj] = useState(null)
-  const [searchOpen, setSearchOpen] = useState(false)
   const [filterOpen, setFilterOpen] = useState(false)
   const [dateScope, setDateScope] = useState('all')
   const [emphasis, setEmphasis] = useState('calendars')
+  // Committed search query (drives filtering); the TopBar debounces into this.
   const [query, setQuery] = useState('')
+  // Browse filters shared across Discover / Following.
+  const [category, setCategory] = useState(null)
+  const [neighborhood, setNeighborhood] = useState(null)
   const [toast, setToast] = useState(null)
   const toastT = useRef(0)
 
@@ -90,19 +94,42 @@ export function App206(props) {
     return map
   }, [channels])
 
-  /* ---- browsable category tags actually present in the data ---- */
+  /* ---- browsable tags + per-tag calendar counts ---- */
+  const calendarsPerTag = useMemo(() => {
+    const counts = new Map()
+    for (const c of channels) for (const t of c.tags) counts.set(t, (counts.get(t) || 0) + 1)
+    return counts
+  }, [channels])
   const categoryTags = useMemo(() => {
     const set = new Set()
     for (const c of channels) for (const t of c.tags) if (isCategoryTag(t)) set.add(t)
     return [...set].sort()
   }, [channels])
+  const neighborhoodTags = useMemo(() => {
+    const set = new Set()
+    for (const c of channels) for (const t of c.tags) if (isNeighborhoodTag(t)) set.add(t)
+    return [...set].sort()
+  }, [channels])
 
-  /* ---- search over a provided event list ---- */
+  /* ---- search: ONE Fuse over the upcoming window, matches memoized into a
+     key Set so per-view filtering is an O(n) membership test (no per-keystroke
+     index rebuilds → no freeze). ---- */
+  const queryFuse = useMemo(
+    () => new Fuse(upcomingEvents, { keys: ['summary', 'description', 'location'], threshold: FUSE_THRESHOLD }),
+    [upcomingEvents]
+  )
+  const queryKeySet = useMemo(() => {
+    const q = query.trim()
+    if (!q) return null
+    const set = new Set()
+    for (const r of queryFuse.search(q)) set.add(eventKey(r.item))
+    return set
+  }, [queryFuse, query])
+  // Filter any list of index events by the committed query (membership test).
   const matchEvents = useCallback((q, list) => {
-    if (!q || !q.trim()) return list
-    const fuse = new Fuse(list, { keys: ['summary', 'description', 'location'], threshold: FUSE_THRESHOLD })
-    return fuse.search(q.trim()).map((r) => r.item)
-  }, [])
+    if (!q || !q.trim() || !queryKeySet) return list
+    return list.filter((e) => queryKeySet.has(eventKey(e)))
+  }, [queryKeySet])
 
   /* ---- date-scope filter ---- */
   const inScope = useCallback((event) => {
@@ -133,17 +160,20 @@ export function App206(props) {
   const feedGroups = useMemo(() => scopeGroups(followingGroups || []), [followingGroups, scopeGroups])
 
   /* ---- navigation handlers ---- */
-  const clearOverlays = useCallback(() => { setOpenCh(null); setOpenEventObj(null); setSearchOpen(false) }, [])
+  const clearOverlays = useCallback(() => { setOpenCh(null); setOpenEventObj(null) }, [])
   const go = useCallback((id) => { clearOverlays(); onSelectChannel(null); setSection(id) }, [clearOverlays, onSelectChannel])
   const openChannel = useCallback((icsUrl) => {
-    setOpenEventObj(null); setSearchOpen(false); setOpenCh(icsUrl)
+    setOpenEventObj(null); setOpenCh(icsUrl)
     const ch = channelByIcsUrl.get(icsUrl)
     if (ch) onSelectChannel({ ...ch.cal, ripperName: ch.ripperName })
   }, [channelByIcsUrl, onSelectChannel])
-  const openEvent = useCallback((event) => { setOpenCh(null); setSearchOpen(false); onSelectChannel(null); setOpenEventObj(event) }, [onSelectChannel])
+  const openEvent = useCallback((event) => { setOpenCh(null); onSelectChannel(null); setOpenEventObj(event) }, [onSelectChannel])
   const back = useCallback(() => { clearOverlays(); onSelectChannel(null) }, [clearOverlays, onSelectChannel])
-  const openSearch = useCallback(() => { clearOverlays(); onSelectChannel(null); setSearchOpen(true) }, [clearOverlays, onSelectChannel])
   const toggleFilter = useCallback(() => setFilterOpen((v) => !v), [])
+
+  /* ---- active filters: clearers + a convenience reset ---- */
+  const clearSearch = useCallback(() => setQuery(''), [])
+  const hasActiveFilters = !!(query.trim() || category || neighborhood || dateScope !== 'all')
 
   const toggleFollow = useCallback((icsUrl) => {
     const was = favoritesSet.has(icsUrl)
@@ -174,18 +204,19 @@ export function App206(props) {
     channelEvents, channelEventsLoading, channelEventsError,
     createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
     // derived
-    channels, channelByIcsUrl, categoryTags, upcomingEvents: scopedUpcoming, eventsByIcsUrl,
+    channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
+    upcomingEvents: scopedUpcoming, eventsByIcsUrl,
     feedGroups, matchEvents, inScope,
     // ui state
-    section, openCh, openEventObj, searchOpen, dateScope, setDateScope, emphasis, setEmphasis,
-    query, setQuery, toast, todayLabel,
+    section, openCh, openEventObj, dateScope, setDateScope, emphasis, setEmphasis,
+    query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
+    hasActiveFilters, toast, todayLabel,
     // handlers
-    go, openChannel, openEvent, back, openSearch, toggleFilter, flash, subscribeChannel, saveArea,
+    go, openChannel, openEvent, back, toggleFilter, flash, subscribeChannel, saveArea,
   }
 
   let content
   if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard buildErrors={buildErrors} calendars={calendars} /></div>
-  else if (searchOpen) content = <SearchView />
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />
@@ -198,7 +229,7 @@ export function App206(props) {
       <div className="mk app206" data-nav="adaptive">
         <div className="a-rail"><RailNav /></div>
         <div className="a-top"><TopBar /></div>
-        <div className="a-content" key={searchOpen ? 'search' : openEventObj ? 'ev' : openCh ? 'ch' : section}>
+        <div className="a-content" key={openEventObj ? 'ev' : openCh ? 'ch' : section}>
           {loading ? <div className="a-empty" style={{ padding: '40px var(--pad)' }}>Loading…</div> : content}
         </div>
         <div className="a-map"><MapPanel /></div>
