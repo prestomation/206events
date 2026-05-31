@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-le
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import { eventKey } from './lib/eventKey.js'
+import { eventKey } from '../lib/eventKey.js'
 import { AttributionChips } from './AttributionChips.jsx'
 
 // Fix Leaflet default marker icons in Vite
