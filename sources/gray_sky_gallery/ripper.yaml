@@ -1,0 +1,14 @@
+name: gray-sky-gallery
+type: squarespace
+description: "Gray Sky Gallery"
+url: "https://www.grayskygallery.com/new-events"
+friendlyLink: https://www.grayskygallery.com/new-events
+tags: ["Arts", "Pioneer Square"]
+geo:
+  lat: 47.5994134
+  lng: -122.3338561
+  label: "Gray Sky Gallery, 320 1st Ave S, Seattle, WA 98104"
+calendars:
+  - name: all-events
+    friendlyname: "Gray Sky Gallery"
+    timezone: America/Los_Angeles
