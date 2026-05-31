@@ -154,6 +154,7 @@ calendars:
   # --- Georgetown ---
   - name: georgetown-liquor-company
     friendlyname: "Georgetown Liquor Company"
+    expectEmpty: true
     geo:
       lat: 47.5532
       lng: -122.3214

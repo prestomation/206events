@@ -7,6 +7,8 @@ geo:
   lat: 47.6067854
   lng: -122.3286673
   label: "Optum parking lot, 703 Marion St, Seattle, WA 98104"
+  osmType: way
+  osmId: 6472609
 calendars:
   - name: tours
     friendlyname: "Lid I-5 Tours"

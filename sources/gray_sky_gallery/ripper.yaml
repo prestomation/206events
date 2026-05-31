@@ -8,6 +8,8 @@ geo:
   lat: 47.5994134
   lng: -122.3338561
   label: "Gray Sky Gallery, 320 1st Ave S, Seattle, WA 98104"
+  osmType: node
+  osmId: 2351712431
 calendars:
   - name: all-events
     friendlyname: "Gray Sky Gallery"

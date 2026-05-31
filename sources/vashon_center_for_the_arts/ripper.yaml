@@ -7,6 +7,8 @@ geo:
   lat: 47.4287555
   lng: -122.4601317
   label: "Vashon Center for the Arts, 19600 Vashon Hwy SW, Vashon, WA 98070"
+  osmType: way
+  osmId: 529250365
 calendars:
   - name: vashon-center-for-the-arts
     friendlyname: "Vashon Center for the Arts"
