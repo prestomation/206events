@@ -24,8 +24,7 @@ Held every third Saturday, 6-10 PM, year-round on 37th Ave S. Organized by Peace
 Seattle-area minor league and amateur sports teams are not currently covered. None have ICS feeds, so most would be recurring entries or require custom rippers.
 
 - **DubSea Fish Sticks** (Summer Collegiate Baseball) — Mel Olson Stadium, White Center — June-August — Tags: Sports, White Center
-- **Ballard FC** (USL League Two Soccer) — Memorial Stadium, Seattle Center — May-July — Tags: Sports, Ballard
-- **West Seattle Junction FC** (USL League Two Soccer) — Nino Cantu SW Athletic Complex — May-July — Tags: Sports, West Seattle
+- **Ballard FC** (USL League Two Soccer) — Memorial Stadium, Seattle Center — May-July — Tags: Sports, Ballard (added in PR #439)
 
 ## Additional Farmers Markets
 
