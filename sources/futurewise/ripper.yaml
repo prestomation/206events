@@ -5,6 +5,7 @@ url: "https://futurewise.org/events/"
 friendlyLink: https://futurewise.org/events/
 tags: ["Activism", "Community"]
 geo: null
+expectEmpty: true
 calendars:
   - name: events
     friendlyname: "Futurewise"

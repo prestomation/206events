@@ -1,15 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:live-theater-2026-05-23": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8100
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/"
-    },
     "events12:live-theater-2026-05-24": {
       "fields": {
         "startTime": "19:30",
@@ -286,13 +277,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/blue-man-group/"
-    },
-    "events12:free-things-to-do-2026-05-23": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
     },
     "events12:free-things-to-do-2026-05-24": {
       "unresolvable": true,
@@ -1847,13 +1831,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
-    "events12:taste-of-seattle-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
     },
     "events12:taste-of-seattle-2026-05-24": {
       "unresolvable": true,
@@ -4851,13 +4828,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-05-24": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -6034,13 +6004,6 @@
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
     },
-    "events12:sailboat-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
     "events12:sailboat-2026-05-24": {
       "unresolvable": true,
       "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
@@ -7167,13 +7130,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
-    "events12:baseball-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
     },
     "events12:baseball-2026-05-24": {
       "unresolvable": true,
@@ -9660,13 +9616,6 @@
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg"
     },
-    "events12:bus-to-the-mountains-2026-05-23": {
-      "unresolvable": true,
-      "reason": "General transit service page \u2014 specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/"
-    },
     "events12:bus-to-the-mountains-2026-05-24": {
       "unresolvable": true,
       "reason": "General transit service page \u2014 specific departure times vary by date and destination",
@@ -10359,13 +10308,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://trailheaddirect.org/"
-    },
-    "events12:concerts-at-marymoor-park-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
     },
     "events12:concerts-at-marymoor-park-2026-05-24": {
       "unresolvable": true,
@@ -11060,13 +11002,6 @@
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
     },
-    "events12:rugby-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
     "events12:rugby-2026-05-24": {
       "unresolvable": true,
       "reason": "Season-span listing across multiple dates; each home game has different start time",
@@ -11171,13 +11106,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:musical-cabaret-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Seattle Cabaret Festival homepage does not list per-show times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://seattlecabaretfestival.com"
     },
     "events12:musical-cabaret-2026-05-24": {
       "unresolvable": true,
@@ -11396,13 +11324,6 @@
       "source": "agent",
       "evidence": "https://www.acrobaticconundrum.com/current-shows"
     },
-    "events12:gourmet-cooking-class-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Multi-day listing with different class times each day (2:30pm, 5:30pm, 11:00am) \u2014 no single start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.hotstovesociety.com/store/events/"
-    },
     "events12:gourmet-cooking-class-2026-05-24": {
       "unresolvable": true,
       "reason": "Multi-day listing with different class times each day (2:30pm, 5:30pm, 11:00am) \u2014 no single start time",
@@ -11469,15 +11390,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://emeraldcitytrapeze.com/revolt-of-the-tails-celestial-circus/"
-    },
-    "events12:memorial-day-ceremonies-2026-05-23": {
-      "fields": {
-        "startTime": "09:00",
-        "duration": 10800
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://bonneywatson.com/2026-memorial-day-community-event-at-bonney-watson/"
     },
     "events12:memorial-day-ceremonies-2026-05-25": {
       "unresolvable": true,
@@ -11674,13 +11586,6 @@
       "source": "agent",
       "evidence": "https://www.glazerscamera.com/pages/workshops"
     },
-    "events12:folklife-music-and-dance-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Festival homepage \u2014 daily opening times not listed; schedule on separate page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://nwfolklife.org/festival/home.html"
-    },
     "events12:folklife-music-and-dance-2026-05-24": {
       "unresolvable": true,
       "reason": "Festival homepage \u2014 daily opening times not listed; schedule on separate page",
@@ -11695,26 +11600,12 @@
       "source": "agent",
       "evidence": "https://nwfolklife.org/festival/home.html"
     },
-    "events12:phantom-of-the-opera-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Event page did not return performance schedule content",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
     "events12:phantom-of-the-opera-2026-05-24": {
       "unresolvable": true,
       "reason": "Event page did not return performance schedule content",
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/the-phantom-of-the-opera/"
-    },
-    "events12:music-by-candlelight-2026-05-23": {
-      "unresolvable": true,
-      "reason": "Fever affiliate link \u2014 cannot determine show times from redirect URL",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://fever.pxf.io/Kj6j5x"
     },
     "events12:music-by-candlelight-2026-05-24": {
       "unresolvable": true,
@@ -11778,16 +11669,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.masoncountyforestfestival.com"
-    },
-    "events12:all-american-musical-2026-05-23": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8400
-      },
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "evidence": "https://villagetheatre.org/see-a-show/grease/",
-      "partialFingerprint": "1p783r0-until2026-06-07-tu"
     },
     "events12:all-american-musical-2026-05-24": {
       "fields": {
@@ -19382,6 +19263,79 @@
       "resolvedAt": "2026-05-30",
       "source": "agent",
       "partialFingerprint": "n05siz-until2026-05-30-tu"
+    },
+    "discover-slu:discover-slu-yoga-kapwa": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "reason": "Event page shows start time (11:00 AM) but no end time or duration",
+      "evidence": "https://www.discoverslu.com/events/yoga-kapwa/",
+      "partialFingerprint": "fdbwm"
+    },
+    "stg:tm-vvG1HZ_1Rl7CO3": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "reason": "Ticketmaster API does not expose event duration",
+      "partialFingerprint": "45wf9n"
+    },
+    "t-mobile-park:tm-vvG1HZ_dsWkdye": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "reason": "Ticketmaster API does not expose event duration",
+      "partialFingerprint": "1hjlcg7"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-featuring-indigenous-peoples-festival-vendors-x47270": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "reason": "Event page confirms 'All Day' \u2014 no specific start time or duration listed",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-marketplace-featuring-indigenous-peoples-festival-vendors-x47270",
+      "partialFingerprint": "1dtg4xu"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46310": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "reason": "Event page confirms 'All Day' \u2014 no specific start time or duration listed",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46310",
+      "partialFingerprint": "1dtg4xu"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47614": {
+      "unresolvable": true,
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "reason": "Event page confirms 'All Day' virtual event \u2014 no specific start time or duration",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47614",
+      "partialFingerprint": "1dtg4xu"
+    },
+    "seattle-center:seattle-u-graduation-x47092": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-u-graduation-x47092",
+      "partialFingerprint": "133d6hb"
+    },
+    "seattle-center:the-play-that-goes-wrong-x44684": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/the-play-that-goes-wrong-x44684",
+      "partialFingerprint": "1fppfbw"
+    },
+    "seattle-center:seattle-u-graduation-x47093": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-05-31",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-u-graduation-x47092",
+      "partialFingerprint": "x2hexr"
     }
   }
 }
