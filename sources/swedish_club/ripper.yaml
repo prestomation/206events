@@ -1,0 +1,20 @@
+name: swedish-club
+type: eventbrite
+description: "The Swedish Club NW"
+url: "https://www.eventbrite.com/o/swedish-cultural-center-65249248753"
+friendlyLink: https://www.swedishclubnw.org
+tags: ["Arts", "Community", "QueenAnne"]
+geo:
+  lat: 47.6364763
+  lng: -122.3422175
+  label: "The Swedish Club NW, 1920 Dexter Ave N, Seattle, WA 98109"
+  osmType: way
+  osmId: 198873347
+calendars:
+  - name: swedish-club
+    friendlyname: "The Swedish Club NW"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "65249248753"
+      defaultLocation: "1920 Dexter Ave N, Seattle, WA 98109"
+      defaultDurationHours: 2
