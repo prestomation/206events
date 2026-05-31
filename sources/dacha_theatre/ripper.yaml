@@ -2,7 +2,6 @@ name: dacha-theatre
 description: "Dacha Theatre"
 url: "https://www.dachatheatre.com/"
 friendlyLink: https://www.dachatheatre.com/
-expectEmpty: true
 geo: null
 tags: ["Theatre", "Capitol Hill"]
 calendars:

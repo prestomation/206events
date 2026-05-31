@@ -9,6 +9,7 @@ geo:
   label: "Egan's Ballard Jam House, 1707 NW Market St, Seattle, WA 98107"
   osmType: node
   osmId: 4439879646
+expectEmpty: true
 calendars:
   - name: all-events
     friendlyname: "Egan's Ballard Jam House"
