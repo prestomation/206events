@@ -24,7 +24,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 18px;
+        gap: 20px;
         background: #faf8f4;
         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       }
@@ -40,23 +40,37 @@
         font-weight: 800;
         font-size: 20px;
         letter-spacing: -0.02em;
+        animation: boot-breathe 1.8s ease-in-out infinite;
       }
-      .boot-ring {
-        width: 28px;
-        height: 28px;
-        border: 3px solid rgba(26, 26, 46, 0.15);
-        border-top-color: #1366d6;
-        border-radius: 50%;
-        animation: boot-spin 0.8s linear infinite;
+      .boot-bar {
+        position: relative;
+        width: 120px;
+        height: 3px;
+        border-radius: 3px;
+        background: rgba(26, 26, 46, 0.15);
+        overflow: hidden;
       }
-      @keyframes boot-spin { to { transform: rotate(360deg); } }
+      .boot-bar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 40%;
+        border-radius: 3px;
+        background: #1366d6;
+        animation: boot-slide 1.3s ease-in-out infinite;
+      }
+      @keyframes boot-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+      @keyframes boot-slide { 0% { left: -40%; } 100% { left: 100%; } }
       @media (prefers-color-scheme: dark) {
         body, .boot-loader { background: #17150f; }
         .boot-logo { background: #ece6d8; color: #17150f; }
-        .boot-ring { border-color: rgba(236, 230, 216, 0.18); border-top-color: #4dabf7; }
+        .boot-bar { background: rgba(236, 230, 216, 0.18); }
+        .boot-bar::after { background: #4dabf7; }
       }
       @media (prefers-reduced-motion: reduce) {
-        .boot-ring { animation: none; }
+        .boot-logo { animation: none; }
+        .boot-bar::after { animation: none; left: 0; width: 100%; }
       }
     </style>
   </head>
@@ -64,7 +78,7 @@
     <div id="root">
       <div class="boot-loader" role="status" aria-label="Loading 206.events">
         <div class="boot-logo">206</div>
-        <div class="boot-ring"></div>
+        <div class="boot-bar"></div>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
