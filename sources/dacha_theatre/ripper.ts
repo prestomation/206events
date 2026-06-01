@@ -79,7 +79,7 @@ export function extractDachaEvents(html: string, url: string): { page?: DachaEve
         : venue || undefined;
 
     // Extract performances from ticket links with dateId
-    const perfRegex = /<a\b[^>]+href="[^"]+\/tickets\?dateId=([a-f0-9]+)"[^>]*>([^<]+)<\/a>/gi;
+    const perfRegex = /<a\b[^>]+href="[^"]+\/tickets\?dateId=([a-zA-Z0-9_-]+)"[^>]*>([^<]+)<\/a>/gi;
     const performances: DachaPerformance[] = [];
     let m: RegExpExecArray | null;
     while ((m = perfRegex.exec(html)) !== null) {
