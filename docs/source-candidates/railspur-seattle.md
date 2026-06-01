@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.eventbrite.com/o/railspur-seattle-120887697562
 tags: [Arts, Music, Pioneer Square]
 firstSeen: 2026-05-16
-lastChecked: 2026-05-16
+lastChecked: 2026-06-01
 ---
 RailSpur is a historic cultural hub in Pioneer Square (three connected warehouse
 buildings) hosting art exhibitions, gallery openings, First Thursday art walks,
@@ -20,3 +20,5 @@ under individual venue organizers rather than the umbrella RailSpur account.
 Re-checked 2026-05-26: Still 0 upcoming events on the RailSpur organizer page.
 Events appear to be listed under individual venue organizers (e.g., Populus Seattle).
 Continue checking in future cycles.
+
+Re-checked 2026-06-01: Still 0 upcoming events. Continue monitoring.
