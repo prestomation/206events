@@ -4,7 +4,6 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { eventKey } from '../lib/eventKey.js'
-import { AttributionChips } from './AttributionChips.jsx'
 
 // Fix Leaflet default marker icons in Vite
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
@@ -99,6 +98,44 @@ function formatEventDate(dateStr) {
   }
 }
 
+// Escape user/source-derived strings before interpolating into popup HTML.
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ))
+}
+
+// Mirror of <AttributionChips> as an HTML string (the component is display-only).
+function attributionChipsHtml(attributions) {
+  if (!attributions?.length) return ''
+  const chips = attributions.map((attr) => {
+    const type = ['calendar', 'search', 'geo'].includes(attr.type) ? attr.type : 'unknown'
+    const icon = attr.type === 'calendar' ? '🗓️' : attr.type === 'search' ? '🔍' : '📍'
+    return `<span class="attribution-chip attribution-${type}">${icon} ${escapeHtml(attr.value)}</span>`
+  }).join('')
+  return `<div class="event-attributions">${chips}</div>`
+}
+
+// Build a marker's popup as an HTML string. Called lazily (on marker click) via
+// Leaflet's bindPopup(fn), so we don't construct ~8k popup/attribution subtrees
+// up front — only the one the user actually opens. Built by hand (rather than
+// rendering React to a string) to keep react-dom/server out of the client bundle.
+function renderPopupHtml(event, eventAttributions) {
+  const parts = [
+    `<strong class="map-popup-title">${escapeHtml(event.summary)}</strong>`,
+    `<div class="map-popup-date">${escapeHtml(event.formattedDate)}</div>`,
+  ]
+  if (event.calendarName) {
+    parts.push(`<div class="map-popup-source">${escapeHtml(event.calendarName)}</div>`)
+  }
+  // Only emit http(s) links — guards against javascript: / data: URLs in source data.
+  if (event.url && /^https?:\/\//i.test(event.url)) {
+    parts.push(`<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener noreferrer" class="map-popup-link">View event →</a>`)
+  }
+  parts.push(attributionChipsHtml(eventAttributions?.get(eventKey(event))))
+  return `<div class="map-popup">${parts.join('')}</div>`
+}
+
 /**
  * EventsMap renders a Leaflet map with event markers and optional geo filter circles.
  *
@@ -154,6 +191,24 @@ function EventsMapInner({
     calendarName: calendarNameByIcsUrl[event.icsUrl] || event.icsUrl?.replace('.ics', ''),
   })), [mappableEvents, calendarNameByIcsUrl])
 
+  // Bare markers, memoized so the ~8k-element list is rebuilt only when the
+  // visible event set actually changes (not on every parent re-render). Popups
+  // are bound lazily on first click via Leaflet's bindPopup — constructing the
+  // popup/attribution markup only for the marker the user opens.
+  const markers = useMemo(() => eventsWithDates.map((event, i) => (
+    <Marker
+      key={`event-${i}-${event.summary}`}
+      position={[event.lat, event.lng]}
+      eventHandlers={{
+        click: (e) => {
+          const layer = e.target
+          if (!layer.getPopup()) layer.bindPopup(() => renderPopupHtml(event, eventAttributions))
+          layer.openPopup()
+        },
+      }}
+    />
+  )), [eventsWithDates, eventAttributions])
+
   return (
     <div className="events-map-container" data-testid="events-map">
       <MapContainer
@@ -190,7 +245,7 @@ function EventsMapInner({
 
         <FitBounds events={eventsWithDates} geoFilters={geoFilters} />
 
-        {/* Event markers */}
+        {/* Event markers — bare markers with lazy (on-click) popups */}
         <MarkerClusterGroup
           chunkedLoading
           iconCreateFunction={createClusterIcon}
@@ -198,30 +253,7 @@ function EventsMapInner({
           maxClusterRadius={45}
           spiderfyOnMaxZoom={true}
         >
-          {eventsWithDates.map((event, i) => (
-            <Marker key={`event-${i}-${event.summary}`} position={[event.lat, event.lng]}>
-              <Popup>
-                <div className="map-popup">
-                  <strong className="map-popup-title">{event.summary}</strong>
-                  <div className="map-popup-date">{event.formattedDate}</div>
-                  {event.calendarName && (
-                    <div className="map-popup-source">{event.calendarName}</div>
-                  )}
-                  {event.url && (
-                    <a
-                      href={event.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="map-popup-link"
-                    >
-                      View event →
-                    </a>
-                  )}
-                  <AttributionChips attributions={eventAttributions?.get(eventKey(event))} />
-                </div>
-              </Popup>
-            </Marker>
-          ))}
+          {markers}
         </MarkerClusterGroup>
       </MapContainer>
 
