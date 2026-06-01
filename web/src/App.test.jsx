@@ -114,7 +114,9 @@ describe('App206 redesign', () => {
     expect(google.getAttribute('href')).toMatch(/^https:\/\/calendar\.google\.com/)
     expect(google.getAttribute('target')).toBe('_blank')
     // Copy fallback exists for desktop users without a webcal handler.
-    expect(screen.getByText('Copy subscription link')).toBeInTheDocument()
+    expect(screen.getByText('Subscription link')).toBeInTheDocument()
+    // A deep-link share button copies the current page URL.
+    expect(screen.getByText('Copy link')).toBeInTheDocument()
   })
 
   it('navigates to Following and shows the empty feed prompt', async () => {
@@ -165,5 +167,49 @@ describe('App206 redesign', () => {
     fireEvent.click(container.querySelector('.a-fchip-x'))
     await waitFor(() => expect(screen.queryByText(/Searching:/)).not.toBeInTheDocument())
     expect(screen.getByText('Movie Premiere')).toBeInTheDocument()
+  })
+
+  describe('deep linking', () => {
+    it('cold-loads directly into a section from the hash', async () => {
+      window.location.hash = '#section=you'
+      render(<App />)
+      await waitFor(() => expect(screen.getByText('Saved searches')).toBeInTheDocument())
+    })
+
+    it('cold-loads a channel detail from the hash once data lands', async () => {
+      window.location.hash = '#channel=test-ripper-cal1.ics'
+      render(<App />)
+      await waitFor(() => expect(screen.getByText('Add to my calendar app')).toBeInTheDocument())
+    })
+
+    it('cold-loads an event detail from the hash', async () => {
+      const event = mockEvents[0]
+      window.location.hash = '#event=' + encodeURIComponent(`${event.summary}|${event.date}`)
+      render(<App />)
+      // EventDetail renders the summary in the hero and an icon-only share button.
+      await waitFor(() => expect(screen.getByTitle('Copy link to this event')).toBeInTheDocument())
+      expect(screen.getByText('Jazz Night')).toBeInTheDocument()
+    })
+
+    it('falls back to the section view when a deep-linked id is stale', async () => {
+      window.location.hash = '#channel=does-not-exist.ics'
+      render(<App />)
+      // Resolves to the default Discover view rather than an empty overlay.
+      await waitDiscover()
+    })
+
+    it('writes the section to the hash when navigating', async () => {
+      render(<App />)
+      await waitDiscover()
+      clickNav('Following')
+      await waitFor(() => expect(window.location.hash).toContain('section=following'))
+    })
+
+    it('updates the hash when a channel is opened', async () => {
+      render(<App />)
+      await waitDiscover()
+      fireEvent.click(screen.getByText('Neumos'))
+      await waitFor(() => expect(window.location.hash).toContain('channel=test-ripper-cal1.ics'))
+    })
   })
 })

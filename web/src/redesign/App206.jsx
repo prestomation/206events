@@ -11,6 +11,8 @@ import { HealthDashboard } from '../components/HealthDashboard.jsx'
 import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, parseIndexDate } from './viewModels.js'
 import { isCategoryTag, isNeighborhoodTag } from './categories.js'
 import { eventKey } from '../lib/eventKey.js'
+import { deserializeHash } from './urlHash.js'
+import { useUrlState } from './useUrlState.js'
 
 const FUSE_THRESHOLD = 0.1
 
@@ -29,17 +31,21 @@ export function App206(props) {
   } = props
 
   /* ---- local UI/navigation state ---- */
-  const [section, setSection] = useState('discover')
+  // Deep-link seed: parse the hash once so cold-load lands on the right view
+  // without a flash. openCh/openEventObj can't be seeded synchronously (the
+  // objects don't exist until async data lands) — useUrlState resolves them.
+  const initialUrl = deserializeHash(window.location.hash.slice(1))
+  const [section, setSection] = useState(() => initialUrl.section)
   const [openCh, setOpenCh] = useState(null)        // icsUrl
   const [openEventObj, setOpenEventObj] = useState(null)
   const [filterOpen, setFilterOpen] = useState(false)
-  const [dateScope, setDateScope] = useState('all')
-  const [emphasis, setEmphasis] = useState('calendars')
+  const [dateScope, setDateScope] = useState(() => initialUrl.dateScope)
+  const [emphasis, setEmphasis] = useState(() => initialUrl.emphasis)
   // Committed search query (drives filtering); the TopBar debounces into this.
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState(() => initialUrl.q)
   // Browse filters shared across Discover / Following.
-  const [category, setCategory] = useState(null)
-  const [neighborhood, setNeighborhood] = useState(null)
+  const [category, setCategory] = useState(() => initialUrl.category)
+  const [neighborhood, setNeighborhood] = useState(() => initialUrl.neighborhood)
   const [toast, setToast] = useState(null)
   const toastT = useRef(0)
 
@@ -170,6 +176,14 @@ export function App206(props) {
   const openEvent = useCallback((event) => { setOpenCh(null); onSelectChannel(null); setOpenEventObj(event) }, [onSelectChannel])
   const back = useCallback(() => { clearOverlays(); onSelectChannel(null) }, [clearOverlays, onSelectChannel])
   const toggleFilter = useCallback(() => setFilterOpen((v) => !v), [])
+
+  /* ---- URL deep-linking: keep the hash in sync with the state above ---- */
+  useUrlState({
+    section, openCh, openEventObj, dateScope, emphasis, query, category, neighborhood,
+    setDateScope, setEmphasis, setQuery, setCategory, setNeighborhood,
+    go, openChannel, openEvent, back,
+    channelByIcsUrl, upcomingEvents, loading,
+  })
 
   /* ---- active filters: clearers + a convenience reset ---- */
   const clearSearch = useCallback(() => setQuery(''), [])
