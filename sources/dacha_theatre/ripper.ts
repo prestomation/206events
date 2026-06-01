@@ -5,7 +5,7 @@ import '@js-joda/timezone';
 
 export interface DachaPerformance {
     dateStr: string;  // e.g. "Fri, Jun 5, 7:30pm - 10pm PDT" (year stripped if present)
-    dateId: string;   // hex from URL
+    dateId: string;   // alphanumeric ID from dateId URL parameter
     year?: number;    // explicitly parsed year, when present in the source HTML
 }
 
