@@ -34,8 +34,10 @@ function currentHashTokens() {
 export function useUrlState({
   // current values (to write out)
   section, openCh, openEventObj, dateScope, emphasis, query, category, neighborhood,
+  healthTab, healthSource,
   // setters (to apply inbound filter/scope values directly)
   setDateScope, setEmphasis, setQuery, setCategory, setNeighborhood,
+  setHealthTab, setHealthSource,
   // App206 handlers (clean inbound application of section/overlay changes)
   go, openChannel, openEvent, back,
   // derived data for cold-load resolution
@@ -46,7 +48,10 @@ export function useUrlState({
   const resolvedRef = useRef(false)
   const queryDebounceRef = useRef(null)
   // Snapshot of the last-written navigation tokens, to decide push vs replace.
-  const prevNavRef = useRef({ section, channel: openCh, event: openEventObj ? eventKey(openEventObj) : null })
+  // The health drawer (`source`) counts as navigation so the back button closes
+  // it; the health `tab` is a replace (like filters) so it doesn't pile up
+  // history entries.
+  const prevNavRef = useRef({ section, channel: openCh, event: openEventObj ? eventKey(openEventObj) : null, source: healthSource })
   // The deep link present at first render — resolved once data loads.
   const initialTokensRef = useRef(null)
   if (initialTokensRef.current === null) initialTokensRef.current = currentHashTokens()
@@ -59,7 +64,7 @@ export function useUrlState({
     // cold-load resolver (below) can read and open its overlay first.
     if (!mountedRef.current) {
       mountedRef.current = true
-      prevNavRef.current = { section, channel: openCh, event: eventToken }
+      prevNavRef.current = { section, channel: openCh, event: eventToken, source: healthSource }
       return
     }
 
@@ -72,16 +77,20 @@ export function useUrlState({
       neighborhood,
       dateScope,
       emphasis,
+      healthTab,
+      healthSource,
     }
     const hash = serializeHash(tokens)
     const target = hash ? '#' + hash : window.location.pathname + window.location.search
 
-    // Navigation (section/overlay) changes push a history entry so back/forward
-    // walks the user's path; filter/search-only changes replace in place.
+    // Navigation (section/overlay/drawer) changes push a history entry so
+    // back/forward walks the user's path; filter/search/tab-only changes
+    // replace in place.
     const prev = prevNavRef.current
     const navChanged =
-      prev.section !== section || prev.channel !== openCh || prev.event !== eventToken
-    prevNavRef.current = { section, channel: openCh, event: eventToken }
+      prev.section !== section || prev.channel !== openCh || prev.event !== eventToken ||
+      prev.source !== healthSource
+    prevNavRef.current = { section, channel: openCh, event: eventToken, source: healthSource }
 
     const write = () => {
       // No-op if the hash already matches: this is what suppresses the echo
@@ -103,7 +112,7 @@ export function useUrlState({
     }
 
     return () => clearTimeout(queryDebounceRef.current)
-  }, [section, openCh, openEventObj, query, category, neighborhood, dateScope, emphasis])
+  }, [section, openCh, openEventObj, query, category, neighborhood, dateScope, emphasis, healthTab, healthSource])
 
   // --- Inbound: hash -> state (back/forward, manual edits) ----------------
   useEffect(() => {
@@ -116,6 +125,9 @@ export function useUrlState({
       setNeighborhood(t.neighborhood)
       setDateScope(t.dateScope)
       setEmphasis(t.emphasis)
+      // Health dashboard tab + drilled-into source apply directly too.
+      setHealthTab(t.healthTab)
+      setHealthSource(t.healthSource)
 
       // Section + overlays via App206 handlers (which clear/set cleanly).
       if (t.event) {
@@ -147,7 +159,8 @@ export function useUrlState({
       window.removeEventListener('hashchange', onHashchange)
     }
   }, [upcomingEvents, channelByIcsUrl, go, openChannel, openEvent, back,
-      setQuery, setCategory, setNeighborhood, setDateScope, setEmphasis])
+      setQuery, setCategory, setNeighborhood, setDateScope, setEmphasis,
+      setHealthTab, setHealthSource])
 
   // --- Cold-load resolver: open the initial event/channel once data lands -
   useEffect(() => {

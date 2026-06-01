@@ -15,6 +15,8 @@
 //   hood      -> neighborhood  (omitted when null)
 //   date      -> dateScope     (omitted when 'all')
 //   emphasis  -> emphasis      (omitted when 'calendars')
+//   tab       -> healthTab     (health section only; omitted when 'sources')
+//   source    -> healthSource  (health section only; the drilled-into source name)
 
 const DEFAULTS = {
   section: 'discover',
@@ -25,6 +27,8 @@ const DEFAULTS = {
   neighborhood: null,
   dateScope: 'all',
   emphasis: 'calendars',
+  healthTab: 'sources',
+  healthSource: null,
 }
 
 // The only sections App206 renders. An unknown `section` from an untrusted /
@@ -32,6 +36,10 @@ const DEFAULTS = {
 // else-branch (YouView). React's JSX escaping already prevents injection; this
 // is defense-in-depth plus sane fallback behavior.
 const VALID_SECTIONS = new Set(['discover', 'following', 'you', 'map', 'health'])
+
+// The health dashboard's tab ids. An unknown `tab` token falls back to the
+// default ('sources') rather than rendering an empty panel.
+const VALID_HEALTH_TABS = new Set(['sources', 'errors', 'geo', 'uncertain', 'discovery'])
 
 // Build the canonical, fully-defaulted token object from a partial state.
 function normalize(state) {
@@ -52,8 +60,12 @@ export function serializeHash(state) {
 
   if (s.section && s.section !== DEFAULTS.section) params.set('section', s.section)
 
-  // The health dashboard has no overlay — never emit stale event/channel for it.
-  if (s.section !== 'health') {
+  // The health dashboard has no event/channel overlay, but it carries its own
+  // tab + drilled-into-source state; emit those only for the health section.
+  if (s.section === 'health') {
+    if (s.healthTab && s.healthTab !== DEFAULTS.healthTab) params.set('tab', s.healthTab)
+    if (s.healthSource) params.set('source', s.healthSource)
+  } else {
     if (s.event) params.set('event', s.event)
     else if (s.channel) params.set('channel', s.channel)
   }
@@ -81,10 +93,15 @@ export function deserializeHash(hash) {
   let event = params.get('event') || null
   let channel = params.get('channel') || null
 
-  // Health has no overlay; event/channel are precedence-cascaded.
+  // Health has its own tab/source state instead of an event/channel overlay.
+  let healthTab = DEFAULTS.healthTab
+  let healthSource = DEFAULTS.healthSource
   if (section === 'health') {
     event = null
     channel = null
+    const rawTab = params.get('tab')
+    healthTab = VALID_HEALTH_TABS.has(rawTab) ? rawTab : DEFAULTS.healthTab
+    healthSource = params.get('source') || null
   } else if (event) {
     channel = null
   }
@@ -98,5 +115,7 @@ export function deserializeHash(hash) {
     neighborhood: params.get('hood') || null,
     dateScope: params.get('date') || DEFAULTS.dateScope,
     emphasis: params.get('emphasis') || DEFAULTS.emphasis,
+    healthTab,
+    healthSource,
   }
 }
