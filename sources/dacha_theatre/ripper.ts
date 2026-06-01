@@ -181,14 +181,17 @@ function parseDateString(
         }
     } else {
         const currentYear = now.year();
-        startZdt = now; // placeholder, will be overwritten
+        let foundValidDate = false;
         for (const yearOffset of [0, 1]) {
             const year = currentYear + yearOffset;
             try {
                 const localDate = LocalDate.of(year, monthNum, day);
                 const localStart = localDate.atTime(LocalTime.of(startTimeParts.hour, startTimeParts.minute));
                 startZdt = localStart.atZone(timezone);
-                if (!startZdt.isBefore(now)) break;
+                if (!startZdt.isBefore(now)) {
+                    foundValidDate = true;
+                    break;
+                }
             } catch {
                 return {
                     parseError: {
@@ -198,6 +201,15 @@ function parseDateString(
                     },
                 };
             }
+        }
+        if (!foundValidDate) {
+            return {
+                parseError: {
+                    type: "ParseError",
+                    reason: `All candidate years are in the past for date string: "${dateStr}"`,
+                    context: "dacha-theatre",
+                },
+            };
         }
     }
 
@@ -211,7 +223,7 @@ function parseDateString(
     const durationMinutes = endMinutes - startMinutes;
     const duration = Duration.ofMinutes(durationMinutes);
 
-    return { start: startZdt!, duration };
+    return { start: startZdt, duration };
 }
 
 export function parseDachaEvents(
