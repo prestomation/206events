@@ -2,7 +2,7 @@
 // from App.jsx, derives the view-models, owns local navigation/overlay state,
 // and renders the responsive shell (rail · content · map / bottom nav).
 
-import { useState, useMemo, useRef, useCallback, useEffect } from 'react'
+import { useState, useMemo, useRef, useCallback, useEffect, useDeferredValue } from 'react'
 import Fuse from 'fuse.js'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
@@ -146,15 +146,23 @@ export function App206(props) {
     return list.filter((e) => queryKeySet.has(eventKey(e)))
   }, [queryKeySet])
 
-  /* ---- date-window filter ("next N days" slider; 'all' = no filter) ---- */
-  const inScope = useCallback((event) => eventInWindow(event, dateWindow), [dateWindow])
+  /* ---- date-window filter ("next N days" slider; 'all' = no filter) ----
+     The slider thumb/label bind to the urgent `dateWindow` so dragging stays
+     responsive, but the expensive work (re-filtering ~10k+ events and rebuilding
+     the Leaflet marker clusters) runs off a *deferred* copy. React renders the
+     deferred update at low priority and coalesces rapid drags, so we pay the
+     heavy commit once when the user pauses instead of once per slider step.
+     `dateWindowPending` is true while the two diverge — used to show a spinner. */
+  const deferredWindow = useDeferredValue(dateWindow)
+  const dateWindowPending = deferredWindow !== dateWindow
+  const inScope = useCallback((event) => eventInWindow(event, deferredWindow), [deferredWindow])
 
   const scopeGroups = useCallback((groups) => {
-    if (dateWindow === 'all') return groups
+    if (deferredWindow === 'all') return groups
     return groups
       .map((g) => ({ ...g, events: g.events.filter(inScope) }))
       .filter((g) => g.events.length)
-  }, [dateWindow, inScope])
+  }, [deferredWindow, inScope])
 
   const scopedUpcoming = useMemo(() => upcomingEvents.filter(inScope), [upcomingEvents, inScope])
   const feedGroups = useMemo(() => scopeGroups(followingGroups || []), [followingGroups, scopeGroups])
@@ -239,7 +247,7 @@ export function App206(props) {
     upcomingEvents: scopedUpcoming, eventsByIcsUrl,
     feedGroups, matchEvents, inScope,
     // ui state
-    section, openCh, openEventObj, dateWindow, setDateWindow, emphasis, setEmphasis,
+    section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     hasActiveFilters, toast, todayLabel,
     mapRef, mapExpanded, toggleMapExpand,

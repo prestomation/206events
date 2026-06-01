@@ -170,7 +170,10 @@ export function DateWindowSlider({ compact = false }) {
   return (
     <div className={`a-datewindow${compact ? ' a-datewindow--compact' : ''}`}>
       <div className="a-datewindow-label">
-        <span className="a-datewindow-rel">{relative}</span>
+        <span className="a-datewindow-rel">
+          {relative}
+          {app.dateWindowPending && <span className="a-datewindow-spin" role="status" aria-label="Updating events" />}
+        </span>
         {absoluteEnd && <span className="a-datewindow-abs">through {absoluteEnd}</span>}
       </div>
       <input
