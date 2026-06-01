@@ -1155,17 +1155,23 @@ html, body, #root { height: 100%; }
   color: var(--text-muted);
 }
 
-/* Branded full-screen loader (mirrors the index.html boot splash) */
+/* Branded full-screen loader (mirrors the index.html boot splash).
+   The double-class selector (.app206.loading-screen) is intentional: it
+   out-specifies the bare `.app206` grid shell defined later in this file,
+   so the loader stays a centered flex column instead of inheriting the
+   app's `display: grid` layout. */
+.app206.loading-screen,
 .loading-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 20px;
   height: 100vh;
   height: 100dvh;
   background: var(--paper);
   color: var(--ink);
+  overflow: hidden;
 }
 
 .loading-screen .loading-mark {
@@ -1181,15 +1187,28 @@ html, body, #root { height: 100%; }
   font-weight: 800;
   font-size: 20px;
   letter-spacing: -0.02em;
+  animation: loadingBreathe 1.8s ease-in-out infinite;
 }
 
-.loading-screen .loading-ring {
-  width: 28px;
-  height: 28px;
-  border: 3px solid var(--line-2);
-  border-top-color: var(--blue);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+/* Thin indeterminate progress bar that slides beneath the mark. */
+.loading-screen .loading-bar {
+  position: relative;
+  width: 120px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--line-2);
+  overflow: hidden;
+}
+
+.loading-screen .loading-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  border-radius: 3px;
+  background: var(--blue);
+  animation: loadingBarSlide 1.3s ease-in-out infinite;
 }
 
 .loading-screen-msg {
@@ -1200,13 +1219,24 @@ html, body, #root { height: 100%; }
   animation: loadingMsgFade 0.4s ease;
 }
 
+@keyframes loadingBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+@keyframes loadingBarSlide {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
+
 @keyframes loadingMsgFade {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .loading-screen .loading-ring { animation: none; }
+  .loading-screen .loading-mark { animation: none; }
+  .loading-screen .loading-bar::after { animation: none; left: 0; width: 100%; }
   .loading-screen-msg { animation: none; }
 }
 
