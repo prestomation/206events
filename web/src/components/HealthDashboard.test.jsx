@@ -1,0 +1,88 @@
+import React from 'react'
+import { describe, it, expect } from 'vitest'
+import { render, screen, fireEvent, within } from '@testing-library/react'
+import { HealthDashboard } from './HealthDashboard.jsx'
+
+const buildErrors = {
+  buildTime: '2026-05-01T17:00:00.000Z',
+  totalErrors: 3,
+  eventCounts: [
+    { name: 'good-source', type: 'Ripper', events: 12, expectEmpty: false },
+    { name: 'broken-source', type: 'Ripper', events: 0, expectEmpty: false },
+    { name: 'empty-source', type: 'Ripper', events: 0, expectEmpty: true },
+  ],
+  sources: [
+    {
+      source: 'broken-source',
+      calendar: 'broken-source',
+      parseErrorCount: 2,
+      uncertaintyCount: 0,
+      errors: [
+        { type: 'ParseError', reason: 'bad date', context: 'row 4' },
+        { type: 'ParseError', reason: 'missing title' },
+      ],
+    },
+  ],
+  configErrors: [{ type: 'ImportError', reason: 'cannot import', path: 'sources/x/ripper.ts' }],
+  externalCalendarFailures: [{ name: 'feed', friendlyName: 'Feed', error: 'HTTP 404' }],
+  geocodeErrors: [{ source: 'good-source', location: 'nowhere', reason: 'not found' }],
+  uncertainEvents: [
+    { source: 'good-source', event: { summary: 'Mystery Show', date: '2026-05-10', url: 'https://e.com' }, unknownFields: ['startTime'] },
+  ],
+  uncertaintyStats: { outstanding: 1, resolvedFromCache: 0, acknowledgedUnresolvable: 0 },
+  geoStats: { totalEvents: 12, eventsWithGeo: 11, geocodeErrors: 1 },
+}
+
+describe('HealthDashboard', () => {
+  it('renders summary cards and defaults to the Sources tab', () => {
+    render(<HealthDashboard buildErrors={buildErrors} />)
+    expect(screen.getByText('Source Health Dashboard')).toBeTruthy()
+    // Source table is visible by default
+    expect(screen.getByText('broken-source')).toBeTruthy()
+    expect(screen.getByText('good-source')).toBeTruthy()
+  })
+
+  it('shows a graceful message when build data is missing', () => {
+    render(<HealthDashboard buildErrors={null} />)
+    expect(screen.getByText(/Build errors data is not available/)).toBeTruthy()
+  })
+
+  it('switches tabs to reveal errors, geo, and uncertain detail', () => {
+    render(<HealthDashboard buildErrors={buildErrors} />)
+
+    fireEvent.click(screen.getByRole('tab', { name: /Errors/ }))
+    expect(screen.getByText('cannot import')).toBeTruthy()
+    expect(screen.getByText('HTTP 404')).toBeTruthy()
+
+    fireEvent.click(screen.getByRole('tab', { name: /Geo/ }))
+    expect(screen.getByText('nowhere')).toBeTruthy()
+
+    fireEvent.click(screen.getByRole('tab', { name: /Uncertain/ }))
+    expect(screen.getByText(/Mystery Show/)).toBeTruthy()
+  })
+
+  it('opens a drill-down drawer with parse errors when a source row is clicked', () => {
+    render(<HealthDashboard buildErrors={buildErrors} />)
+    fireEvent.click(screen.getByText('broken-source'))
+    const dialog = screen.getByRole('dialog')
+    expect(within(dialog).getByText('broken-source')).toBeTruthy()
+    expect(within(dialog).getByText('bad date')).toBeTruthy()
+    expect(within(dialog).getByText('missing title')).toBeTruthy()
+  })
+
+  it('surfaces matching uncertain events and geo misses in the drawer', () => {
+    render(<HealthDashboard buildErrors={buildErrors} />)
+    fireEvent.click(screen.getByText('good-source'))
+    const dialog = screen.getByRole('dialog')
+    expect(within(dialog).getByText(/Mystery Show/)).toBeTruthy()
+    expect(within(dialog).getByText('nowhere')).toBeTruthy()
+  })
+
+  it('closes the drawer with the close button', () => {
+    render(<HealthDashboard buildErrors={buildErrors} />)
+    fireEvent.click(screen.getByText('broken-source'))
+    expect(screen.getByRole('dialog')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: /Close details/ }))
+    expect(screen.queryByRole('dialog')).toBeNull()
+  })
+})

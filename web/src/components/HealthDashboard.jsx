@@ -1,8 +1,35 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+// Human-readable label + tone for each source status.
+const STATUS_META = {
+  ok: { label: 'Healthy', dot: 'health-status-ok' },
+  error: { label: 'Parse errors', dot: 'health-status-error' },
+  uncertain: { label: 'Uncertain events (resolver pending)', dot: 'health-status-warning' },
+  warning: { label: 'Zero events (unexpected)', dot: 'health-status-warning' },
+  'expected-empty': { label: 'Zero events (expected)', dot: 'health-status-expected-empty' },
+  'unexpected-non-empty': { label: 'Has events but marked expectEmpty', dot: 'health-status-unexpected-non-empty' },
+}
+
+function statusDot(status) {
+  const meta = STATUS_META[status]
+  if (!meta) return null
+  return <span className={`health-status-dot ${meta.dot}`} title={meta.label} />
+}
 
 // Internal health dashboard: scrape source status, build errors, geo/uncertainty stats.
+// Layout: pinned summary cards (display-only) + tabbed detail views, with a
+// per-source detail drawer for drill-down.
 export function HealthDashboard({ buildErrors, calendars }) {
-  const [expandedSource, setExpandedSource] = useState(null)
+  const [activeTab, setActiveTab] = useState('sources')
+  const [selectedSource, setSelectedSource] = useState(null)
+
+  // Close the drawer on Escape.
+  useEffect(() => {
+    if (!selectedSource) return
+    const onKey = (e) => { if (e.key === 'Escape') setSelectedSource(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [selectedSource])
 
   if (!buildErrors) {
     return (
@@ -13,11 +40,6 @@ export function HealthDashboard({ buildErrors, calendars }) {
     )
   }
 
-  const eventCountMap = {}
-  if (buildErrors.eventCounts) {
-    buildErrors.eventCounts.forEach(c => { eventCountMap[c.name] = c })
-  }
-
   const errorMap = {}
   if (buildErrors.sources) {
     buildErrors.sources.forEach(s => {
@@ -25,9 +47,6 @@ export function HealthDashboard({ buildErrors, calendars }) {
       errorMap[key] = s
     })
   }
-
-  const zeroSet = new Set(buildErrors.zeroEventCalendars || [])
-  const expectedEmptySet = new Set(buildErrors.expectedEmptyCalendars || [])
 
   // Build a unified source list from eventCounts (most complete) or fallback to calendars.
   // Split parse errors from uncertainty so a source with only uncertain
@@ -63,7 +82,6 @@ export function HealthDashboard({ buildErrors, calendars }) {
 
   const healthyCount = sources.filter(s => s.status === 'ok').length
   const errorCount = sources.filter(s => s.status === 'error').length
-  const uncertainSourceCount = sources.filter(s => s.status === 'uncertain').length
   const warningCount = sources.filter(s => s.status === 'warning').length
   const expectedEmptyCount = sources.filter(s => s.status === 'expected-empty').length
   const unexpectedNonEmptyCount = sources.filter(s => s.status === 'unexpected-non-empty').length
@@ -73,16 +91,24 @@ export function HealthDashboard({ buildErrors, calendars }) {
 
   const configErrors = buildErrors.configErrors || []
   const externalFailures = buildErrors.externalCalendarFailures || []
+  const geocodeErrors = buildErrors.geocodeErrors || []
+  const uncertainEvents = buildErrors.uncertainEvents || []
 
-  const statusIcon = (status) => {
-    if (status === 'ok') return <span className="health-status-dot health-status-ok" title="Healthy" />
-    if (status === 'error') return <span className="health-status-dot health-status-error" title="Has parse errors" />
-    if (status === 'uncertain') return <span className="health-status-dot health-status-warning" title="Has uncertain events (resolver pending)" />
-    if (status === 'warning') return <span className="health-status-dot health-status-warning" title="Zero events (unexpected)" />
-    if (status === 'expected-empty') return <span className="health-status-dot health-status-expected-empty" title="Zero events (expected)" />
-    if (status === 'unexpected-non-empty') return <span className="health-status-dot health-status-unexpected-non-empty" title="Has events but marked expectEmpty" />
-    return null
-  }
+  const tabs = [
+    { id: 'sources', label: 'Sources', count: sources.length, tone: 'neutral' },
+    { id: 'errors', label: 'Errors', count: configErrors.length + externalFailures.length, tone: 'error' },
+    { id: 'geo', label: 'Geo', count: geocodeErrors.length, tone: 'warning' },
+    { id: 'uncertain', label: 'Uncertain', count: uncertainEvents.length, tone: 'warning' },
+    { id: 'discovery', label: 'Discovery', count: null, tone: 'neutral' },
+  ]
+
+  // Per-source drill-down data for the drawer (best-effort name matching).
+  const drawerUncertain = selectedSource
+    ? uncertainEvents.filter(u => u.source === selectedSource.name)
+    : []
+  const drawerGeo = selectedSource
+    ? geocodeErrors.filter(g => g.source === selectedSource.name)
+    : []
 
   return (
     <div className="health-dashboard">
@@ -131,7 +157,7 @@ export function HealthDashboard({ buildErrors, calendars }) {
           </div>
         )}
         <div className="health-card health-card--warning">
-          <div className="health-card-value">📍 {buildErrors.geoStats?.geocodeErrors ?? buildErrors.geocodeErrors?.length ?? 0}</div>
+          <div className="health-card-value">📍 {buildErrors.geoStats?.geocodeErrors ?? geocodeErrors.length}</div>
           <div className="health-card-label">Geo Misses</div>
         </div>
         {buildErrors.uncertaintyStats && (
@@ -142,142 +168,163 @@ export function HealthDashboard({ buildErrors, calendars }) {
         )}
       </div>
 
-      <div className="health-section">
-        <h2>Discovery API</h2>
-        <p>
-          Machine-readable data files for LLMs, scripts, and downstream apps.
-          Start at <a href="index.json" target="_blank" rel="noopener noreferrer">index.json</a> —
-          it links to every other file. See <a href="llms.txt" target="_blank" rel="noopener noreferrer">llms.txt</a>{' '}
-          for usage info.
-        </p>
+      <div className="health-tabs" role="tablist" aria-label="Health detail views">
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            role="tab"
+            aria-selected={activeTab === tab.id}
+            className={`health-tab ${activeTab === tab.id ? 'health-tab--active' : ''}`}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.label}
+            {tab.count != null && tab.count > 0 && (
+              <span className={`health-tab-badge health-tab-badge--${tab.tone}`}>{tab.count}</span>
+            )}
+          </button>
+        ))}
       </div>
 
-      {configErrors.length > 0 && (
-        <div className="health-section">
-          <h2>Configuration Errors ({configErrors.length})</h2>
-          <div className="health-error-list">
-            {configErrors.map((err, i) => (
-              <div key={i} className="health-error-item">
-                <span className="health-error-type">{err.type}</span>
-                <span className="health-error-reason">{err.reason || err.error}</span>
-                {err.path && <span className="health-error-path">{err.path}</span>}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <div className="health-tab-panel" role="tabpanel">
+        {activeTab === 'sources' && (
+          sources.length > 0 ? (
+            <div className="health-table-wrapper">
+              <table className="health-table">
+                <thead>
+                  <tr>
+                    <th>Status</th>
+                    <th>Source</th>
+                    <th>Type</th>
+                    <th>Events</th>
+                    <th>Errors</th>
+                    <th>Uncertain</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sources.map(source => (
+                    <tr
+                      key={source.name}
+                      className={`health-row health-row--${source.status} health-row--expandable ${selectedSource?.name === source.name ? 'health-row--selected' : ''}`}
+                      onClick={() => setSelectedSource(source)}
+                    >
+                      <td>{statusDot(source.status)}</td>
+                      <td className="health-source-name">{source.name}</td>
+                      <td>{source.type}</td>
+                      <td>{source.events}{source.expectEmpty && source.events === 0 ? ' (expected)' : ''}{source.expectEmpty && source.events > 0 ? ' (remove expectEmpty)' : ''}</td>
+                      <td>{source.errors > 0 ? source.errors : ''}</td>
+                      <td>{source.uncertainty > 0 ? source.uncertainty : ''}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="health-empty">No source data in this build.</p>
+          )
+        )}
 
-      {externalFailures.length > 0 && (
-        <div className="health-section">
-          <h2>External Calendar Failures ({externalFailures.length})</h2>
-          <div className="health-error-list">
-            {externalFailures.map((f, i) => (
-              <div key={i} className="health-error-item">
-                <span className="health-error-type">{f.friendlyName || f.name}</span>
-                <span className="health-error-reason">{f.error}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+        {activeTab === 'errors' && (
+          (configErrors.length + externalFailures.length) > 0 ? (
+            <>
+              {configErrors.length > 0 && (
+                <div className="health-section">
+                  <h2>Configuration Errors ({configErrors.length})</h2>
+                  <div className="health-error-list">
+                    {configErrors.map((err, i) => (
+                      <div key={i} className="health-error-item">
+                        <span className="health-error-type">{err.type}</span>
+                        <span className="health-error-reason">{err.reason || err.error}</span>
+                        {err.path && <span className="health-error-path">{err.path}</span>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {externalFailures.length > 0 && (
+                <div className="health-section">
+                  <h2>External Calendar Failures ({externalFailures.length})</h2>
+                  <div className="health-error-list">
+                    {externalFailures.map((f, i) => (
+                      <div key={i} className="health-error-item">
+                        <span className="health-error-type">{f.friendlyName || f.name}</span>
+                        <span className="health-error-reason">{f.error}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <p className="health-empty">✅ No configuration or external calendar errors.</p>
+          )
+        )}
 
-      {(buildErrors.uncertainEvents?.length || 0) > 0 && (
-        <div className="health-section">
-          <h2>❓ Uncertain Events ({buildErrors.uncertainEvents.length})</h2>
-          <p className="health-subtitle">
-            Events where the ripper couldn't determine one or more fields (typically start time).
-            The placeholder values you see in the calendar will be replaced once the
-            event-uncertainty-resolver skill investigates and writes a resolution into
-            the cache. Resolved this build: {buildErrors.uncertaintyStats?.resolvedFromCache ?? 0};
-            marked unresolvable: {buildErrors.uncertaintyStats?.acknowledgedUnresolvable ?? 0}.
-          </p>
-          <div className="health-error-list">
-            {buildErrors.uncertainEvents.slice(0, 50).map((u, i) => (
-              <div key={i} className="health-error-item">
-                <span className="health-error-type">{u.source}</span>
-                <span className="health-error-reason">
-                  {u.event.summary} — {u.event.date} (missing: {u.unknownFields.join(', ')})
-                </span>
-                {u.event.url && (
-                  <a className="health-error-path" href={u.event.url} target="_blank" rel="noopener noreferrer">
-                    source
-                  </a>
+        {activeTab === 'geo' && (
+          geocodeErrors.length > 0 ? (
+            <div className="health-section">
+              <h2>📍 Geocode Errors ({geocodeErrors.length})</h2>
+              <div className="health-error-list">
+                {geocodeErrors.map((err, i) => (
+                  <div key={i} className="health-error-item">
+                    <span className="health-error-type">{err.source}</span>
+                    <span className="health-error-reason">{err.location}</span>
+                    <span className="health-error-path">{err.reason}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <p className="health-empty">✅ No geocode errors.</p>
+          )
+        )}
+
+        {activeTab === 'uncertain' && (
+          uncertainEvents.length > 0 ? (
+            <div className="health-section">
+              <h2>❓ Uncertain Events ({uncertainEvents.length})</h2>
+              <p className="health-subtitle">
+                Events where the ripper couldn't determine one or more fields (typically start time).
+                The placeholder values you see in the calendar will be replaced once the
+                event-uncertainty-resolver skill investigates and writes a resolution into
+                the cache. Resolved this build: {buildErrors.uncertaintyStats?.resolvedFromCache ?? 0};
+                marked unresolvable: {buildErrors.uncertaintyStats?.acknowledgedUnresolvable ?? 0}.
+              </p>
+              <div className="health-error-list">
+                {uncertainEvents.slice(0, 50).map((u, i) => (
+                  <div key={i} className="health-error-item">
+                    <span className="health-error-type">{u.source}</span>
+                    <span className="health-error-reason">
+                      {u.event.summary} — {u.event.date} (missing: {u.unknownFields.join(', ')})
+                    </span>
+                    {u.event.url && (
+                      <a className="health-error-path" href={u.event.url} target="_blank" rel="noopener noreferrer">
+                        source
+                      </a>
+                    )}
+                  </div>
+                ))}
+                {uncertainEvents.length > 50 && (
+                  <p>…and {uncertainEvents.length - 50} more.</p>
                 )}
               </div>
-            ))}
-            {buildErrors.uncertainEvents.length > 50 && (
-              <p>…and {buildErrors.uncertainEvents.length - 50} more.</p>
-            )}
-          </div>
-        </div>
-      )}
+            </div>
+          ) : (
+            <p className="health-empty">✅ No uncertain events pending resolution.</p>
+          )
+        )}
 
-      {(buildErrors.geocodeErrors?.length || 0) > 0 && (
-        <div className="health-section">
-          <h2>📍 Geocode Errors ({buildErrors.geocodeErrors.length})</h2>
-          <div className="health-error-list">
-            {buildErrors.geocodeErrors.map((err, i) => (
-              <div key={i} className="health-error-item">
-                <span className="health-error-type">{err.source}</span>
-                <span className="health-error-reason">{err.location}</span>
-                <span className="health-error-path">{err.reason}</span>
-              </div>
-            ))}
+        {activeTab === 'discovery' && (
+          <div className="health-section">
+            <h2>Discovery API</h2>
+            <p>
+              Machine-readable data files for LLMs, scripts, and downstream apps.
+              Start at <a href="index.json" target="_blank" rel="noopener noreferrer">index.json</a> —
+              it links to every other file. See <a href="llms.txt" target="_blank" rel="noopener noreferrer">llms.txt</a>{' '}
+              for usage info.
+            </p>
           </div>
-        </div>
-      )}
-
-      {sources.length > 0 && (
-        <div className="health-section">
-          <h2>Source Status</h2>
-          <div className="health-table-wrapper">
-            <table className="health-table">
-              <thead>
-                <tr>
-                  <th>Status</th>
-                  <th>Source</th>
-                  <th>Type</th>
-                  <th>Events</th>
-                  <th>Errors</th>
-                  <th>Uncertain</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sources.map(source => (
-                  <tr
-                    key={source.name}
-                    className={`health-row health-row--${source.status} ${source.errorDetails.length > 0 ? 'health-row--expandable' : ''}`}
-                    onClick={() => source.errorDetails.length > 0 && setExpandedSource(expandedSource === source.name ? null : source.name)}
-                  >
-                    <td>{statusIcon(source.status)}</td>
-                    <td className="health-source-name">
-                      {source.name}
-                      {source.errorDetails.length > 0 && (
-                        <span className="health-expand-icon">{expandedSource === source.name ? '▼' : '▶'}</span>
-                      )}
-                      {expandedSource === source.name && (
-                        <div className="health-error-details" onClick={e => e.stopPropagation()}>
-                          {source.errorDetails.map((err, i) => (
-                            <div key={i} className="health-error-detail">
-                              <span className="health-error-type">{err.type}</span>
-                              <span className="health-error-reason">{err.reason}</span>
-                              {err.context && <span className="health-error-context">{err.context}</span>}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </td>
-                    <td>{source.type}</td>
-                    <td>{source.events}{source.expectEmpty && source.events === 0 ? ' (expected)' : ''}{source.expectEmpty && source.events > 0 ? ' (remove expectEmpty)' : ''}</td>
-                    <td>{source.errors > 0 ? source.errors : ''}</td>
-                    <td>{source.uncertainty > 0 ? source.uncertainty : ''}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {buildErrors.totalErrors > 0 && (
         <p className="health-total-errors">
@@ -287,6 +334,102 @@ export function HealthDashboard({ buildErrors, calendars }) {
             : ''}
         </p>
       )}
+
+      {selectedSource && (
+        <SourceDrawer
+          source={selectedSource}
+          uncertain={drawerUncertain}
+          geo={drawerGeo}
+          onClose={() => setSelectedSource(null)}
+        />
+      )}
+    </div>
+  )
+}
+
+// Right-side drill-down panel for a single source.
+function SourceDrawer({ source, uncertain, geo, onClose }) {
+  const statusLabel = STATUS_META[source.status]?.label ?? source.status
+  const eventsLabel = `${source.events}${source.expectEmpty && source.events === 0 ? ' (expected empty)' : ''}${source.expectEmpty && source.events > 0 ? ' (remove expectEmpty)' : ''}`
+  const clean = source.errorDetails.length === 0 && uncertain.length === 0 && geo.length === 0
+
+  return (
+    <div className="health-drawer-overlay" onClick={onClose}>
+      <aside
+        className="health-drawer"
+        role="dialog"
+        aria-label={`Details for ${source.name}`}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="health-drawer-header">
+          <div className="health-drawer-title">
+            {statusDot(source.status)}
+            <h2>{source.name}</h2>
+          </div>
+          <button className="health-drawer-close" onClick={onClose} aria-label="Close details">✕</button>
+        </div>
+
+        <dl className="health-drawer-meta">
+          <div><dt>Status</dt><dd>{statusLabel}</dd></div>
+          <div><dt>Type</dt><dd>{source.type}</dd></div>
+          <div><dt>Events</dt><dd>{eventsLabel}</dd></div>
+          <div><dt>Parse errors</dt><dd>{source.errors}</dd></div>
+          <div><dt>Uncertain</dt><dd>{source.uncertainty}</dd></div>
+        </dl>
+
+        {clean && (
+          <p className="health-empty">✅ No errors, geocode misses, or uncertain events for this source.</p>
+        )}
+
+        {source.errorDetails.length > 0 && (
+          <div className="health-section">
+            <h2>Parse Errors ({source.errorDetails.length})</h2>
+            <div className="health-error-list">
+              {source.errorDetails.map((err, i) => (
+                <div key={i} className="health-error-item">
+                  <span className="health-error-type">{err.type}</span>
+                  <span className="health-error-reason">{err.reason}</span>
+                  {err.context && <span className="health-error-context">{err.context}</span>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {uncertain.length > 0 && (
+          <div className="health-section">
+            <h2>❓ Uncertain Events ({uncertain.length})</h2>
+            <div className="health-error-list">
+              {uncertain.map((u, i) => (
+                <div key={i} className="health-error-item">
+                  <span className="health-error-reason">
+                    {u.event.summary} — {u.event.date} (missing: {u.unknownFields.join(', ')})
+                  </span>
+                  {u.event.url && (
+                    <a className="health-error-path" href={u.event.url} target="_blank" rel="noopener noreferrer">
+                      source
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {geo.length > 0 && (
+          <div className="health-section">
+            <h2>📍 Geocode Errors ({geo.length})</h2>
+            <div className="health-error-list">
+              {geo.map((err, i) => (
+                <div key={i} className="health-error-item">
+                  <span className="health-error-reason">{err.location}</span>
+                  <span className="health-error-path">{err.reason}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </aside>
     </div>
   )
 }
