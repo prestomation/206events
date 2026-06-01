@@ -346,7 +346,7 @@ export function ChannelDetail({ icsUrl }) {
         {Ico.cal}Add to my calendar app
       </a>
       <div style={{ display: 'flex', gap: 9, marginBottom: 10 }}>
-        <button className={`btn ${following ? 'btn-ink' : 'btn-ghost'}`} style={{ flex: 1, minWidth: 0, height: 44, fontSize: 13.5 }}
+        <button className={`btn ${following ? 'btn-follow' : 'btn-ghost'}`} style={{ flex: 1, minWidth: 0, height: 44, fontSize: 13.5 }}
           onClick={() => app.toggleFollow(icsUrl)}>
           {following ? <><span style={{ width: 16, height: 16 }}>{Ico.check}</span>Following</> : <>♥ Follow</>}
         </button>

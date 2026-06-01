@@ -3270,7 +3270,7 @@ html, body, #root { height: 100%; }
 /* ---- pills / segmented ---- */
 .app206 .mk-pill { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 13px; border-radius: 999px; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
 .app206 .mk-pill--ghost { background: var(--surface); border: 1px solid var(--line-2); color: var(--ink-2); }
-.app206 .mk-pill--active { background: var(--ink); color: #fff; border: 1px solid var(--ink); }
+.app206 .mk-pill--active { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
 .app206 .a-seg { display: inline-flex; background: var(--surface-2); border-radius: 11px; padding: 3px; gap: 3px; flex: 0 0 auto; }
 .app206 .a-seg button { height: 32px; padding: 0 13px; border-radius: 8px; font-weight: 600; font-size: 13px; color: var(--ink-3); display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .app206 .a-seg button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(20,15,10,.12); }
@@ -3318,7 +3318,7 @@ html, body, #root { height: 100%; }
 
 /* ---- follow pill ---- */
 .app206 .pill-follow { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 14px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--blue-soft); color: var(--blue-ink); border: 1px solid transparent; white-space: nowrap; }
-.app206 .pill-follow.on { background: var(--ink); color: #fff; }
+.app206 .pill-follow.on { background: var(--c-market); color: var(--paper); }
 .app206 .pill-follow svg { width: 14px; height: 14px; }
 
 /* ---- event row ---- */
@@ -3354,7 +3354,8 @@ html, body, #root { height: 100%; }
 /* ---- buttons ---- */
 .app206 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; padding: 0 18px; border-radius: 12px; font-weight: 600; font-size: 15px; }
 .app206 .btn-blue { background: var(--blue); color: #fff; }
-.app206 .btn-ink { background: var(--ink); color: #fff; }
+.app206 .btn-ink { background: var(--ink); color: var(--paper); }
+.app206 .btn-follow { background: var(--c-market); color: var(--paper); }
 .app206 .btn-ghost { background: var(--surface); border: 1.5px solid var(--line-2); color: var(--ink); }
 .app206 .btn:disabled { opacity: .6; cursor: default; }
 .app206 .btn svg { width: 18px; height: 18px; }
@@ -3381,7 +3382,7 @@ html, body, #root { height: 100%; }
 
 /* ---- rail / bottom nav ---- */
 .app206 .a-railinner { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 0; height: 100%; border-right: 1px solid var(--line); background: var(--surface); }
-.app206 .a-railinner .logo { width: 40px; height: 40px; border-radius: 12px; background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 15px; margin-bottom: 10px; }
+.app206 .a-railinner .logo { width: 40px; height: 40px; border-radius: 12px; background: var(--ink); color: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 800; font-size: 15px; margin-bottom: 10px; }
 .app206 .a-railitem { width: 64px; padding: 9px 0; border-radius: 13px; display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--ink-3); font-size: 10px; font-weight: 600; }
 .app206 .a-railitem.on { color: var(--blue); background: var(--blue-soft); }
 .app206 .a-railitem svg { width: 23px; height: 23px; }
@@ -3401,5 +3402,5 @@ html, body, #root { height: 100%; }
 .app206 .a-filterpop { position: absolute; top: 62px; right: var(--pad); z-index: 71; width: 248px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 14px; }
 .app206 .a-scope { display: flex; align-items: center; gap: 9px; height: 38px; padding: 0 11px; border-radius: 10px; text-align: left; background: transparent; color: var(--ink-2); font-weight: 600; font-size: 13.5px; }
 .app206 .a-scope.on { background: var(--blue-soft); color: var(--blue-ink); }
-.app206 .a-toast { position: absolute; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 60; background: var(--ink); color: #fff; padding: 11px 18px; border-radius: 12px; font-size: 13.5px; font-weight: 500; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+.app206 .a-toast { position: absolute; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 60; background: var(--ink); color: var(--paper); padding: 11px 18px; border-radius: 12px; font-size: 13.5px; font-weight: 500; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 9px; white-space: nowrap; }
 .app206 .a-toast svg { width: 16px; height: 16px; }
