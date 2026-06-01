@@ -16,6 +16,10 @@ const NAV_ITEMS = [
 
 const SUGGESTIONS = ['jazz', 'outdoor', 'comedy', 'market', 'art', 'capitol hill']
 
+// How long to wait after the last slider move before committing the picked stop
+// to the global window (which triggers the heavy re-filter / marker rebuild).
+const DATE_WINDOW_COMMIT_MS = 180
+
 // The single search bar lives in the top bar on every screen. Local input state
 // updates immediately for a responsive caret; a debounced effect commits to the
 // app-wide `query` (which drives filtering), so typing never rebuilds the index
@@ -181,7 +185,7 @@ export function DateWindowSlider({ compact = false }) {
     const next = Number(e.target.value)
     setIdx(next) // instant thumb + label
     clearTimeout(commitT.current)
-    commitT.current = setTimeout(() => app.setDateWindow(DATE_WINDOW_STOPS[next]), 180)
+    commitT.current = setTimeout(() => app.setDateWindow(DATE_WINDOW_STOPS[next]), DATE_WINDOW_COMMIT_MS)
   }
 
   // Label follows the LOCAL thumb so it updates live while dragging. Re-resolved
