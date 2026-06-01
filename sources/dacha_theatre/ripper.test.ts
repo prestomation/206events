@@ -66,6 +66,15 @@ describe("DachaTheatreRipper", () => {
             expect(parseError?.type).toBe("ParseError");
         });
 
+        it("returns 'No ticket date links found' for JS-rendered SPA shell without ticket links", () => {
+            // Humanitix pages are SPAs; without browserbase the server returns a shell
+            // with a title but no dateId anchor tags — this documents that failure mode.
+            const spaShell = `<html><body><h1>Dream, Carl, Dream!</h1><div id="app"></div></body></html>`;
+            const { page, parseError } = extractDachaEvents(spaShell, SAMPLE_URL);
+            expect(page).toBeUndefined();
+            expect(parseError?.reason).toContain("No ticket date links found");
+        });
+
         it("extracts first performance correctly", () => {
             const html = loadSampleHtml();
             const { page } = extractDachaEvents(html, SAMPLE_URL);
