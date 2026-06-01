@@ -2,6 +2,10 @@ name = "calendar-ripper-favorites"
 main = "src/index.ts"
 compatibility_date = "2026-02-01"
 
+routes = [
+  { pattern = "api.206.events", custom_domain = true }
+]
+
 [vars]
 GITHUB_PAGES_BASE_URL = "https://206.events"
 SITE_URL = "https://206.events"
