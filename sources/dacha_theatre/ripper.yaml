@@ -11,3 +11,6 @@ calendars:
   - name: dacha-theatre
     friendlyname: "Dacha Theatre"
     timezone: America/Los_Angeles
+    # Humanitix SPA async data loading is not captured by Browserbase Fetch API;
+    # the ripper runs but may produce 0 events until a server-side API is available.
+    expectEmpty: true

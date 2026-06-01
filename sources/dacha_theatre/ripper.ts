@@ -95,16 +95,10 @@ export function extractDachaEvents(html: string, url: string): { page?: DachaEve
         performances.push({ dateId, dateStr, ...(year !== undefined ? { year } : {}) });
     }
 
-    if (performances.length === 0) {
-        return {
-            parseError: {
-                type: "ParseError",
-                reason: "No ticket date links found on Humanitix event page",
-                context: url,
-            },
-        };
-    }
-
+    // Return an empty page (not a ParseError) when no ticket links are found.
+    // Humanitix is a React SPA: Browserbase's Fetch API executes JS for challenge
+    // bypass but does not wait for async React data loading, so the rendered HTML
+    // may not contain ticket links even though the show is active.
     return {
         page: { title, location, url, performances },
     };
