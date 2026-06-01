@@ -30,7 +30,7 @@ export function LoadingScreen({ message }) {
   const line = message || MESSAGES[idx]
 
   return (
-    <div className="mk app206 loading-screen" role="status" aria-label="Loading 206.events">
+    <div className="mk app206 loading-screen" role="status" aria-busy="true" aria-label="Loading 206.events">
       <div className="loading-mark">206</div>
       <div className="loading-bar" aria-hidden="true" />
       <div className="loading-screen-msg" key={line}>{line}</div>
