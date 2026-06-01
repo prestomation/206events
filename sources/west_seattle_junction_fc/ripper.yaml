@@ -1,0 +1,14 @@
+name: west_seattle_junction_fc
+description: "West Seattle Junction FC"
+url: "https://www.wsjunctionfc.club/2026-schedule/"
+friendlyLink: https://www.wsjunctionfc.club/
+tags: ["Sports", "West Seattle"]
+geo:
+  lat: 47.5073
+  lng: -122.3841
+  label: "Nino Cantu SW Athletic Complex, Seattle, WA 98146"
+  osmChecked: 2026-05-31
+calendars:
+  - name: home-games
+    friendlyname: "West Seattle Junction FC — Home Games"
+    timezone: America/Los_Angeles
