@@ -10,3 +10,6 @@ newZeroEventSources.txt
 coverage/
 .channel-workspace.json
 __pycache__/
+web/test-results/
+web/playwright-report/
+web/.playwright/
