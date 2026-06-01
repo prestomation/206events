@@ -1,0 +1,16 @@
+geo:
+  lat: 47.580325
+  lng: -122.3112932
+  label: "El Centro de la Raza, 2524 16th Ave S, Seattle, WA 98144"
+  osmType: way
+  osmId: 228721661
+name: el-centro-de-la-raza
+friendlyname: El Centro de la Raza
+description: Community organization in the Beacon Hill neighborhood serving the Latinx community with educational workshops, legal clinics, cultural events, and community gatherings
+icsUrl: https://www.elcentrodelaraza.org/events/?ical=1
+infoUrl: https://www.elcentrodelaraza.org/events/
+proxy: outofband
+expectEmpty: true
+tags:
+  - Community
+  - Beacon Hill
