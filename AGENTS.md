@@ -74,10 +74,22 @@ The steering file provides essential context for making informed decisions about
    - Once Q gives **all ✅** and all comments are confidently addressed, do the following **immediately, in the same turn** — do not wait for the build to finish first:
      a. Resolve all open review threads using `mcp__github__pull_request_review_write` with `method: resolve_thread` (requires the thread's `PRRT_...` node ID — see note below)
      b. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
-     c. **If CI is still running** → enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash). It will fire automatically when checks go green.
-     d. **If CI already passed** → merge directly: `mcp__github__merge_pull_request` (squash)
+     c. **Decide whether the PR is auto-merge-eligible** (see "Auto-merge eligibility" below). **Only content changes and fixes are eligible.** New functionality is **never** auto-merged — leave it ready-for-review for a human to merge, post a brief comment saying it's green and awaiting manual merge, and stop. Do **not** call `enable_pr_auto_merge` or `merge_pull_request`.
+     d. **If eligible and CI is still running** → enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash). It will fire automatically when checks go green.
+     e. **If eligible and CI already passed** → merge directly: `mcp__github__merge_pull_request` (squash)
 
-   **Why "immediately, in the same turn":** the webhook subscription only fires on CI **failures and review comments** — a green build produces no event. If you wait for CI to confirm green before enabling auto-merge, you'll be waiting forever; the PR just sits ready-but-unmerged until something else wakes the session. Flip to ready and enable auto-merge the moment Q is green, and let the checks prove you wrong rather than waiting for them to prove you right.
+   **Why "immediately, in the same turn":** the webhook subscription only fires on CI **failures and review comments** — a green build produces no event. If you wait for CI to confirm green before enabling auto-merge, you'll be waiting forever; the PR just sits ready-but-unmerged until something else wakes the session. Flip to ready and (when eligible) enable auto-merge the moment Q is green, and let the checks prove you wrong rather than waiting for them to prove you right.
+
+   **Auto-merge eligibility — only auto-merge content changes and fixes; never new functionality.**
+
+   | Auto-merge OK (content / fix) | Requires manual merge (new functionality) |
+   |---|---|
+   | New/updated calendar sources, source-candidate or discovery-log entries | New features, UI, or user-facing capabilities |
+   | Geo-cache / event-uncertainty-cache resolutions | New components, base classes, or rippers that introduce new behavior |
+   | Bug fixes to existing rippers, broken-source repairs, CI/build fixes | Schema changes, config-shape changes, new error categories/counters |
+   | Docs, comments, dependency bumps, `expectEmpty`/tag/`allowed-removals` housekeeping | Architectural changes, new infrastructure, new workflows |
+
+   When unsure which side a PR falls on, treat it as **new functionality** and leave it for manual merge. (This loading-screen-style frontend work, for example, is new functionality — convert to ready and stop.)
 
 **If auto-merge gets blocked** (e.g. by unresolved conversation threads that couldn't be resolved programmatically), fall back to `mcp__github__merge_pull_request` directly.
 
