@@ -107,6 +107,37 @@ describe('toICS', () => {
       expect(desc).not.toContain('From');
     });
   });
+
+  describe('multiple RRULE events in one calendar', () => {
+    it('gives each VEVENT its own DTSTART;TZID with the correct local time', async () => {
+      // Two recurring schedules in one calendar with DISTINCT start times.
+      // The DTSTART;TZID post-process must align each converted DTSTART with
+      // the right VEVENT (it converts the first remaining `DTSTART:...Z` per
+      // event, relying on VEVENT order matching calendar.events order).
+      const saturday = makeEvent({
+        id: 'evt-sat',
+        date: ZonedDateTime.parse('2025-06-07T11:00:00-07:00[America/Los_Angeles]'),
+        duration: Duration.ofHours(5),
+        summary: 'Saturday Market',
+        rrule: 'FREQ=WEEKLY;BYDAY=SA',
+      });
+      const sunday = makeEvent({
+        id: 'evt-sun',
+        date: ZonedDateTime.parse('2025-06-08T14:00:00-07:00[America/Los_Angeles]'),
+        duration: Duration.ofHours(3),
+        summary: 'Sunday Market',
+        rrule: 'FREQ=WEEKLY;BYDAY=SU',
+      });
+
+      const ics = await toICS(makeCalendar([saturday, sunday]));
+
+      // Both local times present, each with the LA TZID.
+      expect(ics).toContain('DTSTART;TZID=America/Los_Angeles:20250607T110000');
+      expect(ics).toContain('DTSTART;TZID=America/Los_Angeles:20250608T140000');
+      // No unconverted UTC DTSTART left behind.
+      expect(ics).not.toMatch(/DTSTART:\d{8}T\d{6}Z/);
+    });
+  });
 });
 
 describe('externalCalendarSchema', () => {

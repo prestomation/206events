@@ -221,6 +221,49 @@ Before implementing, always:
 
 When you implement a source from `ideas.md`, remove its entry from the file so the list stays current.
 
+### Recurring Calendars (`sources/recurring/<name>.yaml`)
+
+Hand-coded events that repeat on a fixed pattern (farmers markets, art walks,
+weekly trivia, drag brunch) live in `sources/recurring/`, one file per event.
+Each file is one `RipperCalendar` → one `recurring-<name>.ics`.
+
+Timing is declared as a **required, non-empty `schedules:` list**. Each entry is
+**self-contained** — it carries its own `schedule`, `start_time`, and `duration`,
+plus optional `months` or `seasonal` restriction. A venue with more than one
+schedule (different days, times, or seasons) lists multiple entries in **one**
+file instead of being split across several files.
+
+```yaml
+geo:
+  lat: 47.5505915
+  lng: -122.3183935
+  label: "Georgetown Trailer Park Mall, 5805 Airport Way S, Seattle, WA 98108"
+name: georgetown-trailer-park-mall
+friendlyname: Georgetown Trailer Park Mall
+description: Open-air weekend marketplace in Georgetown.
+timezone: America/Los_Angeles
+location: 5805 Airport Way S, Seattle, WA 98108
+url: http://georgetowntrailerparkmall.com/events
+tags: ["MakersMarket", "Georgetown"]
+schedules:
+  - schedule: every Saturday
+    start_time: "11:00"
+    duration: PT5H
+  - schedule: every Sunday
+    start_time: "11:00"
+    duration: PT5H
+```
+
+`schedule` accepts `"every <day>"`, `"<n>th <day>"` (e.g. `"2nd Saturday"`),
+`"last <day>"`, and compound `"1st and 3rd <day>"`. Shared venue metadata
+(`name`, `friendlyname`, `description`, `timezone`, `location`, `url`, `tags`,
+`geo`) stays at the event level.
+
+**Event ids** follow the Stable Event IDs rule: a single-schedule file keeps
+`id === name` (no churn); a multi-schedule file gives each entry a deterministic
+`name-<slugified-schedule>` id. One file producing multiple `.ics` is never
+correct — combine the schedules in a single file instead of duplicating it.
+
 ### Free First Thursday
 
 Many Seattle area museums offer free admission on the first Thursday of each month. There is a catch-all recurring entry (`free-first-thursday`) in `sources/recurring/free-first-thursday.yaml` that covers museums without their own ripper. Museum rippers that **do** exist should also surface this event:

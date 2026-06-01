@@ -104,7 +104,7 @@ export async function loadCalendarInventory(sourcesDir: string): Promise<Calenda
         url: event.url,
         disabled: false,
         sourceType: "recurring" as const,
-        schedule: event.schedule,
+        schedule: event.schedules.map(s => s.schedule).join(", "),
     }));
 
     return { rippers, external, recurring };

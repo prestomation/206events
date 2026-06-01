@@ -3,10 +3,7 @@ geo: null
 name: couth-buzzard-open-mic
 friendlyname: Couth Buzzard Books — Wednesday Open Mic
 description: "Acoustic, no-PA listening environment at an independent bookstore/café. All art forms welcome: music, poetry, dance, comedy, and stories."
-schedule: every Wednesday
 timezone: America/Los_Angeles
-duration: PT2H
-start_time: 19:00
 location: 8310 Greenwood Ave N, Seattle
 url: https://www.couthbuzzard.com/
 tags:
@@ -14,3 +11,7 @@ tags:
   - Music
   - Community
   - Phinney
+schedules:
+  - schedule: every Wednesday
+    start_time: 19:00
+    duration: PT2H

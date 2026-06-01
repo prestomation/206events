@@ -256,7 +256,13 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
     let ics = await createICSEvents(mapped) as string;
 
     // Post-process to add TZID for events with RRULE
-    // The ics library outputs UTC times, but RRULE needs local time with TZID
+    // The ics library outputs UTC times, but RRULE needs local time with TZID.
+    // When a calendar has multiple RRULE events (e.g. a recurring event with
+    // several schedule entries), this runs once per event. Each non-global
+    // replace converts the first remaining unconverted `DTSTART:...Z`; because
+    // the ics library emits VEVENTs in the same order as `calendar.events`,
+    // iteration N converts VEVENT N. Keep this forEach in `calendar.events`
+    // order so the TZID/local-time stays aligned with its VEVENT.
     calendar.events.forEach(e => {
         if (e.rrule) {
             const tzid = e.date.zone().id();

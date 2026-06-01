@@ -22,13 +22,14 @@ events:
     name: test-event
     friendlyname: "Test Event"
     description: "Test Description"
-    schedule: "2nd Thursday"
     timezone: "America/Los_Angeles"
-    duration: "PT2H"
-    start_time: "19:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["test"]
+    schedules:
+      - schedule: "2nd Thursday"
+        start_time: "19:00"
+        duration: "PT2H"
 `;
       const processor = makeProcessor(mockYaml);
       expect(processor.getEvents()).toHaveLength(1);
@@ -44,15 +45,16 @@ events:
     name: test-event
     friendlyname: "Test Event"
     description: "Test Description"
-    schedule: "2nd Thursday"
     timezone: "America/Los_Angeles"
-    duration: "PT2H"
-    start_time: "19:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["test"]
+    schedules:
+      - schedule: "2nd Thursday"
+        start_time: "19:00"
+        duration: "PT2H"
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
 
@@ -73,15 +75,16 @@ events:
     name: weekly-market
     friendlyname: "Weekly Sunday Market"
     description: "A weekly market every Sunday"
-    schedule: "every Sunday"
     timezone: "America/Los_Angeles"
-    duration: "PT5H"
-    start_time: "10:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["FarmersMarket"]
+    schedules:
+      - schedule: "every Sunday"
+        start_time: "10:00"
+        duration: "PT5H"
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
 
@@ -108,16 +111,17 @@ events:
     name: seasonal-market
     friendlyname: "Summer Wednesday Market"
     description: "A seasonal weekly market"
-    schedule: "every Wednesday"
     timezone: "America/Los_Angeles"
-    duration: "PT4H"
-    start_time: "15:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["FarmersMarket"]
-    seasonal: "summer"
+    schedules:
+      - schedule: "every Wednesday"
+        start_time: "15:00"
+        duration: "PT4H"
+        seasonal: "summer"
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
 
@@ -141,16 +145,17 @@ events:
     name: columbia-city-market
     friendlyname: "Columbia City Farmers Market"
     description: "Runs May through October"
-    schedule: "every Wednesday"
     timezone: "America/Los_Angeles"
-    duration: "PT4H"
-    start_time: "15:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["FarmersMarket"]
-    months: [5, 6, 7, 8, 9, 10]
+    schedules:
+      - schedule: "every Wednesday"
+        start_time: "15:00"
+        duration: "PT4H"
+        months: [5, 6, 7, 8, 9, 10]
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
       // Start in February - outside the May-October range
@@ -174,16 +179,17 @@ events:
     name: summer-artwalk
     friendlyname: "Summer Art Walk"
     description: "Art walk May through September"
-    schedule: "2nd Wednesday"
     timezone: "America/Los_Angeles"
-    duration: "PT4H"
-    start_time: "18:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["Artwalk"]
-    months: [5, 6, 7, 8, 9]
+    schedules:
+      - schedule: "2nd Wednesday"
+        start_time: "18:00"
+        duration: "PT4H"
+        months: [5, 6, 7, 8, 9]
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
       // Start in January - outside the May-September range
@@ -206,16 +212,17 @@ events:
     name: custom-months-market
     friendlyname: "May-October Market"
     description: "A market running May through October"
-    schedule: "every Wednesday"
     timezone: "America/Los_Angeles"
-    duration: "PT4H"
-    start_time: "15:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["FarmersMarket"]
-    months: [5, 6, 7, 8, 9, 10]
+    schedules:
+      - schedule: "every Wednesday"
+        start_time: "15:00"
+        duration: "PT4H"
+        months: [5, 6, 7, 8, 9, 10]
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
       const calendars = processor.generateCalendars(
@@ -235,16 +242,17 @@ events:
     name: custom-months-artwalk
     friendlyname: "May-September Art Walk"
     description: "An art walk running May through September"
-    schedule: "2nd Wednesday"
     timezone: "America/Los_Angeles"
-    duration: "PT4H"
-    start_time: "18:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["Artwalk"]
-    months: [5, 6, 7, 8, 9]
+    schedules:
+      - schedule: "2nd Wednesday"
+        start_time: "18:00"
+        duration: "PT4H"
+        months: [5, 6, 7, 8, 9]
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
       const calendars = processor.generateCalendars(
@@ -264,15 +272,16 @@ events:
     name: open-mic
     friendlyname: "Open Mic Night"
     description: "Twice-monthly open mic"
-    schedule: "1st and 3rd Tuesday"
     timezone: "America/Los_Angeles"
-    duration: "PT2H"
-    start_time: "20:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["OpenMic"]
+    schedules:
+      - schedule: "1st and 3rd Tuesday"
+        start_time: "20:00"
+        duration: "PT2H"
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
 
@@ -299,15 +308,16 @@ events:
     name: open-mic
     friendlyname: "Open Mic Night"
     description: "Twice-monthly open mic"
-    schedule: "1st and 3rd Tuesday"
     timezone: "America/Los_Angeles"
-    duration: "PT2H"
-    start_time: "20:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["OpenMic"]
+    schedules:
+      - schedule: "1st and 3rd Tuesday"
+        start_time: "20:00"
+        duration: "PT2H"
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
 
@@ -332,16 +342,17 @@ events:
     name: summer-open-mic
     friendlyname: "Summer Open Mic"
     description: "Twice-monthly open mic in summer"
-    schedule: "2nd and 4th Friday"
     timezone: "America/Los_Angeles"
-    duration: "PT2H"
-    start_time: "19:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["OpenMic"]
-    months: [6, 7, 8]
+    schedules:
+      - schedule: "2nd and 4th Friday"
+        start_time: "19:00"
+        duration: "PT2H"
+        months: [6, 7, 8]
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
 
@@ -363,17 +374,18 @@ events:
     name: override-event
     friendlyname: "Override Event"
     description: "Event with both seasonal and months"
-    schedule: "every Thursday"
     timezone: "America/Los_Angeles"
-    duration: "PT4H"
-    start_time: "15:00"
     location: "Test Location"
     url: "https://example.com"
     tags: ["FarmersMarket"]
-    seasonal: "summer"
-    months: [4, 5, 6, 7, 8, 9, 10]
+    schedules:
+      - schedule: "every Thursday"
+        start_time: "15:00"
+        duration: "PT4H"
+        seasonal: "summer"
+        months: [4, 5, 6, 7, 8, 9, 10]
 `;
-      
+
 
       const processor = makeProcessor(mockYaml);
       const calendars = processor.generateCalendars(
@@ -387,111 +399,226 @@ events:
       expect(event.rrule).toBe('FREQ=YEARLY;BYDAY=TH;BYMONTH=4,5,6,7,8,9,10');
     });
   });
+
+  describe('multiple schedules', () => {
+    const georgetownYaml = `
+events:
+  - geo: null
+    name: georgetown-trailer-park-mall
+    friendlyname: "Georgetown Trailer Park Mall"
+    description: "Weekend marketplace"
+    timezone: "America/Los_Angeles"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["MakersMarket"]
+    schedules:
+      - schedule: "every Saturday"
+        start_time: "11:00"
+        duration: "PT5H"
+      - schedule: "every Sunday"
+        start_time: "11:00"
+        duration: "PT5H"
+`;
+
+    it('should expand multiple schedules into one calendar with multiple events', () => {
+      const processor = makeProcessor(georgetownYaml);
+      const calendars = processor.generateCalendars(
+        LocalDate.of(2024, 1, 1),
+        LocalDate.of(2024, 12, 31)
+      );
+
+      expect(calendars).toHaveLength(1);
+      expect(calendars[0].name).toBe('georgetown-trailer-park-mall');
+      expect(calendars[0].events).toHaveLength(2);
+
+      const byDay = new Map(calendars[0].events.map(e => [e.date.dayOfWeek().value(), e]));
+      const sat = byDay.get(6)!;
+      const sun = byDay.get(7)!;
+      expect(sat.rrule).toBe('FREQ=WEEKLY;BYDAY=SA');
+      expect(sun.rrule).toBe('FREQ=WEEKLY;BYDAY=SU');
+      expect(sat.duration.toHours()).toBe(5);
+      expect(sun.duration.toHours()).toBe(5);
+      expect(sat.date.hour()).toBe(11);
+      expect(sun.date.hour()).toBe(11);
+    });
+
+    it('should give multi-schedule events distinct, deterministic ids', () => {
+      const processor = makeProcessor(georgetownYaml);
+      const startDate = LocalDate.of(2024, 1, 1);
+      const endDate = LocalDate.of(2024, 12, 31);
+
+      const ids1 = processor
+        .generateCalendars(startDate, endDate)[0]
+        .events.map(e => e.id)
+        .sort();
+
+      expect(ids1).toEqual([
+        'georgetown-trailer-park-mall-every-saturday',
+        'georgetown-trailer-park-mall-every-sunday',
+      ]);
+
+      // Stable across repeated builds (not derived from index/timestamp/random).
+      const ids2 = processor
+        .generateCalendars(startDate, endDate)[0]
+        .events.map(e => e.id)
+        .sort();
+      expect(ids2).toEqual(ids1);
+    });
+
+    it('should keep id === name for a single-schedule event (no suffix)', () => {
+      const mockYaml = `
+events:
+  - geo: null
+    name: solo-event
+    friendlyname: "Solo Event"
+    description: "One schedule only"
+    timezone: "America/Los_Angeles"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["test"]
+    schedules:
+      - schedule: "every Sunday"
+        start_time: "10:00"
+        duration: "PT2H"
+`;
+      const processor = makeProcessor(mockYaml);
+      const calendar = processor.generateCalendars(
+        LocalDate.of(2024, 1, 1),
+        LocalDate.of(2024, 12, 31)
+      )[0];
+
+      expect(calendar.events).toHaveLength(1);
+      expect(calendar.events[0].id).toBe('solo-event');
+    });
+
+    it('should honor per-entry start_time and months independently', () => {
+      const mockYaml = `
+events:
+  - geo: null
+    name: mixed-event
+    friendlyname: "Mixed Event"
+    description: "Two schedules with different timing"
+    timezone: "America/Los_Angeles"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["test"]
+    schedules:
+      - schedule: "every Saturday"
+        start_time: "09:00"
+        duration: "PT2H"
+      - schedule: "every Wednesday"
+        start_time: "18:00"
+        duration: "PT3H"
+        months: [6, 7, 8]
+`;
+      const processor = makeProcessor(mockYaml);
+      const events = processor.generateCalendars(
+        LocalDate.of(2024, 1, 1),
+        LocalDate.of(2024, 12, 31)
+      )[0].events;
+
+      const sat = events.find(e => e.date.dayOfWeek().value() === 6)!;
+      const wed = events.find(e => e.date.dayOfWeek().value() === 3)!;
+
+      expect(sat.date.hour()).toBe(9);
+      expect(sat.rrule).toBe('FREQ=WEEKLY;BYDAY=SA');
+      expect(wed.date.hour()).toBe(18);
+      // Month-restricted entry uses the YEARLY+BYMONTH workaround.
+      expect(wed.rrule).toBe('FREQ=YEARLY;BYDAY=WE;BYMONTH=6,7,8');
+      expect(wed.date.monthValue()).toBe(6);
+    });
+  });
 });
 
 describe('recurringEventSchema', () => {
-  it('should validate correct recurring event data', () => {
-    const validEvent = {
-      name: 'test-event',
-      friendlyname: 'Test Event',
-      description: 'Test Description',
-      schedule: '2nd Thursday',
-      timezone: 'America/Los_Angeles',
-      duration: 'PT2H',
-      start_time: '19:00',
-      location: 'Test Location',
-      url: 'https://example.com',
-      tags: ['test'],
-      geo: null
-    };
+  const baseEvent = {
+    name: 'test-event',
+    friendlyname: 'Test Event',
+    description: 'Test Description',
+    timezone: 'America/Los_Angeles',
+    location: 'Test Location',
+    url: 'https://example.com',
+    tags: ['test'],
+    geo: null,
+  };
 
-    const result = recurringEventSchema.safeParse(validEvent);
+  it('should validate correct recurring event data', () => {
+    const result = recurringEventSchema.safeParse({
+      ...baseEvent,
+      schedules: [{ schedule: '2nd Thursday', start_time: '19:00', duration: 'PT2H' }],
+    });
     expect(result.success).toBe(true);
   });
 
   it('should validate recurring event with months field', () => {
-    const validEvent = {
-      name: 'test-event',
-      friendlyname: 'Test Event',
-      description: 'Test Description',
-      schedule: '2nd Thursday',
-      timezone: 'America/Los_Angeles',
-      duration: 'PT2H',
-      start_time: '19:00',
-      location: 'Test Location',
-      url: 'https://example.com',
-      tags: ['test'],
-      months: [5, 6, 7, 8, 9],
-      geo: null
-    };
-
-    const result = recurringEventSchema.safeParse(validEvent);
+    const result = recurringEventSchema.safeParse({
+      ...baseEvent,
+      schedules: [{ schedule: '2nd Thursday', start_time: '19:00', duration: 'PT2H', months: [5, 6, 7, 8, 9] }],
+    });
     expect(result.success).toBe(true);
   });
 
-  it('should reject months with invalid values', () => {
-    const invalidEvent = {
-      name: 'test-event',
-      friendlyname: 'Test Event',
-      description: 'Test Description',
-      schedule: '2nd Thursday',
-      timezone: 'America/Los_Angeles',
-      duration: 'PT2H',
-      start_time: '19:00',
-      location: 'Test Location',
-      url: 'https://example.com',
-      tags: ['test'],
-      months: [0, 13]  // invalid month numbers
-    };
+  it('should validate multiple schedules', () => {
+    const result = recurringEventSchema.safeParse({
+      ...baseEvent,
+      schedules: [
+        { schedule: 'every Saturday', start_time: '11:00', duration: 'PT5H' },
+        { schedule: 'every Sunday', start_time: '11:00', duration: 'PT5H' },
+      ],
+    });
+    expect(result.success).toBe(true);
+  });
 
-    const result = recurringEventSchema.safeParse(invalidEvent);
+  it('should reject an empty schedules list', () => {
+    const result = recurringEventSchema.safeParse({ ...baseEvent, schedules: [] });
+    expect(result.success).toBe(false);
+  });
+
+  it('should reject a missing schedules list', () => {
+    const result = recurringEventSchema.safeParse({ ...baseEvent });
+    expect(result.success).toBe(false);
+  });
+
+  it('should reject a schedule entry missing start_time', () => {
+    const result = recurringEventSchema.safeParse({
+      ...baseEvent,
+      schedules: [{ schedule: '2nd Thursday', duration: 'PT2H' }],
+    });
+    expect(result.success).toBe(false);
+  });
+
+  it('should reject months with invalid values', () => {
+    const result = recurringEventSchema.safeParse({
+      ...baseEvent,
+      schedules: [{ schedule: '2nd Thursday', start_time: '19:00', duration: 'PT2H', months: [0, 13] }],
+    });
     expect(result.success).toBe(false);
   });
 
   it('should reject empty url', () => {
-    const invalidEvent = {
-      name: 'test-event',
-      friendlyname: 'Test Event',
-      description: 'Test Description',
-      schedule: '2nd Thursday',
-      timezone: 'America/Los_Angeles',
-      duration: 'PT2H',
-      start_time: '19:00',
-      location: 'Test Location',
+    const result = recurringEventSchema.safeParse({
+      ...baseEvent,
       url: '',
-      tags: ['test']
-    };
-
-    const result = recurringEventSchema.safeParse(invalidEvent);
+      schedules: [{ schedule: '2nd Thursday', start_time: '19:00', duration: 'PT2H' }],
+    });
     expect(result.success).toBe(false);
   });
 
   it('should reject invalid url', () => {
-    const invalidEvent = {
-      name: 'test-event',
-      friendlyname: 'Test Event',
-      description: 'Test Description',
-      schedule: '2nd Thursday',
-      timezone: 'America/Los_Angeles',
-      duration: 'PT2H',
-      start_time: '19:00',
-      location: 'Test Location',
+    const result = recurringEventSchema.safeParse({
+      ...baseEvent,
       url: 'not-a-url',
-      tags: ['test']
-    };
-
-    const result = recurringEventSchema.safeParse(invalidEvent);
+      schedules: [{ schedule: '2nd Thursday', start_time: '19:00', duration: 'PT2H' }],
+    });
     expect(result.success).toBe(false);
   });
 
   it('should reject invalid event data', () => {
-    const invalidEvent = {
+    const result = recurringEventSchema.safeParse({
       name: 'invalid name with spaces',
-      friendlyname: 'Test Event'
+      friendlyname: 'Test Event',
       // missing required fields
-    };
-
-    const result = recurringEventSchema.safeParse(invalidEvent);
+    });
     expect(result.success).toBe(false);
   });
 });

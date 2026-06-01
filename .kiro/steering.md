@@ -29,7 +29,7 @@
 ```
 sources/           # Ripper implementations (one directory per source)
 sources/external/  # External calendar URLs (one yaml per ICS feed)
-sources/recurring/ # Recurring events (one yaml per event)
+sources/recurring/ # Recurring events (one yaml per event; each declares a `schedules:` list of one or more self-contained schedules)
 lib/               # Core library code
 output/            # Generated .ics files
 ```

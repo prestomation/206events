@@ -7,19 +7,31 @@ import * as path from 'path';
 
 import '@js-joda/timezone'
 
+// A single schedule within a recurring event. Each entry is self-contained:
+// it carries its own day pattern, start time, duration, and optional month
+// restriction. A recurring event declares one or more of these (e.g. a venue
+// open "every Saturday" and "every Sunday" at the same hours is two entries).
+export const scheduleEntrySchema = z.object({
+    schedule: z.string(), // e.g., "2nd Thursday", "1st Friday", "every Saturday"
+    start_time: z.string().transform(t => LocalTime.parse(t)),
+    duration: z.string().transform(d => Duration.parse(d)),
+    seasonal: z.string().optional(), // "summer", "winter", etc.
+    months: z.array(z.number().int().min(1).max(12)).optional(), // explicit month list, e.g. [5,6,7,8,9]
+});
+
 export const recurringEventSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
     friendlyname: z.string(),
     description: z.string(),
-    schedule: z.string(), // e.g., "2nd Thursday", "1st Friday", "3rd Saturday"
     timezone: z.string().transform(ZoneRegion.of),
-    duration: z.string().transform(d => Duration.parse(d)),
-    start_time: z.string().transform(t => LocalTime.parse(t)),
     location: z.string(),
     url: z.string().url(),
     tags: z.array(z.string()),
-    seasonal: z.string().optional(), // "summer", "winter", etc.
-    months: z.array(z.number().int().min(1).max(12)).optional(), // explicit month list, e.g. [5,6,7,8,9]
+    // Required, non-empty: every recurring event declares its timing as one or
+    // more self-contained schedule entries. A venue with multiple schedules
+    // (different days/times/seasons) lists multiple entries instead of being
+    // split across multiple files.
+    schedules: z.array(scheduleEntrySchema).min(1),
     // Required: every recurring entry must explicitly state whether it is a
     // single-location venue (geo object) or not (null). A recurring event at
     // a fixed museum is a venue; a cross-neighborhood art walk is not.
@@ -30,6 +42,7 @@ export const recurringConfigSchema = z.object({
     events: z.array(recurringEventSchema)
 });
 
+export type ScheduleEntry = z.infer<typeof scheduleEntrySchema>;
 export type RecurringEvent = z.infer<typeof recurringEventSchema>;
 export type RecurringConfig = z.infer<typeof recurringConfigSchema>;
 
@@ -84,43 +97,58 @@ export class RecurringEventProcessor {
     }
 
     private generateRRuleEvent(event: RecurringEvent, startDate: LocalDate): RipperCalendarEvent[] {
-        const { ordinals, dayOfWeek } = this.parseSchedule(event.schedule);
+        const isMulti = event.schedules.length > 1;
+        const events: RipperCalendarEvent[] = [];
 
-        if (ordinals.length === 0 || dayOfWeek === null) {
-            return []; // Skip invalid schedules
+        for (const entry of event.schedules) {
+            const { ordinals, dayOfWeek } = this.parseSchedule(entry.schedule);
+
+            if (ordinals.length === 0 || dayOfWeek === null) {
+                continue; // Skip invalid schedules
+            }
+
+            // Resolve allowed months (explicit months take precedence over seasonal)
+            const allowedMonths = entry.months ?? (entry.seasonal ? this.getSeasonalMonths(entry.seasonal) : []);
+
+            // Find the first occurrence on or after startDate, respecting month restrictions
+            const firstOccurrence = this.findNextOccurrence(startDate, ordinals, dayOfWeek, allowedMonths);
+            if (!firstOccurrence) {
+                continue;
+            }
+
+            const zonedDateTime = ZonedDateTime.of(
+                firstOccurrence,
+                entry.start_time,
+                event.timezone
+            );
+
+            // Generate RRULE based on schedule
+            const rrule = this.generateRRule(ordinals, dayOfWeek, allowedMonths);
+
+            // Stable id: a single-schedule event keeps id === event.name (no
+            // churn for existing ICS UIDs / identity). Multi-schedule events
+            // get a deterministic per-schedule suffix so the ids are distinct
+            // without depending on array order.
+            const id = isMulti ? `${event.name}-${this.slugifySchedule(entry.schedule)}` : event.name;
+
+            events.push({
+                id,
+                ripped: new Date(),
+                date: zonedDateTime,
+                duration: entry.duration,
+                summary: event.friendlyname,
+                description: event.description,
+                location: event.location,
+                url: event.url,
+                rrule: rrule
+            });
         }
 
-        // Resolve allowed months (explicit months take precedence over seasonal)
-        const allowedMonths = event.months ?? (event.seasonal ? this.getSeasonalMonths(event.seasonal) : []);
+        return events;
+    }
 
-        // Find the first occurrence on or after startDate, respecting month restrictions
-        const firstOccurrence = this.findNextOccurrence(startDate, ordinals, dayOfWeek, allowedMonths);
-        if (!firstOccurrence) {
-            return [];
-        }
-
-        const zonedDateTime = ZonedDateTime.of(
-            firstOccurrence,
-            event.start_time,
-            event.timezone
-        );
-
-        // Generate RRULE based on schedule
-        const rrule = this.generateRRule(ordinals, dayOfWeek, allowedMonths);
-
-        const calendarEvent: RipperCalendarEvent = {
-            id: event.name,
-            ripped: new Date(),
-            date: zonedDateTime,
-            duration: event.duration,
-            summary: event.friendlyname,
-            description: event.description,
-            location: event.location,
-            url: event.url,
-            rrule: rrule
-        };
-
-        return [calendarEvent];
+    private slugifySchedule(schedule: string): string {
+        return schedule.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
     }
 
     private generateRRule(ordinals: number[], dayOfWeek: DayOfWeek, allowedMonths: number[]): string {

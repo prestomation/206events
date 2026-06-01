@@ -3,18 +3,19 @@ geo: null
 name: phinney-farmers-market
 friendlyname: Phinney Farmers Market
 description: Seasonal Friday afternoon farmers market in the Phinney Ridge neighborhood, tucked into the upper parking lot of the Phinney Neighborhood Association. A partnership between Neighborhood Farmers Markets and the PNA, serving the Phinney Ridge and Greenwood communities. Runs June through September.
-schedule: every Friday
 timezone: America/Los_Angeles
-duration: PT4H
-start_time: "15:00"
 location: 6761 Phinney Ave N, Seattle
 url: https://seattlefarmersmarkets.org/pfm
 tags:
   - FarmersMarket
   - Phinney
   - Greenwood
-months:
-  - 6
-  - 7
-  - 8
-  - 9
+schedules:
+  - schedule: every Friday
+    start_time: "15:00"
+    duration: PT4H
+    months:
+      - 6
+      - 7
+      - 8
+      - 9

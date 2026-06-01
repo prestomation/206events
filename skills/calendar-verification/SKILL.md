@@ -50,7 +50,7 @@ Outputs the 10 oldest-stamped (or never-stamped) candidate paths, one per line a
 
 For each path in the batch:
 
-1. Read the YAML to get the current `friendlyname`, `schedule`, `start_time`, `duration`, `location`, `url`, and (where present) `geo`.
+1. Read the YAML to get the current `friendlyname`, `location`, `url`, the per-entry `schedules[].schedule` / `start_time` / `duration` (and any `months`/`seasonal`), and (where present) `geo`. Recurring events declare a **required `schedules:` list** — each entry is one self-contained schedule (`schedule` + `start_time` + `duration`, optional `months`/`seasonal`). A venue open multiple days/times lists multiple entries in one file rather than being split across files. When a venue's days/hours drift, edit the relevant entry inside `schedules`.
 2. Fetch the `url` with WebFetch. If 404/410/connection-refused, also do a quick web search for the venue name to find a current URL or confirm closure.
 3. Read the page. Extract anything that confirms or contradicts the YAML's fields.
 4. Decide the outcome class (step 3).
@@ -73,7 +73,7 @@ Edit a YAML when **all** are true:
 - The change is unambiguous (no "every Monday or Tuesday depending on week" hedges)
 - Only fields in the allowlist below are touched
 
-**Auto-editable fields:** `friendlyname`, `schedule`, `start_time`, `duration`, `location`, `url`, `name`, `geo` (only when `location` changes — see step 5).
+**Auto-editable fields:** `friendlyname`, `location`, `url`, `name`, the per-entry `schedules[].schedule` / `start_time` / `duration` / `months` / `seasonal`, and `geo` (only when `location` changes — see step 5).
 
 **Never auto-edit:** `tags`, `description`, `timezone`, `expectEmpty`. Flag those for review.
 
