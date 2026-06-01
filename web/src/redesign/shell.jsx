@@ -181,6 +181,7 @@ export function DateWindowSlider({ compact = false }) {
         step={1}
         value={idx}
         aria-label="Date range: how many days ahead to show"
+        aria-valuetext={absoluteEnd ? `${relative}, through ${absoluteEnd}` : relative}
         onChange={(e) => app.setDateWindow(DATE_WINDOW_STOPS[Number(e.target.value)])}
       />
     </div>
