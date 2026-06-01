@@ -88,6 +88,15 @@ describe('urlHash codec', () => {
     expect(roundTrip({ event }).event).toBe(event)
   })
 
+  it('falls back to discover for an unknown or malicious section', () => {
+    expect(deserializeHash('section=bogus')).toEqual(DEFAULTS)
+    expect(deserializeHash('section=<script>alert(1)</script>')).toEqual(DEFAULTS)
+  })
+
+  it.each(['discover', 'following', 'you', 'map', 'health'])('preserves the valid section %s', (s) => {
+    expect(deserializeHash(`section=${s}`).section).toBe(s)
+  })
+
   it('ignores unknown params and tolerates malformed hashes', () => {
     expect(deserializeHash('tag=__favorites__&view=health&foo=bar')).toEqual(DEFAULTS)
     expect(() => deserializeHash('&&==&')).not.toThrow()

@@ -27,6 +27,12 @@ const DEFAULTS = {
   emphasis: 'calendars',
 }
 
+// The only sections App206 renders. An unknown `section` from an untrusted /
+// stale URL falls back to the default rather than dropping into App206's
+// else-branch (YouView). React's JSX escaping already prevents injection; this
+// is defense-in-depth plus sane fallback behavior.
+const VALID_SECTIONS = new Set(['discover', 'following', 'you', 'map', 'health'])
+
 // Build the canonical, fully-defaulted token object from a partial state.
 function normalize(state) {
   return { ...DEFAULTS, ...(state || {}) }
@@ -70,7 +76,8 @@ export function deserializeHash(hash) {
   const raw = typeof hash === 'string' ? hash : ''
   const params = new URLSearchParams(raw.startsWith('#') ? raw.slice(1) : raw)
 
-  const section = params.get('section') || DEFAULTS.section
+  const rawSection = params.get('section')
+  const section = VALID_SECTIONS.has(rawSection) ? rawSection : DEFAULTS.section
   let event = params.get('event') || null
   let channel = params.get('channel') || null
 
