@@ -74,7 +74,7 @@ The steering file provides essential context for making informed decisions about
    - Once Q gives **all ✅** and all comments are confidently addressed, do the following **immediately, in the same turn** — do not wait for the build to finish first:
      a. Resolve all open review threads using `mcp__github__pull_request_review_write` with `method: resolve_thread` (requires the thread's `PRRT_...` node ID — see note below)
      b. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
-     c. **Decide whether the PR is auto-merge-eligible** (see "Auto-merge eligibility" below). **Only content changes and fixes are eligible.** New functionality is **never** auto-merged — leave it ready-for-review for a human to merge, post a brief comment saying it's green and awaiting manual merge, and stop. Do **not** call `enable_pr_auto_merge` or `merge_pull_request`.
+     c. **Decide whether the PR is auto-merge-eligible** (see "Auto-merge eligibility" below). **Only content changes and fixes are eligible.** New functionality is **never** auto-merged — leave it ready-for-review for a human to merge, post a brief top-level PR comment (via `mcp__github__add_issue_comment`) saying it's green and awaiting manual merge, and stop. Do **not** call `enable_pr_auto_merge` or `merge_pull_request`.
      d. **If eligible and CI is still running** → enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash). It will fire automatically when checks go green.
      e. **If eligible and CI already passed** → merge directly: `mcp__github__merge_pull_request` (squash)
 
