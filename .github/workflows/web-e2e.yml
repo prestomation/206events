@@ -1,0 +1,52 @@
+name: Web E2E
+
+# Browser (Playwright) tests for the web UI. Isolated from the calendar build:
+# no AWS, no API secrets, no calendar generation. Data is mocked at the browser
+# level (see web/e2e/mock-routes.js), so this only needs the web bundle.
+
+on:
+  pull_request:
+    paths:
+      - 'web/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/web-e2e.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/web-e2e.yml'
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright Chromium + OS deps
+        run: npx playwright install --with-deps chromium
+        working-directory: web
+
+      - name: Run browser (e2e) tests
+        run: npm run test:e2e
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            web/playwright-report/
+            web/test-results/
+          retention-days: 14

@@ -10,6 +10,12 @@ fi
 cd "$CLAUDE_PROJECT_DIR"
 npm install
 
+# Install the Chromium browser + OS libraries needed for the Playwright
+# browser (e2e) tests in web/. Guard so a transient install failure doesn't
+# abort the whole session setup.
+npx --prefix "$CLAUDE_PROJECT_DIR/web" playwright install --with-deps chromium \
+  || echo "WARN: playwright browser install failed; e2e tests may not run"
+
 echo ""
 echo "NOTE: gh CLI is not available in this environment."
 echo "Code can only be pushed to the assigned branch."
