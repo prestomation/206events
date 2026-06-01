@@ -37,6 +37,12 @@ function createClusterIcon(cluster) {
 
 function FitBounds({ events, geoFilters }) {
   const map = useMap()
+  // Auto-fit on initial load and whenever the visible event set changes
+  // (calendar/tag filter). Intentionally NOT keyed on geoFilters: adding a
+  // location filter (e.g. via the map's "Save this area" button) should leave
+  // the user's current viewport alone rather than snapping back to fit every
+  // event. Stored filters are still folded into the bounds on the runs that do
+  // fire, so a cold load with saved filters frames them too.
   useEffect(() => {
     const points = []
     for (const e of events) {
@@ -50,7 +56,28 @@ function FitBounds({ events, geoFilters }) {
     if (points.length > 0) {
       map.fitBounds(points, { padding: [40, 40], maxZoom: 15 })
     }
-  }, [events, geoFilters, map])
+  }, [events, map]) // eslint-disable-line react-hooks/exhaustive-deps
+  return null
+}
+
+// Exposes the Leaflet map instance to the parent via a ref, and keeps the map
+// sized to its container. The ResizeObserver matters for the expand/collapse
+// toggle: Leaflet caches the container size, so without invalidateSize() the
+// tiles render with gray gaps after the panel grows or shrinks.
+function MapBridge({ mapRef }) {
+  const map = useMap()
+  useEffect(() => {
+    if (mapRef) mapRef.current = map
+    // ResizeObserver is absent in some test environments (jsdom); skip the
+    // auto-resize there rather than crashing the effect.
+    const RO = typeof ResizeObserver !== 'undefined' ? ResizeObserver : null
+    const ro = RO ? new RO(() => map.invalidateSize()) : null
+    if (ro) ro.observe(map.getContainer())
+    return () => {
+      if (ro) ro.disconnect()
+      if (mapRef && mapRef.current === map) mapRef.current = null
+    }
+  }, [map, mapRef])
   return null
 }
 
@@ -92,6 +119,7 @@ export function EventsMap({
   selectedTag,
   calendarNameByIcsUrl,
   eventAttributions,
+  mapRef,
 }) {
   // Filter events: only those with lat/lng, and respecting active tag/calendar filter
   const mappableEvents = useMemo(() => eventsIndex.filter(event => {
@@ -124,6 +152,7 @@ export function EventsMap({
         style={{ height: '100%', width: '100%' }}
         className="events-map"
       >
+        <MapBridge mapRef={mapRef} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

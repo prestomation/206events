@@ -184,6 +184,18 @@ export function FilterPopover() {
 // Desktop persistent map column / mobile map view — wraps the existing Leaflet map.
 export function MapPanel({ mobile = false }) {
   const app = useApp206()
+  // Only the persistent desktop panel drives the shared map ref / expand state;
+  // the mobile view is a separate instance and must not clobber the ref.
+  const expanded = !mobile && app.mapExpanded
+
+  // Esc collapses the expanded desktop map.
+  useEffect(() => {
+    if (!expanded) return
+    const onKey = (e) => { if (e.key === 'Escape') app.toggleMapExpand() }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [expanded, app])
+
   const map = (
     <EventsMap
       eventsIndex={app.eventsIndex}
@@ -193,6 +205,7 @@ export function MapPanel({ mobile = false }) {
       selectedTag={null}
       calendarNameByIcsUrl={app.calendarNameByIcsUrl}
       eventAttributions={app.eventAttributions}
+      mapRef={mobile ? undefined : app.mapRef}
     />
   )
   if (mobile) {
@@ -206,7 +219,17 @@ export function MapPanel({ mobile = false }) {
           <div className="a-h2" style={{ fontSize: 15 }}>Near you</div>
           <div className="mk-tag" style={{ marginTop: 2 }}>{app.eventsIndex.length} EVENTS</div>
         </div>
-        <button className="btn btn-ghost" style={{ height: 36, fontSize: 13, padding: '0 12px' }} onClick={app.saveArea}>{Ico.plus}Save this area</button>
+        <div className="a-mapbar-actions">
+          <button className="a-iconbtn a-mapexpand" onClick={app.toggleMapExpand}
+            title={expanded ? 'Collapse map' : 'Expand map to full screen'}
+            aria-label={expanded ? 'Collapse map' : 'Expand map'}>
+            {expanded ? Ico.shrink : Ico.expand}
+          </button>
+          <button className="btn btn-ghost a-mapsave" onClick={app.saveArea}
+            title="Save the area shown on the map as a location filter — any event inside the circle joins your feed">
+            {Ico.plus}Save this area
+          </button>
+        </div>
       </div>
     </div>
   )

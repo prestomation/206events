@@ -11,6 +11,7 @@ import { HealthDashboard } from '../components/HealthDashboard.jsx'
 import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, parseIndexDate } from './viewModels.js'
 import { isCategoryTag, isNeighborhoodTag } from './categories.js'
 import { eventKey } from '../lib/eventKey.js'
+import { haversineKm } from '../lib/haversine.js'
 import { deserializeHash } from './urlHash.js'
 import { useUrlState } from './useUrlState.js'
 
@@ -48,6 +49,11 @@ export function App206(props) {
   const [neighborhood, setNeighborhood] = useState(() => initialUrl.neighborhood)
   const [toast, setToast] = useState(null)
   const toastT = useRef(0)
+  // Live Leaflet map instance (set by EventsMap via MapBridge) + desktop
+  // expand toggle.
+  const mapRef = useRef(null)
+  const [mapExpanded, setMapExpanded] = useState(false)
+  const toggleMapExpand = useCallback(() => setMapExpanded((v) => !v), [])
 
   const flash = useCallback((msg) => {
     setToast(msg)
@@ -195,7 +201,23 @@ export function App206(props) {
     if (!was) { const ch = channelByIcsUrl.get(icsUrl); flash(`Following ${ch ? ch.name : 'calendar'}`) }
   }, [favoritesSet, toggleFavorite, channelByIcsUrl, flash])
 
-  const saveArea = useCallback(() => { go('you'); flash('Add a location filter below') }, [go, flash])
+  // "Save this area" turns whatever is currently framed on the map into a
+  // location filter: center = map center, radius = distance from the center to
+  // the nearest visible edge so the saved circle matches the viewport. If the
+  // map isn't ready yet, fall back to the manual form in the You section.
+  const saveArea = useCallback(() => {
+    const map = mapRef.current
+    if (!map) { go('you'); flash('Add a location filter below'); return }
+    const c = map.getCenter()
+    const b = map.getBounds()
+    const toEdgeKm = Math.min(
+      haversineKm(c.lat, c.lng, b.getNorth(), c.lng),
+      haversineKm(c.lat, c.lng, c.lat, b.getEast())
+    )
+    const radiusKm = Math.max(0.5, Math.round(toEdgeKm * 10) / 10)
+    addGeoFilter({ lat: +c.lat.toFixed(5), lng: +c.lng.toFixed(5), radiusKm, label: 'Map area' })
+    flash(`Saved this area (${radiusKm} km) as a location filter`)
+  }, [addGeoFilter, go, flash])
 
   const todayLabel = useMemo(() =>
     new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase().replace(',', ' ·'),
@@ -219,6 +241,7 @@ export function App206(props) {
     section, openCh, openEventObj, dateScope, setDateScope, emphasis, setEmphasis,
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     hasActiveFilters, toast, todayLabel,
+    mapRef, mapExpanded, toggleMapExpand,
     // handlers
     go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
   }
@@ -240,7 +263,7 @@ export function App206(props) {
         <div className="a-content" key={openEventObj ? 'ev' : openCh ? 'ch' : section}>
           {loading ? <div className="a-empty" style={{ padding: '40px var(--pad)' }}>Loading…</div> : content}
         </div>
-        <div className="a-map"><MapPanel /></div>
+        <div className={`a-map${mapExpanded ? ' a-map--expanded' : ''}`}><MapPanel /></div>
         <div className="a-nav"><BottomNav /></div>
         {filterOpen && <FilterPopover />}
         <Toast />
