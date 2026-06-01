@@ -13,7 +13,7 @@
 //   q         -> query         (omitted when empty)
 //   category  -> category      (omitted when null)
 //   hood      -> neighborhood  (omitted when null)
-//   date      -> dateScope     (omitted when 'all')
+//   date      -> dateWindow    (number of days, or 'all'; omitted when 'all')
 //   emphasis  -> emphasis      (omitted when 'calendars')
 //   tab       -> healthTab     (health section only; omitted when 'sources')
 //   source    -> healthSource  (health section only; the drilled-into source name)
@@ -25,10 +25,22 @@ const DEFAULTS = {
   q: '',
   category: null,
   neighborhood: null,
-  dateScope: 'all',
+  dateWindow: 'all',
   emphasis: 'calendars',
   healthTab: 'sources',
   healthSource: null,
+}
+
+// Legacy `date=` values from the old preset filter, mapped onto the nearest
+// window stop so old deep-links keep working.
+const LEGACY_DATE = { today: 0, weekend: 7, all: 'all' }
+
+// Parse a `date=` token into a window value: a number of days, or 'all'.
+function parseDateWindow(raw) {
+  if (raw == null) return DEFAULTS.dateWindow
+  if (raw in LEGACY_DATE) return LEGACY_DATE[raw]
+  const n = Number(raw)
+  return Number.isInteger(n) && n >= 0 ? n : DEFAULTS.dateWindow
 }
 
 // The only sections App206 renders. An unknown `section` from an untrusted /
@@ -51,7 +63,7 @@ function normalize(state) {
  * Returns '' when every field is at its default, so the caller can write a
  * clean pathname instead of a dangling '#'.
  *
- * `state` shape: { section, event, channel, q, category, neighborhood, dateScope, emphasis }
+ * `state` shape: { section, event, channel, q, category, neighborhood, dateWindow, emphasis }
  * where `event` and `channel` are already-stringified tokens (or null).
  */
 export function serializeHash(state) {
@@ -73,7 +85,7 @@ export function serializeHash(state) {
   if (s.q && s.q.trim()) params.set('q', s.q)
   if (s.category) params.set('category', s.category)
   if (s.neighborhood) params.set('hood', s.neighborhood)
-  if (s.dateScope && s.dateScope !== DEFAULTS.dateScope) params.set('date', s.dateScope)
+  if (s.dateWindow !== undefined && s.dateWindow !== DEFAULTS.dateWindow) params.set('date', String(s.dateWindow))
   if (s.emphasis && s.emphasis !== DEFAULTS.emphasis) params.set('emphasis', s.emphasis)
 
   return params.toString()
@@ -113,7 +125,7 @@ export function deserializeHash(hash) {
     q: params.get('q') || DEFAULTS.q,
     category: params.get('category') || null,
     neighborhood: params.get('hood') || null,
-    dateScope: params.get('date') || DEFAULTS.dateScope,
+    dateWindow: parseDateWindow(params.get('date')),
     emphasis: params.get('emphasis') || DEFAULTS.emphasis,
     healthTab,
     healthSource,

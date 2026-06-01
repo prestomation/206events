@@ -9,7 +9,7 @@ const DEFAULTS = {
   q: '',
   category: null,
   neighborhood: null,
-  dateScope: 'all',
+  dateWindow: 'all',
   emphasis: 'calendars',
   healthTab: 'sources',
   healthSource: null,
@@ -29,7 +29,7 @@ describe('urlHash codec', () => {
   })
 
   it('omits default values from the hash', () => {
-    expect(serializeHash({ section: 'discover', dateScope: 'all', emphasis: 'calendars', q: '' })).toBe('')
+    expect(serializeHash({ section: 'discover', dateWindow: 'all', emphasis: 'calendars', q: '' })).toBe('')
   })
 
   it('round-trips a section-only state', () => {
@@ -42,10 +42,27 @@ describe('urlHash codec', () => {
       q: 'jazz night',
       category: 'Music',
       neighborhood: 'Capitol Hill',
-      dateScope: 'weekend',
+      dateWindow: 7,
       emphasis: 'events',
     }
     expect(roundTrip(state)).toEqual({ ...DEFAULTS, ...state })
+  })
+
+  it('serializes a numeric date window and round-trips it', () => {
+    expect(serializeHash({ dateWindow: 14 })).toBe('date=14')
+    expect(roundTrip({ dateWindow: 0 })).toEqual({ ...DEFAULTS, dateWindow: 0 })
+    expect(roundTrip({ dateWindow: 30 })).toEqual({ ...DEFAULTS, dateWindow: 30 })
+  })
+
+  it('maps legacy date presets onto window stops', () => {
+    expect(deserializeHash('date=today').dateWindow).toBe(0)
+    expect(deserializeHash('date=weekend').dateWindow).toBe(7)
+    expect(deserializeHash('date=all').dateWindow).toBe('all')
+  })
+
+  it('falls back to "all" for an unparseable date window', () => {
+    expect(deserializeHash('date=bogus').dateWindow).toBe('all')
+    expect(deserializeHash('date=-5').dateWindow).toBe('all')
   })
 
   it('round-trips an open channel', () => {

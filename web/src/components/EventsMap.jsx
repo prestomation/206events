@@ -1,10 +1,9 @@
-import { useMemo, useEffect } from 'react'
+import { useMemo, useEffect, useState, useCallback, useRef, memo } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { eventKey } from '../lib/eventKey.js'
-import { AttributionChips } from './AttributionChips.jsx'
 
 // Fix Leaflet default marker icons in Vite
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
@@ -35,20 +34,30 @@ function createClusterIcon(cluster) {
   })
 }
 
-function FitBounds({ events, geoFilters }) {
+function FitBounds({ events, geoFilters, fitKey }) {
   const map = useMap()
-  // Auto-fit on initial load and whenever the visible event set changes
-  // (calendar/tag filter). Intentionally NOT keyed on geoFilters: adding a
-  // location filter (e.g. via the map's "Save this area" button) should leave
-  // the user's current viewport alone rather than snapping back to fit every
-  // event. Stored filters are still folded into the bounds on the runs that do
-  // fire, so a cold load with saved filters frames them too.
+  // Latest events/geoFilters held in refs so the fit effect can read them
+  // without re-firing every time they change (it fires only on `fitKey`).
+  const eventsRef = useRef(events)
+  eventsRef.current = events
+  const geoRef = useRef(geoFilters)
+  geoRef.current = geoFilters
+  const hasEvents = events.length > 0
+
+  // Auto-fit on initial load (first non-empty event set) and on calendar/tag
+  // changes (`fitKey`). Intentionally NOT keyed on the full event set, so a
+  // date-window change leaves the user's current viewport alone — otherwise
+  // the map would snap back to frame everything on every slider step, which is
+  // jarring and would also defeat viewport culling. Also not keyed on
+  // geoFilters: adding a location filter leaves the viewport put. Stored
+  // filters are still folded into the bounds on the runs that do fire.
   useEffect(() => {
+    if (!hasEvents) return
     const points = []
-    for (const e of events) {
+    for (const e of eventsRef.current) {
       if (e.lat && e.lng) points.push([e.lat, e.lng])
     }
-    for (const gf of geoFilters) {
+    for (const gf of geoRef.current) {
       const kmToDeg = gf.radiusKm / 111
       points.push([gf.lat + kmToDeg, gf.lng + kmToDeg])
       points.push([gf.lat - kmToDeg, gf.lng - kmToDeg])
@@ -56,7 +65,21 @@ function FitBounds({ events, geoFilters }) {
     if (points.length > 0) {
       map.fitBounds(points, { padding: [40, 40], maxZoom: 15 })
     }
-  }, [events, map]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [map, fitKey, hasEvents]) // eslint-disable-line react-hooks/exhaustive-deps
+  return null
+}
+
+// Reports the map's current bounds up to EventsMap on pan/zoom (moveend/zoomend)
+// so the marker layer can be culled to roughly what's on screen. moveend/zoomend
+// fire once per gesture (not continuously), so no debounce is needed.
+function ViewportTracker({ onBounds }) {
+  const map = useMap()
+  useEffect(() => {
+    const update = () => onBounds(map.getBounds())
+    update() // seed initial bounds
+    map.on('moveend zoomend', update)
+    return () => map.off('moveend zoomend', update)
+  }, [map, onBounds])
   return null
 }
 
@@ -99,6 +122,45 @@ function formatEventDate(dateStr) {
   }
 }
 
+// Escape user/source-derived strings before interpolating into popup HTML.
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ))
+}
+
+// Mirror of <AttributionChips> as an HTML string (the component is display-only).
+// KEEP IN SYNC with AttributionChips.jsx — icon mapping + className whitelist.
+function attributionChipsHtml(attributions) {
+  if (!attributions?.length) return ''
+  const chips = attributions.map((attr) => {
+    const type = ['calendar', 'search', 'geo'].includes(attr.type) ? attr.type : 'unknown'
+    const icon = attr.type === 'calendar' ? '🗓️' : attr.type === 'search' ? '🔍' : '📍'
+    return `<span class="attribution-chip attribution-${type}">${icon} ${escapeHtml(attr.value)}</span>`
+  }).join('')
+  return `<div class="event-attributions">${chips}</div>`
+}
+
+// Build a marker's popup as an HTML string. Called lazily (on marker click) via
+// Leaflet's bindPopup(fn), so we don't construct ~8k popup/attribution subtrees
+// up front — only the one the user actually opens. Built by hand (rather than
+// rendering React to a string) to keep react-dom/server out of the client bundle.
+function renderPopupHtml(event, eventAttributions) {
+  const parts = [
+    `<strong class="map-popup-title">${escapeHtml(event.summary)}</strong>`,
+    `<div class="map-popup-date">${escapeHtml(event.formattedDate)}</div>`,
+  ]
+  if (event.calendarName) {
+    parts.push(`<div class="map-popup-source">${escapeHtml(event.calendarName)}</div>`)
+  }
+  // Only emit http(s) links — guards against javascript: / data: URLs in source data.
+  if (event.url && /^https?:\/\//i.test(event.url)) {
+    parts.push(`<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener noreferrer" class="map-popup-link">View event →</a>`)
+  }
+  parts.push(attributionChipsHtml(eventAttributions?.get(eventKey(event))))
+  return `<div class="map-popup">${parts.join('')}</div>`
+}
+
 /**
  * EventsMap renders a Leaflet map with event markers and optional geo filter circles.
  *
@@ -111,7 +173,12 @@ function formatEventDate(dateStr) {
  *   calendarNameByIcsUrl - map of icsUrl → friendly calendar name
  *   eventAttributions  - optional Map<compositeKey, Attribution[]> from App.jsx for showing why events appear
  */
-export function EventsMap({
+// Memoized so the heavy marker/cluster subtree is rebuilt only when its own
+// inputs actually change. While the date-window slider is being dragged, the
+// parent re-renders on the urgent pass but EventsMap's props (including the
+// deferred-window-keyed `dateInScope`) are referentially stable, so React skips
+// this subtree entirely and the thumb stays responsive.
+function EventsMapInner({
   eventsIndex,
   geoFilters,
   calendarFilter,
@@ -119,11 +186,16 @@ export function EventsMap({
   selectedTag,
   calendarNameByIcsUrl,
   eventAttributions,
+  dateInScope = () => true,
   mapRef,
 }) {
-  // Filter events: only those with lat/lng, and respecting active tag/calendar filter
+  // Filter events: only those with lat/lng, respecting the active tag/calendar
+  // filter and the global date window.
   const mappableEvents = useMemo(() => eventsIndex.filter(event => {
     if (!event.lat || !event.lng) return false
+
+    // Date-window filter (global "next N days" slider)
+    if (!dateInScope(event)) return false
 
     // Calendar/tag filter
     if (calendarFilter) {
@@ -135,7 +207,7 @@ export function EventsMap({
     }
 
     return true
-  }), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl])
+  }), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope])
 
   // Parse dates for popup display
   const eventsWithDates = useMemo(() => mappableEvents.map(event => ({
@@ -143,6 +215,37 @@ export function EventsMap({
     formattedDate: formatEventDate(event.date),
     calendarName: calendarNameByIcsUrl[event.icsUrl] || event.icsUrl?.replace('.ics', ''),
   })), [mappableEvents, calendarNameByIcsUrl])
+
+  // Viewport culling: only render markers within (a padded) current map bounds,
+  // re-filtering when the map pans/zooms. This keeps a date-window change cheap
+  // while the user is zoomed into a neighborhood — we rebuild dozens of markers,
+  // not thousands. `bounds` is null until the map reports its first viewport, in
+  // which case we render everything (the initial fit frames all events anyway).
+  const [bounds, setBounds] = useState(null)
+  const onBounds = useCallback((b) => setBounds(b), [])
+  const visibleEvents = useMemo(() => {
+    if (!bounds) return eventsWithDates
+    const padded = bounds.pad(0.5) // ~50% buffer so just-offscreen markers stay put while panning
+    return eventsWithDates.filter((e) => padded.contains([e.lat, e.lng]))
+  }, [eventsWithDates, bounds])
+
+  // Bare markers, memoized so the marker list is rebuilt only when the visible
+  // event set actually changes (not on every parent re-render). Popups are bound
+  // lazily on first click via Leaflet's bindPopup — constructing the
+  // popup/attribution markup only for the marker the user opens.
+  const markers = useMemo(() => visibleEvents.map((event) => (
+    <Marker
+      key={`event-${eventKey(event)}`}
+      position={[event.lat, event.lng]}
+      eventHandlers={{
+        click: (e) => {
+          const layer = e.target
+          if (!layer.getPopup()) layer.bindPopup(() => renderPopupHtml(event, eventAttributions))
+          layer.openPopup()
+        },
+      }}
+    />
+  )), [visibleEvents, eventAttributions])
 
   return (
     <div className="events-map-container" data-testid="events-map">
@@ -153,6 +256,7 @@ export function EventsMap({
         className="events-map"
       >
         <MapBridge mapRef={mapRef} />
+        <ViewportTracker onBounds={onBounds} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -178,9 +282,9 @@ export function EventsMap({
           </Circle>
         ))}
 
-        <FitBounds events={eventsWithDates} geoFilters={geoFilters} />
+        <FitBounds events={eventsWithDates} geoFilters={geoFilters} fitKey={`${calendarFilter || ''}|${selectedTag || ''}`} />
 
-        {/* Event markers */}
+        {/* Event markers — bare markers with lazy (on-click) popups */}
         <MarkerClusterGroup
           chunkedLoading
           iconCreateFunction={createClusterIcon}
@@ -188,30 +292,7 @@ export function EventsMap({
           maxClusterRadius={45}
           spiderfyOnMaxZoom={true}
         >
-          {eventsWithDates.map((event, i) => (
-            <Marker key={`event-${i}-${event.summary}`} position={[event.lat, event.lng]}>
-              <Popup>
-                <div className="map-popup">
-                  <strong className="map-popup-title">{event.summary}</strong>
-                  <div className="map-popup-date">{event.formattedDate}</div>
-                  {event.calendarName && (
-                    <div className="map-popup-source">{event.calendarName}</div>
-                  )}
-                  {event.url && (
-                    <a
-                      href={event.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="map-popup-link"
-                    >
-                      View event →
-                    </a>
-                  )}
-                  <AttributionChips attributions={eventAttributions?.get(eventKey(event))} />
-                </div>
-              </Popup>
-            </Marker>
-          ))}
+          {markers}
         </MarkerClusterGroup>
       </MapContainer>
 
@@ -224,3 +305,5 @@ export function EventsMap({
     </div>
   )
 }
+
+export const EventsMap = memo(EventsMapInner)
