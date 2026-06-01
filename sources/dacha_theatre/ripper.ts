@@ -164,7 +164,7 @@ function parseDateString(
 
     // Determine year: use explicit year if provided; otherwise try current year
     // first and fall back to next year if the date is already in the past.
-    let startZdt: ZonedDateTime;
+    let startZdt: ZonedDateTime = now;
     if (explicitYear !== undefined) {
         try {
             const localDate = LocalDate.of(explicitYear, monthNum, day);
