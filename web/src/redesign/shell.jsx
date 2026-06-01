@@ -163,16 +163,40 @@ export function BottomNav() {
 // or 'all'). Label shows both the relative phrase and the resolved end date.
 export function DateWindowSlider({ compact = false }) {
   const app = useApp206()
-  const idx = Math.max(0, DATE_WINDOW_STOPS.indexOf(app.dateWindow))
-  // Re-resolve labels each render so the absolute end date stays anchored to
-  // "now" across day boundaries / long-lived sessions.
-  const { relative, absoluteEnd } = describeWindow(app.dateWindow)
+  const committedIdx = Math.max(0, DATE_WINDOW_STOPS.indexOf(app.dateWindow))
+  // The thumb tracks LOCAL state, so dragging is never blocked by the heavy
+  // re-filter / marker rebuild — it updates instantly on every input event.
+  // We commit the picked stop to the global window (which triggers that work)
+  // only after a short pause, so the expensive pass runs once, not per step.
+  const [idx, setIdx] = useState(committedIdx)
+  const commitT = useRef(0)
+
+  // Re-sync the thumb when the window changes from elsewhere (Reset button, the
+  // active-filter chip, the other slider instance, URL navigation). committedIdx
+  // only moves once our debounced commit lands, so this never fights a drag.
+  useEffect(() => { setIdx(committedIdx) }, [committedIdx])
+  useEffect(() => () => clearTimeout(commitT.current), [])
+
+  const onChange = (e) => {
+    const next = Number(e.target.value)
+    setIdx(next) // instant thumb + label
+    clearTimeout(commitT.current)
+    commitT.current = setTimeout(() => app.setDateWindow(DATE_WINDOW_STOPS[next]), 180)
+  }
+
+  // Label follows the LOCAL thumb so it updates live while dragging. Re-resolved
+  // each render so the absolute end date stays anchored to "now".
+  const { relative, absoluteEnd } = describeWindow(DATE_WINDOW_STOPS[idx])
+  // "Updating" while the picked stop hasn't been applied yet (debounce in flight)
+  // or while the deferred re-filter is still catching up.
+  const pending = idx !== committedIdx || app.dateWindowPending
+
   return (
     <div className={`a-datewindow${compact ? ' a-datewindow--compact' : ''}`}>
       <div className="a-datewindow-label">
         <span className="a-datewindow-rel">
           {relative}
-          {app.dateWindowPending && <span className="a-datewindow-spin" role="status" aria-label="Updating events" />}
+          {pending && <span className="a-datewindow-spin" role="status" aria-label="Updating events" />}
         </span>
         {absoluteEnd && <span className="a-datewindow-abs">through {absoluteEnd}</span>}
       </div>
@@ -185,7 +209,7 @@ export function DateWindowSlider({ compact = false }) {
         value={idx}
         aria-label="Date range: how many days ahead to show"
         aria-valuetext={absoluteEnd ? `${relative}, through ${absoluteEnd}` : relative}
-        onChange={(e) => app.setDateWindow(DATE_WINDOW_STOPS[Number(e.target.value)])}
+        onChange={onChange}
       />
     </div>
   )

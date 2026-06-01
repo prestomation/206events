@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react'
+import { useMemo, useEffect, memo } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
@@ -111,7 +111,12 @@ function formatEventDate(dateStr) {
  *   calendarNameByIcsUrl - map of icsUrl → friendly calendar name
  *   eventAttributions  - optional Map<compositeKey, Attribution[]> from App.jsx for showing why events appear
  */
-export function EventsMap({
+// Memoized so the heavy marker/cluster subtree is rebuilt only when its own
+// inputs actually change. While the date-window slider is being dragged, the
+// parent re-renders on the urgent pass but EventsMap's props (including the
+// deferred-window-keyed `dateInScope`) are referentially stable, so React skips
+// this subtree entirely and the thumb stays responsive.
+function EventsMapInner({
   eventsIndex,
   geoFilters,
   calendarFilter,
@@ -229,3 +234,5 @@ export function EventsMap({
     </div>
   )
 }
+
+export const EventsMap = memo(EventsMapInner)
