@@ -12,6 +12,7 @@ const app = new Hono<{ Bindings: Env }>()
 app.use('*', cors({
   origin: (origin) => {
     if (!origin) return ''
+    if (origin === 'https://api.206.events') return origin
     if (origin === 'https://206.events') return origin
     if (origin === 'https://prestomation.github.io') return origin
     if (origin.startsWith('http://localhost')) return origin
