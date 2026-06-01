@@ -1,28 +1,36 @@
-import { Duration, ZonedDateTime, ZoneId } from "@js-joda/core";
+import { Duration, LocalDate, LocalTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
-interface HumanitixEvent {
-    "@type": string;
-    name: string;
-    url: string;
-    startDate: string;
-    endDate?: string;
-    description?: string;
-    image?: string;
-    location?: {
-        name?: string;
-        address?: {
-            streetAddress?: string;
-            addressLocality?: string;
-        };
-    };
+export interface DachaPerformance {
+    dateStr: string;  // e.g. "Fri, Jun 5, 7:30pm - 10pm PDT" (year stripped if present)
+    dateId: string;   // hex from URL
+    year?: number;    // explicitly parsed year, when present in the source HTML
 }
 
-// Humanitix emits offsets like "-0700" (no colon); js-joda requires "-07:00".
-function normalizeIsoOffset(dateStr: string): string {
-    return dateStr.replace(/([+-])(\d{2})(\d{2})$/, '$1$2:$3');
+export interface DachaEventPage {
+    title: string;
+    location: string | undefined;
+    url: string;
+    performances: DachaPerformance[];
+}
+
+const MONTH_MAP: Record<string, number> = {
+    Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6,
+    Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12,
+};
+
+// Parse "7:30pm" or "2pm" into { hour, minute } in 24-hour.
+function parseTime(timeStr: string): { hour: number; minute: number } | undefined {
+    const m = timeStr.trim().match(/^(\d+)(?::(\d+))?(am|pm)$/i);
+    if (!m) return undefined;
+    let hour = parseInt(m[1], 10);
+    const minute = m[2] ? parseInt(m[2], 10) : 0;
+    const period = m[3].toLowerCase();
+    if (period === 'pm' && hour !== 12) hour += 12;
+    if (period === 'am' && hour === 12) hour = 0;
+    return { hour, minute };
 }
 
 // Extract unique Humanitix event page URLs from Dacha homepage HTML.
@@ -41,89 +49,209 @@ export function extractHumanitixLinks(html: string): string[] {
     return links;
 }
 
-// Extract events from a Humanitix per-production page (JSON array of Event objects).
-export function extractDachaEvents(html: string): { events: HumanitixEvent[]; parseError?: RipperError } {
-    const scriptRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-    let match: RegExpExecArray | null;
-    while ((match = scriptRegex.exec(html)) !== null) {
-        try {
-            const data: unknown = JSON.parse(match[1]);
-            if (
-                Array.isArray(data) &&
-                data.length > 0 &&
-                (data as Record<string, unknown>[])[0]['@type'] === 'Event'
-            ) {
-                return { events: data as HumanitixEvent[] };
-            }
-        } catch { /* skip malformed JSON-LD */ }
+// Extract event page data from a Humanitix per-production HTML page.
+export function extractDachaEvents(html: string, url: string): { page?: DachaEventPage; parseError?: RipperError } {
+    // Extract title from first <h1>
+    const h1Match = html.match(/<h1[^>]*>([^<]+)<\/h1>/i);
+    const title = h1Match ? h1Match[1].trim() : undefined;
+
+    if (!title) {
+        return {
+            parseError: {
+                type: "ParseError",
+                reason: "No <h1> title found on Humanitix event page",
+                context: url,
+            },
+        };
     }
+
+    // Extract venue name from first <h2>
+    const h2Match = html.match(/<h2[^>]*>([^<]+)<\/h2>/i);
+    const venue = h2Match ? h2Match[1].trim() : undefined;
+
+    // Extract street address
+    const addrRegex = /(\d+\s+[\w\s]+(?:Ave|St|Blvd|Way|Dr|Rd|Pl)[^,<"]*,\s*Seattle[^<"]{0,60})/i;
+    const addrMatch = html.match(addrRegex);
+    const address = addrMatch ? addrMatch[1].trim() : undefined;
+
+    const location = venue && address
+        ? `${venue}, ${address}`
+        : venue || undefined;
+
+    // Extract performances from ticket links with dateId
+    const perfRegex = /<a\b[^>]+href="[^"]+\/tickets\?dateId=([a-f0-9]+)"[^>]*>([^<]+)<\/a>/gi;
+    const performances: DachaPerformance[] = [];
+    let m: RegExpExecArray | null;
+    while ((m = perfRegex.exec(html)) !== null) {
+        const dateId = m[1];
+        let dateStr = m[2].replace(/\(Opens in new tab\)/gi, '').trim();
+        // Extract explicit year if present (e.g. "Fri, Jun 5, 2026, 7:30pm - 10pm PDT")
+        const yearMatch = dateStr.match(/,\s*(20\d{2}),/);
+        let year: number | undefined;
+        if (yearMatch) {
+            year = parseInt(yearMatch[1], 10);
+            dateStr = dateStr.replace(/,\s*20\d{2}/, '').trim();
+        }
+        performances.push({ dateId, dateStr, ...(year !== undefined ? { year } : {}) });
+    }
+
+    if (performances.length === 0) {
+        return {
+            parseError: {
+                type: "ParseError",
+                reason: "No ticket date links found on Humanitix event page",
+                context: url,
+            },
+        };
+    }
+
     return {
-        events: [],
-        parseError: {
-            type: "ParseError",
-            reason: "No Event array JSON-LD found on page",
-            context: "dacha-theatre",
-        },
+        page: { title, location, url, performances },
     };
 }
 
+// Parse "Fri, Jun 5, 7:30pm - 10pm PDT" into a ZonedDateTime (start) and Duration.
+// Returns parseError if the string cannot be parsed.
+// If explicitYear is provided it is used directly; otherwise the function tries
+// the current year first and falls back to the next year if the date is already past.
+function parseDateString(
+    dateStr: string,
+    now: ZonedDateTime,
+    timezone: ZoneId,
+    explicitYear?: number,
+): { start: ZonedDateTime; duration: Duration } | { parseError: RipperError } {
+    // Pattern: "Dow, Mon Day, StartTime - EndTime TZ"
+    // e.g. "Fri, Jun 5, 7:30pm - 10pm PDT"
+    const datePattern = /^[A-Za-z]+,\s+([A-Za-z]+)\s+(\d+),\s+([^\s]+)\s*-\s*([^\s]+)\s+[A-Z]+$/;
+    const m = dateStr.trim().match(datePattern);
+    if (!m) {
+        return {
+            parseError: {
+                type: "ParseError",
+                reason: `Cannot parse date string: "${dateStr}"`,
+                context: "dacha-theatre",
+            },
+        };
+    }
+
+    const monthName = m[1];
+    const day = parseInt(m[2], 10);
+    const startTimeStr = m[3];
+    const endTimeStr = m[4];
+
+    const monthNum = MONTH_MAP[monthName];
+    if (!monthNum) {
+        return {
+            parseError: {
+                type: "ParseError",
+                reason: `Unknown month "${monthName}" in date string: "${dateStr}"`,
+                context: "dacha-theatre",
+            },
+        };
+    }
+
+    const startTimeParts = parseTime(startTimeStr);
+    const endTimeParts = parseTime(endTimeStr);
+    if (!startTimeParts || !endTimeParts) {
+        return {
+            parseError: {
+                type: "ParseError",
+                reason: `Cannot parse time in date string: "${dateStr}"`,
+                context: "dacha-theatre",
+            },
+        };
+    }
+
+    // Determine year: use explicit year if provided; otherwise try current year
+    // first and fall back to next year if the date is already in the past.
+    let startZdt: ZonedDateTime = now;
+    if (explicitYear !== undefined) {
+        try {
+            const localDate = LocalDate.of(explicitYear, monthNum, day);
+            const localStart = localDate.atTime(LocalTime.of(startTimeParts.hour, startTimeParts.minute));
+            startZdt = localStart.atZone(timezone);
+        } catch {
+            return {
+                parseError: {
+                    type: "ParseError",
+                    reason: `Invalid date in "${dateStr}"`,
+                    context: "dacha-theatre",
+                },
+            };
+        }
+    } else {
+        const currentYear = now.year();
+        let foundValidDate = false;
+        for (const yearOffset of [0, 1]) {
+            const year = currentYear + yearOffset;
+            try {
+                const localDate = LocalDate.of(year, monthNum, day);
+                const localStart = localDate.atTime(LocalTime.of(startTimeParts.hour, startTimeParts.minute));
+                startZdt = localStart.atZone(timezone);
+                if (!startZdt.isBefore(now)) {
+                    foundValidDate = true;
+                    break;
+                }
+            } catch {
+                return {
+                    parseError: {
+                        type: "ParseError",
+                        reason: `Invalid date in "${dateStr}"`,
+                        context: "dacha-theatre",
+                    },
+                };
+            }
+        }
+        if (!foundValidDate) {
+            return {
+                parseError: {
+                    type: "ParseError",
+                    reason: `All candidate years are in the past for date string: "${dateStr}"`,
+                    context: "dacha-theatre",
+                },
+            };
+        }
+    }
+
+    // Compute end time
+    let endMinutes = endTimeParts.hour * 60 + endTimeParts.minute;
+    const startMinutes = startTimeParts.hour * 60 + startTimeParts.minute;
+    if (endMinutes <= startMinutes) {
+        // Midnight crossover
+        endMinutes += 24 * 60;
+    }
+    const durationMinutes = endMinutes - startMinutes;
+    const duration = Duration.ofMinutes(durationMinutes);
+
+    return { start: startZdt, duration };
+}
+
 export function parseDachaEvents(
-    rawEvents: HumanitixEvent[],
+    page: DachaEventPage,
     now: ZonedDateTime,
     timezone: ZoneId,
 ): { events: RipperCalendarEvent[]; errors: RipperError[] } {
     const events: RipperCalendarEvent[] = [];
     const errors: RipperError[] = [];
 
-    for (const event of rawEvents) {
-        if (event['@type'] !== 'Event') continue;
-
-        let startZdt: ZonedDateTime;
-        try {
-            startZdt = ZonedDateTime.parse(normalizeIsoOffset(event.startDate)).withZoneSameInstant(timezone);
-        } catch {
-            errors.push({
-                type: "ParseError",
-                reason: `Invalid startDate: ${event.startDate}`,
-                context: event.name,
-            });
+    for (const perf of page.performances) {
+        const result = parseDateString(perf.dateStr, now, timezone, perf.year);
+        if ('parseError' in result) {
+            errors.push(result.parseError);
             continue;
         }
 
-        if (startZdt.isBefore(now)) continue;
-
-        let duration = Duration.ofHours(2);
-        if (event.endDate) {
-            try {
-                const endZdt = ZonedDateTime.parse(normalizeIsoOffset(event.endDate)).withZoneSameInstant(timezone);
-                const diffMinutes = Duration.between(startZdt, endZdt).toMinutes();
-                if (diffMinutes > 0 && diffMinutes <= 8 * 60) {
-                    duration = Duration.ofMinutes(diffMinutes);
-                }
-            } catch { /* keep default duration */ }
-        }
-
-        // ID: slug from URL + start datetime digits, stable across builds.
-        const slug = event.url.split('/').filter(Boolean).pop() ?? '';
-        const startClean = event.startDate.replace(/[^0-9T]/g, '').substring(0, 15);
-        const id = `dacha-${slug}-${startClean}`;
-
-        const location = event.location?.address?.streetAddress
-            ? event.location.name
-                ? `${event.location.name}, ${event.location.address.streetAddress}`
-                : event.location.address.streetAddress
-            : undefined;
+        const { start, duration } = result;
+        if (start.isBefore(now)) continue;
 
         events.push({
-            id,
+            id: `dacha-${perf.dateId}`,
             ripped: new Date(),
-            date: startZdt,
+            date: start,
             duration,
-            summary: event.name,
-            description: event.description?.trim().substring(0, 500) || undefined,
-            location,
-            url: event.url,
-            image: event.image,
+            summary: page.title,
+            location: page.location,
+            url: page.url,
         });
     }
 
@@ -168,11 +296,16 @@ export default class DachaTheatreRipper implements IRipper {
                 continue;
             }
             const html = await res.text();
-            const { events: rawEvents, parseError } = extractDachaEvents(html);
-            if (parseError) allErrors.push(parseError);
-            const { events, errors } = parseDachaEvents(rawEvents, now, timezone);
-            allEvents.push(...events);
-            allErrors.push(...errors);
+            const { page, parseError } = extractDachaEvents(html, url);
+            if (parseError) {
+                allErrors.push(parseError);
+                continue;
+            }
+            if (page) {
+                const { events, errors } = parseDachaEvents(page, now, timezone);
+                allEvents.push(...events);
+                allErrors.push(...errors);
+            }
         }
 
         const calConfig = ripper.config.calendars[0];
