@@ -3,16 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#17150f" media="(prefers-color-scheme: dark)" />
     <meta name="description" content="Browse event calendars from Seattle venues, neighborhoods, and organizations. Subscribe via ICS, add events to Google Calendar, or follow RSS feeds for music, art, markets, community events, and more." />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="llms-txt" href="/llms.txt" />
     <title>206.events</title>
+    <!-- Pre-paint boot screen: styled inline so it appears on first paint,
+         before the JS bundle parses and the app's CSS is applied. React's
+         createRoot replaces #root's children on mount, removing it. -->
+    <style>
+      html, body { margin: 0; }
+      body { background: #faf8f4; }
+      .boot-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        background: #faf8f4;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      .boot-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: #1a1a2e;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 20px;
+        letter-spacing: -0.02em;
+      }
+      .boot-ring {
+        width: 28px;
+        height: 28px;
+        border: 3px solid rgba(26, 26, 46, 0.15);
+        border-top-color: #1366d6;
+        border-radius: 50%;
+        animation: boot-spin 0.8s linear infinite;
+      }
+      @keyframes boot-spin { to { transform: rotate(360deg); } }
+      @media (prefers-color-scheme: dark) {
+        body, .boot-loader { background: #17150f; }
+        .boot-logo { background: #ece6d8; color: #17150f; }
+        .boot-ring { border-color: rgba(236, 230, 216, 0.18); border-top-color: #4dabf7; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .boot-ring { animation: none; }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="boot-loader" role="status" aria-label="Loading 206.events">
+        <div class="boot-logo">206</div>
+        <div class="boot-ring"></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
       // Only load GoatCounter on production, not on PR previews or local dev

@@ -8,6 +8,7 @@ import { AttributionChips } from './components/AttributionChips.jsx'
 import { AddToCalendar } from './components/AddToCalendar.jsx'
 import { EventDescription } from './components/EventDescription.jsx'
 import { HealthDashboard } from './components/HealthDashboard.jsx'
+import { LoadingScreen } from './components/LoadingScreen.jsx'
 import { useBreakpoint } from './hooks/useBreakpoint.js'
 import { formatTagLabel } from './utils/format.js'
 import { isIOS } from './utils/platform.js'
@@ -1468,7 +1469,7 @@ function App() {
   }
 
   if (loading) {
-    return <div className="loading">Loading calendars...</div>
+    return <LoadingScreen />
   }
 
   return (

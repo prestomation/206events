@@ -134,7 +134,7 @@ function AddressAutocomplete({ onSelect }) {
         onChange={handleInput}
         autoComplete="off"
       />
-      {loading && <span className="geo-filter-address-loading">⏳</span>}
+      {loading && <span className="geo-filter-address-loading" role="status" aria-label="Searching" />}
       {showDropdown && suggestions.length > 0 && (
         <ul className="address-dropdown">
           {suggestions.map((feat, i) => {
