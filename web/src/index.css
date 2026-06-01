@@ -3318,7 +3318,7 @@ html, body, #root { height: 100%; }
 
 /* ---- follow pill ---- */
 .app206 .pill-follow { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 14px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--blue-soft); color: var(--blue-ink); border: 1px solid transparent; white-space: nowrap; }
-.app206 .pill-follow.on { background: var(--ink); color: #fff; }
+.app206 .pill-follow.on { background: var(--c-market); color: var(--paper); }
 .app206 .pill-follow svg { width: 14px; height: 14px; }
 
 /* ---- event row ---- */
@@ -3354,7 +3354,8 @@ html, body, #root { height: 100%; }
 /* ---- buttons ---- */
 .app206 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; padding: 0 18px; border-radius: 12px; font-weight: 600; font-size: 15px; }
 .app206 .btn-blue { background: var(--blue); color: #fff; }
-.app206 .btn-ink { background: var(--ink); color: #fff; }
+.app206 .btn-ink { background: var(--ink); color: var(--paper); }
+.app206 .btn-follow { background: var(--c-market); color: var(--paper); }
 .app206 .btn-ghost { background: var(--surface); border: 1.5px solid var(--line-2); color: var(--ink); }
 .app206 .btn:disabled { opacity: .6; cursor: default; }
 .app206 .btn svg { width: 18px; height: 18px; }
