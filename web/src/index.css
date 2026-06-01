@@ -3589,6 +3589,17 @@ html, body, #root { height: 100%; }
 .app206 .a-mapbar .a-iconbtn { width: 36px; height: 36px; border-radius: 10px; }
 .app206 .a-mapbar .a-iconbtn svg { width: 18px; height: 18px; }
 .app206 .a-mapsave { height: 36px; font-size: 13px; padding: 0 12px; }
+/* Floating "next N days" date-window slider over the map (bottom overlay), and
+   the same control inline inside the filter popover. */
+.app206 .a-mapfilter { position: absolute; left: 16px; right: 16px; bottom: 16px; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
+.app206 .a-datewindow { display: flex; flex-direction: column; gap: 7px; }
+.app206 .a-datewindow-label { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.app206 .a-datewindow-rel { font-size: 14px; font-weight: 600; color: var(--ink); }
+.app206 .a-datewindow-abs { font-size: 12px; color: var(--ink-3); }
+.app206 .a-datewindow-range { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: var(--line); outline: none; margin: 4px 0; cursor: pointer; }
+.app206 .a-datewindow-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 2px solid #fff; box-shadow: 0 1px 3px rgba(20,15,10,.25); cursor: pointer; }
+.app206 .a-datewindow-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 2px solid #fff; box-shadow: 0 1px 3px rgba(20,15,10,.25); cursor: pointer; }
+.app206 .a-datewindow-range:focus-visible { box-shadow: 0 0 0 3px var(--blue-soft); }
 /* Expanded (full-screen) desktop map: lift the panel out of the right column
    to cover the whole app. The MapBridge ResizeObserver re-sizes Leaflet. */
 .app206 .a-map--expanded { position: fixed; inset: 0; z-index: 1200; background: var(--surface); display: block; }

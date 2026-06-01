@@ -90,6 +90,43 @@ export function upcomingIndexEvents(eventsIndex, { months = 6, now = new Date() 
     .map(({ event }) => event)
 }
 
+// --- Date-window filter -----------------------------------------------------
+// The "next N days" map/list filter is a single global value: either a number
+// of days from today, or 'all' (no date filtering, the default). These are the
+// discrete slider stops, smallest to largest.
+export const DATE_WINDOW_STOPS = [0, 3, 7, 14, 30, 90, 'all']
+
+// True when `event` falls within [today, today + windowDays] (inclusive),
+// honoring the event's own timezone via localDay(). 'all' (or null) matches
+// everything; past events and unparseable dates never match a numeric window.
+export function eventInWindow(event, windowDays, now = new Date()) {
+  if (windowDays === 'all' || windowDays == null) return true
+  const parsed = parseIndexDate(event.date)
+  if (!parsed) return false
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const day = localDay(parsed)
+  const diff = Math.round((day - todayStart) / 86400000)
+  return diff >= 0 && diff <= windowDays
+}
+
+// Human labels for a window stop: the relative phrase plus the resolved
+// absolute end date (null for 'all', which has no end).
+export function describeWindow(windowDays, now = new Date()) {
+  if (windowDays === 'all' || windowDays == null) {
+    return { relative: 'All upcoming', absoluteEnd: null }
+  }
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const end = new Date(todayStart)
+  end.setDate(end.getDate() + windowDays)
+  const absoluteEnd = end.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+  if (windowDays === 0) return { relative: 'Today', absoluteEnd }
+  if (windowDays === 7) return { relative: 'Next 7 days', absoluteEnd }
+  if (windowDays === 14) return { relative: 'Next 2 weeks', absoluteEnd }
+  if (windowDays === 30) return { relative: 'Next 30 days', absoluteEnd }
+  if (windowDays === 90) return { relative: 'Next 3 months', absoluteEnd }
+  return { relative: `Next ${windowDays} days`, absoluteEnd }
+}
+
 // Reduce an event's attribution list to a single provenance chip descriptor.
 // "first matching reason wins" — order is calendar → search → geo.
 export function provFromAttributions(attributions) {

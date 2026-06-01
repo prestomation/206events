@@ -119,11 +119,16 @@ export function EventsMap({
   selectedTag,
   calendarNameByIcsUrl,
   eventAttributions,
+  dateInScope = () => true,
   mapRef,
 }) {
-  // Filter events: only those with lat/lng, and respecting active tag/calendar filter
+  // Filter events: only those with lat/lng, respecting the active tag/calendar
+  // filter and the global date window.
   const mappableEvents = useMemo(() => eventsIndex.filter(event => {
     if (!event.lat || !event.lng) return false
+
+    // Date-window filter (global "next N days" slider)
+    if (!dateInScope(event)) return false
 
     // Calendar/tag filter
     if (calendarFilter) {
@@ -135,7 +140,7 @@ export function EventsMap({
     }
 
     return true
-  }), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl])
+  }), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope])
 
   // Parse dates for popup display
   const eventsWithDates = useMemo(() => mappableEvents.map(event => ({

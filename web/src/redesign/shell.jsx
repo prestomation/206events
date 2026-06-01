@@ -1,10 +1,11 @@
 // App shell chrome: top bar, desktop rail, mobile bottom nav, map panel, toast.
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { Brand } from './atoms.jsx'
 import { EventsMap } from '../components/EventsMap.jsx'
+import { DATE_WINDOW_STOPS, describeWindow } from './viewModels.js'
 
 const NAV_ITEMS = [
   { id: 'discover', label: 'Discover', icon: Ico.spark },
@@ -157,23 +158,47 @@ export function BottomNav() {
   )
 }
 
+// A single "next N days" slider over the discrete DATE_WINDOW_STOPS. The thumb
+// position is the stop index; the value is the global `dateWindow` (a day count
+// or 'all'). Label shows both the relative phrase and the resolved end date.
+export function DateWindowSlider({ compact = false }) {
+  const app = useApp206()
+  const idx = Math.max(0, DATE_WINDOW_STOPS.indexOf(app.dateWindow))
+  // Re-resolve labels each render so the absolute end date stays anchored to
+  // "now" across day boundaries / long-lived sessions.
+  const { relative, absoluteEnd } = describeWindow(app.dateWindow)
+  return (
+    <div className={`a-datewindow${compact ? ' a-datewindow--compact' : ''}`}>
+      <div className="a-datewindow-label">
+        <span className="a-datewindow-rel">{relative}</span>
+        {absoluteEnd && <span className="a-datewindow-abs">through {absoluteEnd}</span>}
+      </div>
+      <input
+        type="range"
+        className="a-datewindow-range"
+        min={0}
+        max={DATE_WINDOW_STOPS.length - 1}
+        step={1}
+        value={idx}
+        aria-label="Date range: how many days ahead to show"
+        onChange={(e) => app.setDateWindow(DATE_WINDOW_STOPS[Number(e.target.value)])}
+      />
+    </div>
+  )
+}
+
 export function FilterPopover() {
   const app = useApp206()
-  const scopes = [['all', 'Any day'], ['today', 'Today'], ['weekend', 'This weekend']]
   return (
     <>
       <div onClick={app.toggleFilter} style={{ position: 'absolute', inset: 0, zIndex: 70 }} />
       <div className="a-filterpop">
         <div className="a-eyebrow" style={{ marginBottom: 9 }}>WHEN</div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 14 }}>
-          {scopes.map(([v, label]) => (
-            <button key={v} onClick={() => app.setDateScope(v)} className={`a-scope ${app.dateScope === v ? 'on' : ''}`}>
-              <span style={{ width: 16, height: 16, flex: '0 0 auto' }}>{app.dateScope === v ? Ico.check : Ico.clock}</span>{label}
-            </button>
-          ))}
+        <div style={{ marginBottom: 14 }}>
+          <DateWindowSlider />
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
-          <button className="btn btn-ghost" style={{ flex: 1, height: 38, fontSize: 13 }} onClick={() => app.setDateScope('all')}>Reset</button>
+          <button className="btn btn-ghost" style={{ flex: 1, height: 38, fontSize: 13 }} onClick={() => app.setDateWindow('all')}>Reset</button>
           <button className="btn btn-blue" style={{ flex: 1, height: 38, fontSize: 13 }} onClick={app.toggleFilter}>Done</button>
         </div>
       </div>
@@ -196,6 +221,15 @@ export function MapPanel({ mobile = false }) {
     return () => document.removeEventListener('keydown', onKey)
   }, [expanded, app])
 
+  // Count what the map actually plots so the badge tracks the date window:
+  // events with coords, matching the open-channel filter, inside the window.
+  const shownCount = useMemo(() => {
+    const openCh = app.openCh || null
+    return app.eventsIndex.filter((e) =>
+      e.lat && e.lng && (!openCh || e.icsUrl === openCh) && app.inScope(e)
+    ).length
+  }, [app.eventsIndex, app.openCh, app.inScope])
+
   const map = (
     <EventsMap
       eventsIndex={app.eventsIndex}
@@ -205,19 +239,26 @@ export function MapPanel({ mobile = false }) {
       selectedTag={null}
       calendarNameByIcsUrl={app.calendarNameByIcsUrl}
       eventAttributions={app.eventAttributions}
+      dateInScope={app.inScope}
       mapRef={mobile ? undefined : app.mapRef}
     />
   )
+  const filterBar = (
+    <div className="a-mapfilter">
+      <DateWindowSlider compact />
+    </div>
+  )
   if (mobile) {
-    return <div className="a-mapview">{map}</div>
+    return <div className="a-mapview">{map}{filterBar}</div>
   }
   return (
     <div className="a-mappanel">
       {map}
+      {filterBar}
       <div className="a-mapbar">
         <div>
           <div className="a-h2" style={{ fontSize: 15 }}>Near you</div>
-          <div className="mk-tag" style={{ marginTop: 2 }}>{app.eventsIndex.length} EVENTS</div>
+          <div className="mk-tag" style={{ marginTop: 2 }}>{shownCount} EVENTS</div>
         </div>
         <div className="a-mapbar-actions">
           <button className="a-iconbtn a-mapexpand" onClick={app.toggleMapExpand}

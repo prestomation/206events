@@ -3,7 +3,7 @@
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
-import { rowFromIndexEvent, provFromAttributions } from './viewModels.js'
+import { rowFromIndexEvent, provFromAttributions, describeWindow } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 import { formatTagLabel } from '../utils/format.js'
 
@@ -124,7 +124,7 @@ export function DayList({ groups, withReason = false }) {
 export function ActiveFilters() {
   const app = useApp206()
   const q = app.query.trim()
-  const scopeLabel = { today: 'Today', weekend: 'This weekend' }[app.dateScope]
+  const scopeLabel = app.dateWindow !== 'all' ? describeWindow(app.dateWindow).relative : null
   const saved = q && app.searchFilters.some((f) => f.toLowerCase() === q.toLowerCase())
   if (!app.hasActiveFilters) return null
   return (
@@ -148,7 +148,7 @@ export function ActiveFilters() {
         <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.pin}</span>} label={formatTagLabel(app.neighborhood)} onClear={() => app.setNeighborhood(null)} />
       )}
       {scopeLabel && (
-        <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.clock}</span>} label={scopeLabel} onClear={() => app.setDateScope('all')} />
+        <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.clock}</span>} label={scopeLabel} onClear={() => app.setDateWindow('all')} />
       )}
     </div>
   )

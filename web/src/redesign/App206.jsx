@@ -8,7 +8,7 @@ import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
 import { DiscoverView, FollowingView, YouView, ChannelDetail, EventDetail } from './views.jsx'
 import { HealthDashboard } from '../components/HealthDashboard.jsx'
-import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, parseIndexDate } from './viewModels.js'
+import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, eventInWindow } from './viewModels.js'
 import { isCategoryTag, isNeighborhoodTag } from './categories.js'
 import { eventKey } from '../lib/eventKey.js'
 import { haversineKm } from '../lib/haversine.js'
@@ -40,7 +40,7 @@ export function App206(props) {
   const [openCh, setOpenCh] = useState(null)        // icsUrl
   const [openEventObj, setOpenEventObj] = useState(null)
   const [filterOpen, setFilterOpen] = useState(false)
-  const [dateScope, setDateScope] = useState(() => initialUrl.dateScope)
+  const [dateWindow, setDateWindow] = useState(() => initialUrl.dateWindow)
   const [emphasis, setEmphasis] = useState(() => initialUrl.emphasis)
   // Committed search query (drives filtering); the TopBar debounces into this.
   const [query, setQuery] = useState(() => initialUrl.q)
@@ -146,30 +146,15 @@ export function App206(props) {
     return list.filter((e) => queryKeySet.has(eventKey(e)))
   }, [queryKeySet])
 
-  /* ---- date-scope filter ---- */
-  const inScope = useCallback((event) => {
-    if (dateScope === 'all') return true
-    const parsed = parseIndexDate(event.date)
-    if (!parsed) return false
-    const now = new Date()
-    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-    const day = new Date(parsed.date.getFullYear(), parsed.date.getMonth(), parsed.date.getDate())
-    const diff = Math.round((day - todayStart) / 86400000)
-    if (dateScope === 'today') return diff === 0
-    if (dateScope === 'weekend') {
-      // nearest upcoming Sat/Sun within the next 7 days
-      const dow = day.getDay()
-      return diff >= 0 && diff < 7 && (dow === 0 || dow === 6)
-    }
-    return true
-  }, [dateScope])
+  /* ---- date-window filter ("next N days" slider; 'all' = no filter) ---- */
+  const inScope = useCallback((event) => eventInWindow(event, dateWindow), [dateWindow])
 
   const scopeGroups = useCallback((groups) => {
-    if (dateScope === 'all') return groups
+    if (dateWindow === 'all') return groups
     return groups
       .map((g) => ({ ...g, events: g.events.filter(inScope) }))
       .filter((g) => g.events.length)
-  }, [dateScope, inScope])
+  }, [dateWindow, inScope])
 
   const scopedUpcoming = useMemo(() => upcomingEvents.filter(inScope), [upcomingEvents, inScope])
   const feedGroups = useMemo(() => scopeGroups(followingGroups || []), [followingGroups, scopeGroups])
@@ -199,9 +184,9 @@ export function App206(props) {
 
   /* ---- URL deep-linking: keep the hash in sync with the state above ---- */
   useUrlState({
-    section, openCh, openEventObj, dateScope, emphasis, query, category, neighborhood,
+    section, openCh, openEventObj, dateWindow, emphasis, query, category, neighborhood,
     healthTab, healthSource,
-    setDateScope, setEmphasis, setQuery, setCategory, setNeighborhood,
+    setDateWindow, setEmphasis, setQuery, setCategory, setNeighborhood,
     setHealthTab, setHealthSource,
     go, openChannel, openEvent, back,
     channelByIcsUrl, upcomingEvents, loading,
@@ -209,7 +194,7 @@ export function App206(props) {
 
   /* ---- active filters: clearers + a convenience reset ---- */
   const clearSearch = useCallback(() => setQuery(''), [])
-  const hasActiveFilters = !!(query.trim() || category || neighborhood || dateScope !== 'all')
+  const hasActiveFilters = !!(query.trim() || category || neighborhood || dateWindow !== 'all')
 
   const toggleFollow = useCallback((icsUrl) => {
     const was = favoritesSet.has(icsUrl)
@@ -254,7 +239,7 @@ export function App206(props) {
     upcomingEvents: scopedUpcoming, eventsByIcsUrl,
     feedGroups, matchEvents, inScope,
     // ui state
-    section, openCh, openEventObj, dateScope, setDateScope, emphasis, setEmphasis,
+    section, openCh, openEventObj, dateWindow, setDateWindow, emphasis, setEmphasis,
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     hasActiveFilters, toast, todayLabel,
     mapRef, mapExpanded, toggleMapExpand,
