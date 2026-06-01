@@ -3,6 +3,10 @@
  * in the user's feed (favorited calendar, search filter, or geo filter).
  *
  * The CSS class is whitelisted to prevent injection via unknown attr.type values.
+ *
+ * NOTE: This component is mirrored as a plain HTML string in
+ * EventsMap.jsx#attributionChipsHtml (map popups are built imperatively for
+ * performance). Keep the icon mapping and className whitelist in sync there.
  */
 export function AttributionChips({ attributions }) {
   if (!attributions?.length) return null
