@@ -5,7 +5,7 @@ import '@js-joda/timezone';
 
 export interface DachaPerformance {
     dateStr: string;  // e.g. "Fri, Jun 5, 7:30pm - 10pm PDT" (year stripped if present)
-    dateId: string;   // hex from URL
+    dateId: string;   // alphanumeric ID from dateId URL parameter
     year?: number;    // explicitly parsed year, when present in the source HTML
 }
 
@@ -79,7 +79,7 @@ export function extractDachaEvents(html: string, url: string): { page?: DachaEve
         : venue || undefined;
 
     // Extract performances from ticket links with dateId
-    const perfRegex = /<a\b[^>]+href="[^"]+\/tickets\?dateId=([a-f0-9]+)"[^>]*>([^<]+)<\/a>/gi;
+    const perfRegex = /<a\b[^>]+href="[^"]+\/tickets\?dateId=([a-zA-Z0-9_-]+)"[^>]*>([^<]+)<\/a>/gi;
     const performances: DachaPerformance[] = [];
     let m: RegExpExecArray | null;
     while ((m = perfRegex.exec(html)) !== null) {
@@ -95,16 +95,10 @@ export function extractDachaEvents(html: string, url: string): { page?: DachaEve
         performances.push({ dateId, dateStr, ...(year !== undefined ? { year } : {}) });
     }
 
-    if (performances.length === 0) {
-        return {
-            parseError: {
-                type: "ParseError",
-                reason: "No ticket date links found on Humanitix event page",
-                context: url,
-            },
-        };
-    }
-
+    // Return an empty page (not a ParseError) when no ticket links are found.
+    // Humanitix is a React SPA: Browserbase's Fetch API executes JS for challenge
+    // bypass but does not wait for async React data loading, so the rendered HTML
+    // may not contain ticket links even though the show is active.
     return {
         page: { title, location, url, performances },
     };
