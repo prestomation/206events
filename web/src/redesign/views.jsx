@@ -358,12 +358,19 @@ export function ChannelDetail({ icsUrl }) {
             href={channel.cal.rssUrl} target="_blank" rel="noopener noreferrer">{Ico.rss}RSS</a>
         )}
       </div>
-      <button className="btn btn-ghost" style={{ width: '100%', marginBottom: 22, height: 40, fontSize: 13.5 }}
-        onClick={() => {
-          const link = app.createHttpsUrl(channel.cal.icsUrl, channel.cal.originalIcsUrl)
-          navigator.clipboard?.writeText(link)
-          app.flash('Subscription link copied ✓')
-        }}>{Ico.cal}Copy subscription link</button>
+      <div style={{ display: 'flex', gap: 9, marginBottom: 22 }}>
+        <button className="btn btn-ghost" style={{ flex: 1, minWidth: 0, height: 40, fontSize: 13.5 }}
+          onClick={() => {
+            navigator.clipboard?.writeText(window.location.href)
+            app.flash('Link copied ✓')
+          }}>{Ico.link}Copy link</button>
+        <button className="btn btn-ghost" style={{ flex: 1, minWidth: 0, height: 40, fontSize: 13.5 }}
+          onClick={() => {
+            const link = app.createHttpsUrl(channel.cal.icsUrl, channel.cal.originalIcsUrl)
+            navigator.clipboard?.writeText(link)
+            app.flash('Subscription link copied ✓')
+          }}>{Ico.cal}Subscription link</button>
+      </div>
 
       {channel.distributed && (
         <div className="a-note">
@@ -439,6 +446,12 @@ export function EventDetail({ event }) {
             title={app.favoritesSet.has(event.icsUrl) ? 'Following calendar' : 'Follow calendar'}
             onClick={() => app.toggleFollow(event.icsUrl)}>{app.favoritesSet.has(event.icsUrl) ? <span style={{ width: 18, height: 18 }}>{Ico.check}</span> : '♥'}</button>
         )}
+        <button className="btn btn-ghost" style={{ flex: '0 0 auto', width: 52, padding: 0 }}
+          title="Copy link to this event"
+          onClick={() => {
+            navigator.clipboard?.writeText(window.location.href)
+            app.flash('Link copied ✓')
+          }}><span style={{ width: 18, height: 18 }}>{Ico.link}</span></button>
       </div>
 
       {event.description && (
