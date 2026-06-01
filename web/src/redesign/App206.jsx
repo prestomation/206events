@@ -47,6 +47,9 @@ export function App206(props) {
   // Browse filters shared across Discover / Following.
   const [category, setCategory] = useState(() => initialUrl.category)
   const [neighborhood, setNeighborhood] = useState(() => initialUrl.neighborhood)
+  // Health dashboard view state (deep-linked): active tab + drilled-into source.
+  const [healthTab, setHealthTab] = useState(() => initialUrl.healthTab)
+  const [healthSource, setHealthSource] = useState(() => initialUrl.healthSource)
   const [toast, setToast] = useState(null)
   const toastT = useRef(0)
   // Live Leaflet map instance (set by EventsMap via MapBridge) + desktop
@@ -183,10 +186,23 @@ export function App206(props) {
   const back = useCallback(() => { clearOverlays(); onSelectChannel(null) }, [clearOverlays, onSelectChannel])
   const toggleFilter = useCallback(() => setFilterOpen((v) => !v), [])
 
+  /* ---- health dashboard handlers ---- */
+  // Switching tabs closes any open drawer; selecting a source opens it. The
+  // drawer push/replace semantics live in useUrlState.
+  const selectHealthTab = useCallback((tab) => { setHealthSource(null); setHealthTab(tab) }, [])
+  const selectHealthSource = useCallback((name) => { setHealthSource(name) }, [])
+  // Leaving the health section resets its view state so a later return lands
+  // clean (deep-linked entries set section === 'health', so this won't clobber them).
+  useEffect(() => {
+    if (section !== 'health') { setHealthTab('sources'); setHealthSource(null) }
+  }, [section])
+
   /* ---- URL deep-linking: keep the hash in sync with the state above ---- */
   useUrlState({
     section, openCh, openEventObj, dateScope, emphasis, query, category, neighborhood,
+    healthTab, healthSource,
     setDateScope, setEmphasis, setQuery, setCategory, setNeighborhood,
+    setHealthTab, setHealthSource,
     go, openChannel, openEvent, back,
     channelByIcsUrl, upcomingEvents, loading,
   })
@@ -247,7 +263,7 @@ export function App206(props) {
   }
 
   let content
-  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard buildErrors={buildErrors} calendars={calendars} /></div>
+  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard buildErrors={buildErrors} calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} /></div>
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />

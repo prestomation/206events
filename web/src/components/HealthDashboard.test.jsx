@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { describe, it, expect } from 'vitest'
 import { render, screen, fireEvent, within } from '@testing-library/react'
 import { HealthDashboard } from './HealthDashboard.jsx'
+
+// HealthDashboard is controlled (tab + drilled-into source live in App206 so
+// they can be deep-linked). This harness mirrors that wiring: switching tabs
+// clears the open drawer, selecting a source opens it.
+function Harness({ buildErrors }) {
+  const [tab, setTab] = useState('sources')
+  const [source, setSource] = useState(null)
+  return (
+    <HealthDashboard
+      buildErrors={buildErrors}
+      healthTab={tab}
+      healthSource={source}
+      onTabChange={(t) => { setSource(null); setTab(t) }}
+      onSelectSource={setSource}
+    />
+  )
+}
 
 const buildErrors = {
   buildTime: '2026-05-01T17:00:00.000Z',
@@ -35,7 +52,7 @@ const buildErrors = {
 
 describe('HealthDashboard', () => {
   it('renders summary cards and defaults to the Sources tab', () => {
-    render(<HealthDashboard buildErrors={buildErrors} />)
+    render(<Harness buildErrors={buildErrors} />)
     expect(screen.getByText('Source Health Dashboard')).toBeTruthy()
     // Source table is visible by default
     expect(screen.getByText('broken-source')).toBeTruthy()
@@ -48,7 +65,7 @@ describe('HealthDashboard', () => {
   })
 
   it('switches tabs to reveal errors, geo, and uncertain detail', () => {
-    render(<HealthDashboard buildErrors={buildErrors} />)
+    render(<Harness buildErrors={buildErrors} />)
 
     fireEvent.click(screen.getByRole('tab', { name: /Errors/ }))
     expect(screen.getByText('cannot import')).toBeTruthy()
@@ -62,7 +79,7 @@ describe('HealthDashboard', () => {
   })
 
   it('opens a drill-down drawer with parse errors when a source row is clicked', () => {
-    render(<HealthDashboard buildErrors={buildErrors} />)
+    render(<Harness buildErrors={buildErrors} />)
     fireEvent.click(screen.getByText('broken-source'))
     const dialog = screen.getByRole('dialog')
     expect(within(dialog).getByText('broken-source')).toBeTruthy()
@@ -71,7 +88,7 @@ describe('HealthDashboard', () => {
   })
 
   it('surfaces matching uncertain events and geo misses in the drawer', () => {
-    render(<HealthDashboard buildErrors={buildErrors} />)
+    render(<Harness buildErrors={buildErrors} />)
     fireEvent.click(screen.getByText('good-source'))
     const dialog = screen.getByRole('dialog')
     expect(within(dialog).getByText(/Mystery Show/)).toBeTruthy()
@@ -79,7 +96,7 @@ describe('HealthDashboard', () => {
   })
 
   it('closes the drawer with the close button', () => {
-    render(<HealthDashboard buildErrors={buildErrors} />)
+    render(<Harness buildErrors={buildErrors} />)
     fireEvent.click(screen.getByText('broken-source'))
     expect(screen.getByRole('dialog')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: /Close details/ }))

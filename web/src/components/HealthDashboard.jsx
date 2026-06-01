@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 // Human-readable label + tone for each source status.
 const STATUS_META = {
@@ -19,17 +19,28 @@ function statusDot(status) {
 // Internal health dashboard: scrape source status, build errors, geo/uncertainty stats.
 // Layout: pinned summary cards (display-only) + tabbed detail views, with a
 // per-source detail drawer for drill-down.
-export function HealthDashboard({ buildErrors, calendars }) {
-  const [activeTab, setActiveTab] = useState('sources')
-  const [selectedSource, setSelectedSource] = useState(null)
+//
+// The active tab and drilled-into source are *controlled* via props so they can
+// be deep-linked in the URL hash (and so the browser back button closes the
+// drawer instead of leaving the dashboard). App206 owns the state; this
+// component renders it and reports changes through onTabChange / onSelectSource.
+export function HealthDashboard({
+  buildErrors,
+  calendars,
+  healthTab = 'sources',
+  healthSource = null,
+  onTabChange = () => {},
+  onSelectSource = () => {},
+}) {
+  const activeTab = healthTab
 
   // Close the drawer on Escape.
   useEffect(() => {
-    if (!selectedSource) return
-    const onKey = (e) => { if (e.key === 'Escape') setSelectedSource(null) }
+    if (!healthSource) return
+    const onKey = (e) => { if (e.key === 'Escape') onSelectSource(null) }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [selectedSource])
+  }, [healthSource, onSelectSource])
 
   if (!buildErrors) {
     return (
@@ -101,6 +112,10 @@ export function HealthDashboard({ buildErrors, calendars }) {
     { id: 'uncertain', label: 'Uncertain', count: uncertainEvents.length, tone: 'warning' },
     { id: 'discovery', label: 'Discovery', count: null, tone: 'neutral' },
   ]
+
+  // Resolve the deep-linked source name to its row object (null if absent or
+  // stale — e.g. a shared link to a source that no longer exists in this build).
+  const selectedSource = healthSource ? sources.find(s => s.name === healthSource) || null : null
 
   // Per-source drill-down data for the drawer (best-effort name matching).
   const drawerUncertain = selectedSource
@@ -175,7 +190,7 @@ export function HealthDashboard({ buildErrors, calendars }) {
             role="tab"
             aria-selected={activeTab === tab.id}
             className={`health-tab ${activeTab === tab.id ? 'health-tab--active' : ''}`}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => onTabChange(tab.id)}
           >
             {tab.label}
             {tab.count != null && tab.count > 0 && (
@@ -205,7 +220,7 @@ export function HealthDashboard({ buildErrors, calendars }) {
                     <tr
                       key={source.name}
                       className={`health-row health-row--${source.status} health-row--expandable ${selectedSource?.name === source.name ? 'health-row--selected' : ''}`}
-                      onClick={() => setSelectedSource(source)}
+                      onClick={() => onSelectSource(source.name)}
                     >
                       <td>{statusDot(source.status)}</td>
                       <td className="health-source-name">{source.name}</td>
@@ -340,7 +355,7 @@ export function HealthDashboard({ buildErrors, calendars }) {
           source={selectedSource}
           uncertain={drawerUncertain}
           geo={drawerGeo}
-          onClose={() => setSelectedSource(null)}
+          onClose={() => onSelectSource(null)}
         />
       )}
     </div>

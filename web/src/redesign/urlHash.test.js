@@ -11,6 +11,8 @@ const DEFAULTS = {
   neighborhood: null,
   dateScope: 'all',
   emphasis: 'calendars',
+  healthTab: 'sources',
+  healthSource: null,
 }
 
 const roundTrip = (state) => deserializeHash(serializeHash(state))
@@ -75,6 +77,34 @@ describe('urlHash codec', () => {
     expect(serializeHash({ section: 'health', event: 'X|2026', channel: 'y.ics' })).toBe('section=health')
     const parsed = deserializeHash('section=health&event=X%7C2026&channel=y.ics')
     expect(parsed).toEqual({ ...DEFAULTS, section: 'health' })
+  })
+
+  it('round-trips a health tab', () => {
+    expect(roundTrip({ section: 'health', healthTab: 'errors' })).toEqual({
+      ...DEFAULTS, section: 'health', healthTab: 'errors',
+    })
+  })
+
+  it('round-trips a drilled-into health source (drawer open)', () => {
+    expect(roundTrip({ section: 'health', healthSource: 'seattle-showlists' })).toEqual({
+      ...DEFAULTS, section: 'health', healthSource: 'seattle-showlists',
+    })
+  })
+
+  it('omits the default health tab but keeps the source', () => {
+    expect(serializeHash({ section: 'health', healthTab: 'sources', healthSource: 'foo' }))
+      .toBe('section=health&source=foo')
+  })
+
+  it('only emits tab/source for the health section', () => {
+    expect(serializeHash({ section: 'discover', healthTab: 'errors', healthSource: 'foo' })).toBe('')
+    const parsed = deserializeHash('section=discover&tab=errors&source=foo')
+    expect(parsed.healthTab).toBe('sources')
+    expect(parsed.healthSource).toBeNull()
+  })
+
+  it('falls back to the default tab for an unknown tab token', () => {
+    expect(deserializeHash('section=health&tab=bogus').healthTab).toBe('sources')
   })
 
   it.each([
