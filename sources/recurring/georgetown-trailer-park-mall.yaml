@@ -1,17 +1,21 @@
-# verified: 2026-06-01 drift-fixed (name/friendlyname Georgetown Flea Market→Georgetown Trailer Park Mall, schedule 1st Saturday→every Saturday, start_time 10:00→11:00, location updated with address, geo added)
+# verified: 2026-06-01 combined saturday+sunday into one multi-schedule entry
 geo:
   lat: 47.5505915
   lng: -122.3183935
   label: "Georgetown Trailer Park Mall, 5805 Airport Way S, Seattle, WA 98108"
-name: georgetown-trailer-park-mall-saturday
+name: georgetown-trailer-park-mall
 friendlyname: Georgetown Trailer Park Mall
 description: Open-air weekend marketplace in Georgetown featuring local artists, designers, and vintage collectors in repurposed trailers.
-schedule: every Saturday
 timezone: America/Los_Angeles
-duration: PT5H
-start_time: "11:00"
 location: Georgetown Trailer Park Mall, 5805 Airport Way S, Seattle, WA 98108
 url: http://georgetowntrailerparkmall.com/events
 tags:
   - MakersMarket
   - Georgetown
+schedules:
+  - schedule: every Saturday
+    start_time: "11:00"
+    duration: PT5H
+  - schedule: every Sunday
+    start_time: "11:00"
+    duration: PT5H

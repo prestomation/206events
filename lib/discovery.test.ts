@@ -273,13 +273,9 @@ function makeRecurring(overrides: {
     tags: overrides.tags ?? [],
     geo: overrides.geo,
     // Fields the venues builder does not read — casts are fine here.
-    schedule: "1st Friday",
     timezone: null,
-    duration: null,
-    start_time: null,
     location: "n/a",
-    seasonal: undefined,
-    months: undefined,
+    schedules: [{ schedule: "1st Friday", start_time: null, duration: null }],
   } as unknown as RecurringEvent;
 }
 
