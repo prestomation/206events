@@ -20,6 +20,12 @@ export default defineConfig({
     baseURL: BASE_URL,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
+    // Block the service worker: it caches/intercepts data fetches and can fire
+    // a second concurrent loadCalendars() via its DATA_UPDATED message, which
+    // races the boot and can leave the app mounted with an empty events index.
+    // Blocking it keeps the mocked routes (mock-routes.js) authoritative and
+    // the suite deterministic.
+    serviceWorkers: 'block',
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
