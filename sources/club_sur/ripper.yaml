@@ -1,0 +1,18 @@
+name: club-sur
+type: eventbrite
+description: "Club Sur"
+url: "https://seattleclubsur.com/"
+friendlyLink: https://seattleclubsur.com/
+tags: ["Music", "SoDo"]
+geo:
+  lat: 47.5775510
+  lng: -122.3344670
+  label: "Club Sur, 2901 1st Ave S, Seattle, WA 98134"
+calendars:
+  - name: club-sur
+    friendlyname: "Club Sur"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "19822842329"
+      defaultLocation: "2901 1st Ave S, Seattle, WA 98134"
+      defaultDurationHours: 3
