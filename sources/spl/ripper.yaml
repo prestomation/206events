@@ -89,7 +89,6 @@ calendars:
   - name: magnolia
     friendlyname: "SPL - Magnolia Branch"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       branch: "Magnolia Branch"
   - name: newholly

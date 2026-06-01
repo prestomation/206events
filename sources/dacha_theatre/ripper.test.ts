@@ -3,7 +3,7 @@ import { ZonedDateTime, ZoneId } from "@js-joda/core";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { extractHumanitixLinks, extractDachaEvents, parseDachaEvents } from "./ripper.js";
+import { extractHumanitixLinks, extractDachaEvents, parseDachaEvents, DachaEventPage } from "./ripper.js";
 import '@js-joda/timezone';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -12,6 +12,7 @@ function loadSampleHtml(): string {
     return readFileSync(join(__dirname, "sample-data.html"), "utf-8");
 }
 
+const SAMPLE_URL = "https://events.humanitix.com/dream-carl-dream";
 const timezone = ZoneId.of("America/Los_Angeles");
 const now = ZonedDateTime.parse("2026-01-01T00:00:00-08:00");
 
@@ -49,82 +50,79 @@ describe("DachaTheatreRipper", () => {
     });
 
     describe("extractDachaEvents", () => {
-        it("extracts 22 events from sample data", () => {
+        it("extracts page with 5 performances from sample data", () => {
             const html = loadSampleHtml();
-            const { events, parseError } = extractDachaEvents(html);
+            const { page, parseError } = extractDachaEvents(html, SAMPLE_URL);
             expect(parseError).toBeUndefined();
-            expect(events).toHaveLength(22);
+            expect(page).toBeDefined();
+            expect(page!.performances).toHaveLength(5);
+            expect(page!.title).toBe("Dream, Carl, Dream!");
+            expect(page!.location).toContain("12th Avenue Arts");
         });
 
-        it("returns error when no Event array found", () => {
-            const { events, parseError } = extractDachaEvents("<html><body>no events</body></html>");
-            expect(events).toHaveLength(0);
+        it("returns parseError for empty HTML", () => {
+            const { page, parseError } = extractDachaEvents("<html><body>no events</body></html>", SAMPLE_URL);
+            expect(page).toBeUndefined();
             expect(parseError?.type).toBe("ParseError");
         });
 
-        it("extracts correct event fields", () => {
+        it("extracts first performance correctly", () => {
             const html = loadSampleHtml();
-            const { events } = extractDachaEvents(html);
-            const first = events[0];
-            expect(first["@type"]).toBe("Event");
-            expect(first.name).toBe("Dream, Carl, Dream!");
-            expect(first.startDate).toBe("2026-06-05T19:30:00-0700");
-            expect(first.location?.name).toBe("12th Avenue Arts - Mainstage");
+            const { page } = extractDachaEvents(html, SAMPLE_URL);
+            const first = page!.performances[0];
+            expect(first.dateId).toBe("aaa0001");
+            expect(first.dateStr).toBe("Fri, Jun 5, 7:30pm - 10pm PDT");
         });
     });
 
     describe("parseDachaEvents", () => {
-        it("parses all future events from sample data", () => {
+        function makePage(): DachaEventPage {
             const html = loadSampleHtml();
-            const { events: raw } = extractDachaEvents(html);
-            const { events, errors } = parseDachaEvents(raw, now, timezone);
+            const { page } = extractDachaEvents(html, SAMPLE_URL);
+            return page!;
+        }
+
+        it("parses all 5 future events", () => {
+            const page = makePage();
+            const { events, errors } = parseDachaEvents(page, now, timezone);
             expect(errors).toHaveLength(0);
-            expect(events).toHaveLength(22);
+            expect(events).toHaveLength(5);
         });
 
         it("excludes past events", () => {
-            const html = loadSampleHtml();
-            const { events: raw } = extractDachaEvents(html);
+            const page = makePage();
             const futureNow = ZonedDateTime.parse("2030-01-01T00:00:00-08:00");
-            const { events } = parseDachaEvents(raw, futureNow, timezone);
+            const { events } = parseDachaEvents(page, futureNow, timezone);
             expect(events).toHaveLength(0);
         });
 
-        it("generates stable IDs from slug and start datetime", () => {
-            const html = loadSampleHtml();
-            const { events: raw } = extractDachaEvents(html);
-            const { events } = parseDachaEvents(raw, now, timezone);
-            expect(events[0].id).toMatch(/^dacha-dream-carl-dream-/);
-            // All IDs unique (22 distinct showings)
-            const ids = events.map(e => e.id);
-            expect(new Set(ids).size).toBe(22);
+        it("generates stable IDs from dateId", () => {
+            const page = makePage();
+            const { events } = parseDachaEvents(page, now, timezone);
+            expect(events[0].id).toBe("dacha-aaa0001");
         });
 
         it("sets correct event properties", () => {
-            const html = loadSampleHtml();
-            const { events: raw } = extractDachaEvents(html);
-            const { events } = parseDachaEvents(raw, now, timezone);
+            const page = makePage();
+            const { events } = parseDachaEvents(page, now, timezone);
             const first = events[0];
             expect(first.summary).toBe("Dream, Carl, Dream!");
             expect(first.location).toContain("12th Avenue Arts");
-            expect(first.location).toContain("1620 12th Ave");
             expect(first.url).toMatch(/humanitix\.com/);
         });
 
-        it("converts dates to America/Los_Angeles timezone", () => {
-            const html = loadSampleHtml();
-            const { events: raw } = extractDachaEvents(html);
-            const { events } = parseDachaEvents(raw, now, timezone);
+        it("converts dates to America/Los_Angeles", () => {
+            const page = makePage();
+            const { events } = parseDachaEvents(page, now, timezone);
             for (const e of events) {
                 expect(e.date.zone().id()).toBe("America/Los_Angeles");
             }
         });
 
-        it("computes duration from endDate", () => {
-            const html = loadSampleHtml();
-            const { events: raw } = extractDachaEvents(html);
-            const { events } = parseDachaEvents(raw, now, timezone);
-            // First event: 19:30-22:00 = 2.5 hours = 150 minutes
+        it("computes duration from time range", () => {
+            const page = makePage();
+            const { events } = parseDachaEvents(page, now, timezone);
+            // First event: 7:30pm - 10pm = 150 minutes
             expect(events[0].duration.toMinutes()).toBe(150);
         });
     });
