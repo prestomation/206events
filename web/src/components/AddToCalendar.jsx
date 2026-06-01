@@ -20,6 +20,10 @@ export function AddToCalendar({ title, startDate, endDate, description, location
     }
   }, [open])
 
+  // Without a start date there's nothing to add to a calendar; render nothing
+  // rather than crash on toISOString() when the dropdown opens.
+  if (!startDate) return null
+
   const handleDownloadICS = (e) => {
     e.preventDefault()
     e.stopPropagation()
