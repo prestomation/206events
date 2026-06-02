@@ -169,6 +169,43 @@ describe('App206 redesign', () => {
     expect(screen.getByText('Movie Premiere')).toBeInTheDocument()
   })
 
+  describe('map favorites scoping', () => {
+    it('desktop map mirrors the section — scopes to the feed on Following', async () => {
+      const { container } = render(<App />)
+      await waitDiscover()
+      // On Discover the persistent map shows everything ("Near you").
+      expect(container.querySelector('.a-mapbar .a-h2').textContent).toBe('Near you')
+      clickNav('Following')
+      // On Following the map heading flips to the feed-scoped label.
+      await waitFor(() => expect(container.querySelector('.a-mapbar .a-h2').textContent).toBe('Your feed'))
+    })
+
+    it('mobile Map tab inherits the Following scope and the toggle can override it', async () => {
+      const { container } = render(<App />)
+      await waitDiscover()
+      clickNav('Following')      // sets map scope to 'following'
+      clickNav('Map')            // mobile Map tab inherits that scope
+      await waitFor(() => expect(container.querySelector('.a-mapscope')).toBeTruthy())
+      expect(container.querySelector('.a-mapscope .on').textContent).toBe('Following')
+      // The toggle lets the user switch back to all events.
+      fireEvent.click(screen.getByText('All'))
+      await waitFor(() => expect(container.querySelector('.a-mapscope .on').textContent).toBe('All'))
+    })
+
+    it('does NOT show the empty-feed message when a favorited calendar has mappable events', async () => {
+      const { container } = render(<App />)
+      await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+      // Follow Neumos (cal1) — its event "Jazz Night" has lat/lng.
+      fireEvent.click(container.querySelector('.pill-follow'))
+      clickNav('Following')
+      await waitFor(() => expect(screen.getByText('1 calendars')).toBeInTheDocument())
+      // The persistent desktop map is feed-scoped on Following; since the feed has
+      // a coord-bearing event, the empty-feed overlay must NOT be shown.
+      await waitFor(() => expect(container.querySelector('[data-testid="events-map"]')).toBeTruthy())
+      expect(container.textContent).not.toContain('No favorited events with a location to show')
+    })
+})
+
   describe('deep linking', () => {
     it('cold-loads directly into a section from the hash', async () => {
       window.location.hash = '#section=you'

@@ -57,6 +57,18 @@ export function App206(props) {
   const mapRef = useRef(null)
   const [mapExpanded, setMapExpanded] = useState(false)
   const toggleMapExpand = useCallback(() => setMapExpanded((v) => !v), [])
+  // Mobile map scope ('all' | 'following'). The Map is its own bottom-nav tab on
+  // mobile, so it can't derive scope from `section`; this persists across the
+  // tab switch and auto-defaults on section entry (effect below). On desktop the
+  // persistent map ignores this and strictly mirrors `section` instead.
+  const [mapScope, setMapScope] = useState('all')
+  // Entering Following defaults the map to the personal feed; entering Discover
+  // resets it to all. Map/You/Health inherit the current scope, so tapping the
+  // mobile Map tab right after Following lands on a favorites-scoped map.
+  useEffect(() => {
+    if (section === 'following') setMapScope('following')
+    else if (section === 'discover') setMapScope('all')
+  }, [section])
 
   const flash = useCallback((msg) => {
     setToast(msg)
@@ -250,7 +262,7 @@ export function App206(props) {
     section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     hasActiveFilters, toast, todayLabel,
-    mapRef, mapExpanded, toggleMapExpand,
+    mapRef, mapExpanded, toggleMapExpand, mapScope, setMapScope,
     // handlers
     go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
   }

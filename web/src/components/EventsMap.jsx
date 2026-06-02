@@ -161,6 +161,37 @@ function renderPopupHtml(event, eventAttributions) {
   return `<div class="map-popup">${parts.join('')}</div>`
 }
 
+// Pure predicate deciding whether an event belongs on the map under the active
+// filters. Extracted so it can be unit-tested without rendering Leaflet, and so
+// the favorites-parity rule has one place to live.
+//   - requires coordinates + the global date window
+//   - a specific open channel (calendarFilter) takes precedence — feedOnly is
+//     ignored so opening a calendar always shows that calendar
+//   - feedOnly restricts to the personal feed: an event is in the feed iff it
+//     has an attribution (favorited calendar / saved search / geo match), which
+//     reuses App.jsx's parity-locked membership rather than recomputing it
+export function isMappable(event, {
+  calendarFilter,
+  selectedTag,
+  calendarTagsByIcsUrl,
+  dateInScope = () => true,
+  feedOnly = false,
+  eventAttributions,
+}) {
+  if (!event.lat || !event.lng) return false
+  if (!dateInScope(event)) return false
+
+  if (calendarFilter) {
+    return event.icsUrl === calendarFilter
+  }
+  if (feedOnly && !(eventAttributions && eventAttributions.has(eventKey(event)))) return false
+  if (selectedTag && selectedTag !== '__favorites__') {
+    const tags = calendarTagsByIcsUrl[event.icsUrl] || []
+    if (!tags.includes(selectedTag)) return false
+  }
+  return true
+}
+
 /**
  * EventsMap renders a Leaflet map with event markers and optional geo filter circles.
  *
@@ -172,6 +203,7 @@ function renderPopupHtml(event, eventAttributions) {
  *   selectedTag      - currently active tag ('' means all)
  *   calendarNameByIcsUrl - map of icsUrl → friendly calendar name
  *   eventAttributions  - optional Map<compositeKey, Attribution[]> from App.jsx for showing why events appear
+ *   feedOnly         - when true (and no calendarFilter), restrict markers to the personal feed
  */
 // Memoized so the heavy marker/cluster subtree is rebuilt only when its own
 // inputs actually change. While the date-window slider is being dragged, the
@@ -187,27 +219,14 @@ function EventsMapInner({
   calendarNameByIcsUrl,
   eventAttributions,
   dateInScope = () => true,
+  feedOnly = false,
   mapRef,
 }) {
   // Filter events: only those with lat/lng, respecting the active tag/calendar
-  // filter and the global date window.
-  const mappableEvents = useMemo(() => eventsIndex.filter(event => {
-    if (!event.lat || !event.lng) return false
-
-    // Date-window filter (global "next N days" slider)
-    if (!dateInScope(event)) return false
-
-    // Calendar/tag filter
-    if (calendarFilter) {
-      // If a specific calendar is selected, only show events from it
-      if (event.icsUrl !== calendarFilter) return false
-    } else if (selectedTag && selectedTag !== '__favorites__') {
-      const tags = calendarTagsByIcsUrl[event.icsUrl] || []
-      if (!tags.includes(selectedTag)) return false
-    }
-
-    return true
-  }), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope])
+  // filter, the global date window, and (when feedOnly) the personal feed.
+  const mappableEvents = useMemo(() => eventsIndex.filter(event => isMappable(event, {
+    calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope, feedOnly, eventAttributions,
+  })), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope, feedOnly, eventAttributions])
 
   // Parse dates for popup display
   const eventsWithDates = useMemo(() => mappableEvents.map(event => ({
@@ -282,10 +301,17 @@ function EventsMapInner({
           </Circle>
         ))}
 
-        <FitBounds events={eventsWithDates} geoFilters={geoFilters} fitKey={`${calendarFilter || ''}|${selectedTag || ''}`} />
+        <FitBounds events={eventsWithDates} geoFilters={geoFilters} fitKey={`${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}`} />
 
-        {/* Event markers — bare markers with lazy (on-click) popups */}
+        {/* Event markers — bare markers with lazy (on-click) popups.
+            Keyed on the scope (calendar / tag / feed) so a scope change remounts
+            the cluster layer: react-leaflet-cluster doesn't reliably clear its
+            markers when the children collapse to empty, which otherwise leaves
+            stale all-events clusters under the "feed is empty" overlay. The key
+            deliberately omits the date window so slider drags update markers
+            in place rather than remounting. */}
         <MarkerClusterGroup
+          key={`cluster-${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}`}
           chunkedLoading
           iconCreateFunction={createClusterIcon}
           showCoverageOnHover={true}
@@ -298,8 +324,9 @@ function EventsMapInner({
 
       {eventsWithDates.length === 0 && (
         <div className="events-map-empty">
-          No geocoded events to display
-          {selectedTag ? ` for this filter` : ''}
+          {feedOnly && !calendarFilter
+            ? 'No favorited events with a location to show'
+            : <>No geocoded events to display{selectedTag ? ' for this filter' : ''}</>}
         </div>
       )}
     </div>

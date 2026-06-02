@@ -3,6 +3,7 @@ import Fuse from 'fuse.js'
 import { haversineKm } from './lib/haversine.js'
 import { eventKey } from './lib/eventKey.js'
 import { deduplicateEvents } from './lib/event-dedup.js'
+import { isMappable } from './components/EventsMap.jsx'
 
 const FUSE_THRESHOLD = 0.1
 const FUSE_KEYS = ['summary', 'description', 'location']
@@ -104,6 +105,51 @@ describe('Filter parity: client matches worker behavior', () => {
       expect(searchMatches.has(crocodileKey)).toBe(true)
       expect(geoMatches.has(crocodileKey)).toBe(true)
     })
+  })
+})
+
+describe('Map feedOnly scoping: favorites view shows only feed events', () => {
+  // Personal-feed membership is read from eventAttributions (App.jsx builds it
+  // from favorited calendars / saved searches / geo matches — the parity-locked
+  // logic). The map must scope to exactly those keys, not recompute membership.
+  const attribs = (events) => {
+    const m = new Map()
+    for (const e of events) m.set(eventKey(e), [{ type: 'calendar', value: e.icsUrl }])
+    return m
+  }
+  const map = (opts) => FIXTURE_EVENTS.filter((e) => isMappable(e, opts)).map((e) => e.icsUrl)
+
+  it('feedOnly:false shows every event with coordinates', () => {
+    const result = map({ feedOnly: false })
+    // All but the null-coord seatoday event
+    expect(result).toEqual(['crocodile-main.ics', 'neumos.ics', 'mopop.ics', 'fremont-brewing.ics'])
+    expect(result).not.toContain('seatoday.ics')
+  })
+
+  it('feedOnly:true shows only events present in eventAttributions', () => {
+    const feed = [FIXTURE_EVENTS[0], FIXTURE_EVENTS[1]] // crocodile + neumos
+    const result = map({ feedOnly: true, eventAttributions: attribs(feed) })
+    expect(result).toEqual(['crocodile-main.ics', 'neumos.ics'])
+    expect(result).not.toContain('mopop.ics')
+    expect(result).not.toContain('fremont-brewing.ics')
+  })
+
+  it('open channel takes precedence over feedOnly', () => {
+    // mopop is NOT in the feed, but opening its channel must still show it
+    const feed = [FIXTURE_EVENTS[0]] // only crocodile attributed
+    const result = map({ feedOnly: true, calendarFilter: 'mopop.ics', eventAttributions: attribs(feed) })
+    expect(result).toEqual(['mopop.ics'])
+  })
+
+  it('empty feed under feedOnly shows nothing (empty-state case)', () => {
+    const result = map({ feedOnly: true, eventAttributions: new Map() })
+    expect(result).toEqual([])
+  })
+
+  it('respects the date window via dateInScope', () => {
+    const onlyCrocodile = (e) => e.date.startsWith('2026-04-01')
+    const result = map({ feedOnly: false, dateInScope: onlyCrocodile })
+    expect(result).toEqual(['crocodile-main.ics'])
   })
 })
 
