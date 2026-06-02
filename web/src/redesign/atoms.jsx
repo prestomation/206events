@@ -5,6 +5,7 @@ import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
 import { rowFromIndexEvent, provFromAttributions, describeWindow } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
+import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
 
 export function Brand() {
@@ -67,12 +68,22 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
         </div>
         {!noDate && row.time && <div className="ev-meta"><span>{row.time}</span></div>}
-        {showLoc && event.location && (
-          <div className="ev-meta" style={{ marginTop: 5 }}>
-            <span style={{ width: 13, height: 13, flex: '0 0 auto', color: 'var(--ink-4)' }}>{Ico.pin}</span>
-            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.location}</span>
-          </div>
-        )}
+        {showLoc && event.location && (() => {
+          // showLoc is set for distributed calendars / geo-filter results — the
+          // event carries its own location, so link it to the map. stopPropagation
+          // keeps the row's open-event click from also firing.
+          const href = bestMapHref({ location: event.location, lat: event.lat, lng: event.lng })
+          const pin = <span style={{ width: 13, height: 13, flex: '0 0 auto', color: 'var(--ink-4)' }}>{Ico.pin}</span>
+          const text = <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.location}</span>
+          return href ? (
+            <a className="ev-meta" href={href} target="_blank" rel="noopener noreferrer"
+              style={{ marginTop: 5, color: 'var(--blue)', textDecoration: 'none' }} onClick={(e) => e.stopPropagation()}>
+              {pin}{text}
+            </a>
+          ) : (
+            <div className="ev-meta" style={{ marginTop: 5 }}>{pin}{text}</div>
+          )
+        })()}
         {showChip && channel && (
           <div className="ev-chip" style={{ marginTop: 6 }}
             onClick={(e) => { e.stopPropagation(); app.openChannel(event.icsUrl) }}>

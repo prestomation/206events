@@ -50,8 +50,21 @@ geocode) still lands the user near the right spot.
 ## Surfaces
 
 ### Web UI
-- `web/src/redesign/views.jsx` — the location fact in `EventDetail` is now
-  an anchor (`bestMapHref`), opening maps in a new tab.
+- `web/src/redesign/views.jsx`:
+  - the location fact in `EventDetail` is an anchor (`bestMapHref`).
+  - **Source page (`ChannelDetail`)** shows an "Open venue in maps" link
+    when the channel maps to a venue with coordinates. The venue `geo` is
+    carried onto the channel view-model by `channelFromCalendar`
+    (`viewModels.js`) and the link is built client-side with `bestMapHref`,
+    so it works off the deployed `geo` without depending on the venues.json
+    `map` field.
+  - **Per-event rows** (`ParsedEventRow` on the source page) link their
+    location when the calendar is distributed — i.e. the event carries its
+    own geo.
+- `web/src/redesign/atoms.jsx` — `EventRow` (the list row used across
+  Discover/Following) links its location when `showLoc` is set (distributed
+  calendars / geo-filter results). `stopPropagation` keeps the row's
+  open-event click from also firing.
 - `web/src/components/EventsMap.jsx` — marker popups gain an "Open in
   maps →" link (Google universal URL, so it passes the existing http(s)
   scheme guard).

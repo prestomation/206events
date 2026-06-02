@@ -478,6 +478,15 @@ export function ChannelDetail({ icsUrl }) {
             <CatDot tag={channel.primaryCategory} color={channel.color} size={7} />
             {channel.distributed ? 'Multiple venues · Citywide' : (channel.hood || 'Seattle')}
           </div>
+          {channel.geo && (() => {
+            const href = bestMapHref({ lat: channel.geo.lat, lng: channel.geo.lng, label: channel.geo.label, osmType: channel.geo.osmType, osmId: channel.geo.osmId })
+            return href ? (
+              <a href={href} target="_blank" rel="noopener noreferrer"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 5, marginTop: 6, fontSize: 12.5, fontWeight: 600, color: 'var(--blue)', textDecoration: 'none' }}>
+                <span style={{ width: 13, height: 13 }}>{Ico.pin}</span>Open venue in maps ↗
+              </a>
+            ) : null
+          })()}
         </div>
       </div>
 
@@ -539,12 +548,22 @@ function ParsedEventRow({ event, distributed }) {
       <div className="ev-body">
         <div className="ev-title">{event.title}</div>
         <div className="ev-meta"><span>{time}</span></div>
-        {distributed && event.location && (
-          <div className="ev-meta" style={{ marginTop: 5 }}>
-            <span style={{ width: 13, height: 13, flex: '0 0 auto', color: 'var(--ink-4)' }}>{Ico.pin}</span>
-            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.location}</span>
-          </div>
-        )}
+        {distributed && event.location && (() => {
+          // Distributed calendars set a per-event location ("its own geo"), so
+          // each row links to that location's map. Coords come from the ICS GEO
+          // line when present; otherwise the location text drives the query.
+          const href = bestMapHref({ location: event.location, lat: event.lat, lng: event.lng })
+          const pin = <span style={{ width: 13, height: 13, flex: '0 0 auto', color: 'var(--ink-4)' }}>{Ico.pin}</span>
+          const text = <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.location}</span>
+          return href ? (
+            <a className="ev-meta" href={href} target="_blank" rel="noopener noreferrer"
+              style={{ marginTop: 5, color: 'var(--blue)', textDecoration: 'none' }} onClick={(e) => e.stopPropagation()}>
+              {pin}{text}
+            </a>
+          ) : (
+            <div className="ev-meta" style={{ marginTop: 5 }}>{pin}{text}</div>
+          )
+        })()}
         {event.description && <div style={{ marginTop: 6 }}><EventDescription text={event.description} /></div>}
       </div>
       <AddToCalendar title={event.title} startDate={event.startDate} endDate={event.endDate}
