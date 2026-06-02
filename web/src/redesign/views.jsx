@@ -1,7 +1,7 @@
 // Composite views for the redesigned UI: Discover, Following, You (config),
 // ChannelDetail, EventDetail, SearchView.
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters } from './atoms.jsx'
@@ -59,9 +59,15 @@ export function DiscoverView() {
         </div>
       </div>
 
+      <CategoryChips options={flatCategoryOptions} value={app.category} onSelect={app.setCategory} />
+
       <div className="a-filterbar">
-        <FilterDropdown label="Category" icon={Ico.grid} value={app.category}
-          options={flatCategoryOptions} groups={categoryGroups} onSelect={app.setCategory} />
+        {/* Category dropdown is the mobile-only control; on desktop the
+            CategoryChips row above takes over (visibility is swapped in CSS). */}
+        <div className="a-cat-dd">
+          <FilterDropdown label="Category" icon={Ico.grid} value={app.category}
+            options={flatCategoryOptions} groups={categoryGroups} onSelect={app.setCategory} />
+        </div>
         <FilterDropdown label="Neighborhood" icon={Ico.pin} value={app.neighborhood}
           options={neighborhoodOptions} onSelect={app.setNeighborhood} />
       </div>
@@ -69,6 +75,139 @@ export function DiscoverView() {
       <ActiveFilters />
 
       {app.emphasis === 'calendars' ? <CalendarsMode /> : <div style={{ marginTop: 8 }}><EventsMode /></div>}
+    </div>
+  )
+}
+
+// Pointer-device-only horizontal category picker (see the .a-catchips media
+// rule in index.css: shown only on hover+fine-pointer ≥1024px, i.e. a real
+// desktop with a mouse). Touch devices — phones, tablets, and foldables like
+// the Fold inner screen, regardless of how wide they report — keep the compact
+// dropdown to save vertical space. Clicking the active chip again clears it.
+//
+// The row never wraps. It uses a Priority+ overflow pattern: as many chips as
+// fit on one line are shown, and the remainder collapse into a "More ▾" popover.
+// A hidden measurement row carries every chip at its natural width so a
+// ResizeObserver can recompute how many fit when the column resizes. The active
+// category is pinned first so it stays visible even when it would overflow.
+function CategoryChips({ options, value, onSelect }) {
+  const rootRef = useRef(null)
+  const rowRef = useRef(null)
+  const measureRef = useRef(null)
+  const [visibleCount, setVisibleCount] = useState(options.length)
+  const [moreOpen, setMoreOpen] = useState(false)
+
+  const ordered = useMemo(() => {
+    if (!value) return options
+    const idx = options.findIndex((o) => o.value === value)
+    if (idx <= 0) return options
+    const copy = options.slice()
+    const [sel] = copy.splice(idx, 1)
+    copy.unshift(sel)
+    return copy
+  }, [options, value])
+
+  // Recompute how many chips fit on one line, reserving room for the More chip
+  // when there's overflow. Driven by a ResizeObserver on the visible row.
+  useLayoutEffect(() => {
+    const row = rowRef.current
+    const measure = measureRef.current
+    if (!row || !measure) return
+    const compute = () => {
+      const kids = measure.children
+      if (kids.length < 2) return
+      const GAP = 8
+      const total = row.clientWidth
+      if (!total) return
+      const allW = kids[0].offsetWidth
+      const moreW = kids[kids.length - 1].offsetWidth
+      const chipW = ordered.map((_, i) => kids[1 + i]?.offsetWidth || 0)
+
+      // Does the whole set fit without a More chip?
+      let sumAll = allW
+      for (const w of chipW) sumAll += GAP + w
+      if (sumAll <= total) { setVisibleCount(ordered.length); return }
+
+      // Otherwise reserve space for the All chip + More chip and fill the rest.
+      let used = allW + GAP + moreW
+      let count = 0
+      for (const w of chipW) {
+        const next = used + w + GAP
+        if (next > total) break
+        used = next
+        count++
+      }
+      setVisibleCount(count)
+    }
+    compute()
+    if (typeof ResizeObserver === 'undefined') return
+    const ro = new ResizeObserver(compute)
+    ro.observe(row)
+    return () => ro.disconnect()
+  }, [ordered])
+
+  // Close the More popover on outside click.
+  useEffect(() => {
+    if (!moreOpen) return
+    const onDown = (e) => { if (rootRef.current && !rootRef.current.contains(e.target)) setMoreOpen(false) }
+    document.addEventListener('mousedown', onDown)
+    return () => document.removeEventListener('mousedown', onDown)
+  }, [moreOpen])
+
+  const pick = (v) => { onSelect(v === value ? null : v); setMoreOpen(false) }
+  const visible = ordered.slice(0, visibleCount)
+  const overflow = ordered.slice(visibleCount)
+
+  const allChip = (
+    <button className={`a-catchip ${!value ? 'on' : ''}`} onClick={() => pick(null)}>
+      <span style={{ width: 14, height: 14, flex: '0 0 auto' }}>{Ico.grid}</span>
+      <span className="a-catchip-label">All</span>
+    </button>
+  )
+  const catChip = (o, prefix = '') => (
+    <button key={prefix + o.value} className={`a-catchip ${o.value === value ? 'on' : ''}`} onClick={() => pick(o.value)}>
+      <CatDot tag={o.value} size={8} />
+      <span className="a-catchip-label">{o.label}</span>
+      {o.count != null && <span className="a-catchip-count">{o.count}</span>}
+    </button>
+  )
+  const moreChip = (n, onClick) => (
+    <button className="a-catchip a-catchip-more" onClick={onClick} aria-expanded={moreOpen} aria-haspopup="menu">
+      <span className="a-catchip-label">More</span>
+      <span className="a-catchip-count">{n}</span>
+      <span className="a-dd-caret" style={{ width: 14, height: 14 }}>{Ico.arrow}</span>
+    </button>
+  )
+
+  return (
+    <div className="a-catchips" role="group" aria-label="Filter by category" ref={rootRef}>
+      {/* Hidden measurement row: every chip at its natural width. */}
+      <div className="a-catchips-measure" ref={measureRef} aria-hidden="true">
+        {allChip}
+        {ordered.map((o) => catChip(o, 'm-'))}
+        {moreChip(options.length)}
+      </div>
+
+      {/* Visible single-line row. */}
+      <div className="a-catchips-row" ref={rowRef}>
+        {allChip}
+        {visible.map((o) => catChip(o))}
+        {overflow.length > 0 && moreChip(overflow.length, () => setMoreOpen((v) => !v))}
+      </div>
+
+      {/* Overflow popover — rendered outside the clipped row so it isn't cut off. */}
+      {moreOpen && overflow.length > 0 && (
+        <div className="a-dd-menu a-catchips-menu" role="menu">
+          {overflow.map((o) => (
+            <button key={o.value} className={`a-dd-item ${o.value === value ? 'on' : ''}`} onClick={() => pick(o.value)}>
+              <CatDot tag={o.value} size={8} />
+              <span className="a-dd-item-label">{o.label}</span>
+              {o.count != null && <span className="a-dd-item-count">{o.count}</span>}
+              {o.value === value && <span className="a-dd-item-check" style={{ width: 14, height: 14 }}>{Ico.check}</span>}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
