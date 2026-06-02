@@ -290,7 +290,9 @@ async function main() {
     // Skipped entirely on a filtered (`--sources`) run: a partial run must not
     // prune or miscount sources it didn't look at.
     // ---------------------------------------------------------------------
-    if (!sourceFilter) {
+    if (sourceFilter) {
+        console.log("[proxy-verification] Skipping ladder bookkeeping: a filtered (--sources) run must not prune or miscount sources it didn't look at. Counters update only on full runs.");
+    } else {
         try {
             const today = new Date().toISOString().slice(0, 10);
 
@@ -342,14 +344,26 @@ async function main() {
                         const failures = new Map<string, string>(
                             (prod.externalCalendarFailures ?? []).map((f: any) => [f.name, String(f.error ?? "fetch failed")]),
                         );
-                        const eventCounts: any[] = prod.eventCounts ?? [];
+                        // A source that appears in the published eventCounts was fetched and
+                        // processed this build. Failed browserbase fetches are NOT added to
+                        // eventCounts (they go to externalCalendarFailures), so presence here
+                        // means "reachable" — including a legitimately-empty expectEmpty
+                        // source that produced 0 events. Keying on event count alone would
+                        // wrongly withhold the success signal from such sources.
+                        const reached = new Set<string>();
+                        for (const e of (prod.eventCounts ?? [])) {
+                            if (e?.source) reached.add(e.source);
+                            if (e?.name) reached.add(e.name);
+                        }
                         for (const name of browserbaseNames) {
                             if (failures.has(name)) {
                                 outcomes.push({ name, rung: "browserbase", success: false, error: failures.get(name)! });
-                            } else if (eventCounts.some(e => (e.source === name || e.name === `external-${name}`) && e.events > 0)) {
+                            } else if (reached.has(name) || reached.has(`external-${name}`)) {
                                 outcomes.push({ name, rung: "browserbase", success: true, error: null });
                             }
-                            // else: no signal this run → carried forward unchanged.
+                            // else: no signal this run (source absent from published data,
+                            // e.g. the main build hasn't run since escalation) → carried
+                            // forward unchanged rather than counted as a failure.
                         }
                     } else {
                         console.warn(`[proxy-verification] Could not read production build-errors.json (HTTP ${res.status}); browserbase sources carried forward.`);
@@ -385,8 +399,10 @@ async function main() {
                 }
             }
         } catch (err: any) {
-            // Bookkeeping must never fail the outofband run.
-            console.warn(`[proxy-verification] Skipped: ${err?.message ?? err}`);
+            // Bookkeeping must never fail the outofband run — but surface it as a
+            // workflow warning so a silently-stuck ladder (e.g. S3 down or IAM
+            // misconfigured) is observable in the run summary instead of only the logs.
+            console.log(`::warning::[proxy-verification] Bookkeeping skipped: ${err?.message ?? err}`);
         }
     }
 

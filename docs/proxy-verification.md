@@ -94,8 +94,10 @@ write races. Each run it:
    - **`browserbase` sources** — from the published
      `https://206.events/build-errors.json` (browserbase is fetched live in the
      main CI build, not here): a name in `externalCalendarFailures` is a
-     failure; a name in `eventCounts` with `events > 0` is a success; no signal
-     this run → carried forward unchanged.
+     failure; a name *present* in `eventCounts` is a success (failed fetches are
+     never added to `eventCounts`, so presence means reachable — this counts a
+     legitimately-empty `expectEmpty` browserbase source as reachable too); no
+     signal this run → carried forward unchanged.
 3. Folds the outcomes into the counters via
    `evaluateProxyVerification(prev, outcomes, today, knownSources)`
    (`lib/proxy-verification.ts`, pure + unit-tested): increment on failure,
