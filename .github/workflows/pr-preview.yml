@@ -139,6 +139,23 @@ jobs:
               }
             }
 
+            // Proxy escalation-ladder verification queue. Non-fatal: proxy
+            // sources still climbing outofband → browserbase → disabled. The
+            // proxy-escalation skill (run by the out-of-band job) drives them.
+            const pendingProxy = buildErrors.pendingProxyVerification || [];
+            let proxyVerificationSection = '';
+            if (pendingProxy.length > 0) {
+              const promote = pendingProxy.filter(p => p.recommendation === 'promote-to-browserbase').length;
+              const retire = pendingProxy.filter(p => p.recommendation === 'retire').length;
+              const rows = pendingProxy.map(p =>
+                `| \`${p.name}\` | ${p.rung} | ${p.consecutiveFailures} | ${p.recommendation} | ${p.lastError || '—'} |`
+              ).join('\n');
+              const badge = `**🪜 Proxy verification:** ${pendingProxy.length} pending` +
+                (promote ? `, ${promote} due to promote to browserbase` : '') +
+                (retire ? `, ${retire} due to retire` : '');
+              proxyVerificationSection = `\n\n${badge}\n<details>\n<summary>Show proxy-ladder queue</summary>\n\n| Source | Rung | Consecutive failures | Recommendation | Last error |\n|--------|------|----------------------|----------------|------------|\n${rows}\n\n_The proxy-escalation skill escalates a source after ${'`'}3${'`'} consecutive failures._\n\n</details>`;
+            }
+
             // New source summary — event counts and sample events for sources not in production
             let newSourceSection = '\n\n✅ No new sources in this PR';
             try {
@@ -221,6 +238,7 @@ jobs:
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               geoSection,
               uncertaintySection,
+              proxyVerificationSection,
               newSourceSection,
               errorSection,
               zeroEventSection,

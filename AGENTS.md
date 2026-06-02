@@ -10,6 +10,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/calendar-verification/SKILL.md`** — Verify recurring calendars and `expectEmpty` sources against their live URLs and auto-fix safe drift via PR
 - **`skills/event-uncertainty-resolver/SKILL.md`** — Resolve outstanding `UncertaintyError` entries (typically unknown start times) by investigating the source page and writing values into `event-uncertainty-cache.json`
 - **`skills/event-lookup/SKILL.md`** — Fuzzy-search the published `events-index.json` / `manifest.json` / `venues.json` to answer "is this event already in 206.events, and which source covers it?"
+- **`skills/proxy-escalation/SKILL.md`** — Read the non-fatal `pendingProxyVerification` queue and open PRs that climb the proxy ladder (`outofband → browserbase`) after 3 consecutive failures, or retire a source (disable + mark `blocked`) when browserbase is exhausted
 - **`skills/source-from-event/SKILL.md`** — Default handler for any **event poster image** (or text request describing an event the user wants covered). Uses `event-lookup` to check coverage, then either reports it's covered, hands off a parse-gap fix to `build-report`, or hands off a new-source add to `source-discovery`
 
 ## Adding New Calendar Sources
@@ -456,6 +457,8 @@ Some upstream sites block automated requests from GitHub Actions runner IPs. The
 | 3 | `proxy: "browserbase"` | Browserbase Fetch API executes JS, bypasses bot detection | JS challenge (e.g. SiteGround sgcaptcha) blocks even residential IP |
 
 **Escalation is always one rung at a time, one PR at a time.** If a source fails at rung 1 (CI 403), add `proxy: "outofband"` in a PR. If it still fails out-of-band (captured in the outofband report), escalate to `proxy: "browserbase"` in a follow-up PR. You must observe each failure before escalating. A source should never go from `proxy: false` directly to `proxy: "browserbase"`.
+
+**Adding a proxy source never fails `main`.** A source you mark `proxy: "outofband"` can't be proven in the PR/main build (the out-of-band runner hasn't fetched it, and the residential fetch may itself be blocked). Such unproven proxy sources are **exempted from the fatal "new source produced 0 events" gate** and tracked in a non-fatal `pendingProxyVerification` queue instead. The out-of-band runner counts consecutive failures per rung; after **3** in a row the **proxy-escalation skill** (`skills/proxy-escalation/SKILL.md`) opens the next-rung PR automatically, and retires the source (disable + candidate doc `status: blocked`) when browserbase is exhausted. This means you do **not** hand-escalate a source that already carries a proxy — just add it at rung 2 and let the ladder run. See **`docs/proxy-verification.md`**.
 
 See **`docs/outofband.md`** for the out-of-band architecture and **`infra/authenticated-proxy/README.md`** for the supporting AWS infrastructure (S3 bucket, IAM roles). See **`docs/browserbase-proxy-plan.md`** for the Browserbase proxy design.
 

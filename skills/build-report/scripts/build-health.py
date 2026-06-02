@@ -26,6 +26,7 @@ def main():
     event_counts = d.get("eventCounts", {})
     geo_stats = d.get("geoStats", {})
     geo_errors = d.get("geocodeErrors", [])
+    pending_proxy = d.get("pendingProxyVerification", [])
     timestamp = d.get("buildTimestamp", "unknown")
 
     total_errors = len(config_errors) + len(ext_failures) + len(geo_errors)
@@ -70,6 +71,21 @@ def main():
             print(f"  ... and {len(geo_errors) - 10} more")
     else:
         print("No geocode errors ✅")
+
+    # Proxy escalation-ladder verification queue (non-fatal)
+    print()
+    if pending_proxy:
+        actionable = [p for p in pending_proxy
+                      if p.get("recommendation") in ("promote-to-browserbase", "retire")]
+        print(f"🪜 Proxy verification: {len(pending_proxy)} pending — {len(actionable)} ready to escalate")
+        for p in pending_proxy:
+            print(f"  {p.get('name')} ({p.get('rung')}, {p.get('consecutiveFailures')} fails) "
+                  f"→ {p.get('recommendation')}"
+                  + (f"  [{p.get('lastError')}]" if p.get('lastError') else ""))
+        if actionable:
+            print("  → run skills/proxy-escalation/SKILL.md to open escalation PR(s)")
+    else:
+        print("🪜 Proxy verification: 0 pending ✅")
 
     print(f"\nBuild timestamp: {timestamp}")
 
