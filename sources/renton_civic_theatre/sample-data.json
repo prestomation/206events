@@ -1,0 +1,72 @@
+{
+  "docs": [
+    {
+      "id": "69abc123",
+      "slug": "past-show",
+      "title": "Past Show",
+      "showInfo": {
+        "showTitle": "Past Show",
+        "shortDescription": "A show that already closed."
+      },
+      "dates": {
+        "openingDate": "2025-02-14T12:00:00.000Z",
+        "closingDate": "2025-03-02T12:00:00.000Z",
+        "otherDates": []
+      },
+      "meta": null
+    },
+    {
+      "id": "6927519beadb027557442d41",
+      "slug": "footloose",
+      "title": "Footloose",
+      "showInfo": {
+        "showTitle": "Footloose",
+        "shortDescription": "A high-energy musical about rebellion, community, and the healing power of dance."
+      },
+      "dates": {
+        "openingDate": "2026-06-05T12:00:00.000Z",
+        "closingDate": "2026-06-21T12:00:00.000Z",
+        "otherDates": [
+          {
+            "id": "694d754cdb86b0a282eecd3c",
+            "purpose": "Industry Night",
+            "date": "2026-06-15T12:00:00.000Z",
+            "description": "This performance is Pay-What-You-Will. No industry connection required."
+          }
+        ]
+      },
+      "meta": {
+        "image": {
+          "url": "/api/media/file/Footloose%20Open%20Graphic.jpg"
+        }
+      }
+    },
+    {
+      "id": "69275355eadb027557442f27",
+      "slug": "noises-off",
+      "title": "Noises Off",
+      "showInfo": {
+        "showTitle": "Noises Off",
+        "shortDescription": "A classic farce about a touring theater troupe."
+      },
+      "dates": {
+        "openingDate": "2026-10-02T12:00:00.000Z",
+        "closingDate": "2026-10-18T12:00:00.000Z",
+        "otherDates": []
+      },
+      "meta": null
+    },
+    {
+      "id": "69missingdates",
+      "slug": "no-dates-show",
+      "title": "No Dates Show",
+      "showInfo": {
+        "showTitle": "No Dates Show",
+        "shortDescription": "A show without dates."
+      },
+      "dates": {},
+      "meta": null
+    }
+  ],
+  "totalDocs": 4
+}
