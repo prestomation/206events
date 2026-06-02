@@ -4,6 +4,7 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { eventKey } from '../lib/eventKey.js'
+import { googleMapsUrl } from '../lib/maplink.js'
 
 // Fix Leaflet default marker icons in Vite
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
@@ -156,6 +157,13 @@ function renderPopupHtml(event, eventAttributions) {
   // Only emit http(s) links — guards against javascript: / data: URLs in source data.
   if (event.url && /^https?:\/\//i.test(event.url)) {
     parts.push(`<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener noreferrer" class="map-popup-link">View event →</a>`)
+  }
+  // Open-in-maps link. Use the Google universal URL (always http(s), works on
+  // desktop and deep-links into the maps app on mobile) so it passes the same
+  // scheme guard as the event link above.
+  const mapUrl = googleMapsUrl({ location: event.location, lat: event.lat, lng: event.lng })
+  if (mapUrl) {
+    parts.push(`<a href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener noreferrer" class="map-popup-link">Open in maps →</a>`)
   }
   parts.push(attributionChipsHtml(eventAttributions?.get(eventKey(event))))
   return `<div class="map-popup">${parts.join('')}</div>`

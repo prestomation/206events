@@ -24,6 +24,10 @@ the canonical machine-readable view of everything the build publishes.
   location. Each entry has geographic coordinates and the hrefs of its
   calendar feeds. Sources without a single fixed location (e.g. community
   calendars, cross-neighborhood art walks) are intentionally not listed.
+  Each entry also carries a `map` object with ready-made links:
+  `map.web` is a Google Maps URL (works in any browser, deep-links into
+  the maps app on mobile) and `map.osm` — present only when the venue has
+  an OSM identity — links to the exact OpenStreetMap feature.
   Venues that resolve cleanly to an OpenStreetMap feature include
   `geo.osmType` (`node` / `way` / `relation`) and `geo.osmId` so you can
   join against OSM. Build the URL as

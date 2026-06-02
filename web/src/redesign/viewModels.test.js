@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, DATE_WINDOW_STOPS } from './viewModels.js'
+import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar } from './viewModels.js'
 
 // Fixed "now": Mon 2026-06-01 10:00 local. Day boundaries are computed in local
 // time, matching the production helpers.
@@ -62,5 +62,22 @@ describe('describeWindow', () => {
     for (const stop of DATE_WINDOW_STOPS) {
       expect(describeWindow(stop, NOW).relative.length).toBeGreaterThan(0)
     }
+  })
+})
+
+describe('channelFromCalendar geo wiring', () => {
+  const cal = { icsUrl: 'neumos-events.ics', name: 'neumos', fullName: 'Neumos', tags: ['Music', 'Capitol Hill'] }
+
+  it('carries the venue geo and is not distributed when a venue is provided', () => {
+    const venue = { geo: { lat: 47.6143, lng: -122.3197, label: 'Neumos, Seattle', osmType: 'way', osmId: 42 } }
+    const ch = channelFromCalendar(cal, null, { venue })
+    expect(ch.geo).toEqual(venue.geo)
+    expect(ch.distributed).toBe(false)
+  })
+
+  it('has null geo and is distributed when no venue is provided', () => {
+    const ch = channelFromCalendar(cal, null, { venue: null })
+    expect(ch.geo).toBeNull()
+    expect(ch.distributed).toBe(true)
   })
 })

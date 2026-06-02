@@ -4,13 +4,14 @@
 import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
-import { ChannelAvatar, CatDot, DayList, ActiveFilters } from './atoms.jsx'
+import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import { EventDescription } from '../components/EventDescription.jsx'
+import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
 import { tagGroup, CATEGORY_GROUP_ORDER } from './categories.js'
 
@@ -472,7 +473,18 @@ export function ChannelDetail({ icsUrl }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
         <ChannelAvatar color={channel.color} size={56} />
         <div style={{ minWidth: 0 }}>
-          <div className="a-h1" style={{ fontSize: 24, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{channel.name}</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 7, minWidth: 0 }}>
+            <div className="a-h1" style={{ fontSize: 24, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{channel.name}</div>
+            {channel.geo && (() => {
+              const href = bestMapHref({ lat: channel.geo.lat, lng: channel.geo.lng, label: channel.geo.label, osmType: channel.geo.osmType, osmId: channel.geo.osmId })
+              return href ? (
+                <a href={href} target="_blank" rel="noopener noreferrer" title="Open venue in maps" aria-label="Open venue in maps"
+                  style={{ flex: '0 0 auto', width: 20, height: 20, color: 'var(--pin)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {Ico.pin}
+                </a>
+              ) : null
+            })()}
+          </div>
           <div className="mk-tag" style={{ marginTop: 5 }}>
             <CatDot tag={channel.primaryCategory} color={channel.color} size={7} />
             {channel.distributed ? 'Multiple venues · Citywide' : (channel.hood || 'Seattle')}
@@ -538,12 +550,9 @@ function ParsedEventRow({ event, distributed }) {
       <div className="ev-body">
         <div className="ev-title">{event.title}</div>
         <div className="ev-meta"><span>{time}</span></div>
-        {distributed && event.location && (
-          <div className="ev-meta" style={{ marginTop: 5 }}>
-            <span style={{ width: 13, height: 13, flex: '0 0 auto', color: 'var(--ink-4)' }}>{Ico.pin}</span>
-            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.location}</span>
-          </div>
-        )}
+        {/* Distributed calendars set a per-event location ("its own geo"); link
+            it via the shared pin-only LocationMapLink. */}
+        {distributed && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
         {event.description && <div style={{ marginTop: 6 }}><EventDescription text={event.description} /></div>}
       </div>
       <AddToCalendar title={event.title} startDate={event.startDate} endDate={event.endDate}
@@ -598,13 +607,19 @@ export function EventDetail({ event }) {
       )}
 
       <div className="a-facts">
-        {event.location && (
-          <div className="a-fact">
-            <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.pin}</span>
-            <div><div style={{ fontWeight: 600, fontSize: 14 }}>{event.location}</div>
-              {channel?.hood && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{channel.hood}</div>}</div>
-          </div>
-        )}
+        {event.location && (() => {
+          const mapHref = bestMapHref({ location: event.location, lat: event.lat, lng: event.lng })
+          const inner = (
+            <>
+              <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.pin}</span>
+              <div><div style={{ fontWeight: 600, fontSize: 14 }}>{event.location}</div>
+                {channel?.hood && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{channel.hood}</div>}</div>
+            </>
+          )
+          return mapHref
+            ? <a className="a-fact" href={mapHref} target="_blank" rel="noopener noreferrer" title="Open in maps" style={{ alignItems: 'center', width: '100%', color: 'inherit', textDecoration: 'none' }}>{inner}</a>
+            : <div className="a-fact">{inner}</div>
+        })()}
         {channel && (
           <button onClick={() => app.openChannel(event.icsUrl)} className="a-fact" style={{ textAlign: 'left', alignItems: 'center', width: '100%' }}>
             <span style={{ width: 18, height: 18, flex: '0 0 auto' }}><CatDot tag={channel.primaryCategory} color={channel.color} size={12} /></span>

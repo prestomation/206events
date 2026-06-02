@@ -5,6 +5,7 @@ import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
 import { rowFromIndexEvent, provFromAttributions, describeWindow } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
+import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
 
 export function Brand() {
@@ -47,6 +48,28 @@ export function ProvChip({ reason }) {
   )
 }
 
+// A muted location line with a trailing ceramic-red pin that links to maps.
+// The text itself is not a link — only the pin is the tap target. The pin's
+// onClick stops propagation so it doesn't also trigger an enclosing row's
+// open-event handler. Coords (from the ICS GEO line) drive a geo: link on
+// Android when present; otherwise the location text drives the maps query.
+export function LocationMapLink({ location, lat, lng, style }) {
+  if (!location) return null
+  const href = bestMapHref({ location, lat, lng })
+  return (
+    <div className="ev-meta" style={{ marginTop: 5, ...style }}>
+      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{location}</span>
+      {href && (
+        <a href={href} target="_blank" rel="noopener noreferrer" title="Open in maps" aria-label="Open in maps"
+          onClick={(e) => e.stopPropagation()}
+          style={{ flex: '0 0 auto', width: 14, height: 14, color: 'var(--pin)', display: 'inline-flex', alignItems: 'center' }}>
+          {Ico.pin}
+        </a>
+      )}
+    </div>
+  )
+}
+
 // A single day-grouped event row. `event` is an events-index entry.
 export function EventRow({ event, noDate = false, showChip = true, showLoc = false, reason = null }) {
   const app = useApp206()
@@ -67,12 +90,7 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
         </div>
         {!noDate && row.time && <div className="ev-meta"><span>{row.time}</span></div>}
-        {showLoc && event.location && (
-          <div className="ev-meta" style={{ marginTop: 5 }}>
-            <span style={{ width: 13, height: 13, flex: '0 0 auto', color: 'var(--ink-4)' }}>{Ico.pin}</span>
-            <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.location}</span>
-          </div>
-        )}
+        {showLoc && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
         {showChip && channel && (
           <div className="ev-chip" style={{ marginTop: 6 }}
             onClick={(e) => { e.stopPropagation(); app.openChannel(event.icsUrl) }}>

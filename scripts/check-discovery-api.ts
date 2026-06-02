@@ -205,6 +205,16 @@ async function main() {
       );
     }
 
+    // Map links are EXTERNAL absolute URLs (Google Maps / OpenStreetMap), the
+    // inverse of the on-disk `links` hrefs — assert they are well-formed http(s)
+    // and never crawled as local files.
+    if (!/^https?:\/\//i.test(venue.map.web)) {
+      fail(errors, `venues.json[${venue.name}].map.web is not an absolute http(s) URL: ${venue.map.web}`);
+    }
+    if (venue.map.osm !== undefined && !/^https?:\/\/(www\.)?openstreetmap\.org\//i.test(venue.map.osm)) {
+      fail(errors, `venues.json[${venue.name}].map.osm is not an OpenStreetMap URL: ${venue.map.osm}`);
+    }
+
     for (const calendar of venue.calendars) {
       if (/^https?:\/\//i.test(calendar.links.ics.href) || /^https?:\/\//i.test(calendar.links.rss.href)) {
         fail(errors, `venues.json[${venue.name}] has absolute calendar link hrefs`);

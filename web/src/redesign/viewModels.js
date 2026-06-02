@@ -160,6 +160,9 @@ export function channelFromCalendar(cal, ripper, opts = {}) {
     cal,
     tags,
     hood,
+    // The venue's fixed coordinates (when this calendar maps to a venue), used
+    // to build a map link on the source page. null for distributed calendars.
+    geo: venue && venue.geo ? venue.geo : null,
     primaryCategory: primaryCategoryTag(tags),
     color: channelColor(tags),
     distributed: !venue,

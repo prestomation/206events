@@ -183,6 +183,12 @@ export interface RipperCalendarEvent {
     rrule?: string;  // RFC 5545 RRULE for recurring events
     lat?: number;    // Latitude (resolved via geocoder or source-level geo)
     lng?: number;    // Longitude (resolved via geocoder or source-level geo)
+    // OSM feature identity + provenance, attached alongside lat/lng by the
+    // single coordinate-resolution pass (attachEventCoords) so the events-index
+    // builder can read them without re-resolving.
+    osmType?: 'node' | 'way' | 'relation';
+    osmId?: number;
+    geocodeSource?: 'ripper' | 'cached' | 'none';
     sourceCalendar?: string;      // Source calendar friendly name (set during aggregation)
     sourceCalendarName?: string;  // Source calendar slug (set during aggregation)
 };
@@ -238,6 +244,12 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
                 return desc;
             })(),
             location: e.location,
+            // RFC-5545 GEO property (emitted as `GEO:lat;lng`) so calendar
+            // apps can drop a pin. Coords are attached to the event upstream
+            // by attachEventCoords in calendar_ripper.ts before this runs.
+            geo: (typeof e.lat === "number" && typeof e.lng === "number")
+                ? { lat: e.lat, lon: e.lng }
+                : undefined,
             productId: "206.events",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,

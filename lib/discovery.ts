@@ -8,6 +8,7 @@ import {
 } from "./config/schema.js";
 import { RecurringEvent } from "./config/recurring.js";
 import { categoryFor } from "./config/tags.js";
+import { googleMapsUrl, osmFeatureUrl } from "./maplink.js";
 
 /**
  * Discovery API — HATEOAS-style data files that let programmatic consumers
@@ -208,6 +209,18 @@ export const venueCalendarSchema = z.object({
   }),
 });
 
+// Ready-made map links for the venue. These are ABSOLUTE external URLs, so
+// they live outside the relative-only `links`/HATEOAS object (which
+// `linkSchema` and `check-discovery-api.ts` require to be on-disk paths). The
+// existing absolute `url` field is the precedent for external URLs here.
+//   web — Google Maps universal URL (works in every browser; mobile deep-links).
+//   osm — exact OpenStreetMap feature, present only when the venue has an
+//         osmType/osmId identity.
+export const venueMapSchema = z.object({
+  web: z.string().url(),
+  osm: z.string().url().optional(),
+});
+
 export const venueEntrySchema = z.object({
   name: z.string(),
   friendlyName: z.string(),
@@ -215,6 +228,7 @@ export const venueEntrySchema = z.object({
   url: z.string().url().optional(),
   tags: z.array(z.string()),
   geo: geoSchema,
+  map: venueMapSchema,
   kind: z.enum(["ripper", "external", "recurring"]),
   calendars: z.array(venueCalendarSchema),
 });
@@ -240,6 +254,21 @@ export type VenuesDoc = z.infer<typeof venuesDocSchema>;
  * declare ripper `geo: null` and provide a branch-level `geo` per calendar.
  * Each branch-with-geo becomes its own venue entry.
  */
+/**
+ * Build the absolute-URL map links for a venue from its `geo`. `web` is always
+ * present (every venue has lat/lng/label, so `googleMapsUrl` always resolves);
+ * `osm` only when the venue carries an OSM identity.
+ */
+function buildVenueMap(geo: Geo): z.infer<typeof venueMapSchema> {
+  const web = googleMapsUrl({
+    lat: geo.lat,
+    lng: geo.lng,
+    label: geo.label,
+  }) ?? `https://www.google.com/maps/search/?api=1&query=${geo.lat},${geo.lng}`;
+  const osm = osmFeatureUrl({ osmType: geo.osmType, osmId: geo.osmId });
+  return osm ? { web, osm } : { web };
+}
+
 export function buildVenuesJson(opts: {
   configs: RipperConfig[];
   externals: ExternalCalendar[];
@@ -285,6 +314,7 @@ export function buildVenuesJson(opts: {
         url: safeUrlString(ripper.friendlyLink),
         tags: dedupe([...(ripper.tags ?? [])]),
         geo: ripperGeo,
+        map: buildVenueMap(ripperGeo),
         kind: "ripper",
         calendars: liveCalendars.map(c => ({
           name: c.name,
@@ -312,6 +342,7 @@ export function buildVenuesJson(opts: {
         url: safeUrlString(ripper.friendlyLink),
         tags: dedupe([...(ripper.tags ?? []), ...(calendar.tags ?? [])]),
         geo: resolvedGeo,
+        map: buildVenueMap(resolvedGeo),
         kind: "ripper",
         calendars: [
           {
@@ -340,6 +371,7 @@ export function buildVenuesJson(opts: {
       url: safeUrlString(ext.infoUrl),
       tags: dedupe([...(ext.tags ?? [])]),
       geo: ext.geo,
+      map: buildVenueMap(ext.geo),
       kind: "external",
       calendars: [
         {
@@ -366,6 +398,7 @@ export function buildVenuesJson(opts: {
       url: safeUrlString(event.url),
       tags: dedupe([...(event.tags ?? [])]),
       geo: event.geo,
+      map: buildVenueMap(event.geo),
       kind: "recurring",
       calendars: [
         {

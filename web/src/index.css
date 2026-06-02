@@ -3386,6 +3386,7 @@ html, body, #root { height: 100%; }
   --line:#e9e4da; --line-2:#dcd6ca;
   --blue:#1366d6; --blue-soft:#e7f0fc; --blue-ink:#0b3f87;
   --amber:#c2410c;
+  --pin:#d24a3d; /* map-pin / ceramic red, for location links */
   --c-music:#7c3aed; --c-art:#c2410c; --c-film:#0e7490; --c-market:#15803d;
   --c-talk:#b45309; --c-comedy:#be185d; --c-community:#4d7c0f;
   --pad:18px; --maxcol:1;
@@ -3402,6 +3403,7 @@ html, body, #root { height: 100%; }
     --line:#322e22; --line-2:#3f3a2b;
     --blue:#5b9bf0; --blue-soft:#1a2740; --blue-ink:#b9d3f7;
     --amber:#e08a4f;
+    --pin:#ef6f62; /* map-pin / ceramic red (dark mode) */
     --c-music:#a78bfa; --c-art:#e08a4f; --c-film:#3db9cf; --c-market:#4caf6a;
     --c-talk:#d99a4e; --c-comedy:#ec5f95; --c-community:#94c14d;
   }

@@ -9,7 +9,7 @@ import {
   prepareTaggedExternalCalendars,
   createAggregateCalendars
 } from './tag_aggregator.js';
-import { hasFutureEventsInICS } from './calendar_ripper.js';
+import { hasFutureEventsInICS, attachEventCoords } from './calendar_ripper.js';
 
 // Mock the file system operations
 vi.mock('fs/promises', () => ({
@@ -393,5 +393,58 @@ describe('hasFutureEventsInICS', () => {
   it('should return false for malformed ICS content', () => {
     const icsContent = 'not valid ics data at all';
     expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
+  });
+});
+
+describe('attachEventCoords', () => {
+  const emptyCache = { version: 1, entries: {} };
+  const makeEvent = () => ({
+    ripped: new Date(),
+    date: ZonedDateTime.parse('2026-06-01T18:00:00-07:00[America/Los_Angeles]'),
+    duration: Duration.ofHours(2),
+    summary: 'Test',
+  });
+
+  it('attaches declared venue coords without geocoding or errors', async () => {
+    const event: any = { ...makeEvent(), location: 'TBA' };
+    const calendar: RipperCalendar = {
+      name: 'cal',
+      friendlyname: 'Cal',
+      events: [event],
+      errors: [],
+      tags: [],
+      // ripper-level geo with an OSM identity
+      parent: { name: 'venue', geo: { lat: 47.61, lng: -122.32, label: 'Venue', osmType: 'way', osmId: 42 }, calendars: [{ name: 'cal' }] } as any,
+    };
+    const errors: any[] = [];
+    await attachEventCoords(calendar, emptyCache, errors);
+
+    expect(event.lat).toBe(47.61);
+    expect(event.lng).toBe(-122.32);
+    expect(event.osmType).toBe('way');
+    expect(event.osmId).toBe(42);
+    expect(event.geocodeSource).toBe('ripper');
+    // Declared coords never produce a geocode error, even for a vague location.
+    expect(errors).toHaveLength(0);
+  });
+
+  it('reports exactly one geocode error for an unresolvable location (geo:null source)', async () => {
+    const event: any = { ...makeEvent(), location: 'TBA' };
+    const calendar: RipperCalendar = {
+      name: 'community',
+      friendlyname: 'Community',
+      events: [event],
+      errors: [],
+      tags: [],
+      parent: { name: 'community', geo: null, calendars: [{ name: 'community' }] } as any,
+    };
+    const errors: any[] = [];
+    await attachEventCoords(calendar, emptyCache, errors);
+
+    // 'TBA' is a vague/unresolvable location → no coords, one error, source 'none'.
+    expect(event.lat).toBeUndefined();
+    expect(event.geocodeSource).toBe('none');
+    expect(errors).toHaveLength(1);
+    expect(errors[0].type).toBe('GeocodeError');
   });
 });
