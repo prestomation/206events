@@ -3481,6 +3481,22 @@ html, body, #root { height: 100%; }
 .app206 .a-dd-item-count { flex: 0 0 auto; font-family: var(--font-mono); font-size: 11px; color: var(--ink-4); }
 .app206 .a-dd-item-check { flex: 0 0 auto; color: var(--blue); }
 
+/* ---- category chips (desktop horizontal picker) ----
+   Mobile keeps the compact Category dropdown; ≥700px swaps to a wrapping chip
+   row that surfaces every category at a glance. The two controls are mutually
+   exclusive so only one is ever interactive. */
+.app206 .a-catchips { display: none; }
+.app206 .a-cat-dd { display: contents; }
+@media (min-width: 700px) {
+  .app206 .a-cat-dd { display: none; }
+  .app206 .a-catchips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 12px; }
+}
+.app206 .a-catchip { display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 13px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-2); color: var(--ink-2); font-weight: 600; font-size: 13px; white-space: nowrap; transition: background .14s, border-color .14s, color .14s; }
+.app206 .a-catchip:hover { background: var(--surface-2); }
+.app206 .a-catchip.on { background: var(--blue-soft); color: var(--blue-ink); border-color: transparent; }
+.app206 .a-catchip-count { font-family: var(--font-mono); font-size: 11px; color: var(--ink-4); }
+.app206 .a-catchip.on .a-catchip-count { color: var(--blue-ink); opacity: .7; }
+
 /* ---- active-filter chips ---- */
 .app206 .a-activefilters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 0 0 14px; }
 .app206 .a-fchip { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 6px 0 11px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line-2); color: var(--ink-2); font-size: 12.5px; font-weight: 600; }

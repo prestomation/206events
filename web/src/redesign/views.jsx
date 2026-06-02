@@ -59,9 +59,15 @@ export function DiscoverView() {
         </div>
       </div>
 
+      <CategoryChips options={flatCategoryOptions} value={app.category} onSelect={app.setCategory} />
+
       <div className="a-filterbar">
-        <FilterDropdown label="Category" icon={Ico.grid} value={app.category}
-          options={flatCategoryOptions} groups={categoryGroups} onSelect={app.setCategory} />
+        {/* Category dropdown is the mobile-only control; on desktop the
+            CategoryChips row above takes over (visibility is swapped in CSS). */}
+        <div className="a-cat-dd">
+          <FilterDropdown label="Category" icon={Ico.grid} value={app.category}
+            options={flatCategoryOptions} groups={categoryGroups} onSelect={app.setCategory} />
+        </div>
         <FilterDropdown label="Neighborhood" icon={Ico.pin} value={app.neighborhood}
           options={neighborhoodOptions} onSelect={app.setNeighborhood} />
       </div>
@@ -69,6 +75,30 @@ export function DiscoverView() {
       <ActiveFilters />
 
       {app.emphasis === 'calendars' ? <CalendarsMode /> : <div style={{ marginTop: 8 }}><EventsMode /></div>}
+    </div>
+  )
+}
+
+// Desktop-only horizontal category picker. On mobile the compact dropdown is
+// shown instead (the two are swapped via the .a-catchips / .a-cat-dd media
+// rules in index.css) — phones keep the dropdown to save vertical space, while
+// wider screens spend the extra real estate showing every category at a glance.
+// Clicking the active chip again clears the filter.
+function CategoryChips({ options, value, onSelect }) {
+  return (
+    <div className="a-catchips" role="group" aria-label="Filter by category">
+      <button className={`a-catchip ${!value ? 'on' : ''}`} onClick={() => onSelect(null)}>
+        <span style={{ width: 14, height: 14, flex: '0 0 auto' }}>{Ico.grid}</span>
+        <span className="a-catchip-label">All</span>
+      </button>
+      {options.map((o) => (
+        <button key={o.value} className={`a-catchip ${o.value === value ? 'on' : ''}`}
+          onClick={() => onSelect(o.value === value ? null : o.value)}>
+          <CatDot tag={o.value} size={8} />
+          <span className="a-catchip-label">{o.label}</span>
+          {o.count != null && <span className="a-catchip-count">{o.count}</span>}
+        </button>
+      ))}
     </div>
   )
 }
