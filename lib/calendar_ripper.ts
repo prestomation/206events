@@ -299,19 +299,28 @@ async function parallelMap<T, R>(
 }
 
 /**
- * Resolve and attach `lat`/`lng` to every event in a calendar so the ICS
- * writer can emit a RFC-5545 `GEO` property. Mirrors the resolution precedence
- * used by the events-index builder: a calendar-level `geo` overrides the
- * ripper-level `geo`; when neither is set (recurring calendars, community
- * sources) the event's `location` string is geocoded via the shared cache.
+ * Resolve coordinates for every event in a calendar and attach them
+ * (`lat`/`lng`/`osmType`/`osmId`/`geocodeSource`) to the event objects. This is
+ * the SINGLE coordinate-resolution pass for ripper and recurring calendars: it
+ * runs before the ICS write (so `toICS` can emit a RFC-5545 `GEO` property) and
+ * the events-index builder later reads the attached fields rather than
+ * resolving again.
  *
- * Mutates `calendar.events` in place and returns the (possibly updated)
- * geo-cache so cache growth is threaded through the build. Cheap on repeat
- * calls: the events-index pass re-reads the same locations as warm cache hits.
+ * Resolving exactly once matters for error parity: `resolveEventCoords` reports
+ * a geocode error only on the *first* encounter of an unresolvable location
+ * (subsequent warm-cache calls return silently), so a second resolution pass
+ * would drop those errors from the build report. Mirrors the precedence the
+ * events-index used to apply inline: calendar-level `geo` overrides ripper-level
+ * `geo`; when neither is set (recurring calendars, community sources) the
+ * event's `location` string is geocoded via the shared cache.
+ *
+ * Mutates `calendar.events` in place, pushes any geocode errors onto
+ * `geocodeErrors`, and returns the (possibly updated) geo-cache.
  */
-async function attachEventCoords(
+export async function attachEventCoords(
   calendar: RipperCalendar,
   geoCache: GeoCache,
+  geocodeErrors: GeocodeError[],
 ): Promise<GeoCache> {
   const sourceName = calendar.parent?.name ?? calendar.name;
   const calendarCfg = calendar.parent?.calendars.find(c => c.name === calendar.name);
@@ -324,13 +333,20 @@ async function attachEventCoords(
       // Declared venue coords — no geocoding needed.
       event.lat = resolvedGeo.lat;
       event.lng = resolvedGeo.lng;
+      event.osmType = resolvedGeo.osmType;
+      event.osmId = resolvedGeo.osmId;
+      event.geocodeSource = 'ripper';
     } else {
       const result = await resolveEventCoords(geoCache, event.location, sourceName);
       geoCache = result.cache;
       if (result.coords) {
         event.lat = result.coords.lat;
         event.lng = result.coords.lng;
+        event.osmType = result.coords.osmType;
+        event.osmId = result.coords.osmId;
       }
+      event.geocodeSource = result.geocodeSource;
+      if (result.error) geocodeErrors.push(result.error);
     }
   }
   return geoCache;
@@ -495,7 +511,7 @@ export const main = async () => {
     const errorsPath = `recurring-${calendar.name}-errors.txt`;
     const errorCount = calendar.errors.length;
     totalErrorCount += errorCount;
-    geoCache = await attachEventCoords(calendar, geoCache);
+    geoCache = await attachEventCoords(calendar, geoCache, geocodeErrors);
     const icsString = await toICS(calendar);
     console.log(`${calendar.events.length} events for recurring-${calendar.name}`);
     eventCounts.push({ name: `recurring-${calendar.name}`, type: "Recurring", events: calendar.events.length, expectEmpty: false, source: calendar.name });
@@ -682,7 +698,7 @@ export const main = async () => {
       const errorsPath = `${config.config.name}-${calendar.name}-errors.txt`;
       const errorCount = calendar.errors.length;
       totalErrorCount += errorCount;
-      geoCache = await attachEventCoords(calendar, geoCache);
+      geoCache = await attachEventCoords(calendar, geoCache, geocodeErrors);
       const icsString = await toICS(calendar);
       const calConfig = config.config.calendars.find(c => c.name === calendar.name);
       const isExpectEmpty = calConfig?.expectEmpty ?? config.config.expectEmpty ?? false;
@@ -1076,43 +1092,11 @@ END:VCALENDAR`;
     // Skip calendars excluded from manifest (no future events)
     if (!calendarsWithFutureEvents.has(icsUrl)) continue;
 
-    const sourceName = calendar.parent?.name ?? calendar.name;
-
     for (const event of calendar.events) {
-      let lat: number | undefined;
-      let lng: number | undefined;
-      let osmType: 'node' | 'way' | 'relation' | undefined;
-      let osmId: number | undefined;
-      let geocodeSource: 'ripper' | 'cached' | 'none' | undefined;
-
-      // Resolve geo: calendar-level config wins over ripper-level.
-      // `geo` is now required-nullable at the ripper level; a ripper with
-      // `geo: null` plus per-calendar overrides is how multi-branch
-      // sources like SPL opt in to branch-level coords.
-      const calendarCfg = calendar.parent?.calendars.find(c => c.name === calendar.name);
-      const resolvedGeo = calendarCfg?.geo !== undefined
-        ? calendarCfg.geo
-        : (calendar.parent?.geo ?? null);
-
-      if (resolvedGeo) {
-        // Use declared coords — no geocoding needed
-        lat = resolvedGeo.lat;
-        lng = resolvedGeo.lng;
-        osmType = resolvedGeo.osmType;
-        osmId = resolvedGeo.osmId;
-        geocodeSource = 'ripper';
-      } else {
-        const result = await resolveEventCoords(geoCache, event.location, sourceName);
-        geoCache = result.cache;
-        if (result.coords) {
-          lat = result.coords.lat;
-          lng = result.coords.lng;
-          osmType = result.coords.osmType;
-          osmId = result.coords.osmId;
-        }
-        geocodeSource = result.geocodeSource;
-        if (result.error) geocodeErrors.push(result.error);
-      }
+      // Coordinates were resolved once by attachEventCoords before the ICS
+      // write (the single resolution pass — see that function's note on error
+      // parity). Read the attached fields here rather than geocoding again.
+      const { lat, lng, osmType, osmId, geocodeSource } = event;
 
       eventsIndex.push({
         icsUrl,

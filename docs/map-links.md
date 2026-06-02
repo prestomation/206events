@@ -60,13 +60,25 @@ geocode) still lands the user near the right spot.
 
 ### ICS `GEO` property
 `toICS` (`lib/config/schema.ts`) emits `GEO:lat;lng` when an event carries
-coordinates. Coordinates are attached to events by `attachEventCoords` in
-`lib/calendar_ripper.ts` — a pre-pass run before the ICS writes that
-mirrors the events-index resolution precedence (calendar `geo` →
-ripper `geo` → geocode the `location` string). Scoped to calendars we
-generate (rippers + recurring); external feeds pass their upstream `.ics`
-through unchanged. Aggregate (`tag-*`) calendars inherit the attached
-coordinates because the aggregator spreads the source event objects.
+coordinates. `attachEventCoords` in `lib/calendar_ripper.ts` is the
+**single** coordinate-resolution pass for ripper + recurring calendars: it
+runs before the ICS write and attaches `lat`/`lng`/`osmType`/`osmId`/
+`geocodeSource` to each event (precedence: calendar `geo` → ripper `geo` →
+geocode the `location` string). The events-index builder then *reads* those
+attached fields instead of resolving again.
+
+Resolving exactly once is deliberate. `resolveEventCoords` reports a
+geocode error only on the **first** encounter of an unresolvable location —
+a warm-cache second call returns silently (`geocoder.ts`). A second
+resolution pass would therefore drop those errors from the build report, so
+the events-index no longer re-resolves; it consumes what the pre-pass
+attached. This keeps the geocode-error count identical to before.
+
+Scoped to calendars we generate (rippers + recurring); external feeds pass
+their upstream `.ics` through unchanged (and external events are still
+resolved inline in the events-index loop). Aggregate (`tag-*`) calendars
+inherit the attached coordinates because the aggregator spreads the source
+event objects.
 
 The personal favorites feed (`infra/favorites-worker`) assembles its ICS
 by merging already-generated calendar text, so `GEO` flows through the
