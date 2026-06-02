@@ -3481,19 +3481,28 @@ html, body, #root { height: 100%; }
 .app206 .a-dd-item-count { flex: 0 0 auto; font-family: var(--font-mono); font-size: 11px; color: var(--ink-4); }
 .app206 .a-dd-item-check { flex: 0 0 auto; color: var(--blue); }
 
-/* ---- category chips (desktop horizontal picker) ----
-   Mobile keeps the compact Category dropdown; ≥700px swaps to a wrapping chip
-   row that surfaces every category at a glance. The two controls are mutually
-   exclusive so only one is ever interactive. */
+/* ---- category chips (pointer-device horizontal picker) ----
+   Touch devices (phones, tablets, foldables incl. the Fold inner screen) keep
+   the compact Category dropdown no matter how wide they report. Only a true
+   desktop with a mouse (hover + fine pointer) at ≥1024px swaps to the chip row.
+   The row never wraps — overflow collapses into a "More ▾" popover (Priority+),
+   measured against the hidden .a-catchips-measure row. The two controls are
+   mutually exclusive so only one is ever interactive. */
 .app206 .a-catchips { display: none; }
 .app206 .a-cat-dd { display: contents; }
-@media (min-width: 700px) {
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
   .app206 .a-cat-dd { display: none; }
-  .app206 .a-catchips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 12px; }
+  .app206 .a-catchips { display: block; position: relative; margin: 4px 0 12px; }
 }
-.app206 .a-catchip { display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 13px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-2); color: var(--ink-2); font-weight: 600; font-size: 13px; white-space: nowrap; transition: background .14s, border-color .14s, color .14s; }
+.app206 .a-catchips-row { display: flex; flex-wrap: nowrap; align-items: center; gap: 8px; overflow: hidden; }
+/* Off-screen sizing probe — every chip at natural width, never visible. */
+.app206 .a-catchips-measure { position: absolute; top: 0; left: 0; display: flex; flex-wrap: nowrap; gap: 8px; visibility: hidden; pointer-events: none; white-space: nowrap; }
+.app206 .a-catchip { display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 13px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-2); color: var(--ink-2); font-weight: 600; font-size: 13px; white-space: nowrap; flex: 0 0 auto; transition: background .14s, border-color .14s, color .14s; }
 .app206 .a-catchip:hover { background: var(--surface-2); }
 .app206 .a-catchip.on { background: var(--blue-soft); color: var(--blue-ink); border-color: transparent; }
+.app206 .a-catchip-more .a-dd-caret { margin-right: -2px; }
+/* Overflow popover, right-aligned under the row (escapes the row's clip). */
+.app206 .a-catchips-menu { top: 42px; right: 0; left: auto; }
 .app206 .a-catchip-count { font-family: var(--font-mono); font-size: 11px; color: var(--ink-4); }
 .app206 .a-catchip.on .a-catchip-count { color: var(--blue-ink); opacity: .7; }
 
