@@ -287,21 +287,23 @@ export function MapPanel({ mobile = false }) {
       mapRef={mobile ? undefined : app.mapRef}
     />
   )
-  const filterBar = (
-    <div className="a-mapfilter">
-      <DateWindowSlider compact />
-    </div>
-  )
   // Mobile gets an explicit All/Following toggle since the Map tab has no section
-  // context to mirror. Reuses the segmented-control styles.
+  // context to mirror. It rides inside the floating filter bar (an overlay) next
+  // to the date slider, so it costs no map height. Reuses the segmented styles.
   const scopeToggle = (
     <div className="a-seg a-mapscope" role="group" aria-label="Map scope">
-      <button className={app.mapScope === 'all' ? 'on' : ''} onClick={() => app.setMapScope('all')}>All events</button>
+      <button className={app.mapScope === 'all' ? 'on' : ''} onClick={() => app.setMapScope('all')}>All</button>
       <button className={app.mapScope === 'following' ? 'on' : ''} onClick={() => app.setMapScope('following')}>Following</button>
     </div>
   )
+  const filterBar = (
+    <div className="a-mapfilter">
+      {mobile && scopeToggle}
+      <DateWindowSlider compact />
+    </div>
+  )
   if (mobile) {
-    return <div className="a-mapview"><div className="a-mapscope-bar">{scopeToggle}</div>{map}{filterBar}</div>
+    return <div className="a-mapview">{map}{filterBar}</div>
   }
   return (
     <div className="a-mappanel">

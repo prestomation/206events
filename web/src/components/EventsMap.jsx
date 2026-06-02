@@ -303,8 +303,15 @@ function EventsMapInner({
 
         <FitBounds events={eventsWithDates} geoFilters={geoFilters} fitKey={`${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}`} />
 
-        {/* Event markers — bare markers with lazy (on-click) popups */}
+        {/* Event markers — bare markers with lazy (on-click) popups.
+            Keyed on the scope (calendar / tag / feed) so a scope change remounts
+            the cluster layer: react-leaflet-cluster doesn't reliably clear its
+            markers when the children collapse to empty, which otherwise leaves
+            stale all-events clusters under the "feed is empty" overlay. The key
+            deliberately omits the date window so slider drags update markers
+            in place rather than remounting. */}
         <MarkerClusterGroup
+          key={`cluster-${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}`}
           chunkedLoading
           iconCreateFunction={createClusterIcon}
           showCoverageOnHover={true}

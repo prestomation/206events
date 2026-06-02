@@ -188,10 +188,23 @@ describe('App206 redesign', () => {
       await waitFor(() => expect(container.querySelector('.a-mapscope')).toBeTruthy())
       expect(container.querySelector('.a-mapscope .on').textContent).toBe('Following')
       // The toggle lets the user switch back to all events.
-      fireEvent.click(screen.getByText('All events'))
-      await waitFor(() => expect(container.querySelector('.a-mapscope .on').textContent).toBe('All events'))
+      fireEvent.click(screen.getByText('All'))
+      await waitFor(() => expect(container.querySelector('.a-mapscope .on').textContent).toBe('All'))
     })
-  })
+
+    it('does NOT show the empty-feed message when a favorited calendar has mappable events', async () => {
+      const { container } = render(<App />)
+      await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+      // Follow Neumos (cal1) — its event "Jazz Night" has lat/lng.
+      fireEvent.click(container.querySelector('.pill-follow'))
+      clickNav('Following')
+      await waitFor(() => expect(screen.getByText('1 calendars')).toBeInTheDocument())
+      // The persistent desktop map is feed-scoped on Following; since the feed has
+      // a coord-bearing event, the empty-feed overlay must NOT be shown.
+      await waitFor(() => expect(container.querySelector('[data-testid="events-map"]')).toBeTruthy())
+      expect(container.textContent).not.toContain('No favorited events with a location to show')
+    })
+})
 
   describe('deep linking', () => {
     it('cold-loads directly into a section from the hash', async () => {

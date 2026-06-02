@@ -3272,13 +3272,19 @@ html, body, #root { height: 100%; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255,255,255,0.85);
+  /* Theme-aware via inherited --surface/--ink-2 (resolved from a .app206
+     ancestor at runtime); falls back for the legacy, unscoped UI. */
+  background: color-mix(in srgb, var(--surface, #fff) 88%, transparent);
   padding: 12px 20px;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-lg, 12px);
   font-size: 14px;
-  color: var(--text-secondary, #666);
+  font-weight: 500;
+  color: var(--ink-2, var(--text-secondary, #495057));
+  box-shadow: 0 2px 10px rgba(20,15,10,.08);
   pointer-events: none;
   z-index: 1000;
+  max-width: 80%;
+  text-align: center;
 }
 
 .map-popup {
@@ -3584,28 +3590,26 @@ html, body, #root { height: 100%; }
 .app206 .a-mappanel, .app206 .a-mapview { position: relative; height: 100%; }
 .app206 .a-mappanel { border-left: 1px solid var(--line); }
 .app206 .a-mappanel .events-map-container, .app206 .a-mapview .events-map-container { height: 100%; }
-.app206 .a-mapbar { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
+.app206 .a-mapbar { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
 .app206 .a-mapbar-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .app206 .a-mapbar .a-iconbtn { width: 36px; height: 36px; border-radius: 10px; }
 .app206 .a-mapbar .a-iconbtn svg { width: 18px; height: 18px; }
 .app206 .a-mapsave { height: 36px; font-size: 13px; padding: 0 12px; }
 /* Floating "next N days" date-window slider over the map (bottom overlay), and
    the same control inline inside the filter popover. */
-.app206 .a-mapfilter { position: absolute; left: 16px; right: 16px; bottom: 16px; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
-/* Mobile map scope toggle bar (All events / Following) sits above the map. The
-   map view becomes a flex column so the bar is laid out and the Leaflet
-   container fills the remaining height. */
-.app206 .a-mapview { display: flex; flex-direction: column; }
-.app206 .a-mapscope-bar { display: flex; justify-content: center; padding: 8px var(--pad); border-bottom: 1px solid var(--line); background: var(--surface); flex: 0 0 auto; }
-.app206 .a-mapview .events-map-container { flex: 1 1 auto; height: auto; min-height: 0; }
+.app206 .a-mapfilter { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
+/* On the mobile map the scope toggle rides in this same floating bar beside the
+   slider (using its empty horizontal space), so the map keeps full height. */
+.app206 .a-mapfilter .a-datewindow { flex: 1 1 180px; min-width: 0; }
+.app206 .a-mapfilter .a-mapscope { flex: 0 0 auto; }
 .app206 .a-datewindow { display: flex; flex-direction: column; gap: 7px; }
 .app206 .a-datewindow-label { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
 .app206 .a-datewindow-rel { font-size: 14px; font-weight: 600; color: var(--ink); display: inline-flex; align-items: center; gap: 7px; }
 .app206 .a-datewindow-spin { width: 12px; height: 12px; border: 2px solid var(--line); border-top-color: var(--blue); border-radius: 50%; animation: spin .7s linear infinite; flex: 0 0 auto; }
-.app206 .a-datewindow-abs { font-size: 12px; color: var(--ink-3); }
-.app206 .a-datewindow-range { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: var(--line); outline: none; margin: 4px 0; cursor: pointer; }
-.app206 .a-datewindow-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 2px solid #fff; box-shadow: 0 1px 3px rgba(20,15,10,.25); cursor: pointer; }
-.app206 .a-datewindow-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 2px solid #fff; box-shadow: 0 1px 3px rgba(20,15,10,.25); cursor: pointer; }
+.app206 .a-datewindow-abs { font-size: 12px; color: var(--ink-2); }
+.app206 .a-datewindow-range { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 999px; background: var(--line-2); outline: none; margin: 4px 0; cursor: pointer; }
+.app206 .a-datewindow-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 2px solid var(--surface); box-shadow: 0 1px 3px rgba(20,15,10,.25); cursor: pointer; }
+.app206 .a-datewindow-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 2px solid var(--surface); box-shadow: 0 1px 3px rgba(20,15,10,.25); cursor: pointer; }
 .app206 .a-datewindow-range:focus-visible { box-shadow: 0 0 0 3px var(--blue-soft); }
 /* Expanded (full-screen) desktop map: lift the panel out of the right column
    to cover the whole app. The MapBridge ResizeObserver re-sizes Leaflet. */
