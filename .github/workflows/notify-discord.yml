@@ -92,7 +92,15 @@ jobs:
             if [ "$UNCERTAIN_COUNT" -gt 0 ] 2>/dev/null; then
               UNCERTAIN_LINE=" ❓ ${UNCERTAIN_COUNT} uncertain event(s) — run event-uncertainty-resolver."
             fi
-            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
+            # Pull the proxy-ladder escalation queue: any source due to be
+            # promoted to browserbase or retired needs the proxy-escalation skill.
+            PROXY_LINE=""
+            PROXY_ACTIONABLE=$(curl -s --fail https://206.events/build-errors.json 2>/dev/null \
+              | jq -r '[(.pendingProxyVerification // [])[] | select(.recommendation == "promote-to-browserbase" or .recommendation == "retire")] | length' 2>/dev/null || echo "0")
+            if [ "$PROXY_ACTIONABLE" -gt 0 ] 2>/dev/null; then
+              PROXY_LINE=" 🪜 ${PROXY_ACTIONABLE} proxy source(s) ready to escalate — run proxy-escalation."
+            fi
+            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE}${PROXY_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
             # For PR Preview success, include preview link and new source summary
             PREVIEW_LINE=""

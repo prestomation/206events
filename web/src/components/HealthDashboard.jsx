@@ -104,12 +104,14 @@ export function HealthDashboard({
   const externalFailures = buildErrors.externalCalendarFailures || []
   const geocodeErrors = buildErrors.geocodeErrors || []
   const uncertainEvents = buildErrors.uncertainEvents || []
+  const pendingProxyVerification = buildErrors.pendingProxyVerification || []
 
   const tabs = [
     { id: 'sources', label: 'Sources', count: sources.length, tone: 'neutral' },
     { id: 'errors', label: 'Errors', count: configErrors.length + externalFailures.length, tone: 'error' },
     { id: 'geo', label: 'Geo', count: geocodeErrors.length, tone: 'warning' },
     { id: 'uncertain', label: 'Uncertain', count: uncertainEvents.length, tone: 'warning' },
+    { id: 'proxy', label: 'Proxy', count: pendingProxyVerification.length, tone: 'warning' },
     { id: 'discovery', label: 'Discovery', count: null, tone: 'neutral' },
   ]
 
@@ -179,6 +181,12 @@ export function HealthDashboard({
           <div className="health-card health-card--warning">
             <div className="health-card-value">❓ {buildErrors.uncertaintyStats.outstanding}</div>
             <div className="health-card-label">Uncertain Events</div>
+          </div>
+        )}
+        {pendingProxyVerification.length > 0 && (
+          <div className="health-card health-card--warning">
+            <div className="health-card-value">🪜 {pendingProxyVerification.length}</div>
+            <div className="health-card-label">Proxy Verification</div>
           </div>
         )}
       </div>
@@ -325,6 +333,48 @@ export function HealthDashboard({
             </div>
           ) : (
             <p className="health-empty">✅ No uncertain events pending resolution.</p>
+          )
+        )}
+
+        {activeTab === 'proxy' && (
+          pendingProxyVerification.length > 0 ? (
+            <div className="health-section">
+              <h2>🪜 Proxy Verification Queue ({pendingProxyVerification.length})</h2>
+              <p className="health-subtitle">
+                Sources that need a proxy to be fetched at all, still climbing the
+                escalation ladder (<code>outofband → browserbase → disabled</code>).
+                These are non-fatal: a brand-new proxy source can't be proven in CI, so
+                it's tracked here instead of failing the build. The proxy-escalation skill
+                promotes a source to browserbase after 3 consecutive failures, and retires
+                it (disable + mark blocked) if browserbase also fails 3 times.
+              </p>
+              <div className="health-table-wrapper">
+                <table className="health-table">
+                  <thead>
+                    <tr>
+                      <th>Source</th>
+                      <th>Rung</th>
+                      <th>Consecutive failures</th>
+                      <th>Recommendation</th>
+                      <th>Last error</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pendingProxyVerification.map(p => (
+                      <tr key={p.name} className="health-row">
+                        <td className="health-source-name">{p.name}</td>
+                        <td>{p.rung}</td>
+                        <td>{p.consecutiveFailures}</td>
+                        <td>{p.recommendation}</td>
+                        <td>{p.lastError || '—'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ) : (
+            <p className="health-empty">✅ No proxy sources pending verification.</p>
           )
         )}
 

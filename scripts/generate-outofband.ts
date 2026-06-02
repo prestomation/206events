@@ -21,6 +21,13 @@ import { toICS, externalConfigSchema, ExternalConfig } from "../lib/config/schem
 import { loadYamlDir } from "../lib/config/dir-loader.js";
 import { hasFutureEventsInICS } from "../lib/calendar_ripper.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords } from "../lib/geocoder.js";
+import {
+    ProxyRunOutcome,
+    ProxyVerificationState,
+    parseProxyVerificationState,
+    evaluateProxyVerification,
+    buildPendingProxyVerification,
+} from "../lib/proxy-verification.js";
 import { mkdir, writeFile, readFile } from "fs/promises";
 import { createReadStream } from "fs";
 import { S3Client, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
@@ -126,11 +133,13 @@ async function main() {
         sources: SourceReport[];
         externalCalendars: ExternalCalendarReport[];
         totalErrors: number;
+        pendingProxyVerification: ReturnType<typeof buildPendingProxyVerification>;
     } = {
         buildTime: new Date().toISOString(),
         sources: [],
         externalCalendars: [],
         totalErrors: 0,
+        pendingProxyVerification: [],
     };
 
     const writtenFiles: string[] = [];
@@ -265,6 +274,121 @@ async function main() {
     // Persist updated geo-cache so new lookups survive to the next run
     await saveGeoCache(geoCache, "geo-cache.json");
     console.log(`\nGeo-cache saved (${Object.keys(geoCache.entries).length} entries)`);
+
+    // ---------------------------------------------------------------------
+    // Proxy escalation-ladder verification bookkeeping.
+    //
+    // This runner is the SOLE writer of proxy-verification.json. Each cron run
+    // it records an outcome for every proxy source it can determine:
+    //   - outofband sources → from this run's residential fetch above
+    //   - browserbase sources → from the published build-errors.json (those
+    //     are fetched live in the main CI build, not here)
+    // and folds them into the persisted consecutive-failure counters. The
+    // proxy-escalation skill reads the resulting pendingProxyVerification queue
+    // and opens PRs to climb the ladder. See docs/proxy-verification.md.
+    //
+    // Skipped entirely on a filtered (`--sources`) run: a partial run must not
+    // prune or miscount sources it didn't look at.
+    // ---------------------------------------------------------------------
+    if (!sourceFilter) {
+        try {
+            const today = new Date().toISOString().slice(0, 10);
+
+            // Every source currently configured with a proxy, by rung.
+            const proxyRippers = configs.filter(c => !c.config.disabled && (c.config.proxy === "outofband" || c.config.proxy === "browserbase"));
+            const proxyExternals = externalCalendars.filter(c => !c.disabled && (c.proxy === "outofband" || c.proxy === "browserbase"));
+            const knownSources = new Set<string>([
+                ...proxyRippers.map(c => c.config.name),
+                ...proxyExternals.map(c => c.name),
+            ]);
+
+            const outcomes: ProxyRunOutcome[] = [];
+
+            // --- outofband outcomes: from this run's fetches ---
+            for (const sourceReport of report.sources) {
+                // sources[] only contains outofband rippers (browserbase rippers
+                // aren't run here). A ripper is "reachable" if it produced future
+                // events, or produced calendars with no errors at all; a fetch
+                // block surfaces as an error with no future events.
+                const errs = sourceReport.calendars.flatMap(c => c.errors);
+                const reachable = sourceReport.calendars.some(c => c.hasFutureEvents) || errs.length === 0;
+                outcomes.push({
+                    name: sourceReport.source,
+                    rung: "outofband",
+                    success: reachable,
+                    error: reachable ? null : (errs[0] ?? "no events and no diagnostic"),
+                });
+            }
+            for (const ext of report.externalCalendars) {
+                // external entries here are all outofband; fetchError means blocked.
+                outcomes.push({
+                    name: ext.name,
+                    rung: "outofband",
+                    success: !ext.fetchError,
+                    error: ext.fetchError ?? null,
+                });
+            }
+
+            // --- browserbase outcomes: from the deployed build-errors.json ---
+            const browserbaseNames = new Set<string>([
+                ...proxyRippers.filter(c => c.config.proxy === "browserbase").map(c => c.config.name),
+                ...proxyExternals.filter(c => c.proxy === "browserbase").map(c => c.name),
+            ]);
+            if (browserbaseNames.size > 0) {
+                try {
+                    const res = await fetch("https://206.events/build-errors.json", { signal: AbortSignal.timeout(15000) });
+                    if (res.ok) {
+                        const prod: any = await res.json();
+                        const failures = new Map<string, string>(
+                            (prod.externalCalendarFailures ?? []).map((f: any) => [f.name, String(f.error ?? "fetch failed")]),
+                        );
+                        const eventCounts: any[] = prod.eventCounts ?? [];
+                        for (const name of browserbaseNames) {
+                            if (failures.has(name)) {
+                                outcomes.push({ name, rung: "browserbase", success: false, error: failures.get(name)! });
+                            } else if (eventCounts.some(e => (e.source === name || e.name === `external-${name}`) && e.events > 0)) {
+                                outcomes.push({ name, rung: "browserbase", success: true, error: null });
+                            }
+                            // else: no signal this run → carried forward unchanged.
+                        }
+                    } else {
+                        console.warn(`[proxy-verification] Could not read production build-errors.json (HTTP ${res.status}); browserbase sources carried forward.`);
+                    }
+                } catch (err: any) {
+                    console.warn(`[proxy-verification] Could not read production build-errors.json: ${err?.message ?? err}; browserbase sources carried forward.`);
+                }
+            }
+
+            // Load prior state from S3, fold in this run's outcomes, persist.
+            let priorState: ProxyVerificationState;
+            try {
+                const resp = await s3.send(new GetObjectCommand({ Bucket: BUCKET, Key: `${PREFIX}proxy-verification.json` }));
+                priorState = parseProxyVerificationState(await resp.Body?.transformToString());
+            } catch {
+                priorState = parseProxyVerificationState(null);
+            }
+
+            const nextState = evaluateProxyVerification(priorState, outcomes, today, knownSources);
+            report.pendingProxyVerification = buildPendingProxyVerification(nextState);
+
+            await writeFile("proxy-verification.json", JSON.stringify(nextState, null, 2));
+            await s3.send(new PutObjectCommand({
+                Bucket: BUCKET,
+                Key: `${PREFIX}proxy-verification.json`,
+                Body: JSON.stringify(nextState, null, 2),
+                ContentType: "application/json",
+            }));
+            console.log(`[proxy-verification] ${Object.keys(nextState.entries).length} tracked source(s); ${report.pendingProxyVerification.length} pending.`);
+            for (const p of report.pendingProxyVerification) {
+                if (p.recommendation === "promote-to-browserbase" || p.recommendation === "retire") {
+                    console.log(`[proxy-verification] ::ACTION:: ${p.name} (${p.rung}, ${p.consecutiveFailures} fails) → ${p.recommendation}`);
+                }
+            }
+        } catch (err: any) {
+            // Bookkeeping must never fail the outofband run.
+            console.warn(`[proxy-verification] Skipped: ${err?.message ?? err}`);
+        }
+    }
 
     // Write report locally
     const reportPath = "outofband-report.json";

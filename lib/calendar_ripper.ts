@@ -38,6 +38,7 @@ import {
 } from "./tag_aggregator.js";
 import { RecurringEventProcessor } from "./config/recurring.js";
 import { loadYamlDir } from "./config/dir-loader.js";
+import { PendingProxyVerificationItem } from "./proxy-verification.js";
 import { LocalDate } from "@js-joda/core";
 import { detectTagDuplicates } from "./config/tags.js";
 import {
@@ -349,6 +350,11 @@ export const main = async () => {
       hasFutureEvents: boolean;
       fetchError?: string;
     }>;
+    // Proxy escalation-ladder verification queue, computed by the out-of-band
+    // runner (sole writer of proxy-verification.json). Surfaced here so the
+    // main build can report it; see lib/proxy-verification.ts and
+    // docs/proxy-verification.md.
+    pendingProxyVerification?: PendingProxyVerificationItem[];
   }
   let outofbandReport: OutOfBandReport | null = null;
   try {
@@ -1283,11 +1289,32 @@ END:VCALENDAR`;
   const newZeroEventSources: string[] = [];
   const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
 
+  // Sources that need a proxy to be fetched at all (`outofband`/`browserbase`).
+  // An unproven proxy source CANNOT be proven in the PR/main build — the
+  // out-of-band runner hasn't fetched it (outofband), or a JS challenge may
+  // block even the live browserbase fetch — so the fatal "new source produced
+  // 0 events" gate below would red-flag a source that's still legitimately
+  // under verification. We exempt them from the gate and track them in the
+  // non-fatal pendingProxyVerification queue instead. Direct (`proxy: false`)
+  // sources keep the strict rule: they're fetched in CI and zero is fatal.
+  // See lib/proxy-verification.ts and docs/proxy-verification.md.
+  const proxySourceNames = new Set<string>();
+  for (const r of configs) {
+    if (r.config.proxy === "outofband" || r.config.proxy === "browserbase") proxySourceNames.add(r.config.name);
+  }
+  for (const c of externalCalendars) {
+    if (c.proxy === "outofband" || c.proxy === "browserbase") proxySourceNames.add(c.name);
+  }
+
   // New source with 0 events → fail build (no proven data pipeline).
   // expectEmpty does NOT exempt new sources: a brand-new source with 0 events has
   // never proven the pipeline works, regardless of the expectEmpty flag.
   const newZeroEvent = newCalendarEntries.filter(c => c.events === 0);
   for (const cal of newZeroEvent) {
+    if (proxySourceNames.has(cal.source)) {
+      console.log(`::notice::New proxy source "${cal.source}" calendar "${cal.name}" has 0 events — under proxy-ladder verification (non-fatal). Tracked in pendingProxyVerification; the proxy-escalation skill drives it up the ladder.`);
+      continue;
+    }
     const expectEmptyNote = cal.expectEmpty
       ? " (expectEmpty is set, but new sources must produce ≥1 event before merge to prove the pipeline works — remove expectEmpty, fix the source URL/format, then re-add expectEmpty only after confirming events appear)"
       : " Fix the ripper URL/type, or set expectEmpty: true only after confirming the pipeline works with at least one real event.";
@@ -1422,6 +1449,13 @@ END:VCALENDAR`;
       }))
   );
 
+  // Proxy escalation-ladder verification queue (computed by the out-of-band
+  // runner, carried in the report). Non-fatal — surfaced so the
+  // proxy-escalation skill and humans can see which proxy sources are still
+  // being verified, due for promotion to browserbase, or due for retirement.
+  const pendingProxyVerification: PendingProxyVerificationItem[] =
+    outofbandReport?.pendingProxyVerification ?? [];
+
   // Write consolidated build errors JSON for programmatic access
   const buildErrorsReport = {
     buildTime: new Date().toISOString(),
@@ -1459,6 +1493,7 @@ END:VCALENDAR`;
     },
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
+    pendingProxyVerification,
     newZeroEventSources,
     newSourceParseErrors,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
@@ -1576,6 +1611,11 @@ END:VCALENDAR`;
   if (uncertaintyTotals.resolved + uncertaintyTotals.acknowledgedUnresolvable + uncertaintyTotals.outstanding > 0) {
     console.log(`  ❓ Uncertainty: ${uncertaintyTotals.outstanding} outstanding, ${uncertaintyTotals.resolved} resolved from cache, ${uncertaintyTotals.acknowledgedUnresolvable} unresolvable`);
   }
+  if (pendingProxyVerification.length > 0) {
+    const promote = pendingProxyVerification.filter(p => p.recommendation === "promote-to-browserbase").length;
+    const retire = pendingProxyVerification.filter(p => p.recommendation === "retire").length;
+    console.log(`  🪜 Proxy verification: ${pendingProxyVerification.length} pending (${promote} due to promote to browserbase, ${retire} due to retire)`);
+  }
   console.log("===========================\n");
 
   // Write GitHub Actions step summary if running in CI
@@ -1603,6 +1643,18 @@ END:VCALENDAR`;
     if (uncertaintyTotals.outstanding + uncertaintyTotals.resolved + uncertaintyTotals.acknowledgedUnresolvable > 0) {
       summaryLines.push("");
       summaryLines.push(`> ❓ **Uncertain events:** ${uncertaintyTotals.outstanding} outstanding — agent investigation pending. ${uncertaintyTotals.resolved} resolved from cache this build; ${uncertaintyTotals.acknowledgedUnresolvable} marked unresolvable.`);
+    }
+    if (pendingProxyVerification.length > 0) {
+      summaryLines.push("");
+      summaryLines.push("### 🪜 Proxy verification queue");
+      summaryLines.push("");
+      summaryLines.push("Proxy sources still climbing the `outofband → browserbase → disabled` ladder. Non-fatal; the proxy-escalation skill drives them up a rung after 3 consecutive failures.");
+      summaryLines.push("");
+      summaryLines.push("| Source | Rung | Consecutive failures | Recommendation | Last error |");
+      summaryLines.push("|--------|------|----------------------|----------------|------------|");
+      for (const p of pendingProxyVerification) {
+        summaryLines.push(`| ${p.name} | ${p.rung} | ${p.consecutiveFailures} | ${p.recommendation} | ${p.lastError ?? "—"} |`);
+      }
     }
     await appendFile(process.env.GITHUB_STEP_SUMMARY, summaryLines.join("\n") + "\n");
   }

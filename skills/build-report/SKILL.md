@@ -63,8 +63,9 @@ If a source returns 403 or consistently fails to fetch, follow the proxy escalat
 
 **Never skip escalation steps.** Each step requires its own PR so the failure is observable.
 
-- After 10+ consecutive failures, escalate to the next rung
-- Do NOT disable the ripper without human approval
+**For sources that ALREADY carry a proxy (`outofband` or `browserbase`), you do not escalate them here.** Their failures are tracked automatically in the `pendingProxyVerification` queue (see step 5.5), and the **proxy-escalation skill** — run by the out-of-band job — drives them up the ladder after 3 consecutive failures (and retires them after browserbase fails 3 times). Your job for those is to *report* the queue, not act on it. Rung 1 (no proxy yet → add `outofband`) is the only step still done by hand here, because a `proxy: false` source isn't in the queue yet.
+
+- Do NOT disable the ripper without human approval (the proxy-escalation skill handles browserbase-exhausted retirement automatically)
 
 #### ❌ Only Disable if Source is Clearly Gone
 Disable a ripper only if:
@@ -121,6 +122,30 @@ After the event-uncertainty-resolver completes, include a uncertainty fix summar
 These are not build failures — they are todos for an LLM to investigate. The
 `totalErrors` count includes them; the resolver's job is to drain that queue
 across builds.
+
+### 5.5. Proxy Verification Check
+
+Check `pendingProxyVerification` in the build health output. This is the queue
+of sources that need a proxy to be fetched at all, still climbing the
+`outofband → browserbase → disabled` ladder. It is **non-fatal** — a brand-new
+proxy source can't be proven in CI, so it's tracked here instead of failing the
+build.
+
+**If the queue is empty:**
+```
+🪜 Proxy verification: 0 pending ✅
+```
+
+**If entries exist**, report each with its `rung`, `consecutiveFailures`, and
+`recommendation`. If any entry has a recommendation of `promote-to-browserbase`
+or `retire`, read `skills/proxy-escalation/SKILL.md` and follow it to open the
+escalation PR(s). Entries with recommendation `verifying` are still within the
+3-failure budget — just report them, no action needed.
+
+```
+🪜 Proxy verification: N pending — M ready to escalate
+  - <source> (<rung>, <consecutiveFailures> fails) → <recommendation>
+```
 
 ### 6. Source Discovery (if no actionable errors)
 

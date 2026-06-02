@@ -61,6 +61,10 @@ async function main() {
         // Strip the prefix to get the local filename
         const filename = obj.Key.slice(PREFIX.length);
         if (!filename) continue; // skip the "directory" pseudo-key
+        // proxy-verification.json is the out-of-band runner's private counter
+        // state; the main build consumes pendingProxyVerification from the
+        // report instead, so don't pull (and thus publish) the raw counters.
+        if (filename === "proxy-verification.json") continue;
 
         try {
             const getResp = await s3.send(new GetObjectCommand({ Bucket: BUCKET, Key: obj.Key }));
