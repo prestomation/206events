@@ -7,7 +7,6 @@ const LOCATION = "Renton Civic Theatre, 507 S 3rd St, Renton, WA 98057";
 const BASE_URL = "https://www.rentoncivictheatre.org";
 const DEFAULT_CURTAIN = LocalTime.of(20, 0);
 const DEFAULT_DURATION = Duration.ofMinutes(150);
-const PACIFIC = ZoneId.of('America/Los_Angeles');
 
 interface OtherDate {
     id: string;
@@ -80,7 +79,7 @@ export function parseShow(show: Show, now: ZonedDateTime): RipperEvent[] {
     events.push({
         id: `renton-civic-theatre-${slug}`,
         ripped: new Date(),
-        date: ZonedDateTime.of(openingDate, DEFAULT_CURTAIN, PACIFIC),
+        date: ZonedDateTime.of(openingDate, DEFAULT_CURTAIN, now.zone()),
         duration: DEFAULT_DURATION,
         summary: title,
         description,
@@ -98,7 +97,7 @@ export function parseShow(show: Show, now: ZonedDateTime): RipperEvent[] {
         events.push({
             id: `renton-civic-theatre-${slug}-${other.id}`,
             ripped: new Date(),
-            date: ZonedDateTime.of(otherDate, DEFAULT_CURTAIN, PACIFIC),
+            date: ZonedDateTime.of(otherDate, DEFAULT_CURTAIN, now.zone()),
             duration: DEFAULT_DURATION,
             summary: `${title} – ${other.purpose}`,
             description: otherDesc,
