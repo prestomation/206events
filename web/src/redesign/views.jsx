@@ -4,7 +4,7 @@
 import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
-import { ChannelAvatar, CatDot, DayList, ActiveFilters } from './atoms.jsx'
+import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent } from './viewModels.js'
@@ -473,20 +473,22 @@ export function ChannelDetail({ icsUrl }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
         <ChannelAvatar color={channel.color} size={56} />
         <div style={{ minWidth: 0 }}>
-          <div className="a-h1" style={{ fontSize: 24, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{channel.name}</div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 7, minWidth: 0 }}>
+            <div className="a-h1" style={{ fontSize: 24, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{channel.name}</div>
+            {channel.geo && (() => {
+              const href = bestMapHref({ lat: channel.geo.lat, lng: channel.geo.lng, label: channel.geo.label, osmType: channel.geo.osmType, osmId: channel.geo.osmId })
+              return href ? (
+                <a href={href} target="_blank" rel="noopener noreferrer" title="Open venue in maps" aria-label="Open venue in maps"
+                  style={{ flex: '0 0 auto', width: 20, height: 20, color: 'var(--pin)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {Ico.pin}
+                </a>
+              ) : null
+            })()}
+          </div>
           <div className="mk-tag" style={{ marginTop: 5 }}>
             <CatDot tag={channel.primaryCategory} color={channel.color} size={7} />
             {channel.distributed ? 'Multiple venues · Citywide' : (channel.hood || 'Seattle')}
           </div>
-          {channel.geo && (() => {
-            const href = bestMapHref({ lat: channel.geo.lat, lng: channel.geo.lng, label: channel.geo.label, osmType: channel.geo.osmType, osmId: channel.geo.osmId })
-            return href ? (
-              <a href={href} target="_blank" rel="noopener noreferrer"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: 5, marginTop: 6, fontSize: 12.5, fontWeight: 600, color: 'var(--blue)', textDecoration: 'none' }}>
-                <span style={{ width: 13, height: 13 }}>{Ico.pin}</span>Open venue in maps ↗
-              </a>
-            ) : null
-          })()}
         </div>
       </div>
 
@@ -548,22 +550,9 @@ function ParsedEventRow({ event, distributed }) {
       <div className="ev-body">
         <div className="ev-title">{event.title}</div>
         <div className="ev-meta"><span>{time}</span></div>
-        {distributed && event.location && (() => {
-          // Distributed calendars set a per-event location ("its own geo"), so
-          // each row links to that location's map. Coords come from the ICS GEO
-          // line when present; otherwise the location text drives the query.
-          const href = bestMapHref({ location: event.location, lat: event.lat, lng: event.lng })
-          const pin = <span style={{ width: 13, height: 13, flex: '0 0 auto', color: 'var(--ink-4)' }}>{Ico.pin}</span>
-          const text = <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.location}</span>
-          return href ? (
-            <a className="ev-meta" href={href} target="_blank" rel="noopener noreferrer"
-              style={{ marginTop: 5, color: 'var(--blue)', textDecoration: 'none' }} onClick={(e) => e.stopPropagation()}>
-              {pin}{text}
-            </a>
-          ) : (
-            <div className="ev-meta" style={{ marginTop: 5 }}>{pin}{text}</div>
-          )
-        })()}
+        {/* Distributed calendars set a per-event location ("its own geo"); link
+            it via the shared pin-only LocationMapLink. */}
+        {distributed && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
         {event.description && <div style={{ marginTop: 6 }}><EventDescription text={event.description} /></div>}
       </div>
       <AddToCalendar title={event.title} startDate={event.startDate} endDate={event.endDate}

@@ -50,21 +50,27 @@ geocode) still lands the user near the right spot.
 ## Surfaces
 
 ### Web UI
+
+A `--pin` CSS token (ceramic / map-pin red — `#d24a3d` light, `#ef6f62`
+dark, in `web/src/index.css`) colors the location affordances.
+
 - `web/src/redesign/views.jsx`:
   - the location fact in `EventDetail` is an anchor (`bestMapHref`).
-  - **Source page (`ChannelDetail`)** shows an "Open venue in maps" link
-    when the channel maps to a venue with coordinates. The venue `geo` is
-    carried onto the channel view-model by `channelFromCalendar`
-    (`viewModels.js`) and the link is built client-side with `bestMapHref`,
-    so it works off the deployed `geo` without depending on the venues.json
-    `map` field.
-  - **Per-event rows** (`ParsedEventRow` on the source page) link their
-    location when the calendar is distributed — i.e. the event carries its
-    own geo.
-- `web/src/redesign/atoms.jsx` — `EventRow` (the list row used across
-  Discover/Following) links its location when `showLoc` is set (distributed
-  calendars / geo-filter results). `stopPropagation` keeps the row's
-  open-event click from also firing.
+  - **Source page (`ChannelDetail`)** shows a ceramic-red map pin next to
+    the venue name when the channel maps to a venue with coordinates. The
+    venue `geo` is carried onto the channel view-model by
+    `channelFromCalendar` (`viewModels.js`) and the link is built
+    client-side with `bestMapHref`, so it works off the deployed `geo`
+    without depending on the venues.json `map` field.
+  - **Per-event rows** (`ParsedEventRow` on the source page) render the
+    shared `LocationMapLink` when the calendar is distributed — i.e. the
+    event carries its own geo.
+- `web/src/redesign/atoms.jsx` — `LocationMapLink` is the shared
+  pin-only location affordance: muted location text followed by a small
+  ceramic-red pin that is the only tap target (the text is not a link).
+  Its `onClick` calls `stopPropagation` so it doesn't trigger an enclosing
+  row's open-event handler. Used by both `EventRow` (the list row across
+  Discover/Following, when `showLoc` is set) and `ParsedEventRow`.
 - `web/src/components/EventsMap.jsx` — marker popups gain an "Open in
   maps →" link (Google universal URL, so it passes the existing http(s)
   scheme guard).
