@@ -11,6 +11,7 @@ import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent } from './view
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import { EventDescription } from '../components/EventDescription.jsx'
+import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
 import { tagGroup, CATEGORY_GROUP_ORDER } from './categories.js'
 
@@ -598,13 +599,19 @@ export function EventDetail({ event }) {
       )}
 
       <div className="a-facts">
-        {event.location && (
-          <div className="a-fact">
-            <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.pin}</span>
-            <div><div style={{ fontWeight: 600, fontSize: 14 }}>{event.location}</div>
-              {channel?.hood && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{channel.hood}</div>}</div>
-          </div>
-        )}
+        {event.location && (() => {
+          const mapHref = bestMapHref({ location: event.location, lat: event.lat, lng: event.lng })
+          const inner = (
+            <>
+              <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.pin}</span>
+              <div><div style={{ fontWeight: 600, fontSize: 14 }}>{event.location}</div>
+                {channel?.hood && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{channel.hood}</div>}</div>
+            </>
+          )
+          return mapHref
+            ? <a className="a-fact" href={mapHref} target="_blank" rel="noopener noreferrer" title="Open in maps" style={{ alignItems: 'center', width: '100%', color: 'inherit', textDecoration: 'none' }}>{inner}</a>
+            : <div className="a-fact">{inner}</div>
+        })()}
         {channel && (
           <button onClick={() => app.openChannel(event.icsUrl)} className="a-fact" style={{ textAlign: 'left', alignItems: 'center', width: '100%' }}>
             <span style={{ width: 18, height: 18, flex: '0 0 auto' }}><CatDot tag={channel.primaryCategory} color={channel.color} size={12} /></span>

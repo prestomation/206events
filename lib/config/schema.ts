@@ -238,6 +238,12 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
                 return desc;
             })(),
             location: e.location,
+            // RFC-5545 GEO property (emitted as `GEO:lat;lng`) so calendar
+            // apps can drop a pin. Coords are attached to the event upstream
+            // by attachEventCoords in calendar_ripper.ts before this runs.
+            geo: (typeof e.lat === "number" && typeof e.lng === "number")
+                ? { lat: e.lat, lon: e.lng }
+                : undefined,
             productId: "206.events",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,

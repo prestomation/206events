@@ -138,6 +138,26 @@ describe('toICS', () => {
       expect(ics).not.toMatch(/DTSTART:\d{8}T\d{6}Z/);
     });
   });
+
+  describe('GEO property', () => {
+    it('emits GEO:lat;lng when the event carries coordinates', async () => {
+      const event = makeEvent({ lat: 47.6143, lng: -122.3197, location: 'Neumos' });
+      const ics = await toICS(makeCalendar([event]));
+      expect(ics).toContain('GEO:47.6143;-122.3197');
+    });
+
+    it('omits GEO when coordinates are absent', async () => {
+      const event = makeEvent({ location: 'Somewhere with no coords' });
+      const ics = await toICS(makeCalendar([event]));
+      expect(ics).not.toContain('GEO:');
+    });
+
+    it('omits GEO when only one coordinate is present', async () => {
+      const event = makeEvent({ lat: 47.6143 });
+      const ics = await toICS(makeCalendar([event]));
+      expect(ics).not.toContain('GEO:');
+    });
+  });
 });
 
 describe('externalCalendarSchema', () => {

@@ -314,6 +314,49 @@ describe("buildVenuesJson", () => {
     expect(venue.tags).toEqual(["Beer", "Ballard"]);
   });
 
+  it("stamps a Google Maps web link on every venue (query = label)", () => {
+    const ripper = makeRipper({
+      name: "stoup",
+      geo: BALLARD_GEO,
+      calendars: [{ name: "events", friendlyname: "Stoup Events" }],
+    });
+    const doc = buildVenuesJson({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["stoup-events.ics"]),
+      generated: "t",
+    });
+    const venue = doc.venues[0];
+    expect(venue.map.web).toBe(
+      "https://www.google.com/maps/search/?api=1&query=Ballard",
+    );
+    // No OSM identity on BALLARD_GEO → no osm link.
+    expect(venue.map.osm).toBeUndefined();
+    expect(() => venuesDocSchema.parse(doc)).not.toThrow();
+  });
+
+  it("adds an OSM feature link only when the venue has osmType/osmId", () => {
+    const ripper = makeRipper({
+      name: "neumos",
+      geo: { lat: 47.6143, lng: -122.3197, label: "Neumos", osmType: "way", osmId: 987654 },
+      calendars: [{ name: "events", friendlyname: "Neumos Events" }],
+    });
+    const doc = buildVenuesJson({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["neumos-events.ics"]),
+      generated: "t",
+    });
+    const venue = doc.venues[0];
+    expect(venue.map.web).toBe(
+      "https://www.google.com/maps/search/?api=1&query=Neumos",
+    );
+    expect(venue.map.osm).toBe("https://www.openstreetmap.org/way/987654");
+    expect(() => venuesDocSchema.parse(doc)).not.toThrow();
+  });
+
   it("emits one venue per calendar-with-geo for multi-branch rippers (SPL pattern)", () => {
     const ripper = makeRipper({
       name: "spl",

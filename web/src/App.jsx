@@ -602,10 +602,6 @@ function App() {
     }
   }, [isMobile, mobileView])
 
-  const createGoogleMapsUrl = (location) => {
-    return `https://maps.google.com/maps?q=${encodeURIComponent(location)}`
-  }
-
   const createWebcalUrl = (icsUrl, originalIcsUrl) => {
     const urlToUse = originalIcsUrl || icsUrl
     const fullUrl = originalIcsUrl ? urlToUse : new URL(icsUrl, window.location.origin + window.location.pathname).href
