@@ -3592,6 +3592,12 @@ html, body, #root { height: 100%; }
 /* Floating "next N days" date-window slider over the map (bottom overlay), and
    the same control inline inside the filter popover. */
 .app206 .a-mapfilter { position: absolute; left: 16px; right: 16px; bottom: 16px; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
+/* Mobile map scope toggle bar (All events / Following) sits above the map. The
+   map view becomes a flex column so the bar is laid out and the Leaflet
+   container fills the remaining height. */
+.app206 .a-mapview { display: flex; flex-direction: column; }
+.app206 .a-mapscope-bar { display: flex; justify-content: center; padding: 8px var(--pad); border-bottom: 1px solid var(--line); background: var(--surface); flex: 0 0 auto; }
+.app206 .a-mapview .events-map-container { flex: 1 1 auto; height: auto; min-height: 0; }
 .app206 .a-datewindow { display: flex; flex-direction: column; gap: 7px; }
 .app206 .a-datewindow-label { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
 .app206 .a-datewindow-rel { font-size: 14px; font-weight: 600; color: var(--ink); display: inline-flex; align-items: center; gap: 7px; }

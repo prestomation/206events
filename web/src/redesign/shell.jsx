@@ -5,6 +5,7 @@ import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { Brand } from './atoms.jsx'
 import { EventsMap } from '../components/EventsMap.jsx'
+import { eventKey } from '../lib/eventKey.js'
 import { DATE_WINDOW_STOPS, describeWindow } from './viewModels.js'
 
 const NAV_ITEMS = [
@@ -253,14 +254,24 @@ export function MapPanel({ mobile = false }) {
     return () => document.removeEventListener('keydown', onKey)
   }, [expanded, app])
 
+  // Scope the map to the personal feed. Desktop strictly mirrors the section
+  // (favorites-only on Following); mobile uses the persistent `mapScope` toggle
+  // since the Map is its own tab. An open channel always takes precedence.
+  const feedOnly = !app.openCh && (mobile ? app.mapScope === 'following' : app.section === 'following')
+
   // Count what the map actually plots so the badge tracks the date window:
-  // events with coords, matching the open-channel filter, inside the window.
+  // events with coords, matching the open-channel filter (or the feed), inside
+  // the window. Mirrors the EventsMap predicate.
   const shownCount = useMemo(() => {
     const openCh = app.openCh || null
-    return app.eventsIndex.filter((e) =>
-      e.lat && e.lng && (!openCh || e.icsUrl === openCh) && app.inScope(e)
-    ).length
-  }, [app.eventsIndex, app.openCh, app.inScope])
+    const attrib = app.eventAttributions
+    return app.eventsIndex.filter((e) => {
+      if (!e.lat || !e.lng || !app.inScope(e)) return false
+      if (openCh) return e.icsUrl === openCh
+      if (feedOnly && !(attrib && attrib.has(eventKey(e)))) return false
+      return true
+    }).length
+  }, [app.eventsIndex, app.openCh, app.inScope, app.eventAttributions, feedOnly])
 
   const map = (
     <EventsMap
@@ -272,6 +283,7 @@ export function MapPanel({ mobile = false }) {
       calendarNameByIcsUrl={app.calendarNameByIcsUrl}
       eventAttributions={app.eventAttributions}
       dateInScope={app.inScope}
+      feedOnly={feedOnly}
       mapRef={mobile ? undefined : app.mapRef}
     />
   )
@@ -280,8 +292,16 @@ export function MapPanel({ mobile = false }) {
       <DateWindowSlider compact />
     </div>
   )
+  // Mobile gets an explicit All/Following toggle since the Map tab has no section
+  // context to mirror. Reuses the segmented-control styles.
+  const scopeToggle = (
+    <div className="a-seg a-mapscope" role="group" aria-label="Map scope">
+      <button className={app.mapScope === 'all' ? 'on' : ''} onClick={() => app.setMapScope('all')}>All events</button>
+      <button className={app.mapScope === 'following' ? 'on' : ''} onClick={() => app.setMapScope('following')}>Following</button>
+    </div>
+  )
   if (mobile) {
-    return <div className="a-mapview">{map}{filterBar}</div>
+    return <div className="a-mapview"><div className="a-mapscope-bar">{scopeToggle}</div>{map}{filterBar}</div>
   }
   return (
     <div className="a-mappanel">
@@ -289,7 +309,7 @@ export function MapPanel({ mobile = false }) {
       {filterBar}
       <div className="a-mapbar">
         <div>
-          <div className="a-h2" style={{ fontSize: 15 }}>Near you</div>
+          <div className="a-h2" style={{ fontSize: 15 }}>{feedOnly ? 'Your feed' : 'Near you'}</div>
           <div className="mk-tag" style={{ marginTop: 2 }}>{shownCount} EVENTS</div>
         </div>
         <div className="a-mapbar-actions">
