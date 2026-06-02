@@ -1,0 +1,15 @@
+name: renton-civic-theatre
+description: "Renton Civic Theatre"
+url: "https://www.rentoncivictheatre.org/api/shows?limit=50"
+friendlyLink: https://www.rentoncivictheatre.org/shows
+tags: ["Theatre", "Renton"]
+geo:
+  lat: 47.4794
+  lng: -122.2102
+  label: "Renton Civic Theatre, 507 S 3rd St, Renton, WA 98057"
+  osmType: way
+  osmId: 424470674
+calendars:
+  - name: all-shows
+    friendlyname: "Renton Civic Theatre"
+    timezone: America/Los_Angeles
