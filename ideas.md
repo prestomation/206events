@@ -11,21 +11,6 @@ The same event scraped from multiple sources (e.g., a concert listed on both a v
 - Keep the version with the most complete metadata (description, location, URL)
 - Apply deduplication at the tag aggregation stage so individual source feeds remain unchanged
 
-## Comedy Tag & Comedy Venue Sources
-
-Add a `Comedy` tag to `lib/config/tags.ts` and implement rippers for Seattle comedy venues. Several are already documented in `docs/source-candidates.md` with confirmed Eventbrite organizer IDs. This would fill a clear content gap — comedy is one of the most popular event categories with no tag or dedicated sources today.
-
-## Columbia City Night Market — Monthly Recurring
-
-Held every third Saturday, 6-10 PM, year-round on 37th Ave S. Organized by Peace Peloton, features 60+ local vendors, food trucks, live music, and a beer garden. Prioritizes Black-owned businesses. Add as a recurring entry with schedule `"every third Saturday"`. Tags: Community, Food, Columbia City.
-
-## Local Sports Teams — New Content Category
-
-Seattle-area minor league and amateur sports teams are not currently covered. None have ICS feeds, so most would be recurring entries or require custom rippers.
-
-- **DubSea Fish Sticks** (Summer Collegiate Baseball) — Mel Olson Stadium, White Center — June-August — Tags: Sports, White Center
-- **Ballard FC** (USL League Two Soccer) — Memorial Stadium, Seattle Center — May-July — Tags: Sports, Ballard (added in PR #439)
-
 ## Additional Farmers Markets
 
 Add to `sources/recurring.yaml` using the `"every <day>"` schedule format. Verify schedules at the URLs before adding — hours and seasons can change year to year.
@@ -62,17 +47,12 @@ Three-four days in early April (annual) — 2026: April 2-5 — Seattle Conventi
 ### PAX West
 Four days over Labor Day weekend (annual) — 2026: September 4-7 — Seattle Convention Center — Tags: Gaming
 
-### Seattle Pride Parade
-Late June (annual) — 2026: June 28 — Downtown Seattle along 4th Ave — `https://seattlepride.org/events`
-
 ### Ballard Seafood & Music Fest
 Three days in mid-July (annual) — 2026: July 10-12 — Ballard — `https://ballardalliance.com/programs/community-events/`
 
 ## New Tags Needed
 
 Several venues would benefit from new tags in `lib/config/tags.ts`:
-- **`Comedy`** — for comedy clubs and improv theaters
-- **`Books`** — for bookstores with author events
 - **`Gaming`** — for board game cafes and gaming conventions
 - **`Outdoors`** — for outdoor recreation organizations
 
