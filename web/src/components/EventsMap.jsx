@@ -21,13 +21,21 @@ L.Icon.Default.mergeOptions({
 const SEATTLE_CENTER = [47.6062, -122.3321]
 const DEFAULT_ZOOM = 12
 
-// Populated King County metro extent used to reject distant outliers (e.g. the
-// Gorge Amphitheatre) from the default map fit. Generous enough to keep all
-// commonly-eventful areas — Vashon/Burien west, Shoreline/Bothell north,
-// Auburn/Enumclaw/Federal Way south, Issaquah/Sammamish/North Bend east — while
-// excluding far-eastern Cascades and out-of-region venues. Approximate and
-// easily tunable.
-const KING_COUNTY_BOUNDS = { south: 47.10, west: -122.60, north: 47.83, east: -121.70 }
+// Populated King County extent used to reject distant outliers from the default
+// map fit. Kept close to the actual county lines so the opening view frames King
+// County without spilling into neighbouring counties:
+//   - north 47.78 sits on the King/Snohomish line — keeps Shoreline/Bothell/
+//     Kenmore/Woodinville while excluding Edmonds/Lynnwood/Everett (Snohomish).
+//   - south 47.20 keeps Renton/Kent/Auburn/Federal Way/Enumclaw.
+//   - west -122.42 excludes Tacoma and the Tacoma Dome (Pierce, ~-122.43/-122.44);
+//     this also drops Vashon Island, whose handful of events still render as
+//     markers but no longer stretch the fit.
+//   - east -121.70 keeps Issaquah/Sammamish/North Bend/Snoqualmie while excluding
+//     the far-eastern Cascades and out-of-region venues (e.g. the Gorge).
+// A lat/lng box can't trace the diagonal King/Pierce line exactly; these values
+// favour excluding the Everett/Tacoma outliers the default view should ignore.
+// Approximate and easily tunable.
+const KING_COUNTY_BOUNDS = { south: 47.20, west: -122.42, north: 47.78, east: -121.70 }
 
 export function isWithinKingCounty(lat, lng) {
   return (
