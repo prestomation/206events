@@ -17,6 +17,7 @@ This fetches `https://206.events/build-errors.json` and prints a structured summ
 - Config errors, external failures, zero-event calendars
 - expectedEmpty cross-check (flags calendars marked empty that now have events)
 - Geo coverage stats and geocode errors
+- Photo coverage stats and missing-photo gaps
 - Build timestamp
 
 ### 2. Reply with Build Health Report
@@ -146,6 +147,25 @@ escalation PR(s). Entries with recommendation `verifying` are still within the
 🪜 Proxy verification: N pending — M ready to escalate
   - <source> (<rung>, <consecutiveFailures> fails) → <recommendation>
 ```
+
+### 5.6. Photo Coverage Check
+
+Check `photoStats` and `photoGaps` in the build health output.
+
+**If nothing is missing:**
+```
+🖼️ Photo coverage: N/M events, V/W venues — no missing photos ✅
+```
+
+**If there are gaps:**
+Read `skills/photo-resolver/SKILL.md` and follow it to backfill photos. It
+processes a bounded batch per run: venue gaps become `imageUrl:` PRs against the
+source YAML, event gaps become `--image-url` resolutions written to the
+event-uncertainty-cache (or `unresolvable` when no photo exists).
+
+These are not build failures — like geo and uncertainty, they're a todo queue
+the resolver drains across builds, and it self-limits as photos and
+`unresolvable` markings accrue.
 
 ### 6. Source Discovery (if no actionable errors)
 

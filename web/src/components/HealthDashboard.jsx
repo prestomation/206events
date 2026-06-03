@@ -105,6 +105,8 @@ export function HealthDashboard({
   const geocodeErrors = buildErrors.geocodeErrors || []
   const uncertainEvents = buildErrors.uncertainEvents || []
   const pendingProxyVerification = buildErrors.pendingProxyVerification || []
+  const photoGaps = buildErrors.photoGaps || { venueGaps: [], eventGaps: [] }
+  const photoGapCount = (photoGaps.venueGaps?.length || 0) + (photoGaps.eventGaps?.length || 0)
 
   const tabs = [
     { id: 'sources', label: 'Sources', count: sources.length, tone: 'neutral' },
@@ -181,6 +183,18 @@ export function HealthDashboard({
           <div className="health-card health-card--warning">
             <div className="health-card-value">❓ {buildErrors.uncertaintyStats.outstanding}</div>
             <div className="health-card-label">Uncertain Events</div>
+          </div>
+        )}
+        {buildErrors.photoStats && (
+          <div className="health-card health-card--ok">
+            <div className="health-card-value">🖼️ {buildErrors.photoStats.eventsWithImage.toLocaleString()} / {buildErrors.photoStats.totalEvents.toLocaleString()}</div>
+            <div className="health-card-label">Events with Photo</div>
+          </div>
+        )}
+        {photoGapCount > 0 && (
+          <div className="health-card health-card--warning">
+            <div className="health-card-value">🖼️ {photoGapCount.toLocaleString()}</div>
+            <div className="health-card-label">Missing Photos</div>
           </div>
         )}
         {pendingProxyVerification.length > 0 && (

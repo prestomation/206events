@@ -151,7 +151,7 @@ export class SpotHopperRipper implements IRipper {
             duration,
             summary: title,
             description: fullDescription || undefined,
-            image
+            imageUrl: image
         };
     }
 

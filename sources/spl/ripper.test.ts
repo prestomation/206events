@@ -132,7 +132,7 @@ describe('SPLRipper', () => {
             };
 
             const result = parseTrumbaEvent(event, TIMEZONE) as RipperCalendarEvent;
-            expect(result.image).toBe('https://www.trumba.com/i/test.jpg');
+            expect(result.imageUrl).toBe('https://www.trumba.com/i/test.jpg');
         });
 
         it('calculates duration correctly for short events', () => {

@@ -134,7 +134,7 @@ export function parseFeaturedItem(
         description: "Free outdoor movie at the Mural Amphitheatre lawn, Seattle Center. Movies begin at dusk (about 9pm). Seating is first-come, first-served. Preceded by a student short film.",
         location: DEFAULT_LOCATION,
         url,
-        image,
+        imageUrl: image,
     };
 }
 

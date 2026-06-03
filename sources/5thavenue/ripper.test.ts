@@ -124,7 +124,7 @@ describe('AXSRipper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const spamalot = valid.find(e => e.id === 'axs-1237495')!;
-        expect(spamalot.image).toBe('https://static.discovery-prod.axs.com/axs/images/spamalot_678_399.jpg');
+        expect(spamalot.imageUrl).toBe('https://static.discovery-prod.axs.com/axs/images/spamalot_678_399.jpg');
     });
 
     it('falls back to first image when preferred type not available', () => {
@@ -135,7 +135,7 @@ describe('AXSRipper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const camille = valid.find(e => e.id === 'axs-1070194')!;
-        expect(camille.image).toBe('https://static.discovery-prod.axs.com/axs/images/camille_318_187.jpg');
+        expect(camille.imageUrl).toBe('https://static.discovery-prod.axs.com/axs/images/camille_318_187.jpg');
     });
 
     it('sets image to undefined when no media', () => {
@@ -146,7 +146,7 @@ describe('AXSRipper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const charley = valid.find(e => e.id === 'axs-1240434')!;
-        expect(charley.image).toBeUndefined();
+        expect(charley.imageUrl).toBeUndefined();
     });
 
     it('generates AXS event URL', () => {

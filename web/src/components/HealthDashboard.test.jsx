@@ -51,6 +51,11 @@ const buildErrors = {
     { name: 'el-centro-de-la-raza', rung: 'outofband', consecutiveFailures: 3, lastError: 'HTTP 403', lastAttempt: '2026-06-03', proven: false, recommendation: 'promote-to-browserbase' },
   ],
   geoStats: { totalEvents: 12, eventsWithGeo: 11, geocodeErrors: 1 },
+  photoStats: { eventsWithImage: 9, totalEvents: 12, venuesWithImage: 1, totalVenues: 3, unresolvable: 0 },
+  photoGaps: {
+    venueGaps: [{ source: 'ripper', name: 'no-photo', mapUrl: 'https://maps.example/x' }],
+    eventGaps: [{ source: 'good-source', eventId: 'e1', summary: 'Photoless Show', date: '2026-05-10' }],
+  },
 }
 
 describe('HealthDashboard', () => {
@@ -65,6 +70,15 @@ describe('HealthDashboard', () => {
   it('shows a graceful message when build data is missing', () => {
     render(<HealthDashboard buildErrors={null} />)
     expect(screen.getByText(/Build errors data is not available/)).toBeTruthy()
+  })
+
+  it('renders photo coverage summary cards', () => {
+    render(<Harness buildErrors={buildErrors} />)
+    expect(screen.getByText('Events with Photo')).toBeTruthy()
+    expect(screen.getByText('🖼️ 9 / 12')).toBeTruthy()
+    // 1 venue gap + 1 event gap = 2 missing
+    expect(screen.getByText('Missing Photos')).toBeTruthy()
+    expect(screen.getByText('🖼️ 2')).toBeTruthy()
   })
 
   it('switches tabs to reveal errors, geo, and uncertain detail', () => {

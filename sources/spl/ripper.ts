@@ -65,7 +65,7 @@ export function parseTrumbaEvent(event: TrumbaEvent, timezone: ZoneId): RipperEv
         description,
         location: locationStr,
         url: event.permaLinkUrl || undefined,
-        image,
+        imageUrl: image,
     } as RipperCalendarEvent;
 }
 

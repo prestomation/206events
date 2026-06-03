@@ -8,7 +8,7 @@ export interface UncertaintyResolutionFields {
     startTime?: string;        // "HH:MM" or "HH:MM:SS" in the event's local timezone
     duration?: number;         // seconds
     location?: string;
-    image?: string;
+    imageUrl?: string;
 }
 
 export interface UncertaintyCacheEntry {

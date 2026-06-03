@@ -195,7 +195,7 @@ export default class SeattleFwc26Ripper implements IRipper {
             description,
             location: parsed.location,
             url,
-            image: parsed.image,
+            imageUrl: parsed.image,
         };
     }
 

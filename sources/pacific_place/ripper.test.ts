@@ -84,7 +84,7 @@ describe('Pacific Place Ripper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const market = valid.find(e => e.summary.trim() === 'May Art Market');
-        expect(market!.image).toMatch(/^https:\/\/.+\.(jpg|jpeg|png)$/i);
+        expect(market!.imageUrl).toMatch(/^https:\/\/.+\.(jpg|jpeg|png)$/i);
     });
 
     test('cleans double-slash in url', async () => {

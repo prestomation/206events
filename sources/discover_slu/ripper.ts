@@ -212,7 +212,7 @@ export function parseEventsFromHtml(
                 description,
                 location,
                 url: eventUrl,
-                image,
+                imageUrl: image,
             };
 
             events.push(event);

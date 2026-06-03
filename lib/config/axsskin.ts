@@ -128,7 +128,7 @@ export function parseAXSSkinEvent(
         description: descriptionParts.join('\n'),
         location,
         url: eventUrl || undefined,
-        image,
+        imageUrl: image,
     };
 }
 

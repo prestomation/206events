@@ -152,7 +152,7 @@ export function parsePanel(
         summary,
         location: DEFAULT_LOCATION,
         url,
-        image,
+        imageUrl: image,
     };
 }
 

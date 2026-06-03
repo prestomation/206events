@@ -113,6 +113,6 @@ describe('SEAtodayRipper', () => {
         expect(calEvents[0].summary).toBe('Test Event');
         expect(calEvents[0].description).toBeUndefined();
         expect(calEvents[0].location).toBeUndefined();
-        expect(calEvents[0].image).toBeUndefined();
+        expect(calEvents[0].imageUrl).toBeUndefined();
     });
 });

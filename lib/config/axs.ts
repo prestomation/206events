@@ -197,7 +197,7 @@ export class AXSRipper implements IRipper {
                     description: descParts.length > 0 ? descParts.join('\n') : undefined,
                     location: location || undefined,
                     url: url,
-                    image: image,
+                    imageUrl: image,
                 };
 
                 events.push(calEvent);

@@ -119,7 +119,7 @@ describe('parseEventsFromHtml', () => {
         const html = loadSampleHtml();
         const results = parseEventsFromHtml(html, 'https://www.renegadecraft.com/event/seattle-spring/');
         const events = results.filter(r => 'date' in r) as any[];
-        expect(events[0].image).toBeDefined();
-        expect(events[0].image).toContain('https://');
+        expect(events[0].imageUrl).toBeDefined();
+        expect(events[0].imageUrl).toContain('https://');
     });
 });

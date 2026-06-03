@@ -208,7 +208,7 @@ export class DICERipper implements IRipper {
                     description,
                     location,
                     url,
-                    image
+                    imageUrl: image
                 };
 
                 results.push(calEvent);

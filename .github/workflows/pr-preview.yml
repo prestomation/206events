@@ -118,6 +118,19 @@ jobs:
                 (geoStats.geocodeErrors > 0 ? ` — ⚠️ ${geoStats.geocodeErrors} geocode error(s)` : ' — ✅ No geocode errors')
               : '';
 
+            // Photo coverage stats. Gaps are todos for the photo-resolver
+            // skill — informational, not a build-block.
+            const photoStats = buildErrors.photoStats;
+            const photoGaps = buildErrors.photoGaps || { venueGaps: [], eventGaps: [] };
+            let photoSection = '';
+            if (photoStats && (photoStats.totalEvents > 0 || photoStats.totalVenues > 0)) {
+              const evPct = photoStats.totalEvents > 0 ? Math.round(photoStats.eventsWithImage / photoStats.totalEvents * 100) : 0;
+              const vnPct = photoStats.totalVenues > 0 ? Math.round(photoStats.venuesWithImage / photoStats.totalVenues * 100) : 0;
+              const gapCount = (photoGaps.venueGaps?.length || 0) + (photoGaps.eventGaps?.length || 0);
+              photoSection = `\n\n**🖼️ Photo coverage:** ${photoStats.eventsWithImage.toLocaleString()} / ${photoStats.totalEvents.toLocaleString()} events (${evPct}%), ${photoStats.venuesWithImage.toLocaleString()} / ${photoStats.totalVenues.toLocaleString()} venues (${vnPct}%)` +
+                (gapCount > 0 ? ` — ${gapCount} missing (run the photo-resolver skill)` : ' — ✅ Fully covered');
+            }
+
             // Event-uncertainty stats. Outstanding entries are todos for
             // the event-uncertainty-resolver skill — informational, not
             // a build-block.
@@ -237,6 +250,7 @@ jobs:
               `**Preview:** [View Calendar Index](${previewUrl})`,
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               geoSection,
+              photoSection,
               uncertaintySection,
               proxyVerificationSection,
               newSourceSection,

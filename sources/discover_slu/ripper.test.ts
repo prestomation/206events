@@ -114,11 +114,11 @@ describe('Discover SLU Ripper', () => {
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const reiRun = validEvents.find(e => e.summary.includes('REI Run'));
-        expect(reiRun!.image).toContain('Run_Thumb');
+        expect(reiRun!.imageUrl).toContain('Run_Thumb');
 
         // Events without images should have undefined image
         const historyCafe = validEvents.find(e => e.summary.includes('History Café'));
-        expect(historyCafe!.image).toBeUndefined();
+        expect(historyCafe!.imageUrl).toBeUndefined();
     });
 
     test('deduplicates events across multiple parseEvents calls', () => {

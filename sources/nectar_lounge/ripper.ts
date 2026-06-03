@@ -88,7 +88,7 @@ export function parseNectarEvents(
             description: description || undefined,
             location: LOCATION,
             url: event.url,
-            image: event.image,
+            imageUrl: event.image,
         });
     }
 

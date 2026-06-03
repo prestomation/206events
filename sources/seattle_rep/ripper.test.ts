@@ -104,7 +104,7 @@ describe('SeattleRepRipper', () => {
 
         const blueberries = valid.find(e => e.id === '10484')!;
         expect(blueberries.url).toBe('https://www.seattlerep.org/plays/202526-season/here-there-are-blueberries');
-        expect(blueberries.image).toContain('cloudinary.com/seattlerep');
+        expect(blueberries.imageUrl).toContain('cloudinary.com/seattlerep');
     });
 
     test('includes price range in description', async () => {

@@ -150,7 +150,7 @@ describe('SeattleFwc26Ripper - parseEventHtml', () => {
         expect(ev.duration.toMinutes()).toBe(150);
         expect(ev.location).toBe('800 Occidental Ave S');
         expect(ev.description).toMatch(/Hosted by Seattle Sports Commission/);
-        expect(ev.image).toMatch(/^https:\/\/cdn\.prod\.website-files\.com\//);
+        expect(ev.imageUrl).toMatch(/^https:\/\/cdn\.prod\.website-files\.com\//);
     });
 
     test('parses event with date range and time range (multiday-with-time)', () => {

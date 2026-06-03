@@ -15,6 +15,7 @@ import { isIOS } from './utils/platform.js'
 import { haversineKm } from './lib/haversine.js'
 import { deduplicateEvents } from './lib/event-dedup.js'
 import { eventKey } from './lib/eventKey.js'
+import { extractIcsImageUrl } from './lib/icsImage.js'
 import { App206 } from './redesign/App206.jsx'
 import { upcomingIndexEvents, groupIndexEventsByDay } from './redesign/viewModels.js'
 
@@ -1310,6 +1311,7 @@ function App() {
                   description: event.description,
                   location: event.location,
                   url: vevent.getFirstPropertyValue('url'),
+                  imageUrl: extractIcsImageUrl(vevent),
                   startDate: startDate,
                   endDate: endDate,
                   calendarName: calendarName,
@@ -1336,6 +1338,7 @@ function App() {
                 description: event.description,
                 location: event.location,
                 url: vevent.getFirstPropertyValue('url'),
+                imageUrl: extractIcsImageUrl(vevent),
                 startDate: startDate,
                 endDate: event.endDate?.toJSDate(),
                 calendarName: calendarName,

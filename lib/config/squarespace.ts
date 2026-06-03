@@ -225,7 +225,7 @@ export class SquarespaceRipper implements IRipper {
             description,
             location,
             url: eventUrl,
-            image: sqEvent.assetUrl || undefined
+            imageUrl: sqEvent.assetUrl || undefined
         };
     }
 

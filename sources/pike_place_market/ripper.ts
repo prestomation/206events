@@ -80,7 +80,7 @@ export default class PikePlaceMarketRipper extends HTMLRipper {
                     description: description || undefined,
                     location: location || undefined,
                     url: eventUrl || undefined,
-                    image: jsonLdEvent.image || undefined
+                    imageUrl: jsonLdEvent.image || undefined
                 };
                 events.push(event);
             } catch (error) {

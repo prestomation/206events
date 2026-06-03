@@ -22,6 +22,7 @@ import {
 } from "./event-uncertainty-cache.js";
 import {
   applyUncertaintyResolutions,
+  applyImageBackfill,
   type UncertaintyMergeStats,
 } from "./uncertainty-merge.js";
 import { toRSS } from "./config/rss.js";
@@ -46,6 +47,8 @@ import {
   buildTagsJson,
   buildVenuesJson,
   buildOsmGaps,
+  buildPhotoGaps,
+  type PhotoEventInput,
 } from "./discovery.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
@@ -683,6 +686,13 @@ export const main = async () => {
       uncertaintyTotals.acknowledgedUnresolvable += merged.stats.acknowledgedUnresolvable;
       uncertaintyTotals.outstanding += merged.stats.outstanding;
       for (const key of merged.touchedKeys) uncertaintyTouchedKeys.add(key);
+
+      // Overlay image backfill from the same cache (photo-resolver writes
+      // imageUrl resolutions). Independent of UncertaintyErrors — fills in
+      // photos for events that never emitted one.
+      const backfilled = applyImageBackfill(calendar.events, uncertaintyCache, config.config.name);
+      calendar.events = backfilled.events;
+      for (const key of backfilled.touchedKeys) uncertaintyTouchedKeys.add(key);
     }
   }
 
@@ -1077,6 +1087,7 @@ END:VCALENDAR`;
     date: string;
     endDate?: string;
     url?: string;
+    imageUrl?: string;
     lat?: number;
     lng?: number;
     osmType?: 'node' | 'way' | 'relation';
@@ -1106,6 +1117,7 @@ END:VCALENDAR`;
         date: event.date.toString(),
         endDate: event.date.plus(event.duration).toString(),
         url: event.url,
+        ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
         ...(lat !== undefined ? { lat } : {}),
         ...(lng !== undefined ? { lng } : {}),
         ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
@@ -1149,6 +1161,7 @@ END:VCALENDAR`;
             date: event.date.toString(),
             endDate: event.date.plus(event.duration).toString(),
             url: event.url,
+            ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
             ...(lat !== undefined ? { lat } : {}),
             ...(lng !== undefined ? { lng } : {}),
             ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
@@ -1450,6 +1463,58 @@ END:VCALENDAR`;
     recurringEvents: recurringProcessor?.getEvents() ?? [],
   });
 
+  // Build venues once here so both the photo-gap report (below) and the
+  // discovery API block (later) share a single enumeration.
+  const venuesGenerated = new Date().toISOString();
+  const venuesDoc = buildVenuesJson({
+    configs: configs.map(r => r.config),
+    externals: activeExternalCalendars,
+    recurringEvents: recurringProcessor?.getEvents() ?? [],
+    calendarsWithFutureEvents,
+    generated: venuesGenerated,
+  });
+
+  // Photo gaps — the photo-resolver skill's work queue. venueGaps are
+  // fixable via source YAML (`imageUrl:`); eventGaps via the uncertainty
+  // cache (`--image-url`). Events whose image is confirmed unavailable
+  // (`unresolvable` in the cache) are excluded so the queue self-limits.
+  const unresolvableImageKeys = new Set<string>();
+  for (const [key, entry] of Object.entries(uncertaintyCache.entries)) {
+    if (entry.unresolvable) unresolvableImageKeys.add(key);
+  }
+  const ripperEventsForPhotoGaps: PhotoEventInput[] = [];
+  for (const calendar of allCalendars) {
+    if (!calendar.parent) continue; // recurring events are venues, covered by venueGaps
+    const icsUrl = `${calendar.parent.name}-${calendar.name}.ics`;
+    if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+    for (const event of calendar.events) {
+      ripperEventsForPhotoGaps.push({
+        source: calendar.parent.name,
+        id: event.id,
+        summary: event.summary,
+        date: event.date.toString(),
+        url: event.url,
+        imageUrl: event.imageUrl,
+      });
+    }
+  }
+  const photoGaps = buildPhotoGaps({
+    venues: venuesDoc.venues,
+    ripperEvents: ripperEventsForPhotoGaps,
+    unresolvableImageKeys,
+  });
+  const photoStats = {
+    eventsWithImage: eventsIndex.filter(e => e.imageUrl).length,
+    totalEvents: eventsIndex.length,
+    venuesWithImage: venuesDoc.venues.filter(v => v.imageUrl).length,
+    totalVenues: venuesDoc.venues.length,
+    // Live ripper events with no image whose cache entry is marked
+    // unresolvable (a recorded "no image available").
+    unresolvable: ripperEventsForPhotoGaps.filter(
+      e => !e.imageUrl && e.id && unresolvableImageKeys.has(`${e.source}:${e.id}`),
+    ).length,
+  };
+
   // Flatten still-outstanding UncertaintyError entries from every
   // ripper's calendar into one list for the resolver skill to chew
   // through. Resolved/unresolvable entries have already been removed
@@ -1522,6 +1587,11 @@ END:VCALENDAR`;
     newSourceParseErrors,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
     osmGaps,
+    // Photo coverage: the photo-resolver skill reads `photoGaps` as its
+    // work queue; `photoStats` summarizes coverage for the reporting
+    // surfaces. Non-fatal — not counted in totalErrors (like osmGaps).
+    photoStats,
+    photoGaps,
     eventCounts: eventCounts.map(c => ({
       name: c.name,
       type: c.type,
@@ -1544,9 +1614,6 @@ END:VCALENDAR`;
     const generated = new Date().toISOString();
     const siteUrl = SITE_BASE_URL.replace(/\/$/, "");
 
-    const ripperConfigsForDiscovery = configs.map(r => r.config);
-    const recurringEventsForDiscovery = recurringProcessor?.getEvents() ?? [];
-
     // index.json — entry point
     const indexDoc = buildIndexJson({ generated, site: siteUrl });
     await writeFile("output/index.json", JSON.stringify(indexDoc, null, 2));
@@ -1563,14 +1630,8 @@ END:VCALENDAR`;
     });
     await writeFile("output/tags.json", JSON.stringify(tagsDoc, null, 2));
 
-    // venues.json — one entry per source with a fixed physical geo
-    const venuesDoc = buildVenuesJson({
-      configs: ripperConfigsForDiscovery,
-      externals: activeExternalCalendars,
-      recurringEvents: recurringEventsForDiscovery,
-      calendarsWithFutureEvents,
-      generated,
-    });
+    // venues.json — one entry per source with a fixed physical geo.
+    // Built once earlier (shared with the photo-gap report); just publish it.
     await writeFile("output/venues.json", JSON.stringify(venuesDoc, null, 2));
 
     // geo-cache.json — copied into output/ so downstream consumers can
@@ -1667,6 +1728,14 @@ END:VCALENDAR`;
     if (uncertaintyTotals.outstanding + uncertaintyTotals.resolved + uncertaintyTotals.acknowledgedUnresolvable > 0) {
       summaryLines.push("");
       summaryLines.push(`> ❓ **Uncertain events:** ${uncertaintyTotals.outstanding} outstanding — agent investigation pending. ${uncertaintyTotals.resolved} resolved from cache this build; ${uncertaintyTotals.acknowledgedUnresolvable} marked unresolvable.`);
+    }
+    {
+      const evPct = photoStats.totalEvents > 0 ? Math.round(photoStats.eventsWithImage / photoStats.totalEvents * 100) : 0;
+      const vnPct = photoStats.totalVenues > 0 ? Math.round(photoStats.venuesWithImage / photoStats.totalVenues * 100) : 0;
+      const gapCount = photoGaps.venueGaps.length + photoGaps.eventGaps.length;
+      summaryLines.push("");
+      summaryLines.push(`> 🖼️ **Photo coverage:** ${photoStats.eventsWithImage} / ${photoStats.totalEvents} events (${evPct}%), ${photoStats.venuesWithImage} / ${photoStats.totalVenues} venues (${vnPct}%)` +
+        (gapCount > 0 ? ` — ${gapCount} missing (${photoGaps.venueGaps.length} venues, ${photoGaps.eventGaps.length} events). Run the photo-resolver skill.` : " — ✅ fully covered."));
     }
     if (pendingProxyVerification.length > 0) {
       summaryLines.push("");

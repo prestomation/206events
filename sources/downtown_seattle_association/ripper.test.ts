@@ -207,17 +207,17 @@ describe('Downtown Seattle Association Ripper', () => {
     
     // Find an event with an image
     const eventWithImage = events.find(e => 
-      'image' in e && e.image
+      'imageUrl' in e && e.imageUrl
     ) as RipperCalendarEvent | undefined;
     
     if (eventWithImage) {
       // Verify image URL is set
-      expect(eventWithImage.image).toBeDefined();
-      expect(eventWithImage.image).toContain('https://downtownseattle.org');
+      expect(eventWithImage.imageUrl).toBeDefined();
+      expect(eventWithImage.imageUrl).toContain('https://downtownseattle.org');
       
       // Verify image URL is appended to description
       expect(eventWithImage.description).toContain('Event image:');
-      expect(eventWithImage.description).toContain(eventWithImage.image);
+      expect(eventWithImage.description).toContain(eventWithImage.imageUrl);
     }
   });
 });

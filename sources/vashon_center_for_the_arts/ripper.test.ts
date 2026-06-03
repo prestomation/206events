@@ -66,7 +66,7 @@ describe('processData', () => {
         expect(brett!.description).toBeTruthy();
 
         const piano = events.find(e => e.summary === '2026 PianoFête');
-        expect(piano!.image).toBeTruthy();
+        expect(piano!.imageUrl).toBeTruthy();
     });
 
     it('deduplicates the same event at the same time', () => {

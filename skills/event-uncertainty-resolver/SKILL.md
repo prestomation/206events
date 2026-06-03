@@ -124,7 +124,7 @@ In your reply, include:
 | `startTime` | `HH:MM` or `HH:MM:SS` (in the event's local timezone) | `19:30` |
 | `duration` | integer seconds | `10800` (3 hours) |
 | `location` | string (the venue address as you would expect to see in a calendar app) | `123 Main St, Seattle, WA` |
-| `image` | URL string | `https://example.com/event.jpg` |
+| `imageUrl` | URL string | `https://example.com/event.jpg` |
 
 Use only the fields actually listed in the entry's `unknownFields`. The
 resolver script enforces this — passing `--start-time` for an entry

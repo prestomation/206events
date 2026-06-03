@@ -41,7 +41,7 @@ describe('El Corazon Ripper', () => {
         expect(coroner!.summary).toContain('Heathen, Rising Of The Tides, Hellbox');
         expect(coroner!.location).toBe('El Corazón, 109 Eastlake Avenue East, Seattle, WA 98109');
         expect(coroner!.url).toBe('https://www.elcorazonseattle.com/shows/coroner-13-feb');
-        expect(coroner!.image).toBeDefined();
+        expect(coroner!.imageUrl).toBeDefined();
 
         // The Emo Night Tour (no support acts)
         const emoNight = validEvents.find(e => e.summary.includes('Emo Night'));

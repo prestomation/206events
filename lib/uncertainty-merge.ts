@@ -49,7 +49,7 @@ function appendUncertaintyNote(
                 case 'startTime': return 'Time';
                 case 'duration': return 'Duration';
                 case 'location': return 'Location';
-                case 'image': return 'Image';
+                case 'imageUrl': return 'Image';
                 default: return f;
             }
         })
@@ -88,8 +88,8 @@ function applyResolution(
     if (fields.location !== undefined) {
         updated.location = fields.location;
     }
-    if (fields.image !== undefined) {
-        updated.image = fields.image;
+    if (fields.imageUrl !== undefined) {
+        updated.imageUrl = fields.imageUrl;
     }
     return updated;
 }
@@ -182,4 +182,47 @@ export function applyUncertaintyResolutions(
     const updatedErrors = errors.filter(e => !errorsToDrop.has(e));
 
     return { events: updatedEvents, errors: updatedErrors, stats, touchedKeys };
+}
+
+export interface ImageBackfillResult {
+    events: RipperCalendarEvent[];
+    // Number of events that received an imageUrl from the cache this build.
+    applied: number;
+    // Cache keys consulted that produced an applied imageUrl. The caller
+    // stamps `lastSeen` on these so the prune-by-staleness path keeps them.
+    touchedKeys: string[];
+}
+
+// Pure overlay: fill in `imageUrl` for events that don't already have one,
+// from the same event-uncertainty-cache the resolver writes (via the
+// `imageUrl` resolution field / `--image-url` CLI flag). Unlike start-time /
+// location resolutions, image backfill does NOT require the ripper to have
+// emitted an UncertaintyError — most image-less events never do. This keeps
+// the noisy `uncertainEvents` queue driven only by real UncertaintyErrors
+// while still letting the photo-resolver skill backfill images across builds.
+//
+// Events that already carry an imageUrl are left untouched. Cache entries
+// marked `unresolvable` (no image available) are skipped — the event stays
+// image-less and drops off the gap report without re-investigation.
+export function applyImageBackfill(
+    events: RipperCalendarEvent[],
+    cache: Readonly<UncertaintyCache>,
+    source: string,
+): ImageBackfillResult {
+    let applied = 0;
+    const touchedKeys: string[] = [];
+
+    const updatedEvents = events.map(event => {
+        if (event.imageUrl) return event;       // already has a photo
+        if (!event.id) return event;            // can't key into the cache
+        const lookup = lookupUncertaintyCache(cache, source, event.id);
+        if (lookup.kind === 'resolved' && lookup.entry?.fields?.imageUrl) {
+            applied++;
+            touchedKeys.push(uncertaintyCacheKey(source, event.id));
+            return { ...event, imageUrl: lookup.entry.fields.imageUrl };
+        }
+        return event;
+    });
+
+    return { events: updatedEvents, applied, touchedKeys };
 }

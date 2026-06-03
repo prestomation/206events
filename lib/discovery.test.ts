@@ -8,9 +8,12 @@ import {
   buildVenuesJson,
   venuesDocSchema,
   buildOsmGaps,
+  buildPhotoGaps,
+  photoGapsSchema,
   isOsmCheckedFresh,
   ManifestLike,
   EventCountLike,
+  VenueEntry,
 } from "./discovery.js";
 import { RipperConfig, ExternalCalendar, OSM_CHECKED_COOLDOWN_DAYS } from "./config/schema.js";
 import { RecurringEvent } from "./config/recurring.js";
@@ -211,11 +214,13 @@ function makeRipper(overrides: {
   friendlyLink?: string;
   tags?: string[];
   geo: RipperConfig["geo"];
+  imageUrl?: string;
   calendars: Array<{
     name: string;
     friendlyname: string;
     tags?: string[];
     geo?: RipperConfig["geo"];
+    imageUrl?: string;
   }>;
   disabled?: boolean;
 }): RipperConfig {
@@ -230,11 +235,13 @@ function makeRipper(overrides: {
     expectEmpty: false,
     tags: overrides.tags,
     geo: overrides.geo,
+    imageUrl: overrides.imageUrl,
     calendars: overrides.calendars.map(c => ({
       name: c.name,
       friendlyname: c.friendlyname,
       tags: c.tags,
       geo: c.geo,
+      imageUrl: c.imageUrl,
     })),
   } as unknown as RipperConfig;
 }
@@ -252,6 +259,7 @@ function makeExternal(overrides: Partial<ExternalCalendar> & {
     expectEmpty: overrides.expectEmpty ?? false,
     tags: overrides.tags,
     geo: overrides.geo,
+    imageUrl: overrides.imageUrl,
     infoUrl: overrides.infoUrl,
     description: overrides.description,
   };
@@ -264,6 +272,7 @@ function makeRecurring(overrides: {
   url?: string;
   tags?: string[];
   geo: RecurringEvent["geo"];
+  imageUrl?: string;
 }): RecurringEvent {
   return {
     name: overrides.name,
@@ -272,6 +281,7 @@ function makeRecurring(overrides: {
     url: overrides.url ?? "https://example.com/recurring",
     tags: overrides.tags ?? [],
     geo: overrides.geo,
+    imageUrl: overrides.imageUrl,
     // Fields the venues builder does not read — casts are fine here.
     timezone: null,
     location: "n/a",
@@ -591,6 +601,100 @@ describe("buildVenuesJson", () => {
     // Re-parsing with Zod tolerates absent optional keys.
     expect(() => venuesDocSchema.parse(roundTripped)).not.toThrow();
   });
+
+  it("passes ripper-level imageUrl through to the venue entry", () => {
+    const doc = buildVenuesJson({
+      configs: [
+        makeRipper({
+          name: "stoup",
+          geo: BALLARD_GEO,
+          imageUrl: "https://example.com/stoup.jpg",
+          calendars: [{ name: "events", friendlyname: "Stoup Events" }],
+        }),
+      ],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["stoup-events.ics"]),
+      generated: "t",
+    });
+    expect(() => venuesDocSchema.parse(doc)).not.toThrow();
+    expect(doc.venues[0].imageUrl).toBe("https://example.com/stoup.jpg");
+  });
+
+  it("omits imageUrl entirely when no photo is declared", () => {
+    const doc = buildVenuesJson({
+      configs: [
+        makeRipper({
+          name: "stoup",
+          geo: BALLARD_GEO,
+          calendars: [{ name: "events", friendlyname: "Stoup Events" }],
+        }),
+      ],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["stoup-events.ics"]),
+      generated: "t",
+    });
+    expect("imageUrl" in doc.venues[0]).toBe(false);
+  });
+
+  it("lets a per-calendar imageUrl override the ripper-level one (multi-branch)", () => {
+    const doc = buildVenuesJson({
+      configs: [
+        makeRipper({
+          name: "spl",
+          geo: null,
+          imageUrl: "https://example.com/ripper-default.jpg",
+          calendars: [
+            {
+              name: "central",
+              friendlyname: "SPL Central",
+              geo: BALLARD_GEO,
+              imageUrl: "https://example.com/central.jpg",
+            },
+            // Inherits the ripper-level imageUrl (no own override).
+            { name: "ballard", friendlyname: "SPL Ballard", geo: BALLARD_GEO },
+          ],
+        }),
+      ],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["spl-central.ics", "spl-ballard.ics"]),
+      generated: "t",
+    });
+    expect(() => venuesDocSchema.parse(doc)).not.toThrow();
+    const central = doc.venues.find(v => v.name === "spl-central");
+    const ballard = doc.venues.find(v => v.name === "spl-ballard");
+    expect(central?.imageUrl).toBe("https://example.com/central.jpg");
+    expect(ballard?.imageUrl).toBe("https://example.com/ripper-default.jpg");
+  });
+
+  it("passes external and recurring imageUrl through", () => {
+    const doc = buildVenuesJson({
+      configs: [],
+      externals: [
+        makeExternal({
+          name: "ext",
+          friendlyname: "Ext Feed",
+          geo: BALLARD_GEO,
+          imageUrl: "https://example.com/ext.jpg",
+        }),
+      ],
+      recurringEvents: [
+        makeRecurring({
+          name: "market",
+          friendlyname: "Market",
+          geo: BALLARD_GEO,
+          imageUrl: "https://example.com/market.jpg",
+        }),
+      ],
+      calendarsWithFutureEvents: new Set(["external-ext.ics", "recurring-market.ics"]),
+      generated: "t",
+    });
+    expect(() => venuesDocSchema.parse(doc)).not.toThrow();
+    expect(doc.venues.find(v => v.name === "ext")?.imageUrl).toBe("https://example.com/ext.jpg");
+    expect(doc.venues.find(v => v.name === "market")?.imageUrl).toBe("https://example.com/market.jpg");
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -879,5 +983,86 @@ describe("buildOsmGaps", () => {
       recurringEvents: [],
     });
     expect(gaps).toHaveLength(1);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildPhotoGaps — venues + events missing a photo (photo-resolver queue)
+// ---------------------------------------------------------------------------
+
+describe("buildPhotoGaps", () => {
+  const venueWith: VenueEntry = {
+    name: "has-photo",
+    friendlyName: "Has Photo",
+    description: "x",
+    tags: [],
+    geo: { lat: 47.6, lng: -122.3, label: "Ballard" },
+    map: { web: "https://maps.example/has" },
+    imageUrl: "https://example.com/has.jpg",
+    kind: "ripper",
+    calendars: [],
+  };
+  const venueWithout: VenueEntry = {
+    name: "no-photo",
+    friendlyName: "No Photo",
+    description: "x",
+    url: "https://no-photo.example",
+    tags: [],
+    geo: { lat: 47.6, lng: -122.3, label: "Fremont" },
+    map: { web: "https://maps.example/no" },
+    kind: "external",
+    calendars: [],
+  };
+
+  it("lists only venues without an imageUrl", () => {
+    const gaps = buildPhotoGaps({
+      venues: [venueWith, venueWithout],
+      ripperEvents: [],
+      unresolvableImageKeys: new Set(),
+    });
+    expect(gaps.venueGaps).toHaveLength(1);
+    expect(gaps.venueGaps[0]).toMatchObject({
+      source: "external",
+      name: "no-photo",
+      label: "Fremont",
+      url: "https://no-photo.example",
+      mapUrl: "https://maps.example/no",
+    });
+  });
+
+  it("lists ripper events without an imageUrl and excludes unresolvable ones", () => {
+    const gaps = buildPhotoGaps({
+      venues: [],
+      ripperEvents: [
+        { source: "neumos", id: "a", summary: "Show A", date: "2026-06-01T20:00:00-07:00" },
+        { source: "neumos", id: "b", summary: "Show B", date: "2026-06-02T20:00:00-07:00", imageUrl: "https://x/b.jpg" },
+        { source: "neumos", id: "c", summary: "Show C", date: "2026-06-03T20:00:00-07:00" },
+      ],
+      unresolvableImageKeys: new Set(["neumos:c"]),
+    });
+    expect(gaps.eventGaps.map(e => e.eventId)).toEqual(["a"]);
+    expect(gaps.eventGaps[0]).toMatchObject({ source: "neumos", eventId: "a", summary: "Show A" });
+  });
+
+  it("skips events with no id (cannot be keyed into the cache)", () => {
+    const gaps = buildPhotoGaps({
+      venues: [],
+      ripperEvents: [{ source: "x", summary: "No id", date: "2026-06-01T20:00:00-07:00" }],
+      unresolvableImageKeys: new Set(),
+    });
+    expect(gaps.eventGaps).toHaveLength(0);
+  });
+
+  it("produces a schema-valid, stably-sorted document", () => {
+    const gaps = buildPhotoGaps({
+      venues: [venueWithout, venueWith],
+      ripperEvents: [
+        { source: "zeta", id: "2", summary: "Z2", date: "d" },
+        { source: "alpha", id: "1", summary: "A1", date: "d" },
+      ],
+      unresolvableImageKeys: new Set(),
+    });
+    expect(() => photoGapsSchema.parse(gaps)).not.toThrow();
+    expect(gaps.eventGaps.map(e => e.source)).toEqual(["alpha", "zeta"]);
   });
 });

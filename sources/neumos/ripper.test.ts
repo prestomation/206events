@@ -36,7 +36,7 @@ describe('Neumos parseEvents', () => {
         expect(zina!.location).toBe('Neumos, 925 E Pike St, Seattle, WA 98122');
         expect(zina!.url).toBe('https://www.neumos.com/events/detail/zinadelphia-tickets-1303196');
         expect(zina!.id).toBe('neumos-1303196');
-        expect(zina!.image).toContain('axs.com');
+        expect(zina!.imageUrl).toContain('axs.com');
         expect(zina!.description).toContain('Tickets:');
         expect(zina!.description).toContain('Doors: 7:00 PM');
     });

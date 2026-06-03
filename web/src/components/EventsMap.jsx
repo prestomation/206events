@@ -151,6 +151,11 @@ function renderPopupHtml(event, eventAttributions) {
     `<strong class="map-popup-title">${escapeHtml(event.summary)}</strong>`,
     `<div class="map-popup-date">${escapeHtml(event.formattedDate)}</div>`,
   ]
+  // Optional event photo (a link only). Hide on load error so a dead URL
+  // leaves no broken-image icon in the popup.
+  if (event.imageUrl && /^https?:\/\//i.test(event.imageUrl)) {
+    parts.push(`<img class="map-popup-image" src="${escapeHtml(event.imageUrl)}" alt="" loading="lazy" onerror="this.style.display='none'" />`)
+  }
   if (event.calendarName) {
     parts.push(`<div class="map-popup-source">${escapeHtml(event.calendarName)}</div>`)
   }

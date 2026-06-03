@@ -186,7 +186,7 @@ describe('STGRipper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const lionKing = valid.find(e => e.id === 'tm-vvG1HZ9pCgODPp')!;
-        expect(lionKing.image).toBe('https://s1.ticketm.net/dam/a/abc/lion-king-16_9.jpg');
+        expect(lionKing.imageUrl).toBe('https://s1.ticketm.net/dam/a/abc/lion-king-16_9.jpg');
     });
 
     it('falls back to first image when no 16_9 preferred image', () => {
@@ -197,7 +197,7 @@ describe('STGRipper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const utcOnly = valid.find(e => e.id === 'tm-vvG1HZUtcOnly')!;
-        expect(utcOnly.image).toBe('https://s1.ticketm.net/dam/a/utc/utc-4_3.jpg');
+        expect(utcOnly.imageUrl).toBe('https://s1.ticketm.net/dam/a/utc/utc-4_3.jpg');
     });
 
     it('sets image to undefined when images array is empty', () => {
@@ -208,7 +208,7 @@ describe('STGRipper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const yang = valid.find(e => e.id === 'tm-vvG1HZbqNQyEPp')!;
-        expect(yang.image).toBeUndefined();
+        expect(yang.imageUrl).toBeUndefined();
     });
 
     it('includes Ticketmaster URL', () => {

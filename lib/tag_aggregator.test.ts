@@ -369,5 +369,53 @@ END:VCALENDAR`;
       const events = parseExternalCalendarEvents(icsData);
       expect(events).toHaveLength(0);
     });
+
+    it('extracts imageUrl from an IMAGE;VALUE=URI property', () => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dtStart = tomorrow.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:img-event-1
+SUMMARY:Has Image
+DTSTART:${dtStart}
+IMAGE;VALUE=URI;DISPLAY=BADGE;FMTTYPE=image/png:https://example.com/poster.png
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events).toHaveLength(1);
+      expect(events[0].imageUrl).toBe('https://example.com/poster.png');
+    });
+
+    it('extracts imageUrl from an image ATTACH and ignores non-image ATTACH', () => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dtStart = tomorrow.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const withImage = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:attach-img
+SUMMARY:Attach Image
+DTSTART:${dtStart}
+ATTACH;FMTTYPE=image/jpeg:https://example.com/a.jpg
+END:VEVENT
+END:VCALENDAR`;
+      expect(parseExternalCalendarEvents(withImage)[0].imageUrl).toBe('https://example.com/a.jpg');
+
+      const withDoc = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:attach-doc
+SUMMARY:Attach Doc
+DTSTART:${dtStart}
+ATTACH;FMTTYPE=application/pdf:https://example.com/flyer.pdf
+END:VEVENT
+END:VCALENDAR`;
+      expect(parseExternalCalendarEvents(withDoc)[0].imageUrl).toBeUndefined();
+    });
   });
 });

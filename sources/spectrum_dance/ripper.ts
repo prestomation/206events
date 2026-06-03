@@ -158,7 +158,7 @@ export default class SpectrumDanceRipper implements IRipper {
                     description: descParts.length > 0 ? descParts.join('\n\n') : undefined,
                     location: VENUE_ADDRESS,
                     url: TICKET_URL,
-                    image: perf.productionLogoLink || undefined,
+                    imageUrl: perf.productionLogoLink || undefined,
                 };
 
                 events.push(event);
