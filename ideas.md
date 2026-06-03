@@ -29,9 +29,6 @@ Two days in late August (annual) — South Lake Union — `https://206nightmarke
 ### Northwest Folklife Festival
 Memorial Day weekend (annual, 4 days) — 2026: May 22-25 — Seattle Center — `https://nwfolklife.org/`
 
-### Bumbershoot
-Labor Day weekend (annual) — Seattle Center — `https://bumbershoot.com/`
-
 ### Seattle Art Fair
 Four days in late July (annual) — 2026: July 23-26 — Lumen Field Event Center — `https://seattleartfair.com/`
 
