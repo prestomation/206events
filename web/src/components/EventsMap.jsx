@@ -51,9 +51,13 @@ export function collectFitPoints(events, geoFilters) {
   }
   const points = inCounty.length > 0 ? inCounty : all
   for (const gf of geoFilters) {
-    const kmToDeg = gf.radiusKm / 111
-    points.push([gf.lat + kmToDeg, gf.lng + kmToDeg])
-    points.push([gf.lat - kmToDeg, gf.lng - kmToDeg])
+    // Longitude degrees shrink with latitude (1° lng ≈ 111·cos(lat) km), so the
+    // east-west offset needs the cos(lat) correction or the bounds under-frame
+    // the circle (~33% short at Seattle's ~47.6°).
+    const latDeg = gf.radiusKm / 111
+    const lngDeg = gf.radiusKm / (111 * Math.cos(gf.lat * Math.PI / 180))
+    points.push([gf.lat + latDeg, gf.lng + lngDeg])
+    points.push([gf.lat - latDeg, gf.lng - lngDeg])
   }
   return points
 }

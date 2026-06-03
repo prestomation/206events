@@ -33,9 +33,10 @@ describe('collectFitPoints', () => {
   it('always appends geo-filter corner points', () => {
     const gf = { lat: 47.6, lng: -122.3, radiusKm: 5 }
     const points = collectFitPoints([SEATTLE], [gf])
-    const kmToDeg = gf.radiusKm / 111
-    expect(points).toContainEqual([gf.lat + kmToDeg, gf.lng + kmToDeg])
-    expect(points).toContainEqual([gf.lat - kmToDeg, gf.lng - kmToDeg])
+    const latDeg = gf.radiusKm / 111
+    const lngDeg = gf.radiusKm / (111 * Math.cos(gf.lat * Math.PI / 180))
+    expect(points).toContainEqual([gf.lat + latDeg, gf.lng + lngDeg])
+    expect(points).toContainEqual([gf.lat - latDeg, gf.lng - lngDeg])
   })
 
   it('falls back to all events when none are in-county', () => {
