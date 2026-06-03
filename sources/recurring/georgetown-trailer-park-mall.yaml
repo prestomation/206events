@@ -3,6 +3,8 @@ geo:
   lat: 47.5505915
   lng: -122.3183935
   label: "Georgetown Trailer Park Mall, 5805 Airport Way S, Seattle, WA 98108"
+  osmType: way
+  osmId: 428014743
 name: georgetown-trailer-park-mall
 friendlyname: Georgetown Trailer Park Mall
 description: Open-air weekend marketplace in Georgetown featuring local artists, designers, and vintage collectors in repurposed trailers.

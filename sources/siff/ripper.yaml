@@ -10,7 +10,6 @@ calendars:
   - name: downtown
     friendlyname: "SIFF Cinema Downtown"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       name: "SIFF Cinema Downtown"
       cssSelector: ".Downtown"
@@ -23,7 +22,6 @@ calendars:
   - name: uptown
     timezone: America/Los_Angeles
     friendlyname: "SIFF Cinema Uptown"
-    expectEmpty: true
     config:
       name: "SIFF Cinema Uptown"
       cssSelector: ".Uptown"

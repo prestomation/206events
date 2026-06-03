@@ -1,5 +1,6 @@
 name: seattle-rep
 description: "Seattle Repertory Theatre Performances"
+proxy: "outofband"
 url: "https://www.seattlerep.org/plays/json"
 friendlyLink: https://www.seattlerep.org
 tags: ["Theatre"]

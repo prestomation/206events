@@ -2,6 +2,7 @@
 name: downtown-seattle-association
 friendlyname: "Downtown Seattle Association"
 description: "Downtown Seattle Association Events Calendar"
+proxy: "outofband"
 url: "https://downtownseattle.org/wp-json/tribe/events/v1/events"
 friendlyLink: https://downtownseattle.org
 geo: null
