@@ -15,6 +15,9 @@ tags:
   - Music
   - Arts
   - QueenAnne
+# Approximates Labor Day weekend (1st Monday of Sept). Correct for 2026 (Sep 5-6)
+# and most years; may be off by one week when September 1st falls on Monday or Saturday.
+# Verify against bumbershoot.com each year before the festival season.
 schedules:
   - schedule: "1st Saturday"
     start_time: "11:00"
