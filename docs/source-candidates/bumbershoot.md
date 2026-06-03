@@ -6,7 +6,7 @@ url: https://bumbershoot.com/
 tags: [Music, Arts, QueenAnne]
 firstSeen: 2026-05-30
 lastChecked: 2026-06-03
-pr: pending
+pr: 468
 ---
 
 Annual multi-day arts and music festival at Seattle Center over Labor Day
