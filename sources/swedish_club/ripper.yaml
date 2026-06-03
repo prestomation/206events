@@ -1,5 +1,6 @@
 name: swedish-club
 type: eventbrite
+proxy: "outofband"
 description: "The Swedish Club NW"
 url: "https://www.eventbrite.com/o/swedish-cultural-center-65249248753"
 friendlyLink: https://www.swedishclubnw.org

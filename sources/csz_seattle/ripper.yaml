@@ -1,5 +1,6 @@
 name: csz-seattle
 type: eventbrite
+proxy: "outofband"
 description: "CSz Seattle (ComedySportz)"
 url: "https://cszseattle.com/"
 friendlyLink: https://cszseattle.com/

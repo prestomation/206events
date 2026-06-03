@@ -1,5 +1,6 @@
 name: yerbana
 type: eventbrite
+proxy: "outofband"
 description: "Yerbana"
 url: "https://www.yerbana.com/yoga-in-the-park"
 friendlyLink: https://www.yerbana.com/yoga-in-the-park

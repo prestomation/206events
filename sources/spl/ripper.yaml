@@ -109,7 +109,6 @@ calendars:
   - name: queen-anne
     friendlyname: "SPL - Queen Anne Branch"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       branch: "Queen Anne Branch"
     tags: ["QueenAnne"]
