@@ -557,6 +557,93 @@ export function isOsmCheckedFresh(
 }
 
 // -----------------------------------------------------------------------------
+// photoGaps — venues and events missing a photo (the photo-resolver queue)
+// -----------------------------------------------------------------------------
+
+export const photoVenueGapSchema = z.object({
+  source: z.enum(["ripper", "external", "recurring"]),
+  name: z.string(),
+  label: z.string().optional(),
+  url: z.string().optional(),
+  mapUrl: z.string().optional(),
+});
+
+export const photoEventGapSchema = z.object({
+  source: z.string(),
+  eventId: z.string(),
+  summary: z.string(),
+  date: z.string(),
+  url: z.string().optional(),
+});
+
+export const photoGapsSchema = z.object({
+  venueGaps: z.array(photoVenueGapSchema),
+  eventGaps: z.array(photoEventGapSchema),
+});
+
+export type PhotoVenueGap = z.infer<typeof photoVenueGapSchema>;
+export type PhotoEventGap = z.infer<typeof photoEventGapSchema>;
+export type PhotoGaps = z.infer<typeof photoGapsSchema>;
+
+// One live ripper event, projected down to what the photo gap report needs.
+export interface PhotoEventInput {
+  source: string;        // ripper name (the cache-key prefix)
+  id?: string;           // stable event id (the cache-key suffix)
+  summary: string;
+  date: string;
+  url?: string;
+  imageUrl?: string;
+}
+
+/**
+ * Build the photo-gap work queue: venues and events that have no photo.
+ *
+ * - `venueGaps` derives from the already-built `venues.json` entries — any
+ *   venue without an `imageUrl` (fixable by adding `imageUrl:` to its YAML).
+ * - `eventGaps` lists live ripper events with no `imageUrl` that are not
+ *   marked `unresolvable` in the uncertainty cache (fixable by the
+ *   photo-resolver writing an `imageUrl` resolution keyed `source:eventId`).
+ *   Events whose image is confirmed unavailable (`unresolvable`) are excluded
+ *   so the queue self-limits over time — same lifecycle as the geo backlog.
+ *
+ * Pure and deterministic (stable sort) so the report diffs cleanly.
+ */
+export function buildPhotoGaps(opts: {
+  venues: VenueEntry[];
+  ripperEvents: PhotoEventInput[];
+  unresolvableImageKeys: Set<string>;
+}): PhotoGaps {
+  const { venues, ripperEvents, unresolvableImageKeys } = opts;
+
+  const venueGaps: PhotoVenueGap[] = venues
+    .filter(v => !v.imageUrl)
+    .map(v => ({
+      source: v.kind,
+      name: v.name,
+      ...(v.geo.label ? { label: v.geo.label } : {}),
+      ...(v.url ? { url: v.url } : {}),
+      mapUrl: v.map.web,
+    }));
+
+  const eventGaps: PhotoEventGap[] = ripperEvents
+    .filter(e => !e.imageUrl && e.id && !unresolvableImageKeys.has(`${e.source}:${e.id}`))
+    .map(e => ({
+      source: e.source,
+      eventId: e.id as string,
+      summary: e.summary,
+      date: e.date,
+      ...(e.url ? { url: e.url } : {}),
+    }));
+
+  venueGaps.sort((a, b) => a.name.localeCompare(b.name));
+  eventGaps.sort((a, b) =>
+    a.source.localeCompare(b.source) || a.eventId.localeCompare(b.eventId),
+  );
+
+  return { venueGaps, eventGaps };
+}
+
+// -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
 

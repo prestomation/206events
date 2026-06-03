@@ -26,6 +26,8 @@ def main():
     event_counts = d.get("eventCounts", {})
     geo_stats = d.get("geoStats", {})
     geo_errors = d.get("geocodeErrors", [])
+    photo_stats = d.get("photoStats", {})
+    photo_gaps = d.get("photoGaps", {})
     pending_proxy = d.get("pendingProxyVerification", [])
     timestamp = d.get("buildTimestamp", "unknown")
 
@@ -71,6 +73,31 @@ def main():
             print(f"  ... and {len(geo_errors) - 10} more")
     else:
         print("No geocode errors ✅")
+
+    # Photo coverage (non-fatal). Gaps feed the photo-resolver skill.
+    print()
+    p_total_ev = photo_stats.get("totalEvents", 0)
+    p_with_ev = photo_stats.get("eventsWithImage", 0)
+    p_total_vn = photo_stats.get("totalVenues", 0)
+    p_with_vn = photo_stats.get("venuesWithImage", 0)
+    ev_pct = round(p_with_ev / p_total_ev * 100) if p_total_ev else 0
+    vn_pct = round(p_with_vn / p_total_vn * 100) if p_total_vn else 0
+    venue_gaps = photo_gaps.get("venueGaps", [])
+    event_gaps = photo_gaps.get("eventGaps", [])
+    gap_count = len(venue_gaps) + len(event_gaps)
+    print(f"🖼️  Photo coverage: {p_with_ev} / {p_total_ev} events ({ev_pct}%), "
+          f"{p_with_vn} / {p_total_vn} venues ({vn_pct}%)")
+    if gap_count:
+        print(f"Missing photos: {gap_count} ({len(venue_gaps)} venues, {len(event_gaps)} events)")
+        for v in venue_gaps[:10]:
+            print(f"  [venue/{v.get('source')}] {v.get('name')}")
+        for e in event_gaps[:10]:
+            print(f"  [{e.get('source')}] {e.get('summary')} ({e.get('date')})")
+        if gap_count > 20:
+            print(f"  ... and {gap_count - 20} more")
+        print("  → run skills/photo-resolver/SKILL.md to backfill photos")
+    else:
+        print("No missing photos ✅")
 
     # Proxy escalation-ladder verification queue (non-fatal)
     print()

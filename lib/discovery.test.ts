@@ -8,9 +8,12 @@ import {
   buildVenuesJson,
   venuesDocSchema,
   buildOsmGaps,
+  buildPhotoGaps,
+  photoGapsSchema,
   isOsmCheckedFresh,
   ManifestLike,
   EventCountLike,
+  VenueEntry,
 } from "./discovery.js";
 import { RipperConfig, ExternalCalendar, OSM_CHECKED_COOLDOWN_DAYS } from "./config/schema.js";
 import { RecurringEvent } from "./config/recurring.js";
@@ -980,5 +983,86 @@ describe("buildOsmGaps", () => {
       recurringEvents: [],
     });
     expect(gaps).toHaveLength(1);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildPhotoGaps — venues + events missing a photo (photo-resolver queue)
+// ---------------------------------------------------------------------------
+
+describe("buildPhotoGaps", () => {
+  const venueWith: VenueEntry = {
+    name: "has-photo",
+    friendlyName: "Has Photo",
+    description: "x",
+    tags: [],
+    geo: { lat: 47.6, lng: -122.3, label: "Ballard" },
+    map: { web: "https://maps.example/has" },
+    imageUrl: "https://example.com/has.jpg",
+    kind: "ripper",
+    calendars: [],
+  };
+  const venueWithout: VenueEntry = {
+    name: "no-photo",
+    friendlyName: "No Photo",
+    description: "x",
+    url: "https://no-photo.example",
+    tags: [],
+    geo: { lat: 47.6, lng: -122.3, label: "Fremont" },
+    map: { web: "https://maps.example/no" },
+    kind: "external",
+    calendars: [],
+  };
+
+  it("lists only venues without an imageUrl", () => {
+    const gaps = buildPhotoGaps({
+      venues: [venueWith, venueWithout],
+      ripperEvents: [],
+      unresolvableImageKeys: new Set(),
+    });
+    expect(gaps.venueGaps).toHaveLength(1);
+    expect(gaps.venueGaps[0]).toMatchObject({
+      source: "external",
+      name: "no-photo",
+      label: "Fremont",
+      url: "https://no-photo.example",
+      mapUrl: "https://maps.example/no",
+    });
+  });
+
+  it("lists ripper events without an imageUrl and excludes unresolvable ones", () => {
+    const gaps = buildPhotoGaps({
+      venues: [],
+      ripperEvents: [
+        { source: "neumos", id: "a", summary: "Show A", date: "2026-06-01T20:00:00-07:00" },
+        { source: "neumos", id: "b", summary: "Show B", date: "2026-06-02T20:00:00-07:00", imageUrl: "https://x/b.jpg" },
+        { source: "neumos", id: "c", summary: "Show C", date: "2026-06-03T20:00:00-07:00" },
+      ],
+      unresolvableImageKeys: new Set(["neumos:c"]),
+    });
+    expect(gaps.eventGaps.map(e => e.eventId)).toEqual(["a"]);
+    expect(gaps.eventGaps[0]).toMatchObject({ source: "neumos", eventId: "a", summary: "Show A" });
+  });
+
+  it("skips events with no id (cannot be keyed into the cache)", () => {
+    const gaps = buildPhotoGaps({
+      venues: [],
+      ripperEvents: [{ source: "x", summary: "No id", date: "2026-06-01T20:00:00-07:00" }],
+      unresolvableImageKeys: new Set(),
+    });
+    expect(gaps.eventGaps).toHaveLength(0);
+  });
+
+  it("produces a schema-valid, stably-sorted document", () => {
+    const gaps = buildPhotoGaps({
+      venues: [venueWithout, venueWith],
+      ripperEvents: [
+        { source: "zeta", id: "2", summary: "Z2", date: "d" },
+        { source: "alpha", id: "1", summary: "A1", date: "d" },
+      ],
+      unresolvableImageKeys: new Set(),
+    });
+    expect(() => photoGapsSchema.parse(gaps)).not.toThrow();
+    expect(gaps.eventGaps.map(e => e.source)).toEqual(["alpha", "zeta"]);
   });
 });
