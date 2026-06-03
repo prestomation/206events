@@ -21,6 +21,43 @@ L.Icon.Default.mergeOptions({
 const SEATTLE_CENTER = [47.6062, -122.3321]
 const DEFAULT_ZOOM = 12
 
+// Populated King County metro extent used to reject distant outliers (e.g. the
+// Gorge Amphitheatre) from the default map fit. Generous enough to keep all
+// commonly-eventful areas — Vashon/Burien west, Shoreline/Bothell north,
+// Auburn/Enumclaw/Federal Way south, Issaquah/Sammamish/North Bend east — while
+// excluding far-eastern Cascades and out-of-region venues. Approximate and
+// easily tunable.
+const KING_COUNTY_BOUNDS = { south: 47.10, west: -122.60, north: 47.83, east: -121.70 }
+
+export function isWithinKingCounty(lat, lng) {
+  return (
+    lat >= KING_COUNTY_BOUNDS.south && lat <= KING_COUNTY_BOUNDS.north &&
+    lng >= KING_COUNTY_BOUNDS.west && lng <= KING_COUNTY_BOUNDS.east
+  )
+}
+
+// Points the default/refit viewport should frame: in-county event markers plus
+// every geo-filter circle (user-chosen, always honored). Falls back to ALL
+// event markers when none are in-county, so the map never ends up empty.
+export function collectFitPoints(events, geoFilters) {
+  const all = []
+  const inCounty = []
+  for (const e of events) {
+    if (e.lat && e.lng) {
+      const p = [e.lat, e.lng]
+      all.push(p)
+      if (isWithinKingCounty(e.lat, e.lng)) inCounty.push(p)
+    }
+  }
+  const points = inCounty.length > 0 ? inCounty : all
+  for (const gf of geoFilters) {
+    const kmToDeg = gf.radiusKm / 111
+    points.push([gf.lat + kmToDeg, gf.lng + kmToDeg])
+    points.push([gf.lat - kmToDeg, gf.lng - kmToDeg])
+  }
+  return points
+}
+
 function createClusterIcon(cluster) {
   const count = cluster.getChildCount()
   let size, colorClass
@@ -54,15 +91,9 @@ function FitBounds({ events, geoFilters, fitKey }) {
   // filters are still folded into the bounds on the runs that do fire.
   useEffect(() => {
     if (!hasEvents) return
-    const points = []
-    for (const e of eventsRef.current) {
-      if (e.lat && e.lng) points.push([e.lat, e.lng])
-    }
-    for (const gf of geoRef.current) {
-      const kmToDeg = gf.radiusKm / 111
-      points.push([gf.lat + kmToDeg, gf.lng + kmToDeg])
-      points.push([gf.lat - kmToDeg, gf.lng - kmToDeg])
-    }
+    // In-county event markers (distant outliers like the Gorge are excluded so
+    // they don't stretch the default zoom) plus any geo-filter circles.
+    const points = collectFitPoints(eventsRef.current, geoRef.current)
     if (points.length > 0) {
       map.fitBounds(points, { padding: [40, 40], maxZoom: 15 })
     }
