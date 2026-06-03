@@ -229,6 +229,9 @@ export const venueEntrySchema = z.object({
   tags: z.array(z.string()),
   geo: geoSchema,
   map: venueMapSchema,
+  // Optional venue photo URL (always a link, never image bytes). Backfilled
+  // via the source YAML `imageUrl` field; absent until a photo is found.
+  imageUrl: z.string().url().optional(),
   kind: z.enum(["ripper", "external", "recurring"]),
   calendars: z.array(venueCalendarSchema),
 });
@@ -315,6 +318,7 @@ export function buildVenuesJson(opts: {
         tags: dedupe([...(ripper.tags ?? [])]),
         geo: ripperGeo,
         map: buildVenueMap(ripperGeo),
+        ...(ripper.imageUrl ? { imageUrl: ripper.imageUrl } : {}),
         kind: "ripper",
         calendars: liveCalendars.map(c => ({
           name: c.name,
@@ -343,6 +347,9 @@ export function buildVenuesJson(opts: {
         tags: dedupe([...(ripper.tags ?? []), ...(calendar.tags ?? [])]),
         geo: resolvedGeo,
         map: buildVenueMap(resolvedGeo),
+        ...((calendar.imageUrl ?? ripper.imageUrl)
+          ? { imageUrl: calendar.imageUrl ?? ripper.imageUrl }
+          : {}),
         kind: "ripper",
         calendars: [
           {
@@ -372,6 +379,7 @@ export function buildVenuesJson(opts: {
       tags: dedupe([...(ext.tags ?? [])]),
       geo: ext.geo,
       map: buildVenueMap(ext.geo),
+      ...(ext.imageUrl ? { imageUrl: ext.imageUrl } : {}),
       kind: "external",
       calendars: [
         {
@@ -399,6 +407,7 @@ export function buildVenuesJson(opts: {
       tags: dedupe([...(event.tags ?? [])]),
       geo: event.geo,
       map: buildVenueMap(event.geo),
+      ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
       kind: "recurring",
       calendars: [
         {

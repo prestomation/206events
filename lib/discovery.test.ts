@@ -211,11 +211,13 @@ function makeRipper(overrides: {
   friendlyLink?: string;
   tags?: string[];
   geo: RipperConfig["geo"];
+  imageUrl?: string;
   calendars: Array<{
     name: string;
     friendlyname: string;
     tags?: string[];
     geo?: RipperConfig["geo"];
+    imageUrl?: string;
   }>;
   disabled?: boolean;
 }): RipperConfig {
@@ -230,11 +232,13 @@ function makeRipper(overrides: {
     expectEmpty: false,
     tags: overrides.tags,
     geo: overrides.geo,
+    imageUrl: overrides.imageUrl,
     calendars: overrides.calendars.map(c => ({
       name: c.name,
       friendlyname: c.friendlyname,
       tags: c.tags,
       geo: c.geo,
+      imageUrl: c.imageUrl,
     })),
   } as unknown as RipperConfig;
 }
@@ -252,6 +256,7 @@ function makeExternal(overrides: Partial<ExternalCalendar> & {
     expectEmpty: overrides.expectEmpty ?? false,
     tags: overrides.tags,
     geo: overrides.geo,
+    imageUrl: overrides.imageUrl,
     infoUrl: overrides.infoUrl,
     description: overrides.description,
   };
@@ -264,6 +269,7 @@ function makeRecurring(overrides: {
   url?: string;
   tags?: string[];
   geo: RecurringEvent["geo"];
+  imageUrl?: string;
 }): RecurringEvent {
   return {
     name: overrides.name,
@@ -272,6 +278,7 @@ function makeRecurring(overrides: {
     url: overrides.url ?? "https://example.com/recurring",
     tags: overrides.tags ?? [],
     geo: overrides.geo,
+    imageUrl: overrides.imageUrl,
     // Fields the venues builder does not read — casts are fine here.
     timezone: null,
     location: "n/a",
@@ -590,6 +597,100 @@ describe("buildVenuesJson", () => {
     const roundTripped = JSON.parse(JSON.stringify(doc));
     // Re-parsing with Zod tolerates absent optional keys.
     expect(() => venuesDocSchema.parse(roundTripped)).not.toThrow();
+  });
+
+  it("passes ripper-level imageUrl through to the venue entry", () => {
+    const doc = buildVenuesJson({
+      configs: [
+        makeRipper({
+          name: "stoup",
+          geo: BALLARD_GEO,
+          imageUrl: "https://example.com/stoup.jpg",
+          calendars: [{ name: "events", friendlyname: "Stoup Events" }],
+        }),
+      ],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["stoup-events.ics"]),
+      generated: "t",
+    });
+    expect(() => venuesDocSchema.parse(doc)).not.toThrow();
+    expect(doc.venues[0].imageUrl).toBe("https://example.com/stoup.jpg");
+  });
+
+  it("omits imageUrl entirely when no photo is declared", () => {
+    const doc = buildVenuesJson({
+      configs: [
+        makeRipper({
+          name: "stoup",
+          geo: BALLARD_GEO,
+          calendars: [{ name: "events", friendlyname: "Stoup Events" }],
+        }),
+      ],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["stoup-events.ics"]),
+      generated: "t",
+    });
+    expect("imageUrl" in doc.venues[0]).toBe(false);
+  });
+
+  it("lets a per-calendar imageUrl override the ripper-level one (multi-branch)", () => {
+    const doc = buildVenuesJson({
+      configs: [
+        makeRipper({
+          name: "spl",
+          geo: null,
+          imageUrl: "https://example.com/ripper-default.jpg",
+          calendars: [
+            {
+              name: "central",
+              friendlyname: "SPL Central",
+              geo: BALLARD_GEO,
+              imageUrl: "https://example.com/central.jpg",
+            },
+            // Inherits the ripper-level imageUrl (no own override).
+            { name: "ballard", friendlyname: "SPL Ballard", geo: BALLARD_GEO },
+          ],
+        }),
+      ],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["spl-central.ics", "spl-ballard.ics"]),
+      generated: "t",
+    });
+    expect(() => venuesDocSchema.parse(doc)).not.toThrow();
+    const central = doc.venues.find(v => v.name === "spl-central");
+    const ballard = doc.venues.find(v => v.name === "spl-ballard");
+    expect(central?.imageUrl).toBe("https://example.com/central.jpg");
+    expect(ballard?.imageUrl).toBe("https://example.com/ripper-default.jpg");
+  });
+
+  it("passes external and recurring imageUrl through", () => {
+    const doc = buildVenuesJson({
+      configs: [],
+      externals: [
+        makeExternal({
+          name: "ext",
+          friendlyname: "Ext Feed",
+          geo: BALLARD_GEO,
+          imageUrl: "https://example.com/ext.jpg",
+        }),
+      ],
+      recurringEvents: [
+        makeRecurring({
+          name: "market",
+          friendlyname: "Market",
+          geo: BALLARD_GEO,
+          imageUrl: "https://example.com/market.jpg",
+        }),
+      ],
+      calendarsWithFutureEvents: new Set(["external-ext.ics", "recurring-market.ics"]),
+      generated: "t",
+    });
+    expect(() => venuesDocSchema.parse(doc)).not.toThrow();
+    expect(doc.venues.find(v => v.name === "ext")?.imageUrl).toBe("https://example.com/ext.jpg");
+    expect(doc.venues.find(v => v.name === "market")?.imageUrl).toBe("https://example.com/market.jpg");
   });
 });
 

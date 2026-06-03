@@ -51,6 +51,9 @@ export const calendarConfigSchema = z.object({
     // When present, this wins over ripper-level `geo`. When absent, the
     // calendar inherits `geo` from its parent ripper.
     geo: geoSchema.nullable().optional(),
+    // Optional per-calendar venue photo URL (a link, never image bytes).
+    // Overrides the ripper-level `imageUrl` for this branch's venue entry.
+    imageUrl: z.string().url().optional(),
 });
 
 export const externalCalendarSchema = z.object({
@@ -72,6 +75,9 @@ export const externalCalendarSchema = z.object({
     // like a brewery's Google Calendar are venues; multi-location feeds
     // (aggregators, cross-city calendars) are not.
     geo: geoSchema.nullable(),
+    // Optional venue photo URL (a link, never image bytes) surfaced in
+    // venues.json for single-location feeds.
+    imageUrl: z.string().url().optional(),
 });
 
 export const externalConfigSchema = z.array(externalCalendarSchema);
@@ -107,6 +113,9 @@ export const configSchema = z.object({
     // Multi-branch rippers like SPL can declare ripper-level `geo: null`
     // and set `geo` per calendar instead.
     geo: geoSchema.nullable(),
+    // Optional venue photo URL (a link, never image bytes) surfaced in
+    // venues.json. Per-calendar `imageUrl` overrides this for that branch.
+    imageUrl: z.string().url().optional(),
 }).strict();
 
 

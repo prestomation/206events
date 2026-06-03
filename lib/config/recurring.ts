@@ -36,6 +36,9 @@ export const recurringEventSchema = z.object({
     // single-location venue (geo object) or not (null). A recurring event at
     // a fixed museum is a venue; a cross-neighborhood art walk is not.
     geo: geoSchema.nullable(),
+    // Optional venue photo URL (a link, never image bytes) surfaced in
+    // venues.json.
+    imageUrl: z.string().url().optional(),
 });
 
 export const recurringConfigSchema = z.object({

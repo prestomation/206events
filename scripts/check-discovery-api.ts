@@ -215,6 +215,12 @@ async function main() {
       fail(errors, `venues.json[${venue.name}].map.osm is not an OpenStreetMap URL: ${venue.map.osm}`);
     }
 
+    // Venue photo, when present, must be an absolute http(s) link (we store
+    // URLs, never image bytes).
+    if (venue.imageUrl !== undefined && !/^https?:\/\//i.test(venue.imageUrl)) {
+      fail(errors, `venues.json[${venue.name}].imageUrl is not an absolute http(s) URL: ${venue.imageUrl}`);
+    }
+
     for (const calendar of venue.calendars) {
       if (/^https?:\/\//i.test(calendar.links.ics.href) || /^https?:\/\//i.test(calendar.links.rss.href)) {
         fail(errors, `venues.json[${venue.name}] has absolute calendar link hrefs`);

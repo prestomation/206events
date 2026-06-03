@@ -470,6 +470,15 @@ export function ChannelDetail({ icsUrl }) {
   return (
     <div style={{ padding: '2px var(--pad) 24px', maxWidth: 760, margin: '0 auto' }}>
       <button className="a-iconbtn" onClick={app.back} style={{ marginTop: 8, marginBottom: 14 }}>{Ico.back}</button>
+      {channel.imageUrl && (
+        <img
+          src={channel.imageUrl}
+          alt={`Photo of ${channel.name}`}
+          loading="lazy"
+          onError={(e) => { e.currentTarget.style.display = 'none' }}
+          style={{ width: '100%', height: 160, objectFit: 'cover', borderRadius: 14, marginBottom: 14, display: 'block' }}
+        />
+      )}
       <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
         <ChannelAvatar color={channel.color} size={56} />
         <div style={{ minWidth: 0 }}>

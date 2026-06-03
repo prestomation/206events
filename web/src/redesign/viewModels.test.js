@@ -80,4 +80,15 @@ describe('channelFromCalendar geo wiring', () => {
     expect(ch.geo).toBeNull()
     expect(ch.distributed).toBe(true)
   })
+
+  it('carries the venue imageUrl when present', () => {
+    const venue = { geo: { lat: 47.6, lng: -122.3 }, imageUrl: 'https://example.com/neumos.jpg' }
+    const ch = channelFromCalendar(cal, null, { venue })
+    expect(ch.imageUrl).toBe('https://example.com/neumos.jpg')
+  })
+
+  it('has null imageUrl when the venue has no photo or is distributed', () => {
+    expect(channelFromCalendar(cal, null, { venue: { geo: { lat: 47.6, lng: -122.3 } } }).imageUrl).toBeNull()
+    expect(channelFromCalendar(cal, null, { venue: null }).imageUrl).toBeNull()
+  })
 })
