@@ -72,10 +72,10 @@ describe('SpotHopperRipper', () => {
 
         it('normalizes image URLs from // to https://', () => {
             const { events } = ripper.parseEvents(sampleHtml, timezone);
-            const withImage = events.find(e => e.image);
+            const withImage = events.find(e => e.imageUrl);
             expect(withImage).toBeDefined();
-            expect(withImage!.image).toMatch(/^https:\/\//);
-            expect(withImage!.image).toContain('static.spotapps.co');
+            expect(withImage!.imageUrl).toMatch(/^https:\/\//);
+            expect(withImage!.imageUrl).toContain('static.spotapps.co');
         });
 
         it('deduplicates events by ID', () => {

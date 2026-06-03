@@ -49,7 +49,7 @@ function appendUncertaintyNote(
                 case 'startTime': return 'Time';
                 case 'duration': return 'Duration';
                 case 'location': return 'Location';
-                case 'image': return 'Image';
+                case 'imageUrl': return 'Image';
                 default: return f;
             }
         })
@@ -88,8 +88,8 @@ function applyResolution(
     if (fields.location !== undefined) {
         updated.location = fields.location;
     }
-    if (fields.image !== undefined) {
-        updated.image = fields.image;
+    if (fields.imageUrl !== undefined) {
+        updated.imageUrl = fields.imageUrl;
     }
     return updated;
 }

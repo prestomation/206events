@@ -122,7 +122,7 @@ export default class ChopSueyRipper extends HTMLRipper {
                     description: description.trim(),
                     location: LOCATION,
                     url: eventUrl,
-                    image: imageUrl
+                    imageUrl: imageUrl
                 };
 
                 events.push(event);

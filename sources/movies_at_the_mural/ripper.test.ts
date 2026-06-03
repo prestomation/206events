@@ -166,7 +166,7 @@ describe('parseFeaturedItemsFromHtml (integration)', () => {
         const html = parse(loadSampleHtml());
         const { events } = parseFeaturedItemsFromHtml(html, NOW, PACIFIC);
         const wonka = events.find(e => e.summary.startsWith('Wonka'))!;
-        expect(wonka.image).toBe('https://www.seattlecenter.com/assets/Images/Events/Productions/ArtsPrograms/MATM/2026/SCP-MATM-26-Wonka-Gallery-595x360.jpg');
+        expect(wonka.imageUrl).toBe('https://www.seattlecenter.com/assets/Images/Events/Productions/ArtsPrograms/MATM/2026/SCP-MATM-26-Wonka-Gallery-595x360.jpg');
     });
 
     it('every event has the Mural Amphitheatre location', () => {

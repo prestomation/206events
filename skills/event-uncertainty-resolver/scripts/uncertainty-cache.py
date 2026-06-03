@@ -12,7 +12,7 @@ Usage:
 
     uncertainty-cache.py resolve --key KEY [--start-time HH:MM]
                                  [--duration SECONDS] [--location STR]
-                                 [--image URL] [--evidence URL]
+                                 [--image-url URL] [--evidence URL]
                                  [--unresolvable [--reason STR]]
                                  [--force]
         Resolve a single cache entry. Downloads the cache from S3,
@@ -149,8 +149,8 @@ def cmd_resolve(args):
             fields["duration"] = args.duration
         if args.location is not None:
             fields["location"] = args.location
-        if args.image is not None:
-            fields["image"] = args.image
+        if args.image_url is not None:
+            fields["imageUrl"] = args.image_url
         if not fields:
             print("Need at least one field (or --unresolvable).", file=sys.stderr)
             sys.exit(2)
@@ -336,7 +336,7 @@ def main():
     p_res.add_argument("--start-time", help="HH:MM or HH:MM:SS in the event's local timezone")
     p_res.add_argument("--duration", type=int, help="Duration in seconds")
     p_res.add_argument("--location", help="Location string")
-    p_res.add_argument("--image", help="Image URL")
+    p_res.add_argument("--image-url", help="Image URL")
     p_res.add_argument("--evidence", help="URL the resolver verified against")
     p_res.add_argument("--unresolvable", action="store_true", help="Mark as unresolvable")
     p_res.add_argument("--reason", help="Reason text (only with --unresolvable)")

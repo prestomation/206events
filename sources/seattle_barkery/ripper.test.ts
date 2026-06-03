@@ -135,8 +135,8 @@ describe('Seattle Barkery Ripper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const tattooEvent = valid.find(e => e.summary === 'Tattoo Time!');
-        expect(tattooEvent!.image).toBeDefined();
-        expect(tattooEvent!.image).toContain('theseattlebarkery.com');
+        expect(tattooEvent!.imageUrl).toBeDefined();
+        expect(tattooEvent!.imageUrl).toContain('theseattlebarkery.com');
         expect(tattooEvent!.description).toContain('Event image:');
     });
 

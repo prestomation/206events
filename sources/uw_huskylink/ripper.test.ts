@@ -140,7 +140,7 @@ describe('HuskyLinkRipper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const tcd = valid.find(e => e.id === '12469457')!;
-        expect(tcd.image).toMatch(/^https:\/\/se-images\.campuslabs\.com\/clink\/images\//);
+        expect(tcd.imageUrl).toMatch(/^https:\/\/se-images\.campuslabs\.com\/clink\/images\//);
     });
 
     test('omits image when imagePath is null', async () => {
@@ -152,7 +152,7 @@ describe('HuskyLinkRipper', () => {
 
         // YDSA general meeting has imagePath: null in the sample
         const ydsa = valid.find(e => e.id === '12475521')!;
-        expect(ydsa.image).toBeUndefined();
+        expect(ydsa.imageUrl).toBeUndefined();
     });
 
     test('copies lat/lng from event payload when present', async () => {

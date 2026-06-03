@@ -56,7 +56,7 @@ describe('PikePlaceMarketRipper', () => {
         expect(event.date.dayOfMonth()).toBe(14);
         expect(event.location).toBe("Pike Place Market, 85 Pike Street");
         expect(event.url).toContain("love");
-        expect(event.image).toContain("test.jpg");
+        expect(event.imageUrl).toContain("test.jpg");
     });
 
     it('should extract time from description with p.m. format', async () => {

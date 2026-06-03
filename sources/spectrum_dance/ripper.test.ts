@@ -49,7 +49,7 @@ describe('SpectrumDanceRipper', () => {
         expect(event.location).toContain('Spectrum Dance Theater');
         expect(event.location).toContain('800 Lake Washington Blvd E');
         expect(event.url).toBe('https://web.ovationtix.com/trs/pe.c/36947');
-        expect(event.image).toBe('https://web.ovationtix.com/trs/clientFile/605312');
+        expect(event.imageUrl).toBe('https://web.ovationtix.com/trs/clientFile/605312');
     });
 
     it('should trim trailing whitespace from production name', () => {
@@ -140,7 +140,7 @@ describe('SpectrumDanceRipper', () => {
 
         expect(calEvents).toHaveLength(1);
         expect(calEvents[0].description).toBeUndefined();
-        expect(calEvents[0].image).toBeUndefined();
+        expect(calEvents[0].imageUrl).toBeUndefined();
     });
 
     it('should strip HTML tags from description', () => {

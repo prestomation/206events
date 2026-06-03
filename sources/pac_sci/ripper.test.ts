@@ -188,7 +188,7 @@ describe('PacificScienceCenterRipper', () => {
             expect(calEvents[0].duration.toMinutes()).toBe(180);
             expect(calEvents[0].location).toContain('Pacific Science Center');
             expect(calEvents[0].url).toBe('https://pacificsciencecenter.org/events/science-after-dark/');
-            expect(calEvents[0].image).toBe('https://pacificsciencecenter.org/wp-content/uploads/2026/01/sad-vday-web.jpg');
+            expect(calEvents[0].imageUrl).toBe('https://pacificsciencecenter.org/wp-content/uploads/2026/01/sad-vday-web.jpg');
             expect(calEvents[0].description).toBe('Step into PacSci after hours for an unforgettable evening.');
         });
 
@@ -263,7 +263,7 @@ describe('PacificScienceCenterRipper', () => {
 
             expect(calEvents).toHaveLength(1);
             expect(calEvents[0].description).toBeUndefined();
-            expect(calEvents[0].image).toBeUndefined();
+            expect(calEvents[0].imageUrl).toBeUndefined();
         });
     });
 

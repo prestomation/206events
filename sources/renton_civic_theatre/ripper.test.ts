@@ -43,7 +43,7 @@ describe('parseShow', () => {
             expect(main.duration.toMinutes()).toBe(150);
             expect(main.description).toContain('2026-06-05 – 2026-06-21');
             expect(main.url).toBe('https://www.rentoncivictheatre.org/shows/footloose');
-            expect(main.image).toBe('https://www.rentoncivictheatre.org/api/media/file/Footloose%20Open%20Graphic.jpg');
+            expect(main.imageUrl).toBe('https://www.rentoncivictheatre.org/api/media/file/Footloose%20Open%20Graphic.jpg');
             expect(main.location).toBe('Renton Civic Theatre, 507 S 3rd St, Renton, WA 98057');
         }
 
@@ -67,7 +67,7 @@ describe('parseShow', () => {
         if ('date' in event) {
             expect(event.summary).toBe('Noises Off');
             expect(event.id).toBe('renton-civic-theatre-noises-off');
-            expect(event.image).toBeUndefined();
+            expect(event.imageUrl).toBeUndefined();
         }
     });
 

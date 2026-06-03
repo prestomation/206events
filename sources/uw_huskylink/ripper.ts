@@ -119,7 +119,7 @@ export default class HuskyLinkRipper extends JSONRipper {
         };
 
         if (typeof ev?.imagePath === "string" && ev.imagePath) {
-            event.image = `${IMAGE_BASE}${ev.imagePath}`;
+            event.imageUrl = `${IMAGE_BASE}${ev.imagePath}`;
         }
 
         const lat = this.parseCoord(ev?.latitude);

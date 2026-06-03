@@ -82,7 +82,7 @@ describe('DICERipper', () => {
             const ripper = new DICERipper();
             const data = loadSample('vera_project');
             const events = ripper.parseEvents(data.data, tz, '') as RipperCalendarEvent[];
-            expect(events[0].image).toContain('dice-media.imgix.net');
+            expect(events[0].imageUrl).toContain('dice-media.imgix.net');
         });
 
         it('assigns the correct event ID', () => {

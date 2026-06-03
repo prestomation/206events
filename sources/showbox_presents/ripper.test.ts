@@ -41,7 +41,7 @@ describe('Showbox Presents Ripper', () => {
         expect(elovaters!.summary).toContain('with Special Guests Shwayze and JARV');
         expect(elovaters!.location).toBe('Showbox SoDo, 1700 1st Ave S, Seattle, WA 98134');
         expect(elovaters!.url).toBe('https://www.showboxpresents.com/events/detail/1131539');
-        expect(elovaters!.image).toBeDefined();
+        expect(elovaters!.imageUrl).toBeDefined();
         expect(elovaters!.description).toContain('SUNBURN TOUR 2026');
 
         // Atmosphere

@@ -182,8 +182,8 @@ describe('Burke Museum Ripper', () => {
 
         const dinoFest = validEvents.find(e => e.summary.includes('Dino Fest'));
         expect(dinoFest).toBeDefined();
-        expect(dinoFest!.image).toContain('burkemuseum.org');
-        expect(dinoFest!.image).toContain('dinofest');
+        expect(dinoFest!.imageUrl).toContain('burkemuseum.org');
+        expect(dinoFest!.imageUrl).toContain('dinofest');
     });
 
     test('handles empty HTML gracefully', async () => {

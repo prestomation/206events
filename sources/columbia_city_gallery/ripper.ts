@@ -104,7 +104,7 @@ export default class ColumbiacityGalleryRipper extends JSONRipper {
                     description,
                     location: "Columbia City Gallery, 4864 Rainier Ave S, Seattle, WA 98118",
                     url: event.url,
-                    image: imageUrl,
+                    imageUrl: imageUrl,
                 });
             } catch (error) {
                 events.push({

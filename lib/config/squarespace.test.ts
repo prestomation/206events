@@ -79,7 +79,7 @@ describe('SquarespaceRipper', () => {
             expect(e.location).toBe('Example Museum, 123 Main St, Seattle, WA 98101');
             expect(e.url).toBe('https://www.example.org/events/community-art-opening');
             expect(e.description).toBe('Join us for an evening of art and community.');
-            expect(e.image).toBe('https://images.squarespace-cdn.com/content/image.jpg');
+            expect(e.imageUrl).toBe('https://images.squarespace-cdn.com/content/image.jpg');
             expect(e.duration.toHours()).toBe(2);
             expect(e.date).toBeInstanceOf(ZonedDateTime);
         });

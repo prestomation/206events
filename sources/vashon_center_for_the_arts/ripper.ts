@@ -94,7 +94,7 @@ export function processData(
             url: EVENTS_URL,
         };
         if (event.description) calendarEvent.description = event.description;
-        if (event.imageUrl) calendarEvent.image = event.imageUrl;
+        if (event.imageUrl) calendarEvent.imageUrl = event.imageUrl;
 
         events.push(calendarEvent);
     }

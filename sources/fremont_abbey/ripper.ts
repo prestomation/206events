@@ -145,7 +145,7 @@ export function parseAbbeyArtsEvents(
             description: description || undefined,
             location: location || undefined,
             url: event.url,
-            image: event.image,
+            imageUrl: event.image,
         });
     }
 

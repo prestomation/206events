@@ -139,7 +139,7 @@ export default class ShowboxPresentsRipper extends HTMLRipper {
                     description: description,
                     location: location,
                     url: detailUrl,
-                    image: imageUrl
+                    imageUrl: imageUrl
                 };
 
                 events.push(event);

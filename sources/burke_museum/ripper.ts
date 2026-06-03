@@ -224,7 +224,7 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                     description: fullDescription.trim() || undefined,
                     location: LOCATION,
                     url: eventUrl,
-                    image
+                    imageUrl: image
                 };
 
                 events.push(event);
@@ -306,7 +306,7 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                 description: fullDescription.trim() || undefined,
                 location: LOCATION,
                 url: eventUrl,
-                image,
+                imageUrl: image,
             });
         }
 

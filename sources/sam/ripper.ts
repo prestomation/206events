@@ -215,7 +215,7 @@ export function articleToEvent(article: ParsedArticle, timezone: ZoneRegion): Ri
         description: article.category ? article.category.split(",").map(c => c.trim()).join(", ") : undefined,
         location: LOCATION_ADDRESSES[article.location] || article.location,
         url: article.url || undefined,
-        image: article.imageUrl,
+        imageUrl: article.imageUrl,
     };
 }
 

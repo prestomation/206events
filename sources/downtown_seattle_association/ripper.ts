@@ -130,7 +130,7 @@ export default class DowntownSeattleRipper extends JSONRipper {
                     description,
                     location,
                     url: event.url,
-                    image: imageUrl,
+                    imageUrl: imageUrl,
                 });
             } catch (error) {
                 events.push({

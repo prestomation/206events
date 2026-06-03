@@ -117,7 +117,7 @@ export default class HiddenHallRipper extends HTMLRipper {
             description,
             location: "Hidden Hall, 400 N 35th St, Seattle, WA",
             url: item.url || undefined,
-            image: item.image || undefined
+            imageUrl: item.image || undefined
         };
 
         return event;

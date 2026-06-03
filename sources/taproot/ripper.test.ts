@@ -49,7 +49,7 @@ describe('TaprootRipper', () => {
         expect(event.location).toContain('Taproot Theatre');
         expect(event.location).toContain('204 N 85th St');
         expect(event.url).toBe('https://web.ovationtix.com/trs/pe.c/37019');
-        expect(event.image).toBe('https://web.ovationtix.com/trs/clientFile/603312');
+        expect(event.imageUrl).toBe('https://web.ovationtix.com/trs/clientFile/603312');
     });
 
     it('should parse date and time correctly', () => {
@@ -141,7 +141,7 @@ describe('TaprootRipper', () => {
 
         expect(calEvents).toHaveLength(1);
         expect(calEvents[0].description).toBeUndefined();
-        expect(calEvents[0].image).toBeUndefined();
+        expect(calEvents[0].imageUrl).toBeUndefined();
     });
 
     it('should strip HTML tags from description', () => {

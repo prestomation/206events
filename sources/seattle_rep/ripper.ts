@@ -78,7 +78,7 @@ export default class SeattleRepRipper extends JSONRipper {
                     description,
                     location,
                     url: perf.event_url || undefined,
-                    image: perf.image_url || undefined
+                    imageUrl: perf.image_url || undefined
                 };
 
                 events.push(event);

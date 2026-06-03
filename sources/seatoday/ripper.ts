@@ -218,7 +218,7 @@ export default class SEAtodayRipper implements IRipper {
                     description: description || undefined,
                     location: location || undefined,
                     url: eventUrl || undefined,
-                    image: eventData.LargeImg || eventData.MediumImg || eventData.SmallImg || undefined
+                    imageUrl: eventData.LargeImg || eventData.MediumImg || eventData.SmallImg || undefined
                 };
 
                 events.push(event);

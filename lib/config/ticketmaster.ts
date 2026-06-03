@@ -162,7 +162,7 @@ export class TicketmasterRipper implements IRipper {
                     description: descParts.length > 0 ? descParts.join('\n') : undefined,
                     location: location || undefined,
                     url: event.url || undefined,
-                    image: this.getBestImage(event.images),
+                    imageUrl: this.getBestImage(event.images),
                 };
 
                 events.push(calEvent);

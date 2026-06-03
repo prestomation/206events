@@ -120,7 +120,7 @@ export function parseEventsFromHtml(html: string, url: string): (RipperCalendarE
             summary: title,
             location,
             url,
-            image,
+            imageUrl: image,
         });
     }
 

@@ -146,7 +146,7 @@ export type GeocodeError = ErrorBase & {
 // resolver script's CLI choices (skills/event-uncertainty-resolver).
 // When adding a new field, also teach `applyUncertaintyResolutions` how
 // to apply it to a RipperCalendarEvent.
-export type UncertaintyField = "startTime" | "duration" | "location" | "image";
+export type UncertaintyField = "startTime" | "duration" | "location" | "imageUrl";
 
 // Signal from a ripper that it produced an event but isn't certain about
 // one or more of its fields. The infrastructure layer merges these against
@@ -179,7 +179,7 @@ export interface RipperCalendarEvent {
     description?: string;
     location?: string;
     url?: string;
-    image?: string;  // URL to the event image
+    imageUrl?: string;  // URL to the event image (never image bytes)
     rrule?: string;  // RFC 5545 RRULE for recurring events
     lat?: number;    // Latitude (resolved via geocoder or source-level geo)
     lng?: number;    // Longitude (resolved via geocoder or source-level geo)
@@ -348,7 +348,7 @@ export interface SerializedRipperCalendarEvent {
     description?: string;
     location?: string;
     url?: string;
-    image?: string;
+    imageUrl?: string;
     rrule?: string;
     lat?: number;
     lng?: number;
@@ -366,7 +366,7 @@ export function serializeRipperCalendarEvent(e: RipperCalendarEvent): Serialized
         description: e.description,
         location: e.location,
         url: e.url,
-        image: e.image,
+        imageUrl: e.imageUrl,
         rrule: e.rrule,
         lat: e.lat,
         lng: e.lng,

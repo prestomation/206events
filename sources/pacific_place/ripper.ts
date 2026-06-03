@@ -76,7 +76,7 @@ export default class PacificPlaceRipper extends JSONRipper {
                     description,
                     location,
                     url: eventUrl,
-                    image: event.image_url || undefined
+                    imageUrl: event.image_url || undefined
                 };
 
                 events.push(calendarEvent);
