@@ -26,9 +26,6 @@ Three days in late July (annual) — Seattle Center — `https://biteofseattle.c
 ### Seattle Street Food Festival
 Two days in late August (annual) — South Lake Union — `https://206nightmarkets.com`
 
-### PhinneyWood Winter Festival
-First weekend of December (annual) — Phinney Center — `https://www.phinneycenter.org/events/winter-festival/`
-
 ### Northwest Folklife Festival
 Memorial Day weekend (annual, 4 days) — 2026: May 22-25 — Seattle Center — `https://nwfolklife.org/`
 
