@@ -1,0 +1,26 @@
+# verified: 2026-06-03 ok
+geo:
+  lat: 47.6205
+  lng: -122.3493
+  label: "Seattle Center, 305 Harrison St, Seattle, WA 98109"
+  osmType: way
+  osmId: 4755066
+name: bumbershoot
+friendlyname: Bumbershoot
+description: Annual arts and music festival at Seattle Center over Labor Day weekend. Multi-stage programming with music, comedy, dance, and visual arts.
+timezone: America/Los_Angeles
+location: Seattle Center, 305 Harrison St, Seattle, WA 98109
+url: https://bumbershoot.com/
+tags:
+  - Music
+  - Arts
+  - QueenAnne
+schedules:
+  - schedule: "1st Saturday"
+    start_time: "11:00"
+    duration: PT12H
+    months: [9]
+  - schedule: "1st Sunday"
+    start_time: "11:00"
+    duration: PT12H
+    months: [9]
