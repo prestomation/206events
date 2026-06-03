@@ -382,6 +382,16 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             out.push(line);
             if (line === 'BEGIN:VEVENT') {
                 eventIdx++;
+                // Defensive: if the ics library ever emits more VEVENTs than we
+                // have events (the order/count coupling documented above breaks),
+                // warn rather than silently misalign images. Skip injection.
+                if (eventIdx >= calendar.events.length) {
+                    console.warn(
+                        `[toICS] ${calendar.name}: VEVENT count exceeds calendar.events ` +
+                        `(${eventIdx + 1} > ${calendar.events.length}) — skipping image injection to avoid misalignment`,
+                    );
+                    continue;
+                }
                 const raw = calendar.events[eventIdx]?.imageUrl;
                 const url = raw ? safeUrl(raw) : undefined;
                 if (url) {
