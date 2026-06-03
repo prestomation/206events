@@ -63,4 +63,32 @@ describe('collectFitPoints', () => {
     const points = collectFitPoints([SEATTLE, { summary: 'no coords' }], [])
     expect(points).toHaveLength(1)
   })
+
+  it('trims sparse tails so far-flung in-county events do not stretch the fit', () => {
+    // A dense Seattle cluster plus a few legitimate-but-distant in-county events
+    // at the far south (Federal Way ~47.29) and far north (Shoreline ~47.77).
+    const events = []
+    for (let i = 0; i < 100; i++) {
+      events.push({ lat: 47.62 + (i % 5) * 0.001, lng: -122.33 + (i % 5) * 0.001 })
+    }
+    events.push({ lat: 47.29, lng: -122.40 }, { lat: 47.29, lng: -122.40 })
+    events.push({ lat: 47.77, lng: -122.40 }, { lat: 47.77, lng: -122.40 })
+
+    const points = collectFitPoints(events, [])
+    const lats = points.map((p) => p[0])
+    // The framed box should pull in to the dense mass, not the 47.29/47.77 tails.
+    expect(Math.min(...lats)).toBeGreaterThan(47.29)
+    expect(Math.max(...lats)).toBeLessThan(47.77)
+    expect(Math.min(...lats)).toBeGreaterThanOrEqual(47.6)
+  })
+
+  it('does not trim small (filtered-view) point sets — frames them in full', () => {
+    const events = [
+      { lat: 47.62, lng: -122.33 },
+      { lat: 47.30, lng: -122.40 }, // far-south in-county event must stay framed
+    ]
+    const points = collectFitPoints(events, [])
+    expect(points).toContainEqual([47.30, -122.40])
+    expect(points).toHaveLength(2)
+  })
 })

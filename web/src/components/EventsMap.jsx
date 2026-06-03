@@ -44,9 +44,29 @@ export function isWithinKingCounty(lat, lng) {
   )
 }
 
-// Points the default/refit viewport should frame: in-county event markers plus
-// every geo-filter circle (user-chosen, always honored). Falls back to ALL
-// event markers when none are in-county, so the map never ends up empty.
+// Fraction of events trimmed off each tail (per axis) before framing the default
+// view, and the minimum point count before trimming kicks in. The dense mass of
+// events sits in the Seattle/Eastside core; a sparse handful of legitimate but
+// far-flung King County events (a lone Federal Way or Issaquah listing) would
+// otherwise stretch the default zoom out far enough that — given the map panel's
+// aspect ratio — neighbouring Tacoma/Everett markers fall into view. Trimming the
+// sparsest tails frames the metro mass instead. Filtered views (a single
+// calendar/tag) stay below the threshold and are framed in full, untrimmed.
+const FIT_TRIM_QUANTILE = 0.02
+const FIT_TRIM_MIN_POINTS = 50
+
+function quantile(sortedAsc, q) {
+  const i = Math.min(sortedAsc.length - 1, Math.max(0, Math.floor(sortedAsc.length * q)))
+  return sortedAsc[i]
+}
+
+// Points the default/refit viewport should frame. For large point sets (the
+// unfiltered default), frames the dense mass by trimming the sparsest
+// `FIT_TRIM_QUANTILE` tails per axis so far-flung outliers — in- or out-of-county
+// — don't stretch the zoom; outliers still render as markers. Smaller sets
+// (filtered views) are framed in full. Geo-filter circles are user-chosen and
+// always folded in untrimmed. Falls back to ALL event markers when none are
+// in-county, so the map never ends up empty.
 export function collectFitPoints(events, geoFilters) {
   const all = []
   const inCounty = []
@@ -57,7 +77,18 @@ export function collectFitPoints(events, geoFilters) {
       if (isWithinKingCounty(e.lat, e.lng)) inCounty.push(p)
     }
   }
-  const points = inCounty.length > 0 ? inCounty : all
+  const base = inCounty.length > 0 ? inCounty : all
+  let points
+  if (base.length >= FIT_TRIM_MIN_POINTS) {
+    const lats = base.map((p) => p[0]).sort((a, b) => a - b)
+    const lngs = base.map((p) => p[1]).sort((a, b) => a - b)
+    points = [
+      [quantile(lats, FIT_TRIM_QUANTILE), quantile(lngs, FIT_TRIM_QUANTILE)],
+      [quantile(lats, 1 - FIT_TRIM_QUANTILE), quantile(lngs, 1 - FIT_TRIM_QUANTILE)],
+    ]
+  } else {
+    points = [...base]
+  }
   for (const gf of geoFilters) {
     // Longitude degrees shrink with latitude (1° lng ≈ 111·cos(lat) km), so the
     // east-west offset needs the cos(lat) correction or the bounds under-frame
