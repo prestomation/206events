@@ -7,7 +7,7 @@ import type {
     UncertaintyError,
 } from './config/schema.js';
 import type { UncertaintyCache } from './event-uncertainty-cache.js';
-import { applyUncertaintyResolutions } from './uncertainty-merge.js';
+import { applyUncertaintyResolutions, applyImageBackfill } from './uncertainty-merge.js';
 
 const TZ = ZoneId.of('America/Los_Angeles');
 
@@ -243,5 +243,93 @@ describe('applyUncertaintyResolutions', () => {
             'events12:event-a',
             'events12:event-b',
         ]);
+    });
+});
+
+describe('applyImageBackfill', () => {
+    const TZ2 = ZoneId.of('America/Los_Angeles');
+    function ev(overrides: Partial<RipperCalendarEvent> = {}): RipperCalendarEvent {
+        return {
+            id: 'evt-1',
+            ripped: new Date('2026-05-16T00:00:00Z'),
+            date: ZonedDateTime.of(2026, 2, 14, 12, 0, 0, 0, TZ2),
+            duration: Duration.ofHours(2),
+            summary: 'Some event',
+            ...overrides,
+        };
+    }
+
+    it('fills in imageUrl from a resolved cache entry', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    fields: { imageUrl: 'https://example.com/p.jpg' },
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyImageBackfill([ev()], cache, 'src');
+        expect(result.events[0].imageUrl).toBe('https://example.com/p.jpg');
+        expect(result.applied).toBe(1);
+        expect(result.touchedKeys).toEqual(['src:evt-1']);
+    });
+
+    it('does not overwrite an event that already has an imageUrl', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    fields: { imageUrl: 'https://example.com/from-cache.jpg' },
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyImageBackfill([ev({ imageUrl: 'https://example.com/original.jpg' })], cache, 'src');
+        expect(result.events[0].imageUrl).toBe('https://example.com/original.jpg');
+        expect(result.applied).toBe(0);
+        expect(result.touchedKeys).toEqual([]);
+    });
+
+    it('no-ops on a cache miss', () => {
+        const cache: UncertaintyCache = { version: 1, entries: {} };
+        const result = applyImageBackfill([ev()], cache, 'src');
+        expect(result.events[0].imageUrl).toBeUndefined();
+        expect(result.applied).toBe(0);
+    });
+
+    it('skips entries marked unresolvable (no image available)', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    unresolvable: true,
+                    reason: 'no image on source page',
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyImageBackfill([ev()], cache, 'src');
+        expect(result.events[0].imageUrl).toBeUndefined();
+        expect(result.applied).toBe(0);
+    });
+
+    it('ignores entries that only resolve other fields (no imageUrl)', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    fields: { startTime: '19:30' },
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyImageBackfill([ev()], cache, 'src');
+        expect(result.events[0].imageUrl).toBeUndefined();
+        expect(result.applied).toBe(0);
     });
 });

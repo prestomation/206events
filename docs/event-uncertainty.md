@@ -182,3 +182,23 @@ Adding a new uncertain field (e.g. `description`):
 
 The embedded-event design in `UncertaintyError` means the new field is
 already visible to the resolver agent without further schema changes.
+
+## Image backfill (overlay, no UncertaintyError required)
+
+`imageUrl` is a special case. Most events that lack a photo never emit an
+`UncertaintyError` for it — flooding the `uncertainEvents` queue with every
+image-less event would drown the real "unknown start time" work. Instead,
+images are backfilled via an **overlay** pass:
+
+- `applyImageBackfill` in `lib/uncertainty-merge.ts` runs after
+  `applyUncertaintyResolutions` in the build. For every event with **no**
+  `imageUrl`, it looks up `${source}:${event.id}` in the same
+  `event-uncertainty-cache.json` and applies `fields.imageUrl` if present.
+- It never overwrites an existing `imageUrl`, and skips entries marked
+  `unresolvable` (a recorded "no image available" — the event stays
+  image-less and drops off the gap report without re-investigation).
+- The cache is populated by the **photo-resolver skill** via the same
+  `uncertainty-cache.py resolve --image-url` flow used for other fields.
+
+The work queue for image backfill is **not** the uncertainty queue — it's the
+`photoGaps` section of `build-errors.json` (see `docs/photos.md`).

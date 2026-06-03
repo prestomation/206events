@@ -22,6 +22,7 @@ import {
 } from "./event-uncertainty-cache.js";
 import {
   applyUncertaintyResolutions,
+  applyImageBackfill,
   type UncertaintyMergeStats,
 } from "./uncertainty-merge.js";
 import { toRSS } from "./config/rss.js";
@@ -683,6 +684,13 @@ export const main = async () => {
       uncertaintyTotals.acknowledgedUnresolvable += merged.stats.acknowledgedUnresolvable;
       uncertaintyTotals.outstanding += merged.stats.outstanding;
       for (const key of merged.touchedKeys) uncertaintyTouchedKeys.add(key);
+
+      // Overlay image backfill from the same cache (photo-resolver writes
+      // imageUrl resolutions). Independent of UncertaintyErrors — fills in
+      // photos for events that never emitted one.
+      const backfilled = applyImageBackfill(calendar.events, uncertaintyCache, config.config.name);
+      calendar.events = backfilled.events;
+      for (const key of backfilled.touchedKeys) uncertaintyTouchedKeys.add(key);
     }
   }
 
