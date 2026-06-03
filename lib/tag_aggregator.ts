@@ -42,6 +42,28 @@ export function collectAllTags(
 }
 
 /**
+ * Pull an image URL out of an incoming VEVENT. Prefers RFC 7986 `IMAGE`
+ * (VALUE=URI); falls back to an `ATTACH` whose FMTTYPE is an image type or
+ * whose URL looks like an image. Returns a link only — never embedded data.
+ */
+function extractImageUrl(vevent: any): string | undefined {
+  const image = vevent.getFirstPropertyValue('image')?.toString();
+  if (image && /^https?:\/\//i.test(image)) return image;
+
+  const attach = vevent.getFirstProperty('attach');
+  if (attach) {
+    const value = attach.getFirstValue()?.toString();
+    if (value && /^https?:\/\//i.test(value)) {
+      const fmttype = (attach.getParameter('fmttype') || '').toString().toLowerCase();
+      if (fmttype.startsWith('image/') || /\.(jpe?g|png|gif|webp|avif)(\?|$)/i.test(value)) {
+        return value;
+      }
+    }
+  }
+  return undefined;
+}
+
+/**
  * Parses external calendar ICS data into events, expanding RRULE recurrences.
  * Filters events to only include those within the specified time range.
  */
@@ -73,6 +95,7 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
       const description: string | undefined = event.description || undefined;
       const location: string | undefined = event.location || undefined;
       const url: string | undefined = vevent.getFirstPropertyValue('url')?.toString() || undefined;
+      const imageUrl: string | undefined = extractImageUrl(vevent);
 
       const rrule = vevent.getFirstProperty('rrule');
 
@@ -111,6 +134,7 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
                 description,
                 location,
                 url,
+                imageUrl,
               });
             }
             instanceCount++;
@@ -141,6 +165,7 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
           description,
           location,
           url,
+          imageUrl,
         });
       }
     } catch (error) {

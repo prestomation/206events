@@ -158,6 +158,63 @@ describe('toICS', () => {
       expect(ics).not.toContain('GEO:');
     });
   });
+
+  describe('image property', () => {
+    it('emits IMAGE and ATTACH lines when the event carries an imageUrl', async () => {
+      const event = makeEvent({ imageUrl: 'https://example.com/poster.png' });
+      const ics = await toICS(makeCalendar([event]));
+      // Unfold (strip CRLF + leading space) before matching, since long
+      // property lines are folded to the 75-octet limit.
+      const unfolded = ics.replace(/\r\n /g, '');
+      expect(unfolded).toContain('IMAGE;VALUE=URI;DISPLAY=BADGE;FMTTYPE=image/png:https://example.com/poster.png');
+      expect(unfolded).toContain('ATTACH;FMTTYPE=image/png:https://example.com/poster.png');
+    });
+
+    it('defaults FMTTYPE to image/jpeg for unknown extensions', async () => {
+      const event = makeEvent({ imageUrl: 'https://example.com/event' });
+      const ics = await toICS(makeCalendar([event]));
+      expect(ics).toContain('FMTTYPE=image/jpeg:https://example.com/event');
+    });
+
+    it('omits image lines when the event has no imageUrl', async () => {
+      const ics = await toICS(makeCalendar([makeEvent()]));
+      expect(ics).not.toContain('IMAGE;');
+      expect(ics).not.toContain('ATTACH;');
+    });
+
+    it('skips a malformed imageUrl rather than emitting a broken line', async () => {
+      const event = makeEvent({ imageUrl: 'not a url' });
+      const ics = await toICS(makeCalendar([event]));
+      expect(ics).not.toContain('IMAGE;');
+      expect(ics).not.toContain('ATTACH;');
+    });
+
+    it('aligns each image with its own VEVENT in a multi-event calendar', async () => {
+      const withImage = makeEvent({
+        summary: 'Has Image',
+        imageUrl: 'https://example.com/a.jpg',
+      });
+      const withoutImage = makeEvent({ summary: 'No Image' });
+      const ics = await toICS(makeCalendar([withoutImage, withImage]));
+      // Exactly one IMAGE line, and it lives in the second VEVENT block.
+      const blocks = ics.split('BEGIN:VEVENT');
+      expect(blocks[1]).not.toContain('IMAGE;');
+      expect(blocks[2]).toContain('IMAGE;VALUE=URI');
+      expect((ics.match(/IMAGE;VALUE=URI/g) || []).length).toBe(1);
+    });
+
+    it('folds long image lines to 75 octets per line', async () => {
+      const longUrl = 'https://example.com/' + 'a'.repeat(120) + '.jpg';
+      const event = makeEvent({ imageUrl: longUrl });
+      const ics = await toICS(makeCalendar([event]));
+      // No physical line in the output exceeds 75 octets.
+      for (const line of ics.split('\r\n')) {
+        expect(new TextEncoder().encode(line).length).toBeLessThanOrEqual(75);
+      }
+      // And the URL survives unfolding (strip CRLF + leading space).
+      expect(ics.replace(/\r\n /g, '')).toContain(longUrl);
+    });
+  });
 });
 
 describe('externalCalendarSchema', () => {

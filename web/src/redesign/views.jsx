@@ -556,6 +556,15 @@ function ParsedEventRow({ event, distributed }) {
   const time = event.startDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
   return (
     <div className="ev" style={{ cursor: 'default' }}>
+      {event.imageUrl && (
+        <img
+          src={event.imageUrl}
+          alt=""
+          loading="lazy"
+          onError={(e) => { e.currentTarget.style.display = 'none' }}
+          style={{ width: 56, height: 56, objectFit: 'cover', borderRadius: 8, flex: '0 0 auto', marginRight: 10 }}
+        />
+      )}
       <div className="ev-body">
         <div className="ev-title">{event.title}</div>
         <div className="ev-meta"><span>{time}</span></div>
@@ -583,6 +592,16 @@ export function EventDetail({ event }) {
   return (
     <div style={{ padding: '2px var(--pad) 24px', maxWidth: 680, margin: '0 auto' }}>
       <button className="a-iconbtn" onClick={app.back} style={{ marginTop: 8, marginBottom: 14 }}>{Ico.back}</button>
+
+      {event.imageUrl && (
+        <img
+          src={event.imageUrl}
+          alt={`Photo for ${event.summary}`}
+          loading="lazy"
+          onError={(e) => { e.currentTarget.style.display = 'none' }}
+          style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 14, marginBottom: 14, display: 'block' }}
+        />
+      )}
 
       <div className="a-hero" style={{ background: `linear-gradient(135deg, ${color}, color-mix(in oklab, ${color} 70%, #000))` }}>
         <div className="a-hero-kick">{row.day} · {row.dateNum}{row.time ? ` · ${row.time}` : ''}</div>

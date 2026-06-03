@@ -233,6 +233,50 @@ function safeUrl(raw: string): string | undefined {
     }
 }
 
+// Guess a MIME type from a URL's file extension for the ATTACH FMTTYPE param.
+// Defaults to image/jpeg when the extension is missing or unrecognized.
+function imageMimeFromUrl(url: string): string {
+    const ext = url.split('?')[0].split('#')[0].split('.').pop()?.toLowerCase();
+    switch (ext) {
+        case 'png': return 'image/png';
+        case 'gif': return 'image/gif';
+        case 'webp': return 'image/webp';
+        case 'avif': return 'image/avif';
+        case 'svg': return 'image/svg+xml';
+        case 'jpg':
+        case 'jpeg': return 'image/jpeg';
+        default: return 'image/jpeg';
+    }
+}
+
+// Fold a single content line to RFC 5545's 75-octet limit. Continuation
+// lines are prefixed with a single space after CRLF. Operates on UTF-8
+// byte length so multibyte characters don't overflow the octet budget.
+function foldIcsLine(line: string): string {
+    const encoder = new TextEncoder();
+    if (encoder.encode(line).length <= 75) return line;
+    let out = '';
+    let current = '';
+    let currentBytes = 0;
+    let first = true;
+    for (const ch of line) {
+        const chBytes = encoder.encode(ch).length;
+        // First line budget is 75 octets; continuation lines reserve one
+        // octet for the leading space, so 74 octets of content.
+        const budget = first ? 75 : 74;
+        if (currentBytes + chBytes > budget) {
+            out += (first ? '' : ' ') + current + '\r\n';
+            first = false;
+            current = '';
+            currentBytes = 0;
+        }
+        current += ch;
+        currentBytes += chBytes;
+    }
+    out += (first ? '' : ' ') + current;
+    return out;
+}
+
 export const toICS = async (calendar: RipperCalendar): Promise<string> => {
 
     const mapped: icsOriginal.EventAttributes[] = calendar.events.map(e => {
@@ -317,6 +361,37 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
                     : match;
             }
         );
+    }
+
+    // Post-process to add image properties for events with an imageUrl. The
+    // `ics` library has no native event ATTACH/IMAGE support (only on alarms),
+    // so we inject them as raw lines. We emit both IMAGE;VALUE=URI (RFC 7986,
+    // for modern clients) and ATTACH;FMTTYPE (broader client support). URLs
+    // only — never base64/inline data.
+    //
+    // Anchoring: like the TZID pass above, this relies on the ics library
+    // emitting one VEVENT per `calendar.events` entry in the same order (every
+    // event validates, since createICSEvents would otherwise reject). We walk
+    // BEGIN:VEVENT boundaries and inject right after each block's opener for
+    // the matching event when it carries an imageUrl.
+    if (calendar.events.some(e => e.imageUrl)) {
+        const lines = ics.split('\r\n');
+        const out: string[] = [];
+        let eventIdx = -1;
+        for (const line of lines) {
+            out.push(line);
+            if (line === 'BEGIN:VEVENT') {
+                eventIdx++;
+                const raw = calendar.events[eventIdx]?.imageUrl;
+                const url = raw ? safeUrl(raw) : undefined;
+                if (url) {
+                    const mime = imageMimeFromUrl(url);
+                    out.push(foldIcsLine(`IMAGE;VALUE=URI;DISPLAY=BADGE;FMTTYPE=${mime}:${url}`));
+                    out.push(foldIcsLine(`ATTACH;FMTTYPE=${mime}:${url}`));
+                }
+            }
+        }
+        ics = out.join('\r\n');
     }
 
     return ics;
