@@ -1,0 +1,15 @@
+name: seattle-fwc26-matches
+description: "Seattle FIFA World Cup 26 Matches"
+url: "https://www.seattlefwc26.org/matches"
+friendlyLink: https://www.seattlefwc26.org/matches
+tags: ["Sports"]
+geo:
+  lat: 47.5953
+  lng: -122.3316
+  label: "Lumen Field, 800 Occidental Ave S, Seattle, WA 98134"
+  osmType: relation
+  osmId: 5838734
+calendars:
+  - name: matches
+    friendlyname: "Seattle FIFA World Cup 26 Matches"
+    timezone: America/Los_Angeles
