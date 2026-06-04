@@ -68,6 +68,39 @@ describe('EventbriteRipper', () => {
             expect(first.description).toContain('meteorologists');
             expect(first.url).toContain('eventbrite.com');
         });
+
+        it('maps the event logo to imageUrl, preferring full-resolution original', () => {
+            const ripper = new EventbriteRipper();
+            const data = loadSample('elliott-bay');
+            const [first] = ripper.parseEvents(data.events, tz, '') as RipperCalendarEvent[];
+            const expected = data.events[0].logo.original?.url ?? data.events[0].logo.url;
+            expect(first.imageUrl).toBe(expected);
+            expect(first.imageUrl).toMatch(/^https:\/\/img\.evbuc\.com\//);
+        });
+    });
+
+    describe('image handling', () => {
+        it('falls back to the cropped logo.url when original is absent', () => {
+            const ripper = new EventbriteRipper();
+            const ev = {
+                id: 'img-1',
+                name: { text: 'Cropped-only image' },
+                start: { timezone: 'America/Los_Angeles', local: '2026-03-01T18:00:00' },
+                end: { timezone: 'America/Los_Angeles', local: '2026-03-01T20:00:00' },
+                venue: null,
+                url: 'https://eventbrite.com/e/img-1',
+                description: null,
+                logo: { url: 'https://img.evbuc.com/cropped.jpg' },
+            };
+            const [e] = ripper.parseEvents([ev], tz, '') as RipperCalendarEvent[];
+            expect(e.imageUrl).toBe('https://img.evbuc.com/cropped.jpg');
+        });
+
+        it('leaves imageUrl undefined when the event has no logo', () => {
+            const ripper = new EventbriteRipper();
+            const [e] = ripper.parseEvents([SYNTHETIC_EVENTS.noVenue], tz, 'X') as RipperCalendarEvent[];
+            expect(e.imageUrl).toBeUndefined();
+        });
     });
 
     describe('parsing — Substation sample (5 events, late-night shows)', () => {

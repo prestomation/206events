@@ -185,6 +185,11 @@ export class EventbriteRipper implements IRipper {
                     }
                 }
 
+                // Eventbrite serves a per-event image as `logo`. Prefer the
+                // full-resolution `original.url`; fall back to the cropped
+                // thumbnail `url`. Either is a stable public evbuc CDN URL.
+                const imageUrl = event.logo?.original?.url ?? event.logo?.url ?? undefined;
+
                 const calEvent: RipperCalendarEvent = {
                     id,
                     ripped: new Date(),
@@ -193,7 +198,8 @@ export class EventbriteRipper implements IRipper {
                     summary: name,
                     description: event.description?.text || undefined,
                     location,
-                    url: event.url
+                    url: event.url,
+                    imageUrl,
                 };
 
                 results.push(calEvent);
