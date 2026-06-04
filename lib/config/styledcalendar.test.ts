@@ -174,22 +174,22 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "closed-1",
                     title: "CLOSED",
-                    start: "2026-06-01T00:00:00-07:00",
-                    end: "2026-06-01T23:59:00-07:00",
+                    start: "2026-12-01T00:00:00-08:00",
+                    end: "2026-12-01T23:59:00-08:00",
                     allDay: false,
                 },
                 {
                     id: "closed-2",
                     title: "CAFE CLOSED",
-                    start: "2026-06-02T00:00:00-07:00",
-                    end: "2026-06-02T23:59:00-07:00",
+                    start: "2026-12-02T00:00:00-08:00",
+                    end: "2026-12-02T23:59:00-08:00",
                     allDay: false,
                 },
                 {
                     id: "real-event",
                     title: "Open Mic Night",
-                    start: "2026-06-03T19:00:00-07:00",
-                    end: "2026-06-03T22:00:00-07:00",
+                    start: "2026-12-03T19:00:00-08:00",
+                    end: "2026-12-03T22:00:00-08:00",
                     allDay: false,
                 },
             ];
