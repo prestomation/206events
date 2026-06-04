@@ -16,6 +16,7 @@ geo:
 calendars:
   - name: benaroya-taper
     friendlyname: "Benaroya Hall - S. Mark Taper Auditorium"
+    expectEmpty: true
     timezone: America/Los_Angeles
     config:
       venueId: "KovZpZAaIEvA"
