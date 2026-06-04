@@ -23,7 +23,12 @@ def main():
     ext_failures = d.get("externalCalendarFailures", [])
     zero_event = d.get("zeroEventCalendars", [])
     expected_empty = d.get("expectedEmptyCalendars", [])
-    event_counts = d.get("eventCounts", {})
+    event_counts_raw = d.get("eventCounts", [])
+    # eventCounts may be a list of {name, events, ...} objects or a plain dict
+    if isinstance(event_counts_raw, list):
+        event_counts = {e["name"]: e["events"] for e in event_counts_raw if "name" in e}
+    else:
+        event_counts = event_counts_raw
     geo_stats = d.get("geoStats", {})
     geo_errors = d.get("geocodeErrors", [])
     photo_stats = d.get("photoStats", {})

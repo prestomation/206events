@@ -1,6 +1,8 @@
 # verified: 2026-05-23 ok — 13 events, ical=1 endpoint, proper times/locations
+# 2026-06-04: HTTP 403 from CI; works from non-CI IP — escalating to outofband
 geo: null
 name: go-latin-dance-seattle
+proxy: outofband
 friendlyname: GO Latin Dance Seattle
 description: Seattle-area Latin dance socials, parties, and classes — salsa, bachata, zouk, kizomba, and more across Seattle and nearby venues.
 icsUrl: https://golatindance.com/events/category/seattle/?ical=1
