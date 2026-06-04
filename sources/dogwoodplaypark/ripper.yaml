@@ -10,6 +10,7 @@ geo:
   label: "Dogwood Play Park, 12568 33rd Ave NE, Seattle, WA 98125"
   osmType: way
   osmId: 1329966664
+imageUrl: "https://static.wixstatic.com/media/037af7_56c8f382b731444e826e9d10eb09f5cf~mv2.png/v1/fit/w_2500,h_1330,al_c/037af7_56c8f382b731444e826e9d10eb09f5cf~mv2.png"
 calendars:
   - name: events
     friendlyname: "Dogwood Play Park Events"

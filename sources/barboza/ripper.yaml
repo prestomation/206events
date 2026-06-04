@@ -9,6 +9,7 @@ geo:
   label: "Barboza, 925 E Pike St, Seattle, WA 98122"
   osmType: node
   osmId: 11177907381
+imageUrl: "https://www.thebarboza.com/assets/img/Barboza_Default-Website-9703c7673c.png"
 calendars:
   - name: barboza
     friendlyname: "Barboza"
