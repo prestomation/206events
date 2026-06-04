@@ -1,0 +1,11 @@
+# verified: 2026-06-04 ok (HTTP 403 from GHA; proxy: outofband)
+geo: null
+proxy: outofband
+name: impact-raves
+friendlyname: Impact! Foundation
+description: Seattle-based LGBTQ+-friendly electronic music collective presenting dance events and raves at venues across the city, including Kremwerk, The Crocodile, and Massive.
+icsUrl: https://impactraves.org/?post_type=tribe_events&ical=1&eventDisplay=list
+infoUrl: https://impactraves.org/events/
+tags:
+  - Music
+  - Nightlife
