@@ -10,6 +10,7 @@ geo:
   label: "Seattle Repertory Theatre, 155 Mercer St, Seattle, WA 98109"
   osmType: way
   osmId: 161070747
+imageUrl: "https://res.cloudinary.com/seattlerep/image/upload/f_auto,q_auto/v1/FY20/Graphics/Season/Rep_Meta.jpg"
 calendars:
   - name: all-performances
     friendlyname: "Seattle Rep"

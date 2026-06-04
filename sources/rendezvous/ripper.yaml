@@ -10,6 +10,7 @@ geo:
   label: "The Rendezvous, 2322 2nd Ave, Seattle, WA 98121"
   osmType: node
   osmId: 2327659386
+imageUrl: "https://static1.squarespace.com/static/66df74fd13e1d0162fba5825/t/66df775e47aeb35774c4535d/1755316554899/Rendezvoustransparant2.png?format=1500w"
 calendars:
   - name: all-events
     friendlyname: "The Rendezvous"

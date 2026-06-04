@@ -9,6 +9,7 @@ geo:
   label: "Museum of Pop Culture, 325 5th Ave N, Seattle, WA 98109"
   osmType: way
   osmId: 161587742
+imageUrl: "https://cdn.prod.website-files.com/660b0c9bcd7ca28941eef70b/671979cb52eab0c606470b2e_open_graph_image.jpg"
 calendars:
   - name: events
     friendlyname: "Museum of Pop Culture"
