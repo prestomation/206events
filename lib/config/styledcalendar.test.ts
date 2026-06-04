@@ -46,6 +46,14 @@ function makeApiResponse(events: object[]): string {
     });
 }
 
+// Returns a date string N days from today, optionally with a time component.
+// Using relative dates prevents test rot when hardcoded dates become past.
+function futureDateStr(daysFromNow: number, time?: string, tzOffset = "-08:00"): string {
+    const d = new Date(Date.now() + daysFromNow * 24 * 60 * 60 * 1000);
+    const dateStr = d.toISOString().slice(0, 10); // YYYY-MM-DD
+    return time ? `${dateStr}T${time}${tzOffset}` : dateStr;
+}
+
 afterEach(() => {
     vi.restoreAllMocks();
 });
@@ -57,8 +65,8 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "event-1",
                     title: "Live Music Night",
-                    start: "2026-06-08T19:00:00-07:00",
-                    end: "2026-06-08T21:00:00-07:00",
+                    start: futureDateStr(30, "19:00:00", "-07:00"),
+                    end: futureDateStr(30, "21:00:00", "-07:00"),
                     allDay: false,
                     timeZone: "America/Los_Angeles",
                     extendedProps: { description: "<p>A great show</p>" },
@@ -88,12 +96,14 @@ describe("StyledCalendarRipper", () => {
         });
 
         it("maps all-day events correctly", async () => {
+            // Use a fixed far-future date so we can assert on specific month/day values.
+            // 2035-07-04 is Independence Day — won't rot for a decade.
             const rawEvents = [
                 {
                     id: "event-2",
                     title: "Community Day",
-                    start: "2026-07-04",
-                    end: "2026-07-04",
+                    start: "2035-07-04",
+                    end: "2035-07-04",
                     allDay: true,
                     timeZone: "America/Los_Angeles",
                 },
@@ -120,7 +130,7 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "event-3",
                     title: "Open Mic",
-                    start: "2026-06-15T20:00:00-07:00",
+                    start: futureDateStr(30, "20:00:00", "-07:00"),
                     allDay: false,
                 },
             ];
@@ -151,8 +161,8 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "future-event",
                     title: "Future Show",
-                    start: "2026-12-01T19:00:00-08:00",
-                    end: "2026-12-01T21:00:00-08:00",
+                    start: futureDateStr(90, "19:00:00"),
+                    end: futureDateStr(90, "21:00:00"),
                     allDay: false,
                 },
             ];
@@ -174,22 +184,22 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "closed-1",
                     title: "CLOSED",
-                    start: "2026-12-01T00:00:00-08:00",
-                    end: "2026-12-01T23:59:00-08:00",
+                    start: futureDateStr(30, "00:00:00"),
+                    end: futureDateStr(30, "23:59:00"),
                     allDay: false,
                 },
                 {
                     id: "closed-2",
                     title: "CAFE CLOSED",
-                    start: "2026-12-02T00:00:00-08:00",
-                    end: "2026-12-02T23:59:00-08:00",
+                    start: futureDateStr(31, "00:00:00"),
+                    end: futureDateStr(31, "23:59:00"),
                     allDay: false,
                 },
                 {
                     id: "real-event",
                     title: "Open Mic Night",
-                    start: "2026-12-03T19:00:00-08:00",
-                    end: "2026-12-03T22:00:00-08:00",
+                    start: futureDateStr(32, "19:00:00"),
+                    end: futureDateStr(32, "22:00:00"),
                     allDay: false,
                 },
             ];
@@ -211,8 +221,8 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "closed-lower",
                     title: "cafe closed for private event",
-                    start: "2026-06-10T10:00:00-07:00",
-                    end: "2026-06-10T20:00:00-07:00",
+                    start: futureDateStr(30, "10:00:00"),
+                    end: futureDateStr(30, "20:00:00"),
                     allDay: false,
                 },
             ];
@@ -311,7 +321,7 @@ describe("StyledCalendarRipper", () => {
     describe("LZ-String decompression", () => {
         it("correctly decompresses and parses event arrays", async () => {
             const events = [
-                { id: "a", title: "Test Event", start: "2026-09-01T18:00:00-07:00", end: "2026-09-01T20:00:00-07:00", allDay: false },
+                { id: "a", title: "Test Event", start: futureDateStr(90, "18:00:00", "-07:00"), end: futureDateStr(90, "20:00:00", "-07:00"), allDay: false },
             ];
             const compressed = LZString.compressToUTF16(JSON.stringify(events));
             const decompressed = LZString.decompressFromUTF16(compressed);
