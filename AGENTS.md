@@ -61,13 +61,21 @@ The steering file provides essential context for making informed decisions about
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
 2. Make commits to the feature branch
-3. **Before pushing**, rebase the feature branch onto the latest `origin/main`
-   (`git fetch origin main && git rebase origin/main`). Web sessions are
-   started against a snapshot of main, so other PRs may have merged while
-   your branch was being prepared; rebasing keeps CI honest and avoids the
-   PR sitting against a stale base. Re-rebase before each follow-up push if
-   the session has been alive long enough that new commits could have
-   landed (e.g. after addressing review comments).
+3. **Before pushing**, check whether the branch is behind `origin/main` and
+   rebase **only if it is**. Web sessions are started against a snapshot of
+   main, so other PRs may have merged while your branch was being prepared.
+   Fetch first, then compare — don't rebase blindly, since rebasing an
+   already-current branch is needless churn (and can rewrite commits for no
+   reason):
+   ```sh
+   git fetch origin main
+   if [ -n "$(git rev-list HEAD..origin/main)" ]; then
+     git rebase origin/main   # branch is behind — bring it current
+   fi
+   ```
+   Re-run this check before each follow-up push if the session has been alive
+   long enough that new commits could have landed (e.g. after addressing
+   review comments). If the branch is already up to date, skip the rebase.
 4. Open a Pull Request — the harness creates it as a **draft** by default; that's fine
 5. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
 6. **Immediately post a top-level `/q review` comment** with the explicit feedback-ask template below — do **not** rely on Q's auto-review-on-PR-open. Q's first-pass review is submitted with `state: COMMENTED`, which sometimes doesn't trigger the PR-activity webhook, so the session sits idle waiting for a review that already landed. Posting an explicit `/q review` reliably wakes the session when Q replies. The same template applies on the first pass and every follow-up — see the "Re-review template" section below.

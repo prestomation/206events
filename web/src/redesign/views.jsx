@@ -10,6 +10,7 @@ import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
+import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
 import { EventDescription } from '../components/EventDescription.jsx'
 import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
@@ -396,6 +397,25 @@ export function YouView() {
         </div>
       </div>
 
+      {/* ADD-TO-CALENDAR BUTTON PREFERENCE */}
+      <SectionTitle kicker={Ico.cal} title="Add-to-calendar button" />
+      <p className="a-sectionhint">Choose what the 📅 button next to each event does. “Automatic” picks Google Calendar on phones and a downloaded .ics file on desktop.</p>
+      <div style={{ display: 'flex', gap: 9, flexWrap: 'wrap' }}>
+        {CALENDAR_MODE_OPTIONS.map((opt) => {
+          const active = app.calendarAddMode === opt.id
+          return (
+            <button key={opt.id}
+              className={`btn ${active ? 'btn-blue' : 'btn-ghost'}`}
+              style={{ height: 38, fontSize: 13.5 }}
+              aria-pressed={active}
+              title={opt.hint || opt.label}
+              onClick={() => app.setCalendarAddMode(opt.id)}>
+              {opt.label}
+            </button>
+          )
+        })}
+      </div>
+
       {/* CALENDARS */}
       <SectionTitle kicker={Ico.cal} title="Calendars" count={followed.length} />
       {followed.length
@@ -553,6 +573,7 @@ export function ChannelDetail({ icsUrl }) {
 
 // Row for an ICS-parsed event (channel detail). Shape: { title, startDate, endDate, location, description, url }
 function ParsedEventRow({ event, distributed }) {
+  const app = useApp206()
   const time = event.startDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
   return (
     <div className="ev" style={{ cursor: 'default' }}>
@@ -574,7 +595,7 @@ function ParsedEventRow({ event, distributed }) {
         {event.description && <div style={{ marginTop: 6 }}><EventDescription text={event.description} /></div>}
       </div>
       <AddToCalendar title={event.title} startDate={event.startDate} endDate={event.endDate}
-        description={event.description} location={event.location} url={event.url} />
+        description={event.description} location={event.location} url={event.url} mode={app.calendarAddMode} />
     </div>
   )
 }
@@ -615,7 +636,7 @@ export function EventDetail({ event }) {
       <div style={{ display: 'flex', gap: 9, marginBottom: 20 }}>
         <div style={{ flex: 1 }}>
           <AddToCalendar title={event.summary} startDate={parsed?.date} endDate={parseIndexDate(event.endDate)?.date}
-            description={event.description} location={event.location} url={event.url} />
+            description={event.description} location={event.location} url={event.url} mode={app.calendarAddMode} />
         </div>
         {channel && (
           <button className="btn btn-ghost" style={{ flex: '0 0 auto', width: 52, padding: 0 }}

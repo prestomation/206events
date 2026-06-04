@@ -29,6 +29,7 @@ export function App206(props) {
     isMobile,
     channelEvents, channelEventsLoading, channelEventsError, onSelectChannel,
     createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
+    calendarAddMode, setCalendarAddMode,
   } = props
 
   /* ---- local UI/navigation state ---- */
@@ -254,6 +255,7 @@ export function App206(props) {
     authUser, handleLogin, handleLogout, API_URL, isMobile,
     channelEvents, channelEventsLoading, channelEventsError,
     createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
+    calendarAddMode, setCalendarAddMode,
     // derived
     channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
     upcomingEvents: scopedUpcoming, eventsByIcsUrl,

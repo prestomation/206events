@@ -76,6 +76,16 @@ function App() {
     } catch { return [] }
   })
 
+  // Add-to-calendar button mode ('auto' | 'google' | 'ics'). Client-only
+  // preference (no server sync) controlling what the per-event 📅 button does.
+  const [calendarAddMode, setCalendarAddModeState] = useState(() => {
+    try { return localStorage.getItem('calendar-ripper-add-mode') || 'auto' } catch { return 'auto' }
+  })
+  const setCalendarAddMode = useCallback((mode) => {
+    setCalendarAddModeState(mode)
+    try { localStorage.setItem('calendar-ripper-add-mode', mode) } catch {}
+  }, [])
+
   // Map view toggle (for events panel)
   const [showMapView, setShowMapView] = useState(false)
   const [showFavoritesMap, setShowFavoritesMap] = useState(false)
@@ -1504,6 +1514,8 @@ function App() {
       createWebcalUrl={createWebcalUrl}
       createGoogleCalendarUrl={createGoogleCalendarUrl}
       createHttpsUrl={createHttpsUrl}
+      calendarAddMode={calendarAddMode}
+      setCalendarAddMode={setCalendarAddMode}
     />
   )
 }
