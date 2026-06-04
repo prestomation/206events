@@ -1,6 +1,7 @@
 ---
 name: Seattle FIFA World Cup 26 Matches
 status: added
+pr: 478
 platform: Custom HTML (Webflow CMS)
 url: https://www.seattlefwc26.org/matches
 tags: [Sports]
