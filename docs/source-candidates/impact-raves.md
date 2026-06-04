@@ -3,7 +3,7 @@ name: "Impact! Foundation"
 status: added
 firstSeen: 2026-06-04
 lastChecked: 2026-06-04
-pr: TBD
+pr: 477
 ---
 **Impact! Foundation** — `https://impactraves.org/events/` — Tags: Music, Nightlife
 
