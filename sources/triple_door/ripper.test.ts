@@ -73,6 +73,13 @@ describe('parseEventsFromHtml', () => {
         expect(parseEventsFromHtml('<html><body></body></html>')).toEqual([]);
     });
 
+    it('extracts per-event image URL and resolves protocol-relative URLs to https', () => {
+        const events = parseEventsFromHtml(sampleHtml);
+        const withImage = events.find(e => e.imageUrl);
+        expect(withImage).toBeDefined();
+        expect(withImage!.imageUrl).toMatch(/^https:\/\/images\.zoogletools\.com\//);
+    });
+
     it('extracts location from span, not ticket link', () => {
         const html = `<div class="event-detail">
 <p class="event-info event-title"><a href="/shows/test-show">Test Show</a></p>

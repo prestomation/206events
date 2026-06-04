@@ -24,6 +24,64 @@ describe('Events12Ripper', () => {
         expect(calEvents.length).toBeGreaterThan(200);
     });
 
+    it('maps a per-event flyer image to an absolute imageUrl', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="113825" class="qc q10 q22 qq d1">
+                <h3>Cabaret set in 1890s Hungary</h3>
+                <p class="date">February 22, 2026 <span class="nobreak">(5 p.m.)</span>
+                <p class="miles">Downtown (0.3 miles S)
+                <img src="/img/113825b.jpg" alt="" width="180" height="180" srcset="/img/113825bz.jpg 2x">
+                <p class="event">
+                <a href="https://example.com/bohemia">Bohemia</a> is a dream cabaret.
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0].imageUrl).toBe('https://www.events12.com/img/113825b.jpg');
+    });
+
+    it('leaves imageUrl undefined when the article has no per-event image', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="100003" class="qc q2 qq d1">
+                <h3>Wedding show</h3>
+                <p class="date icon">February 22, 2026 <span class="nobreak">(10:30 a.m. to 4 p.m.)</span>
+                <p class="miles">Downtown (0.2 miles E)
+                <p class="event">
+                Live and breathe weddings at the <a href="https://example.com">Seattle Wedding Show</a>.
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0].imageUrl).toBeUndefined();
+    });
+
+    it('ignores an image whose filename does not match the article id', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="999999" class="qc q2 qq d1">
+                <h3>Event with a banner only</h3>
+                <p class="date">February 22, 2026 <span class="nobreak">(5 p.m.)</span>
+                <p class="miles">Downtown (0.2 miles E)
+                <img class="margin0 wide100" src="/img/100000.jpg" alt="concerts">
+                <p class="event">Some event.</p>
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0].imageUrl).toBeUndefined();
+    });
+
     it('should parse event with valid date and title', async () => {
         const ripper = new Events12Ripper();
         const sampleHtml = `

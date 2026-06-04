@@ -44,6 +44,25 @@ function sleep(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+/**
+ * Extract a usable image URL from a schema.org Event `image` value, which may be
+ * a string, an array of strings/ImageObjects, or a single ImageObject. Returns
+ * an absolute http(s) URL or undefined.
+ */
+function extractImageUrl(image: unknown): string | undefined {
+    const first = Array.isArray(image) ? image[0] : image;
+    if (!first) return undefined;
+    let url: string | undefined;
+    if (typeof first === 'string') {
+        url = first;
+    } else if (typeof first === 'object' && typeof (first as any).url === 'string') {
+        url = (first as any).url;
+    }
+    url = url?.trim();
+    if (!url || !/^https?:\/\//i.test(url)) return undefined;
+    return url;
+}
+
 export default class RainierArtsCenterRipper implements IRipper {
     private fetchFn: FetchFn = fetch;
 
@@ -299,6 +318,11 @@ export default class RainierArtsCenterRipper implements IRipper {
         const roomName = (eventData['location']?.['name'] as string | undefined)?.trim() || '';
         const location = roomName ? `${roomName}, ${VENUE_ADDRESS}` : VENUE_ADDRESS;
 
+        // --- Image ---
+        // schema.org Event "image" is the per-event featured image. It may be a
+        // string URL, an array of URLs, or an ImageObject with a `url` field.
+        const imageUrl = extractImageUrl(eventData['image']);
+
         // --- ID ---
         const slugMatch = url.match(/\/events\/([^/]+)\/?$/);
         const id = slugMatch ? `rac-${slugMatch[1]}` : `rac-${startDateStr}`;
@@ -312,6 +336,7 @@ export default class RainierArtsCenterRipper implements IRipper {
             description,
             location,
             url: (eventData['url'] as string | undefined) || url,
+            imageUrl,
         };
 
         const results: RipperEvent[] = [event];

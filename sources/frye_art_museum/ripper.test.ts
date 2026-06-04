@@ -87,6 +87,19 @@ describe('FryeArtMuseumRipper', () => {
             expect(event.summary).toBe('Jazz in the City | Darrius Willrich and Gretchen Yanover');
         });
 
+        it('maps the per-event hero image to an absolute imageUrl', () => {
+            const ripper = new FryeArtMuseumRipper();
+            const html = parse(loadEventSampleHtml());
+            const card = { href: '/node/3806', title: 'Jazz in the City', dateText: 'Sunday, February 22' };
+
+            const events = ripper.parseEventDetail(card, html, 'https://fryemuseum.org/calendar/event/test');
+            const event = events[0] as RipperCalendarEvent;
+
+            expect(event.imageUrl).toBe(
+                'https://fryemuseum.org/sites/default/files/images/event/Jazz_in_the_City-Willrich_Yanover-event_image.jpg'
+            );
+        });
+
         it('parses date correctly from event page', () => {
             const ripper = new FryeArtMuseumRipper();
             const html = parse(loadEventSampleHtml());

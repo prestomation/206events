@@ -66,6 +66,11 @@ export default class Events12Ripper extends HTMLRipper {
                 const titleElement = article.querySelector('h3');
                 if (!titleElement) continue;
 
+                // The article's numeric id (e.g. <article id="113825">) is the
+                // basis of its per-event image filename (e.g. /img/113825b.jpg).
+                const articleId = match[0].match(/<article\s[^>]*id="([^"]*)"/)?.[1] ?? '';
+                const imageUrl = this.extractImageUrl(article, articleId);
+
                 const title = titleElement.text.trim().replace(/\s*FREE\s*$/, '').trim();
                 if (!title) continue;
 
@@ -147,6 +152,7 @@ export default class Events12Ripper extends HTMLRipper {
                         description: description,
                         location: location,
                         url: url || undefined,
+                        imageUrl,
                     };
                     events.push(event);
 
@@ -174,6 +180,27 @@ export default class Events12Ripper extends HTMLRipper {
         }
 
         return events;
+    }
+
+    // Extract the per-event flyer image from an events12 article. Each event's
+    // image lives in an <img src="/img/<articleId>...jpg"> inside the article;
+    // we require the filename to start with the article id so we never pick up a
+    // shared category banner (those live in <h2>-only blocks the ripper skips).
+    // Returns an absolute URL, or undefined when the article has no image.
+    public extractImageUrl(article: HTMLElement, articleId: string): string | undefined {
+        if (!articleId) return undefined;
+        const imgs = article.querySelectorAll('img');
+        for (const img of imgs) {
+            const src = img.getAttribute('src')?.trim();
+            if (!src) continue;
+            const filename = src.split('/').pop() ?? '';
+            if (!filename.startsWith(articleId)) continue;
+            if (/^https?:\/\//i.test(src)) return src;
+            if (src.startsWith('//')) return `https:${src}`;
+            if (src.startsWith('/')) return `https://www.events12.com${src}`;
+            return undefined;
+        }
+        return undefined;
     }
 
     // Parse the events12 date-line text into a fully-expanded list of

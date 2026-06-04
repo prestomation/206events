@@ -159,6 +159,48 @@ describe('PioneerSquareMarketRipper - parseEvent', () => {
         expect(result.location).toBe('Pioneer Square, Seattle, WA');
     });
 
+    test('maps cover_image_url to imageUrl', () => {
+        const item = {
+            id: 'img-event',
+            title: 'Event With Cover',
+            description: null,
+            event_type: 'concert',
+            event_status: 'published',
+            start_datetime: '2026-05-19T02:00:00+00:00',
+            end_datetime: null,
+            venue_location: { city: 'Seattle', state: 'WA', address: '124 S Washington St' },
+            external_ticket_url: null,
+            slug: 'event-with-cover',
+            cover_image_url: 'https://downtownseattle.org/app/uploads/2025/05/poster.png',
+        };
+
+        const result = ripper.parseEvent(item);
+        expect('date' in result).toBe(true);
+        if (!('date' in result)) return;
+        expect(result.imageUrl).toBe('https://downtownseattle.org/app/uploads/2025/05/poster.png');
+    });
+
+    test('leaves imageUrl undefined when cover_image_url is null', () => {
+        const item = {
+            id: 'no-img-event',
+            title: 'Event Without Cover',
+            description: null,
+            event_type: 'community',
+            event_status: 'published',
+            start_datetime: '2026-06-01T18:00:00+00:00',
+            end_datetime: null,
+            venue_location: { city: 'Seattle', state: 'WA', address: '100 Main St' },
+            external_ticket_url: null,
+            slug: 'event-without-cover',
+            cover_image_url: null,
+        };
+
+        const result = ripper.parseEvent(item);
+        expect('date' in result).toBe(true);
+        if (!('date' in result)) return;
+        expect(result.imageUrl).toBeUndefined();
+    });
+
     test('sample data parses without errors for Seattle events', () => {
         const data = loadSampleData();
         const seattleEvents = data.filter((e: any) =>

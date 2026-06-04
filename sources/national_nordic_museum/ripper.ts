@@ -30,6 +30,7 @@ export interface ParsedEventCard {
     title: string;
     dateText: string;
     timeText: string;
+    imageUrl?: string;
 }
 
 export default class NationalNordicMuseumRipper implements IRipper {
@@ -115,10 +116,29 @@ export default class NationalNordicMuseumRipper implements IRipper {
 
             if (!href || !title || !dateText) continue;
 
-            cards.push({ href, title, dateText, timeText });
+            // Per-event image lives in the card. The visible `src` is a 1x1
+            // transparent placeholder (lazy-load), so the real image URL is in
+            // `data-src`. Nordic serves absolute URLs already.
+            const imgEl = card.querySelector('div.card-event__image img');
+            const rawImage = imgEl?.getAttribute('data-src') || imgEl?.getAttribute('src') || '';
+            const imageUrl = this.resolveImageUrl(rawImage);
+
+            cards.push({ href, title, dateText, timeText, imageUrl });
         }
 
         return cards;
+    }
+
+    // Resolve a card image URL to an absolute https URL, rejecting the 1x1
+    // placeholder, data: URIs, and empty values.
+    public resolveImageUrl(raw: string): string | undefined {
+        const src = raw.trim();
+        if (!src || src.startsWith('data:')) return undefined;
+        if (/\/1x1\.png(?:[?#]|$)/i.test(src)) return undefined;
+        if (src.startsWith('http')) return src;
+        if (src.startsWith('//')) return `https:${src}`;
+        if (src.startsWith('/')) return `https://nordicmuseum.org${src}`;
+        return undefined;
     }
 
     public parseEvent(card: ParsedEventCard): RipperCalendarEvent | RipperError {
@@ -146,6 +166,7 @@ export default class NationalNordicMuseumRipper implements IRipper {
                 summary: card.title,
                 location: MUSEUM_ADDRESS,
                 url: card.href,
+                imageUrl: card.imageUrl,
             };
         } catch (error) {
             return {

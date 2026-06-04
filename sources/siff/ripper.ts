@@ -22,12 +22,18 @@ export default class SIFFRipper extends HTMLRipper {
             const timeStr = e.querySelector(".time")?.outerHTML.matchAll(timeRegex)
             // There is a link to the modal that we want to follow in the DOM
             const idHref = e.querySelector("a")?.getAttribute("href");
-            let link = `https://lmgtfy.com/?q=film%20${title}` 
+            let link = `https://lmgtfy.com/?q=film%20${title}`
+            let imageUrl: string | undefined = undefined;
             if(idHref != null) {
                 // Find the link inside of it and we got our link
                 const modalLink = html.querySelector(`${idHref} a`)?.getAttribute("href");
                 if (modalLink != null) {
                     link = `${baseUrl}${modalLink}`;
+                }
+                // The film detail modal carries a per-film hero image.
+                const imgSrc = html.querySelector(`${idHref} .img-wrap img`)?.getAttribute("src");
+                if (imgSrc != null && imgSrc.trim() !== "") {
+                    imageUrl = imgSrc.startsWith("http") ? imgSrc : `${baseUrl}${imgSrc}`;
                 }
             }
             if (timeStr === null) {
@@ -68,7 +74,8 @@ export default class SIFFRipper extends HTMLRipper {
                 date: movieTime,
                 duration,
                 ripped: convert(LocalDateTime.now()).toDate(),
-                url: link
+                url: link,
+                imageUrl,
             };
             return a;
         });

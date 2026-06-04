@@ -35,15 +35,34 @@ export function parseEventDate(text: string): LocalDateTime | null {
     }
 }
 
-export function parseHomepage(html: string): string[] {
+export interface HomepageShow {
+    url: string;
+    imageUrl?: string;
+}
+
+export function parseHomepage(html: string): HomepageShow[] {
     const root = parse(html);
-    const seen = new Set<string>();
-    // VEM plugin renders event links in both .vem-more-details and .vem-calendar-thumbnail
+    const shows = new Map<string, HomepageShow>();
+    // VEM plugin renders event links in both .vem-more-details and .vem-calendar-thumbnail.
+    // The thumbnail link wraps the per-event poster <img>, so capture it when present.
     for (const el of root.querySelectorAll('.vem-more-details a, .vem-calendar-thumbnail a')) {
         const href = el.getAttribute('href');
-        if (href && /\/event\/[^/]+\/?$/.test(href)) seen.add(href);
+        if (!href || !/\/event\/[^/]+\/?$/.test(href)) continue;
+
+        const existing = shows.get(href) ?? { url: href };
+        if (!existing.imageUrl) {
+            const imgSrc = el.querySelector('img')?.getAttribute('src')?.trim();
+            if (imgSrc) {
+                try {
+                    existing.imageUrl = new URL(imgSrc, HOMEPAGE).toString();
+                } catch {
+                    // ignore unparseable image URLs
+                }
+            }
+        }
+        shows.set(href, existing);
     }
-    return [...seen];
+    return [...shows.values()];
 }
 
 export function parseShowPage(html: string, showUrl: string): {
@@ -86,7 +105,8 @@ export default class TheatreOffJacksonRipper implements IRipper {
         const events: RipperCalendarEvent[] = [];
         const errors: RipperError[] = [];
 
-        for (const url of showUrls) {
+        for (const show of showUrls) {
+            const url = show.url;
             const showRes = await fetchFn(url, { headers });
             if (!showRes.ok) {
                 errors.push({ type: 'ParseError', reason: `HTTP ${showRes.status} fetching show page`, context: url });
@@ -107,6 +127,7 @@ export default class TheatreOffJacksonRipper implements IRipper {
                     summary: title,
                     location: LOCATION,
                     url,
+                    imageUrl: show.imageUrl,
                 });
             }
         }

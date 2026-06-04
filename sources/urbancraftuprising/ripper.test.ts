@@ -65,6 +65,8 @@ const MOCK_BEND_HTML = `
 <div class="entry-content">
     <div class="wpb-content-wrapper">
         <h1>BEND HANDMADE MARKET</h1>
+        <img src="https://urbancraftuprising.com/wp-content/uploads/thegem/logos/logo_1x.png" class="tgp-exclude vc_single_image-img" width="150" alt="Urban Craft Uprising" />
+        <img width="1920" height="1005" src="https://urbancraftuprising.com/wp-content/uploads/2026/01/BEND-HANDMADE-MARKET_2026_SOCIALS_1920-x-1005-FB.jpg" class="vc_single_image-img attachment-full" alt="Bend Handmade Market" />
         <div class="wpb_text_column">
             <h6><span style="color: #ff6666;">SATURDAY, JUNE 7TH</span></h6>
             <h6><span style="color: #ff6666;">Downtown Bend</span></h6>
@@ -328,6 +330,18 @@ describe('UrbanCraftUprisingRipper', () => {
             const calendarEvents = events.filter(e => 'date' in e) as any[];
             const vendorEvents = calendarEvents.filter(e => e.id?.includes('vendor'));
             expect(vendorEvents).toHaveLength(0);
+        });
+
+        it('should extract the per-event banner image, skipping site logos', async () => {
+            const html = parseHtml(MOCK_EVENTS_LISTING_HTML);
+            const events = await ripper.parseEvents(html, testDate, {});
+
+            const calendarEvents = events.filter(e => 'date' in e) as any[];
+            const bend = calendarEvents.find(e => e.id === 'bend-handmade-market');
+            expect(bend).toBeDefined();
+            expect(bend.imageUrl).toBe(
+                'https://urbancraftuprising.com/wp-content/uploads/2026/01/BEND-HANDMADE-MARKET_2026_SOCIALS_1920-x-1005-FB.jpg'
+            );
         });
 
         it('should extract location from event pages', async () => {

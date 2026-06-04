@@ -31,6 +31,18 @@ describe('Seattle Beer Week Ripper', () => {
     expect(caskEvent.location).toContain('Beveridge Place Pub');
     expect(caskEvent.location).not.toMatch(/^Location ID:/);
     expect(caskEvent.location).not.toMatch(/^m[0-9a-z]+$/);
+
+    // Per-event poster image should be mapped from the event's image.url
+    expect(caskEvent.imageUrl).toBe(
+      'https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/cc59b4ad-5283-4e79-8c08-8b25f213987f/caskorama-2.jpg'
+    );
+
+    // Events without an image leave imageUrl undefined (not a placeholder)
+    const noImageEvent = events.find(e =>
+      'summary' in e && e.summary === 'Seattle Vs. Olympia Hot Dog Relay Throwdown'
+    ) as RipperCalendarEvent;
+    expect(noImageEvent).toBeDefined();
+    expect(noImageEvent.imageUrl).toBeUndefined();
   });
 
   test('parses events correctly from old JSON format', async () => {

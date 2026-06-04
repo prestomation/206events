@@ -164,5 +164,26 @@ describe('SPLAuthorsRipper', () => {
 
             vi.unstubAllGlobals();
         });
+
+        it('populates per-event imageUrl from the Trumba eventImage', async () => {
+            const sampleData = loadSampleData();
+            const ripper = new SPLAuthorsRipper();
+
+            vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+                ok: true,
+                json: () => Promise.resolve(sampleData),
+            }));
+
+            const result = await ripper.rip(makeRipper());
+            const events = result[0].events as RipperCalendarEvent[];
+
+            const withImage = events.filter(e => e.imageUrl);
+            expect(withImage.length).toBeGreaterThan(0);
+            for (const e of withImage) {
+                expect(e.imageUrl).toMatch(/^https:\/\/www\.trumba\.com\/i\//);
+            }
+
+            vi.unstubAllGlobals();
+        });
     });
 });

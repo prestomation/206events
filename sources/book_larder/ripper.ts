@@ -11,12 +11,17 @@ const DEFAULT_START_HOUR = 18;
 const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june',
     'july', 'august', 'september', 'october', 'november', 'december'];
 
+interface ShopifyImage {
+    src: string;
+}
+
 interface ShopifyProduct {
     id: number;
     title: string;
     handle: string;
     body_html: string;
     product_type: string;
+    images?: ShopifyImage[];
 }
 
 interface ParsedDate {
@@ -107,6 +112,10 @@ export default class BookLarderRipper implements IRipper {
             TIMEZONE
         );
 
+        // Shopify product images are per-event (book cover / event flyer) and
+        // already absolute CDN URLs.
+        const imageUrl = product.images?.[0]?.src || undefined;
+
         return {
             id: `book-larder-${product.id}`,
             ripped: new Date(),
@@ -115,6 +124,7 @@ export default class BookLarderRipper implements IRipper {
             summary: product.title,
             location: LOCATION,
             url: `https://booklarder.com/products/${product.handle}`,
+            imageUrl,
         };
     }
 

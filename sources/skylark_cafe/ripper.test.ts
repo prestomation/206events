@@ -43,6 +43,24 @@ describe('SkylarkCafeRipper', () => {
             expect(result.url).toBe('https://www.skylarkcafe.com/global-events/the-shvkes-pink-moss-boydream');
             expect(result.id).toBe('skylark-the-shvkes-pink-moss-boydream');
             expect(result.location).toBe('Skylark Café & Club, 3803 Delridge Way SW, Seattle, WA 98106');
+            expect(result.imageUrl).toBe('https://cdn.prod.website-files.com/img1.jpeg');
+        });
+
+        it('extracts the per-event artist background-image as imageUrl', () => {
+            const items = html.querySelectorAll('.collection-item-3.w-dyn-item');
+            const result = ripper.parseItem(items[2]);
+            expect('date' in result).toBe(true);
+            if (!('date' in result)) return;
+            expect(result.imageUrl).toBe('https://cdn.prod.website-files.com/img3.jpeg');
+        });
+
+        it('leaves imageUrl undefined when background-image is none', () => {
+            const badHtml = parse('<div class="collection-item-3 w-dyn-item"><div class="text-block-12">No Image</div><div class="date">June 1, 2026 8:00 PM</div><div class="artist-image" style="background-image:none"></div><a href="/global-events/no-image" class="link-block-4"></a></div>');
+            const item = badHtml.querySelector('.collection-item-3.w-dyn-item')!;
+            const result = ripper.parseItem(item);
+            expect('date' in result).toBe(true);
+            if (!('date' in result)) return;
+            expect(result.imageUrl).toBeUndefined();
         });
 
         it('parses event with external ticket link', () => {

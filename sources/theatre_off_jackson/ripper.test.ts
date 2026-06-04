@@ -49,22 +49,30 @@ describe('parseHomepage', () => {
     const html = loadSample('sample-homepage.html');
 
     it('extracts unique show URLs', () => {
-        const urls = parseHomepage(html);
-        expect(urls.length).toBeGreaterThan(0);
-        expect(urls.every(u => u.includes('/event/'))).toBe(true);
+        const shows = parseHomepage(html);
+        expect(shows.length).toBeGreaterThan(0);
+        expect(shows.every(s => s.url.includes('/event/'))).toBe(true);
     });
 
     it('deduplicates links that appear in both listings', () => {
-        const urls = parseHomepage(html);
-        const unique = new Set(urls);
-        expect(urls.length).toBe(unique.size);
+        const shows = parseHomepage(html);
+        const unique = new Set(shows.map(s => s.url));
+        expect(shows.length).toBe(unique.size);
     });
 
     it('includes all three shows from sample', () => {
-        const urls = parseHomepage(html);
-        expect(urls.some(u => u.includes('orlando'))).toBe(true);
-        expect(urls.some(u => u.includes('sally-ride'))).toBe(true);
-        expect(urls.some(u => u.includes('salon-of-shame'))).toBe(true);
+        const shows = parseHomepage(html);
+        expect(shows.some(s => s.url.includes('orlando'))).toBe(true);
+        expect(shows.some(s => s.url.includes('sally-ride'))).toBe(true);
+        expect(shows.some(s => s.url.includes('salon-of-shame'))).toBe(true);
+    });
+
+    it('captures per-event thumbnail images and resolves them to absolute URLs', () => {
+        const shows = parseHomepage(html);
+        const sally = shows.find(s => s.url.includes('sally-ride'));
+        expect(sally?.imageUrl).toBe('https://theatreoffjackson.org/sally.png');
+        const orlando = shows.find(s => s.url.includes('orlando'));
+        expect(orlando?.imageUrl).toBe('https://theatreoffjackson.org/orlando.png');
     });
 });
 

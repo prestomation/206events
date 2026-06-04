@@ -13,6 +13,7 @@ export interface SpektrixEvent {
     duration: number; // minutes; 0 for ticket-tier variants (Celebration, Culinary, Flex)
     firstInstanceDateTime: string;
     lastInstanceDateTime: string;
+    imageUrl?: string; // per-event show artwork, absolute Spektrix file URL
 }
 
 export interface SpektrixInstance {
@@ -80,6 +81,8 @@ export function processData(
             summary: event.name,
             location: LOCATION,
             url: TICKETS_URL,
+            // Spektrix exposes a per-show absolute image URL; only set when present.
+            imageUrl: event.imageUrl || undefined,
         });
     }
 

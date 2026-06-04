@@ -83,6 +83,24 @@ describe("parseEvent", () => {
         }
     });
 
+    it("maps the embedded featured image to imageUrl", () => {
+        const post = sampleData[0];
+        const result = parseEvent(post as any, TIMEZONE);
+        if ("date" in result) {
+            expect(result.imageUrl).toBe(
+                "https://www.waywardmusic.org/wp-content/uploads/2026/04/coen-rios-pacific-tribute.jpg"
+            );
+        }
+    });
+
+    it("leaves imageUrl undefined when no featured media is embedded", () => {
+        const post = sampleData[1];
+        const result = parseEvent(post as any, TIMEZONE);
+        if ("date" in result) {
+            expect(result.imageUrl).toBeUndefined();
+        }
+    });
+
     it("sets 2-hour default duration", () => {
         const post = sampleData[0];
         const result = parseEvent(post as any, TIMEZONE);

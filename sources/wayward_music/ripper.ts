@@ -9,12 +9,30 @@ const EVENT_CATEGORY_ID = 1;
 const DEFAULT_DURATION_HOURS = 2;
 const DEFAULT_LOCATION = "Chapel Performance Space at Good Shepherd Center, 4649 Sunnyside Ave N, Seattle, WA 98103";
 
+interface WPMedia {
+    media_type?: string;
+    source_url?: string;
+}
+
 interface WPPost {
     id: number;
     date: string;
     link: string;
     title: { rendered: string };
     excerpt: { rendered: string };
+    // Populated when the request asks for _embed=wp:featuredmedia
+    _embedded?: { "wp:featuredmedia"?: WPMedia[] };
+}
+
+/**
+ * Extract the post's featured image URL from the embedded media, if present.
+ * Only returns image media; returns undefined when there is no featured image.
+ */
+export function extractImageUrl(post: WPPost): string | undefined {
+    const media = post._embedded?.["wp:featuredmedia"]?.[0];
+    if (!media || (media.media_type && media.media_type !== "image")) return undefined;
+    const src = media.source_url?.trim();
+    return src || undefined;
 }
 
 export function parseDescription(excerpt: string): string {
@@ -48,6 +66,7 @@ export function parseEvent(post: WPPost, timezone: ZoneRegion): RipperCalendarEv
         description: parseDescription(post.excerpt.rendered),
         location: DEFAULT_LOCATION,
         url: post.link,
+        imageUrl: extractImageUrl(post),
     };
 }
 
@@ -89,7 +108,7 @@ export default class WaywardMusicRipper implements IRipper {
         const posts: WPPost[] = [];
         let page = 1;
         while (true) {
-            const url = `${WP_API_URL}?categories=${EVENT_CATEGORY_ID}&per_page=100&order=asc&orderby=date&after=${encodeURIComponent(after)}&_fields=id,title,date,link,excerpt&page=${page}`;
+            const url = `${WP_API_URL}?categories=${EVENT_CATEGORY_ID}&per_page=100&order=asc&orderby=date&after=${encodeURIComponent(after)}&_embed=wp:featuredmedia&_fields=id,title,date,link,excerpt,featured_media,_links,_embedded&page=${page}`;
             const res = await fetchFn(url);
             if (!res.ok) {
                 // WordPress returns 400 when requesting a page beyond the last available;

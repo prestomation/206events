@@ -22,6 +22,21 @@ export interface ParsedEvent {
     timeStr: string;
     location: string;
     ticketUrl: string;
+    imageUrl?: string;
+}
+
+// Resolve a protocol-relative ("//host/...") or root-relative ("/path") image URL
+// against the site base. Returns undefined for empty/unparseable input.
+function resolveImageUrl(src: string | undefined): string | undefined {
+    if (!src) return undefined;
+    const trimmed = src.trim();
+    if (!trimmed) return undefined;
+    if (trimmed.startsWith('//')) return `https:${trimmed}`;
+    try {
+        return new URL(trimmed, BASE_URL).toString();
+    } catch {
+        return undefined;
+    }
 }
 
 // Extract the turbo-stream list feature URL from the main calendar page.
@@ -97,7 +112,18 @@ export function parseEventsFromHtml(html: string): ParsedEvent[] {
         const ticketMatch = div.match(/class="tickets button"[^>]*href="([^"]+)"/);
         const ticketUrl = ticketMatch ? ticketMatch[1] : url;
 
-        events.push({ title, url, dateStr, timeStr, location, ticketUrl });
+        // Per-event poster image. The .event-image anchor href points at the larger
+        // (600px) variant; fall back to the <img src> (200px) if no anchor href.
+        const imageBlockMatch = div.match(/<div class="event-image[^"]*">([\s\S]*?)<\/div>/);
+        let imageUrl: string | undefined;
+        if (imageBlockMatch) {
+            const block = imageBlockMatch[1];
+            const anchorHref = block.match(/<a[^>]*\shref="([^"]+)"/)?.[1];
+            const imgSrc = block.match(/<img[^>]*\ssrc="([^"]+)"/)?.[1];
+            imageUrl = resolveImageUrl(anchorHref ?? imgSrc);
+        }
+
+        events.push({ title, url, dateStr, timeStr, location, ticketUrl, imageUrl });
     }
 
     return events;
@@ -184,6 +210,7 @@ export function toCalendarEvent(
         summary: parsed.title,
         location: parsed.location,
         url: parsed.ticketUrl,
+        imageUrl: parsed.imageUrl,
     };
 }
 

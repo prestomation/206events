@@ -4,7 +4,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { ZoneId, ZonedDateTime } from '@js-joda/core';
 import '@js-joda/timezone';
-import { parseEventCards, parseDateText, parseLocationFromHtml, EventCard } from './ripper.js';
+import { parseEventCards, parseDateText, parseLocationFromHtml, parseImageFromHtml, EventCard } from './ripper.js';
 import SeattlePrideRipper from './ripper.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -126,6 +126,20 @@ describe('parseLocationFromHtml', () => {
     });
 });
 
+describe('parseImageFromHtml', () => {
+    it('extracts the per-event og:image from the detail page', () => {
+        const image = parseImageFromHtml(sampleDetailHtml);
+        expect(image).toBe(
+            'https://seattlepride.org/web/app/templates/assets/image/_1200x620_crop_center-center_none/156899/QPS2026_1.jpg'
+        );
+    });
+
+    it('returns null for pages with no og:image', () => {
+        const image = parseImageFromHtml('<html><head></head><body><p>nothing</p></body></html>');
+        expect(image).toBeNull();
+    });
+});
+
 describe('SeattlePrideRipper.parseCard', () => {
     const ripper = new SeattlePrideRipper();
 
@@ -162,6 +176,38 @@ describe('SeattlePrideRipper.parseCard', () => {
             expect(result.date.hour()).toBe(19);
             // Duration: 7pm to 11:45pm = 285 minutes
             expect(result.duration.toMinutes()).toBe(285);
+        }
+    });
+
+    it('sets imageUrl when a detail-page image is provided', () => {
+        const card: EventCard = {
+            title: 'Queer Prom',
+            dateText: 'May 23, 7:00 pm\n                 - 11:45 pm',
+            description: 'Myths & Rainbows',
+            link: 'https://seattlepride.org/events/queer-prom-seattle-2026',
+        };
+        const zone = ZoneId.of('America/Los_Angeles');
+        const imageUrl =
+            'https://seattlepride.org/web/app/templates/assets/image/_1200x620_crop_center-center_none/156899/QPS2026_1.jpg';
+        const result = ripper.parseCard(card, 2026, null, zone, card.link, imageUrl);
+        expect('date' in result).toBe(true);
+        if ('date' in result) {
+            expect(result.imageUrl).toBe(imageUrl);
+        }
+    });
+
+    it('leaves imageUrl undefined when none is provided', () => {
+        const card: EventCard = {
+            title: 'No Image Event',
+            dateText: 'June 28, 2026',
+            description: '',
+            link: 'https://seattlepride.org/events/no-image',
+        };
+        const zone = ZoneId.of('America/Los_Angeles');
+        const result = ripper.parseCard(card, 2026, null, zone, card.link);
+        expect('date' in result).toBe(true);
+        if ('date' in result) {
+            expect(result.imageUrl).toBeUndefined();
         }
     });
 

@@ -121,6 +121,19 @@ export function parseLocationFromHtml(html: string): string | null {
     return null;
 }
 
+export function parseImageFromHtml(html: string): string | null {
+    const root = parse(html);
+    // Per-event hero image is exposed as og:image on the detail page.
+    const meta = root.querySelectorAll('meta[property="og:image"], meta[name="og:image"]');
+    for (const m of meta) {
+        const content = m.getAttribute('content')?.trim();
+        if (content && /^https?:\/\//i.test(content)) {
+            return content;
+        }
+    }
+    return null;
+}
+
 export default class SeattlePrideRipper implements IRipper {
     private fetchFn: FetchFn = fetch;
 
@@ -149,8 +162,9 @@ export default class SeattlePrideRipper implements IRipper {
                 ? card.link
                 : `https://seattlepride.org${card.link}`;
 
-            // Fetch detail page for location
+            // Fetch detail page for location and per-event image
             let location: string | null = null;
+            let imageUrl: string | null = null;
             if (card.link) {
                 try {
                     const detailRes = await this.fetchFn(eventUrl, {
@@ -159,13 +173,14 @@ export default class SeattlePrideRipper implements IRipper {
                     if (detailRes.ok) {
                         const detailHtml = await detailRes.text();
                         location = parseLocationFromHtml(detailHtml);
+                        imageUrl = parseImageFromHtml(detailHtml);
                     }
                 } catch {
-                    // location is optional — continue without it
+                    // location and image are optional — continue without them
                 }
             }
 
-            const result = this.parseCard(card, currentYear, location, zone, eventUrl);
+            const result = this.parseCard(card, currentYear, location, zone, eventUrl, imageUrl);
 
             // Skip past events
             if ('date' in result && result.date.isBefore(now)) continue;
@@ -192,6 +207,7 @@ export default class SeattlePrideRipper implements IRipper {
         location: string | null,
         zone: ZoneId,
         eventUrl: string,
+        imageUrl: string | null = null,
     ): RipperCalendarEvent | RipperError {
         const parsed = parseDateText(card.dateText, currentYear);
         if (!parsed) {
@@ -239,6 +255,7 @@ export default class SeattlePrideRipper implements IRipper {
             description: card.description || undefined,
             location: location ?? undefined,
             url: eventUrl,
+            imageUrl: imageUrl ?? undefined,
         };
     }
 }
