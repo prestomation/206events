@@ -44,6 +44,7 @@ calendars:
   - name: delridge
     friendlyname: "SPL - Delridge Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       branch: "Delridge Branch"
   - name: douglass-truth
