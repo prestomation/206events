@@ -63,6 +63,14 @@ describe('SIHBRipper', () => {
         expect(calEvents[0].location).toContain('Seattle Center');
     });
 
+    it('sets the per-event featured image as an absolute URL', () => {
+        const events = ripper.parseEvents(sampleHtml, NOW, TZ);
+        const calEvents = events.filter(e => 'date' in e) as any[];
+        expect(calEvents[0].imageUrl).toBe(
+            'https://www.sihb.org/wp-content/uploads/Website-Thumbnail_050626-772x513.png'
+        );
+    });
+
     it('generates stable event IDs', () => {
         const events = ripper.parseEvents(sampleHtml, NOW, TZ);
         const calEvents = events.filter(e => 'date' in e) as any[];

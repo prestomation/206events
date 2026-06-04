@@ -80,6 +80,20 @@ export default class SkylarkCafeRipper implements IRipper {
 
         const description = descEl ? decode(descEl.textContent.trim()) : undefined;
 
+        // Per-event artist image is set as a CSS background-image on .artist-image
+        const artistImageEl = item.querySelector('.artist-image');
+        const bgStyle = artistImageEl?.getAttribute('style') ?? '';
+        const bgMatch = bgStyle.match(/background-image:\s*url\((['"]?)(.*?)\1\)/i);
+        const rawImage = bgMatch?.[2]?.trim();
+        let imageUrl: string | undefined = undefined;
+        if (rawImage && rawImage !== 'none') {
+            try {
+                imageUrl = new URL(decode(rawImage), BASE_URL).href;
+            } catch {
+                imageUrl = undefined;
+            }
+        }
+
         // Stable ID derived from the event URL slug
         const slugMatch = linkHref ? linkHref.match(/\/global-events\/([^/?#]+)/) : null;
         const id = slugMatch ? `skylark-${slugMatch[1]}` : `skylark-${title}-${dateStr}`.toLowerCase().replace(/[^a-z0-9-]/g, '-');
@@ -93,6 +107,7 @@ export default class SkylarkCafeRipper implements IRipper {
             description: description || undefined,
             location: LOCATION,
             url,
+            imageUrl,
         };
 
         return event;

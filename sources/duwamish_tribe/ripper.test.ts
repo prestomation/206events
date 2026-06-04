@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { ZonedDateTime, ZoneId, LocalDateTime } from "@js-joda/core";
-import { parseItem, fetchDuwamishEvents, DuwamishApiItem, DuwamishApiResponse } from "./ripper.js";
+import { parseItem, fetchDuwamishEvents, extractAssetImageUrl, DuwamishApiItem, DuwamishApiResponse } from "./ripper.js";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -90,6 +90,43 @@ describe("parseItem", () => {
         expect("date" in result).toBe(true);
         if (!("date" in result)) return;
         expect(result.location).toContain("4705 West Marginal Way");
+    });
+
+    it("maps the per-event assetUrl into imageUrl", () => {
+        const item: DuwamishApiItem = {
+            id: "img",
+            title: "Frybread Class",
+            startDate: 1782583200000,
+            assetUrl: "https://images.squarespace-cdn.com/content/v1/5ad0f1b9c258b4273c53d08f/1756497848067-FSPE90H3EAZP74XN0215/FryBread+Classs+with+Cecile+Hansen.jpg",
+        };
+        const result = parseItem(item, NOW, ZONE);
+        expect("date" in result).toBe(true);
+        if (!("date" in result)) return;
+        expect(result.imageUrl).toBe(
+            "https://images.squarespace-cdn.com/content/v1/5ad0f1b9c258b4273c53d08f/1756497848067-FSPE90H3EAZP74XN0215/FryBread+Classs+with+Cecile+Hansen.jpg"
+        );
+    });
+
+    it("leaves imageUrl undefined for placeholder static assetUrls with no filename", () => {
+        const item: DuwamishApiItem = {
+            id: "placeholder",
+            title: "Land Back Celebration",
+            startDate: 1782583200000,
+            assetUrl: "https://static1.squarespace.com/static/5ad0f1b9c258b4273c53d08f/5ad0f927575d1fe016dddca8/6a03b48cc3ccac52f1073908/1778698148913/",
+        };
+        const result = parseItem(item, NOW, ZONE);
+        expect("date" in result).toBe(true);
+        if (!("date" in result)) return;
+        expect(result.imageUrl).toBeUndefined();
+    });
+
+    it("extractAssetImageUrl rejects non-image and non-http values", () => {
+        expect(extractAssetImageUrl(undefined)).toBeUndefined();
+        expect(extractAssetImageUrl("data:image/png;base64,xxx")).toBeUndefined();
+        expect(extractAssetImageUrl("https://example.com/page")).toBeUndefined();
+        expect(extractAssetImageUrl("https://example.com/flyer.png?format=750w")).toBe(
+            "https://example.com/flyer.png?format=750w"
+        );
     });
 
     it("generates a stable id from date and slugified title", () => {

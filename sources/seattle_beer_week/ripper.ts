@@ -125,7 +125,15 @@ export default class SeattleBeerWeekRipper extends JSONRipper {
                                 if (event.buttonVisible && event.buttonLink && event.buttonLink.value) {
                                     url = event.buttonLink.value;
                                 }
-                                
+
+                                // Per-event poster image. The widget stores it as
+                                // an object with an absolute `url`; some events have none.
+                                let imageUrl: string | undefined = undefined;
+                                if (event.image && typeof event.image.url === 'string') {
+                                    const trimmed = event.image.url.trim();
+                                    if (/^https?:\/\//i.test(trimmed)) imageUrl = trimmed;
+                                }
+
                                 // Create the event object
                                 const calendarEvent: RipperCalendarEvent = {
                                     id: event.id.toString(),
@@ -135,7 +143,8 @@ export default class SeattleBeerWeekRipper extends JSONRipper {
                                     summary: event.name,
                                     description: description,
                                     location: location,
-                                    url: url
+                                    url: url,
+                                    imageUrl: imageUrl
                                 };
                                 
                                 events.push(calendarEvent);

@@ -11,8 +11,9 @@ function loadSampleData(): any {
     return JSON.parse(fs.readFileSync(path.join(__dirname, 'sample-data.json'), 'utf8'));
 }
 
-function makeProductHtml(title: string, description: string): string {
-    return `<html><head><title>${title}</title><meta name="description" content="${description}"></head><body></body></html>`;
+function makeProductHtml(title: string, description: string, image?: string): string {
+    const og = image ? `<meta property="og:image" content="${image}" />` : '';
+    return `<html><head><title>${title}</title><meta name="description" content="${description}">${og}</head><body></body></html>`;
 }
 
 describe('CobysCafeRipper - extractFeaturedEventIds', () => {
@@ -117,7 +118,7 @@ describe('CobysCafeRipper - parseProductHtml', () => {
     test('parses Small Dog Meetup event correctly', () => {
         const data = loadSampleData();
         const product = data.products['466'];
-        const html = makeProductHtml(product.title, product.description);
+        const html = makeProductHtml(product.title, product.description, product.image);
         const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/466');
 
         expect('date' in result).toBe(true);
@@ -130,7 +131,25 @@ describe('CobysCafeRipper - parseProductHtml', () => {
             expect(result.duration.toMinutes()).toBe(90);
             expect(result.location).toContain('101 Nickerson St');
             expect(result.url).toBe('https://www.cobyscafe.com/product/x/466');
+            // Per-event flyer image from the product page's og:image
+            expect(result.imageUrl).toBe('https://144576168.cdn6.editmysite.com/uploads/1/4/4/5/144576168/GI3RFENR5REOPTDNTKAMVMXE.jpeg');
         }
+    });
+
+    test('imageUrl is undefined when the product page has no og:image', () => {
+        const data = loadSampleData();
+        const product = data.products['464'];
+        const html = makeProductHtml(product.title, product.description); // no image arg
+        const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/464');
+        expect('date' in result).toBe(true);
+        if ('date' in result) {
+            expect(result.imageUrl).toBeUndefined();
+        }
+    });
+
+    test('extractImageUrl rejects non-http og:image values', () => {
+        expect(ripper.extractImageUrl('<meta property="og:image" content="data:image/png;base64,xxx" />')).toBeUndefined();
+        expect(ripper.extractImageUrl('<html></html>')).toBeUndefined();
     });
 
     test('parses Cinco de Mayo Fiesta event correctly', () => {

@@ -105,6 +105,9 @@ export default class CobysCafeRipper implements IRipper {
         const rawDesc = descMatch ? descMatch[1] : '';
         const description = this.decodeHtmlEntities(rawDesc);
 
+        // Per-event image: the product page exposes a specific og:image (the event flyer).
+        const imageUrl = this.extractImageUrl(html);
+
         const parsed = this.parseDateTimeFromText(description);
         if (!parsed) return { type: 'ParseError', reason: 'No parseable date found in description', context: title };
 
@@ -125,8 +128,21 @@ export default class CobysCafeRipper implements IRipper {
             summary: title,
             description,
             location: LOCATION,
-            url
+            url,
+            imageUrl
         };
+    }
+
+    // Public for testing — extracts the per-event flyer image from the product page's
+    // og:image meta tag. Returns undefined when none is present (e.g. ticket-only pages).
+    extractImageUrl(html: string): string | undefined {
+        const og = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i)
+            ?? html.match(/<meta\s+content="([^"]+)"\s+property="og:image"/i);
+        const raw = og?.[1]?.trim();
+        if (!raw) return undefined;
+        // Only accept absolute http(s) URLs; skip data: URIs and empty values.
+        if (!/^https?:\/\//i.test(raw)) return undefined;
+        return this.decodeHtmlEntities(raw);
     }
 
     // Public for testing

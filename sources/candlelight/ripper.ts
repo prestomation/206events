@@ -62,6 +62,10 @@ export default class CandlelightRipper implements IRipper {
 
             const planId = String(hit.id);
             const name = hit.name as string;
+            // Per-plan cover photo (event-specific concert artwork), absolute URL.
+            const imageUrl: string | undefined = typeof hit.cover_image === 'string' && hit.cover_image
+                ? hit.cover_image
+                : undefined;
             const venue = hit.venues_coordinates?.[0];
             const venueName: string | undefined = venue?.venue_name;
             const lat: number | undefined = venue?.lat;
@@ -90,6 +94,7 @@ export default class CandlelightRipper implements IRipper {
                         url: `https://feverup.com/m/${planId}`,
                         lat,
                         lng,
+                        imageUrl,
                     };
 
                     events.push(event);

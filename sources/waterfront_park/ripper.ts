@@ -5,6 +5,23 @@ import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 const LOCATION_SUFFIX = ", Waterfront Park, Seattle, WA";
+const BASE_URL = "https://waterfrontparkseattle.org";
+
+/**
+ * Resolve a protocol-relative ("//host/...") or root-relative ("/path") image
+ * URL against the site base. Returns undefined for empty/unparseable input.
+ */
+function resolveImageUrl(src: string | undefined): string | undefined {
+    if (!src) return undefined;
+    const trimmed = src.trim();
+    if (!trimmed) return undefined;
+    if (trimmed.startsWith("//")) return `https:${trimmed}`;
+    try {
+        return new URL(trimmed, BASE_URL).toString();
+    } catch {
+        return undefined;
+    }
+}
 
 // Deterministic hash for partialFingerprint — stability only, not security.
 function simpleHash(s: string): string {
@@ -215,6 +232,13 @@ export function parseEventsFromHtml(
             const href = linkEl?.getAttribute("href");
             const url = href || undefined;
 
+            // Per-event image lives in .grid-image img. The site lazy-loads, so
+            // the real URL is in data-src; fall back to src for non-lazy cards.
+            const imgEl = item.querySelector(".grid-image img");
+            const imageUrl = resolveImageUrl(
+                imgEl?.getAttribute("data-src") || imgEl?.getAttribute("src") || undefined,
+            );
+
             const event: RipperCalendarEvent = {
                 id: eventKey,
                 ripped: new Date(),
@@ -224,6 +248,7 @@ export function parseEventsFromHtml(
                 description: description || undefined,
                 location,
                 url,
+                imageUrl,
             };
 
             events.push(event);

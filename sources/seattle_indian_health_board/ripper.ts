@@ -180,6 +180,12 @@ export default class SIHBRipper implements IRipper {
 
                 const id = `sihb-${slugify(title)}-${localDate.toString()}`;
 
+                // Per-event featured image (WordPress post thumbnail). Already an
+                // absolute https URL on this source.
+                const imgEl = article.querySelector('a.post-thumbnail img, img.wp-post-image');
+                const imgSrc = imgEl?.getAttribute('src')?.trim();
+                const imageUrl = imgSrc ? new URL(imgSrc, EVENTS_URL).href : undefined;
+
                 events.push({
                     id,
                     ripped: new Date(),
@@ -188,6 +194,7 @@ export default class SIHBRipper implements IRipper {
                     summary: title,
                     location,
                     url,
+                    imageUrl,
                 });
             } catch (err) {
                 events.push({

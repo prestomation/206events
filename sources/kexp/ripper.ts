@@ -24,6 +24,20 @@ export function parseArticle(article: HTMLElement): RipperCalendarEvent | ParseE
     const url = `${BASE_URL}${href}`;
     const slug = href.split('/').filter(Boolean).pop() ?? '';
 
+    // Per-event thumbnail in the event card. KEXP serves a root-relative path
+    // (e.g. /media/filer_public_thumbnails/.../foo.jpg) which we resolve to an
+    // absolute URL. The 1x1 transparent placeholder used by some lazy-load
+    // setups is skipped, as is anything that isn't a real path.
+    const imgSrc = article.querySelector('.EventItem-image img')?.getAttribute('src')?.trim();
+    let imageUrl: string | undefined;
+    if (imgSrc && !imgSrc.startsWith('data:')) {
+        if (imgSrc.startsWith('http')) {
+            imageUrl = imgSrc;
+        } else if (imgSrc.startsWith('/')) {
+            imageUrl = `${BASE_URL}${imgSrc}`;
+        }
+    }
+
     // The addeventatc widget provides structured start/end/timezone data
     const calWidget = article.querySelector('a.addeventatc');
     if (!calWidget) {
@@ -65,6 +79,7 @@ export function parseArticle(article: HTMLElement): RipperCalendarEvent | ParseE
         date: startDate,
         duration,
         url,
+        imageUrl,
         ripped: new Date(),
     };
 }

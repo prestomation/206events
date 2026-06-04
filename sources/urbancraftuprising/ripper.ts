@@ -254,6 +254,9 @@ export default class UrbanCraftUprisingRipper extends HTMLRipper {
         // Extract description
         const description = this.extractDescription(allText);
 
+        // Extract the per-event poster/banner image
+        const imageUrl = this.extractImageUrl(html);
+
         return {
             id: slug,
             ripped: new Date(),
@@ -262,8 +265,49 @@ export default class UrbanCraftUprisingRipper extends HTMLRipper {
             summary: title,
             description,
             location,
-            url
+            url,
+            imageUrl
         };
+    }
+
+    /**
+     * Extract the per-event poster/banner from a detail page.
+     *
+     * WPBakery renders the event's social/Facebook cover graphic as the first
+     * large `img.vc_single_image-img` in the content. Smaller images with the
+     * same class (e.g. 150x150 vendor logos) and the theme's site logos
+     * (`tgp-exclude`) are skipped. We prefer an image at least 600px wide so we
+     * never pick up a vendor thumbnail or a generic icon.
+     */
+    private extractImageUrl(html: HTMLElement): string | undefined {
+        const candidates = html.querySelectorAll('img.vc_single_image-img');
+        let fallback: HTMLElement | undefined;
+
+        for (const img of candidates) {
+            if ((img.getAttribute('class') || '').includes('tgp-exclude')) continue;
+            const src = img.getAttribute('src')?.trim();
+            if (!src) continue;
+
+            const width = parseInt(img.getAttribute('width') || '0', 10);
+            if (width >= 600) {
+                return this.resolveUrl(src);
+            }
+            if (!fallback) fallback = img;
+        }
+
+        const fallbackSrc = fallback?.getAttribute('src')?.trim();
+        return fallbackSrc ? this.resolveUrl(fallbackSrc) : undefined;
+    }
+
+    /** Resolve a relative image URL against the site base; returns undefined if unparseable. */
+    private resolveUrl(src: string): string | undefined {
+        if (/^https?:\/\//i.test(src)) return src;
+        if (src.startsWith('//')) return `https:${src}`;
+        try {
+            return new URL(src, 'https://urbancraftuprising.com').toString();
+        } catch {
+            return undefined;
+        }
     }
 
     /**

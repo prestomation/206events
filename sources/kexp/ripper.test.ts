@@ -15,6 +15,9 @@ function loadSampleHtml(): string {
 const PUBLIC_ARTICLE = `
 <article class="aldryn-events-article events-upcoming EventItem u-mb1">
   <div class="EventItem-image">
+    <div class="SquareImage">
+      <img class="SquareImage-image" src="/media/filer_public_thumbnails/test-band.jpg__400x400.jpg" alt="">
+    </div>
     <div class="EventItem-DateTime">
       <h3>May 23rd</h3>
       <h5>3 p.m.</h5>
@@ -80,6 +83,7 @@ describe('parseArticle', () => {
             expect(result.date.hour()).toBe(15);
             expect(result.date.minute()).toBe(0);
             expect(result.duration.toMinutes()).toBe(30);
+            expect(result.imageUrl).toBe('https://www.kexp.org/media/filer_public_thumbnails/test-band.jpg__400x400.jpg');
         }
     });
 
@@ -154,6 +158,12 @@ describe('parseArticle with sample HTML', () => {
             expect(event.summary).toContain('(OPEN TO THE PUBLIC)');
             expect(event.url).toContain('kexp.org');
             expect(event.location).toContain('472 1st Ave N');
+        }
+        // At least one real event from the sample carries an absolute image URL
+        const withImage = events.filter(e => e.imageUrl);
+        expect(withImage.length).toBeGreaterThanOrEqual(1);
+        for (const event of withImage) {
+            expect(event.imageUrl).toMatch(/^https:\/\/www\.kexp\.org\//);
         }
     });
 });

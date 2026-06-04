@@ -166,6 +166,8 @@ export default class FryeArtMuseumRipper implements IRipper {
         const locationText = addressEl?.text?.trim() || "";
         const location = locationText.length > 0 ? locationText : MUSEUM_ADDRESS;
 
+        const imageUrl = this.extractImageUrl(html);
+
         const nodeId = card.href.match(/\/node\/(\d+)/)?.[1] || card.href;
         const event: RipperCalendarEvent = {
             id: `frye-${nodeId}`,
@@ -175,6 +177,7 @@ export default class FryeArtMuseumRipper implements IRipper {
             summary: card.title,
             location,
             url: canonicalUrl,
+            imageUrl,
         };
 
         const results: RipperEvent[] = [event];
@@ -194,6 +197,19 @@ export default class FryeArtMuseumRipper implements IRipper {
             });
         }
         return results;
+    }
+
+    // Extract the per-event hero image from the event detail page. The Frye event
+    // page exposes `img.event-single__image` with a root-relative src; resolve it
+    // against BASE_URL to produce an absolute URL. Returns undefined when absent.
+    public extractImageUrl(html: HTMLElement): string | undefined {
+        const imgEl = html.querySelector("img.event-single__image");
+        const raw = imgEl?.getAttribute("src")?.trim();
+        if (!raw) return undefined;
+        if (/^https?:\/\//i.test(raw)) return raw;
+        if (raw.startsWith("//")) return `https:${raw}`;
+        if (raw.startsWith("/")) return `${BASE_URL}${raw}`;
+        return undefined;
     }
 
     public isRecurringPattern(dateText: string): boolean {

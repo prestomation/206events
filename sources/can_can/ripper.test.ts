@@ -98,6 +98,22 @@ describe('processData', () => {
         expect(errors[0].type).toBe('ParseError');
     });
 
+    it('maps the per-event imageUrl onto each instance', () => {
+        const { events } = processData(sample.events, sample.instances, NOW, PACIFIC);
+
+        const carnivalEvent = events.find(e => e.summary === '2026 Carnival');
+        expect(carnivalEvent).toBeDefined();
+        expect(carnivalEvent!.imageUrl).toBe(
+            'https://system.spektrix.com/cancan/files/f65f0720-d06f-4f3c-8f64-053bbc5d370a.jpg'
+        );
+
+        const lolaEvent = events.find(e => e.summary === '2026 Lola');
+        expect(lolaEvent).toBeDefined();
+        expect(lolaEvent!.imageUrl).toBe(
+            'https://system.spektrix.com/cancan/files/29a3a03f-3d6f-4597-9276-28e161391c99.jpg'
+        );
+    });
+
     it('returns both Carnival and Lola events', () => {
         const { events } = processData(sample.events, sample.instances, NOW, PACIFIC);
         const summaries = new Set(events.map(e => e.summary));

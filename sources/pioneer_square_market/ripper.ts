@@ -30,6 +30,7 @@ interface PublicEvent {
     external_ticket_url: string | null;
     slug: string;
     event_status: string;
+    cover_image_url: string | null;
 }
 
 export default class PioneerSquareMarketRipper implements IRipper {
@@ -121,6 +122,9 @@ export default class PioneerSquareMarketRipper implements IRipper {
 
         const eventUrl = item.external_ticket_url ?? `${BASE_EVENT_URL}/${item.slug}`;
 
+        // cover_image_url is a per-event, absolute https URL when present.
+        const imageUrl = item.cover_image_url?.trim() || undefined;
+
         return {
             id: `pioneer-square-market-${item.id}`,
             ripped: new Date(),
@@ -130,6 +134,7 @@ export default class PioneerSquareMarketRipper implements IRipper {
             description: item.description ?? undefined,
             location,
             url: eventUrl,
+            imageUrl,
         };
     }
 }

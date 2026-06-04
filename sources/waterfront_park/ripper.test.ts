@@ -147,6 +147,17 @@ describe('parseEventsFromHtml (sample data)', () => {
         expect(valid[0].location).toBe('Overlook Walk, Waterfront Park, Seattle, WA');
     });
 
+    test('first event has a per-event image from the lazyload data-src', () => {
+        const html = loadSampleHtml();
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents);
+        const valid = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+
+        expect(valid[0].imageUrl).toBe(
+            'https://waterfrontparkseattle.org/wp-content/uploads/2026/04/Waterfront-Park-Grand-Opening-Celebration-Photo-by-Erik-Holsather-courtesy-Friends-of-Waterfront-Park-5-720x539.jpg'
+        );
+    });
+
     test('venue strips "|" and ticketed/free label', () => {
         const html = loadSampleHtml();
         const seenEvents = new Set<string>();

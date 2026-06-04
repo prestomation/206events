@@ -96,6 +96,18 @@ describe('RainierArtsCenterRipper', () => {
             expect(event.url).toContain('rainierartscenter.org');
         });
 
+        it('sets imageUrl from schema.org Event image', () => {
+            const ripper = new RainierArtsCenterRipper();
+            const html = loadSampleHtml();
+            const url = 'https://rainierartscenter.org/events/world-class-music-presents-dobet-gnahore/';
+            const events = ripper.parseEventPage(html, url, BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.imageUrl).toBe(
+                'https://rainierartscenter.org/wp-content/uploads/2026/02/kqwvkggamgcrmdh3ocps.png'
+            );
+        });
+
         it('returns empty array for past events', () => {
             const ripper = new RainierArtsCenterRipper();
             const html = loadSampleHtml();

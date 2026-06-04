@@ -19,11 +19,26 @@ export interface DuwamishApiItem {
     endDate?: number;
     urlId?: string;
     fullUrl?: string;
+    assetUrl?: string;
     location?: {
         addressTitle?: string;
         addressLine1?: string;
         addressLine2?: string;
     };
+}
+
+// Squarespace exposes a per-event image in `assetUrl`. Accept only absolute
+// http(s) URLs that point at a real image file (have an image extension);
+// the bare `static1.squarespace.com/static/.../<hash>/` placeholder URLs end
+// in a slash with no filename and are not genuine event flyers.
+export function extractAssetImageUrl(assetUrl: string | undefined): string | undefined {
+    if (!assetUrl) return undefined;
+    const raw = assetUrl.trim();
+    if (!/^https?:\/\//i.test(raw)) return undefined;
+    // Strip query/hash before checking the extension.
+    const path = raw.split(/[?#]/)[0];
+    if (!/\.(jpe?g|png|gif|webp|avif)$/i.test(path)) return undefined;
+    return raw;
 }
 
 export interface DuwamishApiResponse {
@@ -103,6 +118,7 @@ export function parseItem(
         summary: title,
         location: formatLocation(item.location),
         url,
+        imageUrl: extractAssetImageUrl(item.assetUrl),
     };
 }
 

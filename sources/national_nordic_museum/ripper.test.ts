@@ -68,6 +68,40 @@ describe('NationalNordicMuseumRipper', () => {
             expect(cards[0].timeText).toBe('10:00 am - 8:00 pm');
         });
 
+        it('extracts the per-event image from data-src, ignoring the 1x1 placeholder src', () => {
+            const ripper = new NationalNordicMuseumRipper();
+            const html = parse(`
+                <html><body>
+                <div class="card-event">
+                  <div class="card-event__image">
+                    <img class="lazy" src="https://nordicmuseum.org/themes/nordicmuseum/assets/images/1x1.png"
+                         data-src="https://nordicmuseum.org/asset/681a92d3433ef?w=370&h=240&fit=crop" alt="">
+                  </div>
+                  <a class="card-title-link" href="https://nordicmuseum.org/events/with-image">With Image</a>
+                  <div class="subheading"><p>May 17, 2026</p></div>
+                  <p class="content-text">2:00 - 4:00pm</p>
+                </div>
+                </body></html>
+            `);
+            const cards = ripper.parseEventCards(html);
+
+            expect(cards).toHaveLength(1);
+            expect(cards[0].imageUrl).toBe('https://nordicmuseum.org/asset/681a92d3433ef?w=370&h=240&fit=crop');
+        });
+
+        it('extracts an absolute per-event image from at least one sample card', () => {
+            const ripper = new NationalNordicMuseumRipper();
+            const html = parse(loadSampleHtml());
+            const cards = ripper.parseEventCards(html);
+
+            const withImage = cards.filter(c => c.imageUrl);
+            expect(withImage.length).toBeGreaterThanOrEqual(1);
+            for (const c of withImage) {
+                expect(c.imageUrl).toMatch(/^https:\/\/nordicmuseum\.org\//);
+                expect(c.imageUrl).not.toContain('1x1.png');
+            }
+        });
+
         it('extracts expected events from sample HTML', () => {
             const ripper = new NationalNordicMuseumRipper();
             const html = parse(loadSampleHtml());
@@ -87,6 +121,7 @@ describe('NationalNordicMuseumRipper', () => {
                 title: '17th of May in Ballard',
                 dateText: 'May 17, 2026',
                 timeText: 'Museum Hours: 10:00am - 5:00pm; Parade: 6:00 - 8:00pm',
+                imageUrl: 'https://nordicmuseum.org/asset/681a92d3433ef?w=370&h=240&fit=crop',
             };
 
             const result = ripper.parseEvent(card);
@@ -96,6 +131,7 @@ describe('NationalNordicMuseumRipper', () => {
             expect(event.date.monthValue()).toBe(5);
             expect(event.date.dayOfMonth()).toBe(17);
             expect(event.date.year()).toBe(2026);
+            expect(event.imageUrl).toBe('https://nordicmuseum.org/asset/681a92d3433ef?w=370&h=240&fit=crop');
         });
 
         it('parses abbreviated month dates', () => {

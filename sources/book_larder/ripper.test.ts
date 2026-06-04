@@ -189,6 +189,8 @@ describe('BookLarderRipper - parseProduct', () => {
         expect(event!.location).toContain('4252 Fremont Ave N');
         expect(event!.url).toContain('/products/author-talk-saeng-douangdara');
         expect(event!.id).toBe('book-larder-9185262829786');
+        // Per-event image from the Shopify product's first image (absolute CDN URL)
+        expect(event!.imageUrl).toBe('https://cdn.shopify.com/s/files/1/0558/5957/7004/files/9780593836170_d6f59.jpg?v=1772653281');
     });
 
     test('parses pop-up with time range from sample data', async () => {
