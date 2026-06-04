@@ -13,6 +13,7 @@ geo:
   label: "The Crocodile, 2505 1st Ave, Seattle, WA 98121"
   osmType: node
   osmId: 2968389933
+imageUrl: "https://static1.squarespace.com/static/60d4fc96eb0b895c1360c93d/t/60d78be356c64c2fa7b02f8f/1624738787424/Croc_SocialShare-1.jpg?format=1500w"
 calendars:
   - name: crocodile-main
     friendlyname: "The Crocodile"

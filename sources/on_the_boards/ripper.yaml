@@ -12,6 +12,7 @@ geo:
   label: "On the Boards, 100 W Roy St, Seattle, WA 98119"
   osmType: node
   osmId: 2400858913
+imageUrl: "https://static1.squarespace.com/static/606e89077a540c7be6e4c80e/t/671045f629c3850b962f2195/1729119734910/LOGO.png?format=1500w"
 calendars:
   - name: all-events
     friendlyname: "On the Boards"

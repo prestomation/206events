@@ -9,6 +9,7 @@ geo:
   label: "Neumos, 925 E Pike St, Seattle, WA 98122"
   osmType: node
   osmId: 1194791180
+imageUrl: "https://www.neumos.com/assets/img/Neumos_Default-Website-cf3b432eb8.png"
 calendars:
   - name: neumos
     friendlyname: "Neumos"

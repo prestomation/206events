@@ -10,6 +10,7 @@ geo:
   label: "Queer/Bar, 1518 11th Ave, Seattle, WA 98122"
   osmType: node
   osmId: 2158761250
+imageUrl: "https://static1.squarespace.com/static/60623907bcdeac13ff3359a4/t/657a42f593e37f3b5a072523/1702511349781/qb+logo+alternate.png?format=1500w"
 calendars:
   - name: all-events
     friendlyname: "Queer/Bar"

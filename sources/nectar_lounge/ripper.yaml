@@ -9,6 +9,7 @@ geo:
   label: "Nectar Lounge, 412 N 36th St, Seattle, WA 98103"
   osmType: way
   osmId: 117752666
+imageUrl: "https://nectarlounge.com/wp-content/themes/nectarlounge-eb/og-logo.png"
 calendars:
   - name: nectar-lounge
     friendlyname: "Nectar Lounge"

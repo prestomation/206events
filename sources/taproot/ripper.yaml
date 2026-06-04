@@ -9,6 +9,7 @@ geo:
   label: "Taproot Theatre, 204 N 85th St, Seattle, WA 98103"
   osmType: way
   osmId: 55197419
+imageUrl: "https://taproottheatre.org/wp-content/uploads/2026/03/Taproot_Logo_Teal.jpg"
 calendars:
   - name: taproot
     friendlyname: "Taproot Theatre"
