@@ -64,6 +64,7 @@ export const TAG_CATEGORIES = {
         'Education',
         'Events',
         'Food',
+        'Gaming',
         'Movies',
         'Music',
         'Tech',

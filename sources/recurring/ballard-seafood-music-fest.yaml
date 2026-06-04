@@ -1,0 +1,29 @@
+geo:
+  lat: 47.6680
+  lng: -122.3840
+  label: "Old Ballard (Ballard Ave NW), Seattle, WA 98107"
+name: ballard-seafood-music-fest
+friendlyname: Ballard Seafood & Music Fest
+description: Annual three-day festival in Old Ballard with live music across multiple stages, local restaurants, seafood vendors, craft beer, and family activities.
+timezone: America/Los_Angeles
+location: Ballard Ave NW, Seattle, WA 98107
+url: https://seafoodfest.org/
+tags:
+  - Music
+  - Beer
+  - Ballard
+# Approximates the 2nd weekend of July (July 10–12 in 2026). The fest typically runs
+# Friday evening through Sunday. Verify dates at seafoodfest.org each year.
+schedules:
+  - schedule: "2nd Friday"
+    start_time: "17:00"
+    duration: PT5H
+    months: [7]
+  - schedule: "2nd Saturday"
+    start_time: "11:00"
+    duration: PT10H
+    months: [7]
+  - schedule: "2nd Sunday"
+    start_time: "11:00"
+    duration: PT9H
+    months: [7]

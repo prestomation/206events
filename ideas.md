@@ -38,16 +38,9 @@ Four days in early March (annual) — 2026: March 5-8 — Seattle Convention Cen
 ### Sakura-Con
 Three-four days in early April (annual) — 2026: April 2-5 — Seattle Convention Center — Tags: Community, Arts
 
-### PAX West
-Four days over Labor Day weekend (annual) — 2026: September 4-7 — Seattle Convention Center — Tags: Gaming
-
-### Ballard Seafood & Music Fest
-Three days in mid-July (annual) — 2026: July 10-12 — Ballard — `https://ballardalliance.com/programs/community-events/`
-
 ## New Tags Needed
 
 Several venues would benefit from new tags in `lib/config/tags.ts`:
-- **`Gaming`** — for board game cafes and gaming conventions
 - **`Outdoors`** — for outdoor recreation organizations
 
 ## Dynamic Calendar Generation for Multi-Venue Sources
