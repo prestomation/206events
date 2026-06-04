@@ -1,18 +1,14 @@
 ---
 name: "PAX West"
-status: candidate
-platform: annual
+status: added
+platform: recurring
 url: https://west.paxsite.com/
 tags: [Gaming, Community]
 firstSeen: 2026-05-30
-lastChecked: 2026-05-30
+lastChecked: 2026-06-04
 ---
 
 Annual gaming convention at the Seattle Convention Center over Labor Day
-weekend. 2026 dates: September 4-7. Already listed in `ideas.md` under
-"Additional Recurring Events".
-
-No ICS feed found. The PAX site uses a custom events listing with no
-public calendar API. Could be added as a recurring entry once dates are
-confirmed. Best approach may be a single annual recurring entry or a
-fixed-date one-off each year.
+weekend. 2026 dates: September 4-7. Added 2026-06-04 as
+`sources/recurring/pax-west.yaml` (1st Friday–Monday in September, months: [9]).
+Also added `Gaming` tag to `lib/config/tags.ts`.

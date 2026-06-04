@@ -1,0 +1,35 @@
+geo:
+  lat: 47.6109
+  lng: -122.3323
+  label: "Seattle Convention Center, 705 Pike St, Seattle, WA 98101"
+  osmType: way
+  osmId: 44660015
+name: pax-west
+friendlyname: PAX West
+description: Annual four-day gaming convention at the Seattle Convention Center over Labor Day weekend. Tabletop, video games, panels, tournaments, and community events.
+timezone: America/Los_Angeles
+location: Seattle Convention Center, 705 Pike St, Seattle, WA 98101
+url: https://west.paxsite.com/
+tags:
+  - Gaming
+  - Community
+  - Downtown
+# Approximates Labor Day weekend (1st Friday–Monday of Sept). Correct for 2026
+# (Sep 4–7). Verify dates at west.paxsite.com each year.
+schedules:
+  - schedule: "1st Friday"
+    start_time: "10:00"
+    duration: PT12H
+    months: [9]
+  - schedule: "1st Saturday"
+    start_time: "10:00"
+    duration: PT12H
+    months: [9]
+  - schedule: "1st Sunday"
+    start_time: "10:00"
+    duration: PT12H
+    months: [9]
+  - schedule: "1st Monday"
+    start_time: "10:00"
+    duration: PT10H
+    months: [9]

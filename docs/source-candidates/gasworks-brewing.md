@@ -1,8 +1,8 @@
 ---
 name: "Gasworks Brewing"
-status: candidate
+status: notviable
 firstSeen: 2026-05-14
-lastChecked: 2026-05-14
+lastChecked: 2026-06-04
 ---
 **Gasworks Brewing** — `https://www.gasworksbrewing.com/` — 2441 N Northlake Way, Wallingford/Lake Union — Tags: Beer
 
@@ -16,3 +16,5 @@ Investigated 2026-05-14:
 - A second SoDo location is opening May 2026
 
 Not viable as a Squarespace source without a proper events collection URL. Could potentially work as a recurring calendar for the weekly trivia/DJ events once the events page structure is confirmed.
+
+Re-checked 2026-06-04: `/events` still 404. No Squarespace events collection found. Marking notviable until site adds a proper events collection.

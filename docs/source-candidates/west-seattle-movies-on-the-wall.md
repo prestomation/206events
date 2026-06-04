@@ -1,11 +1,11 @@
 ---
 name: "West Seattle Junction — Movies on the Wall"
-status: investigating
+status: notviable
 platform: Custom HTML (unconfirmed)
 url: https://westseattlejunction.org/movies-on-the-wall/
 tags: [Movies, "West Seattle"]
 firstSeen: 2026-05-24
-lastChecked: 2026-05-29
+lastChecked: 2026-06-04
 issue: 398
 ---
 Free outdoor summer film series projected on the side of the West
@@ -24,3 +24,5 @@ Re-checked 2026-05-29: site still returning HTTP 503. Keeping as `investigating`
 until the site recovers — this is a known summer series so the 503 may be
 temporary server issues. If still 503 by mid-June (after the season would
 normally be announced), downgrade to `notviable`.
+
+Re-checked 2026-06-04: site still returning HTTP 503. Downgrading to `notviable` — the series should have posted a 2026 schedule by now but the site is consistently unreachable.
