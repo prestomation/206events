@@ -1,0 +1,21 @@
+geo:
+  lat: 47.5424
+  lng: -122.3157
+  label: "Georgetown Carnival, Airport Way S & 12th Ave S, Seattle, WA 98108"
+name: georgetown-carnival
+friendlyname: Georgetown Carnival
+description: Annual free multidisciplinary arts festival in Historic Georgetown with live music across multiple stages, carnival games, food, drinks, and art on Airport Way S. Running since 2006.
+timezone: America/Los_Angeles
+location: Airport Way S & 12th Ave S, Georgetown, Seattle, WA 98108
+url: https://georgetownseattle.org/events-calendar/georgetown-carnival/
+tags:
+  - Music
+  - Georgetown
+  - Community
+# Annual festival on the 2nd Saturday of June, noon to 10pm.
+# Confirmed: 2023 Jun 10, 2024 Jun 8, 2025 Jun 14, 2026 Jun 13 — all 2nd Saturdays.
+schedules:
+  - schedule: "2nd Saturday"
+    start_time: "12:00"
+    duration: PT10H
+    months: [6]
