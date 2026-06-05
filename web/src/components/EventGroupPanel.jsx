@@ -1,11 +1,22 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { googleMapsUrl } from '../lib/maplink.js'
 import { eventKey } from '../lib/eventKey.js'
+import { useBreakpoint } from '../hooks/useBreakpoint.js'
 import { AttributionChips } from './AttributionChips.jsx'
 
 // Hard cap on rendered date rows so a very long run (a nightly show over a wide
 // window) can't balloon the DOM. Overflow is summarised as "+N more dates".
 export const MAX_GROUP_DATES = 50
+
+// PREVIEW: the three mobile bottom-sheet behaviours, surfaced behind an in-panel
+// toggle so the sheet style can be chosen on the open PR. Once a winner is
+// picked, drop the others and the SHEET_MODES toggle. See docs.
+export const SHEET_MODES = [
+  { id: 'sticky', label: 'Sticky' }, // roomy fixed height, sticky header/footer
+  { id: 'drag', label: 'Drag' },     // draggable between a peek and near-full
+  { id: 'peek', label: 'Peek' },     // compact fixed height
+]
+const SHEET_MODE_KEY = 'egp-sheet-mode'
 
 // Only emit http(s) links/images — guards against javascript:/data: URLs in
 // source data. (React escapes text by default, so no manual HTML escaping.)
@@ -14,8 +25,8 @@ function isHttpUrl(u) {
 }
 
 // Split a js-joda-style date string ("…T19:00:00-07:00[America/Los_Angeles]")
-// into display parts for the calendar-style date cell. Returns null if
-// unparseable, in which case the caller falls back to the preformatted string.
+// into display parts. Returns null if unparseable, in which case the caller
+// falls back to the preformatted string.
 function dateParts(dateStr) {
   const cleaned = String(dateStr ?? '').replace(/\[.*\]$/, '')
   const d = new Date(cleaned)
@@ -23,18 +34,21 @@ function dateParts(dateStr) {
   return {
     dow: d.toLocaleDateString('en-US', { weekday: 'short' }),
     day: d.toLocaleDateString('en-US', { day: 'numeric' }),
-    mon: d.toLocaleDateString('en-US', { month: 'short' }),
     time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
+    monthLabel: d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
   }
 }
 
 /**
  * EventGroupPanel — the drill-down drawer shown when a map marker is clicked.
  * Renders a temporal group (one conceptual event) with its venue details and
- * the full list of dates, each row linking to that instance's event page. A
- * single-date group renders the same way with one row. Styled to match the
- * App206 design system (warm-paper surfaces, display/mono type, calendar-style
- * date cells mirroring the event-list rows).
+ * the full list of dates, each row linking to that instance's event page.
+ *
+ * Desktop: a right-side panel. Mobile (≤ tablet breakpoint): a bottom sheet
+ * whose behaviour is selectable via the in-panel PREVIEW toggle (sticky / drag /
+ * peek) so we can pick one on the PR. The event image is hidden on mobile to
+ * keep the sheet dates-first. Date rows use a compact weekday + day-number cell
+ * with month dividers between months.
  *
  * Props:
  *   group             - { key, lat, lng, summary, count, instances } from groupEvents,
@@ -44,6 +58,19 @@ function dateParts(dateStr) {
  *   onClose           - called on the close button or Esc
  */
 export function EventGroupPanel({ group, eventAttributions, onClose }) {
+  const isMobile = useBreakpoint() === 'mobile'
+  const [sheetMode, setSheetMode] = useState(() => {
+    try { return localStorage.getItem(SHEET_MODE_KEY) || 'sticky' } catch { return 'sticky' }
+  })
+  // Sheet height (vh) while in draggable mode; snaps to a peek/full on release.
+  const [dragVh, setDragVh] = useState(44)
+
+  const chooseMode = (id) => {
+    setSheetMode(id)
+    if (id === 'drag') setDragVh(44)
+    try { localStorage.setItem(SHEET_MODE_KEY, id) } catch { /* ignore */ }
+  }
+
   // Esc-to-close. Bound only while a group is open.
   useEffect(() => {
     if (!group) return undefined
@@ -61,8 +88,86 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
   const mapUrl = googleMapsUrl({ location: rep.location, lat: rep.lat, lng: rep.lng })
   const attributions = eventAttributions?.get(eventKey(rep))
 
+  // Drag the bottom sheet by its handle (mobile + drag mode only). Window-level
+  // listeners keep tracking even if the pointer leaves the small handle.
+  const onHandlePointerDown = (e) => {
+    if (!(isMobile && sheetMode === 'drag')) return
+    const startY = e.clientY
+    const startVh = dragVh
+    const move = (ev) => {
+      const dy = startY - ev.clientY // dragging up grows the sheet
+      const vh = startVh + (dy / window.innerHeight) * 100
+      setDragVh(Math.min(92, Math.max(28, vh)))
+    }
+    const up = () => {
+      window.removeEventListener('pointermove', move)
+      window.removeEventListener('pointerup', up)
+      setDragVh((v) => (v > 60 ? 90 : 44)) // snap to full or peek
+    }
+    window.addEventListener('pointermove', move)
+    window.addEventListener('pointerup', up)
+  }
+
+  const sheetStyle = isMobile && sheetMode === 'drag' ? { height: `${dragVh}vh` } : undefined
+
+  // Build the date list with a month divider whenever the month changes.
+  const dateItems = []
+  let lastMonth = null
+  shown.forEach((inst, i) => {
+    const p = dateParts(inst.date)
+    if (p && p.monthLabel !== lastMonth) {
+      lastMonth = p.monthLabel
+      dateItems.push(<li key={`m-${p.monthLabel}-${i}`} className="egp-month">{p.monthLabel}</li>)
+    }
+    const body = (
+      <>
+        <span className="egp-cal">
+          <span className="dow">{p ? p.dow : ''}</span>
+          <span className="num">{p ? p.day : '•'}</span>
+        </span>
+        <span className="egp-when">{p ? p.time : (inst.formattedDate || inst.date)}</span>
+        {isHttpUrl(inst.url) && <span className="egp-go" aria-hidden="true">→</span>}
+      </>
+    )
+    dateItems.push(
+      <li key={`${inst.date}-${i}`}>
+        {isHttpUrl(inst.url)
+          ? <a className="egp-row" href={inst.url} target="_blank" rel="noopener noreferrer">{body}</a>
+          : <div className="egp-row egp-row--plain">{body}</div>}
+      </li>,
+    )
+  })
+
   return (
-    <aside className="event-group-panel" role="dialog" aria-label={summary} data-testid="event-group-panel">
+    <aside
+      className="event-group-panel"
+      role="dialog"
+      aria-label={summary}
+      data-testid="event-group-panel"
+      data-sheet-mode={isMobile ? sheetMode : undefined}
+      style={sheetStyle}
+    >
+      {isMobile && (
+        <>
+          <div className="egp-handle" onPointerDown={onHandlePointerDown} aria-hidden="true" />
+          <div className="egp-modes" role="group" aria-label="Sheet style (preview)">
+            <span className="egp-modes-label">Preview</span>
+            <div className="egp-seg">
+              {SHEET_MODES.map((m) => (
+                <button
+                  key={m.id}
+                  type="button"
+                  className={sheetMode === m.id ? 'on' : ''}
+                  onClick={() => chooseMode(m.id)}
+                >
+                  {m.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
       <header className="egp-head">
         <div className="egp-eyebrow">{count > 1 ? `${count} dates` : 'Event'}</div>
         <h2 className="egp-title">{summary}</h2>
@@ -70,7 +175,7 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
         <button type="button" className="egp-close" onClick={() => onClose?.()} aria-label="Close">×</button>
       </header>
 
-      {isHttpUrl(rep.imageUrl) && (
+      {!isMobile && isHttpUrl(rep.imageUrl) && (
         <img
           className="egp-image"
           src={rep.imageUrl}
@@ -81,27 +186,7 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
       )}
 
       <ul className="egp-dates">
-        {shown.map((inst, i) => {
-          const p = dateParts(inst.date)
-          const body = (
-            <>
-              <span className="egp-cal">
-                <span className="dow">{p ? p.dow : ''}</span>
-                <span className="num">{p ? p.day : '•'}</span>
-                <span className="mon">{p ? p.mon : ''}</span>
-              </span>
-              <span className="egp-when">{p ? p.time : (inst.formattedDate || inst.date)}</span>
-              {isHttpUrl(inst.url) && <span className="egp-go" aria-hidden="true">→</span>}
-            </>
-          )
-          return (
-            <li key={`${inst.date}-${i}`}>
-              {isHttpUrl(inst.url)
-                ? <a className="egp-row" href={inst.url} target="_blank" rel="noopener noreferrer">{body}</a>
-                : <div className="egp-row egp-row--plain">{body}</div>}
-            </li>
-          )
-        })}
+        {dateItems}
         {overflow > 0 && (
           <li className="egp-more">+{overflow} more date{overflow === 1 ? '' : 's'}</li>
         )}

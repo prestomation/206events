@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect, vi, afterEach } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { EventGroupPanel, MAX_GROUP_DATES } from './EventGroupPanel.jsx'
 
@@ -30,9 +30,21 @@ function group(overrides = {}) {
 }
 
 // Date rows that link out are anchors with the egp-row class; non-linked rows
-// are plain divs. Count the clickable date links.
+// are plain divs. (Month dividers are .egp-month, not .egp-row.)
 const dateLinks = (container) => container.querySelectorAll('a.egp-row')
 const dateRows = (container) => container.querySelectorAll('.egp-row')
+
+// Force the responsive breakpoint by setting the jsdom window width that
+// useBreakpoint reads at mount (< 768 => mobile). No resize dispatch needed —
+// each test sets the width before rendering.
+function setWidth(px) {
+  window.innerWidth = px
+}
+
+afterEach(() => {
+  setWidth(1024)
+  try { localStorage.removeItem('egp-sheet-mode') } catch { /* ignore */ }
+})
 
 describe('EventGroupPanel', () => {
   it('renders nothing when no group is selected', () => {
@@ -66,6 +78,16 @@ describe('EventGroupPanel', () => {
     ])
   })
 
+  it('inserts a month divider when the month changes', () => {
+    const instances = [
+      instance({ date: '2026-07-30T19:00:00-07:00', url: 'https://example.com/a' }),
+      instance({ date: '2026-08-01T19:00:00-07:00', url: 'https://example.com/b' }),
+    ]
+    const { container } = render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
+    const months = [...container.querySelectorAll('.egp-month')].map((e) => e.textContent)
+    expect(months).toEqual(['July 2026', 'August 2026'])
+  })
+
   it('only links http(s) rows (javascript:/missing urls render as plain rows)', () => {
     const instances = [
       instance({ date: '2026-07-01T19:00:00-07:00', url: 'https://example.com/ok' }),
@@ -73,7 +95,6 @@ describe('EventGroupPanel', () => {
       instance({ date: '2026-07-03T19:00:00-07:00', url: undefined }),
     ]
     const { container } = render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
-    // All three rows render, but only the https one is an anchor.
     expect(dateRows(container)).toHaveLength(3)
     const links = dateLinks(container)
     expect(links).toHaveLength(1)
@@ -87,6 +108,33 @@ describe('EventGroupPanel', () => {
     const { container } = render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
     expect(dateRows(container)).toHaveLength(MAX_GROUP_DATES)
     expect(screen.getByText('+7 more dates')).toBeInTheDocument()
+  })
+
+  it('shows the event image on desktop', () => {
+    const { container } = render(
+      <EventGroupPanel group={group({ instances: [instance({ imageUrl: 'https://example.com/i.jpg' })] })} onClose={() => {}} />,
+    )
+    expect(container.querySelector('.egp-image')).not.toBeNull()
+    // No mobile preview control on desktop.
+    expect(screen.queryByText('Preview')).not.toBeInTheDocument()
+  })
+
+  it('on mobile: shows the preview sheet-mode control, hides the image, and switches mode', () => {
+    setWidth(500)
+    const { container } = render(
+      <EventGroupPanel group={group({ instances: [instance({ imageUrl: 'https://example.com/i.jpg' })] })} onClose={() => {}} />,
+    )
+    expect(screen.getByText('Preview')).toBeInTheDocument()
+    expect(screen.getByText('Sticky')).toBeInTheDocument()
+    expect(screen.getByText('Drag')).toBeInTheDocument()
+    expect(screen.getByText('Peek')).toBeInTheDocument()
+    // Image is hidden on mobile (dates-first).
+    expect(container.querySelector('.egp-image')).toBeNull()
+    // Default mode is sticky; choosing Peek updates the data attribute.
+    const panel = container.querySelector('.event-group-panel')
+    expect(panel.getAttribute('data-sheet-mode')).toBe('sticky')
+    fireEvent.click(screen.getByText('Peek'))
+    expect(panel.getAttribute('data-sheet-mode')).toBe('peek')
   })
 
   it('closes via the close button', () => {

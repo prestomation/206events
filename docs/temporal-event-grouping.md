@@ -75,17 +75,23 @@ this consumer.
   colour).
 - **Side panel** (`web/src/components/EventGroupPanel.jsx`): clicking a marker
   opens a drawer styled to the App206 design system — a mono `N dates` eyebrow,
-  display-font title, source line, optional image, a scrollable list of
-  calendar-style date cells (weekday / day-number / month + time) each linking to
-  that instance's event page, and a `📍 Open in maps` footer. The date list is
+  display-font title, source line, optional image, and a scrollable list of
+  compact date cells (weekday + day-number + time) each linking to that
+  instance's event page, with a sticky **month divider** (`July 2026`) inserted
+  whenever the month changes, and a `📍 Open in maps` footer. The date list is
   capped at `MAX_GROUP_DATES` (50) with a "+N more dates" overflow line. Closes
-  via its button or Esc. On `click`, the map `panInside`s the marker out from
-  behind the panel (`PANEL_WIDTH` reserved on the right; a no-op on mobile, where
-  the panel is a bottom sheet instead). Because the panel is a real React
-  subtree, the old imperative popup-HTML builders (and their manual `escapeHtml`)
-  are gone — React escapes text by default; only `https?:`-scheme links/images
-  are emitted. Attribution chips reuse the existing `<AttributionChips>`
-  component.
+  via its button or Esc. Because the panel is a real React subtree, the old
+  imperative popup-HTML builders (and their manual `escapeHtml`) are gone — React
+  escapes text by default; only `https?:`-scheme links/images are emitted.
+  Attribution chips reuse the existing `<AttributionChips>` component.
+- **Desktop vs mobile.** Desktop is a right-side panel; on `click` the map
+  `panInside`s the marker out from behind it (`PANEL_WIDTH` reserved on the
+  right). Below the tablet breakpoint (`useBreakpoint() === 'mobile'`, < 768) the
+  panel is a **bottom sheet** with a grab handle, the event image is hidden
+  (dates-first), and panning is skipped. **PREVIEW (temporary):** the bottom
+  sheet exposes a `Sticky / Drag / Peek` toggle (`SHEET_MODES`, persisted in
+  `localStorage`) so the sheet behaviour can be chosen on the open PR — once a
+  winner is picked, drop the other two modes and the toggle.
 
 ## Security
 
