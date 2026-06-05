@@ -51,5 +51,6 @@ calendars:
     friendlyname: "SEAtoday - Nightlife"
     timezone: America/Los_Angeles
     tags: ["Nightlife"]
+    expectEmpty: true
     config:
       filterTags: [14]  # Nightlife

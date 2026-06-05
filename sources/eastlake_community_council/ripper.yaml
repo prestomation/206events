@@ -10,4 +10,3 @@ calendars:
   - name: all-events
     friendlyname: "Eastlake Community Council"
     timezone: America/Los_Angeles
-    expectEmpty: true
