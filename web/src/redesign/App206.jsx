@@ -21,6 +21,14 @@ const FUSE_THRESHOLD = 0.1
 // event-search.ts for the full rationale (favorites filter parity).
 const FUSE_IGNORE_LOCATION = true
 
+// Desktop map-column resize bounds. RAIL_W mirrors the 84px rail column in the
+// .app206 grid; MIN_CONTENT_W is the floor below which the content column gets
+// uncomfortably narrow. MAP_WIDTH_KEY persists the chosen width.
+const MAP_WIDTH_KEY = 'map-panel-width'
+const MAP_WIDTH_MIN = 320
+const RAIL_W = 84
+const MIN_CONTENT_W = 420
+
 export function App206(props) {
   const {
     calendars, eventsIndex, venues, loading, buildErrors,
@@ -66,6 +74,28 @@ export function App206(props) {
   const mapRef = useRef(null)
   const [mapExpanded, setMapExpanded] = useState(false)
   const toggleMapExpand = useCallback(() => setMapExpanded((v) => !v), [])
+  // Desktop only: user-draggable width of the map column (px). null = use the
+  // CSS default clamp(). Persisted so a resized map sticks across reloads.
+  // Clamped in setMapWidth so the content column never collapses; passing null
+  // resets to the default. See the resize handle in shell.jsx MapPanel.
+  const [mapWidth, setMapWidthState] = useState(() => {
+    try {
+      const v = parseInt(localStorage.getItem(MAP_WIDTH_KEY), 10)
+      return Number.isFinite(v) ? v : null
+    } catch { return null }
+  })
+  const setMapWidth = useCallback((px) => {
+    if (px == null) {
+      setMapWidthState(null)
+      try { localStorage.removeItem(MAP_WIDTH_KEY) } catch { /* ignore */ }
+      return
+    }
+    // Keep at least RAIL_W + MIN_CONTENT_W for the rail + content columns.
+    const max = Math.max(MAP_WIDTH_MIN, window.innerWidth - RAIL_W - MIN_CONTENT_W)
+    const clamped = Math.round(Math.min(Math.max(px, MAP_WIDTH_MIN), max))
+    setMapWidthState(clamped)
+    try { localStorage.setItem(MAP_WIDTH_KEY, String(clamped)) } catch { /* ignore */ }
+  }, [])
   // Mobile map scope ('all' | 'following'). The Map is its own bottom-nav tab on
   // mobile, so it can't derive scope from `section`; this persists across the
   // tab switch and auto-defaults on section entry (effect below). On desktop the
@@ -286,6 +316,7 @@ export function App206(props) {
     hasActiveFilters, toast, todayLabel,
     lightbox, openLightbox, closeLightbox,
     mapRef, mapExpanded, toggleMapExpand, mapScope, setMapScope,
+    mapWidth, setMapWidth,
     // handlers
     go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
   }
@@ -301,7 +332,8 @@ export function App206(props) {
 
   return (
     <App206Context.Provider value={model}>
-      <div className="mk app206" data-nav="adaptive">
+      <div className="mk app206" data-nav="adaptive"
+        style={mapWidth ? { '--a-map-w': `${mapWidth}px` } : undefined}>
         <div className="a-rail"><RailNav /></div>
         <div className="a-top"><TopBar /></div>
         <div className="a-content" key={openEventObj ? 'ev' : openCh ? 'ch' : section}>

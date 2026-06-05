@@ -1,6 +1,6 @@
 // App shell chrome: top bar, desktop rail, mobile bottom nav, map panel, toast.
 
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { Brand } from './atoms.jsx'
@@ -240,8 +240,52 @@ export function FilterPopover() {
 }
 
 // Desktop persistent map column / mobile map view — wraps the existing Leaflet map.
+// Draggable divider on the left edge of the desktop map panel. Dragging sets
+// the map column width (distance from the right edge of the window to the
+// pointer); double-clicking resets to the default. Keyboard: Left/Right arrows
+// grow/shrink the map by KEY_STEP. The MapBridge ResizeObserver re-sizes Leaflet
+// after the column changes, so no manual invalidateSize() is needed here.
+const KEY_STEP = 24
+function MapResizeHandle({ panelRef, setMapWidth, mapWidth }) {
+  const onPointerDown = useCallback((e) => {
+    // Only the primary (left) button starts a drag.
+    if (e.button != null && e.button !== 0) return
+    e.preventDefault()
+    const move = (ev) => setMapWidth(window.innerWidth - ev.clientX)
+    const up = () => {
+      window.removeEventListener('pointermove', move)
+      window.removeEventListener('pointerup', up)
+      document.body.classList.remove('a-resizing')
+    }
+    document.body.classList.add('a-resizing')
+    window.addEventListener('pointermove', move)
+    window.addEventListener('pointerup', up)
+  }, [setMapWidth])
+
+  const onKeyDown = useCallback((e) => {
+    const cur = mapWidth ?? (panelRef.current ? panelRef.current.offsetWidth : 440)
+    if (e.key === 'ArrowLeft') { e.preventDefault(); setMapWidth(cur + KEY_STEP) }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); setMapWidth(cur - KEY_STEP) }
+    else if (e.key === 'Home' || e.key === 'Enter') { e.preventDefault(); setMapWidth(null) }
+  }, [mapWidth, panelRef, setMapWidth])
+
+  return (
+    <div
+      className="a-mapresize"
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="Resize map — drag, or use arrow keys; double-click to reset"
+      tabIndex={0}
+      onPointerDown={onPointerDown}
+      onDoubleClick={() => setMapWidth(null)}
+      onKeyDown={onKeyDown}
+    />
+  )
+}
+
 export function MapPanel({ mobile = false }) {
   const app = useApp206()
+  const panelRef = useRef(null)
   // Only the persistent desktop panel drives the shared map ref / expand state;
   // the mobile view is a separate instance and must not clobber the ref.
   const expanded = !mobile && app.mapExpanded
@@ -325,7 +369,8 @@ export function MapPanel({ mobile = false }) {
     return <div className="a-mapview">{map}{filterBar}</div>
   }
   return (
-    <div className="a-mappanel">
+    <div className="a-mappanel" ref={panelRef}>
+      <MapResizeHandle panelRef={panelRef} setMapWidth={app.setMapWidth} mapWidth={app.mapWidth} />
       {map}
       {filterBar}
       <div className="a-mapbar">
