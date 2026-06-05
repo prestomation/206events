@@ -1,6 +1,6 @@
 ---
 name: "Summer Concerts at the Ballard Locks"
-status: candidate
+status: added
 firstSeen: 2026-06-05
 lastChecked: 2026-06-05
 tags: [Music, Ballard]
