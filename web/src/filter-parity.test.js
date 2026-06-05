@@ -6,7 +6,11 @@ import { deduplicateEvents } from './lib/event-dedup.js'
 import { isMappable } from './components/EventsMap.jsx'
 
 const FUSE_THRESHOLD = 0.1
+// Must match the worker (infra/favorites-worker/src/event-search.ts) and App.jsx.
+// ignoreLocation lets a term match anywhere in the field, not just near its start.
+const FUSE_IGNORE_LOCATION = true
 const FUSE_KEYS = ['summary', 'description', 'location']
+const FUSE_OPTIONS = { keys: FUSE_KEYS, threshold: FUSE_THRESHOLD, ignoreLocation: FUSE_IGNORE_LOCATION }
 
 // Shared fixture — a realistic slice of events-index entries
 const FIXTURE_EVENTS = [
@@ -15,27 +19,48 @@ const FIXTURE_EVENTS = [
   { icsUrl: 'mopop.ics',          summary: 'Guitar Exhibit Opening',      description: 'Rock history',       location: '325 5th Ave N, Seattle',  date: '2026-04-03T11:00', lat: 47.6214, lng: -122.3481 },
   { icsUrl: 'fremont-brewing.ics', summary: 'Trivia Night',               description: 'Beer and trivia',   location: '1050 N 34th St, Seattle', date: '2026-04-04T19:00', lat: 47.6499, lng: -122.3482 },
   { icsUrl: 'seatoday.ics',        summary: 'Community Meeting',          description: null,                location: null,                       date: '2026-04-05T18:00', lat: null,   lng: null   },
+  // Regression fixture: search terms that appear in the MIDDLE/END of the field.
+  // With Fuse's default location scoring + threshold 0.1 these never matched
+  // (e.g. searching "Elton" or "John" returned nothing; only "choir" near the
+  // start matched). ignoreLocation: true fixes this.
+  { icsUrl: 'moore.ics',          summary: 'One Night Without Elton John: A Choir Tribute', description: 'Choir performs Elton John hits', location: '1932 2nd Ave, Seattle', date: '2026-04-06T20:00', lat: 47.6131, lng: -122.3411 },
 ]
 
 describe('Filter parity: client matches worker behavior', () => {
   describe('Search filters', () => {
     it('matches "punk" to the right event', () => {
-      const fuse = new Fuse(FIXTURE_EVENTS, { keys: FUSE_KEYS, threshold: FUSE_THRESHOLD })
+      const fuse = new Fuse(FIXTURE_EVENTS, FUSE_OPTIONS)
       const results = fuse.search('punk').map(r => r.item.icsUrl)
       expect(results).toContain('crocodile-main.ics')
       expect(results).not.toContain('neumos.ics')
     })
 
     it('does not match unrelated events for "jazz"', () => {
-      const fuse = new Fuse(FIXTURE_EVENTS, { keys: FUSE_KEYS, threshold: FUSE_THRESHOLD })
+      const fuse = new Fuse(FIXTURE_EVENTS, FUSE_OPTIONS)
       const results = fuse.search('jazz').map(r => r.item.icsUrl)
       expect(results).toContain('neumos.ics')
       expect(results).not.toContain('fremont-brewing.ics')
     })
 
     it('handles events with null description/location gracefully', () => {
-      const fuse = new Fuse(FIXTURE_EVENTS, { keys: FUSE_KEYS, threshold: FUSE_THRESHOLD })
+      const fuse = new Fuse(FIXTURE_EVENTS, FUSE_OPTIONS)
       expect(() => fuse.search('community')).not.toThrow()
+    })
+
+    // Regression: terms in the middle/end of a field must match (ignoreLocation).
+    it.each(['Elton', 'John', 'Tribute', 'choir'])(
+      'matches mid/late-field term "%s" anywhere in the summary',
+      (term) => {
+        const fuse = new Fuse(FIXTURE_EVENTS, FUSE_OPTIONS)
+        const results = fuse.search(term).map(r => r.item.icsUrl)
+        expect(results).toContain('moore.ics')
+      }
+    )
+
+    it('matches a term found only in the description, not the summary', () => {
+      const fuse = new Fuse(FIXTURE_EVENTS, FUSE_OPTIONS)
+      const results = fuse.search('performs').map(r => r.item.icsUrl)
+      expect(results).toContain('moore.ics')
     })
   })
 
@@ -91,7 +116,7 @@ describe('Filter parity: client matches worker behavior', () => {
 
   describe('Multi-match', () => {
     it('an event can match both search and geo simultaneously', () => {
-      const searchFuse = new Fuse(FIXTURE_EVENTS, { keys: FUSE_KEYS, threshold: FUSE_THRESHOLD })
+      const searchFuse = new Fuse(FIXTURE_EVENTS, FUSE_OPTIONS)
       const searchMatches = new Set(searchFuse.search('punk').map(r => eventKey(r.item)))
 
       const geoFilter = { lat: 47.6146, lng: -122.3474, radiusKm: 0.5 } // right at Crocodile
@@ -122,7 +147,7 @@ describe('Map feedOnly scoping: favorites view shows only feed events', () => {
   it('feedOnly:false shows every event with coordinates', () => {
     const result = map({ feedOnly: false })
     // All but the null-coord seatoday event
-    expect(result).toEqual(['crocodile-main.ics', 'neumos.ics', 'mopop.ics', 'fremont-brewing.ics'])
+    expect(result).toEqual(['crocodile-main.ics', 'neumos.ics', 'mopop.ics', 'fremont-brewing.ics', 'moore.ics'])
     expect(result).not.toContain('seatoday.ics')
   })
 

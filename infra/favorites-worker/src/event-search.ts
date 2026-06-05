@@ -2,6 +2,12 @@ import Fuse from 'fuse.js'
 import type { EventsIndexEntry } from './types.js'
 
 const FUSE_THRESHOLD = 0.1
+// Search the entire field, not just its first ~10 characters. Fuse's default
+// location-based scoring (location:0, distance:100) combined with our strict
+// threshold otherwise rejects any term that isn't near the START of the field —
+// e.g. "Elton"/"John" in "One Night Without Elton John" never matched while
+// "choir" did. Must stay in sync with web/src/App.jsx (favorites filter parity).
+const FUSE_IGNORE_LOCATION = true
 
 interface CachedResource<T> {
   data: T
@@ -59,6 +65,7 @@ export function searchEventsIndex(
   const fuse = new Fuse(eventsIndex, {
     keys: ['summary', 'description', 'location'],
     threshold: FUSE_THRESHOLD,
+    ignoreLocation: FUSE_IGNORE_LOCATION,
   })
 
   const matchingKeys = new Set<string>()

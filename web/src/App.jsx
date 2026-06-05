@@ -20,6 +20,13 @@ import { App206 } from './redesign/App206.jsx'
 import { upcomingIndexEvents, groupIndexEventsByDay } from './redesign/viewModels.js'
 
 const FUSE_THRESHOLD = 0.1
+// Search the entire field, not just its first ~10 characters. Fuse's default
+// location-based scoring (location:0, distance:100) combined with our strict
+// threshold otherwise rejects any term that isn't near the START of the field —
+// e.g. "Elton"/"John" in "One Night Without Elton John" never matched while
+// "choir" did. Must stay in sync with infra/favorites-worker/src/event-search.ts
+// (favorites filter parity).
+const FUSE_IGNORE_LOCATION = true
 
 function App() {
   const [calendars, setCalendars] = useState([])
@@ -736,7 +743,8 @@ function App() {
 
     return new Fuse(searchData, {
       keys: ['searchText'],
-      threshold: FUSE_THRESHOLD
+      threshold: FUSE_THRESHOLD,
+      ignoreLocation: FUSE_IGNORE_LOCATION
     })
   }, [calendars])
 
@@ -745,7 +753,8 @@ function App() {
     if (!eventsIndex.length) return null
     return new Fuse(eventsIndex, {
       keys: ['summary', 'description', 'location'],
-      threshold: FUSE_THRESHOLD
+      threshold: FUSE_THRESHOLD,
+      ignoreLocation: FUSE_IGNORE_LOCATION
     })
   }, [eventsIndex])
 
@@ -765,7 +774,8 @@ function App() {
     if (!searchTerm || !selectedCalendar) return events
     const fuse = new Fuse(events, {
       keys: ['title', 'description', 'location'],
-      threshold: FUSE_THRESHOLD
+      threshold: FUSE_THRESHOLD,
+      ignoreLocation: FUSE_IGNORE_LOCATION
     })
     return fuse.search(searchTerm).map(r => r.item)
   }, [events, searchTerm, selectedCalendar])
@@ -854,7 +864,8 @@ function App() {
     if (searchTerm) {
       const upcomingFuse = new Fuse(upcoming, {
         keys: ['summary', 'description', 'location'],
-        threshold: FUSE_THRESHOLD
+        threshold: FUSE_THRESHOLD,
+        ignoreLocation: FUSE_IGNORE_LOCATION
       })
       upcoming = upcomingFuse.search(searchTerm).map(r => r.item)
     }
@@ -908,6 +919,7 @@ function App() {
     const fuse = new Fuse(eventsIndex, {
       keys: ['summary', 'description', 'location'],
       threshold: FUSE_THRESHOLD,
+      ignoreLocation: FUSE_IGNORE_LOCATION,
     })
     const result = new Map()
     for (const filter of searchFilters) {
@@ -979,6 +991,7 @@ function App() {
     const fuse = new Fuse(eventsIndex, {
       keys: ['summary', 'description', 'location'],
       threshold: FUSE_THRESHOLD,
+      ignoreLocation: FUSE_IGNORE_LOCATION,
     })
     const results = fuse.search(trimmed)
     return {
@@ -1067,7 +1080,8 @@ function App() {
     if (searchTerm) {
       const fuse = new Fuse(upcoming, {
         keys: ['summary', 'description', 'location'],
-        threshold: FUSE_THRESHOLD
+        threshold: FUSE_THRESHOLD,
+        ignoreLocation: FUSE_IGNORE_LOCATION
       })
       upcoming = fuse.search(searchTerm).map(r => r.item)
     }

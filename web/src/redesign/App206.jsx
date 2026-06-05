@@ -17,6 +17,9 @@ import { deserializeHash } from './urlHash.js'
 import { useUrlState } from './useUrlState.js'
 
 const FUSE_THRESHOLD = 0.1
+// Search the entire field, not just its first ~10 characters — see App.jsx /
+// event-search.ts for the full rationale (favorites filter parity).
+const FUSE_IGNORE_LOCATION = true
 
 export function App206(props) {
   const {
@@ -160,7 +163,7 @@ export function App206(props) {
      key Set so per-view filtering is an O(n) membership test (no per-keystroke
      index rebuilds → no freeze). ---- */
   const queryFuse = useMemo(
-    () => new Fuse(upcomingEvents, { keys: ['summary', 'description', 'location'], threshold: FUSE_THRESHOLD }),
+    () => new Fuse(upcomingEvents, { keys: ['summary', 'description', 'location'], threshold: FUSE_THRESHOLD, ignoreLocation: FUSE_IGNORE_LOCATION }),
     [upcomingEvents]
   )
   const queryKeySet = useMemo(() => {

@@ -8,6 +8,10 @@ const SAMPLE_EVENTS: EventsIndexEntry[] = [
   { icsUrl: 'venue-b.ics', summary: 'Jazz Brunch', description: 'Sunday brunch with jazz', location: '456 Oak Ave', date: '2026-03-22T11:00' },
   { icsUrl: 'venue-b.ics', summary: 'Farmers Market', description: 'Weekly farmers market', location: 'Pioneer Square', date: '2026-03-23T09:00' },
   { icsUrl: 'venue-c.ics', summary: 'Comedy Open Mic', description: 'Stand-up comedy', location: '789 Pine St', date: '2026-03-24T20:00' },
+  // Search terms in the MIDDLE/END of the summary. Without ignoreLocation, Fuse's
+  // default location scoring + threshold 0.1 rejects these (only terms near the
+  // start of a field matched), so searching "Elton" or "John" returned nothing.
+  { icsUrl: 'venue-d.ics', summary: 'One Night Without Elton John: A Choir Tribute', description: 'Choir performs Elton John hits', location: '1932 2nd Ave', date: '2026-03-25T20:00' },
 ]
 
 const SAMPLE_ALL_ICS = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nX-WR-CALNAME:All Events\r\nBEGIN:VEVENT\r\nUID:event-1\r\nDTSTART:20260320T190000Z\r\nSUMMARY:Jazz Night at The Blue Room\r\nDESCRIPTION:Live jazz music\r\nEND:VEVENT\r\nBEGIN:VEVENT\r\nUID:event-2\r\nDTSTART:20260321T180000Z\r\nSUMMARY:Trivia Tuesday\r\nDESCRIPTION:Weekly pub trivia\r\nEND:VEVENT\r\nBEGIN:VEVENT\r\nUID:event-3\r\nDTSTART:20260322T110000Z\r\nSUMMARY:Jazz Brunch\r\nDESCRIPTION:Sunday brunch with jazz\r\nEND:VEVENT\r\nBEGIN:VEVENT\r\nUID:event-4\r\nDTSTART:20260323T090000Z\r\nSUMMARY:Farmers Market\r\nDESCRIPTION:Weekly farmers market\r\nEND:VEVENT\r\nBEGIN:VEVENT\r\nUID:event-5\r\nDTSTART:20260324T200000Z\r\nSUMMARY:Comedy Open Mic\r\nDESCRIPTION:Stand-up comedy\r\nEND:VEVENT\r\nEND:VCALENDAR`
@@ -47,6 +51,16 @@ describe('searchEventsIndex', () => {
     const matches = searchEventsIndex(SAMPLE_EVENTS, ['stand-up comedy'])
     expect(matches.has('Comedy Open Mic|2026-03-24T20:00')).toBe(true)
   })
+
+  // Regression: ignoreLocation lets terms match anywhere in the field, not just
+  // near its start. "Elton"/"John" live mid/late in the summary; "choir" near the end.
+  it.each(['Elton', 'John', 'choir', 'Tribute'])(
+    'matches mid/late-field term "%s" (ignoreLocation regression)',
+    (term) => {
+      const matches = searchEventsIndex(SAMPLE_EVENTS, [term])
+      expect(matches.has('One Night Without Elton John: A Choir Tribute|2026-03-25T20:00')).toBe(true)
+    }
+  )
 })
 
 describe('extractMatchingVEvents', () => {
