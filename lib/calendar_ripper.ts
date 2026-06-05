@@ -27,6 +27,7 @@ import {
 } from "./uncertainty-merge.js";
 import { toRSS } from "./config/rss.js";
 import { checkUrlField, formatUrlEntityError, type UrlEntityError } from "./url-entities.js";
+import { decodeEntities } from "./text-normalize.js";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import {
@@ -508,6 +509,13 @@ export const main = async () => {
   // Add recurring calendars first
   allCalendars.push(...recurringCalendars);
   
+  // Decode HTML entities in event titles (e.g. "Greg Hoy &amp; the Boys" →
+  // "Greg Hoy & the Boys") before any serialization, so ICS, events-index.json,
+  // RSS, and the website all get clean titles. Idempotent — see text-normalize.ts.
+  for (const calendar of recurringCalendars) {
+    for (const e of calendar.events) e.summary = decodeEntities(e.summary);
+  }
+
   // Process recurring calendars for output
   const recurringWritePromises: Promise<void>[] = [];
   for (const calendar of recurringCalendars) {
@@ -694,6 +702,11 @@ export const main = async () => {
       const backfilled = applyImageBackfill(calendar.events, uncertaintyCache, config.config.name);
       calendar.events = backfilled.events;
       for (const key of backfilled.touchedKeys) uncertaintyTouchedKeys.add(key);
+
+      // Decode HTML entities in event titles before serialization (ICS,
+      // events-index.json, RSS, website all read this field). Idempotent and
+      // limited to titles — see text-normalize.ts.
+      for (const e of calendar.events) e.summary = decodeEntities(e.summary);
     }
   }
 
