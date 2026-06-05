@@ -114,19 +114,16 @@ export class InstagramRipper implements IRipper {
 
         const unknownFields: UncertaintyField[] = [];
 
-        // Start time — placeholder + uncertainty when the agent couldn't read it.
+        // Start time — placeholder + uncertainty when the agent couldn't read a
+        // valid one. parseLocalTime rejects NaN and out-of-range values so a
+        // malformed cache entry falls back to the placeholder instead of
+        // producing an invalid (or throwing) ZonedDateTime.
         let hour = DEFAULT_UNKNOWN_TIME_HOUR;
         let minute = DEFAULT_UNKNOWN_TIME_MINUTE;
-        if (entry.startTime) {
-            const parts = entry.startTime.split(':');
-            const h = parseInt(parts[0], 10);
-            const m = parseInt(parts[1] ?? '0', 10);
-            if (!isNaN(h) && !isNaN(m)) {
-                hour = h;
-                minute = m;
-            } else {
-                unknownFields.push("startTime");
-            }
+        const parsedTime = entry.startTime ? parseLocalTime(entry.startTime) : null;
+        if (parsedTime) {
+            hour = parsedTime.hour;
+            minute = parsedTime.minute;
         } else {
             unknownFields.push("startTime");
         }
@@ -178,4 +175,16 @@ export class InstagramRipper implements IRipper {
 // per post, so this never churns across builds.
 function instagramId(username: string, postId: string): string {
     return `${username}-${postId}`;
+}
+
+// Parse a local "HH:MM" / "HH:MM:SS" time string. Returns null for anything
+// non-numeric or out of range so the caller can fall back to the placeholder
+// (and flag the field uncertain) rather than building an invalid ZonedDateTime.
+function parseLocalTime(raw: string): { hour: number; minute: number } | null {
+    const parts = raw.split(':');
+    const hour = parseInt(parts[0], 10);
+    const minute = parseInt(parts[1] ?? '0', 10);
+    if (isNaN(hour) || isNaN(minute)) return null;
+    if (hour < 0 || hour > 23 || minute < 0 || minute > 59) return null;
+    return { hour, minute };
 }

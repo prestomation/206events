@@ -98,6 +98,19 @@ describe('InstagramRipper.toEvents', () => {
         expect(uncertainties[0].partialFingerprint).toBe('fp-abc');
     });
 
+    it('falls back to the placeholder (not NaN/throw) for malformed or out-of-range start times', () => {
+        for (const bad of ['abc', '99:99', '24:00', '19:60', ':30', '-1:00']) {
+            const entry: InstagramCacheEntry = { ...FULL_EVENT, startTime: bad };
+            const out = ripper.toEvents('h', `P-${bad}`, entry, tz, undefined, 2, 's', 'main');
+            const ev = out.filter(e => 'date' in e)[0] as RipperCalendarEvent;
+            const u = out.filter(e => (e as RipperError).type === 'Uncertainty') as UncertaintyError[];
+            expect(ev).toBeDefined();
+            expect(ev.date.hour()).toBe(12); // placeholder noon
+            expect(ev.date.minute()).toBe(0);
+            expect(u[0].unknownFields).toContain('startTime');
+        }
+    });
+
     it('flags location uncertain only when neither the entry nor a default provides one', () => {
         const entry: InstagramCacheEntry = { ...FULL_EVENT, location: undefined };
 
