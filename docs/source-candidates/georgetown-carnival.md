@@ -1,7 +1,7 @@
 ---
 name: "Georgetown Carnival"
 status: added
-pr: 494
+pr: 495
 firstSeen: 2026-06-05
 lastChecked: 2026-06-05
 tags: [Music, Georgetown, Community]
