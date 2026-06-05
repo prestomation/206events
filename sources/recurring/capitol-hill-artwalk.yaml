@@ -1,5 +1,8 @@
 # verified: 2026-05-11 drift-fixed (start_time 18:00→17:00, duration PT4H→PT3H)
-geo: null
+geo:
+  lat: 47.6253
+  lng: -122.3222
+  label: "Capitol Hill, Seattle, WA"
 name: capitol-hill-artwalk
 friendlyname: Capitol Hill Art Walk
 description: Monthly art walk in the Capitol Hill neighborhood

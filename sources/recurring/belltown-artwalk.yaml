@@ -1,5 +1,8 @@
 # verified: 2026-05-11 drift-fixed (duration PT4H→PT3H)
-geo: null
+geo:
+  lat: 47.6132
+  lng: -122.3473
+  label: "Belltown, Seattle, WA"
 name: belltown-artwalk
 friendlyname: Belltown Art Walk
 description: Monthly art walk in the Belltown neighborhood

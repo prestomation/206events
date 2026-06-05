@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6007
+  lng: -122.3321
+  label: "Pioneer Square, Seattle, WA"
 name: pioneer-square-artwalk
 friendlyname: Pioneer Square Art Walk
 description: Monthly art walk in Pioneer Square - the nation's first art walk!

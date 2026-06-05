@@ -1,5 +1,8 @@
 # verified: 2026-05-25 drift-fixed (start_time 18:00→12:00, duration PT4H→PT9H)
-geo: null
+geo:
+  lat: 47.5477
+  lng: -122.3226
+  label: "Georgetown, Seattle, WA"
 name: georgetown-artwalk
 friendlyname: Georgetown Art Attack
 description: Monthly art walk in the Georgetown neighborhood

@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6603
+  lng: -122.3338
+  label: "Wallingford, Seattle, WA"
 name: wallingford-artwalk
 friendlyname: Wallingford Art Walk
 description: Summer art walk in the Wallingford neighborhood, May through September

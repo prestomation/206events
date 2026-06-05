@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6614
+  lng: -122.3121
+  label: "University District, Seattle, WA"
 name: university-district-artwalk
 friendlyname: University District Art Walk
 description: Monthly art walk in the University District

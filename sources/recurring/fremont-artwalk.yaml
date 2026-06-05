@@ -1,5 +1,8 @@
 # verified: 2026-05-25 flagged (format changed to informal; most businesses no longer holding formal openings on 1st Friday; 2026 schedule not yet published)
-geo: null
+geo:
+  lat: 47.6512
+  lng: -122.3501
+  label: "Fremont, Seattle, WA"
 name: fremont-artwalk
 friendlyname: Fremont First Friday Art Walk
 description: Monthly art walk in the Fremont neighborhood

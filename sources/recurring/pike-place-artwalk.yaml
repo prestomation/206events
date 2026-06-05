@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6094
+  lng: -122.3417
+  label: "Pike Place Market, Seattle, WA 98101"
 name: pike-place-artwalk
 friendlyname: Pike Place Summer Art Walk
 description: Summer art walk at Pike Place Market

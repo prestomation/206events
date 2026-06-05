@@ -1,5 +1,8 @@
 # verified: 2026-05-17 flagged (url points to Wing Luke JamFest 2025, a specific annual event at 5pm — not a general recurring art walk page; start_time may have drifted from 18:00 to 17:00)
-geo: null
+geo:
+  lat: 47.5983
+  lng: -122.3237
+  label: "Chinatown/International District, Seattle, WA"
 name: chinatown-id-artwalk
 friendlyname: Chinatown/International District Art Walk
 description: Summer art walk in the Chinatown/International District

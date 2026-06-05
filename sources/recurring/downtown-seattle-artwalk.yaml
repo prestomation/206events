@@ -1,5 +1,8 @@
 # verified: 2026-05-25 ok
-geo: null
+geo:
+  lat: 47.608
+  lng: -122.3351
+  label: "Downtown Seattle, WA"
 name: downtown-seattle-artwalk
 friendlyname: Downtown Seattle Art Walk
 description: Monthly art walk in Downtown Seattle
