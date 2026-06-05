@@ -1,8 +1,8 @@
 import { CONTAINS_HTML, sanitizeHtml } from '../utils/html.js'
 
 // Matches bare http(s):// and www. URLs in plain text. Stops at whitespace or
-// an opening angle bracket so it never swallows surrounding markup.
-const URL_RE = /(https?:\/\/[^\s<]+|www\.[^\s<]+)/gi
+// an angle bracket (either direction) so it never swallows surrounding markup.
+const URL_RE = /(https?:\/\/[^\s<>]+|www\.[^\s<>]+)/gi
 // Trailing punctuation that's almost always sentence punctuation, not URL.
 const TRAILING_PUNCT = /[.,;:!?)\]}'"]+$/
 

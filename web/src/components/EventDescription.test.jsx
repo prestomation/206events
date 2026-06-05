@@ -29,6 +29,12 @@ describe('linkifyText', () => {
     expect(out[2]).toBe('.')
   })
 
+  it('stops at an angle bracket in either direction', () => {
+    const out = linkifyText('link https://example.com>rest')
+    expect(out[1].props.href).toBe('https://example.com')
+    expect(out[2]).toBe('>rest')
+  })
+
   it('handles multiple URLs', () => {
     const out = linkifyText('https://a.com and https://b.com')
     const hrefs = out.filter((n) => n && n.props).map((n) => n.props.href)
