@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6655
+  lng: -122.3989
+  label: "Carl S. English Jr. Botanical Garden, 3015 NW 54th St, Seattle, WA 98107"
+name: ballard-locks-summer-concerts
+friendlyname: Summer Concerts at the Ballard Locks
+description: Free outdoor summer concert series in the Carl S. English Jr. Botanical Garden at Hiram M. Chittenden Locks, organized by Friends of the Ballard Locks. Concerts run every Saturday and Sunday from June through September, 2:00–4:30 p.m.
+timezone: America/Los_Angeles
+location: 3015 NW 54th St, Seattle, WA 98107
+url: https://ballardlocks.org/free-summer-concerts.html
+tags:
+  - Music
+  - Ballard
+schedules:
+  - schedule: every Saturday
+    start_time: "14:00"
+    duration: PT2H30M
+    seasonal: summer
+  - schedule: every Sunday
+    start_time: "14:00"
+    duration: PT2H30M
+    seasonal: summer
