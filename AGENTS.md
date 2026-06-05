@@ -509,6 +509,8 @@ For **external ICS calendars**, change `proxy` from `outofband` to `browserbase`
 
 Browserbase sources are **fetched live** in the main build — no S3, no out-of-band runner. The Browserbase Fetch API (`POST https://api.browserbase.com/v1/fetch`) executes JavaScript and follows redirects, bypassing bot detection (e.g. SiteGround sgcaptcha). Requires `BROWSERBASE_API_KEY` secret in GitHub Actions.
 
+Because Browserbase is billed per request and the build runs on every push/PR/schedule, each browserbase URL is fetched live **at most once per 24h** and otherwise served from a cached copy (`browserbase-cache.json`, round-tripped via the GitHub Actions Cache). A live failure falls back to the last good copy and is surfaced as a non-fatal `proxyStaleServes` entry in `build-errors.json`. See **`docs/browserbase-throttle.md`**.
+
 `lib/config/proxy-fetch.ts` provides `createBrowserbaseFetch()` and `getFetchForConfig()` — base classes and built-in rippers call `getFetchForConfig` automatically. Custom rippers that implement `IRipper` directly should do the same.
 
 ### How proxy-fetch works

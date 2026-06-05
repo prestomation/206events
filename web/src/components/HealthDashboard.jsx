@@ -105,6 +105,7 @@ export function HealthDashboard({
   const geocodeErrors = buildErrors.geocodeErrors || []
   const uncertainEvents = buildErrors.uncertainEvents || []
   const pendingProxyVerification = buildErrors.pendingProxyVerification || []
+  const proxyStaleServes = buildErrors.proxyStaleServes || []
   const photoGaps = buildErrors.photoGaps || { venueGaps: [], eventGaps: [] }
   const photoGapCount = (photoGaps.venueGaps?.length || 0) + (photoGaps.eventGaps?.length || 0)
   const urlEntityErrors = buildErrors.urlEntityErrors || []
@@ -202,6 +203,12 @@ export function HealthDashboard({
           <div className="health-card health-card--warning">
             <div className="health-card-value">🪜 {pendingProxyVerification.length}</div>
             <div className="health-card-label">Proxy Verification</div>
+          </div>
+        )}
+        {proxyStaleServes.length > 0 && (
+          <div className="health-card health-card--warning">
+            <div className="health-card-value">🕒 {proxyStaleServes.length}</div>
+            <div className="health-card-label">Stale Browserbase</div>
           </div>
         )}
         {urlEntityErrors.length > 0 && (

@@ -107,7 +107,15 @@ jobs:
             if [ "$PHOTO_GAPS" -gt 0 ] 2>/dev/null; then
               PHOTO_LINE=" 🖼️ ${PHOTO_GAPS} item(s) missing a photo — run photo-resolver."
             fi
-            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE}${PROXY_LINE}${PHOTO_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
+            # Pull browserbase stale-serve count: a source whose live fetch failed
+            # and was served from a cached copy older than the 24h TTL.
+            STALE_LINE=""
+            STALE_COUNT=$(curl -s --fail https://206.events/build-errors.json 2>/dev/null \
+              | jq -r '(.proxyStaleServes // []) | length' 2>/dev/null || echo "0")
+            if [ "$STALE_COUNT" -gt 0 ] 2>/dev/null; then
+              STALE_LINE=" 🕒 ${STALE_COUNT} browserbase source(s) served stale — live fetch failing, investigate."
+            fi
+            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE}${PROXY_LINE}${PHOTO_LINE}${STALE_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
             # For PR Preview success, include preview link and new source summary
             PREVIEW_LINE=""

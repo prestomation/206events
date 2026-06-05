@@ -156,6 +156,32 @@ escalation PR(s). Entries with recommendation `verifying` are still within the
   - <source> (<rung>, <consecutiveFailures> fails) → <recommendation>
 ```
 
+### 5.55. Browserbase Stale-Serve Check
+
+Check `proxyStaleServes` in the build health output. Each entry is a
+`proxy: browserbase` source whose **live fetch failed this build** and was
+satisfied from a cached copy older than the 24h TTL (so events weren't lost,
+but the source is not actually being refreshed). These **count toward
+`totalErrors`** — a persistent stale serve means the source or Browserbase
+itself is broken. See `docs/browserbase-throttle.md`.
+
+**If the list is empty:**
+```
+🕒 Browserbase stale serves: 0 ✅
+```
+
+**If entries exist**, report each with its `source` (or `url`), `ageHours`, and
+`error`. A single transient blip clears itself on the next build; a source that
+keeps serving stale needs investigation — verify the source URL still works and,
+if Browserbase can no longer fetch it, follow `skills/proxy-escalation/SKILL.md`
+to retire it (disable + candidate doc `status: blocked`), since browserbase is
+the last proxy rung.
+
+```
+🕒 Browserbase stale serves: N
+  - <source> (~<ageHours>h old) — <error>
+```
+
 ### 5.6. Photo Coverage Check
 
 Check `photoStats` and `photoGaps` in the build health output.
