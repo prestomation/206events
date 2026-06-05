@@ -3399,7 +3399,7 @@ html, body, #root { height: 100%; }
 .app206 .a-nav { grid-area: nav; }
 @media (min-width: 1024px) {
   .app206 {
-    grid-template-columns: 84px minmax(0,1fr) clamp(360px, 32%, 520px);
+    grid-template-columns: 84px minmax(0,1fr) var(--a-map-w, clamp(360px, 32%, 520px));
     grid-template-rows: auto minmax(0,1fr);
     grid-template-areas: 'rail top map' 'rail content map';
     --pad: 26px; --maxcol: 2;
@@ -3592,6 +3592,29 @@ html, body, #root { height: 100%; }
 .app206 .a-mappanel, .app206 .a-mapview { position: relative; height: 100%; }
 .app206 .a-mappanel { border-left: 1px solid var(--line); }
 .app206 .a-mappanel .events-map-container, .app206 .a-mapview .events-map-container { height: 100%; }
+/* Draggable divider between the content column and the map. Straddles the
+   panel's left border so it's easy to grab; a grip becomes visible on hover/
+   focus. Drag adjusts --a-map-w (App206); double-click resets to the default. */
+.app206 .a-mapresize {
+  position: absolute; top: 0; left: -4px; width: 11px; height: 100%;
+  z-index: 600; cursor: col-resize; touch-action: none;
+  background: none; border: none; padding: 0;
+}
+.app206 .a-mapresize::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px; height: 46px; border-radius: 999px;
+  background: var(--ink-3); opacity: 0; transition: opacity .15s ease;
+}
+.app206 .a-mapresize:hover::after,
+.app206 .a-mapresize:focus-visible::after { opacity: .55; }
+.app206 .a-mapresize:focus-visible { outline: none; }
+/* Hide the handle when the map is full-screen — resizing a column makes no
+   sense there. */
+.app206 .a-map--expanded .a-mapresize { display: none; }
+/* While dragging, keep the col-resize cursor and stop text selection / map
+   iframe interactions from hijacking the drag. */
+body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select: none !important; }
 .app206 .a-mapbar { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
 .app206 .a-mapbar-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 .app206 .a-mapbar .a-iconbtn { width: 36px; height: 36px; border-radius: 10px; }

@@ -249,4 +249,52 @@ describe('App206 redesign', () => {
       await waitFor(() => expect(window.location.hash).toContain('channel=test-ripper-cal1.ics'))
     })
   })
+
+  describe('desktop map resize', () => {
+    const getApp = (container) => container.querySelector('.app206')
+
+    it('renders a draggable divider on the desktop map panel', async () => {
+      const { container } = render(<App />)
+      await waitDiscover()
+      const handle = container.querySelector('.a-mappanel .a-mapresize')
+      expect(handle).toBeTruthy()
+      expect(handle.getAttribute('role')).toBe('separator')
+    })
+
+    it('dragging the divider sets and persists the map column width', async () => {
+      const { container } = render(<App />)
+      await waitDiscover()
+      Object.defineProperty(window, 'innerWidth', { value: 1600, configurable: true })
+      const handle = container.querySelector('.a-mapresize')
+      fireEvent.pointerDown(handle, { button: 0, clientX: 1100 })
+      // Pointer at x=900 → map width = 1600 - 900 = 700px.
+      fireEvent.pointerMove(window, { clientX: 900 })
+      fireEvent.pointerUp(window)
+      await waitFor(() => expect(getApp(container).style.getPropertyValue('--a-map-w')).toBe('700px'))
+      expect(localStorage.getItem('map-panel-width')).toBe('700')
+    })
+
+    it('clamps the map width so the content column cannot collapse', async () => {
+      const { container } = render(<App />)
+      await waitDiscover()
+      Object.defineProperty(window, 'innerWidth', { value: 1600, configurable: true })
+      const handle = container.querySelector('.a-mapresize')
+      fireEvent.pointerDown(handle, { button: 0, clientX: 1100 })
+      // Pointer way past the left edge → huge requested width, clamped to
+      // innerWidth - rail(84) - minContent(420) = 1096.
+      fireEvent.pointerMove(window, { clientX: 50 })
+      fireEvent.pointerUp(window)
+      await waitFor(() => expect(getApp(container).style.getPropertyValue('--a-map-w')).toBe('1096px'))
+    })
+
+    it('double-clicking the divider resets to the default width', async () => {
+      localStorage.setItem('map-panel-width', '700')
+      const { container } = render(<App />)
+      await waitDiscover()
+      expect(getApp(container).style.getPropertyValue('--a-map-w')).toBe('700px')
+      fireEvent.doubleClick(container.querySelector('.a-mapresize'))
+      await waitFor(() => expect(getApp(container).style.getPropertyValue('--a-map-w')).toBe(''))
+      expect(localStorage.getItem('map-panel-width')).toBe(null)
+    })
+  })
 })
