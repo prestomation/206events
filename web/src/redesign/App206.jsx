@@ -6,6 +6,7 @@ import { useState, useMemo, useRef, useCallback, useEffect, useDeferredValue } f
 import Fuse from 'fuse.js'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
+import { Lightbox } from './atoms.jsx'
 import { DiscoverView, FollowingView, YouView, ChannelDetail, EventDetail } from './views.jsx'
 import { HealthDashboard } from '../components/HealthDashboard.jsx'
 import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, eventInWindow } from './viewModels.js'
@@ -53,6 +54,10 @@ export function App206(props) {
   const [healthSource, setHealthSource] = useState(() => initialUrl.healthSource)
   const [toast, setToast] = useState(null)
   const toastT = useRef(0)
+  // Lightbox (full-image viewer) state: null when closed, { src, alt } when open.
+  const [lightbox, setLightbox] = useState(null)
+  const openLightbox = useCallback((src, alt) => { if (src) setLightbox({ src, alt: alt || '' }) }, [])
+  const closeLightbox = useCallback(() => setLightbox(null), [])
   // Live Leaflet map instance (set by EventsMap via MapBridge) + desktop
   // expand toggle.
   const mapRef = useRef(null)
@@ -70,6 +75,18 @@ export function App206(props) {
     if (section === 'following') setMapScope('following')
     else if (section === 'discover') setMapScope('all')
   }, [section])
+
+  // Map popups are hand-built DOM (outside React, see EventsMap.renderPopupHtml),
+  // so wire their photo into the lightbox via a delegated click listener rather
+  // than a per-popup React handler.
+  useEffect(() => {
+    const onClick = (e) => {
+      const img = e.target.closest && e.target.closest('.map-popup-image')
+      if (img && img.src) openLightbox(img.src, img.alt || '')
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [openLightbox])
 
   const flash = useCallback((msg) => {
     setToast(msg)
@@ -264,6 +281,7 @@ export function App206(props) {
     section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     hasActiveFilters, toast, todayLabel,
+    lightbox, openLightbox, closeLightbox,
     mapRef, mapExpanded, toggleMapExpand, mapScope, setMapScope,
     // handlers
     go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
@@ -290,6 +308,7 @@ export function App206(props) {
         <div className="a-nav"><BottomNav /></div>
         {filterOpen && <FilterPopover />}
         <Toast />
+        <Lightbox />
       </div>
     </App206Context.Provider>
   )
