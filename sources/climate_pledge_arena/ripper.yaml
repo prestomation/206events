@@ -4,6 +4,7 @@ description: "Seattle's premier arena at Seattle Center, home of the Kraken and 
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://climatepledgearena.com
 tags: ["Music", "Sports"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Climate_Pledge_Arena_N.jpg/250px-Climate_Pledge_Arena_N.jpg"
 geo:
   lat: 47.6219
   lng: -122.354

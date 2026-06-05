@@ -4,6 +4,7 @@ description: "The Black Lodge"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Black+Lodge"
 friendlyLink: https://dice.fm/venue/the-black-lodge-qppa
 tags: ["Music", "Eastlake"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/631b91c4dca71e1c72c4ee2d/ab7f3ab9-a4e8-4f8c-af67-77be0c76e35a/blacklodgevera__1_.jpeg"
 geo:
   lat: 47.62295
   lng: -122.329458
