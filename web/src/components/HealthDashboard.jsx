@@ -107,10 +107,11 @@ export function HealthDashboard({
   const pendingProxyVerification = buildErrors.pendingProxyVerification || []
   const photoGaps = buildErrors.photoGaps || { venueGaps: [], eventGaps: [] }
   const photoGapCount = (photoGaps.venueGaps?.length || 0) + (photoGaps.eventGaps?.length || 0)
+  const urlEntityErrors = buildErrors.urlEntityErrors || []
 
   const tabs = [
     { id: 'sources', label: 'Sources', count: sources.length, tone: 'neutral' },
-    { id: 'errors', label: 'Errors', count: configErrors.length + externalFailures.length, tone: 'error' },
+    { id: 'errors', label: 'Errors', count: configErrors.length + externalFailures.length + urlEntityErrors.length, tone: 'error' },
     { id: 'geo', label: 'Geo', count: geocodeErrors.length, tone: 'warning' },
     { id: 'uncertain', label: 'Uncertain', count: uncertainEvents.length, tone: 'warning' },
     { id: 'proxy', label: 'Proxy', count: pendingProxyVerification.length, tone: 'warning' },
@@ -203,6 +204,12 @@ export function HealthDashboard({
             <div className="health-card-label">Proxy Verification</div>
           </div>
         )}
+        {urlEntityErrors.length > 0 && (
+          <div className="health-card health-card--error">
+            <div className="health-card-value">🔗 {urlEntityErrors.length}</div>
+            <div className="health-card-label">URL Entities</div>
+          </div>
+        )}
       </div>
 
       <div className="health-tabs" role="tablist" aria-label="Health detail views">
@@ -261,8 +268,26 @@ export function HealthDashboard({
         )}
 
         {activeTab === 'errors' && (
-          (configErrors.length + externalFailures.length) > 0 ? (
+          (configErrors.length + externalFailures.length + urlEntityErrors.length) > 0 ? (
             <>
+              {urlEntityErrors.length > 0 && (
+                <div className="health-section">
+                  <h2>🔗 URL Entity Errors ({urlEntityErrors.length})</h2>
+                  <p className="health-subtitle">
+                    HTML entities (e.g. <code>&amp;amp;</code>) found in URL fields. These are
+                    always broken links and fail the build — decode the entity in the ripper
+                    (<code>html-entities</code>) or write the literal character in the YAML.
+                  </p>
+                  <div className="health-error-list">
+                    {urlEntityErrors.map((err, i) => (
+                      <div key={i} className="health-error-item">
+                        <span className="health-error-type">{err.source}{err.calendar ? ` / ${err.calendar}` : ''}</span>
+                        <span className="health-error-reason">{err.field} ({err.entities.join(', ')}): {err.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               {configErrors.length > 0 && (
                 <div className="health-section">
                   <h2>Configuration Errors ({configErrors.length})</h2>

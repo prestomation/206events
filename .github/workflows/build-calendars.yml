@@ -147,7 +147,7 @@ jobs:
       run: |
         FATAL_ERROR_COUNT=$(cat fatalErrorCount.txt)
         if [ "$FATAL_ERROR_COUNT" -gt 0 ]; then
-          echo "::error::Build failed with $FATAL_ERROR_COUNT fatal error(s) (new source parse errors or zero-event sources)"
+          echo "::error::Build failed with $FATAL_ERROR_COUNT fatal error(s) (new source parse errors, zero-event sources, or URL-entity violations)"
           exit 1
         fi
 

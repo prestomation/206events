@@ -100,6 +100,22 @@ describe('HealthDashboard', () => {
     expect(screen.getByText('promote-to-browserbase')).toBeTruthy()
   })
 
+  it('renders URL entity errors in the Errors tab and a summary card', () => {
+    const withEntities = {
+      ...buildErrors,
+      urlEntityErrors: [
+        { scope: 'event', source: 'nectar', calendar: 'all-events', field: 'event.url', value: 'https://x.com/?a=1&amp;b=2', entities: ['&amp;'] },
+      ],
+    }
+    render(<Harness buildErrors={withEntities} />)
+    // Summary card
+    expect(screen.getByText('URL Entities')).toBeTruthy()
+    // Errors tab badge includes the entity count; the section renders on click
+    fireEvent.click(screen.getByRole('tab', { name: /Errors/ }))
+    expect(screen.getByText(/URL Entity Errors/)).toBeTruthy()
+    expect(screen.getByText(/event\.url/)).toBeTruthy()
+  })
+
   it('opens a drill-down drawer with parse errors when a source row is clicked', () => {
     render(<Harness buildErrors={buildErrors} />)
     fireEvent.click(screen.getByText('broken-source'))

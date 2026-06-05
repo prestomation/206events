@@ -2,6 +2,7 @@ import { Duration, Period, ZoneOffset, ZoneRegion, ZonedDateTime, convert } from
 import { z } from "zod";
 import { promisify } from 'util';
 import * as icsOriginal from 'ics';
+import { containsHtmlEntity } from "../url-entities.js";
 
 import '@js-joda/timezone'
 
@@ -226,6 +227,10 @@ export interface IRipper {
 
 
 function safeUrl(raw: string): string | undefined {
+    // Defense in depth: the build's URL-entity gate (lib/calendar_ripper.ts)
+    // already fails on entities in URL fields, but if one ever reaches here we
+    // omit it rather than emit a broken `&amp;` link into the ICS.
+    if (containsHtmlEntity(raw)) return undefined;
     try {
         return new URL(raw).toString();
     } catch {
