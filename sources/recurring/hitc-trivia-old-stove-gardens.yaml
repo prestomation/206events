@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.668797
+  lng: -122.364133
+  label: "5501 6th Ave NW, Seattle, WA 98107"
 name: hitc-trivia-old-stove-gardens
 friendlyname: Trivia at Old Stove Brewing Gardens
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

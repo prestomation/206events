@@ -1,5 +1,8 @@
 # verified: 2026-06-01 ok
-geo: null
+geo:
+  lat: 47.6963926
+  lng: -122.2909373
+  label: "9219 35th Ave NE, Seattle, WA 98115"
 name: hitc-trivia-fiddlers-inn
 friendlyname: Trivia at Fiddler's Inn
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

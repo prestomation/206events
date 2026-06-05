@@ -1,5 +1,8 @@
 # verified: 2026-05-11 ok
-geo: null
+geo:
+  lat: 47.5795585
+  lng: -122.3116428
+  label: "Roberto Maestas Festival Street, Beacon Hill, Seattle"
 name: beacon-arts-street-fairs
 friendlyname: Beacon Arts Street Fairs
 description: Free monthly street fair on Beacon Hill organized by Beacon Arts. Live music, art market, family activities, food vendors, and dance workshops at Roberto Maestas Festival Street, Beacon Hill Light Rail Plaza, and Plaza Roberto Maestas. Each month has a theme (Celebrate Youth, Beacon Hill Pride, Garden Party, Animal Friends, Japan on Beacon Hill).

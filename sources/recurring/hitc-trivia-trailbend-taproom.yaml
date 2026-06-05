@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.665251
+  lng: -122.3716224
+  label: "1118 NW 50th St, Seattle, WA 98107"
 name: hitc-trivia-trailbend-taproom
 friendlyname: Trivia at Trailbend Taproom
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

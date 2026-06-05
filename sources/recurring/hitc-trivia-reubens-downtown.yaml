@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.5953459
+  lng: -122.3316443
+  label: "800 Occidental Ave S, Seattle, WA 98134"
 name: hitc-trivia-reubens-downtown
 friendlyname: Trivia at Reuben's Brews Downtown
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

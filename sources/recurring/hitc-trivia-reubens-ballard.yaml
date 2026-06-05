@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6654085
+  lng: -122.3732325
+  label: "5010 14th Ave NW, Seattle, WA 98107"
 name: hitc-trivia-reubens-ballard
 friendlyname: Trivia at Reuben's Brews Ballard
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

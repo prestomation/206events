@@ -1,5 +1,8 @@
 # verified: 2026-05-11 ok
-geo: null
+geo:
+  lat: 47.61875
+  lng: -122.32049
+  label: "E Barbara Bailey Way between Broadway & 10th Ave E, Seattle"
 name: capitol-hill-farmers-market
 friendlyname: Capitol Hill Farmers Market
 description: Year-round Sunday farmers market on Capitol Hill featuring local farms, food vendors, and community gathering.

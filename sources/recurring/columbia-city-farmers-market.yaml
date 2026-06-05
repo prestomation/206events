@@ -1,5 +1,8 @@
 # verified: 2026-05-17 ok
-geo: null
+geo:
+  lat: 47.5589
+  lng: -122.2858
+  label: "37th Ave S & S Edmunds St, Seattle"
 name: columbia-city-farmers-market
 friendlyname: Columbia City Farmers Market
 description: Seasonal Wednesday evening farmers market in Columbia City, one block from the light rail station. Runs May through October.

@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6374509
+  lng: -122.3728439
+  label: "1429 12th Ave W, Seattle, WA 98119"
 name: hitc-trivia-old-stove-ship-canal
 friendlyname: Trivia at Old Stove Brewing Ship Canal
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

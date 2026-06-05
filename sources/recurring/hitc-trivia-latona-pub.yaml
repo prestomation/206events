@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6758124
+  lng: -122.3255853
+  label: "6423 Latona Ave NE, Seattle, WA 98115"
 name: hitc-trivia-latona-pub
 friendlyname: Trivia at Latona Pub
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
