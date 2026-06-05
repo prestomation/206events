@@ -50,30 +50,33 @@ test.afterEach(async ({ page }) => {
   expect(page.__pageErrors ?? [], 'no uncaught page errors').toEqual([])
 })
 
-// Boot the app and reveal the map (desktop shows it in the right column; a
-// narrower viewport exposes a "Map" tab to click).
+// Boot the app, reveal the map, and return the *visible* map container. On
+// mobile the desktop column map is also in the DOM (display:none), so every
+// query is scoped to the visible container to avoid strict-mode ambiguity.
 async function openMap(page) {
   await page.goto('/')
   await expect(page.getByText('Neumos')).toBeVisible()
   const mapTab = page.getByRole('button', { name: 'Map' })
   if (await mapTab.count() && await mapTab.first().isVisible()) await mapTab.first().click()
-  await expect(page.locator('.events-map')).toBeVisible()
+  const map = page.locator('.events-map-container:visible').first()
+  await expect(map.locator('.events-map')).toBeVisible()
+  return map
 }
 
 test('renders group and plain markers on the map', async ({ page }) => {
-  await openMap(page)
+  const map = await openMap(page)
   // The three-night run collapses to one badged group marker; the one-off is a
   // plain Leaflet marker.
-  await expect(page.locator('.event-group-marker')).toHaveCount(1)
-  await expect(page.locator('.event-group-badge')).toHaveText('3')
-  await expect(page.locator('img.leaflet-marker-icon')).toHaveCount(1)
+  await expect(map.locator('.event-group-marker')).toHaveCount(1)
+  await expect(map.locator('.event-group-badge')).toHaveText('3')
+  await expect(map.locator('img.leaflet-marker-icon')).toHaveCount(1)
 })
 
 test('clicking a group pin opens the panel listing every date', async ({ page }) => {
-  await openMap(page)
-  await page.locator('.event-group-marker').click()
+  const map = await openMap(page)
+  await map.locator('.event-group-marker').click()
 
-  const panel = page.getByTestId('event-group-panel')
+  const panel = map.getByTestId('event-group-panel')
   await expect(panel).toBeVisible()
   await expect(panel.getByText('Long Run Musical')).toBeVisible()
   await expect(panel.getByText('3 dates')).toBeVisible()
@@ -82,20 +85,46 @@ test('clicking a group pin opens the panel listing every date', async ({ page })
 })
 
 test('clicking a single-event pin opens the panel', async ({ page }) => {
-  await openMap(page)
-  await page.locator('img.leaflet-marker-icon').click()
+  const map = await openMap(page)
+  await map.locator('img.leaflet-marker-icon').click()
 
-  const panel = page.getByTestId('event-group-panel')
+  const panel = map.getByTestId('event-group-panel')
   await expect(panel).toBeVisible()
   await expect(panel.getByText('One Night Only')).toBeVisible()
   await expect(panel.getByText('Event')).toBeVisible()
 })
 
 test('the panel closes via its close button', async ({ page }) => {
-  await openMap(page)
-  await page.locator('.event-group-marker').click()
-  const panel = page.getByTestId('event-group-panel')
+  const map = await openMap(page)
+  await map.locator('.event-group-marker').click()
+  const panel = map.getByTestId('event-group-panel')
   await expect(panel).toBeVisible()
   await panel.getByRole('button', { name: 'Close' }).click()
   await expect(panel).toHaveCount(0)
+})
+
+// Mobile (Android-like) viewport: the map is a tab and the panel is a bottom
+// sheet with the preview mode toggle. Clicking a pin must not crash.
+test.describe('mobile', () => {
+  test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
+
+  test('clicking a pin opens the bottom sheet without errors', async ({ page }) => {
+    const map = await openMap(page)
+    await map.locator('.event-group-marker').click()
+    const panel = map.getByTestId('event-group-panel')
+    await expect(panel).toBeVisible()
+    await expect(panel.getByText('Preview')).toBeVisible() // mobile-only mode toggle
+    await expect(panel.getByText('Long Run Musical')).toBeVisible()
+  })
+
+  test('switching sheet modes does not crash', async ({ page }) => {
+    const map = await openMap(page)
+    await map.locator('.event-group-marker').click()
+    const panel = map.getByTestId('event-group-panel')
+    await expect(panel).toBeVisible()
+    for (const mode of ['Drag', 'Peek', 'Sticky']) {
+      await panel.getByRole('button', { name: mode, exact: true }).click()
+      await expect(panel).toBeVisible()
+    }
+  })
 })
