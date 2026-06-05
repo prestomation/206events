@@ -47,6 +47,17 @@ renders the full `tags` list (neighborhood + activity) as chips; each chip
 routes to the Discover view with the matching neighborhood/category filter
 applied.
 
+### 5. Clickable links in event descriptions
+Bare URLs in plain-text descriptions previously rendered as inert text.
+`linkifyText` (in `EventDescription.jsx`) now turns them into real anchors
+(new tab, `rel="noopener noreferrer"`). To keep descriptions uncluttered, a bare
+URL renders as a compact **external-link icon badge** rather than the full URL
+text — the destination host lives in the `title`/`aria-label` (e.g.
+"Open example.com") so it stays discoverable on hover and to screen readers.
+Anchors inside *HTML* descriptions keep their own link text and are forced
+through a DOMPurify `afterSanitizeAttributes` hook so they always open in a new
+tab safely.
+
 ## Where the logic lives
 - `web/src/redesign/viewModels.js` — `formatTimeRange`, `timeRange` on
   `rowFromIndexEvent`, `website`/`description` on `channelFromCalendar`.

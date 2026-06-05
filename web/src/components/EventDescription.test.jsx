@@ -7,20 +7,24 @@ describe('linkifyText', () => {
     expect(linkifyText('Just some text')).toEqual(['Just some text'])
   })
 
-  it('turns a bare https URL into an anchor node', () => {
+  it('turns a bare https URL into an icon-badge anchor with the host in its label', () => {
     const out = linkifyText('Tickets at https://example.com/show here')
     // [ 'Tickets at ', <a>, ' here' ]
     expect(out[0]).toBe('Tickets at ')
     expect(out[1].props.href).toBe('https://example.com/show')
     expect(out[1].props.target).toBe('_blank')
     expect(out[1].props.rel).toBe('noopener noreferrer')
+    // The visible text is an icon, not the URL; the host lives in the label.
+    expect(out[1].props.title).toBe('Open example.com')
+    expect(out[1].props['aria-label']).toBe('Open example.com')
+    expect(typeof out[1].props.children).not.toBe('string')
     expect(out[2]).toBe(' here')
   })
 
-  it('prefixes www. links with https and keeps the visible text bare', () => {
+  it('prefixes www. links with https and strips www. from the host label', () => {
     const out = linkifyText('See www.example.com')
     expect(out[1].props.href).toBe('https://www.example.com')
-    expect(out[1].props.children).toBe('www.example.com')
+    expect(out[1].props.title).toBe('Open example.com')
   })
 
   it('peels trailing sentence punctuation out of the link', () => {
