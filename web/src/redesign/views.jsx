@@ -4,7 +4,7 @@
 import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
-import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink } from './atoms.jsx'
+import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange } from './viewModels.js'
@@ -490,15 +490,7 @@ export function ChannelDetail({ icsUrl }) {
   return (
     <div style={{ padding: '2px var(--pad) 24px', maxWidth: 760, margin: '0 auto' }}>
       <button className="a-iconbtn" onClick={app.back} style={{ marginTop: 8, marginBottom: 14 }}>{Ico.back}</button>
-      {channel.imageUrl && (
-        <img
-          src={channel.imageUrl}
-          alt={`Photo of ${channel.name}`}
-          loading="lazy"
-          onError={(e) => { e.currentTarget.style.display = 'none' }}
-          style={{ width: '100%', height: 160, objectFit: 'cover', borderRadius: 14, marginBottom: 14, display: 'block' }}
-        />
-      )}
+      <BannerImage src={channel.imageUrl} alt={`Photo of ${channel.name}`} height={160} />
       <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
         <ChannelAvatar color={channel.color} size={56} />
         <div style={{ minWidth: 0 }}>
@@ -617,15 +609,7 @@ function ParsedEventRow({ event, distributed }) {
   const time = `${datePart}, ${formatTimeRange(event.startDate, event.endDate)}`
   return (
     <div className="ev" style={{ cursor: 'default' }}>
-      {event.imageUrl && (
-        <img
-          src={event.imageUrl}
-          alt=""
-          loading="lazy"
-          onError={(e) => { e.currentTarget.style.display = 'none' }}
-          style={{ width: 56, height: 56, objectFit: 'cover', borderRadius: 8, flex: '0 0 auto', marginRight: 10 }}
-        />
-      )}
+      <EventThumb src={event.imageUrl} alt={event.title ? `Photo for ${event.title}` : ''} size={56} />
       <div className="ev-body">
         <div className="ev-title">{event.title}</div>
         <div className="ev-meta"><span>{time}</span></div>
@@ -654,15 +638,7 @@ export function EventDetail({ event }) {
     <div style={{ padding: '2px var(--pad) 24px', maxWidth: 680, margin: '0 auto' }}>
       <button className="a-iconbtn" onClick={app.back} style={{ marginTop: 8, marginBottom: 14 }}>{Ico.back}</button>
 
-      {event.imageUrl && (
-        <img
-          src={event.imageUrl}
-          alt={`Photo for ${event.summary}`}
-          loading="lazy"
-          onError={(e) => { e.currentTarget.style.display = 'none' }}
-          style={{ width: '100%', height: 200, objectFit: 'cover', borderRadius: 14, marginBottom: 14, display: 'block' }}
-        />
-      )}
+      <BannerImage src={event.imageUrl} alt={`Photo for ${event.summary}`} height={200} />
 
       <div className="a-hero" style={{ background: `linear-gradient(135deg, ${color}, color-mix(in oklab, ${color} 70%, #000))` }}>
         <div className="a-hero-kick">{row.day} · {row.dateNum}{row.time ? ` · ${row.time}` : ''}</div>

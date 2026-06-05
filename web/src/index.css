@@ -3620,3 +3620,24 @@ html, body, #root { height: 100%; }
 .app206 .a-scope.on { background: var(--blue-soft); color: var(--blue-ink); }
 .app206 .a-toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 1300; background: var(--ink); color: var(--paper); padding: 11px 18px; border-radius: 12px; font-size: 13.5px; font-weight: 500; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 9px; white-space: nowrap; }
 .app206 .a-toast svg { width: 16px; height: 16px; }
+
+/* ---- banner photo (venue/source + event detail) ----
+   object-fit: contain shows the image whole (no center-crop of wordmarks like
+   "Ballard Brood") over a blurred, scaled copy that fills the box. */
+.app206 .a-banner { position: relative; width: 100%; overflow: hidden; background: var(--surface-2); cursor: zoom-in; display: block; padding: 0; border: 0; }
+.app206 .a-banner-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(20px) saturate(1.15); transform: scale(1.18); opacity: 0.5; }
+.app206 .a-banner-fg { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; }
+.app206 .a-banner:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* ---- event thumbnail (cover-cropped square, click to enlarge) ---- */
+.app206 .a-evthumb { object-fit: cover; border-radius: 8px; cursor: zoom-in; }
+
+/* ---- lightbox (full-image viewer) ---- */
+.app206 .a-lightbox { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.86); display: flex; align-items: center; justify-content: center; padding: 28px; cursor: zoom-out; animation: a-lightbox-fade 140ms ease; }
+.app206 .a-lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; box-shadow: 0 12px 48px rgba(0,0,0,0.55); cursor: default; }
+.app206 .a-lightbox-close { position: fixed; top: 16px; right: 16px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(0,0,0,0.5); color: #fff; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; }
+.app206 .a-lightbox-close:hover { background: rgba(0,0,0,0.75); }
+@keyframes a-lightbox-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Map popup photo: click to enlarge in the lightbox (handler delegated in App206). */
+.map-popup-image { cursor: zoom-in; }

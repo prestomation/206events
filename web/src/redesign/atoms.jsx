@@ -1,5 +1,6 @@
 // Leaf / presentational components for the redesigned UI.
 
+import { useEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
@@ -29,6 +30,87 @@ export function FollowPill({ on, onClick, labelOff = 'Follow', labelOn = 'Follow
     <button className={`pill-follow ${on ? 'on' : ''}`} onClick={(e) => { e.stopPropagation(); onClick && onClick() }}>
       {on ? <span style={{ width: 14, height: 14 }}>{Ico.check}</span> : '+'} {on ? labelOn : labelOff}
     </button>
+  )
+}
+
+// Banner photo for a venue/source or event. Shows the image *whole* via
+// object-fit: contain (so a wordmark like "Ballard Brood" isn't center-cropped)
+// over a blurred, scaled copy of the same image that fills the box — the
+// letterboxing reads as intentional rather than a gap. Clicking opens the full
+// image in the lightbox. A load error hides the whole banner so a dead URL
+// leaves no broken-image frame.
+export function BannerImage({ src, alt, height = 160, radius = 14, marginBottom = 14 }) {
+  const app = useApp206()
+  if (!src) return null
+  const open = () => app.openLightbox(src, alt)
+  return (
+    <div
+      className="a-banner"
+      style={{ height, borderRadius: radius, marginBottom }}
+      onClick={open}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open() } }}
+      aria-label={alt ? `${alt} — view full image` : 'View full image'}
+    >
+      <img className="a-banner-bg" src={src} alt="" aria-hidden="true" loading="lazy" />
+      <img
+        className="a-banner-fg"
+        src={src}
+        alt={alt || ''}
+        loading="lazy"
+        onError={(e) => { const w = e.currentTarget.closest('.a-banner'); if (w) w.style.display = 'none' }}
+      />
+    </div>
+  )
+}
+
+// Small square event thumbnail. Stays cover-cropped (a tiny square wants to be
+// filled), but clicking opens the full uncropped image in the lightbox — event
+// posters often carry readable detail (lineups, set times, fine print) that's
+// lost at thumbnail size.
+export function EventThumb({ src, alt, size = 56 }) {
+  const app = useApp206()
+  if (!src) return null
+  return (
+    <img
+      className="a-evthumb"
+      src={src}
+      alt={alt || ''}
+      loading="lazy"
+      onClick={() => app.openLightbox(src, alt)}
+      onError={(e) => { e.currentTarget.style.display = 'none' }}
+      style={{ width: size, height: size, flex: '0 0 auto', marginRight: 10 }}
+    />
+  )
+}
+
+// Full-screen image viewer. Single instance mounted at the App206 root; opened
+// from anywhere via app.openLightbox(src, alt). Dismissed by clicking the
+// backdrop, the close button, or Escape. Locks body scroll while open.
+export function Lightbox() {
+  const { lightbox, closeLightbox } = useApp206()
+  useEffect(() => {
+    if (!lightbox) return
+    const onKey = (e) => { if (e.key === 'Escape') closeLightbox() }
+    document.addEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
+  }, [lightbox, closeLightbox])
+  if (!lightbox) return null
+  return (
+    <div className="a-lightbox" onClick={closeLightbox} role="dialog" aria-modal="true"
+      aria-label={lightbox.alt || 'Full image'}>
+      <button className="a-lightbox-close" onClick={closeLightbox} aria-label="Close image">
+        <span style={{ width: 22, height: 22 }}>{Ico.close}</span>
+      </button>
+      {/* Stop propagation so clicking the image itself doesn't close the viewer. */}
+      <img src={lightbox.src} alt={lightbox.alt || ''} onClick={(e) => e.stopPropagation()} />
+    </div>
   )
 }
 
