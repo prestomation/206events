@@ -32,19 +32,53 @@ function localDay(parsed) {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate())
 }
 
-// Short row labels for an events-index event.
+// Split a Date into a { label, mer } pair ("7:30", "PM") in the given IANA
+// timezone, dropping a ":00" minute so "7:00 PM" reads "7 PM". `mer` is '' when
+// the locale produced no AM/PM marker (e.g. a 24h locale override).
+function timeParts(d, timezone) {
+  const s = d.toLocaleTimeString('en-US', {
+    hour: 'numeric', minute: '2-digit',
+    ...(timezone ? { timeZone: timezone } : {}),
+  })
+  const m = s.match(/^(.*)\s(AM|PM)$/i)
+  if (!m) return { label: s.replace(':00', ''), mer: '' }
+  return { label: m[1].replace(':00', ''), mer: m[2] }
+}
+
+// Format an event's clock time as a range when an end is known, honoring the
+// event's own timezone. Same-day ranges collapse a shared meridiem ("7 – 9 PM");
+// ranges that cross midnight prefix the end with its weekday ("11 PM → Sun 1 AM").
+// Falls back to the start time alone when there's no usable end.
+export function formatTimeRange(start, end, timezone) {
+  if (!start) return ''
+  const s = timeParts(start, timezone)
+  const startStr = `${s.label}${s.mer ? ' ' + s.mer : ''}`
+  if (!end || end <= start) return startStr
+  const e = timeParts(end, timezone)
+  const endStr = `${e.label}${e.mer ? ' ' + e.mer : ''}`
+  const sameDay = localDay({ date: start, timezone }).getTime() === localDay({ date: end, timezone }).getTime()
+  if (sameDay) {
+    // Collapse a shared meridiem: "7 – 9 PM" rather than "7 PM – 9 PM".
+    if (s.mer && s.mer === e.mer) return `${s.label} – ${endStr}`
+    return `${startStr} – ${endStr}`
+  }
+  const endDay = end.toLocaleDateString('en-US', {
+    weekday: 'short', ...(timezone ? { timeZone: timezone } : {}),
+  })
+  return `${startStr} → ${endDay} ${endStr}`
+}
+
+// Short row labels for an events-index event. `time` is the start alone;
+// `timeRange` adds the end when the index carries one (= `time` otherwise).
 export function rowFromIndexEvent(event) {
   const parsed = parseIndexDate(event.date)
   const d = parsed ? parsed.date : null
   const day = d ? DOW_SHORT[localDay(parsed).getDay()] : ''
   const dateNum = d ? localDay(parsed).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : ''
-  const time = d
-    ? d.toLocaleTimeString('en-US', {
-        hour: 'numeric', minute: '2-digit',
-        ...(parsed.timezone ? { timeZone: parsed.timezone } : {}),
-      }).replace(':00', '')
-    : ''
-  return { id: event.icsUrl ? `${event.summary}|${event.date}` : event.summary, title: event.summary, day, dateNum, time, raw: event }
+  const time = d ? formatTimeRange(d, null, parsed.timezone) : ''
+  const parsedEnd = parseIndexDate(event.endDate)
+  const timeRange = d ? formatTimeRange(d, parsedEnd ? parsedEnd.date : null, parsed.timezone) : ''
+  return { id: event.icsUrl ? `${event.summary}|${event.date}` : event.summary, title: event.summary, day, dateNum, time, timeRange, raw: event }
 }
 
 // Group a flat list of (already date-filtered, sorted) events-index entries into
@@ -166,6 +200,13 @@ export function channelFromCalendar(cal, ripper, opts = {}) {
     // Optional venue photo URL (a link, never image bytes). null when the
     // venue has no photo or this is a distributed calendar.
     imageUrl: venue && venue.imageUrl ? venue.imageUrl : null,
+    // Link to the source's own website (ripper `friendlyLink` / external
+    // calendar `infoUrl`). null for recurring entries and sources without one.
+    website: ripper && ripper.friendlyLink ? ripper.friendlyLink : null,
+    // Source description. For rippers this is just the venue name (and the view
+    // suppresses it when it merely repeats the channel name); for external
+    // calendars it's a sentence describing what the feed covers.
+    description: ripper && ripper.description ? ripper.description : null,
     primaryCategory: primaryCategoryTag(tags),
     color: channelColor(tags),
     distributed: !venue,

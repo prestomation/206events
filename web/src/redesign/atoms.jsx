@@ -86,10 +86,10 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
       )}
       <div className="ev-body">
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
-          {noDate && row.time && <span className="ev-time">{row.time}</span>}
+          {noDate && row.time && <span className="ev-time">{row.timeRange}</span>}
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
         </div>
-        {!noDate && row.time && <div className="ev-meta"><span>{row.time}</span></div>}
+        {!noDate && row.time && <div className="ev-meta"><span>{row.timeRange}</span></div>}
         {showLoc && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
         {showChip && channel && (
           <div className="ev-chip" style={{ marginTop: 6 }}
