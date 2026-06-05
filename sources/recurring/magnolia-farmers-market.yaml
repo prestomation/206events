@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6431
+  lng: -122.4009
+  label: "Magnolia, Seattle, WA"
 name: magnolia-farmers-market
 friendlyname: Magnolia Farmers Market
 description: Seasonal Saturday farmers market in the Magnolia neighborhood. Runs June through October.

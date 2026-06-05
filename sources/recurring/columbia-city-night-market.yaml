@@ -1,5 +1,8 @@
 # verified: 2026-05-17 ok
-geo: null
+geo:
+  lat: 47.5596
+  lng: -122.2893
+  label: "Columbia City, Seattle, WA"
 name: columbia-city-night-market
 friendlyname: Columbia City Night Market
 description: Monthly night market organized by Peace Peloton. 60 local vendors, food trucks, beer garden, and live performances. Prioritizes Black-owned businesses. Free, all ages.

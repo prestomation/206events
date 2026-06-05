@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.5629
+  lng: -122.3862
+  label: "West Seattle Junction, Seattle, WA"
 name: west-seattle-artwalk
 friendlyname: West Seattle Art Walk
 description: Monthly art walk in West Seattle

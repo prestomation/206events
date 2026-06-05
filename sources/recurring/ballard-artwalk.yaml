@@ -1,5 +1,8 @@
 # verified: 2026-05-11 drift-fixed (duration PT4H→PT3H)
-geo: null
+geo:
+  lat: 47.6677
+  lng: -122.3829
+  label: "Ballard, Seattle, WA"
 name: ballard-artwalk
 friendlyname: Ballard Art Walk
 description: Monthly art walk in the Ballard neighborhood

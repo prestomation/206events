@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6699
+  lng: -122.3551
+  label: "Phinney Ridge, Seattle, WA"
 name: phinney-greenwood-artwalk
 friendlyname: Phinney/Greenwood Art Walk
 description: Monthly art walk in the Phinney/Greenwood neighborhoods
