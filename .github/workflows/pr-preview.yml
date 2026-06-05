@@ -88,9 +88,11 @@ jobs:
               + (buildErrors.externalCalendarFailures || []).length
               + (buildErrors.geocodeErrors || []).length;
             const uncertaintyOutstanding = buildErrors.uncertaintyStats?.outstanding ?? 0;
+            const proxyStaleServes = buildErrors.proxyStaleServes || [];
             const badgeParts = [];
             if (parseErrorTotal > 0) badgeParts.push(`❌ ${parseErrorTotal} parse error(s)`);
             if (uncertaintyOutstanding > 0) badgeParts.push(`❓ ${uncertaintyOutstanding} uncertain`);
+            if (proxyStaleServes.length > 0) badgeParts.push(`🕒 ${proxyStaleServes.length} stale browserbase`);
             const errorBadge = badgeParts.length > 0 ? badgeParts.join(' · ') : '✅ No errors';
 
             const unexpectedNonEmpty = buildErrors.unexpectedNonEmptyCalendars || [];
@@ -174,6 +176,17 @@ jobs:
                 (promote ? `, ${promote} due to promote to browserbase` : '') +
                 (retire ? `, ${retire} due to retire` : '');
               proxyVerificationSection = `\n\n${badge}\n<details>\n<summary>Show proxy-ladder queue</summary>\n\n| Source | Rung | Consecutive failures | Recommendation | Last error |\n|--------|------|----------------------|----------------|------------|\n${rows}\n\n_The proxy-escalation skill escalates a source after ${'`'}3${'`'} consecutive failures._\n\n</details>`;
+            }
+
+            // Browserbase stale serves: a source whose live fetch failed and
+            // was satisfied from a cached copy older than the 24h TTL. Counted
+            // in totalErrors. See docs/browserbase-throttle.md.
+            let proxyStaleSection = '';
+            if (proxyStaleServes.length > 0) {
+              const rows = proxyStaleServes.map(s =>
+                `| \`${s.source || s.url}\` | ${s.ageHours}h | ${s.cachedAt} | ${s.error} |`
+              ).join('\n');
+              proxyStaleSection = `\n\n**🕒 ${proxyStaleServes.length} browserbase source(s) served from stale cache.** The live fetch failed and a copy older than the 24h TTL was used — investigate the source or Browserbase.\n<details>\n<summary>Show stale serves</summary>\n\n| Source | Age | Cached at | Error |\n|--------|-----|-----------|-------|\n${rows}\n\n</details>`;
             }
 
             // New source summary — event counts and sample events for sources not in production
@@ -260,6 +273,7 @@ jobs:
               photoSection,
               uncertaintySection,
               proxyVerificationSection,
+              proxyStaleSection,
               newSourceSection,
               errorSection,
               zeroEventSection,

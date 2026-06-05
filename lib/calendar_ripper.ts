@@ -15,6 +15,13 @@ import {
   serializeRipperError,
 } from "./config/schema.js";
 import { createBrowserbaseFetch } from "./config/proxy-fetch.js";
+import {
+  loadBrowserbaseCache,
+  saveBrowserbaseCache,
+  initBrowserbaseCache,
+  getBrowserbaseCache,
+  drainStaleServes,
+} from "./browserbase-cache.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords, type GeoCache } from "./geocoder.js";
 import {
   loadUncertaintyCache,
@@ -453,6 +460,13 @@ export const main = async () => {
   // merges ripper output against this cache between rip and ICS write
   // — rippers themselves don't read it. See docs/event-uncertainty.md.
   const uncertaintyCache = await loadUncertaintyCache('event-uncertainty-cache.json');
+
+  // Load the browserbase fetch cache and inject it into the fetch layer so
+  // `proxy: browserbase` sources are fetched live at most once per 24h (see
+  // docs/browserbase-throttle.md). Persisted via the GitHub Actions Cache.
+  const browserbaseCache = await loadBrowserbaseCache('browserbase-cache.json');
+  initBrowserbaseCache(browserbaseCache);
+
   const uncertaintyTotals: UncertaintyMergeStats = {
     resolved: 0,
     acknowledgedUnresolvable: 0,
@@ -1191,6 +1205,11 @@ END:VCALENDAR`;
   // Save updated geo-cache
   await saveGeoCache(geoCache, 'geo-cache.json');
 
+  // Persist the browserbase fetch cache (refreshed `fetchedAt` for any source
+  // fetched live this build). The CI workflow round-trips it via the Actions
+  // Cache so the 24h throttle holds across builds.
+  await saveBrowserbaseCache(getBrowserbaseCache() ?? browserbaseCache, 'browserbase-cache.json');
+
   // Stamp lastSeen on every cache entry consulted by this build. The
   // prune subcommand in skills/event-uncertainty-resolver/scripts/
   // uncertainty-cache.py uses this to drop entries no longer touched
@@ -1511,6 +1530,28 @@ END:VCALENDAR`;
 
   totalErrorCount += geocodeErrors.length;
 
+  // Browserbase stale serves: a `proxy: browserbase` source whose live fetch
+  // failed this build but was satisfied from a cached copy older than the TTL.
+  // Non-fatal but counted in totalErrors (like uncertain events) so the
+  // check-errors notification / Discord / build-error routine all fire — a
+  // persistent stale serve means the source or Browserbase is broken. Attribute
+  // each stale URL to a source where the URL is a known external icsUrl or a
+  // ripper homepage; sub-page URLs (e.g. dacha's Humanitix pages) fall back to
+  // the URL string alone.
+  const proxyUrlToSource = new Map<string, string>();
+  for (const cal of externalCalendars) proxyUrlToSource.set(cal.icsUrl, cal.name);
+  for (const c of configs) {
+    if (c.config.url) proxyUrlToSource.set(String(c.config.url), c.config.name);
+  }
+  const proxyStaleServes = drainStaleServes().map(s => ({
+    source: proxyUrlToSource.get(s.url) ?? null,
+    url: s.url,
+    cachedAt: s.cachedAt,
+    ageHours: s.ageHours,
+    error: s.error,
+  }));
+  totalErrorCount += proxyStaleServes.length;
+
   // Calculate geo coverage stats from events index
   const eventsWithGeo = eventsIndex.filter(e => e.lat !== undefined && e.lng !== undefined).length;
   const eventsWithoutGeo = eventsIndex.filter(e => e.lat === undefined || e.lng === undefined).length;
@@ -1649,6 +1690,9 @@ END:VCALENDAR`;
     },
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
+    // Browserbase sources served from a stale (>TTL) cached copy because the
+    // live fetch failed. Counted in totalErrors. See docs/browserbase-throttle.md.
+    proxyStaleServes,
     pendingProxyVerification,
     newZeroEventSources,
     newSourceParseErrors,
@@ -1774,6 +1818,9 @@ END:VCALENDAR`;
   if (urlEntityErrors.length > 0) {
     console.log(`  🔗 ${urlEntityErrors.length} URL field(s) with HTML entities (fatal): ${urlEntityErrors.map(e => `${e.source}/${e.field}`).join(", ")}`);
   }
+  if (proxyStaleServes.length > 0) {
+    console.log(`  🕒 ${proxyStaleServes.length} browserbase source(s) served from stale cache (live fetch failed): ${proxyStaleServes.map(s => s.source ?? s.url).join(", ")}`);
+  }
   console.log("===========================\n");
 
   // Write GitHub Actions step summary if running in CI
@@ -1812,6 +1859,16 @@ END:VCALENDAR`;
     if (uncertaintyTotals.outstanding + uncertaintyTotals.resolved + uncertaintyTotals.acknowledgedUnresolvable > 0) {
       summaryLines.push("");
       summaryLines.push(`> ❓ **Uncertain events:** ${uncertaintyTotals.outstanding} outstanding — agent investigation pending. ${uncertaintyTotals.resolved} resolved from cache this build; ${uncertaintyTotals.acknowledgedUnresolvable} marked unresolvable.`);
+    }
+    if (proxyStaleServes.length > 0) {
+      summaryLines.push("");
+      summaryLines.push(`> 🕒 **${proxyStaleServes.length} browserbase source(s) served from stale cache:** the live fetch failed and a copy older than the 24h TTL was used. Investigate the source or Browserbase.`);
+      summaryLines.push("");
+      summaryLines.push("| Source | Age (h) | Cached at | Error |");
+      summaryLines.push("|--------|---------|-----------|-------|");
+      for (const s of proxyStaleServes) {
+        summaryLines.push(`| ${s.source ?? s.url} | ${s.ageHours} | ${s.cachedAt} | ${s.error} |`);
+      }
     }
     {
       const evPct = photoStats.totalEvents > 0 ? Math.round(photoStats.eventsWithImage / photoStats.totalEvents * 100) : 0;

@@ -1,5 +1,13 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { getFetchForConfig, createBrowserbaseFetch } from "./proxy-fetch.js";
+import {
+    initBrowserbaseCache,
+    resetBrowserbaseCache,
+    getBrowserbaseCache,
+    drainStaleServes,
+    emptyBrowserbaseCache,
+    type BrowserbaseCache,
+} from "../browserbase-cache.js";
 
 const mockFetch = vi.fn();
 vi.stubGlobal("fetch", mockFetch);
@@ -86,9 +94,13 @@ describe("createBrowserbaseFetch", () => {
         }
     });
 
-    it("throws when BROWSERBASE_API_KEY is not set", () => {
+    it("throws when BROWSERBASE_API_KEY is not set and a live fetch is needed", async () => {
+        // The key is only required when a real fetch happens (a fresh cache can
+        // be served without it), so creation succeeds and the error surfaces on
+        // the first uncached call.
         delete process.env.BROWSERBASE_API_KEY;
-        expect(() => createBrowserbaseFetch()).toThrow(
+        const fetchFn = createBrowserbaseFetch();
+        await expect(fetchFn("https://example.com/")).rejects.toThrow(
             "BROWSERBASE_API_KEY not set — required for browserbase proxy"
         );
     });
@@ -165,5 +177,134 @@ describe("createBrowserbaseFetch", () => {
 
         const body = JSON.parse(mockFetch.mock.calls[0][1].body);
         expect(body.url).toBe("https://example.com/path");
+    });
+});
+
+describe("createBrowserbaseFetch with an injected cache", () => {
+    const URL = "https://example.com/cal.ics";
+
+    function liveResponse(content: string, statusCode = 200, contentType = "text/calendar") {
+        return fakeResponse(JSON.stringify({ statusCode, content, contentType }));
+    }
+
+    beforeEach(() => {
+        vi.resetAllMocks();
+        process.env.BROWSERBASE_API_KEY = "test-key";
+    });
+
+    afterEach(() => {
+        resetBrowserbaseCache();
+        delete process.env.BROWSERBASE_API_KEY;
+        delete process.env.BROWSERBASE_CACHE_TTL_HOURS;
+    });
+
+    it("serves a fresh cache entry without any network call", async () => {
+        const cache: BrowserbaseCache = {
+            version: 1,
+            entries: {
+                [URL]: {
+                    fetchedAt: new Date().toISOString(),
+                    status: 200,
+                    contentType: "text/calendar",
+                    content: "CACHED-ICS",
+                },
+            },
+        };
+        initBrowserbaseCache(cache);
+
+        const fetchFn = createBrowserbaseFetch();
+        const res = await fetchFn(URL);
+
+        expect(mockFetch).not.toHaveBeenCalled();
+        expect(await res.text()).toBe("CACHED-ICS");
+        // A fresh hit never needs the key, so it works even when unset.
+    });
+
+    it("fetches live and stores the entry on a cache miss", async () => {
+        const cache = emptyBrowserbaseCache();
+        initBrowserbaseCache(cache);
+        mockFetch.mockResolvedValueOnce(liveResponse("LIVE-ICS"));
+
+        const fetchFn = createBrowserbaseFetch();
+        const res = await fetchFn(URL);
+
+        expect(mockFetch).toHaveBeenCalledTimes(1);
+        expect(await res.text()).toBe("LIVE-ICS");
+        const stored = getBrowserbaseCache()!.entries[URL];
+        expect(stored.content).toBe("LIVE-ICS");
+        expect(stored.status).toBe(200);
+    });
+
+    it("refetches a stale entry (TTL elapsed)", async () => {
+        process.env.BROWSERBASE_CACHE_TTL_HOURS = "24";
+        const cache: BrowserbaseCache = {
+            version: 1,
+            entries: {
+                [URL]: {
+                    fetchedAt: new Date(Date.now() - 25 * 3600 * 1000).toISOString(),
+                    status: 200,
+                    contentType: "text/calendar",
+                    content: "OLD-ICS",
+                },
+            },
+        };
+        initBrowserbaseCache(cache);
+        mockFetch.mockResolvedValueOnce(liveResponse("NEW-ICS"));
+
+        const fetchFn = createBrowserbaseFetch();
+        const res = await fetchFn(URL);
+
+        expect(mockFetch).toHaveBeenCalledTimes(1);
+        expect(await res.text()).toBe("NEW-ICS");
+        expect(getBrowserbaseCache()!.entries[URL].content).toBe("NEW-ICS");
+    });
+
+    it("does not cache non-2xx responses", async () => {
+        const cache = emptyBrowserbaseCache();
+        initBrowserbaseCache(cache);
+        mockFetch.mockResolvedValueOnce(liveResponse("Not Found", 404));
+
+        const fetchFn = createBrowserbaseFetch();
+        const res = await fetchFn(URL);
+
+        expect(res.status).toBe(404);
+        expect(getBrowserbaseCache()!.entries[URL]).toBeUndefined();
+    });
+
+    it("falls back to a stale copy and records a stale serve when the live fetch fails", async () => {
+        const cachedAt = new Date(Date.now() - 30 * 3600 * 1000).toISOString();
+        const cache: BrowserbaseCache = {
+            version: 1,
+            entries: {
+                [URL]: {
+                    fetchedAt: cachedAt,
+                    status: 200,
+                    contentType: "text/calendar",
+                    content: "STALE-ICS",
+                },
+            },
+        };
+        process.env.BROWSERBASE_CACHE_TTL_HOURS = "24";
+        initBrowserbaseCache(cache);
+        mockFetch.mockResolvedValueOnce(fakeResponse("unauthorized", 401));
+
+        const fetchFn = createBrowserbaseFetch();
+        const res = await fetchFn(URL);
+
+        expect(await res.text()).toBe("STALE-ICS");
+        const stale = drainStaleServes();
+        expect(stale).toHaveLength(1);
+        expect(stale[0].url).toBe(URL);
+        expect(stale[0].cachedAt).toBe(cachedAt);
+        expect(stale[0].ageHours).toBe(30);
+    });
+
+    it("rethrows when the live fetch fails and there is no cached copy", async () => {
+        initBrowserbaseCache(emptyBrowserbaseCache());
+        mockFetch.mockResolvedValueOnce(fakeResponse("unauthorized", 401));
+
+        const fetchFn = createBrowserbaseFetch();
+        await expect(fetchFn(URL)).rejects.toThrow("Browserbase fetch failed: HTTP 401");
+        expect(drainStaleServes()).toHaveLength(0);
     });
 });
