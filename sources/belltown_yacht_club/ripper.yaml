@@ -4,6 +4,7 @@ description: "Belltown Yacht Club"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=Belltown+Yacht+Club"
 friendlyLink: https://dice.fm/venue/belltown-yacht-club-b7mo
 tags: ["Music", "Belltown"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Filthy_Traitors_Belltown_Yacht_Club.jpg"
 geo:
   lat: 47.6140747
   lng: -122.3468379
