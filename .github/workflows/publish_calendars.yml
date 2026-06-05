@@ -70,6 +70,45 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
+  refresh-instagram:
+    # Fire a thin Claude Code routine that runs the `instagram-source` skill:
+    # read each `type: instagram` account's recent posts (flyer image + caption,
+    # via vision) and record events into instagram-cache.json on S3. All logic
+    # lives in skills/instagram-source/ — this job is just a fire-and-forget so
+    # the build itself stays offline/deterministic (the ripper only reads the
+    # cache). Only on the daily schedule or manual dispatch (not every push), so
+    # we read Instagram at most once a day. Skips if the routine id isn't set.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Fire instagram-source routine
+        env:
+          CLAUDE_ROUTINE_TOKEN: ${{ secrets.CLAUDE_ROUTINE_TOKEN }}
+          CLAUDE_INSTAGRAM_ROUTINE_ID: ${{ secrets.CLAUDE_INSTAGRAM_ROUTINE_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$CLAUDE_INSTAGRAM_ROUTINE_ID" ]; then
+            echo "Skipping: CLAUDE_INSTAGRAM_ROUTINE_ID not configured"
+            exit 0
+          fi
+          PAYLOAD=$(jq -n --arg text "Refresh Instagram sources via the instagram-source skill. Run: ${RUN_URL}" '{text: $text}')
+          echo "Firing instagram-source routine ${CLAUDE_INSTAGRAM_ROUTINE_ID}..."
+          HTTP_CODE=$(curl -s --max-time 30 -o /tmp/ig-routine-response.json -w "%{http_code}" -X POST \
+            "https://api.anthropic.com/v1/claude_code/routines/${CLAUDE_INSTAGRAM_ROUTINE_ID}/fire" \
+            -H "Authorization: Bearer $CLAUDE_ROUTINE_TOKEN" \
+            -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD") || HTTP_CODE="000"
+          echo "Response: HTTP $HTTP_CODE"
+          if [[ "$HTTP_CODE" =~ ^[0-9]+$ ]] && [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+            jq -r '.claude_code_session_url // "(no session URL)"' /tmp/ig-routine-response.json
+          else
+            echo "::warning::Failed to fire instagram-source routine (HTTP $HTTP_CODE)"
+            # Best-effort — never fail the publish on this.
+          fi
+
   trigger-error-routine:
     # Trigger a Claude Code routine to investigate and fix build errors.
     # Runs on any build with errors (push, schedule, or manual dispatch).

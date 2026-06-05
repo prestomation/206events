@@ -51,9 +51,11 @@ describe('built-in rippers: missing environment variables', () => {
         }
     });
 
-    // Squarespace and styledcalendar have no API key requirement so they don't belong
-    // in this suite — their network-error handling is covered in their own test files.
-    const RIPPERS_WITH_ENV_VARS = BUILTIN_RIPPER_TYPES.filter(t => t !== 'squarespace' && t !== 'styledcalendar' && t !== 'spothopper');
+    // Squarespace, styledcalendar, spothopper, and instagram have no API key
+    // requirement so they don't belong in this suite — their behavior is covered
+    // in their own test files (instagram reads a local cache, not an API).
+    const NO_ENV_VAR_TYPES = new Set(['squarespace', 'styledcalendar', 'spothopper', 'instagram']);
+    const RIPPERS_WITH_ENV_VARS = BUILTIN_RIPPER_TYPES.filter(t => !NO_ENV_VAR_TYPES.has(t));
 
     for (const type of RIPPERS_WITH_ENV_VARS) {
         it(`${type} ripper does not throw from rip() when env vars are missing`, async () => {

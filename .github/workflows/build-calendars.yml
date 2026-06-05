@@ -96,6 +96,23 @@ jobs:
         restore-keys: |
           geo-cache-v1-
 
+    - name: Download instagram-cache from S3
+      env:
+        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
+      run: |
+        # Same committed-override merge as the event-uncertainty-cache: a web
+        # session (no S3 write access) commits manually-read Instagram posts to
+        # the repo; those must win over S3 on key conflicts. S3 fills the rest.
+        cp instagram-cache.json /tmp/committed-instagram-cache.json
+        if aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/instagram-cache.json" /tmp/s3-instagram-cache.json; then
+          jq -s '{version: 1, entries: (.[0].entries + .[1].entries)}' \
+            /tmp/s3-instagram-cache.json /tmp/committed-instagram-cache.json \
+            > instagram-cache.json
+          echo "instagram-cache: merged S3 + committed = $(jq '.entries | length' instagram-cache.json) entries"
+        else
+          echo "S3 instagram-cache not available, using committed baseline"
+        fi
+
     - name: Download out-of-band calendars
       env:
         OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
@@ -211,6 +228,15 @@ jobs:
         path: fetch-cache.json
         key: fetch-cache-v1-${{ github.run_id }}
 
+    - name: Upload instagram-cache to S3
+      if: always()
+      env:
+        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
+      run: |
+        aws s3 cp instagram-cache.json "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/instagram-cache.json" \
+          && echo "instagram-cache uploaded to S3 ($(jq '.entries | length' instagram-cache.json) entries)" \
+          || echo "S3 upload failed (credentials not configured?)"
+
     - name: Validate discovery API
       run: npm run check-discovery-api
 
@@ -247,6 +273,14 @@ jobs:
       with:
         name: event-uncertainty-cache
         path: event-uncertainty-cache.json
+        retention-days: 90
+
+    - name: Upload instagram-cache artifact
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: instagram-cache
+        path: instagram-cache.json
         retention-days: 90
 
     - name: Upload artifact
