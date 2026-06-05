@@ -1,5 +1,8 @@
 # verified: 2026-05-11 ok
-geo: null
+geo:
+  lat: 47.618751
+  lng: -122.3204886
+  label: "E Barbara Bailey Way, Capitol Hill, Seattle"
 name: capitol-hill-tuesday-market
 friendlyname: Capitol Hill Tuesday Farmers Market
 description: Seasonal Tuesday evening farmers market on Capitol Hill. Runs June through September.

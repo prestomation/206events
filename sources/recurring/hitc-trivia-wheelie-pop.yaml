@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6640279
+  lng: -122.3791663
+  label: "4907 Leary Ave NW, Seattle, WA 98107"
 name: hitc-trivia-wheelie-pop
 friendlyname: Trivia at Wheelie Pop Brewing
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

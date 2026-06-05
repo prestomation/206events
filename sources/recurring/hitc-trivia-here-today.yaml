@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6152885
+  lng: -122.3539984
+  label: "2815 Elliott Ave, Seattle, WA 98121"
 name: hitc-trivia-here-today
 friendlyname: Trivia at Here Today Brewery
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

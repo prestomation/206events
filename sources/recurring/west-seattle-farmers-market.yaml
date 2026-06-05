@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.5612096
+  lng: -122.3871937
+  label: "California Ave SW & SW Alaska St, Seattle"
 name: west-seattle-farmers-market
 friendlyname: West Seattle Farmers Market
 description: Year-round Sunday farmers market in the West Seattle Junction. Local produce, artisan foods, and community events.

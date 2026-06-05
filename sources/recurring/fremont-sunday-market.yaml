@@ -1,5 +1,8 @@
 # verified: 2026-05-25 flagged (seasonal location not reflected: Nov–Mar location is 701 N. Northlake Way, not 3401 Evanston Ave N)
-geo: null
+geo:
+  lat: 47.650107
+  lng: -122.3516172
+  label: "3401 Evanston Ave N, Seattle"
 name: fremont-sunday-market
 friendlyname: Fremont Sunday Market
 description: Year-round outdoor Sunday market in Fremont with 150+ vendors including vintage goods, crafts, food, and local farm produce.

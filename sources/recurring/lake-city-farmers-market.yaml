@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.7193734
+  lng: -122.298168
+  label: "NE 125th St & 28th Ave NE, Seattle"
 name: lake-city-farmers-market
 friendlyname: Lake City Farmers Market
 description: Seasonal Thursday afternoon farmers market in Lake City. Runs June through September.

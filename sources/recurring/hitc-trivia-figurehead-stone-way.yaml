@@ -1,5 +1,8 @@
 # verified: 2026-06-01 ok
-geo: null
+geo:
+  lat: 47.6499568
+  lng: -122.3429942
+  label: "3513 Stone Way N, Seattle, WA 98103"
 name: hitc-trivia-figurehead-stone-way
 friendlyname: Trivia at Figurehead Brewing Stone Way
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

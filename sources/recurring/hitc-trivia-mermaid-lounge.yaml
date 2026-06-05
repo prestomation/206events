@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6522408
+  lng: -122.3554032
+  label: "303 N 36th St, Seattle, WA 98103"
 name: hitc-trivia-mermaid-lounge
 friendlyname: Trivia at Mermaid Lounge
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.5478544
+  lng: -122.3148342
+  label: "6235 Airport Way S, Seattle, WA 98108"
 name: hitc-trivia-great-notion-georgetown
 friendlyname: Trivia at Great Notion Georgetown
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

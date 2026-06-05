@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6137463
+  lng: -122.3196258
+  label: "1425 10th Ave, Seattle, WA 98122"
 name: hitc-trivia-the-runaway
 friendlyname: Trivia at The Runaway
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

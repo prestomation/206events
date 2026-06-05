@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6106566
+  lng: -122.3433114
+  label: "70 Virginia St, Seattle, WA 98101"
 name: hitc-trivia-pub-70
 friendlyname: Trivia at Pub 70
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.60792
+  lng: -122.2996748
+  label: "2513 E Cherry St, Seattle, WA 98122"
 name: hitc-trivia-woodshop-bbq
 friendlyname: Trivia at Woodshop BBQ
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

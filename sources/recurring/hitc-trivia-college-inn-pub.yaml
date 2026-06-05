@@ -1,5 +1,8 @@
 # verified: 2026-06-01 ok
-geo: null
+geo:
+  lat: 47.6555347
+  lng: -122.3131194
+  label: "4006 University Way NE, Seattle, WA 98105"
 name: hitc-trivia-college-inn-pub
 friendlyname: Trivia at College Inn Pub
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.664147
+  lng: -122.313176
+  label: "University Way NE between NE 50th St & NE 52nd St, Seattle"
 name: u-district-farmers-market
 friendlyname: University District Farmers Market
 description: Year-round Saturday farmers market in the U-District. Fresh produce, flowers, baked goods, and artisan foods.

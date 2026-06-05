@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6116672
+  lng: -122.3206394
+  label: "1158 Broadway, Seattle, WA 98122"
 name: hitc-trivia-stoup-capitol-hill
 friendlyname: Trivia at Stoup Brewing Capitol Hill
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

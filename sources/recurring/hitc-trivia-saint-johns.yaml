@@ -1,4 +1,7 @@
-geo: null
+geo:
+  lat: 47.6139515
+  lng: -122.3225652
+  label: "719 E Pike St, Seattle, WA 98122"
 name: hitc-trivia-saint-johns
 friendlyname: Trivia at Saint John's Bar & Eatery
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

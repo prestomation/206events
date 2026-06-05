@@ -1,5 +1,8 @@
 # verified: 2026-06-01 ok
-geo: null
+geo:
+  lat: 47.665919
+  lng: -122.3740254
+  label: "5101 14th Ave NW, Seattle, WA 98107"
 name: hitc-trivia-great-notion-ballard
 friendlyname: Trivia at Great Notion Ballard
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

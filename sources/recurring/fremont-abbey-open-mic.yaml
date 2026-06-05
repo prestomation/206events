@@ -1,5 +1,8 @@
 # verified: 2026-05-25 ok
-geo: null
+geo:
+  lat: 47.6591914
+  lng: -122.3496831
+  label: "4272 Fremont Ave N, Seattle"
 name: fremont-abbey-open-mic
 friendlyname: Fremont Abbey Open Mic
 description: All art forms welcome at this community arts space. Twice-monthly open mic on the 1st and 3rd Tuesdays.
