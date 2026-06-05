@@ -68,17 +68,24 @@ this consumer.
 
 - **Marker** (`EventsMap.jsx`): one per group. `count === 1` renders the default
   Leaflet marker unchanged (the global `Icon.Default` setup is untouched, so
-  one-off events are pixel-identical to before). `count > 1` gets a
-  `createGroupBadgeIcon(count)` `L.divIcon` — the bundled pin plus a small corner
-  count badge.
+  one-off events are pixel-identical to before). The `icon` prop is *omitted*
+  for these — passing `icon={undefined}` overrides (and crashes) Leaflet's
+  default icon in a real browser. `count > 1` gets a `createGroupBadgeIcon(count)`
+  `L.divIcon` — the bundled pin plus a small corner count badge (design `--pin`
+  colour).
 - **Side panel** (`web/src/components/EventGroupPanel.jsx`): clicking a marker
-  opens a drawer over the map with the show title, optional image, venue +
-  "Open in maps" link, and a scrollable list of every date (each an
-  `https`-guarded "View event" link), capped at `MAX_GROUP_DATES` (50) with a
-  "+N more" overflow line. Closes via its button or Esc. Because the panel is a
-  real React subtree, the old imperative popup-HTML builders (and their manual
-  `escapeHtml`) are gone — React escapes text by default. Attribution chips
-  reuse the existing `<AttributionChips>` component.
+  opens a drawer styled to the App206 design system — a mono `N dates` eyebrow,
+  display-font title, source line, optional image, a scrollable list of
+  calendar-style date cells (weekday / day-number / month + time) each linking to
+  that instance's event page, and a `📍 Open in maps` footer. The date list is
+  capped at `MAX_GROUP_DATES` (50) with a "+N more dates" overflow line. Closes
+  via its button or Esc. On `click`, the map `panInside`s the marker out from
+  behind the panel (`PANEL_WIDTH` reserved on the right; a no-op on mobile, where
+  the panel is a bottom sheet instead). Because the panel is a real React
+  subtree, the old imperative popup-HTML builders (and their manual `escapeHtml`)
+  are gone — React escapes text by default; only `https?:`-scheme links/images
+  are emitted. Attribution chips reuse the existing `<AttributionChips>`
+  component.
 
 ## Security
 

@@ -22,6 +22,11 @@ L.Icon.Default.mergeOptions({
 const SEATTLE_CENTER = [47.6062, -122.3321]
 const DEFAULT_ZOOM = 12
 
+// Width (px) of the drill-down side panel on desktop. Kept in sync with the
+// `.event-group-panel` width in index.css so the map can pan a clicked marker
+// out from behind it.
+const PANEL_WIDTH = 340
+
 // Populated King County extent used to reject distant outliers from the default
 // map fit. Kept close to the actual county lines so the opening view frames King
 // County without spilling into neighbouring counties:
@@ -327,6 +332,21 @@ function EventsMapInner({
   // The group whose drill-down panel is open (null = closed).
   const [selectedGroup, setSelectedGroup] = useState(null)
 
+  // Open a group's panel and pan the map so the clicked marker isn't hidden
+  // behind the right-side panel. `panInside` shifts the view the minimum amount
+  // needed to bring the point into the area left of the panel; it's a no-op on
+  // mobile (mapRef undefined) where the panel is a bottom sheet instead.
+  const openGroup = useCallback((group) => {
+    setSelectedGroup(group)
+    const map = mapRef?.current
+    if (map && group?.lat != null && group?.lng != null) {
+      map.panInside([group.lat, group.lng], {
+        paddingTopRight: [PANEL_WIDTH + 24, 24],
+        paddingBottomLeft: [24, 24],
+      })
+    }
+  }, [mapRef])
+
   // One marker per group, memoized so the list rebuilds only when the visible
   // group set changes. Multi-date groups get a count-badge icon; single-date
   // groups omit the `icon` prop entirely so Leaflet uses its default marker —
@@ -341,10 +361,10 @@ function EventsMapInner({
         key={`group-${group.key}`}
         position={[group.lat, group.lng]}
         {...iconProps}
-        eventHandlers={{ click: () => setSelectedGroup(group) }}
+        eventHandlers={{ click: () => openGroup(group) }}
       />
     )
-  }), [visibleGroups])
+  }), [visibleGroups, openGroup])
 
   return (
     <div className="events-map-container" data-testid="events-map">

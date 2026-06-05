@@ -29,54 +29,64 @@ function group(overrides = {}) {
   }
 }
 
+// Date rows that link out are anchors with the egp-row class; non-linked rows
+// are plain divs. Count the clickable date links.
+const dateLinks = (container) => container.querySelectorAll('a.egp-row')
+const dateRows = (container) => container.querySelectorAll('.egp-row')
+
 describe('EventGroupPanel', () => {
   it('renders nothing when no group is selected', () => {
     const { container } = render(<EventGroupPanel group={null} onClose={() => {}} />)
     expect(container).toBeEmptyDOMElement()
   })
 
-  it('shows a single-date group with one row and no count subheader', () => {
-    render(<EventGroupPanel group={group()} onClose={() => {}} />)
+  it('shows a single-date group with one row and the "Event" eyebrow (no count)', () => {
+    const { container } = render(<EventGroupPanel group={group()} onClose={() => {}} />)
     expect(screen.getByText('Cats')).toBeInTheDocument()
+    expect(screen.getByText('Event')).toBeInTheDocument()
     expect(screen.queryByText(/dates$/)).not.toBeInTheDocument()
-    expect(screen.getAllByText('View event →')).toHaveLength(1)
+    expect(dateRows(container)).toHaveLength(1)
+    expect(dateLinks(container)).toHaveLength(1)
   })
 
-  it('lists every date for a multi-date group with a count subheader', () => {
+  it('lists every date for a multi-date group with a count eyebrow', () => {
     const instances = [
-      instance({ date: '2026-07-01T19:00:00-07:00', formattedDate: 'Jul 1', url: 'https://example.com/1' }),
-      instance({ date: '2026-07-02T19:00:00-07:00', formattedDate: 'Jul 2', url: 'https://example.com/2' }),
-      instance({ date: '2026-07-03T19:00:00-07:00', formattedDate: 'Jul 3', url: 'https://example.com/3' }),
+      instance({ date: '2026-07-01T19:00:00-07:00', url: 'https://example.com/1' }),
+      instance({ date: '2026-07-02T19:00:00-07:00', url: 'https://example.com/2' }),
+      instance({ date: '2026-07-03T19:00:00-07:00', url: 'https://example.com/3' }),
     ]
-    render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
+    const { container } = render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
     expect(screen.getByText('3 dates')).toBeInTheDocument()
-    expect(screen.getByText('Jul 1')).toBeInTheDocument()
-    expect(screen.getByText('Jul 2')).toBeInTheDocument()
-    expect(screen.getByText('Jul 3')).toBeInTheDocument()
-    expect(screen.getAllByText('View event →')).toHaveLength(3)
+    const links = dateLinks(container)
+    expect(links).toHaveLength(3)
+    expect([...links].map((a) => a.getAttribute('href'))).toEqual([
+      'https://example.com/1',
+      'https://example.com/2',
+      'https://example.com/3',
+    ])
   })
 
-  it('only emits http(s) event links (drops javascript:/missing urls)', () => {
+  it('only links http(s) rows (javascript:/missing urls render as plain rows)', () => {
     const instances = [
-      instance({ formattedDate: 'Safe', url: 'https://example.com/ok' }),
-      instance({ formattedDate: 'Evil', url: 'javascript:alert(1)' }),
-      instance({ formattedDate: 'None', url: undefined }),
+      instance({ date: '2026-07-01T19:00:00-07:00', url: 'https://example.com/ok' }),
+      instance({ date: '2026-07-02T19:00:00-07:00', url: 'javascript:alert(1)' }), // eslint-disable-line no-script-url
+      instance({ date: '2026-07-03T19:00:00-07:00', url: undefined }),
     ]
-    render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
-    // All three rows render, but only the https one gets a link.
-    expect(screen.getByText('Safe')).toBeInTheDocument()
-    expect(screen.getByText('Evil')).toBeInTheDocument()
-    expect(screen.getByText('None')).toBeInTheDocument()
-    expect(screen.getAllByText('View event →')).toHaveLength(1)
+    const { container } = render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
+    // All three rows render, but only the https one is an anchor.
+    expect(dateRows(container)).toHaveLength(3)
+    const links = dateLinks(container)
+    expect(links).toHaveLength(1)
+    expect(links[0].getAttribute('href')).toBe('https://example.com/ok')
   })
 
   it('caps the rendered rows at MAX_GROUP_DATES and summarises overflow', () => {
     const instances = Array.from({ length: MAX_GROUP_DATES + 7 }, (_, i) =>
-      instance({ date: `2026-07-${String(i + 1).padStart(2, '0')}T19:00:00-07:00`, formattedDate: `D${i}`, url: `https://example.com/${i}` }),
+      instance({ date: `2026-07-${String(i + 1).padStart(2, '0')}T19:00:00-07:00`, url: `https://example.com/${i}` }),
     )
-    render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
-    expect(screen.getAllByText('View event →')).toHaveLength(MAX_GROUP_DATES)
-    expect(screen.getByText('+7 more')).toBeInTheDocument()
+    const { container } = render(<EventGroupPanel group={group({ instances })} onClose={() => {}} />)
+    expect(dateRows(container)).toHaveLength(MAX_GROUP_DATES)
+    expect(screen.getByText('+7 more dates')).toBeInTheDocument()
   })
 
   it('closes via the close button', () => {

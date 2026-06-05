@@ -3317,8 +3317,9 @@ html, body, #root { height: 100%; }
   height: 18px;
   padding: 0 4px;
   border-radius: 9px;
-  background: #f44336;
+  background: var(--pin, #d24a3d);
   color: #fff;
+  font-family: var(--font-mono, monospace);
   font-size: 11px;
   font-weight: 700;
   line-height: 18px;
@@ -3329,75 +3330,183 @@ html, body, #root { height: 100%; }
 }
 
 /* Drill-down side panel: opens over the map when a marker is clicked, listing
-   every date for the selected conceptual event. Theme-aware via inherited vars
-   with fallbacks for the legacy unscoped UI. */
+   every date for the selected conceptual event. Styled to match the App206
+   design system; theme vars resolve from the surrounding app206 tree (fallbacks
+   cover the legacy unscoped UI). */
 .event-group-panel {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  width: 300px;
-  max-width: 85%;
+  width: 340px;
+  max-width: 88%;
   display: flex;
   flex-direction: column;
-  padding: 16px;
   background: var(--surface, #fff);
   color: var(--ink, #1a1a2e);
-  box-shadow: -2px 0 12px rgba(20, 15, 10, 0.18);
+  border-left: 1px solid var(--line, #e9e4da);
+  box-shadow: -8px 0 24px rgba(20, 15, 10, 0.16);
   z-index: 1100;
-  overflow: hidden;
+  font-family: var(--font-sans, sans-serif);
+  animation: egp-in 0.18s ease-out;
 }
-.event-group-panel-close {
+@keyframes egp-in {
+  from { transform: translateX(14px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.egp-head {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 16px 46px 14px 18px;
+  border-bottom: 1px solid var(--line, #e9e4da);
+}
+.egp-eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3, #86848e);
+}
+.egp-title {
+  margin-top: 4px;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink, #1a1a2e);
+}
+.egp-source { margin-top: 6px; font-size: 12.5px; color: var(--ink-2, #46454f); }
+.egp-close {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
-  border: none;
-  background: transparent;
-  font-size: 22px;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  color: var(--ink-2, #555);
+  background: var(--surface-2, #f4f1ea);
+  border: 1px solid var(--line, #e9e4da);
+  color: var(--ink-2, #46454f);
 }
-.event-group-panel-header { padding-right: 28px; margin-bottom: 8px; }
-.event-group-panel-title { font-size: 16px; font-weight: 700; line-height: 1.3; }
-.event-group-panel-count { margin-top: 2px; font-size: 12px; color: var(--ink-2, #777); }
-.event-group-panel-image {
-  width: 100%;
-  max-height: 140px;
+.egp-close:hover { background: var(--surface-3, #ede9e0); color: var(--ink, #1a1a2e); }
+
+.egp-image {
+  flex: 0 0 auto;
+  width: calc(100% - 36px);
+  margin: 14px 18px 0;
+  max-height: 150px;
   object-fit: cover;
-  border-radius: 8px;
-  margin: 8px 0;
+  border-radius: 12px;
 }
-.event-group-panel-source { margin-bottom: 4px; font-size: 12px; font-style: italic; color: var(--ink-2, #777); }
-.event-group-panel-maplink { font-size: 12px; color: var(--accent-color, #4a90d9); text-decoration: none; }
-.event-group-panel-maplink:hover { text-decoration: underline; }
-.event-group-dates {
+
+.egp-dates {
   flex: 1 1 auto;
-  list-style: none;
-  margin: 10px 0 0;
-  padding: 0;
   overflow-y: auto;
-  border-top: 1px solid var(--surface-3, #eee);
+  list-style: none;
+  margin: 0;
+  padding: 8px 10px 10px;
 }
-.event-group-date-row {
+.egp-row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px;
-  padding: 6px 0;
-  border-bottom: 1px solid var(--surface-3, #f0f0f0);
-}
-.event-group-date { font-size: 13px; }
-.event-group-date-link {
-  font-size: 12px;
-  color: var(--accent-color, #4a90d9);
+  align-items: center;
+  gap: 12px;
+  padding: 9px 8px;
+  border-radius: 11px;
+  color: inherit;
   text-decoration: none;
-  white-space: nowrap;
 }
-.event-group-date-link:hover { text-decoration: underline; }
-.event-group-date-more { padding: 6px 0; font-size: 12px; font-style: italic; color: var(--ink-3, #999); }
+.egp-row:hover { background: var(--surface-2, #f4f1ea); }
+.egp-row--plain { cursor: default; }
+.egp-cal {
+  flex: 0 0 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+.egp-cal .dow,
+.egp-cal .mon {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3, #86848e);
+}
+.egp-cal .num {
+  margin: 1px 0;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: 19px;
+  color: var(--ink, #1a1a2e);
+}
+.egp-when {
+  flex: 1 1 auto;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink, #1a1a2e);
+}
+.egp-go { flex: 0 0 auto; font-size: 15px; font-weight: 700; color: var(--blue, #1366d6); opacity: 0.6; }
+.egp-row:hover .egp-go { opacity: 1; }
+.egp-more {
+  padding: 10px 12px 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-4, #a8a6ad);
+}
+
+.egp-foot {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line, #e9e4da);
+}
+.egp-maplink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pin, #d24a3d);
+  text-decoration: none;
+}
+.egp-maplink:hover { text-decoration: underline; }
+
+/* On narrow screens the panel becomes a bottom sheet so it doesn't cover the
+   map markers (where panning isn't available). */
+@media (max-width: 760px) {
+  .event-group-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 62%;
+    border-left: none;
+    border-top: 1px solid var(--line, #e9e4da);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -8px 24px rgba(20, 15, 10, 0.18);
+    animation: egp-in-up 0.18s ease-out;
+  }
+  @keyframes egp-in-up {
+    from { transform: translateY(18px); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+}
 
 /* ============================================================= REDESIGN ===
    Warm "paper" UI (App206). All rules scoped under .app206 so they don't
