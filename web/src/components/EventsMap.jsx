@@ -329,17 +329,22 @@ function EventsMapInner({
 
   // One marker per group, memoized so the list rebuilds only when the visible
   // group set changes. Multi-date groups get a count-badge icon; single-date
-  // groups use the default Leaflet marker (no icon prop). Clicking opens the
-  // side detail panel rather than a Leaflet popup. Keyed on the stable group key
-  // (date-independent) so slider drags update markers in place.
-  const markers = useMemo(() => visibleGroups.map((group) => (
-    <Marker
-      key={`group-${group.key}`}
-      position={[group.lat, group.lng]}
-      icon={group.count > 1 ? createGroupBadgeIcon(group.count) : undefined}
-      eventHandlers={{ click: () => setSelectedGroup(group) }}
-    />
-  )), [visibleGroups])
+  // groups omit the `icon` prop entirely so Leaflet uses its default marker —
+  // passing `icon={undefined}` instead would override (and crash) Leaflet's
+  // default icon in a real browser. Clicking opens the side detail panel rather
+  // than a Leaflet popup. Keyed on the stable group key (date-independent) so
+  // slider drags update markers in place.
+  const markers = useMemo(() => visibleGroups.map((group) => {
+    const iconProps = group.count > 1 ? { icon: createGroupBadgeIcon(group.count) } : {}
+    return (
+      <Marker
+        key={`group-${group.key}`}
+        position={[group.lat, group.lng]}
+        {...iconProps}
+        eventHandlers={{ click: () => setSelectedGroup(group) }}
+      />
+    )
+  }), [visibleGroups])
 
   return (
     <div className="events-map-container" data-testid="events-map">
