@@ -4,7 +4,8 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { eventKey } from '../lib/eventKey.js'
-import { googleMapsUrl } from '../lib/maplink.js'
+import { groupEvents } from '../lib/event-grouping.js'
+import { EventGroupPanel } from './EventGroupPanel.jsx'
 
 // Fix Leaflet default marker icons in Vite
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
@@ -115,6 +116,21 @@ function createClusterIcon(cluster) {
   })
 }
 
+// Marker icon for a temporal group with more than one date: the bundled default
+// pin image plus a small corner badge showing the number of dates. Single-date
+// groups use the default Leaflet marker instead (no icon prop), so the global
+// Icon.Default setup above is untouched. Sized/anchored to match the default
+// marker footprint. `count` is always a number here, so no escaping is needed.
+function createGroupBadgeIcon(count) {
+  return L.divIcon({
+    className: 'event-group-marker',
+    html: `<img class="event-group-pin" src="${markerIcon}" alt="" /><span class="event-group-badge">${count}</span>`,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+  })
+}
+
 function FitBounds({ events, geoFilters, fitKey }) {
   const map = useMap()
   // Latest events/geoFilters held in refs so the fit effect can read them
@@ -195,57 +211,6 @@ function formatEventDate(dateStr) {
   } catch {
     return dateStr
   }
-}
-
-// Escape user/source-derived strings before interpolating into popup HTML.
-function escapeHtml(value) {
-  return String(value ?? '').replace(/[&<>"']/g, (c) => (
-    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
-  ))
-}
-
-// Mirror of <AttributionChips> as an HTML string (the component is display-only).
-// KEEP IN SYNC with AttributionChips.jsx — icon mapping + className whitelist.
-function attributionChipsHtml(attributions) {
-  if (!attributions?.length) return ''
-  const chips = attributions.map((attr) => {
-    const type = ['calendar', 'search', 'geo'].includes(attr.type) ? attr.type : 'unknown'
-    const icon = attr.type === 'calendar' ? '🗓️' : attr.type === 'search' ? '🔍' : '📍'
-    return `<span class="attribution-chip attribution-${type}">${icon} ${escapeHtml(attr.value)}</span>`
-  }).join('')
-  return `<div class="event-attributions">${chips}</div>`
-}
-
-// Build a marker's popup as an HTML string. Called lazily (on marker click) via
-// Leaflet's bindPopup(fn), so we don't construct ~8k popup/attribution subtrees
-// up front — only the one the user actually opens. Built by hand (rather than
-// rendering React to a string) to keep react-dom/server out of the client bundle.
-function renderPopupHtml(event, eventAttributions) {
-  const parts = [
-    `<strong class="map-popup-title">${escapeHtml(event.summary)}</strong>`,
-    `<div class="map-popup-date">${escapeHtml(event.formattedDate)}</div>`,
-  ]
-  // Optional event photo (a link only). Hide on load error so a dead URL
-  // leaves no broken-image icon in the popup.
-  if (event.imageUrl && /^https?:\/\//i.test(event.imageUrl)) {
-    parts.push(`<img class="map-popup-image" src="${escapeHtml(event.imageUrl)}" alt="" loading="lazy" onerror="this.style.display='none'" />`)
-  }
-  if (event.calendarName) {
-    parts.push(`<div class="map-popup-source">${escapeHtml(event.calendarName)}</div>`)
-  }
-  // Only emit http(s) links — guards against javascript: / data: URLs in source data.
-  if (event.url && /^https?:\/\//i.test(event.url)) {
-    parts.push(`<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener noreferrer" class="map-popup-link">View event →</a>`)
-  }
-  // Open-in-maps link. Use the Google universal URL (always http(s), works on
-  // desktop and deep-links into the maps app on mobile) so it passes the same
-  // scheme guard as the event link above.
-  const mapUrl = googleMapsUrl({ location: event.location, lat: event.lat, lng: event.lng })
-  if (mapUrl) {
-    parts.push(`<a href="${escapeHtml(mapUrl)}" target="_blank" rel="noopener noreferrer" class="map-popup-link">Open in maps →</a>`)
-  }
-  parts.push(attributionChipsHtml(eventAttributions?.get(eventKey(event))))
-  return `<div class="map-popup">${parts.join('')}</div>`
 }
 
 // Pure predicate deciding whether an event belongs on the map under the active
@@ -337,6 +302,15 @@ function EventsMapInner({
     calendarName: calendarNameByIcsUrl[event.icsUrl] || event.icsUrl?.replace('.ics', ''),
   })), [mappableEvents, calendarNameByIcsUrl])
 
+  // Temporal grouping: collapse the many instances of a conceptually-same
+  // recurring event at one venue into a single group → a single marker. Runs on
+  // the already-filtered (isMappable) set, so each group's date count reflects
+  // the active date window automatically. All instances of a group share one
+  // coordinate, so grouping first and culling the groups (below) is equivalent
+  // to and cheaper than culling instances. The spatial MarkerClusterGroup layer
+  // then still clusters distinct venues on top — the two are complementary.
+  const eventGroups = useMemo(() => groupEvents(eventsWithDates), [eventsWithDates])
+
   // Viewport culling: only render markers within (a padded) current map bounds,
   // re-filtering when the map pans/zooms. This keeps a date-window change cheap
   // while the user is zoomed into a neighborhood — we rebuild dozens of markers,
@@ -344,29 +318,28 @@ function EventsMapInner({
   // which case we render everything (the initial fit frames all events anyway).
   const [bounds, setBounds] = useState(null)
   const onBounds = useCallback((b) => setBounds(b), [])
-  const visibleEvents = useMemo(() => {
-    if (!bounds) return eventsWithDates
+  const visibleGroups = useMemo(() => {
+    if (!bounds) return eventGroups
     const padded = bounds.pad(0.5) // ~50% buffer so just-offscreen markers stay put while panning
-    return eventsWithDates.filter((e) => padded.contains([e.lat, e.lng]))
-  }, [eventsWithDates, bounds])
+    return eventGroups.filter((g) => padded.contains([g.lat, g.lng]))
+  }, [eventGroups, bounds])
 
-  // Bare markers, memoized so the marker list is rebuilt only when the visible
-  // event set actually changes (not on every parent re-render). Popups are bound
-  // lazily on first click via Leaflet's bindPopup — constructing the
-  // popup/attribution markup only for the marker the user opens.
-  const markers = useMemo(() => visibleEvents.map((event) => (
+  // The group whose drill-down panel is open (null = closed).
+  const [selectedGroup, setSelectedGroup] = useState(null)
+
+  // One marker per group, memoized so the list rebuilds only when the visible
+  // group set changes. Multi-date groups get a count-badge icon; single-date
+  // groups use the default Leaflet marker (no icon prop). Clicking opens the
+  // side detail panel rather than a Leaflet popup. Keyed on the stable group key
+  // (date-independent) so slider drags update markers in place.
+  const markers = useMemo(() => visibleGroups.map((group) => (
     <Marker
-      key={`event-${eventKey(event)}`}
-      position={[event.lat, event.lng]}
-      eventHandlers={{
-        click: (e) => {
-          const layer = e.target
-          if (!layer.getPopup()) layer.bindPopup(() => renderPopupHtml(event, eventAttributions))
-          layer.openPopup()
-        },
-      }}
+      key={`group-${group.key}`}
+      position={[group.lat, group.lng]}
+      icon={group.count > 1 ? createGroupBadgeIcon(group.count) : undefined}
+      eventHandlers={{ click: () => setSelectedGroup(group) }}
     />
-  )), [visibleEvents, eventAttributions])
+  )), [visibleGroups])
 
   return (
     <div className="events-map-container" data-testid="events-map">
@@ -424,6 +397,14 @@ function EventsMapInner({
           {markers}
         </MarkerClusterGroup>
       </MapContainer>
+
+      {/* Drill-down: clicking a marker opens this side panel with the group's
+          venue details and full date list. Rendered over the map container. */}
+      <EventGroupPanel
+        group={selectedGroup}
+        eventAttributions={eventAttributions}
+        onClose={() => setSelectedGroup(null)}
+      />
 
       {eventsWithDates.length === 0 && (
         <div className="events-map-empty">

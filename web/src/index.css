@@ -3250,50 +3250,6 @@ html, body, #root { height: 100%; }
   text-align: center;
 }
 
-.map-popup {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 160px;
-  max-width: 240px;
-}
-
-.map-popup-title {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.map-popup-date {
-  font-size: 12px;
-  color: #555;
-}
-
-.map-popup-image {
-  display: block;
-  width: 100%;
-  max-height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 6px 0;
-}
-
-.map-popup-source {
-  font-size: 12px;
-  color: #777;
-  font-style: italic;
-}
-
-.map-popup-link {
-  font-size: 12px;
-  color: var(--accent-color, #4a90d9);
-  text-decoration: none;
-}
-
-.map-popup-link:hover {
-  text-decoration: underline;
-}
-
 @media (max-width: 768px) {
   .events-map-container {
     height: 350px;
@@ -3348,6 +3304,100 @@ html, body, #root { height: 100%; }
 .cluster-small  { background: #4caf50; width: 36px; height: 36px; }
 .cluster-medium { background: #ff9800; width: 44px; height: 44px; }
 .cluster-large  { background: #f44336; width: 52px; height: 52px; }
+
+/* Temporal-group markers: a default pin with a corner count badge for events
+   that recur on multiple dates at one venue. */
+.event-group-marker { position: relative; }
+.event-group-pin { display: block; width: 25px; height: 41px; }
+.event-group-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: #f44336;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-sizing: content-box;
+}
+
+/* Drill-down side panel: opens over the map when a marker is clicked, listing
+   every date for the selected conceptual event. Theme-aware via inherited vars
+   with fallbacks for the legacy unscoped UI. */
+.event-group-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 85%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: var(--surface, #fff);
+  color: var(--ink, #1a1a2e);
+  box-shadow: -2px 0 12px rgba(20, 15, 10, 0.18);
+  z-index: 1100;
+  overflow: hidden;
+}
+.event-group-panel-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink-2, #555);
+}
+.event-group-panel-header { padding-right: 28px; margin-bottom: 8px; }
+.event-group-panel-title { font-size: 16px; font-weight: 700; line-height: 1.3; }
+.event-group-panel-count { margin-top: 2px; font-size: 12px; color: var(--ink-2, #777); }
+.event-group-panel-image {
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+.event-group-panel-source { margin-bottom: 4px; font-size: 12px; font-style: italic; color: var(--ink-2, #777); }
+.event-group-panel-maplink { font-size: 12px; color: var(--accent-color, #4a90d9); text-decoration: none; }
+.event-group-panel-maplink:hover { text-decoration: underline; }
+.event-group-dates {
+  flex: 1 1 auto;
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  overflow-y: auto;
+  border-top: 1px solid var(--surface-3, #eee);
+}
+.event-group-date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--surface-3, #f0f0f0);
+}
+.event-group-date { font-size: 13px; }
+.event-group-date-link {
+  font-size: 12px;
+  color: var(--accent-color, #4a90d9);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.event-group-date-link:hover { text-decoration: underline; }
+.event-group-date-more { padding: 6px 0; font-size: 12px; font-style: italic; color: var(--ink-3, #999); }
 
 /* ============================================================= REDESIGN ===
    Warm "paper" UI (App206). All rules scoped under .app206 so they don't
