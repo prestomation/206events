@@ -18,6 +18,7 @@ This fetches `https://206.events/build-errors.json` and prints a structured summ
 - expectedEmpty cross-check (flags calendars marked empty that now have events)
 - Geo coverage stats and geocode errors
 - Photo coverage stats and missing-photo gaps
+- `urlEntityErrors` — URL fields containing HTML entities (`&amp;`, `&#38;`, …). **Fatal** — see below
 - Build timestamp
 
 ### 2. Reply with Build Health Report
@@ -43,6 +44,13 @@ If a source reports `ParseError` entries alongside successful events (e.g., "8 e
 - Include a summary in the report: `⏭️ ParseErrors: source-name: 2 items skipped — "Event Title 1" (no date), "Event Title 2" (unparseable format)`
 
 Do not disable the ripper for ParseErrors — they're working as intended (graceful failure + visibility).
+
+#### 🔗 URL Entity Errors (FATAL)
+If `urlEntityErrors` is non-empty, a URL field (`url`, `friendlyLink`, `icsUrl`, `infoUrl`, `imageUrl`, or a runtime `event.url` / `event.imageUrl`) contains an HTML entity such as `&amp;`, `&#38;`, or `&quot;`. `new URL()` accepts these verbatim, so they would ship as broken links — the build **fails** on them (counted in `fatalErrorCount`). Each entry names the `scope`, `source`, `field`, the offending `value`, and the `entities` found. **Fix at the source:**
+- **Ripper-produced (`scope: "event"`)** — the ripper extracted the URL from HTML without decoding. Decode it at extraction with `decode()` from `html-entities` before assigning to `event.url` / `event.imageUrl`. Delegate the ripper fix to a coding agent on a feature branch.
+- **Hand-authored (`scope: "ripper" | "external" | "recurring"`)** — a YAML config has a literal entity. Replace it with the literal character (`&`, not `&amp;`) in the source `.yaml`.
+
+See `docs/url-entities.md`. This is never a "report and move on" item — it must be fixed before the build can go green.
 
 #### ⏭️ Transient Errors
 If the error looks transient (network timeout, temporary 5xx):

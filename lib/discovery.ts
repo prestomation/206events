@@ -9,6 +9,7 @@ import {
 import { RecurringEvent } from "./config/recurring.js";
 import { categoryFor } from "./config/tags.js";
 import { googleMapsUrl, osmFeatureUrl } from "./maplink.js";
+import { containsHtmlEntity } from "./url-entities.js";
 
 /**
  * Discovery API — HATEOAS-style data files that let programmatic consumers
@@ -653,6 +654,10 @@ function dedupe<T>(arr: T[]): T[] {
 
 function safeUrlString(u: unknown): string | undefined {
   if (typeof u !== "string" || u.length === 0) return undefined;
+  // Defense in depth: the build's URL-entity gate already fails on entities in
+  // URL fields, but if one slips through we omit it rather than publish a
+  // broken `&amp;` link into the discovery JSON.
+  if (containsHtmlEntity(u)) return undefined;
   try {
     return new URL(u).toString();
   } catch {

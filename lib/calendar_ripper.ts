@@ -26,6 +26,8 @@ import {
   type UncertaintyMergeStats,
 } from "./uncertainty-merge.js";
 import { toRSS } from "./config/rss.js";
+import { checkUrlField, formatUrlEntityError, type UrlEntityError } from "./url-entities.js";
+import { decodeEntities } from "./text-normalize.js";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import {
@@ -507,6 +509,13 @@ export const main = async () => {
   // Add recurring calendars first
   allCalendars.push(...recurringCalendars);
   
+  // Decode HTML entities in event titles (e.g. "Greg Hoy &amp; the Boys" →
+  // "Greg Hoy & the Boys") before any serialization, so ICS, events-index.json,
+  // RSS, and the website all get clean titles. Idempotent — see text-normalize.ts.
+  for (const calendar of recurringCalendars) {
+    for (const e of calendar.events) e.summary = decodeEntities(e.summary);
+  }
+
   // Process recurring calendars for output
   const recurringWritePromises: Promise<void>[] = [];
   for (const calendar of recurringCalendars) {
@@ -693,6 +702,11 @@ export const main = async () => {
       const backfilled = applyImageBackfill(calendar.events, uncertaintyCache, config.config.name);
       calendar.events = backfilled.events;
       for (const key of backfilled.touchedKeys) uncertaintyTouchedKeys.add(key);
+
+      // Decode HTML entities in event titles before serialization (ICS,
+      // events-index.json, RSS, website all read this field). Idempotent and
+      // limited to titles — see text-normalize.ts.
+      for (const e of calendar.events) e.summary = decodeEntities(e.summary);
     }
   }
 
@@ -1205,6 +1219,57 @@ END:VCALENDAR`;
 
   await writeFile("output/events-index.json", eventsIndexJson);
 
+  // URL-entity gate. HTML entities (`&amp;`, `&#38;`, …) in any URL field are
+  // always a bug: `new URL()` accepts them verbatim, so they would ship as
+  // broken links. We fail the build (these count toward both totalErrors and
+  // fatalErrorCount) so the offending ripper is fixed (decode at extraction)
+  // or the hand-authored YAML corrected (write the literal character). A bare
+  // `&` is fine — only `&` followed by a known entity token is flagged. See
+  // docs/url-entities.md and lib/url-entities.ts.
+  const urlEntityErrors: UrlEntityError[] = [];
+  const recordUrlEntity = (
+    scope: UrlEntityError["scope"],
+    source: string,
+    calendar: string | undefined,
+    field: string,
+    value: unknown,
+  ) => {
+    const err = checkUrlField(scope, source, calendar, field, value);
+    if (err) urlEntityErrors.push(err);
+  };
+  // Hand-authored config URL fields (ripper.yaml).
+  for (const c of configs) {
+    const cfg = c.config;
+    recordUrlEntity("ripper", cfg.name, undefined, "url", cfg.url?.toString());
+    recordUrlEntity("ripper", cfg.name, undefined, "friendlyLink", cfg.friendlyLink);
+    recordUrlEntity("ripper", cfg.name, undefined, "imageUrl", cfg.imageUrl);
+    for (const cal of cfg.calendars) {
+      recordUrlEntity("ripper", cfg.name, cal.name, "imageUrl", cal.imageUrl);
+    }
+  }
+  // Hand-authored external-calendar URL fields (sources/external/*.yaml).
+  for (const ext of externalCalendars) {
+    recordUrlEntity("external", ext.name, undefined, "icsUrl", ext.icsUrl);
+    recordUrlEntity("external", ext.name, undefined, "infoUrl", ext.infoUrl);
+    recordUrlEntity("external", ext.name, undefined, "imageUrl", ext.imageUrl);
+  }
+  // Ripper-/recurring-produced event URLs (extracted at runtime from HTML/JSON).
+  for (const cal of allCalendars) {
+    const scope: UrlEntityError["scope"] = cal.parent ? "event" : "recurring";
+    const source = cal.parent?.name ?? cal.name;
+    for (const e of cal.events) {
+      recordUrlEntity(scope, source, cal.name, "event.url", e.url);
+      recordUrlEntity(scope, source, cal.name, "event.imageUrl", e.imageUrl);
+    }
+  }
+  if (urlEntityErrors.length > 0) {
+    for (const e of urlEntityErrors) {
+      console.log(`::error::${formatUrlEntityError(e)}`);
+    }
+    console.log(`Found ${urlEntityErrors.length} URL field(s) containing HTML entities. These must be fixed before merging.`);
+  }
+  totalErrorCount += urlEntityErrors.length;
+
   // Merge outofband error count from the report (loaded earlier).
   // Only count errors from calendars with hasFutureEvents: true — stale calendars
   // (no future events) are excluded from the manifest and their errors are not actionable.
@@ -1432,8 +1497,10 @@ END:VCALENDAR`;
 
   // Fatal error count: only errors that should fail CI.
   // Geocode errors are expected for new/existing sources and should NOT fail the build.
-  // Only config errors, new source parse errors, and new zero-event sources are fatal.
-  const fatalErrorCount = newZeroEventSources.length + newSourceParseErrors.length;
+  // New zero-event sources, new source parse errors, and URL-entity violations
+  // are fatal. (URL entities are fatal for new AND existing sources — an entity
+  // in a URL field is always a broken link, never legitimate drift.)
+  const fatalErrorCount = newZeroEventSources.length + newSourceParseErrors.length + urlEntityErrors.length;
   await writeFile("fatalErrorCount.txt", fatalErrorCount.toString());
 
   // Print event count summary
@@ -1585,6 +1652,9 @@ END:VCALENDAR`;
     pendingProxyVerification,
     newZeroEventSources,
     newSourceParseErrors,
+    // HTML entities (&amp; etc.) found in URL fields. Fatal: an entity in a
+    // URL is always a broken link. See docs/url-entities.md.
+    urlEntityErrors,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
     osmGaps,
     // Photo coverage: the photo-resolver skill reads `photoGaps` as its
@@ -1701,6 +1771,9 @@ END:VCALENDAR`;
     const retire = pendingProxyVerification.filter(p => p.recommendation === "retire").length;
     console.log(`  🪜 Proxy verification: ${pendingProxyVerification.length} pending (${promote} due to promote to browserbase, ${retire} due to retire)`);
   }
+  if (urlEntityErrors.length > 0) {
+    console.log(`  🔗 ${urlEntityErrors.length} URL field(s) with HTML entities (fatal): ${urlEntityErrors.map(e => `${e.source}/${e.field}`).join(", ")}`);
+  }
   console.log("===========================\n");
 
   // Write GitHub Actions step summary if running in CI
@@ -1713,6 +1786,17 @@ END:VCALENDAR`;
       "",
       `**Total:** ${totalEvents} events across ${eventCounts.length} calendars`,
     ];
+    if (urlEntityErrors.length > 0) {
+      summaryLines.push("");
+      summaryLines.push(`> 🔗 **${urlEntityErrors.length} URL field(s) contain HTML entities (fatal):** decode them in the ripper or write the literal character in YAML.`);
+      summaryLines.push("");
+      summaryLines.push("| Scope | Source | Field | Entities | Value |");
+      summaryLines.push("|-------|--------|-------|----------|-------|");
+      for (const e of urlEntityErrors) {
+        const where = e.calendar ? `${e.source} / ${e.calendar}` : e.source;
+        summaryLines.push(`| ${e.scope} | ${where} | ${e.field} | ${e.entities.join(", ")} | ${e.value} |`);
+      }
+    }
     if (zeroEventCalendars.length > 0) {
       summaryLines.push("");
       summaryLines.push(`> ⚠️ **${zeroEventCalendars.length} calendar(s) with 0 events:** ${zeroEventCalendars.map(c => c.name).join(", ")}`);

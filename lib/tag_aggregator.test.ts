@@ -370,6 +370,23 @@ END:VCALENDAR`;
       expect(events).toHaveLength(0);
     });
 
+    it('decodes HTML entities in external-feed titles', () => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dtStart = tomorrow.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:entity-title-1
+SUMMARY:Free Zines &amp; Mobile Book Fair &#38; More
+DTSTART:${dtStart}
+END:VEVENT
+END:VCALENDAR`;
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events).toHaveLength(1);
+      expect(events[0].summary).toBe('Free Zines & Mobile Book Fair & More');
+    });
+
     it('extracts imageUrl from an IMAGE;VALUE=URI property', () => {
       const tomorrow = new Date();
       tomorrow.setDate(tomorrow.getDate() + 1);

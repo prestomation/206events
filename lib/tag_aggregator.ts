@@ -1,5 +1,6 @@
 import { RipperCalendar, RipperCalendarEvent, RipperError, ExternalCalendar, toICS } from './config/schema.js';
 import { ZonedDateTime, Duration } from '@js-joda/core';
+import { decodeEntities } from './text-normalize.js';
 // @ts-ignore — ical.js has no type declarations
 import ICAL from 'ical.js';
 
@@ -91,7 +92,10 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
     try {
       const event = new ICAL.Event(vevent);
       const uid: string = event.uid || `external-${Date.now()}-${Math.random()}`;
-      const summary: string = event.summary || 'Untitled Event';
+      // Decode HTML entities in the title (ICS escaping ≠ HTML entities, so
+      // `&amp;` survives ICAL parsing). Covers external-feed titles in the
+      // events-index and tag aggregates. Idempotent — see text-normalize.ts.
+      const summary: string = decodeEntities(event.summary || 'Untitled Event');
       const description: string | undefined = event.description || undefined;
       const location: string | undefined = event.location || undefined;
       const url: string | undefined = vevent.getFirstPropertyValue('url')?.toString() || undefined;
