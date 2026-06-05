@@ -16,6 +16,7 @@ calendars:
       venue_id: 53757
     tags:
       - Pioneer Square
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Occidental_Square_in_Seattle_%2837425611642%29.jpg"
     geo:
       lat: 47.6022204
       lng: -122.3339432
@@ -26,6 +27,7 @@ calendars:
     timezone: America/Los_Angeles
     config:
       venue_id: 53732
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Westlake_Park%2C_Seattle_%2853825632367%29.jpg"
     geo:
       lat: 47.6109138
       lng: -122.3369896
@@ -38,6 +40,7 @@ calendars:
       venue_id: 53729
     tags:
       - Pioneer Square
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Occidental_Square_in_Seattle_%2837425611642%29.jpg"
     geo:
       lat: 47.6004770
       lng: -122.3331470
@@ -63,6 +66,7 @@ calendars:
       venue_id: 56426
     tags:
       - Pike Place
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Occidental_Square_in_Seattle_%2837425611642%29.jpg"
     geo:
       lat: 47.6089
       lng: -122.3403
