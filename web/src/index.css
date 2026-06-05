@@ -3443,6 +3443,9 @@ html, body, #root { height: 100%; }
 .app206 .a-seg button { height: 32px; padding: 0 13px; border-radius: 8px; font-weight: 600; font-size: 13px; color: var(--ink-3); display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .app206 .a-seg button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(20,15,10,.12); }
 .app206 .a-seg svg { width: 16px; height: 16px; }
+/* Match-count badge shown on each seg tab while a search is active. */
+.app206 .a-seg-count { flex: 0 0 auto; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--surface-3); color: var(--ink-3); font-family: var(--font-mono); font-size: 11px; font-weight: 600; line-height: 18px; text-align: center; }
+.app206 .a-seg button.on .a-seg-count { background: var(--blue); color: #fff; }
 .app206 .a-discover-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
 
 /* ---- filter dropdowns (Category / Neighborhood) ---- */
@@ -3601,6 +3604,15 @@ html, body, #root { height: 100%; }
    slider (using its empty horizontal space), so the map keeps full height. */
 .app206 .a-mapfilter .a-datewindow { flex: 1 1 180px; min-width: 0; }
 .app206 .a-mapfilter .a-mapscope { flex: 0 0 auto; }
+/* Active-search hint chip in the map's floating filter bar (desktop + mobile).
+   Flows inline beside the slider/scope toggle and wraps to its own line when
+   space is tight; the pill stays content-width (never stretches full-bar). */
+.app206 .a-mapfilter .a-mapsearch { flex: 0 1 auto; max-width: 100%; }
+.app206 .a-mapsearch { display: inline-flex; align-items: center; gap: 7px; min-width: 0; padding: 4px 5px 4px 11px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-ink); font-size: 12.5px; font-weight: 600; }
+.app206 .a-mapsearch-ico { flex: 0 0 auto; }
+.app206 .a-mapsearch-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app206 .a-mapsearch-x { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: var(--blue-ink); }
+.app206 .a-mapsearch-x:hover { background: color-mix(in srgb, var(--blue-ink) 16%, transparent); }
 .app206 .a-datewindow { display: flex; flex-direction: column; gap: 7px; }
 .app206 .a-datewindow-label { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
 .app206 .a-datewindow-rel { font-size: 14px; font-weight: 600; color: var(--ink); display: inline-flex; align-items: center; gap: 7px; }

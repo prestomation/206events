@@ -260,18 +260,20 @@ export function MapPanel({ mobile = false }) {
   const feedOnly = !app.openCh && (mobile ? app.mapScope === 'following' : app.section === 'following')
 
   // Count what the map actually plots so the badge tracks the date window:
-  // events with coords, matching the open-channel filter (or the feed), inside
-  // the window. Mirrors the EventsMap predicate.
+  // events with coords, matching the active search, the open-channel filter (or
+  // the feed), inside the window. Mirrors the EventsMap predicate.
   const shownCount = useMemo(() => {
     const openCh = app.openCh || null
     const attrib = app.eventAttributions
+    const qks = app.queryKeySet
     return app.eventsIndex.filter((e) => {
       if (!e.lat || !e.lng || !app.inScope(e)) return false
+      if (qks && !qks.has(eventKey(e))) return false
       if (openCh) return e.icsUrl === openCh
       if (feedOnly && !(attrib && attrib.has(eventKey(e)))) return false
       return true
     }).length
-  }, [app.eventsIndex, app.openCh, app.inScope, app.eventAttributions, feedOnly])
+  }, [app.eventsIndex, app.openCh, app.inScope, app.eventAttributions, app.queryKeySet, feedOnly])
 
   const map = (
     <EventsMap
@@ -284,6 +286,7 @@ export function MapPanel({ mobile = false }) {
       eventAttributions={app.eventAttributions}
       dateInScope={app.inScope}
       feedOnly={feedOnly}
+      queryKeySet={app.queryKeySet}
       mapRef={mobile ? undefined : app.mapRef}
     />
   )
@@ -296,8 +299,24 @@ export function MapPanel({ mobile = false }) {
       <button className={app.mapScope === 'following' ? 'on' : ''} onClick={() => app.setMapScope('following')}>Following</button>
     </div>
   )
+  // Visual hint that the map is narrowed by the search box. Lives in the bottom
+  // filter bar (the one overlay present on BOTH desktop and mobile), shows the
+  // term + how many of the plotted pins match, and offers a one-tap clear. The
+  // desktop top bar additionally swaps its heading (below) so "Near you" doesn't
+  // contradict an active search.
+  const query = app.query.trim()
+  const searchHint = query ? (
+    <div className="a-mapsearch" title={`Map filtered to events matching “${query}”`}>
+      <span className="a-mapsearch-ico" style={{ width: 14, height: 14 }}>{Ico.search}</span>
+      <span className="a-mapsearch-text">“{query}” · {shownCount}</span>
+      <button className="a-mapsearch-x" onClick={app.clearSearch} aria-label="Clear search filter" title="Clear search">
+        <span style={{ width: 13, height: 13 }}>{Ico.close}</span>
+      </button>
+    </div>
+  ) : null
   const filterBar = (
     <div className="a-mapfilter">
+      {searchHint}
       {mobile && scopeToggle}
       <DateWindowSlider compact />
     </div>
@@ -311,7 +330,7 @@ export function MapPanel({ mobile = false }) {
       {filterBar}
       <div className="a-mapbar">
         <div>
-          <div className="a-h2" style={{ fontSize: 15 }}>{feedOnly ? 'Your feed' : 'Near you'}</div>
+          <div className="a-h2" style={{ fontSize: 15 }}>{query ? <>Matching “{query}”</> : feedOnly ? 'Your feed' : 'Near you'}</div>
           <div className="mk-tag" style={{ marginTop: 2 }}>{shownCount} EVENTS</div>
         </div>
         <div className="a-mapbar-actions">
