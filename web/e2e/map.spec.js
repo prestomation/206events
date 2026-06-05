@@ -108,23 +108,40 @@ test('the panel closes via its close button', async ({ page }) => {
 test.describe('mobile', () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
 
-  test('clicking a pin opens the bottom sheet without errors', async ({ page }) => {
+  test('clicking a pin opens the draggable bottom sheet without errors', async ({ page }) => {
     const map = await openMap(page)
     await map.locator('.event-group-marker').click()
     const panel = map.getByTestId('event-group-panel')
     await expect(panel).toBeVisible()
-    await expect(panel.getByText('Preview')).toBeVisible() // mobile-only mode toggle
     await expect(panel.getByText('Long Run Musical')).toBeVisible()
+    // The sheet opens at the peek height (dvh) with a drag handle.
+    await expect(panel.locator('.egp-handle')).toBeVisible()
+    await expect(panel).toHaveAttribute('style', /height:\s*45dvh/)
   })
 
-  test('switching sheet modes does not crash', async ({ page }) => {
+  test('dragging the handle resizes the sheet and keeps it on screen', async ({ page }) => {
     const map = await openMap(page)
     await map.locator('.event-group-marker').click()
     const panel = map.getByTestId('event-group-panel')
     await expect(panel).toBeVisible()
-    for (const mode of ['Drag', 'Peek', 'Sticky']) {
-      await panel.getByRole('button', { name: mode, exact: true }).click()
-      await expect(panel).toBeVisible()
-    }
+
+    const handle = panel.locator('.egp-handle')
+    const box = await handle.boundingBox()
+    const cx = box.x + box.width / 2
+    const cy = box.y + box.height / 2
+
+    // Drag the handle far up; the sheet grows but the handle stays on screen.
+    await page.mouse.move(cx, cy)
+    await page.mouse.down()
+    await page.mouse.move(cx, 5, { steps: 12 })
+    await page.mouse.up()
+    const grown = await panel.evaluate((el) => el.getBoundingClientRect())
+    const vh = page.viewportSize().height
+    expect(grown.top).toBeGreaterThanOrEqual(0) // never slid off the top
+    expect(grown.height).toBeLessThanOrEqual(vh * 0.92)
+    // Handle is still within the viewport so it can be pulled back down.
+    const hb = await handle.boundingBox()
+    expect(hb.y).toBeGreaterThanOrEqual(0)
+    expect(hb.y).toBeLessThan(vh)
   })
 })

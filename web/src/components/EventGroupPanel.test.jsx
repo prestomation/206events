@@ -43,7 +43,6 @@ function setWidth(px) {
 
 afterEach(() => {
   setWidth(1024)
-  try { localStorage.removeItem('egp-sheet-mode') } catch { /* ignore */ }
 })
 
 describe('EventGroupPanel', () => {
@@ -121,48 +120,61 @@ describe('EventGroupPanel', () => {
     expect(screen.getByText('+7 more dates')).toBeInTheDocument()
   })
 
-  it('shows the event image on desktop', () => {
+  it('shows the event image on desktop and no drag handle', () => {
     const { container } = render(
       <EventGroupPanel group={group({ instances: [instance({ imageUrl: 'https://example.com/i.jpg' })] })} onClose={() => {}} />,
     )
     expect(container.querySelector('.egp-image')).not.toBeNull()
-    // No mobile preview control on desktop.
-    expect(screen.queryByText('Preview')).not.toBeInTheDocument()
+    // The draggable handle is mobile-only.
+    expect(container.querySelector('.egp-handle')).toBeNull()
+    expect(container.querySelector('.event-group-panel').style.height).toBe('')
   })
 
-  it('on mobile: shows the preview sheet-mode control, hides the image, and switches mode', () => {
+  it('on mobile: hides the image and opens a draggable sheet at the peek height', () => {
     setWidth(500)
     const { container } = render(
       <EventGroupPanel group={group({ instances: [instance({ imageUrl: 'https://example.com/i.jpg' })] })} onClose={() => {}} />,
     )
-    expect(screen.getByText('Preview')).toBeInTheDocument()
-    expect(screen.getByText('Sticky')).toBeInTheDocument()
-    expect(screen.getByText('Drag')).toBeInTheDocument()
-    expect(screen.getByText('Peek')).toBeInTheDocument()
-    // Image is hidden on mobile (dates-first).
+    // Image hidden (dates-first); a drag handle is present.
     expect(container.querySelector('.egp-image')).toBeNull()
-    // Default mode is sticky; choosing Peek updates the data attribute.
-    const panel = container.querySelector('.event-group-panel')
-    expect(panel.getAttribute('data-sheet-mode')).toBe('sticky')
-    fireEvent.click(screen.getByText('Peek'))
-    expect(panel.getAttribute('data-sheet-mode')).toBe('peek')
+    expect(container.querySelector('.egp-handle')).not.toBeNull()
+    // Opens at the peek height, expressed in dvh.
+    expect(container.querySelector('.event-group-panel').style.height).toBe('45dvh')
   })
 
-  it('on mobile drag mode: dragging the handle up grows the sheet, release snaps to full', () => {
+  it('on mobile: dragging up grows, dragging down shrinks, and the height is clamped', () => {
     setWidth(500)
-    try { localStorage.setItem('egp-sheet-mode', 'drag') } catch { /* ignore */ }
     const { container } = render(<EventGroupPanel group={group()} onClose={() => {}} />)
     const panel = container.querySelector('.event-group-panel')
     const handle = container.querySelector('.egp-handle')
-    expect(panel.getAttribute('data-sheet-mode')).toBe('drag')
-    expect(panel.style.height).toBe('44vh') // default peek height
+    expect(panel.style.height).toBe('45dvh')
 
+    // Drag up grows the sheet (no snap on release — stays where left).
     fireEvent.pointerDown(handle, { pointerId: 1, clientY: 600 })
-    fireEvent.pointerMove(handle, { pointerId: 1, clientY: 300 }) // drag up 300px
-    expect(parseFloat(panel.style.height)).toBeGreaterThan(44)
+    fireEvent.pointerMove(handle, { pointerId: 1, clientY: 450 })
+    fireEvent.pointerUp(handle, { pointerId: 1, clientY: 450 })
+    const grown = parseFloat(panel.style.height)
+    expect(grown).toBeGreaterThan(45)
 
-    fireEvent.pointerUp(handle, { pointerId: 1, clientY: 300 })
-    expect(panel.style.height).toBe('90vh') // snapped to full
+    // Drag down shrinks it below the peek height.
+    fireEvent.pointerDown(handle, { pointerId: 2, clientY: 300 })
+    fireEvent.pointerMove(handle, { pointerId: 2, clientY: 650 })
+    fireEvent.pointerUp(handle, { pointerId: 2, clientY: 650 })
+    expect(parseFloat(panel.style.height)).toBeLessThan(45)
+  })
+
+  it('on mobile: clamps the height so the sheet never exceeds the max (stays reachable)', () => {
+    setWidth(500)
+    const { container } = render(<EventGroupPanel group={group()} onClose={() => {}} />)
+    const panel = container.querySelector('.event-group-panel')
+    const handle = container.querySelector('.egp-handle')
+    // A huge upward drag must clamp at the max, not fly off the top.
+    fireEvent.pointerDown(handle, { pointerId: 1, clientY: 800 })
+    fireEvent.pointerMove(handle, { pointerId: 1, clientY: -5000 })
+    expect(parseFloat(panel.style.height)).toBeLessThanOrEqual(90)
+    // A huge downward drag clamps at the min (sheet doesn't vanish).
+    fireEvent.pointerMove(handle, { pointerId: 1, clientY: 9000 })
+    expect(parseFloat(panel.style.height)).toBeGreaterThanOrEqual(16)
   })
 
   it('closes via the close button', () => {

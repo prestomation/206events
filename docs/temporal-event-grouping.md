@@ -87,11 +87,15 @@ this consumer.
 - **Desktop vs mobile.** Desktop is a right-side panel; on `click` the map
   `panInside`s the marker out from behind it (`PANEL_WIDTH` reserved on the
   right). Below the tablet breakpoint (`useBreakpoint() === 'mobile'`, < 768) the
-  panel is a **bottom sheet** with a grab handle, the event image is hidden
-  (dates-first), and panning is skipped. **PREVIEW (temporary):** the bottom
-  sheet exposes a `Sticky / Drag / Peek` toggle (`SHEET_MODES`, persisted in
-  `localStorage`) so the sheet behaviour can be chosen on the open PR — once a
-  winner is picked, drop the other two modes and the toggle.
+  panel is a **draggable bottom sheet**: it opens at a peek height and is resized
+  by dragging its handle. Height is tracked in state and applied inline in `dvh`
+  units (which follow the *visible* viewport, so the handle never hides behind
+  the address bar), clamped to `[SHEET_MIN_DVH, SHEET_MAX_DVH]` so the sheet can
+  shrink to just its header but can never grow past the top and become
+  un-grabbable. The drag uses pointer capture + `pointercancel` (Android Chrome
+  otherwise claims the gesture as a scroll) with `touch-action: none` on the
+  handle. The event image is hidden on mobile (dates-first) and panning is
+  skipped.
 
 ## Security
 

@@ -8,15 +8,13 @@ import { AttributionChips } from './AttributionChips.jsx'
 // window) can't balloon the DOM. Overflow is summarised as "+N more dates".
 export const MAX_GROUP_DATES = 50
 
-// PREVIEW: the three mobile bottom-sheet behaviours, surfaced behind an in-panel
-// toggle so the sheet style can be chosen on the open PR. Once a winner is
-// picked, drop the others and the SHEET_MODES toggle. See docs.
-export const SHEET_MODES = [
-  { id: 'sticky', label: 'Sticky' }, // roomy fixed height, sticky header/footer
-  { id: 'drag', label: 'Drag' },     // draggable between a peek and near-full
-  { id: 'peek', label: 'Peek' },     // compact fixed height
-]
-const SHEET_MODE_KEY = 'egp-sheet-mode'
+// Mobile bottom-sheet drag bounds, in dynamic viewport height units (dvh tracks
+// the *visible* viewport, so the handle never ends up behind the browser's
+// address bar). The sheet opens at PEEK and can be dragged down to MIN (just the
+// header) or up to MAX — never past MAX, so the handle always stays reachable.
+const SHEET_MIN_DVH = 16
+const SHEET_PEEK_DVH = 45
+const SHEET_MAX_DVH = 85
 
 // Only emit http(s) links/images — guards against javascript:/data: URLs in
 // source data. (React escapes text by default, so no manual HTML escaping.)
@@ -44,11 +42,11 @@ function dateParts(dateStr) {
  * Renders a temporal group (one conceptual event) with its venue details and
  * the full list of dates, each row linking to that instance's event page.
  *
- * Desktop: a right-side panel. Mobile (≤ tablet breakpoint): a bottom sheet
- * whose behaviour is selectable via the in-panel PREVIEW toggle (sticky / drag /
- * peek) so we can pick one on the PR. The event image is hidden on mobile to
- * keep the sheet dates-first. Date rows use a compact weekday + day-number cell
- * with month dividers between months.
+ * Desktop: a right-side panel. Mobile (≤ tablet breakpoint): a draggable bottom
+ * sheet — opens at a peek height and is resized by dragging its handle (clamped
+ * so it never slides off the top). The event image is hidden on mobile to keep
+ * the sheet dates-first. Date rows use a compact weekday + day-number cell with
+ * month dividers between months.
  *
  * Props:
  *   group             - { key, lat, lng, summary, count, instances } from groupEvents,
@@ -59,20 +57,11 @@ function dateParts(dateStr) {
  */
 export function EventGroupPanel({ group, eventAttributions, onClose }) {
   const isMobile = useBreakpoint() === 'mobile'
-  const [sheetMode, setSheetMode] = useState(() => {
-    try { return localStorage.getItem(SHEET_MODE_KEY) || 'sticky' } catch { return 'sticky' }
-  })
-  // Sheet height (vh) while in draggable mode; snaps to a peek/full on release.
-  const [dragVh, setDragVh] = useState(44)
+  // Mobile sheet height in dvh; opens at the peek size, dragged to resize.
+  const [sheetDvh, setSheetDvh] = useState(SHEET_PEEK_DVH)
   // Active drag gesture state. Declared with the other hooks (above the early
   // return) so the hook order stays stable when the panel opens/closes.
   const dragRef = useRef(null)
-
-  const chooseMode = (id) => {
-    setSheetMode(id)
-    if (id === 'drag') setDragVh(44)
-    try { localStorage.setItem(SHEET_MODE_KEY, id) } catch { /* ignore */ }
-  }
 
   // Esc-to-close. Bound only while a group is open.
   useEffect(() => {
@@ -91,32 +80,33 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
   const mapUrl = googleMapsUrl({ location: rep.location, lat: rep.lat, lng: rep.lng })
   const attributions = eventAttributions?.get(eventKey(rep))
 
-  // Drag the bottom sheet by its handle (mobile + drag mode only). Uses pointer
-  // capture so all moves route to the handle even as the finger leaves it, and
-  // handles pointercancel — without these, Android Chrome claims the gesture as
-  // a scroll (firing pointercancel, never delivering moves) and the drag dies.
+  // Drag the bottom sheet by its handle (mobile only). Pointer capture routes
+  // all moves to the handle even as the finger leaves it, and pointercancel is
+  // handled — without these, Android Chrome claims the gesture as a scroll
+  // (firing pointercancel, never delivering moves) and the drag dies.
   // `touch-action: none` on the handle (CSS) stops the browser scrolling instead.
+  // The height is clamped to [MIN, MAX] so the sheet can shrink to just its
+  // header and can never grow past the top (where the handle would be lost).
   const onHandlePointerDown = (e) => {
-    if (!(isMobile && sheetMode === 'drag')) return
+    if (!isMobile) return
     e.preventDefault()
     try { e.currentTarget.setPointerCapture(e.pointerId) } catch { /* unsupported */ }
-    dragRef.current = { pointerId: e.pointerId, startY: e.clientY, startVh: dragVh }
+    dragRef.current = { pointerId: e.pointerId, startY: e.clientY, startDvh: sheetDvh }
   }
   const onHandlePointerMove = (e) => {
     const d = dragRef.current
     if (!d || e.pointerId !== d.pointerId) return
     const dy = d.startY - e.clientY // dragging up grows the sheet
-    const vh = d.startVh + (dy / window.innerHeight) * 100
-    setDragVh(Math.min(92, Math.max(28, vh)))
+    const dvh = d.startDvh + (dy / window.innerHeight) * 100
+    setSheetDvh(Math.min(SHEET_MAX_DVH, Math.max(SHEET_MIN_DVH, dvh)))
   }
   const onHandlePointerEnd = (e) => {
     const d = dragRef.current
     if (!d || e.pointerId !== d.pointerId) return
-    dragRef.current = null
-    setDragVh((v) => (v > 60 ? 90 : 44)) // snap to full or peek
+    dragRef.current = null // free positioning — keep wherever the user left it
   }
 
-  const sheetStyle = isMobile && sheetMode === 'drag' ? { height: `${dragVh}vh` } : undefined
+  const sheetStyle = isMobile ? { height: `${sheetDvh}dvh` } : undefined
 
   // Build the date list with a month divider whenever the month changes.
   const dateItems = []
@@ -152,37 +142,18 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
       role="dialog"
       aria-label={summary}
       data-testid="event-group-panel"
-      data-sheet-mode={isMobile ? sheetMode : undefined}
       style={sheetStyle}
     >
       {isMobile && (
-        <>
-          <div
-            className="egp-handle"
-            onPointerDown={onHandlePointerDown}
-            onPointerMove={onHandlePointerMove}
-            onPointerUp={onHandlePointerEnd}
-            onPointerCancel={onHandlePointerEnd}
-            role={sheetMode === 'drag' ? 'separator' : undefined}
-            aria-label={sheetMode === 'drag' ? 'Drag to resize' : undefined}
-            aria-hidden={sheetMode === 'drag' ? undefined : 'true'}
-          />
-          <div className="egp-modes" role="group" aria-label="Sheet style (preview)">
-            <span className="egp-modes-label">Preview</span>
-            <div className="egp-seg">
-              {SHEET_MODES.map((m) => (
-                <button
-                  key={m.id}
-                  type="button"
-                  className={sheetMode === m.id ? 'on' : ''}
-                  onClick={() => chooseMode(m.id)}
-                >
-                  {m.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </>
+        <div
+          className="egp-handle"
+          onPointerDown={onHandlePointerDown}
+          onPointerMove={onHandlePointerMove}
+          onPointerUp={onHandlePointerEnd}
+          onPointerCancel={onHandlePointerEnd}
+          role="separator"
+          aria-label="Drag to resize"
+        />
       )}
 
       <header className="egp-head">

@@ -3479,22 +3479,8 @@ html, body, #root { height: 100%; }
   color: var(--ink-4, #a8a6ad);
 }
 
-/* Grab handle + preview mode toggle — mobile bottom sheet only (hidden on the
-   desktop side panel). */
+/* Grab handle — mobile bottom sheet only (hidden on the desktop side panel). */
 .egp-handle { display: none; }
-.egp-modes { display: none; }
-.egp-seg { display: inline-flex; background: var(--surface-2, #f4f1ea); border-radius: 9px; padding: 3px; gap: 3px; }
-.egp-seg button {
-  height: 26px;
-  padding: 0 11px;
-  border-radius: 7px;
-  font-family: var(--font-sans, sans-serif);
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--ink-3, #86848e);
-}
-.egp-seg button.on { background: var(--surface, #fff); color: var(--ink, #1a1a2e); box-shadow: 0 1px 2px rgba(20, 15, 10, 0.12); }
-.egp-modes-label { margin-right: auto; font-family: var(--font-mono, monospace); font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-4, #a8a6ad); }
 
 .egp-foot {
   flex: 0 0 auto;
@@ -3516,9 +3502,9 @@ html, body, #root { height: 100%; }
 .egp-maplink:hover { text-decoration: underline; }
 
 /* On narrow screens (≤ tablet breakpoint, matching useBreakpoint's 768) the
-   panel becomes a bottom sheet. Its height is driven by the selected preview
-   mode via the data-sheet-mode attribute; the sticky header (handle + modes +
-   title) and footer stay put while the date list scrolls between them. */
+   panel becomes a draggable bottom sheet. Its height is set inline in dvh (from
+   the drag gesture); the header (handle + title) and footer stay put while the
+   date list scrolls between them. */
 @media (max-width: 767.98px) {
   .event-group-panel {
     top: auto;
@@ -3537,46 +3523,26 @@ html, body, #root { height: 100%; }
     from { transform: translateY(20px); opacity: 0; }
     to { transform: none; opacity: 1; }
   }
-  .event-group-panel[data-sheet-mode='sticky'] { height: 56%; }
-  .event-group-panel[data-sheet-mode='peek'] { height: 44%; }
-  /* drag mode height is set inline (vh) and updated on drag. */
 
+  /* The handle is the drag grab target: a generous hit area so it's easy to
+     grab, touch-action:none so the browser doesn't scroll instead. */
   .egp-handle {
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 0 0 auto;
-    min-height: 22px;
-    padding: 10px 0 6px;
-    touch-action: none;
-  }
-  .egp-handle::before {
-    content: '';
-    width: 40px;
-    height: 4px;
-    border-radius: 999px;
-    background: var(--line-2, #dcd6ca);
-  }
-  /* In drag mode the handle is the grab target: give it a taller hit area and
-     a clearer affordance. */
-  .event-group-panel[data-sheet-mode='drag'] .egp-handle {
     min-height: 34px;
     padding: 14px 0 10px;
+    touch-action: none;
     cursor: grab;
   }
-  .event-group-panel[data-sheet-mode='drag'] .egp-handle::before {
+  .egp-handle:active { cursor: grabbing; }
+  .egp-handle::before {
+    content: '';
     width: 48px;
     height: 5px;
+    border-radius: 999px;
     background: var(--ink-4, #a8a6ad);
-  }
-  .event-group-panel[data-sheet-mode='drag'] .egp-handle:active { cursor: grabbing; }
-
-  .egp-modes {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex: 0 0 auto;
-    padding: 0 14px 10px;
   }
   .egp-head { padding-top: 2px; }
 }
