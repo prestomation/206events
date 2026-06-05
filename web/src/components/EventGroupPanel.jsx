@@ -64,6 +64,9 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
   })
   // Sheet height (vh) while in draggable mode; snaps to a peek/full on release.
   const [dragVh, setDragVh] = useState(44)
+  // Active drag gesture state. Declared with the other hooks (above the early
+  // return) so the hook order stays stable when the panel opens/closes.
+  const dragRef = useRef(null)
 
   const chooseMode = (id) => {
     setSheetMode(id)
@@ -93,7 +96,6 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
   // handles pointercancel — without these, Android Chrome claims the gesture as
   // a scroll (firing pointercancel, never delivering moves) and the drag dies.
   // `touch-action: none` on the handle (CSS) stops the browser scrolling instead.
-  const dragRef = useRef(null)
   const onHandlePointerDown = (e) => {
     if (!(isMobile && sheetMode === 'drag')) return
     e.preventDefault()

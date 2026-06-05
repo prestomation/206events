@@ -52,6 +52,17 @@ describe('EventGroupPanel', () => {
     expect(container).toBeEmptyDOMElement()
   })
 
+  // Guards the hook-order bug (React #310): every hook must be called above the
+  // `if (!group) return null` early return, so toggling open/closed is stable.
+  it('survives toggling group open -> closed -> open without a hook-order error', () => {
+    const { rerender, container } = render(<EventGroupPanel group={group()} onClose={() => {}} />)
+    expect(container.querySelector('.event-group-panel')).not.toBeNull()
+    rerender(<EventGroupPanel group={null} onClose={() => {}} />)
+    expect(container.querySelector('.event-group-panel')).toBeNull()
+    rerender(<EventGroupPanel group={group()} onClose={() => {}} />)
+    expect(container.querySelector('.event-group-panel')).not.toBeNull()
+  })
+
   it('shows a single-date group with one row and the "Event" eyebrow (no count)', () => {
     const { container } = render(<EventGroupPanel group={group()} onClose={() => {}} />)
     expect(screen.getByText('Cats')).toBeInTheDocument()
