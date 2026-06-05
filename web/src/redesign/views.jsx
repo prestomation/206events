@@ -7,14 +7,14 @@ import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
-import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent } from './viewModels.js'
+import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
 import { EventDescription } from '../components/EventDescription.jsx'
 import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
-import { tagGroup, CATEGORY_GROUP_ORDER } from './categories.js'
+import { tagGroup, CATEGORY_GROUP_ORDER, isNeighborhoodTag } from './categories.js'
 
 // Cap for the Discover "Events" list — the full upcoming window is thousands
 // of events; render the soonest slice to keep the DOM light.
@@ -521,6 +521,45 @@ export function ChannelDetail({ icsUrl }) {
         </div>
       </div>
 
+      {/* Source description. Suppressed for rippers where it only repeats the
+          channel name (per AGENTS.md the ripper `description` is the venue
+          name); shown for external feeds whose description is a real sentence. */}
+      {channel.description && channel.description.trim().toLowerCase() !== channel.name.trim().toLowerCase() && (
+        <p style={{ fontSize: 14.5, lineHeight: 1.55, color: 'var(--ink-2)', margin: '0 0 14px' }}>
+          {channel.description}
+        </p>
+      )}
+
+      {/* Full tag list — neighborhood + activity chips. Each routes to Discover
+          with the matching filter applied. */}
+      {channel.tags && channel.tags.length > 0 && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 14 }}>
+          {channel.tags.map((t) => (
+            <button
+              key={t}
+              className="mk-tag"
+              onClick={() => {
+                if (isNeighborhoodTag(t)) app.setNeighborhood(t)
+                else app.setCategory(t)
+                app.go('discover')
+              }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 10px', border: '1px solid var(--line)', borderRadius: 999, background: 'transparent', cursor: 'pointer', fontSize: 12.5 }}
+              title={`Browse ${formatTagLabel(t)}`}
+            >
+              <CatDot tag={t} size={6} />
+              {formatTagLabel(t)}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {channel.website && (
+        <a className="btn btn-ghost" style={{ width: '100%', marginBottom: 10 }}
+          href={channel.website} target="_blank" rel="noopener noreferrer">
+          {Ico.globe}Visit website
+        </a>
+      )}
+
       <a className="btn btn-blue" style={{ width: '100%', marginBottom: 10 }}
         href={app.createWebcalUrl(channel.cal.icsUrl, channel.cal.originalIcsUrl)}>
         {Ico.cal}Add to my calendar app
@@ -574,7 +613,8 @@ export function ChannelDetail({ icsUrl }) {
 // Row for an ICS-parsed event (channel detail). Shape: { title, startDate, endDate, location, description, url }
 function ParsedEventRow({ event, distributed }) {
   const app = useApp206()
-  const time = event.startDate.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
+  const datePart = event.startDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+  const time = `${datePart}, ${formatTimeRange(event.startDate, event.endDate)}`
   return (
     <div className="ev" style={{ cursor: 'default' }}>
       {event.imageUrl && (
@@ -628,7 +668,7 @@ export function EventDetail({ event }) {
         <div className="a-hero-kick">{row.day} · {row.dateNum}{row.time ? ` · ${row.time}` : ''}</div>
         <div className="a-hero-title">{event.summary}</div>
         <div style={{ display: 'flex', gap: 16, marginTop: 13, fontSize: 13.5, fontWeight: 600, opacity: 0.96, flexWrap: 'wrap' }}>
-          {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.time}</span>}
+          {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.timeRange}</span>}
           {(event.location || channel?.hood) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.pin}</span>{event.location || channel.hood}</span>}
         </div>
       </div>

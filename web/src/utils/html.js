@@ -2,6 +2,16 @@ import DOMPurify from 'dompurify'
 
 export const CONTAINS_HTML = /<[a-z][\s\S]*?>/i
 
+// Force every surviving link to open in a new tab without leaking the opener,
+// so anchors in event-description HTML are both clickable and safe regardless
+// of whether the source markup set target/rel.
+DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+  if (node.tagName === 'A' && node.getAttribute('href')) {
+    node.setAttribute('target', '_blank')
+    node.setAttribute('rel', 'noopener noreferrer')
+  }
+})
+
 // Sanitizes user-facing HTML (event descriptions) to a safe allowlist.
 export function sanitizeHtml(text) {
   return DOMPurify.sanitize(text, {

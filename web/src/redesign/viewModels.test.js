@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar } from './viewModels.js'
+import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent } from './viewModels.js'
 
 // Fixed "now": Mon 2026-06-01 10:00 local. Day boundaries are computed in local
 // time, matching the production helpers.
@@ -90,5 +90,62 @@ describe('channelFromCalendar geo wiring', () => {
   it('has null imageUrl when the venue has no photo or is distributed', () => {
     expect(channelFromCalendar(cal, null, { venue: { geo: { lat: 47.6, lng: -122.3 } } }).imageUrl).toBeNull()
     expect(channelFromCalendar(cal, null, { venue: null }).imageUrl).toBeNull()
+  })
+
+  it('carries the source website (friendlyLink) and description from the ripper', () => {
+    const ripper = { friendlyName: 'Neumos', friendlyLink: 'https://www.neumos.com', description: 'Neumos' }
+    const ch = channelFromCalendar(cal, ripper, { venue: null })
+    expect(ch.website).toBe('https://www.neumos.com')
+    expect(ch.description).toBe('Neumos')
+  })
+
+  it('has null website/description when the ripper provides none (e.g. recurring)', () => {
+    const ch = channelFromCalendar(cal, { friendlyLink: null, description: null }, { venue: null })
+    expect(ch.website).toBeNull()
+    expect(ch.description).toBeNull()
+  })
+})
+
+describe('formatTimeRange', () => {
+  const d = (h, m = 0) => new Date(2026, 5, 1, h, m, 0)
+
+  it('returns the start alone when there is no end', () => {
+    expect(formatTimeRange(d(19), null)).toBe('7 PM')
+    expect(formatTimeRange(d(19, 30), null)).toBe('7:30 PM')
+  })
+
+  it('collapses a shared meridiem for a same-day range', () => {
+    expect(formatTimeRange(d(19), d(21))).toBe('7 – 9 PM')
+    expect(formatTimeRange(d(19, 30), d(21, 15))).toBe('7:30 – 9:15 PM')
+  })
+
+  it('keeps both meridiems when they differ within a day', () => {
+    expect(formatTimeRange(d(11), d(13))).toBe('11 AM – 1 PM')
+  })
+
+  it('prefixes the end weekday when the range crosses midnight', () => {
+    expect(formatTimeRange(d(23), new Date(2026, 5, 2, 1, 0, 0))).toBe('11 PM → Tue 1 AM')
+  })
+
+  it('ignores an end that is not after the start', () => {
+    expect(formatTimeRange(d(19), d(19))).toBe('7 PM')
+    expect(formatTimeRange(d(19), d(18))).toBe('7 PM')
+  })
+
+  it('returns empty string with no start', () => {
+    expect(formatTimeRange(null, d(21))).toBe('')
+  })
+})
+
+describe('rowFromIndexEvent time fields', () => {
+  it('exposes start-only `time` and end-aware `timeRange`', () => {
+    const row = rowFromIndexEvent({ summary: 'Show', date: '2026-06-01T19:00:00', endDate: '2026-06-01T21:00:00' })
+    expect(row.time).toBe('7 PM')
+    expect(row.timeRange).toBe('7 – 9 PM')
+  })
+
+  it('timeRange falls back to the start when the index has no endDate', () => {
+    const row = rowFromIndexEvent({ summary: 'Show', date: '2026-06-01T19:00:00' })
+    expect(row.timeRange).toBe('7 PM')
   })
 })
