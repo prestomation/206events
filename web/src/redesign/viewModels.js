@@ -4,6 +4,7 @@
 
 import { formatTagLabel } from '../utils/format.js'
 import { isNeighborhoodTag, primaryCategoryTag, channelColor } from './categories.js'
+import { eventKey } from '../lib/eventKey.js'
 
 const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const DOW_SHORT = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
@@ -159,6 +160,43 @@ export function describeWindow(windowDays, now = new Date()) {
   if (windowDays === 30) return { relative: 'Next 30 days', absoluteEnd }
   if (windowDays === 90) return { relative: 'Next 3 months', absoluteEnd }
   return { relative: `Next ${windowDays} days`, absoluteEnd }
+}
+
+// --- Discover filtering -----------------------------------------------------
+// Shared by the Discover Calendars/Events modes AND the seg-button match badges
+// so the count on each tab always equals what that tab renders. The two are
+// separate functions because they match differently: calendars do substring
+// matching on name/tags, events use the precomputed Fuse `queryKeySet`.
+
+// Channels passing the active Discover filters (category, neighborhood, search).
+// Search is a case-insensitive substring over the channel name and its tags.
+export function filterDiscoverChannels(channels, { category, neighborhood, query } = {}) {
+  let out = channels || []
+  if (category) out = out.filter((c) => c.tags.includes(category))
+  if (neighborhood) out = out.filter((c) => c.tags.includes(neighborhood))
+  const q = (query || '').trim().toLowerCase()
+  if (q) out = out.filter((c) => c.name.toLowerCase().includes(q) || c.tags.some((t) => t.toLowerCase().includes(q)))
+  return out
+}
+
+// Events passing the active Discover filters (category, neighborhood, search).
+// Category/neighborhood are resolved via the owning channel's tags; search is an
+// eventKey membership test against the Fuse `queryKeySet` (null = no search).
+// Returns the full (uncapped) match list — callers cap rendering separately so
+// the badge can show the true total.
+export function filterDiscoverEvents(events, { category, neighborhood, query, channelByIcsUrl, queryKeySet } = {}) {
+  let out = events || []
+  if (category || neighborhood) {
+    out = out.filter((e) => {
+      const ch = channelByIcsUrl && channelByIcsUrl.get(e.icsUrl)
+      if (!ch) return false
+      if (category && !ch.tags.includes(category)) return false
+      if (neighborhood && !ch.tags.includes(neighborhood)) return false
+      return true
+    })
+  }
+  if ((query || '').trim() && queryKeySet) out = out.filter((e) => queryKeySet.has(eventKey(e)))
+  return out
 }
 
 // Reduce an event's attribution list to a single provenance chip descriptor.

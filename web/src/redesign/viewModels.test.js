@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent } from './viewModels.js'
+import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
+import { eventKey } from '../lib/eventKey.js'
 
 // Fixed "now": Mon 2026-06-01 10:00 local. Day boundaries are computed in local
 // time, matching the production helpers.
@@ -147,5 +148,97 @@ describe('rowFromIndexEvent time fields', () => {
   it('timeRange falls back to the start when the index has no endDate', () => {
     const row = rowFromIndexEvent({ summary: 'Show', date: '2026-06-01T19:00:00' })
     expect(row.timeRange).toBe('7 PM')
+  })
+})
+
+describe('filterDiscoverChannels', () => {
+  const channels = [
+    { name: 'Neumos', tags: ['Music', 'Capitol Hill'], icsUrl: 'neumos.ics' },
+    { name: 'Stoup Brewing', tags: ['Beer', 'Ballard'], icsUrl: 'stoup.ics' },
+    { name: 'Tractor Tavern', tags: ['Music', 'Ballard'], icsUrl: 'tractor.ics' },
+  ]
+
+  it('returns all channels when no filters are set', () => {
+    expect(filterDiscoverChannels(channels, {})).toHaveLength(3)
+  })
+
+  it('filters by category tag', () => {
+    const out = filterDiscoverChannels(channels, { category: 'Music' })
+    expect(out.map((c) => c.name)).toEqual(['Neumos', 'Tractor Tavern'])
+  })
+
+  it('filters by neighborhood tag', () => {
+    const out = filterDiscoverChannels(channels, { neighborhood: 'Ballard' })
+    expect(out.map((c) => c.name)).toEqual(['Stoup Brewing', 'Tractor Tavern'])
+  })
+
+  it('matches the search query against name (case-insensitive)', () => {
+    expect(filterDiscoverChannels(channels, { query: 'neum' }).map((c) => c.name)).toEqual(['Neumos'])
+  })
+
+  it('matches the search query against tags', () => {
+    expect(filterDiscoverChannels(channels, { query: 'beer' }).map((c) => c.name)).toEqual(['Stoup Brewing'])
+  })
+
+  it('combines category + neighborhood + query', () => {
+    const out = filterDiscoverChannels(channels, { category: 'Music', neighborhood: 'Ballard', query: 'tractor' })
+    expect(out.map((c) => c.name)).toEqual(['Tractor Tavern'])
+  })
+
+  it('treats a whitespace-only query as no query', () => {
+    expect(filterDiscoverChannels(channels, { query: '   ' })).toHaveLength(3)
+  })
+})
+
+describe('filterDiscoverEvents', () => {
+  const channelByIcsUrl = new Map([
+    ['music.ics', { tags: ['Music', 'Capitol Hill'] }],
+    ['beer.ics', { tags: ['Beer', 'Ballard'] }],
+  ])
+  const e1 = { summary: 'Jazz Night', date: '2026-06-10T19:00', icsUrl: 'music.ics' }
+  const e2 = { summary: 'Comedy Hour', date: '2026-06-11T20:00', icsUrl: 'music.ics' }
+  const e3 = { summary: 'IPA Release', date: '2026-06-12T17:00', icsUrl: 'beer.ics' }
+  const events = [e1, e2, e3]
+
+  it('returns all events when no filters are set', () => {
+    expect(filterDiscoverEvents(events, { channelByIcsUrl })).toHaveLength(3)
+  })
+
+  it('filters by category via the owning channel tags', () => {
+    const out = filterDiscoverEvents(events, { category: 'Beer', channelByIcsUrl })
+    expect(out).toEqual([e3])
+  })
+
+  it('filters by neighborhood via the owning channel tags', () => {
+    const out = filterDiscoverEvents(events, { neighborhood: 'Capitol Hill', channelByIcsUrl })
+    expect(out).toEqual([e1, e2])
+  })
+
+  it('filters by query via queryKeySet membership', () => {
+    const queryKeySet = new Set([eventKey(e1), eventKey(e3)])
+    const out = filterDiscoverEvents(events, { query: 'a', queryKeySet, channelByIcsUrl })
+    expect(out).toEqual([e1, e3])
+  })
+
+  it('ignores queryKeySet when the query is blank', () => {
+    const queryKeySet = new Set([eventKey(e1)])
+    expect(filterDiscoverEvents(events, { query: '  ', queryKeySet, channelByIcsUrl })).toHaveLength(3)
+  })
+
+  it('combines tag filters with the search keyset', () => {
+    const queryKeySet = new Set([eventKey(e1), eventKey(e2), eventKey(e3)])
+    const out = filterDiscoverEvents(events, { category: 'Music', query: 'x', queryKeySet, channelByIcsUrl })
+    expect(out).toEqual([e1, e2])
+  })
+
+  it('drops events whose channel is unknown when a tag filter is active', () => {
+    const orphan = { summary: 'Orphan', date: '2026-06-13T18:00', icsUrl: 'missing.ics' }
+    const out = filterDiscoverEvents([...events, orphan], { category: 'Music', channelByIcsUrl })
+    expect(out).toEqual([e1, e2])
+  })
+
+  it('returns the full (uncapped) match list so a badge can show the true total', () => {
+    const many = Array.from({ length: 250 }, (_, i) => ({ summary: `E${i}`, date: `2026-06-10T19:0${i % 10}`, icsUrl: 'music.ics' }))
+    expect(filterDiscoverEvents(many, { channelByIcsUrl })).toHaveLength(250)
   })
 })

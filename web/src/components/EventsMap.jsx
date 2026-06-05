@@ -257,6 +257,11 @@ function renderPopupHtml(event, eventAttributions) {
 //   - feedOnly restricts to the personal feed: an event is in the feed iff it
 //     has an attribution (favorited calendar / saved search / geo match), which
 //     reuses App.jsx's parity-locked membership rather than recomputing it
+//   - queryKeySet (when non-null) is the live search-box matches: an event must
+//     be in the set to map. Applied before the calendarFilter early-return so an
+//     active search narrows every scope (all / following / open channel). It's a
+//     plain eventKey membership test; the date window is handled separately by
+//     dateInScope, so the two compose as an intersection.
 export function isMappable(event, {
   calendarFilter,
   selectedTag,
@@ -264,9 +269,11 @@ export function isMappable(event, {
   dateInScope = () => true,
   feedOnly = false,
   eventAttributions,
+  queryKeySet = null,
 }) {
   if (!event.lat || !event.lng) return false
   if (!dateInScope(event)) return false
+  if (queryKeySet && !queryKeySet.has(eventKey(event))) return false
 
   if (calendarFilter) {
     return event.icsUrl === calendarFilter
@@ -291,6 +298,7 @@ export function isMappable(event, {
  *   calendarNameByIcsUrl - map of icsUrl → friendly calendar name
  *   eventAttributions  - optional Map<compositeKey, Attribution[]> from App.jsx for showing why events appear
  *   feedOnly         - when true (and no calendarFilter), restrict markers to the personal feed
+ *   queryKeySet      - optional Set<eventKey> of live search matches; when non-null, only those events map
  */
 // Memoized so the heavy marker/cluster subtree is rebuilt only when its own
 // inputs actually change. While the date-window slider is being dragged, the
@@ -307,13 +315,20 @@ function EventsMapInner({
   eventAttributions,
   dateInScope = () => true,
   feedOnly = false,
+  queryKeySet = null,
   mapRef,
 }) {
   // Filter events: only those with lat/lng, respecting the active tag/calendar
-  // filter, the global date window, and (when feedOnly) the personal feed.
+  // filter, the global date window, (when feedOnly) the personal feed, and (when
+  // queryKeySet is set) the live search box.
   const mappableEvents = useMemo(() => eventsIndex.filter(event => isMappable(event, {
-    calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope, feedOnly, eventAttributions,
-  })), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope, feedOnly, eventAttributions])
+    calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope, feedOnly, eventAttributions, queryKeySet,
+  })), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl, dateInScope, feedOnly, eventAttributions, queryKeySet])
+
+  // Token folded into the FitBounds/cluster keys so an active search remounts
+  // the cluster (clearing stale markers) and refits the view to the matches.
+  // Empty/absent search → '' (no remount); size disambiguates match-set changes.
+  const scopeQueryToken = queryKeySet ? `q${queryKeySet.size}` : ''
 
   // Parse dates for popup display
   const eventsWithDates = useMemo(() => mappableEvents.map(event => ({
@@ -388,17 +403,18 @@ function EventsMapInner({
           </Circle>
         ))}
 
-        <FitBounds events={eventsWithDates} geoFilters={geoFilters} fitKey={`${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}`} />
+        <FitBounds events={eventsWithDates} geoFilters={geoFilters} fitKey={`${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}|${scopeQueryToken}`} />
 
         {/* Event markers — bare markers with lazy (on-click) popups.
-            Keyed on the scope (calendar / tag / feed) so a scope change remounts
-            the cluster layer: react-leaflet-cluster doesn't reliably clear its
-            markers when the children collapse to empty, which otherwise leaves
-            stale all-events clusters under the "feed is empty" overlay. The key
-            deliberately omits the date window so slider drags update markers
-            in place rather than remounting. */}
+            Keyed on the scope (calendar / tag / feed / search) so a scope change
+            remounts the cluster layer: react-leaflet-cluster doesn't reliably
+            clear its markers when the children collapse to empty, which otherwise
+            leaves stale all-events clusters under the "feed is empty" overlay.
+            The search token is included so narrowing to (or clearing) a search
+            refits the view and clears stale clusters; the key deliberately omits
+            the date window so slider drags update markers in place. */}
         <MarkerClusterGroup
-          key={`cluster-${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}`}
+          key={`cluster-${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}|${scopeQueryToken}`}
           chunkedLoading
           iconCreateFunction={createClusterIcon}
           showCoverageOnHover={true}
@@ -411,9 +427,11 @@ function EventsMapInner({
 
       {eventsWithDates.length === 0 && (
         <div className="events-map-empty">
-          {feedOnly && !calendarFilter
-            ? 'No favorited events with a location to show'
-            : <>No geocoded events to display{selectedTag ? ' for this filter' : ''}</>}
+          {queryKeySet
+            ? 'No events match your search on the map'
+            : feedOnly && !calendarFilter
+              ? 'No favorited events with a location to show'
+              : <>No geocoded events to display{selectedTag ? ' for this filter' : ''}</>}
         </div>
       )}
     </div>

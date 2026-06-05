@@ -3443,6 +3443,9 @@ html, body, #root { height: 100%; }
 .app206 .a-seg button { height: 32px; padding: 0 13px; border-radius: 8px; font-weight: 600; font-size: 13px; color: var(--ink-3); display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .app206 .a-seg button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(20,15,10,.12); }
 .app206 .a-seg svg { width: 16px; height: 16px; }
+/* Match-count badge shown on each seg tab while a search is active. */
+.app206 .a-seg-count { flex: 0 0 auto; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--surface-3); color: var(--ink-3); font-family: var(--font-mono); font-size: 11px; font-weight: 600; line-height: 18px; text-align: center; }
+.app206 .a-seg button.on .a-seg-count { background: var(--blue); color: #fff; }
 .app206 .a-discover-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
 
 /* ---- filter dropdowns (Category / Neighborhood) ---- */

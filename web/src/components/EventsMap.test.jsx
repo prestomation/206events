@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { isWithinKingCounty, collectFitPoints } from './EventsMap.jsx'
+import { isWithinKingCounty, collectFitPoints, isMappable } from './EventsMap.jsx'
+import { eventKey } from '../lib/eventKey.js'
 
 // Reference coordinates
 const SEATTLE = { lat: 47.6062, lng: -122.3321 } // downtown
@@ -90,5 +91,50 @@ describe('collectFitPoints', () => {
     const points = collectFitPoints(events, [])
     expect(points).toContainEqual([47.30, -122.40])
     expect(points).toHaveLength(2)
+  })
+})
+
+describe('isMappable', () => {
+  const ev = (summary, date = '2026-06-10T19:00-07:00[America/Los_Angeles]', extra = {}) => ({
+    summary, date, lat: SEATTLE.lat, lng: SEATTLE.lng, icsUrl: 'a.ics', ...extra,
+  })
+
+  it('requires coordinates', () => {
+    expect(isMappable({ summary: 'x', date: 'd' }, {})).toBe(false)
+    expect(isMappable(ev('x'), {})).toBe(true)
+  })
+
+  it('honors the date window via dateInScope', () => {
+    const e = ev('x')
+    expect(isMappable(e, { dateInScope: () => false })).toBe(false)
+    expect(isMappable(e, { dateInScope: () => true })).toBe(true)
+  })
+
+  describe('queryKeySet (live search)', () => {
+    it('null is a no-op — every (in-scope) event maps', () => {
+      expect(isMappable(ev('jazz night'), { queryKeySet: null })).toBe(true)
+    })
+
+    it('drops events whose key is not in the set', () => {
+      const match = ev('jazz night')
+      const miss = ev('comedy hour')
+      const set = new Set([eventKey(match)])
+      expect(isMappable(match, { queryKeySet: set })).toBe(true)
+      expect(isMappable(miss, { queryKeySet: set })).toBe(false)
+    })
+
+    it('intersects with the date window (in the set but out of window → false)', () => {
+      const e = ev('jazz night')
+      const set = new Set([eventKey(e)])
+      expect(isMappable(e, { queryKeySet: set, dateInScope: () => false })).toBe(false)
+    })
+
+    it('applies even when a channel is open (search narrows every scope)', () => {
+      const inCh = ev('jazz night', undefined, { icsUrl: 'open.ics' })
+      const set = new Set() // matches nothing
+      expect(isMappable(inCh, { calendarFilter: 'open.ics', queryKeySet: set })).toBe(false)
+      const set2 = new Set([eventKey(inCh)])
+      expect(isMappable(inCh, { calendarFilter: 'open.ics', queryKeySet: set2 })).toBe(true)
+    })
   })
 })

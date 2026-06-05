@@ -260,18 +260,20 @@ export function MapPanel({ mobile = false }) {
   const feedOnly = !app.openCh && (mobile ? app.mapScope === 'following' : app.section === 'following')
 
   // Count what the map actually plots so the badge tracks the date window:
-  // events with coords, matching the open-channel filter (or the feed), inside
-  // the window. Mirrors the EventsMap predicate.
+  // events with coords, matching the active search, the open-channel filter (or
+  // the feed), inside the window. Mirrors the EventsMap predicate.
   const shownCount = useMemo(() => {
     const openCh = app.openCh || null
     const attrib = app.eventAttributions
+    const qks = app.queryKeySet
     return app.eventsIndex.filter((e) => {
       if (!e.lat || !e.lng || !app.inScope(e)) return false
+      if (qks && !qks.has(eventKey(e))) return false
       if (openCh) return e.icsUrl === openCh
       if (feedOnly && !(attrib && attrib.has(eventKey(e)))) return false
       return true
     }).length
-  }, [app.eventsIndex, app.openCh, app.inScope, app.eventAttributions, feedOnly])
+  }, [app.eventsIndex, app.openCh, app.inScope, app.eventAttributions, app.queryKeySet, feedOnly])
 
   const map = (
     <EventsMap
@@ -284,6 +286,7 @@ export function MapPanel({ mobile = false }) {
       eventAttributions={app.eventAttributions}
       dateInScope={app.inScope}
       feedOnly={feedOnly}
+      queryKeySet={app.queryKeySet}
       mapRef={mobile ? undefined : app.mapRef}
     />
   )

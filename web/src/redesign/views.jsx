@@ -7,7 +7,7 @@ import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
-import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange } from './viewModels.js'
+import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
@@ -48,6 +48,21 @@ export function DiscoverView() {
   const neighborhoodOptions = useNeighborhoodOptions(app)
   const flatCategoryOptions = useMemo(() => categoryGroups.flatMap((g) => g.options), [categoryGroups])
 
+  // When a search is active, show how many of each type match on the seg tabs so
+  // the user knows whether the Events tab has results they're not seeing. Counts
+  // reuse the exact filters each mode renders (see filterDiscover* helpers), so
+  // badge == list. null when no search → no badge.
+  const hasQuery = !!app.query.trim()
+  const calMatchCount = useMemo(() => hasQuery
+    ? filterDiscoverChannels(app.channels, { category: app.category, neighborhood: app.neighborhood, query: app.query }).length
+    : null, [hasQuery, app.channels, app.category, app.neighborhood, app.query])
+  const evMatchCount = useMemo(() => hasQuery
+    ? filterDiscoverEvents(app.upcomingEvents, {
+      category: app.category, neighborhood: app.neighborhood, query: app.query,
+      channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
+    }).length
+    : null, [hasQuery, app.upcomingEvents, app.category, app.neighborhood, app.query, app.channelByIcsUrl, app.queryKeySet])
+
   return (
     <div style={{ padding: '2px var(--pad) 20px' }}>
       <div className="a-discover-head">
@@ -56,8 +71,14 @@ export function DiscoverView() {
           <div className="a-h1">Discover</div>
         </div>
         <div className="a-seg">
-          <button className={app.emphasis === 'calendars' ? 'on' : ''} onClick={() => app.setEmphasis('calendars')}>{Ico.grid}Calendars</button>
-          <button className={app.emphasis === 'events' ? 'on' : ''} onClick={() => app.setEmphasis('events')}>{Ico.spark}Events</button>
+          <button className={app.emphasis === 'calendars' ? 'on' : ''} onClick={() => app.setEmphasis('calendars')}>
+            {Ico.grid}Calendars
+            {calMatchCount != null && <span className="a-seg-count" aria-label={`${calMatchCount} matching calendars`}>{calMatchCount}</span>}
+          </button>
+          <button className={app.emphasis === 'events' ? 'on' : ''} onClick={() => app.setEmphasis('events')}>
+            {Ico.spark}Events
+            {evMatchCount != null && <span className="a-seg-count" aria-label={`${evMatchCount} matching events`}>{evMatchCount}</span>}
+          </button>
         </div>
       </div>
 
@@ -218,14 +239,9 @@ function CategoryChips({ options, value, onSelect }) {
 function CalendarsMode() {
   const app = useApp206()
   const groups = useMemo(() => {
-    let channels = app.channels
-    if (app.category) channels = channels.filter((c) => c.tags.includes(app.category))
-    if (app.neighborhood) channels = channels.filter((c) => c.tags.includes(app.neighborhood))
-    if (app.query.trim()) {
-      const q = app.query.trim().toLowerCase()
-      channels = channels.filter((c) =>
-        c.name.toLowerCase().includes(q) || c.tags.some((t) => t.toLowerCase().includes(q)))
-    }
+    const channels = filterDiscoverChannels(app.channels, {
+      category: app.category, neighborhood: app.neighborhood, query: app.query,
+    })
     const byHood = new Map()
     const citywide = []
     for (const c of channels) {
@@ -261,21 +277,14 @@ function CalendarsMode() {
 function EventsMode() {
   const app = useApp206()
   const groups = useMemo(() => {
-    let evs = app.upcomingEvents
-    if (app.category || app.neighborhood) {
-      evs = evs.filter((e) => {
-        const ch = app.channelByIcsUrl.get(e.icsUrl)
-        if (!ch) return false
-        if (app.category && !ch.tags.includes(app.category)) return false
-        if (app.neighborhood && !ch.tags.includes(app.neighborhood)) return false
-        return true
-      })
-    }
-    if (app.query) evs = app.matchEvents(app.query, evs)
+    const evs = filterDiscoverEvents(app.upcomingEvents, {
+      category: app.category, neighborhood: app.neighborhood, query: app.query,
+      channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
+    })
     // Cap the rendered set: a 6-month all-events list is thousands of rows.
     // Events are already date-sorted, so this keeps the soonest.
     return groupIndexEventsByDay(evs.slice(0, EVENTS_MODE_CAP))
-  }, [app.upcomingEvents, app.category, app.neighborhood, app.query, app.channelByIcsUrl])
+  }, [app.upcomingEvents, app.category, app.neighborhood, app.query, app.channelByIcsUrl, app.queryKeySet])
   if (!groups.length) return <div className="a-empty">No events match.</div>
   return <DayList groups={groups} />
 }

@@ -276,7 +276,7 @@ export function App206(props) {
     // derived
     channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
     upcomingEvents: scopedUpcoming, eventsByIcsUrl,
-    feedGroups, matchEvents, inScope,
+    feedGroups, matchEvents, queryKeySet, inScope,
     // ui state
     section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
