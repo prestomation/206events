@@ -3546,9 +3546,9 @@ html, body, #root { height: 100%; }
     justify-content: center;
     align-items: center;
     flex: 0 0 auto;
-    padding: 9px 0 5px;
+    min-height: 22px;
+    padding: 10px 0 6px;
     touch-action: none;
-    cursor: grab;
   }
   .egp-handle::before {
     content: '';
@@ -3556,6 +3556,18 @@ html, body, #root { height: 100%; }
     height: 4px;
     border-radius: 999px;
     background: var(--line-2, #dcd6ca);
+  }
+  /* In drag mode the handle is the grab target: give it a taller hit area and
+     a clearer affordance. */
+  .event-group-panel[data-sheet-mode='drag'] .egp-handle {
+    min-height: 34px;
+    padding: 14px 0 10px;
+    cursor: grab;
+  }
+  .event-group-panel[data-sheet-mode='drag'] .egp-handle::before {
+    width: 48px;
+    height: 5px;
+    background: var(--ink-4, #a8a6ad);
   }
   .event-group-panel[data-sheet-mode='drag'] .egp-handle:active { cursor: grabbing; }
 

@@ -137,6 +137,23 @@ describe('EventGroupPanel', () => {
     expect(panel.getAttribute('data-sheet-mode')).toBe('peek')
   })
 
+  it('on mobile drag mode: dragging the handle up grows the sheet, release snaps to full', () => {
+    setWidth(500)
+    try { localStorage.setItem('egp-sheet-mode', 'drag') } catch { /* ignore */ }
+    const { container } = render(<EventGroupPanel group={group()} onClose={() => {}} />)
+    const panel = container.querySelector('.event-group-panel')
+    const handle = container.querySelector('.egp-handle')
+    expect(panel.getAttribute('data-sheet-mode')).toBe('drag')
+    expect(panel.style.height).toBe('44vh') // default peek height
+
+    fireEvent.pointerDown(handle, { pointerId: 1, clientY: 600 })
+    fireEvent.pointerMove(handle, { pointerId: 1, clientY: 300 }) // drag up 300px
+    expect(parseFloat(panel.style.height)).toBeGreaterThan(44)
+
+    fireEvent.pointerUp(handle, { pointerId: 1, clientY: 300 })
+    expect(panel.style.height).toBe('90vh') // snapped to full
+  })
+
   it('closes via the close button', () => {
     const onClose = vi.fn()
     render(<EventGroupPanel group={group()} onClose={onClose} />)

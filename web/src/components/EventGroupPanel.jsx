@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { googleMapsUrl } from '../lib/maplink.js'
 import { eventKey } from '../lib/eventKey.js'
 import { useBreakpoint } from '../hooks/useBreakpoint.js'
@@ -88,24 +88,30 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
   const mapUrl = googleMapsUrl({ location: rep.location, lat: rep.lat, lng: rep.lng })
   const attributions = eventAttributions?.get(eventKey(rep))
 
-  // Drag the bottom sheet by its handle (mobile + drag mode only). Window-level
-  // listeners keep tracking even if the pointer leaves the small handle.
+  // Drag the bottom sheet by its handle (mobile + drag mode only). Uses pointer
+  // capture so all moves route to the handle even as the finger leaves it, and
+  // handles pointercancel — without these, Android Chrome claims the gesture as
+  // a scroll (firing pointercancel, never delivering moves) and the drag dies.
+  // `touch-action: none` on the handle (CSS) stops the browser scrolling instead.
+  const dragRef = useRef(null)
   const onHandlePointerDown = (e) => {
     if (!(isMobile && sheetMode === 'drag')) return
-    const startY = e.clientY
-    const startVh = dragVh
-    const move = (ev) => {
-      const dy = startY - ev.clientY // dragging up grows the sheet
-      const vh = startVh + (dy / window.innerHeight) * 100
-      setDragVh(Math.min(92, Math.max(28, vh)))
-    }
-    const up = () => {
-      window.removeEventListener('pointermove', move)
-      window.removeEventListener('pointerup', up)
-      setDragVh((v) => (v > 60 ? 90 : 44)) // snap to full or peek
-    }
-    window.addEventListener('pointermove', move)
-    window.addEventListener('pointerup', up)
+    e.preventDefault()
+    try { e.currentTarget.setPointerCapture(e.pointerId) } catch { /* unsupported */ }
+    dragRef.current = { pointerId: e.pointerId, startY: e.clientY, startVh: dragVh }
+  }
+  const onHandlePointerMove = (e) => {
+    const d = dragRef.current
+    if (!d || e.pointerId !== d.pointerId) return
+    const dy = d.startY - e.clientY // dragging up grows the sheet
+    const vh = d.startVh + (dy / window.innerHeight) * 100
+    setDragVh(Math.min(92, Math.max(28, vh)))
+  }
+  const onHandlePointerEnd = (e) => {
+    const d = dragRef.current
+    if (!d || e.pointerId !== d.pointerId) return
+    dragRef.current = null
+    setDragVh((v) => (v > 60 ? 90 : 44)) // snap to full or peek
   }
 
   const sheetStyle = isMobile && sheetMode === 'drag' ? { height: `${dragVh}vh` } : undefined
@@ -149,7 +155,16 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
     >
       {isMobile && (
         <>
-          <div className="egp-handle" onPointerDown={onHandlePointerDown} aria-hidden="true" />
+          <div
+            className="egp-handle"
+            onPointerDown={onHandlePointerDown}
+            onPointerMove={onHandlePointerMove}
+            onPointerUp={onHandlePointerEnd}
+            onPointerCancel={onHandlePointerEnd}
+            role={sheetMode === 'drag' ? 'separator' : undefined}
+            aria-label={sheetMode === 'drag' ? 'Drag to resize' : undefined}
+            aria-hidden={sheetMode === 'drag' ? undefined : 'true'}
+          />
           <div className="egp-modes" role="group" aria-label="Sheet style (preview)">
             <span className="egp-modes-label">Preview</span>
             <div className="egp-seg">
