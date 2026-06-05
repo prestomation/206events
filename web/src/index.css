@@ -3250,50 +3250,6 @@ html, body, #root { height: 100%; }
   text-align: center;
 }
 
-.map-popup {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 160px;
-  max-width: 240px;
-}
-
-.map-popup-title {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.map-popup-date {
-  font-size: 12px;
-  color: #555;
-}
-
-.map-popup-image {
-  display: block;
-  width: 100%;
-  max-height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 6px 0;
-}
-
-.map-popup-source {
-  font-size: 12px;
-  color: #777;
-  font-style: italic;
-}
-
-.map-popup-link {
-  font-size: 12px;
-  color: var(--accent-color, #4a90d9);
-  text-decoration: none;
-}
-
-.map-popup-link:hover {
-  text-decoration: underline;
-}
-
 @media (max-width: 768px) {
   .events-map-container {
     height: 350px;
@@ -3348,6 +3304,248 @@ html, body, #root { height: 100%; }
 .cluster-small  { background: #4caf50; width: 36px; height: 36px; }
 .cluster-medium { background: #ff9800; width: 44px; height: 44px; }
 .cluster-large  { background: #f44336; width: 52px; height: 52px; }
+
+/* Temporal-group markers: a default pin with a corner count badge for events
+   that recur on multiple dates at one venue. */
+.event-group-marker { position: relative; }
+.event-group-pin { display: block; width: 25px; height: 41px; }
+.event-group-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--pin, #d24a3d);
+  color: #fff;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-sizing: content-box;
+}
+
+/* Drill-down side panel: opens over the map when a marker is clicked, listing
+   every date for the selected conceptual event. Styled to match the App206
+   design system; theme vars resolve from the surrounding app206 tree (fallbacks
+   cover the legacy unscoped UI). */
+.event-group-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 340px;
+  max-width: 88%;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface, #fff);
+  color: var(--ink, #1a1a2e);
+  border-left: 1px solid var(--line, #e9e4da);
+  box-shadow: -8px 0 24px rgba(20, 15, 10, 0.16);
+  z-index: 1100;
+  font-family: var(--font-sans, sans-serif);
+  animation: egp-in 0.18s ease-out;
+}
+@keyframes egp-in {
+  from { transform: translateX(14px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.egp-head {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 16px 46px 14px 18px;
+  border-bottom: 1px solid var(--line, #e9e4da);
+}
+.egp-eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3, #86848e);
+}
+.egp-title {
+  margin-top: 4px;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink, #1a1a2e);
+}
+.egp-source { margin-top: 6px; font-size: 12.5px; color: var(--ink-2, #46454f); }
+.egp-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  background: var(--surface-2, #f4f1ea);
+  border: 1px solid var(--line, #e9e4da);
+  color: var(--ink-2, #46454f);
+}
+.egp-close:hover { background: var(--surface-3, #ede9e0); color: var(--ink, #1a1a2e); }
+
+.egp-image {
+  flex: 0 0 auto;
+  width: calc(100% - 36px);
+  margin: 14px 18px 0;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.egp-dates {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 8px 10px 10px;
+}
+.egp-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 8px;
+  border-radius: 11px;
+  color: inherit;
+  text-decoration: none;
+}
+.egp-row:hover { background: var(--surface-2, #f4f1ea); }
+.egp-row--plain { cursor: default; }
+.egp-cal {
+  flex: 0 0 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+.egp-cal .dow {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3, #86848e);
+}
+.egp-cal .num {
+  margin-top: 2px;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--ink, #1a1a2e);
+}
+.egp-when {
+  flex: 1 1 auto;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink, #1a1a2e);
+}
+.egp-go { flex: 0 0 auto; font-size: 15px; font-weight: 700; color: var(--blue, #1366d6); opacity: 0.6; }
+.egp-row:hover .egp-go { opacity: 1; }
+/* Month divider — a small sticky header grouping the dates by month. */
+.egp-month {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 8px 12px 5px;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4, #a8a6ad);
+  background: var(--surface, #fff);
+}
+.egp-more {
+  padding: 10px 12px 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-4, #a8a6ad);
+}
+
+/* Grab handle — mobile bottom sheet only (hidden on the desktop side panel). */
+.egp-handle { display: none; }
+
+.egp-foot {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line, #e9e4da);
+}
+.egp-maplink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pin, #d24a3d);
+  text-decoration: none;
+}
+.egp-maplink:hover { text-decoration: underline; }
+
+/* On narrow screens (≤ tablet breakpoint, matching useBreakpoint's 768) the
+   panel becomes a draggable bottom sheet. Its height is set inline in dvh (from
+   the drag gesture); the header (handle + title) and footer stay put while the
+   date list scrolls between them. */
+@media (max-width: 767.98px) {
+  .event-group-panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    border-left: none;
+    border-top: 1px solid var(--line, #e9e4da);
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -10px 30px rgba(20, 15, 10, 0.22);
+    animation: egp-in-up 0.2s ease-out;
+  }
+  @keyframes egp-in-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+
+  /* The handle is the drag grab target: a generous hit area so it's easy to
+     grab, touch-action:none so the browser doesn't scroll instead. */
+  .egp-handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 34px;
+    padding: 14px 0 10px;
+    touch-action: none;
+    cursor: grab;
+  }
+  .egp-handle:active { cursor: grabbing; }
+  .egp-handle::before {
+    content: '';
+    width: 48px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--ink-4, #a8a6ad);
+  }
+  .egp-head { padding-top: 2px; }
+}
 
 /* ============================================================= REDESIGN ===
    Warm "paper" UI (App206). All rules scoped under .app206 so they don't
