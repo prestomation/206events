@@ -6,6 +6,7 @@ description: "Intimate Ballard music venue known for Americana, folk, indie, and
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://tractortavern.com
 tags: ["Music", "Ballard"]
+imageUrl: "https://tractortavern.com/wp-content/uploads/2022/07/Tractor-Front-Door-web.jpg"
 geo:
   lat: 47.6657
   lng: -122.3828

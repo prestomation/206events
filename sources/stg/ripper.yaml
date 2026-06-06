@@ -11,6 +11,7 @@ calendars:
     friendlyname: "STG - Paramount Theatre"
     timezone: America/Los_Angeles
     tags: ["Downtown"]
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Seattle_%28WA%2C_USA%29%2C_Paramount_Theatre_--_2022_--_1472.jpg"
     geo:
       lat: 47.6133
       lng: -122.3327
@@ -26,6 +27,7 @@ calendars:
     friendlyname: "STG - Moore Theatre"
     timezone: America/Los_Angeles
     tags: ["Belltown"]
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/Seattle_-_The_Moore_Theater_entrance_01.jpg"
     geo:
       lat: 47.6130
       lng: -122.3445
@@ -42,6 +44,7 @@ calendars:
     friendlyname: "STG - Neptune Theatre"
     timezone: America/Los_Angeles
     tags: ["University District"]
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/11/Neptune_Theater_during_SIFF.jpg"
     geo:
       lat: 47.6608
       lng: -122.3133

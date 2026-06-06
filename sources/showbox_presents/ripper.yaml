@@ -9,6 +9,7 @@ geo: null
 calendars:
   - name: the-showbox
     friendlyname: "The Showbox"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Seattle_-_Showbox_marquee_01.jpg"
     geo:
       lat: 47.6091
       lng: -122.3422
