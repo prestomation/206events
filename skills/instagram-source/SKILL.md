@@ -6,13 +6,15 @@ describe into `instagram-cache.json`, so the `instagram` ripper can publish them
 This is the Instagram analog of the `event-uncertainty-resolver` skill. The
 ripper (`lib/config/instagram.ts`) never touches Instagram or an LLM — it is a
 pure reader of the cache. **This skill is where the fetching and the vision
-reading happen.** It is runnable two ways, with identical behavior:
+reading happen**, and it always runs **out of band** — never from the build:
 
-- **Out of band** — a human/agent runs `/instagram-source` locally (residential
-  IP, which Instagram tolerates at low volume).
-- **From CI** — `publish_calendars.yml` fires a thin Claude routine that runs
-  this same skill. All the logic lives here and in `scripts/instagram-cache.py`,
-  so CI stays a one-line fire-and-forget.
+- A human/agent runs `/instagram-source` locally (residential IP, which
+  Instagram tolerates at low volume), or
+- a scheduled **Claude routine** runs this same skill.
+
+Either way it commits its `instagram-cache.json` updates back to the repo as a
+PR; the build (and CI) only ever reads the committed cache. All the logic lives
+here and in `scripts/instagram-cache.py` — no workflow fetches Instagram.
 
 ## Why a skill instead of a ripper-time fetch
 
@@ -123,11 +125,16 @@ python3 skills/instagram-source/scripts/instagram-cache.py write \
   --not-event --reason 'Recap photo of last week, no upcoming date'
 ```
 
-By default the script reads/writes the cache in **S3** (the live store). In a
-session without S3 access (e.g. a web session), pass `--committed
-instagram-cache.json` to write into the committed override file instead — the
-build merges committed entries over S3 with committed winning, exactly like
-`event-uncertainty-cache.json`.
+Write into the committed cache with **`--committed instagram-cache.json`** — this
+is the file the build reads, and committing it puts every change under review in
+the PR you open. (The script can also read/write an optional S3 store when run
+without `--committed`, but the build reads the committed file.)
+
+**On `--image-url`:** Instagram CDN URLs (`scontent-*.cdninstagram.com`) carry a
+short `oe=` expiry (~2 weeks) and 404 afterward, so don't commit one as a
+durable `imageUrl` — it'll become a broken image on the site. Omit it (the event
+still publishes; it just counts as a non-fatal photo gap), or use the
+photo-resolver flow to attach a stable image.
 
 ### 5. Enable a newly-seeded source
 
@@ -167,6 +174,6 @@ whole file.
 
 - **Ripper:** `lib/config/instagram.ts` (pure cache reader)
 - **Cache module:** `lib/instagram-cache.ts`
-- **Cache (S3):** `calendar-ripper-outofband-220483515252/latest/instagram-cache.json`
+- **Cache (committed):** `instagram-cache.json` at the repo root — the file the build reads
 - **Design doc:** `docs/instagram-source.md`
 - **Sibling skill:** `skills/event-uncertainty-resolver/SKILL.md`

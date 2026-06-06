@@ -1,4 +1,29 @@
 {
   "version": 1,
-  "entries": {}
+  "entries": {
+    "headinthecloudstrivia:DY0r3MChxnJ": {
+      "isEvent": true,
+      "title": "Trivia Night at DeLuxe Bar & Grill",
+      "date": "2026-06-08",
+      "readAt": "2026-06-06",
+      "source": "agent",
+      "startTime": "19:30",
+      "location": "625 Broadway E, Seattle, WA 98102",
+      "description": "Free weekly Head in the Clouds trivia at DeLuxe Bar & Grill on Capitol Hill, Mondays at 7:30pm. Free to play with prizes.",
+      "permalink": "https://www.instagram.com/p/DY0r3MChxnJ/",
+      "postFingerprint": "deluxe-mondays-0608"
+    },
+    "headinthecloudstrivia:DYGHalHAfKO": {
+      "isEvent": true,
+      "title": "Heated Rivalry Trivia 2: The Reheat",
+      "date": "2026-06-09",
+      "readAt": "2026-06-06",
+      "source": "agent",
+      "startTime": "19:00",
+      "location": "Old Stove Brewing - Ship Canal, Seattle, WA",
+      "description": "Hockey/Heated Rivalry book-series themed trivia night at Old Stove Brewing Ship Canal. Doors 6:30pm, trivia at 7pm. Ticketed, $30 per table (6 players max).",
+      "permalink": "https://www.instagram.com/p/DYGHalHAfKO/",
+      "postFingerprint": "reheat-0609"
+    }
+  }
 }

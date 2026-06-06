@@ -24,11 +24,12 @@ function simpleHash(s: string): string {
 /**
  * Built-in ripper for Instagram accounts.
  *
- * Instagram has no parseable feed and can't be fetched from CI, so this ripper
- * does NOT touch Instagram or any LLM at build time. It is a pure reader of
- * instagram-cache.json, which the `instagram-source` skill populates by reading
- * each post's flyer image + caption with vision (out of band, or via a Claude
- * routine fired from CI). See docs/instagram-source.md and lib/instagram-cache.ts.
+ * Instagram is hard to fetch from CI and event details are often baked into the
+ * flyer image, so this ripper does NOT touch Instagram or any LLM at build time.
+ * It is a pure reader of instagram-cache.json, which the `instagram-source` skill
+ * populates by reading each post's flyer image + caption with vision (out of
+ * band, or via a scheduled Claude routine) and commits via PR.
+ * See docs/instagram-source.md and lib/instagram-cache.ts.
  *
  * Each calendar entry in ripper.yaml must include a `config` block with:
  *   - username: the Instagram handle (the cache key prefix)

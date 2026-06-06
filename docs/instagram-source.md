@@ -53,11 +53,11 @@ Paginate with `?username=<handle>&after=<end_cursor>`.
 
 ```
   skill: skills/instagram-source/  ── reads posts + flyer images (vision),
-   (out of band, OR fired from CI)    classifies, extracts fields
+   (out of band, or a Claude routine) classifies, extracts fields
             │
-            ▼  scripts/instagram-cache.py  write …
+            ▼  scripts/instagram-cache.py  write … --committed
   instagram-cache.json   ── postId → { isEvent, title, date, startTime, … }
-   (S3 live store + committed override, merged committed-wins at build time)
+   (committed to the repo; updated via PR — the build reads it directly)
             │
             ▼
   lib/config/instagram.ts (InstagramRipper)  ── PURE READER, no network/LLM
@@ -68,21 +68,22 @@ Paginate with `?username=<handle>&after=<end_cursor>`.
             ▼  toICS / geocode / discovery (unchanged)
 ```
 
-**Thin CI, fat skill.** The build (`InstagramRipper`) only reads
+**Thin build, fat skill.** The build (`InstagramRipper`) only reads
 `instagram-cache.json` — it never calls Instagram or an LLM, so it stays
 deterministic and offline. All the fetching and image reading lives in the
-`instagram-source` skill and `instagram-cache.py`, which are runnable by an agent
-locally *or* fired from CI as a one-line Claude routine
-(`publish_calendars.yml` → `refresh-instagram`, gated on
-`CLAUDE_INSTAGRAM_ROUTINE_ID`). The same code path serves both.
+`instagram-source` skill and `instagram-cache.py`. The skill is run **out of
+band** — by a human/agent locally, or on a schedule by a **Claude routine** —
+and commits its cache updates back to the repo as a PR. CI itself is untouched:
+no workflow fetches Instagram, and the build simply reads the committed cache.
 
 ## The cache
 
-`instagram-cache.json` (repo root) is an empty committed baseline; the live store
-is S3 (`latest/instagram-cache.json` on the outofband bucket). Persistence
-mirrors `event-uncertainty-cache.json` exactly: the build downloads S3 and merges
-the committed file over it with **committed winning**, so a web session without
-S3 write access can still seed manually-read posts by committing them.
+`instagram-cache.json` (repo root) is committed to the repo and is the source of
+truth the build reads directly. The `instagram-source` skill updates it (via
+`instagram-cache.py write --committed`) and opens a PR, so every change to the
+published events is reviewable in git. (`instagram-cache.py` still supports an
+optional S3 store for setups that prefer it, but the default flow — and the one
+the build reads — is the committed file.)
 
 Entry shape (see `lib/instagram-cache.ts` for the authoritative type), keyed by
 `<username>:<postId>`:
@@ -150,7 +151,5 @@ from `venues.json`.
 - `lib/config/instagram.ts` — the ripper (pure cache reader)
 - `lib/instagram-cache.ts` — cache types + load/save/lookup helpers
 - `lib/config/instagram.test.ts` — unit tests (fixture cache → events/errors)
-- `instagram-cache.json` — committed empty baseline / override layer
+- `instagram-cache.json` — committed cache the build reads (seeded by the skill)
 - `skills/instagram-source/SKILL.md` + `scripts/instagram-cache.py` — the fat layer
-- `.github/workflows/build-calendars.yml` — S3 download/upload + artifact
-- `.github/workflows/publish_calendars.yml` — `refresh-instagram` fire job

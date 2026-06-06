@@ -4,16 +4,16 @@ import type { UncertaintyResolutionFields } from './event-uncertainty-cache.js';
 
 // Per-post extraction store for the `instagram` ripper type.
 //
-// Instagram has no parseable feed and is unfetchable from CI (the public
+// Instagram has no parseable feed and is hard to fetch from CI (the public
 // JSON endpoints are dead and GitHub Actions IPs are rate-limited/blocked),
 // and event details are frequently baked into flyer images rather than the
 // caption. So extraction is done out of band by the `instagram-source` skill
-// (an agent — or Claude fired from CI — reads each post's image + caption with
-// vision) and the result is recorded here, keyed by Instagram post id.
+// (an agent — or a scheduled Claude routine — reads each post's image + caption
+// with vision) and the result is recorded here, keyed by Instagram post id.
 //
-// This mirrors the persistence model of event-uncertainty-cache.json: an empty
-// committed baseline in the repo, the live store in S3, and a committed-wins
-// merge at download time so web sessions without S3 access can seed entries.
+// The cache is committed to the repo and read directly by the build; the skill
+// updates it via PR. (instagram-cache.py also supports an optional S3 store, but
+// the build reads the committed file.)
 //
 // The `instagram` ripper is a pure reader of this cache — see
 // lib/config/instagram.ts. It does NOT call Instagram or any LLM at build time.

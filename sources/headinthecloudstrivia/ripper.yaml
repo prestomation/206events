@@ -3,13 +3,9 @@ type: instagram
 description: "Head in the Clouds Trivia"
 url: "https://www.instagram.com/headinthecloudstrivia/"
 friendlyLink: https://www.instagram.com/headinthecloudstrivia/
-# Disabled until the instagram-source skill has populated instagram-cache.json
-# with real reads of this account's posts. Instagram is unfetchable from CI
-# (and from the web sandbox — it 429s), so the cache is seeded out of band by
-# the skill / a Claude routine fired from CI. Flip to enabled in the PR that
-# adds the first real cache entries. A new source with 0 events fails the
-# build, so it must not be enabled before it has data. See docs/instagram-source.md.
-disabled: true
+# Events come from instagram-cache.json, seeded by the instagram-source skill
+# (run out of band / via a Claude routine, which reads each post's flyer image +
+# caption with vision and commits the cache via PR). See docs/instagram-source.md.
 # Mobile trivia host — runs at many bars, no single fixed location.
 geo: null
 tags: ["Trivia"]
