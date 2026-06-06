@@ -3,6 +3,7 @@ description: "Seattle Food Trucks"
 url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"
 tags: ["Food"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
 lookahead: "P30D"
 geo: null
 calendars:

@@ -4,6 +4,7 @@ description: "Seattle Film Society"
 url: "https://www.seattlefilmsociety.com/calendar"
 friendlyLink: https://www.seattlefilmsociety.com/calendar
 tags: ["Movies", "Arts"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Neptune_Theater_%28Seattle%2C_Washington%29.jpg"
 geo: null
 calendars:
   - name: seattle-film-society
