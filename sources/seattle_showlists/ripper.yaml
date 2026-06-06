@@ -34,6 +34,7 @@ calendars:
       venue: "Baba Yaga"
   - name: central-saloon
     friendlyname: "Central Saloon"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Seattle_-_Central_Tavern%2C_1970s_%2853502918631%29_%28cropped%29.jpg"
     geo:
       lat: 47.6006
       lng: -122.3344
