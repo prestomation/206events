@@ -134,9 +134,10 @@ whole file.
 
 ## Adding another Instagram account
 
-1. Add `sources/instagram_<slug>/ripper.yaml` with `type: instagram`,
-   `disabled: true`, `geo` (a `{lat,lng}` for a single-venue account, else
-   `null`), tags, and `config.username`.
+1. Add `sources/<slug>/ripper.yaml` with `type: instagram`, `disabled: true`,
+   `geo` (a `{lat,lng}` for a single-venue account, else `null`), tags, and
+   `config.username`. Name the source after the org, not the platform —
+   `instagram` is an implementation detail already captured by `type`.
 2. Run this skill to seed real events, then enable the source (step 5).
 
 ## Key references

@@ -88,9 +88,10 @@ every reporting channel. Non-events and unread posts simply aren't emitted.
 
 ## Adding an account
 
-1. Add `sources/instagram_<slug>/ripper.yaml`:
+1. Add `sources/<slug>/ripper.yaml` (name the source after the org, not the
+   platform — `instagram` is an implementation detail already captured by `type`):
    ```yaml
-   name: instagram_<slug>
+   name: <slug>
    type: instagram
    description: "<Account Name>"
    url: "https://www.instagram.com/<handle>/"

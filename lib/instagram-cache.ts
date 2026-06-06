@@ -1,4 +1,6 @@
 import { readFile, writeFile } from 'fs/promises';
+import type { SerializedRipperCalendarEvent } from './config/schema.js';
+import type { UncertaintyResolutionFields } from './event-uncertainty-cache.js';
 
 // Per-post extraction store for the `instagram` ripper type.
 //
@@ -47,6 +49,33 @@ export interface InstagramCacheEntry {
     readAt: string;           // ISO date YYYY-MM-DD the agent recorded this
     source: 'manual' | 'agent';
 }
+
+// --- Compile-time coupling to the core event model -------------------------
+//
+// InstagramCacheEntry deliberately keeps its own field names and splits `date`
+// (YYYY-MM-DD) from `startTime` — the runtime model combines them into a single
+// ZonedDateTime — so it does not structurally extend the event type. To still
+// get type safety as the core model evolves, the assertions below fail to
+// compile if a shared field is renamed/removed or its type drifts (e.g.
+// `durationSeconds` stops being a number, or `summary`/`url`/`imageUrl` change
+// type). Pure types, no runtime cost. This lives in the module (not a .test.ts)
+// on purpose: ts-node type-checks the build's import graph, whereas vitest runs
+// transpile-only — so a module-level assertion is what's actually enforced in CI.
+type IsExact<A, B> = [A] extends [B] ? ([B] extends [A] ? true : false) : false;
+type Assert<T extends true> = T;
+
+// One row per cache field that feeds a RipperCalendarEvent. Each maps the
+// cache's (non-null) field type to the corresponding core-model field; the row
+// errors if the model field is renamed/removed or its type no longer matches.
+type _InstagramCacheEntryMatchesEventModel = [
+    Assert<IsExact<NonNullable<InstagramCacheEntry['title']>, SerializedRipperCalendarEvent['summary']>>,         // title → summary
+    Assert<IsExact<NonNullable<InstagramCacheEntry['description']>, NonNullable<SerializedRipperCalendarEvent['description']>>>,
+    Assert<IsExact<NonNullable<InstagramCacheEntry['location']>, NonNullable<SerializedRipperCalendarEvent['location']>>>,
+    Assert<IsExact<NonNullable<InstagramCacheEntry['permalink']>, NonNullable<SerializedRipperCalendarEvent['url']>>>,   // permalink → url
+    Assert<IsExact<NonNullable<InstagramCacheEntry['imageUrl']>, NonNullable<SerializedRipperCalendarEvent['imageUrl']>>>,
+    Assert<IsExact<NonNullable<InstagramCacheEntry['durationSeconds']>, SerializedRipperCalendarEvent['durationSeconds']>>,
+    Assert<IsExact<NonNullable<InstagramCacheEntry['startTime']>, NonNullable<UncertaintyResolutionFields['startTime']>>>, // startTime ↔ uncertainty resolver
+];
 
 export interface InstagramCache {
     version: number;
