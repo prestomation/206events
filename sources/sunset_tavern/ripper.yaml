@@ -5,6 +5,7 @@ description: "Sunset Tavern"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Sunset+Tavern"
 friendlyLink: https://sunsettavern.com/shows/
 tags: ["Music", "Ballard"]
+imageUrl: "https://sunsettavern.com/wp-content/uploads/2024/04/live-room-3-1024x768-1.jpg"
 geo:
   lat: 47.6681
   lng: -122.386

@@ -26,6 +26,7 @@ calendars:
       name: "SIFF Cinema Uptown"
       cssSelector: ".Uptown"
     tags: ["QueenAnne"]
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/Seattle_-_SIFF_Cinema_Uptown_01.jpg"
     geo:
       lat: 47.6232
       lng: -122.3571
