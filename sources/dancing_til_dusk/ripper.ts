@@ -127,8 +127,7 @@ export default class DancingTilDuskRipper implements IRipper {
                     // benefit_box: date is inside the h2, not in a p .gold span
                     const cls = el.getAttribute('class') ?? '';
                     if (cls.includes('benefit_box')) {
-                        const boxEvent = this.parseBenefitBox(el);
-                        if (boxEvent) results.push(boxEvent);
+                        results.push(this.parseBenefitBox(el));
                     }
                 }
             }
@@ -156,16 +155,16 @@ export default class DancingTilDuskRipper implements IRipper {
     }
 
     // Parses the benefit_box special case where the date is inside the <h2>
-    private parseBenefitBox(box: HTMLElement): RipperEvent | null {
+    private parseBenefitBox(box: HTMLElement): RipperCalendarEvent | RipperError {
         const h2 = box.querySelector('h2');
         const p = box.querySelector('p');
-        if (!h2 || !p) return null;
+        if (!h2 || !p) return { type: 'ParseError', reason: 'benefit_box missing h2 or p', context: box.outerHTML.substring(0, 200) };
 
         const goldSpan = h2.querySelector('.gold');
-        if (!goldSpan) return null;
+        if (!goldSpan) return { type: 'ParseError', reason: 'benefit_box h2 missing .gold date span', context: h2.text.substring(0, 100) };
 
         const parsedDate = parseMonthDay(goldSpan.text.trim());
-        if (!parsedDate) return null;
+        if (!parsedDate) return { type: 'ParseError', reason: `Could not parse date from: ${goldSpan.text.trim()}`, context: h2.text.substring(0, 100) };
 
         // Extract location and time from h2 (after the gold span)
         const h2Html = h2.innerHTML ?? '';
@@ -184,7 +183,7 @@ export default class DancingTilDuskRipper implements IRipper {
         const bandName = (dashIdx >= 0 ? bandRaw.substring(0, dashIdx) : bandRaw).trim();
         const style = pipeParts[1]?.trim().replace(/\s*—.*$/, '').trim() ?? '';
 
-        if (!bandName) return null;
+        if (!bandName) return { type: 'ParseError', reason: 'Could not extract band name from benefit_box p', context: pText.substring(0, 100) };
 
         return this.buildEvent(bandName, style, location, time, parsedDate.month, parsedDate.day);
     }
@@ -220,7 +219,10 @@ export default class DancingTilDuskRipper implements IRipper {
         month: number,
         day: number,
     ): RipperCalendarEvent {
-        const year = 2026;
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        const currentMonth = now.getMonth() + 1;
+        const year = month < currentMonth ? currentYear + 1 : currentYear;
         const locationStr = PARK_ADDRESSES[locationName.trim()] ?? `${locationName.trim()}, Seattle, WA`;
         const description = style ? `${bandName} – ${style}` : bandName;
         const id = `dancing-til-dusk-${slugify(bandName)}-${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;

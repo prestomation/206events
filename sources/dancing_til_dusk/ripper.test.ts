@@ -77,7 +77,10 @@ describe('DancingTilDuskRipper.parsePageHtml', () => {
 
         const july7 = events.find(e => e.date.monthValue() === 7 && e.date.dayOfMonth() === 7);
         expect(july7).toBeDefined();
-        expect(july7!.date.year()).toBe(2026);
+        // Year is current year if July hasn't passed, next year otherwise
+        const now = new Date();
+        const expectedYear = 7 < (now.getMonth() + 1) ? now.getFullYear() + 1 : now.getFullYear();
+        expect(july7!.date.year()).toBe(expectedYear);
         expect(july7!.date.hour()).toBe(18);
         expect(july7!.date.minute()).toBe(0);
 
@@ -107,7 +110,9 @@ describe('DancingTilDuskRipper.parsePageHtml', () => {
         const events = ripper.parsePageHtml(html).filter(e => 'date' in e) as RipperCalendarEvent[];
 
         const july7 = events.find(e => e.date.monthValue() === 7 && e.date.dayOfMonth() === 7);
-        expect(july7!.id).toBe('dancing-til-dusk-swingin-in-the-rain-with-dina-blade-2026-07-07');
+        const now = new Date();
+        const idYear = 7 < (now.getMonth() + 1) ? now.getFullYear() + 1 : now.getFullYear();
+        expect(july7!.id).toBe(`dancing-til-dusk-swingin-in-the-rain-with-dina-blade-${idYear}-07-07`);
     });
 
     it('assigns Seattle park addresses', () => {
