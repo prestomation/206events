@@ -4,6 +4,7 @@ url: "https://theseattlebarkery.com/wp-json/tribe/events/v1/events"
 proxy: "outofband"
 friendlyLink: https://theseattlebarkery.com
 tags: ["Dogs"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Kobe_the_Italian_Greyhound_at_Cal_Anderson_Park%2C_2022.jpg"
 geo: null
 calendars:
   - name: all-events
