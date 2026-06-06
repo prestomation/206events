@@ -1,0 +1,14 @@
+name: sea26-drone-shows
+description: "SEA 26 Drone Shows"
+url: "https://www.visitseattle.org/sea26/drone-show/"
+friendlyLink: https://www.visitseattle.org/sea26/drone-show/
+tags: ["Events", "QueenAnne", "Sports"]
+imageUrl: "https://visitseattle.org/wp-content/uploads/2026/06/drone-show-concept-thumb-e1780435398218.jpg"
+geo:
+  lat: 47.6219
+  lng: -122.3514
+  label: "International Fountain, Seattle Center, 305 Harrison St, Seattle, WA 98109"
+calendars:
+  - name: drone-shows
+    friendlyname: "SEA 26 Drone Shows"
+    timezone: America/Los_Angeles
