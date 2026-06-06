@@ -1,6 +1,6 @@
 name: friends-of-little-saigon
 type: eventbrite
-proxy: "outofband"
+proxy: false
 description: "Friends of Little Sài Gòn"
 url: "https://flsseattle.org/events-resources/"
 friendlyLink: https://www.eventbrite.com/o/friends-of-little-sai-gon-39691739803

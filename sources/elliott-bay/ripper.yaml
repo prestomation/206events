@@ -1,6 +1,6 @@
 name: elliott-bay
 type: eventbrite
-proxy: "outofband"
+proxy: false
 description: "Elliott Bay Book Company"
 url: "https://www.elliottbaybook.com/events"
 friendlyLink: https://www.elliottbaybook.com/events

@@ -1,6 +1,6 @@
 name: nonsequitur
 type: eventbrite
-proxy: "outofband"
+proxy: false
 description: "Nonsequitur / Wayward Music Series"
 url: "https://www.eventbrite.com/o/nonsequitur-39003233763/"
 friendlyLink: https://www.waywardmusic.org

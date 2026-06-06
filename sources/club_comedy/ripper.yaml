@@ -1,6 +1,6 @@
 name: club-comedy
 type: eventbrite
-proxy: "outofband"
+proxy: false
 description: "Club Comedy Seattle"
 url: "https://www.clubcomedyseattle.com/"
 friendlyLink: https://www.clubcomedyseattle.com/

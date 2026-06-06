@@ -1,7 +1,7 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: substation
 type: eventbrite
-proxy: "outofband"
+proxy: false
 description: "Substation"
 url: "https://www.substationseattle.com"
 friendlyLink: https://www.substationseattle.com

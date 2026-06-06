@@ -1,6 +1,6 @@
 name: club-sur
 type: eventbrite
-proxy: "outofband"
+proxy: false
 description: "Club Sur"
 url: "https://seattleclubsur.com/"
 friendlyLink: https://seattleclubsur.com/
