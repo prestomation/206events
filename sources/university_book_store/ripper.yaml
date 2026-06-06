@@ -1,6 +1,6 @@
 name: university-book-store
 type: eventbrite
-proxy: "outofband"
+proxy: false
 description: "University Book Store"
 url: "https://ubookstore.com/events"
 friendlyLink: https://ubookstore.com/events

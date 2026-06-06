@@ -1,6 +1,6 @@
 name: jet-city-improv
 type: eventbrite
-proxy: "outofband"
+proxy: false
 description: "Jet City Improv"
 url: "https://www.jetcityimprov.org/calendar.html"
 friendlyLink: https://www.jetcityimprov.org/calendar.html
