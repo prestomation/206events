@@ -7,6 +7,7 @@ description: "Home of the Seattle Symphony, with the main S. Mark Taper
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.seattlesymphony.org/benaroyahall
 tags: ["Music", "Downtown"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Benaroya_Hall%2C_Seattle%2C_Washington%2C_USA.jpg"
 geo:
   lat: 47.6081
   lng: -122.337
