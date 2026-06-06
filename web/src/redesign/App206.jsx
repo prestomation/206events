@@ -2,7 +2,7 @@
 // from App.jsx, derives the view-models, owns local navigation/overlay state,
 // and renders the responsive shell (rail · content · map / bottom nav).
 
-import { useState, useMemo, useRef, useCallback, useEffect, useDeferredValue } from 'react'
+import { useState, useMemo, useRef, useCallback, useEffect, useLayoutEffect, useDeferredValue } from 'react'
 import Fuse from 'fuse.js'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
@@ -321,6 +321,25 @@ export function App206(props) {
     go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
   }
 
+  // Preserve each view's scroll position across navigation. The `.a-content`
+  // scroll container is keyed by view, so forward-nav into an event/channel
+  // detail starts at the top — but without this, returning to the list via the
+  // back button would remount the container at scrollTop 0 and lose the user's
+  // place. We record the live scrollTop per view key and restore it when that
+  // view remounts.
+  const contentRef = useRef(null)
+  const scrollPositionsRef = useRef(new Map())
+  const contentKey = openEventObj ? 'ev' : openCh ? 'ch' : section
+  useLayoutEffect(() => {
+    const el = contentRef.current
+    if (!el) return
+    // Restore before paint (no flash); default to the top for first visits.
+    el.scrollTop = scrollPositionsRef.current.get(contentKey) ?? 0
+    const onScroll = () => { scrollPositionsRef.current.set(contentKey, el.scrollTop) }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [contentKey])
+
   let content
   if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard buildErrors={buildErrors} calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} /></div>
   else if (openEventObj) content = <EventDetail event={openEventObj} />
@@ -336,7 +355,7 @@ export function App206(props) {
         style={mapWidth ? { '--a-map-w': `${mapWidth}px` } : undefined}>
         <div className="a-rail"><RailNav /></div>
         <div className="a-top"><TopBar /></div>
-        <div className="a-content" key={openEventObj ? 'ev' : openCh ? 'ch' : section}>
+        <div className="a-content" key={contentKey} ref={contentRef}>
           {loading ? <div className="a-empty" style={{ padding: '40px var(--pad)' }}>Loading…</div> : content}
         </div>
         <div className={`a-map${mapExpanded ? ' a-map--expanded' : ''}`}><MapPanel /></div>

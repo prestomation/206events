@@ -45,6 +45,11 @@ function makeManyEvents(n) {
   return events
 }
 
+// Per-page uncaught-error buckets, keyed off the Playwright page so we don't
+// monkey-patch custom properties onto it (which risks colliding with internal
+// Playwright fields).
+const pageErrorsByPage = new WeakMap()
+
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
   // Override the events feed with a list long enough to scroll. Re-registering
@@ -57,12 +62,12 @@ test.beforeEach(async ({ page }) => {
     }))
 
   const pageErrors = []
+  pageErrorsByPage.set(page, pageErrors)
   page.on('pageerror', (err) => pageErrors.push(err))
-  page.__pageErrors = pageErrors
 })
 
 test.afterEach(async ({ page }) => {
-  expect(page.__pageErrors ?? [], 'no uncaught page errors').toEqual([])
+  expect(pageErrorsByPage.get(page) ?? [], 'no uncaught page errors').toEqual([])
 })
 
 test('event list keeps its scroll position after opening details and going back', async ({ page }) => {
@@ -100,11 +105,18 @@ test('event list keeps its scroll position after opening details and going back'
   await backBtn.click()
   await expect(page.locator('.a-content .ev').first()).toBeVisible()
 
-  // The list should resume where we left off, not jump to the top.
+  // The list should resume approximately where we left off — not jump to the
+  // top (the bug) and not overshoot to some other position. Bound both sides so
+  // a future regression that lands at the bottom can't masquerade as a pass.
+  const TOLERANCE = 50
   await expect
     .poll(() => scrollTopOf(), {
       message: 'scroll position should be restored after back-navigation',
       timeout: 5000,
     })
-    .toBeGreaterThan(savedScroll - 50)
+    .toBeGreaterThanOrEqual(savedScroll - TOLERANCE)
+
+  const restoredScroll = await scrollTopOf()
+  expect(restoredScroll, 'scroll position should not overshoot the saved place')
+    .toBeLessThanOrEqual(savedScroll + TOLERANCE)
 })
