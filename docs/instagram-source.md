@@ -8,16 +8,46 @@ type lets us cover such accounts. `headinthecloudstrivia` is the first example.
 
 Two constraints make a build-time fetch impossible:
 
-1. **Instagram is unfetchable from CI.** The old public JSON endpoints
+1. **Instagram is hard to fetch from CI.** The old public JSON endpoints
    (`?__a=1`) are dead (2026), the official Graph API only exposes accounts you
    *own* (business/creator), and GitHub Actions IPs are rate-limited/blocked
-   (429 after a couple of requests). Even the web sandbox 429s the profile.
+   (429 after a couple of requests). The mobile web API (`X-IG-App-ID` trick)
+   works from residential and many server IPs but not reliably from CI.
+   Stories and highlights require an authenticated session cookie and are not
+   accessible anonymously.
 2. **The data needs vision, not a parser.** Event date/time/venue are routinely
    baked into the flyer **image**, not the caption. Extracting them is LLM work,
    and — per the repo's core principle (`docs/event-uncertainty.md`) — it must
    be explicit about what it couldn't read rather than guessing.
 
 So extraction is split from publishing.
+
+## Fetching
+
+The `instagram-source` skill fetches posts using the **mobile web API** as the
+primary method:
+
+```
+GET https://i.instagram.com/api/v1/users/web_profile_info/?username=<handle>
+Headers:
+  X-IG-App-ID: 936619743392459
+  Sec-Fetch-Site: same-origin
+```
+
+This returns the full profile and recent posts (captions, shortcodes,
+timestamps, image URLs) without authentication. It works from residential IPs
+and most server IPs. Rate-limits after ~5 rapid requests; pause between calls.
+Paginate with `?username=<handle>&after=<end_cursor>`.
+
+**What doesn't work (2026):**
+- `?__a=1` endpoint — returns HTML JS shell, not JSON
+- Instaloader (anonymous) — GraphQL queries return empty without login
+- Stories/highlights — require authenticated session cookie
+
+**What works as fallback:**
+- WebFetch (residential IP only, OG meta tags only)
+- Cookieless scraper APIs (ScrapeCreators, Apify, etc.)
+- Instaloader with a logged-in session (fragile, ToS-risky)
 
 ## Architecture
 

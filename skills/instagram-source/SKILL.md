@@ -16,12 +16,14 @@ reading happen.** It is runnable two ways, with identical behavior:
 
 ## Why a skill instead of a ripper-time fetch
 
-Instagram's public JSON endpoints are dead (2026), the official Graph API only
-exposes accounts you own, and GitHub Actions IPs are rate-limited/blocked (429
-after a couple of requests). On top of that, event details (date, time, venue)
-are frequently baked into the **flyer image**, not the caption — so extraction
-needs vision and judgment, not a parser. Doing it here keeps the build
-deterministic and offline.
+Instagram's old public JSON endpoints (`?__a=1`) are dead (2026), the official
+Graph API only exposes accounts you own, and GitHub Actions IPs are
+rate-limited/blocked (429 after a couple of requests). The mobile web API
+(`X-IG-App-ID` trick, see step 2) works from residential and many server IPs,
+but not reliably from CI. On top of that, event details (date, time, venue) are
+frequently baked into the **flyer image**, not the caption — so extraction needs
+vision and judgment, not a parser. Doing it here keeps the build deterministic
+and offline.
 
 ## Workflow
 
@@ -41,14 +43,26 @@ You need, per recent post: a **post id / shortcode** (from the permalink), the
 Use whichever of these works from your current network; prefer the cheapest that
 returns data:
 
-- **`WebFetch`** the profile or a post permalink (works from a residential IP /
-  out of band; will 429 from CI and the web sandbox).
+- **Mobile web API** (primary): `GET
+  https://i.instagram.com/api/v1/users/web_profile_info/?username=<handle>`
+  with headers `X-IG-App-ID: 936619743392459` and `Sec-Fetch-Site: same-origin`.
+  Returns full profile + recent posts with captions, shortcodes, timestamps,
+  and image URLs. Works from residential IPs and most server IPs without auth.
+  Paginate with `?username=<handle>&after=<end_cursor>` using `end_cursor` from
+  `page_info`. Rate-limits after ~5 rapid requests; pause 30s between calls.
+- **`WebFetch`** the profile or a post permalink (fallback — works from
+  residential IP / out of band; returns a JS shell with only OG meta tags, no
+  post data; will 429 from CI and the web sandbox).
 - **A cookieless scraper API** (e.g. ScrapeCreators, Apify cookieless,
-  ScrapingBot) when you have a key — most reliable, ~cents per run for one
-  account. Read the key from an env var; never hardcode it.
-- **Instaloader** (`pip install instaloader`) as a zero-cost local fallback —
-  works without login but rate-limits hard, so fetch only the newest ~12 posts
-  and add delays.
+  ScrapingBot) when you have a key — reliable, ~cents per run for one account.
+  Read the key from an env var; never hardcode it.
+- **Instaloader** (`pip install instaloader`) — last resort; dead without login
+  as of 2026 (anonymous GraphQL queries return empty). Only useful with a
+  logged-in session, which is fragile and ToS-risky.
+
+**Stories and highlights are NOT accessible** without an authenticated session
+cookie — the `X-IG-App-ID` trick alone is insufficient. This is fine because
+venues announce events as feed posts with flyer images, not stories.
 
 Check what's already recorded so you only read new/changed posts:
 
