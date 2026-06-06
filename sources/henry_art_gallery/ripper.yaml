@@ -1,6 +1,6 @@
 name: henry-art-gallery
 type: eventbrite
-proxy: false
+proxy: "outofband"
 description: "Henry Art Gallery"
 url: "https://henryart.org/"
 friendlyLink: https://henryart.org/programs/all

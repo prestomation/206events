@@ -1,6 +1,6 @@
 name: third-place-books
 type: eventbrite
-proxy: false
+proxy: "outofband"
 description: "Third Place Books"
 url: "https://www.thirdplacebooks.com/events"
 friendlyLink: https://www.thirdplacebooks.com/events
