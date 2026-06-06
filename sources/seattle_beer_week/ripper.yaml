@@ -3,6 +3,7 @@ description: "Seattle Beer Week Events Calendar"
 url: "https://core.service.elfsight.com/p/boot/?page=https%3A%2F%2Fwww.seattlebeerweek.com%2Fevents&w=e1dc4a9d-c151-4186-b122-c66305fcb381"
 friendlyLink: https://www.seattlebeerweek.com
 tags: ["Beer"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/622f7164afd6b425998c5e45/e4adc7e5-3aca-4326-96e3-e28071306947/SBW26_Header26.jpg"
 geo: null
 calendars:
   - name: beer-week
