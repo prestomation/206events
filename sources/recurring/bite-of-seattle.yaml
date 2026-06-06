@@ -1,0 +1,34 @@
+# verified: 2026-06-06 ok
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Bite_of_Seattle_crowds.jpg"
+geo:
+  lat: 47.6205
+  lng: -122.3493
+  label: "Seattle Center, 305 Harrison St, Seattle, WA 98109"
+  osmType: way
+  osmId: 4755066
+name: bite-of-seattle
+friendlyname: Bite of Seattle
+description: Annual food and music festival at Seattle Center with 300+ food vendors, beer and wine gardens, cider tastings, and live music.
+timezone: America/Los_Angeles
+location: Seattle Center, 305 Harrison St, Seattle, WA 98109
+url: https://biteofseattle.com/
+tags:
+  - Food
+  - Music
+  - QueenAnne
+  - Community
+# Approximates the 4th weekend of July. Matches 2025 (Jul 25-27) and 2026 (Jul 24-26).
+# In 2024 the event fell on the 3rd weekend (Jul 19-21); verify at biteofseattle.com each year.
+schedules:
+  - schedule: "4th Friday"
+    start_time: "11:00"
+    duration: PT9H
+    months: [7]
+  - schedule: "4th Saturday"
+    start_time: "11:00"
+    duration: PT9H
+    months: [7]
+  - schedule: "4th Sunday"
+    start_time: "11:00"
+    duration: PT9H
+    months: [7]
