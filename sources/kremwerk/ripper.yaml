@@ -3,7 +3,7 @@ type: dice
 description: "Kremwerk + Timbre Room + Cherry Complex"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=Kremwerk+Complex"
 friendlyLink: https://www.kremwerk.com/
-tags: ["Music", "Nightlife"]
+tags: ["Music", "Nightlife", "Downtown"]
 imageUrl: "https://images.squarespace-cdn.com/content/v1/572bb259c2ea515568dea9fe/1733963121258-H9S5WXB9ZV8M65ZSK9GZ/Cherry+Seattle+-+Kremwerk+Nightclub.png"
 geo:
   lat: 47.6168989

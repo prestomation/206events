@@ -4,7 +4,7 @@ type: ticketmaster
 description: "Versatile indoor concert venue inside the Lumen Field Event Center"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.wamutheater.com
-tags: ["Music"]
+tags: ["Music", "Stadium District"]
 geo:
   lat: 47.5932
   lng: -122.3329

@@ -9,6 +9,7 @@ geo: null
 calendars:
   - name: the-showbox
     friendlyname: "The Showbox"
+    tags: ["Downtown"]
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Seattle_-_Showbox_marquee_01.jpg"
     geo:
       lat: 47.6091
@@ -22,6 +23,7 @@ calendars:
       address: "1426 1st Avenue, Seattle, WA 98101"
   - name: showbox-sodo
     friendlyname: "Showbox SoDo"
+    tags: ["Stadium District"]
     geo:
       lat: 47.588
       lng: -122.336

@@ -7,12 +7,10 @@ friendlyLink: https://mehva.org/events
 tags: ["Community"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/66/Panorama_of_MEHVA_trolleybuses_%2819447564142%29.jpg"
 expectEmpty: true
-geo:
-  lat: 47.6062
-  lng: -122.3321
-  label: "King County Metro Base, Seattle, WA"
-  # Nominatim returned administrative boundary relation/237385 for Seattle at 304m — no specific feature for "King County Metro Base".
-  osmChecked: 2026-05-24
+# MEHVA's historic bus rides depart from varying locations, not a fixed public
+# venue. Modeled as a distributed (citywide) source rather than a venue, so it
+# is not pinned to a placeholder coordinate or listed in venues.json.
+geo: null
 calendars:
   - name: all-events
     friendlyname: "MEHVA Historic Bus Rides"

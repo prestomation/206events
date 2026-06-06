@@ -3,7 +3,7 @@ type: ticketmaster
 description: "Home of the Seattle Mariners, with a retractable roof and year-round events"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.mlb.com/mariners/ballpark
-tags: ["Sports"]
+tags: ["Sports", "Stadium District"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a6/T-Mobile_Park_northeast_side_from_Lumen_Field_garage.jpg"
 geo:
   lat: 47.5914

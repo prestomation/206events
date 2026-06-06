@@ -27,5 +27,6 @@ calendars:
     friendlyname: "Stoup Brewing - Kenmore"
     timezone: America/Los_Angeles
     expectEmpty: true
+    tags: ["Kenmore"]
     config:
       location: kenmore
