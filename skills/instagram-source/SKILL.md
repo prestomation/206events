@@ -50,6 +50,15 @@ returns data:
   and image URLs. Works from residential IPs and most server IPs without auth.
   Paginate with `?username=<handle>&after=<end_cursor>` using `end_cursor` from
   `page_info`. Rate-limits after ~5 rapid requests; pause 30s between calls.
+  Verified returning HTTP 200 with full post data from a residential IP, a
+  server IP, and the Claude Code web sandbox.
+  ```bash
+  curl -sS -H 'X-IG-App-ID: 936619743392459' -H 'Sec-Fetch-Site: same-origin' \
+    'https://i.instagram.com/api/v1/users/web_profile_info/?username=<handle>'
+  ```
+  Posts live under `.data.user.edge_owner_to_timeline_media.edges[].node`
+  (`shortcode`, `id`, `taken_at_timestamp`, `display_url`, and
+  `edge_media_to_caption.edges[0].node.text`).
 - **`WebFetch`** the profile or a post permalink (fallback — works from
   residential IP / out of band; returns a JS shell with only OG meta tags, no
   post data; will 429 from CI and the web sandbox).
