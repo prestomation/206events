@@ -3,6 +3,7 @@ description: "Columbia City Gallery"
 url: "https://columbiacitygallery.com/wp-json/tribe/events/v1/events"
 friendlyLink: https://columbiacitygallery.com/events/
 tags: ["Arts"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Rainier_Avenue%3B_Columbia_City%2C_Seattle.JPG"
 geo:
   lat: 47.5581191
   lng: -122.2849735

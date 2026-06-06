@@ -4,6 +4,7 @@ description: "Belltown Community Council"
 url: "https://public-api.wordpress.com/rest/v1.1/sites/belltown-cc.org/posts?number=50&fields=ID,title,URL,content&orderby=date&order=DESC"
 friendlyLink: https://belltown-cc.org/meetings/
 tags: ["Community", "Belltown"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Seattle_%28WA%2C_USA%29%2C_Belltown_--_2022_--_1650.jpg"
 geo: null
 calendars:
   - name: all-events
