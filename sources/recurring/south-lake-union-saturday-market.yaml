@@ -1,0 +1,18 @@
+geo:
+  lat: 47.6153914
+  lng: -122.3396249
+  label: "South Lake Union Saturday Market, 2100 6th Ave, Seattle, WA 98121"
+name: south-lake-union-saturday-market
+friendlyname: South Lake Union Saturday Market
+description: Weekly outdoor market featuring local produce, food makers, and artisan goods next to the Amazon Spheres. Runs June through November.
+timezone: America/Los_Angeles
+location: 2100 6th Ave, Seattle, WA 98121
+url: https://slumarket.com/
+tags:
+  - FarmersMarket
+  - South Lake Union
+schedules:
+  - schedule: every Saturday
+    start_time: "11:00"
+    duration: PT5H
+    months: [6, 7, 8, 9, 10, 11]
