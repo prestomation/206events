@@ -14,6 +14,7 @@ calendars:
       name: "SIFF Cinema Downtown"
       cssSelector: ".Downtown"
     tags: ["Downtown"]
+    imageUrl: "https://images.siff.net/CINEMA/Venues/OPS_Downtown_copytray_500x500.png"
     geo:
       lat: 47.6110
       lng: -122.3365
