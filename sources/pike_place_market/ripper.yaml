@@ -3,6 +3,7 @@ description: "Pike Place Market Events"
 url: "https://www.pikeplacemarket.org/events/"
 friendlyLink: "https://www.pikeplacemarket.org/events/"
 tags: ["Community", "Pike Place"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/81/Pike-place-market.jpg"
 geo:
   lat: 47.6094
   lng: -122.3414

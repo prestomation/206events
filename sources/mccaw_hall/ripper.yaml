@@ -5,6 +5,7 @@ description: "Performing arts venue at Seattle Center, home to Pacific Northwest
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.mccawhall.com
 tags: ["Arts"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a9/McCaw_Hall_Kreielsheimer_Promenade.JPG"
 geo:
   lat: 47.624
   lng: -122.3504
