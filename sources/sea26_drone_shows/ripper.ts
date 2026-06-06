@@ -99,7 +99,10 @@ export function parseShowItem(
 export default class Sea26DroneShowsRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
-        const calConfig = ripper.config.calendars![0];
+        if (!ripper.config.calendars || ripper.config.calendars.length === 0) {
+            throw new Error('No calendars configured for sea26-drone-shows');
+        }
+        const calConfig = ripper.config.calendars[0];
 
         const res = await fetchFn(ripper.config.url.toString(), {
             headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' },
@@ -152,7 +155,7 @@ export default class Sea26DroneShowsRipper implements IRipper {
         if (!h3) return results;
 
         // The schedule <ul> is a direct child of the same container as the h3.
-        const ul = h3.parentNode.querySelector('ul');
+        const ul = h3.parentNode?.querySelector('ul');
         if (!ul) return results;
 
         for (const li of ul.querySelectorAll('li')) {
