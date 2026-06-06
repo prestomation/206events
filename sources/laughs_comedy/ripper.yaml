@@ -1,6 +1,6 @@
 name: laughs-comedy
 type: eventbrite
-proxy: false
+proxy: "outofband"
 description: "Laughs Comedy Club"
 url: "https://laughscomedyclub.com/"
 friendlyLink: https://laughscomedyclub.com/
