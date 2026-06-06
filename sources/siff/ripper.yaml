@@ -14,7 +14,6 @@ calendars:
       name: "SIFF Cinema Downtown"
       cssSelector: ".Downtown"
     tags: ["Downtown"]
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/00/SIFF_Cinema_Downtown_marquee_promoting_Seattle_International_Film_Festival%2C_May_7-17%2C_2026.jpg"
     geo:
       lat: 47.6110
       lng: -122.3365
