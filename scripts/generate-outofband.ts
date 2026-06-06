@@ -16,6 +16,7 @@
  * Run via: npm run generate-outofband
  */
 
+import "dotenv/config";
 import { RipperLoader } from "../lib/config/loader.js";
 import { toICS, externalConfigSchema, ExternalConfig } from "../lib/config/schema.js";
 import { loadYamlDir } from "../lib/config/dir-loader.js";

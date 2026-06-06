@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { main } from "./lib/calendar_ripper.js";
 import { writeFile, mkdir } from "fs/promises";
 
