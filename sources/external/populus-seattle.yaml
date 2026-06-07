@@ -8,6 +8,7 @@ geo:
 name: populus-seattle
 imageUrl: "https://populusseattle.com/app/uploads/2025/05/High-Res-Populus-Seattle_Firn_2421.jpg"
 proxy: browserbase
+disabled: true
 friendlyname: Populus Seattle
 description: Populus Seattle
 icsUrl: https://populusseattle.com/events-calendar/?post_type=tribe_events&ical=1&eventDisplay=list
