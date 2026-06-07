@@ -16,23 +16,27 @@ tags:
   - Arts
   - Community
   - QueenAnne
-# Memorial Day weekend: 4th Friday/Saturday/Sunday/Monday of May.
-# The 4th Friday of May is always the Friday before Memorial Day (last Monday of May).
+# Memorial Day weekend: Fri-Mon ending on Memorial Day (last Monday of May).
+# "last Monday" is Memorial Day by definition.
+# "4th Friday" always equals the festival Friday — when May has a 5th Friday it always
+#   falls after Memorial Day, so the 4th is always the correct one.
+# "last Saturday/Sunday" are used because in years where May 1 = Saturday (e.g. 2027),
+#   "4th Saturday/Sunday" fire a week early (May has 5 of each, 4th ≠ festival week).
 # Verified: 2026 May 22-25, 2027 May 28-31.
 schedules:
   - schedule: "4th Friday"
     start_time: "11:00"
     duration: PT11H
     months: [5]
-  - schedule: "4th Saturday"
+  - schedule: "last Saturday"
     start_time: "11:00"
     duration: PT11H
     months: [5]
-  - schedule: "4th Sunday"
+  - schedule: "last Sunday"
     start_time: "11:00"
     duration: PT11H
     months: [5]
-  - schedule: "4th Monday"
+  - schedule: "last Monday"
     start_time: "11:00"
     duration: PT11H
     months: [5]
