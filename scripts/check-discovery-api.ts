@@ -20,6 +20,7 @@ import {
   venuesDocSchema,
   tagSlug,
 } from "../lib/discovery.js";
+import { categoryFor } from "../lib/config/tags.js";
 
 const PNW_BBOX = {
   // Generous bounding box around the Pacific Northwest.
@@ -192,6 +193,23 @@ async function main() {
       fail(
         errors,
         `venues.json[${venue.name}] geo (${lat}, ${lng}) is outside the PNW bounding box`,
+      );
+    }
+
+    // Every venue (a source with a fixed location) must carry at least one
+    // registered Neighborhoods tag. The homepage groups venues into area
+    // headings purely by neighborhood tag — an untagged venue silently falls
+    // into "Citywide" instead of its real neighborhood. Failing here forces a
+    // deliberate choice: tag the venue with a registered neighborhood, register
+    // a new one in TAG_CATEGORIES.Neighborhoods, or set `geo: null` if the
+    // source is genuinely distributed and shouldn't be a venue at all.
+    if (!venue.tags.some(t => categoryFor(t) === "Neighborhoods")) {
+      fail(
+        errors,
+        `venues.json[${venue.name}] has a location but no registered neighborhood tag ` +
+          `(tags: ${JSON.stringify(venue.tags)}). Add a neighborhood tag from ` +
+          `TAG_CATEGORIES.Neighborhoods (lib/config/tags.ts) — register a new one if needed — ` +
+          `or set geo: null if the source is distributed (not a single venue).`,
       );
     }
 
