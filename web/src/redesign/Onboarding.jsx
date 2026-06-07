@@ -40,7 +40,8 @@ export function WelcomeModal() {
       labelledBy="a-welcome-title">
       <p className="a-dlg-lead">
         206.events gathers events from across Seattle so you can find what’s on —
-        then pipe it straight into the calendar app you already use.
+        browse it all right here, or pipe it straight into the calendar app you
+        already use.
       </p>
       <ol className="a-onboard-steps">
         {STEPS.map((s) => (
