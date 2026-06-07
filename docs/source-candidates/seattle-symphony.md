@@ -34,9 +34,13 @@ and a client-embedded API key** — fully fetchable from this environment and,
 being a clean API POST rather than the protected HTML, should work from CI too.
 
 - **Endpoint (published/web):**
-  `https://www.seattlesymphony.org/sitecore/api/graph/items/web?sc_apikey=382CF404-7810-4680-9FFC-C648DE4050AE`
-  (POST, `Content-Type: application/json`). The api key is baked into the
-  client bundle (`appjs.js`), i.e. public.
+  `https://www.seattlesymphony.org/sitecore/api/graph/items/web?sc_apikey=<public-key>`
+  (POST, `Content-Type: application/json`). The `sc_apikey` is a **public**
+  Sitecore Item Service key baked into the site's client bundle (`appjs.js`) and
+  served to every browser visitor — it is not a secret. Read the current value
+  at implementation time straight from the bundle (search `appjs.js` for
+  `sitecore/api/graph/items/web?sc_apikey=`); it is intentionally left out of
+  this doc so the repo doesn't carry a key string.
 - **Event content:** items under
   `/sitecore/content/Shared Content/Events/<YYYY>/<MM>/<slug>`, template
   **`Event Page`**. Fields: `search_title` (title), `main_image`, `itemurl`,
