@@ -1,11 +1,11 @@
 ---
 name: "Hugo House"
-status: added
+status: blocked
 platform: Tribe Events ICS
 url: https://hugohouse.org/programs-events/
 tags: [Books, Arts, Capitol Hill]
 firstSeen: 2026-05-22
-lastChecked: 2026-05-22
+lastChecked: 2026-06-07
 ---
 
 Hugo House is Seattle's literary center at 1634 11th Ave, Capitol Hill. Hosts author
@@ -21,3 +21,5 @@ Fixed 2026-05-22:
 - Added geo coordinates: lat 47.6162, lng -122.3180 (OSM node 9657301875)
 - Updated tags from `Arts, Community` to `Books, Arts, Capitol Hill`
 - Improved description to reflect the full scope of programming
+
+2026-06-07: Browserbase 3× HTTP 402 (Payment Required) — proxy ladder exhausted. **Note: the source website is not blocking us; this is a Browserbase API billing failure.** Source disabled pending Browserbase account resolution. Consider re-enabling if Browserbase billing is restored.
