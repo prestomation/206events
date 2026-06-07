@@ -10,11 +10,17 @@ export interface Env {
   USERS: KVNamespace
   FAVORITES: KVNamespace
   FEED_TOKENS: KVNamespace
+  // Per-IP rate-limit counters for the feedback endpoint (short-TTL keys).
+  RATE_LIMIT?: KVNamespace
   JWT_SECRET: string
   GOOGLE_CLIENT_ID: string
   GOOGLE_CLIENT_SECRET: string
   GITHUB_PAGES_BASE_URL: string
   SITE_URL: string
+  // Feedback → GitHub Issues. GITHUB_TOKEN is a secret (fine-grained PAT with
+  // Issues:write on GITHUB_REPO); GITHUB_REPO is "owner/repo".
+  GITHUB_TOKEN?: string
+  GITHUB_REPO?: string
   ANALYTICS?: AnalyticsEngineDataset
 }
 

@@ -9,10 +9,20 @@ routes = [
 [vars]
 GITHUB_PAGES_BASE_URL = "https://206.events"
 SITE_URL = "https://206.events"
+# Repo that in-app feedback is filed against (Issues created by the worker).
+GITHUB_REPO = "prestomation/206events"
 
 [[kv_namespaces]]
 binding = "USERS"
 id = "d0c3c4e0a14c4a4284de09de18a1136f"
+
+# Per-IP rate-limit counters for POST /feedback. The feedback handler fails
+# open when this binding is absent, so deploys keep working before it's
+# provisioned. To enable rate limiting, create the namespace and uncomment:
+#   wrangler kv namespace create RATE_LIMIT
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "<paste-the-returned-id>"
 
 [[kv_namespaces]]
 binding = "FAVORITES"

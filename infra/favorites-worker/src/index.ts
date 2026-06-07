@@ -7,6 +7,7 @@ import { searchFiltersRoutes } from './search-filters.js'
 import { geoFiltersRoutes } from './geo-filters.js'
 import { listsRoutes } from './lists.js'
 import { feedRoutes } from './feed.js'
+import { feedbackRoutes } from './feedback.js'
 
 const app = new Hono<{ Bindings: Env }>()
 
@@ -30,5 +31,6 @@ app.route('/search-filters', searchFiltersRoutes)
 app.route('/geo-filters', geoFiltersRoutes)
 app.route('/lists', listsRoutes)
 app.route('/feed', feedRoutes)
+app.route('/feedback', feedbackRoutes)
 
 export default app

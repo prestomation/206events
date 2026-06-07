@@ -7,6 +7,7 @@ import Fuse from 'fuse.js'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
 import { Lightbox } from './atoms.jsx'
+import { FeedbackModal } from './FeedbackModal.jsx'
 import { DiscoverView, FollowingView, YouView, ChannelDetail, EventDetail } from './views.jsx'
 import { HealthDashboard } from '../components/HealthDashboard.jsx'
 import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, eventInWindow } from './viewModels.js'
@@ -70,6 +71,11 @@ export function App206(props) {
   const [lightbox, setLightbox] = useState(null)
   const openLightbox = useCallback((src, alt) => { if (src) setLightbox({ src, alt: alt || '' }) }, [])
   const closeLightbox = useCallback(() => setLightbox(null), [])
+  // Feedback modal: null when closed, { type, context? } when open. Rendered once
+  // at the shell level; opened from YouView / ChannelDetail via openFeedback.
+  const [feedbackPrefill, setFeedbackPrefill] = useState(null)
+  const openFeedback = useCallback((prefill) => setFeedbackPrefill(prefill || { type: 'general' }), [])
+  const closeFeedback = useCallback(() => setFeedbackPrefill(null), [])
   // Live Leaflet map instance (set by EventsMap via MapBridge) + desktop
   // expand toggle.
   const mapRef = useRef(null)
@@ -324,6 +330,7 @@ export function App206(props) {
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     hasActiveFilters, toast, todayLabel,
     lightbox, openLightbox, closeLightbox,
+    feedbackPrefill, openFeedback, closeFeedback,
     mapRef, mapExpanded, toggleMapExpand, mapScope, setMapScope,
     mapWidth, setMapWidth,
     // handlers
@@ -372,6 +379,7 @@ export function App206(props) {
         {filterOpen && <FilterPopover />}
         <Toast />
         <Lightbox />
+        <FeedbackModal />
       </div>
     </App206Context.Provider>
   )

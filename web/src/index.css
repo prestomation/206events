@@ -3922,3 +3922,15 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
 
 /* Map popup photo: click to enlarge in the lightbox (handler delegated in App206). */
 .map-popup-image { cursor: zoom-in; }
+
+/* Feedback modal (FeedbackModal.jsx) — centered sheet over a dimmed backdrop. */
+.app206 .a-modal-backdrop { position: fixed; inset: 0; z-index: 2100; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; padding: 20px; animation: a-lightbox-fade 140ms ease; }
+.app206 .a-modal { width: 100%; max-width: 480px; max-height: calc(100vh - 40px); overflow-y: auto; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 16px; padding: 18px 18px 16px; box-shadow: 0 16px 56px rgba(0,0,0,0.35); }
+.app206 .a-modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.app206 .a-modal-context { font-size: 13px; color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 11px; margin-bottom: 10px; }
+.app206 .a-modal-textarea { width: 100%; height: auto; min-height: 120px; padding: 11px 13px; line-height: 1.45; resize: vertical; }
+.app206 .a-modal-error { color: var(--danger, #dc2626); font-size: 13px; margin-top: 10px; }
+.app206 .a-modal-actions { display: flex; gap: 9px; justify-content: flex-end; margin-top: 16px; }
+.app206 .a-modal-note { font-size: 11.5px; color: var(--ink-3); line-height: 1.45; margin: 12px 0 0; }
+/* Honeypot field: visually removed but still focusable/fillable by bots. */
+.app206 .a-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }

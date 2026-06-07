@@ -484,8 +484,14 @@ export function YouView() {
       </div>
       {addSearch && <AddSearchForm onSave={(q) => { app.addSearchFilter(q); setAddSearch(false) }} onCancel={() => setAddSearch(false)} />}
 
-      {/* site health */}
-      <div style={{ marginTop: 28 }}>
+      {/* feedback + site health */}
+      <div style={{ marginTop: 28, display: 'flex', gap: 9, flexWrap: 'wrap' }}>
+        <button className="btn btn-ghost" style={{ height: 40, fontSize: 13.5 }} onClick={() => app.openFeedback({ type: 'general' })}>
+          <span style={{ width: 16, height: 16 }}>{Ico.heart}</span>Send feedback
+        </button>
+        <button className="btn btn-ghost" style={{ height: 40, fontSize: 13.5 }} onClick={() => app.openFeedback({ type: 'source' })}>
+          <span style={{ width: 16, height: 16 }}>{Ico.plus}</span>Suggest a source
+        </button>
         <button className="btn btn-ghost" style={{ height: 40, fontSize: 13.5 }} onClick={() => app.go('health')}>
           <span style={{ width: 16, height: 16 }}>{Ico.spark}</span>Site health
         </button>
@@ -707,6 +713,13 @@ export function ChannelDetail({ icsUrl }) {
             navigator.clipboard?.writeText(link)
             app.flash('Subscription link copied ✓')
           }}>{Ico.cal}Subscription link</button>
+      </div>
+      <div style={{ display: 'flex', marginBottom: 22 }}>
+        <button className="btn btn-ghost" style={{ flex: 1, minWidth: 0, height: 40, fontSize: 13.5 }}
+          onClick={() => app.openFeedback({
+            type: 'bug',
+            context: { sourceName: channel.name, icsUrl: channel.cal.icsUrl, pageUrl: window.location.href },
+          })}>{Ico.spark}Report a problem with this source</button>
       </div>
 
       {channel.distributed && (
