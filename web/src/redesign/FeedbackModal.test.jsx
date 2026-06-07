@@ -117,7 +117,7 @@ describe('FeedbackModal', () => {
     fireEvent.change(screen.getByPlaceholderText(/love/i), { target: { value: 'hello' } })
     fireEvent.click(screen.getByRole('button', { name: 'Send' }))
     expect(fetchFn).not.toHaveBeenCalled()
-    expect(openFn).toHaveBeenCalledWith(expect.stringContaining('github.com/prestomation/206events/issues/new'), '_blank', 'noopener')
+    expect(openFn).toHaveBeenCalledWith(expect.stringContaining('github.com/prestomation/206events/issues/new'), '_blank', 'noopener,noreferrer')
     expect(app.closeFeedback).toHaveBeenCalled()
   })
 })

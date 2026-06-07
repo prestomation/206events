@@ -43,19 +43,22 @@ function isFeedbackType(v: unknown): v is FeedbackType {
   return typeof v === 'string' && (FEEDBACK_TYPES as readonly string[]).includes(v)
 }
 
-// Light email shape check. We never *require* an email, so this only rejects
-// obviously malformed non-empty values.
+// Email shape check. We never *require* an email, so this only validates
+// non-empty values. The charset is deliberately restrictive (no markdown-
+// significant characters like [ ] ( ) * ` ) so an opt-in email can't smuggle a
+// clickable link / mention into the public issue, e.g. "[x](http://evil)@a.com".
 function isPlausibleEmail(v: string): boolean {
-  return v.length <= MAX_EMAIL_LENGTH && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)
+  return v.length <= MAX_EMAIL_LENGTH && /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(v)
 }
 
 // Neutralize GitHub-flavored markdown that would let untrusted feedback mass-
-// mention users (`@org/team`, `@user`) or cross-link/auto-close issues (`#123`,
-// `closes #123`). Used on short interpolated fields (titles, context values).
-// Inserting a zero-width space after the sigil keeps the text readable while
-// breaking the autolink/mention parser.
+// mention users (`@org/team`, `@user`), cross-link/auto-close issues (`#123`,
+// `closes #123`), or inject clickable links (`[text](url)`). Used on short
+// interpolated fields (titles, context values) — the free-text message is
+// instead wrapped in a code fence. Inserting a zero-width space after the sigil
+// keeps the text readable while breaking the autolink/mention/link parser.
 function neutralizeMarkdown(s: string): string {
-  return s.replace(/[@#]/g, (ch) => `${ch}​`)
+  return s.replace(/[@#[\]]/g, (ch) => `${ch}​`)
 }
 
 // Single-line, length-capped value safe to drop into an issue title.
@@ -131,8 +134,12 @@ function buildIssueBody(args: {
   return lines.join('\n')
 }
 
+// Operator-set config, not user input, but validate the shape anyway so a
+// typo'd GITHUB_REPO can never bend the GitHub API URL into an unexpected path.
+const REPO_PATTERN = /^[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+$/
+
 export async function handlePostFeedback(c: Context<{ Bindings: Env }>) {
-  if (!c.env.GITHUB_TOKEN || !c.env.GITHUB_REPO) {
+  if (!c.env.GITHUB_TOKEN || !c.env.GITHUB_REPO || !REPO_PATTERN.test(c.env.GITHUB_REPO)) {
     return c.json({ error: 'Feedback is not configured' }, 503)
   }
 

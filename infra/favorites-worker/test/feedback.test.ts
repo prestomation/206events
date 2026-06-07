@@ -135,6 +135,29 @@ describe('Feedback API', () => {
     expect(res.status).toBe(400)
   })
 
+  it('rejects an email carrying markdown link syntax', async () => {
+    const { calls } = mockGitHub()
+    // Would render as a clickable link in the public issue if accepted.
+    const res = await post({ type: 'general', message: 'hi', email: '[x](http://evil)@a.com' })
+    expect(res.status).toBe(400)
+    expect(calls).toHaveLength(0)
+  })
+
+  it('neutralizes markdown link syntax in metadata fields', async () => {
+    const { calls } = mockGitHub()
+    await post({ type: 'bug', message: 'see source', context: { sourceName: '[click](http://evil)' } })
+    const body = calls[0].payload.body as string
+    // The "](" link bridge must be broken so no clickable link is produced.
+    expect(body).not.toContain('](http://evil)')
+  })
+
+  it('returns 503 when GITHUB_REPO is malformed', async () => {
+    mockGitHub()
+    const env = createEnv({ GITHUB_REPO: '../../evil' })
+    const res = await post({ type: 'general', message: 'hi' }, {}, env)
+    expect(res.status).toBe(503)
+  })
+
   it('includes only the opt-in body email, never the session email', async () => {
     const { calls } = mockGitHub()
     const env = createEnv()

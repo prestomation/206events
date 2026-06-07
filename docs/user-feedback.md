@@ -75,9 +75,17 @@ Defense in depth, all in `infra/favorites-worker/src/feedback.ts`:
    format check.
 4. **Markdown neutralization** — see Privacy above.
 
-**Cloudflare Turnstile** is a recommended future hardening if the honeypot +
-rate limit prove insufficient against anonymous→Issues spam; it was left out of
-v1 to keep the change reviewable.
+### Future hardening (deferred, non-blocking)
+
+These were considered and intentionally left for later to keep v1 reviewable:
+
+- **Cloudflare Turnstile** in front of `/feedback` — the strongest lever if the
+  honeypot + per-IP limit prove insufficient against anonymous→Issues spam.
+- **Global rate limit** — a per-repo cap (e.g. 100/hour) as a backstop against
+  distributed/VPN abuse that slips past the per-IP limit.
+- **CF-IP trust** — the worker is only reachable via `api.206.events` (behind
+  Cloudflare), so `CF-Connecting-IP` is trustworthy today; if that ever changes,
+  validate the request originates from Cloudflare before trusting the header.
 
 ## Setup (maintainer, one-time)
 

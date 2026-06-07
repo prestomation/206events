@@ -59,15 +59,24 @@ export function FeedbackModal() {
 
   if (!open) return null
 
-  const context = prefill.context || {}
+  // Defense-in-depth: only forward known string-typed context fields, so a
+  // malformed prefill can never send unexpected types/nested objects upstream
+  // (the worker also validates these).
+  const rawContext = prefill.context || {}
+  const context = {}
+  for (const key of ['sourceName', 'icsUrl', 'pageUrl']) {
+    if (typeof rawContext[key] === 'string' && rawContext[key]) context[key] = rawContext[key]
+  }
 
   const submit = async () => {
     const msg = message.trim()
     if (!msg) { setError('Please enter a message.'); return }
 
-    // No backend (local/preview): hand off to GitHub's new-issue page.
+    // No backend (local/preview): hand off to GitHub's new-issue page. The
+    // noopener,noreferrer features prevent the opened tab from reaching back
+    // through window.opener.
     if (!app.API_URL) {
-      window.open(GITHUB_NEW_ISSUE, '_blank', 'noopener')
+      window.open(GITHUB_NEW_ISSUE, '_blank', 'noopener,noreferrer')
       app.closeFeedback()
       return
     }
