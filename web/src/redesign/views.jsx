@@ -812,7 +812,7 @@ export function EventDetail({ event }) {
       <div style={{ display: 'flex', gap: 9, marginBottom: 20 }}>
         <div style={{ flex: 1 }}>
           <AddToCalendar title={event.summary} startDate={parsed?.date} endDate={parseIndexDate(event.endDate)?.date}
-            description={event.description} location={event.location} url={event.url} mode={app.calendarAddMode} />
+            description={event.description} location={event.location} url={event.url} mode={app.calendarAddMode} showLabel />
         </div>
         {channel && (
           <button className="btn btn-ghost" style={{ flex: '0 0 auto', width: 52, padding: 0 }}
