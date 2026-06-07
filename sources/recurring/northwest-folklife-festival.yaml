@@ -1,0 +1,37 @@
+geo:
+  lat: 47.6205
+  lng: -122.3493
+  label: "Seattle Center, 305 Harrison St, Seattle, WA 98109"
+  osmType: way
+  osmId: 4755066
+name: northwest-folklife-festival
+friendlyname: Northwest Folklife Festival
+description: Free annual folk arts and culture festival at Seattle Center over Memorial Day weekend. Over 5,000 performers across dozens of stages with music, dance, craft, food, and community traditions from around the world.
+timezone: America/Los_Angeles
+location: Seattle Center, 305 Harrison St, Seattle, WA 98109
+url: https://nwfolklife.org/
+tags:
+  - Music
+  - Arts
+  - Community
+  - QueenAnne
+# Memorial Day weekend: 4th Friday/Saturday/Sunday/Monday of May.
+# The 4th Friday of May is always the Friday before Memorial Day (last Monday of May).
+# Verified: 2026 May 22-25, 2027 May 28-31.
+schedules:
+  - schedule: "4th Friday"
+    start_time: "11:00"
+    duration: PT11H
+    months: [5]
+  - schedule: "4th Saturday"
+    start_time: "11:00"
+    duration: PT11H
+    months: [5]
+  - schedule: "4th Sunday"
+    start_time: "11:00"
+    duration: PT11H
+    months: [5]
+  - schedule: "4th Monday"
+    start_time: "11:00"
+    duration: PT11H
+    months: [5]

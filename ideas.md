@@ -23,9 +23,6 @@ Daily, November 20 - December 24 (annual) — Seattle Center, Fisher Pavilion �
 ### Seattle Street Food Festival
 Two days in late August (annual) — South Lake Union — `https://206nightmarkets.com`
 
-### Northwest Folklife Festival
-Memorial Day weekend (annual, 4 days) — 2026: May 22-25 — Seattle Center — `https://nwfolklife.org/`
-
 ### Seattle Art Fair
 Four days in late July (annual) — 2026: July 23-26 — Lumen Field Event Center — `https://seattleartfair.com/`
 
