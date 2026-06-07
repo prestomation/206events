@@ -3631,7 +3631,33 @@ html, body, #root { height: 100%; }
 .app206 .a-suggest { position: absolute; top: 48px; left: 0; right: 0; z-index: 72; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 12px 14px; }
 .app206 .a-iconbtn { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--ink-2); }
 .app206 .a-iconbtn svg { width: 20px; height: 20px; }
+.app206 .a-iconbtn.on { background: var(--blue-soft); border-color: transparent; color: var(--blue-ink); }
+/* Mobile-only search affordances: the collapse toggle and the in-field back
+   arrow are hidden on desktop, where the search field is always inline. */
+.app206 .a-search-toggle { display: none; }
+.app206 .a-search-back { display: none; }
 .app206 .a-topnav { display: none; }
+@media (max-width: 767.98px) {
+  /* Phones: collapse search to an icon. The field appears only as a full-width
+     overlay when opened, so the "Saving to" switcher fits without crushing
+     search down to a useless sliver. */
+  .app206 .a-search-wrap { display: none; }
+  .app206 .a-search-toggle { display: flex; }
+  .app206 .a-search-ico { display: none; }
+  /* Tighter gap reclaims room for the switcher name now that a fixed-width
+     search icon shares the bar, so normal-length names don't truncate. */
+  .app206 .a-topbar { gap: 9px; }
+  .app206 .a-search .a-search-back { display: flex; align-items: center; justify-content: center; flex: 0 0 auto; width: 22px; height: 22px; padding: 0; color: var(--ink-2); }
+  /* The collapsed search no longer absorbs slack, so keep the filter button
+     right-anchored. (The switcher's own shrink rules live after the .a-savingto
+     base rules below, so they aren't lost to source-order precedence.) */
+  .app206 .a-topbar > .a-iconbtn:last-child { margin-left: auto; }
+  /* Expanded overlay: the field takes the whole bar; siblings step aside. */
+  .app206 .a-topbar--searching > .a-brand,
+  .app206 .a-topbar--searching > .a-iconbtn,
+  .app206 .a-topbar--searching > .a-savingto { display: none; }
+  .app206 .a-topbar--searching .a-search-wrap { display: block; flex: 1 1 auto; }
+}
 
 /* ---- pills / segmented ---- */
 .app206 .mk-pill { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 13px; border-radius: 999px; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
@@ -3652,7 +3678,7 @@ html, body, #root { height: 100%; }
 .app206 .a-dd-btn { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 13px; border-radius: 11px; background: var(--surface); border: 1px solid var(--line-2); color: var(--ink-2); font-weight: 600; font-size: 13.5px; white-space: nowrap; }
 .app206 .a-dd-btn.on { background: var(--blue-soft); color: var(--blue-ink); border-color: transparent; }
 .app206 .a-dd-caret { transform: rotate(90deg); opacity: .6; }
-.app206 .a-dd-menu { position: absolute; top: 44px; left: 0; z-index: 72; min-width: 240px; max-height: 60vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 8px; }
+.app206 .a-dd-menu { position: absolute; top: 44px; left: 0; z-index: 72; min-width: 240px; max-width: min(360px, calc(100vw - 24px)); max-height: 60vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 8px; }
 .app206 .a-dd-group + .a-dd-group { margin-top: 4px; }
 .app206 .a-dd-grouphdr { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-4); padding: 8px 10px 4px; }
 .app206 .a-dd-item { display: flex; align-items: center; gap: 8px; width: 100%; height: 36px; padding: 0 10px; border-radius: 9px; text-align: left; font-size: 13.5px; font-weight: 500; color: var(--ink-2); }
@@ -3669,7 +3695,19 @@ html, body, #root { height: 100%; }
 .app206 .a-savingto .a-dd-menu { left: auto; right: 0; }
 @media (max-width: 699.98px) {
   .app206 .a-savingto .a-savingto-prefix { display: none; }
-  .app206 .a-savingto .a-savingto-name { max-width: 96px; }
+  /* On phones the switcher button sits mid-top-bar, so a button-anchored menu
+     can grow off the left edge for a long list name. Pin it to the viewport as
+     a near-full-width sheet instead; long names ellipsize within it. */
+  .app206 .a-savingto .a-dd-menu { position: fixed; top: 64px; left: 12px; right: 12px; min-width: 0; max-width: none; }
+}
+/* Below the desktop breakpoint the search field collapses to an icon and stops
+   absorbing slack, so the switcher must be the flexible element: let it shrink
+   and ellipsize its name to fit rather than push the filter button off-screen.
+   Placed after the base .a-savingto rules so it wins on source order. */
+@media (max-width: 767.98px) {
+  .app206 .a-savingto { flex: 0 1 auto; min-width: 0; }
+  .app206 .a-savingto .a-dd-btn { min-width: 0; max-width: 100%; overflow: hidden; }
+  .app206 .a-savingto .a-savingto-name { max-width: none; flex: 0 1 auto; min-width: 0; }
 }
 
 /* ---- category chips (pointer-device horizontal picker) ----

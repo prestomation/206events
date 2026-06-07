@@ -30,7 +30,13 @@ export function TopBar() {
   const items = NAV_ITEMS.filter((it) => it.id !== 'you')
   const [text, setText] = useState(app.query)
   const [focused, setFocused] = useState(false)
+  // Mobile only: the search field collapses to an icon and expands to a
+  // full-width overlay when tapped, so the "Saving to" switcher can share the
+  // narrow top bar without squeezing search into a useless sliver. Desktop CSS
+  // ignores this state and keeps the field inline.
+  const [searchOpen, setSearchOpen] = useState(false)
   const wrapRef = useRef(null)
+  const inputRef = useRef(null)
 
   // Keep the input in sync when the query is cleared elsewhere (e.g. chip ✕).
   useEffect(() => { setText(app.query) }, [app.query])
@@ -40,6 +46,9 @@ export function TopBar() {
     return () => clearTimeout(id)
   }, [text]) // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Focus the field as soon as the mobile overlay opens.
+  useEffect(() => { if (searchOpen) inputRef.current?.focus() }, [searchOpen])
+
   // Close suggestions on outside click.
   useEffect(() => {
     if (!focused) return
@@ -48,17 +57,35 @@ export function TopBar() {
     return () => document.removeEventListener('mousedown', onDown)
   }, [focused])
 
-  const commit = (v) => { setText(v); app.setQuery(v); setFocused(false) }
-  const clear = () => { setText(''); app.setQuery(''); }
+  const commit = (v) => { setText(v); app.setQuery(v); setFocused(false); setSearchOpen(false) }
+  const clear = () => { setText(''); app.setQuery(''); inputRef.current?.focus() }
+  // Collapse the mobile overlay, keeping whatever query is committed.
+  const closeSearch = () => { app.setQuery(text); setFocused(false); setSearchOpen(false) }
+  const onSearchKeyDown = (e) => {
+    if (e.key === 'Enter') { app.setQuery(text); setFocused(false); setSearchOpen(false); inputRef.current?.blur() }
+    else if (e.key === 'Escape') { setFocused(false); setSearchOpen(false) }
+  }
 
   return (
-    <div className="a-topbar">
+    <div className={`a-topbar${searchOpen ? ' a-topbar--searching' : ''}`}>
       <Brand />
+      {/* Mobile-only collapsed state: tap to expand the search overlay. Shows an
+          active dot when a query is applied (the field itself is hidden). */}
+      <button className={`a-iconbtn a-search-toggle${app.query.trim() ? ' on' : ''}`}
+        onClick={() => setSearchOpen(true)} aria-expanded={searchOpen}
+        aria-label="Search events and venues">
+        <span style={{ width: 20, height: 20 }}>{Ico.search}</span>
+      </button>
       <div className="a-search-wrap" ref={wrapRef}>
         <div className="a-search">
-          <span style={{ width: 19, height: 19, flex: '0 0 auto' }}>{Ico.search}</span>
-          <input className="a-search-input" value={text} onChange={(e) => setText(e.target.value)}
-            onFocus={() => setFocused(true)} placeholder="Search events & venues…"
+          {/* Back arrow collapses the mobile overlay; on desktop the magnifier
+              glyph shows in its place (visibility swapped in CSS). */}
+          <button className="a-search-back" onClick={closeSearch} aria-label="Close search">
+            <span style={{ width: 19, height: 19 }}>{Ico.back}</span>
+          </button>
+          <span className="a-search-ico" style={{ width: 19, height: 19, flex: '0 0 auto' }}>{Ico.search}</span>
+          <input ref={inputRef} className="a-search-input" value={text} onChange={(e) => setText(e.target.value)}
+            onFocus={() => setFocused(true)} onKeyDown={onSearchKeyDown} placeholder="Search events & venues…"
             aria-label="Search events and venues" />
           {text && <button className="a-search-x" onClick={clear} aria-label="Clear search">
             <span style={{ width: 16, height: 16 }}>{Ico.close}</span>
