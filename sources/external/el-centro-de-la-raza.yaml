@@ -9,7 +9,7 @@ friendlyname: El Centro de la Raza
 description: Community organization in the Beacon Hill neighborhood serving the Latinx community with educational workshops, legal clinics, cultural events, and community gatherings
 icsUrl: https://www.elcentrodelaraza.org/events/?ical=1
 infoUrl: https://www.elcentrodelaraza.org/events/
-proxy: outofband
+proxy: browserbase
 expectEmpty: true
 tags:
   - Community
