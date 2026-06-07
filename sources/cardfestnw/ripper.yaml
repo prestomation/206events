@@ -1,0 +1,10 @@
+name: cardfestnw
+description: "Cardfest Northwest"
+url: "https://cardfestnw.com"
+friendlyLink: "https://cardfestnw.com"
+geo: null
+tags: ["Gaming"]
+calendars:
+  - name: cardfestnw
+    friendlyname: "Cardfest Northwest"
+    timezone: America/Los_Angeles
