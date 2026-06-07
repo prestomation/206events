@@ -134,8 +134,6 @@ authRoutes.get('/callback', async (c) => {
       createdAt: now,
       lastLoginAt: now,
     }
-    // Store reverse lookup: token → userId + default list id
-    await c.env.FEED_TOKENS.put(feedToken, JSON.stringify({ userId, listId: DEFAULT_LIST_ID }))
     // Seed the user's lists with a single default list that reuses this token,
     // so its ICS URL equals the feedUrl surfaced by /auth/me.
     const listsRecord: UserListsRecord = {
@@ -151,7 +149,12 @@ authRoutes.get('/callback', async (c) => {
       }],
       updatedAt: now,
     }
+    // Write the list record (the target) BEFORE the FEED_TOKENS reverse-lookup
+    // (the pointer). If the second write fails, a token that points at a missing
+    // list serves an empty feed; the reverse — a pointer with no target — would
+    // be unrecoverable. Target-before-pointer keeps the worse failure off the table.
     await c.env.FAVORITES.put(userId, JSON.stringify(listsRecord))
+    await c.env.FEED_TOKENS.put(feedToken, JSON.stringify({ userId, listId: DEFAULT_LIST_ID }))
   }
 
   await c.env.USERS.put(userId, JSON.stringify(user))
