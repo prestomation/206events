@@ -19,18 +19,6 @@ jobs:
       - name: Run tests
         run: npm test
         working-directory: infra/favorites-worker
-      - name: Set FEEDBACK_GITHUB_ISSUES_TOKEN secret
-        run: echo "${{ secrets.FEEDBACK_GITHUB_ISSUES_TOKEN }}" | npx wrangler secret put FEEDBACK_GITHUB_ISSUES_TOKEN
-        working-directory: infra/favorites-worker
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      - name: Create RATE_LIMIT KV namespace
-        run: npx wrangler kv namespace create RATE_LIMIT
-        working-directory: infra/favorites-worker
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       - name: Deploy to Cloudflare
         run: npx wrangler deploy
         working-directory: infra/favorites-worker
