@@ -5,7 +5,7 @@ platform: Squarespace (page-based, no Events collection)
 url: https://www.belltownunited.org/events
 tags: [Belltown]
 firstSeen: 2026-05-28
-lastChecked: 2026-05-28
+lastChecked: 2026-06-07
 pr:
 ---
 
@@ -15,9 +15,11 @@ the **Belltown Blast & Paint Jam** street festival (the mural-fest finale,
 2nd Ave between Lenora & Battery + Bell St — free, all ages), **Belltown
 Root Pie Day**, a summer outdoor film series, Belltown Night Out, etc.
 
-Surfaced via a **source-from-event poster lookup** (Instagram `@belltownblast`
-flier for the 2026 Belltown Blast, Sat Aug 15, 12pm–2am). Confirmed not
-currently covered in `events-index.json`, and no aggregator source (EverOut,
+Surfaced via two **source-from-event poster lookups**:
+1. Instagram `@belltownblast` flier for the 2026 Belltown Blast, Sat Aug 15, 12pm–2am (May 2026).
+2. Street poster for the 2026 **Belltown Mural Festival**, June 15–21, 2026 (June 2026).
+
+Confirmed not currently covered in `events-index.json`, and no aggregator source (EverOut,
 Do206) is in the project that would pick it up.
 
 ## Why notviable (no machine-readable feed)
@@ -55,5 +57,5 @@ blog posts under `/category/events/`, also without a structured feed.
   collection (then the built-in `squarespace` type would work directly), or
   publishes an ICS feed.
 
-Until then: the 2026 Belltown Blast is **not covered** and there is no viable
-automated recurring source for the organizer.
+Until then: the 2026 Belltown Mural Festival (June 15–21) and the 2026 Belltown Blast (Aug 15)
+are **not covered** and there is no viable automated recurring source for the organizer.
