@@ -139,7 +139,7 @@ function buildIssueBody(args: {
 const REPO_PATTERN = /^[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+$/
 
 export async function handlePostFeedback(c: Context<{ Bindings: Env }>) {
-  if (!c.env.GITHUB_TOKEN || !c.env.GITHUB_REPO || !REPO_PATTERN.test(c.env.GITHUB_REPO)) {
+  if (!c.env.FEEDBACK_GITHUB_ISSUES_TOKEN || !c.env.GITHUB_REPO || !REPO_PATTERN.test(c.env.GITHUB_REPO)) {
     return c.json({ error: 'Feedback is not configured' }, 503)
   }
 
@@ -207,7 +207,7 @@ export async function handlePostFeedback(c: Context<{ Bindings: Env }>) {
     ghRes = await fetch(`https://api.github.com/repos/${c.env.GITHUB_REPO}/issues`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${c.env.GITHUB_TOKEN}`,
+        Authorization: `Bearer ${c.env.FEEDBACK_GITHUB_ISSUES_TOKEN}`,
         Accept: 'application/vnd.github+json',
         'Content-Type': 'application/json',
         'User-Agent': '206events-feedback',

@@ -30,7 +30,7 @@ function createEnv(overrides: Record<string, unknown> = {}) {
     GOOGLE_CLIENT_SECRET: 'test',
     GITHUB_PAGES_BASE_URL: 'https://206.events',
     SITE_URL: 'https://206.events',
-    GITHUB_TOKEN: 'gh-test-token',
+    FEEDBACK_GITHUB_ISSUES_TOKEN: 'gh-test-token',
     GITHUB_REPO: 'prestomation/206events',
     ...overrides,
   }
@@ -219,7 +219,7 @@ describe('Feedback API', () => {
 
   it('returns 503 when feedback is not configured', async () => {
     mockGitHub()
-    const env = createEnv({ GITHUB_TOKEN: undefined, GITHUB_REPO: undefined })
+    const env = createEnv({ FEEDBACK_GITHUB_ISSUES_TOKEN: undefined, GITHUB_REPO: undefined })
     const res = await post({ type: 'general', message: 'hi' }, {}, env)
     expect(res.status).toBe(503)
   })
