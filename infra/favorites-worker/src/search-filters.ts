@@ -1,8 +1,7 @@
 import { Hono } from 'hono'
+import type { Context } from 'hono'
 import type { Env } from './types.js'
-import { requireAuth, getFavorites } from './favorites-helpers.js'
-
-export const searchFiltersRoutes = new Hono<{ Bindings: Env }>()
+import { requireAuth, getListContext, saveLists } from './favorites-helpers.js'
 
 const MAX_SEARCH_FILTERS = 25
 const MAX_FILTER_LENGTH = 200
@@ -11,15 +10,19 @@ function isValidFilter(filter: unknown): filter is string {
   return typeof filter === 'string' && filter.trim().length > 0 && filter.length <= MAX_FILTER_LENGTH && !filter.includes('/')
 }
 
-searchFiltersRoutes.get('/', async (c) => {
+// `listId` is undefined for the back-compat alias routes (default/first list)
+// and the path param for `/lists/:listId/search-filters`.
+
+export async function handleGetSearchFilters(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  return c.json({ searchFilters: record.searchFilters, updatedAt: record.updatedAt })
-})
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  return c.json({ searchFilters: ctx.list.searchFilters, updatedAt: ctx.list.updatedAt })
+}
 
-searchFiltersRoutes.put('/', async (c) => {
+export async function handlePutSearchFilters(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
@@ -49,14 +52,15 @@ searchFiltersRoutes.put('/', async (c) => {
     }
   }
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  record.searchFilters = trimmed
-  record.updatedAt = new Date().toISOString()
-  await c.env.FAVORITES.put(userId, JSON.stringify(record))
-  return c.json({ searchFilters: record.searchFilters, updatedAt: record.updatedAt })
-})
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  ctx.list.searchFilters = trimmed
+  ctx.list.updatedAt = new Date().toISOString()
+  await saveLists(c.env, userId, ctx.rec)
+  return c.json({ searchFilters: ctx.list.searchFilters, updatedAt: ctx.list.updatedAt })
+}
 
-searchFiltersRoutes.post('/', async (c) => {
+export async function handleAddSearchFilter(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
@@ -71,33 +75,42 @@ searchFiltersRoutes.post('/', async (c) => {
   }
 
   const filter = body.filter.trim()
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  if (record.searchFilters.length >= MAX_SEARCH_FILTERS) {
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  if (ctx.list.searchFilters.length >= MAX_SEARCH_FILTERS) {
     return c.json({ error: 'Maximum search filters limit reached' }, 400)
   }
 
-  const exists = record.searchFilters.some(f => f.toLowerCase() === filter.toLowerCase())
+  const exists = ctx.list.searchFilters.some(f => f.toLowerCase() === filter.toLowerCase())
   if (!exists) {
-    record.searchFilters.push(filter)
-    record.updatedAt = new Date().toISOString()
-    await c.env.FAVORITES.put(userId, JSON.stringify(record))
+    ctx.list.searchFilters.push(filter)
+    ctx.list.updatedAt = new Date().toISOString()
+    await saveLists(c.env, userId, ctx.rec)
   }
 
-  return c.json({ searchFilters: record.searchFilters, updatedAt: record.updatedAt })
-})
+  return c.json({ searchFilters: ctx.list.searchFilters, updatedAt: ctx.list.updatedAt })
+}
 
-searchFiltersRoutes.delete('/:filter', async (c) => {
+export async function handleDeleteSearchFilter(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
   const filter = decodeURIComponent(c.req.param('filter'))
-  const record = await getFavorites(c.env.FAVORITES, userId)
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
 
-  record.searchFilters = record.searchFilters.filter(
+  ctx.list.searchFilters = ctx.list.searchFilters.filter(
     f => f.toLowerCase() !== filter.toLowerCase()
   )
-  record.updatedAt = new Date().toISOString()
-  await c.env.FAVORITES.put(userId, JSON.stringify(record))
+  ctx.list.updatedAt = new Date().toISOString()
+  await saveLists(c.env, userId, ctx.rec)
 
-  return c.json({ searchFilters: record.searchFilters, updatedAt: record.updatedAt })
-})
+  return c.json({ searchFilters: ctx.list.searchFilters, updatedAt: ctx.list.updatedAt })
+}
+
+// Back-compat alias routes — operate on the user's default (first) list.
+export const searchFiltersRoutes = new Hono<{ Bindings: Env }>()
+searchFiltersRoutes.get('/', (c) => handleGetSearchFilters(c))
+searchFiltersRoutes.put('/', (c) => handlePutSearchFilters(c))
+searchFiltersRoutes.post('/', (c) => handleAddSearchFilter(c))
+searchFiltersRoutes.delete('/:filter', (c) => handleDeleteSearchFilter(c))

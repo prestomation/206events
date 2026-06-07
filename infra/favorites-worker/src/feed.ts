@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import type { Env, FeedTokenRecord, FavoritesRecord, EventsIndexEntry, GeoFilter } from './types.js'
+import { parseListsRecord, resolveList } from './favorites-helpers.js'
 import { mergeIcsFiles } from './ics-merge.js'
 import { fetchEventsIndex, fetchAllIcs, searchEventsIndex, extractMatchingVEvents } from './event-search.js'
 import { deduplicateEvents } from './event-dedup.js'
@@ -45,18 +46,15 @@ feedRoutes.get('/:filename', async (c) => {
     return c.text('Not found', 404)
   }
 
+  // Resolve the list this token points at. Tokens minted before multi-list
+  // support carry no listId and resolve to the user's default (first) list.
+  // Old flat FAVORITES records are wrapped into a single default list by
+  // parseListsRecord, so legacy subscribers keep working unchanged.
   const favRaw = await c.env.FAVORITES.get(tokenRecord.userId)
-  let favorites: FavoritesRecord
-  if (favRaw) {
-    try {
-      const parsed = JSON.parse(favRaw)
-      favorites = { ...parsed, searchFilters: parsed.searchFilters || [], geoFilters: parsed.geoFilters || [] }
-    } catch {
-      favorites = { icsUrls: [], searchFilters: [], geoFilters: [], updatedAt: new Date().toISOString() }
-    }
-  } else {
-    favorites = { icsUrls: [], searchFilters: [], geoFilters: [], updatedAt: new Date().toISOString() }
-  }
+  const list = resolveList(parseListsRecord(favRaw), tokenRecord.listId)
+  const favorites: FavoritesRecord = list
+    ? { icsUrls: list.icsUrls, searchFilters: list.searchFilters, geoFilters: list.geoFilters, updatedAt: list.updatedAt }
+    : { icsUrls: [], searchFilters: [], geoFilters: [], updatedAt: new Date().toISOString() }
 
   const searchFilters = favorites.searchFilters
   const geoFilters = favorites.geoFilters

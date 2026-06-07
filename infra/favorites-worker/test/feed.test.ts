@@ -194,6 +194,67 @@ describe('Feed endpoint', () => {
     }
   })
 
+  it('resolves the correct list when the token carries a listId', async () => {
+    // New-shape FAVORITES record with two lists; each token points at one.
+    env.FAVORITES._store.set('user:google:123', JSON.stringify({
+      lists: [
+        { id: 'default', name: 'My Favorites', feedToken: 'tok-default', icsUrls: ['default-cal.ics'], searchFilters: [], geoFilters: [], createdAt: '2026-01-01T00:00:00Z', updatedAt: '2026-01-01T00:00:00Z' },
+        { id: 'date-night', name: 'Date Night', feedToken: 'tok-date', icsUrls: ['date-cal.ics'], searchFilters: [], geoFilters: [], createdAt: '2026-01-01T00:00:00Z', updatedAt: '2026-01-01T00:00:00Z' },
+      ],
+      updatedAt: '2026-01-01T00:00:00Z',
+    }))
+    env.FEED_TOKENS._store.set('tok-date', JSON.stringify({ userId: 'user:google:123', listId: 'date-night' }))
+
+    const DATE_ICS = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nUID:date-1\r\nDTSTART:20260301T100000Z\r\nSUMMARY:Date Night Event\r\nEND:VEVENT\r\nEND:VCALENDAR`
+
+    const originalFetch = globalThis.fetch
+    globalThis.fetch = vi.fn(async (url: string | URL | Request) => {
+      const urlStr = typeof url === 'string' ? url : url instanceof URL ? url.toString() : url.url
+      if (urlStr.includes('date-cal.ics')) return new Response(DATE_ICS, { status: 200 })
+      if (urlStr.includes('default-cal.ics')) return new Response('SHOULD NOT FETCH', { status: 200 })
+      return new Response('[]', { status: 200 })
+    }) as typeof fetch
+
+    try {
+      const res = await app.request('/feed/tok-date.ics', {}, env)
+      expect(res.status).toBe(200)
+      const body = await res.text()
+      expect(body).toContain('Date Night Event')
+      expect(body).not.toContain('SHOULD NOT FETCH')
+    } finally {
+      globalThis.fetch = originalFetch
+    }
+  })
+
+  it('falls back to the first list when the token has no listId (legacy token)', async () => {
+    env.FAVORITES._store.set('user:google:123', JSON.stringify({
+      lists: [
+        { id: 'default', name: 'My Favorites', feedToken: 'tok-default', icsUrls: ['default-cal.ics'], searchFilters: [], geoFilters: [], createdAt: '2026-01-01T00:00:00Z', updatedAt: '2026-01-01T00:00:00Z' },
+      ],
+      updatedAt: '2026-01-01T00:00:00Z',
+    }))
+    // Legacy token record — no listId.
+    env.FEED_TOKENS._store.set('tok-default', JSON.stringify({ userId: 'user:google:123' }))
+
+    const DEFAULT_ICS = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nUID:def-1\r\nDTSTART:20260301T100000Z\r\nSUMMARY:Default Event\r\nEND:VEVENT\r\nEND:VCALENDAR`
+
+    const originalFetch = globalThis.fetch
+    globalThis.fetch = vi.fn(async (url: string | URL | Request) => {
+      const urlStr = typeof url === 'string' ? url : url instanceof URL ? url.toString() : url.url
+      if (urlStr.includes('default-cal.ics')) return new Response(DEFAULT_ICS, { status: 200 })
+      return new Response('[]', { status: 200 })
+    }) as typeof fetch
+
+    try {
+      const res = await app.request('/feed/tok-default.ics', {}, env)
+      expect(res.status).toBe(200)
+      const body = await res.text()
+      expect(body).toContain('Default Event')
+    } finally {
+      globalThis.fetch = originalFetch
+    }
+  })
+
   it('deduplicates events from favorites and search filters', async () => {
     env.FEED_TOKENS._store.set('valid-token', JSON.stringify({ userId: 'user:google:123' }))
     env.FAVORITES._store.set('user:google:123', JSON.stringify({
