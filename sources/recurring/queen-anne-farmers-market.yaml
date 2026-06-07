@@ -1,0 +1,30 @@
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/QueenAnneHillFromFerry2.jpg"
+geo:
+  lat: 47.6368215
+  lng: -122.3570590
+  label: "Queen Anne Farmers Market, W Crockett St & Queen Anne Ave N, Seattle, WA 98109"
+name: queen-anne-farmers-market
+friendlyname: Queen Anne Farmers Market
+description: Seasonal Thursday evening farmers market in the Queen Anne neighborhood, featuring an all-food roster of Washington farmers and local food producers. Runs May through October.
+timezone: America/Los_Angeles
+location: W Crockett St & Queen Anne Ave N, Seattle, WA 98109
+url: https://qafm.org
+tags:
+  - FarmersMarket
+  - QueenAnne
+# The 2026 season runs May 28–October 8 (partial boundary months). The recurring
+# YAML system doesn't support sub-monthly date ranges, so months [5..10] will
+# over-generate events for early May and late October. This matches the accepted
+# pattern used by other seasonal markets (e.g. wallingford-farmers-market.yaml).
+# Verify season start/end dates at qafm.org each year.
+schedules:
+  - schedule: every Thursday
+    start_time: "15:00"
+    duration: PT4H30M
+    months:
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
