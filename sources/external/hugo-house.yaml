@@ -5,6 +5,7 @@ geo:
   osmType: node
   osmId: 9657301875
 proxy: browserbase
+disabled: true
 name: hugo-house
 friendlyname: Hugo House
 description: Seattle's literary center in Capitol Hill, hosting author readings, writing workshops, writing circles, silent reading nights, open mics, and community literary events.
