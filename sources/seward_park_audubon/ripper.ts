@@ -9,8 +9,11 @@ export default class SewardParkAudubonRipper extends JSONRipper {
         const fetchFn = getFetchForConfig(ripper.config);
         const allEvents: RipperEvent[] = [];
         let nextUrl: string | null = `${ripper.config.url}?per_page=50&timeslot_start=gte_now`;
+        let pages = 0;
+        const MAX_PAGES = 20;
 
-        while (nextUrl) {
+        while (nextUrl && pages < MAX_PAGES) {
+            pages++;
             const res = await fetchFn(nextUrl);
             if (!res.ok) throw new Error(`${res.url} returned HTTP ${res.status}`);
             const json = await res.json();
