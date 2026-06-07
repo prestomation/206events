@@ -3053,7 +3053,10 @@ html, body, #root { height: 100%; }
   display: inline-flex;
 }
 .app206 .a-geoform-acico svg { display: block; width: 100%; height: 100%; }
-.app206 .a-geoform-acinput { width: 100%; padding-left: 36px; }
+/* Higher specificity than `.a-input` (defined later in the file) so its
+   `padding: 0 13px` shorthand doesn't reset our left inset and let the search
+   icon collide with the typed text. */
+.app206 .a-geoform-acwrap .a-geoform-acinput { width: 100%; padding-left: 40px; }
 
 .app206 .a-geoform-spin {
   position: absolute;
