@@ -1,6 +1,7 @@
 # verified: 2026-05-17 ok
 name: beacon-hill-council
 type: squarespace
+expectEmpty: true
 description: "Beacon Hill Council"
 url: "https://www.beaconhillcouncilseattle.org/upcoming-meetings"
 friendlyLink: https://www.beaconhillcouncilseattle.org/upcoming-meetings

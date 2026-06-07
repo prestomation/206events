@@ -1,5 +1,7 @@
+# review: 2026-08-01 — verify this is a seasonal gap, not a broken ripper
 name: on-the-boards
 type: squarespace
+expectEmpty: true
 description: "Contemporary performing arts center in Seattle's Uptown
   neighborhood presenting adventurous theater, dance, music, and multimedia
   works"
