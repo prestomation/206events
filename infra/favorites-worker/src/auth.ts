@@ -1,7 +1,8 @@
 import { Hono } from 'hono'
-import type { Env, UserRecord } from './types.js'
+import type { Env, UserRecord, UserListsRecord } from './types.js'
 import { signJWT } from './jwt.js'
 import { extractUserId } from './auth-middleware.js'
+import { DEFAULT_LIST_ID, DEFAULT_LIST_NAME } from './favorites-helpers.js'
 
 export const authRoutes = new Hono<{ Bindings: Env }>()
 
@@ -133,8 +134,27 @@ authRoutes.get('/callback', async (c) => {
       createdAt: now,
       lastLoginAt: now,
     }
-    // Store reverse lookup: token → userId
-    await c.env.FEED_TOKENS.put(feedToken, JSON.stringify({ userId }))
+    // Seed the user's lists with a single default list that reuses this token,
+    // so its ICS URL equals the feedUrl surfaced by /auth/me.
+    const listsRecord: UserListsRecord = {
+      lists: [{
+        id: DEFAULT_LIST_ID,
+        name: DEFAULT_LIST_NAME,
+        feedToken,
+        icsUrls: [],
+        searchFilters: [],
+        geoFilters: [],
+        createdAt: now,
+        updatedAt: now,
+      }],
+      updatedAt: now,
+    }
+    // Write the list record (the target) BEFORE the FEED_TOKENS reverse-lookup
+    // (the pointer). If the second write fails, a token that points at a missing
+    // list serves an empty feed; the reverse — a pointer with no target — would
+    // be unrecoverable. Target-before-pointer keeps the worse failure off the table.
+    await c.env.FAVORITES.put(userId, JSON.stringify(listsRecord))
+    await c.env.FEED_TOKENS.put(feedToken, JSON.stringify({ userId, listId: DEFAULT_LIST_ID }))
   }
 
   await c.env.USERS.put(userId, JSON.stringify(user))

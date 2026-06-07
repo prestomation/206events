@@ -1,8 +1,7 @@
 import { Hono } from 'hono'
+import type { Context } from 'hono'
 import type { Env } from './types.js'
-import { requireAuth, getFavorites } from './favorites-helpers.js'
-
-export const favoritesRoutes = new Hono<{ Bindings: Env }>()
+import { requireAuth, getListContext, saveLists } from './favorites-helpers.js'
 
 const MAX_FAVORITES = 1000
 const MAX_URL_LENGTH = 2048
@@ -11,15 +10,20 @@ function isValidIcsUrl(url: string): boolean {
   return typeof url === 'string' && url.length <= MAX_URL_LENGTH && url.endsWith('.ics') && !url.includes('://') && !url.includes('..')
 }
 
-favoritesRoutes.get('/', async (c) => {
+// Each handler resolves a single list. `listId` is undefined for the
+// back-compat alias routes (operates on the user's default/first list) and the
+// path param for the per-list `/lists/:listId/favorites` routes.
+
+export async function handleGetFavorites(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  return c.json({ favorites: record.icsUrls, updatedAt: record.updatedAt })
-})
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  return c.json({ favorites: ctx.list.icsUrls, updatedAt: ctx.list.updatedAt })
+}
 
-favoritesRoutes.put('/', async (c) => {
+export async function handlePutFavorites(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
@@ -41,14 +45,15 @@ favoritesRoutes.put('/', async (c) => {
     }
   }
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  record.icsUrls = body.favorites
-  record.updatedAt = new Date().toISOString()
-  await c.env.FAVORITES.put(userId, JSON.stringify(record))
-  return c.json({ favorites: record.icsUrls, updatedAt: record.updatedAt })
-})
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  ctx.list.icsUrls = body.favorites
+  ctx.list.updatedAt = new Date().toISOString()
+  await saveLists(c.env, userId, ctx.rec)
+  return c.json({ favorites: ctx.list.icsUrls, updatedAt: ctx.list.updatedAt })
+}
 
-favoritesRoutes.post('/:icsUrl', async (c) => {
+export async function handleAddFavorite(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
@@ -57,30 +62,39 @@ favoritesRoutes.post('/:icsUrl', async (c) => {
     return c.json({ error: 'Invalid ICS URL' }, 400)
   }
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  if (record.icsUrls.length >= MAX_FAVORITES) {
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  if (ctx.list.icsUrls.length >= MAX_FAVORITES) {
     return c.json({ error: 'Maximum favorites limit reached' }, 400)
   }
 
-  if (!record.icsUrls.includes(icsUrl)) {
-    record.icsUrls.push(icsUrl)
-    record.updatedAt = new Date().toISOString()
-    await c.env.FAVORITES.put(userId, JSON.stringify(record))
+  if (!ctx.list.icsUrls.includes(icsUrl)) {
+    ctx.list.icsUrls.push(icsUrl)
+    ctx.list.updatedAt = new Date().toISOString()
+    await saveLists(c.env, userId, ctx.rec)
   }
 
-  return c.json({ favorites: record.icsUrls, updatedAt: record.updatedAt })
-})
+  return c.json({ favorites: ctx.list.icsUrls, updatedAt: ctx.list.updatedAt })
+}
 
-favoritesRoutes.delete('/:icsUrl', async (c) => {
+export async function handleDeleteFavorite(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
   const icsUrl = c.req.param('icsUrl')
-  const record = await getFavorites(c.env.FAVORITES, userId)
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
 
-  record.icsUrls = record.icsUrls.filter(u => u !== icsUrl)
-  record.updatedAt = new Date().toISOString()
-  await c.env.FAVORITES.put(userId, JSON.stringify(record))
+  ctx.list.icsUrls = ctx.list.icsUrls.filter(u => u !== icsUrl)
+  ctx.list.updatedAt = new Date().toISOString()
+  await saveLists(c.env, userId, ctx.rec)
 
-  return c.json({ favorites: record.icsUrls, updatedAt: record.updatedAt })
-})
+  return c.json({ favorites: ctx.list.icsUrls, updatedAt: ctx.list.updatedAt })
+}
+
+// Back-compat alias routes — operate on the user's default (first) list.
+export const favoritesRoutes = new Hono<{ Bindings: Env }>()
+favoritesRoutes.get('/', (c) => handleGetFavorites(c))
+favoritesRoutes.put('/', (c) => handlePutFavorites(c))
+favoritesRoutes.post('/:icsUrl', (c) => handleAddFavorite(c))
+favoritesRoutes.delete('/:icsUrl', (c) => handleDeleteFavorite(c))

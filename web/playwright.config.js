@@ -32,8 +32,12 @@ export default defineConfig({
   ],
   // Build the bundle and serve it. Command runs from this config's directory
   // (web/), so it uses web/package.json's own build + preview scripts.
+  // VITE_FAVORITES_API_URL is baked in so the signed-in multi-list path
+  // (lists.spec.js) activates; every request to it is mocked at the browser
+  // level, so no real API is contacted. Logged-out specs are unaffected — the
+  // app simply gets a 401 from the mocked auth/me and renders signed-out.
   webServer: {
-    command: `npm run build && npm run preview -- --port ${PORT} --strictPort`,
+    command: `VITE_FAVORITES_API_URL=https://api.test npm run build && npm run preview -- --port ${PORT} --strictPort`,
     port: PORT,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,

@@ -1,8 +1,7 @@
 import { Hono } from 'hono'
+import type { Context } from 'hono'
 import type { Env, GeoFilter } from './types.js'
-import { requireAuth, getFavorites } from './favorites-helpers.js'
-
-export const geoFiltersRoutes = new Hono<{ Bindings: Env }>()
+import { requireAuth, getListContext, saveLists } from './favorites-helpers.js'
 
 const MAX_GEO_FILTERS = 10
 const MAX_RADIUS_KM = 100
@@ -37,15 +36,19 @@ function sanitizeLabel(label: string): string {
     .trim()
 }
 
-geoFiltersRoutes.get('/', async (c) => {
+// `listId` is undefined for the back-compat alias routes (default/first list)
+// and the path param for `/lists/:listId/geo-filters`.
+
+export async function handleGetGeoFilters(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  return c.json({ geoFilters: record.geoFilters, updatedAt: record.updatedAt })
-})
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  return c.json({ geoFilters: ctx.list.geoFilters, updatedAt: ctx.list.updatedAt })
+}
 
-geoFiltersRoutes.post('/', async (c) => {
+export async function handleAddGeoFilter(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
@@ -60,8 +63,9 @@ geoFiltersRoutes.post('/', async (c) => {
     return c.json({ error: 'Invalid geo filter: lat (-90..90), lng (-180..180), radiusKm (0..100) required' }, 400)
   }
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  if (record.geoFilters.length >= MAX_GEO_FILTERS) {
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  if (ctx.list.geoFilters.length >= MAX_GEO_FILTERS) {
     return c.json({ error: `Maximum geo filters limit reached (max ${MAX_GEO_FILTERS})` }, 400)
   }
 
@@ -72,14 +76,14 @@ geoFiltersRoutes.post('/', async (c) => {
     ...(body.label !== undefined ? { label: sanitizeLabel(body.label) } : {}),
   }
 
-  record.geoFilters.push(filter)
-  record.updatedAt = new Date().toISOString()
-  await c.env.FAVORITES.put(userId, JSON.stringify(record))
+  ctx.list.geoFilters.push(filter)
+  ctx.list.updatedAt = new Date().toISOString()
+  await saveLists(c.env, userId, ctx.rec)
 
-  return c.json({ geoFilters: record.geoFilters, updatedAt: record.updatedAt })
-})
+  return c.json({ geoFilters: ctx.list.geoFilters, updatedAt: ctx.list.updatedAt })
+}
 
-geoFiltersRoutes.put('/', async (c) => {
+export async function handlePutGeoFilters(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
@@ -111,15 +115,16 @@ geoFiltersRoutes.put('/', async (c) => {
     ...(f.label !== undefined ? { label: sanitizeLabel(f.label) } : {}),
   }))
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
-  record.geoFilters = filters
-  record.updatedAt = new Date().toISOString()
-  await c.env.FAVORITES.put(userId, JSON.stringify(record))
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
+  ctx.list.geoFilters = filters
+  ctx.list.updatedAt = new Date().toISOString()
+  await saveLists(c.env, userId, ctx.rec)
 
-  return c.json({ geoFilters: record.geoFilters, updatedAt: record.updatedAt })
-})
+  return c.json({ geoFilters: ctx.list.geoFilters, updatedAt: ctx.list.updatedAt })
+}
 
-geoFiltersRoutes.delete('/:index', async (c) => {
+export async function handleDeleteGeoFilter(c: Context<{ Bindings: Env }>, listId?: string) {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
@@ -130,15 +135,23 @@ geoFiltersRoutes.delete('/:index', async (c) => {
     return c.json({ error: 'Invalid index' }, 400)
   }
 
-  const record = await getFavorites(c.env.FAVORITES, userId)
+  const ctx = await getListContext(c.env, userId, listId)
+  if (!ctx) return c.json({ error: 'List not found' }, 404)
 
-  if (index < 0 || index >= record.geoFilters.length) {
+  if (index < 0 || index >= ctx.list.geoFilters.length) {
     return c.json({ error: 'Index out of bounds' }, 400)
   }
 
-  record.geoFilters.splice(index, 1)
-  record.updatedAt = new Date().toISOString()
-  await c.env.FAVORITES.put(userId, JSON.stringify(record))
+  ctx.list.geoFilters.splice(index, 1)
+  ctx.list.updatedAt = new Date().toISOString()
+  await saveLists(c.env, userId, ctx.rec)
 
-  return c.json({ geoFilters: record.geoFilters, updatedAt: record.updatedAt })
-})
+  return c.json({ geoFilters: ctx.list.geoFilters, updatedAt: ctx.list.updatedAt })
+}
+
+// Back-compat alias routes — operate on the user's default (first) list.
+export const geoFiltersRoutes = new Hono<{ Bindings: Env }>()
+geoFiltersRoutes.get('/', (c) => handleGetGeoFilters(c))
+geoFiltersRoutes.post('/', (c) => handleAddGeoFilter(c))
+geoFiltersRoutes.put('/', (c) => handlePutGeoFilters(c))
+geoFiltersRoutes.delete('/:index', (c) => handleDeleteGeoFilter(c))

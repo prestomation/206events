@@ -3661,6 +3661,16 @@ html, body, #root { height: 100%; }
 .app206 .a-dd-item-label { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .app206 .a-dd-item-count { flex: 0 0 auto; font-family: var(--font-mono); font-size: 11px; color: var(--ink-4); }
 .app206 .a-dd-item-check { flex: 0 0 auto; color: var(--blue); }
+/* Global "Saving to: <list>" switcher in the top bar. Reuses .a-dd* styling. */
+.app206 .a-savingto { flex: 0 0 auto; }
+.app206 .a-savingto .a-savingto-prefix { color: var(--ink-3); font-weight: 600; }
+.app206 .a-savingto .a-savingto-name { max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Right-align the menu so it doesn't overflow the viewport edge. */
+.app206 .a-savingto .a-dd-menu { left: auto; right: 0; }
+@media (max-width: 699.98px) {
+  .app206 .a-savingto .a-savingto-prefix { display: none; }
+  .app206 .a-savingto .a-savingto-name { max-width: 96px; }
+}
 
 /* ---- category chips (pointer-device horizontal picker) ----
    Touch devices (phones, tablets, foldables incl. the Fold inner screen) keep
