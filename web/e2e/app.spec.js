@@ -45,7 +45,7 @@ test('navigates between Discover, Following, and You views', async ({ page }) =>
   await expect(page.getByText('Neumos')).toBeVisible()
 
   await page.getByText('Following', { exact: true }).first().click()
-  await expect(page.getByText('Your feed is empty')).toBeVisible()
+  await expect(page.getByText('Build your feed')).toBeVisible()
 
   await page.getByText('You', { exact: true }).first().click()
   await expect(page.getByText('Saved searches', { exact: true })).toBeVisible()
