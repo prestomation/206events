@@ -40,6 +40,16 @@ to be *recognized as a neighborhood* (and thus produce an area heading), it
 `"Belltown"` while `"Belltown"` is absent from the registry and
 `isNeighborhoodTag` returns `false`, so it won't head an area section.
 
+This registration requirement is **enforced for venues** (sources with a
+non-null `geo`): `scripts/check-discovery-api.ts` fails CI if any entry in
+`venues.json` lacks a registered `Neighborhoods` tag (the remediation is to
+tag it, register the neighborhood, or set `geo: null`). Non-venue sources
+(`geo: null` — community calendars, multi-venue series) are **not** gated:
+they may carry any tag strings freely, and an unregistered "neighborhood"
+string on them simply isn't recognized as a neighborhood (no area heading,
+no error). The enforcement lives where it matters — the places that head
+area sections.
+
 ## Adding a neighborhood to a source (two steps)
 
 1. **Register the neighborhood** in `lib/config/tags.ts` →
