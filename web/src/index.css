@@ -3934,3 +3934,44 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
 .app206 .a-modal-note { font-size: 11.5px; color: var(--ink-3); line-height: 1.45; margin: 12px 0 0; }
 /* Honeypot field: visually removed but still focusable/fillable by bots. */
 .app206 .a-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+/* ---- dialog shell (centered content dialog; see atoms.jsx Modal) ----
+   Distinct from the FeedbackModal `.a-modal*` styles above: this shell uses a
+   sectioned head/body/foot layout, so it carries its own `.a-dlg*` namespace. */
+.app206 .a-dlg-backdrop { position: fixed; inset: 0; z-index: 2100; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; padding: 20px; animation: a-lightbox-fade 140ms ease; }
+.app206 .a-dlg { width: 100%; max-width: 480px; max-height: calc(100dvh - 40px); display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 18px 56px rgba(20,15,10,0.28); overflow: hidden; }
+.app206 .a-dlg-head { display: flex; align-items: flex-start; gap: 12px; padding: 18px 18px 8px; }
+.app206 .a-dlg-title { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: -.02em; line-height: 1.2; flex: 1 1 auto; }
+.app206 .a-dlg-close { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: var(--ink-3); background: var(--surface); border: 1px solid var(--line); }
+.app206 .a-dlg-close:hover { color: var(--ink); }
+.app206 .a-dlg-body { padding: 0 18px 6px; overflow-y: auto; }
+.app206 .a-dlg-foot { display: flex; gap: 10px; justify-content: flex-end; padding: 14px 18px 18px; }
+.app206 .a-dlg-lead { font-size: 14.5px; line-height: 1.5; color: var(--ink-2); margin: 0 0 14px; }
+
+/* ---- onboarding: welcome steps + help sections ---- */
+.app206 .a-onboard-ico { flex: 0 0 auto; width: 36px; height: 36px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); display: inline-flex; align-items: center; justify-content: center; }
+.app206 .a-onboard-ico svg { width: 19px; height: 19px; }
+.app206 .a-onboard-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.app206 .a-onboard-steps li { display: flex; gap: 12px; align-items: flex-start; }
+.app206 .a-onboard-step-title { font-size: 14.5px; font-weight: 700; color: var(--ink); }
+.app206 .a-onboard-step-body { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); margin-top: 1px; }
+.app206 .a-help-section { margin-bottom: 16px; }
+.app206 .a-help-h { display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+.app206 .a-help-section p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-2); }
+.app206 .a-help-section code { font-size: 12.5px; background: var(--surface-2); padding: 1px 5px; border-radius: 5px; }
+.app206 .a-help-inline { display: inline-flex; vertical-align: middle; width: 16px; height: 16px; color: var(--ink-2); }
+
+/* ---- following get-started panel (rich empty state) ---- */
+.app206 .a-getstarted { text-align: center; padding: 28px 0 8px; }
+.app206 .a-getstarted-h { font-family: var(--font-display); font-weight: 800; font-size: 19px; letter-spacing: -.02em; }
+.app206 .a-getstarted-sub { font-size: 13.5px; line-height: 1.5; color: var(--ink-2); max-width: 460px; margin: 6px auto 18px; }
+.app206 .a-getstarted-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 600px; margin: 0 auto; text-align: left; }
+.app206 .a-getstarted-card { display: flex; flex-direction: column; gap: 7px; padding: 16px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+.app206 .a-getstarted-card:hover { border-color: var(--line-2); }
+.app206 .a-getstarted-card-title { font-size: 14px; font-weight: 700; color: var(--ink); }
+.app206 .a-getstarted-card-body { font-size: 12.5px; line-height: 1.4; color: var(--ink-3); }
+.app206 .a-getstarted-help { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; font-size: 13px; font-weight: 600; color: var(--blue); }
+@media (max-width: 640px) {
+  .app206 .a-getstarted-actions { grid-template-columns: 1fr; max-width: 360px; }
+}
+>>>>>>> 93d259d (Add first-time user experience: welcome modal, help modal, rich Following empty state)

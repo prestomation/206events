@@ -114,6 +114,40 @@ export function Lightbox() {
   )
 }
 
+// Generic centered-card dialog. Shares the Lightbox's proven behavior — Esc to
+// close, backdrop click, body scroll lock, role="dialog"/aria-modal — but
+// renders a content card (header + body + optional footer) rather than an
+// edge-to-edge image. Used by the welcome and help modals (see Onboarding.jsx).
+// Carries its own `.a-dlg*` namespace, distinct from FeedbackModal's `.a-modal*`.
+export function Modal({ title, onClose, children, footer, labelledBy }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', onKey)
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prevOverflow
+    }
+  }, [onClose])
+  const titleId = labelledBy || 'a-dlg-title'
+  return (
+    <div className="a-dlg-backdrop" onClick={onClose}>
+      <div className="a-dlg" role="dialog" aria-modal="true" aria-labelledby={title ? titleId : undefined}
+        onClick={(e) => e.stopPropagation()}>
+        <div className="a-dlg-head">
+          {title && <div className="a-dlg-title" id={titleId}>{title}</div>}
+          <button className="a-dlg-close" onClick={onClose} aria-label="Close">
+            <span style={{ width: 20, height: 20 }}>{Ico.close}</span>
+          </button>
+        </div>
+        <div className="a-dlg-body">{children}</div>
+        {footer && <div className="a-dlg-foot">{footer}</div>}
+      </div>
+    </div>
+  )
+}
+
 const PROV = {
   cal: { cls: 'prov-cal', icon: Ico.cal },
   place: { cls: 'prov-place', icon: Ico.pin },

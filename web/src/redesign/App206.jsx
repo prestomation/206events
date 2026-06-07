@@ -8,6 +8,7 @@ import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
 import { Lightbox } from './atoms.jsx'
 import { FeedbackModal } from './FeedbackModal.jsx'
+import { WelcomeModal, HelpModal, isCleanColdLoad } from './Onboarding.jsx'
 import { DiscoverView, FollowingView, YouView, ChannelDetail, EventDetail } from './views.jsx'
 import { HealthDashboard } from '../components/HealthDashboard.jsx'
 import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, eventInWindow } from './viewModels.js'
@@ -26,6 +27,9 @@ const FUSE_IGNORE_LOCATION = true
 // .app206 grid; MIN_CONTENT_W is the floor below which the content column gets
 // uncomfortably narrow. MAP_WIDTH_KEY persists the chosen width.
 const MAP_WIDTH_KEY = 'map-panel-width'
+// First-run flag (same `calendar-ripper-*` convention as the favorites keys in
+// App.jsx). Presence means the welcome card has been seen/dismissed.
+const FTUX_SEEN_KEY = 'calendar-ripper-ftux-seen'
 const MAP_WIDTH_MIN = 320
 const RAIL_W = 84
 const MIN_CONTENT_W = 420
@@ -76,6 +80,25 @@ export function App206(props) {
   const [feedbackPrefill, setFeedbackPrefill] = useState(null)
   const openFeedback = useCallback((prefill) => setFeedbackPrefill(prefill || { type: 'general' }), [])
   const closeFeedback = useCallback(() => setFeedbackPrefill(null), [])
+
+  /* ---- first-run welcome + persistent help (explain-only FTUX) ---- */
+  // Show the welcome card only on a clean cold load: the flag is unset AND the
+  // initial URL is a plain Discover entry (no deep link to an event/channel or
+  // another section), so shared links aren't interrupted.
+  const [showWelcome, setShowWelcome] = useState(() => {
+    try {
+      if (localStorage.getItem(FTUX_SEEN_KEY)) return false
+    } catch { return false }
+    return isCleanColdLoad(initialUrl)
+  })
+  const dismissWelcome = useCallback(() => {
+    setShowWelcome(false)
+    try { localStorage.setItem(FTUX_SEEN_KEY, '1') } catch { /* ignore */ }
+  }, [])
+  // Help modal is always available (not gated by the first-run flag).
+  const [helpOpen, setHelpOpen] = useState(false)
+  const openHelp = useCallback(() => setHelpOpen(true), [])
+  const closeHelp = useCallback(() => setHelpOpen(false), [])
   // Live Leaflet map instance (set by EventsMap via MapBridge) + desktop
   // expand toggle.
   const mapRef = useRef(null)
@@ -329,6 +352,7 @@ export function App206(props) {
     section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     hasActiveFilters, toast, todayLabel,
+    showWelcome, dismissWelcome, helpOpen, openHelp, closeHelp,
     lightbox, openLightbox, closeLightbox,
     feedbackPrefill, openFeedback, closeFeedback,
     mapRef, mapExpanded, toggleMapExpand, mapScope, setMapScope,
@@ -380,6 +404,8 @@ export function App206(props) {
         <Toast />
         <Lightbox />
         <FeedbackModal />
+        <WelcomeModal />
+        <HelpModal />
       </div>
     </App206Context.Provider>
   )

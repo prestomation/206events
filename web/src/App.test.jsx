@@ -123,7 +123,7 @@ describe('App206 redesign', () => {
     render(<App />)
     await waitDiscover()
     clickNav('Following')
-    await waitFor(() => expect(screen.getByText('Your feed is empty')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText('Build your feed')).toBeInTheDocument())
   })
 
   it('navigates to You and shows the source sections', async () => {
