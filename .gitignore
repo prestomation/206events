@@ -13,3 +13,6 @@ __pycache__/
 web/test-results/
 web/playwright-report/
 web/.playwright/
+.env
+.env.local
+.env.*.local
