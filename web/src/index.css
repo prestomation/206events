@@ -3974,4 +3974,3 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
 @media (max-width: 640px) {
   .app206 .a-getstarted-actions { grid-template-columns: 1fr; max-width: 360px; }
 }
->>>>>>> 93d259d (Add first-time user experience: welcome modal, help modal, rich Following empty state)
