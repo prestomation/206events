@@ -28,6 +28,45 @@ const FUSE_THRESHOLD = 0.1
 // (favorites filter parity).
 const FUSE_IGNORE_LOCATION = true
 
+// Multiple favorites lists. Anonymous users get a single synthetic list backed
+// by the original localStorage keys (so their experience is unchanged). Signed-in
+// users get server-sourced lists, each with its own ICS feed URL.
+const LOCAL_LIST_ID = 'local'
+// Per-user list cap. Mirrors MAX_LISTS in infra/favorites-worker/src/lists.ts —
+// the worker is the source of truth; this only gates the "New list" control.
+const MAX_LISTS = 10
+const LS_FAVORITES = 'calendar-ripper-favorites'
+const LS_SEARCH = 'calendar-ripper-search-filters'
+const LS_GEO = 'calendar-ripper-geo-filters'
+
+function readLs(key) {
+  try { const s = localStorage.getItem(key); return s ? JSON.parse(s) : [] } catch { return [] }
+}
+
+// The anonymous single list, hydrated from localStorage.
+function loadLocalList() {
+  return {
+    id: LOCAL_LIST_ID,
+    name: 'My Favorites',
+    feedUrl: null,
+    icsUrls: readLs(LS_FAVORITES),
+    searchFilters: readLs(LS_SEARCH),
+    geoFilters: readLs(LS_GEO),
+  }
+}
+
+// Coerce a server list payload into the client shape (arrays always present).
+function normalizeServerList(l) {
+  return {
+    id: l.id,
+    name: l.name,
+    feedUrl: l.feedUrl || null,
+    icsUrls: Array.isArray(l.icsUrls) ? l.icsUrls : [],
+    searchFilters: Array.isArray(l.searchFilters) ? l.searchFilters : [],
+    geoFilters: Array.isArray(l.geoFilters) ? l.geoFilters : [],
+  }
+}
+
 function App() {
   const [calendars, setCalendars] = useState([])
   const [manifest, setManifest] = useState(null)
@@ -55,33 +94,24 @@ function App() {
   const [tagsCollapsed, setTagsCollapsed] = useState(false)
   const [isOffline, setIsOffline] = useState(typeof navigator !== 'undefined' ? !navigator.onLine : false)
   const [dataRefreshed, setDataRefreshed] = useState(false)
-  const [favorites, setFavorites] = useState(() => {
-    try {
-      const stored = localStorage.getItem('calendar-ripper-favorites')
-      return stored ? JSON.parse(stored) : []
-    } catch { return [] }
-  })
+  // Lists model. `favorites` / `searchFilters` / `geoFilters` are derived from
+  // the active list so all the downstream memoized parity logic keeps operating
+  // on a single set of arrays, unchanged.
+  const [lists, setLists] = useState(() => [loadLocalList()])
+  const [activeListId, setActiveListId] = useState(LOCAL_LIST_ID)
 
+  const activeList = useMemo(
+    () => lists.find(l => l.id === activeListId) || lists[0] || loadLocalList(),
+    [lists, activeListId]
+  )
+  const favorites = activeList.icsUrls
+  const searchFilters = activeList.searchFilters
+  const geoFilters = activeList.geoFilters
   const favoritesSet = useMemo(() => new Set(favorites), [favorites])
 
-  // Search filters state
-  const [searchFilters, setSearchFilters] = useState(() => {
-    try {
-      const stored = localStorage.getItem('calendar-ripper-search-filters')
-      return stored ? JSON.parse(stored) : []
-    } catch { return [] }
-  })
   const [newFilterInput, setNewFilterInput] = useState('')
   // View mode for favorites: 'all' | 'calendars' | 'search' | filter string
   const [favoritesViewMode, setFavoritesViewMode] = useState('all')
-
-  // Geo filters state
-  const [geoFilters, setGeoFilters] = useState(() => {
-    try {
-      const stored = localStorage.getItem('calendar-ripper-geo-filters')
-      return stored ? JSON.parse(stored) : []
-    } catch { return [] }
-  })
 
   // Add-to-calendar button mode ('auto' | 'google' | 'ics'). Client-only
   // preference (no server sync) controlling what the per-event 📅 button does.
@@ -103,111 +133,164 @@ function App() {
 
   const API_URL = import.meta.env.VITE_FAVORITES_API_URL || ''
 
-  const toggleFavorite = useCallback((icsUrl) => {
-    setFavorites(prev => {
-      const isFav = prev.includes(icsUrl)
-      const next = isFav
-        ? prev.filter(u => u !== icsUrl)
-        : [...prev, icsUrl]
-      try { localStorage.setItem('calendar-ripper-favorites', JSON.stringify(next)) } catch {}
-
-      // Fire-and-forget API call when logged in
-      if (API_URL && authUser) {
-        const method = isFav ? 'DELETE' : 'POST'
-        fetch(`${API_URL}/favorites/${encodeURIComponent(icsUrl)}`, {
-          method,
-          credentials: 'include',
-        }).catch(() => {})
+  // Mutate the active list in place. `mutate(list)` returns the changed array
+  // fields (or null/undefined to no-op); `sync(list, next)` fires the matching
+  // persistence call. Local list → localStorage; server list → per-list API.
+  const mutateActiveList = useCallback((mutate, syncLocal, syncServer) => {
+    setLists(prev => prev.map(l => {
+      if (l.id !== activeListId) return l
+      const patch = mutate(l)
+      if (!patch) return l
+      const next = { ...l, ...patch }
+      if (l.id === LOCAL_LIST_ID) {
+        syncLocal?.(next)
+      } else if (API_URL && authUser) {
+        syncServer?.(l, next)
       }
-
       return next
-    })
-  }, [authUser])
+    }))
+  }, [activeListId, authUser, API_URL])
+
+  const toggleFavorite = useCallback((icsUrl) => {
+    mutateActiveList(
+      (l) => {
+        const isFav = l.icsUrls.includes(icsUrl)
+        return { icsUrls: isFav ? l.icsUrls.filter(u => u !== icsUrl) : [...l.icsUrls, icsUrl] }
+      },
+      (next) => { try { localStorage.setItem(LS_FAVORITES, JSON.stringify(next.icsUrls)) } catch {} },
+      (l, next) => {
+        // Added ⇒ POST, removed ⇒ DELETE (derive from the new array).
+        const method = next.icsUrls.includes(icsUrl) ? 'POST' : 'DELETE'
+        fetch(`${API_URL}/lists/${encodeURIComponent(l.id)}/favorites/${encodeURIComponent(icsUrl)}`, {
+          method, credentials: 'include',
+        }).catch(() => {})
+      },
+    )
+  }, [mutateActiveList, API_URL])
 
   const addSearchFilter = useCallback((filter) => {
     const trimmed = filter.trim()
     if (!trimmed) return
-    setSearchFilters(prev => {
-      if (prev.some(f => f.toLowerCase() === trimmed.toLowerCase())) return prev
-      if (prev.length >= 25) return prev
-      const next = [...prev, trimmed]
-      try { localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(next)) } catch {}
-      if (API_URL && authUser) {
-        fetch(`${API_URL}/search-filters`, {
-          method: 'POST',
-          credentials: 'include',
+    mutateActiveList(
+      (l) => {
+        if (l.searchFilters.some(f => f.toLowerCase() === trimmed.toLowerCase())) return null
+        if (l.searchFilters.length >= 25) return null
+        return { searchFilters: [...l.searchFilters, trimmed] }
+      },
+      (next) => { try { localStorage.setItem(LS_SEARCH, JSON.stringify(next.searchFilters)) } catch {} },
+      (l) => {
+        fetch(`${API_URL}/lists/${encodeURIComponent(l.id)}/search-filters`, {
+          method: 'POST', credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ filter: trimmed }),
         }).catch(() => {})
-      }
-      return next
-    })
-  }, [authUser])
+      },
+    )
+  }, [mutateActiveList, API_URL])
 
   const removeSearchFilter = useCallback((filter) => {
-    setSearchFilters(prev => {
-      const next = prev.filter(f => f.toLowerCase() !== filter.toLowerCase())
-      try { localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(next)) } catch {}
-      if (API_URL && authUser) {
-        fetch(`${API_URL}/search-filters/${encodeURIComponent(filter)}`, {
-          method: 'DELETE',
-          credentials: 'include',
+    mutateActiveList(
+      (l) => ({ searchFilters: l.searchFilters.filter(f => f.toLowerCase() !== filter.toLowerCase()) }),
+      (next) => { try { localStorage.setItem(LS_SEARCH, JSON.stringify(next.searchFilters)) } catch {} },
+      (l) => {
+        fetch(`${API_URL}/lists/${encodeURIComponent(l.id)}/search-filters/${encodeURIComponent(filter)}`, {
+          method: 'DELETE', credentials: 'include',
         }).catch(() => {})
-      }
-      return next
-    })
-  }, [authUser])
+      },
+    )
+  }, [mutateActiveList, API_URL])
 
   // Geo filter CRUD
   const addGeoFilter = useCallback((filter) => {
-    setGeoFilters(prev => {
-      if (prev.length >= 10) return prev
-      const next = [...prev, filter]
-      try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(next)) } catch {}
-      if (API_URL && authUser) {
-        fetch(`${API_URL}/geo-filters`, {
-          method: 'POST',
-          credentials: 'include',
+    mutateActiveList(
+      (l) => (l.geoFilters.length >= 10 ? null : { geoFilters: [...l.geoFilters, filter] }),
+      (next) => { try { localStorage.setItem(LS_GEO, JSON.stringify(next.geoFilters)) } catch {} },
+      (l) => {
+        fetch(`${API_URL}/lists/${encodeURIComponent(l.id)}/geo-filters`, {
+          method: 'POST', credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(filter),
         }).catch(() => {})
-      }
-      return next
-    })
-  }, [API_URL, authUser])
+      },
+    )
+  }, [mutateActiveList, API_URL])
 
   const deleteGeoFilter = useCallback((index) => {
-    setGeoFilters(prev => {
-      const next = prev.filter((_, i) => i !== index)
-      try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(next)) } catch {}
-      if (API_URL && authUser) {
-        // Send full updated array (not index) to avoid race conditions when
-        // local and server state are out of sync
-        fetch(`${API_URL}/geo-filters`, {
-          method: 'PUT',
-          credentials: 'include',
+    mutateActiveList(
+      (l) => ({ geoFilters: l.geoFilters.filter((_, i) => i !== index) }),
+      (next) => { try { localStorage.setItem(LS_GEO, JSON.stringify(next.geoFilters)) } catch {} },
+      // Send the full updated array (not index) to avoid races when local and
+      // server state are out of sync.
+      (l, next) => {
+        fetch(`${API_URL}/lists/${encodeURIComponent(l.id)}/geo-filters`, {
+          method: 'PUT', credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(next),
+          body: JSON.stringify(next.geoFilters),
         }).catch(() => {})
-      }
-      return next
-    })
-  }, [API_URL, authUser])
+      },
+    )
+  }, [mutateActiveList, API_URL])
 
   const editGeoFilter = useCallback((index, filter) => {
-    setGeoFilters(prev => {
-      const next = prev.map((f, i) => i === index ? filter : f)
-      try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(next)) } catch {}
-      if (API_URL && authUser) {
-        fetch(`${API_URL}/geo-filters`, {
-          method: 'PUT',
-          credentials: 'include',
+    mutateActiveList(
+      (l) => ({ geoFilters: l.geoFilters.map((f, i) => i === index ? filter : f) }),
+      (next) => { try { localStorage.setItem(LS_GEO, JSON.stringify(next.geoFilters)) } catch {} },
+      (l, next) => {
+        fetch(`${API_URL}/lists/${encodeURIComponent(l.id)}/geo-filters`, {
+          method: 'PUT', credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(next),
+          body: JSON.stringify(next.geoFilters),
         }).catch(() => {})
-      }
+      },
+    )
+  }, [mutateActiveList, API_URL])
+
+  // ----- list management (signed-in only) -----
+  const setActiveList = useCallback((id) => setActiveListId(id), [])
+
+  const createList = useCallback(async (name) => {
+    const trimmed = (name || '').trim()
+    if (!trimmed || !API_URL || !authUser) return null
+    try {
+      const res = await fetch(`${API_URL}/lists`, {
+        method: 'POST', credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: trimmed }),
+      })
+      if (!res.ok) return null
+      const data = await res.json()
+      const nl = normalizeServerList(data.list)
+      setLists(prev => [...prev, nl])
+      setActiveListId(nl.id)
+      return nl
+    } catch { return null }
+  }, [API_URL, authUser])
+
+  const renameList = useCallback((id, name) => {
+    const trimmed = (name || '').trim()
+    if (!trimmed) return
+    setLists(prev => prev.map(l => l.id === id ? { ...l, name: trimmed } : l))
+    if (API_URL && authUser && id !== LOCAL_LIST_ID) {
+      fetch(`${API_URL}/lists/${encodeURIComponent(id)}`, {
+        method: 'PATCH', credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: trimmed }),
+      }).catch(() => {})
+    }
+  }, [API_URL, authUser])
+
+  const deleteList = useCallback((id) => {
+    setLists(prev => {
+      if (prev.length <= 1) return prev
+      const next = prev.filter(l => l.id !== id)
+      setActiveListId(cur => (cur === id ? next[0].id : cur))
       return next
     })
+    if (API_URL && authUser && id !== LOCAL_LIST_ID) {
+      fetch(`${API_URL}/lists/${encodeURIComponent(id)}`, {
+        method: 'DELETE', credentials: 'include',
+      }).catch(() => {})
+    }
   }, [API_URL, authUser])
 
   // Check auth on mount
@@ -232,70 +315,62 @@ function App() {
       await fetch(`${API_URL}/auth/logout`, { method: 'POST', credentials: 'include' })
     }
     setAuthUser(null)
+    // Revert to the anonymous single list (backed by localStorage).
+    setLists([loadLocalList()])
+    setActiveListId(LOCAL_LIST_ID)
   }
 
-  // Sync favorites on login
+  // Sync lists on login. Fetch all server lists; on first login, migrate any
+  // anonymous localStorage data into the (empty) default list so nothing is lost.
   useEffect(() => {
     if (!authUser || !API_URL) return
+    let cancelled = false
 
-    fetch(`${API_URL}/favorites`, { credentials: 'include' })
+    fetch(`${API_URL}/lists`, { credentials: 'include' })
       .then(res => res.ok ? res.json() : null)
       .then(data => {
-        if (!data) return
-        if (data.favorites.length === 0 && favorites.length > 0) {
-          // First-time migration: push localStorage to server
-          fetch(`${API_URL}/favorites`, {
-            method: 'PUT',
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ favorites }),
-          })
-        } else {
-          // Server is source of truth
-          setFavorites(data.favorites)
-          try { localStorage.setItem('calendar-ripper-favorites', JSON.stringify(data.favorites)) } catch {}
+        if (cancelled || !data?.lists) return
+        const serverLists = data.lists.map(normalizeServerList)
+        const def = serverLists[0]
+
+        // First-login migration: push anonymous localStorage state into the
+        // default list when that list is still empty.
+        const local = loadLocalList()
+        const localHasData = local.icsUrls.length || local.searchFilters.length || local.geoFilters.length
+        const defEmpty = def && !def.icsUrls.length && !def.searchFilters.length && !def.geoFilters.length
+        if (def && defEmpty && localHasData) {
+          if (local.icsUrls.length) {
+            fetch(`${API_URL}/lists/${encodeURIComponent(def.id)}/favorites`, {
+              method: 'PUT', credentials: 'include',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ favorites: local.icsUrls }),
+            }).catch(() => {})
+          }
+          if (local.searchFilters.length) {
+            fetch(`${API_URL}/lists/${encodeURIComponent(def.id)}/search-filters`, {
+              method: 'PUT', credentials: 'include',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ searchFilters: local.searchFilters }),
+            }).catch(() => {})
+          }
+          if (local.geoFilters.length) {
+            fetch(`${API_URL}/lists/${encodeURIComponent(def.id)}/geo-filters`, {
+              method: 'PUT', credentials: 'include',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(local.geoFilters),
+            }).catch(() => {})
+          }
+          def.icsUrls = local.icsUrls
+          def.searchFilters = local.searchFilters
+          def.geoFilters = local.geoFilters
         }
+
+        setLists(serverLists)
+        setActiveListId(prev => serverLists.some(l => l.id === prev) ? prev : (def?.id || prev))
       })
       .catch(() => {})
 
-    // Sync search filters
-    fetch(`${API_URL}/search-filters`, { credentials: 'include' })
-      .then(res => res.ok ? res.json() : null)
-      .then(data => {
-        if (!data) return
-        if (data.searchFilters.length === 0 && searchFilters.length > 0) {
-          fetch(`${API_URL}/search-filters`, {
-            method: 'PUT',
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ searchFilters }),
-          })
-        } else {
-          setSearchFilters(data.searchFilters)
-          try { localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(data.searchFilters)) } catch {}
-        }
-      })
-      .catch(() => {})
-
-    // Sync geo filters
-    fetch(`${API_URL}/geo-filters`, { credentials: 'include' })
-      .then(res => res.ok ? res.json() : null)
-      .then(data => {
-        if (!data) return
-        const serverFilters = data.geoFilters || []
-        if (serverFilters.length === 0 && geoFilters.length > 0) {
-          fetch(`${API_URL}/geo-filters`, {
-            method: 'PUT',
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(geoFilters),
-          })
-        } else {
-          setGeoFilters(serverFilters)
-          try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(serverFilters)) } catch {}
-        }
-      })
-      .catch(() => {})
+    return () => { cancelled = true }
   }, [authUser])
 
   // Load calendar metadata from JSON manifest
@@ -1516,6 +1591,14 @@ function App() {
       calendarNameByIcsUrl={calendarNameByIcsUrl}
       eventCountByIcsUrl={eventCountByIcsUrl}
       followingGroups={followingGroups}
+      lists={lists}
+      activeListId={activeListId}
+      activeList={activeList}
+      setActiveList={setActiveList}
+      createList={createList}
+      renameList={renameList}
+      deleteList={deleteList}
+      canCreateList={lists.length < MAX_LISTS}
       authUser={authUser}
       handleLogin={handleLogin}
       handleLogout={handleLogout}

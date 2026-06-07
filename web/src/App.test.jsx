@@ -1,5 +1,5 @@
 import React from 'react'
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import App from './App'
 
@@ -295,6 +295,101 @@ describe('App206 redesign', () => {
       fireEvent.doubleClick(container.querySelector('.a-mapresize'))
       await waitFor(() => expect(getApp(container).style.getPropertyValue('--a-map-w')).toBe(''))
       expect(localStorage.getItem('map-panel-width')).toBe(null)
+    })
+  })
+})
+
+// Signed-in multi-list behavior. Auth is driven entirely by what the mocked
+// fetch returns for `auth/me` + `/lists` (no real OAuth needed).
+describe('Multiple favorites lists (signed-in)', () => {
+  const API = 'http://api.test'
+  const USER = { id: 'u1', name: 'Test User', email: 't@e.com', picture: '', feedToken: 'tok1', feedUrl: `${API}/feed/tok1.ics` }
+
+  function signedInFetch(lists) {
+    return (url, opts) => {
+      const u = String(url)
+      const method = (opts && opts.method) || 'GET'
+      const json = (data) => Promise.resolve({ ok: true, json: async () => data, text: async () => '' })
+      if (u.includes('/auth/me')) return json({ user: USER })
+      if (u.endsWith('/lists') && method === 'GET') return json({ lists, updatedAt: '' })
+      if (u.includes('/lists')) return json({ ok: true }) // PUT/POST/etc.
+      if (u.includes('manifest.json')) return json(mockManifest)
+      if (u.includes('events-index.json')) return json(mockEvents)
+      if (u.includes('venues.json')) return json(mockVenues)
+      if (u.includes('build-errors.json')) return json({ buildTime: '', totalErrors: 0, sources: [] })
+      if (u.endsWith('.ics')) return Promise.resolve({ ok: true, text: async () => 'BEGIN:VCALENDAR\nVERSION:2.0\nEND:VCALENDAR' })
+      return json({})
+    }
+  }
+
+  beforeEach(() => {
+    localStorage.clear()
+    window.location.hash = ''
+    vi.stubEnv('VITE_FAVORITES_API_URL', API)
+  })
+  afterEach(() => { vi.unstubAllEnvs() })
+
+  const list = (id, name, token, extra = {}) => ({
+    id, name, feedUrl: `${API}/feed/${token}.ics`, icsUrls: [], searchFilters: [], geoFilters: [], ...extra,
+  })
+
+  const gotoYou = async () => {
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    fireEvent.click(screen.getAllByText('You')[0].closest('button'))
+    await waitFor(() => expect(screen.getByText('Test User')).toBeInTheDocument())
+  }
+
+  it('shows no list switcher with a single list but offers "New list"', async () => {
+    global.fetch = vi.fn(signedInFetch([list('default', 'My Favorites', 'tok1')]))
+    const { container } = render(<App />)
+    await gotoYou()
+    expect(screen.getByText('Saved searches')).toBeInTheDocument()
+    expect(container.querySelector('.a-listswitch')).toBeFalsy()
+    expect(screen.getByText('New list')).toBeInTheDocument()
+  })
+
+  it('shows a list switcher with >1 list and switches the active feed URL', async () => {
+    global.fetch = vi.fn(signedInFetch([
+      list('default', 'My Favorites', 'tok1'),
+      list('date-night', 'Date Night', 'tok2'),
+    ]))
+    const { container } = render(<App />)
+    await gotoYou()
+    await waitFor(() => expect(container.querySelector('.a-listswitch')).toBeTruthy())
+
+    // Both list tabs render.
+    expect(screen.getByRole('tab', { name: 'My Favorites' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Date Night' })).toBeInTheDocument()
+
+    // Default list's feed URL is shown.
+    expect(screen.getByText(`${API}/feed/tok1.ics`)).toBeInTheDocument()
+
+    // Switching to the second list swaps the feed-URL card.
+    fireEvent.click(screen.getByRole('tab', { name: 'Date Night' }))
+    await waitFor(() => expect(screen.getByText(`${API}/feed/tok2.ics`)).toBeInTheDocument())
+    expect(screen.getByText('Feed for “Date Night”')).toBeInTheDocument()
+  })
+
+  it('following a calendar targets the active list', async () => {
+    global.fetch = vi.fn(signedInFetch([
+      list('default', 'My Favorites', 'tok1'),
+      list('date-night', 'Date Night', 'tok2'),
+    ]))
+    const { container } = render(<App />)
+    await gotoYou()
+
+    // Switch active list to Date Night, then follow a calendar from Discover.
+    await waitFor(() => expect(container.querySelector('.a-listswitch')).toBeTruthy())
+    fireEvent.click(screen.getByRole('tab', { name: 'Date Night' }))
+
+    fireEvent.click(screen.getAllByText('Discover')[0].closest('button'))
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    fireEvent.click(container.querySelector('.pill-follow'))
+
+    // The POST went to the active (date-night) list's favorites endpoint.
+    await waitFor(() => {
+      const calls = global.fetch.mock.calls.map(c => String(c[0]))
+      expect(calls.some(u => u.includes('/lists/date-night/favorites/'))).toBe(true)
     })
   })
 })

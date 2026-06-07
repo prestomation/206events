@@ -852,6 +852,8 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 
 The personal ICS feed is assembled **server-side** in the Cloudflare Worker (`infra/favorites-worker/src/feed.ts`). The web UI performs the **same filtering client-side** using `events-index.json` — for live preview, the "Happening Soon" view, attribution chips, and the events map.
 
+**Filters are resolved per-list.** A signed-in user can have multiple favorites lists (see `docs/multiple-favorites-lists.md`), each with its own `icsUrls` / `searchFilters` / `geoFilters` and its own ICS feed token. The worker picks the list via the feed token's `listId` (falling back to the default/first list when absent); the client filters using the **active list's** arrays. Only the *source* of the filter arrays is per-list — the shared Fuse config, haversine formula, and dedup are unchanged, so the parity contract below still holds for whichever list is being resolved.
+
 **These two implementations must stay in sync.** Any change to filtering logic must be applied to both:
 
 | Concern | Server (Worker) | Client (Web UI) |
@@ -859,6 +861,7 @@ The personal ICS feed is assembled **server-side** in the Cloudflare Worker (`in
 | Search filters | Fuse.js in `event-search.ts` | Fuse.js in `App.jsx` (`searchFilterMatchSummaries`) |
 | Geo filters | Haversine in `feed.ts` | Haversine in `App.jsx` (`geoFilterMatchMap`) |
 | Deduplication | UID-based in `ics-merge.ts` | UID-based in display logic |
+| List resolution | `resolveList` by token `listId` in `feed.ts` | active list (`activeList`) in `App.jsx` |
 
 ### Keeping them in sync
 

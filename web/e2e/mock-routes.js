@@ -34,3 +34,29 @@ export async function installDataMocks(page) {
   await page.route('**/geo-filters', (route) => route.fulfill(json([])))
   await page.route('**/geo-filters/**', (route) => route.fulfill(json({})))
 }
+
+// Logged-in variant: stub auth/me to return a user and /lists to return canned
+// lists, plus accept the per-list mutation calls. No real OAuth/cookies — the
+// client trusts the auth/me JSON. Requires the bundle to be built with
+// VITE_FAVORITES_API_URL set (see playwright.config.js) so the app issues these
+// calls in the first place. Call this AFTER installDataMocks to override the
+// logged-out auth/me + favorites routes.
+export async function installLoggedInMocks(page, { lists, apiBase = 'https://api.test' } = {}) {
+  const json = (body) => ({ status: 200, contentType: 'application/json', body: JSON.stringify(body) })
+  const user = { id: 'u1', name: 'Test User', email: 't@e.com', picture: '', feedToken: 'tok1', feedUrl: `${apiBase}/feed/tok1.ics` }
+  const listData = lists || [
+    { id: 'default', name: 'My Favorites', feedUrl: `${apiBase}/feed/tok1.ics`, icsUrls: [], searchFilters: [], geoFilters: [] },
+    { id: 'date-night', name: 'Date Night', feedUrl: `${apiBase}/feed/tok2.ics`, icsUrls: [], searchFilters: [], geoFilters: [] },
+  ]
+
+  await page.route('**/auth/me', (route) => route.fulfill(json({ user })))
+  // GET /lists → list set; POST /lists → echo a created list.
+  await page.route('**/lists', (route) => {
+    if (route.request().method() === 'POST') {
+      return route.fulfill(json({ list: { id: 'new-list', name: 'New', feedUrl: `${apiBase}/feed/tok3.ics`, icsUrls: [], searchFilters: [], geoFilters: [] } }))
+    }
+    return route.fulfill(json({ lists: listData, updatedAt: '' }))
+  })
+  // Per-list item + rename/delete calls — accept everything.
+  await page.route('**/lists/**', (route) => route.fulfill(json({ ok: true })))
+}

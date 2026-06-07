@@ -362,6 +362,10 @@ export function YouView() {
   const [addSearch, setAddSearch] = useState(false)
   const followed = app.channels.filter((c) => app.favoritesSet.has(c.icsUrl))
   const sourceCount = followed.length + app.geoFilters.length + app.searchFilters.length
+  // Per-list feed URL (each list has its own ICS subscription). For anonymous
+  // users activeList.feedUrl is null, so the card prompts sign-in.
+  const feedUrl = app.activeList?.feedUrl || null
+  const multiList = (app.lists?.length || 0) > 1
 
   return (
     <div style={{ padding: '2px var(--pad) 24px', maxWidth: 1000, margin: '0 auto' }}>
@@ -386,21 +390,26 @@ export function YouView() {
           : <button className="btn btn-ink" style={{ height: 40, fontSize: 13.5, flex: '0 0 auto' }} onClick={app.handleLogin}>{Ico.google}Sign in</button>)}
       </div>
 
-      {/* ICS link */}
+      {/* Lists manager (signed-in): switch between lists, create / rename / delete. */}
+      <ListsManager />
+
+      {/* ICS link — per active list */}
       <div className="a-icscard">
         <span style={{ width: 24, height: 24, color: 'var(--blue)', flex: '0 0 auto' }}>{Ico.cal}</span>
         <div style={{ minWidth: 0, flex: 1 }}>
-          <div style={{ fontWeight: 700, color: 'var(--blue-ink)', fontSize: 14.5 }}>One feed, one link</div>
+          <div style={{ fontWeight: 700, color: 'var(--blue-ink)', fontSize: 14.5 }}>
+            {multiList ? `Feed for “${app.activeList.name}”` : 'One feed, one link'}
+          </div>
           <div style={{ fontSize: 12.5, color: 'var(--blue-ink)', opacity: 0.85, marginTop: 2 }}>
-            {app.authUser?.feedUrl
+            {feedUrl
               ? `All ${sourceCount} sources below flow into a single subscription that stays updated.`
               : 'Sign in to get a single subscription link for everything below.'}
           </div>
-          {app.authUser?.feedUrl && (
+          {feedUrl && (
             <div style={{ display: 'flex', gap: 7, marginTop: 9, alignItems: 'center' }}>
-              <code className="a-icscode">{app.authUser.feedUrl}</code>
+              <code className="a-icscode">{feedUrl}</code>
               <button className="btn btn-blue" style={{ height: 38, fontSize: 13, flex: '0 0 auto', padding: '0 13px' }}
-                onClick={() => { navigator.clipboard?.writeText(app.authUser.feedUrl); app.flash('Link copied ✓') }}>Copy</button>
+                onClick={() => { navigator.clipboard?.writeText(feedUrl); app.flash('Link copied ✓') }}>Copy</button>
             </div>
           )}
         </div>
@@ -472,6 +481,94 @@ function SectionTitle({ kicker, title, count }) {
       <span className="a-h2" style={{ fontSize: 17, whiteSpace: 'nowrap', flex: '0 0 auto' }}>{title}</span>
       {count != null && <span className="a-eyebrow" style={{ color: 'var(--ink-4)', flex: '0 0 auto' }}>{count}</span>}
       <span style={{ flex: 1, height: 1, background: 'var(--line)' }} />
+    </div>
+  )
+}
+
+// Lists manager — signed-in only. Shows a list switcher when the user has more
+// than one list, plus create / rename / delete controls. Follow/add actions
+// throughout the app target whichever list is active here.
+function ListsManager() {
+  const app = useApp206()
+  const [creating, setCreating] = useState(false)
+  const [renaming, setRenaming] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
+
+  // Anonymous users keep a single local list — no management UI.
+  if (!app.authUser || !app.lists) return null
+
+  const multi = app.lists.length > 1
+
+  return (
+    <div className="a-listsmanager" style={{ margin: '14px 0' }}>
+      {multi && (
+        <div className="a-listswitch" role="tablist" aria-label="Your lists"
+          style={{ display: 'flex', gap: 7, flexWrap: 'wrap', marginBottom: 10 }}>
+          {app.lists.map((l) => (
+            <button key={l.id} role="tab" aria-selected={l.id === app.activeListId}
+              className={`a-listtab ${l.id === app.activeListId ? 'on' : ''}`}
+              onClick={() => app.setActiveList(l.id)}
+              style={{
+                height: 34, padding: '0 13px', borderRadius: 999, fontSize: 13.5, cursor: 'pointer',
+                border: '1px solid var(--line)',
+                background: l.id === app.activeListId ? 'var(--blue)' : 'transparent',
+                color: l.id === app.activeListId ? '#fff' : 'var(--ink-2)',
+                fontWeight: l.id === app.activeListId ? 700 : 500,
+              }}>
+              {l.name}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {!creating && !renaming && (
+        <div style={{ display: 'flex', gap: 9, flexWrap: 'wrap', alignItems: 'center' }}>
+          <button className="btn btn-ghost" style={{ height: 36, fontSize: 13 }} onClick={() => setRenaming(true)}>
+            {Ico.edit || null}Rename
+          </button>
+          {multi && (confirmDelete ? (
+            <>
+              <button className="btn btn-ghost" style={{ height: 36, fontSize: 13, color: 'var(--danger, #c0392b)' }}
+                onClick={() => { app.deleteList(app.activeListId); setConfirmDelete(false) }}>Confirm delete</button>
+              <button className="btn btn-ghost" style={{ height: 36, fontSize: 13 }}
+                onClick={() => setConfirmDelete(false)}>Cancel</button>
+            </>
+          ) : (
+            <button className="btn btn-ghost" style={{ height: 36, fontSize: 13 }}
+              onClick={() => setConfirmDelete(true)}>Delete list</button>
+          ))}
+          <button className="btn btn-ghost" style={{ height: 36, fontSize: 13 }}
+            disabled={!app.canCreateList}
+            title={app.canCreateList ? 'Create a new list' : 'Maximum number of lists reached'}
+            onClick={() => setCreating(true)}>{Ico.plus}New list</button>
+        </div>
+      )}
+
+      {creating && (
+        <ListNameForm placeholder="List name (e.g. Date Night)…"
+          onSave={(name) => { app.createList(name); setCreating(false) }}
+          onCancel={() => setCreating(false)} />
+      )}
+      {renaming && (
+        <ListNameForm initial={app.activeList?.name || ''} placeholder="Rename list…"
+          onSave={(name) => { app.renameList(app.activeListId, name); setRenaming(false) }}
+          onCancel={() => setRenaming(false)} />
+      )}
+    </div>
+  )
+}
+
+function ListNameForm({ initial = '', placeholder, onSave, onCancel }) {
+  const [name, setName] = useState(initial)
+  return (
+    <div style={{ display: 'flex', gap: 8, marginTop: 12, maxWidth: 440 }}>
+      <input value={name} onChange={(e) => setName(e.target.value)} autoFocus placeholder={placeholder}
+        onKeyDown={(e) => { if (e.key === 'Enter' && name.trim()) onSave(name.trim()) }}
+        className="a-input" style={{ flex: 1, minWidth: 0 }} />
+      <button className="btn btn-blue" style={{ height: 42, flex: '0 0 auto' }}
+        onClick={() => name.trim() && onSave(name.trim())}>Save</button>
+      <button className="btn btn-ghost" style={{ height: 42, width: 42, padding: 0, flex: '0 0 auto' }}
+        onClick={onCancel}>{Ico.close}</button>
     </div>
   )
 }
