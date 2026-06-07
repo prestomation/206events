@@ -12,6 +12,11 @@ url: https://qafm.org
 tags:
   - FarmersMarket
   - QueenAnne
+# The 2026 season runs May 28–October 8 (partial boundary months). The recurring
+# YAML system doesn't support sub-monthly date ranges, so months [5..10] will
+# over-generate events for early May and late October. This matches the accepted
+# pattern used by other seasonal markets (e.g. wallingford-farmers-market.yaml).
+# Verify season start/end dates at qafm.org each year.
 schedules:
   - schedule: every Thursday
     start_time: "15:00"

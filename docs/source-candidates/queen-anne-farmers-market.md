@@ -4,7 +4,7 @@ status: added
 firstSeen: 2026-06-07
 lastChecked: 2026-06-07
 tags: [FarmersMarket, QueenAnne]
-pr: TBD
+pr: 524
 ---
 **Queen Anne Farmers Market** — `https://qafm.org` — Seasonal Thursday evening farmers market at W Crockett St & Queen Anne Ave N, Seattle.
 
