@@ -95,9 +95,10 @@ The endpoint returns `503` until both are configured:
    read & write* on `prestomation/206events` only, then:
    ```sh
    cd infra/favorites-worker
-   wrangler secret put GITHUB_TOKEN
+   wrangler secret put FEEDBACK_GITHUB_ISSUES_TOKEN
    ```
-   (`GITHUB_REPO` is already set in `wrangler.toml` `[vars]`.) A GitHub App
+   (The secret can't use a `GITHUB_` prefix — that range is reserved.
+   `GITHUB_REPO` is already set in `wrangler.toml` `[vars]`.) A GitHub App
    installation token is a lower-maintenance alternative if PAT expiry becomes a
    chore.
 2. **Rate-limit KV namespace** (optional but recommended):
@@ -116,7 +117,7 @@ The worker redeploys automatically on push to `main` touching
 |---|---|
 | Worker route + validation + GitHub call | `infra/favorites-worker/src/feedback.ts` |
 | Route registration | `infra/favorites-worker/src/index.ts` |
-| Env bindings (`GITHUB_TOKEN`, `GITHUB_REPO`, `RATE_LIMIT`) | `infra/favorites-worker/src/types.ts`, `wrangler.toml` |
+| Env bindings (`FEEDBACK_GITHUB_ISSUES_TOKEN`, `GITHUB_REPO`, `RATE_LIMIT`) | `infra/favorites-worker/src/types.ts`, `wrangler.toml` |
 | Worker tests | `infra/favorites-worker/test/feedback.test.ts` |
 | Modal UI | `web/src/redesign/FeedbackModal.jsx` |
 | App-context wiring (`openFeedback` / `closeFeedback`) | `web/src/redesign/App206.jsx` |
