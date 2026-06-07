@@ -63,6 +63,22 @@ Each entry looks like:
 Act only on entries whose `recommendation` is `promote-to-browserbase` or
 `retire`. Ignore `verifying` (under budget) and `graduate` (already healthy).
 
+**⚠️ HTTP 402 = Browserbase billing issue — do NOT retire.**
+Before acting on any `retire` entry, check `lastError`. If it contains `402`
+or `Payment Required`, this is a Browserbase account payment problem, not a
+source failure. All browserbase sources fail simultaneously when billing lapses.
+**Do not open retirement PRs.** Instead, report the billing issue:
+
+```
+🚨 Browserbase billing issue: N sources showing HTTP 402 (Payment Required).
+   This is a provider billing problem, not source blocking.
+   Sources affected: <list>
+   Action required: check Browserbase account payment status.
+   No retirement PRs opened — sources will recover when billing is restored.
+```
+
+Stop the skill here — do not proceed to steps 3a/3b for 402 entries.
+
 ### 2. Locate the source's config
 
 The `name` is the source name. Find its config file:
@@ -75,8 +91,9 @@ If both exist with the same bare name (rare), the `rung` and the source's
 
 ### 3a. `promote-to-browserbase` — climb a rung
 
-The `outofband` rung failed 3 times in a row. Open **one PR per source** that
-changes the `proxy` field from `outofband` to `browserbase`:
+The `outofband` rung failed 3 times in a row. Open **one PR** batching all
+`promote-to-browserbase` sources together. Change each source's `proxy` field
+from `outofband` to `browserbase`:
 
 ```yaml
 # sources/external/<name>.yaml
@@ -89,16 +106,19 @@ sources are fetched **live in the main CI build**, not by the out-of-band runner
 — so the rung change moves where the source is fetched. The counter resets to 0
 on the rung change (a fresh rung earns its own 3 strikes).
 
-PR title: `chore(proxy): escalate <name> outofband → browserbase`. In the body,
-note the 3 consecutive `outofband` failures and the `lastError`.
+PR title: `chore(proxy): escalate N sources outofband → browserbase` (or name
+them if only 1-2). In the body, list each source with its consecutive failure
+count and `lastError`.
 
-If the source also has a candidate doc under `docs/source-candidates/<slug>.md`,
+If a source has a candidate doc under `docs/source-candidates/<slug>.md`,
 add a dated note recording the escalation.
 
 ### 3b. `retire` — top of the ladder exhausted
 
-`browserbase` (the highest rung) failed 3 times in a row. There is nowhere
-higher to climb, so retire the source. Open **one PR per source** that:
+`browserbase` (the highest rung) failed 3 times in a row (with errors that are
+**not** HTTP 402 — see the billing check above). There is nowhere higher to
+climb, so retire the source. Open **one PR** batching all `retire` sources
+together. For each source:
 
 1. Sets `disabled: true` in the source's YAML config.
 2. Flips `docs/source-candidates/<slug>.md` frontmatter to `status: blocked` and
@@ -108,7 +128,8 @@ higher to climb, so retire the source. Open **one PR per source** that:
    > outofband (residential IP) 403s; browserbase 3× `<lastError>`. Disabled and
    > marked blocked. The daily discovery cron will not re-propose it.
 
-PR title: `chore(proxy): retire <name> — proxy ladder exhausted`.
+PR title: `chore(proxy): retire N sources — proxy ladder exhausted` (or list
+names if only 1-2).
 
 **Leave a `retire` PR for human merge** — retiring a source is a "we give up on
 this source" decision, not a routine fix. Convert to ready-for-review, post a
@@ -127,8 +148,10 @@ For each PR:
    auto-merge-eligible once green. **Retirement PRs** (`retire`) are **not** —
    convert to ready and leave for human merge.
 
-One source per PR — never batch multiple escalations — so each rung change is
-independently observable and revertible.
+Batch sources with the same recommendation into one PR — sources identified
+together in the same build report belong together in one commit, making bulk
+reverts easy and keeping the changelog clean. Only split into multiple PRs if
+the sources have meaningfully different contexts (e.g., different error types).
 
 ### 5. Reply
 
