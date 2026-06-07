@@ -1,4 +1,5 @@
 name: pacific-place
+expectEmpty: true
 description: "Pacific Place"
 url: "https://api.mallmaverick.com/properties/790/events?api_key=6c36171ab3f3b2\
   c5b734ac841bc078b4"
