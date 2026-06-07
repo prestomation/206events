@@ -346,10 +346,31 @@ export function FollowingView() {
           <div style={{ fontSize: 13.5 }}>Clear a filter above to see more.</div>
         </div>
       ) : (
-        <div className="a-empty" style={{ textAlign: 'center', padding: '40px 0' }}>
-          <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink-2)', marginBottom: 6 }}>Your feed is empty</div>
-          <div style={{ fontSize: 13.5, marginBottom: 16 }}>Follow a calendar, save a place, or add a search.</div>
-          <button className="btn btn-blue" style={{ display: 'inline-flex' }} onClick={() => app.go('you')}>{Ico.plus}Add sources</button>
+        <div className="a-getstarted">
+          <div className="a-getstarted-h">Build your feed</div>
+          <div className="a-getstarted-sub">
+            Following collects everything you care about into one calendar you can subscribe to. Start with any of these:
+          </div>
+          <div className="a-getstarted-actions">
+            <button className="a-getstarted-card" onClick={() => app.go('discover')}>
+              <span className="a-onboard-ico">{Ico.grid}</span>
+              <span className="a-getstarted-card-title">Browse calendars</span>
+              <span className="a-getstarted-card-body">Follow venues and topics in Discover.</span>
+            </button>
+            <button className="a-getstarted-card" onClick={() => app.go('you')}>
+              <span className="a-onboard-ico">{Ico.pin}</span>
+              <span className="a-getstarted-card-title">Save a place</span>
+              <span className="a-getstarted-card-body">Pull in everything near an address.</span>
+            </button>
+            <button className="a-getstarted-card" onClick={() => app.go('you')}>
+              <span className="a-onboard-ico">{Ico.search}</span>
+              <span className="a-getstarted-card-title">Add a search</span>
+              <span className="a-getstarted-card-body">Keep matching new events automatically.</span>
+            </button>
+          </div>
+          <button className="a-getstarted-help" onClick={app.openHelp}>
+            <span style={{ width: 15, height: 15 }}>{Ico.help}</span>How it works
+          </button>
         </div>
       )}
     </div>

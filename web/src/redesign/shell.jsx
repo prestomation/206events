@@ -109,6 +109,7 @@ export function TopBar() {
         ))}
       </nav>
       <SavingToSwitcher />
+      <button className="a-iconbtn" onClick={app.openHelp} title="How it works" aria-label="How it works">{Ico.help}</button>
       <button className="a-iconbtn" onClick={app.toggleFilter} title="Filter by date">{Ico.filter}</button>
     </div>
   )
