@@ -299,6 +299,49 @@ describe('App206 redesign', () => {
   })
 })
 
+// Local UAT/demo mode (?uat=1): fakes a signed-in session, lists live in
+// localStorage, no network. Lets the multi-list UI be previewed on a static
+// deploy that has no OAuth backend.
+describe('Local UAT mode (?uat=1)', () => {
+  beforeEach(() => {
+    localStorage.clear()
+    window.location.hash = ''
+    window.history.replaceState({}, '', '/?uat=1')
+    global.fetch = vi.fn(mockFetch)
+  })
+  afterEach(() => { window.history.replaceState({}, '', '/') })
+
+  it('boots a fake signed-in session with a default list and never calls the API', async () => {
+    render(<App />)
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    fireEvent.click(screen.getAllByText('You')[0].closest('button'))
+    await waitFor(() => expect(screen.getByText('UAT Tester')).toBeInTheDocument())
+    expect(screen.getByText(/Local UAT mode/)).toBeInTheDocument()
+    expect(screen.getByText('New list')).toBeInTheDocument()
+    // No auth/me, /lists, or /favorites calls were made.
+    const calls = global.fetch.mock.calls.map(c => String(c[0]))
+    expect(calls.some(u => /\/auth\/me|\/lists|\/favorites|\/search-filters|\/geo-filters/.test(u))).toBe(false)
+  })
+
+  it('creates a second list locally and persists it to localStorage', async () => {
+    const { container } = render(<App />)
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    fireEvent.click(screen.getAllByText('You')[0].closest('button'))
+    await waitFor(() => expect(screen.getByText('UAT Tester')).toBeInTheDocument())
+
+    fireEvent.click(screen.getByText('New list'))
+    const input = await screen.findByPlaceholderText(/List name/)
+    fireEvent.change(input, { target: { value: 'Date Night' } })
+    fireEvent.click(screen.getByText('Save'))
+
+    // Switcher now shows both lists and persisted to localStorage.
+    await waitFor(() => expect(container.querySelector('.a-listswitch')).toBeTruthy())
+    expect(screen.getByRole('tab', { name: 'Date Night' })).toBeInTheDocument()
+    const stored = JSON.parse(localStorage.getItem('calendar-ripper-uat-lists'))
+    expect(stored.map(l => l.name)).toContain('Date Night')
+  })
+})
+
 // Signed-in multi-list behavior. Auth is driven entirely by what the mocked
 // fetch returns for `auth/me` + `/lists` (no real OAuth needed).
 describe('Multiple favorites lists (signed-in)', () => {

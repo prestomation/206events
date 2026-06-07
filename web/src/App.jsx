@@ -67,8 +67,49 @@ function normalizeServerList(l) {
   }
 }
 
+// ----- Local UAT/demo mode -----
+// The signed-in multi-list UI needs an OAuth backend, which static preview
+// deploys don't have. Visiting any deploy with `?uat=1` fakes a signed-in
+// session and keeps all lists in localStorage (no network), so the full
+// multi-list UI is previewable. The flag is read from the URL on load and is
+// NOT persisted — reload without `?uat=1` returns to normal logged-out mode.
+const UAT_LISTS_KEY = 'calendar-ripper-uat-lists'
+const UAT_USER = { name: 'UAT Tester', email: 'Demo session (browser-only)', picture: '', feedToken: 'uat', feedUrl: null }
+
+function readUatFlag() {
+  try { return new URLSearchParams(window.location.search).get('uat') === '1' } catch { return false }
+}
+function uatFeedUrl(id) {
+  try { return `${window.location.origin}/feed/uat-${id}.ics` } catch { return `/feed/uat-${id}.ics` }
+}
+function uatList(id, name) {
+  return { id, name, feedUrl: uatFeedUrl(id), icsUrls: [], searchFilters: [], geoFilters: [] }
+}
+function loadUatLists() {
+  try {
+    const s = localStorage.getItem(UAT_LISTS_KEY)
+    if (s) {
+      const arr = JSON.parse(s)
+      if (Array.isArray(arr) && arr.length) return arr.map(normalizeServerList)
+    }
+  } catch {}
+  return [uatList('default', 'My Favorites')]
+}
+function uatNewId(name, existing) {
+  const base = (name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'list'
+  const taken = new Set(existing.map(l => l.id))
+  if (base !== 'default' && !taken.has(base)) return base
+  let i = 2
+  while (taken.has(`${base}-${i}`)) i++
+  return `${base}-${i}`
+}
+
 function App() {
+  // Read once per load; available to the useState initializers below.
+  const uatMode = readUatFlag()
+
   const [calendars, setCalendars] = useState([])
+
   const [manifest, setManifest] = useState(null)
   const [venues, setVenues] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
@@ -97,8 +138,8 @@ function App() {
   // Lists model. `favorites` / `searchFilters` / `geoFilters` are derived from
   // the active list so all the downstream memoized parity logic keeps operating
   // on a single set of arrays, unchanged.
-  const [lists, setLists] = useState(() => [loadLocalList()])
-  const [activeListId, setActiveListId] = useState(LOCAL_LIST_ID)
+  const [lists, setLists] = useState(() => uatMode ? loadUatLists() : [loadLocalList()])
+  const [activeListId, setActiveListId] = useState(() => uatMode ? (loadUatLists()[0]?.id || 'default') : LOCAL_LIST_ID)
 
   const activeList = useMemo(
     () => lists.find(l => l.id === activeListId) || lists[0] || loadLocalList(),
@@ -127,29 +168,39 @@ function App() {
   const [showMapView, setShowMapView] = useState(false)
   const [showFavoritesMap, setShowFavoritesMap] = useState(false)
 
-  // Auth state
-  const [authUser, setAuthUser] = useState(null)
-  const [authLoading, setAuthLoading] = useState(true)
+  // Auth state. In UAT mode we fake a signed-in user so the multi-list UI shows.
+  const [authUser, setAuthUser] = useState(() => uatMode ? UAT_USER : null)
+  const [authLoading, setAuthLoading] = useState(() => !uatMode)
 
   const API_URL = import.meta.env.VITE_FAVORITES_API_URL || ''
 
   // Mutate the active list in place. `mutate(list)` returns the changed array
   // fields (or null/undefined to no-op); `sync(list, next)` fires the matching
   // persistence call. Local list → localStorage; server list → per-list API.
+  // In UAT mode no sync runs here — the whole lists array is persisted to
+  // localStorage by the effect below.
   const mutateActiveList = useCallback((mutate, syncLocal, syncServer) => {
     setLists(prev => prev.map(l => {
       if (l.id !== activeListId) return l
       const patch = mutate(l)
       if (!patch) return l
       const next = { ...l, ...patch }
-      if (l.id === LOCAL_LIST_ID) {
+      if (uatMode) {
+        // persisted by the [lists] effect
+      } else if (l.id === LOCAL_LIST_ID) {
         syncLocal?.(next)
       } else if (API_URL && authUser) {
         syncServer?.(l, next)
       }
       return next
     }))
-  }, [activeListId, authUser, API_URL])
+  }, [activeListId, authUser, API_URL, uatMode])
+
+  // UAT mode: persist the whole lists array to localStorage on any change.
+  useEffect(() => {
+    if (!uatMode) return
+    try { localStorage.setItem(UAT_LISTS_KEY, JSON.stringify(lists)) } catch {}
+  }, [uatMode, lists])
 
   const toggleFavorite = useCallback((icsUrl) => {
     mutateActiveList(
@@ -250,7 +301,17 @@ function App() {
 
   const createList = useCallback(async (name) => {
     const trimmed = (name || '').trim()
-    if (!trimmed || !API_URL || !authUser) return null
+    if (!trimmed) return null
+    if (uatMode) {
+      let nl = null
+      setLists(prev => {
+        nl = uatList(uatNewId(trimmed, prev), trimmed)
+        return [...prev, nl]
+      })
+      if (nl) setActiveListId(nl.id)
+      return nl
+    }
+    if (!API_URL || !authUser) return null
     try {
       const res = await fetch(`${API_URL}/lists`, {
         method: 'POST', credentials: 'include',
@@ -264,20 +325,20 @@ function App() {
       setActiveListId(nl.id)
       return nl
     } catch { return null }
-  }, [API_URL, authUser])
+  }, [API_URL, authUser, uatMode])
 
   const renameList = useCallback((id, name) => {
     const trimmed = (name || '').trim()
     if (!trimmed) return
     setLists(prev => prev.map(l => l.id === id ? { ...l, name: trimmed } : l))
-    if (API_URL && authUser && id !== LOCAL_LIST_ID) {
+    if (!uatMode && API_URL && authUser && id !== LOCAL_LIST_ID) {
       fetch(`${API_URL}/lists/${encodeURIComponent(id)}`, {
         method: 'PATCH', credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: trimmed }),
       }).catch(() => {})
     }
-  }, [API_URL, authUser])
+  }, [API_URL, authUser, uatMode])
 
   const deleteList = useCallback((id) => {
     setLists(prev => {
@@ -286,15 +347,16 @@ function App() {
       setActiveListId(cur => (cur === id ? next[0].id : cur))
       return next
     })
-    if (API_URL && authUser && id !== LOCAL_LIST_ID) {
+    if (!uatMode && API_URL && authUser && id !== LOCAL_LIST_ID) {
       fetch(`${API_URL}/lists/${encodeURIComponent(id)}`, {
         method: 'DELETE', credentials: 'include',
       }).catch(() => {})
     }
-  }, [API_URL, authUser])
+  }, [API_URL, authUser, uatMode])
 
   // Check auth on mount
   useEffect(() => {
+    if (uatMode) return // demo session already set
     if (!API_URL) { setAuthLoading(false); return }
     fetch(`${API_URL}/auth/me`, { credentials: 'include' })
       .then(res => res.ok ? res.json() : null)
@@ -311,7 +373,7 @@ function App() {
   }
 
   const handleLogout = async () => {
-    if (API_URL) {
+    if (!uatMode && API_URL) {
       await fetch(`${API_URL}/auth/logout`, { method: 'POST', credentials: 'include' })
     }
     setAuthUser(null)
@@ -323,6 +385,7 @@ function App() {
   // Sync lists on login. Fetch all server lists; on first login, migrate any
   // anonymous localStorage data into the (empty) default list so nothing is lost.
   useEffect(() => {
+    if (uatMode) return // demo lists live in localStorage, not the API
     if (!authUser || !API_URL) return
     let cancelled = false
 
@@ -1599,6 +1662,7 @@ function App() {
       renameList={renameList}
       deleteList={deleteList}
       canCreateList={lists.length < MAX_LISTS}
+      uatMode={uatMode}
       authUser={authUser}
       handleLogin={handleLogin}
       handleLogout={handleLogout}

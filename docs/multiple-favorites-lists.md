@@ -103,6 +103,24 @@ map, …) keeps operating on a single set of arrays unchanged.
 `lists.length > 1`), the active list's feed-URL card, and create / rename /
 delete controls. The "New list" control is disabled at the cap.
 
+## Local UAT / demo mode (`?uat=1`)
+
+The signed-in multi-list UI needs an OAuth backend, which static preview deploys
+(Cloudflare Pages) don't have — so the feature is otherwise unreachable for UAT.
+Appending `?uat=1` to any deploy URL activates a **local demo mode**:
+
+- A synthetic signed-in user ("UAT Tester") is set, so the multi-list UI renders.
+- All lists live in `localStorage` (`calendar-ripper-uat-lists`); create / rename /
+  delete and per-list favorites/search/geo all operate locally with **no network
+  calls**. Per-list feed URLs are obviously-fake placeholders.
+- An amber banner in the **You** view makes clear it's a browser-only demo.
+
+The flag is read from the URL on load and is **not persisted** — reloading
+without `?uat=1` returns to normal logged-out behavior. This ships in the bundle
+but is inert unless the param is present, so production is unaffected. Implemented
+in `web/src/App.jsx` (`readUatFlag`, `loadUatLists`, the `uatMode` branches in the
+list handlers) and surfaced via `YouView`.
+
 ## Parity & tests
 
 The **Favorites Filter Parity Rule** (AGENTS.md / CLAUDE.md) still holds — only

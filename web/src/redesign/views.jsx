@@ -372,6 +372,18 @@ export function YouView() {
       <div className="a-eyebrow" style={{ marginBottom: 5 }}>ACCOUNT &amp; SOURCES</div>
       <div className="a-h1" style={{ marginBottom: 16 }}>You</div>
 
+      {app.uatMode && (
+        <div role="note" style={{
+          margin: '0 0 16px', padding: '10px 13px', borderRadius: 10,
+          background: 'var(--amber-bg, #fff7ed)', border: '1px solid var(--amber, #f59e0b)',
+          fontSize: 12.5, color: 'var(--ink-2)', lineHeight: 1.45,
+        }}>
+          🧪 <strong>Local UAT mode.</strong> You’re not really signed in — lists and feed URLs
+          are stored in your browser only (no account, no real subscriptions). Remove
+          <code style={{ margin: '0 3px' }}>?uat=1</code> from the URL to exit.
+        </div>
+      )}
+
       {/* account */}
       <div className="a-accountcard">
         <div className="a-accountcard-ava">
