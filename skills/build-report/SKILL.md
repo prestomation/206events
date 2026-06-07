@@ -21,6 +21,18 @@ This fetches `https://206.events/build-errors.json` and prints a structured summ
 - `urlEntityErrors` — URL fields containing HTML entities (`&amp;`, `&#38;`, …). **Fatal** — see below
 - Build timestamp
 
+**If the script returns HTTP 403** (the cloud sandbox IP may be blocked by
+Cloudflare Pages), fall back to downloading from the GitHub Actions artifact
+instead:
+1. Use `mcp__github__actions_list` to find the latest `build-calendars.yml` run.
+2. Use `mcp__github__actions_get` or list artifacts to find the `build-errors`
+   artifact ID for that run.
+3. Download the artifact zip via the GitHub API, extract `build-errors.json`,
+   and parse it manually (e.g. `python3 -c "import json,sys; print(json.dumps(json.load(open('/tmp/build-errors.json')), indent=2))"`).
+
+The artifact URL pattern is:
+`https://github.com/prestomation/206events/actions/runs/<RUN_ID>/artifacts`
+
 ### 2. Reply with Build Health Report
 
 Include the report in your reply text — the delivery system will route it to the correct channel.
