@@ -77,15 +77,87 @@ Defense in depth, all in `infra/favorites-worker/src/feedback.ts`:
 
 ### Future hardening (deferred, non-blocking)
 
-These were considered and intentionally left for later to keep v1 reviewable:
+These were considered and intentionally left out of v1 to keep it reviewable.
+The endpoint ships with honeypot + per-IP rate limit + validation; reach for
+these **only when spam actually appears** (watch the `feedback`-labelled issue
+volume). Each entry below carries enough context to implement in a single PR
+without re-deriving the design. All worker changes land in
+`infra/favorites-worker/src/feedback.ts` (+ `types.ts`, `wrangler.toml`, and
+`test/feedback.test.ts`) unless noted.
 
-- **Cloudflare Turnstile** in front of `/feedback` — the strongest lever if the
-  honeypot + per-IP limit prove insufficient against anonymous→Issues spam.
-- **Global rate limit** — a per-repo cap (e.g. 100/hour) as a backstop against
-  distributed/VPN abuse that slips past the per-IP limit.
-- **CF-IP trust** — the worker is only reachable via `api.206.events` (behind
-  Cloudflare), so `CF-Connecting-IP` is trustworthy today; if that ever changes,
-  validate the request originates from Cloudflare before trusting the header.
+#### 1. Cloudflare Turnstile (strongest lever — do this first)
+
+A privacy-friendly, same-vendor CAPTCHA. Invisible/managed challenge most of the
+time, so UX cost is low; it's free.
+
+- **When:** the first sign of real bot spam getting past the honeypot.
+- **Client** (`web/src/redesign/FeedbackModal.jsx`): load
+  `https://challenges.cloudflare.com/turnstile/v0/api.js`, render a widget with
+  the **public site key** from `import.meta.env.VITE_TURNSTILE_SITE_KEY`, and on
+  submit include the widget token in the POST body as `turnstileToken`. Reset the
+  widget on error. Keep the existing GitHub-URL fallback for when `API_URL` is
+  unset.
+- **Worker** (`handlePostFeedback`, before the rate-limit/issue-create step):
+  add a `verifyTurnstile()` helper that POSTs to
+  `https://challenges.cloudflare.com/turnstile/v0/siteverify` with
+  `secret=TURNSTILE_SECRET`, `response=<token>`, `remoteip=<CF-Connecting-IP>`,
+  and returns `403` when `success !== true`. **Gate on config:** if
+  `TURNSTILE_SECRET` is unset, skip verification (so local/dev and the current
+  deploy keep working) — i.e. fail-open until the secret exists, fail-closed once
+  it does.
+- **Config:** add `TURNSTILE_SECRET?: string` to `Env` in `types.ts`;
+  `wrangler secret put TURNSTILE_SECRET`; set `VITE_TURNSTILE_SITE_KEY` at web
+  build time. Create the Turnstile widget in the Cloudflare dashboard for the
+  `206.events` domain.
+- **Tests:** worker test stubs `fetch` for siteverify (success + failure →
+  200/403); web test mocks the widget script and asserts the token is sent.
+- **Tradeoff:** one third-party script + one verification round-trip per submit.
+
+#### 2. Global (per-repo) rate limit — backstop against distributed abuse
+
+The per-IP limit (5/hr) doesn't stop a botnet or VPN-rotated flood. Add a second
+counter that caps **total** submissions per hour.
+
+- **When:** if you see many issues from many distinct IPs in a short window.
+- **How:** in `withinRateLimit()` (or a sibling checked alongside it), also
+  increment a **time-bucketed global key** so each window is a fresh key that
+  self-expires:
+  `rl:feedback:global:${Math.floor(Date.now() / 3_600_000)}`, with
+  `expirationTtl` ~2h. Add a `GLOBAL_RATE_LIMIT_MAX` constant (start ~100/hr).
+  Over the cap → `429`. Reuse the existing `RATE_LIMIT` KV namespace.
+- **Tests:** loop >`GLOBAL_RATE_LIMIT_MAX` submissions from varied IPs → `429`.
+- **Tradeoff / caution:** this is a soft cap that an attacker can deliberately
+  exhaust to *deny feedback* to legitimate users for the rest of the hour. Keep
+  the cap generous and pair it with Turnstile (#1) rather than relying on it
+  alone. The KV read-modify-write is non-atomic (same documented limitation as
+  the per-IP counter and the favorites store) — acceptable for a backstop.
+
+#### 3. Cloudflare-origin trust for `CF-Connecting-IP`
+
+The rate-limit key trusts `CF-Connecting-IP`. Today that's safe: the worker is
+bound **only** to the `api.206.events` custom-domain route (`wrangler.toml`
+`routes`), so every request arrives through Cloudflare, which sets that header.
+The risk only materializes if the worker ever gains a second, non-Cloudflare
+entry point (e.g. a `*.workers.dev` route) where a client could spoof the header
+to dodge the per-IP limit.
+
+- **When:** revisit if a `workers.dev` or any non-custom-domain route is ever
+  added.
+- **How:** keep `workers.dev` disabled (set `workers_dev = false` in
+  `wrangler.toml`) so only the custom domain serves; optionally require a shared
+  secret header injected by a Cloudflare rule and reject requests missing it.
+  Consider tightening the current `'unknown'` IP fallback (when the header is
+  absent) from "all share one bucket" to an outright reject.
+- **Tradeoff:** none meaningful while the single-route invariant holds — this is
+  mostly a "don't regress the invariant" note plus the one-line `workers_dev`
+  guard.
+
+#### Reporting note
+
+If any of these introduces a new user-visible rejection class worth tracking
+(e.g. a Turnstile-failure counter), remember the **Reporting Parity** rule in
+AGENTS.md — plumb it through every reporting surface in the same PR. A simple
+403/429 bump generally doesn't warrant a new `build-errors.json` category.
 
 ## Setup (maintainer, one-time)
 
