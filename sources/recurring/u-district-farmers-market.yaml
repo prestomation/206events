@@ -10,6 +10,7 @@ timezone: America/Los_Angeles
 location: University Way NE between NE 50th St & NE 52nd St, Seattle
 url: https://seattlefarmersmarkets.org/udfm
 tags:
+  - University District
   - FarmersMarket
 schedules:
   - schedule: every Saturday

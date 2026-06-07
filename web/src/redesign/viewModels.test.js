@@ -93,6 +93,18 @@ describe('channelFromCalendar geo wiring', () => {
     expect(channelFromCalendar(cal, null, { venue: null }).imageUrl).toBeNull()
   })
 
+  it('derives hood from a registered neighborhood tag', () => {
+    const ch = channelFromCalendar(cal, null, { venue: null })
+    expect(ch.hood).toBe('Capitol Hill')
+  })
+
+  it('never falls back to a raw geo.label when there is no neighborhood tag', () => {
+    const untagged = { icsUrl: 'x.ics', name: 'x', fullName: 'X', tags: ['Music'] }
+    const venue = { geo: { lat: 47.6, lng: -122.3, label: '2100 6th Ave, Seattle' } }
+    const ch = channelFromCalendar(untagged, null, { venue })
+    expect(ch.hood).toBeNull()
+  })
+
   it('carries the source website (friendlyLink) and description from the ripper', () => {
     const ripper = { friendlyName: 'Neumos', friendlyLink: 'https://www.neumos.com', description: 'Neumos' }
     const ch = channelFromCalendar(cal, ripper, { venue: null })

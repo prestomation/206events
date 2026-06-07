@@ -222,7 +222,13 @@ export function hoodFromTags(tags = []) {
 export function channelFromCalendar(cal, ripper, opts = {}) {
   const { upcomingCount = 0, peek = [], venue = null } = opts
   const tags = cal.tags || []
-  const hood = hoodFromTags(tags) || (venue && venue.geo && venue.geo.label) || null
+  // A channel's area heading comes ONLY from a registered Neighborhoods tag.
+  // We deliberately do NOT fall back to the venue's geo.label, which is a raw
+  // street address ("2100 6th Ave, Seattle") and reads poorly as an area
+  // heading. An untagged venue yields hood=null and groups under "Citywide"
+  // instead — the fix is to add a neighborhood tag to the source, not to
+  // surface its address. See lib/config/tags.ts (TAG_CATEGORIES.Neighborhoods).
+  const hood = hoodFromTags(tags)
   return {
     icsUrl: cal.icsUrl,
     name: ripper && ripper.calendars && ripper.calendars.length > 1

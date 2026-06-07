@@ -3,7 +3,7 @@ description: "Seattle Repertory Theatre Performances"
 proxy: "outofband"
 url: "https://www.seattlerep.org/plays/json"
 friendlyLink: https://www.seattlerep.org
-tags: ["Theatre"]
+tags: ["Theatre", "Uptown"]
 geo:
   lat: 47.6239
   lng: -122.3536

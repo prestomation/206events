@@ -324,6 +324,38 @@ describe("buildVenuesJson", () => {
     expect(venue.tags).toEqual(["Beer", "Ballard"]);
   });
 
+  it("unions calendar-level tags into a single ripper-geo venue (so neighborhood tags on branches aren't dropped)", () => {
+    const ripper = makeRipper({
+      name: "sam",
+      friendlyname: "Seattle Art Museum",
+      description: "Seattle Art Museum",
+      friendlyLink: "https://site.org",
+      tags: ["Arts", "Museums"],
+      geo: BALLARD_GEO,
+      calendars: [
+        { name: "downtown", friendlyname: "SAM Downtown", tags: ["Downtown"] },
+        { name: "asian", friendlyname: "SAM Asian Art", tags: ["Capitol Hill"] },
+      ],
+    });
+
+    const doc = buildVenuesJson({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      calendarsWithFutureEvents: new Set(["sam-downtown.ics", "sam-asian.ics"]),
+      generated: "t",
+    });
+
+    expect(doc.venues).toHaveLength(1);
+    // Ripper tags first, then each live calendar's tags, deduped.
+    expect(doc.venues[0].tags).toEqual([
+      "Arts",
+      "Museums",
+      "Downtown",
+      "Capitol Hill",
+    ]);
+  });
+
   it("stamps a Google Maps web link on every venue (query = label)", () => {
     const ripper = makeRipper({
       name: "stoup",

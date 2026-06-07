@@ -316,7 +316,15 @@ export function buildVenuesJson(opts: {
         friendlyName: ripper.friendlyname ?? ripper.description ?? ripper.name,
         description: ripper.description,
         url: safeUrlString(ripper.friendlyLink),
-        tags: dedupe([...(ripper.tags ?? [])]),
+        // This venue stands in for ALL its live calendars, so its tags are the
+        // union of the ripper-level tags and every calendar's tags. Omitting
+        // the per-calendar tags would drop neighborhood tags that live at the
+        // calendar level (e.g. a single-geo ripper whose branches each carry
+        // their own neighborhood), under-reporting the venue in venues.json.
+        tags: dedupe([
+          ...(ripper.tags ?? []),
+          ...liveCalendars.flatMap(c => c.tags ?? []),
+        ]),
         geo: ripperGeo,
         map: buildVenueMap(ripperGeo),
         ...(ripper.imageUrl ? { imageUrl: ripper.imageUrl } : {}),

@@ -4,7 +4,7 @@ type: dice
 description: "The Vera Project"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Vera+Project"
 friendlyLink: https://theveraproject.org/events/
-tags: ["Music", "Arts"]
+tags: ["Music", "Arts", "Uptown"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/93/Vera_Project_01.jpg"
 geo:
   lat: 47.6231

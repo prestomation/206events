@@ -3,7 +3,7 @@ type: ticketmaster
 description: "Seattle's major outdoor stadium, home of the Seahawks and Sounders FC"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.lumenfield.com
-tags: ["Sports"]
+tags: ["Sports", "Stadium District"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Lumen_Field_exterior%2C_July_2023.jpg"
 geo:
   lat: 47.5953
