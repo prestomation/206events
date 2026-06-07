@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Ico } from '../redesign/icons.jsx'
 
 const RADIUS_OPTIONS = [1, 2, 5, 10, 20]
 const DEFAULT_RADIUS = 2
@@ -6,30 +7,32 @@ const PHOTON_URL = 'https://photon.komoot.io/api/'
 const PHOTON_BBOX = '-122.6,47.3,-121.9,47.8'
 
 /**
- * A chip showing a single geo filter with edit and delete buttons.
+ * A chip showing a single geo filter. The body is a button that opens the
+ * editor; a trailing × removes the filter. Styled to match the redesign's
+ * filter chips (see `.a-geochip` in index.css).
  */
 function GeoFilterChip({ filter, index, onEdit, onDelete }) {
   const label = filter.label || 'Location'
   return (
-    <span className="geo-filter-chip">
-      <span className="geo-filter-chip-label" onClick={() => onEdit(index)} title="Click to edit">
-        📍 {label} · {filter.radiusKm} km
-      </span>
+    <span className="a-geochip">
       <button
-        className="geo-filter-chip-edit"
+        type="button"
+        className="a-geochip-body"
         onClick={() => onEdit(index)}
-        title="Edit"
-        aria-label={`Edit ${label}`}
+        title="Edit this location filter"
       >
-        ✏️
+        <span className="a-geochip-ico">{Ico.pin}</span>
+        <span className="a-geochip-label">{label}</span>
+        <span className="a-geochip-radius">{filter.radiusKm} km</span>
       </button>
       <button
-        className="geo-filter-chip-remove"
+        type="button"
+        className="a-geochip-x"
         onClick={() => onDelete(index)}
         title="Remove"
         aria-label={`Remove ${label}`}
       >
-        ✕
+        <span style={{ width: 12, height: 12 }}>{Ico.close}</span>
       </button>
     </span>
   )
@@ -125,18 +128,19 @@ function AddressAutocomplete({ onSelect }) {
   }
 
   return (
-    <div className="address-autocomplete-wrap" ref={wrapRef}>
+    <div className="a-geoform-acwrap" ref={wrapRef}>
+      <span className="a-geoform-acico">{Ico.search}</span>
       <input
         type="text"
-        className="geo-filter-address-input"
-        placeholder="Search address or place..."
+        className="a-input a-geoform-acinput"
+        placeholder="Search address or place…"
         value={query}
         onChange={handleInput}
         autoComplete="off"
       />
-      {loading && <span className="geo-filter-address-loading" role="status" aria-label="Searching" />}
+      {loading && <span className="a-geoform-spin" role="status" aria-label="Searching" />}
       {showDropdown && suggestions.length > 0 && (
-        <ul className="address-dropdown">
+        <ul className="a-geoform-dropdown">
           {suggestions.map((feat, i) => {
             const p = feat.properties
             const display = [p.name, p.street, p.city, p.state, p.country]
@@ -146,10 +150,11 @@ function AddressAutocomplete({ onSelect }) {
             return (
               <li
                 key={`${lat}-${lng}-${i}`}
-                className="address-dropdown-item"
+                className="a-geoform-dropdown-item"
                 onMouseDown={() => handleSelect(feat)}
               >
-                {display}
+                <span className="a-geoform-dropdown-ico">{Ico.pin}</span>
+                <span className="a-geoform-dropdown-text">{display}</span>
               </li>
             )
           })}
@@ -210,42 +215,53 @@ function GeoFilterForm({ initialFilter, onSave, onCancel, isMobile }) {
   const radiusIndex = RADIUS_OPTIONS.indexOf(radiusKm)
 
   return (
-    <div className="geo-filter-form">
+    <div className="a-geoform">
       {!hasLocation ? (
         <>
           <button
-            className="geo-filter-use-location-btn"
+            type="button"
+            className="btn btn-blue a-geoform-btn"
             onClick={handleUseMyLocation}
             disabled={geolocating}
           >
-            {geolocating ? '⏳ Getting location...' : '📍 Use my location'}
+            {geolocating
+              ? <span className="a-geoform-spin a-geoform-spin--onblue" />
+              : Ico.pin}
+            {geolocating ? 'Getting location…' : 'Use my location'}
           </button>
-          {geoError && <div className="geo-filter-error">{geoError}</div>}
-          <div className="geo-filter-or">or</div>
+          {geoError && <div className="a-geoform-error">{geoError}</div>}
+          <div className="a-geoform-or"><span>or</span></div>
           <AddressAutocomplete onSelect={handleAddressSelect} />
+          <div className="a-geoform-actions">
+            <button type="button" className="btn btn-ghost a-geoform-btn" onClick={onCancel}>Cancel</button>
+          </div>
         </>
       ) : (
         <>
-          <div className="geo-filter-location-set">
-            📍 {locationLabel || 'Location set'}
+          <div className="a-geoform-locset">
+            <span className="a-geoform-locset-ico">{Ico.pin}</span>
+            <span className="a-geoform-locset-label">{locationLabel || 'Location set'}</span>
             <button
-              className="geo-filter-change-location-btn"
+              type="button"
+              className="a-geoform-change"
               onClick={() => { setLat(null); setLng(null); setLocationLabel('') }}
             >
               Change
             </button>
           </div>
 
-          <div className="geo-filter-radius-section">
-            <label className="geo-filter-radius-label">
-              Radius: <strong>{radiusKm} km</strong>
-            </label>
+          <div className="a-geoform-field">
+            <div className="a-geoform-fieldlabel">
+              <span>Radius</span>
+              <strong>{radiusKm} km</strong>
+            </div>
             {isMobile ? (
-              <div className="geo-filter-radius-presets">
+              <div className="a-geoform-presets">
                 {RADIUS_OPTIONS.map(r => (
                   <button
                     key={r}
-                    className={`geo-filter-radius-preset-btn${radiusKm === r ? ' active' : ''}`}
+                    type="button"
+                    className={`a-geoform-preset${radiusKm === r ? ' on' : ''}`}
                     onClick={() => setRadiusKm(r)}
                   >
                     {r} km
@@ -255,20 +271,21 @@ function GeoFilterForm({ initialFilter, onSave, onCancel, isMobile }) {
             ) : (
               <input
                 type="range"
-                className="geo-filter-radius-slider"
+                className="a-geoform-slider"
                 min={0}
                 max={RADIUS_OPTIONS.length - 1}
                 step={1}
                 value={radiusIndex === -1 ? 1 : radiusIndex}
                 onChange={(e) => setRadiusKm(RADIUS_OPTIONS[parseInt(e.target.value)])}
+                aria-label="Search radius"
               />
             )}
           </div>
 
-          <div className="geo-filter-label-section">
+          <div className="a-geoform-field">
             <input
               type="text"
-              className="geo-filter-label-input"
+              className="a-input"
               placeholder="Label (e.g. Home, Work, Capitol Hill)"
               value={label}
               maxLength={50}
@@ -276,23 +293,18 @@ function GeoFilterForm({ initialFilter, onSave, onCancel, isMobile }) {
             />
           </div>
 
-          <div className="geo-filter-form-actions">
-            <button className="geo-filter-cancel-btn" onClick={onCancel}>Cancel</button>
-            <button className="geo-filter-save-btn" onClick={handleSave}>Save</button>
+          <div className="a-geoform-actions">
+            <button type="button" className="btn btn-ghost a-geoform-btn" onClick={onCancel}>Cancel</button>
+            <button type="button" className="btn btn-blue a-geoform-btn" onClick={handleSave}>Save</button>
           </div>
         </>
-      )}
-      {hasLocation && (
-        <div className="geo-filter-form-actions-cancel-only">
-          <button className="geo-filter-cancel-btn" onClick={onCancel}>Cancel</button>
-        </div>
       )}
     </div>
   )
 }
 
 /**
- * The full Geo Filters section shown in the Favorites view.
+ * The full Geo Filters section shown in the You view.
  */
 export function GeoFiltersSection({ authUser, geoFilters, onAdd, onDelete, onEdit, isMobile }) {
   const [isAdding, setIsAdding] = useState(false)
@@ -314,16 +326,11 @@ export function GeoFiltersSection({ authUser, geoFilters, onAdd, onDelete, onEdi
   }
 
   return (
-    <div className="geo-filters-section">
-      <div className="geo-filters-header">
-        <strong>Location Filters</strong>
-        <span className="geo-filters-hint">Only see events near these locations</span>
-      </div>
-
+    <div className="a-geofilters">
       {geoFilters.length > 0 && (
-        <div className="geo-filters-chips">
+        <div className="a-geofilters-chips">
           {geoFilters.map((filter, index) => (
-            <span key={`${filter.lat}-${filter.lng}-${filter.radiusKm}-${index}`}>
+            <span key={`${filter.lat}-${filter.lng}-${filter.radiusKm}-${index}`} className="a-geofilters-chipslot">
               <GeoFilterChip
                 filter={filter}
                 index={index}
@@ -348,12 +355,13 @@ export function GeoFiltersSection({ authUser, geoFilters, onAdd, onDelete, onEdi
 
       {!isAdding && editingIndex === null && (
         <button
-          className="geo-filter-add-btn"
+          type="button"
+          className="btn btn-ghost a-geofilters-add"
           onClick={() => setIsAdding(true)}
           disabled={geoFilters.length >= 10}
           title={geoFilters.length >= 10 ? 'Maximum 10 location filters' : 'Add a location filter'}
         >
-          + Add location
+          {Ico.plus} Add location
         </button>
       )}
 
