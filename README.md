@@ -64,7 +64,11 @@ RSS feeds include the same events as the `.ics` files, making it easy to stay up
 
 ## Filing an Issue
 
-Issues are the best way to report problems or request new calendars. The more detail you provide, the faster things get resolved.
+The quickest way to send feedback is the **in-app feedback form** — open the
+**You** tab and tap **Send feedback** or **Suggest a source**, or use **Report a
+problem with this source** on any calendar's page. Submissions are filed as
+GitHub issues automatically. You can also open an issue directly using the
+templates below; the more detail you provide, the faster things get resolved.
 
 ### Report a Bug
 
