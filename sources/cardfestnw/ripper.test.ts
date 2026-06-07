@@ -123,4 +123,19 @@ describe('CardfestNWRipper - parseEvent', () => {
         if (!('type' in result)) return;
         expect(result.type).toBe('ParseError');
     });
+
+    test('handles midnight-crossing times correctly', () => {
+        const block = {
+            slug: 'late-event-06132026',
+            dateText: 'June 13',
+            timeText: '11pm-2am',
+            building: 'Some Venue',
+            address: '123 Main St, Seattle, WA 98101',
+        };
+        const result = ripper.parseEvent(block, 'Late Night Event');
+        expect('date' in result).toBe(true);
+        if (!('date' in result)) return;
+        expect(result.date.hour()).toBe(23);
+        expect(result.duration.toMinutes()).toBe(180); // 11pm to 2am = 3 hours
+    });
 });

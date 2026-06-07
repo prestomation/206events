@@ -150,7 +150,9 @@ export default class CardfestNWRipper implements IRipper {
         if (endAmPm === 'pm' && endHour !== 12) endHour += 12;
         else if (endAmPm === 'am' && endHour === 12) endHour = 0;
 
-        const durationMinutes = (endHour - startHour) * 60;
+        const durationMinutes = endHour > startHour
+            ? (endHour - startHour) * 60
+            : (24 - startHour + endHour) * 60;
         if (durationMinutes <= 0) {
             return {
                 type: 'ParseError',
