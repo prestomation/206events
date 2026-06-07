@@ -413,15 +413,23 @@ export function YouView() {
             {multiList ? `Feed for “${app.activeList.name}”` : 'One feed, one link'}
           </div>
           <div style={{ fontSize: 12.5, color: 'var(--blue-ink)', opacity: 0.85, marginTop: 2 }}>
-            {feedUrl
-              ? `All ${sourceCount} sources below flow into a single subscription that stays updated.`
-              : 'Sign in to get a single subscription link for everything below.'}
+            {app.uatMode
+              ? 'Demo mode — this is a placeholder link and is not a working subscription.'
+              : feedUrl
+                ? `All ${sourceCount} sources below flow into a single subscription that stays updated.`
+                : 'Sign in to get a single subscription link for everything below.'}
           </div>
           {feedUrl && (
             <div style={{ display: 'flex', gap: 7, marginTop: 9, alignItems: 'center' }}>
+              {app.uatMode && (
+                <span style={{ flex: '0 0 auto', fontSize: 11, fontWeight: 700, color: 'var(--amber, #b45309)',
+                  border: '1px solid var(--amber, #f59e0b)', borderRadius: 6, padding: '2px 6px' }}>DEMO · non-functional</span>
+              )}
               <code className="a-icscode">{feedUrl}</code>
-              <button className="btn btn-blue" style={{ height: 38, fontSize: 13, flex: '0 0 auto', padding: '0 13px' }}
-                onClick={() => { navigator.clipboard?.writeText(feedUrl); app.flash('Link copied ✓') }}>Copy</button>
+              {!app.uatMode && (
+                <button className="btn btn-blue" style={{ height: 38, fontSize: 13, flex: '0 0 auto', padding: '0 13px' }}
+                  onClick={() => { navigator.clipboard?.writeText(feedUrl); app.flash('Link copied ✓') }}>Copy</button>
+              )}
             </div>
           )}
         </div>
