@@ -1,3 +1,4 @@
+// Calendar Ripper Favorites Worker — handles auth, favorites, and feedback
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import type { Env } from './types.js'
