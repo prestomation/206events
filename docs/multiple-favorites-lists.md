@@ -103,6 +103,14 @@ map, …) keeps operating on a single set of arrays unchanged.
 `lists.length > 1`), the active list's feed-URL card, and create / rename /
 delete controls. The "New list" control is disabled at the cap.
 
+A global **"Saving to: &lt;list&gt;"** switcher (`SavingToSwitcher` in
+`redesign/shell.jsx`, rendered in `TopBar`) appears on every view when signed-in
+with more than one list, so it's always clear which list a Follow lands in and
+the target can be changed from anywhere. It shares the `.a-dd*` dropdown styling
+and calls the same `setActiveList`. The follow toast (`toggleFollow` in
+`App206.jsx`) names the destination list when there's more than one
+("Added 'Neumos' to Date Night").
+
 ## Local UAT / demo mode (`?uat=1`)
 
 The signed-in multi-list UI needs an OAuth backend, which static preview deploys

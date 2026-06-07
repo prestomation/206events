@@ -81,7 +81,53 @@ export function TopBar() {
             onClick={() => app.go(it.id)}>{it.icon}<span>{it.label}</span></button>
         ))}
       </nav>
+      <SavingToSwitcher />
       <button className="a-iconbtn" onClick={app.toggleFilter} title="Filter by date">{Ico.filter}</button>
+    </div>
+  )
+}
+
+// Global "Saving to: <list>" control. Visible on every view when the user is
+// signed-in with more than one favorites list, so it's always clear which list
+// a Follow lands in — and switchable from anywhere. With a single list there's
+// no ambiguity, so it stays hidden. Built on the same .a-dd* dropdown styling as
+// FilterDropdown (not FilterDropdown itself, which has "All …"/null semantics —
+// a list is always selected).
+export function SavingToSwitcher() {
+  const app = useApp206()
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  useEffect(() => {
+    if (!open) return
+    const onDown = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false) }
+    document.addEventListener('mousedown', onDown)
+    return () => document.removeEventListener('mousedown', onDown)
+  }, [open])
+
+  if (!app.authUser || !app.lists || app.lists.length <= 1) return null
+  const active = app.lists.find((l) => l.id === app.activeListId) || app.lists[0]
+  const pick = (id) => { app.setActiveList(id); setOpen(false) }
+
+  return (
+    <div className="a-dd a-savingto" ref={ref}>
+      <button className="a-dd-btn on" onClick={() => setOpen((v) => !v)}
+        title="New follows are saved to this list">
+        <span style={{ width: 16, height: 16, flex: '0 0 auto' }}>{Ico.list}</span>
+        <span className="a-savingto-prefix">Saving to:</span>
+        <span className="a-savingto-name">{active.name}</span>
+        <span className="a-dd-caret" style={{ width: 14, height: 14 }}>{Ico.arrow}</span>
+      </button>
+      {open && (
+        <div className="a-dd-menu" role="listbox" aria-label="List that follows are saved to">
+          {app.lists.map((l) => (
+            <button key={l.id} role="option" aria-selected={l.id === active.id}
+              className={`a-dd-item ${l.id === active.id ? 'on' : ''}`} onClick={() => pick(l.id)}>
+              <span className="a-dd-item-label">{l.name}</span>
+              {l.id === active.id && <span className="a-dd-item-check" style={{ width: 14, height: 14 }}>{Ico.check}</span>}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

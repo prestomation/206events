@@ -435,4 +435,49 @@ describe('Multiple favorites lists (signed-in)', () => {
       expect(calls.some(u => u.includes('/lists/date-night/favorites/'))).toBe(true)
     })
   })
+
+  it('shows the top-bar "Saving to" switcher only with >1 list', async () => {
+    // Single list → no switcher.
+    global.fetch = vi.fn(signedInFetch([list('default', 'My Favorites', 'tok1')]))
+    const single = render(<App />)
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    await waitFor(() => {
+      const calls = global.fetch.mock.calls.map(c => String(c[0]))
+      expect(calls.some(u => u.endsWith('/lists'))).toBe(true)
+    })
+    expect(single.container.querySelector('.a-savingto')).toBeFalsy()
+    single.unmount()
+
+    // Two lists → switcher visible on Discover (no navigation needed).
+    global.fetch = vi.fn(signedInFetch([
+      list('default', 'My Favorites', 'tok1'),
+      list('date-night', 'Date Night', 'tok2'),
+    ]))
+    const { container } = render(<App />)
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    await waitFor(() => expect(container.querySelector('.a-savingto')).toBeTruthy())
+    expect(screen.getByText('Saving to:')).toBeInTheDocument()
+    expect(container.querySelector('.a-savingto .a-savingto-name').textContent).toBe('My Favorites')
+  })
+
+  it('switching the top-bar switcher retargets follows and the toast names the list', async () => {
+    global.fetch = vi.fn(signedInFetch([
+      list('default', 'My Favorites', 'tok1'),
+      list('date-night', 'Date Night', 'tok2'),
+    ]))
+    const { container } = render(<App />)
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    await waitFor(() => expect(container.querySelector('.a-savingto')).toBeTruthy())
+
+    // Open the switcher and pick Date Night — all without leaving Discover.
+    fireEvent.click(container.querySelector('.a-savingto .a-dd-btn'))
+    fireEvent.click(screen.getByRole('option', { name: /Date Night/ }))
+    await waitFor(() => expect(container.querySelector('.a-savingto .a-savingto-name').textContent).toBe('Date Night'))
+
+    // Follow a card → POST targets date-night and the toast names the list.
+    fireEvent.click(container.querySelector('.pill-follow'))
+    await waitFor(() => expect(screen.getByText(/Added .* to Date Night/)).toBeInTheDocument())
+    const calls = global.fetch.mock.calls.map(c => String(c[0]))
+    expect(calls.some(u => u.includes('/lists/date-night/favorites/'))).toBe(true)
+  })
 })

@@ -271,8 +271,15 @@ export function App206(props) {
   const toggleFollow = useCallback((icsUrl) => {
     const was = favoritesSet.has(icsUrl)
     toggleFavorite(icsUrl)
-    if (!was) { const ch = channelByIcsUrl.get(icsUrl); flash(`Following ${ch ? ch.name : 'calendar'}`) }
-  }, [favoritesSet, toggleFavorite, channelByIcsUrl, flash])
+    if (!was) {
+      const ch = channelByIcsUrl.get(icsUrl)
+      const name = ch ? ch.name : 'calendar'
+      // With more than one list, name the destination so it's clear where the
+      // follow landed (matches the top-bar "Saving to" switcher).
+      const multi = (lists?.length || 0) > 1
+      flash(multi ? `Added “${name}” to ${activeList?.name || 'your list'}` : `Following ${name}`)
+    }
+  }, [favoritesSet, toggleFavorite, channelByIcsUrl, flash, lists, activeList])
 
   // "Save this area" turns whatever is currently framed on the map into a
   // location filter: center = map center, radius = distance from the center to
