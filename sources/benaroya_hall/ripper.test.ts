@@ -7,6 +7,10 @@ import BenaroyaHallRipper from "./ripper.js";
 import { Ripper, RipperCalendar } from "../../lib/config/schema.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+// sample-data.json mirrors the live Sitecore GraphQL response shape. It uses
+// deliberately stable dates so the suite never ages out: year 2099 for events
+// that must always be "upcoming" and year 2020 for the one that must always be
+// "past" (JSON can't carry comments, so the rationale lives here).
 const SAMPLE = JSON.parse(
     readFileSync(join(__dirname, "sample-data.json"), "utf-8"),
 );

@@ -37,8 +37,11 @@ import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 const GRAPHQL_ENDPOINT =
     "https://www.seattlesymphony.org/sitecore/api/graph/items/web";
 // Public, read-only Sitecore Item Service key, extracted from the site's
-// published appjs.js bundle. Not a secret. If it ever rotates, re-read it from
-// the bundle (search appjs.js for `items/web?sc_apikey=`).
+// published appjs.js bundle. This is NOT a secret: it is served to every
+// browser visitor and can be read from any network tab; it gates anonymous
+// read access to published content only, never writes or private data. A
+// runnable ripper needs it, which is why it is committed. If it ever rotates,
+// re-read it from the bundle (search appjs.js for `items/web?sc_apikey=`).
 const SC_APIKEY = "382CF404-7810-4680-9FFC-C648DE4050AE";
 
 const EVENTS_ROOT = "/sitecore/content/Shared Content/Events";
