@@ -1,10 +1,8 @@
-# verified: 2026-05-17 ok
+# verified: 2026-06-08 ok (Sitecore GraphQL)
 name: benaroya-hall
-type: ticketmaster
 friendlyname: "Benaroya Hall"
-description: "Home of the Seattle Symphony, with the main S. Mark Taper
-  Auditorium and intimate Nordstrom Recital Hall"
-url: "https://app.ticketmaster.com/discovery/v2/events.json"
+description: "Benaroya Hall (Seattle Symphony)"
+url: "https://www.seattlesymphony.org/concerttickets/calendar"
 friendlyLink: https://www.seattlesymphony.org/benaroyahall
 tags: ["Music", "Downtown"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Benaroya_Hall%2C_Seattle%2C_Washington%2C_USA.jpg"
@@ -17,18 +15,23 @@ geo:
 calendars:
   - name: benaroya-taper
     friendlyname: "Benaroya Hall - S. Mark Taper Auditorium"
-    expectEmpty: true
     timezone: America/Los_Angeles
     config:
-      venueId: "KovZpZAaIEvA"
-      venueName: "Benaroya Hall - S. Mark Taper Auditorium"
-      venueAddress: "200 University St, Seattle, WA 98101"
+      # Route performances whose venue name contains this substring here.
+      venueMatch: "Taper"
 
   - name: benaroya-nordstrom
     friendlyname: "Benaroya Hall - Nordstrom Recital Hall"
-    expectEmpty: true
     timezone: America/Los_Angeles
     config:
-      venueId: "KovZpZAaIAkA"
-      venueName: "Benaroya Hall - Nordstrom Recital Hall"
-      venueAddress: "200 University St, Seattle, WA 98101"
+      venueMatch: "Nordstrom"
+
+  - name: benaroya-other
+    friendlyname: "Benaroya Hall - Octave 9 & Other Spaces"
+    timezone: America/Los_Angeles
+    config:
+      # Catch-all for any remaining Benaroya Hall complex room (Octave 9,
+      # Grand Lobby, Green Room, Norcliffe, Soundbridge, generic "Benaroya
+      # Hall") not already routed to Taper or Nordstrom above.
+      venueMatch: "Benaroya Hall"
+      catchAll: true

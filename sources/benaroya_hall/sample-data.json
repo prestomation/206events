@@ -1,0 +1,99 @@
+{
+  "item": {
+    "children": [
+      {
+        "name": "2099",
+        "children": [
+          {
+            "name": "06",
+            "children": [
+              {
+                "name": "99mahler7",
+                "url": "/en/concerttickets/calendar/2099-2100/99mahler7",
+                "eventName": { "value": "Xian Conducts Mahler 7" },
+                "mainTitle": { "value": "Xian Conducts Mahler 7" },
+                "image": { "value": "<image mediaid=\"{A613396D-F87D-4E0F-87D4-73A9385D62A5}\" />" },
+                "venue": { "targetItem": { "venueName": { "value": "S. Mark Taper Foundation Auditorium - Benaroya Hall" } } },
+                "children": [
+                  { "template": { "name": "Performance" }, "date": { "value": "20990612T023000Z" } },
+                  { "template": { "name": "Performance" }, "date": { "value": "20990614T030000Z" } },
+                  { "template": { "name": "Seat Selection" }, "date": { "value": "" } }
+                ]
+              },
+              {
+                "name": "99recital",
+                "url": "/en/concerttickets/calendar/2099-2100/99recital",
+                "eventName": { "value": "Chamber Music Recital" },
+                "mainTitle": { "value": "Chamber Music Recital" },
+                "image": { "value": "" },
+                "venue": { "targetItem": { "venueName": { "value": "Illsley Ball Nordstrom Recital Hall - Benaroya Hall" } } },
+                "children": [
+                  { "template": { "name": "Performance" }, "date": { "value": "20990701T020000Z" } }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "07",
+            "children": [
+              {
+                "name": "99octave",
+                "url": "/en/concerttickets/calendar/2099-2100/99octave",
+                "eventName": { "value": "Octave 9 New Music Showcase" },
+                "mainTitle": { "value": "Octave 9 New Music Showcase" },
+                "image": { "value": "<image mediaid=\"{9A5BA66A-6D78-4F22-B890-B92E821E33A7}\" />" },
+                "venue": { "targetItem": { "venueName": { "value": "Octave 9: Raisbeck Music Center - Benaroya Hall" } } },
+                "children": [
+                  { "template": { "name": "Performance" }, "date": { "value": "20990715T033000Z" } }
+                ]
+              },
+              {
+                "name": "99community",
+                "url": "/en/concerttickets/calendar/2099-2100/99community",
+                "eventName": { "value": "Community Concert at Garfield" },
+                "mainTitle": { "value": "Community Concert at Garfield" },
+                "image": { "value": "" },
+                "venue": { "targetItem": { "venueName": { "value": "Garfield High School Auditorium, 400 23rd Ave, Seattle, WA 98122" } } },
+                "children": [
+                  { "template": { "name": "Performance" }, "date": { "value": "20990801T020000Z" } }
+                ]
+              },
+              {
+                "name": "99baddate",
+                "url": "/en/concerttickets/calendar/2099-2100/99baddate",
+                "eventName": { "value": "Event With Bad Date" },
+                "mainTitle": { "value": "Event With Bad Date" },
+                "image": { "value": "" },
+                "venue": { "targetItem": { "venueName": { "value": "S. Mark Taper Foundation Auditorium - Benaroya Hall" } } },
+                "children": [
+                  { "template": { "name": "Performance" }, "date": { "value": "not-a-real-date" } }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "2020",
+        "children": [
+          {
+            "name": "01",
+            "children": [
+              {
+                "name": "20oldgala",
+                "url": "/en/concerttickets/calendar/2019-2020/20oldgala",
+                "eventName": { "value": "Past Season Gala" },
+                "mainTitle": { "value": "Past Season Gala" },
+                "image": { "value": "" },
+                "venue": { "targetItem": { "venueName": { "value": "S. Mark Taper Foundation Auditorium - Benaroya Hall" } } },
+                "children": [
+                  { "template": { "name": "Performance" }, "date": { "value": "20200101T030000Z" } }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
