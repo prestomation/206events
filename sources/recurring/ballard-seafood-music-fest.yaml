@@ -1,3 +1,4 @@
+# verified: 2026-06-08 drift-fixed (schedules[1].duration PT10H→PT11H)
 imageUrl: "https://seafoodfest.org/wp-content/uploads/2025/12/486-1200x800.jpg"
 geo:
   lat: 47.6680
@@ -22,7 +23,7 @@ schedules:
     months: [7]
   - schedule: "2nd Saturday"
     start_time: "11:00"
-    duration: PT10H
+    duration: PT11H
     months: [7]
   - schedule: "2nd Sunday"
     start_time: "11:00"
