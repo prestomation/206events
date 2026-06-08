@@ -1,0 +1,50 @@
+# verified: 2026-06-08 ok (annual dates confirmed as Nov 20 – Dec 24)
+# Approximates daily operation in December. The market actually runs Nov 20 – Dec 24;
+# this calendar covers all of December (Dec 1–31), so Dec 25–31 are over-generated
+# and the Nov 20–30 window is missed. Hours are approximate — check website for
+# exact daily schedule.
+geo:
+  lat: 47.6205
+  lng: -122.3493
+  label: "Seattle Center, Fisher Pavilion, 305 Harrison St, Seattle, WA 98109"
+  osmType: way
+  osmId: 4755066
+name: seattle-christmas-market
+friendlyname: Seattle Christmas Market
+description: Annual European-style Christmas market at Seattle Center's Fisher Pavilion. Runs from late November through December 24 with German-inspired décor, Glühwein, local artisan vendors, and live entertainment. Timed-entry tickets required.
+timezone: America/Los_Angeles
+location: Seattle Center, Fisher Pavilion, 305 Harrison St, Seattle, WA 98109
+url: https://seattlechristmasmarket.com/
+tags:
+  - Community
+  - QueenAnne
+  - MakersMarket
+schedules:
+  - schedule: every Monday
+    start_time: "12:00"
+    duration: PT8H
+    months: [12]
+  - schedule: every Tuesday
+    start_time: "12:00"
+    duration: PT8H
+    months: [12]
+  - schedule: every Wednesday
+    start_time: "12:00"
+    duration: PT8H
+    months: [12]
+  - schedule: every Thursday
+    start_time: "12:00"
+    duration: PT8H
+    months: [12]
+  - schedule: every Friday
+    start_time: "12:00"
+    duration: PT9H
+    months: [12]
+  - schedule: every Saturday
+    start_time: "11:00"
+    duration: PT10H
+    months: [12]
+  - schedule: every Sunday
+    start_time: "11:00"
+    duration: PT9H
+    months: [12]

@@ -1,9 +1,10 @@
 ---
 name: "Seattle Christmas Market"
-status: candidate
+status: added
 firstSeen: 2026-06-07
-lastChecked: 2026-06-07
-tags: [Community, QueenAnne, Seasonal]
+lastChecked: 2026-06-08
+pr: claude/loving-hamilton-y9wljj
+tags: [Community, QueenAnne, MakersMarket]
 ---
 **Seattle Christmas Market** — `https://seattlechristmasmarket.com/` — Traditional European-style Christmas market at Seattle Center's Fisher Pavilion. Features German-inspired décor, Glühwein, local artisan vendors, live entertainment, and timed-entry ticketing. Runs ~35 days annually.
 
