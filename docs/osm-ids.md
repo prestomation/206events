@@ -76,13 +76,13 @@ prompts for confirmation before writing the result back to the YAML.
 
 ```bash
 # Dry run — see what would be looked up
-node --loader ts-node/esm scripts/backfill-osm-ids.ts --dry-run
+tsx scripts/backfill-osm-ids.ts --dry-run
 
 # Spot-check one source
-node --loader ts-node/esm scripts/backfill-osm-ids.ts --source barboza
+tsx scripts/backfill-osm-ids.ts --source barboza
 
 # Sweep the whole repo (still interactive — use Ctrl-C to abort)
-node --loader ts-node/esm scripts/backfill-osm-ids.ts
+tsx scripts/backfill-osm-ids.ts
 ```
 
 The script respects Nominatim's 1 req/sec rate limit. Commit the
