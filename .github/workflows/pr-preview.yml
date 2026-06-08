@@ -178,15 +178,15 @@ jobs:
               proxyVerificationSection = `\n\n${badge}\n<details>\n<summary>Show proxy-ladder queue</summary>\n\n| Source | Rung | Consecutive failures | Recommendation | Last error |\n|--------|------|----------------------|----------------|------------|\n${rows}\n\n_The proxy-escalation skill escalates a source after ${'`'}3${'`'} consecutive failures._\n\n</details>`;
             }
 
-            // Browserbase stale serves: a source whose live fetch failed and
-            // was satisfied from a cached copy older than the 24h TTL. Counted
-            // in totalErrors. See docs/browserbase-throttle.md.
+            // Stale serves: a source whose live fetch failed and was satisfied
+            // from a cached copy older than the TTL. Counted in totalErrors.
+            // See docs/fetch-cache.md.
             let proxyStaleSection = '';
             if (proxyStaleServes.length > 0) {
               const rows = proxyStaleServes.map(s =>
                 `| \`${s.source || s.url}\` | ${s.ageHours}h | ${s.cachedAt} | ${s.error} |`
               ).join('\n');
-              proxyStaleSection = `\n\n**🕒 ${proxyStaleServes.length} browserbase source(s) served from stale cache.** The live fetch failed and a copy older than the 24h TTL was used — investigate the source or Browserbase.\n<details>\n<summary>Show stale serves</summary>\n\n| Source | Age | Cached at | Error |\n|--------|-----|-----------|-------|\n${rows}\n\n</details>`;
+              proxyStaleSection = `\n\n**🕒 ${proxyStaleServes.length} source(s) served from stale cache.** The live fetch failed and a copy older than the TTL was used — investigate the source.\n<details>\n<summary>Show stale serves</summary>\n\n| Source | Age | Cached at | Error |\n|--------|-----|-----------|-------|\n${rows}\n\n</details>`;
             }
 
             // New source summary — event counts and sample events for sources not in production

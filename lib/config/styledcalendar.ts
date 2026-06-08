@@ -1,6 +1,7 @@
 import { Duration, Instant, LocalDate, OffsetDateTime, ZoneId } from "@js-joda/core";
 import LZString from "lz-string";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "./schema.js";
+import { getFetchForConfig } from "./proxy-fetch.js";
 import "@js-joda/timezone";
 
 interface StyledCalendarApiResponse {
@@ -46,6 +47,7 @@ function parseEventDate(dateStr: string, timezone: ZoneId): { dt: ReturnType<typ
 export class StyledCalendarRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const results: RipperCalendar[] = [];
+        const fetchFn = getFetchForConfig(ripper.config);
 
         for (const cal of ripper.config.calendars) {
             const calConfig = cal.config as { styledCalendarId?: string } | undefined;
@@ -71,7 +73,7 @@ export class StyledCalendarRipper implements IRipper {
             let apiResponse: StyledCalendarApiResponse;
 
             try {
-                const res = await fetch(apiUrl);
+                const res = await fetchFn(apiUrl);
                 if (!res.ok) {
                     throw new Error(`HTTP ${res.status}: ${res.statusText}`);
                 }

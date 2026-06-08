@@ -1,5 +1,6 @@
 import { Duration, LocalDateTime, ZoneId, ChronoUnit } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
+import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
 const MAX_PAGES = 100;
@@ -40,6 +41,7 @@ export class EventbriteRipper implements IRipper {
             }));
         }
 
+        const fetchFn = getFetchForConfig(ripper.config);
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
@@ -60,7 +62,7 @@ export class EventbriteRipper implements IRipper {
             }
 
             try {
-                const rawEvents = await this.fetchAllEvents(organizerId, token);
+                const rawEvents = await this.fetchAllEvents(organizerId, token, fetchFn);
                 calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone, defaultLocation, defaultDurationHours, ripper.config.name, cal.name);
             } catch (error) {
                 calendars[cal.name].events = [{
@@ -81,14 +83,14 @@ export class EventbriteRipper implements IRipper {
         }));
     }
 
-    public async fetchAllEvents(organizerId: string, token: string): Promise<any[]> {
+    public async fetchAllEvents(organizerId: string, token: string, fetchFn: FetchFn = fetch): Promise<any[]> {
         const events: any[] = [];
         let page = 1;
 
         while (page <= MAX_PAGES) {
             const url = `https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/?status=live&expand=venue&page=${page}`;
 
-            const res = await fetch(url, {
+            const res = await fetchFn(url, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (!res.ok) {

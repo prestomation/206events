@@ -1,5 +1,6 @@
 import { Duration, LocalDateTime, ZoneId, ChronoUnit, ZonedDateTime, DateTimeFormatter } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
+import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
 const MAX_PAGES = 10;
@@ -38,6 +39,7 @@ export class DICERipper implements IRipper {
             }));
         }
 
+        const fetchFn = getFetchForConfig(ripper.config);
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
@@ -58,7 +60,7 @@ export class DICERipper implements IRipper {
             }
 
             try {
-                const rawEvents = await this.fetchAllEvents(venueName, apiKey);
+                const rawEvents = await this.fetchAllEvents(venueName, apiKey, fetchFn);
                 calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone, defaultLocation, defaultDurationHours, ripper.config.name, cal.name);
             } catch (error) {
                 calendars[cal.name].events = [{
@@ -79,13 +81,13 @@ export class DICERipper implements IRipper {
         }));
     }
 
-    public async fetchAllEvents(venueName: string, apiKey: string): Promise<any[]> {
+    public async fetchAllEvents(venueName: string, apiKey: string, fetchFn: FetchFn = fetch): Promise<any[]> {
         const events: any[] = [];
         let page = 1;
         let nextUrl: string | null = `${DICE_API_URL}?page%5Bsize%5D=50&filter%5Bvenues%5D%5B%5D=${encodeURIComponent(venueName)}`;
 
         while (nextUrl && page <= MAX_PAGES) {
-            const res: Response = await fetch(nextUrl, {
+            const res: Response = await fetchFn(nextUrl, {
                 headers: {
                     'x-api-key': apiKey,
                     'Accept': 'application/json'

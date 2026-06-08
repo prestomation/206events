@@ -162,6 +162,14 @@ To implement:
    **Do not guess at the data shape** if you cannot fetch the source. An implementation written against an inaccessible URL is a guess — it will produce 0 events or parse errors. Only implement once you have seen a real sample response.
 
 3. **Spawn a coding agent**: `sessions_spawn(runtime="acp", agentId="claude", cwd=<repo_path>)` with the full implementation spec including ripper type, URL, config details, geo coordinates, tags, and (if applicable) `proxy: "outofband"` requirement
+
+   **When implementing/iterating, build only the new source — never a full all-sources build:**
+
+   ```sh
+   ONLY_SOURCE=<source-name> npm run generate-calendars
+   ```
+
+   `ONLY_SOURCE` restricts the build to that one source (skipping every other source's fetch+parse and the new-source/deployed-site gates), so iteration is fast and outgoing traffic stays scoped to the source being added. The fetch cache (`docs/fetch-cache.md`) fetches it live only once; re-runs re-parse the cached body with no network, so you can iterate on parsing freely.
 4. **Push and open PR**: `scripts/push_and_pr.sh`
 
 ### 7. Verify events and iterate with Q

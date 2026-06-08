@@ -14,14 +14,15 @@ import {
   serializeRipperErrors,
   serializeRipperError,
 } from "./config/schema.js";
-import { createBrowserbaseFetch } from "./config/proxy-fetch.js";
+import { getFetchForConfig } from "./config/proxy-fetch.js";
 import {
-  loadBrowserbaseCache,
-  saveBrowserbaseCache,
-  initBrowserbaseCache,
-  getBrowserbaseCache,
+  loadFetchCache,
+  saveFetchCache,
+  initFetchCache,
+  getFetchCache,
   drainStaleServes,
-} from "./browserbase-cache.js";
+  pruneCache,
+} from "./fetch-cache.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords, type GeoCache } from "./geocoder.js";
 import {
   loadUncertaintyCache,
@@ -366,7 +367,7 @@ export async function attachEventCoords(
 
 export const main = async () => {
   const loader = new RipperLoader("sources/");
-  const [configs, errors] = await loader.loadConfigs();
+  let [configs, errors] = await loader.loadConfigs();
 
   // Load external calendars from sources/external/<name>.yaml
   let externalCalendars: ExternalConfig = [];
@@ -450,6 +451,34 @@ export const main = async () => {
     }
   }
 
+  // ONLY_SOURCE: restrict the build to one (or a comma-separated list of)
+  // source name(s). The standard tool for adding or fixing a single source —
+  // it skips every other source's fetch+parse so iteration is fast and only
+  // touches the one source's URLs. Combined with the fetch cache, that source
+  // is fetched once and re-parsed for free thereafter. See docs/fetch-cache.md.
+  const onlySource = new Set(
+    (process.env.ONLY_SOURCE ?? "")
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean)
+  );
+  const onlySourceActive = onlySource.size > 0;
+  // A recurring calendar's source is its file/event name; multi-schedule files
+  // produce calendars named `<name>-<schedule-slug>`, so match by prefix too.
+  const matchesOnlySource = (name: string): boolean =>
+    onlySource.has(name) || [...onlySource].some(s => name.startsWith(`${s}-`));
+  if (onlySourceActive) {
+    const names = [...onlySource].join(", ");
+    configs = configs.filter(c => onlySource.has(c.config.name));
+    externalCalendars = externalCalendars.filter(c => onlySource.has(c.name));
+    recurringCalendars = recurringCalendars.filter(c => matchesOnlySource(c.name));
+    console.log(
+      `ONLY_SOURCE=${names}: restricted build to ${configs.length} ripper(s), ` +
+      `${externalCalendars.length} external(s), ${recurringCalendars.length} recurring calendar(s). ` +
+      `New-source gates and the deployed-site probe are skipped.`
+    );
+  }
+
   // Load geo-cache for geocoding event locations
   let geoCache = await loadGeoCache('geo-cache.json');
   const geocodeErrors: GeocodeError[] = [];
@@ -461,11 +490,13 @@ export const main = async () => {
   // — rippers themselves don't read it. See docs/event-uncertainty.md.
   const uncertaintyCache = await loadUncertaintyCache('event-uncertainty-cache.json');
 
-  // Load the browserbase fetch cache and inject it into the fetch layer so
-  // `proxy: browserbase` sources are fetched live at most once per 24h (see
-  // docs/browserbase-throttle.md). Persisted via the GitHub Actions Cache.
-  const browserbaseCache = await loadBrowserbaseCache('browserbase-cache.json');
-  initBrowserbaseCache(browserbaseCache);
+  // Load the general-purpose fetch cache and inject it into the fetch layer so
+  // every source (rippers, external ICS, platform APIs) is fetched live at most
+  // once per TTL window (default 24h; see docs/fetch-cache.md). The body is
+  // re-parsed every build, so only the network call is skipped. Persisted via
+  // the GitHub Actions Cache.
+  const fetchCache = await loadFetchCache('fetch-cache.json');
+  initFetchCache(fetchCache);
 
   const uncertaintyTotals: UncertaintyMergeStats = {
     resolved: 0,
@@ -642,9 +673,7 @@ export const main = async () => {
       async (calendar): Promise<ExternalFetchResult> => {
         try {
           console.log(`Fetching external calendar: ${calendar.friendlyname}${calendar.proxy ? ` (proxy: ${calendar.proxy})` : ''}`);
-          const fetchFn = calendar.proxy === "browserbase"
-            ? createBrowserbaseFetch()
-            : (url: string | URL, init?: RequestInit) => fetch(url, init);
+          const fetchFn = getFetchForConfig(calendar);
           const response = await fetchFn(calendar.icsUrl, {
             headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' }
           });
@@ -1205,10 +1234,17 @@ END:VCALENDAR`;
   // Save updated geo-cache
   await saveGeoCache(geoCache, 'geo-cache.json');
 
-  // Persist the browserbase fetch cache (refreshed `fetchedAt` for any source
-  // fetched live this build). The CI workflow round-trips it via the Actions
-  // Cache so the 24h throttle holds across builds.
-  await saveBrowserbaseCache(getBrowserbaseCache() ?? browserbaseCache, 'browserbase-cache.json');
+  // Persist the general-purpose fetch cache (refreshed `fetchedAt` for any
+  // source fetched live this build). Prune entries older than the max age first
+  // so removed sources / changed URLs don't accumulate in the persisted blob.
+  // The CI workflow round-trips it via the Actions Cache so the TTL throttle
+  // holds across builds.
+  const fetchCacheToSave = getFetchCache() ?? fetchCache;
+  const prunedCount = pruneCache(fetchCacheToSave, Date.now());
+  if (prunedCount > 0) {
+    console.log(`Pruned ${prunedCount} stale fetch-cache entr(ies) older than the max age`);
+  }
+  await saveFetchCache(fetchCacheToSave, 'fetch-cache.json');
 
   // Stamp lastSeen on every cache entry consulted by this build. The
   // prune subcommand in skills/event-uncertainty-resolver/scripts/
@@ -1329,9 +1365,11 @@ END:VCALENDAR`;
   const productionUrl = process.env.PRODUCTION_URL || "https://206.events";
   const allCalendarNames = eventCounts.map(c => c.name);
 
-  // Step 1: fetch production manifest.json to get all deployed ICS URLs
+  // Step 1: fetch production manifest.json to get all deployed ICS URLs.
+  // Skipped under ONLY_SOURCE — a single-source build isn't a complete manifest,
+  // so new-source detection (and its deployed-site probe) doesn't apply.
   const manifestDeployedIcsUrls = new Set<string>();
-  try {
+  if (!onlySourceActive) try {
     const manifestRes = await fetch(`${productionUrl}/manifest.json`, { signal: AbortSignal.timeout(10000) });
     if (manifestRes.ok) {
       const manifest = await manifestRes.json() as {
@@ -1369,7 +1407,7 @@ END:VCALENDAR`;
   }
 
   console.log(`Checking ${allCalendarNames.length} calendars against deployed site for new-source detection...`);
-  if (calendarsNotInManifest.length > 0) {
+  if (!onlySourceActive && calendarsNotInManifest.length > 0) {
     console.log(`${calendarsNotInManifest.length} calendar(s) not in manifest — checking content-type via HEAD...`);
     await Promise.all(
       calendarsNotInManifest.map(async (name) => {
@@ -1399,7 +1437,7 @@ END:VCALENDAR`;
     }
   }
   const newSources = new Set<string>();
-  for (const cal of eventCounts) {
+  if (!onlySourceActive) for (const cal of eventCounts) {
     if (!knownDeployedSources.has(cal.source) && cal.type !== "Aggregate") {
       newSources.add(cal.source);
     }
@@ -1530,14 +1568,14 @@ END:VCALENDAR`;
 
   totalErrorCount += geocodeErrors.length;
 
-  // Browserbase stale serves: a `proxy: browserbase` source whose live fetch
-  // failed this build but was satisfied from a cached copy older than the TTL.
+  // Stale serves: any source whose live fetch failed this build but was
+  // satisfied from a cached copy older than the TTL (see docs/fetch-cache.md).
   // Non-fatal but counted in totalErrors (like uncertain events) so the
   // check-errors notification / Discord / build-error routine all fire — a
-  // persistent stale serve means the source or Browserbase is broken. Attribute
-  // each stale URL to a source where the URL is a known external icsUrl or a
-  // ripper homepage; sub-page URLs (e.g. dacha's Humanitix pages) fall back to
-  // the URL string alone.
+  // persistent stale serve means the source (or, for browserbase sources,
+  // Browserbase) is broken. Attribute each stale URL to a source where the URL
+  // is a known external icsUrl or a ripper homepage; sub-page URLs (e.g. dacha's
+  // Humanitix pages) fall back to the URL string alone.
   const proxyUrlToSource = new Map<string, string>();
   for (const cal of externalCalendars) proxyUrlToSource.set(cal.icsUrl, cal.name);
   for (const c of configs) {
@@ -1690,8 +1728,8 @@ END:VCALENDAR`;
     },
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
-    // Browserbase sources served from a stale (>TTL) cached copy because the
-    // live fetch failed. Counted in totalErrors. See docs/browserbase-throttle.md.
+    // Sources served from a stale (>TTL) cached copy because the live fetch
+    // failed. Counted in totalErrors. See docs/fetch-cache.md.
     proxyStaleServes,
     pendingProxyVerification,
     newZeroEventSources,
@@ -1819,7 +1857,7 @@ END:VCALENDAR`;
     console.log(`  🔗 ${urlEntityErrors.length} URL field(s) with HTML entities (fatal): ${urlEntityErrors.map(e => `${e.source}/${e.field}`).join(", ")}`);
   }
   if (proxyStaleServes.length > 0) {
-    console.log(`  🕒 ${proxyStaleServes.length} browserbase source(s) served from stale cache (live fetch failed): ${proxyStaleServes.map(s => s.source ?? s.url).join(", ")}`);
+    console.log(`  🕒 ${proxyStaleServes.length} source(s) served from stale cache (live fetch failed): ${proxyStaleServes.map(s => s.source ?? s.url).join(", ")}`);
   }
   console.log("===========================\n");
 
@@ -1862,7 +1900,7 @@ END:VCALENDAR`;
     }
     if (proxyStaleServes.length > 0) {
       summaryLines.push("");
-      summaryLines.push(`> 🕒 **${proxyStaleServes.length} browserbase source(s) served from stale cache:** the live fetch failed and a copy older than the 24h TTL was used. Investigate the source or Browserbase.`);
+      summaryLines.push(`> 🕒 **${proxyStaleServes.length} source(s) served from stale cache:** the live fetch failed and a copy older than the TTL was used. Investigate the source.`);
       summaryLines.push("");
       summaryLines.push("| Source | Age (h) | Cached at | Error |");
       summaryLines.push("|--------|---------|-----------|-------|");
