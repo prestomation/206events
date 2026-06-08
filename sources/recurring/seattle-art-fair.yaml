@@ -1,0 +1,40 @@
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Seattle_Art_Fair_2017_-_Gaussian_blur_applied.jpg"
+# verified: 2026-06-08 ok (2026 dates Jul 23–26 confirmed at seattleartfair.com)
+# Approximates 4th Thursday–Sunday of July. Correct for 2024 (Jul 25–28) and 2026 (Jul 23–26).
+# In 2025 the fair fell on the 3rd Thursday (Jul 17–20) — off by one week.
+# Verify dates at seattleartfair.com each year before the July window.
+geo:
+  lat: 47.5953
+  lng: -122.3316
+  label: "Lumen Field Event Center, 800 Occidental Ave S, Seattle, WA 98134"
+  osmType: relation
+  osmId: 5838734
+name: seattle-art-fair
+friendlyname: Seattle Art Fair
+description: Annual contemporary art fair at Lumen Field Event Center. Four days showcasing galleries from around the world alongside Pacific Northwest institutions and artists. Founded by Paul G. Allen; now in its tenth year.
+timezone: America/Los_Angeles
+location: Lumen Field Event Center, 800 Occidental Ave S, Seattle, WA 98134
+url: https://seattleartfair.com/
+tags:
+  - Arts
+  - Community
+  - Stadium District
+# Thursday is the VIP/Fair Pass opening night (4–9 pm); public hours begin Friday.
+# Friday–Sunday are the main public fair days.
+schedules:
+  - schedule: "4th Thursday"
+    start_time: "16:00"
+    duration: PT5H
+    months: [7]
+  - schedule: "4th Friday"
+    start_time: "11:00"
+    duration: PT8H
+    months: [7]
+  - schedule: "4th Saturday"
+    start_time: "11:00"
+    duration: PT8H
+    months: [7]
+  - schedule: "4th Sunday"
+    start_time: "11:00"
+    duration: PT7H
+    months: [7]

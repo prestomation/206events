@@ -20,9 +20,6 @@ Add to `sources/recurring.yaml` using the `"every <day>"` schedule format. Verif
 ### Seattle Street Food Festival
 Two days in late August (annual) — South Lake Union — `https://206nightmarkets.com`
 
-### Seattle Art Fair
-Four days in late July (annual) — 2026: July 23-26 — Lumen Field Event Center — `https://seattleartfair.com/`
-
 ### Emerald City Comic Con (ECCC)
 Four days in early March (annual) — 2026: March 5-8 — Seattle Convention Center — Tags: Gaming
 
