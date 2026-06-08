@@ -4,9 +4,12 @@ geo:
   lat: 47.6654648
   lng: -122.38188
   label: "5140 Ballard Ave NW, Seattle"
+  osmType: node
+  osmId: 2138389856
 name: conor-byrne-open-mic
 friendlyname: Conor Byrne Pub — Sunday Open Mic
-description: Weekly open mic at one of Seattle's most storied venues. Free to sign up, first come first served.
+description: Weekly open mic at one of Seattle's most storied venues. Free to
+  sign up, first come first served.
 timezone: America/Los_Angeles
 location: 5140 Ballard Ave NW, Seattle
 url: https://www.conorbyrnepub.com/

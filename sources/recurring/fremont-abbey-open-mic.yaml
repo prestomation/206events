@@ -1,12 +1,16 @@
 # verified: 2026-05-25 ok
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Fremont_Abbey_-_Seattle%2C_WA.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Fremont_Abbey_-_\
+  Seattle%2C_WA.jpg"
 geo:
   lat: 47.6591914
   lng: -122.3496831
   label: "4272 Fremont Ave N, Seattle"
+  osmType: way
+  osmId: 234930194
 name: fremont-abbey-open-mic
 friendlyname: Fremont Abbey Open Mic
-description: All art forms welcome at this community arts space. Twice-monthly open mic on the 1st and 3rd Tuesdays.
+description: All art forms welcome at this community arts space. Twice-monthly
+  open mic on the 1st and 3rd Tuesdays.
 timezone: America/Los_Angeles
 location: 4272 Fremont Ave N, Seattle
 url: https://www.fremontabbey.org/

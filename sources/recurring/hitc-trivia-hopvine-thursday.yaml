@@ -3,6 +3,8 @@ geo:
   lat: 47.6233694
   lng: -122.312828
   label: "507 15th Ave E, Seattle, WA 98112"
+  osmType: node
+  osmId: 1726737135
 name: hitc-trivia-hopvine-thursday
 friendlyname: Trivia at Hopvine Pub (Thursday)
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

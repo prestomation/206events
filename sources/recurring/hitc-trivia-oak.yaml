@@ -2,6 +2,8 @@ geo:
   lat: 47.5764343
   lng: -122.309914
   label: "3019 Beacon Ave S, Seattle, WA 98144"
+  osmType: node
+  osmId: 9951727017
 name: hitc-trivia-oak
 friendlyname: Trivia at Oak
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

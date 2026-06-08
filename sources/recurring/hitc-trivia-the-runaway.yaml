@@ -1,8 +1,11 @@
-imageUrl: "https://images.squarespace-cdn.com/content/v1/6712a7119007d056a837ef83/ae6de9b7-a1b2-4d8c-93da-6d1a084ee145/NewMenu+-+GraceLindsey-13.jpg"
+imageUrl: "https://images.squarespace-cdn.com/content/v1/6712a7119007d056a837ef\
+  83/ae6de9b7-a1b2-4d8c-93da-6d1a084ee145/NewMenu+-+GraceLindsey-13.jpg"
 geo:
   lat: 47.6137463
   lng: -122.3196258
   label: "1425 10th Ave, Seattle, WA 98122"
+  osmType: node
+  osmId: 2939748901
 name: hitc-trivia-the-runaway
 friendlyname: Trivia at The Runaway
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

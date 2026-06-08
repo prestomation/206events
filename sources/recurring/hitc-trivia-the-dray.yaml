@@ -2,6 +2,8 @@ geo:
   lat: 47.6761005
   lng: -122.3649587
   label: "708 NW 65th St, Seattle, WA 98117"
+  osmType: node
+  osmId: 2462449146
 name: hitc-trivia-the-dray
 friendlyname: Trivia at The Dray
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

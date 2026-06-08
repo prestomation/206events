@@ -3,6 +3,8 @@ geo:
   lat: 47.6683926
   lng: -122.3849118
   label: "5417 22nd Ave NW, Seattle, WA 98107"
+  osmType: node
+  osmId: 2422371801
 name: hitc-trivia-veras-pizza
 friendlyname: Trivia at Vera's Pizza
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

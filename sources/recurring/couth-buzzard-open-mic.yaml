@@ -1,12 +1,17 @@
 # verified: 2026-05-18 drift-fixed (friendlyname Thursday→Wednesday, schedule every Thursday→every Wednesday, duration PT3H→PT2H)
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Couth_Buzzard_Books_-_Espresso_Buono_Cafe._-_Flickr_-_brewbooks.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Couth_Buzzard_Bo\
+  oks_-_Espresso_Buono_Cafe._-_Flickr_-_brewbooks.jpg"
 geo:
   lat: 47.6895162
   lng: -122.3550934
   label: "8310 Greenwood Ave N, Seattle"
+  osmType: node
+  osmId: 2131755319
 name: couth-buzzard-open-mic
 friendlyname: Couth Buzzard Books — Wednesday Open Mic
-description: "Acoustic, no-PA listening environment at an independent bookstore/café. All art forms welcome: music, poetry, dance, comedy, and stories."
+description: "Acoustic, no-PA listening environment at an independent
+  bookstore/café. All art forms welcome: music, poetry, dance, comedy, and
+  stories."
 timezone: America/Los_Angeles
 location: 8310 Greenwood Ave N, Seattle
 url: https://www.couthbuzzard.com/

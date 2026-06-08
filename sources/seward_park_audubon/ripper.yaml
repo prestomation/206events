@@ -7,6 +7,8 @@ geo:
   lat: 47.5496353
   lng: -122.2563124
   label: "Seward Park Audubon Center, 5902 Lake Washington Blvd S, Seattle, WA 98118"
+  osmType: relation
+  osmId: 17052605
 calendars:
   - name: all-events
     friendlyname: "Seward Park Audubon Center"
