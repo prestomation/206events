@@ -103,6 +103,11 @@ function uatNewId(name, existing) {
   return `${base}-${i}`
 }
 
+function localeDateMaybeYear(date, options) {
+  const opts = date.getFullYear() !== new Date().getFullYear() ? { ...options, year: 'numeric' } : options
+  return date.toLocaleDateString('en-US', opts)
+}
+
 function App() {
   // Read once per load; available to the useState initializers below.
   const uatMode = readUatFlag()
@@ -1037,7 +1042,7 @@ function App() {
       else label = dayNames[eventDay.getDay()]
 
       if (!groupsByDiffDays.has(diffDays)) {
-        const dateSubtitle = eventDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        const dateSubtitle = localeDateMaybeYear(eventDay, { month: 'short', day: 'numeric' })
         groupsByDiffDays.set(diffDays, { label, dateSubtitle, events: [] })
       }
       groupsByDiffDays.get(diffDays).events.push(event)
@@ -1246,10 +1251,10 @@ function App() {
       if (diffDays === 0) label = 'Today'
       else if (diffDays === 1) label = 'Tomorrow'
       else if (diffDays > 1 && diffDays < 7) label = dayNames[eventDay.getDay()]
-      else label = eventDay.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })
+      else label = localeDateMaybeYear(eventDay, { weekday: 'long', month: 'short', day: 'numeric' })
 
       if (!groupsByDiffDays.has(diffDays)) {
-        const dateSubtitle = eventDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        const dateSubtitle = localeDateMaybeYear(eventDay, { month: 'short', day: 'numeric' })
         groupsByDiffDays.set(diffDays, { label, dateSubtitle, events: [] })
       }
       groupsByDiffDays.get(diffDays).events.push(event)

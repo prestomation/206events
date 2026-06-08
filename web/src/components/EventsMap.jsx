@@ -210,6 +210,7 @@ function formatEventDate(dateStr) {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
+      ...(d.getFullYear() !== new Date().getFullYear() ? { year: 'numeric' } : {}),
       hour: '2-digit',
       minute: '2-digit',
     })
