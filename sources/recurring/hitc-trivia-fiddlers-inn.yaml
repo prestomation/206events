@@ -1,9 +1,12 @@
 # verified: 2026-06-01 ok
-imageUrl: "https://images.squarespace-cdn.com/content/v1/63d5aca04c4f7505dafb536a/9cac216f-0d4b-46c3-a977-a4f57c976af5/IMG_9103.JPG"
+imageUrl: "https://images.squarespace-cdn.com/content/v1/63d5aca04c4f7505dafb53\
+  6a/9cac216f-0d4b-46c3-a977-a4f57c976af5/IMG_9103.JPG"
 geo:
   lat: 47.6963926
   lng: -122.2909373
   label: "9219 35th Ave NE, Seattle, WA 98115"
+  osmType: way
+  osmId: 221155713
 name: hitc-trivia-fiddlers-inn
 friendlyname: Trivia at Fiddler's Inn
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

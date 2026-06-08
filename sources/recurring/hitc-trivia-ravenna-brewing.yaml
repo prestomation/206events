@@ -1,8 +1,12 @@
-imageUrl: "https://images.squarespace-cdn.com/content/v1/5553a073e4b0832a5f973df9/1702083277156-E9YSCETTAWL35FUKUPIC/18947908_120861238496921_5591391083964661760_n.jpeg"
+imageUrl: "https://images.squarespace-cdn.com/content/v1/5553a073e4b0832a5f973d\
+  f9/1702083277156-E9YSCETTAWL35FUKUPIC/18947908_120861238496921_55913910839646\
+  61760_n.jpeg"
 geo:
   lat: 47.6683287
   lng: -122.2991673
   label: "5408 26th Ave NE, Seattle, WA 98105"
+  osmType: way
+  osmId: 445400290
 name: hitc-trivia-ravenna-brewing
 friendlyname: Trivia at Ravenna Brewing
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

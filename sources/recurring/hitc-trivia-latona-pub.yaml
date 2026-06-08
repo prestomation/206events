@@ -1,8 +1,11 @@
-imageUrl: "https://images.squarespace-cdn.com/content/v1/63e437a20c2fa561024523d8/1694629095548-FOH0SL8HBH1AQJMMWLI0/6154308401_d4f8b68d88_b.jpg"
+imageUrl: "https://images.squarespace-cdn.com/content/v1/63e437a20c2fa561024523\
+  d8/1694629095548-FOH0SL8HBH1AQJMMWLI0/6154308401_d4f8b68d88_b.jpg"
 geo:
   lat: 47.6758124
   lng: -122.3255853
   label: "6423 Latona Ave NE, Seattle, WA 98115"
+  osmType: node
+  osmId: 1735555959
 name: hitc-trivia-latona-pub
 friendlyname: Trivia at Latona Pub
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

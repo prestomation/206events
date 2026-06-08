@@ -1,8 +1,11 @@
-imageUrl: "https://reubensbrews.com/wp-content/uploads/2026/01/240516_Taproom5866-scaled.jpg"
+imageUrl: "https://reubensbrews.com/wp-content/uploads/2026/01/240516_Taproom58\
+  66-scaled.jpg"
 geo:
   lat: 47.6654085
   lng: -122.3732325
   label: "5010 14th Ave NW, Seattle, WA 98107"
+  osmType: node
+  osmId: 2136793139
 name: hitc-trivia-reubens-ballard
 friendlyname: Trivia at Reuben's Brews Ballard
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

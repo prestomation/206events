@@ -1,8 +1,11 @@
-imageUrl: "https://s3.us-west-2.amazonaws.com/stoupbrewing.com/uploads/202403/20/115358_642/img1.webp"
+imageUrl: "https://s3.us-west-2.amazonaws.com/stoupbrewing.com/uploads/202403/2\
+  0/115358_642/img1.webp"
 geo:
   lat: 47.6666124
   lng: -122.3711856
   label: "1108 NW 52nd St, Seattle, WA 98107"
+  osmType: node
+  osmId: 2136792042
 name: hitc-trivia-stoup-ballard
 friendlyname: Trivia at Stoup Brewing Ballard
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

@@ -1,9 +1,12 @@
 # verified: 2026-05-17 drift-fixed (start_time 19:30→20:00, location Downtown Seattle→Capitol Hill)
-imageUrl: "https://static.wixstatic.com/media/b3566b_7af6bbf4fac84ef98b30fb930264fb95~mv2.jpeg"
+imageUrl: "https://static.wixstatic.com/media/b3566b_7af6bbf4fac84ef98b30fb9302\
+  64fb95~mv2.jpeg"
 geo:
   lat: 47.621446
   lng: -122.3124398
   label: "328 15th Ave E, Capitol Hill, Seattle"
+  osmType: node
+  osmId: 2384428143
 name: club-comedy-cheap-laughs
 friendlyname: Club Comedy Seattle — Cheap Laughs Open Mic
 description: Recurring Wednesday night open mic for comedians at Club Comedy Seattle.

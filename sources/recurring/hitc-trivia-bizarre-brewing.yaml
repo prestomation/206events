@@ -3,6 +3,8 @@ geo:
   lat: 47.6605861
   lng: -122.3902975
   label: "4441 26th Ave W, Seattle, WA 98199"
+  osmType: node
+  osmId: 2462428354
 name: hitc-trivia-bizarre-brewing
 friendlyname: Trivia at Bizarre Brewing
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
