@@ -1,5 +1,6 @@
 # 2026-06-04: HTTP 403 from CI; works from non-CI IP — escalating to outofband
 # 2026-06-07: 3× outofband HTTP 403 — escalating to browserbase
+imageUrl: "https://upload.wikimedia.org/wikipedia/en/a/a7/Woodlandparkzoo_logo11.png"
 geo:
   lat: 47.6685
   lng: -122.3543
