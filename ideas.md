@@ -17,9 +17,6 @@ Add to `sources/recurring.yaml` using the `"every <day>"` schedule format. Verif
 
 ## Additional Recurring Events
 
-### Seattle Christmas Market
-Daily, November 20 - December 24 (annual) — Seattle Center, Fisher Pavilion — `https://seattlechristmasmarket.com/`
-
 ### Seattle Street Food Festival
 Two days in late August (annual) — South Lake Union — `https://206nightmarkets.com`
 
