@@ -46,6 +46,13 @@ If a **previously-working ripper** now errors because the source site changed (n
 - Fetch the live URL to see what it currently returns
 - Understand the new structure
 - Delegate a fix to a coding agent on a feature branch
+- **When fixing or iterating on a single source, build only that source — never a full all-sources build:**
+
+  ```sh
+  ONLY_SOURCE=<source-name> npm run generate-calendars
+  ```
+
+  `ONLY_SOURCE` restricts the build to the broken source (skipping every other source's fetch+parse and the new-source/deployed-site gates), so iteration is fast and outgoing traffic stays scoped to the one source. The fetch cache (`docs/fetch-cache.md`) fetches it live only once; re-runs re-parse the cached body with no network, so you can iterate on the parser fix freely.
 - The fix must go through a PR — never commit directly to main
 - After any review comment on the fix PR is addressed (fix pushed or clear reply posted explaining why no action will be taken), resolve the review thread using `mcp__github__resolve_review_thread`
 
@@ -168,14 +175,14 @@ escalation PR(s). Entries with recommendation `verifying` are still within the
   - <source> (<rung>, <consecutiveFailures> fails) → <recommendation>
 ```
 
-### 5.55. Browserbase Stale-Serve Check
+### 5.55. Stale-Serve Check
 
-Check `proxyStaleServes` in the build health output. Each entry is a
-`proxy: browserbase` source whose **live fetch failed this build** and was
-satisfied from a cached copy older than the 24h TTL (so events weren't lost,
-but the source is not actually being refreshed). These **count toward
-`totalErrors`** — a persistent stale serve means the source or Browserbase
-itself is broken. See `docs/browserbase-throttle.md`.
+Check `proxyStaleServes` in the build health output. Each entry is a source
+whose **live fetch failed this build** and was satisfied from a cached copy
+older than the TTL (so events weren't lost, but the source is not actually
+being refreshed). These **count toward `totalErrors`** — a persistent stale
+serve means the source (or, for a browserbase source, Browserbase itself) is
+broken. See `docs/fetch-cache.md`.
 
 **If the list is empty:**
 ```

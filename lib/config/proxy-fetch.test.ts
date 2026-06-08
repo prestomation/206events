@@ -1,13 +1,13 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { getFetchForConfig, createBrowserbaseFetch } from "./proxy-fetch.js";
+import { getFetchForConfig, createBrowserbaseFetch, withCache, type FetchFn } from "./proxy-fetch.js";
 import {
-    initBrowserbaseCache,
-    resetBrowserbaseCache,
-    getBrowserbaseCache,
+    initFetchCache,
+    resetFetchCache,
+    getFetchCache,
     drainStaleServes,
-    emptyBrowserbaseCache,
-    type BrowserbaseCache,
-} from "../browserbase-cache.js";
+    emptyFetchCache,
+    type FetchCache,
+} from "../fetch-cache.js";
 
 const mockFetch = vi.fn();
 vi.stubGlobal("fetch", mockFetch);
@@ -193,13 +193,13 @@ describe("createBrowserbaseFetch with an injected cache", () => {
     });
 
     afterEach(() => {
-        resetBrowserbaseCache();
+        resetFetchCache();
         delete process.env.BROWSERBASE_API_KEY;
-        delete process.env.BROWSERBASE_CACHE_TTL_HOURS;
+        delete process.env.FETCH_CACHE_TTL_HOURS;
     });
 
     it("serves a fresh cache entry without any network call", async () => {
-        const cache: BrowserbaseCache = {
+        const cache: FetchCache = {
             version: 1,
             entries: {
                 [URL]: {
@@ -210,7 +210,7 @@ describe("createBrowserbaseFetch with an injected cache", () => {
                 },
             },
         };
-        initBrowserbaseCache(cache);
+        initFetchCache(cache);
 
         const fetchFn = createBrowserbaseFetch();
         const res = await fetchFn(URL);
@@ -221,8 +221,8 @@ describe("createBrowserbaseFetch with an injected cache", () => {
     });
 
     it("fetches live and stores the entry on a cache miss", async () => {
-        const cache = emptyBrowserbaseCache();
-        initBrowserbaseCache(cache);
+        const cache = emptyFetchCache();
+        initFetchCache(cache);
         mockFetch.mockResolvedValueOnce(liveResponse("LIVE-ICS"));
 
         const fetchFn = createBrowserbaseFetch();
@@ -230,14 +230,14 @@ describe("createBrowserbaseFetch with an injected cache", () => {
 
         expect(mockFetch).toHaveBeenCalledTimes(1);
         expect(await res.text()).toBe("LIVE-ICS");
-        const stored = getBrowserbaseCache()!.entries[URL];
+        const stored = getFetchCache()!.entries[URL];
         expect(stored.content).toBe("LIVE-ICS");
         expect(stored.status).toBe(200);
     });
 
     it("refetches a stale entry (TTL elapsed)", async () => {
-        process.env.BROWSERBASE_CACHE_TTL_HOURS = "24";
-        const cache: BrowserbaseCache = {
+        process.env.FETCH_CACHE_TTL_HOURS = "24";
+        const cache: FetchCache = {
             version: 1,
             entries: {
                 [URL]: {
@@ -248,7 +248,7 @@ describe("createBrowserbaseFetch with an injected cache", () => {
                 },
             },
         };
-        initBrowserbaseCache(cache);
+        initFetchCache(cache);
         mockFetch.mockResolvedValueOnce(liveResponse("NEW-ICS"));
 
         const fetchFn = createBrowserbaseFetch();
@@ -256,24 +256,24 @@ describe("createBrowserbaseFetch with an injected cache", () => {
 
         expect(mockFetch).toHaveBeenCalledTimes(1);
         expect(await res.text()).toBe("NEW-ICS");
-        expect(getBrowserbaseCache()!.entries[URL].content).toBe("NEW-ICS");
+        expect(getFetchCache()!.entries[URL].content).toBe("NEW-ICS");
     });
 
     it("does not cache non-2xx responses", async () => {
-        const cache = emptyBrowserbaseCache();
-        initBrowserbaseCache(cache);
+        const cache = emptyFetchCache();
+        initFetchCache(cache);
         mockFetch.mockResolvedValueOnce(liveResponse("Not Found", 404));
 
         const fetchFn = createBrowserbaseFetch();
         const res = await fetchFn(URL);
 
         expect(res.status).toBe(404);
-        expect(getBrowserbaseCache()!.entries[URL]).toBeUndefined();
+        expect(getFetchCache()!.entries[URL]).toBeUndefined();
     });
 
     it("falls back to a stale copy and records a stale serve when the live fetch fails", async () => {
         const cachedAt = new Date(Date.now() - 30 * 3600 * 1000).toISOString();
-        const cache: BrowserbaseCache = {
+        const cache: FetchCache = {
             version: 1,
             entries: {
                 [URL]: {
@@ -284,8 +284,8 @@ describe("createBrowserbaseFetch with an injected cache", () => {
                 },
             },
         };
-        process.env.BROWSERBASE_CACHE_TTL_HOURS = "24";
-        initBrowserbaseCache(cache);
+        process.env.FETCH_CACHE_TTL_HOURS = "24";
+        initFetchCache(cache);
         mockFetch.mockResolvedValueOnce(fakeResponse("unauthorized", 401));
 
         const fetchFn = createBrowserbaseFetch();
@@ -300,11 +300,97 @@ describe("createBrowserbaseFetch with an injected cache", () => {
     });
 
     it("rethrows when the live fetch fails and there is no cached copy", async () => {
-        initBrowserbaseCache(emptyBrowserbaseCache());
+        initFetchCache(emptyFetchCache());
         mockFetch.mockResolvedValueOnce(fakeResponse("unauthorized", 401));
 
         const fetchFn = createBrowserbaseFetch();
         await expect(fetchFn(URL)).rejects.toThrow("Browserbase fetch failed: HTTP 401");
         expect(drainStaleServes()).toHaveLength(0);
+    });
+});
+
+describe("withCache (generic, over an arbitrary fetch fn)", () => {
+    const URL = "https://example.com/page";
+
+    afterEach(() => {
+        resetFetchCache();
+        delete process.env.FETCH_CACHE_TTL_HOURS;
+    });
+
+    it("serves a fresh entry without calling the underlying fetch", async () => {
+        initFetchCache({
+            version: 1,
+            entries: {
+                [URL]: { fetchedAt: new Date().toISOString(), status: 200, contentType: "text/html", content: "CACHED" },
+            },
+        });
+        const live: FetchFn = vi.fn();
+        const fetchFn = withCache(live);
+
+        const res = await fetchFn(URL);
+
+        expect(live).not.toHaveBeenCalled();
+        expect(await res.text()).toBe("CACHED");
+    });
+
+    it("calls the underlying fetch on a miss and stores the 2xx body", async () => {
+        initFetchCache(emptyFetchCache());
+        const live: FetchFn = vi.fn(async () =>
+            new Response("LIVE", { status: 200, headers: { "Content-Type": "text/html" } }));
+        const fetchFn = withCache(live);
+
+        const res = await fetchFn(URL);
+
+        expect(live).toHaveBeenCalledTimes(1);
+        expect(await res.text()).toBe("LIVE");
+        expect(getFetchCache()!.entries[URL].content).toBe("LIVE");
+    });
+
+    it("does not cache non-2xx responses", async () => {
+        initFetchCache(emptyFetchCache());
+        const live: FetchFn = vi.fn(async () => new Response("nope", { status: 404 }));
+        const fetchFn = withCache(live);
+
+        const res = await fetchFn(URL);
+
+        expect(res.status).toBe(404);
+        expect(getFetchCache()!.entries[URL]).toBeUndefined();
+    });
+
+    it("falls back to a stale copy and records a stale serve when the live fetch throws", async () => {
+        const cachedAt = new Date(Date.now() - 30 * 3600 * 1000).toISOString();
+        process.env.FETCH_CACHE_TTL_HOURS = "24";
+        initFetchCache({
+            version: 1,
+            entries: {
+                [URL]: { fetchedAt: cachedAt, status: 200, contentType: "text/html", content: "STALE" },
+            },
+        });
+        const live: FetchFn = vi.fn(async () => { throw new Error("boom"); });
+        const fetchFn = withCache(live);
+
+        const res = await fetchFn(URL);
+
+        expect(await res.text()).toBe("STALE");
+        const stale = drainStaleServes();
+        expect(stale).toHaveLength(1);
+        expect(stale[0].url).toBe(URL);
+        expect(stale[0].error).toBe("boom");
+    });
+
+    it("keys POST requests by method + body so different bodies are distinct", async () => {
+        initFetchCache({
+            version: 1,
+            entries: {
+                [URL]: { fetchedAt: new Date().toISOString(), status: 200, contentType: "x", content: "WRONG" },
+            },
+        });
+        const live: FetchFn = vi.fn(async () => new Response("POSTED", { status: 200 }));
+        const fetchFn = withCache(live);
+
+        // A POST with a body is a cache miss (not keyed by bare URL), so it hits live.
+        const res = await fetchFn(URL, { method: "POST", body: '{"q":1}' });
+        expect(live).toHaveBeenCalledTimes(1);
+        expect(await res.text()).toBe("POSTED");
     });
 });

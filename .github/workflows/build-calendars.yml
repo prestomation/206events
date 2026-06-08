@@ -100,19 +100,20 @@ jobs:
         OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
       run: npm run download-outofband
 
-    - name: Restore browserbase fetch cache
-      # Throttles `proxy: browserbase` sources to one live fetch per URL per 24h
-      # (freshness lives in the JSON's fetchedAt). Immutable per-run key never
-      # matches exactly, so the restore-keys prefix returns the newest entry —
-      # same pattern as the claude-routine rate limit in publish_calendars.yml.
-      # PR builds read the default-branch cache the daily main build writes, so
-      # previews ride on main's recent fetches and rarely hit Browserbase.
+    - name: Restore source fetch cache
+      # Throttles every source (rippers, external ICS, platform APIs) to one live
+      # fetch per cache key per TTL window, 24h by default (freshness lives in the
+      # JSON's fetchedAt). Immutable per-run key never matches exactly, so the
+      # restore-keys prefix returns the newest entry — same pattern as the
+      # claude-routine rate limit in publish_calendars.yml. PR builds read the
+      # default-branch cache the daily main build writes, so previews ride on
+      # main's recent fetches and make almost no outgoing requests.
       uses: actions/cache/restore@v4
       with:
-        path: browserbase-cache.json
-        key: browserbase-cache-v1-${{ github.run_id }}
+        path: fetch-cache.json
+        key: fetch-cache-v1-${{ github.run_id }}
         restore-keys: |
-          browserbase-cache-v1-
+          fetch-cache-v1-
 
     - name: Generate calendars
       id: generate-calendars
@@ -183,7 +184,7 @@ jobs:
           && echo "event-uncertainty-cache uploaded to S3 ($(jq '.entries | length' event-uncertainty-cache.json) entries)" \
           || echo "S3 upload failed (credentials not configured?)"
 
-    - name: Save browserbase fetch cache
+    - name: Save source fetch cache
       if: always()
       # Unique per-run key so we never collide with a prior entry; older entries
       # are unreachable once a newer one exists (restore-keys picks the newest)
@@ -191,8 +192,8 @@ jobs:
       # refreshed entries.
       uses: actions/cache/save@v4
       with:
-        path: browserbase-cache.json
-        key: browserbase-cache-v1-${{ github.run_id }}
+        path: fetch-cache.json
+        key: fetch-cache-v1-${{ github.run_id }}
 
     - name: Validate discovery API
       run: npm run check-discovery-api

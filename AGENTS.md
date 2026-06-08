@@ -18,6 +18,14 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 
 **Always follow `skills/source-discovery/SKILL.md`** when adding a new calendar source — do not do it ad-hoc. The skill includes a mandatory quality-gate checklist (step 4) that checks whether the source already exists under `sources/external/`, `sources/recurring/`, or `sources/*/ripper.yaml`. Skipping the skill risks duplicating existing sources, missing the "check existing sources" step, and bypassing other guardrails (event volume verification, Amazon Q iteration, etc.).
 
+**When adding or fixing a single source, always build just that source with `ONLY_SOURCE`** — never run a full all-sources build while iterating:
+
+```sh
+ONLY_SOURCE=<source-name> npm run generate-calendars
+```
+
+`ONLY_SOURCE` (comma-separated for several) restricts the build to the named source(s), skipping every other source's fetch and parse, plus the new-source gates and deployed-site probe. This keeps outgoing traffic to just the one source and makes iteration fast. The fetch cache (`docs/fetch-cache.md`) makes that source fetch live only once; every re-run re-parses the cached body with no network. For a long session, pair it with `FETCH_CACHE_TTL_HOURS=99999` so nothing expires mid-iteration.
+
 ## Source Candidate Tracking
 
 Source discovery findings are stored **one file per candidate** under
@@ -510,7 +518,7 @@ For **external ICS calendars**, change `proxy` from `outofband` to `browserbase`
 
 Browserbase sources are **fetched live** in the main build — no S3, no out-of-band runner. The Browserbase Fetch API (`POST https://api.browserbase.com/v1/fetch`) executes JavaScript and follows redirects, bypassing bot detection (e.g. SiteGround sgcaptcha). Requires `BROWSERBASE_API_KEY` secret in GitHub Actions.
 
-Because Browserbase is billed per request and the build runs on every push/PR/schedule, each browserbase URL is fetched live **at most once per 24h** and otherwise served from a cached copy (`browserbase-cache.json`, round-tripped via the GitHub Actions Cache). A live failure falls back to the last good copy and is surfaced as a non-fatal `proxyStaleServes` entry in `build-errors.json`. See **`docs/browserbase-throttle.md`**.
+Because the build runs on every push/PR/schedule, **all sources** (not just browserbase) are throttled by a general-purpose fetch cache: each request is fetched live **at most once per TTL window** (24h default) and otherwise served from a cached copy (`fetch-cache.json`, round-tripped via the GitHub Actions Cache). The cached body is re-parsed every build, so only the network call is skipped — you can add a source or change parsing logic and the live fetch for a URL still happens only once. A live failure falls back to the last good copy and is surfaced as a non-fatal `proxyStaleServes` entry in `build-errors.json`. See **`docs/fetch-cache.md`**.
 
 `lib/config/proxy-fetch.ts` provides `createBrowserbaseFetch()` and `getFetchForConfig()` — base classes and built-in rippers call `getFetchForConfig` automatically. Custom rippers that implement `IRipper` directly should do the same.
 
