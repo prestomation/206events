@@ -1,11 +1,41 @@
 ---
 name: "Seattle Symphony"
-status: candidate
+status: added
 platform: Sitecore GraphQL (Experience Edge / Item Service)
 url: https://www.seattlesymphony.org/concerttickets/calendar
-tags: [Music, Classical, Downtown]
+tags: [Music, Downtown]
 firstSeen: 2026-06-07
-lastChecked: 2026-06-07
+lastChecked: 2026-06-08
+---
+
+Seattle Symphony at Benaroya Hall (200 University St, Downtown). Major
+classical / film-with-orchestra venue.
+
+## Implemented (2026-06-08)
+
+The existing empty `benaroya_hall` Ticketmaster ripper was **replaced** by a
+custom GraphQL ripper (`sources/benaroya_hall/ripper.ts`) against the Sitecore
+endpoint documented below. Live run on 2026-06-08 produced **154 upcoming
+events, 0 errors**, routed across three calendars by venue:
+
+- `benaroya-taper` — S. Mark Taper Foundation Auditorium (111)
+- `benaroya-nordstrom` — Illsley Ball Nordstrom Recital Hall (29)
+- `benaroya-other` — Octave 9 & other Benaroya Hall rooms (14)
+
+The two pre-existing calendar URLs (`benaroya-taper`, `benaroya-nordstrom`) are
+preserved; `benaroya-other` is added. Off-site Symphony performances (schools,
+parks) are skipped — this stays a Benaroya Hall venue source. The implemented
+data model differs slightly from the research notes below: title comes from the
+`Event Name` field, the venue resolves via the `Venue` `LookupField` →
+`/sitecore/content/Site Content Settings/Venues/`, the image from
+`Main Image` (`<image mediaid>` → `/-/media/{GUID}.ashx`), and a single deep
+nested `item(path:.../Events){children{children{children{...}}}}` query returns
+every event + performance in one request (the `search` resolver does not carry
+performance dates). The public `sc_apikey` is committed in `ripper.ts` (a
+read-only client key) since a runnable ripper needs it.
+
+The research notes below are retained for posterity.
+
 ---
 
 Seattle Symphony at Benaroya Hall (200 University St, Downtown). Major
