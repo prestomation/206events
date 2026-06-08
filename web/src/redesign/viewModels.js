@@ -9,6 +9,12 @@ import { eventKey } from '../lib/eventKey.js'
 const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const DOW_SHORT = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 
+// Like toLocaleDateString but appends year: 'numeric' when the date is in a different year.
+function localeDateMaybeYear(date, options) {
+  const opts = date.getFullYear() !== new Date().getFullYear() ? { ...options, year: 'numeric' } : options
+  return date.toLocaleDateString('en-US', opts)
+}
+
 // Parse an events-index date string ("2026-02-15T19:00-08:00[America/Los_Angeles]")
 // into a JS Date plus the IANA zone. Returns null when unparseable.
 export function parseIndexDate(dateStr) {
@@ -75,7 +81,7 @@ export function rowFromIndexEvent(event) {
   const parsed = parseIndexDate(event.date)
   const d = parsed ? parsed.date : null
   const day = d ? DOW_SHORT[localDay(parsed).getDay()] : ''
-  const dateNum = d ? localDay(parsed).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : ''
+  const dateNum = d ? localeDateMaybeYear(localDay(parsed), { month: 'short', day: 'numeric' }) : ''
   const time = d ? formatTimeRange(d, null, parsed.timezone) : ''
   const parsedEnd = parseIndexDate(event.endDate)
   const timeRange = d ? formatTimeRange(d, parsedEnd ? parsedEnd.date : null, parsed.timezone) : ''
@@ -96,11 +102,11 @@ export function groupIndexEventsByDay(events, now = new Date()) {
     if (diffDays === 0) label = 'Today'
     else if (diffDays === 1) label = 'Tomorrow'
     else if (diffDays > 1 && diffDays < 7) label = DAY_NAMES[eventDay.getDay()]
-    else label = eventDay.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })
+    else label = localeDateMaybeYear(eventDay, { weekday: 'long', month: 'short', day: 'numeric' })
     if (!byDiff.has(diffDays)) {
       byDiff.set(diffDays, {
         label,
-        dateSubtitle: eventDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+        dateSubtitle: localeDateMaybeYear(eventDay, { month: 'short', day: 'numeric' }),
         events: [],
       })
     }
@@ -153,7 +159,7 @@ export function describeWindow(windowDays, now = new Date()) {
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
   const end = new Date(todayStart)
   end.setDate(end.getDate() + windowDays)
-  const absoluteEnd = end.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+  const absoluteEnd = localeDateMaybeYear(end, { weekday: 'short', month: 'short', day: 'numeric' })
   if (windowDays === 0) return { relative: 'Today', absoluteEnd }
   if (windowDays === 7) return { relative: 'Next 7 days', absoluteEnd }
   if (windowDays === 14) return { relative: 'Next 2 weeks', absoluteEnd }

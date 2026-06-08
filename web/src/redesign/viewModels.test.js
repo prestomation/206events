@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
+import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 
 // Fixed "now": Mon 2026-06-01 10:00 local. Day boundaries are computed in local
@@ -161,6 +161,16 @@ describe('rowFromIndexEvent time fields', () => {
     const row = rowFromIndexEvent({ summary: 'Show', date: '2026-06-01T19:00:00' })
     expect(row.timeRange).toBe('7 PM')
   })
+
+  it('dateNum omits year for current-year events', () => {
+    const row = rowFromIndexEvent({ summary: 'Show', date: '2026-06-01T19:00:00' })
+    expect(row.dateNum).not.toMatch(/\d{4}/)
+  })
+
+  it('dateNum includes year for future-year events', () => {
+    const row = rowFromIndexEvent({ summary: 'Show', date: '2027-01-15T19:00:00' })
+    expect(row.dateNum).toMatch(/2027/)
+  })
 })
 
 describe('filterDiscoverChannels', () => {
@@ -252,5 +262,19 @@ describe('filterDiscoverEvents', () => {
   it('returns the full (uncapped) match list so a badge can show the true total', () => {
     const many = Array.from({ length: 250 }, (_, i) => ({ summary: `E${i}`, date: `2026-06-10T19:0${i % 10}`, icsUrl: 'music.ics' }))
     expect(filterDiscoverEvents(many, { channelByIcsUrl })).toHaveLength(250)
+  })
+})
+
+describe('groupIndexEventsByDay year display', () => {
+  it('omits year from label and subtitle for current-year events', () => {
+    const groups = groupIndexEventsByDay([{ summary: 'Show', date: '2026-09-15T19:00:00' }], NOW)
+    expect(groups[0].label).not.toMatch(/\d{4}/)
+    expect(groups[0].dateSubtitle).not.toMatch(/\d{4}/)
+  })
+
+  it('includes year in label and subtitle for future-year events', () => {
+    const groups = groupIndexEventsByDay([{ summary: 'Show', date: '2027-03-10T19:00:00' }], NOW)
+    expect(groups[0].label).toMatch(/2027/)
+    expect(groups[0].dateSubtitle).toMatch(/2027/)
   })
 })

@@ -765,7 +765,10 @@ export function ChannelDetail({ icsUrl }) {
 // Row for an ICS-parsed event (channel detail). Shape: { title, startDate, endDate, location, description, url }
 function ParsedEventRow({ event, distributed }) {
   const app = useApp206()
-  const datePart = event.startDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+  const eventYear = event.startDate.getFullYear()
+  const datePart = event.startDate.toLocaleDateString('en-US', eventYear !== new Date().getFullYear()
+    ? { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }
+    : { weekday: 'short', month: 'short', day: 'numeric' })
   const time = `${datePart}, ${formatTimeRange(event.startDate, event.endDate)}`
   return (
     <div className="ev" style={{ cursor: 'default' }}>
