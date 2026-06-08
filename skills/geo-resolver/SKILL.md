@@ -161,7 +161,7 @@ the exact input the report tool accepts.
 ### 2. Run the Nominatim report
 
 ```bash
-node --loader ts-node/esm scripts/backfill-osm-ids.ts \
+tsx scripts/backfill-osm-ids.ts \
   --report /tmp/osm-backfill-report.json
 ```
 
@@ -191,7 +191,7 @@ tokens >2 chars appear in the Nominatim `display_name`.
 ### 4. Apply accepted matches
 
 ```bash
-node --loader ts-node/esm scripts/apply-osm-ids.ts \
+tsx scripts/apply-osm-ids.ts \
   --report /tmp/osm-backfill-report.json \
   --accept 1,3,5-12,17,22
 ```
@@ -206,7 +206,7 @@ report indices that should be silenced. The script writes a dated
 `osmChecked` marker into each YAML's `geo` block:
 
 ```bash
-node --loader ts-node/esm scripts/apply-osm-ids.ts \
+tsx scripts/apply-osm-ids.ts \
   --report /tmp/osm-backfill-report.json \
   --reject 4,9,11
 ```

@@ -6,7 +6,7 @@
  * Uses the yaml package's Document API so leading `# verified: …` header
  * comments and field formatting are preserved. Run once:
  *
- *   node --loader ts-node/esm scripts/migrate-recurring-schedules.ts
+ *   tsx scripts/migrate-recurring-schedules.ts
  *
  * Then eyeball `git diff sources/recurring/` and hand-merge the Georgetown
  * Saturday/Sunday pair into a single multi-schedule file. Safe to delete this

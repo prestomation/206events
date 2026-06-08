@@ -7,7 +7,7 @@
  * with `lib/tag_aggregator.ts`.
  *
  * Usage:
- *   node --loader ts-node/esm scripts/check-discovery-api.ts [output-dir]
+ *   tsx scripts/check-discovery-api.ts [output-dir]
  *
  * Default output-dir is `output`.
  */

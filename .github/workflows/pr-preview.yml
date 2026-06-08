@@ -4,6 +4,15 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+# Cancel an in-progress preview build when a newer commit is pushed to the same
+# PR. The group is keyed by PR number, so different PRs never affect each other;
+# only a superseded commit's build (which nobody is waiting on) is cancelled.
+# This covers the expensive `build` job too — previously only the cheap
+# deploy-preview job had cancellation.
+concurrency:
+  group: pr-preview-${{ github.event.number }}
+  cancel-in-progress: true
+
 jobs:
   build:
     uses: ./.github/workflows/build-calendars.yml

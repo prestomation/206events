@@ -5,21 +5,22 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "postinstall": "cd web && npm install",
+    "postinstall": "cd web && npm ci",
     "test": "c8 vitest run",
     "test:watch": "vitest",
     "test:web": "cd web && npx vitest run",
     "test:e2e": "cd web && npx playwright test",
     "test:all": "npm run test && npm run test:web",
-    "generate-calendars": "node --loader ts-node/esm index.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
+    "generate-calendars": "tsx index.ts",
     "web:dev": "cd web && vite",
     "web:build": "cd web && vite build && cd .. && node scripts/inject-sw-assets.mjs",
     "web:preview": "cd web && vite preview",
     "build": "npm run generate-calendars && npm run web:build",
-    "check-missing-urls": "node --loader ts-node/esm scripts/check-missing-urls.ts",
-    "check-discovery-api": "node --loader ts-node/esm scripts/check-discovery-api.ts",
-    "generate-outofband": "node --loader ts-node/esm scripts/generate-outofband.ts",
-    "download-outofband": "node --loader ts-node/esm scripts/download-outofband.ts"
+    "check-missing-urls": "tsx scripts/check-missing-urls.ts",
+    "check-discovery-api": "tsx scripts/check-discovery-api.ts",
+    "generate-outofband": "tsx scripts/generate-outofband.ts",
+    "download-outofband": "tsx scripts/download-outofband.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1009.0",
@@ -50,7 +51,7 @@
     "c8": "^7.14.0",
     "jsdom": "^22.1.0",
     "lz-string": "^1.5.0",
-    "ts-node": "^10.9.1",
+    "tsx": "^4.19.2",
     "typescript": "^5.0.4",
     "vite": "^5.0.8",
     "vitest": "^4.0.18"

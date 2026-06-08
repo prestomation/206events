@@ -2,8 +2,8 @@
  * Check for missing calendar URLs between deployed site and new build.
  * This ensures backwards compatibility - calendar URLs people depend on shouldn't disappear.
  *
- * Usage: node --loader ts-node/esm scripts/check-missing-urls.ts <deployed-site-url>
- * Example: node --loader ts-node/esm scripts/check-missing-urls.ts https://example.github.io/calendar-ripper
+ * Usage: tsx scripts/check-missing-urls.ts <deployed-site-url>
+ * Example: tsx scripts/check-missing-urls.ts https://example.github.io/calendar-ripper
  */
 
 import { existsSync, readdirSync } from "fs";
@@ -137,7 +137,7 @@ async function main() {
 
   if (!deployedSiteUrl) {
     console.log("No deployed site URL provided, skipping backwards compatibility check.");
-    console.log("Usage: node --loader ts-node/esm scripts/check-missing-urls.ts <deployed-site-url>");
+    console.log("Usage: tsx scripts/check-missing-urls.ts <deployed-site-url>");
     process.exit(0);
   }
 

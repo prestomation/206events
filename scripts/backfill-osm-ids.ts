@@ -11,7 +11,7 @@
  * against one source before a wider sweep.
  *
  * Usage:
- *   node --loader ts-node/esm scripts/backfill-osm-ids.ts [--source <name>] [--dry-run] [--yes]
+ *   tsx scripts/backfill-osm-ids.ts [--source <name>] [--dry-run] [--yes]
  *
  * Flags:
  *   --source <name>  Only process the matching ripper / external / recurring entry

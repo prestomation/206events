@@ -1,0 +1,24 @@
+{
+  // Type-check config for CI (`npm run typecheck`). tsx transpiles without
+  // type-checking, so this restores the compile-time safety that ts-node used
+  // to provide at runtime. Scoped to the calendar build code only:
+  //  - infra/favorites-worker is a separate package (own tsconfig + Cloudflare
+  //    Worker types) and is type-checked/tested in deploy-favorites-worker.yml
+  //  - web has its own tsconfig + JSX toolchain (checked by Vite)
+  //  - *.test.ts files run under vitest (esbuild, no type-check) and were never
+  //    type-checked by ts-node either; keeping them out matches prior behavior
+  "extends": "./tsconfig.json",
+  "include": [
+    "index.ts",
+    "lib/**/*.ts",
+    "scripts/**/*.ts",
+    "sources/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "node_modules",
+    "output",
+    "web",
+    "infra"
+  ]
+}

@@ -11,7 +11,7 @@
  * Both flags can be combined in one invocation.
  *
  * Usage:
- *   node --loader ts-node/esm scripts/apply-osm-ids.ts \
+ *   tsx scripts/apply-osm-ids.ts \
  *     --report /tmp/osm-backfill-merged.json \
  *     --accept 1,3,5-7 \
  *     --reject 4,9,11
