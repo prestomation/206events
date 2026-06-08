@@ -3687,7 +3687,9 @@ html, body, #root { height: 100%; }
 .app206 .a-search-input { flex: 1 1 auto; min-width: 0; border: none; background: none; outline: none; font-family: inherit; font-size: 14.5px; color: var(--ink); }
 .app206 .a-search-input::placeholder { color: var(--ink-3); }
 .app206 .a-search-x { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: var(--ink-3); }
-.app206 .a-suggest { position: absolute; top: 48px; left: 0; right: 0; z-index: 72; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 12px 14px; }
+/* z-index above Leaflet controls (1000) — see the .a-dd-menu note below — so
+   the search suggestions aren't covered by the map's controls on the Map view. */
+.app206 .a-suggest { position: absolute; top: 48px; left: 0; right: 0; z-index: 1005; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 12px 14px; }
 .app206 .a-iconbtn { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--ink-2); }
 .app206 .a-iconbtn svg { width: 20px; height: 20px; }
 .app206 .a-iconbtn.on { background: var(--blue-soft); border-color: transparent; color: var(--blue-ink); }
@@ -3737,7 +3739,11 @@ html, body, #root { height: 100%; }
 .app206 .a-dd-btn { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 13px; border-radius: 11px; background: var(--surface); border: 1px solid var(--line-2); color: var(--ink-2); font-weight: 600; font-size: 13.5px; white-space: nowrap; }
 .app206 .a-dd-btn.on { background: var(--blue-soft); color: var(--blue-ink); border-color: transparent; }
 .app206 .a-dd-caret { transform: rotate(90deg); opacity: .6; }
-.app206 .a-dd-menu { position: absolute; top: 44px; left: 0; z-index: 72; min-width: 240px; max-width: min(360px, calc(100vw - 24px)); max-height: 60vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 8px; }
+/* z-index sits above Leaflet's map controls (.leaflet-top/.leaflet-bottom are
+   z-index 1000) so the menu isn't punched through by the map's zoom +/− buttons
+   on the Map view, while staying below the expanded map (1200), toast (1300),
+   and modal (2000+) layers. */
+.app206 .a-dd-menu { position: absolute; top: 44px; left: 0; z-index: 1005; min-width: 240px; max-width: min(360px, calc(100vw - 24px)); max-height: 60vh; overflow-y: auto; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 8px; }
 .app206 .a-dd-group + .a-dd-group { margin-top: 4px; }
 .app206 .a-dd-grouphdr { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-4); padding: 8px 10px 4px; }
 .app206 .a-dd-item { display: flex; align-items: center; gap: 8px; width: 100%; height: 36px; padding: 0 10px; border-radius: 9px; text-align: left; font-size: 13.5px; font-weight: 500; color: var(--ink-2); }
@@ -3955,7 +3961,9 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
 .app206 .a-map--expanded { position: fixed; inset: 0; z-index: 1200; background: var(--surface); display: block; }
 
 /* ---- popover / toast ---- */
-.app206 .a-filterpop { position: absolute; top: 62px; right: var(--pad); z-index: 71; width: 248px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 14px; }
+/* z-index above Leaflet controls (1000) — see the .a-dd-menu note — so the date
+   filter popover isn't covered by the map's controls on the Map view. */
+.app206 .a-filterpop { position: absolute; top: 62px; right: var(--pad); z-index: 1004; width: 248px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 14px; }
 .app206 .a-scope { display: flex; align-items: center; gap: 9px; height: 38px; padding: 0 11px; border-radius: 10px; text-align: left; background: transparent; color: var(--ink-2); font-weight: 600; font-size: 13.5px; }
 .app206 .a-scope.on { background: var(--blue-soft); color: var(--blue-ink); }
 .app206 .a-toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 1300; background: var(--ink); color: var(--paper); padding: 11px 18px; border-radius: 12px; font-size: 13.5px; font-weight: 500; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 9px; white-space: nowrap; }
