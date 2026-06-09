@@ -20,10 +20,17 @@ async function getKey(secret: string): Promise<CryptoKey> {
   )
 }
 
-export async function signJWT(payload: Omit<JWTPayload, 'exp'>, secret: string, expiresInSeconds: number): Promise<string> {
+// Low-level HS256 sign/verify over an arbitrary claims object. `exp` is added
+// automatically and enforced on verify. Both signJWT (session) and the handoff
+// ticket build on this so there is a single crypto implementation to audit.
+export async function signClaims(
+  claims: Record<string, unknown>,
+  secret: string,
+  expiresInSeconds: number,
+): Promise<string> {
   const header = { alg: 'HS256', typ: 'JWT' }
   const now = Math.floor(Date.now() / 1000)
-  const fullPayload: JWTPayload = { ...payload, exp: now + expiresInSeconds }
+  const fullPayload = { ...claims, exp: now + expiresInSeconds }
 
   const enc = new TextEncoder()
   const headerB64 = base64UrlEncode(enc.encode(JSON.stringify(header)))
@@ -37,7 +44,10 @@ export async function signJWT(payload: Omit<JWTPayload, 'exp'>, secret: string, 
   return `${signingInput}.${sigB64}`
 }
 
-export async function verifyJWT(token: string, secret: string): Promise<JWTPayload | null> {
+export async function verifyClaims(
+  token: string,
+  secret: string,
+): Promise<Record<string, unknown> | null> {
   try {
     const parts = token.split('.')
     if (parts.length !== 3) return null
@@ -51,12 +61,22 @@ export async function verifyJWT(token: string, secret: string): Promise<JWTPaylo
     const valid = await crypto.subtle.verify('HMAC', key, sig, enc.encode(signingInput))
     if (!valid) return null
 
-    const payload: JWTPayload = JSON.parse(new TextDecoder().decode(base64UrlDecode(payloadB64)))
+    const payload = JSON.parse(new TextDecoder().decode(base64UrlDecode(payloadB64))) as Record<string, unknown>
     const now = Math.floor(Date.now() / 1000)
-    if (payload.exp <= now) return null
+    if (typeof payload.exp !== 'number' || payload.exp <= now) return null
 
     return payload
   } catch {
     return null
   }
+}
+
+export async function signJWT(payload: Omit<JWTPayload, 'exp'>, secret: string, expiresInSeconds: number): Promise<string> {
+  return signClaims({ ...payload }, secret, expiresInSeconds)
+}
+
+export async function verifyJWT(token: string, secret: string): Promise<JWTPayload | null> {
+  const payload = await verifyClaims(token, secret)
+  if (!payload || typeof payload.sub !== 'string') return null
+  return { sub: payload.sub, exp: payload.exp as number }
 }

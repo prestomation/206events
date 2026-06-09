@@ -15,6 +15,14 @@ export interface Env {
   JWT_SECRET: string
   GOOGLE_CLIENT_ID: string
   GOOGLE_CLIENT_SECRET: string
+  // Cross-worker preview auth handoff. Both are unset in production today, which
+  // keeps the handoff path fully inert: the prod callback issues a handoff ticket
+  // only when STAGING_ORIGIN is configured AND HANDOFF_SECRET is present.
+  // STAGING_ORIGIN is the exact, allowlisted origin the ticket may be sent to
+  // (e.g. "https://api-staging.206.events"). HANDOFF_SECRET signs/verifies the
+  // ticket and is shared by prod and staging, separate from JWT_SECRET.
+  STAGING_ORIGIN?: string
+  HANDOFF_SECRET?: string
   GITHUB_PAGES_BASE_URL: string
   SITE_URL: string
   // Feedback → GitHub Issues. FEEDBACK_GITHUB_ISSUES_TOKEN is a secret

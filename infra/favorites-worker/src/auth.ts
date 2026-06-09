@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import type { Env, UserRecord, UserListsRecord } from './types.js'
 import { signJWT } from './jwt.js'
+import { signHandoffTicket } from './handoff.js'
 import { extractUserId } from './auth-middleware.js'
 import { DEFAULT_LIST_ID, DEFAULT_LIST_NAME } from './favorites-helpers.js'
 
@@ -21,10 +22,34 @@ const ALLOWED_RETURN_PREFIXES = [
   'http://127.0.0.1/',
 ]
 
-function isAllowedReturnUrl(url: string): boolean {
+// Cloudflare Pages preview deployments for this project live under
+// <branch>.206events.pages.dev. Scoped to this exact project subdomain — never
+// bare *.pages.dev, which is shared across every Cloudflare account.
+const PREVIEW_PAGES_SUFFIX = '.206events.pages.dev'
+const PREVIEW_PAGES_HOST = '206events.pages.dev'
+
+export function isAllowedReturnUrl(url: string): boolean {
   try {
-    new URL(url) // validate it's a real URL
-    return ALLOWED_RETURN_PREFIXES.some(prefix => url.startsWith(prefix))
+    const u = new URL(url)
+    if (ALLOWED_RETURN_PREFIXES.some(prefix => url.startsWith(prefix))) return true
+    if (u.protocol === 'https:' && (u.hostname === PREVIEW_PAGES_HOST || u.hostname.endsWith(PREVIEW_PAGES_SUFFIX))) {
+      return true
+    }
+    return false
+  } catch {
+    return false
+  }
+}
+
+// The handoff ticket may only be sent to the one configured staging origin
+// (exact origin match, https only). Returns false when STAGING_ORIGIN is unset,
+// which keeps the handoff path inert in production until it is configured.
+export function isAllowedHandoffOrigin(value: string, env: Pick<Env, 'STAGING_ORIGIN'>): boolean {
+  if (!env.STAGING_ORIGIN) return false
+  try {
+    const got = new URL(value)
+    const want = new URL(env.STAGING_ORIGIN)
+    return got.protocol === 'https:' && got.origin === want.origin
   } catch {
     return false
   }
@@ -37,10 +62,15 @@ authRoutes.get('/login', (c) => {
   }
 
   const returnTo = c.req.query('return_to') || ''
+  // Optional cross-worker handoff: when a preview build initiates login it asks
+  // prod to bounce the authenticated session to the staging worker's origin.
+  // Only an exact-allowlisted origin is carried through; anything else is dropped.
+  const handoff = c.req.query('handoff') || ''
   const nonce = crypto.randomUUID()
   const state = JSON.stringify({
     nonce,
     returnTo: returnTo && isAllowedReturnUrl(returnTo) ? returnTo : '',
+    handoff: handoff && isAllowedHandoffOrigin(handoff, c.env) ? handoff : '',
   })
 
   const callbackUrl = new URL('/auth/callback', c.req.url).toString()
@@ -65,10 +95,11 @@ authRoutes.get('/callback', async (c) => {
 
   // Validate CSRF nonce from state parameter against cookie
   let returnTo = ''
+  let handoff = ''
   const stateRaw = c.req.query('state') || ''
   if (stateRaw) {
     try {
-      const state = JSON.parse(stateRaw) as { nonce?: string; returnTo?: string }
+      const state = JSON.parse(stateRaw) as { nonce?: string; returnTo?: string; handoff?: string }
       const cookies = Object.fromEntries(
         (c.req.header('Cookie') || '').split(';').map(s => {
           const [k, ...v] = s.trim().split('=')
@@ -79,6 +110,7 @@ authRoutes.get('/callback', async (c) => {
         return c.json({ error: 'Invalid OAuth state' }, 403)
       }
       returnTo = state.returnTo || ''
+      handoff = state.handoff || ''
     } catch {
       return c.json({ error: 'Invalid OAuth state' }, 403)
     }
@@ -158,6 +190,27 @@ authRoutes.get('/callback', async (c) => {
   }
 
   await c.env.USERS.put(userId, JSON.stringify(user))
+
+  // Cross-worker handoff: when the login came from a preview build, the session
+  // belongs on the staging worker's host (the prod session cookie is host-only
+  // and unreadable there). Instead of setting a prod cookie, mint a short-lived
+  // ticket and bounce to the staging worker, which sets its own cookie. Gated on
+  // both an allowlisted origin and a configured HANDOFF_SECRET, so this branch is
+  // inert in production until staging is provisioned.
+  if (handoff && isAllowedHandoffOrigin(handoff, c.env) && c.env.HANDOFF_SECRET) {
+    const ticket = await signHandoffTicket(
+      { sub: userId, email: user.email, name: user.name, picture: user.picture },
+      c.env.HANDOFF_SECRET,
+    )
+    const dest = new URL('/auth/handoff', handoff)
+    dest.searchParams.set('ticket', ticket)
+    if (returnTo) dest.searchParams.set('return_to', returnTo)
+
+    const headers = new Headers()
+    headers.set('Location', dest.toString())
+    headers.append('Set-Cookie', 'oauth_nonce=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0')
+    return new Response(null, { status: 302, headers })
+  }
 
   // Create session JWT
   const token = await signJWT({ sub: userId }, c.env.JWT_SECRET, SESSION_MAX_AGE)
