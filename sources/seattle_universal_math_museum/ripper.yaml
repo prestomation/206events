@@ -3,11 +3,8 @@ type: squarespace
 description: "Seattle Universal Math Museum"
 url: "https://seattlemathmuseum.org/events"
 friendlyLink: https://seattlemathmuseum.org/events
-tags: ["Education", "Community", "Columbia City"]
-geo:
-  lat: 47.5841971
-  lng: -122.3014355
-  label: "Seattle Universal Math Museum, 2100 24th Avenue South, Seattle, WA 98144"
+tags: ["Education", "Community"]
+geo: null
 calendars:
   - name: all-events
     friendlyname: "Seattle Universal Math Museum"
