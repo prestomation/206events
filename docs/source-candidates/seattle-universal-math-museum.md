@@ -6,7 +6,7 @@ url: https://seattlemathmuseum.org/events
 tags: [Education, Community, "Columbia City"]
 firstSeen: 2026-06-09
 lastChecked: 2026-06-09
-pr: 564
+pr: 566
 ---
 
 Identified from a poster for their "Math Out Loud" lecture series (event at Museum of Flight, June 17 2026).
