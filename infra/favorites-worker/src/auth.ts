@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import type { Env, UserRecord, UserListsRecord } from './types.js'
 import { signJWT } from './jwt.js'
-import { signHandoffTicket, verifyHandoffTicket } from './handoff.js'
+import { signHandoffTicket, verifyHandoffTicket, HANDOFF_TICKET_TTL_SECONDS } from './handoff.js'
 import { extractUserId } from './auth-middleware.js'
 import { DEFAULT_LIST_ID, DEFAULT_LIST_NAME } from './favorites-helpers.js'
 
@@ -79,6 +79,9 @@ async function ensureUserAndLists(
     user = {
       id: userId,
       provider: 'google',
+      // userId is always `user:google:<googleId>` (built by the callback and
+      // carried verbatim in the handoff ticket's sub), so stripping the prefix
+      // recovers exactly the original profile.id.
       providerId: userId.replace(/^user:google:/, ''),
       email: profile.email,
       name: profile.name,
@@ -265,6 +268,20 @@ authRoutes.get('/handoff', async (c) => {
   const ticketStr = c.req.query('ticket') || ''
   const ticket = await verifyHandoffTicket(ticketStr, c.env.HANDOFF_SECRET)
   if (!ticket) return c.json({ error: 'Invalid or expired handoff ticket' }, 403)
+
+  // One-time use: reject a ticket whose jti was already consumed, so a ticket
+  // captured from a URL (logs, history) can't be replayed within its TTL to
+  // mint extra sessions. Best-effort — uses the RATE_LIMIT KV (bound on the
+  // staging worker); the marker's TTL matches the ticket lifetime so it
+  // self-expires. The check→put window is a small TOCTOU race, acceptable given
+  // low concurrency and the 60s ceiling.
+  if (c.env.RATE_LIMIT) {
+    const jtiKey = `handoff-jti:${ticket.jti}`
+    if (await c.env.RATE_LIMIT.get(jtiKey)) {
+      return c.json({ error: 'Handoff ticket already used' }, 403)
+    }
+    await c.env.RATE_LIMIT.put(jtiKey, '1', { expirationTtl: HANDOFF_TICKET_TTL_SECONDS })
+  }
 
   // Upsert into THIS worker's (staging) KV — separate namespaces from prod, so
   // preview activity never touches real users' favorites.

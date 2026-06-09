@@ -54,6 +54,13 @@ jobs:
       - name: Run tests
         run: npm test
         working-directory: infra/favorites-worker
+      - name: Guard against unprovisioned staging KV ids
+        run: |
+          if grep -q 'REPLACE_WITH_STAGING' wrangler.toml; then
+            echo "::error::staging KV namespace ids are still placeholders — provision them per docs/preview-api-deployments.md before enabling STAGING_FAVORITES_API_URL."
+            exit 1
+          fi
+        working-directory: infra/favorites-worker
       - name: Deploy to staging
         run: npx wrangler deploy --env staging
         working-directory: infra/favorites-worker

@@ -307,6 +307,20 @@ describe('Auth endpoints', () => {
     expect(await mockEnv.FAVORITES.get('user:google:g-9')).toBeTruthy()
   })
 
+  it('staging /auth/handoff rejects a replayed ticket (one-time use via RATE_LIMIT)', async () => {
+    const stagingEnv = { ...mockEnv, AUTH_MODE: 'staging', RATE_LIMIT: createMockKV() }
+    const ticket = await signHandoffTicket(
+      { sub: 'user:google:g-rp', email: 'r@p.com', name: 'Re', picture: 'https://img/r.png' },
+      HANDOFF_SECRET,
+    )
+    const url = `/auth/handoff?ticket=${encodeURIComponent(ticket)}&return_to=${encodeURIComponent('https://pr-1.206events.pages.dev/')}`
+    const first = await app.request(url, { method: 'GET' }, stagingEnv)
+    expect(first.status).toBe(302)
+    // Same ticket again within its TTL → rejected.
+    const second = await app.request(url, { method: 'GET' }, stagingEnv)
+    expect(second.status).toBe(403)
+  })
+
   it('staging /auth/handoff falls back to SITE_URL when return_to is not allowlisted', async () => {
     const stagingEnv = { ...mockEnv, AUTH_MODE: 'staging' }
     const ticket = await signHandoffTicket(

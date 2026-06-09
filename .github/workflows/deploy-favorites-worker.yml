@@ -32,7 +32,12 @@ jobs:
       # STAGING_FAVORITES_API_URL so it's inert until staging is provisioned.
       - name: Deploy to staging
         if: ${{ vars.STAGING_FAVORITES_API_URL != '' }}
-        run: npx wrangler deploy --env staging
+        run: |
+          if grep -q 'REPLACE_WITH_STAGING' wrangler.toml; then
+            echo "::error::staging KV namespace ids are still placeholders — provision them per docs/preview-api-deployments.md before enabling STAGING_FAVORITES_API_URL."
+            exit 1
+          fi
+          npx wrangler deploy --env staging
         working-directory: infra/favorites-worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
