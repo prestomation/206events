@@ -326,6 +326,11 @@ export default class MuseumOfFlightRipper implements IRipper {
         this.fetchFn = getFetchForConfig(ripper.config);
 
         const allEvents: RipperEvent[] = [];
+        // The endpoint is cumulative — each page re-includes all prior events plus new
+        // ones appended at the bottom. Track seen calendar-event IDs (prefixed "e:") and
+        // uncertainty-error IDs (prefixed "u:") separately so a calendar event and its
+        // paired UncertaintyError (which share the same id) don't clobber each other.
+        const seenKeys = new Set<string>();
 
         for (let page = 1; page <= MAX_PAGES; page++) {
             const url = page === 1
@@ -341,9 +346,26 @@ export default class MuseumOfFlightRipper implements IRipper {
 
             const html = parse(await res.text());
             const { events, hasMore } = parsePage(html, ripper.config.name);
-            allEvents.push(...events);
 
-            if (!hasMore || !html.querySelector('.row.event')) break;
+            let addedNew = false;
+            for (const event of events) {
+                let key: string | undefined;
+                if ('date' in event) {
+                    key = `e:${(event as RipperCalendarEvent).id}`;
+                } else if ('event' in event) {
+                    key = `u:${(event as UncertaintyError).event.id}`;
+                }
+                // ParseErrors have no stable key — always include
+                if (key === undefined) {
+                    allEvents.push(event);
+                } else if (!seenKeys.has(key)) {
+                    seenKeys.add(key);
+                    allEvents.push(event);
+                    if ('date' in event) addedNew = true;
+                }
+            }
+
+            if (!hasMore || !addedNew) break;
         }
 
         return ripper.config.calendars.map(cal => ({
