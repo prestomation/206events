@@ -1,0 +1,19 @@
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0b/White_Center_01.jpg"
+geo:
+  lat: 47.5519
+  lng: -122.3547
+  label: "White Center Business Core, 16th Ave SW, Seattle, WA 98146"
+name: rat-city-artwalk
+friendlyname: Rat City Art Walk
+description: Monthly art walk in the White Center neighborhood featuring local artists, vendors, live music, and food.
+timezone: America/Los_Angeles
+location: 16th Ave SW, White Center, Seattle, WA
+url: https://www.ratcityartwalk.org/
+tags:
+  - Artwalk
+  - White Center
+schedules:
+  - schedule: 3rd Thursday
+    start_time: "17:00"
+    duration: PT3H
+    months: [4, 5, 6, 7, 8, 9]
