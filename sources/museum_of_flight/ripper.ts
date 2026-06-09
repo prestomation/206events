@@ -218,6 +218,14 @@ export function parseEventElement(
         let duration: Duration;
         if (!parsedTime.unknownDuration && parsedTime.endMinuteOfDay !== undefined) {
             const diffMinutes = parsedTime.endMinuteOfDay - (slot.hour * 60 + slot.minute);
+            if (diffMinutes < 0) {
+                results.push({
+                    type: "ParseError" as const,
+                    reason: `Invalid time range for "${title}": end time before start time (${timeRaw})`,
+                    context: `${currentDate} ${slot.hour}:${slot.minute} to ${parsedTime.endMinuteOfDay}`,
+                });
+                continue;
+            }
             duration = Duration.ofMinutes(Math.max(diffMinutes, 30));
         } else {
             // Placeholder — resolved by uncertainty system.
