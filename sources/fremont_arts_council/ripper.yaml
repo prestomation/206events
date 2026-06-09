@@ -3,14 +3,8 @@ type: squarespace
 description: "Fremont Arts Council"
 url: "https://fremontartscouncil.org/calendar"
 friendlyLink: https://fremontartscouncil.org/calendar
-tags: ["Arts", "Community", "Fremont"]
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Luminata_2016_-_53_-_gathering_at_Aqua_Theater_%2829250716163%29.jpg"
-geo:
-  lat: 47.6544
-  lng: -122.3426
-  label: "Fremont Arts Council, 3940 Stone Way N, Seattle, WA 98103"
-  osmType: way
-  osmId: 391114827
+tags: ["Community", "Arts", "Fremont"]
+geo: null
 calendars:
   - name: all-events
     friendlyname: "Fremont Arts Council"
