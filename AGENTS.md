@@ -643,6 +643,50 @@ canonical pattern (emit event + `UncertaintyError` with same id, with
 a `partialFingerprint` so the cache invalidates if source content
 changes).
 
+### Designing new features: uncertainty is the default pattern for unparsable data
+
+When designing **any new feature** that needs a per-event field that
+sources often don't expose in machine-parsable form (start time, image,
+cost/price, age restriction, accessibility info, …), the uncertainty
+system is the appropriate home for the unknowns. Do **not**:
+
+- silently guess a default (a guess that looks like a fact),
+- drop the event because one field is missing, or
+- leave the field permanently "unknown" with no path to resolution.
+
+Instead, publish the event with the field absent (or a clearly-marked
+placeholder), signal the gap, and let the LLM-powered resolver flow
+make it certain across builds. The system has **two flavors** — pick by
+how often the field is missing:
+
+1. **Occasionally missing, correctness-critical** (e.g. start times):
+   emit an `UncertaintyError` alongside the event. Gaps count toward
+   `totalErrors` (non-fatal) and are drained by the
+   event-uncertainty-resolver skill.
+2. **Pervasively missing** (most events lack it on day one, e.g.
+   `imageUrl`): don't flood the uncertainty queue. Use a cache
+   **overlay** plus a dedicated **non-fatal gap queue** in
+   `build-errors.json`, modeled on the photo pipeline:
+   `applyImageBackfill` (`lib/uncertainty-merge.ts`) + `buildPhotoGaps`
+   (`lib/discovery.ts`) + `skills/photo-resolver/`. The overlay fills
+   the field from the cache, never overwrites a ripper-provided value,
+   and skips `unresolvable` entries.
+
+Both flavors share `event-uncertainty-cache.json`, keyed
+`source:eventId` — never invent a parallel cache for a new field.
+
+Adding a new resolvable field follows the "Future fields" checklist in
+`docs/event-uncertainty.md`: extend `UncertaintyField` in
+`lib/config/schema.ts`, teach `applyResolution` in
+`lib/uncertainty-merge.ts` to apply it, add the CLI flag to
+`skills/event-uncertainty-resolver/scripts/uncertainty-cache.py`, and
+document it in the resolver SKILL.md field table. A pervasive field
+additionally gets its own gap queue + stats in `build-errors.json`
+(plumbed through **all five reporting surfaces** in the same PR, per
+the Reporting Parity rule) and a draining skill. Stable event IDs
+(see "Ripper Design: Stable Event IDs") are a hard prerequisite — the
+cache join key breaks without them.
+
 ## Reporting Parity
 
 `output/build-errors.json` is the single source of truth for build
