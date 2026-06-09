@@ -89,7 +89,13 @@ start-time queue). Instead, mirror the photo pipeline:
 
 **Invalidation:** prices change ("free" shows become ticketed).
 Resolutions should carry a `partialFingerprint` wherever the ripper
-parsed anything price-adjacent; the existing `lastSeen` pruning keeps
+parsed anything price-adjacent — hash the raw price signal itself, e.g.
+the serialized `priceRanges` array for Ticketmaster or the `is_free`
+value for Eventbrite, so any upstream price change (not just a change
+to the derived min) invalidates the cached resolution. (For structured
+sources this is belt-and-suspenders: the ripper-parsed value wins over
+the cache anyway, so fingerprints chiefly protect resolver-written
+entries for long-tail sources.) The existing `lastSeen` pruning keeps
 dead entries from accumulating.
 
 **Prerequisite:** stable event IDs (AGENTS.md → "Ripper Design: Stable
@@ -116,9 +122,9 @@ Event IDs") for any source whose cost is cache-resolved.
   **All** (default) / **Free** / **Paid**.
 - Strict semantics: "Free" shows only `cost === 'free'`, "Paid" only
   `cost === 'paid'`; unknown events appear only under "All". Show a
-  small caption while a cost filter is active ("showing only events
-  with confirmed pricing") so the shrunken list isn't mistaken for a
-  bug.
+  small caption while a cost filter is active — "showing only events
+  confirmed as free" / "…confirmed as paid" — so it's clear the filter
+  is strict, coverage is incomplete, and the shrunken list isn't a bug.
 - Filtering logic in `filterDiscoverEvents` (`viewModels.js`), tests in
   `viewModels.test.js`. Cost is an *event*-level filter — channels pass
   through unfiltered (unlike category/neighborhood, which are
@@ -148,7 +154,10 @@ once Ticketmaster/Eventbrite/DICE coverage proves out.
 
 - Three-way filter vs. free-only toggle in v1 (see UI section).
 - Whether DICE's API price data is reliable enough to classify, or
-  DICE events start as unknown and flow through the resolver.
+  DICE events start as unknown and flow through the resolver. Resolve
+  during PR 1: fetch live DICE sample data, confirm the field exists
+  and is populated reliably, and only then wire the classification —
+  otherwise ship DICE as unknown.
 - Whether "donation suggested" / "pay what you can" maps to `free`,
   `paid`, or stays unknown — recommend `free` (no payment required to
   attend) with the nuance left in the description, but confirm before
