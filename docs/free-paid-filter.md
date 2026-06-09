@@ -43,7 +43,7 @@ cache resolution (overlay never overwrites) → source-level YAML default.
 
 | Source | Signal |
 |---|---|
-| Ticketmaster (`lib/config/ticketmaster.ts`) | `priceRanges[0].min === 0` → free, `> 0` → paid (already parsed for the description line) |
+| Ticketmaster (`lib/config/ticketmaster.ts`) | only when `priceRanges?.length` (the existing guard for the description line): `min === 0` → free, `> 0` → paid; otherwise cost stays unknown |
 | Eventbrite (`lib/config/eventbrite.ts`) | v3 API event `is_free` boolean |
 | DICE (`lib/config/dice.ts`) | ticket/price data on the events API response (confirm exact field against `sample-data.json` before implementing) |
 | Recurring / external YAML | source-level `cost: free` annotations on the obviously-free sources |
