@@ -114,6 +114,7 @@ calendars:
       venue: "Black &amp; Tan Hall" # server sends HTML entity in venue name
   - name: the-royal-room
     friendlyname: "The Royal Room"
+    imageUrl: "https://www.theroyalroomseattle.com/wp-content/uploads/2019/04/NewWorks_2012-1024x791.jpg"
     geo:
       lat: 47.5569
       lng: -122.2843
@@ -129,6 +130,7 @@ calendars:
   # The Triple Door has a dedicated ripper at sources/triple_door/
   - name: the-rabbit-box
     friendlyname: "The Rabbit Box"
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/61aa99f150d66370047bc15a/f62f1940-10b8-4681-9dce-79a00bbb9e5a/Rabbit_Box_Hero_Image_04.png"
     geo:
       lat: 47.6105
       lng: -122.3425
@@ -144,6 +146,7 @@ calendars:
   # --- Eastlake ---
   - name: black-lodge
     friendlyname: "Black Lodge"
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/631b91c4dca71e1c72c4ee2d/ab7f3ab9-a4e8-4f8c-af67-77be0c76e35a/blacklodgevera__1_.jpeg"
     geo:
       lat: 47.6231
       lng: -122.3539
@@ -171,6 +174,7 @@ calendars:
 
   - name: slims-last-chance
     friendlyname: "Slim's Last Chance"
+    imageUrl: "https://static.wixstatic.com/media/c1aac0_9a02b42c0f2549cb853ca88264932a46~mv2.jpg"
     geo:
       lat: 47.5519
       lng: -122.3313
@@ -232,6 +236,7 @@ calendars:
   # --- Shoreline ---
   - name: darrells-tavern
     friendlyname: "Darrell's Tavern"
+    imageUrl: "https://live.staticflickr.com/1846/30402194198_345a7aab16_b.jpg"
     geo:
       lat: 47.7353
       lng: -122.345

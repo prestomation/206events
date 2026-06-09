@@ -24,6 +24,7 @@ calendars:
   - name: showbox-sodo
     friendlyname: "Showbox SoDo"
     tags: ["Stadium District"]
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/81/Showbox_Sodo_02.jpg"
     geo:
       lat: 47.588
       lng: -122.336
@@ -38,6 +39,7 @@ calendars:
     friendlyname: "Neumos"
     timezone: America/Los_Angeles
     tags: ["Capitol Hill"]
+    imageUrl: "https://www.neumos.com/assets/img/Neumos_Default-Website-cf3b432eb8.png"
     geo:
       lat: 47.6138
       lng: -122.3198
