@@ -106,7 +106,7 @@ The steering file provides essential context for making informed decisions about
    | New/updated source-candidate or discovery-log entries | New base classes or shared infrastructure that introduce new behavior |
    | Geo-cache / event-uncertainty-cache resolutions | Schema changes, config-shape changes, new error categories/counters |
    | Bug fixes to existing rippers, broken-source repairs, CI/build fixes | Architectural changes, new infrastructure, new workflows |
-   | Docs, comments, dependency bumps, `expectEmpty`/tag/`allowed-removals` housekeeping | |
+   | Docs **maintenance** (fixing stale references, typos, documenting already-merged behavior), comments, dependency bumps, `expectEmpty`/tag/`allowed-removals` housekeeping | **Design docs and implementation plans** — any doc that *proposes* a feature, architecture, or plan not yet implemented (e.g. a new `docs/<feature>.md`). Humans must review plans before they become the blueprint for implementation work |
 
    When unsure which side a PR falls on, treat it as requiring manual merge.
 
