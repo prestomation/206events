@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import app from '../src/index.js'
+import app, { isAllowedOrigin } from '../src/index.js'
 import { isAllowedReturnUrl, isAllowedHandoffOrigin } from '../src/auth.js'
-import { verifyHandoffTicket } from '../src/handoff.js'
+import { signHandoffTicket, verifyHandoffTicket } from '../src/handoff.js'
+import { verifyJWT } from '../src/jwt.js'
 
 function createMockKV() {
   const store = new Map<string, string>()
@@ -260,5 +261,106 @@ describe('Auth endpoints', () => {
     expect(res.headers.get('Location')).toBe('https://206.events/')
     const cookies = setCookies(res)
     expect(cookies.some(c => c.startsWith('session='))).toBe(true)
+  })
+
+  it('staging /auth/login delegates to prod with a handoff param', async () => {
+    const stagingEnv = { ...mockEnv, AUTH_MODE: 'staging', PROD_AUTH_ORIGIN: 'https://api.206.events' }
+    const returnTo = 'https://pr-7.206events.pages.dev/'
+    const res = await app.request(
+      `/auth/login?provider=google&return_to=${encodeURIComponent(returnTo)}`,
+      { method: 'GET' },
+      stagingEnv,
+    )
+    expect(res.status).toBe(302)
+    const dest = new URL(res.headers.get('Location')!)
+    expect(dest.origin).toBe('https://api.206.events')
+    expect(dest.pathname).toBe('/auth/login')
+    expect(dest.searchParams.get('handoff')).toBe(STAGING_ORIGIN)
+    expect(dest.searchParams.get('return_to')).toBe(returnTo)
+    // Delegation must not start a Google flow or set a nonce on the staging host.
+    expect(res.headers.get('Set-Cookie')).toBeNull()
+  })
+
+  it('staging /auth/handoff consumes a ticket, seeds the staging user, sets a session, and redirects', async () => {
+    const stagingEnv = { ...mockEnv, AUTH_MODE: 'staging' }
+    const ticket = await signHandoffTicket(
+      { sub: 'user:google:g-9', email: 'h@i.com', name: 'Di', picture: 'https://img/h.png' },
+      HANDOFF_SECRET,
+    )
+    const returnTo = 'https://pr-9.206events.pages.dev/'
+    const res = await app.request(
+      `/auth/handoff?ticket=${encodeURIComponent(ticket)}&return_to=${encodeURIComponent(returnTo)}`,
+      { method: 'GET' },
+      stagingEnv,
+    )
+    expect(res.status).toBe(302)
+    expect(res.headers.get('Location')).toBe(returnTo)
+
+    // A session cookie signed with the staging worker's own JWT_SECRET is set here.
+    const sessionCookie = setCookies(res).find(c => c.startsWith('session='))
+    expect(sessionCookie).toBeDefined()
+    const token = sessionCookie!.split(';')[0].slice('session='.length)
+    expect(await verifyJWT(token, mockEnv.JWT_SECRET)).toMatchObject({ sub: 'user:google:g-9' })
+
+    // The user + default list were seeded into the (staging) KV.
+    expect(await mockEnv.USERS.get('user:google:g-9')).toBeTruthy()
+    expect(await mockEnv.FAVORITES.get('user:google:g-9')).toBeTruthy()
+  })
+
+  it('staging /auth/handoff falls back to SITE_URL when return_to is not allowlisted', async () => {
+    const stagingEnv = { ...mockEnv, AUTH_MODE: 'staging' }
+    const ticket = await signHandoffTicket(
+      { sub: 'user:google:g-8', email: 'j@k.com', name: 'El', picture: 'https://img/j.png' },
+      HANDOFF_SECRET,
+    )
+    const res = await app.request(
+      `/auth/handoff?ticket=${encodeURIComponent(ticket)}&return_to=${encodeURIComponent('https://evil.example.com/')}`,
+      { method: 'GET' },
+      stagingEnv,
+    )
+    expect(res.status).toBe(302)
+    expect(res.headers.get('Location')).toBe(stagingEnv.SITE_URL)
+  })
+
+  it('staging /auth/handoff rejects an invalid ticket', async () => {
+    const stagingEnv = { ...mockEnv, AUTH_MODE: 'staging' }
+    const res = await app.request('/auth/handoff?ticket=not-a-real-ticket', { method: 'GET' }, stagingEnv)
+    expect(res.status).toBe(403)
+  })
+
+  it('staging /auth/handoff rejects a ticket signed with the wrong secret', async () => {
+    const stagingEnv = { ...mockEnv, AUTH_MODE: 'staging' }
+    const ticket = await signHandoffTicket(
+      { sub: 'user:google:g-x', email: 'x@y.com', name: 'Ex', picture: 'https://img/e.png' },
+      'a-different-secret',
+    )
+    const res = await app.request(`/auth/handoff?ticket=${encodeURIComponent(ticket)}`, { method: 'GET' }, stagingEnv)
+    expect(res.status).toBe(403)
+  })
+
+  it('/auth/handoff is 404 in prod mode (consumer inert without AUTH_MODE=staging)', async () => {
+    const ticket = await signHandoffTicket(
+      { sub: 'user:google:g-z', email: 'z@z.com', name: 'Ze', picture: 'https://img/z.png' },
+      HANDOFF_SECRET,
+    )
+    const res = await app.request(`/auth/handoff?ticket=${encodeURIComponent(ticket)}`, { method: 'GET' }, mockEnv)
+    expect(res.status).toBe(404)
+  })
+})
+
+describe('isAllowedOrigin (CORS)', () => {
+  it('allows prod, staging, localhost, and Pages preview origins', () => {
+    expect(isAllowedOrigin('https://206.events')).toBe('https://206.events')
+    expect(isAllowedOrigin('https://api-staging.206.events')).toBe('https://api-staging.206.events')
+    expect(isAllowedOrigin('https://pr-7.206events.pages.dev')).toBe('https://pr-7.206events.pages.dev')
+    expect(isAllowedOrigin('https://206events.pages.dev')).toBe('https://206events.pages.dev')
+    expect(isAllowedOrigin('http://localhost:5173')).toBe('http://localhost:5173')
+  })
+
+  it('denies other origins, look-alikes, and non-https previews', () => {
+    expect(isAllowedOrigin('https://evil.pages.dev')).toBe('')
+    expect(isAllowedOrigin('https://206events.pages.dev.evil.com')).toBe('')
+    expect(isAllowedOrigin('http://pr-7.206events.pages.dev')).toBe('')
+    expect(isAllowedOrigin(undefined)).toBe('')
   })
 })

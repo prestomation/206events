@@ -22,6 +22,44 @@ jobs:
     secrets: inherit
     with:
       artifact-name: pr-preview-${{ github.event.number }}
+      # When STAGING_FAVORITES_API_URL is set, the preview bundle targets the
+      # staging worker (authenticated previews of this PR's worker code). When
+      # unset, this is empty and build-calendars falls back to the prod API
+      # (UI-only previews). See docs/preview-api-deployments.md.
+      favorites-api-url: ${{ vars.STAGING_FAVORITES_API_URL }}
+
+  deploy-staging-worker:
+    # Deploy THIS PR's worker code to the shared staging worker so the preview
+    # site (built against api-staging.206.events) exercises the PR's API/auth
+    # logic. Gated on STAGING_FAVORITES_API_URL so it stays inert until staging
+    # is provisioned, and skipped for fork PRs (which have no secrets). The
+    # staging worker is a single shared host: last PR to deploy wins.
+    if: ${{ vars.STAGING_FAVORITES_API_URL != '' && github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    concurrency:
+      group: deploy-staging-worker
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: infra/favorites-worker/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+        working-directory: infra/favorites-worker
+      - name: Run tests
+        run: npm test
+        working-directory: infra/favorites-worker
+      - name: Deploy to staging
+        run: npx wrangler deploy --env staging
+        working-directory: infra/favorites-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
   deploy-preview:
     runs-on: ubuntu-latest

@@ -1,7 +1,7 @@
 import { Hono } from 'hono'
 import type { Env, UserRecord, UserListsRecord } from './types.js'
 import { signJWT } from './jwt.js'
-import { signHandoffTicket } from './handoff.js'
+import { signHandoffTicket, verifyHandoffTicket } from './handoff.js'
 import { extractUserId } from './auth-middleware.js'
 import { DEFAULT_LIST_ID, DEFAULT_LIST_NAME } from './favorites-helpers.js'
 
@@ -55,10 +55,85 @@ export function isAllowedHandoffOrigin(value: string, env: Pick<Env, 'STAGING_OR
   }
 }
 
+// Upsert the user record and (for new users) seed a default favorites list +
+// FEED_TOKENS pointer. Shared by the prod OAuth callback and the staging
+// handoff consumer so the seeding logic — including the target-before-pointer
+// write order — lives in exactly one place. Returns the created/updated user.
+async function ensureUserAndLists(
+  env: Env,
+  userId: string,
+  profile: { email: string; name: string; picture: string },
+  now: string,
+): Promise<UserRecord> {
+  let user: UserRecord
+  const existingRaw = await env.USERS.get(userId)
+  if (existingRaw) {
+    user = JSON.parse(existingRaw) as UserRecord
+    user.lastLoginAt = now
+    user.email = profile.email
+    user.name = profile.name
+    user.picture = profile.picture
+  } else {
+    // New user — generate feed token
+    const feedToken = crypto.randomUUID().replace(/-/g, '') + crypto.randomUUID().replace(/-/g, '')
+    user = {
+      id: userId,
+      provider: 'google',
+      providerId: userId.replace(/^user:google:/, ''),
+      email: profile.email,
+      name: profile.name,
+      picture: profile.picture,
+      feedToken,
+      createdAt: now,
+      lastLoginAt: now,
+    }
+    // Seed the user's lists with a single default list that reuses this token,
+    // so its ICS URL equals the feedUrl surfaced by /auth/me.
+    const listsRecord: UserListsRecord = {
+      lists: [{
+        id: DEFAULT_LIST_ID,
+        name: DEFAULT_LIST_NAME,
+        feedToken,
+        icsUrls: [],
+        searchFilters: [],
+        geoFilters: [],
+        createdAt: now,
+        updatedAt: now,
+      }],
+      updatedAt: now,
+    }
+    // Write the list record (the target) BEFORE the FEED_TOKENS reverse-lookup
+    // (the pointer). If the second write fails, a token that points at a missing
+    // list serves an empty feed; the reverse — a pointer with no target — would
+    // be unrecoverable. Target-before-pointer keeps the worse failure off the table.
+    await env.FAVORITES.put(userId, JSON.stringify(listsRecord))
+    await env.FEED_TOKENS.put(feedToken, JSON.stringify({ userId, listId: DEFAULT_LIST_ID }))
+  }
+  await env.USERS.put(userId, JSON.stringify(user))
+  return user
+}
+
 authRoutes.get('/login', (c) => {
   const provider = c.req.query('provider')
   if (provider !== 'google') {
     return c.json({ error: 'Unsupported provider' }, 400)
+  }
+
+  // Staging mode: this worker is NOT a registered Google OAuth callback, so it
+  // can't run the Google flow itself. Instead it delegates login to the
+  // production worker, asking prod (via the handoff param) to bounce the
+  // authenticated session back to this worker's own origin. Google only ever
+  // sees the prod callback — no extra redirect_uri registration is needed.
+  if (c.env.AUTH_MODE === 'staging') {
+    if (!c.env.PROD_AUTH_ORIGIN || !c.env.STAGING_ORIGIN) {
+      return c.json({ error: 'Staging auth not configured' }, 500)
+    }
+    const returnTo = c.req.query('return_to') || ''
+    const dest = new URL('/auth/login', c.env.PROD_AUTH_ORIGIN)
+    dest.searchParams.set('provider', 'google')
+    if (returnTo) dest.searchParams.set('return_to', returnTo)
+    dest.searchParams.set('handoff', c.env.STAGING_ORIGIN)
+    return c.redirect(dest.toString())
   }
 
   const returnTo = c.req.query('return_to') || ''
@@ -142,54 +217,7 @@ authRoutes.get('/callback', async (c) => {
 
   const userId = `user:google:${profile.id}`
   const now = new Date().toISOString()
-
-  // Check if user already exists
-  let user: UserRecord | null = null
-  const existingRaw = await c.env.USERS.get(userId)
-  if (existingRaw) {
-    user = JSON.parse(existingRaw) as UserRecord
-    user.lastLoginAt = now
-    user.email = profile.email
-    user.name = profile.name
-    user.picture = profile.picture
-  } else {
-    // New user — generate feed token
-    const feedToken = crypto.randomUUID().replace(/-/g, '') + crypto.randomUUID().replace(/-/g, '')
-    user = {
-      id: userId,
-      provider: 'google',
-      providerId: profile.id,
-      email: profile.email,
-      name: profile.name,
-      picture: profile.picture,
-      feedToken,
-      createdAt: now,
-      lastLoginAt: now,
-    }
-    // Seed the user's lists with a single default list that reuses this token,
-    // so its ICS URL equals the feedUrl surfaced by /auth/me.
-    const listsRecord: UserListsRecord = {
-      lists: [{
-        id: DEFAULT_LIST_ID,
-        name: DEFAULT_LIST_NAME,
-        feedToken,
-        icsUrls: [],
-        searchFilters: [],
-        geoFilters: [],
-        createdAt: now,
-        updatedAt: now,
-      }],
-      updatedAt: now,
-    }
-    // Write the list record (the target) BEFORE the FEED_TOKENS reverse-lookup
-    // (the pointer). If the second write fails, a token that points at a missing
-    // list serves an empty feed; the reverse — a pointer with no target — would
-    // be unrecoverable. Target-before-pointer keeps the worse failure off the table.
-    await c.env.FAVORITES.put(userId, JSON.stringify(listsRecord))
-    await c.env.FEED_TOKENS.put(feedToken, JSON.stringify({ userId, listId: DEFAULT_LIST_ID }))
-  }
-
-  await c.env.USERS.put(userId, JSON.stringify(user))
+  const user = await ensureUserAndLists(c.env, userId, profile, now)
 
   // Cross-worker handoff: when the login came from a preview build, the session
   // belongs on the staging worker's host (the prod session cookie is host-only
@@ -221,6 +249,36 @@ authRoutes.get('/callback', async (c) => {
   headers.set('Location', redirectUrl)
   headers.append('Set-Cookie', `session=${token}; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=${SESSION_MAX_AGE}`)
   headers.append('Set-Cookie', 'oauth_nonce=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0')
+  return new Response(null, { status: 302, headers })
+})
+
+// Staging-only: consume a handoff ticket minted by the prod callback, establish
+// a local session on THIS worker's host, and bounce to the preview UI. The prod
+// session cookie is host-only and unreadable here, so staging must mint its own.
+// 404s on prod (AUTH_MODE !== 'staging') and whenever HANDOFF_SECRET is unset,
+// keeping the consumer inert until staging is provisioned.
+authRoutes.get('/handoff', async (c) => {
+  if (c.env.AUTH_MODE !== 'staging' || !c.env.HANDOFF_SECRET) {
+    return c.json({ error: 'Not found' }, 404)
+  }
+
+  const ticketStr = c.req.query('ticket') || ''
+  const ticket = await verifyHandoffTicket(ticketStr, c.env.HANDOFF_SECRET)
+  if (!ticket) return c.json({ error: 'Invalid or expired handoff ticket' }, 403)
+
+  // Upsert into THIS worker's (staging) KV — separate namespaces from prod, so
+  // preview activity never touches real users' favorites.
+  const now = new Date().toISOString()
+  await ensureUserAndLists(c.env, ticket.sub, ticket, now)
+
+  // Mint a session signed with this worker's own JWT_SECRET (distinct from
+  // prod's) and set it host-only on the staging origin.
+  const token = await signJWT({ sub: ticket.sub }, c.env.JWT_SECRET, SESSION_MAX_AGE)
+  const returnTo = c.req.query('return_to') || ''
+  const redirectUrl = (returnTo && isAllowedReturnUrl(returnTo)) ? returnTo : c.env.SITE_URL
+  const headers = new Headers()
+  headers.set('Location', redirectUrl)
+  headers.append('Set-Cookie', `session=${token}; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=${SESSION_MAX_AGE}`)
   return new Response(null, { status: 302, headers })
 })
 
