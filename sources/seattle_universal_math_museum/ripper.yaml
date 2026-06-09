@@ -1,0 +1,11 @@
+name: seattle_universal_math_museum
+type: squarespace
+description: "Seattle Universal Math Museum"
+url: "https://seattlemathmuseum.org/events"
+friendlyLink: https://seattlemathmuseum.org/events
+tags: ["Education", "Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Universal Math Museum"
+    timezone: America/Los_Angeles
