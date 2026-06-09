@@ -1,6 +1,7 @@
 ---
 name: Museum of Flight
-status: candidate
+status: added
+pr: 567
 platform: Custom HTML (AJAX)
 url: https://www.museumofflight.org/exhibits-and-events/calendar-of-events
 tags: [Museums, Education, "Georgetown"]
