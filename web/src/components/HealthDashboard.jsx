@@ -108,6 +108,7 @@ export function HealthDashboard({
   const proxyStaleServes = buildErrors.proxyStaleServes || []
   const photoGaps = buildErrors.photoGaps || { venueGaps: [], eventGaps: [] }
   const photoGapCount = (photoGaps.venueGaps?.length || 0) + (photoGaps.eventGaps?.length || 0)
+  const costGapCount = (buildErrors.costGaps || []).length
   const urlEntityErrors = buildErrors.urlEntityErrors || []
 
   const tabs = [
@@ -197,6 +198,18 @@ export function HealthDashboard({
           <div className="health-card health-card--warning">
             <div className="health-card-value">🖼️ {photoGapCount.toLocaleString()}</div>
             <div className="health-card-label">Missing Photos</div>
+          </div>
+        )}
+        {buildErrors.costStats && (
+          <div className="health-card health-card--ok">
+            <div className="health-card-value">💲 {buildErrors.costStats.eventsWithCost.toLocaleString()} / {buildErrors.costStats.totalEvents.toLocaleString()}</div>
+            <div className="health-card-label">Events with Cost</div>
+          </div>
+        )}
+        {costGapCount > 0 && (
+          <div className="health-card health-card--warning">
+            <div className="health-card-value">💲 {costGapCount.toLocaleString()}</div>
+            <div className="health-card-label">Missing Costs</div>
           </div>
         )}
         {pendingProxyVerification.length > 0 && (

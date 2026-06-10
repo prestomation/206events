@@ -10,6 +10,8 @@ import {
   buildOsmGaps,
   buildPhotoGaps,
   photoGapsSchema,
+  buildCostGaps,
+  costGapsSchema,
   isOsmCheckedFresh,
   ManifestLike,
   EventCountLike,
@@ -1096,5 +1098,44 @@ describe("buildPhotoGaps", () => {
     });
     expect(() => photoGapsSchema.parse(gaps)).not.toThrow();
     expect(gaps.eventGaps.map(e => e.source)).toEqual(["alpha", "zeta"]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildCostGaps — events missing a cost (cost-resolver queue)
+// ---------------------------------------------------------------------------
+
+describe("buildCostGaps", () => {
+  it("lists events without a cost and excludes unresolvable ones", () => {
+    const gaps = buildCostGaps({
+      ripperEvents: [
+        { source: "neumos", id: "a", summary: "Show A", date: "2026-06-01T20:00:00-07:00", url: "https://x/a", hasCost: false },
+        { source: "neumos", id: "b", summary: "Show B", date: "2026-06-02T20:00:00-07:00", hasCost: true },
+        { source: "neumos", id: "c", summary: "Show C", date: "2026-06-03T20:00:00-07:00", hasCost: false },
+      ],
+      unresolvableKeys: new Set(["neumos:c"]),
+    });
+    expect(gaps.map(e => e.eventId)).toEqual(["a"]);
+    expect(gaps[0]).toMatchObject({ source: "neumos", eventId: "a", summary: "Show A", url: "https://x/a" });
+  });
+
+  it("skips events with no id (cannot be keyed into the cache)", () => {
+    const gaps = buildCostGaps({
+      ripperEvents: [{ source: "x", summary: "No id", date: "2026-06-01T20:00:00-07:00", hasCost: false }],
+      unresolvableKeys: new Set(),
+    });
+    expect(gaps).toHaveLength(0);
+  });
+
+  it("produces a schema-valid, stably-sorted document", () => {
+    const gaps = buildCostGaps({
+      ripperEvents: [
+        { source: "zeta", id: "2", summary: "Z2", date: "d", hasCost: false },
+        { source: "alpha", id: "1", summary: "A1", date: "d", hasCost: false },
+      ],
+      unresolvableKeys: new Set(),
+    });
+    expect(() => costGapsSchema.parse(gaps)).not.toThrow();
+    expect(gaps.map(e => e.source)).toEqual(["alpha", "zeta"]);
   });
 });

@@ -7,7 +7,7 @@ import type {
     UncertaintyError,
 } from './config/schema.js';
 import type { UncertaintyCache } from './event-uncertainty-cache.js';
-import { applyUncertaintyResolutions, applyImageBackfill } from './uncertainty-merge.js';
+import { applyUncertaintyResolutions, applyImageBackfill, applyCostBackfill } from './uncertainty-merge.js';
 
 const TZ = ZoneId.of('America/Los_Angeles');
 
@@ -64,6 +64,27 @@ describe('applyUncertaintyResolutions', () => {
         const err = makeUncertainty(event, ['startTime']);
         const result = applyUncertaintyResolutions([event], [err], { version: 1, entries: {} }, 'events12');
         expect(result.events[0].description).toMatch(/^⚠️/);
+    });
+
+    it('applies a resolved cost from the cache and drops the error', () => {
+        const event = makeEvent();
+        const err = makeUncertainty(event, ['cost']);
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'events12:sample-event-2026-02-14': {
+                    fields: { cost: { min: 12, max: 35 } },
+                    resolvedAt: '2026-05-17',
+                    source: 'agent',
+                },
+            },
+        };
+
+        const result = applyUncertaintyResolutions([event], [err], cache, 'events12');
+
+        expect(result.events[0].cost).toEqual({ min: 12, max: 35 });
+        expect(result.errors).toEqual([]);
+        expect(result.stats.resolved).toBe(1);
     });
 
     it('applies a resolved startTime from the cache and drops the error', () => {
@@ -330,6 +351,126 @@ describe('applyImageBackfill', () => {
         };
         const result = applyImageBackfill([ev()], cache, 'src');
         expect(result.events[0].imageUrl).toBeUndefined();
+        expect(result.applied).toBe(0);
+    });
+});
+
+describe('applyCostBackfill', () => {
+    const TZ3 = ZoneId.of('America/Los_Angeles');
+    function ev(overrides: Partial<RipperCalendarEvent> = {}): RipperCalendarEvent {
+        return {
+            id: 'evt-1',
+            ripped: new Date('2026-05-16T00:00:00Z'),
+            date: ZonedDateTime.of(2026, 2, 14, 12, 0, 0, 0, TZ3),
+            duration: Duration.ofHours(2),
+            summary: 'Some event',
+            ...overrides,
+        };
+    }
+
+    it('fills in cost from a resolved cache entry', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    fields: { cost: { min: 15 } },
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyCostBackfill([ev()], cache, 'src');
+        expect(result.events[0].cost).toEqual({ min: 15 });
+        expect(result.applied).toBe(1);
+        expect(result.touchedKeys).toEqual(['src:evt-1']);
+    });
+
+    it('fills in a paid-unknown cost from the cache', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    fields: { cost: { paid: true } },
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyCostBackfill([ev()], cache, 'src');
+        expect(result.events[0].cost).toEqual({ paid: true });
+        expect(result.applied).toBe(1);
+    });
+
+    it('does not overwrite an event that already has a cost (ripper-parsed wins)', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    fields: { cost: { min: 99 } },
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyCostBackfill([ev({ cost: { min: 25, max: 75 } })], cache, 'src');
+        expect(result.events[0].cost).toEqual({ min: 25, max: 75 });
+        expect(result.applied).toBe(0);
+        expect(result.touchedKeys).toEqual([]);
+    });
+
+    it('treats a ripper-parsed free cost as already priced', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    fields: { cost: { min: 10 } },
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyCostBackfill([ev({ cost: { min: 0 } })], cache, 'src');
+        expect(result.events[0].cost).toEqual({ min: 0 });
+        expect(result.applied).toBe(0);
+    });
+
+    it('no-ops on a cache miss', () => {
+        const cache: UncertaintyCache = { version: 1, entries: {} };
+        const result = applyCostBackfill([ev()], cache, 'src');
+        expect(result.events[0].cost).toBeUndefined();
+        expect(result.applied).toBe(0);
+    });
+
+    it('skips entries marked unresolvable (pricing not published)', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    unresolvable: true,
+                    reason: 'no pricing published',
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyCostBackfill([ev()], cache, 'src');
+        expect(result.events[0].cost).toBeUndefined();
+        expect(result.applied).toBe(0);
+    });
+
+    it('ignores entries that only resolve other fields (no cost)', () => {
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'src:evt-1': {
+                    fields: { imageUrl: 'https://example.com/p.jpg' },
+                    resolvedAt: '2026-05-16',
+                    source: 'agent',
+                },
+            },
+        };
+        const result = applyCostBackfill([ev()], cache, 'src');
+        expect(result.events[0].cost).toBeUndefined();
         expect(result.applied).toBe(0);
     });
 });

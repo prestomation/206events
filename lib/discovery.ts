@@ -653,6 +653,66 @@ export function buildPhotoGaps(opts: {
 }
 
 // -----------------------------------------------------------------------------
+// Cost gaps (the cost-resolver skill's work queue)
+// -----------------------------------------------------------------------------
+
+export const costEventGapSchema = z.object({
+  source: z.string(),
+  eventId: z.string(),
+  summary: z.string(),
+  date: z.string(),
+  url: z.string().optional(),
+});
+
+export const costGapsSchema = z.array(costEventGapSchema);
+
+export type CostEventGap = z.infer<typeof costEventGapSchema>;
+export type CostGaps = z.infer<typeof costGapsSchema>;
+
+// One live ripper event, projected down to what the cost gap report needs.
+export interface CostEventInput {
+  source: string;        // ripper name (the cache-key prefix)
+  id?: string;           // stable event id (the cache-key suffix)
+  summary: string;
+  date: string;
+  url?: string;
+  hasCost: boolean;      // event already carries a cost (parsed, cached, or YAML default)
+}
+
+/**
+ * Build the cost-gap work queue: live ripper events with no `cost` that are
+ * not marked `unresolvable` in the uncertainty cache (fixable by the
+ * cost-resolver writing a `cost` resolution keyed `source:eventId`, or by a
+ * source-level YAML `cost:` default). Events whose pricing is confirmed
+ * unpublished (`unresolvable`) are excluded so the queue self-limits over
+ * time — same lifecycle as the photo eventGaps.
+ *
+ * Pure and deterministic (stable sort) so the report diffs cleanly.
+ */
+export function buildCostGaps(opts: {
+  ripperEvents: CostEventInput[];
+  unresolvableKeys: Set<string>;
+}): CostGaps {
+  const { ripperEvents, unresolvableKeys } = opts;
+
+  const gaps: CostEventGap[] = ripperEvents
+    .filter(e => !e.hasCost && e.id && !unresolvableKeys.has(`${e.source}:${e.id}`))
+    .map(e => ({
+      source: e.source,
+      eventId: e.id as string,
+      summary: e.summary,
+      date: e.date,
+      ...(e.url ? { url: e.url } : {}),
+    }));
+
+  gaps.sort((a, b) =>
+    a.source.localeCompare(b.source) || a.eventId.localeCompare(b.eventId),
+  );
+
+  return gaps;
+}
+
+// -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
 
