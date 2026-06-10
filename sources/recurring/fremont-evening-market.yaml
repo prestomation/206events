@@ -1,0 +1,35 @@
+imageUrl: "https://images.squarespace-cdn.com/content/v1/675a320bec89ef0ffafe3ffe/65e81001-7dc9-47c0-acc1-01026ef2caf0/Screenshot+2025-06-20+at+3.00.40%E2%80%AFPM.png"
+geo:
+  lat: 47.6505
+  lng: -122.3509
+  label: "N 35th St between El Camino & Triangle Spirits, Fremont, Seattle, WA 98103"
+name: fremont-evening-market
+friendlyname: Fremont Evening Market
+description: Monthly evening market in Fremont with curated vintage, handmade, and local vendors on N 35th Street.
+timezone: America/Los_Angeles
+location: N 35th St, Fremont, Seattle, WA 98103
+url: https://www.seattlelocalmarkets.com/
+tags:
+  - MakersMarket
+  - Fremont
+  - Community
+cost: free
+schedules:
+  - schedule: last Thursday
+    start_time: "16:00"
+    duration: PT4H
+    months:
+      - 2
+      - 3
+      - 11
+  - schedule: last Thursday
+    start_time: "17:00"
+    duration: PT4H
+    months:
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
