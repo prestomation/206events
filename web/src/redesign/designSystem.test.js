@@ -14,6 +14,10 @@
 //   3. No raw color literals (hex / rgb / hsl) in redesign JSX outside the
 //      neutral allowlist (#fff / #000, used for contrast text and gradient
 //      mixing). Brand-logo SVGs in icons.jsx are exempt.
+//
+// Unlike typical unit tests, this file intentionally reads the real source
+// tree from disk (no mocks): the *sources themselves* are the test subject,
+// so the scan must see exactly what ships.
 import { describe, it, expect } from 'vitest'
 import { readFileSync, readdirSync } from 'fs'
 import { join, dirname } from 'path'
