@@ -12,6 +12,7 @@ url: https://seattlefarmersmarkets.org/udfm
 tags:
   - University District
   - FarmersMarket
+cost: free
 schedules:
   - schedule: every Saturday
     start_time: 09:00

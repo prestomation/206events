@@ -19,6 +19,7 @@ tags:
   - Community
 # Approximates the 4th weekend of July. Matches 2025 (Jul 25-27) and 2026 (Jul 24-26).
 # In 2024 the event fell on the 3rd weekend (Jul 19-21); verify at biteofseattle.com each year.
+cost: free
 schedules:
   - schedule: "4th Friday"
     start_time: "11:00"

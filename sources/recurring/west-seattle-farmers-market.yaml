@@ -12,6 +12,7 @@ url: https://seattlefarmersmarkets.org/wsfm
 tags:
   - FarmersMarket
   - West Seattle
+cost: free
 schedules:
   - schedule: every Sunday
     start_time: 10:00

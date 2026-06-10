@@ -16,6 +16,7 @@ tags:
   - Ballard
 # Approximates the 2nd weekend of July (July 10–12 in 2026). The fest typically runs
 # Friday evening through Sunday. Verify dates at seafoodfest.org each year.
+cost: free
 schedules:
   - schedule: "2nd Friday"
     start_time: "17:00"

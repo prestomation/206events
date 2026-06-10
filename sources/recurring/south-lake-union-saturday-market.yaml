@@ -12,6 +12,7 @@ url: https://slumarket.com/
 tags:
   - FarmersMarket
   - South Lake Union
+cost: free
 schedules:
   - schedule: every Saturday
     start_time: "11:00"

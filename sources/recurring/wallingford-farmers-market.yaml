@@ -12,6 +12,7 @@ url: https://seattlefarmersmarkets.org/
 tags:
   - FarmersMarket
   - Wallingford
+cost: free
 schedules:
   - schedule: every Wednesday
     start_time: 15:00

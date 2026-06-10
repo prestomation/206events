@@ -24,6 +24,7 @@ tags:
 # "last Saturday/Sunday" are used because in years where May 1 = Saturday (e.g. 2027),
 #   "4th Saturday/Sunday" fire a week early (May has 5 of each, 4th ≠ festival week).
 # Verified: 2026 May 22-25, 2027 May 28-31.
+cost: free
 schedules:
   - schedule: "4th Friday"
     start_time: "11:00"

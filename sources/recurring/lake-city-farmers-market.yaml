@@ -12,6 +12,7 @@ url: https://seattlefarmersmarkets.org/lcfm
 tags:
   - FarmersMarket
   - Lake City
+cost: free
 schedules:
   - schedule: every Thursday
     start_time: 15:00
