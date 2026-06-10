@@ -20,9 +20,6 @@ Add to `sources/recurring.yaml` using the `"every <day>"` schedule format. Verif
 ### Seattle Street Food Festival
 Two days in late August (annual) — South Lake Union — `https://206nightmarkets.com`
 
-### Emerald City Comic Con (ECCC)
-Four days in early March (annual) — 2026: March 5-8 — Seattle Convention Center — Tags: Gaming
-
 ### Sakura-Con
 Three-four days in early April (annual) — 2026: April 2-5 — Seattle Convention Center — Tags: Community, Arts
 
