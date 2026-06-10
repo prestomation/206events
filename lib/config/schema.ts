@@ -176,7 +176,7 @@ export type GeocodeError = ErrorBase & {
 // resolver script's CLI choices (skills/event-uncertainty-resolver).
 // When adding a new field, also teach `applyUncertaintyResolutions` how
 // to apply it to a RipperCalendarEvent.
-export type UncertaintyField = "startTime" | "duration" | "location" | "imageUrl";
+export type UncertaintyField = "startTime" | "duration" | "location" | "imageUrl" | "cost";
 
 // Signal from a ripper that it produced an event but isn't certain about
 // one or more of its fields. The infrastructure layer merges these against

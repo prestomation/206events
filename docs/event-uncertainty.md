@@ -202,3 +202,24 @@ images are backfilled via an **overlay** pass:
 
 The work queue for image backfill is **not** the uncertainty queue — it's the
 `photoGaps` section of `build-errors.json` (see `docs/photos.md`).
+
+## Cost backfill (overlay, no UncertaintyError required)
+
+`cost` follows the same overlay pattern as images — pervasively missing, so
+costless events never emit an `UncertaintyError`:
+
+- `applyCostBackfill` in `lib/uncertainty-merge.ts` fills `cost` from
+  `fields.cost` in the same cache (written via `--cost-min`/`--cost-max`,
+  `--cost-free`, or `--cost-paid-unknown`). It never overwrites a
+  ripper-parsed cost and skips `unresolvable` entries. The source-level YAML
+  `cost:` default (`attachEventCost`) runs after the overlay, so precedence
+  is: ripper-parsed → cache resolution → YAML default.
+- The work queue is the `costGaps` section of `build-errors.json`, drained by
+  the **cost-resolver skill** (`skills/cost-resolver/SKILL.md`), which embeds
+  the pricing rubric. See `docs/free-paid-filter.md` for the full design.
+
+Note the cache's `unresolvable` flag is **entry-global**: one entry per
+`source:eventId`, shared by all fields. Marking an event unresolvable for
+cost also stops photo backfill and acknowledges open uncertainties for it —
+the cost-resolver skill therefore prefers `{ paid: true }` (a real value)
+over `unresolvable` unless the event page is a dead end overall.

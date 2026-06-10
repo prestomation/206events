@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'fs/promises';
-import type { UncertaintyField } from './config/schema.js';
+import type { EventCost, UncertaintyField } from './config/schema.js';
 
 // Resolved values supplied by the event-uncertainty-resolver skill.
 // Field names and value shapes match the script CLI in
@@ -9,6 +9,7 @@ export interface UncertaintyResolutionFields {
     duration?: number;         // seconds
     location?: string;
     imageUrl?: string;
+    cost?: EventCost;          // { min, max? } USD face value, or { paid: true }
 }
 
 export interface UncertaintyCacheEntry {

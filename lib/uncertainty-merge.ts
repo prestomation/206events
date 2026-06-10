@@ -50,6 +50,7 @@ function appendUncertaintyNote(
                 case 'duration': return 'Duration';
                 case 'location': return 'Location';
                 case 'imageUrl': return 'Image';
+                case 'cost': return 'Cost';
                 default: return f;
             }
         })
@@ -90,6 +91,9 @@ function applyResolution(
     }
     if (fields.imageUrl !== undefined) {
         updated.imageUrl = fields.imageUrl;
+    }
+    if (fields.cost !== undefined) {
+        updated.cost = fields.cost;
     }
     return updated;
 }
@@ -220,6 +224,48 @@ export function applyImageBackfill(
             applied++;
             touchedKeys.push(uncertaintyCacheKey(source, event.id));
             return { ...event, imageUrl: lookup.entry.fields.imageUrl };
+        }
+        return event;
+    });
+
+    return { events: updatedEvents, applied, touchedKeys };
+}
+
+export interface CostBackfillResult {
+    events: RipperCalendarEvent[];
+    // Number of events that received a cost from the cache this build.
+    applied: number;
+    // Cache keys consulted that produced an applied cost. The caller
+    // stamps `lastSeen` on these so the prune-by-staleness path keeps them.
+    touchedKeys: string[];
+}
+
+// Pure overlay: fill in `cost` for events that don't already have one, from
+// the same event-uncertainty-cache the resolver writes (via the `cost`
+// resolution field / `--cost-*` CLI flags). Like image backfill, cost is
+// pervasively missing, so rippers do NOT emit an UncertaintyError per
+// costless event — the cost-resolver skill drains the `costGaps` queue
+// instead. Events that already carry a cost (ripper-parsed) are left
+// untouched, and the YAML source default (`attachEventCost`) runs after
+// this, so precedence is: ripper-parsed → cache resolution → YAML default.
+// Cache entries marked `unresolvable` ("pricing genuinely not published")
+// are skipped — the event stays cost-less and drops off the gap report.
+export function applyCostBackfill(
+    events: RipperCalendarEvent[],
+    cache: Readonly<UncertaintyCache>,
+    source: string,
+): CostBackfillResult {
+    let applied = 0;
+    const touchedKeys: string[] = [];
+
+    const updatedEvents = events.map(event => {
+        if (event.cost !== undefined) return event;  // ripper already priced it
+        if (!event.id) return event;                 // can't key into the cache
+        const lookup = lookupUncertaintyCache(cache, source, event.id);
+        if (lookup.kind === 'resolved' && lookup.entry?.fields?.cost !== undefined) {
+            applied++;
+            touchedKeys.push(uncertaintyCacheKey(source, event.id));
+            return { ...event, cost: lookup.entry.fields.cost };
         }
         return event;
     });

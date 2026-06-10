@@ -32,6 +32,7 @@ import {
 import {
   applyUncertaintyResolutions,
   applyImageBackfill,
+  applyCostBackfill,
   type UncertaintyMergeStats,
 } from "./uncertainty-merge.js";
 import { toRSS } from "./config/rss.js";
@@ -60,6 +61,8 @@ import {
   buildOsmGaps,
   buildPhotoGaps,
   type PhotoEventInput,
+  buildCostGaps,
+  type CostEventInput,
 } from "./discovery.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
@@ -761,6 +764,13 @@ export const main = async () => {
       const backfilled = applyImageBackfill(calendar.events, uncertaintyCache, config.config.name);
       calendar.events = backfilled.events;
       for (const key of backfilled.touchedKeys) uncertaintyTouchedKeys.add(key);
+
+      // Overlay cost backfill from the same cache (cost-resolver writes
+      // cost resolutions). Runs before attachEventCost in the output loop,
+      // so precedence is ripper-parsed → cache resolution → YAML default.
+      const costBackfilled = applyCostBackfill(calendar.events, uncertaintyCache, config.config.name);
+      calendar.events = costBackfilled.events;
+      for (const key of costBackfilled.touchedKeys) uncertaintyTouchedKeys.add(key);
 
       // Decode HTML entities in event titles before serialization (ICS,
       // events-index.json, RSS, website all read this field). Idempotent and
@@ -1646,11 +1656,14 @@ END:VCALENDAR`;
   // fixable via source YAML (`imageUrl:`); eventGaps via the uncertainty
   // cache (`--image-url`). Events whose image is confirmed unavailable
   // (`unresolvable` in the cache) are excluded so the queue self-limits.
-  const unresolvableImageKeys = new Set<string>();
+  // The `unresolvable` flag is entry-global (one entry per source:eventId),
+  // so this set serves both the photo and cost gap queues.
+  const unresolvableKeys = new Set<string>();
   for (const [key, entry] of Object.entries(uncertaintyCache.entries)) {
-    if (entry.unresolvable) unresolvableImageKeys.add(key);
+    if (entry.unresolvable) unresolvableKeys.add(key);
   }
   const ripperEventsForPhotoGaps: PhotoEventInput[] = [];
+  const ripperEventsForCostGaps: CostEventInput[] = [];
   for (const calendar of allCalendars) {
     if (!calendar.parent) continue; // recurring events are venues, covered by venueGaps
     const icsUrl = `${calendar.parent.name}-${calendar.name}.ics`;
@@ -1664,12 +1677,23 @@ END:VCALENDAR`;
         url: event.url,
         imageUrl: event.imageUrl,
       });
+      ripperEventsForCostGaps.push({
+        source: calendar.parent.name,
+        id: event.id,
+        summary: event.summary,
+        date: event.date.toString(),
+        url: event.url,
+        // By this point cost reflects all three precedence layers:
+        // ripper-parsed → cache resolution (applyCostBackfill) → YAML
+        // default (attachEventCost).
+        hasCost: event.cost !== undefined,
+      });
     }
   }
   const photoGaps = buildPhotoGaps({
     venues: venuesDoc.venues,
     ripperEvents: ripperEventsForPhotoGaps,
-    unresolvableImageKeys,
+    unresolvableImageKeys: unresolvableKeys,
   });
   const photoStats = {
     eventsWithImage: eventsIndex.filter(e => e.imageUrl).length,
@@ -1679,7 +1703,28 @@ END:VCALENDAR`;
     // Live ripper events with no image whose cache entry is marked
     // unresolvable (a recorded "no image available").
     unresolvable: ripperEventsForPhotoGaps.filter(
-      e => !e.imageUrl && e.id && unresolvableImageKeys.has(`${e.source}:${e.id}`),
+      e => !e.imageUrl && e.id && unresolvableKeys.has(`${e.source}:${e.id}`),
+    ).length,
+  };
+
+  // Cost gaps — the cost-resolver skill's work queue. Fixable via the
+  // uncertainty cache (`--cost-*` resolutions) or a source-level YAML
+  // `cost:` default. Events whose pricing is confirmed unpublished
+  // (`unresolvable` in the cache) are excluded so the queue self-limits.
+  // The cache's `unresolvable` flag is entry-global (shared with the photo
+  // pipeline), matching the one-entry-per-event cache design.
+  const costGaps = buildCostGaps({
+    ripperEvents: ripperEventsForCostGaps,
+    unresolvableKeys,
+  });
+  const costStats = {
+    eventsWithCost: eventsIndex.filter(e => e.cost !== undefined).length,
+    freeEvents: eventsIndex.filter(e => e.cost !== undefined && !('paid' in e.cost) && e.cost.min === 0).length,
+    totalEvents: eventsIndex.length,
+    // Live ripper events with no cost whose cache entry is marked
+    // unresolvable (a recorded "pricing not published").
+    unresolvable: ripperEventsForCostGaps.filter(
+      e => !e.hasCost && e.id && unresolvableKeys.has(`${e.source}:${e.id}`),
     ).length,
   };
 
@@ -1766,6 +1811,11 @@ END:VCALENDAR`;
     // surfaces. Non-fatal — not counted in totalErrors (like osmGaps).
     photoStats,
     photoGaps,
+    // Cost coverage: the cost-resolver skill reads `costGaps` as its
+    // work queue; `costStats` summarizes coverage for the reporting
+    // surfaces. Non-fatal — not counted in totalErrors (like photoGaps).
+    costStats,
+    costGaps,
     eventCounts: eventCounts.map(c => ({
       name: c.name,
       type: c.type,
@@ -1937,6 +1987,12 @@ END:VCALENDAR`;
       summaryLines.push("");
       summaryLines.push(`> 🖼️ **Photo coverage:** ${photoStats.eventsWithImage} / ${photoStats.totalEvents} events (${evPct}%), ${photoStats.venuesWithImage} / ${photoStats.totalVenues} venues (${vnPct}%)` +
         (gapCount > 0 ? ` — ${gapCount} missing (${photoGaps.venueGaps.length} venues, ${photoGaps.eventGaps.length} events). Run the photo-resolver skill.` : " — ✅ fully covered."));
+    }
+    if (costStats.totalEvents > 0) {
+      const costPct = Math.round(costStats.eventsWithCost / costStats.totalEvents * 100);
+      summaryLines.push("");
+      summaryLines.push(`> 💲 **Cost coverage:** ${costStats.eventsWithCost} / ${costStats.totalEvents} events (${costPct}%), ${costStats.freeEvents} free` +
+        (costGaps.length > 0 ? ` — ${costGaps.length} missing. Run the cost-resolver skill.` : " — ✅ fully covered."));
     }
     if (pendingProxyVerification.length > 0) {
       summaryLines.push("");

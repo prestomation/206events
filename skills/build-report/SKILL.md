@@ -220,6 +220,24 @@ These are not build failures — like geo and uncertainty, they're a todo queue
 the resolver drains across builds, and it self-limits as photos and
 `unresolvable` markings accrue.
 
+### 5.7. Cost Coverage Check
+
+Check `costStats` and `costGaps` in the build health output.
+
+**If nothing is missing:**
+```
+💲 Cost coverage: N/M events (F free) — no missing costs ✅
+```
+
+**If there are gaps:**
+Read `skills/cost-resolver/SKILL.md` and follow it to backfill event costs. It
+processes a bounded batch per run: source-wide free venues become `cost: free`
+PRs against the source YAML, per-event gaps become `--cost-*` resolutions
+written to the event-uncertainty-cache (or `unresolvable` when pricing is
+genuinely not published).
+
+Same lifecycle as photos: not build failures, a self-limiting todo queue.
+
 ### 6. Source Discovery (if no actionable errors)
 
 If there are **no actionable errors** (0 config errors, 0 external failures, all geocode errors are virtual/TBA/unresolvable, 0 outstanding uncertain events), read `skills/source-discovery/SKILL.md` and follow it completely.

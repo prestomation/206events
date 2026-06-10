@@ -149,6 +149,17 @@ jobs:
                 (gapCount > 0 ? ` — ${gapCount} missing (run the photo-resolver skill)` : ' — ✅ Fully covered');
             }
 
+            // Cost coverage stats. Gaps are todos for the cost-resolver
+            // skill — informational, not a build-block.
+            const costStats = buildErrors.costStats;
+            const costGaps = buildErrors.costGaps || [];
+            let costSection = '';
+            if (costStats && costStats.totalEvents > 0) {
+              const costPct = Math.round(costStats.eventsWithCost / costStats.totalEvents * 100);
+              costSection = `\n\n**💲 Cost coverage:** ${costStats.eventsWithCost.toLocaleString()} / ${costStats.totalEvents.toLocaleString()} events (${costPct}%), ${costStats.freeEvents.toLocaleString()} free` +
+                (costGaps.length > 0 ? ` — ${costGaps.length.toLocaleString()} missing (run the cost-resolver skill)` : ' — ✅ Fully covered');
+            }
+
             // Event-uncertainty stats. Outstanding entries are todos for
             // the event-uncertainty-resolver skill — informational, not
             // a build-block.
@@ -280,6 +291,7 @@ jobs:
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               geoSection,
               photoSection,
+              costSection,
               uncertaintySection,
               proxyVerificationSection,
               proxyStaleSection,

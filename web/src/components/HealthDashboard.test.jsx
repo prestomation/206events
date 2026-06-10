@@ -56,6 +56,10 @@ const buildErrors = {
     venueGaps: [{ source: 'ripper', name: 'no-photo', mapUrl: 'https://maps.example/x' }],
     eventGaps: [{ source: 'good-source', eventId: 'e1', summary: 'Photoless Show', date: '2026-05-10' }],
   },
+  costStats: { eventsWithCost: 4, freeEvents: 2, totalEvents: 12, unresolvable: 0 },
+  costGaps: [
+    { source: 'good-source', eventId: 'e2', summary: 'Priceless Show', date: '2026-05-11' },
+  ],
 }
 
 describe('HealthDashboard', () => {
@@ -79,6 +83,14 @@ describe('HealthDashboard', () => {
     // 1 venue gap + 1 event gap = 2 missing
     expect(screen.getByText('Missing Photos')).toBeTruthy()
     expect(screen.getByText('🖼️ 2')).toBeTruthy()
+  })
+
+  it('renders cost coverage summary cards', () => {
+    render(<Harness buildErrors={buildErrors} />)
+    expect(screen.getByText('Events with Cost')).toBeTruthy()
+    expect(screen.getByText('💲 4 / 12')).toBeTruthy()
+    expect(screen.getByText('Missing Costs')).toBeTruthy()
+    expect(screen.getByText('💲 1')).toBeTruthy()
   })
 
   it('switches tabs to reveal errors, geo, and uncertain detail', () => {
