@@ -1,6 +1,6 @@
 ---
 name: "Dance Underground"
-status: candidate
+status: added
 firstSeen: 2026-06-10
 lastChecked: 2026-06-10
 tags: [Dance, Capitol Hill]
