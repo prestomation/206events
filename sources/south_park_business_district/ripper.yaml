@@ -1,0 +1,11 @@
+name: south-park-business-district
+type: squarespace
+description: "South Park Business District"
+url: "https://www.southparkbusinessdistrict.com/events"
+friendlyLink: https://www.southparkbusinessdistrict.com/events
+tags: ["Community", "South Park"]
+geo: null
+calendars:
+  - name: south-park-business-district
+    friendlyname: "South Park Business District"
+    timezone: America/Los_Angeles
