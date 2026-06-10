@@ -1,0 +1,36 @@
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Washington_State_Convention_Center_and_Freeway_Park_from_Columbia_Center.jpg"
+geo:
+  lat: 47.6109
+  lng: -122.3323
+  label: "Seattle Convention Center, 705 Pike St, Seattle, WA 98101"
+  osmType: way
+  osmId: 44660015
+name: emerald-city-comic-con
+friendlyname: Emerald City Comic Con
+description: Annual four-day comic arts, pop culture, and gaming convention at the Seattle Convention Center. One of the largest fan conventions in the Pacific Northwest.
+timezone: America/Los_Angeles
+location: Seattle Convention Center, 705 Pike St, Seattle, WA 98101
+url: https://www.emeraldcitycomiccon.com/
+tags:
+  - Gaming
+  - Community
+  - Downtown
+# Approximates 1st Thursday–Sunday of March. Correct for 2025 (Mar 6–9), 2026 (Mar 5–8), 2027 (Mar 4–7).
+# 2024 straddled Feb/March (Feb 29–Mar 3) — verify dates at emeraldcitycomiccon.com each year.
+schedules:
+  - schedule: "1st Thursday"
+    start_time: "10:00"
+    duration: PT9H
+    months: [3]
+  - schedule: "1st Friday"
+    start_time: "10:00"
+    duration: PT9H
+    months: [3]
+  - schedule: "1st Saturday"
+    start_time: "10:00"
+    duration: PT9H
+    months: [3]
+  - schedule: "1st Sunday"
+    start_time: "10:00"
+    duration: PT7H
+    months: [3]
