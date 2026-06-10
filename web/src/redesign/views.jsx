@@ -799,6 +799,17 @@ function parsedEventCostKey(parsedEvent) {
 // shape `EventDetail` / deep-linking require, so a row can navigate to the event
 // detail page by opening the matched entry (see ParsedEventRow). Unlike the row
 // labels, every entry is included (no cost filter) so any event is clickable.
+//
+// Join-key limitations (acceptable because the map is scoped to a single
+// `icsUrl` — one channel's events):
+//   - Two events in the same channel with an identical summary *and* identical
+//     start instant collide; last-write-wins, same as the prior cost map. Both
+//     resolve to the same detail page anyway, so the practical impact is nil.
+//   - A title that differs between the ICS and the index (e.g. trailing
+//     whitespace, "Live Jazz Night" vs "Jazz Night") won't match — the row
+//     falls back to inert rather than opening the wrong event.
+// Do not reuse this key across sources (where same-named events at the same
+// time genuinely differ) without adding the icsUrl to the key.
 function useChannelIndexByKey(icsUrl) {
   const app = useApp206()
   return useMemo(() => {
