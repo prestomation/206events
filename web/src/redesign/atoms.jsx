@@ -260,7 +260,10 @@ export function DayList({ groups, withReason = false }) {
 
 // Dismissible chips showing every active filter, so the user always knows the
 // list is filtered. Search also offers a one-tap "Save to feed".
-export function ActiveFilters() {
+// `costHiddenCount` (optional) is supplied by the host view: how many events
+// pass every *other* active filter but are hidden solely because their price
+// isn't confirmed. Quantifies the strict cost filter at the moment it bites.
+export function ActiveFilters({ costHiddenCount = null }) {
   const app = useApp206()
   const q = app.query.trim()
   const scopeLabel = app.dateWindow !== 'all' ? describeWindow(app.dateWindow).relative : null
@@ -298,7 +301,9 @@ export function ActiveFilters() {
           confirmed are hidden, so a shrunken list isn't a bug. */}
       {app.costFilter && (
         <span className="a-fcaption">
-          Showing only events with confirmed pricing — most events don’t list a price yet.
+          Showing only events with confirmed pricing
+          {costHiddenCount > 0 && ` — ${costHiddenCount.toLocaleString()} more ${costHiddenCount === 1 ? 'event has' : 'events have'} no listed price`}
+          {!costHiddenCount && ' — most events don’t list a price yet'}.
         </span>
       )}
     </div>

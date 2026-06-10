@@ -63,6 +63,18 @@ export function DiscoverView() {
     }).length
     : null, [hasQuery, app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
 
+  // How many events pass every filter except the price bucket — i.e. hidden
+  // solely for lack of a confirmed price. Feeds the ActiveFilters caption.
+  const costHiddenCount = useMemo(() => {
+    if (!app.costFilter) return null
+    const base = {
+      category: app.category, neighborhood: app.neighborhood, query: app.query,
+      channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
+    }
+    return filterDiscoverEvents(app.upcomingEvents, base).length -
+      filterDiscoverEvents(app.upcomingEvents, { ...base, cost: app.costFilter }).length
+  }, [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
+
   return (
     <div style={{ padding: '2px var(--pad) 20px' }}>
       <div className="a-discover-head">
@@ -99,7 +111,7 @@ export function DiscoverView() {
           options={COST_FILTER_OPTIONS} onSelect={app.setCostFilter} />
       </div>
 
-      <ActiveFilters />
+      <ActiveFilters costHiddenCount={costHiddenCount} />
 
       {app.emphasis === 'calendars' ? <CalendarsMode /> : <div style={{ marginTop: 8 }}><EventsMode /></div>}
     </div>
@@ -298,24 +310,31 @@ export function FollowingView() {
   const app = useApp206()
   // The feed is already date-scoped; additionally narrow by the active
   // category / neighborhood / search filters so they apply here too.
-  const groups = useMemo(() => {
+  const { groups, costHiddenCount } = useMemo(() => {
     let gs = app.feedGroups
-    const narrow = (e) => {
+    const passesTags = (e) => {
       if (app.category || app.neighborhood) {
         const ch = app.channelByIcsUrl.get(e.icsUrl)
         if (app.category && !(ch && ch.tags.includes(app.category))) return false
         if (app.neighborhood && !(ch && ch.tags.includes(app.neighborhood))) return false
       }
-      if (app.costFilter && !eventMatchesCost(e, app.costFilter)) return false
       return true
     }
-    if (app.category || app.neighborhood || app.costFilter) {
-      gs = gs.map((g) => ({ ...g, events: g.events.filter(narrow) })).filter((g) => g.events.length)
+    if (app.category || app.neighborhood) {
+      gs = gs.map((g) => ({ ...g, events: g.events.filter(passesTags) })).filter((g) => g.events.length)
     }
     if (app.query.trim()) {
       gs = gs.map((g) => ({ ...g, events: app.matchEvents(app.query, g.events) })).filter((g) => g.events.length)
     }
-    return gs
+    // Cost runs last so the difference is exactly "hidden solely for lack of
+    // a confirmed price" — feeds the ActiveFilters caption.
+    let costHiddenCount = null
+    if (app.costFilter) {
+      const before = gs.reduce((n, g) => n + g.events.length, 0)
+      gs = gs.map((g) => ({ ...g, events: g.events.filter((e) => eventMatchesCost(e, app.costFilter)) })).filter((g) => g.events.length)
+      costHiddenCount = before - gs.reduce((n, g) => n + g.events.length, 0)
+    }
+    return { groups: gs, costHiddenCount }
   }, [app.feedGroups, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl])
 
   const counts = { cal: app.favoritesSet.size, place: app.geoFilters.length, search: app.searchFilters.length }
@@ -333,7 +352,7 @@ export function FollowingView() {
         </button>
       </div>
 
-      <ActiveFilters />
+      <ActiveFilters costHiddenCount={costHiddenCount} />
 
       <button className="a-feedlegend" onClick={() => app.go('you')} title="Manage what feeds this">
         <span style={{ fontSize: 12, color: 'var(--ink-3)', fontWeight: 600 }}>Feeding this:</span>
@@ -880,6 +899,25 @@ export function EventDetail({ event }) {
           )
           return mapHref
             ? <a className="a-fact" href={mapHref} target="_blank" rel="noopener noreferrer" title="Open in maps" style={{ alignItems: 'center', width: '100%', color: 'inherit', textDecoration: 'none' }}>{inner}</a>
+            : <div className="a-fact">{inner}</div>
+        })()}
+        {/* Price fact. Unlike the row labels (silent when unknown), the detail
+            page states unknown pricing explicitly — this is where someone
+            decides whether to go, so honesty beats tidiness here. */}
+        {(() => {
+          const label = costLabel(event.cost)
+          const sub = label === 'Ticketed'
+            ? 'Amount not posted — see the event site'
+            : !label && event.url ? 'Check the event site' : null
+          const inner = (
+            <>
+              <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.spark}</span>
+              <div><div style={{ fontWeight: 600, fontSize: 14 }}>{label || 'Price not listed'}</div>
+                {sub && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{sub}</div>}</div>
+            </>
+          )
+          return !label && event.url
+            ? <a className="a-fact" href={event.url} target="_blank" rel="noopener noreferrer" title="Check the event site for pricing" style={{ alignItems: 'center', width: '100%', color: 'inherit', textDecoration: 'none' }}>{inner}</a>
             : <div className="a-fact">{inner}</div>
         })()}
         {channel && (
