@@ -1,6 +1,6 @@
 ---
 name: "South Park Business District"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.southparkbusinessdistrict.com/events
 tags: [Community, "South Park"]
@@ -16,4 +16,4 @@ Investigated 2026-06-10:
 - Low volume — monitoring for more events before implementing
 - Address context: South Park neighborhood, Seattle, WA 98108
 
-Next steps: Re-check when more events are posted. If consistently low-volume, add with `expectEmpty: true` after at least one successful CI build.
+Implemented 2026-06-10: Added as Squarespace ripper (`sources/south_park_business_district/ripper.yaml`). Low-volume community source covering the underrepresented South Park neighborhood.
