@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6216701
+  lng: -122.3124940
+  label: "Dance Underground, 340 15th Ave E, Seattle, WA 98102"
+  osmType: node
+  osmId: 7006940987
+name: dance-underground
+friendlyname: Dance Underground
+description: Weekly Argentine tango practica (Thursday) and milonga (Saturday) at Dance Underground in Capitol Hill.
+timezone: America/Los_Angeles
+location: 340 15th Ave E, Seattle, WA 98102
+url: https://www.dance-underground.com/
+tags:
+  - Dance
+  - Capitol Hill
+schedules:
+  - schedule: every Thursday
+    start_time: "21:15"
+    duration: PT2H15M
+  - schedule: every Saturday
+    start_time: "20:30"
+    duration: PT3H30M
