@@ -6,7 +6,7 @@ url: https://www.slipgallery.com/exhibitsandevents
 tags: [Arts, Belltown]
 firstSeen: 2026-06-10
 lastChecked: 2026-06-10
-pr: pending
+pr: 587
 ---
 
 Contemporary art gallery at 2301 1st Ave, Belltown, Seattle. Hosts monthly solo and group exhibitions including
