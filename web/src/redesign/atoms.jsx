@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
-import { rowFromIndexEvent, provFromAttributions, describeWindow } from './viewModels.js'
+import { rowFromIndexEvent, provFromAttributions, describeWindow, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
@@ -204,6 +204,12 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
           {noDate && row.time && <span className="ev-time">{row.timeRange}</span>}
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
+          {costLabel(event.cost) && (
+            <span className="ev-cost" style={{
+              flex: '0 0 auto', fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap',
+              color: event.cost && !event.cost.paid && event.cost.min === 0 ? 'var(--green, #2e7d32)' : 'var(--ink-3)',
+            }}>{costLabel(event.cost)}</span>
+          )}
         </div>
         {!noDate && row.time && <div className="ev-meta"><span>{row.timeRange}</span></div>}
         {showLoc && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
@@ -281,8 +287,20 @@ export function ActiveFilters() {
       {app.neighborhood && (
         <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.pin}</span>} label={formatTagLabel(app.neighborhood)} onClear={() => app.setNeighborhood(null)} />
       )}
+      {app.costFilter && (
+        <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.spark}</span>}
+          label={(COST_FILTER_OPTIONS.find((o) => o.value === app.costFilter) || {}).label || app.costFilter}
+          onClear={() => app.setCostFilter(null)} />
+      )}
       {scopeLabel && (
         <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.clock}</span>} label={scopeLabel} onClear={() => app.setDateWindow('all')} />
+      )}
+      {/* The cost filter is strict: events whose price the pipeline hasn't
+          confirmed are hidden, so a shrunken list isn't a bug. */}
+      {app.costFilter && (
+        <span style={{ flexBasis: '100%', fontSize: 12, color: 'var(--ink-3)' }}>
+          Showing only events with confirmed pricing — most events don’t list a price yet.
+        </span>
       )}
     </div>
   )

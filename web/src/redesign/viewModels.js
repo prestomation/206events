@@ -168,6 +168,39 @@ export function describeWindow(windowDays, now = new Date()) {
   return { relative: `Next ${windowDays} days`, absoluteEnd }
 }
 
+// --- Cost filter --------------------------------------------------------
+// Price buckets over the events-index `cost` field ({min, max?} | {paid: true},
+// USD face value; min 0 = free; absent = unknown). Filtering is strict on
+// `min`: unknown-cost and paid-amount-unknown events match only "Any" (no
+// filter) — we never guess that an unpriced event is free or cheap. The
+// active-filter UI shows a "confirmed pricing only" caption for this reason.
+export const COST_FILTER_OPTIONS = [
+  { value: 'free', label: 'Free' },
+  { value: '10', label: '$10 or less' },
+  { value: '25', label: '$25 or less' },
+]
+
+export function eventMatchesCost(event, costFilter) {
+  if (!costFilter) return true
+  const c = event.cost
+  if (!c || c.paid || typeof c.min !== 'number') return false
+  if (costFilter === 'free') return c.min === 0
+  const cap = Number(costFilter)
+  return Number.isFinite(cap) ? c.min <= cap : true
+}
+
+// One display string for a cost object: "Free", "$10", "From $10" (range), or
+// "Ticketed" (paid, amount unknown). null when cost is unknown — show nothing
+// rather than a guess.
+export function costLabel(cost) {
+  if (!cost) return null
+  if (cost.paid) return 'Ticketed'
+  const fmt = (n) => Number.isInteger(n) ? `$${n}` : `$${n.toFixed(2)}`
+  if (cost.min === 0) return 'Free'
+  if (cost.max != null && cost.max > cost.min) return `From ${fmt(cost.min)}`
+  return fmt(cost.min)
+}
+
 // --- Discover filtering -----------------------------------------------------
 // Shared by the Discover Calendars/Events modes AND the seg-button match badges
 // so the count on each tab always equals what that tab renders. The two are
@@ -185,12 +218,13 @@ export function filterDiscoverChannels(channels, { category, neighborhood, query
   return out
 }
 
-// Events passing the active Discover filters (category, neighborhood, search).
-// Category/neighborhood are resolved via the owning channel's tags; search is an
+// Events passing the active Discover filters (category, neighborhood, cost,
+// search). Category/neighborhood are resolved via the owning channel's tags;
+// cost is event-level (strict on `min` — see eventMatchesCost); search is an
 // eventKey membership test against the Fuse `queryKeySet` (null = no search).
 // Returns the full (uncapped) match list — callers cap rendering separately so
 // the badge can show the true total.
-export function filterDiscoverEvents(events, { category, neighborhood, query, channelByIcsUrl, queryKeySet } = {}) {
+export function filterDiscoverEvents(events, { category, neighborhood, cost, query, channelByIcsUrl, queryKeySet } = {}) {
   let out = events || []
   if (category || neighborhood) {
     out = out.filter((e) => {
@@ -201,6 +235,7 @@ export function filterDiscoverEvents(events, { category, neighborhood, query, ch
       return true
     })
   }
+  if (cost) out = out.filter((e) => eventMatchesCost(e, cost))
   if ((query || '').trim() && queryKeySet) out = out.filter((e) => queryKeySet.has(eventKey(e)))
   return out
 }

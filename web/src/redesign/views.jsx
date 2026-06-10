@@ -7,7 +7,7 @@ import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
-import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
+import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, COST_FILTER_OPTIONS } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
@@ -58,10 +58,10 @@ export function DiscoverView() {
     : null, [hasQuery, app.channels, app.category, app.neighborhood, app.query])
   const evMatchCount = useMemo(() => hasQuery
     ? filterDiscoverEvents(app.upcomingEvents, {
-      category: app.category, neighborhood: app.neighborhood, query: app.query,
+      category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
       channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
     }).length
-    : null, [hasQuery, app.upcomingEvents, app.category, app.neighborhood, app.query, app.channelByIcsUrl, app.queryKeySet])
+    : null, [hasQuery, app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
 
   return (
     <div style={{ padding: '2px var(--pad) 20px' }}>
@@ -93,6 +93,10 @@ export function DiscoverView() {
         </div>
         <FilterDropdown label="Neighborhood" icon={Ico.pin} value={app.neighborhood}
           options={neighborhoodOptions} onSelect={app.setNeighborhood} />
+        {/* Cost buckets filter only the Events list (calendars have no price);
+            strict on confirmed pricing — see eventMatchesCost. */}
+        <FilterDropdown label="Price" icon={Ico.spark} value={app.costFilter}
+          options={COST_FILTER_OPTIONS} onSelect={app.setCostFilter} />
       </div>
 
       <ActiveFilters />
@@ -278,13 +282,13 @@ function EventsMode() {
   const app = useApp206()
   const groups = useMemo(() => {
     const evs = filterDiscoverEvents(app.upcomingEvents, {
-      category: app.category, neighborhood: app.neighborhood, query: app.query,
+      category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
       channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
     })
     // Cap the rendered set: a 6-month all-events list is thousands of rows.
     // Events are already date-sorted, so this keeps the soonest.
     return groupIndexEventsByDay(evs.slice(0, EVENTS_MODE_CAP))
-  }, [app.upcomingEvents, app.category, app.neighborhood, app.query, app.channelByIcsUrl, app.queryKeySet])
+  }, [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
   if (!groups.length) return <div className="a-empty">No events match.</div>
   return <DayList groups={groups} />
 }
@@ -302,16 +306,17 @@ export function FollowingView() {
         if (app.category && !(ch && ch.tags.includes(app.category))) return false
         if (app.neighborhood && !(ch && ch.tags.includes(app.neighborhood))) return false
       }
+      if (app.costFilter && !eventMatchesCost(e, app.costFilter)) return false
       return true
     }
-    if (app.category || app.neighborhood) {
+    if (app.category || app.neighborhood || app.costFilter) {
       gs = gs.map((g) => ({ ...g, events: g.events.filter(narrow) })).filter((g) => g.events.length)
     }
     if (app.query.trim()) {
       gs = gs.map((g) => ({ ...g, events: app.matchEvents(app.query, g.events) })).filter((g) => g.events.length)
     }
     return gs
-  }, [app.feedGroups, app.category, app.neighborhood, app.query, app.channelByIcsUrl])
+  }, [app.feedGroups, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl])
 
   const counts = { cal: app.favoritesSet.size, place: app.geoFilters.length, search: app.searchFilters.length }
   const total = groups.reduce((n, g) => n + g.events.length, 0)

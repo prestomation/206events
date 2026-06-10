@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
+import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 
 // Fixed "now": Mon 2026-06-01 10:00 local. Day boundaries are computed in local
@@ -262,6 +262,62 @@ describe('filterDiscoverEvents', () => {
   it('returns the full (uncapped) match list so a badge can show the true total', () => {
     const many = Array.from({ length: 250 }, (_, i) => ({ summary: `E${i}`, date: `2026-06-10T19:0${i % 10}`, icsUrl: 'music.ics' }))
     expect(filterDiscoverEvents(many, { channelByIcsUrl })).toHaveLength(250)
+  })
+
+  it('filters by cost bucket and combines with tag filters', () => {
+    const free = { ...e1, cost: { min: 0 } }
+    const cheap = { ...e2, cost: { min: 8 } }
+    const pricey = { ...e3, cost: { min: 40 } }
+    const unknown = { summary: 'Mystery', date: '2026-06-14T18:00', icsUrl: 'music.ics' }
+    const all = [free, cheap, pricey, unknown]
+    expect(filterDiscoverEvents(all, { cost: 'free', channelByIcsUrl })).toEqual([free])
+    expect(filterDiscoverEvents(all, { cost: '10', channelByIcsUrl })).toEqual([free, cheap])
+    expect(filterDiscoverEvents(all, { cost: 'free', category: 'Beer', channelByIcsUrl })).toEqual([])
+  })
+})
+
+describe('eventMatchesCost', () => {
+  it('matches everything when no filter is active', () => {
+    expect(eventMatchesCost({}, null)).toBe(true)
+    expect(eventMatchesCost({ cost: { paid: true } }, null)).toBe(true)
+  })
+
+  it('is strict: unknown-cost events match no bucket', () => {
+    for (const { value } of COST_FILTER_OPTIONS) {
+      expect(eventMatchesCost({}, value)).toBe(false)
+    }
+  })
+
+  it('is strict: paid-amount-unknown events match no bucket', () => {
+    for (const { value } of COST_FILTER_OPTIONS) {
+      expect(eventMatchesCost({ cost: { paid: true } }, value)).toBe(false)
+    }
+  })
+
+  it('free bucket requires min === 0', () => {
+    expect(eventMatchesCost({ cost: { min: 0 } }, 'free')).toBe(true)
+    expect(eventMatchesCost({ cost: { min: 0, max: 20 } }, 'free')).toBe(true)
+    expect(eventMatchesCost({ cost: { min: 1 } }, 'free')).toBe(false)
+  })
+
+  it('numeric buckets compare the starting price inclusively', () => {
+    expect(eventMatchesCost({ cost: { min: 10 } }, '10')).toBe(true)
+    expect(eventMatchesCost({ cost: { min: 10.5 } }, '10')).toBe(false)
+    expect(eventMatchesCost({ cost: { min: 0 } }, '25')).toBe(true)
+    expect(eventMatchesCost({ cost: { min: 25, max: 80 } }, '25')).toBe(true)
+    expect(eventMatchesCost({ cost: { min: 26 } }, '25')).toBe(false)
+  })
+})
+
+describe('costLabel', () => {
+  it('derives one display string per cost shape', () => {
+    expect(costLabel(undefined)).toBe(null)
+    expect(costLabel({ min: 0 })).toBe('Free')
+    expect(costLabel({ min: 10 })).toBe('$10')
+    expect(costLabel({ min: 12.5 })).toBe('$12.50')
+    expect(costLabel({ min: 10, max: 45 })).toBe('From $10')
+    expect(costLabel({ min: 10, max: 10 })).toBe('$10')
+    expect(costLabel({ paid: true })).toBe('Ticketed')
   })
 })
 
