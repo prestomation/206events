@@ -1,0 +1,23 @@
+# verified: 2026-06-10 via eventbrite web ui (5 upcoming After Hours events; EVENTBRITE_TOKEN required in CI)
+name: seattle-aquarium
+type: eventbrite
+description: "Seattle Aquarium"
+url: "https://www.seattleaquarium.org/events/"
+friendlyLink: https://www.seattleaquarium.org/events/
+tags: ["Museums", "Downtown"]
+expectEmpty: true
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Seattle_Aquarium_-_panoramio.jpg"
+geo:
+  lat: 47.6076248
+  lng: -122.3432202
+  label: "Seattle Aquarium, 1483 Alaskan Way, Seattle, WA 98101"
+  osmType: relation
+  osmId: 16051213
+calendars:
+  - name: seattle-aquarium
+    friendlyname: "Seattle Aquarium"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "16503646468"
+      defaultLocation: "1483 Alaskan Way, Pier 59, Seattle, WA 98101"
+      defaultDurationHours: 3
