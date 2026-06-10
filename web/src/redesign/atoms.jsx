@@ -205,10 +205,9 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
           {noDate && row.time && <span className="ev-time">{row.timeRange}</span>}
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
           {costLabel(event.cost) && (
-            <span className="ev-cost" style={{
-              flex: '0 0 auto', fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap',
-              color: event.cost && !event.cost.paid && event.cost.min === 0 ? 'var(--green, #2e7d32)' : 'var(--ink-3)',
-            }}>{costLabel(event.cost)}</span>
+            <span className={`ev-cost${event.cost && !event.cost.paid && event.cost.min === 0 ? ' ev-cost--free' : ''}`}>
+              {costLabel(event.cost)}
+            </span>
           )}
         </div>
         {!noDate && row.time && <div className="ev-meta"><span>{row.timeRange}</span></div>}
@@ -298,7 +297,7 @@ export function ActiveFilters() {
       {/* The cost filter is strict: events whose price the pipeline hasn't
           confirmed are hidden, so a shrunken list isn't a bug. */}
       {app.costFilter && (
-        <span style={{ flexBasis: '100%', fontSize: 12, color: 'var(--ink-3)' }}>
+        <span className="a-fcaption">
           Showing only events with confirmed pricing — most events don’t list a price yet.
         </span>
       )}

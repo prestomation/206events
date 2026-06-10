@@ -7,7 +7,7 @@ import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
-import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, COST_FILTER_OPTIONS } from './viewModels.js'
+import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
@@ -640,6 +640,7 @@ function AddSearchForm({ onSave, onCancel }) {
 /* -------------------------------------------------------- ChannelDetail --- */
 export function ChannelDetail({ icsUrl }) {
   const app = useApp206()
+  const costByKey = useChannelCostByKey(icsUrl)
   const channel = app.channelByIcsUrl.get(icsUrl)
   if (!channel) return null
   const following = app.favoritesSet.has(icsUrl)
@@ -761,14 +762,36 @@ export function ChannelDetail({ icsUrl }) {
       {app.channelEventsError
         ? <div className="a-empty">{app.channelEventsError}</div>
         : evs.length
-          ? evs.map((e) => <ParsedEventRow key={e.id} event={e} distributed={channel.distributed} />)
+          ? evs.map((e) => <ParsedEventRow key={e.id} event={e} distributed={channel.distributed} cost={costByKey.get(parsedEventCostKey(e))} />)
           : !app.channelEventsLoading && <div className="a-empty">Schedule updates daily.</div>}
     </div>
   )
 }
 
+// Cost lives on events-index entries, but the channel page renders events
+// parsed live from the ICS file, which carries no price (no ICS price
+// property in v1). Join the two by summary + start instant so venue-page
+// rows show the same cost labels as the Discover list.
+function parsedEventCostKey(parsedEvent) {
+  return `${parsedEvent.title}|${parsedEvent.startDate?.getTime?.() ?? ''}`
+}
+function useChannelCostByKey(icsUrl) {
+  const app = useApp206()
+  return useMemo(() => {
+    const map = new Map()
+    for (const e of app.eventsByIcsUrl.get(icsUrl) || []) {
+      if (e.cost === undefined) continue
+      const parsed = parseIndexDate(e.date)
+      if (!parsed) continue
+      map.set(`${e.summary}|${parsed.date.getTime()}`, e.cost)
+    }
+    return map
+  }, [app.eventsByIcsUrl, icsUrl])
+}
+
 // Row for an ICS-parsed event (channel detail). Shape: { title, startDate, endDate, location, description, url }
-function ParsedEventRow({ event, distributed }) {
+// `cost` is joined from the events-index by the caller (the ICS has no price).
+function ParsedEventRow({ event, distributed, cost }) {
   const app = useApp206()
   const eventYear = event.startDate.getFullYear()
   const datePart = event.startDate.toLocaleDateString('en-US', eventYear !== new Date().getFullYear()
@@ -779,7 +802,12 @@ function ParsedEventRow({ event, distributed }) {
     <div className="ev" style={{ cursor: 'default' }}>
       <EventThumb src={event.imageUrl} alt={event.title ? `Photo for ${event.title}` : ''} size={56} />
       <div className="ev-body">
-        <div className="ev-title">{event.title}</div>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
+          <div className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.title}</div>
+          {costLabel(cost) && (
+            <span className={`ev-cost${cost && !cost.paid && cost.min === 0 ? ' ev-cost--free' : ''}`}>{costLabel(cost)}</span>
+          )}
+        </div>
         <div className="ev-meta"><span>{time}</span></div>
         {/* Distributed calendars set a per-event location ("its own geo"); link
             it via the shared pin-only LocationMapLink. */}
@@ -814,6 +842,7 @@ export function EventDetail({ event }) {
         <div style={{ display: 'flex', gap: 16, marginTop: 13, fontSize: 13.5, fontWeight: 600, opacity: 0.96, flexWrap: 'wrap' }}>
           {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.timeRange}</span>}
           {(event.location || channel?.hood) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.pin}</span>{event.location || channel.hood}</span>}
+          {costLabel(event.cost) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.spark}</span>{costLabel(event.cost)}</span>}
         </div>
       </div>
 
