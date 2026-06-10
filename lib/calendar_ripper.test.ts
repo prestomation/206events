@@ -9,7 +9,7 @@ import {
   prepareTaggedExternalCalendars,
   createAggregateCalendars
 } from './tag_aggregator.js';
-import { hasFutureEventsInICS, attachEventCoords } from './calendar_ripper.js';
+import { hasFutureEventsInICS, attachEventCoords, attachEventCost } from './calendar_ripper.js';
 
 // Mock the file system operations
 vi.mock('fs/promises', () => ({
@@ -446,5 +446,52 @@ describe('attachEventCoords', () => {
     expect(event.geocodeSource).toBe('none');
     expect(errors).toHaveLength(1);
     expect(errors[0].type).toBe('GeocodeError');
+  });
+});
+
+describe('attachEventCost', () => {
+  const makeEvent = (cost?: any) => ({
+    ripped: new Date(),
+    date: ZonedDateTime.parse('2026-06-01T18:00:00-07:00[America/Los_Angeles]'),
+    duration: Duration.ofHours(2),
+    summary: 'Test',
+    ...(cost ? { cost } : {}),
+  });
+  const makeCalendar = (events: any[], parentCost?: any, calendarCost?: any): RipperCalendar => ({
+    name: 'cal',
+    friendlyname: 'Cal',
+    events,
+    errors: [],
+    tags: [],
+    parent: {
+      name: 'venue',
+      geo: null,
+      ...(parentCost ? { cost: parentCost } : {}),
+      calendars: [{ name: 'cal', ...(calendarCost ? { cost: calendarCost } : {}) }],
+    } as any,
+  });
+
+  it('applies the ripper-level cost default to unpriced events', () => {
+    const event: any = makeEvent();
+    attachEventCost(makeCalendar([event], { min: 0 }));
+    expect(event.cost).toEqual({ min: 0 });
+  });
+
+  it('calendar-level cost wins over ripper-level (mirrors geo precedence)', () => {
+    const event: any = makeEvent();
+    attachEventCost(makeCalendar([event], { min: 0 }, { min: 10 }));
+    expect(event.cost).toEqual({ min: 10 });
+  });
+
+  it('never overwrites a ripper-parsed cost', () => {
+    const event: any = makeEvent({ min: 25, max: 75 });
+    attachEventCost(makeCalendar([event], { min: 0 }));
+    expect(event.cost).toEqual({ min: 25, max: 75 });
+  });
+
+  it('leaves events untouched when no cost is declared anywhere', () => {
+    const event: any = makeEvent();
+    attachEventCost(makeCalendar([event]));
+    expect(event.cost).toBeUndefined();
   });
 });

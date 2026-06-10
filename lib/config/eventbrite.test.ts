@@ -210,4 +210,51 @@ describe('EventbriteRipper', () => {
             expect(first.date.zone().id()).toBe('America/Los_Angeles');
         });
     });
+
+    describe('cost extraction', () => {
+        const baseEvent = {
+            id: 'cost-1', name: { text: 'Priced Event' }, description: null, url: null, venue: null,
+            start: { timezone: 'America/Los_Angeles', local: '2026-03-01T18:00:00' },
+            end: { timezone: 'America/Los_Angeles', local: '2026-03-01T20:00:00' },
+        };
+
+        it('marks paid events from sample data without ticket_availability as paid-unknown', () => {
+            const ripper = new EventbriteRipper();
+            const [first] = ripper.parseEvents(loadSample('elliott-bay').events, tz, '') as RipperCalendarEvent[];
+            // Sample's first event: is_free false, no ticket_availability expansion
+            expect(first.cost).toEqual({ paid: true });
+        });
+
+        it('maps is_free to a free cost', () => {
+            const ripper = new EventbriteRipper();
+            const [e] = ripper.parseEvents([{ ...baseEvent, is_free: true }], tz, '') as RipperCalendarEvent[];
+            expect(e.cost).toEqual({ min: 0 });
+        });
+
+        it('reads the face-value range from the ticket_availability expansion', () => {
+            const ripper = new EventbriteRipper();
+            const ev = { ...baseEvent, is_free: false, ticket_availability: {
+                minimum_ticket_price: { currency: 'USD', major_value: '12.00', value: 1200 },
+                maximum_ticket_price: { currency: 'USD', major_value: '35.00', value: 3500 },
+            }};
+            const [e] = ripper.parseEvents([ev], tz, '') as RipperCalendarEvent[];
+            expect(e.cost).toEqual({ min: 12, max: 35 });
+        });
+
+        it('omits max when min and max ticket prices are equal', () => {
+            const ripper = new EventbriteRipper();
+            const ev = { ...baseEvent, is_free: false, ticket_availability: {
+                minimum_ticket_price: { currency: 'USD', major_value: '20.00', value: 2000 },
+                maximum_ticket_price: { currency: 'USD', major_value: '20.00', value: 2000 },
+            }};
+            const [e] = ripper.parseEvents([ev], tz, '') as RipperCalendarEvent[];
+            expect(e.cost).toEqual({ min: 20 });
+        });
+
+        it('leaves cost unset when is_free is absent', () => {
+            const ripper = new EventbriteRipper();
+            const [e] = ripper.parseEvents([{ ...baseEvent }], tz, '') as RipperCalendarEvent[];
+            expect(e.cost).toBeUndefined();
+        });
+    });
 });

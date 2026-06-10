@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { toICS, RipperCalendar, RipperCalendarEvent, externalCalendarSchema } from './schema.js';
+import { toICS, RipperCalendar, RipperCalendarEvent, externalCalendarSchema, costConfigSchema } from './schema.js';
 import { ZonedDateTime, Duration } from '@js-joda/core';
 
 function makeEvent(overrides: Partial<RipperCalendarEvent> = {}): RipperCalendarEvent {
@@ -243,5 +243,28 @@ describe('externalCalendarSchema', () => {
   it('rejects proxy: true', () => {
     const result = externalCalendarSchema.safeParse({ ...base, proxy: true });
     expect(result.success).toBe(false);
+  });
+
+  it('accepts a cost declaration and normalizes it', () => {
+    const parsed = externalCalendarSchema.parse({ ...base, cost: 'free' });
+    expect(parsed.cost).toEqual({ min: 0 });
+  });
+});
+
+describe('costConfigSchema', () => {
+  it('normalizes "free" to { min: 0 }', () => {
+    expect(costConfigSchema.parse('free')).toEqual({ min: 0 });
+  });
+
+  it('normalizes a flat USD amount to { min }', () => {
+    expect(costConfigSchema.parse(12.5)).toEqual({ min: 12.5 });
+  });
+
+  it('rejects negative amounts', () => {
+    expect(costConfigSchema.safeParse(-1).success).toBe(false);
+  });
+
+  it('rejects arbitrary strings', () => {
+    expect(costConfigSchema.safeParse('cheap').success).toBe(false);
   });
 });
