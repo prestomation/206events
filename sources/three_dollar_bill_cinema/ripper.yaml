@@ -1,0 +1,11 @@
+name: three-dollar-bill-cinema
+type: squarespace
+description: "Three Dollar Bill Cinema"
+url: "https://threedollarbillcinema.org/upcomingevents"
+friendlyLink: https://threedollarbillcinema.org
+tags: ["Movies", "Arts"]
+geo: null
+calendars:
+  - name: three-dollar-bill-cinema
+    friendlyname: "Three Dollar Bill Cinema"
+    timezone: America/Los_Angeles
