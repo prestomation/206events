@@ -1,6 +1,6 @@
 ---
 name: "South Park Business District"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.southparkbusinessdistrict.com/events
 tags: [Community, "South Park"]
