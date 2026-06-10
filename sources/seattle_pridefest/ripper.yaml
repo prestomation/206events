@@ -1,0 +1,11 @@
+name: seattle-pridefest
+type: squarespace
+description: "Seattle PrideFest"
+url: "https://www.seattlepridefest.org/schedule"
+friendlyLink: https://www.seattlepridefest.org/schedule
+tags: ["Community", "Arts"]
+geo: null
+calendars:
+  - name: seattle-pridefest
+    friendlyname: "Seattle PrideFest"
+    timezone: America/Los_Angeles
