@@ -1,11 +1,12 @@
 ---
 name: "South Park Business District"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.southparkbusinessdistrict.com/events
 tags: [Community, "South Park"]
 firstSeen: 2026-06-10
 lastChecked: 2026-06-10
+pr: 590
 ---
 **South Park Business District** — `https://www.southparkbusinessdistrict.com/events` — Community and business events in Seattle's South Park neighborhood (underrepresented in 206.events).
 
