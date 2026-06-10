@@ -1,0 +1,24 @@
+geo:
+  lat: 47.6094
+  lng: -122.3414
+  label: "Pike Place Market, 93 Pike Street #317, 3rd Floor, Seattle, WA 98101"
+name: pike-place-market-constituency
+friendlyname: Pike Place Market Constituency
+description: Public meetings of the Pike Place Market Constituency, the primary mechanism for community participation in governance of Pike Place Market.
+timezone: America/Los_Angeles
+location: "Pike Place Market, 93 Pike Street #317, 3rd Floor, Seattle, WA 98101"
+url: "https://www.pikeplacemarketconstituency.org/meetings-events"
+tags: ["Community", "Pike Place", "Governance"]
+schedules:
+  - name: general-assembly
+    schedule: "3rd Tuesday"
+    start_time: "18:15"
+    duration: PT1H30M
+  - name: executive-committee
+    schedule: "last Thursday"
+    start_time: "18:15"
+    duration: PT1H30M
+  - name: historical-commission
+    schedule: "2nd and 4th Wednesday"
+    start_time: "16:30"
+    duration: PT1H
