@@ -659,7 +659,7 @@ function AddSearchForm({ onSave, onCancel }) {
 /* -------------------------------------------------------- ChannelDetail --- */
 export function ChannelDetail({ icsUrl }) {
   const app = useApp206()
-  const costByKey = useChannelCostByKey(icsUrl)
+  const indexByKey = useChannelIndexByKey(icsUrl)
   const channel = app.channelByIcsUrl.get(icsUrl)
   if (!channel) return null
   const following = app.favoritesSet.has(icsUrl)
@@ -781,7 +781,7 @@ export function ChannelDetail({ icsUrl }) {
       {app.channelEventsError
         ? <div className="a-empty">{app.channelEventsError}</div>
         : evs.length
-          ? evs.map((e) => <ParsedEventRow key={e.id} event={e} distributed={channel.distributed} cost={costByKey.get(parsedEventCostKey(e))} />)
+          ? evs.map((e) => <ParsedEventRow key={e.id} event={e} distributed={channel.distributed} indexEvent={indexByKey.get(parsedEventCostKey(e))} />)
           : !app.channelEventsLoading && <div className="a-empty">Schedule updates daily.</div>}
     </div>
   )
@@ -794,31 +794,42 @@ export function ChannelDetail({ icsUrl }) {
 function parsedEventCostKey(parsedEvent) {
   return `${parsedEvent.title}|${parsedEvent.startDate?.getTime?.() ?? ''}`
 }
-function useChannelCostByKey(icsUrl) {
+// Join the channel's ICS-parsed events back to their events-index entries by
+// summary + start instant. The index entry carries the cost label *and* is the
+// shape `EventDetail` / deep-linking require, so a row can navigate to the event
+// detail page by opening the matched entry (see ParsedEventRow). Unlike the row
+// labels, every entry is included (no cost filter) so any event is clickable.
+function useChannelIndexByKey(icsUrl) {
   const app = useApp206()
   return useMemo(() => {
     const map = new Map()
     for (const e of app.eventsByIcsUrl.get(icsUrl) || []) {
-      if (e.cost === undefined) continue
       const parsed = parseIndexDate(e.date)
       if (!parsed) continue
-      map.set(`${e.summary}|${parsed.date.getTime()}`, e.cost)
+      map.set(`${e.summary}|${parsed.date.getTime()}`, e)
     }
     return map
   }, [app.eventsByIcsUrl, icsUrl])
 }
 
 // Row for an ICS-parsed event (channel detail). Shape: { title, startDate, endDate, location, description, url }
-// `cost` is joined from the events-index by the caller (the ICS has no price).
-function ParsedEventRow({ event, distributed, cost }) {
+// `indexEvent` is the matching events-index entry joined by the caller (the ICS
+// has no price). When present it supplies the cost label *and* makes the row
+// navigate to the event detail page; when absent (an ICS event not in the index)
+// the row stays inert. AddToCalendar and the LocationMapLink pin already
+// stopPropagation on their own clicks; the description is wrapped to stop a click
+// on a link inside it from also triggering the row's open-event nav.
+function ParsedEventRow({ event, distributed, indexEvent }) {
   const app = useApp206()
+  const cost = indexEvent?.cost
   const eventYear = event.startDate.getFullYear()
   const datePart = event.startDate.toLocaleDateString('en-US', eventYear !== new Date().getFullYear()
     ? { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }
     : { weekday: 'short', month: 'short', day: 'numeric' })
   const time = `${datePart}, ${formatTimeRange(event.startDate, event.endDate)}`
+  const open = indexEvent ? () => app.openEvent(indexEvent) : undefined
   return (
-    <div className="ev" style={{ cursor: 'default' }}>
+    <div className="ev" onClick={open} style={{ cursor: open ? 'pointer' : 'default' }}>
       <EventThumb src={event.imageUrl} alt={event.title ? `Photo for ${event.title}` : ''} size={56} />
       <div className="ev-body">
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
@@ -831,7 +842,7 @@ function ParsedEventRow({ event, distributed, cost }) {
         {/* Distributed calendars set a per-event location ("its own geo"); link
             it via the shared pin-only LocationMapLink. */}
         {distributed && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
-        {event.description && <div style={{ marginTop: 6 }}><EventDescription text={event.description} /></div>}
+        {event.description && <div style={{ marginTop: 6 }} onClick={(e) => e.stopPropagation()}><EventDescription text={event.description} /></div>}
       </div>
       <AddToCalendar title={event.title} startDate={event.startDate} endDate={event.endDate}
         description={event.description} location={event.location} url={event.url} mode={app.calendarAddMode} />
