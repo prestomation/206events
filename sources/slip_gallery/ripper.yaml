@@ -1,0 +1,16 @@
+name: slip-gallery
+type: squarespace
+description: "Slip Gallery"
+url: "https://www.slipgallery.com/exhibitsandevents"
+friendlyLink: https://www.slipgallery.com
+tags: ["Arts", "Belltown"]
+geo:
+  lat: 47.6133582
+  lng: -122.3467802
+  label: "Slip Gallery, 2301 1st Ave, Seattle, WA 98121"
+  osmType: node
+  osmId: 2327663052
+calendars:
+  - name: slip-gallery
+    friendlyname: "Slip Gallery"
+    timezone: America/Los_Angeles
