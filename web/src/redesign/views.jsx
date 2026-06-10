@@ -401,7 +401,7 @@ export function YouView() {
       {app.uatMode && (
         <div role="note" style={{
           margin: '0 0 16px', padding: '10px 13px', borderRadius: 10,
-          background: 'var(--amber-bg, #fff7ed)', border: '1px solid var(--amber, #f59e0b)',
+          background: 'var(--amber-bg)', border: '1px solid var(--amber)',
           fontSize: 12.5, color: 'var(--ink-2)', lineHeight: 1.45,
         }}>
           🧪 <strong>Local UAT mode.</strong> You’re not really signed in — lists and feed URLs
@@ -448,8 +448,8 @@ export function YouView() {
           {feedUrl && (
             <div style={{ display: 'flex', gap: 7, marginTop: 9, alignItems: 'center' }}>
               {app.uatMode && (
-                <span style={{ flex: '0 0 auto', fontSize: 11, fontWeight: 700, color: 'var(--amber, #b45309)',
-                  border: '1px solid var(--amber, #f59e0b)', borderRadius: 6, padding: '2px 6px' }}>DEMO · non-functional</span>
+                <span style={{ flex: '0 0 auto', fontSize: 11, fontWeight: 700, color: 'var(--amber)',
+                  border: '1px solid var(--amber)', borderRadius: 6, padding: '2px 6px' }}>DEMO · non-functional</span>
               )}
               <code className="a-icscode">{feedUrl}</code>
               {!app.uatMode && (
@@ -580,7 +580,7 @@ function ListsManager() {
           </button>
           {multi && (confirmDelete ? (
             <>
-              <button className="btn btn-ghost" style={{ height: 36, fontSize: 13, color: 'var(--danger, #c0392b)' }}
+              <button className="btn btn-ghost" style={{ height: 36, fontSize: 13, color: 'var(--danger)' }}
                 onClick={() => { app.deleteList(app.activeListId); setConfirmDelete(false) }}>Confirm delete</button>
               <button className="btn btn-ghost" style={{ height: 36, fontSize: 13 }}
                 onClick={() => setConfirmDelete(false)}>Cancel</button>
