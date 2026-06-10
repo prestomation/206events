@@ -210,4 +210,48 @@ describe('DICERipper', () => {
             expect(events[0].date.zone().id()).toBe('America/Los_Angeles');
         });
     });
+
+    describe('cost extraction', () => {
+        const baseEvent = {
+            id: 'cost-1', name: 'Priced Show', date: '2026-03-01T03:00:00Z',
+            date_end: '2026-03-01T05:00:00Z', timezone: 'America/Los_Angeles',
+            address: '123 Test St', url: null, description: null, raw_description: null, images: [],
+        };
+
+        it('extracts face value in dollars from sample data (cents, excluding fees)', () => {
+            const ripper = new DICERipper();
+            const data = loadSample('sunset_tavern');
+            const [first] = ripper.parseEvents(data.data, tz, '') as RipperCalendarEvent[];
+            // Sample's first event: General Admission face_value 1500 cents
+            expect(first.cost).toEqual({ min: 15 });
+        });
+
+        it('uses cheapest and priciest ticket types as a range', () => {
+            const ripper = new DICERipper();
+            const ev = { ...baseEvent, ticket_types: [
+                { id: 1, name: 'GA', price: { total: 2009, fees: 509, face_value: 1500 }, sold_out: false },
+                { id: 2, name: 'VIP', price: { total: 5009, fees: 509, face_value: 4500 }, sold_out: false },
+            ]};
+            const [e] = ripper.parseEvents([ev], tz, '') as RipperCalendarEvent[];
+            expect(e.cost).toEqual({ min: 15, max: 45 });
+        });
+
+        it('treats a zero face value as free', () => {
+            const ripper = new DICERipper();
+            const ev = { ...baseEvent, ticket_types: [
+                { id: 1, name: 'RSVP', price: { total: 0, fees: 0, face_value: 0 }, sold_out: false },
+            ]};
+            const [e] = ripper.parseEvents([ev], tz, '') as RipperCalendarEvent[];
+            expect(e.cost).toEqual({ min: 0 });
+        });
+
+        it('leaves cost unset when ticket_types is missing or empty', () => {
+            const ripper = new DICERipper();
+            const [noTypes] = ripper.parseEvents([{ ...baseEvent }], tz, '') as RipperCalendarEvent[];
+            expect(noTypes.cost).toBeUndefined();
+            const ripper2 = new DICERipper();
+            const [empty] = ripper2.parseEvents([{ ...baseEvent, ticket_types: [] }], tz, '') as RipperCalendarEvent[];
+            expect(empty.cost).toBeUndefined();
+        });
+    });
 });

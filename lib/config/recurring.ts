@@ -1,6 +1,6 @@
 import { Duration, ZonedDateTime, LocalTime, LocalDate, DayOfWeek, TemporalAdjusters, ZoneRegion } from "@js-joda/core";
 import { z } from "zod";
-import { RipperCalendarEvent, RipperCalendar, geoSchema } from "./schema.js";
+import { RipperCalendarEvent, RipperCalendar, geoSchema, costConfigSchema } from "./schema.js";
 import { parse } from 'yaml';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -39,6 +39,10 @@ export const recurringEventSchema = z.object({
     // Optional venue photo URL (a link, never image bytes) surfaced in
     // venues.json.
     imageUrl: z.string().url().optional(),
+    // Optional admission cost (`free` or a flat USD amount) applied to every
+    // generated occurrence. Recurring events are hand-coded, so this is the
+    // only way they get priced.
+    cost: costConfigSchema.optional(),
 });
 
 export const recurringConfigSchema = z.object({
@@ -143,6 +147,7 @@ export class RecurringEventProcessor {
                 description: event.description,
                 location: event.location,
                 url: event.url,
+                ...(event.cost ? { cost: event.cost } : {}),
                 rrule: rrule
             });
         }

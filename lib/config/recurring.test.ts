@@ -569,6 +569,42 @@ describe('recurringEventSchema', () => {
     expect(result.success).toBe(true);
   });
 
+  it('normalizes `cost: free` and numeric cost; rejects negatives', () => {
+    const schedules = [{ schedule: 'every Saturday', start_time: '11:00', duration: 'PT5H' }];
+    const free = recurringEventSchema.safeParse({ ...baseEvent, schedules, cost: 'free' });
+    expect(free.success).toBe(true);
+    expect(free.success && free.data.cost).toEqual({ min: 0 });
+    const paid = recurringEventSchema.safeParse({ ...baseEvent, schedules, cost: 10 });
+    expect(paid.success && paid.data.cost).toEqual({ min: 10 });
+    const negative = recurringEventSchema.safeParse({ ...baseEvent, schedules, cost: -5 });
+    expect(negative.success).toBe(false);
+  });
+
+  it('applies the declared cost to every generated occurrence', () => {
+    const yaml = `
+events:
+  - geo: null
+    name: free-market
+    friendlyname: "Free Market"
+    description: "Test"
+    timezone: "America/Los_Angeles"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["test"]
+    cost: free
+    schedules:
+      - schedule: "every Saturday"
+        start_time: "11:00"
+        duration: "PT5H"
+`;
+    const calendars = makeProcessor(yaml).generateCalendars(
+      LocalDate.parse('2026-06-01'), LocalDate.parse('2026-07-01'));
+    expect(calendars[0].events.length).toBeGreaterThan(0);
+    for (const e of calendars[0].events) {
+      expect(e.cost).toEqual({ min: 0 });
+    }
+  });
+
   it('should reject an empty schedules list', () => {
     const result = recurringEventSchema.safeParse({ ...baseEvent, schedules: [] });
     expect(result.success).toBe(false);

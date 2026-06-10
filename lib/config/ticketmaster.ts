@@ -1,5 +1,5 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "./schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
@@ -144,10 +144,24 @@ export class TicketmasterRipper implements IRipper {
                 const descParts: string[] = [];
                 if (event.info) descParts.push(event.info);
                 if (event.pleaseNote) descParts.push(event.pleaseNote);
+                let cost: EventCost | undefined;
                 if (event.priceRanges?.length) {
                     const range = event.priceRanges[0];
                     if (range.min != null && range.max != null) {
                         descParts.push(`Price: $${range.min} - $${range.max}`);
+                    }
+                    if (range.min != null) {
+                        if (range.min === 0 && range.max > 0) {
+                            // A $0 minimum alongside a real maximum is junk
+                            // data (hidden platinum/resale rows), not a free
+                            // ticket — Ticketmaster events are never free.
+                            cost = { paid: true };
+                        } else {
+                            cost = {
+                                min: range.min,
+                                ...(range.max != null && range.max > range.min ? { max: range.max } : {}),
+                            };
+                        }
                     }
                 }
                 if (status === 'postponed') descParts.push('POSTPONED');
@@ -163,6 +177,7 @@ export class TicketmasterRipper implements IRipper {
                     location: location || undefined,
                     url: event.url || undefined,
                     imageUrl: this.getBestImage(event.images),
+                    ...(cost ? { cost } : {}),
                 };
 
                 events.push(calEvent);

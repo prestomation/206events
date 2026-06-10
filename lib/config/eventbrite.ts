@@ -1,5 +1,5 @@
 import { Duration, LocalDateTime, ZoneId, ChronoUnit } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
@@ -88,7 +88,7 @@ export class EventbriteRipper implements IRipper {
         let page = 1;
 
         while (page <= MAX_PAGES) {
-            const url = `https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/?status=live&expand=venue&page=${page}`;
+            const url = `https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/?status=live&expand=venue,ticket_availability&page=${page}`;
 
             const res = await fetchFn(url, {
                 headers: { 'Authorization': `Bearer ${token}` }
@@ -192,6 +192,25 @@ export class EventbriteRipper implements IRipper {
                 // thumbnail `url`. Either is a stable public evbuc CDN URL.
                 const imageUrl = event.logo?.original?.url ?? event.logo?.url ?? undefined;
 
+                // `is_free` is always present on the events API. For paid
+                // events the ticket_availability expansion (when the API
+                // returns it) gives the face-value price range; without it
+                // we still know the event isn't free.
+                let cost: EventCost | undefined;
+                if (event.is_free === true) {
+                    cost = { min: 0 };
+                } else if (event.is_free === false) {
+                    const minRaw = event.ticket_availability?.minimum_ticket_price?.major_value;
+                    const maxRaw = event.ticket_availability?.maximum_ticket_price?.major_value;
+                    const min = minRaw != null ? Number(minRaw) : NaN;
+                    const max = maxRaw != null ? Number(maxRaw) : NaN;
+                    if (Number.isFinite(min) && min >= 0) {
+                        cost = { min, ...(Number.isFinite(max) && max > min ? { max } : {}) };
+                    } else {
+                        cost = { paid: true };
+                    }
+                }
+
                 const calEvent: RipperCalendarEvent = {
                     id,
                     ripped: new Date(),
@@ -202,6 +221,7 @@ export class EventbriteRipper implements IRipper {
                     location,
                     url: event.url,
                     imageUrl,
+                    ...(cost ? { cost } : {}),
                 };
 
                 results.push(calEvent);

@@ -41,6 +41,18 @@ export type Geo = z.infer<typeof geoSchema>;
  */
 export const OSM_CHECKED_COOLDOWN_DAYS = 60;
 
+// An event's admission cost in USD. `min: 0` means free; `max` is present
+// when the source exposes a price range. `{ paid: true }` means "definitely
+// not free, amount unknown" (e.g. Eventbrite `is_free: false` without ticket
+// price data). Prices are face value, excluding service fees.
+export type EventCost = { min: number; max?: number } | { paid: true };
+
+// YAML sugar for source-level cost declarations: `cost: free` or `cost: 10`
+// (flat USD amount). Normalized to the EventCost object form. Applied as a
+// default to events the ripper didn't price — a ripper-parsed cost wins.
+export const costConfigSchema = z.union([z.literal("free"), z.number().min(0)])
+    .transform((c): EventCost => c === "free" ? { min: 0 } : { min: c });
+
 export const calendarConfigSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
     config: z.object({}).passthrough().optional(),
@@ -55,6 +67,8 @@ export const calendarConfigSchema = z.object({
     // Optional per-calendar venue photo URL (a link, never image bytes).
     // Overrides the ripper-level `imageUrl` for this branch's venue entry.
     imageUrl: z.string().url().optional(),
+    // Optional per-calendar cost default; wins over ripper-level `cost`.
+    cost: costConfigSchema.optional(),
 });
 
 export const externalCalendarSchema = z.object({
@@ -79,6 +93,9 @@ export const externalCalendarSchema = z.object({
     // Optional venue photo URL (a link, never image bytes) surfaced in
     // venues.json for single-location feeds.
     imageUrl: z.string().url().optional(),
+    // Optional cost default applied to every event in this feed (ICS has no
+    // standard price property, so external events are priced via this only).
+    cost: costConfigSchema.optional(),
 });
 
 export const externalConfigSchema = z.array(externalCalendarSchema);
@@ -117,6 +134,9 @@ export const configSchema = z.object({
     // Optional venue photo URL (a link, never image bytes) surfaced in
     // venues.json. Per-calendar `imageUrl` overrides this for that branch.
     imageUrl: z.string().url().optional(),
+    // Optional source-level cost default for events the ripper didn't price.
+    // Per-calendar `cost` overrides this, mirroring `geo` precedence.
+    cost: costConfigSchema.optional(),
 }).strict();
 
 
@@ -190,6 +210,7 @@ export interface RipperCalendarEvent {
     location?: string;
     url?: string;
     imageUrl?: string;  // URL to the event image (never image bytes)
+    cost?: EventCost;   // Admission cost (USD face value); absent = unknown
     rrule?: string;  // RFC 5545 RRULE for recurring events
     lat?: number;    // Latitude (resolved via geocoder or source-level geo)
     lng?: number;    // Longitude (resolved via geocoder or source-level geo)

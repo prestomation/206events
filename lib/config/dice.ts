@@ -1,5 +1,5 @@
 import { Duration, LocalDateTime, ZoneId, ChronoUnit, ZonedDateTime, DateTimeFormatter } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
@@ -201,6 +201,20 @@ export class DICERipper implements IRipper {
                 // Get event image
                 const image = event.images?.[0] || event.event_images?.landscape || undefined;
 
+                // Cost from ticket face values. DICE prices are integer cents
+                // with fees broken out separately (`price.total` includes
+                // fees, `price.face_value` doesn't) — face value matches the
+                // "advertised price excluding fees" convention.
+                let cost: EventCost | undefined;
+                const faceValues: number[] = (event.ticket_types ?? [])
+                    .map((t: any) => t?.price?.face_value)
+                    .filter((v: any) => typeof v === 'number' && v >= 0);
+                if (faceValues.length > 0) {
+                    const min = Math.min(...faceValues) / 100;
+                    const max = Math.max(...faceValues) / 100;
+                    cost = { min, ...(max > min ? { max } : {}) };
+                }
+
                 const calEvent: RipperCalendarEvent = {
                     id,
                     ripped: new Date(),
@@ -210,7 +224,8 @@ export class DICERipper implements IRipper {
                     description,
                     location,
                     url,
-                    imageUrl: image
+                    imageUrl: image,
+                    ...(cost ? { cost } : {}),
                 };
 
                 results.push(calEvent);

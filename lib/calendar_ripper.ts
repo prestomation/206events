@@ -13,6 +13,7 @@ import {
   RipperCalendar,
   serializeRipperErrors,
   serializeRipperError,
+  EventCost,
 } from "./config/schema.js";
 import { getFetchForConfig } from "./config/proxy-fetch.js";
 import {
@@ -363,6 +364,21 @@ export async function attachEventCoords(
     }
   }
   return geoCache;
+}
+
+/**
+ * Apply the source-declared `cost` default to every event the ripper didn't
+ * price. Calendar-level `cost` wins over ripper-level, mirroring the `geo`
+ * precedence in `attachEventCoords`; a ripper-parsed cost (e.g. Ticketmaster
+ * priceRanges) always wins over the YAML default. Mutates events in place.
+ */
+export function attachEventCost(calendar: RipperCalendar): void {
+  const calendarCfg = calendar.parent?.calendars.find(c => c.name === calendar.name);
+  const defaultCost = calendarCfg?.cost ?? calendar.parent?.cost;
+  if (!defaultCost) return;
+  for (const event of calendar.events) {
+    if (event.cost === undefined) event.cost = defaultCost;
+  }
 }
 
 export const main = async () => {
@@ -766,6 +782,7 @@ export const main = async () => {
       const errorCount = calendar.errors.length;
       totalErrorCount += errorCount;
       geoCache = await attachEventCoords(calendar, geoCache, geocodeErrors);
+      attachEventCost(calendar);
       const icsString = await toICS(calendar);
       const calConfig = config.config.calendars.find(c => c.name === calendar.name);
       const isExpectEmpty = calConfig?.expectEmpty ?? config.config.expectEmpty ?? false;
@@ -1145,6 +1162,7 @@ END:VCALENDAR`;
     endDate?: string;
     url?: string;
     imageUrl?: string;
+    cost?: EventCost;
     lat?: number;
     lng?: number;
     osmType?: 'node' | 'way' | 'relation';
@@ -1175,6 +1193,7 @@ END:VCALENDAR`;
         endDate: event.date.plus(event.duration).toString(),
         url: event.url,
         ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+        ...(event.cost ? { cost: event.cost } : {}),
         ...(lat !== undefined ? { lat } : {}),
         ...(lng !== undefined ? { lng } : {}),
         ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
@@ -1219,6 +1238,9 @@ END:VCALENDAR`;
             endDate: event.date.plus(event.duration).toString(),
             url: event.url,
             ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+            // ICS has no standard price property — external events inherit
+            // the feed-level YAML `cost` declaration when present.
+            ...(calendar.cost ? { cost: calendar.cost } : {}),
             ...(lat !== undefined ? { lat } : {}),
             ...(lng !== undefined ? { lng } : {}),
             ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
