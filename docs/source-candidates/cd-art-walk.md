@@ -6,7 +6,7 @@ url: https://www.eventbrite.com/o/made-space-seattle-12403583534
 tags: [Arts, Community, "Central District"]
 firstSeen: 2026-06-10
 lastChecked: 2026-06-10
-pr: TBD
+pr: 593
 ---
 **CD Art Walk: First Fridays** — Monthly First Friday art, music, and culture event in Seattle's Central District, organized by Made Space Seattle. Events start at Midtown Square (2301 E Union St). Free, self-guided, all-ages.
 
