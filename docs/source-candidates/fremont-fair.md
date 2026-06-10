@@ -6,7 +6,7 @@ url: https://fremontfair.com/
 tags: [Fremont, Community, MakersMarket]
 firstSeen: 2026-06-10
 lastChecked: 2026-06-10
-pr: TBD
+pr: 596
 ---
 **Fremont Fair & Solstice Festival** — N 35th St, Fremont, Seattle — Annual summer solstice street fair presented by the Fremont Chamber of Commerce. Seattle's largest outdoor craft market (150+ vendors), live music on multiple stages, food and drink, Seattle Art Car Blowout, the Fremont Solstice Parade (Sat), and a Dog Parade (Sun). Free admission.
 
