@@ -6,7 +6,7 @@ url: https://threedollarbillcinema.org/upcomingevents
 tags: [Movies, Arts]
 firstSeen: 2026-06-10
 lastChecked: 2026-06-10
-pr: TBD
+pr: 594
 ---
 **Three Dollar Bill Cinema** — `https://threedollarbillcinema.org/upcomingevents` — Seattle's LGBTQ+ film hub, presenting curated queer cinema year-round including the Seattle Queer Film Festival, TRANSlations: Seattle Trans Film Festival, and free OUTdoor Cinema screenings.
 
