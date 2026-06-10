@@ -10,15 +10,12 @@ location: "Pike Place Market, 93 Pike Street #317, 3rd Floor, Seattle, WA 98101"
 url: "https://www.pikeplacemarketconstituency.org/meetings-events"
 tags: ["Community", "Pike Place", "Governance"]
 schedules:
-  - name: general-assembly
-    schedule: "3rd Tuesday"
+  - schedule: "3rd Tuesday"
     start_time: "18:15"
     duration: PT1H30M
-  - name: executive-committee
-    schedule: "last Thursday"
+  - schedule: "last Thursday"
     start_time: "18:15"
     duration: PT1H30M
-  - name: historical-commission
-    schedule: "2nd and 4th Wednesday"
+  - schedule: "2nd and 4th Wednesday"
     start_time: "16:30"
     duration: PT1H
