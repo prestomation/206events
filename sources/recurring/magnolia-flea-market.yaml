@@ -1,0 +1,28 @@
+imageUrl: "https://images.squarespace-cdn.com/content/v1/675a320bec89ef0ffafe3ffe/10812484-d1de-4225-b91f-367a5e3a62a2/IMG_9081.jpeg"
+geo:
+  lat: 47.6592644
+  lng: -122.3879608
+  label: "4257 24th Ave W, Seattle, WA 98199"
+name: magnolia-flea-market
+friendlyname: Magnolia Flea Market
+description: Monthly outdoor flea market in Magnolia with vintage finds, handmade goods, antiques, and local vendors at the Magnolia Vintage Warehouse.
+timezone: America/Los_Angeles
+location: 4257 24th Ave W, Seattle, WA 98199
+url: https://www.seattlelocalmarkets.com/
+tags:
+  - MakersMarket
+  - Magnolia
+  - Community
+cost: free
+schedules:
+  - schedule: 2nd Saturday
+    start_time: "10:00"
+    duration: PT6H
+    months:
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
