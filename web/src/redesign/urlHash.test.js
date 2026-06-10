@@ -9,6 +9,7 @@ const DEFAULTS = {
   q: '',
   category: null,
   neighborhood: null,
+  cost: null,
   dateWindow: 'all',
   emphasis: 'calendars',
   healthTab: 'sources',
@@ -42,10 +43,20 @@ describe('urlHash codec', () => {
       q: 'jazz night',
       category: 'Music',
       neighborhood: 'Capitol Hill',
+      cost: 'free',
       dateWindow: 7,
       emphasis: 'events',
     }
     expect(roundTrip(state)).toEqual({ ...DEFAULTS, ...state })
+  })
+
+  it.each(['free', '10', '25'])('round-trips the cost bucket %s', (cost) => {
+    expect(roundTrip({ cost })).toEqual({ ...DEFAULTS, cost })
+  })
+
+  it('drops an unknown cost token', () => {
+    expect(deserializeHash('cost=cheap')).toEqual(DEFAULTS)
+    expect(deserializeHash('cost=999')).toEqual(DEFAULTS)
   })
 
   it('serializes a numeric date window and round-trips it', () => {

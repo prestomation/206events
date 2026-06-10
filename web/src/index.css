@@ -3614,8 +3614,10 @@ html, body, #root { height: 100%; }
   --ink:#1a1a2e; --ink-2:#46454f; --ink-3:#86848e; --ink-4:#a8a6ad;
   --line:#e9e4da; --line-2:#dcd6ca;
   --blue:#1366d6; --blue-soft:#e7f0fc; --blue-ink:#0b3f87;
-  --amber:#c2410c;
+  --amber:#c2410c; --amber-bg:#fff7ed;
+  --danger:#c0392b;
   --pin:#d24a3d; /* map-pin / ceramic red, for location links */
+  --free:#15803d; /* free-admission accent (matches the market green) */
   --c-music:#7c3aed; --c-art:#c2410c; --c-film:#0e7490; --c-market:#15803d;
   --c-talk:#b45309; --c-comedy:#be185d; --c-community:#4d7c0f;
   --pad:18px; --maxcol:1;
@@ -3631,8 +3633,10 @@ html, body, #root { height: 100%; }
     --ink:#ece6d8; --ink-2:#c4bdac; --ink-3:#94907f; --ink-4:#6f6b5c;
     --line:#322e22; --line-2:#3f3a2b;
     --blue:#5b9bf0; --blue-soft:#1a2740; --blue-ink:#b9d3f7;
-    --amber:#e08a4f;
+    --amber:#e08a4f; --amber-bg:#33270f;
+    --danger:#e57368;
     --pin:#ef6f62; /* map-pin / ceramic red (dark mode) */
+    --free:#4caf6a; /* free-admission accent (dark mode) */
     --c-music:#a78bfa; --c-art:#e08a4f; --c-film:#3db9cf; --c-market:#4caf6a;
     --c-talk:#d99a4e; --c-comedy:#ec5f95; --c-community:#94c14d;
   }
@@ -3840,6 +3844,11 @@ html, body, #root { height: 100%; }
 .app206 .ev-chip { display: flex; align-items: center; gap: 5px; min-width: 0; font-size: 12px; color: var(--blue-ink); font-weight: 600; cursor: pointer; }
 .app206 .ev-chip .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .app206 .ev-time { font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--ink); flex: 0 0 auto; }
+.app206 .ev-cost { flex: 0 0 auto; font-size: 12px; font-weight: 600; white-space: nowrap; color: var(--ink-3); }
+.app206 .ev-cost--free { color: var(--free); }
+/* Full-width caption row inside .a-activefilters (flex-wrap) explaining the
+   strict cost filter, so a shrunken list doesn't read as a bug. */
+.app206 .a-fcaption { flex-basis: 100%; font-size: 12px; color: var(--ink-3); }
 
 /* ---- sticky day header ---- */
 .app206 .a-daystick { position: sticky; top: 0; z-index: 6; display: flex; align-items: baseline; gap: 10px; padding: 11px 0 9px; margin-bottom: 2px; background: var(--paper); box-shadow: 0 1px 0 var(--line); }

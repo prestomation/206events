@@ -66,6 +66,7 @@ export function App206(props) {
   // Browse filters shared across Discover / Following.
   const [category, setCategory] = useState(() => initialUrl.category)
   const [neighborhood, setNeighborhood] = useState(() => initialUrl.neighborhood)
+  const [costFilter, setCostFilter] = useState(() => initialUrl.cost)
   // Health dashboard view state (deep-linked): active tab + drilled-into source.
   const [healthTab, setHealthTab] = useState(() => initialUrl.healthTab)
   const [healthSource, setHealthSource] = useState(() => initialUrl.healthSource)
@@ -285,9 +286,9 @@ export function App206(props) {
 
   /* ---- URL deep-linking: keep the hash in sync with the state above ---- */
   useUrlState({
-    section, openCh, openEventObj, dateWindow, emphasis, query, category, neighborhood,
+    section, openCh, openEventObj, dateWindow, emphasis, query, category, neighborhood, costFilter,
     healthTab, healthSource,
-    setDateWindow, setEmphasis, setQuery, setCategory, setNeighborhood,
+    setDateWindow, setEmphasis, setQuery, setCategory, setNeighborhood, setCostFilter,
     setHealthTab, setHealthSource,
     go, openChannel, openEvent, back,
     channelByIcsUrl, upcomingEvents, loading,
@@ -295,7 +296,7 @@ export function App206(props) {
 
   /* ---- active filters: clearers + a convenience reset ---- */
   const clearSearch = useCallback(() => setQuery(''), [])
-  const hasActiveFilters = !!(query.trim() || category || neighborhood || dateWindow !== 'all')
+  const hasActiveFilters = !!(query.trim() || category || neighborhood || costFilter || dateWindow !== 'all')
 
   const toggleFollow = useCallback((icsUrl) => {
     const was = favoritesSet.has(icsUrl)
@@ -351,6 +352,7 @@ export function App206(props) {
     // ui state
     section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,
     query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
+    costFilter, setCostFilter,
     hasActiveFilters, toast, todayLabel,
     showWelcome, dismissWelcome, helpOpen, openHelp, closeHelp,
     lightbox, openLightbox, closeLightbox,

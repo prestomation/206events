@@ -7,7 +7,7 @@ import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
-import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
+import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
@@ -58,10 +58,22 @@ export function DiscoverView() {
     : null, [hasQuery, app.channels, app.category, app.neighborhood, app.query])
   const evMatchCount = useMemo(() => hasQuery
     ? filterDiscoverEvents(app.upcomingEvents, {
-      category: app.category, neighborhood: app.neighborhood, query: app.query,
+      category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
       channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
     }).length
-    : null, [hasQuery, app.upcomingEvents, app.category, app.neighborhood, app.query, app.channelByIcsUrl, app.queryKeySet])
+    : null, [hasQuery, app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
+
+  // How many events pass every filter except the price bucket — i.e. hidden
+  // solely for lack of a confirmed price. Feeds the ActiveFilters caption.
+  const costHiddenCount = useMemo(() => {
+    if (!app.costFilter) return null
+    const base = {
+      category: app.category, neighborhood: app.neighborhood, query: app.query,
+      channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
+    }
+    return filterDiscoverEvents(app.upcomingEvents, base).length -
+      filterDiscoverEvents(app.upcomingEvents, { ...base, cost: app.costFilter }).length
+  }, [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
 
   return (
     <div style={{ padding: '2px var(--pad) 20px' }}>
@@ -93,9 +105,13 @@ export function DiscoverView() {
         </div>
         <FilterDropdown label="Neighborhood" icon={Ico.pin} value={app.neighborhood}
           options={neighborhoodOptions} onSelect={app.setNeighborhood} />
+        {/* Cost buckets filter only the Events list (calendars have no price);
+            strict on confirmed pricing — see eventMatchesCost. */}
+        <FilterDropdown label="Price" icon={Ico.spark} value={app.costFilter}
+          options={COST_FILTER_OPTIONS} onSelect={app.setCostFilter} />
       </div>
 
-      <ActiveFilters />
+      <ActiveFilters costHiddenCount={costHiddenCount} />
 
       {app.emphasis === 'calendars' ? <CalendarsMode /> : <div style={{ marginTop: 8 }}><EventsMode /></div>}
     </div>
@@ -278,13 +294,13 @@ function EventsMode() {
   const app = useApp206()
   const groups = useMemo(() => {
     const evs = filterDiscoverEvents(app.upcomingEvents, {
-      category: app.category, neighborhood: app.neighborhood, query: app.query,
+      category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
       channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
     })
     // Cap the rendered set: a 6-month all-events list is thousands of rows.
     // Events are already date-sorted, so this keeps the soonest.
     return groupIndexEventsByDay(evs.slice(0, EVENTS_MODE_CAP))
-  }, [app.upcomingEvents, app.category, app.neighborhood, app.query, app.channelByIcsUrl, app.queryKeySet])
+  }, [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
   if (!groups.length) return <div className="a-empty">No events match.</div>
   return <DayList groups={groups} />
 }
@@ -294,9 +310,9 @@ export function FollowingView() {
   const app = useApp206()
   // The feed is already date-scoped; additionally narrow by the active
   // category / neighborhood / search filters so they apply here too.
-  const groups = useMemo(() => {
+  const { groups, costHiddenCount } = useMemo(() => {
     let gs = app.feedGroups
-    const narrow = (e) => {
+    const passesTags = (e) => {
       if (app.category || app.neighborhood) {
         const ch = app.channelByIcsUrl.get(e.icsUrl)
         if (app.category && !(ch && ch.tags.includes(app.category))) return false
@@ -305,13 +321,21 @@ export function FollowingView() {
       return true
     }
     if (app.category || app.neighborhood) {
-      gs = gs.map((g) => ({ ...g, events: g.events.filter(narrow) })).filter((g) => g.events.length)
+      gs = gs.map((g) => ({ ...g, events: g.events.filter(passesTags) })).filter((g) => g.events.length)
     }
     if (app.query.trim()) {
       gs = gs.map((g) => ({ ...g, events: app.matchEvents(app.query, g.events) })).filter((g) => g.events.length)
     }
-    return gs
-  }, [app.feedGroups, app.category, app.neighborhood, app.query, app.channelByIcsUrl])
+    // Cost runs last so the difference is exactly "hidden solely for lack of
+    // a confirmed price" — feeds the ActiveFilters caption.
+    let costHiddenCount = null
+    if (app.costFilter) {
+      const before = gs.reduce((n, g) => n + g.events.length, 0)
+      gs = gs.map((g) => ({ ...g, events: g.events.filter((e) => eventMatchesCost(e, app.costFilter)) })).filter((g) => g.events.length)
+      costHiddenCount = before - gs.reduce((n, g) => n + g.events.length, 0)
+    }
+    return { groups: gs, costHiddenCount }
+  }, [app.feedGroups, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl])
 
   const counts = { cal: app.favoritesSet.size, place: app.geoFilters.length, search: app.searchFilters.length }
   const total = groups.reduce((n, g) => n + g.events.length, 0)
@@ -328,7 +352,7 @@ export function FollowingView() {
         </button>
       </div>
 
-      <ActiveFilters />
+      <ActiveFilters costHiddenCount={costHiddenCount} />
 
       <button className="a-feedlegend" onClick={() => app.go('you')} title="Manage what feeds this">
         <span style={{ fontSize: 12, color: 'var(--ink-3)', fontWeight: 600 }}>Feeding this:</span>
@@ -396,7 +420,7 @@ export function YouView() {
       {app.uatMode && (
         <div role="note" style={{
           margin: '0 0 16px', padding: '10px 13px', borderRadius: 10,
-          background: 'var(--amber-bg, #fff7ed)', border: '1px solid var(--amber, #f59e0b)',
+          background: 'var(--amber-bg)', border: '1px solid var(--amber)',
           fontSize: 12.5, color: 'var(--ink-2)', lineHeight: 1.45,
         }}>
           🧪 <strong>Local UAT mode.</strong> You’re not really signed in — lists and feed URLs
@@ -443,8 +467,8 @@ export function YouView() {
           {feedUrl && (
             <div style={{ display: 'flex', gap: 7, marginTop: 9, alignItems: 'center' }}>
               {app.uatMode && (
-                <span style={{ flex: '0 0 auto', fontSize: 11, fontWeight: 700, color: 'var(--amber, #b45309)',
-                  border: '1px solid var(--amber, #f59e0b)', borderRadius: 6, padding: '2px 6px' }}>DEMO · non-functional</span>
+                <span style={{ flex: '0 0 auto', fontSize: 11, fontWeight: 700, color: 'var(--amber)',
+                  border: '1px solid var(--amber)', borderRadius: 6, padding: '2px 6px' }}>DEMO · non-functional</span>
               )}
               <code className="a-icscode">{feedUrl}</code>
               {!app.uatMode && (
@@ -575,7 +599,7 @@ function ListsManager() {
           </button>
           {multi && (confirmDelete ? (
             <>
-              <button className="btn btn-ghost" style={{ height: 36, fontSize: 13, color: 'var(--danger, #c0392b)' }}
+              <button className="btn btn-ghost" style={{ height: 36, fontSize: 13, color: 'var(--danger)' }}
                 onClick={() => { app.deleteList(app.activeListId); setConfirmDelete(false) }}>Confirm delete</button>
               <button className="btn btn-ghost" style={{ height: 36, fontSize: 13 }}
                 onClick={() => setConfirmDelete(false)}>Cancel</button>
@@ -635,6 +659,7 @@ function AddSearchForm({ onSave, onCancel }) {
 /* -------------------------------------------------------- ChannelDetail --- */
 export function ChannelDetail({ icsUrl }) {
   const app = useApp206()
+  const costByKey = useChannelCostByKey(icsUrl)
   const channel = app.channelByIcsUrl.get(icsUrl)
   if (!channel) return null
   const following = app.favoritesSet.has(icsUrl)
@@ -756,14 +781,36 @@ export function ChannelDetail({ icsUrl }) {
       {app.channelEventsError
         ? <div className="a-empty">{app.channelEventsError}</div>
         : evs.length
-          ? evs.map((e) => <ParsedEventRow key={e.id} event={e} distributed={channel.distributed} />)
+          ? evs.map((e) => <ParsedEventRow key={e.id} event={e} distributed={channel.distributed} cost={costByKey.get(parsedEventCostKey(e))} />)
           : !app.channelEventsLoading && <div className="a-empty">Schedule updates daily.</div>}
     </div>
   )
 }
 
+// Cost lives on events-index entries, but the channel page renders events
+// parsed live from the ICS file, which carries no price (no ICS price
+// property in v1). Join the two by summary + start instant so venue-page
+// rows show the same cost labels as the Discover list.
+function parsedEventCostKey(parsedEvent) {
+  return `${parsedEvent.title}|${parsedEvent.startDate?.getTime?.() ?? ''}`
+}
+function useChannelCostByKey(icsUrl) {
+  const app = useApp206()
+  return useMemo(() => {
+    const map = new Map()
+    for (const e of app.eventsByIcsUrl.get(icsUrl) || []) {
+      if (e.cost === undefined) continue
+      const parsed = parseIndexDate(e.date)
+      if (!parsed) continue
+      map.set(`${e.summary}|${parsed.date.getTime()}`, e.cost)
+    }
+    return map
+  }, [app.eventsByIcsUrl, icsUrl])
+}
+
 // Row for an ICS-parsed event (channel detail). Shape: { title, startDate, endDate, location, description, url }
-function ParsedEventRow({ event, distributed }) {
+// `cost` is joined from the events-index by the caller (the ICS has no price).
+function ParsedEventRow({ event, distributed, cost }) {
   const app = useApp206()
   const eventYear = event.startDate.getFullYear()
   const datePart = event.startDate.toLocaleDateString('en-US', eventYear !== new Date().getFullYear()
@@ -774,7 +821,12 @@ function ParsedEventRow({ event, distributed }) {
     <div className="ev" style={{ cursor: 'default' }}>
       <EventThumb src={event.imageUrl} alt={event.title ? `Photo for ${event.title}` : ''} size={56} />
       <div className="ev-body">
-        <div className="ev-title">{event.title}</div>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
+          <div className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.title}</div>
+          {costLabel(cost) && (
+            <span className={`ev-cost${cost && !cost.paid && cost.min === 0 ? ' ev-cost--free' : ''}`}>{costLabel(cost)}</span>
+          )}
+        </div>
         <div className="ev-meta"><span>{time}</span></div>
         {/* Distributed calendars set a per-event location ("its own geo"); link
             it via the shared pin-only LocationMapLink. */}
@@ -809,6 +861,7 @@ export function EventDetail({ event }) {
         <div style={{ display: 'flex', gap: 16, marginTop: 13, fontSize: 13.5, fontWeight: 600, opacity: 0.96, flexWrap: 'wrap' }}>
           {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.timeRange}</span>}
           {(event.location || channel?.hood) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.pin}</span>{event.location || channel.hood}</span>}
+          {costLabel(event.cost) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.spark}</span>{costLabel(event.cost)}</span>}
         </div>
       </div>
 
@@ -846,6 +899,25 @@ export function EventDetail({ event }) {
           )
           return mapHref
             ? <a className="a-fact" href={mapHref} target="_blank" rel="noopener noreferrer" title="Open in maps" style={{ alignItems: 'center', width: '100%', color: 'inherit', textDecoration: 'none' }}>{inner}</a>
+            : <div className="a-fact">{inner}</div>
+        })()}
+        {/* Price fact. Unlike the row labels (silent when unknown), the detail
+            page states unknown pricing explicitly — this is where someone
+            decides whether to go, so honesty beats tidiness here. */}
+        {(() => {
+          const label = costLabel(event.cost)
+          const sub = label === 'Ticketed'
+            ? 'Amount not posted — see the event site'
+            : !label && event.url ? 'Check the event site' : null
+          const inner = (
+            <>
+              <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.spark}</span>
+              <div><div style={{ fontWeight: 600, fontSize: 14 }}>{label || 'Price not listed'}</div>
+                {sub && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{sub}</div>}</div>
+            </>
+          )
+          return !label && event.url
+            ? <a className="a-fact" href={event.url} target="_blank" rel="noopener noreferrer" title="Check the event site for pricing" style={{ alignItems: 'center', width: '100%', color: 'inherit', textDecoration: 'none' }}>{inner}</a>
             : <div className="a-fact">{inner}</div>
         })()}
         {channel && (

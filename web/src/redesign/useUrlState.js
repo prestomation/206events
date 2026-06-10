@@ -33,10 +33,10 @@ function currentHashTokens() {
 
 export function useUrlState({
   // current values (to write out)
-  section, openCh, openEventObj, dateWindow, emphasis, query, category, neighborhood,
+  section, openCh, openEventObj, dateWindow, emphasis, query, category, neighborhood, costFilter,
   healthTab, healthSource,
   // setters (to apply inbound filter/scope values directly)
-  setDateWindow, setEmphasis, setQuery, setCategory, setNeighborhood,
+  setDateWindow, setEmphasis, setQuery, setCategory, setNeighborhood, setCostFilter,
   setHealthTab, setHealthSource,
   // App206 handlers (clean inbound application of section/overlay changes)
   go, openChannel, openEvent, back,
@@ -75,6 +75,7 @@ export function useUrlState({
       q: query,
       category,
       neighborhood,
+      cost: costFilter,
       dateWindow,
       emphasis,
       healthTab,
@@ -112,7 +113,7 @@ export function useUrlState({
     }
 
     return () => clearTimeout(queryDebounceRef.current)
-  }, [section, openCh, openEventObj, query, category, neighborhood, dateWindow, emphasis, healthTab, healthSource])
+  }, [section, openCh, openEventObj, query, category, neighborhood, costFilter, dateWindow, emphasis, healthTab, healthSource])
 
   // --- Inbound: hash -> state (back/forward, manual edits) ----------------
   useEffect(() => {
@@ -123,6 +124,7 @@ export function useUrlState({
       setQuery(t.q)
       setCategory(t.category)
       setNeighborhood(t.neighborhood)
+      setCostFilter(t.cost)
       setDateWindow(t.dateWindow)
       setEmphasis(t.emphasis)
       // Health dashboard tab + drilled-into source apply directly too.
@@ -159,7 +161,7 @@ export function useUrlState({
       window.removeEventListener('hashchange', onHashchange)
     }
   }, [upcomingEvents, channelByIcsUrl, go, openChannel, openEvent, back,
-      setQuery, setCategory, setNeighborhood, setDateWindow, setEmphasis,
+      setQuery, setCategory, setNeighborhood, setCostFilter, setDateWindow, setEmphasis,
       setHealthTab, setHealthSource])
 
   // --- Cold-load resolver: open the initial event/channel once data lands -

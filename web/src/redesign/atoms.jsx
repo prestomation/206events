@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
-import { rowFromIndexEvent, provFromAttributions, describeWindow } from './viewModels.js'
+import { rowFromIndexEvent, provFromAttributions, describeWindow, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
@@ -204,6 +204,11 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
           {noDate && row.time && <span className="ev-time">{row.timeRange}</span>}
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
+          {costLabel(event.cost) && (
+            <span className={`ev-cost${event.cost && !event.cost.paid && event.cost.min === 0 ? ' ev-cost--free' : ''}`}>
+              {costLabel(event.cost)}
+            </span>
+          )}
         </div>
         {!noDate && row.time && <div className="ev-meta"><span>{row.timeRange}</span></div>}
         {showLoc && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
@@ -255,7 +260,10 @@ export function DayList({ groups, withReason = false }) {
 
 // Dismissible chips showing every active filter, so the user always knows the
 // list is filtered. Search also offers a one-tap "Save to feed".
-export function ActiveFilters() {
+// `costHiddenCount` (optional) is supplied by the host view: how many events
+// pass every *other* active filter but are hidden solely because their price
+// isn't confirmed. Quantifies the strict cost filter at the moment it bites.
+export function ActiveFilters({ costHiddenCount = null }) {
   const app = useApp206()
   const q = app.query.trim()
   const scopeLabel = app.dateWindow !== 'all' ? describeWindow(app.dateWindow).relative : null
@@ -281,8 +289,22 @@ export function ActiveFilters() {
       {app.neighborhood && (
         <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.pin}</span>} label={formatTagLabel(app.neighborhood)} onClear={() => app.setNeighborhood(null)} />
       )}
+      {app.costFilter && (
+        <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.spark}</span>}
+          label={(COST_FILTER_OPTIONS.find((o) => o.value === app.costFilter) || {}).label || app.costFilter}
+          onClear={() => app.setCostFilter(null)} />
+      )}
       {scopeLabel && (
         <FilterChip icon={<span style={{ width: 13, height: 13 }}>{Ico.clock}</span>} label={scopeLabel} onClear={() => app.setDateWindow('all')} />
+      )}
+      {/* The cost filter is strict: events whose price the pipeline hasn't
+          confirmed are hidden, so a shrunken list isn't a bug. */}
+      {app.costFilter && (
+        <span className="a-fcaption">
+          Showing only events with confirmed pricing
+          {costHiddenCount > 0 && ` — ${costHiddenCount.toLocaleString()} more ${costHiddenCount === 1 ? 'event has' : 'events have'} no listed price`}
+          {!costHiddenCount && ' — most events don’t list a price yet'}.
+        </span>
       )}
     </div>
   )

@@ -13,6 +13,7 @@
 //   q         -> query         (omitted when empty)
 //   category  -> category      (omitted when null)
 //   hood      -> neighborhood  (omitted when null)
+//   cost      -> costFilter    ('free' | '10' | '25'; omitted when null)
 //   date      -> dateWindow    (number of days, or 'all'; omitted when 'all')
 //   emphasis  -> emphasis      (omitted when 'calendars')
 //   tab       -> healthTab     (health section only; omitted when 'sources')
@@ -25,6 +26,7 @@ const DEFAULTS = {
   q: '',
   category: null,
   neighborhood: null,
+  cost: null,
   dateWindow: 'all',
   emphasis: 'calendars',
   healthTab: 'sources',
@@ -52,6 +54,10 @@ const VALID_SECTIONS = new Set(['discover', 'following', 'you', 'map', 'health']
 // The health dashboard's tab ids. An unknown `tab` token falls back to the
 // default ('sources') rather than rendering an empty panel.
 const VALID_HEALTH_TABS = new Set(['sources', 'errors', 'geo', 'uncertain', 'discovery'])
+
+// Cost-filter buckets (must match COST_FILTER_OPTIONS in viewModels.js).
+// An unknown `cost` token falls back to no filter.
+const VALID_COSTS = new Set(['free', '10', '25'])
 
 // Build the canonical, fully-defaulted token object from a partial state.
 function normalize(state) {
@@ -85,6 +91,7 @@ export function serializeHash(state) {
   if (s.q && s.q.trim()) params.set('q', s.q)
   if (s.category) params.set('category', s.category)
   if (s.neighborhood) params.set('hood', s.neighborhood)
+  if (s.cost) params.set('cost', s.cost)
   if (s.dateWindow !== undefined && s.dateWindow !== DEFAULTS.dateWindow) params.set('date', String(s.dateWindow))
   if (s.emphasis && s.emphasis !== DEFAULTS.emphasis) params.set('emphasis', s.emphasis)
 
@@ -125,6 +132,7 @@ export function deserializeHash(hash) {
     q: params.get('q') || DEFAULTS.q,
     category: params.get('category') || null,
     neighborhood: params.get('hood') || null,
+    cost: VALID_COSTS.has(params.get('cost')) ? params.get('cost') : null,
     dateWindow: parseDateWindow(params.get('date')),
     emphasis: params.get('emphasis') || DEFAULTS.emphasis,
     healthTab,
