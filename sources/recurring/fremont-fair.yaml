@@ -1,0 +1,27 @@
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Fremont_Fair_2024_on_North_35th_Street.jpg"
+geo:
+  lat: 47.6505
+  lng: -122.3509
+  label: "N 35th St, Fremont, Seattle, WA 98103"
+name: fremont-fair
+friendlyname: Fremont Fair & Solstice Festival
+description: Annual summer street fair in Fremont celebrating the summer solstice. Features Seattle's largest outdoor craft market with 150+ vendors, food and drink, live music on multiple stages, the Fremont Solstice Parade, Seattle Art Car Blowout, and a Dog Parade. Free admission.
+timezone: America/Los_Angeles
+location: N 35th St, Fremont, Seattle, WA 98103
+url: https://fremontfair.com/
+tags:
+  - Fremont
+  - Community
+  - MakersMarket
+cost: free
+schedules:
+  - schedule: 3rd Saturday
+    start_time: "10:00"
+    duration: PT10H
+    months:
+      - 6
+  - schedule: 3rd Sunday
+    start_time: "10:00"
+    duration: PT7H
+    months:
+      - 6
