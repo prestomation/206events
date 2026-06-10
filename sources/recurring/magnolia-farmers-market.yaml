@@ -13,6 +13,7 @@ tags:
   - Magnolia
   - FarmersMarket
   - Community
+cost: free
 schedules:
   - schedule: every Saturday
     start_time: 10:00

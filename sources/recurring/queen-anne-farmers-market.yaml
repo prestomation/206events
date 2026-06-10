@@ -17,6 +17,7 @@ tags:
 # over-generate events for early May and late October. This matches the accepted
 # pattern used by other seasonal markets (e.g. wallingford-farmers-market.yaml).
 # Verify season start/end dates at qafm.org each year.
+cost: free
 schedules:
   - schedule: every Thursday
     start_time: "15:00"
