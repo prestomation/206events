@@ -6,7 +6,7 @@ url: https://www.seattlelocalmarkets.com/
 tags: [MakersMarket, Fremont, Community]
 firstSeen: 2026-06-10
 lastChecked: 2026-06-10
-pr:
+pr: 588
 ---
 Monthly evening market in Fremont (N 35th St between El Camino & Triangle Spirits). Runs on the last Thursday of each month, February–November. Hours: 4–8pm in Feb/Mar/Nov, 5–9pm April–October. Curated vintage, handmade, and local vendors. Organized by Seattle Local Markets.
 
