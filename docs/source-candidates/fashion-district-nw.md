@@ -6,7 +6,7 @@ url: https://www.fashiondistrictnw.com/events
 tags: [Arts, Community]
 firstSeen: 2026-06-11
 lastChecked: 2026-06-11
-pr: 0
+pr: 605
 ---
 **Fashion District NW** — `https://www.fashiondistrictnw.com/events` — Pacific Northwest fashion organization producing designer showcases, model castings, and networking events. Hosts the annual "Fashion in Flight" show at The Museum of Flight (Seattle).
 
