@@ -33,6 +33,12 @@ export function parseEventsFromHtml(html: string): Array<RipperCalendarEvent | R
             continue;
         }
 
+        const titleEl = card.querySelector('h3');
+        if (!titleEl) continue;
+        const summary = decode(titleEl.text.trim());
+        if (!summary) continue;
+
+        // Default 3 hours — typical for Cascade group rides and short community events
         let duration = Duration.ofHours(3);
         if (times.length >= 2) {
             const endStr = times[1].getAttribute('datetime');
@@ -40,25 +46,30 @@ export function parseEventsFromHtml(html: string): Array<RipperCalendarEvent | R
                 try {
                     const endDate = ZonedDateTime.parse(endStr);
                     const diffMillis = endDate.toInstant().toEpochMilli() - startDate.toInstant().toEpochMilli();
-                    if (diffMillis > 0) duration = Duration.ofMillis(diffMillis);
+                    if (diffMillis > 0) {
+                        duration = Duration.ofMillis(diffMillis);
+                    } else {
+                        results.push({
+                            type: 'ParseError',
+                            reason: `End time ${endStr} is not after start time ${startStr}`,
+                            context: summary,
+                        });
+                        continue;
+                    }
                 } catch {
-                    // use default duration
+                    // use default duration when end time is unparseable
                 }
             }
         }
-
-        const titleEl = card.querySelector('h3');
-        if (!titleEl) continue;
-        const summary = decode(titleEl.text.trim());
-        if (!summary) continue;
 
         const linkEl = card.querySelector('a.card-overlay-link');
         const href = linkEl?.getAttribute('href') ?? '';
         const url = href ? `https://cascade.org${href}` : 'https://cascade.org/rides-events';
 
-        // Stable ID from URL slug (last path segment)
+        // Stable ID from URL slug; sanitize summary fallback to safe chars only
         const slug = href.split('/').filter(Boolean).pop() ?? '';
-        const id = slug ? `cascade-${slug}` : `cascade-${summary.toLowerCase().replace(/\s+/g, '-')}`;
+        const fallbackSlug = summary.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        const id = slug ? `cascade-${slug}` : `cascade-${fallbackSlug}`;
 
         results.push({
             id,

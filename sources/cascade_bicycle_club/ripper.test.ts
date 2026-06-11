@@ -124,4 +124,24 @@ describe('parseEventsFromHtml', () => {
             expect(results[0].duration.toMinutes()).toBe(180);
         }
     });
+
+    it('emits ParseError when end time is not after start time', () => {
+        const html = `
+            <div class="cards--list events">
+                <div class="card-sm-event">
+                    <time datetime="2026-09-15T10:00:00-07:00">Sep 15</time>
+                    <time datetime="2026-09-15T09:00:00-07:00">Sep 15</time>
+                    <h3>Bad Duration Event</h3>
+                    <a href="/rides-events/bad-duration" class="card-overlay-link"></a>
+                </div>
+            </div>
+        `;
+        const results = parseEventsFromHtml(html);
+        expect(results).toHaveLength(1);
+        expect('type' in results[0]).toBe(true);
+        if ('type' in results[0]) {
+            expect(results[0].type).toBe('ParseError');
+            expect(results[0].reason).toMatch(/not after start time/);
+        }
+    });
 });
