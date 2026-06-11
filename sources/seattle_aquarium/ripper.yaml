@@ -5,7 +5,6 @@ description: "Seattle Aquarium"
 url: "https://www.seattleaquarium.org/events/"
 friendlyLink: https://www.seattleaquarium.org/events/
 tags: ["Museums", "Downtown"]
-expectEmpty: true
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Seattle_Aquarium_-_panoramio.jpg"
 geo:
   lat: 47.6076248
