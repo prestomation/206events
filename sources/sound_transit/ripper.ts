@@ -4,7 +4,6 @@ import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import "@js-joda/timezone";
 
 const BASE_URL = "https://www.soundtransit.org";
-const API_URL = `${BASE_URL}/calendar_events_grouped.json`;
 
 interface STEvent {
     days_type: "single" | "multi";
