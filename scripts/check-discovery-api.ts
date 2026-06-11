@@ -21,15 +21,11 @@ import {
   tagSlug,
 } from "../lib/discovery.js";
 import { categoryFor } from "../lib/config/tags.js";
+import { CITY } from "../lib/config/city.js";
 
-const PNW_BBOX = {
-  // Generous bounding box around the Pacific Northwest.
-  // Seattle is ~47.6, -122.3. Allow some slop for ferries and day trips.
-  latMin: 45.0,
-  latMax: 49.5,
-  lngMin: -125.5,
-  lngMax: -120.0,
-};
+// Generous regional bounding box — a venue coordinate outside it is a
+// geocoding bug. Configured per city in city.config.ts.
+const VENUE_BBOX = CITY.venueSanityBbox;
 
 const VENUES_JSON_MAX_KB = 500;
 
@@ -180,19 +176,19 @@ async function main() {
   );
 
   for (const venue of venuesDoc.venues) {
-    // Bounding-box sanity check — nothing outside the PNW should end up
-    // tagged as a Seattle-area venue, and a wrong-sign longitude would
+    // Bounding-box sanity check — nothing outside the city's region should
+    // end up tagged as a local venue, and a wrong-sign longitude would
     // make it past the schema but wreck the map UI.
     const { lat, lng, osmId, osmType } = venue.geo;
     if (
-      lat < PNW_BBOX.latMin ||
-      lat > PNW_BBOX.latMax ||
-      lng < PNW_BBOX.lngMin ||
-      lng > PNW_BBOX.lngMax
+      lat < VENUE_BBOX.latMin ||
+      lat > VENUE_BBOX.latMax ||
+      lng < VENUE_BBOX.lngMin ||
+      lng > VENUE_BBOX.lngMax
     ) {
       fail(
         errors,
-        `venues.json[${venue.name}] geo (${lat}, ${lng}) is outside the PNW bounding box`,
+        `venues.json[${venue.name}] geo (${lat}, ${lng}) is outside the regional bounding box`,
       );
     }
 

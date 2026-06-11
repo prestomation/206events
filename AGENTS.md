@@ -356,7 +356,7 @@ Tags drive the aggregate calendar system — each unique tag produces a `tag-<na
 
 1. Check `lib/config/tags.ts` (`TAG_CATEGORIES`) for an existing tag that fits. Use it if one exists.
 2. Before introducing a new tag, search all config files for similar names to avoid near-duplicates. The tag name becomes part of the ICS URL (`tag-<lowercased>.ics`), so different spellings create separate calendars.
-3. Use the tag in the source's `tags` array in its YAML config — that's it. Optionally add it to `TAG_CATEGORIES` so the website sidebar groups it under a real category instead of "Other"; uncategorized tags still appear in the UI.
+3. Use the tag in the source's `tags` array in its YAML config — that's it. Optionally add it to `TAG_CATEGORIES` so the website sidebar groups it under a real category instead of "Other"; uncategorized tags still appear in the UI. **Neighborhood tags are the exception**: the `Neighborhoods` category is populated from the `neighborhoods` list in `city.config.ts` (the central city configuration — see `docs/city-template.md`), so register a new neighborhood there, not in `tags.ts`.
 
 ### Tag naming conventions
 

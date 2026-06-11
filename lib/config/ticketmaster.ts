@@ -1,6 +1,7 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ZoneId } from "@js-joda/core";
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
+import { CITY } from "./city.js";
 import '@js-joda/timezone';
 
 const PAGE_SIZE = 200;
@@ -136,7 +137,7 @@ export class TicketmasterRipper implements IRipper {
                 const venue = event._embedded?.venues?.[0];
                 let location = config?.venueName || '';
                 if (venue?.address?.line1) {
-                    location = `${venue.name || config?.venueName}, ${venue.address.line1}, ${venue.city?.name || 'Seattle'}, ${venue.state?.stateCode || 'WA'}`;
+                    location = `${venue.name || config?.venueName}, ${venue.address.line1}, ${venue.city?.name || CITY.city.name}, ${venue.state?.stateCode || CITY.city.state}`;
                 } else if (config?.venueAddress) {
                     location = `${config.venueName}, ${config.venueAddress}`;
                 }

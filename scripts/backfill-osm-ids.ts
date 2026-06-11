@@ -24,6 +24,7 @@ import { join } from "path";
 import { createInterface } from "readline/promises";
 import { stdin as input, stdout as output } from "process";
 import YAML from "yaml";
+import { CITY } from "../lib/config/city.js";
 
 type OsmType = "node" | "way" | "relation";
 
@@ -47,7 +48,7 @@ interface NominatimReverseResult {
   distanceM?: number;
 }
 
-const NOMINATIM_USER_AGENT = "206.events/1.0 (https://206.events)";
+const NOMINATIM_USER_AGENT = CITY.geocoder.nominatimUserAgent;
 
 let lastNominatimCallTime = 0;
 

@@ -3,11 +3,12 @@
 
 import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, FollowPill } from './atoms.jsx'
+import cityConfig from '../../../city.config.ts'
 
 export function ChannelCard({ channel }) {
   const app = useApp206()
   const following = app.favoritesSet.has(channel.icsUrl)
-  const sub = channel.distributed ? 'Citywide' : (channel.hood || 'Seattle')
+  const sub = channel.distributed ? 'Citywide' : (channel.hood || cityConfig.city.name)
   return (
     <div className="ch" onClick={() => app.openChannel(channel.icsUrl)}>
       <div className="ch-top">

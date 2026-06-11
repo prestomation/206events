@@ -3,6 +3,7 @@ import { z } from "zod";
 import { promisify } from 'util';
 import * as icsOriginal from 'ics';
 import { containsHtmlEntity } from "../url-entities.js";
+import { CITY } from "./city.js";
 
 import '@js-joda/timezone'
 
@@ -329,7 +330,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             geo: (typeof e.lat === "number" && typeof e.lng === "number")
                 ? { lat: e.lat, lon: e.lng }
                 : undefined,
-            productId: "206.events",
+            productId: CITY.ics.prodId,
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
             url: e.url?.startsWith('http') ? safeUrl(e.url) : undefined,

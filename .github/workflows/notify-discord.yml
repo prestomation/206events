@@ -49,6 +49,10 @@ jobs:
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.pr-link.outputs.pr_number }}
           PR_URL: ${{ steps.pr-link.outputs.pr_url }}
+          # SITE_URL / CLOUDFLARE_PAGES_PROJECT repo vars override these for
+          # template copies; defaults are the reference instance's values.
+          SITE_URL: ${{ vars.SITE_URL || 'https://206.events' }}
+          PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || '206events' }}
         run: |
           case "$WORKFLOW_CONCLUSION" in
             success)   EMOJI="✅" ;;
@@ -87,7 +91,7 @@ jobs:
             CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"
             UNCERTAIN_LINE=""
             # Pull live uncertainty count from the published build-errors.json
-            UNCERTAIN_COUNT=$(curl -s --fail https://206.events/build-errors.json 2>/dev/null \
+            UNCERTAIN_COUNT=$(curl -s --fail "${SITE_URL}/build-errors.json" 2>/dev/null \
               | jq -r '.uncertaintyStats.outstanding // 0' 2>/dev/null || echo "0")
             if [ "$UNCERTAIN_COUNT" -gt 0 ] 2>/dev/null; then
               UNCERTAIN_LINE=" ❓ ${UNCERTAIN_COUNT} uncertain event(s) — run event-uncertainty-resolver."
@@ -95,21 +99,21 @@ jobs:
             # Pull the proxy-ladder escalation queue: any source due to be
             # promoted to browserbase or retired needs the proxy-escalation skill.
             PROXY_LINE=""
-            PROXY_ACTIONABLE=$(curl -s --fail https://206.events/build-errors.json 2>/dev/null \
+            PROXY_ACTIONABLE=$(curl -s --fail "${SITE_URL}/build-errors.json" 2>/dev/null \
               | jq -r '[(.pendingProxyVerification // [])[] | select(.recommendation == "promote-to-browserbase" or .recommendation == "retire")] | length' 2>/dev/null || echo "0")
             if [ "$PROXY_ACTIONABLE" -gt 0 ] 2>/dev/null; then
               PROXY_LINE=" 🪜 ${PROXY_ACTIONABLE} proxy source(s) ready to escalate — run proxy-escalation."
             fi
             # Pull the photo-gap count: venues + events missing a photo.
             PHOTO_LINE=""
-            PHOTO_GAPS=$(curl -s --fail https://206.events/build-errors.json 2>/dev/null \
+            PHOTO_GAPS=$(curl -s --fail "${SITE_URL}/build-errors.json" 2>/dev/null \
               | jq -r '((.photoGaps.venueGaps // []) | length) + ((.photoGaps.eventGaps // []) | length)' 2>/dev/null || echo "0")
             if [ "$PHOTO_GAPS" -gt 0 ] 2>/dev/null; then
               PHOTO_LINE=" 🖼️ ${PHOTO_GAPS} item(s) missing a photo — run photo-resolver."
             fi
             # Pull the cost-gap count: events with no known cost.
             COST_LINE=""
-            COST_GAPS=$(curl -s --fail https://206.events/build-errors.json 2>/dev/null \
+            COST_GAPS=$(curl -s --fail "${SITE_URL}/build-errors.json" 2>/dev/null \
               | jq -r '(.costGaps // []) | length' 2>/dev/null || echo "0")
             if [ "$COST_GAPS" -gt 0 ] 2>/dev/null; then
               COST_LINE=" 💲 ${COST_GAPS} event(s) missing a cost — run cost-resolver."
@@ -117,7 +121,7 @@ jobs:
             # Pull browserbase stale-serve count: a source whose live fetch failed
             # and was served from a cached copy older than the 24h TTL.
             STALE_LINE=""
-            STALE_COUNT=$(curl -s --fail https://206.events/build-errors.json 2>/dev/null \
+            STALE_COUNT=$(curl -s --fail "${SITE_URL}/build-errors.json" 2>/dev/null \
               | jq -r '(.proxyStaleServes // []) | length' 2>/dev/null || echo "0")
             if [ "$STALE_COUNT" -gt 0 ] 2>/dev/null; then
               STALE_LINE=" 🕒 ${STALE_COUNT} browserbase source(s) served stale — live fetch failing, investigate."
@@ -135,7 +139,7 @@ jobs:
                 DEPLOY_URL=$(cat "$DEPLOY_URL_FILE" 2>/dev/null | tr -d '[:space:]')
               elif [ -n "$PR_NUMBER" ]; then
                 # Fallback: construct the expected preview URL
-                DEPLOY_URL="https://pr-${PR_NUMBER}.206events.pages.dev"
+                DEPLOY_URL="https://pr-${PR_NUMBER}.${PAGES_PROJECT}.pages.dev"
               fi
               if [ -n "$DEPLOY_URL" ]; then
                 PREVIEW_LINE=$'\n'"🔗 **Preview:** ${DEPLOY_URL}"

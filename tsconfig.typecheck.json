@@ -10,6 +10,7 @@
   "extends": "./tsconfig.json",
   "include": [
     "index.ts",
+    "city.config.ts",
     "lib/**/*.ts",
     "scripts/**/*.ts",
     "sources/**/*.ts"

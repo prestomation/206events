@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { isWithinKingCounty, collectFitPoints, isMappable } from './EventsMap.jsx'
+import { isWithinClampBounds, collectFitPoints, isMappable } from './EventsMap.jsx'
 import { eventKey } from '../lib/eventKey.js'
 
 // Reference coordinates
@@ -11,27 +11,27 @@ const GORGE = { lat: 47.099, lng: -119.967 } // Gorge Amphitheatre, George WA
 const EVERETT = { lat: 47.9789, lng: -122.2021 } // Snohomish County (north)
 const TACOMA = { lat: 47.2529, lng: -122.4443 } // Pierce County (southwest)
 
-describe('isWithinKingCounty', () => {
+describe('isWithinClampBounds (Seattle config: King County)', () => {
   it('keeps downtown Seattle', () => {
-    expect(isWithinKingCounty(SEATTLE.lat, SEATTLE.lng)).toBe(true)
+    expect(isWithinClampBounds(SEATTLE.lat, SEATTLE.lng)).toBe(true)
   })
 
   it('keeps an Eastside (Bellevue/Sammamish) point', () => {
-    expect(isWithinKingCounty(BELLEVUE.lat, BELLEVUE.lng)).toBe(true)
+    expect(isWithinClampBounds(BELLEVUE.lat, BELLEVUE.lng)).toBe(true)
   })
 
   it('keeps north (Shoreline) and south (Federal Way) King County', () => {
-    expect(isWithinKingCounty(SHORELINE.lat, SHORELINE.lng)).toBe(true)
-    expect(isWithinKingCounty(FEDERAL_WAY.lat, FEDERAL_WAY.lng)).toBe(true)
+    expect(isWithinClampBounds(SHORELINE.lat, SHORELINE.lng)).toBe(true)
+    expect(isWithinClampBounds(FEDERAL_WAY.lat, FEDERAL_WAY.lng)).toBe(true)
   })
 
   it('excludes the Gorge Amphitheatre', () => {
-    expect(isWithinKingCounty(GORGE.lat, GORGE.lng)).toBe(false)
+    expect(isWithinClampBounds(GORGE.lat, GORGE.lng)).toBe(false)
   })
 
   it('excludes neighbouring-county cities (Everett, Tacoma)', () => {
-    expect(isWithinKingCounty(EVERETT.lat, EVERETT.lng)).toBe(false)
-    expect(isWithinKingCounty(TACOMA.lat, TACOMA.lng)).toBe(false)
+    expect(isWithinClampBounds(EVERETT.lat, EVERETT.lng)).toBe(false)
+    expect(isWithinClampBounds(TACOMA.lat, TACOMA.lng)).toBe(false)
   })
 })
 

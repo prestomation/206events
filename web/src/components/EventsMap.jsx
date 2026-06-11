@@ -6,6 +6,7 @@ import 'leaflet/dist/leaflet.css'
 import { eventKey } from '../lib/eventKey.js'
 import { groupEvents } from '../lib/event-grouping.js'
 import { EventGroupPanel } from './EventGroupPanel.jsx'
+import cityConfig from '../../../city.config.ts'
 
 // Fix Leaflet default marker icons in Vite
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
@@ -19,34 +20,23 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 })
 
-const SEATTLE_CENTER = [47.6062, -122.3321]
-const DEFAULT_ZOOM = 12
+const MAP_CENTER = [cityConfig.map.center.lat, cityConfig.map.center.lng]
+const DEFAULT_ZOOM = cityConfig.map.defaultZoom
 
 // Width (px) of the drill-down side panel on desktop. Kept in sync with the
 // `.event-group-panel` width in index.css so the map can pan a clicked marker
 // out from behind it.
 const PANEL_WIDTH = 340
 
-// Populated King County extent used to reject distant outliers from the default
-// map fit. Kept close to the actual county lines so the opening view frames King
-// County without spilling into neighbouring counties:
-//   - north 47.78 sits on the King/Snohomish line — keeps Shoreline/Bothell/
-//     Kenmore/Woodinville while excluding Edmonds/Lynnwood/Everett (Snohomish).
-//   - south 47.20 keeps Renton/Kent/Auburn/Federal Way/Enumclaw.
-//   - west -122.42 excludes Tacoma and the Tacoma Dome (Pierce, ~-122.43/-122.44);
-//     this also drops Vashon Island, whose handful of events still render as
-//     markers but no longer stretch the fit.
-//   - east -121.70 keeps Issaquah/Sammamish/North Bend/Snoqualmie while excluding
-//     the far-eastern Cascades and out-of-region venues (e.g. the Gorge).
-// A lat/lng box can't trace the diagonal King/Pierce line exactly; these values
-// favour excluding the Everett/Tacoma outliers the default view should ignore.
-// Approximate and easily tunable.
-const KING_COUNTY_BOUNDS = { south: 47.20, west: -122.42, north: 47.78, east: -121.70 }
+// Populated metro extent used to reject distant outliers from the default map
+// fit. Configured per city in city.config.ts (Seattle's box hugs King County
+// — see the comments there for how its edges were chosen).
+const CLAMP_BOUNDS = cityConfig.map.clampBounds
 
-export function isWithinKingCounty(lat, lng) {
+export function isWithinClampBounds(lat, lng) {
   return (
-    lat >= KING_COUNTY_BOUNDS.south && lat <= KING_COUNTY_BOUNDS.north &&
-    lng >= KING_COUNTY_BOUNDS.west && lng <= KING_COUNTY_BOUNDS.east
+    lat >= CLAMP_BOUNDS.south && lat <= CLAMP_BOUNDS.north &&
+    lng >= CLAMP_BOUNDS.west && lng <= CLAMP_BOUNDS.east
   )
 }
 
@@ -80,7 +70,7 @@ export function collectFitPoints(events, geoFilters) {
     if (e.lat && e.lng) {
       const p = [e.lat, e.lng]
       all.push(p)
-      if (isWithinKingCounty(e.lat, e.lng)) inCounty.push(p)
+      if (isWithinClampBounds(e.lat, e.lng)) inCounty.push(p)
     }
   }
   const base = inCounty.length > 0 ? inCounty : all
@@ -370,7 +360,7 @@ function EventsMapInner({
   return (
     <div className="events-map-container" data-testid="events-map">
       <MapContainer
-        center={SEATTLE_CENTER}
+        center={MAP_CENTER}
         zoom={DEFAULT_ZOOM}
         style={{ height: '100%', width: '100%' }}
         className="events-map"
