@@ -154,7 +154,7 @@ export default class SoundTransitRipper implements IRipper {
         }
 
         const description = ev.body
-            ? ev.body.replace(/&nbsp;/g, " ").replace(/&nbsp;/g, " ").trim()
+            ? ev.body.replace(/&nbsp;/g, " ").trim()
             : undefined;
 
         return {
