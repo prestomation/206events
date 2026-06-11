@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import * as path from "path";
+import { readdirSync } from "fs";
 import { fileURLToPath } from "url";
 import { searchInventory, loadCalendarInventory, CalendarInventoryEntry, CalendarInventory } from "./calendar-inventory.js";
 
@@ -93,7 +94,12 @@ describe("searchInventory", () => {
     });
 });
 
-describe("loadCalendarInventory integration", () => {
+// The integration block loads the real sources/ tree, which `npm run
+// init-city` empties for template copies — self-skip when no rippers.
+const SOURCE_DIR_COUNT = readdirSync(path.join(process.cwd(), "sources"), { withFileTypes: true })
+    .filter(d => d.isDirectory() && d.name !== "external" && d.name !== "recurring").length;
+
+describe.skipIf(SOURCE_DIR_COUNT === 0)("loadCalendarInventory integration", () => {
     const sourcesDir = path.join(__dirname, "..", "sources");
 
     it("loads rippers from the actual sources directory", async () => {

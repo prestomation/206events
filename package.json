@@ -13,6 +13,7 @@
     "test:all": "npm run test && npm run test:web",
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
     "generate-calendars": "tsx index.ts",
+    "init-city": "tsx scripts/init-city.ts",
     "web:dev": "cd web && vite",
     "web:build": "cd web && vite build && cd .. && node scripts/inject-sw-assets.mjs",
     "web:preview": "cd web && vite preview",

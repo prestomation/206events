@@ -14,6 +14,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/event-lookup/SKILL.md`** — Fuzzy-search the published `events-index.json` / `manifest.json` / `venues.json` to answer "is this event already in 206.events, and which source covers it?"
 - **`skills/proxy-escalation/SKILL.md`** — Read the non-fatal `pendingProxyVerification` queue and open PRs that climb the proxy ladder (`outofband → browserbase`) after 3 consecutive failures, or retire a source (disable + mark `blocked`) when browserbase is exhausted
 - **`skills/source-from-event/SKILL.md`** — Default handler for any **event poster image** (or text request describing an event the user wants covered). Uses `event-lookup` to check coverage, then either reports it's covered, hands off a parse-gap fix to `build-report`, or hands off a new-source add to `source-discovery`
+- **`skills/city-setup/SKILL.md`** — One-time setup for a fresh copy of this template repo: runs `npm run init-city` (Seattle content strip + `city.config.ts` regeneration), tunes the derived geography, and walks the operator through secrets/services and first sources. Never run on the reference instance
 
 ## Adding New Calendar Sources
 

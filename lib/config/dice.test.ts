@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { ZoneId } from '@js-joda/core';
@@ -10,6 +10,11 @@ import { RipperCalendarEvent, RipperError } from './schema.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const tz = ZoneId.of('America/Los_Angeles');
+
+// Sample data lives in the (Seattle) source dirs, which `npm run init-city`
+// deletes for template copies — the suite self-skips when they're gone.
+const HAVE_SAMPLES = ['vera_project', 'sunset_tavern']
+    .every(s => existsSync(join(__dirname, `../../sources/${s}/sample-data.json`)));
 
 function loadSample(source: string): any {
     const raw = readFileSync(join(__dirname, `../../sources/${source}/sample-data.json`), 'utf-8');
@@ -27,7 +32,7 @@ const SYNTHETIC_EVENTS = {
     withMarkdownDesc: { id: 'syn-6', name: 'Markdown Event', date: '2026-03-01T03:00:00Z', date_end: '2026-03-01T05:00:00Z', timezone: 'America/Los_Angeles', address: '123 Test St', venue: 'Test Venue', url: null, description: null, raw_description: '***\\*Bold header\\**** and *italic* text', images: [] },
 };
 
-describe('DICERipper', () => {
+describe.skipIf(!HAVE_SAMPLES)('DICERipper', () => {
     describe('parsing — Vera Project sample', () => {
         it('extracts events with no errors', () => {
             const ripper = new DICERipper();

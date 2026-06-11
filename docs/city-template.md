@@ -4,8 +4,10 @@
 
 - **Phase 1 (this PR): implemented** — central `city.config.ts`, all easy
   hardcoded values migrated, Seattle behavior unchanged.
-- Phase 2 (planned): `npm run init-city` script + `skills/city-setup/` skill +
-  Seattle content strip.
+- **Phase 2 (this PR): implemented** — `npm run init-city` script
+  (`scripts/init-city.ts`) + `skills/city-setup/SKILL.md`. Both are inert
+  for the reference instance; the strip only runs when a template user
+  invokes it.
 - Phase 3 (planned): `docs/SETUP.md`, README split, flip the GitHub
   "Template repository" setting.
 
@@ -157,19 +159,27 @@ Migrations, all behavior-neutral for the Seattle config:
 Deterministic, idempotent, no LLM required. Prompts for the config values
 (or accepts a JSON answers file), then:
 
-1. **Regenerates `city.config.ts`** from a template — whole-file generation,
-   not patching, so it cannot half-apply.
+1. **Regenerates `city.config.ts`** from the answers — whole-file
+   generation, not patching, so it cannot half-apply. Answers are validated
+   through the Zod schema *before* any destructive action runs. Map clamp
+   bounds, Nominatim viewbox, and the venue sanity bbox are derived from
+   the city center (rough defaults the city-setup skill hand-tunes after).
 2. **Rewrites the non-importable files**: the brand strings in
-   `web/src/sw.js`, the README header.
-3. **Strips Seattle content**: deletes `sources/*` ripper dirs,
-   `sources/recurring/*`, `sources/external/*`, `docs/source-candidates/*`
-   and `docs/discovery-log/*` (keeping each README), `allowed-removals/*`;
+   `web/src/sw.js`, plus generated `README.md` and `ideas.md`.
+3. **Strips Seattle content**: deletes `sources/*` ripper dirs (including
+   `seattle_showlists/`), `sources/recurring/*`, `sources/external/*`
+   (keeping both dirs via `.gitkeep`), `docs/source-candidates/*` and
+   `docs/discovery-log/*` (keeping each README), `allowed-removals/*`;
    resets `event-uncertainty-cache.json` to `{"version":1,"entries":{}}`;
-   prunes the Seattle lookup tables in `lib/geocoder.ts` to empty stubs;
-   removes `sources/seattle_showlists/` and Seattle `ideas.md` entries.
-4. Leaves a couple of well-commented example sources (one external ICS, one
-   recurring YAML) marked `expectEmpty` so the first build is green and the
-   user has working references.
+   deletes `outofband-report.json` (the build tolerates its absence);
+   prunes the five Seattle lookup tables in `lib/geocoder.ts` to empty
+   stubs (the surrounding matching logic is table-driven, so empty tables
+   are clean no-ops).
+4. **No fake example sources.** A placeholder external feed would produce
+   fetch errors and a placeholder recurring entry would publish fabricated
+   events; instead, the build is verified to run green with zero sources
+   (city-setup step 4), and the existing skills are the reference for adding
+   the first real ones.
 
 ### `skills/city-setup/SKILL.md`
 

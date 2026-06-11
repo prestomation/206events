@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
+import cityConfig from '../../../city.config.ts'
 
 // Fixed "now": Mon 2026-06-01 10:00 local. Day boundaries are computed in local
 // time, matching the production helpers.
@@ -67,7 +68,10 @@ describe('describeWindow', () => {
 })
 
 describe('channelFromCalendar geo wiring', () => {
-  const cal = { icsUrl: 'neumos-events.ics', name: 'neumos', fullName: 'Neumos', tags: ['Music', 'Capitol Hill'] }
+  // Any registered neighborhood works here; use the first configured one
+  // so the test holds for whatever city the template is configured for.
+  const HOOD = cityConfig.neighborhoods[0]
+  const cal = { icsUrl: 'neumos-events.ics', name: 'neumos', fullName: 'Neumos', tags: ['Music', HOOD] }
 
   it('carries the venue geo and is not distributed when a venue is provided', () => {
     const venue = { geo: { lat: 47.6143, lng: -122.3197, label: 'Neumos, Seattle', osmType: 'way', osmId: 42 } }
@@ -95,7 +99,7 @@ describe('channelFromCalendar geo wiring', () => {
 
   it('derives hood from a registered neighborhood tag', () => {
     const ch = channelFromCalendar(cal, null, { venue: null })
-    expect(ch.hood).toBe('Capitol Hill')
+    expect(ch.hood).toBe(HOOD)
   })
 
   it('never falls back to a raw geo.label when there is no neighborhood tag', () => {

@@ -45,7 +45,9 @@ describe('Source tag consistency', () => {
         }
     }
 
-    it('has at least one external source', () => {
+    // Sanity check that the walk found content — skipped on a fresh template
+    // copy where init-city has emptied sources/.
+    it.skipIf(externalSources.length === 0 && sourceDirs.length === 0)('has at least one external source', () => {
         expect(externalSources.length).toBeGreaterThan(0);
     });
 

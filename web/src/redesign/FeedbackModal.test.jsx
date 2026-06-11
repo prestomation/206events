@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { App206Context } from './context.js'
 import { FeedbackModal } from './FeedbackModal.jsx'
+import cityConfig from '../../../city.config.ts'
 
 // Minimal app model the modal reads from context. Tests override fields per case.
 function makeApp(overrides = {}) {
@@ -117,7 +118,7 @@ describe('FeedbackModal', () => {
     fireEvent.change(screen.getByPlaceholderText(/love/i), { target: { value: 'hello' } })
     fireEvent.click(screen.getByRole('button', { name: 'Send' }))
     expect(fetchFn).not.toHaveBeenCalled()
-    expect(openFn).toHaveBeenCalledWith(expect.stringContaining('github.com/prestomation/206events/issues/new'), '_blank', 'noopener,noreferrer')
+    expect(openFn).toHaveBeenCalledWith(expect.stringContaining(`github.com/${cityConfig.site.repo}/issues/new`), '_blank', 'noopener,noreferrer')
     expect(app.closeFeedback).toHaveBeenCalled()
   })
 })
