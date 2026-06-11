@@ -602,31 +602,30 @@ the event — both share the same `event.id`. The infrastructure
 
 The cache itself is populated by the **event-uncertainty-resolver
 skill**, which fetches the upstream source page, extracts the missing
-field, and writes a resolution into S3. Same plumbing as the
-geo-cache: empty file committed, live data lives in S3, GitHub Actions
-artifact serves as backup.
+field, and writes a resolution into the committed
+`event-uncertainty-cache.json`. The resolver opens a PR; once merged,
+CI reads the committed file directly.
 
-### Cache persistence strategy (differs from geo-cache)
+### Cache persistence strategy (committed file)
 
-Unlike `geo-cache.json` (which is always empty in the repo and fully
-owned by S3), `event-uncertainty-cache.json` supports a **committed
-override** pattern:
+`event-uncertainty-cache.json` **is** the cache — the committed file in
+the repo is the single source of truth. There is no S3:
 
-- **S3** — primary live store, populated by CI builds and out-of-band
-  runs. Updated on every successful build.
-- **Committed file** — acts as a static override layer. The build
-  workflow *merges* S3 entries with the committed file at download time,
-  with **committed entries winning** on conflict. This lets agents
-  without S3 write access (e.g., web sessions) commit manually-researched
-  resolutions that survive S3 downloads.
-- **When to commit entries:** Only for manually-investigated resolutions
-  (start times found by reading a source page). Do not commit
-  auto-generated or speculative entries. Once a build with S3 access has
-  run, the entries are in S3 and the committed file can be reset to empty.
-- **Conflict resolution:** Committed wins over S3. This preserves
-  manually-researched entries even if an older S3 version contradicts
-  them. If S3 accumulates better data than what's committed, reset the
-  committed file to empty so S3 is the sole authority again.
+- **Committed file** — the live store. The resolver edits it (via
+  `uncertainty-cache.py resolve`/`prune`) and commits the change in a
+  PR. CI reads the committed file at the start of every build; nothing
+  is downloaded or uploaded.
+- **What to commit:** Only manually-investigated resolutions (start
+  times, costs, images, locations found by reading a source page). Do
+  not commit auto-generated or speculative entries.
+- **Build-time writes are ephemeral.** The build stamps `lastSeen` on
+  consulted entries in its working copy, but that copy is discarded when
+  the runner is reclaimed — only PR-committed changes persist. The
+  `lastSeen`-based prune flag (`--lastseen-older-than`) therefore can't
+  rely on accumulated stamps; prefer `--orphan-prefixes` and
+  `--date-in-key-older-than`.
+
+See **`docs/github-native-caches.md`** for the full design.
 
 **Why it exists:** Quietly defaulting unknown values (e.g. "no time on
 the page → set to noon") publishes a guess that looks like a fact.
@@ -725,48 +724,31 @@ Don't mention APIs, scraping methods, or other implementation details in either 
 
 ## Geo-Cache (`geo-cache.json`)
 
-`geo-cache.json` is committed to the repository and stores resolved geographic coordinates for event locations. It is the source of truth for geocoding and is used by both the main calendar build and the out-of-band ripper.
+`geo-cache.json` stores resolved geographic coordinates for event locations. It is the source of truth for geocoding in the main calendar build.
 
 ### How it works
 
 - **Venue-level coords** — Sources with a fixed address set `geo: { lat, lng }` in `ripper.yaml`. These are applied to all events for that source without any network call.
 - **Per-event geocoding** — For sources with variable event locations (e.g., community calendars), each `event.location` string is looked up via Nominatim and cached here. Cache entries include `lat`, `lng`, `geocodedAt`, and `source: "nominatim"`. Unresolvable locations are stored with `unresolvable: true` so they are not retried.
-- **Out-of-band** — `scripts/generate-outofband.ts` loads and saves `geo-cache.json` the same way as the main build, and also uploads it to S3 (`latest/geo-cache.json`) so the main GH Actions build can fall back to it if the GH Actions cache is cold.
 
-### Cache strategy (S3 as source of truth)
+### Cache strategy (GitHub Actions Cache)
 
-S3 is the live store for `geo-cache.json`. The build and outofband scripts both download from S3 at start and upload back on completion. The committed file is an empty baseline — **never commit a populated cache to the repo**.
+The main build persists `geo-cache.json` through the **GitHub Actions Cache** — no S3. The committed file is an **empty cold-start baseline**; never commit a populated cache to the repo.
 
-1. **S3** (`$OUTOFBAND_BUCKET/latest/geo-cache.json`) — primary live store. Both `build-calendars.yml` and `generate-outofband.ts` download at start and upload on completion. Requires the GH Actions IAM role to have `s3:PutObject` on the outofband bucket (in addition to `GetObject`).
-2. **GH Actions artifact** (`geo-cache` artifact, 90-day retention) — reliable fallback uploaded by every build with `if: always()`. Useful if S3 upload is unavailable.
-3. **Committed file** — empty cold-start baseline only. Used when both S3 and credentials are unavailable (e.g. fork PRs with no secrets). Never populate and commit this file — let S3 and artifacts handle persistence.
+1. **GitHub Actions Cache** (`geo-cache-v1-*` keys) — live store. `build-calendars.yml` restores at start (newest entry via `restore-keys`) and saves at end. On a cold cache the build re-geocodes every location once with the current normalization logic — slower for one build, and legacy dirty keys don't carry forward.
+2. **GH Actions artifact** (`geo-cache` artifact, 90-day retention) — durable backup uploaded by every build with `if: always()`, in case the Actions cache evicts.
+3. **Published mirror** — the build copies the cache into `output/geo-cache.json`, served read-only at `https://206.events/geo-cache.json` for inspection (`geo-cache.py analyze`).
 
-### Manually fixing or adding entries
+> The **out-of-band runner** (`scripts/generate-outofband.ts`) still keeps its own geo-cache in S3 — that subsystem is intentionally unchanged. Its S3 copy no longer feeds the main build; the two geocode independently. See `docs/github-native-caches.md`.
 
-To fix a bad geocode result or manually add a location, edit `geo-cache.json` directly:
+### Fixing geocoding
 
-```json
-{
-  "version": 1,
-  "entries": {
-    "123 main st, seattle, wa": {
-      "lat": 47.6062,
-      "lng": -122.3321,
-      "geocodedAt": "2026-03-26",
-      "source": "nominatim"
-    },
-    "some unresolvable place": {
-      "unresolvable": true,
-      "geocodedAt": "2026-03-26",
-      "source": "nominatim"
-    }
-  }
-}
-```
+Because the cache lives in the (agent-unwritable) Actions Cache, **don't hand-edit `geo-cache.json`** — a cache hit overwrites the committed file on the next build, so the edit won't stick. Fix geocoding in code instead:
 
-Keys are the **lowercased, trimmed** location string (matching what `normalizeLocationKey()` in `lib/geocoder.ts` produces). After editing, commit the file and open a PR — the change will take effect on the next build.
+- **Missing / unresolvable venue** → add it to `KNOWN_VENUE_COORDS` (or a lookup table) in `lib/geocoder.ts`. This is checked ahead of the unresolvable-cache short-circuit, so it overrides a stale `unresolvable` marker immediately. Commit via PR (data-only — see the geo-resolver skill).
+- **Wrong cached coordinate** (rare — a bad Nominatim hit that's already cached as `{lat,lng}`) → a `KNOWN_VENUE_COORDS` entry won't override an existing coordinate in the cache, so bump the cache key version (`geo-cache-v1-` → `geo-cache-v2-`) in `build-calendars.yml` to force a cold re-geocode, landing the corrected value.
 
-To mark a previously-unresolvable location as now-valid, simply delete its entry so it will be re-tried, or set the correct `lat`/`lng` and remove `unresolvable`.
+Keys are the **lowercased, trimmed** location string (matching what `normalizeLocationKey()` in `lib/geocoder.ts` produces).
 
 ## Build Errors JSON
 

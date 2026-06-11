@@ -65,42 +65,31 @@ jobs:
       run: npm run test:all
 
     - name: Configure AWS credentials
+      # The only remaining S3 consumer in this build is the out-of-band
+      # calendar download below, which is itself graceful (exits 0 if the
+      # bucket is unreachable). So a credentials failure must NOT fail the
+      # build — fork PRs and credential hiccups simply skip out-of-band
+      # calendars. The geo-cache and event-uncertainty-cache no longer use
+      # S3 (see docs/github-native-caches.md).
+      continue-on-error: true
       uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
         aws-region: us-west-2
-      # Do NOT use continue-on-error here. If AWS credentials fail,
-      # the geo-cache cannot be downloaded from S3 and the build will
-      # take 20+ minutes re-geocoding every location. Fail fast instead.
 
-    - name: Download geo-cache from S3
-      env:
-        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
-      run: |
-        aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/geo-cache.json" geo-cache.json \
-          && echo "geo-cache restored from S3 ($(jq '.entries | length' geo-cache.json) entries)" \
-          || echo "S3 geo-cache not available, using committed baseline"
-
-    - name: Download event-uncertainty-cache from S3
-      env:
-        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
-      run: |
-        # Save the committed baseline. When a web session can't reach S3 it
-        # commits resolved entries to the repo; those represent intentional
-        # agent actions and must take precedence over S3 on key conflicts.
-        # S3 fills gaps (keys not present in the committed file).
-        cp event-uncertainty-cache.json /tmp/committed-uncertainty-cache.json
-        if aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/event-uncertainty-cache.json" /tmp/s3-uncertainty-cache.json; then
-          COMMITTED=$(jq '.entries | length' /tmp/committed-uncertainty-cache.json)
-          S3=$(jq '.entries | length' /tmp/s3-uncertainty-cache.json)
-          jq -s '{version: 1, entries: (.[0].entries + .[1].entries)}' \
-            /tmp/s3-uncertainty-cache.json /tmp/committed-uncertainty-cache.json \
-            > event-uncertainty-cache.json
-          MERGED=$(jq '.entries | length' event-uncertainty-cache.json)
-          echo "event-uncertainty-cache: merged ${COMMITTED} committed + ${S3} S3 = ${MERGED} total entries"
-        else
-          echo "S3 event-uncertainty-cache not available, using committed baseline"
-        fi
+    - name: Restore geo-cache
+      # geo-cache.json is persisted via the GitHub Actions Cache, not S3.
+      # The committed file is an empty cold-start baseline; an immutable
+      # per-run key never matches exactly, so restore-keys returns the newest
+      # entry (same pattern as the fetch cache below). On a cold cache the
+      # build re-geocodes every location once with the current normalization
+      # logic — slower for one build, and legacy dirty keys don't carry over.
+      uses: actions/cache/restore@v4
+      with:
+        path: geo-cache.json
+        key: geo-cache-v1-${{ github.run_id }}
+        restore-keys: |
+          geo-cache-v1-
 
     - name: Download out-of-band calendars
       env:
@@ -173,23 +162,16 @@ jobs:
           exit 1
         fi
 
-    - name: Upload geo-cache to S3
+    - name: Save geo-cache
       if: always()
-      env:
-        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
-      run: |
-        aws s3 cp geo-cache.json "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/geo-cache.json" \
-          && echo "geo-cache uploaded to S3 ($(jq '.entries | length' geo-cache.json) entries)" \
-          || echo "S3 upload failed (credentials not configured?)"
-
-    - name: Upload event-uncertainty-cache to S3
-      if: always()
-      env:
-        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
-      run: |
-        aws s3 cp event-uncertainty-cache.json "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/event-uncertainty-cache.json" \
-          && echo "event-uncertainty-cache uploaded to S3 ($(jq '.entries | length' event-uncertainty-cache.json) entries)" \
-          || echo "S3 upload failed (credentials not configured?)"
+      # Persist the (possibly newly-geocoded) cache back to the GitHub Actions
+      # Cache under a unique per-run key. Older entries become unreachable once
+      # a newer one exists (restore-keys picks the newest) and expire naturally.
+      # The 90-day artifact below is the durable backup if the cache evicts.
+      uses: actions/cache/save@v4
+      with:
+        path: geo-cache.json
+        key: geo-cache-v1-${{ github.run_id }}
 
     - name: Save source fetch cache
       if: always()

@@ -62,8 +62,10 @@ python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py resolve \
   --reason 'Source page no longer lists this event'
 ```
 
-The script downloads the cache from S3, applies the entry, and uploads
-it back. Refuses to overwrite an existing entry without `--force`.
+The script edits the committed `event-uncertainty-cache.json` in place.
+Refuses to overwrite an existing entry without `--force`. **Commit the
+file and open a PR** — CI reads the committed cache directly (there is no
+S3). See `docs/github-native-caches.md`.
 
 Fingerprints carried by the `UncertaintyError` (the
 `partialFingerprint` field) are automatically copied into the new cache
@@ -82,19 +84,19 @@ python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py prune \
   --date-in-key-older-than 7 \
   --dry-run
 
-# Apply (uploads to S3).
+# Apply (writes the committed file — commit it in the same PR).
 python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py prune \
   --orphan-prefixes \
   --date-in-key-older-than 7
 ```
 
-The two flags above are safe on every run. **Hold off on
-`--lastseen-older-than`** until the build-time `lastSeen` stamp has had
-time to populate across multiple build cycles — adding it on day one
-would nuke entries that simply haven't been touched yet. From roughly
-30 days after the lastSeen feature lands, add `--lastseen-older-than 30`
-to the same invocation; it sweeps the opaque-ID tail (Ticketmaster
-etc.) that the date-in-key heuristic can't see.
+The two flags above are safe on every run. **Don't rely on
+`--lastseen-older-than`**: in the GitHub-native model the build's
+`lastSeen` stamps live only in the runner's working copy and are
+discarded when it's reclaimed (only PR-committed changes persist), so the
+stamps never accumulate across builds. Stick to `--orphan-prefixes` and
+`--date-in-key-older-than`, which read the committed cache and the source
+list directly.
 
 See the [flag reference](#prune-flag-reference) below for details.
 
@@ -158,15 +160,16 @@ combination; running with no flags prints help and exits.
   today − DAYS. Cheap; covers the common `events12:slug-2026-05-19`
   shape. Skips opaque-ID keys like `climate-pledge-arena:tm-…`.
 - `--lastseen-older-than DAYS` — drops entries whose `lastSeen` (or
-  `resolvedAt` fallback) is older than today − DAYS. Covers
-  opaque-ID keys too: every build stamps `lastSeen` on entries it
-  consulted, so untouched entries naturally age out. **Don't enable
-  until the lastSeen feature has been live for ≥ DAYS days** — older
-  entries fall back to `resolvedAt`, which doesn't reflect recent
-  activity, so an early run would over-prune.
+  `resolvedAt` fallback) is older than today − DAYS. **Effectively
+  unusable in the GitHub-native model:** the build's `lastSeen` stamps
+  live only in the runner's working copy and are discarded when it's
+  reclaimed, so they never accumulate across builds. Without persisted
+  stamps every entry falls back to `resolvedAt`, so this flag would
+  over-prune. Use `--orphan-prefixes` and `--date-in-key-older-than`
+  instead.
 
-`--dry-run` prints the deletion list grouped by reason without
-uploading; always use it before the real run.
+`--dry-run` prints the deletion list grouped by reason without writing;
+always use it before the real run.
 
 ## ⚠️ Never read event-uncertainty-cache.json directly into context
 
@@ -183,9 +186,8 @@ to this skill. Out-of-band invocation (e.g. user types
 
 ## Key references
 
-- **S3 bucket:** `calendar-ripper-outofband-220483515252`
-- **S3 key:** `latest/event-uncertainty-cache.json`
+- **Cache file (source of truth):** committed `event-uncertainty-cache.json` at the repo root
 - **Live build errors:** `https://206.events/build-errors.json`
-- **Design doc:** `docs/event-uncertainty.md`
+- **Design docs:** `docs/event-uncertainty.md`, `docs/github-native-caches.md`
 - **Cache module:** `lib/event-uncertainty-cache.ts`
 - **Merge function:** `lib/uncertainty-merge.ts`

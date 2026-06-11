@@ -13,7 +13,7 @@ There are two kinds of gap, fixed two different ways:
 | Gap | Where it lives | How to fix |
 |---|---|---|
 | **Venue** photo | `imageUrl:` in the source YAML (ripper / external / recurring) | Open a PR adding `imageUrl:` (like geo-resolver edits venue coords) |
-| **Event** photo | `event-uncertainty-cache.json` keyed `source:eventId` | Write an `imageUrl` resolution via `uncertainty-cache.py resolve --image-url` (S3-backed) |
+| **Event** photo | `event-uncertainty-cache.json` keyed `source:eventId` | Write an `imageUrl` resolution via `uncertainty-cache.py resolve --image-url` (committed file) |
 
 Both are **non-fatal** todo queues, like geo and event-uncertainty. The queue
 self-limits over time: once a photo is found (or confirmed unavailable and
@@ -98,7 +98,8 @@ Summarize:
 - **Links only.** Never base64/inline image data into the cache, YAML, or ICS.
 - **Stable URLs.** Avoid signed/expiring CDN URLs where possible; prefer the
   venue's canonical image.
-- Event resolutions go to S3 (requires AWS creds). Web sessions without S3
-  access should commit venue YAML PRs and leave event gaps for a build with S3.
+- Event resolutions edit the committed `event-uncertainty-cache.json`;
+  commit them in the same PR (CI reads the committed file — no S3). See
+  `docs/github-native-caches.md`.
 - This skill is the handler invoked from the build-report skill's Photo
   Coverage Check (step 5.6) and complements `source-from-event` (poster images).
