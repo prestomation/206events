@@ -74,8 +74,9 @@ repo; otherwise rely on human review.
 
 ### 6. Walk the operator through external services
 
-Use the table in `docs/city-template.md` ("Secrets, vars, and optional
-services"). The minimum to get a live site:
+Follow `docs/SETUP.md` steps 4–7 (the behavior matrix is in
+`docs/city-template.md`, "Secrets, vars, and optional services"). The
+minimum to get a live site:
 
 1. **Cloudflare Pages**: create a project, then set repo secrets
    `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` and repo variables

@@ -259,15 +259,16 @@ Google Calendar, Apple Calendar, Outlook, or any other calendar application.
 **${cfg.site.baseUrl}**
 
 Built from the [206.events city template](https://github.com/prestomation/206events)
-— see \`docs/city-template.md\` for how this instance is configured and
-operated, and \`AGENTS.md\` for the agent-driven maintenance workflow.
+— see \`docs/SETUP.md\` for the full setup walkthrough, \`docs/city-template.md\`
+for how this instance is configured, and \`AGENTS.md\` for the agent-driven
+maintenance workflow.
 
 ## Getting started
 
 1. Edit \`city.config.ts\` if any value needs tuning (map bounds especially).
 2. Add your first sources — follow \`skills/source-discovery/SKILL.md\`.
-3. Set up the GitHub secrets and Cloudflare Pages project described in
-   \`docs/city-template.md\` ("Secrets, vars, and optional services").
+3. Set up the GitHub secrets and Cloudflare Pages project — \`docs/SETUP.md\`
+   steps 4–7.
 
 ## Request a new calendar
 

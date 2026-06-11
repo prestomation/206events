@@ -8,8 +8,13 @@
   (`scripts/init-city.ts`) + `skills/city-setup/SKILL.md`. Both are inert
   for the reference instance; the strip only runs when a template user
   invokes it.
-- Phase 3 (planned): `docs/SETUP.md`, README split, flip the GitHub
-  "Template repository" setting.
+- **Phase 3 (this PR): docs implemented** — `docs/SETUP.md` (the full
+  from-template walkthrough), the README template pitch, and the Amazon Q
+  carve-out in AGENTS.md. Two steps remain for the repo owner (they can't
+  be done from code): enable **Settings → Template repository** on GitHub,
+  and set the `CLOUDFLARE_PAGES_PROJECT` / `SITE_URL` repository variables
+  on the reference instance so the workflow defaults are exercised either
+  way.
 
 ## Goals
 

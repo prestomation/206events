@@ -68,6 +68,8 @@ The steering file provides essential context for making informed decisions about
 
 ### Development Workflow
 
+> **Note for template copies:** steps that mention Amazon Q (`/q review`, waiting for Q's pass, the re-review template) apply only when Amazon Q Developer is installed on the repository. On a copy without Q, skip those steps and treat human review as the gate — everything else below applies as written.
+
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
 2. Make commits to the feature branch

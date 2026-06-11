@@ -2,6 +2,10 @@
 
 Subscribe to Seattle-area event calendars in your favorite calendar app. This project scrapes event data from dozens of local websites, ICS feeds, and APIs, then publishes them as standard iCalendar (.ics) files you can add to Google Calendar, Apple Calendar, Outlook, or any other calendar application.
 
+## Build this for your own city
+
+This repository is also a **template**: 206.events is the reference instance of a city-agnostic engine. Click **Use this template**, run `npm run init-city` (or the `skills/city-setup` skill in Claude Code), and you get the same scraping engine, web UI, and agent-driven maintenance workflow configured for your city — with the Seattle content stripped. The full walkthrough is in [`docs/SETUP.md`](docs/SETUP.md); the design is in [`docs/city-template.md`](docs/city-template.md).
+
 ## Browse Calendars
 
 Visit the web interface to search, filter by tag, and preview upcoming events:
