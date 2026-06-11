@@ -96,6 +96,9 @@ export const TAG_CATEGORIES = {
         'Parks',
         'Volunteer',
     ],
+    'Urbanism': [
+        'Transit',
+    ],
     'Special': [
         'All',
     ],
