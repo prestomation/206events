@@ -1,0 +1,11 @@
+# verified: 2026-06-11 ok
+name: cascade-bicycle-club
+description: "Cascade Bicycle Club"
+url: "https://cascade.org/rides-events"
+friendlyLink: https://cascade.org/rides-events
+tags: ["Sports", "Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Cascade Bicycle Club"
+    timezone: America/Los_Angeles

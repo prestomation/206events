@@ -1,9 +1,10 @@
 ---
 name: "Cascade Bicycle Club"
-status: investigating
+status: added
 firstSeen: 2026-06-10
 lastChecked: 2026-06-11
 tags: [Sports, Community]
+pr: TBD
 ---
 **Cascade Bicycle Club** — `https://cascade.org/rides-events` — Seattle's major cycling club with 100+ events: major rides (Seattle to Portland, Emerald City Ride, RSVP), free group rides, and community events.
 
