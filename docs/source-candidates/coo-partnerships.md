@@ -6,7 +6,7 @@ url: https://www.coopartnerships.org/community-events
 tags: [Activism, Community]
 firstSeen: 2026-06-11
 lastChecked: 2026-06-11
-pr: 602
+pr: 603
 ---
 
 Network of residents, communities, funders, and decision-makers working on equity and racial justice in King County. Hosts community events, forums, festivals, and capacity-building workshops.
