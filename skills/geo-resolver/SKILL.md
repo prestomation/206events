@@ -18,10 +18,10 @@ Note the current coverage % — this is your **baseline to beat**.
 python3 skills/geo-resolver/scripts/geo-cache.py analyze
 ```
 
-This downloads the cache from S3 and prints a categorized breakdown of unresolvable entries:
+This fetches the published `https://206.events/geo-cache.json` (read-only) and prints a categorized breakdown of unresolvable entries:
 - Virtual/TBA (correct — no action needed)
-- Dirty keys (stale — need purge)
-- Truncated strings (stale — need purge)
+- Dirty keys (legacy — self-heal on a cold cache)
+- Truncated strings (legacy — self-heal on a cold cache)
 - Has street address (potentially fixable)
 - Venue name only (may need known-venue lookup)
 
@@ -31,25 +31,17 @@ Based on the analysis, determine what's actionable:
 
 | Pattern | Action |
 |---|---|
-| Dirty keys (`\,`, `<br>`, `&amp;`) | Purge from cache — will re-resolve with clean key next build |
-| Truncated strings | Purge — source data is being cut off, may need ripper fix |
+| Dirty keys (`\,`, `<br>`, `&amp;`) | No action — re-resolves with clean key on the next cold Actions cache |
+| Truncated strings | No cache action; if the source data is being cut off, fix the ripper |
 | Virtual/Zoom/TBA | Ignore — correct to be unresolvable |
-| Known venue name, no address | Add to `lookupKnownVenue()` in `lib/geocoder.ts` |
-| UW building code `(HUB)` etc. | Already handled — if still failing, purge stale cache entry |
-| SPL branch + room suffix | Already handled — if still failing, purge stale cache entry |
-| Neighborhood vague | Already handled via centroid — if still failing, purge stale cache entry |
+| Known venue name, no address | Add to `lookupKnownVenue()` / `KNOWN_VENUE_COORDS` in `lib/geocoder.ts` |
+| UW building code `(HUB)` etc. | Already handled — if still failing, add a `KNOWN_VENUE_COORDS` entry |
+| SPL branch + room suffix | Already handled — if still failing, add a `KNOWN_VENUE_COORDS` entry |
+| Neighborhood vague | Already handled via centroid — if still failing, add a `KNOWN_VENUE_COORDS` entry |
 
-**Stale cache entries are the most common issue.** When new geocoder logic is added, old `unresolvable: true` entries with dirty/matching keys prevent retries. Always check if a purge is needed before adding new code.
+**No manual purge.** The geo-cache lives in the GitHub Actions Cache (not S3) and isn't agent-writable. Stale dirty/truncated `unresolvable` entries self-heal: a cold Actions cache re-geocodes every location with the current normalization logic, so legacy keys don't carry forward. A new `KNOWN_VENUE_COORDS` entry is consulted ahead of the unresolvable-cache short-circuit, so it overrides a stale `unresolvable` marker immediately on the next build. See `docs/github-native-caches.md`.
 
-### 4. Purge stale unresolvable entries (if needed)
-
-```bash
-python3 skills/geo-resolver/scripts/geo-cache.py purge
-```
-
-This purges dirty-key and truncated-string entries from the cache and uploads the updated version to S3.
-
-### 5. Resolve via geocoder changes
+### 4. Resolve via geocoder changes
 
 Make the appropriate change to `lib/geocoder.ts` based on the fix type:
 
@@ -73,7 +65,7 @@ For data-only changes: commit and push direct to main with a message like `fix(g
 
 For logic changes: cut a feature branch, open a PR, iterate with Q. See the **Merge gate** section below.
 
-### 6. Re-trigger build
+### 5. Re-trigger build
 
 After pushing any geo fix to main (data or logic), re-trigger the GitHub Actions build so the fix takes effect immediately:
 
@@ -81,21 +73,12 @@ After pushing any geo fix to main (data or logic), re-trigger the GitHub Actions
 gh workflow run "Generate Calendars and Publish to GitHub Pages" --ref main
 ```
 
-Then verify the build succeeds and geo coverage improved.
+Then verify the build succeeds and geo coverage improved. (The geo-cache is restored from the GitHub Actions Cache automatically — there is no manual upload step.)
 
-### 7. Upload updated cache to S3 (if needed)
-
-If you made manual changes to the cache file (not via the purge command):
-
-```bash
-aws s3 cp /tmp/geo-cache.json "s3://calendar-ripper-outofband-220483515252/latest/geo-cache.json" --region us-west-2
-```
-
-### 8. Report results
+### 6. Report results
 
 Summarize:
 - Geo coverage before vs after (%)
-- How many entries purged
 - How many new venues added to geocoder (with commit link for data-only pushes or PR link for logic changes)
 - Remaining unresolvable count and breakdown
 
@@ -129,13 +112,12 @@ If the PR preview shows equal or lower geo coverage → **do not merge**, invest
 
 ✅ OK: `python3 skills/geo-resolver/scripts/geo-cache.py stats` — only the summary hits context
 ✅ OK: `python3 skills/geo-resolver/scripts/geo-cache.py analyze` — prints a categorized summary
-✅ OK: `python3 skills/geo-resolver/scripts/geo-cache.py purge` — modifies and uploads, no raw JSON in context
 ❌ Never: `cat geo-cache.json` — too large
 ❌ Never: Iterate entries in an agent reasoning loop — use the script instead
 
-If you need to inspect a specific entry:
+If you need to inspect a specific entry, fetch the published mirror:
 ```bash
-python3 -c "import json; d=json.load(open('/tmp/geo-cache.json')); print(d['entries'].get('the key you want'))"
+python3 -c "import json,urllib.request; d=json.load(urllib.request.urlopen('https://206.events/geo-cache.json')); print(d['entries'].get('the key you want'))"
 ```
 
 ## OSM ID reconciliation
@@ -259,8 +241,7 @@ Examples of reverse-geocoding failures found in the audit:
 
 ## Key references
 
-- **S3 bucket:** `calendar-ripper-outofband-220483515252`
-- **S3 key:** `latest/geo-cache.json`
+- **Geo-cache (read-only mirror):** `https://206.events/geo-cache.json` (persisted in the GitHub Actions Cache; see `docs/github-native-caches.md`)
 - **Live errors:** `https://206.events/build-errors.json`
 - **Geocoder source:** `lib/geocoder.ts`
 - **OSM backfill scripts:** `scripts/backfill-osm-ids.ts`, `scripts/apply-osm-ids.ts`

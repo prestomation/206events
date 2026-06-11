@@ -14,22 +14,26 @@ Usage:
                                  [--duration SECONDS] [--location STR]
                                  [--image-url URL] [--evidence URL]
                                  [--unresolvable [--reason STR]]
-                                 [--force]
-        Resolve a single cache entry. Downloads the cache from S3,
-        applies the entry, and uploads back. Refuses to overwrite an
-        existing entry unless --force.
+                                 [--repo-root PATH] [--force]
+        Resolve a single cache entry by editing the committed
+        event-uncertainty-cache.json in place. Refuses to overwrite an
+        existing entry unless --force. Commit the file and open a PR to
+        publish the resolution — CI reads the committed file directly.
 
     uncertainty-cache.py prune [--lastseen-older-than DAYS]
                                [--date-in-key-older-than DAYS]
                                [--orphan-prefixes]
                                [--repo-root PATH]
                                [--dry-run]
-        Drop stale entries. Flags are independent and additive — pass
-        any combination. With no flags, prints help and exits. Always
-        prints a per-reason breakdown; uploads only when not --dry-run.
+        Drop stale entries from the committed cache. Flags are
+        independent and additive — pass any combination. With no flags,
+        prints help and exits. Always prints a per-reason breakdown;
+        writes the file only when not --dry-run.
 
-Environment:
-    AWS credentials for S3 access (profile / role / env vars).
+The cache is the committed event-uncertainty-cache.json at the repo
+root (override with --repo-root). There is no S3 — CI reads the
+committed file and committed resolutions are the source of truth. See
+docs/github-native-caches.md.
 """
 
 import argparse
@@ -37,18 +41,12 @@ import glob
 import json
 import os
 import re
-import subprocess
 import sys
-import tempfile
 import urllib.request
 from datetime import date, timedelta
 
-BUCKET = "calendar-ripper-outofband-220483515252"
-KEY = "latest/event-uncertainty-cache.json"
-REGION = "us-west-2"
 DEFAULT_ERRORS_URL = "https://206.events/build-errors.json"
-
-CACHE_PATH = os.path.join(tempfile.gettempdir(), "event-uncertainty-cache.json")
+CACHE_FILENAME = "event-uncertainty-cache.json"
 
 
 def fetch_json(url):
@@ -56,24 +54,23 @@ def fetch_json(url):
         return json.loads(resp.read())
 
 
-def download_cache():
-    subprocess.run(
-        ["aws", "s3", "cp", f"s3://{BUCKET}/{KEY}", CACHE_PATH, "--region", REGION],
-        check=False,  # OK if the cache doesn't exist yet — start fresh
-    )
-    if os.path.exists(CACHE_PATH):
-        with open(CACHE_PATH) as f:
+def cache_path(repo_root):
+    return os.path.join(repo_root, CACHE_FILENAME)
+
+
+def load_cache(repo_root):
+    path = cache_path(repo_root)
+    if os.path.exists(path):
+        with open(path) as f:
             return json.load(f)
     return {"version": 1, "entries": {}}
 
 
-def upload_cache(cache):
-    with open(CACHE_PATH, "w") as f:
+def save_cache(cache, repo_root):
+    path = cache_path(repo_root)
+    with open(path, "w") as f:
         json.dump(cache, f, indent=2)
-    subprocess.run(
-        ["aws", "s3", "cp", CACHE_PATH, f"s3://{BUCKET}/{KEY}", "--region", REGION],
-        check=True,
-    )
+        f.write("\n")
 
 
 def cmd_stats(args):
@@ -124,7 +121,7 @@ def cmd_resolve(args):
         print("--key is required", file=sys.stderr)
         sys.exit(2)
 
-    cache = download_cache()
+    cache = load_cache(args.repo_root)
     existing = cache["entries"].get(args.key)
     if existing and not args.force:
         print(f"Entry {args.key!r} already exists. Use --force to overwrite.", file=sys.stderr)
@@ -187,9 +184,10 @@ def cmd_resolve(args):
         entry["partialFingerprint"] = args.fingerprint
 
     cache["entries"][args.key] = entry
-    upload_cache(cache)
-    print(f"Resolved {args.key} →")
+    save_cache(cache, args.repo_root)
+    print(f"Resolved {args.key} → (wrote {cache_path(args.repo_root)})")
     print(json.dumps(entry, indent=2))
+    print("\nCommit event-uncertainty-cache.json and open a PR to publish.")
 
 
 DATE_REGEXES = [
@@ -215,10 +213,10 @@ def collect_canonical_source_names(repo_root):
 
     Intentionally parses by line scan instead of importing PyYAML — this script
     runs in environments where the only guaranteed dependency is the Python
-    stdlib (boto3 via aws-cli subprocess, urllib for HTTP). The `name:` field
-    is always at the top of each YAML doc in this repo, so a line-level grep
-    is robust enough; if the convention ever drifts, this function will return
-    a smaller set and the dry-run breakdown will surface the regression.
+    stdlib (urllib for HTTP; everything else is local file I/O). The `name:`
+    field is always at the top of each YAML doc in this repo, so a line-level
+    grep is robust enough; if the convention ever drifts, this function will
+    return a smaller set and the dry-run breakdown will surface the regression.
     """
     names = set()
     for path in glob.glob(os.path.join(repo_root, "sources", "*", "ripper.yaml")):
@@ -263,7 +261,7 @@ def cmd_prune(args):
         )
         sys.exit(2)
 
-    cache = download_cache()
+    cache = load_cache(args.repo_root)
     entries = cache.get("entries", {})
     total_before = len(entries)
     print(f"Entries before prune: {total_before}")
@@ -329,14 +327,15 @@ def cmd_prune(args):
             print(f"  [{r}] {k}")
 
     if args.dry_run:
-        print("\n(dry-run — no upload)")
+        print("\n(dry-run — no write)")
         return
 
     for key in to_remove:
         del entries[key]
     print(f"\nEntries after prune: {len(entries)}")
-    upload_cache(cache)
-    print(f"Done. Removed {len(to_remove)} entries from S3.")
+    save_cache(cache, args.repo_root)
+    print(f"Done. Removed {len(to_remove)} entries from {cache_path(args.repo_root)}.")
+    print("Commit event-uncertainty-cache.json and open a PR to publish.")
 
 
 def main():
@@ -366,6 +365,11 @@ def main():
     p_res.add_argument("--unresolvable", action="store_true", help="Mark as unresolvable")
     p_res.add_argument("--reason", help="Reason text (only with --unresolvable)")
     p_res.add_argument("--fingerprint", help="partialFingerprint to record (copy from outstanding listing)")
+    p_res.add_argument(
+        "--repo-root",
+        default=".",
+        help="Path to the repo root holding event-uncertainty-cache.json (default: current directory).",
+    )
     p_res.add_argument("--force", action="store_true", help="Overwrite existing entry")
     p_res.set_defaults(func=cmd_resolve)
 

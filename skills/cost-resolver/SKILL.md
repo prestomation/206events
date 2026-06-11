@@ -14,7 +14,7 @@ There are two kinds of fix:
 | Gap | Where it lives | How to fix |
 |---|---|---|
 | **Source-wide** (a venue/series that is always free, or always one price) | `cost:` in the source YAML (ripper / per-calendar / external / recurring) | Open a PR adding `cost: free` or `cost: <n>` (like photo-resolver adds `imageUrl:`) |
-| **Per-event** price | `event-uncertainty-cache.json` keyed `source:eventId` | Write a `cost` resolution via `uncertainty-cache.py resolve --cost-*` (S3-backed) |
+| **Per-event** price | `event-uncertainty-cache.json` keyed `source:eventId` | Write a `cost` resolution via `uncertainty-cache.py resolve --cost-*` (committed file) |
 
 Both are **non-fatal** todo queues, like geo, photos, and event-uncertainty.
 The queue self-limits: once a cost is found (or pricing confirmed unpublished
@@ -138,7 +138,8 @@ then re-check coverage against your baseline. Summarize:
   like a fact. `--cost-paid-unknown` is always available and always honest.
 - **Prices drift.** $15 becomes $20 all the time. Pass `--fingerprint` when
   the queue entry shows one, so upstream price changes invalidate the entry.
-- Cache resolutions go to S3 (requires AWS creds). Web sessions without S3
-  access should commit YAML PRs and leave per-event gaps for a build with S3.
+- Cache resolutions edit the committed `event-uncertainty-cache.json`;
+  commit them in the same PR (CI reads the committed file — no S3). See
+  `docs/github-native-caches.md`.
 - This skill is the handler invoked from the build-report skill's Cost
   Coverage Check (step 5.7).

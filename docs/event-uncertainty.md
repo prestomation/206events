@@ -7,8 +7,9 @@ placeholder while an LLM-driven resolver fills in the truth on a later
 build.
 
 Same shape as the geo-cache pattern: structured signals in
-`build-errors.json` → an agent skill investigates → a JSON cache in S3
-records resolutions → the next build applies them.
+`build-errors.json` → an agent skill investigates → the committed
+`event-uncertainty-cache.json` records resolutions (via PR) → the next
+build applies them.
 
 ## Why
 
@@ -68,10 +69,11 @@ opt into the system.
 
 ### Cache
 
-`event-uncertainty-cache.json` — committed empty, lives in S3 at
-`s3://${OUTOFBAND_BUCKET}/latest/event-uncertainty-cache.json`, mirrors
-geo-cache plumbing exactly (download at build start, upload after,
-artifact backup with 90-day retention).
+`event-uncertainty-cache.json` — the **committed file in the repo is the
+cache** (no S3). CI reads it at build start; the resolver edits it and
+opens a PR. A 90-day `event-uncertainty-cache` artifact is uploaded every
+build as a snapshot, but the committed file is the source of truth. See
+`docs/github-native-caches.md` for the full persistence model.
 
 Schema:
 
