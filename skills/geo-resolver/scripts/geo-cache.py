@@ -23,10 +23,20 @@ DEFAULT_GEOCACHE_URL = "https://206.events/geo-cache.json"
 
 
 def fetch_json(url):
-    """Fetch JSON from a URL."""
+    """Fetch JSON from a URL, exiting with a friendly message on failure.
+
+    The published site sits behind Cloudflare, which can 403 some IPs (e.g.
+    cloud sandboxes) or be transiently unreachable. Surface that as a clear
+    one-line error rather than an unhandled urllib traceback.
+    """
     import urllib.request
-    with urllib.request.urlopen(url) as resp:
-        return json.loads(resp.read())
+    import urllib.error
+    try:
+        with urllib.request.urlopen(url) as resp:
+            return json.loads(resp.read())
+    except (urllib.error.URLError, ValueError) as e:
+        print(f"Failed to fetch {url}: {e}", file=sys.stderr)
+        sys.exit(1)
 
 
 def get_build_errors(url=None):
