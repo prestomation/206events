@@ -540,6 +540,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'magnuson park building 30 lower conference room, seattle, wa': { lat: 47.6795, lng: -122.2544 },
   // University of Puget Sound verified address: 1567 N Union Ave, Tacoma, WA 98416
   'university of puget sound, 1567 north union avenue, tacoma, washington, 98416': { lat: 47.2643, lng: -122.4842 },
+  // Edmonds Bookshop: 111 5th Ave S, Edmonds, WA 98020 (Nominatim found but fails with bare name query)
+  'edmonds bookshop': { lat: 47.8101795, lng: -122.3774160 },
+  // Workhorse Coworking Edmonds: 123 2nd Ave S Suite 230, Edmonds, WA (stripSuiteFloorSuffixes leaves "230" dangling)
+  'workhorse coworking, 123 2nd avenue south, #suite 230, edmonds, wa': { lat: 47.8107897, lng: -122.3809867 },
 };
 
 /**
