@@ -1,0 +1,12 @@
+name: coo-partnerships
+type: squarespace
+description: "Communities of Opportunity"
+url: "https://www.coopartnerships.org/community-events"
+friendlyLink: https://www.coopartnerships.org/community-events
+tags: ["Activism", "Community"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/5ac7d99d372b963841f131a8/144fdda6-e6b5-41d1-b283-89d04d820aba/Logo_Stacked_Full-Color_Tagline_Light-backgrounds1.png"
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Communities of Opportunity"
+    timezone: America/Los_Angeles

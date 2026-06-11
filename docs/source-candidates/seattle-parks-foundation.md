@@ -1,11 +1,11 @@
 ---
 name: "Seattle Parks Foundation"
-status: candidate
+status: added
 platform: Tribe Events ICS (WordPress)
 url: https://www.seattleparksfoundation.org/events/
 tags: [Community, Parks, Volunteer]
 firstSeen: 2026-06-10
-lastChecked: 2026-06-10
+lastChecked: 2026-06-11
 ---
 **Seattle Parks Foundation** — `https://www.seattleparksfoundation.org/events/` — Nonprofit organization managing and activating Seattle's parks. Hosts volunteer restoration work parties, pop-up concerts, community events, and park programming.
 
@@ -24,4 +24,4 @@ Considerations:
 - Could be implemented with the ICS feed directly
 - Similar to existing `volunteer_park_trust` source in scope
 
-Next steps: Assess whether volunteer restoration events are appropriate for 206.events scope. If yes, add as external ICS source. If filtering is needed, may require a custom ripper to exclude work parties.
+Source already implemented as `sources/external/seattle-parks-foundation.yaml` using the Tribe Events ICS feed at `https://www.seattleparksfoundation.org/?post_type=tribe_events&ical=1&eventDisplay=list`. Candidate doc created before the existing implementation was discovered.
