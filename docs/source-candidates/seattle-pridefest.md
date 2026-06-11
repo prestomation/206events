@@ -1,11 +1,12 @@
 ---
 name: "Seattle PrideFest"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.seattlepridefest.org/schedule
 tags: [Community, Arts]
 firstSeen: 2026-06-10
 lastChecked: 2026-06-10
+pr: 598
 ---
 **Seattle PrideFest** — `https://www.seattlepridefest.org/schedule` — Seattle's annual LGBTQ+ Pride festival organization, producing PrideFest Capitol Hill (June 27) and PrideFest Seattle Center (June 28), plus "Taking Pride in Capitol Hill" community cleanup (June 6).
 
