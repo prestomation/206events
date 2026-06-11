@@ -1,0 +1,10 @@
+name: sound_transit
+description: "Sound Transit"
+url: "https://www.soundtransit.org/calendar_events_grouped.json"
+friendlyLink: "https://www.soundtransit.org/get-to-know-us/news-events/calendar"
+geo: null
+tags: ["Community", "Transit"]
+calendars:
+  - name: sound-transit
+    friendlyname: "Sound Transit Events"
+    timezone: America/Los_Angeles
