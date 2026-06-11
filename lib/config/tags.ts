@@ -94,8 +94,10 @@ export const TAG_CATEGORIES = {
         'Activism',
         'Community',
         'Parks',
-        'Transit',
         'Volunteer',
+    ],
+    'Urbanism': [
+        'Transit',
     ],
     'Special': [
         'All',
