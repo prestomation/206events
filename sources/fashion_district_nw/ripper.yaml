@@ -1,0 +1,11 @@
+name: fashion-district-nw
+type: squarespace
+description: "Fashion District NW"
+url: "https://www.fashiondistrictnw.com/events"
+friendlyLink: https://www.fashiondistrictnw.com
+tags: ["Arts", "Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Fashion District NW"
+    timezone: America/Los_Angeles
