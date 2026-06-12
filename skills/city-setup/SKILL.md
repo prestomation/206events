@@ -30,10 +30,11 @@ Ask the user for (or confirm values they already gave):
   added organically as sources are tagged.
 - **GoatCounter code** (optional) — leave analytics off unless they have one
 - **Seed sources** — ask for their favorite music venues, community
-  organizations, museums, and any community calendar they already read.
-  These aren't used by `init-city`; record them for step 7, where they
-  become the first source candidates. Local knowledge beats a cold
-  discovery scan for the first batch.
+  organizations, museums, and any community calendar they already read
+  (within the new city's area — step 7's quality gates filter anything
+  outside it). These aren't used by `init-city`; record them for step 7,
+  where they become the first source candidates. Local knowledge beats a
+  cold discovery scan for the first batch.
 
 ### 2. Run init-city
 
