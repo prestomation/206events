@@ -54,8 +54,9 @@ token into the `CLAUDE_ROUTINE_ID` and `CLAUDE_ROUTINE_TOKEN` repo
 secrets. This is the only hook that touches repo configuration.
 
 **Without it:** build-error triage is manual — watch
-`https://<your-domain>/build-errors.json` (or the Discord notification)
-and run `skills/build-report/SKILL.md` yourself when errors appear.
+`https://<your-domain>/build-errors.json` (or the Discord notification,
+if enabled) and run `skills/build-report/SKILL.md` yourself when errors
+appear.
 
 ## 2. Daily source discovery
 
