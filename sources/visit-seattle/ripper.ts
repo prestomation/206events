@@ -59,15 +59,23 @@ export function parseEventPage(html: string): ParsedEventDate | RipperError {
 
     if (rangeMatch) {
         const [, sm, sd, sy, em, ed, ey] = rangeMatch;
-        return {
-            startDate: LocalDate.of(parseInt(sy), parseInt(sm), parseInt(sd)),
-            endDate: LocalDate.of(parseInt(ey), parseInt(em), parseInt(ed)),
-            location,
-        };
+        try {
+            return {
+                startDate: LocalDate.of(parseInt(sy), parseInt(sm), parseInt(sd)),
+                endDate: LocalDate.of(parseInt(ey), parseInt(em), parseInt(ed)),
+                location,
+            };
+        } catch {
+            return { type: 'ParseError', reason: `Invalid date in range: ${dateStr}`, context: dateStr };
+        }
     } else if (singleMatch) {
         const [, m, d, y] = singleMatch;
-        const date = LocalDate.of(parseInt(y), parseInt(m), parseInt(d));
-        return { startDate: date, endDate: date, location };
+        try {
+            const date = LocalDate.of(parseInt(y), parseInt(m), parseInt(d));
+            return { startDate: date, endDate: date, location };
+        } catch {
+            return { type: 'ParseError', reason: `Invalid date: ${dateStr}`, context: dateStr };
+        }
     } else {
         return { type: 'ParseError', reason: `Unrecognized date format: ${dateStr}`, context: dateStr };
     }
