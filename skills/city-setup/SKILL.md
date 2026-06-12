@@ -29,6 +29,11 @@ Ask the user for (or confirm values they already gave):
   filter tags; natural casing with spaces (`"Pearl District"`). More get
   added organically as sources are tagged.
 - **GoatCounter code** (optional) — leave analytics off unless they have one
+- **Seed sources** — ask for their favorite music venues, community
+  organizations, museums, and any community calendar they already read.
+  These aren't used by `init-city`; record them for step 7, where they
+  become the first source candidates. Local knowledge beats a cold
+  discovery scan for the first batch.
 
 ### 2. Run init-city
 
@@ -100,10 +105,12 @@ minimum to get a live site:
 
 ### 7. Add the first sources
 
-Run `skills/source-discovery/SKILL.md` scoped to the new city. Aim for a
-handful of high-volume, reliable sources first (the city's biggest venues,
-the library system, a community calendar). Each source lands as its own PR
-per the normal workflow.
+Run `skills/source-discovery/SKILL.md` scoped to the new city, starting
+from the seed list collected in step 1 — put the operator's named venues
+and organizations through the skill's quality gates ahead of any cold
+scan. Beyond the seeds, aim for a handful of high-volume, reliable
+sources first (the city's biggest venues, the library system, a community
+calendar). Each source lands as its own PR per the normal workflow.
 
 ### 8. Hand off
 
