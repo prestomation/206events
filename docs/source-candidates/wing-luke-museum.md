@@ -6,7 +6,7 @@ url: https://www.wingluke.org/eventscalendar
 tags: ["Arts", "Museums", "Community", "International District"]
 firstSeen: 2026-06-12
 lastChecked: 2026-06-12
-pr: TBD
+pr: 612
 ---
 
 Asian Pacific American history and culture museum located at 719 S King St in Seattle's
