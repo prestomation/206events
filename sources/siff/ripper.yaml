@@ -19,7 +19,7 @@ calendars:
       lat: 47.6110
       lng: -122.3365
       label: "SIFF Cinema Downtown, 600 Pine St, Seattle, WA 98101"
-      osmChecked: 2026-05-09
+      osmChecked: 2026-06-12
   - name: uptown
     timezone: America/Los_Angeles
     friendlyname: "SIFF Cinema Uptown"
@@ -27,7 +27,8 @@ calendars:
       name: "SIFF Cinema Uptown"
       cssSelector: ".Uptown"
     tags: ["QueenAnne"]
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/Seattle_-_SIFF_Cinema_Uptown_01.jpg"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/Seattle_-_SIFF_C\
+      inema_Uptown_01.jpg"
     geo:
       lat: 47.6232
       lng: -122.3571

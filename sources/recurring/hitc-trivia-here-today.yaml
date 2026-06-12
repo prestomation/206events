@@ -1,9 +1,13 @@
 # verified: 2026-06-08 ok
-imageUrl: "https://images.squarespace-cdn.com/content/v1/5f5fa1318ca3f935b4e0ce0b/5b11ad68-213c-4185-8ff5-17b98d7acdfc/HT-Saison-SunAngles-PurpleTableTop-Portrait.jpg"
+imageUrl: "https://images.squarespace-cdn.com/content/v1/5f5fa1318ca3f935b4e0ce\
+  0b/5b11ad68-213c-4185-8ff5-17b98d7acdfc/HT-Saison-SunAngles-PurpleTableTop-Po\
+  rtrait.jpg"
 geo:
   lat: 47.6152885
   lng: -122.3539984
   label: "2815 Elliott Ave, Seattle, WA 98121"
+  osmType: node
+  osmId: 11013224482
 name: hitc-trivia-here-today
 friendlyname: Trivia at Here Today Brewery
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

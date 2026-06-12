@@ -4,13 +4,15 @@ description: "Ravenna Brewing"
 url: "https://www.ravennabrewing.com/food-truck-calendar"
 friendlyLink: https://www.ravennabrewing.com/food-truck-calendar
 tags: ["Ravenna", "Food"]
-imageUrl: "https://images.squarespace-cdn.com/content/v1/5553a073e4b0832a5f973df9/1702083277156-E9YSCETTAWL35FUKUPIC/18947908_120861238496921_5591391083964661760_n.jpeg"
+imageUrl: "https://images.squarespace-cdn.com/content/v1/5553a073e4b0832a5f973d\
+  f9/1702083277156-E9YSCETTAWL35FUKUPIC/18947908_120861238496921_55913910839646\
+  61760_n.jpeg"
 geo:
   lat: 47.6757
   lng: -122.3116
   label: "Ravenna Brewing, 1519 NE 65th St, Seattle, WA 98115"
   # Nominatim returned way/445400290 'Ravenna Brewing Company, 5408 26th Ave NE' at 1240m — wrong address vs. our label (1519 NE 65th St).
-  osmChecked: 2026-05-24
+  osmChecked: 2026-06-12
 calendars:
   - name: all-events
     friendlyname: "Ravenna Brewing"

@@ -1,9 +1,12 @@
 # verified: 2026-06-01 ok
-imageUrl: "https://static.wixstatic.com/media/b2ff14_d680ab5315544c16a6e3463e79bd8232~mv2_d_5760_3840_s_4_2.jpg"
+imageUrl: "https://static.wixstatic.com/media/b2ff14_d680ab5315544c16a6e3463e79\
+  bd8232~mv2_d_5760_3840_s_4_2.jpg"
 geo:
   lat: 47.6499568
   lng: -122.3429942
   label: "3513 Stone Way N, Seattle, WA 98103"
+  osmType: node
+  osmId: 2143322925
 name: hitc-trivia-figurehead-stone-way
 friendlyname: Trivia at Figurehead Brewing Stone Way
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
