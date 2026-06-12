@@ -59,7 +59,9 @@ jobs:
           path: output
 
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler pages deploy output/ --project-name=206events --branch=main
+        # CLOUDFLARE_PAGES_PROJECT repo var overrides the project name for
+        # template copies; defaults to the reference instance's project.
+        run: npx wrangler pages deploy output/ --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT || '206events' }} --branch=main
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

@@ -1,6 +1,6 @@
-# 206.events
+# {{SITE_NAME}}
 
-> 206.events is a Seattle-area event aggregator. It crawls ~70 venue and
+> {{SITE_NAME}} is a {{CITY_NAME}}-area event aggregator. It crawls ~70 venue and
 > organization websites and publishes the combined result as iCalendar
 > (.ics) feeds, RSS feeds, and JSON data files. Everything is static and
 > regenerated daily.
@@ -68,7 +68,7 @@ all carry a `generated` ISO-8601 timestamp so you can check freshness.
 ## Usage notes
 
 - Every href in `index.json`, `tags.json`, and `venues.json` is relative
-  to the site root. Resolve against `https://206.events/` (or the PR
+  to the site root. Resolve against `{{SITE_URL}}/` (or the PR
   preview origin).
 - There is no versioning scheme. Schemas are stable; additive changes
   are expected, breaking changes would be announced via the commit log.
@@ -78,5 +78,5 @@ all carry a `generated` ISO-8601 timestamp so you can check freshness.
 
 ## Source
 
-- Code: https://github.com/prestomation/calendar-ripper
-- Issues: https://github.com/prestomation/calendar-ripper/issues
+- Code: https://github.com/{{REPO}}
+- Issues: https://github.com/{{REPO}}/issues

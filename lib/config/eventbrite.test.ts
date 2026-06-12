@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { ZoneId } from '@js-joda/core';
@@ -10,6 +10,11 @@ import { RipperCalendarEvent, RipperError } from './schema.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const tz = ZoneId.of('America/Los_Angeles');
+
+// Sample data lives in the (Seattle) source dirs, which `npm run init-city`
+// deletes for template copies — the suite self-skips when they're gone.
+const HAVE_SAMPLES = ['elliott-bay', 'substation']
+    .every(s => existsSync(join(__dirname, `../../sources/${s}/sample-data.json`)));
 
 function loadSample(source: string): any {
     const raw = readFileSync(join(__dirname, `../../sources/${source}/sample-data.json`), 'utf-8');
@@ -25,7 +30,7 @@ const SYNTHETIC_EVENTS = {
     noEnd: { id: 'syn-4', name: { text: 'Open-Ended Event' }, description: null, url: 'https://eventbrite.com/e/syn-4', start: { timezone: 'America/Los_Angeles', local: '2026-03-01T18:00:00' }, end: null, venue: null },
 };
 
-describe('EventbriteRipper', () => {
+describe.skipIf(!HAVE_SAMPLES)('EventbriteRipper', () => {
     describe('parsing — Elliott Bay sample (38 events, daytime shows)', () => {
         it('extracts all events with no errors', () => {
             const ripper = new EventbriteRipper();

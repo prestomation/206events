@@ -15,6 +15,16 @@ import {
   type GeoCache,
 } from './geocoder.js';
 
+
+// Seattle reference-data probes — several describe blocks below exercise the
+// Seattle lookup tables in lib/geocoder.ts, which `npm run init-city` empties
+// for template copies. Each block self-skips when its table is gone so the
+// engine suite passes on any city's instance.
+const HAS_NEIGHBORHOOD_DATA = lookupNeighborhoodCentroid('Capitol Hill, Seattle') !== null;
+const HAS_SPL_DATA = lookupSPLBranchCoords('Seattle Public Library - Ballard Branch') !== null;
+const HAS_UW_DATA = lookupUWBuilding('Physics Seminar (PAT)') !== null;
+const HAS_VENUE_DATA = lookupKnownVenue('museum of flight') !== null;
+
 // We mock global fetch so geocodeLocation never makes real network calls
 const mockFetch = vi.fn();
 vi.stubGlobal('fetch', mockFetch);
@@ -408,7 +418,7 @@ describe('stripSuiteFloorSuffixes', () => {
   });
 });
 
-describe('lookupNeighborhoodCentroid', () => {
+describe.skipIf(!HAS_NEIGHBORHOOD_DATA)('lookupNeighborhoodCentroid', () => {
   it('matches "<neighborhood>, seattle"', () => {
     const result = lookupNeighborhoodCentroid('Capitol Hill, Seattle');
     expect(result).toEqual({ lat: 47.6253, lng: -122.3222 });
@@ -448,7 +458,7 @@ describe('lookupNeighborhoodCentroid', () => {
   });
 });
 
-describe('lookupSPLBranchCoords', () => {
+describe.skipIf(!HAS_SPL_DATA)('lookupSPLBranchCoords', () => {
   it('matches "ballard branch" substring', () => {
     const result = lookupSPLBranchCoords('Seattle Public Library - Ballard Branch');
     expect(result).toEqual({ lat: 47.6671, lng: -122.3836 });
@@ -517,7 +527,7 @@ describe('resolveEventCoords - new strategies', () => {
     expect(result.cache.entries['600 4th ave, seattle, wa 98104']).toBeDefined();
   });
 
-  it('returns neighborhood centroid when Nominatim fails', async () => {
+  it.skipIf(!HAS_NEIGHBORHOOD_DATA)('returns neighborhood centroid when Nominatim fails', async () => {
     mockFetch.mockResolvedValue({
       ok: true,
       json: async () => [],
@@ -531,7 +541,7 @@ describe('resolveEventCoords - new strategies', () => {
     expect(result.cache.entries['capitol hill, seattle'].unresolvable).toBeUndefined();
   });
 
-  it('returns SPL branch coords when Nominatim fails', async () => {
+  it.skipIf(!HAS_SPL_DATA)('returns SPL branch coords when Nominatim fails', async () => {
     mockFetch.mockResolvedValue({
       ok: true,
       json: async () => [],
@@ -543,7 +553,7 @@ describe('resolveEventCoords - new strategies', () => {
     expect(result.error).toBeUndefined();
   });
 
-  it('resolves Central Library room-level locations without SPL prefix', async () => {
+  it.skipIf(!HAS_SPL_DATA)('resolves Central Library room-level locations without SPL prefix', async () => {
     // SPL ripper emits "Central Library, Level 8 - Gallery" — no "SPL" or "Seattle Public Library" prefix
     mockFetch.mockResolvedValue({
       ok: true,
@@ -556,7 +566,7 @@ describe('resolveEventCoords - new strategies', () => {
     expect(result.error).toBeUndefined();
   });
 
-  it('resolves SPL branch room-level locations without explicit SPL prefix', async () => {
+  it.skipIf(!HAS_SPL_DATA)('resolves SPL branch room-level locations without explicit SPL prefix', async () => {
     mockFetch.mockResolvedValue({
       ok: true,
       json: async () => [],
@@ -710,7 +720,7 @@ describe('resolveEventCoords - venue area fallback', () => {
   });
 });
 
-describe('lookupUWBuilding', () => {
+describe.skipIf(!HAS_UW_DATA)('lookupUWBuilding', () => {
   it('matches HUB building code in parens at end of string', () => {
     const result = lookupUWBuilding('Some Event, University of Washington (HUB)');
     expect(result).toEqual({ lat: 47.6557, lng: -122.3050 });
@@ -765,7 +775,7 @@ describe('lookupUWBuilding', () => {
   });
 });
 
-describe('lookupKnownVenue', () => {
+describe.skipIf(!HAS_VENUE_DATA)('lookupKnownVenue', () => {
   it('matches exact venue name', () => {
     const result = lookupKnownVenue('museum of flight');
     expect(result).toEqual({ lat: 47.5186, lng: -122.2967 });
@@ -820,7 +830,7 @@ describe('lookupKnownVenue', () => {
   });
 });
 
-describe('resolveEventCoords - UW building and known venue', () => {
+describe.skipIf(!HAS_UW_DATA || !HAS_VENUE_DATA)('resolveEventCoords - UW building and known venue', () => {
   let cache: GeoCache;
 
   beforeEach(() => {

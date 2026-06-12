@@ -3,6 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { App206Context } from './context.js'
 import { WelcomeModal, HelpModal, isCleanColdLoad } from './Onboarding.jsx'
+import cityConfig from '../../../city.config.ts'
 
 // Render a modal inside a context provider with an overridable model.
 function renderWithModel(ui, model = {}) {
@@ -39,7 +40,7 @@ describe('WelcomeModal', () => {
       </App206Context.Provider>
     )
     expect(screen.getByRole('dialog')).toBeTruthy()
-    expect(screen.getByText(/Every Seattle event, one place/i)).toBeTruthy()
+    expect(screen.getByText(`Every ${cityConfig.city.name} event, one place`)).toBeTruthy()
   })
 
   it('dismisses via "Start browsing"', () => {

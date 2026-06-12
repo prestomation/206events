@@ -22,6 +22,7 @@ import { toICS, externalConfigSchema, ExternalConfig } from "../lib/config/schem
 import { loadYamlDir } from "../lib/config/dir-loader.js";
 import { hasFutureEventsInICS } from "../lib/calendar_ripper.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords } from "../lib/geocoder.js";
+import { CITY } from "../lib/config/city.js";
 import {
     ProxyRunOutcome,
     ProxyVerificationState,
@@ -339,7 +340,7 @@ async function main() {
             ]);
             if (browserbaseNames.size > 0) {
                 try {
-                    const res = await fetch("https://206.events/build-errors.json", { signal: AbortSignal.timeout(15000) });
+                    const res = await fetch(`${CITY.site.productionUrl}/build-errors.json`, { signal: AbortSignal.timeout(15000) });
                     if (res.ok) {
                         const prod: any = await res.json();
                         const failures = new Map<string, string>(

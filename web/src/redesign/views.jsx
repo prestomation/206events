@@ -10,6 +10,7 @@ import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
+import cityConfig from '../../../city.config.ts'
 import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
 import { EventDescription } from '../components/EventDescription.jsx'
 import { bestMapHref } from '../lib/maplink.js'
@@ -686,7 +687,7 @@ export function ChannelDetail({ icsUrl }) {
           </div>
           <div className="mk-tag" style={{ marginTop: 5 }}>
             <CatDot tag={channel.primaryCategory} color={channel.color} size={7} />
-            {channel.distributed ? 'Multiple venues · Citywide' : (channel.hood || 'Seattle')}
+            {channel.distributed ? 'Multiple venues · Citywide' : (channel.hood || cityConfig.city.name)}
           </div>
         </div>
       </div>
@@ -946,7 +947,7 @@ export function EventDetail({ event }) {
           <button onClick={() => app.openChannel(event.icsUrl)} className="a-fact" style={{ textAlign: 'left', alignItems: 'center', width: '100%' }}>
             <span style={{ width: 18, height: 18, flex: '0 0 auto' }}><CatDot tag={channel.primaryCategory} color={channel.color} size={12} /></span>
             <div style={{ flex: 1, minWidth: 0 }}><div style={{ fontWeight: 600, fontSize: 14 }}>{channel.name}</div>
-              <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{channel.distributed ? 'Citywide' : (channel.hood || 'Seattle')}</div></div>
+              <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{channel.distributed ? 'Citywide' : (channel.hood || cityConfig.city.name)}</div></div>
             <span style={{ width: 15, height: 15, color: 'var(--blue)', flex: '0 0 auto' }}>{Ico.arrow}</span>
           </button>
         )}

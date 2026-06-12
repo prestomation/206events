@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'fs/promises';
 import type { GeocodeError } from './config/schema.js';
+import { CITY } from './config/city.js';
 
 export type OsmType = 'node' | 'way' | 'relation';
 
@@ -222,6 +223,14 @@ export function stripSuiteFloorSuffixes(location: string): string | null {
   if (result === location || result === '') return null;
   return result;
 }
+
+// ---------------------------------------------------------------------------
+// Seattle reference content. The lookup tables below (neighborhood centroids,
+// SPL branches, UW buildings, KNOWN_VENUE_COORDS) are city CONTENT, not engine
+// logic: their keys never match locations from another city, so they are
+// harmless for template copies and are stripped/regrown by the Phase 2
+// init-city script. See docs/city-template.md.
+// ---------------------------------------------------------------------------
 
 /**
  * Seattle neighborhood centroid table. Used as a fallback when Nominatim
@@ -687,7 +696,9 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
   }
 
   const encoded = encodeURIComponent(location);
-  const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;
+  const vb = CITY.geocoder.nominatimViewbox;
+  const viewbox = `${vb.west},${vb.south},${vb.east},${vb.north}`;
+  const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=${viewbox}&bounded=1`;
 
   // Build a 10-second abort signal. Guard the AbortSignal.timeout() call in case
   // the runtime environment doesn't support it (graceful degradation).
@@ -698,7 +709,7 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
   try {
     const res = await fetch(url, {
       headers: {
-        'User-Agent': '206.events/1.0 (https://206.events)',
+        'User-Agent': CITY.geocoder.nominatimUserAgent,
       },
       ...(signal ? { signal } : {}),
     });

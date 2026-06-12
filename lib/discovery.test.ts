@@ -19,6 +19,7 @@ import {
 } from "./discovery.js";
 import { RipperConfig, ExternalCalendar, OSM_CHECKED_COOLDOWN_DAYS } from "./config/schema.js";
 import { RecurringEvent } from "./config/recurring.js";
+import cityConfig from "../city.config.js";
 
 // ---------------------------------------------------------------------------
 // tagSlug — must stay in sync with lib/tag_aggregator.ts
@@ -99,20 +100,25 @@ describe("buildIndexJson", () => {
 // buildTagsJson
 // ---------------------------------------------------------------------------
 
+// The category assertion depends on the configured neighborhood list, so the
+// fixture uses the first configured neighborhood — "Capitol Hill" on the
+// reference instance, whatever the template copy configured otherwise.
+const HOOD = cityConfig.neighborhoods[0];
+
 describe("buildTagsJson", () => {
   const baseManifest: ManifestLike = {
     rippers: [
-      { calendars: [{ tags: ["Music", "Capitol Hill"] }] },
+      { calendars: [{ tags: ["Music", HOOD] }] },
       { calendars: [{ tags: ["Music"] }] },
     ],
     externalCalendars: [{ tags: ["Beer"] }],
-    recurringCalendars: [{ tags: ["Music", "Capitol Hill"] }],
+    recurringCalendars: [{ tags: ["Music", HOOD] }],
   };
 
   const baseCounts: EventCountLike[] = [
     { name: "some-ripper", type: "Ripper", events: 42 },
     { name: "tag-music", type: "Aggregate", events: 100 },
-    { name: "tag-capitol-hill", type: "Aggregate", events: 50 },
+    { name: `tag-${tagSlug(HOOD)}`, type: "Aggregate", events: 50 },
     { name: "tag-beer", type: "Aggregate", events: 12 },
     { name: "tag-all", type: "Aggregate", events: 200 },
   ];
@@ -128,7 +134,7 @@ describe("buildTagsJson", () => {
 
     // Sorted by name; excludes "All" by default; includes only referenced tags.
     const names = doc.tags.map(t => t.name);
-    expect(names).toEqual(["Beer", "Capitol Hill", "Music"]);
+    expect(names).toEqual(["Beer", HOOD, "Music"].sort());
 
     const music = doc.tags.find(t => t.name === "Music")!;
     expect(music.slug).toBe("music");
@@ -138,11 +144,11 @@ describe("buildTagsJson", () => {
     expect(music.links.ics.href).toBe("tag-music.ics");
     expect(music.links.rss.href).toBe("tag-music.rss");
 
-    const capHill = doc.tags.find(t => t.name === "Capitol Hill")!;
-    expect(capHill.slug).toBe("capitol-hill");
-    expect(capHill.category).toBe("Neighborhoods");
-    expect(capHill.eventCount).toBe(50);
-    expect(capHill.calendarCount).toBe(2); // 1 ripper + 1 recurring
+    const hood = doc.tags.find(t => t.name === HOOD)!;
+    expect(hood.slug).toBe(tagSlug(HOOD));
+    expect(hood.category).toBe("Neighborhoods");
+    expect(hood.eventCount).toBe(50);
+    expect(hood.calendarCount).toBe(2); // 1 ripper + 1 recurring
 
     const beer = doc.tags.find(t => t.name === "Beer")!;
     expect(beer.category).toBe("Activities");

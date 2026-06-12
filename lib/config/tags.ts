@@ -14,52 +14,17 @@
 // mode worth blocking on: two sources spelling the same concept differently
 // (`"Capitol Hill"` vs `"CapitolHill"`). Different spellings produce
 // different ICS URLs, so they should always be reconciled.
+//
+// This module is imported by the web bundle (web/src/App.jsx,
+// web/src/redesign/categories.js), so it imports the RAW city.config.ts —
+// never lib/config/city.ts — to keep Zod out of the browser bundle.
+
+import cityConfig from '../../city.config.js';
 
 export const TAG_CATEGORIES = {
-    'Neighborhoods': [
-        'Ballard',
-        'Beacon Hill',
-        'Belltown',
-        'Capitol Hill',
-        'Central District',
-        'Columbia City',
-        'Downtown',
-        'Eastlake',
-        'First Hill',
-        'Fremont',
-        'Georgetown',
-        'Green Lake',
-        'Greenwood',
-        'International District',
-        'Interbay',
-        'Kenmore',
-        'Lake City',
-        'Lake Forest Park',
-        'Madison Park',
-        'Madrona',
-        'Magnolia',
-        'Maple Leaf',
-        'Phinney',
-        'Pike Place',
-        'Pioneer Square',
-        'QueenAnne',
-        'Ravenna',
-        'Redmond',
-        'Renton',
-        'Seward Park',
-        'Shoreline',
-        'SoDo',
-        'South Lake Union',
-        'Stadium District',
-        'Tukwila',
-        'University District',
-        'Uptown',
-        'Vashon',
-        'Wallingford',
-        'Wedgwood',
-        'West Seattle',
-        'White Center',
-    ],
+    // The neighborhood list is city configuration — edit city.config.ts,
+    // not this file, to add a neighborhood tag.
+    'Neighborhoods': cityConfig.neighborhoods,
     'Activities': [
         'Art',
         'Arts',

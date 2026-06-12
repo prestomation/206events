@@ -8,6 +8,7 @@
 import { useState, useEffect } from 'react'
 import { useApp206 } from './context.js'
 import { Ico } from './icons.jsx'
+import cityConfig from '../../../city.config.ts'
 
 const TYPE_OPTIONS = [
   { id: 'general', label: 'General feedback' },
@@ -18,10 +19,10 @@ const TYPE_OPTIONS = [
 const PLACEHOLDERS = {
   general: 'What do you love, what’s missing, what would you change?',
   bug: 'What’s wrong? Which calendar or event, what you expected vs. what you saw, and a link if you have one.',
-  source: 'Which Seattle-area event source should we add? Paste the website URL and what kind of events it lists.',
+  source: `Which ${cityConfig.city.name}-area event source should we add? Paste the website URL and what kind of events it lists.`,
 }
 
-const GITHUB_NEW_ISSUE = 'https://github.com/prestomation/206events/issues/new'
+const GITHUB_NEW_ISSUE = `https://github.com/${cityConfig.site.repo}/issues/new`
 
 export function FeedbackModal() {
   const app = useApp206()

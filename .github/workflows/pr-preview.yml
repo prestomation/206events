@@ -43,8 +43,10 @@ jobs:
 
       - name: Deploy preview to Cloudflare Pages
         id: deploy
+        # CLOUDFLARE_PAGES_PROJECT repo var overrides the project name for
+        # template copies; defaults to the reference instance's project.
         run: |
-          DEPLOYMENT_URL=$(npx wrangler pages deploy output/ --project-name=206events --branch="pr-${{ github.event.number }}" 2>&1 | tee /dev/stderr | grep -oE 'https://[a-z0-9-]+\.206events\.pages\.dev' | head -1)
+          DEPLOYMENT_URL=$(npx wrangler pages deploy output/ --project-name="${PAGES_PROJECT}" --branch="pr-${{ github.event.number }}" 2>&1 | tee /dev/stderr | grep -oE "https://[a-z0-9-]+\.${PAGES_PROJECT}\.pages\.dev" | head -1)
           if [ -z "$DEPLOYMENT_URL" ]; then
             echo "ERROR: Failed to extract deployment URL from wrangler output"
             exit 1
@@ -52,6 +54,7 @@ jobs:
           echo "deployment-url=${DEPLOYMENT_URL}" >> "$GITHUB_OUTPUT"
           echo "${DEPLOYMENT_URL}" > output/deployment-url.txt
         env:
+          PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || '206events' }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
@@ -71,7 +74,7 @@ jobs:
             );
 
             const errorCount = '${{ needs.build.outputs.error-count }}';
-            const previewUrl = `${{ steps.deploy.outputs.deployment-url }}` || `https://pr-${{ github.event.number }}.206events.pages.dev`;
+            const previewUrl = `${{ steps.deploy.outputs.deployment-url }}` || `https://pr-${{ github.event.number }}.${{ vars.CLOUDFLARE_PAGES_PROJECT || '206events' }}.pages.dev`;
 
             const zeroEventCalendarsRaw = `${{ needs.build.outputs.zero-event-calendars }}`;
             const zeroEventCalendars = zeroEventCalendarsRaw.trim().split('\n').filter(Boolean);

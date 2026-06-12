@@ -1,4 +1,5 @@
 import { stripHtml } from './html.js'
+import cityConfig from '../../../city.config.ts'
 
 // Formats a Date as a UTC iCalendar timestamp (YYYYMMDDTHHMMSSZ).
 export function formatICSDate(date) {
@@ -24,7 +25,7 @@ export function generateICS({ title, startDate, endDate, description, location, 
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//206.events//EN',
+    `PRODID:-//${cityConfig.ics.prodId}//EN`,
     'BEGIN:VEVENT',
     `DTSTART:${start}`,
     `DTEND:${end}`,

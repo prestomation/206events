@@ -2,7 +2,14 @@ import { describe, expect, test } from 'vitest';
 import { RipperLoader, loadRipper } from './loader.js';
 import { SquarespaceRipper } from './squarespace.js';
 
-describe('Config Load', () => {
+import { readdirSync } from 'fs';
+
+// These tests load the real sources/ tree, which `npm run init-city`
+// empties for template copies — self-skip when there are no rippers.
+const SOURCE_DIR_COUNT = readdirSync('sources', { withFileTypes: true })
+    .filter(d => d.isDirectory() && d.name !== 'external' && d.name !== 'recurring').length;
+
+describe.skipIf(SOURCE_DIR_COUNT === 0)('Config Load', () => {
     test('All configs load without errors', async () => {
             const loader = new RipperLoader("sources/");
             const [configs, errors] = await loader.loadConfigs();

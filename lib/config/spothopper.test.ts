@@ -2,13 +2,18 @@ import { describe, it, expect, beforeAll, afterAll, vi } from 'vitest';
 import { SpotHopperRipper } from './spothopper.js';
 import { ZoneId } from '@js-joda/core';
 import '@js-joda/timezone';
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import * as path from 'path';
 import { parse } from 'node-html-parser';
 
 const timezone = ZoneId.of('America/Los_Angeles');
 
-describe('SpotHopperRipper', () => {
+// Sample data lives in the (Seattle) a_stir source dir, which `npm run
+// init-city` deletes for template copies — the suite self-skips when gone.
+const SAMPLE_PATH = path.join(process.cwd(), 'sources/a_stir/sample-data.html');
+const HAVE_SAMPLE = existsSync(SAMPLE_PATH);
+
+describe.skipIf(!HAVE_SAMPLE)('SpotHopperRipper', () => {
     // The sample HTML has hard-coded event dates from when it was captured.
     // SpotHopperRipper.parseEvents drops one-time events older than 6 hours
     // ago (live-build behavior), so without a fixed clock the test count
@@ -25,10 +30,7 @@ describe('SpotHopperRipper', () => {
     const ripper = new SpotHopperRipper();
 
     describe('parseEvents with sample data', () => {
-        const sampleHtml = readFileSync(
-            path.join(process.cwd(), 'sources/a_stir/sample-data.html'),
-            'utf-8'
-        );
+        const sampleHtml = HAVE_SAMPLE ? readFileSync(SAMPLE_PATH, 'utf-8') : '';
 
         it('parses events from sample HTML', () => {
             const { events, errors } = ripper.parseEvents(sampleHtml, timezone);

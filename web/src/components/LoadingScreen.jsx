@@ -1,13 +1,14 @@
 // Branded full-screen loader shown while the app's core data loads. Mirrors
-// the pre-paint boot splash in index.html (same "206" mark + breathing pulse
+// the pre-paint boot splash in index.html (same logo mark + breathing pulse
 // and sliding progress bar) so the hand-off from the inline boot screen to
-// React is seamless, then adds a cycling Seattle-flavored status line. Wrapped
-// in `.app206` to inherit the warm "paper" palette.
+// React is seamless, then adds a cycling status line. Wrapped in `.app206`
+// to inherit the warm "paper" palette.
 
 import { useEffect, useState } from 'react'
+import cityConfig from '../../../city.config.ts'
 
 const MESSAGES = [
-  "Gathering Seattle's calendars…",
+  `Gathering ${cityConfig.city.name}'s calendars…`,
   'Rounding up the venues…',
   'Sorting the week ahead…',
   'Tuning the dials…',
@@ -30,8 +31,8 @@ export function LoadingScreen({ message }) {
   const line = message || MESSAGES[idx]
 
   return (
-    <div className="mk app206 loading-screen" role="status" aria-busy="true" aria-label="Loading 206.events">
-      <div className="loading-mark">206</div>
+    <div className="mk app206 loading-screen" role="status" aria-busy="true" aria-label={`Loading ${cityConfig.site.name}`}>
+      <div className="loading-mark">{cityConfig.site.bootLogoText}</div>
       <div className="loading-bar" aria-hidden="true" />
       <div className="loading-screen-msg" key={line}>{line}</div>
     </div>

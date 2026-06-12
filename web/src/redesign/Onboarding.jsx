@@ -5,6 +5,7 @@
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { Modal } from './atoms.jsx'
+import cityConfig from '../../../city.config.ts'
 
 // The welcome card only appears on a plain Discover entry — never when the
 // initial URL deep-links into a specific event/channel, another section, or a
@@ -14,10 +15,10 @@ export function isCleanColdLoad(initialUrl) {
     !initialUrl.event && !initialUrl.q && !initialUrl.category && !initialUrl.neighborhood
 }
 
-// The three steps that turn 206.events from "a wall of events" into "events in
+// The three steps that turn the site from "a wall of events" into "events in
 // my own calendar app". Shared by the welcome card.
 const STEPS = [
-  { icon: Ico.grid, title: 'Browse', body: 'Every Seattle event from ~300 venues and organizations, in one place.' },
+  { icon: Ico.grid, title: 'Browse', body: `Every ${cityConfig.city.name} event from ~300 venues and organizations, in one place.` },
   { icon: Ico.heart, title: 'Follow what you like', body: 'Calendars, neighborhoods, or saved searches build a personal feed.' },
   { icon: Ico.cal, title: 'Subscribe once', body: 'Add a single feed to Google, Apple, or Outlook — it updates itself.' },
 ]
@@ -36,10 +37,10 @@ export function WelcomeModal() {
     </>
   )
   return (
-    <Modal title="Every Seattle event, one place" onClose={app.dismissWelcome} footer={footer}
+    <Modal title={`Every ${cityConfig.city.name} event, one place`} onClose={app.dismissWelcome} footer={footer}
       labelledBy="a-welcome-title">
       <p className="a-dlg-lead">
-        206.events gathers events from across Seattle so you can find what’s on —
+        {cityConfig.site.name} gathers events from across {cityConfig.city.name} so you can find what’s on —
         browse it all right here, or pipe it straight into the calendar app you
         already use.
       </p>
@@ -62,7 +63,7 @@ export function HelpModal() {
   const app = useApp206()
   if (!app.helpOpen) return null
   return (
-    <Modal title="How 206.events works" onClose={app.closeHelp} labelledBy="a-help-title">
+    <Modal title={`How ${cityConfig.site.name} works`} onClose={app.closeHelp} labelledBy="a-help-title">
       <p className="a-dlg-lead">
         Everything here is a calendar feed. There are three ways to use it —
         pick whichever fits how you keep track of things.

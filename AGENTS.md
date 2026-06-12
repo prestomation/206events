@@ -14,6 +14,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/event-lookup/SKILL.md`** — Fuzzy-search the published `events-index.json` / `manifest.json` / `venues.json` to answer "is this event already in 206.events, and which source covers it?"
 - **`skills/proxy-escalation/SKILL.md`** — Read the non-fatal `pendingProxyVerification` queue and open PRs that climb the proxy ladder (`outofband → browserbase`) after 3 consecutive failures, or retire a source (disable + mark `blocked`) when browserbase is exhausted
 - **`skills/source-from-event/SKILL.md`** — Default handler for any **event poster image** (or text request describing an event the user wants covered). Uses `event-lookup` to check coverage, then either reports it's covered, hands off a parse-gap fix to `build-report`, or hands off a new-source add to `source-discovery`
+- **`skills/city-setup/SKILL.md`** — One-time setup for a fresh copy of this template repo: runs `npm run init-city` (Seattle content strip + `city.config.ts` regeneration), tunes the derived geography, and walks the operator through secrets/services and first sources. Never run on the reference instance
 
 ## Adding New Calendar Sources
 
@@ -66,6 +67,8 @@ When working with this codebase, please review the steering file first to unders
 The steering file provides essential context for making informed decisions about code changes, new feature implementations, and maintaining consistency with the existing architecture.
 
 ### Development Workflow
+
+> **Note for template copies:** steps that mention Amazon Q (`/q review`, waiting for Q's pass, the re-review template) apply only when Amazon Q Developer is installed on the repository. On a copy without Q, skip those steps and treat human review as the gate — everything else below applies as written.
 
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
@@ -356,7 +359,7 @@ Tags drive the aggregate calendar system — each unique tag produces a `tag-<na
 
 1. Check `lib/config/tags.ts` (`TAG_CATEGORIES`) for an existing tag that fits. Use it if one exists.
 2. Before introducing a new tag, search all config files for similar names to avoid near-duplicates. The tag name becomes part of the ICS URL (`tag-<lowercased>.ics`), so different spellings create separate calendars.
-3. Use the tag in the source's `tags` array in its YAML config — that's it. Optionally add it to `TAG_CATEGORIES` so the website sidebar groups it under a real category instead of "Other"; uncategorized tags still appear in the UI.
+3. Use the tag in the source's `tags` array in its YAML config — that's it. Optionally add it to `TAG_CATEGORIES` so the website sidebar groups it under a real category instead of "Other"; uncategorized tags still appear in the UI. **Neighborhood tags are the exception**: the `Neighborhoods` category is populated from the `neighborhoods` list in `city.config.ts` (the central city configuration — see `docs/city-template.md`), so register a new neighborhood there, not in `tags.ts`.
 
 ### Tag naming conventions
 

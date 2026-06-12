@@ -54,6 +54,7 @@ import { loadYamlDir } from "./config/dir-loader.js";
 import { PendingProxyVerificationItem } from "./proxy-verification.js";
 import { LocalDate } from "@js-joda/core";
 import { detectTagDuplicates } from "./config/tags.js";
+import { CITY } from "./config/city.js";
 import {
   buildIndexJson,
   buildTagsJson,
@@ -71,7 +72,7 @@ import ICAL from "ical.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const SITE_BASE_URL = process.env.SITE_BASE_URL || "https://206.events/";
+const SITE_BASE_URL = process.env.SITE_BASE_URL || CITY.site.baseUrl;
 
 /**
  * Check if ICS content contains any events with a start date on or after today.
@@ -965,7 +966,7 @@ export const main = async () => {
       // Create empty calendar file as fallback
       const emptyCalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//206.events//External Calendar Error//EN
+PRODID:-//${CITY.ics.prodId}//External Calendar Error//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:${calendar.friendlyname} (Error)
@@ -1394,7 +1395,7 @@ END:VCALENDAR`;
   // fall back to a content-type HEAD check: actual ICS files are served as
   // "text/calendar"; the SPA catch-all always returns "text/html".
   const knownDeployed = new Set<string>();
-  const productionUrl = process.env.PRODUCTION_URL || "https://206.events";
+  const productionUrl = process.env.PRODUCTION_URL || CITY.site.productionUrl;
   const allCalendarNames = eventCounts.map(c => c.name);
 
   // Step 1: fetch production manifest.json to get all deployed ICS URLs.
@@ -1868,10 +1869,16 @@ END:VCALENDAR`;
       console.warn(`Warning: could not mirror geo-cache.json into output/: ${(e as Error).message}`);
     }
 
-    // llms.txt — static usage info for LLM crawlers (llmstxt.org convention)
+    // llms.txt — static usage info for LLM crawlers (llmstxt.org convention).
+    // The template carries {{TOKENS}} for the city-specific values; see
+    // city.config.ts.
     const llmsTxtPath = join(__dirname, "templates", "llms.txt");
     try {
-      const llmsTxt = await readFile(llmsTxtPath, "utf8");
+      const llmsTxt = (await readFile(llmsTxtPath, "utf8"))
+        .replaceAll("{{SITE_NAME}}", CITY.site.name)
+        .replaceAll("{{SITE_URL}}", siteUrl)
+        .replaceAll("{{CITY_NAME}}", CITY.city.name)
+        .replaceAll("{{REPO}}", CITY.site.repo);
       await writeFile("output/llms.txt", llmsTxt);
     } catch (e) {
       console.warn(`Warning: could not read llms.txt template at ${llmsTxtPath}: ${(e as Error).message}`);
