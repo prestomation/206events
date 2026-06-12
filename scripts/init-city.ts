@@ -359,13 +359,21 @@ export async function buildActions(root: string, cfg: CityConfig): Promise<Strip
     add("delete outofband-report.json", () =>
         rm(join(root, "outofband-report.json"), { force: true }));
 
-    // 7. Geocoder Seattle lookup tables → empty stubs
+    // 7. Discord notification workflow — reference-instance specific (hardcoded
+    // role mention, 206events defaults). The workflow is self-contained (its
+    // workflow_run triggers live inside it), so deleting it breaks nothing.
+    // Copies that want Discord restore it from upstream and set
+    // DISCORD_WEBHOOK_CALENDAR (see docs/SETUP.md).
+    add("delete .github/workflows/notify-discord.yml", () =>
+        rm(join(root, ".github", "workflows", "notify-discord.yml"), { force: true }));
+
+    // 8. Geocoder Seattle lookup tables → empty stubs
     add("empty the Seattle lookup tables in lib/geocoder.ts", async () => {
         const path = join(root, "lib", "geocoder.ts");
         await writeFile(path, emptyGeocoderTables(await readFile(path, "utf8")));
     });
 
-    // 8. Files that cannot import the config: sw.js brand strings, README, ideas.md
+    // 9. Files that cannot import the config: sw.js brand strings, README, ideas.md
     add("rebrand web/src/sw.js", async () => {
         const path = join(root, "web", "src", "sw.js");
         const sw = await readFile(path, "utf8");

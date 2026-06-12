@@ -51,7 +51,8 @@ npm run init-city -- --answers my-city.json --yes
 ```
 
 This regenerates `city.config.ts` for your city and permanently deletes the
-Seattle content (sources, candidate docs, caches, geocoder lookup tables).
+Seattle content (sources, candidate docs, caches, geocoder lookup tables,
+and the Seattle-specific Discord notification workflow).
 Afterwards, open `city.config.ts` and hand-tune the derived geographic
 boxes — `map.clampBounds` should hug your populated metro,
 `geocoder.nominatimViewbox` slightly larger, `venueSanityBbox` a generous
@@ -66,8 +67,10 @@ npm run generate-calendars   # zero sources — must complete with 0 errors
 ```
 
 Content-coupled tests self-skip on a stripped copy; everything else must
-pass. Commit the result on a branch and merge it — this is your instance's
-baseline.
+pass. Commit the result on a branch, but **before opening the PR** set up
+Cloudflare (step 4) so the PR preview can deploy, and install Amazon Q
+(step 8) so the PR gets reviewed. Then open and merge it — this is your
+instance's baseline.
 
 ## 4. Cloudflare Pages (required — this is the site hosting)
 
@@ -115,8 +118,11 @@ rung 3 of the proxy ladder — JS-challenge bypass).
 
 ### Discord notifications
 
-Set the `DISCORD_WEBHOOK_CALENDAR` secret to a channel webhook URL. Build
-results and actionable queues (uncertain events, photo/cost gaps, proxy
+`init-city` deletes the Seattle-specific notification workflow. To enable
+Discord on your copy, restore `.github/workflows/notify-discord.yml` from
+the upstream repo (adjusting the hardcoded role mention), then set the
+`DISCORD_WEBHOOK_CALENDAR` secret to a channel webhook URL. Build results
+and actionable queues (uncertain events, photo/cost gaps, proxy
 escalations) get posted after each run.
 
 ### Claude Code routines (the self-maintaining part)
@@ -167,10 +173,13 @@ Worker** workflow, then set the `FAVORITES_API_URL` repo variable.
 
 ## 8. Code review tooling
 
-`AGENTS.md` describes a PR flow that uses Amazon Q Developer (`/q review`).
-Q is **optional** — if it isn't installed on your repo, skip the
-`/q review` steps and treat human review as the gate; everything else in
-the workflow applies as written.
+The agent workflow in `AGENTS.md` asks Amazon Q Developer for a code
+review on every PR (the `/q review` comments). Install it on your repo —
+ideally before your first PR — from the GitHub Marketplace:
+<https://github.com/marketplace/amazon-q-developer>. If it isn't
+installed, the `/q review` comments are inert; skip those steps and treat
+human review as the gate — everything else in the workflow applies as
+written.
 
 ## 9. Staying current with the upstream engine
 

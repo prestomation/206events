@@ -131,6 +131,8 @@ describe("buildActions", () => {
         await writeFile(join(root, "docs", "discovery-log", "2026-01-01.md"), "log\n");
         await mkdir(join(root, "allowed-removals"), { recursive: true });
         await writeFile(join(root, "allowed-removals", "old.ics"), "");
+        await mkdir(join(root, ".github", "workflows"), { recursive: true });
+        await writeFile(join(root, ".github", "workflows", "notify-discord.yml"), "name: Discord Notifications\n");
         return root;
     }
 
@@ -144,6 +146,7 @@ describe("buildActions", () => {
         expect(descs).toContain("delete sources/recurring/market.yaml");
         expect(descs).toContain("delete docs/source-candidates/a-venue.md");
         expect(descs).toContain("delete allowed-removals/old.ics");
+        expect(descs).toContain("delete .github/workflows/notify-discord.yml");
         expect(descs).toContain("reset event-uncertainty-cache.json to the empty baseline");
         expect(descs).toContain("empty the Seattle lookup tables in lib/geocoder.ts");
         // The external/ and recurring/ dirs themselves are never deleted,
@@ -164,6 +167,7 @@ describe("buildActions", () => {
         expect(await readdir(join(root, "sources", "external"))).toEqual([".gitkeep"]);
         expect(await readdir(join(root, "docs", "source-candidates"))).toEqual(["README.md"]);
         expect(await readdir(join(root, "allowed-removals"))).toEqual([".gitkeep"]);
+        expect(await readdir(join(root, ".github", "workflows"))).toEqual([]);
     });
 });
 
