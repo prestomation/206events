@@ -55,6 +55,9 @@ describe("BenaroyaHallRipper", () => {
     let mockFetch: ReturnType<typeof vi.fn>;
 
     beforeEach(() => {
+        // The ripper reads its Sitecore key from the environment; fetch is mocked
+        // so the value is irrelevant, but it must be present for rip() to proceed.
+        process.env.BENAROYA_SITECORE_API_KEY = "test-sitecore-key";
         mockFetch = vi.fn().mockResolvedValue({
             ok: true,
             status: 200,
@@ -65,6 +68,7 @@ describe("BenaroyaHallRipper", () => {
     });
 
     afterEach(() => {
+        delete process.env.BENAROYA_SITECORE_API_KEY;
         vi.restoreAllMocks();
         vi.unstubAllGlobals();
     });

@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "postinstall": "cd web && npm ci",
+    "prepare": "git config core.hooksPath scripts/git-hooks || true",
+    "setup-hooks": "git config core.hooksPath scripts/git-hooks",
     "test": "c8 vitest run",
     "test:watch": "vitest",
     "test:web": "cd web && npx vitest run",

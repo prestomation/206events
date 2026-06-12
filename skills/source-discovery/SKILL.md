@@ -172,6 +172,40 @@ To implement:
    `ONLY_SOURCE` restricts the build to that one source (skipping every other source's fetch+parse and the new-source/deployed-site gates), so iteration is fast and outgoing traffic stays scoped to the source being added. The fetch cache (`docs/fetch-cache.md`) fetches it live only once; re-runs re-parse the cached body with no network, so you can iterate on parsing freely.
 4. **Push and open PR**: `scripts/push_and_pr.sh`
 
+#### 6a. Sources that need a credential (API key / token / secret)
+
+Some sources require an API key, token, or other credential to fetch (Algolia
+search keys, Supabase anon keys, Sitecore read keys, etc.). Even when that
+credential is "public" (served in the site's own client-side JS and gated to
+read-only access), **never hardcode it in a ripper or commit it in a fixture** —
+committed keys trip secret scanners and create noise for the key's owner. The
+repo enforces this with gitleaks (CI + pre-commit); a hardcoded key will fail
+the build. Instead:
+
+1. **Read it from the environment.** Use `process.env.<SOURCE>_<NAME>` (e.g.
+   `CANDLELIGHT_ALGOLIA_API_KEY`). Mirror the guard in
+   `lib/config/ticketmaster.ts`: if the env var is missing, return the
+   calendars with a per-calendar `ParseError` ("…environment variable is not
+   set") and zero events — **do not throw**, and do not fall back to a
+   hardcoded literal.
+2. **Wire it up.** Add a placeholder line to `.env.example` (empty value + a
+   comment on where the value comes from) and add the secret reference to the
+   `Generate calendars` step's `env:` block in
+   `.github/workflows/build-calendars.yml`
+   (`<NAME>: ${{ secrets.<NAME> }}`).
+3. **Assume the secret is NOT set yet** — it has to be added to GitHub by
+   Preston. The source will report zero events in CI until then, so call this
+   out loudly in **both**:
+   - the **PR body** — a line like
+     `⚠️ Action required: add repo secret \`<NAME>\` (Settings → Secrets and variables → Actions) before merging, or this source will report zero events.`
+   - the **chat report** — repeat the same "you need to add secret `<NAME>` to
+     GitHub" note so it isn't missed.
+
+Because the source can't be verified green until the secret exists, treat it
+like a proxy source for the new-source gate: leave the candidate as
+`🔍 Investigating` (not `❌ Not Viable`) until Preston confirms the secret is set
+and CI shows events.
+
 ### 7. Verify events and iterate with Q
 
 After the PR is open:
@@ -228,6 +262,7 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Proxy escalation is one rung at a time** — never skip from `proxy: false` directly to `proxy: "browserbase"`. Try rung 1 (direct fetch), then rung 2 (`proxy: "outofband"`), then rung 3 (`proxy: "browserbase"`). Each escalation is a separate PR so you can observe the failure. If the source is inaccessible even locally (CAPTCHA, Cloudflare, connection refused), record it as `status: blocked` in `docs/source-candidates/<slug>.md` with notes on what you observed, and do not implement it.
 - **A 404 is not "not viable"** — it means the URL was wrong. Update the candidate to `🔍 Investigating` and keep searching for the correct URL. Only mark `❌ Not Viable` when no working URL can be found after investigation.
 - **Iterate with Q until clean** — don't request human review until Amazon Q has no blocking comments.
+- **Never hardcode source credentials** — when a source needs an API key/token/secret, read it from `process.env.<SOURCE>_<NAME>` (guard a missing value with a `ParseError`, never a hardcoded fallback), wire it into `.env.example` and the build workflow, and tell Preston to add the repo secret **in both the PR body and the chat report**. Hardcoded keys fail the gitleaks scan. See step 6a.
 - **Parse methods must never return null** — new custom rippers must have parse methods that return `RipperCalendarEvent | RipperError` (never `null`). Filters and dedup belong in the caller, not the parse method. TypeScript enforces this at compile time. See AGENTS.md "Parse Methods Must Never Return Null" for the required pattern.
 - **Prefer venue websites over showlists** — when a venue has its own website with event listings (e.g., neumos.com, thebarboza.com), use a dedicated ripper for that venue's site instead of relying on the showlists aggregator. Venue websites are the authoritative source for dates, times, ticket links, and images. When adding a dedicated source for a venue that showlists covers, mark it `skip: true` in showlists `VENUE_CONFIG`, remove its calendar entry from the showlists `ripper.yaml`, and add an empty file `allowed-removals/<name>.ics` (e.g., `allowed-removals/seattle-showlists-barboza.ics`) so the missing-URL check passes.
 - **Check showlists sub-calendars** — `loadCalendarInventory()` lists sources (one per `ripper.yaml`), not sub-calendars. Multi-calendar sources like `seattle-showlists` appear as a single entry. Before proposing a "new" venue, check if it's already a sub-calendar inside an existing ripper (e.g., `seattle-showlists/ripper.yaml` calendars section and `VENUE_CONFIG`).

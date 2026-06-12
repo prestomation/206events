@@ -4,28 +4,43 @@ import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 const ALGOLIA_APP_ID = 'I80Y2BQLSL';
-const ALGOLIA_API_KEY = 'e4226055c240f9e38e89794dcfb91766';
 const ALGOLIA_INDEX = 'Fever-SEA';
 const ALGOLIA_URL = `https://${ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/${ALGOLIA_INDEX}/query`;
 
 export default class CandlelightRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const cal = ripper.config.calendars[0];
+        // Public, search-only Algolia API key — read from the environment so it
+        // isn't committed. Set CANDLELIGHT_ALGOLIA_API_KEY as a repo secret /
+        // local .env var.
+        const apiKey = process.env.CANDLELIGHT_ALGOLIA_API_KEY;
+        if (!apiKey) {
+            return [{
+                name: cal.name,
+                friendlyname: cal.friendlyname,
+                events: [],
+                errors: [{ type: "ParseError", reason: "CANDLELIGHT_ALGOLIA_API_KEY environment variable is not set", context: cal.name }],
+                parent: ripper.config,
+                tags: cal.tags || [],
+            }];
+        }
+
         const fetchFn = getFetchForConfig(ripper.config);
-        const hits = await this.fetchAllHits(fetchFn);
-        const timezone = ripper.config.calendars[0].timezone;
+        const hits = await this.fetchAllHits(fetchFn, apiKey);
+        const timezone = cal.timezone;
         const events = this.parseEvents(hits, ZoneId.of(timezone.id()));
 
         return [{
-            name: ripper.config.calendars[0].name,
-            friendlyname: ripper.config.calendars[0].friendlyname,
+            name: cal.name,
+            friendlyname: cal.friendlyname,
             events: events.filter(e => "date" in e) as RipperCalendarEvent[],
             errors: events.filter(e => "type" in e) as RipperError[],
             parent: ripper.config,
-            tags: ripper.config.calendars[0].tags || [],
+            tags: cal.tags || [],
         }];
     }
 
-    private async fetchAllHits(fetchFn: FetchFn): Promise<any[]> {
+    private async fetchAllHits(fetchFn: FetchFn, apiKey: string): Promise<any[]> {
         const hits: any[] = [];
         let page = 0;
 
@@ -34,7 +49,7 @@ export default class CandlelightRipper implements IRipper {
                 method: 'POST',
                 headers: {
                     'X-Algolia-Application-Id': ALGOLIA_APP_ID,
-                    'X-Algolia-API-Key': ALGOLIA_API_KEY,
+                    'X-Algolia-API-Key': apiKey,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ params: `query=candlelight&hitsPerPage=50&page=${page}` }),
