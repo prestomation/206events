@@ -3,11 +3,14 @@ description: "Museum of Flight"
 url: "https://www.museumofflight.org/CMSAjax/CalendarListing"
 friendlyLink: https://www.museumofflight.org/exhibits-and-events/calendar-of-events
 tags: ["Museums", "Education", "Georgetown"]
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/Museum_of_Flight%2C_Seattle.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/08/Museum_of_Flight\
+  %2C_Seattle.jpg"
 geo:
   lat: 47.5183592
   lng: -122.2964955
   label: "Museum of Flight, 9404 E. Marginal Way S, Seattle, WA 98108"
+  osmType: way
+  osmId: 34746147
 calendars:
   - name: museum-of-flight
     friendlyname: "Museum of Flight"

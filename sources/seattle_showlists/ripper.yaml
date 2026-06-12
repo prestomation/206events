@@ -34,7 +34,8 @@ calendars:
       venue: "Baba Yaga"
   - name: central-saloon
     friendlyname: "Central Saloon"
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Seattle_-_Central_Tavern%2C_1970s_%2853502918631%29_%28cropped%29.jpg"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Seattle_-_Centra\
+      l_Tavern%2C_1970s_%2853502918631%29_%28cropped%29.jpg"
     geo:
       lat: 47.6006
       lng: -122.3344
@@ -83,7 +84,8 @@ calendars:
   # --- Ballard ---
   - name: conor-byrne-pub
     friendlyname: "Conor Byrne Pub"
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Ballard_-_Conor_Byrne.jpg"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Ballard_-_Conor_\
+      Byrne.jpg"
     geo:
       lat: 47.6655
       lng: -122.3819
@@ -114,7 +116,8 @@ calendars:
       venue: "Black &amp; Tan Hall" # server sends HTML entity in venue name
   - name: the-royal-room
     friendlyname: "The Royal Room"
-    imageUrl: "https://www.theroyalroomseattle.com/wp-content/uploads/2019/04/NewWorks_2012-1024x791.jpg"
+    imageUrl: "https://www.theroyalroomseattle.com/wp-content/uploads/2019/04/NewWo\
+      rks_2012-1024x791.jpg"
     geo:
       lat: 47.5569
       lng: -122.2843
@@ -130,7 +133,8 @@ calendars:
   # The Triple Door has a dedicated ripper at sources/triple_door/
   - name: the-rabbit-box
     friendlyname: "The Rabbit Box"
-    imageUrl: "https://images.squarespace-cdn.com/content/v1/61aa99f150d66370047bc15a/f62f1940-10b8-4681-9dce-79a00bbb9e5a/Rabbit_Box_Hero_Image_04.png"
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/61aa99f150d66370047bc1\
+      5a/f62f1940-10b8-4681-9dce-79a00bbb9e5a/Rabbit_Box_Hero_Image_04.png"
     geo:
       lat: 47.6105
       lng: -122.3425
@@ -146,12 +150,13 @@ calendars:
   # --- Eastlake ---
   - name: black-lodge
     friendlyname: "Black Lodge"
-    imageUrl: "https://images.squarespace-cdn.com/content/v1/631b91c4dca71e1c72c4ee2d/ab7f3ab9-a4e8-4f8c-af67-77be0c76e35a/blacklodgevera__1_.jpeg"
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/631b91c4dca71e1c72c4ee\
+      2d/ab7f3ab9-a4e8-4f8c-af67-77be0c76e35a/blacklodgevera__1_.jpeg"
     geo:
       lat: 47.6231
       lng: -122.3539
       label: "Black Lodge, 305 Harrison St, Seattle, WA 98109"
-      osmChecked: 2026-05-18
+      osmChecked: 2026-06-12
     timezone: America/Los_Angeles
     tags: ["Eastlake"]
     config:
@@ -174,7 +179,8 @@ calendars:
 
   - name: slims-last-chance
     friendlyname: "Slim's Last Chance"
-    imageUrl: "https://static.wixstatic.com/media/c1aac0_9a02b42c0f2549cb853ca88264932a46~mv2.jpg"
+    imageUrl: "https://static.wixstatic.com/media/c1aac0_9a02b42c0f2549cb853ca88264\
+      932a46~mv2.jpg"
     geo:
       lat: 47.5519
       lng: -122.3313
@@ -203,7 +209,8 @@ calendars:
       venue: "Add-A-Ball"
   - name: nectar-lounge
     friendlyname: "Nectar Lounge"
-    imageUrl: "https://nectarlounge.com/files/2019/08/nectar-lounge-about-venue-featured.jpg"
+    imageUrl: "https://nectarlounge.com/files/2019/08/nectar-lounge-about-venue-fea\
+      tured.jpg"
     geo:
       lat: 47.6521
       lng: -122.3542
@@ -252,7 +259,8 @@ calendars:
   # --- University District ---
   - name: blue-moon-tavern
     friendlyname: "Blue Moon Tavern"
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Blue_Moon_sign_1993.jpg"
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c0/Blue_Moon_sign_1\
+      993.jpg"
     geo:
       lat: 47.6615
       lng: -122.32
@@ -272,7 +280,7 @@ calendars:
       lat: 47.5507
       lng: -122.3525
       label: "Skylark, 3803 Delridge Way SW, Seattle, WA 98106"
-      osmChecked: 2026-05-24
+      osmChecked: 2026-06-12
     timezone: America/Los_Angeles
     tags: ["West Seattle"]
     config:

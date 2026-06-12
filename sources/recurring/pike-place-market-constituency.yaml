@@ -1,10 +1,14 @@
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Pike_Place_Market_Seattle.jpg"
 geo:
   lat: 47.6094
   lng: -122.3414
   label: "Pike Place Market, 93 Pike Street #317, 3rd Floor, Seattle, WA 98101"
+  osmType: way
+  osmId: 363400641
 name: pike-place-market-constituency
 friendlyname: Pike Place Market Constituency
-description: Public meetings of the Pike Place Market Constituency, the primary mechanism for community participation in governance of Pike Place Market.
+description: Public meetings of the Pike Place Market Constituency, the primary
+  mechanism for community participation in governance of Pike Place Market.
 timezone: America/Los_Angeles
 location: "Pike Place Market, 93 Pike Street #317, 3rd Floor, Seattle, WA 98101"
 url: "https://www.pikeplacemarketconstituency.org/meetings-events"

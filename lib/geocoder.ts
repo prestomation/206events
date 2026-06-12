@@ -553,6 +553,8 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'edmonds bookshop': { lat: 47.8101795, lng: -122.3774160 },
   // Workhorse Coworking Edmonds: 123 2nd Ave S Suite 230, Edmonds, WA (stripSuiteFloorSuffixes leaves "230" dangling)
   'workhorse coworking, 123 2nd avenue south, #suite 230, edmonds, wa': { lat: 47.8107897, lng: -122.3809867 },
+  // Seatoday intersection: Nominatim can't parse "Ave. North" suffix — bus stop node confirms coords
+  'west crockett street and queen anne ave. north, seattle, wa': { lat: 47.6368215, lng: -122.3570590 },
 };
 
 /**
