@@ -3,10 +3,11 @@ import { Duration, ZonedDateTime, ZoneOffset } from "@js-joda/core";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
-// Public anon key — intentionally visible in the site's client-side JS bundle.
-// Override via env var to allow key rotation without a code change.
+// The Supabase URL is an endpoint (not a secret) and keeps its default. The
+// public, read-only anon key is read from the environment inside rip() so it
+// isn't committed — set PIONEER_SQUARE_MARKET_ANON_KEY as a repo secret / local
+// .env var.
 const SUPABASE_URL = process.env.PIONEER_SQUARE_MARKET_SUPABASE_URL || "https://wbgpmtpprcdxfmttrrzv.supabase.co";
-const ANON_KEY = process.env.PIONEER_SQUARE_MARKET_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndiZ3BtdHBwcmNkeGZtdHRycnp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEwNDIwMTQsImV4cCI6MjA1NjYxODAxNH0.oC1hP574sRJUXH0VgPnO2BS9SyotaUm8YXIKtgBe508";
 const BASE_EVENT_URL = "https://pioneersquaremarket.net/events";
 const DEFAULT_DURATION_HOURS = 3;
 
@@ -35,8 +36,21 @@ interface PublicEvent {
 
 export default class PioneerSquareMarketRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
-        const fetchFn = getFetchForConfig(ripper.config);
         const calConfig = ripper.config.calendars[0];
+        const ANON_KEY = process.env.PIONEER_SQUARE_MARKET_ANON_KEY;
+
+        if (!ANON_KEY) {
+            return [{
+                name: calConfig.name,
+                friendlyname: calConfig.friendlyname,
+                events: [],
+                errors: [{ type: "ParseError", reason: "PIONEER_SQUARE_MARKET_ANON_KEY environment variable is not set", context: calConfig.name }],
+                tags: calConfig.tags ?? ripper.config.tags ?? [],
+                parent: ripper.config,
+            }];
+        }
+
+        const fetchFn = getFetchForConfig(ripper.config);
 
         const now = ZonedDateTime.now(ZoneOffset.UTC);
         const isoNow = `${now.year()}-${String(now.monthValue()).padStart(2, '0')}-${String(now.dayOfMonth()).padStart(2, '0')}T00:00:00Z`;

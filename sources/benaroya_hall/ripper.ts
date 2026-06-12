@@ -36,13 +36,12 @@ import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 
 const GRAPHQL_ENDPOINT =
     "https://www.seattlesymphony.org/sitecore/api/graph/items/web";
-// Public, read-only Sitecore Item Service key, extracted from the site's
-// published appjs.js bundle. This is NOT a secret: it is served to every
-// browser visitor and can be read from any network tab; it gates anonymous
-// read access to published content only, never writes or private data. A
-// runnable ripper needs it, which is why it is committed. If it ever rotates,
-// re-read it from the bundle (search appjs.js for `items/web?sc_apikey=`).
-const SC_APIKEY = "382CF404-7810-4680-9FFC-C648DE4050AE";
+// Public, read-only Sitecore Item Service key. It gates anonymous read access
+// to published content only (never writes or private data) and is served to
+// every browser visitor, but we read it from the environment (inside rip())
+// rather than committing it. Set BENAROYA_SITECORE_API_KEY as a repo secret /
+// local .env var. If it ever rotates, re-read it from the site's published
+// appjs.js bundle (search for `items/web?sc_apikey=`).
 
 const EVENTS_ROOT = "/sitecore/content/Shared Content/Events";
 const SITE_ORIGIN = "https://www.seattlesymphony.org";
@@ -92,8 +91,27 @@ interface CalendarRoute {
 
 export default class BenaroyaHallRipper implements IRipper {
     private fetchFn: FetchFn = (url, init) => fetch(url, init);
+    private scApiKey = "";
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const scApiKey = process.env.BENAROYA_SITECORE_API_KEY;
+        if (!scApiKey) {
+            const error: RipperError = {
+                type: "ParseError",
+                reason: "BENAROYA_SITECORE_API_KEY environment variable is not set",
+                context: GRAPHQL_ENDPOINT,
+            };
+            return ripper.config.calendars.map((cal) => ({
+                name: cal.name,
+                friendlyname: cal.friendlyname,
+                events: [],
+                errors: [error],
+                parent: ripper.config,
+                tags: cal.tags || [],
+            }));
+        }
+        this.scApiKey = scApiKey;
+
         this.fetchFn = getFetchForConfig(ripper.config);
 
         const routes: CalendarRoute[] = ripper.config.calendars.map((cal) => ({
@@ -144,7 +162,7 @@ export default class BenaroyaHallRipper implements IRipper {
     }
 
     private async fetchEvents(): Promise<any> {
-        const url = `${GRAPHQL_ENDPOINT}?sc_apikey=${SC_APIKEY}`;
+        const url = `${GRAPHQL_ENDPOINT}?sc_apikey=${this.scApiKey}`;
         const body = JSON.stringify({
             query: EVENTS_QUERY,
             variables: { root: EVENTS_ROOT },

@@ -1,0 +1,21 @@
+# gitleaks configuration for 206.events.
+#
+# Catches credentials before they land — runs in CI (.github/workflows/secret-scan.yml)
+# and as a local pre-commit hook (scripts/git-hooks/pre-commit). The most common
+# leak vector here is third-party API keys captured incidentally when saving a
+# page into a ripper's sample-data fixture, so we deliberately DO scan fixtures.
+#
+# Run locally:  gitleaks detect --redact -c .gitleaks.toml
+# Staged only:  gitleaks protect --staged --redact -c .gitleaks.toml
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Project-specific non-secrets and redacted placeholders"
+regexes = [
+  # Redacted placeholder we substitute for scrubbed keys in sample fixtures.
+  '''AIza-REDACTED-EXAMPLE-KEY''',
+  # Dummy key used by unit tests.
+  '''test-sitecore-key''',
+]

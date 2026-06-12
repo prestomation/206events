@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Local secret-scanning guard. Blocks a commit if gitleaks finds a credential in
+# the staged changes. Installed via `npm run setup-hooks` (or automatically on
+# `npm install` through the package.json "prepare" script), which points
+# git's core.hooksPath at scripts/git-hooks.
+#
+# If gitleaks isn't installed, the hook no-ops with a notice rather than blocking
+# the commit — CI's Secret Scan workflow is the backstop. Install gitleaks to
+# enable local scanning: https://github.com/gitleaks/gitleaks#installing
+set -euo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "[pre-commit] gitleaks not installed — skipping local secret scan."
+  echo "[pre-commit] Install it to catch secrets before they land: https://github.com/gitleaks/gitleaks"
+  exit 0
+fi
+
+echo "[pre-commit] Scanning staged changes for secrets…"
+if ! gitleaks protect --staged --redact -c .gitleaks.toml; then
+  echo ""
+  echo "[pre-commit] ✋ gitleaks found a potential secret in your staged changes."
+  echo "[pre-commit] Remove or redact it (sample-data fixtures must be scrubbed of"
+  echo "[pre-commit] third-party API keys), or add a justified allowlist entry to"
+  echo "[pre-commit] .gitleaks.toml. To bypass in an emergency: git commit --no-verify"
+  exit 1
+fi

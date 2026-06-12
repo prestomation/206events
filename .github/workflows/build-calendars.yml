@@ -118,6 +118,9 @@ jobs:
         EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
         DICE_API_KEY: ${{ secrets.DICE_API_KEY }}
         BROWSERBASE_API_KEY: ${{ secrets.BROWSERBASE_API_KEY }}
+        CANDLELIGHT_ALGOLIA_API_KEY: ${{ secrets.CANDLELIGHT_ALGOLIA_API_KEY }}
+        PIONEER_SQUARE_MARKET_ANON_KEY: ${{ secrets.PIONEER_SQUARE_MARKET_ANON_KEY }}
+        BENAROYA_SITECORE_API_KEY: ${{ secrets.BENAROYA_SITECORE_API_KEY }}
       run: |
         npm run generate-calendars
         cat errorCount.txt

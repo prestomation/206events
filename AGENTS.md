@@ -458,6 +458,19 @@ sources/
 - **Always fetch live data** from the actual API/URL before writing the parser. Do not rely solely on documentation or assumptions about the data format.
 - Save a representative response as `sample-data.json` (or `sample-data.html`) and use it for tests.
 - Ensure the sample covers format variations present in the real data (e.g., dates with and without timezone offsets, optional fields that are sometimes null).
+- **Scrub credentials before committing a fixture.** Saved-page HTML/JSON often embeds the third-party site's own API keys (Google Maps, Algolia, etc.). Redact any such value to an obvious placeholder — the parser never needs it. Committed keys trip secret scanners. This is enforced by gitleaks (CI `Secret Scan` workflow + the `scripts/git-hooks/pre-commit` hook, installed via `npm run setup-hooks`); run `gitleaks detect --redact` locally to check. See `docs/secret-scanning.md`.
+
+### Source Credentials
+
+**Never hardcode an API key/token/secret in a ripper.** Read it from
+`process.env.<SOURCE>_<NAME>`, guard a missing value with a `ParseError` (the
+pattern in `lib/config/ticketmaster.ts`) rather than a hardcoded fallback, add a
+placeholder to `.env.example`, and wire the secret into the `Generate calendars`
+step in `.github/workflows/build-calendars.yml`. This holds even for "public"
+read-only keys served in a site's own JS — committed keys fail the gitleaks
+scan. When a new source needs a credential, the maintainer must add the repo
+secret; flag it in the PR body and chat (see `skills/source-discovery/SKILL.md`
+step 6a).
 
 ### Test Guidelines
 - Include sample HTML/JSON files for realistic testing
