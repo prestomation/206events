@@ -4,7 +4,7 @@ Subscribe to Seattle-area event calendars in your favorite calendar app. This pr
 
 ## Build this for your own city
 
-This repository is also a **template**: 206.events is the reference instance of a city-agnostic engine. Click **Use this template**, run `npm run init-city` (or the `skills/city-setup` skill in Claude Code), and you get the same scraping engine, web UI, and agent-driven maintenance workflow configured for your city — with the Seattle content stripped. The full walkthrough is in [`docs/SETUP.md`](docs/SETUP.md); the design is in [`docs/city-template.md`](docs/city-template.md).
+This repository is also a **template**: 206.events is the reference instance of a city-agnostic engine. Click **Use this template**, run `npm run init-city` (or the `skills/city-setup` skill in Claude Code), and you get the same scraping engine, web UI, and agent-driven maintenance workflow configured for your city — with the Seattle content stripped. An afternoon gets you a deployed site; adding the four Claude Code routines in [`docs/routines.md`](docs/routines.md) makes it self-maintaining. The full walkthrough is in [`docs/SETUP.md`](docs/SETUP.md); the design is in [`docs/city-template.md`](docs/city-template.md).
 
 ## Browse Calendars
 

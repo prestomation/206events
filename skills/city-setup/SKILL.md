@@ -29,6 +29,12 @@ Ask the user for (or confirm values they already gave):
   filter tags; natural casing with spaces (`"Pearl District"`). More get
   added organically as sources are tagged.
 - **GoatCounter code** (optional) — leave analytics off unless they have one
+- **Seed sources** — ask for their favorite music venues, community
+  organizations, museums, and any community calendar they already read
+  (within the new city's area — step 7's quality gates filter anything
+  outside it). These aren't used by `init-city`; record them for step 7,
+  where they become the first source candidates. Local knowledge beats a
+  cold discovery scan for the first batch.
 
 ### 2. Run init-city
 
@@ -86,24 +92,40 @@ minimum to get a live site:
 2. **Per-source API keys** — only as sources need them
    (`TICKETMASTER_API_KEY`, `EVENTBRITE_TOKEN`, `DICE_API_KEY`,
    `BROWSERBASE_API_KEY`).
-3. **Optional**: Discord webhook (`DISCORD_WEBHOOK_CALENDAR`), Claude
-   routines (`CLAUDE_ROUTINE_ID`/`CLAUDE_ROUTINE_TOKEN` — create a routine
-   that runs `skills/build-report/SKILL.md` and one that runs
-   `skills/source-discovery/SKILL.md`), out-of-band proxy (AWS stack in
-   `infra/authenticated-proxy/` — skip until a source actually needs it,
-   and don't mark sources `proxy: outofband` before then), favorites worker
-   (`infra/favorites-worker/` — advanced; the site runs read-only without it).
+3. **Self-maintenance**: the four Claude Code routines catalogued in
+   `docs/routines.md` (build-error responder, daily source discovery,
+   daily source implementation, GitHub-issues responder) — walk the
+   operator through creating them in their Anthropic account using the
+   suggested prompts there. Only the build-error responder needs repo
+   secrets (`CLAUDE_ROUTINE_ID`/`CLAUDE_ROUTINE_TOKEN`).
+4. **Optional**: Discord webhook (`DISCORD_WEBHOOK_CALENDAR`), out-of-band
+   proxy (AWS stack in `infra/authenticated-proxy/` — skip until a source
+   actually needs it, and don't mark sources `proxy: outofband` before
+   then), favorites worker (`infra/favorites-worker/` — advanced; the site
+   runs read-only without it).
 
 ### 7. Add the first sources
 
-Run `skills/source-discovery/SKILL.md` scoped to the new city. Aim for a
-handful of high-volume, reliable sources first (the city's biggest venues,
-the library system, a community calendar). Each source lands as its own PR
-per the normal workflow.
+Run `skills/source-discovery/SKILL.md` scoped to the new city, starting
+from the seed list collected in step 1 — put the operator's named venues
+and organizations through the skill's quality gates ahead of any cold
+scan. Beyond the seeds, aim for a handful of high-volume, reliable
+sources first (the city's biggest venues, the library system, a community
+calendar). Each source lands as its own PR per the normal workflow.
 
 ### 8. Hand off
 
-Summarize for the operator: what was configured, which secrets are set vs
-pending, the first-source PRs, and where the health surfaces live
-(`<site>/build-errors.json`, the PR preview comments, `docs/city-template.md`
-for everything else).
+Leave the operator a written set-vs-pending checklist, not just a verbal
+summary. It should cover:
+
+- **Configured vs pending** — each secret/var from step 6 (Cloudflare,
+  per-source API keys, Discord) marked set or still to do
+- **Routines created vs pending** — each of the four hooks in
+  `docs/routines.md`, and whether `CLAUDE_ROUTINE_ID`/`CLAUDE_ROUTINE_TOKEN`
+  are set for the build-error responder
+- **Tier reached** — deployed / self-maintaining / full product, per the
+  "What done looks like" tiers in `docs/SETUP.md`, and what's left to reach
+  the next one
+- **First-source PRs** opened, and where the health surfaces live
+  (`<site>/build-errors.json`, the PR preview comments,
+  `docs/city-template.md` for everything else)

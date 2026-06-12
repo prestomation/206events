@@ -265,10 +265,15 @@ maintenance workflow.
 
 ## Getting started
 
-1. Edit \`city.config.ts\` if any value needs tuning (map bounds especially).
-2. Add your first sources — follow \`skills/source-discovery/SKILL.md\`.
-3. Set up the GitHub secrets and Cloudflare Pages project — \`docs/SETUP.md\`
-   steps 4–7.
+1. **Deploy**: edit \`city.config.ts\` if any value needs tuning (map bounds
+   especially), set up the Cloudflare Pages project and GitHub secrets
+   (\`docs/SETUP.md\` steps 4–5), and add your first sources —
+   \`skills/source-discovery/SKILL.md\`.
+2. **Self-maintain**: create the four Claude Code routines catalogued in
+   \`docs/routines.md\` (build-error responder, daily source discovery,
+   daily source implementation, GitHub-issues responder).
+3. **Optional services**: Discord notifications, out-of-band proxy,
+   favorites/sign-in — \`docs/SETUP.md\` step 7.
 
 ## Request a new calendar
 
@@ -459,8 +464,10 @@ async function main() {
     console.log(`\nDone. Next steps:
   1. Review the diff, especially city.config.ts (tune the derived map bounds).
   2. npm run typecheck && npm run test:all
-  3. Follow skills/city-setup/SKILL.md for secrets, Cloudflare Pages, and
-     your first sources (skills/source-discovery/SKILL.md).`);
+  3. Follow docs/SETUP.md — or run skills/city-setup/SKILL.md in Claude Code
+     — for secrets, Cloudflare Pages, and your first sources.
+  4. To make the site self-maintaining, create the Claude Code routines
+     catalogued in docs/routines.md.`);
 }
 
 // Only run the CLI when executed directly (not when imported by tests).
