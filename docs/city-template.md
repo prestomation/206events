@@ -229,6 +229,32 @@ by `skills/event-lookup` (`$EVENT_LOOKUP_SITE` env var with a default):
 - On the reference instance, set repo vars `CLOUDFLARE_PAGES_PROJECT` and
   `SITE_URL` explicitly so the expression defaults are exercised either way.
 
+## Operator journey
+
+The from-template UX is deliberately documentation-driven (no setup
+wizard or verification tooling), so the journey is framed as **tiers**,
+each with an explicit definition of done. `docs/SETUP.md` carries the
+user-facing version of this; the entry points chain together —
+the template README's "Build this for your own city" section →
+`docs/SETUP.md` → `skills/city-setup/SKILL.md` (the agent-run variant),
+and `init-city` itself prints the same pointers when it finishes.
+
+1. **Deployed site** — repo created from template, `init-city` run,
+   geography hand-tuned, Cloudflare Pages wired (`CLOUDFLARE_*` secrets,
+   `CLOUDFLARE_PAGES_PROJECT`/`SITE_URL` vars), first build published,
+   first sources merged. *Done when:* the site is live at `SITE_URL`, the
+   daily build is green, and at least a handful of sources publish events.
+2. **Self-maintaining site** — the four automation hooks in
+   `docs/routines.md` exist in the operator's Anthropic account
+   (build-error responder, daily source discovery, daily source
+   implementation, GitHub-issues responder). *Done when:* a broken source
+   gets fixed, a new source lands, and a feedback issue gets answered with
+   no human in the loop.
+3. **Full product** — the remaining optional services: Discord
+   notifications, out-of-band proxy (only once a source needs it), and the
+   favorites worker. *Done when:* whichever of these the operator wants is
+   live; all of them degrade gracefully when absent (see the matrix below).
+
 ## Secrets, vars, and optional services
 
 | Service | Secrets / vars | Required? | Behavior when absent |
@@ -239,7 +265,7 @@ by `skills/event-lookup` (`$EVENT_LOOKUP_SITE` env var with a default):
 | **Browserbase** (JS-challenge bypass) | `BROWSERBASE_API_KEY` secret | Per-source | `proxy: browserbase` sources fail; others unaffected |
 | **Out-of-band proxy** (AWS) | `AWS_ROLE_ARN` secret, `OUTOFBAND_BUCKET` var; CloudFormation stack in `infra/authenticated-proxy/` (OIDC subject must be set to the copy's `owner/repo`); a residential-IP runner cron | Optional | Already graceful: the AWS-credentials step is `continue-on-error`, `scripts/download-outofband.ts` exits 0 when S3 is unreachable, and `proxy: outofband` sources sit in the non-fatal `pendingProxyVerification` queue. A copy that never sets this up simply shouldn't mark sources `outofband` |
 | **Discord notifications** | `DISCORD_WEBHOOK_CALENDAR` secret | Optional | Workflow skips posting |
-| **Claude routines** | `CLAUDE_ROUTINE_ID`, `CLAUDE_ROUTINE_TOKEN` secrets | Optional | The trigger step in `publish_calendars.yml` skips when unset; build-error fixing becomes manual |
+| **Claude routines** | `CLAUDE_ROUTINE_ID`, `CLAUDE_ROUTINE_TOKEN` secrets — these gate **only** the webhook-fired build-error responder; the other three hooks in `docs/routines.md` live wholly in the operator's account | Optional | The trigger step in `publish_calendars.yml` skips when unset; build-error fixing becomes manual |
 | **Favorites** (sign-in, personal feeds) | `FAVORITES_API_URL` var → `VITE_FAVORITES_API_URL`; Cloudflare Worker deploy with KV namespaces + `JWT_SECRET`, `GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET`, optional `FEEDBACK_GITHUB_ISSUES_TOKEN` | **Optional, off by default** | Web UI runs in read-only mode (no sign-in, favorites in localStorage); this is the template default |
 
 ### Favorites worker (advanced, opt-in)
@@ -256,20 +282,28 @@ build.
 
 ## Claude routines (the automation outside the repo)
 
-The recurring agent operations (daily build-error triage via the
-`build-report` skill, source discovery, queue-draining skills) run as
-**Claude Code routines** — resources created in the user's Anthropic
-account, not shippable repo files. The repo's only coupling is the
-trigger step in `publish_calendars.yml`, which fires
-`POST /v1/claude_code/routines/{CLAUDE_ROUTINE_ID}/fire` (rate-limited to
-once per 24 h) when a build has errors, and skips silently when the secrets
-are unset.
+The recurring agent operations run as **Claude Code routines** — resources
+created in the user's Anthropic account, not shippable repo files. The
+reference instance runs **four hooks**, catalogued with suggested prompts
+and cadences in `docs/routines.md`:
+
+1. **Build-error responder** — runs `skills/build-report/SKILL.md`. The
+   repo's only routine coupling is here: the trigger step in
+   `publish_calendars.yml` fires
+   `POST /v1/claude_code/routines/{CLAUDE_ROUTINE_ID}/fire` (rate-limited
+   to once per 24 h) when a build has errors, and skips silently when the
+   secrets are unset.
+2. **Daily source discovery** — `skills/source-discovery/SKILL.md`
+   steps 1–5 (candidates only), account-scheduled.
+3. **Daily source implementation** — steps 6–8 (implement the
+   highest-confidence candidate), account-scheduled.
+4. **GitHub-issues responder** — triages feedback-form and user-filed
+   issues into fixes or new-source PRs, issue-driven.
 
 Template users who want the self-maintaining behavior create their own
-routines (Phase 3's SETUP.md will document the prompts — essentially "run
-`skills/build-report/SKILL.md`" on a schedule and on the error webhook) and
-store their routine id/token as the two secrets. Everything the routines
-need inside the repo — the skills, AGENTS.md conventions, the
+copies of these from the catalog; only the build-error responder requires
+storing the routine id/token as the two repo secrets. Everything the
+routines need inside the repo — the skills, AGENTS.md conventions, the
 `build-errors.json` contract — ships with the template.
 
 ## Upgrade story (honest)

@@ -174,4 +174,10 @@ describe("renderReadme", () => {
         expect(md).toContain("Portland-area");
         expect(md).toContain("alice/503events");
     });
+
+    it("points the operator at the setup docs and routine catalog", () => {
+        const md = renderReadme(deriveConfig(portland));
+        expect(md).toContain("docs/SETUP.md");
+        expect(md).toContain("docs/routines.md");
+    });
 });
