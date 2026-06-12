@@ -1,11 +1,11 @@
 ---
 name: "Northwest Trail Runs"
-status: candidate
+status: blocked
 platform: WordPress (Mergeo theme, Y-Designs)
 url: https://nwtrailruns.com/events/
 tags: [Outdoors, Community]
 firstSeen: 2026-06-10
-lastChecked: 2026-06-10
+lastChecked: 2026-06-12
 ---
 **Northwest Trail Runs** — `https://nwtrailruns.com/events/` — Washington State trail running events organization with many Seattle-area races.
 
@@ -25,3 +25,7 @@ Investigated 2026-06-10:
 Implementation path: Custom HTML scraper for the WordPress events table. Moderate effort (🔴 Low confidence tier — custom scraper needed). No ICS or API available.
 
 Geo: `null` — itinerant events at different parks each race.
+
+Probe 2026-06-12: `/calendar/` returns HTTP 415; `/events/` returns a
+Cloudflare "One moment, please..." challenge page. Both blocked in the
+Claude Code web environment. Status: blocked.

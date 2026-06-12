@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+<channel>
+	<title>Events Archive - Visit Seattle</title>
+	<link>https://visitseattle.org/events/</link>
+	<description>Your next great adventure</description>
+	<item>
+		<title>Bite of Seattle</title>
+		<link>https://visitseattle.org/events/bite-of-seattle/</link>
+		<pubDate>Wed, 08 Apr 2026 18:14:19 +0000</pubDate>
+		<guid isPermaLink="false">https://visitseattle.org/events/bite-of-seattle/</guid>
+		<description><![CDATA[<p>The Bite of Seattle brings together hundreds of food and artisan vendors.</p>]]></description>
+	</item>
+	<item>
+		<title>Fest&#225;l : A Day in Punjab</title>
+		<link>https://visitseattle.org/events/festal-a-day-in-punjab/</link>
+		<pubDate>Wed, 08 Apr 2026 18:14:19 +0000</pubDate>
+		<guid isPermaLink="false">https://visitseattle.org/events/festal-a-day-in-punjab/</guid>
+		<description><![CDATA[<p>This festival celebrates the Sikh/Punjabi culture.</p>]]></description>
+	</item>
+	<item>
+		<title>Seattle Christmas Market</title>
+		<link>https://visitseattle.org/events/seattle-christmas-market/</link>
+		<pubDate>Wed, 08 Apr 2026 18:14:20 +0000</pubDate>
+		<guid isPermaLink="false">https://visitseattle.org/events/seattle-christmas-market/</guid>
+		<description><![CDATA[<p>Have yourself a little Christmas.</p>]]></description>
+	</item>
+</channel>
+</rss>
