@@ -1,0 +1,10 @@
+name: visit-seattle
+description: "Visit Seattle"
+url: "https://visitseattle.org/events/feed/"
+friendlyLink: "https://visitseattle.org/events/"
+geo: null
+tags: ["Community"]
+calendars:
+  - name: visit-seattle
+    friendlyname: "Visit Seattle Events"
+    timezone: America/Los_Angeles

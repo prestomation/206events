@@ -1,16 +1,16 @@
 ---
 name: "Visit Seattle (RSS)"
-status: candidate
+status: added
 firstSeen: 2026-05-07
-lastChecked: 2026-05-07
-tags: [Community, Events]
+lastChecked: 2026-06-12
+tags: [Community]
 ---
-`https://visitseattle.org/events/feed/`. Working RSS 2.0 feed but only
-10 curated/featured events (Christmas Market, NCAA tournaments, Bite of
-Seattle, Festál, etc.). The Tribe Events `?ical=1` parameter is
-silently ignored (returns the HTML page, not ICS).
+`https://visitseattle.org/events/feed/`. Working RSS 2.0 feed with
+10 curated/featured events (Christmas Market, Bite of Seattle, Festál
+series, etc.). The Tribe Events `?ical=1` parameter is silently ignored
+(returns the HTML page, not ICS).
 
-Low volume but high editorial quality — would surface major Seattle
-events that don't have their own dedicated source. Need a small RSS
-adapter (we don't have one yet) or extend `external` config to support
-RSS feeds. New 2026-05-07.
+Implemented 2026-06-12 as a custom IRipper: fetches the RSS feed, then
+fetches each event's page to parse the date/location from the
+`<h4><span>DATE</span> | <span>LOCATION</span></h4>` element. Produces
+10 events: all major future Seattle events curated by Visit Seattle.
