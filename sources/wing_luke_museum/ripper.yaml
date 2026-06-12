@@ -1,0 +1,17 @@
+name: wing-luke-museum
+type: squarespace
+description: "Wing Luke Museum"
+url: "https://www.wingluke.org/eventscalendar"
+friendlyLink: https://www.wingluke.org/eventscalendar
+tags: ["Arts", "Museums", "Community", "International District"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Wing_Luke_Museum_-_Eight_Immortals_01A.jpg"
+geo:
+  lat: 47.5982461
+  lng: -122.3228705
+  label: "Wing Luke Museum, 719 S King St, Seattle, WA 98104"
+  osmType: node
+  osmId: 2965374552
+calendars:
+  - name: all-events
+    friendlyname: "Wing Luke Museum"
+    timezone: America/Los_Angeles
