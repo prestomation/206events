@@ -11391,10 +11391,9 @@
     },
     "lumen-field:tm-vvG1HZbz27_zo-": {
       "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-05-18",
+      "resolvedAt": "2026-06-12",
       "source": "agent",
-      "partialFingerprint": "1liagbu"
+      "reason": "Ticketmaster API does not expose event duration; confirmed via Ticketmaster source"
     },
     "lumen-field:tm-vvG1HZbz2dtI8e": {
       "unresolvable": true,
