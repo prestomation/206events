@@ -27,3 +27,18 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # Return the shared staging worker to main's code after a merge (PR builds
+      # deploy each PR's code to staging; this resets it once merged). Gated on
+      # STAGING_FAVORITES_API_URL so it's inert until staging is provisioned.
+      - name: Deploy to staging
+        if: ${{ vars.STAGING_FAVORITES_API_URL != '' }}
+        run: |
+          if grep -q 'REPLACE_WITH_STAGING' wrangler.toml; then
+            echo "::error::staging KV namespace ids are still placeholders — provision them per docs/preview-api-deployments.md before enabling STAGING_FAVORITES_API_URL."
+            exit 1
+          fi
+          npx wrangler deploy --env staging
+        working-directory: infra/favorites-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

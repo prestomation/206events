@@ -8,6 +8,11 @@ on:
         required: false
         default: "github-pages"
         type: string
+      favorites-api-url:
+        description: "Override the favorites worker API URL baked into the web build. Defaults to the FAVORITES_API_URL repo var (production) when empty."
+        required: false
+        default: ""
+        type: string
     outputs:
       error-count:
         description: "Number of errors during calendar generation"
@@ -193,7 +198,9 @@ jobs:
     - name: Build web interface
       run: npm run web:build
       env:
-        VITE_FAVORITES_API_URL: ${{ vars.FAVORITES_API_URL }}
+        # Preview builds pass the staging worker URL; the main build leaves the
+        # input empty and falls back to the production FAVORITES_API_URL var.
+        VITE_FAVORITES_API_URL: ${{ inputs.favorites-api-url || vars.FAVORITES_API_URL }}
 
     - name: Get GitHub Pages URL
       id: get-pages-url

@@ -11,6 +11,11 @@ GITHUB_PAGES_BASE_URL = "https://206.events"
 SITE_URL = "https://206.events"
 # Repo that in-app feedback is filed against (Issues created by the worker).
 GITHUB_REPO = "prestomation/206events"
+# Preview auth handoff (issuer side). STAGING_ORIGIN is the one origin a handoff
+# ticket may be sent to. Declaring it here only enables the allowlist check; the
+# prod callback still issues a ticket ONLY when the HANDOFF_SECRET *secret* is
+# set (`wrangler secret put HANDOFF_SECRET`). Until then the handoff path is inert.
+STAGING_ORIGIN = "https://api-staging.206.events"
 
 [[kv_namespaces]]
 binding = "USERS"
@@ -31,3 +36,65 @@ id = "d798d8ad13214ade84fd5692532a7993"
 [[analytics_engine_datasets]]
 binding = "ANALYTICS"
 dataset = "feed_requests"
+
+# ──────────────────────────────────────────────────────────────────────────
+# Staging worker (preview deployments) — `wrangler deploy --env staging`.
+#
+# A single, data-isolated worker on its own host that the PR-preview site is
+# built against. It is NOT a registered Google OAuth callback: AUTH_MODE
+# "staging" makes /auth/login delegate to the prod worker, which hands the
+# authenticated session back here via a short-lived ticket (/auth/handoff).
+#
+# PROVISIONING (one-time, by a human with Cloudflare access — see
+# docs/preview-api-deployments.md):
+#   1. Create four NEW KV namespaces and paste their ids below (do NOT reuse the
+#      prod ids above — that would defeat data isolation):
+#        wrangler kv namespace create USERS       --env staging
+#        wrangler kv namespace create FAVORITES    --env staging
+#        wrangler kv namespace create FEED_TOKENS  --env staging
+#        wrangler kv namespace create RATE_LIMIT   --env staging
+#   2. Add the api-staging.206.events custom domain (the route below provisions
+#      DNS on first deploy).
+#   3. Set secrets:
+#        wrangler secret put JWT_SECRET     --env staging   # staging's OWN session secret (≠ prod)
+#        wrangler secret put HANDOFF_SECRET --env staging   # SAME value as prod's HANDOFF_SECRET
+#        wrangler secret put HANDOFF_SECRET                 # set the matching value on prod too
+#   4. Set the repo variable STAGING_FAVORITES_API_URL=https://api-staging.206.events
+#      to flip PR previews onto the staging worker and enable the staging deploy jobs.
+[env.staging]
+name = "calendar-ripper-favorites-staging"
+main = "src/index.ts"
+compatibility_date = "2026-02-01"
+
+routes = [
+  { pattern = "api-staging.206.events", custom_domain = true }
+]
+
+[env.staging.vars]
+GITHUB_PAGES_BASE_URL = "https://206.events"
+SITE_URL = "https://206.events"
+GITHUB_REPO = "prestomation/206events"
+AUTH_MODE = "staging"
+PROD_AUTH_ORIGIN = "https://api.206.events"
+STAGING_ORIGIN = "https://api-staging.206.events"
+
+# TODO(provisioning): replace each id with the staging namespace created in step 1.
+[[env.staging.kv_namespaces]]
+binding = "USERS"
+id = "REPLACE_WITH_STAGING_USERS_KV_ID"
+
+[[env.staging.kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "REPLACE_WITH_STAGING_RATE_LIMIT_KV_ID"
+
+[[env.staging.kv_namespaces]]
+binding = "FAVORITES"
+id = "REPLACE_WITH_STAGING_FAVORITES_KV_ID"
+
+[[env.staging.kv_namespaces]]
+binding = "FEED_TOKENS"
+id = "REPLACE_WITH_STAGING_FEED_TOKENS_KV_ID"
+
+[[env.staging.analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "feed_requests_staging"

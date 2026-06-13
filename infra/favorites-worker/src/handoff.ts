@@ -11,6 +11,9 @@ export interface HandoffTicket {
   email: string
   name: string
   picture: string
+  // Unique ticket id, used by the consumer to enforce one-time use (a ticket
+  // captured from a URL can't be replayed within its TTL).
+  jti: string
 }
 
 // 60 seconds: long enough to survive the redirect chain, short enough that a
@@ -20,21 +23,24 @@ export const HANDOFF_TICKET_TTL_SECONDS = 60
 
 const HANDOFF_AUDIENCE = 'handoff'
 
-export async function signHandoffTicket(ticket: HandoffTicket, secret: string): Promise<string> {
-  return signClaims({ ...ticket, aud: HANDOFF_AUDIENCE }, secret, HANDOFF_TICKET_TTL_SECONDS)
+// The jti is minted here so callers don't have to; the consumer reads it back
+// off the verified ticket to enforce single use.
+export async function signHandoffTicket(ticket: Omit<HandoffTicket, 'jti'>, secret: string): Promise<string> {
+  return signClaims({ ...ticket, jti: crypto.randomUUID(), aud: HANDOFF_AUDIENCE }, secret, HANDOFF_TICKET_TTL_SECONDS)
 }
 
 export async function verifyHandoffTicket(token: string, secret: string): Promise<HandoffTicket | null> {
   const payload = await verifyClaims(token, secret)
   if (!payload || payload.aud !== HANDOFF_AUDIENCE) return null
-  const { sub, email, name, picture } = payload
+  const { sub, email, name, picture, jti } = payload
   if (
     typeof sub !== 'string' ||
     typeof email !== 'string' ||
     typeof name !== 'string' ||
-    typeof picture !== 'string'
+    typeof picture !== 'string' ||
+    typeof jti !== 'string'
   ) {
     return null
   }
-  return { sub, email, name, picture }
+  return { sub, email, name, picture, jti }
 }

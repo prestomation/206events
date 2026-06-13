@@ -1,5 +1,10 @@
 # Future Idea: Staging Cloudflare Worker for PR Previews
 
+> **Implemented.** This shipped as a data-isolated staging worker plus a
+> prod→staging auth handoff (which avoids registering a second Google OAuth
+> callback). See **`docs/preview-api-deployments.md`** for the design and the
+> provisioning runbook. This file is kept for historical context.
+
 ## Problem
 
 PR previews currently share the production Cloudflare Worker (favorites API). This means:

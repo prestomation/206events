@@ -23,6 +23,11 @@ export interface Env {
   // ticket and is shared by prod and staging, separate from JWT_SECRET.
   STAGING_ORIGIN?: string
   HANDOFF_SECRET?: string
+  // "staging" on the staging worker (delegates login to prod, consumes handoff
+  // tickets, mints its own sessions); unset/"prod" on production. PROD_AUTH_ORIGIN
+  // is the production worker origin the staging worker delegates login to.
+  AUTH_MODE?: string
+  PROD_AUTH_ORIGIN?: string
   GITHUB_PAGES_BASE_URL: string
   SITE_URL: string
   // Feedback → GitHub Issues. FEEDBACK_GITHUB_ISSUES_TOKEN is a secret

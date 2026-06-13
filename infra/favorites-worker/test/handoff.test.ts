@@ -6,10 +6,18 @@ const SECRET = 'test-handoff-secret'
 const TICKET = { sub: 'user:google:123', email: 'a@b.com', name: 'Ada', picture: 'https://img/x.png' }
 
 describe('handoff ticket', () => {
-  it('round-trips a valid ticket', async () => {
+  it('round-trips a valid ticket and mints a jti', async () => {
     const token = await signHandoffTicket(TICKET, SECRET)
     const verified = await verifyHandoffTicket(token, SECRET)
-    expect(verified).toEqual(TICKET)
+    expect(verified).toMatchObject(TICKET)
+    expect(typeof verified!.jti).toBe('string')
+    expect(verified!.jti.length).toBeGreaterThan(0)
+  })
+
+  it('mints a distinct jti per ticket (enables one-time use)', async () => {
+    const a = await verifyHandoffTicket(await signHandoffTicket(TICKET, SECRET), SECRET)
+    const b = await verifyHandoffTicket(await signHandoffTicket(TICKET, SECRET), SECRET)
+    expect(a!.jti).not.toBe(b!.jti)
   })
 
   it('rejects a ticket signed with a different secret', async () => {
