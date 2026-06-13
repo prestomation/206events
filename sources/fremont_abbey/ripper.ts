@@ -146,6 +146,7 @@ export function parseAbbeyArtsEvents(
             location: location || undefined,
             url: event.url,
             imageUrl: event.image,
+            cost: { paid: true },
         });
     }
 
