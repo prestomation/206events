@@ -67,6 +67,7 @@ export function parseEvent(post: WPPost, timezone: ZoneRegion): RipperCalendarEv
         location: DEFAULT_LOCATION,
         url: post.link,
         imageUrl: extractImageUrl(post),
+        cost: { min: 0 },
     };
 }
 

@@ -132,6 +132,7 @@ export default class ReubensBrewsRipper implements IRipper {
                     summary: event.title,
                     location,
                     url: event.url,
+                    cost: { min: 0 },
                 };
 
                 results.push(calEvent);

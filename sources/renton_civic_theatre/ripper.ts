@@ -86,6 +86,7 @@ export function parseShow(show: Show, now: ZonedDateTime): RipperEvent[] {
         location: LOCATION,
         url,
         imageUrl: image,
+        cost: { paid: true },
     });
 
     for (const other of dates.otherDates ?? []) {
@@ -104,6 +105,7 @@ export function parseShow(show: Show, now: ZonedDateTime): RipperEvent[] {
             location: LOCATION,
             url,
             imageUrl: image,
+            cost: { paid: true },
         });
     }
 

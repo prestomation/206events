@@ -110,7 +110,8 @@ export default class SeattleBarkeryRipper extends JSONRipper {
                     description: description,
                     location: location,
                     url: event.url,
-                    imageUrl: imageUrl
+                    imageUrl: imageUrl,
+                    cost: { min: 0 },
                 };
 
                 events.push(calendarEvent);

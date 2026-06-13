@@ -240,6 +240,7 @@ export default class DancingTilDuskRipper implements IRipper {
             description,
             location: locationStr,
             url: BASE_URL,
+            cost: { min: 0 },
         };
     }
 }
