@@ -108,6 +108,7 @@ export default class SkylarkCafeRipper implements IRipper {
             location: LOCATION,
             url,
             imageUrl,
+            cost: { paid: true },
         };
 
         return event;

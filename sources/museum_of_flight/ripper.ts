@@ -257,6 +257,7 @@ export function parseEventElement(
             location: MUSEUM_ADDRESS,
             url,
             imageUrl,
+            cost: { paid: true },
         };
         results.push(event);
 

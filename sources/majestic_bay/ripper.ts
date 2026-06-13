@@ -110,7 +110,8 @@ export default class MajesticBayRipper implements IRipper {
                     duration,
                     summary: event.name,
                     location,
-                    url: event.url || undefined
+                    url: event.url || undefined,
+                    cost: { paid: true },
                 };
 
                 events.push(calEvent);

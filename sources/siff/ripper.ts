@@ -76,6 +76,7 @@ export default class SIFFRipper extends HTMLRipper {
                 ripped: convert(LocalDateTime.now()).toDate(),
                 url: link,
                 imageUrl,
+                cost: { paid: true },
             };
             return a;
         });

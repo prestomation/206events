@@ -259,6 +259,7 @@ export default class BenaroyaHallRipper implements IRipper {
                 location,
                 url,
                 imageUrl,
+                cost: { paid: true },
             });
         }
     }

@@ -214,7 +214,8 @@ export default class AMCRipper implements IRipper {
                     summary: `${movie.name}${rating}`,
                     description: movie.genre || undefined,
                     location,
-                    url: `https://www.amctheatres.com/movies/${movie.slug}`
+                    url: `https://www.amctheatres.com/movies/${movie.slug}`,
+                    cost: { paid: true },
                 };
 
                 events.push(calEvent);

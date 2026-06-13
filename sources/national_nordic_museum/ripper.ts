@@ -167,6 +167,7 @@ export default class NationalNordicMuseumRipper implements IRipper {
                 location: MUSEUM_ADDRESS,
                 url: card.href,
                 imageUrl: card.imageUrl,
+                cost: { paid: true },
             };
         } catch (error) {
             return {

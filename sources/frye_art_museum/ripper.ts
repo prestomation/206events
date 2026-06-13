@@ -178,6 +178,7 @@ export default class FryeArtMuseumRipper implements IRipper {
             location,
             url: canonicalUrl,
             imageUrl,
+            cost: { min: 0 },
         };
 
         const results: RipperEvent[] = [event];

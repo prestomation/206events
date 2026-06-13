@@ -128,6 +128,7 @@ export default class TheatreOffJacksonRipper implements IRipper {
                     location: LOCATION,
                     url,
                     imageUrl: show.imageUrl,
+                    cost: { paid: true },
                 });
             }
         }

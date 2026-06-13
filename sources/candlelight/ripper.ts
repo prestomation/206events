@@ -110,6 +110,7 @@ export default class CandlelightRipper implements IRipper {
                         lat,
                         lng,
                         imageUrl,
+                        cost: { paid: true },
                     };
 
                     events.push(event);

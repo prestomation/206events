@@ -196,6 +196,7 @@ export default class EmeraldCityComedyRipper implements IRipper {
                 location: DEFAULT_LOCATION,
                 url: item.url,
                 ...(item.image ? { imageUrl: item.image } : {}),
+                cost: { paid: true },
             });
         }
 
