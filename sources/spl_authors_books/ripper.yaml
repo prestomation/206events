@@ -4,6 +4,7 @@ description: "Seattle Public Library"
 url: "https://www.trumba.com/calendars/kalendaro.json?filterview=ProgramAuthorsBooks"
 friendlyLink: https://www.spl.org/programs-and-services/authors-and-books/authors-and-books-calendar
 tags: ["Books", "Education"]
+cost: free
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Seattle_Central_Library_from_Fourth_%26_Madison_Building_-_Nov_2024.jpg"
 lookahead: P1Y
 geo: null
