@@ -163,17 +163,21 @@ export default class Events12Ripper extends HTMLRipper {
                     };
                     events.push(event);
 
-                    if (parsed.timeUnknown) {
-                        const unknownFields: UncertaintyField[] = ["startTime", "duration"];
-                        const uncertainty: UncertaintyError = {
+                    const costUnknown = cost === undefined;
+                    if (parsed.timeUnknown || costUnknown) {
+                        const unknownFields: UncertaintyField[] = [];
+                        if (parsed.timeUnknown) unknownFields.push("startTime", "duration");
+                        if (costUnknown) unknownFields.push("cost");
+                        events.push({
                             type: "Uncertainty",
-                            reason: `events12 listing did not include a start time (raw: "${dateText}")`,
+                            reason: parsed.timeUnknown
+                                ? `events12 listing did not include a start time (raw: "${dateText}")`
+                                : "events12 listing did not include cost information",
                             source: "events12",
                             unknownFields,
                             event,
                             partialFingerprint: fingerprint,
-                        };
-                        events.push(uncertainty);
+                        });
                     }
                 }
 

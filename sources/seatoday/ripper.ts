@@ -1,9 +1,17 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ChronoUnit } from "@js-joda/core";
-import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
 import '@js-joda/timezone';
 
 const PAGE_SIZE = 25;
 const LOOKAHEAD_DAYS = 14;
+
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 export default class SEAtodayRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
@@ -235,6 +243,18 @@ export default class SEAtodayRipper implements IRipper {
                 };
 
                 events.push(event);
+
+                if (cost === undefined) {
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: "CitySpark API returned no cost information for this event",
+                        source: "seatoday",
+                        unknownFields: ["cost"],
+                        event,
+                        partialFingerprint: simpleHash(`${eventData.PId ?? ''}|${eventData.Free ?? ''}|${eventData.Price ?? ''}|${eventData.IsTicketed ?? ''}`),
+                    };
+                    events.push(uncertainty);
+                }
 
             } catch (error) {
                 events.push({

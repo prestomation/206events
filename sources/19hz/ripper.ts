@@ -1,6 +1,6 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { EventCost, RipperCalendarEvent, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
+import { EventCost, RipperCalendarEvent, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { HTMLElement } from 'node-html-parser';
 
 import '@js-joda/timezone';
@@ -192,21 +192,31 @@ export default class Hz19Ripper extends HTMLRipper {
 
                 events.push(event);
 
+                const costUnknown = cost === undefined;
                 if (startTimeGuessed || durationGuessed) {
-                    const unknownFields = startTimeGuessed
-                        ? ["startTime", "duration"] as const
-                        : ["duration"] as const;
-                    const uncertainty: UncertaintyError = {
+                    const unknownFields: UncertaintyField[] = startTimeGuessed
+                        ? ["startTime", "duration"]
+                        : ["duration"];
+                    if (costUnknown) unknownFields.push("cost");
+                    events.push({
                         type: "Uncertainty",
                         reason: startTimeGuessed
                             ? `19hz time cell unrecognised: "${timeText}"`
                             : "19hz listing has a start time but no end time",
                         source: "19hz",
-                        unknownFields: [...unknownFields],
+                        unknownFields,
                         event,
                         partialFingerprint: simpleHash(timeText),
-                    };
-                    events.push(uncertainty);
+                    });
+                } else if (costUnknown) {
+                    events.push({
+                        type: "Uncertainty",
+                        reason: `19hz price cell has no general-admission price: "${priceText}"`,
+                        source: "19hz",
+                        unknownFields: ["cost"],
+                        event,
+                        partialFingerprint: simpleHash(priceText),
+                    });
                 }
             } catch (error) {
                 events.push({

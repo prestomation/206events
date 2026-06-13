@@ -114,9 +114,11 @@ export default class SeattleCenterRipper implements IRipper {
                     // midnight + 12 h as a placeholder — both start time and
                     // duration are guesses. Timed events use the parsed start
                     // time but always default duration to 2 h.
+                    const hasCost = (parsed as RipperCalendarEvent).cost !== undefined;
                     const unknownFields: UncertaintyField[] = isAllDay
                         ? ["startTime", "duration"]
                         : ["duration"];
+                    if (!hasCost) unknownFields.push("cost");
                     events.push({
                         type: "Uncertainty",
                         reason: isAllDay
@@ -124,7 +126,7 @@ export default class SeattleCenterRipper implements IRipper {
                             : "Source does not expose an end time",
                         source: "seattle_center",
                         unknownFields,
-                        event: parsed,
+                        event: parsed as RipperCalendarEvent,
                         partialFingerprint: simpleHash(`${currentDate ?? ''}|${timeText}`),
                     });
                 }

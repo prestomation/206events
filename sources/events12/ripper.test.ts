@@ -186,7 +186,9 @@ describe('Events12Ripper', () => {
         // Paired UncertaintyError carrying the event
         expect(uncertainty.length).toBe(1);
         expect(uncertainty[0].source).toBe('events12');
-        expect(uncertainty[0].unknownFields).toEqual(['startTime', 'duration']);
+        expect(uncertainty[0].unknownFields).toContain('startTime');
+        expect(uncertainty[0].unknownFields).toContain('duration');
+        expect(uncertainty[0].unknownFields).toContain('cost');
         expect(uncertainty[0].event.id).toBe(calEvents[0].id);
         expect(uncertainty[0].event.summary).toBe('Time-less Event');
         expect(uncertainty[0].partialFingerprint).toBeTruthy();
@@ -227,9 +229,15 @@ describe('Events12Ripper', () => {
         const calEvents = events.filter(e => 'date' in e) as any[];
         const uncertainty = events.filter((e: any) => e.type === 'Uncertainty');
 
-        // 4 days × 2 slots = 8 events. No uncertainty (times are known).
+        // 4 days × 2 slots = 8 events. No time uncertainty (times are known),
+        // but cost uncertainty is emitted for each occurrence (no cost indicator).
         expect(calEvents.length).toBe(8);
-        expect(uncertainty.length).toBe(0);
+        expect(uncertainty.length).toBe(8);
+        for (const u of uncertainty as any[]) {
+            expect(u.unknownFields).not.toContain('startTime');
+            expect(u.unknownFields).not.toContain('duration');
+            expect(u.unknownFields).toContain('cost');
+        }
 
         // First day: 5pm and 8pm slots produce distinct IDs
         const feb12 = calEvents.filter((e: any) => e.date.dayOfMonth() === 12);
@@ -285,9 +293,13 @@ describe('Events12Ripper', () => {
         expect(calEvents[0].date.hour()).toBe(12);
         expect(calEvents[0].date.minute()).toBe(0);
 
-        // (noon) is an explicit time — no uncertainty
-        const uncertainty = events.filter((e: any) => e.type === 'Uncertainty');
-        expect(uncertainty.length).toBe(0);
+        // (noon) is an explicit time — no time uncertainty, but cost uncertainty
+        // is emitted because the article has no free/ticket indicator.
+        const uncertainty = events.filter((e: any) => e.type === 'Uncertainty') as any[];
+        expect(uncertainty.length).toBe(1);
+        expect(uncertainty[0].unknownFields).not.toContain('startTime');
+        expect(uncertainty[0].unknownFields).not.toContain('duration');
+        expect(uncertainty[0].unknownFields).toContain('cost');
     });
 
     it('parses various single-day time formats', async () => {
