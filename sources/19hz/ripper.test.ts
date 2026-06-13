@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import Hz19Ripper, { parseTimeCell } from './ripper.js';
+import Hz19Ripper, { parseTimeCell, parsePriceCell } from './ripper.js';
 import { ZonedDateTime } from '@js-joda/core';
 import fs from 'fs';
 import path from 'path';
@@ -51,6 +51,19 @@ describe('parseTimeCell', () => {
         expect(result.minute).toBe(0);
         expect(result.durationMinutes).toBe(240);
     });
+});
+
+describe('parsePriceCell', () => {
+    test('free', () => expect(parsePriceCell('free')).toEqual({ min: 0 }));
+    test('free | 21+', () => expect(parsePriceCell('free | 21+')).toEqual({ min: 0 }));
+    test('FREE EVENT', () => expect(parsePriceCell('FREE EVENT')).toEqual({ min: 0 }));
+    test('$42 | 21+', () => expect(parsePriceCell('$42 | 21+')).toEqual({ min: 42 }));
+    test('$26+ | 21+', () => expect(parsePriceCell('$26+ | 21+')).toEqual({ min: 26 }));
+    test('$15-25 | 21+', () => expect(parsePriceCell('$15-25 | 21+')).toEqual({ min: 15, max: 25 }));
+    test('$10 before 10', () => expect(parsePriceCell('$10 before 10')).toEqual({ min: 10 }));
+    test('$10 for members', () => expect(parsePriceCell('$10 for members')).toEqual({ paid: true }));
+    test('21+', () => expect(parsePriceCell('21+')).toBeUndefined());
+    test('empty string', () => expect(parsePriceCell('')).toBeUndefined());
 });
 
 describe('19hz Ripper', () => {
@@ -187,6 +200,30 @@ describe('19hz Ripper', () => {
             expect(event.summary).toBeTruthy();
             expect(event.id).toMatch(/^19hz-\d{4}\/\d{2}\/\d{2}-.+/);
         }
+    });
+
+    test('emits cost when price is present in sample data', async () => {
+        const ripper = new Hz19Ripper();
+        const html = loadSampleHtml();
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        // "free" cell → cost: { min: 0 }
+        const otoconia = validEvents.find(e => e.summary.includes('Otoconia'));
+        expect(otoconia!.cost).toEqual({ min: 0 });
+
+        // "$26+ | 21+" → cost: { min: 26 }
+        const heatwav = validEvents.find(e => e.summary === 'HEAT.WAV');
+        expect(heatwav!.cost).toEqual({ min: 26 });
+
+        // "$42 | 21+" → cost: { min: 42 }
+        const moontricks = validEvents.find(e => e.summary.includes('Moontricks'));
+        expect(moontricks!.cost).toEqual({ min: 42 });
+
+        // "21+" (no price) → no cost field
+        const magicCity = validEvents.find(e => e.summary.includes('Magic City Hippies'));
+        expect(magicCity!.cost).toBeUndefined();
     });
 
     test('handles empty HTML gracefully', async () => {

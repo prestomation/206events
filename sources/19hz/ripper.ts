@@ -1,6 +1,6 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { RipperCalendarEvent, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
+import { EventCost, RipperCalendarEvent, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
 import { HTMLElement } from 'node-html-parser';
 
 import '@js-joda/timezone';
@@ -81,6 +81,42 @@ export function parseTimeCell(text: string): {
     };
 }
 
+/**
+ * Parses a 19hz price cell like "free | 21+", "$26+ | 21+", "$15-25 | 21+", "21+".
+ * Returns an EventCost when price information is present, undefined otherwise.
+ */
+export function parsePriceCell(raw: string): EventCost | undefined {
+    const pricePart = raw.split('|')[0].trim().toLowerCase();
+    if (!pricePart) return undefined;
+
+    if (/^free/.test(pricePart)) return { min: 0 };
+
+    // "for members" / "member" discount only — no general-admission price visible
+    if (pricePart.includes('member')) return { paid: true };
+
+    // "$X-Y" range (e.g., "$15-25")
+    const rangeMatch = pricePart.match(/^\$(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)/);
+    if (rangeMatch) {
+        const min = parseFloat(rangeMatch[1]);
+        const max = parseFloat(rangeMatch[2]);
+        return { min, ...(max > min ? { max } : {}) };
+    }
+
+    // "$X+" floor price (e.g., "$26+", "$18+")
+    const floorMatch = pricePart.match(/^\$(\d+(?:\.\d+)?)\+/);
+    if (floorMatch) return { min: parseFloat(floorMatch[1]) };
+
+    // "$X" exact or "$X some text" (e.g., "$42", "$10 before 10")
+    const exactMatch = pricePart.match(/^\$(\d+(?:\.\d+)?)/);
+    if (exactMatch) return { min: parseFloat(exactMatch[1]) };
+
+    // Has $ somewhere but in an unrecognised format
+    if (pricePart.includes('$')) return { paid: true };
+
+    // Just "21+" or other non-price text — no cost info available
+    return undefined;
+}
+
 export default class Hz19Ripper extends HTMLRipper {
     private seenEvents = new Set<string>();
     private readonly timezone = ZoneId.of('America/Los_Angeles');
@@ -122,6 +158,10 @@ export default class Hz19Ripper extends HTMLRipper {
             const timeText = cells[0]?.text ?? '';
             const { hour, minute, durationMinutes, startTimeGuessed, durationGuessed } = parseTimeCell(timeText);
 
+            // Parse price from cells[3]
+            const priceText = cells[3]?.text ?? '';
+            const cost = parsePriceCell(priceText);
+
             // Venue: text in cells[1] after the link, before the city in parentheses
             const eventCellText = cells[1]?.text ?? '';
             const atIdx = eventCellText.indexOf(' @ ');
@@ -147,6 +187,7 @@ export default class Hz19Ripper extends HTMLRipper {
                     summary: title,
                     location,
                     url: eventUrl,
+                    ...(cost ? { cost } : {}),
                 };
 
                 events.push(event);
