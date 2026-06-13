@@ -1,7 +1,7 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { HTMLElement, parse } from 'node-html-parser';
 import { ZonedDateTime, Duration, ZoneId, LocalDate } from "@js-joda/core";
-import { RipperEvent, RipperCalendarEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
+import { EventCost, RipperEvent, RipperCalendarEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 
 // events12.com rarely lists explicit start times. When a time isn't
 // known we still emit an event so it shows up on the calendar (using
@@ -70,6 +70,12 @@ export default class Events12Ripper extends HTMLRipper {
                 // basis of its per-event image filename (e.g. /img/113825b.jpg).
                 const articleId = match[0].match(/<article\s[^>]*id="([^"]*)"/)?.[1] ?? '';
                 const imageUrl = this.extractImageUrl(article, articleId);
+
+                // Detect free events via <span class="free">FREE</span> in the title.
+                // Detect ticketed events via <a class="b2">tickets</a> anywhere in the article.
+                const isFree = titleElement.querySelector('.free') !== null;
+                const isTicketed = article.querySelector('a.b2') !== null;
+                const cost: EventCost | undefined = isFree ? { min: 0 } : isTicketed ? { paid: true } : undefined;
 
                 const title = titleElement.text.trim().replace(/\s*FREE\s*$/, '').trim();
                 if (!title) continue;
@@ -153,6 +159,7 @@ export default class Events12Ripper extends HTMLRipper {
                         location: location,
                         url: url || undefined,
                         imageUrl,
+                        ...(cost ? { cost } : {}),
                     };
                     events.push(event);
 

@@ -81,7 +81,7 @@ describe('HiddenHallRipper', () => {
         expect(calEvents[0].id).toBe('my-event-12345');
     });
 
-    it('includes ticket price in description', async () => {
+    it('extracts ticket price into cost field', async () => {
         const ripper = new HiddenHallRipper();
         const html = parse(`<html><script type="application/ld+json">[{
             "@type": "Event",
@@ -96,7 +96,25 @@ describe('HiddenHallRipper', () => {
         const calEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         expect(calEvents).toHaveLength(1);
-        expect(calEvents[0].description).toBe('$25');
+        expect(calEvents[0].cost).toEqual({ min: 25 });
+        expect(calEvents[0].description).toBeUndefined();
+    });
+
+    it('emits cost:paid:true when offers has no price', async () => {
+        const ripper = new HiddenHallRipper();
+        const html = parse(`<html><script type="application/ld+json">[{
+            "@type": "Event",
+            "name": "Test",
+            "startDate": "2026-03-01T04:00:00+00:00",
+            "url": "https://www.tixr.com/groups/hiddenhall/events/test-2",
+            "location": { "@type": "Place", "name": "Hidden Hall" }
+        }]</script></html>`);
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(calEvents).toHaveLength(1);
+        expect(calEvents[0].cost).toEqual({ paid: true });
     });
 
     it('decodes HTML entities in event names', async () => {

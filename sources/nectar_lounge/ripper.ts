@@ -89,6 +89,7 @@ export function parseNectarEvents(
             location: LOCATION,
             url: event.url,
             imageUrl: event.image,
+            cost: { paid: true },
         });
     }
 

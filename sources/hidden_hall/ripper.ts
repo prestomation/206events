@@ -99,10 +99,12 @@ export default class HiddenHallRipper extends HTMLRipper {
 
         const summary = decode(item.name);
 
-        // Strip HTML tags from description and decode entities
-        let description: string | undefined;
-        if (item.offers?.price != null) {
-            description = `$${item.offers.price}`;
+        // Extract cost from JSON-LD offers; fall back to paid:true (always ticketed).
+        let cost: import("../../lib/config/schema.js").EventCost = { paid: true };
+        const rawPrice = item.offers?.price;
+        if (rawPrice != null) {
+            const price = parseFloat(rawPrice);
+            if (Number.isFinite(price)) cost = { min: price };
         }
 
         // Generate a stable ID from the Tixr URL
@@ -114,10 +116,10 @@ export default class HiddenHallRipper extends HTMLRipper {
             date: eventDate,
             duration,
             summary,
-            description,
             location: "Hidden Hall, 400 N 35th St, Seattle, WA",
             url: item.url || undefined,
-            imageUrl: item.image || undefined
+            imageUrl: item.image || undefined,
+            cost,
         };
 
         return event;

@@ -211,6 +211,8 @@ export function toCalendarEvent(
         location: parsed.location,
         url: parsed.ticketUrl,
         imageUrl: parsed.imageUrl,
+        // All Triple Door shows are ticketed; prices are on the external ticketing site.
+        cost: { paid: true },
     };
 }
 

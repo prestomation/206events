@@ -139,7 +139,9 @@ export default class ShowboxPresentsRipper extends HTMLRipper {
                     description: description,
                     location: location,
                     url: detailUrl,
-                    imageUrl: imageUrl
+                    imageUrl: imageUrl,
+                    // All Showbox Presents concerts are ticketed; prices are on external ticketing sites.
+                    cost: { paid: true },
                 };
 
                 events.push(event);

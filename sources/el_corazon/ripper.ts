@@ -141,7 +141,8 @@ export default class ElCorazonRipper extends HTMLRipper {
                     description: description.trim(),
                     location: location,
                     url: eventUrl,
-                    imageUrl: imageUrl
+                    imageUrl: imageUrl,
+                    cost: { paid: true },
                 };
 
                 events.push(event);
