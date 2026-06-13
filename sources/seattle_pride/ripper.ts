@@ -1,4 +1,4 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
@@ -134,6 +134,28 @@ export function parseImageFromHtml(html: string): string | null {
     return null;
 }
 
+/**
+ * Parses the "Cost" metadata field from a Seattle Pride event detail page.
+ * Structure: <div class="pb-4"><span class="...uppercase">Cost</span> $1-$100</div>
+ */
+export function parseCostFromDetailHtml(html: string): EventCost | undefined {
+    const root = parse(html);
+    for (const span of root.querySelectorAll('span')) {
+        if (span.innerText.trim().toUpperCase() !== 'COST') continue;
+        const parent = span.parentNode as HTMLElement & { innerText?: string };
+        if (!parent) continue;
+        const parentText = (parent.innerText || '').replace(/^cost\s*/i, '').trim();
+        if (!parentText) continue;
+        if (/free|suggested donation|pwyw|pay what you can|notaflof/i.test(parentText)) return { min: 0 };
+        const range = parentText.match(/\$(\d+(?:\.\d{2})?)[\s\-–]+\$(\d+(?:\.\d{2})?)/);
+        if (range) return { min: parseFloat(range[1]), max: parseFloat(range[2]) };
+        const single = parentText.match(/\$(\d+(?:\.\d{2})?)/);
+        if (single) return { min: parseFloat(single[1]) };
+        return { paid: true };
+    }
+    return undefined;
+}
+
 export default class SeattlePrideRipper implements IRipper {
     private fetchFn: FetchFn = fetch;
 
@@ -162,9 +184,10 @@ export default class SeattlePrideRipper implements IRipper {
                 ? card.link
                 : `https://seattlepride.org${card.link}`;
 
-            // Fetch detail page for location and per-event image
+            // Fetch detail page for location, per-event image, and cost
             let location: string | null = null;
             let imageUrl: string | null = null;
+            let cost: EventCost | undefined;
             if (card.link) {
                 try {
                     const detailRes = await this.fetchFn(eventUrl, {
@@ -174,10 +197,15 @@ export default class SeattlePrideRipper implements IRipper {
                         const detailHtml = await detailRes.text();
                         location = parseLocationFromHtml(detailHtml);
                         imageUrl = parseImageFromHtml(detailHtml);
+                        cost = parseCostFromDetailHtml(detailHtml);
                     }
                 } catch {
-                    // location and image are optional — continue without them
+                    // location, image, and cost are optional — continue without them
                 }
+            }
+            // Fall back to checking "free" in title or card description
+            if (cost === undefined && /\bfree\b/i.test([card.title, card.description].join(' '))) {
+                cost = { min: 0 };
             }
 
             const result = this.parseCard(card, currentYear, location, zone, eventUrl, imageUrl);
@@ -185,8 +213,12 @@ export default class SeattlePrideRipper implements IRipper {
             // Skip past events
             if ('date' in result && result.date.isBefore(now)) continue;
 
-            if ('date' in result) events.push(result);
-            else errors.push(result);
+            if ('date' in result) {
+                if (cost !== undefined) result.cost = cost;
+                events.push(result);
+            } else {
+                errors.push(result);
+            }
         }
 
         return [{
