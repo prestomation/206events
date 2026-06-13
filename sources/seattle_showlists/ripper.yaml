@@ -21,6 +21,7 @@ calendars:
       venue: "Europa"
   - name: baba-yaga
     friendlyname: "Baba Yaga"
+    imageUrl: "https://static.spotapps.co/spots/38/c8e7bef2424690bfcac97f433b31c3/:original"
     geo:
       lat: 47.601
       lng: -122.3331
@@ -103,6 +104,7 @@ calendars:
   # --- Columbia City ---
   - name: black-and-tan-hall
     friendlyname: "Black & Tan Hall"
+    imageUrl: "https://static.wixstatic.com/media/e3707e_a44080b6ba0342869ae1c8ccefb7d951~mv2.jpg"
     geo:
       lat: 47.551
       lng: -122.2774
@@ -196,6 +198,7 @@ calendars:
   # --- Fremont ---
   - name: add-a-ball
     friendlyname: "Add-A-Ball"
+    imageUrl: "https://www.replaymag.com/wp-content/uploads/2020/10/Add-a-Ball-Seattle-1024x578.png"
     geo:
       lat: 47.652
       lng: -122.3549
@@ -289,6 +292,7 @@ calendars:
   # --- White Center ---
   - name: tims-tavern
     friendlyname: "Tim's Tavern"
+    imageUrl: "https://www.westsideseattle.com/sites/default/files/inline-images/tim%27s%20tavern%20-%203.jpeg"
     geo:
       lat: 47.5288
       lng: -122.3529
