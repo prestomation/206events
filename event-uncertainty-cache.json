@@ -21817,6 +21817,436 @@
       "resolvedAt": "2026-06-13",
       "source": "agent",
       "reason": "Virtual 5k with open participation window May 16\u2013Jul 15; June 20 is kickoff date, no specific hours"
+    },
+    "naam:6a10beb360ae65441ab6a0a1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/naam-juneteenth-celebration-the-sound-of-connection"
+    },
+    "naam:6a29b1a266ca8246ae081439": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/freedom-day-3"
+    },
+    "seattle-pridefest:69b4657b2059f04c27b186b0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlepridefest.org/schedule/2026/6/27/pridefest-capitol-hill"
+    },
+    "seattle-pridefest:69b465c0d28fbf5465abd0ef": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlepridefest.org/schedule/2026/6/28/pridefest-seattle-center"
+    },
+    "icm:icm-pacific-commodore-expo-northwest-2026-2026-6-20": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://portcommodore.com/dokuwiki/doku.php?id=pacommex:start"
+    },
+    "icm:icm-plan-9-boot-camp-fall-2025-2026-9-22": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://twitch.tv/interimcomputermuseum"
+    },
+    "icm:icm-southern-fried-gaming-expo-2026-2026-7-31": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://gameatl.com"
+    },
+    "ounces-taproom:6a13095a8c270b69f26f7ca0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.ounceswestseattle.com/events/usa-paraguay"
+    },
+    "queer-bar:69f24fc30f0c32679863b38d": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.thequeerbar.com/events-one/qpf-26"
+    },
+    "queer-bar:69f252489c5a6a5158e5d278": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.thequeerbar.com/events-one/qpf-26-89ab3"
+    },
+    "queer-bar:69f2537fb99bc212b6b0f76c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.thequeerbar.com/events-one/qpf-26-89ab3"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/AWKDERWQ4H25X7HIJJYXGNLF": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/AWKDERWQ4H25X7HIJJYXGNLF"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/L3MUY6AWQFHY7MYTECEAZHGI": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/L3MUY6AWQFHY7MYTECEAZHGI"
+    },
+    "burke_museum:burke-brenetta-ward-artist-studio": {
+      "fields": {
+        "cost": {
+          "min": 24.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/brenetta-ward-artist-studio"
+    },
+    "burke_museum:burke-trees-experience-alcove": {
+      "fields": {
+        "cost": {
+          "min": 24.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/trees-experience-alcove"
+    },
+    "burke_museum:burke-lecture-queer-ecology": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/lecture-queer-ecology"
+    },
+    "burke_museum:burke-native-plants-and-natural-dyes-susan-pavel": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/native-plants-and-natural-dyes-susan-pavel"
+    },
+    "burke_museum:burke-steam-spotlight-splashing-steam-0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/steam-spotlight-splashing-steam-0"
+    },
+    "seattle-urban-native-nonprofits:6a0b9cc82da45002a0ac85e8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattleurbannatives.org/events-calendar/37th-annual-indian-days-powwow-2026"
+    },
+    "seattle-urban-native-nonprofits:6a21e3d315e9d574e7fbb18f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattleurbannatives.org/events-calendar"
+    },
+    "seattle-urban-native-nonprofits:6a2992bb8e52167404bbd9dd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattleurbannatives.org/events-calendar"
+    },
+    "seattle-urban-native-nonprofits:6a0df7c500321534d39e7f6b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattleurbannatives.org/events-calendar"
+    },
+    "georgetown-steam-plant:6a21b60949da7d04e5b2e4d7": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.georgetownsteamplant.org/events/june-open-house"
+    },
+    "georgetown-steam-plant:6a2af0874002aa3c5ad9b86a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.georgetownsteamplant.org/events/vent-1"
+    },
+    "georgetown-steam-plant:6a2af3db038e627573b2cc25": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.georgetownsteamplant.org/events/within-tolerance"
+    },
+    "georgetown-steam-plant:6a2af4ff59d1fe7665a57764": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.georgetownsteamplant.org/events/within-tolerance-1"
+    },
+    "seattle-public-theater:6a0e418dde5d5b690579e0d9": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/movie-night-do-the-right-thing"
+    },
+    "seattle-public-theater:6a0e4295571b7d25309413a6": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/movie-night-do-the-right-thing"
+    },
+    "seattle-public-theater:6a0e42a08cc123607f86b936": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/movie-night-do-the-right-thing"
+    },
+    "seattle-public-theater:6a0e42a32dc65d24a00aff4a": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/movie-night-do-the-right-thing"
+    },
+    "seattle-public-theater:6a0e42a901b88d0d4e30db4f": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/movie-night-do-the-right-thing"
+    },
+    "seattle-public-theater:6a0e42ae1f8c9e2f184da13a": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/movie-night-do-the-right-thing"
+    },
+    "seattle-film-society:6a1d75f54a7eaf792636cede": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlefilmsociety.com/calendar/discussion-120"
+    },
+    "seattle-film-society:6a1d76a0b4391578bd1196ae": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlefilmsociety.com/calendar/discussion-121"
+    },
+    "book-larder:book-larder-9214071111898": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://booklarder.com/products/book-club-what-is-queer-food"
+    },
+    "book-larder:book-larder-9267840712922": {
+      "fields": {
+        "cost": {
+          "min": 54.0
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://booklarder.com/products/grill-time-with-noah-galuten-at-lioness-seattle"
+    },
+    "book-larder:book-larder-9262822818010": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://booklarder.com/products/tasting-notes-with-kenji-lopez-alt-seattle-chamb"
+    },
+    "seattle-chinese-garden:68af4b904feb656d1dfc023b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlechinesegarden.org/events/bamboo-circle-celebration-2026"
+    },
+    "seattle-chinese-garden:6a10cc48e578c46cd058ab29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlechinesegarden.org/events"
+    },
+    "seattle-japanese-garden:686d5b89f8297d100c65318e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.seattlejapanesegarden.org/events-calendar"
+    },
+    "seattle-pride:seattle-pride-the-sweat-out-series-hosted-by-alki-beach-pride": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://seattlepride.org/events/the-sweat-out-series-hosted-by-alki-beach-pride"
+    },
+    "fashion-district-nw:696c916b5838ac3d6689493f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.fashiondistrictnw.com/events/2025/fashion-in-flight-jzr5c"
+    },
+    "fashion-district-nw:69b1113f65230426e6bd90d6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-13",
+      "source": "agent",
+      "evidence": "https://www.fashiondistrictnw.com/events/2025/fifmodelcasting-6pkwp"
     }
   }
 }
