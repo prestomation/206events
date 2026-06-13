@@ -70,8 +70,8 @@ export function parseShowItem(
     const matchNameMatch = liText.replace(/\s+/g, ' ').trim().match(/\(([^)]+)\)\s*$/);
     const matchName = matchNameMatch ? matchNameMatch[1].trim() : '';
 
-    // Detect "showtime TBD" — time unknown; use noon as placeholder
-    if (/showtime\s+tbd/i.test(clean)) {
+    // Detect "showtime TBD" or "show after TBD" — time unknown; use noon as placeholder
+    if (/showtime\s+tbd/i.test(clean) || /show\s+after\s+tbd/i.test(clean)) {
         return { dateStr, hour: 12, minute: 0, timeKnown: false, timeApproximate: false, matchName };
     }
 
@@ -83,8 +83,9 @@ export function parseShowItem(
         return { dateStr, hour: t.hour, minute: t.minute, timeKnown: true, timeApproximate: true, matchName };
     }
 
-    // "show at HH:MMpm"
-    const atMatch = clean.match(/show\s+at\s+([\d:]+\s*(?:am|pm))/i);
+    // "show at HH:MMpm" or "showtime HH:MMpm"
+    const atMatch = clean.match(/show(?:time)?\s+at\s+([\d:]+\s*(?:am|pm))/i)
+        ?? clean.match(/showtime\s+([\d:]+\s*(?:am|pm))/i);
     if (atMatch) {
         const parsed = parseTimeStr(atMatch[1].replace(/\s+/g, ''));
         if (!parsed) {
