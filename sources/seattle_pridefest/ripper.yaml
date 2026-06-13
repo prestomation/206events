@@ -4,6 +4,7 @@ description: "Seattle PrideFest"
 url: "https://www.seattlepridefest.org/schedule"
 friendlyLink: https://www.seattlepridefest.org/schedule
 tags: ["Community", "Arts"]
+cost: free
 geo: null
 calendars:
   - name: seattle-pridefest
