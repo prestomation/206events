@@ -38,7 +38,7 @@ export default class KenyonHallRipper extends SquarespaceRipper {
 
         for (const cal of calendars) {
             for (const event of cal.events) {
-                const rawBody = bodyMap.get(event.id ?? '') || '';
+                const rawBody = event.id ? (bodyMap.get(event.id) ?? '') : '';
                 const bodyText = rawBody ? parse(rawBody).textContent : '';
                 const text = [event.summary, event.description, bodyText].filter(Boolean).join(' ');
                 const cost = extractKenyonHallCost(text);
