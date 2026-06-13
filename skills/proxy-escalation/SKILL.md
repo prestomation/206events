@@ -79,6 +79,16 @@ source failure. All browserbase sources fail simultaneously when billing lapses.
 
 Stop the skill here — do not proceed to steps 3a/3b for 402 entries.
 
+**⚠️ JS challenge = skip outofband, go straight to browserbase.**
+When investigating a source that's in the queue at rung 1 (no proxy) or when a
+build-report session finds a ripper producing 0 events, check if the response
+body is a JavaScript bot-challenge page. Indicators: `window.location.reload()`,
+`sgcaptcha`, Cloudflare challenge HTML, or an openresty/nginx JS-redirect page.
+If confirmed, skip rung 2 (`outofband`) and open a PR adding
+`proxy: "browserbase"` directly. Document the evidence (e.g., "curl returns
+11 KB JS challenge page") in the PR body. Outofband is a plain HTTP fetch from a
+residential IP and cannot execute JavaScript — it will get the same challenge.
+
 ### 2. Locate the source's config
 
 The `name` is the source name. Find its config file:
