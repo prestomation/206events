@@ -4,7 +4,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { ZoneId, ZonedDateTime } from '@js-joda/core';
 import '@js-joda/timezone';
-import { parseEventCards, parseDateText, parseLocationFromHtml, parseImageFromHtml, EventCard } from './ripper.js';
+import { parseEventCards, parseDateText, parseLocationFromHtml, parseImageFromHtml, parseCostFromDetailHtml, EventCard } from './ripper.js';
 import SeattlePrideRipper from './ripper.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -137,6 +137,33 @@ describe('parseImageFromHtml', () => {
     it('returns null for pages with no og:image', () => {
         const image = parseImageFromHtml('<html><head></head><body><p>nothing</p></body></html>');
         expect(image).toBeNull();
+    });
+});
+
+describe('parseCostFromDetailHtml', () => {
+    it('parses dollar range from "Cost" section of detail page', () => {
+        const cost = parseCostFromDetailHtml(sampleDetailHtml);
+        expect(cost).toEqual({ min: 1, max: 100 });
+    });
+
+    it('returns {min:0} when Cost section says "Free"', () => {
+        const html = '<div class="pb-4"><span class="block pb-1 font-bold text-xs uppercase">Cost</span> Free</div>';
+        expect(parseCostFromDetailHtml(html)).toEqual({ min: 0 });
+    });
+
+    it('returns {min:20} for single dollar amount', () => {
+        const html = '<div class="pb-4"><span class="block pb-1 font-bold text-xs uppercase">Cost</span> $20</div>';
+        expect(parseCostFromDetailHtml(html)).toEqual({ min: 20 });
+    });
+
+    it('returns {paid:true} for non-parseable cost text', () => {
+        const html = '<div class="pb-4"><span class="block pb-1 font-bold text-xs uppercase">Cost</span> RSVP required</div>';
+        expect(parseCostFromDetailHtml(html)).toEqual({ paid: true });
+    });
+
+    it('returns undefined when no Cost section present', () => {
+        const html = '<div class="pb-4"><span class="block pb-1 font-bold text-xs uppercase">Accessibility</span> ASL</div>';
+        expect(parseCostFromDetailHtml(html)).toBeUndefined();
     });
 });
 
