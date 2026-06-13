@@ -1,5 +1,5 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneRegion } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -173,6 +173,15 @@ export default class SeattleCenterRipper implements IRipper {
 
         const isAllDay = /all\s*day/i.test(timeText);
 
+        const priceEl = eventRow.querySelector('.event-list__price span');
+        const priceText = priceEl ? priceEl.text.trim().toLowerCase() : '';
+        let cost: EventCost | undefined;
+        if (priceText === 'free event') {
+            cost = { min: 0 };
+        } else if (priceText === 'entry charge') {
+            cost = { paid: true };
+        }
+
         const calendarEvent: RipperCalendarEvent = {
             id: slug || undefined,
             ripped: new Date(),
@@ -181,7 +190,8 @@ export default class SeattleCenterRipper implements IRipper {
             summary: title,
             description: description || undefined,
             location: location || "Seattle Center",
-            url: eventUrl
+            url: eventUrl,
+            ...(cost !== undefined ? { cost } : {})
         };
 
         return calendarEvent;
