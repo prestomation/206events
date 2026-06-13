@@ -1,0 +1,21 @@
+# verified: 2026-06-13 via eventbrite web ui (6 upcoming events: FIFA Watch Party, art classes, Arts in Nature Festival, bat walk, movie screening; EVENTBRITE_TOKEN required in CI)
+name: dnda
+type: eventbrite
+description: "Youngstown Cultural Arts Center (DNDA)"
+url: "https://www.eventbrite.com/o/delridge-neighborhoods-development-association-13506518410"
+friendlyLink: https://dnda.org/art/
+tags: ["Arts", "Community", "West Seattle"]
+geo:
+  lat: 47.5635848
+  lng: -122.3630355
+  label: "Youngstown Cultural Arts Center, 4408 Delridge Way SW, Seattle, WA 98106"
+  osmType: way
+  osmId: 370478197
+calendars:
+  - name: dnda
+    friendlyname: "DNDA - Youngstown Cultural Arts Center"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "13506518410"
+      defaultLocation: "Youngstown Cultural Arts Center, 4408 Delridge Way SW, Seattle, WA 98106"
+      defaultDurationHours: 2
