@@ -307,6 +307,7 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                 location: LOCATION,
                 url: eventUrl,
                 imageUrl: image,
+                cost: { min: 0 },
             });
         }
 

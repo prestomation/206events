@@ -1,6 +1,14 @@
 import { parse } from 'node-html-parser';
-import { EventCost, Ripper, RipperCalendar } from "../../lib/config/schema.js";
+import { EventCost, Ripper, RipperCalendar, UncertaintyError } from "../../lib/config/schema.js";
 import { SquarespaceEvent, SquarespaceRipper } from "../../lib/config/squarespace.js";
+
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 /**
  * Extracts cost from Kenyon Hall event text.
@@ -44,6 +52,16 @@ export default class KenyonHallRipper extends SquarespaceRipper {
                 const cost = extractKenyonHallCost(text);
                 if (cost !== undefined) {
                     event.cost = cost;
+                } else {
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: "No price found in Kenyon Hall event text",
+                        source: ripper.config.name,
+                        unknownFields: ["cost"],
+                        event,
+                        partialFingerprint: simpleHash(text.substring(0, 200)),
+                    };
+                    cal.errors.push(uncertainty);
                 }
             }
         }
