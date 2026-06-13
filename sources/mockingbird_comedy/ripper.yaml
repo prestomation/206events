@@ -1,0 +1,16 @@
+name: mockingbird-comedy
+type: eventbrite
+proxy: "outofband"
+description: "Mockingbird Comedy"
+url: "https://www.eventbrite.com/o/mockingbird-comedy-109263369901"
+friendlyLink: https://www.eventbrite.com/o/mockingbird-comedy-109263369901
+tags: ["Comedy"]
+geo: null
+calendars:
+  - name: mockingbird-comedy
+    friendlyname: "Mockingbird Comedy"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "109263369901"
+      defaultLocation: "Old Stove Brewing Co., Seattle, WA"
+      defaultDurationHours: 2
