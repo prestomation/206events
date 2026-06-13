@@ -144,7 +144,8 @@ export default class SeattleConventionCenterRipper extends HTMLRipper {
                     summary: eventName,
                     description: `${eventName} at Seattle Convention Center`,
                     location: LOCATION,
-                    url: "https://seattlecc.com/upcoming-events/"
+                    url: "https://seattlecc.com/upcoming-events/",
+                    cost: { paid: true },
                 };
 
                 events.push(event);

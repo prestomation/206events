@@ -155,7 +155,8 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                         date: eventDate,
                         duration: Duration.ofMinutes(durationMinutes),
                         url: url,
-                        ripped: new Date()
+                        ripped: new Date(),
+                        cost: { paid: true },
                     };
                     
                     events.push(event);
@@ -252,7 +253,8 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                         date: eventDate,
                         duration: duration,
                         url: url,
-                        ripped: new Date()
+                        ripped: new Date(),
+                        cost: { paid: true },
                     };
                     
                     events.push(event);

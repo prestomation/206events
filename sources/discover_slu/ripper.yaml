@@ -2,6 +2,7 @@ name: discover-slu
 description: "Discover South Lake Union"
 url: "https://www.discoverslu.com/calendar/"
 friendlyLink: https://www.discoverslu.com/calendar/
+cost: free
 tags: ["Community", "South Lake Union"]
 lookahead: P1M
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/03/Seattle_-_SLU_streetcar_on_Terry_Avenue_01.jpg"

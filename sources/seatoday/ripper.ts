@@ -1,5 +1,5 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ChronoUnit } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import '@js-joda/timezone';
 
 const PAGE_SIZE = 25;
@@ -209,6 +209,18 @@ export default class SEAtodayRipper implements IRipper {
                     eventUrl = `${baseUrl}#/details/${slug}/${eventData.PId}/${dateStr}T00`;
                 }
 
+                // Extract cost from CitySpark price fields
+                let cost: EventCost | undefined;
+                if (eventData.Free === true) {
+                    cost = { min: 0 };
+                } else if (typeof eventData.Price === 'number' && eventData.Price > 0) {
+                    const max = typeof eventData.PriceHigh === 'number' && eventData.PriceHigh > eventData.Price
+                        ? eventData.PriceHigh : undefined;
+                    cost = { min: eventData.Price, ...(max !== undefined ? { max } : {}) };
+                } else if (eventData.IsTicketed === true) {
+                    cost = { paid: true };
+                }
+
                 const event: RipperCalendarEvent = {
                     id: eventData.PId ? `cityspark-${eventData.PId}` : undefined,
                     ripped: new Date(),
@@ -218,7 +230,8 @@ export default class SEAtodayRipper implements IRipper {
                     description: description || undefined,
                     location: location || undefined,
                     url: eventUrl || undefined,
-                    imageUrl: eventData.LargeImg || eventData.MediumImg || eventData.SmallImg || undefined
+                    imageUrl: eventData.LargeImg || eventData.MediumImg || eventData.SmallImg || undefined,
+                    ...(cost !== undefined ? { cost } : {})
                 };
 
                 events.push(event);
