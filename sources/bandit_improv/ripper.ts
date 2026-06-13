@@ -1,14 +1,14 @@
-import { ZoneId } from "@js-joda/core";
-import { RipperCalendarEvent } from "../../lib/config/schema.js";
-import { SquarespaceRipper, SquarespaceEvent } from "../../lib/config/squarespace.js";
+import { Ripper, RipperCalendar } from "../../lib/config/schema.js";
+import { SquarespaceRipper } from "../../lib/config/squarespace.js";
 
 export default class BanditImprovRipper extends SquarespaceRipper {
-    protected override mapEvent(sqEvent: SquarespaceEvent, timezone: ZoneId, baseUrl: URL): RipperCalendarEvent | null {
-        const event = super.mapEvent(sqEvent, timezone, baseUrl);
-        if (!event) return null;
-
-        const isFree = /\bfree\b/i.test(sqEvent.title);
-        event.cost = isFree ? { min: 0 } : { paid: true };
-        return event;
+    public override async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const calendars = await super.rip(ripper);
+        for (const cal of calendars) {
+            for (const event of cal.events) {
+                event.cost = /\bfree\b/i.test(event.summary) ? { min: 0 } : { paid: true };
+            }
+        }
+        return calendars;
     }
 }
