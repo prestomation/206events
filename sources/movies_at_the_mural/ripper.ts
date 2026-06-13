@@ -135,6 +135,7 @@ export function parseFeaturedItem(
         location: DEFAULT_LOCATION,
         url,
         imageUrl: image,
+        cost: { min: 0 },
     };
 }
 

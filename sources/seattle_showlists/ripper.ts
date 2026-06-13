@@ -239,7 +239,8 @@ export default class SeattleShowlistsRipper implements IRipper {
                     duration: Duration.ofHours(DEFAULT_DURATION_HOURS),
                     summary: show.title,
                     location: location,
-                    url: "https://seattle.showlists.net"
+                    url: "https://seattle.showlists.net",
+                    cost: { paid: true },
                 };
 
                 events.push(event);

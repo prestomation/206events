@@ -153,6 +153,7 @@ export function parsePanel(
         location: DEFAULT_LOCATION,
         url,
         imageUrl: image,
+        cost: { paid: true },
     };
 }
 
