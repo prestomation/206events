@@ -83,6 +83,8 @@ export function processData(
             url: TICKETS_URL,
             // Spektrix exposes a per-show absolute image URL; only set when present.
             imageUrl: event.imageUrl || undefined,
+            // All Can Can shows are ticketed; Spektrix API doesn't surface price data.
+            cost: { paid: true },
         });
     }
 

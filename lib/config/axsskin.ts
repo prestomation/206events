@@ -129,6 +129,8 @@ export function parseAXSSkinEvent(
         location,
         url: eventUrl || undefined,
         imageUrl: image,
+        // AXS-skin venues are always ticketed; prices are on the AXS ticketing page.
+        cost: { paid: true },
     };
 }
 

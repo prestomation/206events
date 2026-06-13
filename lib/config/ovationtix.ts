@@ -186,6 +186,8 @@ export class OvationTixRipper implements IRipper {
                     location: venueAddress,
                     url,
                     imageUrl: perf.productionLogoLink || undefined,
+                    // OvationTix sources are always ticketed; the API doesn't surface price data.
+                    cost: { paid: true },
                 });
             } catch (error) {
                 events.push({

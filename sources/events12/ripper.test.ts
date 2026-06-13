@@ -372,4 +372,59 @@ describe('Events12Ripper', () => {
         const calEvents = events.filter(e => 'date' in e);
         expect(calEvents.length).toBe(1);
     });
+
+    it('marks free events via <span class="free"> as cost: { min: 0 }', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="freetest">
+                <h3>Night market &nbsp;<span class="free">FREE</span></h3>
+                <p class="date">February 22, 2026 (6 p.m.)</p>
+                <p class="miles">Columbia City (5.5 miles SE)</p>
+                <p class="event">Monthly night market <a href="https://example.com/market">details</a></p>
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0].summary).toBe('Night market');
+        expect(calEvents[0].cost).toEqual({ min: 0 });
+    });
+
+    it('marks ticketed events via <a class="b2"> as cost: { paid: true }', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="tickettest">
+                <h3>Concert</h3>
+                <p class="date">February 22, 2026 (8 p.m.)</p>
+                <p class="miles">Downtown (0.5 miles S)</p>
+                <p class="event">Amazing concert <a href="https://example.com/concert">details</a></p>
+                <a class="b2" href="https://tickets.example.com/123" rel="nofollow">tickets</a>
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0].cost).toEqual({ paid: true });
+    });
+
+    it('leaves cost undefined when no free/ticket indicator is present', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="nopricetest">
+                <h3>Soup weekend</h3>
+                <p class="date">February 22, 2026</p>
+                <p class="miles">Fremont (3 miles N)</p>
+                <p class="event">Walk to restaurants <a href="https://example.com/soup">details</a></p>
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+        expect(calEvents.length).toBeGreaterThan(0);
+        for (const e of calEvents) {
+            expect(e.cost).toBeUndefined();
+        }
+    });
 });
