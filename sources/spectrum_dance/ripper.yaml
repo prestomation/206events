@@ -1,4 +1,5 @@
 name: spectrum-dance
+type: ovationtix
 description: "Spectrum Dance Theater"
 url: "https://api.ovationtix.com/public/calendar/client(36947)"
 friendlyLink: "https://spectrumdance.org"
@@ -18,4 +19,4 @@ calendars:
     config:
       clientId: 36947
       clientOrigin: "https://spectrumdance.org"
-      lookaheadMonths: 6
+      venueAddress: "Spectrum Dance Theater, 800 Lake Washington Blvd E, Seattle, WA 98122"
