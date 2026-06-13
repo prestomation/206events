@@ -142,9 +142,9 @@ export function parseCostFromDetailHtml(html: string): EventCost | undefined {
     const root = parse(html);
     for (const span of root.querySelectorAll('span')) {
         if (span.innerText.trim().toUpperCase() !== 'COST') continue;
-        const parent = span.parentNode as HTMLElement & { innerText?: string };
+        const parent = span.parentNode as unknown as { innerText?: string } | null;
         if (!parent) continue;
-        const parentText = (parent.innerText || '').replace(/^cost\s*/i, '').trim();
+        const parentText = (parent.innerText ?? '').replace(/^cost\s*/i, '').trim();
         if (!parentText) continue;
         if (/free|suggested donation|pwyw|pay what you can|notaflof/i.test(parentText)) return { min: 0 };
         const range = parentText.match(/\$(\d+(?:\.\d{2})?)[\s\-–]+\$(\d+(?:\.\d{2})?)/);
