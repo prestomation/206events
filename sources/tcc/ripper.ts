@@ -109,6 +109,7 @@ export default class TCCRipper implements IRipper {
                 summary: title,
                 location: location || undefined,
                 url: eventUrl,
+                cost: { min: 0 },
             };
 
             events.push(event);
