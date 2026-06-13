@@ -84,12 +84,12 @@ If a source returns 403 or consistently fails to fetch, follow the proxy escalat
 | 2 | `proxy: "outofband"` | Source works from home IP but CI 403s it |
 | 3 | `proxy: "browserbase"` | JS challenge (e.g. SiteGround sgcaptcha) blocks even residential IP |
 
-**Escalation is one rung at a time, one PR at a time:**
+**Escalation is one rung at a time, one PR at a time — with one exception:**
 1. **No proxy yet and CI 403s it?** → Add `proxy: "outofband"` in a PR. The out-of-band runner fetches from a residential IP.
 2. **Already `proxy: outofband` and still failing?** → Escalate to `proxy: "browserbase"` in a follow-up PR. Browserbase executes JS to bypass bot detection.
 3. **Already `proxy: browserbase` and still failing?** → Flag in the report for human review. The source may need a custom ripper or alternative URL.
 
-**Never skip escalation steps.** Each step requires its own PR so the failure is observable.
+**JS-challenge exception — skip directly to `proxy: "browserbase"` when the response is a JS bot-challenge page.** If the ripper returns 0 events (or errors) and a manual fetch of the URL returns a JavaScript challenge page (recognizable by `window.location.reload()`, `sgcaptcha`, Cloudflare challenge, or similar JS-redirect HTML), a residential-IP fetch (outofband) will get the same challenge and won't help. Go straight to browserbase in a single PR; document the evidence in the PR body. Do not skip rung 2 for any other reason.
 
 **For sources that ALREADY carry a proxy (`outofband` or `browserbase`), you do not escalate them here.** Their failures are tracked automatically in the `pendingProxyVerification` queue (see step 5.5), and the **proxy-escalation skill** — run by the out-of-band job — drives them up the ladder after 3 consecutive failures (and retires them after browserbase fails 3 times). Your job for those is to *report* the queue, not act on it. Rung 1 (no proxy yet → add `outofband`) is the only step still done by hand here, because a `proxy: false` source isn't in the queue yet.
 
