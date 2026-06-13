@@ -191,5 +191,19 @@ describe('SeattleCenterRipper', () => {
             const events = ripper.parseEventsFromHtml([html], timezone);
             expect(events).toHaveLength(0);
         });
+
+        it('extracts cost from event-list__price span', () => {
+            const sampleHtml = fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
+            const events = ripper.parseEventsFromHtml([sampleHtml], timezone);
+            const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+
+            // "Free Event" → { min: 0 }
+            expect(calEvents[0].cost).toEqual({ min: 0 }); // Sculpture Walk
+            expect(calEvents[1].cost).toEqual({ min: 0 }); // Tet in Seattle
+            expect(calEvents[4].cost).toEqual({ min: 0 }); // Farmers Market
+
+            // "Entry Charge" → { paid: true }
+            expect(calEvents[2].cost).toEqual({ paid: true }); // Ghost at Climate Pledge Arena
+        });
     });
 });
