@@ -209,7 +209,7 @@ export default class SEAtodayRipper implements IRipper {
                     eventUrl = `${baseUrl}#/details/${slug}/${eventData.PId}/${dateStr}T00`;
                 }
 
-                // Extract cost from CitySpark price fields
+                // Extract cost from CitySpark price fields (priority: Free > Price/PriceHigh > IsTicketed)
                 let cost: EventCost | undefined;
                 if (eventData.Free === true) {
                     cost = { min: 0 };
