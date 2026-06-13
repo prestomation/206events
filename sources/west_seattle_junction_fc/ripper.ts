@@ -133,6 +133,7 @@ export default class WestSeattleJunctionFCRipper implements IRipper {
             summary: `West Seattle Junction FC vs ${opponent}`,
             location: LOCATION,
             url: SCHEDULE_URL,
+            cost: { paid: true },
         };
     }
 
