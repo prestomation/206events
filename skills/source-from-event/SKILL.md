@@ -87,12 +87,52 @@ Five branches. Pick exactly one per event.
 | **(a) Event found in `event_candidates` or `title_only_matches`** | Reply: *"This event is already covered by `<source.friendly>` (kind: `<source.kind>`, ics: `<icsUrl>`)."* No PR. **Stop.** |
 | **(b) Event missing AND a matching source has a ParseError near that date in `build-errors.json`** | The ripper is broken for items like this. Hand off to **`skills/build-report/SKILL.md`** to fix the parser. The fix is a separate PR. Do not also add a new source for the same venue. |
 | **(c) Venue covered, event missing, no parse error** | Reply: *"Covered by `<source>` — event has likely not surfaced upstream yet (too far ahead, or not yet posted)."* No PR. **Stop.** |
-| **(d) Venue not covered AND the venue is self-managed with its own events page** (Neumos, Burke Museum, a specific brewery, etc.) | Source to add = **the venue**. Go to step 4 with the venue's events page as the candidate URL. |
-| **(e) Venue not covered AND the venue is a shared/public space** (a park, plaza, civic center) | Source to add = **the promoter/organization named on the poster**, NOT the venue. Err on the side of adding (per project guidance). Go to step 4 with the promoter's events page as the candidate URL. |
+| **(d) Venue not covered AND the venue is self-managed with its own events page** (Neumos, Burke Museum, a specific brewery, etc.) | Source to add = **the venue**. Go to step 3.5 to find the events page URL, then step 4. |
+| **(e) Venue not covered AND the venue is a shared/public space** (a park, plaza, civic center) | Source to add = **the promoter/organization named on the poster**, NOT the venue. Err on the side of adding (per project guidance). Go to step 3.5 to find the events page URL, then step 4. |
 
 If the poster is a true one-off (no recurring promoter and no
 self-managed venue calendar), reply *"no viable recurring source for
 this event"* and stop.
+
+### 3.5. Find the org's events page (branches d and e only)
+
+You now have an org or venue name but may not have a URL. **Always search
+the web before delegating to source-discovery** — source-discovery's
+live-fetch validation step requires an actual URL.
+
+```
+WebSearch: "<org name> Seattle events calendar"
+WebSearch: "<org name> Seattle tickets Eventbrite Humanitix OvationTix Ticketmaster DICE Universe"
+WebSearch: "site:<domain> events"   # once you have a domain
+```
+
+From the search results, determine:
+
+1. **The org's canonical events or "what's next" page URL.** This is your
+   candidate URL for step 5. If multiple URLs surface (e.g., an Eventbrite
+   organizer page *and* a self-hosted events page), prefer the self-hosted
+   page as the candidate — it's more stable and already aggregates all
+   ticketing. If the org uses a single platform exclusively, use that
+   platform URL.
+2. **The ticketing platform** (Eventbrite, Humanitix, OvationTix,
+   Ticketmaster, DICE, Universe, etc.). The platform determines
+   implementation strategy — check `AGENTS.md` for built-in ripper types
+   before writing a custom one.
+3. **Whether the org is a viable recurring source.** An org that posts
+   events via a structured platform (any of the above) is viable. An org
+   whose only web presence is a static brochure site or mailing list
+   (no machine-readable events) is **not viable** — reply accordingly
+   and stop.
+
+**If initial searches return nothing useful:** try alternative terms
+(`"<org name> site:eventbrite.com"`, `"<org name> tickets"`, the org's
+social media bio link), then check `docs/source-candidates/` for a prior
+investigation. If still nothing, conclude not viable and stop — do not
+guess at URLs.
+
+Fetch the events page (`WebFetch`) to confirm it returns real event data
+before proceeding. If it returns a 503 or requires JS rendering, note
+the proxy rung needed (see `AGENTS.md` proxy ladder).
 
 ### 4. Check for parse gaps (branch b)
 
@@ -113,7 +153,7 @@ published.
 
 Delegate the add-source path to **`skills/source-discovery/SKILL.md`**
 starting at its **Step 4 ("Quality gate each candidate")** — you have
-already done the discovery; you have the candidate URL/venue in hand.
+already done the discovery (steps 2–3.5); you have the candidate URL/venue in hand.
 That skill handles:
 
 - Live fetch validation of the candidate URL
