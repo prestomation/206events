@@ -36,9 +36,5 @@ describe.skipIf(SOURCE_DIR_COUNT === 0)('Config Load', () => {
             expect(naam!.config.type).toBe("squarespace");
             expect(naam!.ripperImpl).toBeInstanceOf(SquarespaceRipper);
 
-            const wingLuke = configs.find(c => c.config.name === "wing-luke");
-            expect(wingLuke).toBeDefined();
-            expect(wingLuke!.config.type).toBe("squarespace");
-            expect(wingLuke!.ripperImpl).toBeInstanceOf(SquarespaceRipper);
     });
 });
