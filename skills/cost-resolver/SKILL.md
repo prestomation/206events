@@ -68,14 +68,49 @@ for src, n in by.most_common(25): print(f'{n:5}  {src}')
 (Use `output/build-errors.json` for a local build, or
 `https://206.events/preview/<PR>/build-errors.json` for a PR preview.)
 
-### 2. Process a bounded batch
+### 2. Check that rippers with cost extraction emit uncertainty
+
+Before resolving gaps, audit every high-gap source whose ripper **attempts**
+cost parsing. A ripper that tries to extract a price but silently drops the
+field when extraction fails produces cost gaps that look identical to a source
+that never tried — but the root cause is different and the fix is in code, not
+the cache.
+
+**For each source with many gaps (≥5 typically warrants a look):**
+
+1. Open `sources/<name>/ripper.ts` (or the equivalent file).
+2. Check whether the ripper contains any cost-parsing logic (grep for `cost`,
+   `price`, `free`, `paid`, etc.).
+3. If cost parsing exists but the failure path does **not** emit an
+   `UncertaintyError` with `unknownFields: ["cost"]`, add it:
+   - When another uncertainty (time, duration) already exists for the event,
+     **append** `"cost"` to its `unknownFields` and keep the existing
+     `partialFingerprint` formula unchanged (critical — changing a fingerprint
+     invalidates already-cached time/duration resolutions).
+   - When time is known but cost is absent, emit a **new standalone**
+     `UncertaintyError` with `unknownFields: ["cost"]` and a fingerprint over
+     the relevant price fields from the source data.
+   - Canonical examples: `sources/19hz/ripper.ts`, `sources/events12/ripper.ts`,
+     `sources/seatoday/ripper.ts`, `sources/seattle_center/ripper.ts`,
+     `sources/kenyon_hall/ripper.ts`.
+4. If cost parsing is absent (the source exposes no pricing data at all), a
+   ripper-level YAML `cost:` default or a batch of cache resolutions is the
+   right path — no code change needed.
+5. Add the uncertainty emission in a PR **before** bulk-resolving cache entries
+   for that source, so the cache keys are stable and the resolver skill's queue
+   accurately reflects what the ripper can't determine on its own.
+
+**Key invariant:** Fingerprint formulas for existing `UncertaintyError`s must
+never change — they are the join key to already-committed cache resolutions.
+
+### 3. Process a bounded batch
 
 **Do not try to drain the whole queue in one run.** Pick a batch — e.g. the
 first **25** events, or 2–3 high-gap sources — and resolve those. Prefer
 source-wide fixes first (one YAML line covers every future event at that
 source) and high-traffic sources.
 
-### 3a. Resolve a SOURCE-WIDE cost (source YAML → PR)
+### 4a. Resolve a SOURCE-WIDE cost (source YAML → PR)
 
 If investigation shows a source's events are uniformly priced (most commonly:
 always free — community calendars, farmers markets, gallery walks):
@@ -92,7 +127,7 @@ always free — community calendars, farmers markets, gallery walks):
 The YAML default never overrides a ripper-parsed or cache-resolved cost
 (precedence: ripper-parsed → cache resolution → YAML default).
 
-### 3b. Resolve a PER-EVENT cost (uncertainty cache)
+### 4b. Resolve a PER-EVENT cost (uncertainty cache)
 
 For each event gap, fetch the source page (`url` from the queue), apply the
 pricing rubric, and write the resolution:
@@ -122,7 +157,7 @@ when the page is alive but priceless.
 The build's `applyCostBackfill` pass applies these resolutions on the next
 build (see `docs/free-paid-filter.md` and `docs/event-uncertainty.md`).
 
-### 4. Re-trigger the build and report
+### 5. Re-trigger the build and report
 
 After YAML PRs merge / cache resolutions are written, re-trigger the build,
 then re-check coverage against your baseline. Summarize:
