@@ -9,6 +9,8 @@ geo:
   lat: 47.5635848
   lng: -122.3630355
   label: "Youngstown Cultural Arts Center, 4408 Delridge Way SW, Seattle, WA 98106"
+  osmType: way
+  osmId: 370478197
 calendars:
   - name: dnda
     friendlyname: "DNDA - Youngstown Cultural Arts Center"

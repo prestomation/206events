@@ -6,6 +6,7 @@ url: https://dnda.org/art/
 tags: [Arts, Community, West Seattle]
 firstSeen: 2026-06-13
 lastChecked: 2026-06-13
+pr: 620
 ---
 
 Delridge Neighborhoods Development Association (DNDA) is a nonprofit focused on social, racial, and environmental justice in the Delridge neighborhood of West Seattle. Their primary programming venue is Youngstown Cultural Arts Center (4408 Delridge Way SW), a 1917 former elementary school on the National Register of Historic Places that now houses artist live-work lofts and cultural programming space.
