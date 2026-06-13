@@ -1,10 +1,10 @@
 name: the-feast
+type: ovationtix
 description: "The Feast"
 url: "https://api.ovationtix.com/public/calendar/client(35379)"
 friendlyLink: "https://the-feast.org"
 tags: ["Theatre", "Arts"]
 geo: null
-expectEmpty: true
 calendars:
   - name: the-feast
     friendlyname: "The Feast"
@@ -12,4 +12,3 @@ calendars:
     config:
       clientId: 35379
       clientOrigin: "https://the-feast.org"
-      lookaheadMonths: 6

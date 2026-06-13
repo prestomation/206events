@@ -197,6 +197,7 @@ If the site uses one of these platforms, use the corresponding `type` in `ripper
 | Squarespace | `squarespace` | see `lib/config/squarespace.ts` |
 | Ticketmaster | `ticketmaster` | see `lib/config/ticketmaster.ts` |
 | AXS | `axs` | `venueId`, `venueSlug`, `venueName`, `venueAddress` |
+| OvationTix | `ovationtix` | `clientId` (required), `clientOrigin` (required), `venueAddress` (omit for itinerant), `defaultDurationMinutes` (optional, default 120), `lookaheadMonths` (optional, default 6) |
 
 Example `ripper.yaml` for an Eventbrite organizer:
 ```yaml

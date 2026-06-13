@@ -1,4 +1,5 @@
 name: taproot
+type: ovationtix
 description: "Taproot Theatre"
 url: "https://api.ovationtix.com/public/calendar/client(37019)"
 friendlyLink: "https://taproottheatre.org"
@@ -17,4 +18,5 @@ calendars:
     config:
       clientId: 37019
       clientOrigin: "https://taproottheatre.org"
-      lookaheadMonths: 6
+      venueAddress: "Taproot Theatre, 204 N 85th St, Seattle, WA 98103"
+      defaultDurationMinutes: 150
