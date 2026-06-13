@@ -78,6 +78,7 @@ export function parseEventsFromHtml(html: string): Array<RipperCalendarEvent | R
             duration,
             summary,
             url,
+            cost: { min: 0 },
         });
     }
 

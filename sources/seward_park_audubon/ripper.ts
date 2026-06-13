@@ -84,6 +84,7 @@ export default class SewardParkAudubonRipper extends JSONRipper {
                         location,
                         url: event.browser_url,
                         imageUrl,
+                        cost: { min: 0 },
                     });
                 } catch (err) {
                     events.push({

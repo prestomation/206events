@@ -249,6 +249,7 @@ export function parseEventsFromHtml(
                 location,
                 url,
                 imageUrl,
+                cost: { min: 0 },
             };
 
             events.push(event);

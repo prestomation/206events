@@ -164,6 +164,7 @@ export default class SoundTransitRipper implements IRipper {
             summary: ev.title.trim(),
             description,
             url: ev.url ? `${BASE_URL}${ev.url}` : undefined,
+            cost: { min: 0 },
         } satisfies RipperCalendarEvent;
     }
 }

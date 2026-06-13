@@ -199,6 +199,7 @@ export default class CIDBIARipper implements IRipper {
             summary: title,
             location: location ?? undefined,
             url,
+            cost: { min: 0 },
         };
     }
 

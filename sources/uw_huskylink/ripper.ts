@@ -116,6 +116,7 @@ export default class HuskyLinkRipper extends JSONRipper {
             description,
             location,
             url: `${EVENT_BASE}${id}`,
+            cost: { min: 0 },
         };
 
         if (typeof ev?.imagePath === "string" && ev.imagePath) {

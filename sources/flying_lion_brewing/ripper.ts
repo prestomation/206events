@@ -152,6 +152,7 @@ export default class FlyingLionBrewingRipper implements IRipper {
                     description: descText || undefined,
                     location: LOCATION,
                     url: EVENTS_URL,
+                    cost: { min: 0 },
                 });
             } catch (err) {
                 events.push({

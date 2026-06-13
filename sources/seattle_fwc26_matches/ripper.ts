@@ -126,6 +126,7 @@ export default class SeattleFwc26MatchesRipper implements IRipper {
             description: descriptionParts.join('\n\n'),
             location: LOCATION,
             url: sourceUrl,
+            cost: { paid: true },
         };
     }
 }

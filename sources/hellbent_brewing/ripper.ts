@@ -102,6 +102,7 @@ export default class HellbentBrewingRipper implements IRipper {
                     summary: `Food Truck: ${title}`,
                     location: LOCATION,
                     url: FOOD_TRUCKS_URL,
+                    cost: { min: 0 },
                 });
             } catch (err) {
                 events.push({

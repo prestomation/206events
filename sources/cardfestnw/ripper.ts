@@ -174,6 +174,7 @@ export default class CardfestNWRipper implements IRipper {
             summary: title,
             location: `${block.building}, ${block.address}`,
             url: `https://www.ontreasure.com/events/${block.slug}`,
+            cost: { paid: true },
         };
     }
 }

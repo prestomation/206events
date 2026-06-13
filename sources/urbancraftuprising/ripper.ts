@@ -266,7 +266,8 @@ export default class UrbanCraftUprisingRipper extends HTMLRipper {
             description,
             location,
             url,
-            imageUrl
+            imageUrl,
+            cost: { paid: true },
         };
     }
 

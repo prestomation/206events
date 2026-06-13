@@ -119,6 +119,7 @@ export function parseItem(
         location: formatLocation(item.location),
         url,
         imageUrl: extractAssetImageUrl(item.assetUrl),
+        cost: { min: 0 },
     };
 }
 

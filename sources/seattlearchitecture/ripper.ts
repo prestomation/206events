@@ -67,7 +67,8 @@ export default class SAFRipper extends HTMLRipper {
                     date: eventTime,
                     duration: Duration.ofHours(2),
                     ripped: convert(LocalDateTime.now()).toDate(),
-                    url: link
+                    url: link,
+                    cost: { paid: true },
                 };
                 return a;
             }

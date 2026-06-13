@@ -193,6 +193,7 @@ export default class SeattleFoodTruckRipper implements IRipper {
                     summary: `Food Trucks @ ${pod.name}`,
                     location: address || undefined,
                     url,
+                    cost: { min: 0 },
                 };
 
                 events.push(calEvent);

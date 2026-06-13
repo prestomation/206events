@@ -138,7 +138,8 @@ export default class FuturewiseRipper implements IRipper {
             duration: Duration.ofMillis(durationMs),
             summary,
             description,
-            url: pe.permalink
+            url: pe.permalink,
+            cost: { min: 0 },
         };
     }
 

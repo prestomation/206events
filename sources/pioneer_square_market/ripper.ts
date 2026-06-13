@@ -149,6 +149,7 @@ export default class PioneerSquareMarketRipper implements IRipper {
             location,
             url: eventUrl,
             imageUrl,
+            cost: { min: 0 },
         };
     }
 }

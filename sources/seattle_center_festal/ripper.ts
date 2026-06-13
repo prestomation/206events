@@ -176,6 +176,7 @@ export function parseFestalSection(
         description,
         location: DEFAULT_LOCATION,
         url,
+        cost: { min: 0 },
     };
 }
 

@@ -204,6 +204,7 @@ export default class Sea26DroneShowsRipper implements IRipper {
                 description: show.timeApproximate
                     ? baseDescription + ' (Start time approximate — show follows the match.)'
                     : baseDescription,
+                cost: { min: 0 },
             };
 
             results.push(event);

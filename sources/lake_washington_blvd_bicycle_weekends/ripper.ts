@@ -103,6 +103,7 @@ export default class LakeWashingtonBlvdBicycleWeekendsRipper implements IRipper 
                 description: DESCRIPTION,
                 location: LOCATION,
                 url,
+                cost: { min: 0 },
             };
 
             events.push(event);

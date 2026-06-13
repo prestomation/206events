@@ -146,6 +146,7 @@ export default class LidI5Ripper implements IRipper {
             description: DESCRIPTION,
             location: LOCATION,
             url: href,
+            cost: { min: 0 },
         };
     }
 

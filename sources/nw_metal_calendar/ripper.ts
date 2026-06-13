@@ -64,7 +64,8 @@ export default class NWMetalRipper extends HTMLRipper {
                     date: eventTime,
                     duration: Duration.ofHours(4),
                     ripped: convert(LocalDateTime.now()).toDate(),
-                    location: venue
+                    location: venue,
+                    cost: { paid: true },
                 });
             }
             return dayEvents;

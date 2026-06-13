@@ -174,7 +174,8 @@ export default class PacificScienceCenterRipper implements IRipper {
                     description,
                     location: "Pacific Science Center, 200 2nd Ave N, Seattle, WA",
                     url: event.link || undefined,
-                    imageUrl: image
+                    imageUrl: image,
+                    cost: { paid: true },
                 };
 
                 events.push(calendarEvent);
@@ -266,7 +267,8 @@ export default class PacificScienceCenterRipper implements IRipper {
                         description,
                         location: locationName,
                         url: show.link || undefined,
-                        imageUrl: image
+                        imageUrl: image,
+                        cost: { paid: true },
                     };
 
                     events.push(calendarEvent);

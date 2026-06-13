@@ -195,6 +195,7 @@ export default class SIHBRipper implements IRipper {
                     location,
                     url,
                     imageUrl,
+                    cost: { min: 0 },
                 });
             } catch (err) {
                 events.push({

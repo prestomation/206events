@@ -130,6 +130,7 @@ export default class BallardFCRipper implements IRipper {
             summary,
             location: LOCATION,
             url: SCHEDULE_URL,
+            cost: { paid: true },
         };
     }
 

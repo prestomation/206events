@@ -85,7 +85,8 @@ export default class BelltownCommunityCouncilRipper implements IRipper {
                 summary,
                 description: this.stripHtml(content).substring(0, 600) || undefined,
                 location: location || 'Belltown, Seattle, WA',
-                url: post.URL
+                url: post.URL,
+                cost: { min: 0 },
             };
 
             events.push(event);
