@@ -337,6 +337,7 @@ export default class RainierArtsCenterRipper implements IRipper {
             location,
             url: (eventData['url'] as string | undefined) || url,
             imageUrl,
+            cost: { paid: true },
         };
 
         const results: RipperEvent[] = [event];

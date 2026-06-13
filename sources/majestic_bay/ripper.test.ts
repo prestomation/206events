@@ -148,6 +148,17 @@ describe('MajesticBayRipper', () => {
         expect(events).toHaveLength(0);
     });
 
+    it('sets cost to paid:true on all events', () => {
+        const ripper = new MajesticBayRipper();
+        const html = loadSampleHtml();
+        const veeziEvents = ripper.extractEvents(html);
+        const events = ripper.parseEvents(veeziEvents);
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        for (const event of valid) {
+            expect(event.cost).toEqual({ paid: true });
+        }
+    });
+
     it('handles event with malformed date gracefully', () => {
         const ripper = new MajesticBayRipper();
 

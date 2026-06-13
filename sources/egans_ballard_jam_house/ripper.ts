@@ -101,6 +101,7 @@ export default class EgansBallardJamHouseRipper implements IRipper {
                     summary,
                     location: LOCATION,
                     url: URL,
+                    cost: { paid: true },
                 });
             }
         }

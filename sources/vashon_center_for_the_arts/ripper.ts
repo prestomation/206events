@@ -92,6 +92,7 @@ export function processData(
             summary: event.name,
             location: LOCATION,
             url: EVENTS_URL,
+            cost: { paid: true },
         };
         if (event.description) calendarEvent.description = event.description;
         if (event.imageUrl) calendarEvent.imageUrl = event.imageUrl;

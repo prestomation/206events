@@ -81,6 +81,7 @@ export function parseArticle(article: HTMLElement): RipperCalendarEvent | ParseE
         url,
         imageUrl,
         ripped: new Date(),
+        cost: { min: 0 },
     };
 }
 

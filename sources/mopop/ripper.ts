@@ -131,7 +131,8 @@ export default class MoPOPRipper extends HTMLRipper {
                     summary: decode(title),
                     description: text,
                     location: "Museum of Pop Culture, 325 5th Ave N, Seattle, WA",
-                    url
+                    url,
+                    cost: { paid: true },
                 };
 
                 events.push(event);
@@ -191,7 +192,8 @@ export default class MoPOPRipper extends HTMLRipper {
             duration,
             summary,
             location: "Museum of Pop Culture, 325 5th Ave N, Seattle, WA",
-            url
+            url,
+            cost: { paid: true },
         };
     }
 

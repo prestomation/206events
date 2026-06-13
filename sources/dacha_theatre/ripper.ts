@@ -246,6 +246,7 @@ export function parseDachaEvents(
             summary: page.title,
             location: page.location,
             url: page.url,
+            cost: { paid: true },
         });
     }
 

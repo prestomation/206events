@@ -1,5 +1,5 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, ParseError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, ParseError, RipperEvent, EventCost } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
@@ -10,6 +10,19 @@ export interface EventLink {
     url: string;
     title: string;
     startDate: string;
+    ticketPrice?: string;
+    description?: string;
+}
+
+export function parseRoyalRoomCost(ticketPrice: string | undefined, description: string | undefined): EventCost {
+    if (ticketPrice) {
+        if (/^free$/i.test(ticketPrice.trim())) return { min: 0 };
+    }
+    if (description) {
+        const m = description.match(/Tickets?:\s*\$(\d+(?:\.\d+)?)/i);
+        if (m) return { min: parseFloat(m[1]) };
+    }
+    return { paid: true };
 }
 
 function decodeHtmlEntities(str: string): string {
@@ -32,10 +45,14 @@ export function parseRSSFeed(xml: string): EventLink[] {
         const linkMatch = item.match(/<link>([\s\S]*?)<\/link>/);
         const startDateMatch = item.match(/<event_listing:start_date><!\[CDATA\[(.*?)\]\]><\/event_listing:start_date>/);
         if (titleMatch && linkMatch && startDateMatch) {
+            const ticketPriceMatch = item.match(/<event_listing:ticket_price><!\[CDATA\[(.*?)\]\]><\/event_listing:ticket_price>/);
+            const descMatch = item.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/);
             links.push({
                 title: decodeHtmlEntities(titleMatch[1].trim()),
                 url: linkMatch[1].trim(),
                 startDate: startDateMatch[1].trim(),
+                ticketPrice: ticketPriceMatch ? ticketPriceMatch[1].trim() : undefined,
+                description: descMatch ? descMatch[1].trim() : undefined,
             });
         }
     }
@@ -91,6 +108,7 @@ export default class RoyalRoomRipper implements IRipper {
                 summary: link.title,
                 location: DEFAULT_LOCATION,
                 url: link.url,
+                cost: parseRoyalRoomCost(link.ticketPrice, link.description),
             });
         }
 
