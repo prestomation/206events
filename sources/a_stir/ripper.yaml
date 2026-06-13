@@ -3,6 +3,7 @@ type: spothopper
 description: "a/stir"
 url: "https://astirseattle.com/calendar"
 friendlyLink: https://astirseattle.com/calendar
+cost: free
 tags: ["Music", "OpenMic", "Capitol Hill"]
 geo:
   lat: 47.6136
