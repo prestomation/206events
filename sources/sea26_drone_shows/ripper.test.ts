@@ -49,6 +49,27 @@ describe('parseShowItem', () => {
         expect(show.timeApproximate).toBe(true);
     });
 
+    it('parses "show after TBD" as time unknown (same as showtime TBD)', () => {
+        const result = parseShowItem('Friday, June 26 show after TBD', 'Friday, June 26 show after TBD (Egypt vs. IR Iran)', 2026);
+        expect(result).not.toHaveProperty('type');
+        const show = result as any;
+        expect(show.dateStr).toBe('2026-06-26');
+        expect(show.timeKnown).toBe(false);
+        expect(show.timeApproximate).toBe(false);
+    });
+
+    it('parses "showtime 10pm" as a known exact time', () => {
+        const result = parseShowItem('Monday, July 6 showtime 10pm', 'Monday, July 6 showtime 10pm (Match 81)', 2026);
+        expect(result).not.toHaveProperty('type');
+        const show = result as any;
+        expect(show.dateStr).toBe('2026-07-06');
+        expect(show.hour).toBe(22);
+        expect(show.minute).toBe(0);
+        expect(show.timeKnown).toBe(true);
+        expect(show.timeApproximate).toBe(false);
+        expect(show.matchName).toBe('Match 81');
+    });
+
     it('parses 11:30pm show', () => {
         const result = parseShowItem('Wednesday, July 1 show at 11:30pm', 'Wednesday, July 1 show at 11:30pm (Match 82)', 2026);
         expect(result).not.toHaveProperty('type');
