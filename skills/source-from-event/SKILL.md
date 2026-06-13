@@ -102,22 +102,33 @@ live-fetch validation step requires an actual URL.
 
 ```
 WebSearch: "<org name> Seattle events calendar"
-WebSearch: "<org name> Seattle tickets Eventbrite Humanitix OvationTix"
+WebSearch: "<org name> Seattle tickets Eventbrite Humanitix OvationTix Ticketmaster DICE Universe"
 WebSearch: "site:<domain> events"   # once you have a domain
 ```
 
 From the search results, determine:
 
 1. **The org's canonical events or "what's next" page URL.** This is your
-   candidate URL for step 5.
-2. **The ticketing platform** (Eventbrite, Humanitix, OvationTix, etc.).
-   The platform determines implementation strategy — check
-   `AGENTS.md` for built-in ripper types before writing a custom one.
+   candidate URL for step 5. If multiple URLs surface (e.g., an Eventbrite
+   organizer page *and* a self-hosted events page), prefer the self-hosted
+   page as the candidate — it's more stable and already aggregates all
+   ticketing. If the org uses a single platform exclusively, use that
+   platform URL.
+2. **The ticketing platform** (Eventbrite, Humanitix, OvationTix,
+   Ticketmaster, DICE, Universe, etc.). The platform determines
+   implementation strategy — check `AGENTS.md` for built-in ripper types
+   before writing a custom one.
 3. **Whether the org is a viable recurring source.** An org that posts
    events via a structured platform (any of the above) is viable. An org
    whose only web presence is a static brochure site or mailing list
    (no machine-readable events) is **not viable** — reply accordingly
    and stop.
+
+**If initial searches return nothing useful:** try alternative terms
+(`"<org name> site:eventbrite.com"`, `"<org name> tickets"`, the org's
+social media bio link), then check `docs/source-candidates/` for a prior
+investigation. If still nothing, conclude not viable and stop — do not
+guess at URLs.
 
 Fetch the events page (`WebFetch`) to confirm it returns real event data
 before proceeding. If it returns a 503 or requires JS rendering, note
