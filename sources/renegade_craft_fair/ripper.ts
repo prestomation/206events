@@ -121,6 +121,7 @@ export function parseEventsFromHtml(html: string, url: string): (RipperCalendarE
             location,
             url,
             imageUrl: image,
+            cost: { paid: true },
         });
     }
 
