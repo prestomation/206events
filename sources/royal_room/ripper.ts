@@ -16,7 +16,10 @@ export interface EventLink {
 
 export function parseRoyalRoomCost(ticketPrice: string | undefined, description: string | undefined): EventCost {
     if (ticketPrice) {
-        if (/^free$/i.test(ticketPrice.trim())) return { min: 0 };
+        const trimmed = ticketPrice.trim();
+        if (/^free$/i.test(trimmed)) return { min: 0 };
+        if (!/^paid$/i.test(trimmed)) return { paid: true };
+        // "Paid" falls through to description-based price extraction below
     }
     if (description) {
         const m = description.match(/Tickets?:\s*\$(\d+(?:\.\d+)?)/i);
