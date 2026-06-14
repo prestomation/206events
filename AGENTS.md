@@ -932,6 +932,66 @@ The personal ICS feed is assembled **server-side** in the Cloudflare Worker (`in
 
 These tests are the contract that prevents silent divergence.
 
+## Privacy & Consent by Design
+
+206.events deliberately runs **without a cookie-consent banner**. That is not
+an accident — it's a design constraint the site stays inside of. The legal
+hook (GDPR/ePrivacy Art. 5(3), and similar US state laws) is **technology-
+neutral**: it governs *any* storing of, or access to, information on a
+visitor's device (cookies, `localStorage`, `sessionStorage`, IndexedDB) **and**
+any disclosure of visitor data to a third party. A consent banner becomes
+mandatory the moment the site does something *non-essential* with that data —
+tracking, profiling, advertising, or shipping visitor data to a third party
+that does. We avoid crossing that line so a banner is never needed.
+
+**When designing any feature that touches the browser, the network, or
+storage, evaluate it against this checklist before building it:**
+
+1. **No third-party requests that disclose visitor data by default.** A
+   browser request to a third-party origin leaks the visitor's IP (and often
+   referrer) to that origin. Prefer **first-party / self-hosted** assets:
+   - Fonts are **self-hosted** via `@fontsource` (bundled woff2), never loaded
+     from `fonts.googleapis.com`/`gstatic.com`. See `web/src/index.css`.
+   - Map tiles come from OpenStreetMap (no tracking); map links to Google
+     Maps are user-initiated navigations, not embeds — that's fine.
+   - Before adding any new CDN, embed (YouTube, social, Maps iframe), pixel,
+     or hosted script, ask whether it can be self-hosted or dropped. If a
+     third-party embed that sets cookies / fingerprints is genuinely required,
+     it needs consent gating — which means a banner — so treat that as a
+     significant decision, not a default. Flag it for human review.
+
+2. **Analytics must be cookieless and non-identifying.** The site uses
+   **GoatCounter** (no cookies, no cross-site tracking, no fingerprinting),
+   which is exempt from consent. Any replacement/addition must clear the same
+   bar. Do **not** add Google Analytics, Meta Pixel, or any tool that sets a
+   tracking cookie or builds a per-user profile.
+
+3. **Cookies must be strictly necessary only.** The sole cookies are the
+   auth `session` JWT and `oauth_nonce` (`infra/favorites-worker/src/auth.ts`),
+   set only for users who choose to log in. Strictly-necessary cookies are
+   exempt. Never add a cookie for analytics, advertising, or convenience
+   tracking.
+
+4. **`localStorage`/`sessionStorage` is for functional state and user
+   preferences only.** Favorites, saved filters, and UI prefs (e.g.
+   `calendar-ripper-favorites`, `map-panel-width`, `calendar-ripper-ftux-seen`)
+   are the feature the user explicitly requested, so they're exempt — even
+   though the law covers them the same as cookies. Do **not** repurpose
+   client storage for tracking, an advertising id, or anything shared with a
+   third party. If you ever do, the exemption is gone.
+
+5. **No advertising or marketing pixels.** Ever. This is a community calendar.
+
+**If a feature genuinely requires crossing one of these lines** (non-essential
+third-party data sharing, a tracking cookie, behavioral analytics), it is a
+**human-review decision** — surface it in the PR body and in chat, and design
+the consent mechanism (banner + granular opt-in, default-off) as part of the
+same work. Don't quietly add the tracking and leave consent for "later."
+
+Document the current privacy posture in `docs/privacy-and-consent.md`; update
+it in the same PR whenever you change what the site stores, requests, or
+discloses.
+
 ## Documentation Convention
 
 Feature designs, architecture write-ups, and build/site decisions should be written to the **`docs/`** directory in the repo root. This keeps them versioned alongside the code for posterity.

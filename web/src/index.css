@@ -1,6 +1,21 @@
 /* 206.events design system — Inter / Inter Tight / JetBrains Mono.
-   Tokens and typography defined here; see src/index.css below for usage. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+   Tokens and typography defined here; see src/index.css below for usage.
+
+   Fonts are self-hosted via @fontsource (woff2 bundled into the build) rather
+   than loaded from fonts.googleapis.com. Self-hosting keeps every request
+   first-party: no visitor IP is disclosed to Google, which removes the only
+   third-party tracking vector on the site and keeps us clear of cookie/consent
+   (GDPR/ePrivacy) obligations. Only the latin subset and the weights actually
+   used in the tokens below are imported, to keep the bundle small. */
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+@import '@fontsource/inter-tight/latin-600.css';
+@import '@fontsource/inter-tight/latin-700.css';
+@import '@fontsource/inter-tight/latin-800.css';
+@import '@fontsource/jetbrains-mono/latin-400.css';
+@import '@fontsource/jetbrains-mono/latin-500.css';
 
 :root {
   /* Backgrounds */
