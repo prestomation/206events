@@ -70,4 +70,29 @@ describe('EventDescription', () => {
     const { container } = render(<EventDescription text="" />)
     expect(container.firstChild).toBeNull()
   })
+
+  it('strips the appended uncertainty note (shown as a badge instead)', () => {
+    const { container } = render(
+      <EventDescription text={'Live jazz every night.\n\n⚠️ Duration could not be verified against the source.'} />
+    )
+    expect(container.textContent).toContain('Live jazz every night.')
+    expect(container.textContent).not.toContain('could not be verified')
+    expect(container.textContent).not.toContain('⚠️')
+  })
+
+  it('also strips a note that carries a Source: suffix', () => {
+    const { container } = render(
+      <EventDescription text={'Doors at 8.\n\n⚠️ Time is approximate — automated verification pending.\nSource: https://example.com/e'} />
+    )
+    expect(container.textContent).toContain('Doors at 8.')
+    expect(container.textContent).not.toContain('approximate')
+    expect(container.textContent).not.toContain('Source:')
+  })
+
+  it('renders nothing when the description was only the note', () => {
+    const { container } = render(
+      <EventDescription text={'⚠️ Cost could not be verified against the source.'} />
+    )
+    expect(container.firstChild).toBeNull()
+  })
 })

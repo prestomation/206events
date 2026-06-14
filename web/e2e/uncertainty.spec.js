@@ -36,11 +36,17 @@ test('shows a "pending" badge in the list and detail, and no raw ⚠️ note', a
   await pendingRow.click()
   const pendingBadge = page.locator('.uncertain-badge--pending').first()
   await expect(pendingBadge).toBeVisible()
-  await expect(pendingBadge).toHaveAttribute('title', /approximate — being verified/)
+  await expect(pendingBadge).toHaveAttribute('title', /approximate — our automated check/)
+  // The mark is always "?", never a tilde.
+  await expect(pendingBadge.locator('.uncertain-badge-mark')).toHaveText('?')
 
   // The ugly raw note must NOT appear anywhere in the description.
   await expect(page.getByText(/could not be verified against the source/)).toHaveCount(0)
   await expect(page.getByText(/automated verification pending/)).toHaveCount(0)
+
+  // Clicking the badge opens a popup with the explanation.
+  await pendingBadge.click()
+  await expect(page.getByRole('tooltip')).toContainText(/approximate — our automated check/)
 
   await page.screenshot({ path: 'e2e/screenshots/event-detail-uncertainty-pending.png', fullPage: true })
 })
@@ -57,6 +63,11 @@ test('shows an "unverified" badge for unresolvable fields', async ({ page }) => 
   const badge = page.locator('.uncertain-badge--unresolvable').first()
   await expect(badge).toBeVisible()
   await expect(badge).toHaveAttribute('title', /not posted by the source/)
+  await expect(badge.locator('.uncertain-badge-mark')).toHaveText('?')
+
+  // Open the explanation popup for the screenshot.
+  await badge.click()
+  await expect(page.getByRole('tooltip')).toContainText(/not posted by the source/)
 
   await page.screenshot({ path: 'e2e/screenshots/event-detail-uncertainty-unresolvable.png', fullPage: true })
 })

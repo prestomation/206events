@@ -1,6 +1,6 @@
 // Leaf / presentational components for the redesigned UI.
 
-import { useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
@@ -45,26 +45,67 @@ export function uncertainFieldsFor(event, candidateFields) {
 
 // Small inline marker shown next to a fact whose value is approximate (pending
 // automated verification) or could not be verified against the source
-// (unresolvable). The two kinds read differently: `pending` is transient
-// ("approximate, being verified"), `unresolvable` is permanent ("not posted by
-// the source"). `compact` hides the text label, leaving just the dot — used in
-// dense list rows. This replaces the old raw "⚠️ …" line that used to be baked
-// into the description text.
+// (unresolvable). Always renders a "?" mark; the two kinds read differently in
+// the label/popup wording: `pending` is transient ("approximate, being
+// verified"), `unresolvable` is permanent ("not posted by the source").
+// `compact` hides the text label, leaving just the "?" — used in dense list
+// rows. Clicking/tapping the badge opens a popup with the full explanation (the
+// hover `title` alone isn't reachable on touch). This replaces the old raw
+// "⚠️ …" line that used to be baked into the description text.
+const UNCERTAIN_POP_WIDTH = 240
+
 export function UncertaintyBadge({ event, fields, compact = false }) {
   const u = eventUncertainty(event)
+  const btnRef = useRef(null)
+  // null = closed; otherwise { top, left } viewport coords for the fixed popup.
+  // Fixed positioning (anchored to the badge's rect) escapes the hero's
+  // overflow clipping, which an absolutely-positioned popup can't.
+  const [pos, setPos] = useState(null)
+  useEffect(() => {
+    if (!pos) return undefined
+    const close = () => setPos(null)
+    const onKey = (e) => { if (e.key === 'Escape') close() }
+    window.addEventListener('keydown', onKey)
+    // Any scroll/resize would detach the popup from the badge — just close it.
+    window.addEventListener('scroll', close, true)
+    window.addEventListener('resize', close)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('scroll', close, true)
+      window.removeEventListener('resize', close)
+    }
+  }, [pos])
   if (!u || !fields || fields.length === 0) return null
   const names = fields.map((f) => UNCERTAIN_FIELD_LABEL[f] || f)
   const subject = names.join(' & ')
   const plural = fields.length > 1
   const label = u.kind === 'pending' ? 'approximate' : 'unverified'
-  const title = u.kind === 'pending'
-    ? `${subject} ${plural ? 'are' : 'is'} approximate — being verified.`
-    : `${subject} ${plural ? 'were' : 'was'} not posted by the source.`
+  const explanation = u.kind === 'pending'
+    ? `${subject} ${plural ? 'are' : 'is'} approximate — our automated check against the source is still pending.`
+    : `${subject} ${plural ? 'were' : 'was'} not posted by the source, so ${plural ? 'they' : 'it'} couldn't be verified.`
+  const toggle = (e) => {
+    e.stopPropagation(); e.preventDefault()
+    if (pos) { setPos(null); return }
+    const r = btnRef.current && btnRef.current.getBoundingClientRect()
+    if (!r) return
+    // Clamp within the viewport so the popup never spills off the right edge.
+    const left = Math.max(8, Math.min(r.left, window.innerWidth - UNCERTAIN_POP_WIDTH - 8))
+    setPos({ top: r.bottom + 6, left })
+  }
   return (
-    <span className={`uncertain-badge uncertain-badge--${u.kind}${compact ? ' uncertain-badge--compact' : ''}`}
-      title={title} role="img" aria-label={title}>
-      <span className="uncertain-badge-mark" aria-hidden="true">{u.kind === 'pending' ? '~' : '?'}</span>
-      {!compact && <span className="uncertain-badge-text">{label}</span>}
+    <span className="uncertain-wrap">
+      <button ref={btnRef} type="button"
+        className={`uncertain-badge uncertain-badge--${u.kind}${compact ? ' uncertain-badge--compact' : ''}`}
+        onClick={toggle} title={explanation} aria-label={explanation} aria-expanded={!!pos}>
+        <span className="uncertain-badge-mark" aria-hidden="true">?</span>
+        {!compact && <span className="uncertain-badge-text">{label}</span>}
+      </button>
+      {pos && (
+        <>
+          <span className="uncertain-pop-backdrop" onClick={(e) => { e.stopPropagation(); setPos(null) }} />
+          <span className="uncertain-pop" role="tooltip" style={{ top: pos.top, left: pos.left }}>{explanation}</span>
+        </>
+      )}
     </span>
   )
 }

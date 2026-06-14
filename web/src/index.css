@@ -3867,13 +3867,22 @@ html, body, #root { height: 100%; }
    value next to it without shouting. Replaces the old raw "⚠️ …" description
    line. `pending` (being verified) reads in amber; `unresolvable` (not posted
    by the source) reads in muted ink so it's clearly the calmer, permanent case. */
+.app206 .uncertain-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  flex: 0 0 auto;
+}
 .app206 .uncertain-badge {
   display: inline-flex;
   align-items: center;
   gap: 3px;
   margin-left: 5px;
   padding: 1px 5px;
+  border: none;
   border-radius: 999px;
+  font-family: inherit;
   font-size: 10.5px;
   font-weight: 700;
   line-height: 1.4;
@@ -3881,8 +3890,33 @@ html, body, #root { height: 100%; }
   text-transform: uppercase;
   white-space: nowrap;
   vertical-align: middle;
-  cursor: help;
+  cursor: pointer;
   flex: 0 0 auto;
+}
+/* Click/tap popup with the full explanation, anchored under the badge. Dark
+   ink chip on paper text so it's legible over any background (it inverts in
+   dark mode with the theme variables). The fixed backdrop captures the next
+   click anywhere to dismiss. */
+.app206 .uncertain-pop {
+  position: fixed;
+  z-index: 1200;
+  width: 240px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+}
+.app206 .uncertain-pop-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1199;
 }
 .app206 .uncertain-badge-mark { font-weight: 800; font-size: 11px; }
 .app206 .uncertain-badge--pending { color: var(--amber); background: var(--amber-bg); }

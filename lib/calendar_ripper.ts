@@ -1203,8 +1203,9 @@ END:VCALENDAR`;
         summary: event.summary,
         // Strip the appended "⚠️ …" uncertainty note for the web — it's
         // surfaced as a structured inline badge (uncertainty) instead. The
-        // ICS/RSS feeds keep the plain-text note.
-        description: stripUncertaintyNote(event.description)?.slice(0, 200),
+        // ICS/RSS feeds keep the plain-text note. Full description (no cap) so
+        // the event detail page can show it in its entirety.
+        description: stripUncertaintyNote(event.description),
         location: event.location,
         date: event.date.toString(),
         endDate: event.date.plus(event.duration).toString(),
@@ -1250,7 +1251,10 @@ END:VCALENDAR`;
           eventsIndex.push({
             icsUrl,
             summary: event.summary,
-            description: event.description?.slice(0, 200),
+            // Full description (no cap) so the detail page shows it whole;
+            // external ICS feeds don't carry our uncertainty note, but strip
+            // defensively in case a feed echoes the same marker.
+            description: stripUncertaintyNote(event.description),
             location: event.location,
             date: event.date.toString(),
             endDate: event.date.plus(event.duration).toString(),

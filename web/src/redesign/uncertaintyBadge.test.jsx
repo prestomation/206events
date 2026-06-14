@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { UncertaintyBadge, uncertainFieldsFor, eventUncertainty } from './atoms.jsx'
 
 // The events-index `uncertainty` field is the structured replacement for the
@@ -44,7 +44,18 @@ describe('UncertaintyBadge', () => {
     expect(container.querySelector('.uncertain-badge')).toBeNull()
   })
 
-  it('reads as "approximate / being verified" for the pending kind', () => {
+  it('always shows a "?" mark (never a tilde), for both kinds', () => {
+    const { rerender, container } = render(
+      <UncertaintyBadge event={{ uncertainty: { fields: ['startTime'], kind: 'pending' } }} fields={['startTime']} />,
+    )
+    expect(container.querySelector('.uncertain-badge-mark').textContent).toBe('?')
+    rerender(
+      <UncertaintyBadge event={{ uncertainty: { fields: ['startTime'], kind: 'unresolvable' } }} fields={['startTime']} />,
+    )
+    expect(container.querySelector('.uncertain-badge-mark').textContent).toBe('?')
+  })
+
+  it('reads as "approximate" for the pending kind', () => {
     render(
       <UncertaintyBadge
         event={{ uncertainty: { fields: ['startTime'], kind: 'pending' } }}
@@ -53,10 +64,11 @@ describe('UncertaintyBadge', () => {
     )
     const badge = screen.getByText('approximate').closest('.uncertain-badge')
     expect(badge).toHaveClass('uncertain-badge--pending')
-    expect(badge).toHaveAttribute('title', 'Start time is approximate — being verified.')
+    expect(badge.tagName).toBe('BUTTON')
+    expect(badge.getAttribute('title')).toMatch(/approximate — our automated check/)
   })
 
-  it('reads as "unverified / not posted by the source" for the unresolvable kind', () => {
+  it('reads as "unverified" for the unresolvable kind', () => {
     render(
       <UncertaintyBadge
         event={{ uncertainty: { fields: ['startTime', 'duration'], kind: 'unresolvable' } }}
@@ -65,10 +77,25 @@ describe('UncertaintyBadge', () => {
     )
     const badge = screen.getByText('unverified').closest('.uncertain-badge')
     expect(badge).toHaveClass('uncertain-badge--unresolvable')
-    expect(badge).toHaveAttribute('title', 'Start time & Duration were not posted by the source.')
+    expect(badge.getAttribute('title')).toMatch(/Start time & Duration were not posted by the source/)
   })
 
-  it('hides the text label in compact mode but keeps the tooltip', () => {
+  it('opens a popup with the explanation on click and closes on a second click', () => {
+    render(
+      <UncertaintyBadge
+        event={{ uncertainty: { fields: ['duration'], kind: 'unresolvable' } }}
+        fields={['duration']}
+      />,
+    )
+    expect(screen.queryByRole('tooltip')).toBeNull()
+    fireEvent.click(screen.getByRole('button'))
+    const pop = screen.getByRole('tooltip')
+    expect(pop).toHaveTextContent(/Duration was not posted by the source/)
+    fireEvent.click(screen.getByRole('button'))
+    expect(screen.queryByRole('tooltip')).toBeNull()
+  })
+
+  it('hides the text label in compact mode but keeps the popup explanation', () => {
     render(
       <UncertaintyBadge
         event={{ uncertainty: { fields: ['cost'], kind: 'pending' } }}
@@ -78,6 +105,8 @@ describe('UncertaintyBadge', () => {
     )
     expect(screen.queryByText('approximate')).toBeNull()
     const badge = document.querySelector('.uncertain-badge')
-    expect(badge).toHaveAttribute('title', 'Price is approximate — being verified.')
+    expect(badge.getAttribute('title')).toMatch(/Price is approximate/)
+    fireEvent.click(screen.getByRole('button'))
+    expect(screen.getByRole('tooltip')).toHaveTextContent(/Price is approximate/)
   })
 })
