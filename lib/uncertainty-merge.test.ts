@@ -310,6 +310,13 @@ describe('stripUncertaintyNote', () => {
         expect(stripUncertaintyNote(noted)).toBe('Live music every night.');
     });
 
+    it('strips only our trailing note when the description has its own earlier ⚠️ block', () => {
+        // A venue may write its own "⚠️ …" caveat; our note is always appended
+        // last, so lastIndexOf removes only ours and preserves the venue's.
+        const desc = 'Doors at 8.\n\n⚠️ 21+ with valid ID.\n\n⚠️ Cost could not be verified against the source.';
+        expect(stripUncertaintyNote(desc)).toBe('Doors at 8.\n\n⚠️ 21+ with valid ID.');
+    });
+
     it('returns undefined when the description was only the note (no preceding text)', () => {
         const event = makeEvent({ description: undefined });
         const err = makeUncertainty(event, ['startTime']);

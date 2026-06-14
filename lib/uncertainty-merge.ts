@@ -69,12 +69,17 @@ function appendUncertaintyNote(
 // UI renders the note as a structured inline badge (event.uncertainty) instead
 // of the raw text line, so the events-index description is stripped while the
 // ICS/RSS feeds keep the plain-text note. Matching on our own appended marker
-// is deterministic — this is not fragile parsing of third-party content. A
-// description with no appended note is returned unchanged.
+// is deterministic — this is not fragile parsing of third-party content.
+//
+// Callers should only invoke this on descriptions where a note was actually
+// appended (i.e. event.uncertainty is set); we additionally use `lastIndexOf`
+// so that if a third-party description contains its own "\n\n⚠️ …" block, only
+// our trailing note (always appended last) is removed and the earlier text is
+// preserved. A description with no appended note is returned unchanged.
 export function stripUncertaintyNote(description: string | undefined): string | undefined {
     if (!description) return description;
-    // The note is always joined with "\n\n" and starts with the ⚠️ glyph.
-    const markerIndex = description.indexOf('\n\n⚠️ ');
+    // The note is always appended last, joined with "\n\n", starting with ⚠️.
+    const markerIndex = description.lastIndexOf('\n\n⚠️ ');
     if (markerIndex === -1) {
         // Note-only description (no preceding text): the whole string is the note.
         if (description.startsWith('⚠️ ')) return undefined;

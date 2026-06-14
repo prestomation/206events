@@ -1,5 +1,4 @@
 import { CONTAINS_HTML, sanitizeHtml } from '../utils/html.js'
-import { stripUncertaintyNote } from '../utils/uncertaintyNote.js'
 
 // Matches bare http(s):// and www. URLs in plain text. Stops at whitespace or
 // an angle bracket (either direction) so it never swallows surrounding markup.
@@ -65,15 +64,10 @@ export function linkifyText(text) {
 // Renders an event description, sanitizing it when it contains HTML markup and
 // linkifying bare URLs when it's plain text so links are always clickable.
 export function EventDescription({ text }) {
-  // Drop the backend's appended "⚠️ …" uncertainty note — it's shown as a
-  // structured inline badge instead. The events-index description is already
-  // stripped, but the channel/venue page renders raw ICS text that still
-  // carries the note, so strip at this single render choke point.
-  const cleaned = stripUncertaintyNote(text)
-  if (!cleaned) return null
-  if (CONTAINS_HTML.test(cleaned)) {
-    const clean = sanitizeHtml(cleaned)
+  if (!text) return null
+  if (CONTAINS_HTML.test(text)) {
+    const clean = sanitizeHtml(text)
     return <div className="event-details" dangerouslySetInnerHTML={{ __html: clean }} />
   }
-  return <div className="event-details">{linkifyText(cleaned)}</div>
+  return <div className="event-details">{linkifyText(text)}</div>
 }
