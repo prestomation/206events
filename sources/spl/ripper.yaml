@@ -120,7 +120,6 @@ calendars:
   - name: rainier-beach
     friendlyname: "SPL - Rainier Beach Branch"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       branch: "Rainier Beach Branch"
   - name: south-park
