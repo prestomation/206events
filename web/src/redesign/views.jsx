@@ -4,7 +4,7 @@
 import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
-import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb } from './atoms.jsx'
+import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
@@ -13,6 +13,7 @@ import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import cityConfig from '../../../city.config.ts'
 import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
 import { EventDescription } from '../components/EventDescription.jsx'
+import { stripUncertaintyNote } from '../utils/uncertaintyNote.js'
 import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
 import { tagGroup, CATEGORY_GROUP_ORDER, isNeighborhoodTag } from './categories.js'
@@ -850,11 +851,23 @@ function ParsedEventRow({ event, distributed, indexEvent }) {
             <span className={`ev-cost${cost && !cost.paid && cost.min === 0 ? ' ev-cost--free' : ''}`}>{costLabel(cost)}</span>
           )}
         </div>
-        <div className="ev-meta"><span>{time}</span></div>
+        <div className="ev-meta">
+          <span>{time}</span>
+          <UncertaintyBadge event={indexEvent} fields={uncertainFieldsFor(indexEvent, ['startTime', 'duration'])} compact />
+        </div>
         {/* Distributed calendars set a per-event location ("its own geo"); link
             it via the shared pin-only LocationMapLink. */}
         {distributed && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
-        {event.description && <div style={{ marginTop: 6 }} onClick={(e) => e.stopPropagation()}><EventDescription text={event.description} /></div>}
+        {event.description && (
+          <div style={{ marginTop: 6 }} onClick={(e) => e.stopPropagation()}>
+            {/* This row renders the raw ICS description, which keeps the
+                appended "⚠️ …" uncertainty note for calendar subscribers. Strip
+                it for the web when the joined index event flags uncertainty
+                (it's shown as the inline badge instead); leave note-less text
+                untouched. */}
+            <EventDescription text={indexEvent && indexEvent.uncertainty ? stripUncertaintyNote(event.description) : event.description} />
+          </div>
+        )}
       </div>
       <AddToCalendar title={event.title} startDate={event.startDate} endDate={event.endDate}
         description={event.description} location={event.location} url={event.url} mode={app.calendarAddMode} />
@@ -882,9 +895,9 @@ export function EventDetail({ event }) {
         <div className="a-hero-kick">{row.day} · {row.dateNum}{row.time ? ` · ${row.time}` : ''}</div>
         <div className="a-hero-title">{event.summary}</div>
         <div style={{ display: 'flex', gap: 16, marginTop: 13, fontSize: 13.5, fontWeight: 600, opacity: 0.96, flexWrap: 'wrap' }}>
-          {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.timeRange}</span>}
-          {(event.location || channel?.hood) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.pin}</span>{event.location || channel.hood}</span>}
-          {costLabel(event.cost) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.spark}</span>{costLabel(event.cost)}</span>}
+          {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.timeRange}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['startTime', 'duration'])} compact /></span>}
+          {(event.location || channel?.hood) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.pin}</span>{event.location || channel.hood}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['location'])} compact /></span>}
+          {costLabel(event.cost) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.spark}</span>{costLabel(event.cost)}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['cost'])} compact /></span>}
         </div>
       </div>
 
@@ -913,6 +926,7 @@ export function EventDetail({ event }) {
       <div className="a-facts">
         {event.location && (() => {
           const mapHref = bestMapHref({ location: event.location, lat: event.lat, lng: event.lng })
+          const locFields = uncertainFieldsFor(event, ['location'])
           const inner = (
             <>
               <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.pin}</span>
@@ -920,9 +934,18 @@ export function EventDetail({ event }) {
                 {channel?.hood && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{channel.hood}</div>}</div>
             </>
           )
-          return mapHref
-            ? <a className="a-fact" href={mapHref} target="_blank" rel="noopener noreferrer" title="Open in maps" style={{ alignItems: 'center', width: '100%', color: 'inherit', textDecoration: 'none' }}>{inner}</a>
-            : <div className="a-fact">{inner}</div>
+          // The badge is a <button>; keep it a sibling of the map link, never a
+          // descendant — interactive content nested in an <a> is invalid HTML.
+          const linkStyle = { display: 'flex', gap: 12, alignItems: 'center', flex: 1, minWidth: 0, color: 'inherit', textDecoration: 'none' }
+          const link = mapHref
+            ? <a href={mapHref} target="_blank" rel="noopener noreferrer" title="Open in maps" style={linkStyle}>{inner}</a>
+            : <div style={linkStyle}>{inner}</div>
+          return (
+            <div className="a-fact" style={{ alignItems: 'center' }}>
+              {link}
+              {locFields.length > 0 && <UncertaintyBadge event={event} fields={locFields} />}
+            </div>
+          )
         })()}
         {/* Price fact. Unlike the row labels (silent when unknown), the detail
             page states unknown pricing explicitly — this is where someone
@@ -932,6 +955,7 @@ export function EventDetail({ event }) {
           const sub = label === 'Ticketed'
             ? 'Amount not posted — see the event site'
             : !label && event.url ? 'Check the event site' : null
+          const costFields = uncertainFieldsFor(event, ['cost'])
           const inner = (
             <>
               <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.spark}</span>
@@ -939,9 +963,17 @@ export function EventDetail({ event }) {
                 {sub && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{sub}</div>}</div>
             </>
           )
-          return !label && event.url
-            ? <a className="a-fact" href={event.url} target="_blank" rel="noopener noreferrer" title="Check the event site for pricing" style={{ alignItems: 'center', width: '100%', color: 'inherit', textDecoration: 'none' }}>{inner}</a>
-            : <div className="a-fact">{inner}</div>
+          // Badge stays a sibling of the link (see location fact above).
+          const linkStyle = { display: 'flex', gap: 12, alignItems: 'center', flex: 1, minWidth: 0, color: 'inherit', textDecoration: 'none' }
+          const link = !label && event.url
+            ? <a href={event.url} target="_blank" rel="noopener noreferrer" title="Check the event site for pricing" style={linkStyle}>{inner}</a>
+            : <div style={linkStyle}>{inner}</div>
+          return (
+            <div className="a-fact" style={{ alignItems: 'center' }}>
+              {link}
+              {costFields.length > 0 && <UncertaintyBadge event={event} fields={costFields} />}
+            </div>
+          )
         })()}
         {channel && (
           <button onClick={() => app.openChannel(event.icsUrl)} className="a-fact" style={{ textAlign: 'left', alignItems: 'center', width: '100%' }}>

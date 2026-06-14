@@ -212,6 +212,11 @@ export interface RipperCalendarEvent {
     url?: string;
     imageUrl?: string;  // URL to the event image (never image bytes)
     cost?: EventCost;   // Admission cost (USD face value); absent = unknown
+    // Set by applyUncertaintyResolutions when one or more fields are
+    // approximate (pending verification) or could not be verified
+    // (unresolvable). Drives the web UI's inline uncertainty badge; the ICS /
+    // RSS feeds carry the equivalent plain-text note in `description` instead.
+    uncertainty?: { fields: UncertaintyField[]; kind: 'pending' | 'unresolvable' };
     rrule?: string;  // RFC 5545 RRULE for recurring events
     lat?: number;    // Latitude (resolved via geocoder or source-level geo)
     lng?: number;    // Longitude (resolved via geocoder or source-level geo)

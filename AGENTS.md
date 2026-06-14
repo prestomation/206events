@@ -480,6 +480,36 @@ step 6a).
 - Test deduplication across multiple parseEvents calls
 - Ensure graceful handling of missing or malformed data
 
+## UI Changes
+
+**Any PR that changes the user-facing web UI (`web/src/**`) MUST ship, in the
+same PR, both:**
+
+1. **A Playwright e2e test** in `web/e2e/*.spec.js` that exercises the change in
+   a real browser against the built bundle. Assert behavior with **locators**
+   (roles, text, classes), not pixel diffs. The suite is hermetic — mock every
+   data fetch at the browser level via `installDataMocks` (`web/e2e/mock-routes.js`)
+   and add fixtures to `web/e2e/fixtures.js`. Keep new fixtures isolated (e.g.
+   re-`page.route('**/events-index.json', …)` inside the spec) so other specs'
+   counts stay stable. See `web/e2e/uncertainty.spec.js` for the pattern.
+
+2. **Checked-in screenshots** of the changed UI, captured with
+   `await page.screenshot({ path: 'e2e/screenshots/<name>.png' })` into the
+   committed **`web/e2e/screenshots/`** directory, and committed in the PR so
+   reviewers see the rendered result in the diff. (Note: `web/test-results/` and
+   `web/playwright-report/` are gitignored — do **not** put review screenshots
+   there.) Capture every distinct visual state the change introduces (e.g. one
+   per variant/kind), and regenerate them whenever the UI changes again.
+
+**Do NOT use pixel-diff assertions (`toHaveScreenshot`/`toMatchSnapshot`)** for
+this — committed baselines are flaky across machines (fonts, rendering). The
+screenshots are documentation for human review; correctness is asserted with
+locators.
+
+Run the suite with `cd web && npx playwright test` (or `npm run test:e2e` from
+the repo root). It builds the bundle and serves it via `vite preview` on
+port 4173 automatically. CI runs the same suite in `.github/workflows/web-e2e.yml`.
+
 ## Out-of-band Proxy
 
 Some upstream sites block automated requests from GitHub Actions runner IPs. The project has a 3-rung proxy escalation ladder — **never skip rungs**, and each escalation is a separate PR so you can observe the failure before moving up.

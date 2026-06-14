@@ -1,6 +1,6 @@
 // Leaf / presentational components for the redesigned UI.
 
-import { useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
@@ -15,6 +15,99 @@ export function Brand() {
 
 export function CatDot({ tag, color, size = 8 }) {
   return <span className="mk-dot" style={{ width: size, height: size, background: color || colorForTag(tag) }} />
+}
+
+// Human label for each uncertain field, used in the badge tooltip.
+const UNCERTAIN_FIELD_LABEL = {
+  startTime: 'Start time',
+  duration: 'Duration',
+  location: 'Location',
+  cost: 'Price',
+  imageUrl: 'Image',
+}
+
+// Normalize an events-index entry's `uncertainty` into { fields: Set, kind } or
+// null. Mirrors the structured field emitted by lib/uncertainty-merge.ts.
+export function eventUncertainty(event) {
+  const u = event && event.uncertainty
+  if (!u || !Array.isArray(u.fields) || u.fields.length === 0) return null
+  if (u.kind !== 'pending' && u.kind !== 'unresolvable') return null
+  return { fields: new Set(u.fields), kind: u.kind }
+}
+
+// Subset of an event's uncertain fields relevant to a given UI fact, so each
+// fact (time / price / location) only badges the fields it actually shows.
+export function uncertainFieldsFor(event, candidateFields) {
+  const u = eventUncertainty(event)
+  if (!u) return []
+  return candidateFields.filter((f) => u.fields.has(f))
+}
+
+// Small inline marker shown next to a fact whose value is approximate (pending
+// automated verification) or could not be verified against the source
+// (unresolvable). Always renders a "?" mark; the two kinds read differently in
+// the label/popup wording: `pending` is transient ("approximate, being
+// verified"), `unresolvable` is permanent ("not posted by the source").
+// `compact` hides the text label, leaving just the "?" — used in dense list
+// rows. Clicking/tapping the badge opens a popup with the full explanation (the
+// hover `title` alone isn't reachable on touch). This replaces the old raw
+// "⚠️ …" line that used to be baked into the description text.
+const UNCERTAIN_POP_WIDTH = 240
+
+export function UncertaintyBadge({ event, fields, compact = false }) {
+  const u = eventUncertainty(event)
+  const btnRef = useRef(null)
+  // null = closed; otherwise { top, left } viewport coords for the fixed popup.
+  // Fixed positioning (anchored to the badge's rect) escapes the hero's
+  // overflow clipping, which an absolutely-positioned popup can't.
+  const [pos, setPos] = useState(null)
+  useEffect(() => {
+    if (!pos) return undefined
+    const close = () => setPos(null)
+    const onKey = (e) => { if (e.key === 'Escape') close() }
+    window.addEventListener('keydown', onKey)
+    // Any scroll/resize would detach the popup from the badge — just close it.
+    window.addEventListener('scroll', close, true)
+    window.addEventListener('resize', close)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('scroll', close, true)
+      window.removeEventListener('resize', close)
+    }
+  }, [pos])
+  if (!u || !fields || fields.length === 0) return null
+  const names = fields.map((f) => UNCERTAIN_FIELD_LABEL[f] || f)
+  const subject = names.join(' & ')
+  const plural = fields.length > 1
+  const label = u.kind === 'pending' ? 'approximate' : 'unverified'
+  const explanation = u.kind === 'pending'
+    ? `${subject} ${plural ? 'are' : 'is'} approximate — our automated check against the source is still pending.`
+    : `${subject} ${plural ? 'were' : 'was'} not posted by the source, so ${plural ? 'they' : 'it'} couldn't be verified.`
+  const toggle = (e) => {
+    e.stopPropagation(); e.preventDefault()
+    if (pos) { setPos(null); return }
+    const r = btnRef.current && btnRef.current.getBoundingClientRect()
+    if (!r) return
+    // Clamp within the viewport so the popup never spills off the right edge.
+    const left = Math.max(8, Math.min(r.left, window.innerWidth - UNCERTAIN_POP_WIDTH - 8))
+    setPos({ top: r.bottom + 6, left })
+  }
+  return (
+    <span className="uncertain-wrap">
+      <button ref={btnRef} type="button"
+        className={`uncertain-badge uncertain-badge--${u.kind}${compact ? ' uncertain-badge--compact' : ''}`}
+        onClick={toggle} title={explanation} aria-label={explanation} aria-expanded={!!pos}>
+        <span className="uncertain-badge-mark" aria-hidden="true">?</span>
+        {!compact && <span className="uncertain-badge-text">{label}</span>}
+      </button>
+      {pos && (
+        <>
+          <span className="uncertain-pop-backdrop" onClick={(e) => { e.stopPropagation(); setPos(null) }} />
+          <span className="uncertain-pop" role="tooltip" style={{ top: pos.top, left: pos.left }}>{explanation}</span>
+        </>
+      )}
+    </span>
+  )
 }
 
 export function ChannelAvatar({ color, size = 44 }) {
@@ -202,7 +295,12 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
       )}
       <div className="ev-body">
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
-          {noDate && row.time && <span className="ev-time">{row.timeRange}</span>}
+          {noDate && row.time && (
+            <span className="ev-time">
+              {row.timeRange}
+              <UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['startTime', 'duration'])} compact />
+            </span>
+          )}
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
           {costLabel(event.cost) && (
             <span className={`ev-cost${event.cost && !event.cost.paid && event.cost.min === 0 ? ' ev-cost--free' : ''}`}>
@@ -210,7 +308,12 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
             </span>
           )}
         </div>
-        {!noDate && row.time && <div className="ev-meta"><span>{row.timeRange}</span></div>}
+        {!noDate && row.time && (
+          <div className="ev-meta">
+            <span>{row.timeRange}</span>
+            <UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['startTime', 'duration'])} compact />
+          </div>
+        )}
         {showLoc && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
         {showChip && channel && (
           <div className="ev-chip" style={{ marginTop: 6 }}

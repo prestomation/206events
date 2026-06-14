@@ -14,6 +14,7 @@ import {
   serializeRipperErrors,
   serializeRipperError,
   EventCost,
+  UncertaintyField,
 } from "./config/schema.js";
 import { getFetchForConfig } from "./config/proxy-fetch.js";
 import {
@@ -33,6 +34,7 @@ import {
   applyUncertaintyResolutions,
   applyImageBackfill,
   applyCostBackfill,
+  stripUncertaintyNote,
   type UncertaintyMergeStats,
 } from "./uncertainty-merge.js";
 import { toRSS } from "./config/rss.js";
@@ -1179,6 +1181,7 @@ END:VCALENDAR`;
     osmType?: 'node' | 'way' | 'relation';
     osmId?: number;
     geocodeSource?: 'ripper' | 'cached' | 'none';
+    uncertainty?: { fields: UncertaintyField[]; kind: 'pending' | 'unresolvable' };
   }> = [];
 
   for (const calendar of allCalendars) {
@@ -1198,7 +1201,13 @@ END:VCALENDAR`;
       eventsIndex.push({
         icsUrl,
         summary: event.summary,
-        description: event.description?.slice(0, 200),
+        // Strip the appended "⚠️ …" uncertainty note for the web — it's
+        // surfaced as a structured inline badge (uncertainty) instead. Only
+        // strip when we actually appended a note (event.uncertainty set), so a
+        // third-party description that happens to contain "⚠️" is never
+        // truncated. The ICS/RSS feeds keep the plain-text note. Full
+        // description (no cap) so the detail page can show it in its entirety.
+        description: event.uncertainty ? stripUncertaintyNote(event.description) : event.description,
         location: event.location,
         date: event.date.toString(),
         endDate: event.date.plus(event.duration).toString(),
@@ -1209,6 +1218,7 @@ END:VCALENDAR`;
         ...(lng !== undefined ? { lng } : {}),
         ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
         ...(geocodeSource !== undefined ? { geocodeSource } : {}),
+        ...(event.uncertainty ? { uncertainty: event.uncertainty } : {}),
       });
     }
   }
@@ -1243,7 +1253,11 @@ END:VCALENDAR`;
           eventsIndex.push({
             icsUrl,
             summary: event.summary,
-            description: event.description?.slice(0, 200),
+            // Full description (no cap) so the detail page shows it whole.
+            // External ICS feeds never carry our uncertainty note (it's only
+            // appended to ripped events during the merge), so don't strip —
+            // that would risk truncating a feed's own "⚠️" text.
+            description: event.description,
             location: event.location,
             date: event.date.toString(),
             endDate: event.date.plus(event.duration).toString(),
