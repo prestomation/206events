@@ -17,6 +17,58 @@ export function CatDot({ tag, color, size = 8 }) {
   return <span className="mk-dot" style={{ width: size, height: size, background: color || colorForTag(tag) }} />
 }
 
+// Human label for each uncertain field, used in the badge tooltip.
+const UNCERTAIN_FIELD_LABEL = {
+  startTime: 'Start time',
+  duration: 'Duration',
+  location: 'Location',
+  cost: 'Price',
+  imageUrl: 'Image',
+}
+
+// Normalize an events-index entry's `uncertainty` into { fields: Set, kind } or
+// null. Mirrors the structured field emitted by lib/uncertainty-merge.ts.
+export function eventUncertainty(event) {
+  const u = event && event.uncertainty
+  if (!u || !Array.isArray(u.fields) || u.fields.length === 0) return null
+  if (u.kind !== 'pending' && u.kind !== 'unresolvable') return null
+  return { fields: new Set(u.fields), kind: u.kind }
+}
+
+// Subset of an event's uncertain fields relevant to a given UI fact, so each
+// fact (time / price / location) only badges the fields it actually shows.
+export function uncertainFieldsFor(event, candidateFields) {
+  const u = eventUncertainty(event)
+  if (!u) return []
+  return candidateFields.filter((f) => u.fields.has(f))
+}
+
+// Small inline marker shown next to a fact whose value is approximate (pending
+// automated verification) or could not be verified against the source
+// (unresolvable). The two kinds read differently: `pending` is transient
+// ("approximate, being verified"), `unresolvable` is permanent ("not posted by
+// the source"). `compact` hides the text label, leaving just the dot — used in
+// dense list rows. This replaces the old raw "⚠️ …" line that used to be baked
+// into the description text.
+export function UncertaintyBadge({ event, fields, compact = false }) {
+  const u = eventUncertainty(event)
+  if (!u || !fields || fields.length === 0) return null
+  const names = fields.map((f) => UNCERTAIN_FIELD_LABEL[f] || f)
+  const subject = names.join(' & ')
+  const plural = fields.length > 1
+  const label = u.kind === 'pending' ? 'approximate' : 'unverified'
+  const title = u.kind === 'pending'
+    ? `${subject} ${plural ? 'are' : 'is'} approximate — being verified.`
+    : `${subject} ${plural ? 'were' : 'was'} not posted by the source.`
+  return (
+    <span className={`uncertain-badge uncertain-badge--${u.kind}${compact ? ' uncertain-badge--compact' : ''}`}
+      title={title} role="img" aria-label={title}>
+      <span className="uncertain-badge-mark" aria-hidden="true">{u.kind === 'pending' ? '~' : '?'}</span>
+      {!compact && <span className="uncertain-badge-text">{label}</span>}
+    </span>
+  )
+}
+
 export function ChannelAvatar({ color, size = 44 }) {
   return (
     <div className="ch-ava" style={{ width: size, height: size, background: color }}>
@@ -202,7 +254,12 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
       )}
       <div className="ev-body">
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
-          {noDate && row.time && <span className="ev-time">{row.timeRange}</span>}
+          {noDate && row.time && (
+            <span className="ev-time">
+              {row.timeRange}
+              <UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['startTime', 'duration'])} compact />
+            </span>
+          )}
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
           {costLabel(event.cost) && (
             <span className={`ev-cost${event.cost && !event.cost.paid && event.cost.min === 0 ? ' ev-cost--free' : ''}`}>
@@ -210,7 +267,12 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
             </span>
           )}
         </div>
-        {!noDate && row.time && <div className="ev-meta"><span>{row.timeRange}</span></div>}
+        {!noDate && row.time && (
+          <div className="ev-meta">
+            <span>{row.timeRange}</span>
+            <UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['startTime', 'duration'])} compact />
+          </div>
+        )}
         {showLoc && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
         {showChip && channel && (
           <div className="ev-chip" style={{ marginTop: 6 }}

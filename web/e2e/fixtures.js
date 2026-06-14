@@ -36,6 +36,26 @@ export const mockEvents = [
   { icsUrl: 'test-ripper-cal2.ics', summary: 'Movie Premiere', description: 'A film', location: 'SIFF', date: toJoda(future(3)) },
 ]
 
+// Events carrying the structured `uncertainty` field (the replacement for the
+// old raw "⚠️ …" description line). Used only by uncertainty.spec.js, which
+// overrides the events-index route so the shared specs' event counts are
+// untouched. One of each kind: `pending` (approximate, being verified) and
+// `unresolvable` (not posted by the source).
+export const mockUncertainEvents = [
+  {
+    icsUrl: 'test-ripper-cal1.ics', summary: 'Approximate Duration Show',
+    description: 'Headliner plus support.', location: 'Neumos, Capitol Hill',
+    date: toJoda(future(2)), lat: 47.61, lng: -122.32,
+    uncertainty: { fields: ['duration'], kind: 'pending' },
+  },
+  {
+    icsUrl: 'test-ripper-cal1.ics', summary: 'Unposted Details Show',
+    description: 'Doors at an unannounced time.', location: 'Neumos, Capitol Hill',
+    date: toJoda(future(3)), lat: 47.61, lng: -122.32,
+    uncertainty: { fields: ['startTime', 'cost'], kind: 'unresolvable' },
+  },
+]
+
 export const mockVenues = {
   generated: '',
   venues: [{

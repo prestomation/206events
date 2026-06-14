@@ -7,7 +7,7 @@ import type {
     UncertaintyError,
 } from './config/schema.js';
 import type { UncertaintyCache } from './event-uncertainty-cache.js';
-import { applyUncertaintyResolutions, applyImageBackfill, applyCostBackfill } from './uncertainty-merge.js';
+import { applyUncertaintyResolutions, applyImageBackfill, applyCostBackfill, stripUncertaintyNote } from './uncertainty-merge.js';
 
 const TZ = ZoneId.of('America/Los_Angeles');
 
@@ -57,6 +57,8 @@ describe('applyUncertaintyResolutions', () => {
         expect(result.stats.resolved).toBe(0);
         // No cache entry exists yet — nothing to stamp.
         expect(result.touchedKeys).toEqual([]);
+        // Structured field drives the web UI badge.
+        expect(result.events[0].uncertainty).toEqual({ fields: ['startTime'], kind: 'pending' });
     });
 
     it('handles missing description gracefully when appending the pending note', () => {
@@ -158,6 +160,8 @@ describe('applyUncertaintyResolutions', () => {
         expect(result.stats.acknowledgedUnresolvable).toBe(1);
         // Unresolvable entries are still entries — they need lastSeen too.
         expect(result.touchedKeys).toEqual(['events12:sample-event-2026-02-14']);
+        // Structured field marks the kind as unresolvable for the web UI badge.
+        expect(result.events[0].uncertainty).toEqual({ fields: ['startTime'], kind: 'unresolvable' });
     });
 
     it('preserves unrelated errors and unrelated events', () => {
@@ -264,6 +268,55 @@ describe('applyUncertaintyResolutions', () => {
             'events12:event-a',
             'events12:event-b',
         ]);
+    });
+});
+
+describe('stripUncertaintyNote', () => {
+    it('returns undefined and empty inputs unchanged', () => {
+        expect(stripUncertaintyNote(undefined)).toBeUndefined();
+        expect(stripUncertaintyNote('')).toBe('');
+    });
+
+    it('leaves a note-free description untouched', () => {
+        expect(stripUncertaintyNote('Live jazz every night.')).toBe('Live jazz every night.');
+    });
+
+    it('removes the appended pending note, keeping the original description', () => {
+        const event = makeEvent({ description: 'Live music every night.' });
+        const err = makeUncertainty(event, ['startTime']);
+        const noted = applyUncertaintyResolutions([event], [err], { version: 1, entries: {} }, 'events12')
+            .events[0].description;
+        // The full description carries the ⚠️ note...
+        expect(noted).toContain('⚠️');
+        // ...but stripping returns just the original text.
+        expect(stripUncertaintyNote(noted)).toBe('Live music every night.');
+    });
+
+    it('removes the appended unresolvable note including a Source: suffix', () => {
+        const event = makeEvent({ description: 'Live music every night.', url: 'https://example.com/e/1' });
+        const err = makeUncertainty(event, ['startTime']);
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: {
+                'events12:sample-event-2026-02-14': {
+                    unresolvable: true,
+                    resolvedAt: '2026-05-17',
+                    source: 'manual',
+                },
+            },
+        };
+        const noted = applyUncertaintyResolutions([event], [err], cache, 'events12').events[0].description;
+        expect(noted).toContain('Source: https://example.com/e/1');
+        expect(stripUncertaintyNote(noted)).toBe('Live music every night.');
+    });
+
+    it('returns undefined when the description was only the note (no preceding text)', () => {
+        const event = makeEvent({ description: undefined });
+        const err = makeUncertainty(event, ['startTime']);
+        const noted = applyUncertaintyResolutions([event], [err], { version: 1, entries: {} }, 'events12')
+            .events[0].description;
+        expect(noted).toMatch(/^⚠️/);
+        expect(stripUncertaintyNote(noted)).toBeUndefined();
     });
 });
 

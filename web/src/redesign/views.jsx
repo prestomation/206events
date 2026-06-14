@@ -4,7 +4,7 @@
 import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
-import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb } from './atoms.jsx'
+import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
@@ -850,7 +850,10 @@ function ParsedEventRow({ event, distributed, indexEvent }) {
             <span className={`ev-cost${cost && !cost.paid && cost.min === 0 ? ' ev-cost--free' : ''}`}>{costLabel(cost)}</span>
           )}
         </div>
-        <div className="ev-meta"><span>{time}</span></div>
+        <div className="ev-meta">
+          <span>{time}</span>
+          <UncertaintyBadge event={indexEvent} fields={uncertainFieldsFor(indexEvent, ['startTime', 'duration'])} compact />
+        </div>
         {/* Distributed calendars set a per-event location ("its own geo"); link
             it via the shared pin-only LocationMapLink. */}
         {distributed && <LocationMapLink location={event.location} lat={event.lat} lng={event.lng} />}
@@ -882,9 +885,9 @@ export function EventDetail({ event }) {
         <div className="a-hero-kick">{row.day} · {row.dateNum}{row.time ? ` · ${row.time}` : ''}</div>
         <div className="a-hero-title">{event.summary}</div>
         <div style={{ display: 'flex', gap: 16, marginTop: 13, fontSize: 13.5, fontWeight: 600, opacity: 0.96, flexWrap: 'wrap' }}>
-          {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.timeRange}</span>}
-          {(event.location || channel?.hood) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.pin}</span>{event.location || channel.hood}</span>}
-          {costLabel(event.cost) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.spark}</span>{costLabel(event.cost)}</span>}
+          {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.timeRange}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['startTime', 'duration'])} compact /></span>}
+          {(event.location || channel?.hood) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.pin}</span>{event.location || channel.hood}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['location'])} compact /></span>}
+          {costLabel(event.cost) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.spark}</span>{costLabel(event.cost)}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['cost'])} compact /></span>}
         </div>
       </div>
 
@@ -916,7 +919,7 @@ export function EventDetail({ event }) {
           const inner = (
             <>
               <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.pin}</span>
-              <div><div style={{ fontWeight: 600, fontSize: 14 }}>{event.location}</div>
+              <div><div style={{ fontWeight: 600, fontSize: 14 }}>{event.location}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['location'])} /></div>
                 {channel?.hood && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{channel.hood}</div>}</div>
             </>
           )
@@ -935,7 +938,7 @@ export function EventDetail({ event }) {
           const inner = (
             <>
               <span style={{ width: 18, height: 18, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.spark}</span>
-              <div><div style={{ fontWeight: 600, fontSize: 14 }}>{label || 'Price not listed'}</div>
+              <div><div style={{ fontWeight: 600, fontSize: 14 }}>{label || 'Price not listed'}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['cost'])} /></div>
                 {sub && <div style={{ fontSize: 12.5, color: 'var(--ink-3)', marginTop: 1 }}>{sub}</div>}</div>
             </>
           )

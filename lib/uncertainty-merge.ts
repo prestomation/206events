@@ -64,6 +64,26 @@ function appendUncertaintyNote(
     return `${description}\n\n${note}${suffix}`;
 }
 
+// Inverse of appendUncertaintyNote: remove the trailing "⚠️ … [Source: …]"
+// caveat block this module appends, returning the clean description. The web
+// UI renders the note as a structured inline badge (event.uncertainty) instead
+// of the raw text line, so the events-index description is stripped while the
+// ICS/RSS feeds keep the plain-text note. Matching on our own appended marker
+// is deterministic — this is not fragile parsing of third-party content. A
+// description with no appended note is returned unchanged.
+export function stripUncertaintyNote(description: string | undefined): string | undefined {
+    if (!description) return description;
+    // The note is always joined with "\n\n" and starts with the ⚠️ glyph.
+    const markerIndex = description.indexOf('\n\n⚠️ ');
+    if (markerIndex === -1) {
+        // Note-only description (no preceding text): the whole string is the note.
+        if (description.startsWith('⚠️ ')) return undefined;
+        return description;
+    }
+    const cleaned = description.slice(0, markerIndex);
+    return cleaned.length > 0 ? cleaned : undefined;
+}
+
 // Overwrite the hour/minute of a ZonedDateTime while preserving its date
 // and zone. Time string is "HH:MM" or "HH:MM:SS".
 function applyStartTime(date: ZonedDateTime, startTime: string): ZonedDateTime {
@@ -171,6 +191,7 @@ export function applyUncertaintyResolutions(
             return {
                 ...event,
                 description: appendUncertaintyNote(event.description, allUnknownFields, 'unresolvable', event.url),
+                uncertainty: { fields: allUnknownFields, kind: 'unresolvable' as const },
             };
         }
 
@@ -180,6 +201,7 @@ export function applyUncertaintyResolutions(
         return {
             ...event,
             description: appendUncertaintyNote(event.description, allUnknownFields, 'pending', event.url),
+            uncertainty: { fields: allUnknownFields, kind: 'pending' as const },
         };
     });
 
