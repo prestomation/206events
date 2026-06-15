@@ -309,8 +309,18 @@ routines need inside the repo — the skills, AGENTS.md conventions, the
 ## Upgrade story (honest)
 
 GitHub template copies do **not** track the upstream repo — "Use this
-template" produces an unrelated history. The supported path for pulling
-engine improvements:
+template" produces an unrelated history. There are two ways to pull engine
+improvements.
+
+**Curated, feature-by-feature (recommended): the `upstream-feature-sync`
+skill.** `npm run feature-sync` (via `skills/upstream-feature-sync/SKILL.md`)
+diffs the copy against `upstream/main`, restricts the delta to engine paths,
+groups it into named features, and asks the owner to merge/skip/defer each —
+staging the chosen ones as per-feature draft PRs. Decisions are remembered in
+`feature-sync.json` so a declined feature isn't re-proposed. This is the
+assisted middle ground; full design in `docs/upstream-feature-sync.md`.
+
+**All at once (fallback):**
 
 ```sh
 git remote add upstream https://github.com/prestomation/206events
@@ -318,7 +328,7 @@ git fetch upstream
 git merge upstream/main --allow-unrelated-histories   # first time only
 ```
 
-The engine/content separation is what keeps these merges tractable: a copy
+The engine/content separation is what keeps both tractable: a copy
 deletes Seattle content once and never recreates the same paths, so merges
 touch engine files only. `city.config.ts` will conflict only when the
 schema itself changes. There is no promise of automated updates; breaking
