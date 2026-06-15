@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 // Human-readable label + tone for each source status.
 const STATUS_META = {
@@ -25,7 +25,6 @@ function statusDot(status) {
 // drawer instead of leaving the dashboard). App206 owns the state; this
 // component renders it and reports changes through onTabChange / onSelectSource.
 export function HealthDashboard({
-  buildErrors,
   calendars,
   healthTab = 'sources',
   healthSource = null,
@@ -33,6 +32,14 @@ export function HealthDashboard({
   onSelectSource = () => {},
 }) {
   const activeTab = healthTab
+  const [buildErrors, setBuildErrors] = useState(null)
+
+  useEffect(() => {
+    fetch('./build-errors.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => { if (data) setBuildErrors(data) })
+      .catch(() => {})
+  }, [])
 
   // Close the drawer on Escape.
   useEffect(() => {

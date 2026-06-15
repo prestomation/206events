@@ -36,7 +36,7 @@ const MIN_CONTENT_W = 420
 
 export function App206(props) {
   const {
-    calendars, eventsIndex, venues, loading, buildErrors,
+    calendars, eventsIndex, venues, loading,
     favoritesSet, toggleFavorite,
     searchFilters, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
@@ -335,7 +335,7 @@ export function App206(props) {
 
   const model = {
     // raw
-    calendars, eventsIndex, loading, buildErrors,
+    calendars, eventsIndex, loading,
     favoritesSet, toggleFollow,
     searchFilters, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
@@ -383,7 +383,7 @@ export function App206(props) {
   }, [contentKey])
 
   let content
-  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard buildErrors={buildErrors} calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} /></div>
+  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} /></div>
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />

@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { render, screen, fireEvent, within } from '@testing-library/react'
 import { HealthDashboard } from './HealthDashboard.jsx'
 
 // HealthDashboard is controlled (tab + drilled-into source live in App206 so
 // they can be deep-linked). This harness mirrors that wiring: switching tabs
 // clears the open drawer, selecting a source opens it.
-function Harness({ buildErrors }) {
+function Harness() {
   const [tab, setTab] = useState('sources')
   const [source, setSource] = useState(null)
   return (
     <HealthDashboard
-      buildErrors={buildErrors}
       healthTab={tab}
       healthSource={source}
       onTabChange={(t) => { setSource(null); setTab(t) }}
@@ -62,39 +61,47 @@ const buildErrors = {
   ],
 }
 
+function mockFetch(data) {
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => data }))
+}
+
 describe('HealthDashboard', () => {
-  it('renders summary cards and defaults to the Sources tab', () => {
-    render(<Harness buildErrors={buildErrors} />)
-    expect(screen.getByText('Source Health Dashboard')).toBeTruthy()
-    // Source table is visible by default
+  beforeEach(() => { mockFetch(buildErrors) })
+  afterEach(() => { vi.unstubAllGlobals() })
+
+  it('renders summary cards and defaults to the Sources tab', async () => {
+    render(<Harness />)
+    expect(await screen.findByText('Source Health Dashboard')).toBeTruthy()
     expect(screen.getByText('broken-source')).toBeTruthy()
     expect(screen.getByText('good-source')).toBeTruthy()
   })
 
   it('shows a graceful message when build data is missing', () => {
-    render(<HealthDashboard buildErrors={null} />)
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('network')))
+    render(<HealthDashboard />)
     expect(screen.getByText(/Build errors data is not available/)).toBeTruthy()
   })
 
-  it('renders photo coverage summary cards', () => {
-    render(<Harness buildErrors={buildErrors} />)
-    expect(screen.getByText('Events with Photo')).toBeTruthy()
+  it('renders photo coverage summary cards', async () => {
+    render(<Harness />)
+    expect(await screen.findByText('Events with Photo')).toBeTruthy()
     expect(screen.getByText('🖼️ 9 / 12')).toBeTruthy()
     // 1 venue gap + 1 event gap = 2 missing
     expect(screen.getByText('Missing Photos')).toBeTruthy()
     expect(screen.getByText('🖼️ 2')).toBeTruthy()
   })
 
-  it('renders cost coverage summary cards', () => {
-    render(<Harness buildErrors={buildErrors} />)
-    expect(screen.getByText('Events with Cost')).toBeTruthy()
+  it('renders cost coverage summary cards', async () => {
+    render(<Harness />)
+    expect(await screen.findByText('Events with Cost')).toBeTruthy()
     expect(screen.getByText('💲 4 / 12')).toBeTruthy()
     expect(screen.getByText('Missing Costs')).toBeTruthy()
     expect(screen.getByText('💲 1')).toBeTruthy()
   })
 
-  it('switches tabs to reveal errors, geo, and uncertain detail', () => {
-    render(<Harness buildErrors={buildErrors} />)
+  it('switches tabs to reveal errors, geo, and uncertain detail', async () => {
+    render(<Harness />)
+    await screen.findByText('Source Health Dashboard')
 
     fireEvent.click(screen.getByRole('tab', { name: /Errors/ }))
     expect(screen.getByText('cannot import')).toBeTruthy()
@@ -112,14 +119,16 @@ describe('HealthDashboard', () => {
     expect(screen.getByText('promote-to-browserbase')).toBeTruthy()
   })
 
-  it('renders URL entity errors in the Errors tab and a summary card', () => {
+  it('renders URL entity errors in the Errors tab and a summary card', async () => {
     const withEntities = {
       ...buildErrors,
       urlEntityErrors: [
         { scope: 'event', source: 'nectar', calendar: 'all-events', field: 'event.url', value: 'https://x.com/?a=1&amp;b=2', entities: ['&amp;'] },
       ],
     }
-    render(<Harness buildErrors={withEntities} />)
+    mockFetch(withEntities)
+    render(<Harness />)
+    await screen.findByText('Source Health Dashboard')
     // Summary card
     expect(screen.getByText('URL Entities')).toBeTruthy()
     // Errors tab badge includes the entity count; the section renders on click
@@ -128,8 +137,9 @@ describe('HealthDashboard', () => {
     expect(screen.getByText(/event\.url/)).toBeTruthy()
   })
 
-  it('opens a drill-down drawer with parse errors when a source row is clicked', () => {
-    render(<Harness buildErrors={buildErrors} />)
+  it('opens a drill-down drawer with parse errors when a source row is clicked', async () => {
+    render(<Harness />)
+    await screen.findByText('broken-source')
     fireEvent.click(screen.getByText('broken-source'))
     const dialog = screen.getByRole('dialog')
     expect(within(dialog).getByText('broken-source')).toBeTruthy()
@@ -137,16 +147,18 @@ describe('HealthDashboard', () => {
     expect(within(dialog).getByText('missing title')).toBeTruthy()
   })
 
-  it('surfaces matching uncertain events and geo misses in the drawer', () => {
-    render(<Harness buildErrors={buildErrors} />)
+  it('surfaces matching uncertain events and geo misses in the drawer', async () => {
+    render(<Harness />)
+    await screen.findByText('good-source')
     fireEvent.click(screen.getByText('good-source'))
     const dialog = screen.getByRole('dialog')
     expect(within(dialog).getByText(/Mystery Show/)).toBeTruthy()
     expect(within(dialog).getByText('nowhere')).toBeTruthy()
   })
 
-  it('closes the drawer with the close button', () => {
-    render(<Harness buildErrors={buildErrors} />)
+  it('closes the drawer with the close button', async () => {
+    render(<Harness />)
+    await screen.findByText('broken-source')
     fireEvent.click(screen.getByText('broken-source'))
     expect(screen.getByRole('dialog')).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: /Close details/ }))
