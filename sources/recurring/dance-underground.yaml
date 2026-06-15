@@ -1,7 +1,8 @@
+# verified: 2026-06-15 drift-fixed (location 340 15th Ave E, Seattle, WA 98102 → 340 14th Ave E, Seattle, WA 98112; geo updated)
 geo:
-  lat: 47.6216701
-  lng: -122.3124940
-  label: "Dance Underground, 340 15th Ave E, Seattle, WA 98102"
+  lat: 47.6213759
+  lng: -122.3145606
+  label: "Dance Underground, 340 14th Ave E, Seattle, WA 98112"
   osmType: node
   osmId: 7006940987
 name: dance-underground
@@ -9,7 +10,7 @@ friendlyname: Dance Underground
 imageUrl: "https://images.squarespace-cdn.com/content/v1/6966a715cae8a15f40bf258e/7a91f482-2f8e-4df9-ad9a-984161124fda/Screenshot+2026-01-13+at+12.34.09%E2%80%AFPM.jpg"
 description: Weekly Argentine tango practica (Thursday) and milonga (Saturday) at Dance Underground in Capitol Hill.
 timezone: America/Los_Angeles
-location: 340 15th Ave E, Seattle, WA 98102
+location: 340 14th Ave E, Seattle, WA 98112
 url: https://www.dance-underground.com/
 tags:
   - Dance

@@ -19,7 +19,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 
 ## Adding New Calendar Sources
 
-**Always follow `skills/source-discovery/SKILL.md`** when adding a new calendar source — do not do it ad-hoc. The skill includes a mandatory quality-gate checklist (step 4) that checks whether the source already exists under `sources/external/`, `sources/recurring/`, or `sources/*/ripper.yaml`. Skipping the skill risks duplicating existing sources, missing the "check existing sources" step, and bypassing other guardrails (event volume verification, Amazon Q iteration, etc.).
+**Always follow `skills/source-discovery/SKILL.md`** when adding a new calendar source — do not do it ad-hoc. The skill includes a mandatory quality-gate checklist (step 4) that checks whether the source already exists under `sources/external/`, `sources/recurring/`, or `sources/*/ripper.yaml`. Skipping the skill risks duplicating existing sources, missing the "check existing sources" step, and bypassing other guardrails (event volume verification, subagent code review, etc.).
 
 **When adding or fixing a single source, always build just that source with `ONLY_SOURCE`** — never run a full all-sources build while iterating:
 
@@ -69,8 +69,6 @@ The steering file provides essential context for making informed decisions about
 
 ### Development Workflow
 
-> **Note for template copies:** steps that mention Amazon Q (`/q review`, waiting for Q's pass, the re-review template) apply only when Amazon Q Developer is installed on the repository. On a copy without Q, skip those steps and treat human review as the gate — everything else below applies as written.
-
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
 2. Make commits to the feature branch
@@ -91,17 +89,17 @@ The steering file provides essential context for making informed decisions about
    review comments). If the branch is already up to date, skip the rebase.
 4. Open a Pull Request — the harness creates it as a **draft** by default; that's fine
 5. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
-6. **Immediately post a top-level `/q review` comment** with the explicit feedback-ask template below — do **not** rely on Q's auto-review-on-PR-open. Q's first-pass review is submitted with `state: COMMENTED`, which sometimes doesn't trigger the PR-activity webhook, so the session sits idle waiting for a review that already landed. Posting an explicit `/q review` reliably wakes the session when Q replies. The same template applies on the first pass and every follow-up — see the "Re-review template" section below.
-7. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review:
-   - If Q has **blocking comments**: address each one, push fixes, re-trigger Q (see re-review template below), and wait for Q's next pass
-   - Once Q gives **all ✅** and all comments are confidently addressed, do the following **immediately, in the same turn** — do not wait for the build to finish first:
+6. **Immediately run a `code-reviewer` subagent on the PR diff** — see "Code review template" below. Address any blocking findings, push fixes, and re-run the subagent until satisfied.
+7. Monitor `<github-webhook-activity>` events for CI results:
+   - If CI **fails**: investigate and push fixes, then re-run the code-reviewer subagent on the updated diff
+   - Once the code-reviewer subagent is satisfied and CI is passing, do the following **immediately, in the same turn** — do not wait to confirm CI success separately:
      a. Resolve all open review threads using `mcp__github__pull_request_review_write` with `method: resolve_thread` (requires the thread's `PRRT_...` node ID — see note below)
      b. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
      c. **Decide whether the PR is auto-merge-eligible** (see "Auto-merge eligibility" below). If not eligible, leave it ready-for-review for a human to merge, post a brief top-level PR comment (via `mcp__github__add_issue_comment`) saying it's green and awaiting manual merge, and stop. Do **not** call `enable_pr_auto_merge` or `merge_pull_request`.
      d. **If eligible and CI is still running** → enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash). It will fire automatically when checks go green.
      e. **If eligible and CI already passed** → merge directly: `mcp__github__merge_pull_request` (squash)
 
-   **Why "immediately, in the same turn":** the webhook subscription only fires on CI **failures and review comments** — a green build produces no event. If you wait for CI to confirm green before enabling auto-merge, you'll be waiting forever; the PR just sits ready-but-unmerged until something else wakes the session. Flip to ready and (when eligible) enable auto-merge the moment Q is green, and let the checks prove you wrong rather than waiting for them to prove you right.
+   **Why "immediately, in the same turn":** the webhook subscription only fires on CI **failures and review comments** — a green build produces no event. If you wait for CI to confirm green before enabling auto-merge, you'll be waiting forever; the PR just sits ready-but-unmerged until something else wakes the session. Flip to ready and (when eligible) enable auto-merge the moment the review is clean, and let the checks prove you wrong rather than waiting for them to prove you right.
 
    **Auto-merge eligibility — auto-merge calendar content, sources, and fixes; require manual merge for infrastructure/UI/schema changes.**
 
@@ -121,39 +119,35 @@ The steering file provides essential context for making informed decisions about
 
 **Note on resolving review threads:** `mcp__github__pull_request_review_write` with `resolve_thread` requires a `PRRT_...` GraphQL node ID. These IDs are not currently returned by `get_review_comments` — if you can't obtain the ID, skip this step and proceed; unresolved threads may block auto-merge, in which case fall back to direct merge.
 
-### Re-review template
+### Code review template
 
-**On every push to a PR — both the initial push that opens the PR and every follow-up push — you MUST post a top-level PR comment that explicitly triggers Amazon Q with concrete feedback asks.** Two reasons it's not optional:
-
-1. **Webhook coverage gap on first pass.** Q's first-pass review submitted automatically when a PR opens is filed with `state: COMMENTED`, and that classification has been observed not to trigger a `<github-webhook-activity>` event. The session then sits waiting for a review that already landed (and that already has blocking inline comments). Posting an explicit `/q review` produces a separate top-level PR comment when Q replies, which reliably wakes the session.
-2. **Anchoring on stale commits.** Without an explicit re-review trigger after follow-up commits, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
-
-The bare `/q review` trigger has proven unreliable on its own — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the commits against the following dimensions:
+**On every push to a PR — both the initial push and every follow-up — spawn a `code-reviewer` subagent on the PR diff** and ask it to evaluate against these dimensions:
 
 - Repository standards (conventions documented in AGENTS.md, CLAUDE.md, and `.kiro/steering.md`)
 - Correctness (logic bugs, edge cases, off-by-one, missing null checks)
 - Security (input validation, auth, secrets handling, injection, supply-chain)
 - Performance (hot loops, N+1s, unnecessary allocations, bundle size)
 - Maintainability (clarity, naming, separation of concerns, test coverage)
-- Anything else the contributor thinks Q should weigh in on (call this out by name)
+- Any PR-specific area worth highlighting
 
-Template:
+Example subagent prompt:
 
 ```
-/q review
-
-Please review (or re-review) this PR with feedback on:
-- Repository standards (AGENTS.md / CLAUDE.md / steering)
+Review this PR diff for the 206events repository. Check for:
+- Repository standards (AGENTS.md / CLAUDE.md / .kiro/steering.md)
 - Correctness
 - Security
 - Performance
 - Maintainability
 - <any PR-specific area worth highlighting>
+
+Diff:
+<paste git diff or summarize changed files>
 ```
 
-Use the same template on the first push (immediately after opening the PR) and on every follow-up push.
+Re-run the subagent after each follow-up push to confirm fixes addressed the findings.
 
-**After addressing a review comment**, reply to the thread with your reasoning (fix pushed or explanation of why no action is needed), then resolve the thread using `mcp__github__pull_request_review_write` with `method: resolve_thread`. Leaving threads open after they've been addressed creates noise and may block auto-merge.
+**After addressing a review finding**, push the fix and re-run the subagent. Once the subagent reports no blocking issues, proceed to convert the PR to ready-for-review and merge (if eligible).
 
 ## Calendar Integration Strategy
 
