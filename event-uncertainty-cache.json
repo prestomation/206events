@@ -1,15 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:live-theater-2026-06-07": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8100
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/"
-    },
     "events12:live-theater-2026-06-08": {
       "fields": {
         "startTime": "19:30",
@@ -134,13 +125,6 @@
       "resolvedAt": "2026-06-14",
       "source": "agent",
       "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/ \u2014 $35\u2013$74 dependent on day/time"
-    },
-    "events12:free-things-to-do-2026-06-07": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
     },
     "events12:free-things-to-do-2026-06-08": {
       "unresolvable": true,
@@ -1591,13 +1575,6 @@
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
     },
-    "events12:taste-of-seattle-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-06-08": {
       "unresolvable": true,
       "reason": "Commercial tour \u2014 booking times vary by individual reservation",
@@ -3011,13 +2988,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-06-08": {
       "unresolvable": true,
@@ -4440,13 +4410,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-06-08": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -5518,13 +5481,6 @@
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
     },
-    "events12:sailboat-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
     "events12:sailboat-2026-06-08": {
       "unresolvable": true,
       "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
@@ -6547,13 +6503,6 @@
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
     },
-    "events12:baseball-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
     "events12:baseball-2026-06-08": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each game has a different start time",
@@ -7337,13 +7286,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
-    "events12:winery-concerts-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list"
     },
     "events12:winery-concerts-2026-06-08": {
       "unresolvable": true,
@@ -8129,13 +8071,6 @@
       "source": "agent",
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list"
     },
-    "events12:concerts-at-the-locks-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg"
-    },
     "events12:concerts-at-the-locks-2026-06-08": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
@@ -8780,13 +8715,6 @@
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg"
     },
-    "events12:bus-to-the-mountains-2026-06-07": {
-      "unresolvable": true,
-      "reason": "General transit service page \u2014 specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/"
-    },
     "events12:bus-to-the-mountains-2026-06-08": {
       "unresolvable": true,
       "reason": "General transit service page \u2014 specific departure times vary by date and destination",
@@ -9374,13 +9302,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://trailheaddirect.org/"
-    },
-    "events12:concerts-at-marymoor-park-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
     },
     "events12:concerts-at-marymoor-park-2026-06-08": {
       "unresolvable": true,
@@ -9970,20 +9891,6 @@
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
     },
-    "events12:rugby-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Season-span listing across multiple dates; each home game has different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.seawolves.rugby/schedule/"
-    },
-    "events12:acrobatic-show-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Acrobatic Conundrum current-shows page does not list specific start times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.acrobaticconundrum.com/current-shows"
-    },
     "events12:acrobatic-show-2026-06-08": {
       "unresolvable": true,
       "reason": "Acrobatic Conundrum current-shows page does not list specific start times",
@@ -10032,16 +9939,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.acrobaticconundrum.com/current-shows"
-    },
-    "events12:all-american-musical-2026-06-07": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8400
-      },
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "evidence": "https://villagetheatre.org/see-a-show/grease/",
-      "partialFingerprint": "1p783r0-until2026-06-07-tu"
     },
     "19hz:19hz-2026/06/09-Dorian Electra": {
       "unresolvable": true,
@@ -15064,13 +14961,6 @@
       "resolvedAt": "2026-05-24",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
-    },
-    "events12:taste-of-pike-place-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
     },
     "events12:taste-of-pike-place-2026-06-08": {
       "unresolvable": true,
@@ -21266,48 +21156,6 @@
       "source": "agent",
       "partialFingerprint": "ufxxor"
     },
-    "events12:fishing-day-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Past event (date: 2026-06-07) \u2014 no longer actionable; event URL not investigated",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "buzm5i-until2026-06-07-tu"
-    },
-    "events12:state-park-day-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Past event (date: 2026-06-07) \u2014 no longer actionable; event URL not investigated",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1q5bayd-until2026-06-07-tu"
-    },
-    "events12:gig-harbor-festival-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Past event (date: 2026-06-07) \u2014 no longer actionable; event URL not investigated",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "i6uar5-until2026-06-07-tu"
-    },
-    "events12:half-marathon-on-bainbridge-island-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Past event (date: 2026-06-07) \u2014 no longer actionable; event URL not investigated",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "btos6c-until2026-06-07-tu"
-    },
-    "events12:run-to-support-parks-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Past event (date: 2026-06-07) \u2014 no longer actionable; event URL not investigated",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "14spilk-until2026-06-07-tu"
-    },
-    "events12:bird-festival-2026-06-07": {
-      "unresolvable": true,
-      "reason": "Past event (date: 2026-06-07) \u2014 no longer actionable; event URL not investigated",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1wa72zj-until2026-06-07-tu"
-    },
     "events12:party-for-young-professionals-2026-06-10": {
       "unresolvable": true,
       "reason": "Past event (date: 2026-06-10) \u2014 no longer actionable; event URL not investigated",
@@ -22931,16 +22779,6 @@
       "source": "agent",
       "evidence": "https://www.seattleaquarium.org/events/"
     },
-    "events12:ballet-finale-2026-06-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.pnb.org/season/season-encore/"
-    },
     "events12:beer-festival-2026-06-13": {
       "fields": {
         "cost": {
@@ -22991,16 +22829,6 @@
       "source": "agent",
       "evidence": "https://lakewoldgardens.org/annual-festivals/fairyfest/"
     },
-    "events12:garden-festival-south-2026-06-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.parkstacoma.gov/ptdflowergardenfest/"
-    },
     "events12:medieval-fair-2026-06-20": {
       "fields": {
         "cost": {
@@ -23010,16 +22838,6 @@
       "resolvedAt": "2026-06-13",
       "source": "agent",
       "evidence": "https://www.kitsapmedievalfaire.org/"
-    },
-    "events12:pinball-arcade-games-2026-06-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.nwpinballshow.com/"
     },
     "events12:rugby-2026-06-14": {
       "fields": {
@@ -25215,16 +25033,6 @@
       "evidence": "https://www.ballardbrewed.com/events/colombia-v-portugal-watch-party \u2014 World Cup watch party at a brewery; admission is free (guests buy drinks)",
       "lastSeen": "2026-06-13"
     },
-    "seatoday:cityspark-19153176": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/richmond-highlands-neighborhood-walk-free/19153176/2026-06-27T00 - event title contains \"- Free\""
-    },
     "19hz:19hz-2026/06/12-c895 Summer Ferry Tour": {
       "unresolvable": true,
       "resolvedAt": "2026-06-14",
@@ -25260,82 +25068,6 @@
       "resolvedAt": "2026-06-14",
       "source": "agent",
       "reason": "Ticketmaster API does not expose event duration; cannot determine end time without source-specific knowledge"
-    },
-    "seatoday:cityspark-19010608": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "Delridge Farmers Market is a free-to-attend community farmers market"
-    },
-    "seatoday:cityspark-17157120": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "Homebuyer education workshops in WA are uniformly free per WSHFC/NeighborWorks \u2014 government/nonprofit housing education events"
-    },
-    "seatoday:cityspark-18912256": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "Sensory Days events in Seattle area (Museum of Flight, PacSci) are consistently free-admission events for sensory-friendly access"
-    },
-    "seatoday:cityspark-19056667": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "Restoration Event | Homestead Park \u2014 Mercer Island volunteer restoration events are free; city parks restoration events do not charge admission"
-    },
-    "seatoday:cityspark-19069385": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "https://www.cascademineralogicalsociety.org/cms-june27-28-cms-show/ \u2014 Cascade Mineralogical Society confirms admission and parking are free"
-    },
-    "seatoday:cityspark-18801558": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "https://www.everettpost.com/events/17th-annual-purse-auction-domestic-violence-services-of-snohomish-county/ \u2014 charity luncheon/auction event with ticket price not listed in public search results"
-    },
-    "seatoday:cityspark-19151163": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "Kill Team: Summer Siege at MOX Boarding House \u2014 gaming tournament events charge entry fees; exact price not found in public sources"
-    },
-    "seatoday:cityspark-18670042": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "reason": "Cougar Mountain Geology event registration via GiveButter \u2014 page shows donation form but no specific ticket price; cannot confirm free vs paid without completing registration"
     },
     "seattle-center:iglesia-la-luz-del-mundo": {
       "fields": {
@@ -25464,6 +25196,741 @@
       "resolvedAt": "2026-06-14",
       "source": "agent",
       "evidence": "https://www.seattlepromusica.org/calendar \u2014 professional choral concerts; pricing listed as TBA"
+    },
+    "book-larder:book-larder-9281552285914": {
+      "fields": {
+        "cost": {
+          "min": 39.0
+        }
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://booklarder.com/products/author-talk-demo-yoko-nakazawa-the-art-of-japanese-pickling-fermenting"
+    },
+    "rendezvous:6a2f65d0deab2c7ccdef4596": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://rendezvous.squarespace.com/events/jewelbox-comedy-series-fdwss-7hley"
+    },
+    "crocodile:tm-rZ7HnEZ1Af0dOS": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Ticketmaster API does not expose event duration"
+    },
+    "discover-slu:discover-slu-pop-of-pride-party": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "No end time listed on source page"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-pnw-beauty": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "No end time listed on source page"
+    },
+    "discover-slu:discover-slu-public-sail-2026-2-2-2": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/public-sail-2026-2-2-2/"
+    },
+    "discover-slu:discover-slu-steamship-sunday-2026-2": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 3600
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/steamship-sunday-2026-2/"
+    },
+    "discover-slu:discover-slu-wooden-boat-storytime-2026-2-2-2-2": {
+      "fields": {
+        "duration": 2700
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/wooden-boat-storytime-2026-2-2-2-2/"
+    },
+    "discover-slu:discover-slu-toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2/"
+    },
+    "discover-slu:discover-slu-lake-union-10k-2024-2-2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "No race start time listed on source page; race details not yet posted"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqLFQ-": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Ticketmaster API does not provide start time for this event; website returns 403"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46317": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47621": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-x47246": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47278": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46318": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47622": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46319": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47623": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-x47247": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47279": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-x47248": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47280": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "All-day event; no specific start time or end time listed on source page"
+    },
+    "seattle-center:go-skate-day-presented-by-skate-like-a-girl": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/go-skate-day-presented-by-skate-like-a-girl"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47678": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47678"
+    },
+    "seattle-center:the-play-that-goes-wrong-x44690": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/the-play-that-goes-wrong-x44690"
+    },
+    "seattle-center:seattle-center-glow": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-glow"
+    },
+    "seattle-center:artists-at-the-center-sanarte": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/artists-at-the-center-sanarte"
+    },
+    "seattle-center:sartaaj-heritage-tour-2026": {
+      "fields": {
+        "duration": 12600
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/sartaaj-heritage-tour-2026"
+    },
+    "seattle-center:seattle-storm-vs-dallas": {
+      "fields": {
+        "duration": 16200
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-dallas"
+    },
+    "seattle-center:seattle-welcomes-bosnia-and-herzegovina": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-welcomes-bosnia-and-herzegovina"
+    },
+    "events12:movies-in-seattle-parks-2026-06-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-06-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-06-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-06-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-06-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:movies-in-seattle-parks-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
+    },
+    "events12:party-at-the-aquarium-2026-06-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cannot verify timing"
+    },
+    "events12:podcasts-live-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cannot verify timing"
+    },
+    "events12:cocktail-walk-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cannot verify timing"
+    },
+    "events12:small-town-festival-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cannot verify timing"
+    },
+    "events12:scottish-festival-up-north-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cannot verify timing"
+    },
+    "events12:fishing-day-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cannot verify timing"
+    },
+    "events12:state-park-day-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cannot verify timing"
+    },
+    "events12:gig-harbor-festival-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cannot verify timing"
+    },
+    "events12:mead-tasting-2026-06-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Multiple sessions (12-2pm, 1:30-3:30pm, 3-5pm); cannot determine which applies to this entry"
+    },
+    "events12:performance-art-2026-06-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:performance-art-2026-06-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:performance-art-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:pinball-arcade-games-2026-06-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:pinball-arcade-games-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:musical-cabaret-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:baseball-cards-collectibles-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:duck-parade-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:international-dance-festival-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:international-dance-festival-2026-06-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
+    },
+    "events12:international-dance-festival-2026-06-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-15",
+      "source": "agent",
+      "reason": "Event date has passed; cost no longer actionable"
     }
   }
 }
