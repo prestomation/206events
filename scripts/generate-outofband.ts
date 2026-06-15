@@ -18,7 +18,7 @@
 
 import "dotenv/config";
 import { RipperLoader } from "../lib/config/loader.js";
-import { toICS, externalConfigSchema, ExternalConfig } from "../lib/config/schema.js";
+import { toICS, externalConfigSchema, ExternalConfig, EventCost } from "../lib/config/schema.js";
 import { loadYamlDir } from "../lib/config/dir-loader.js";
 import { hasFutureEventsInICS } from "../lib/calendar_ripper.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords } from "../lib/geocoder.js";
@@ -146,6 +146,27 @@ async function main() {
 
     const writtenFiles: string[] = [];
 
+    // Structured event data for outofband-events.json — carries full fidelity
+    // (cost, imageUrl, osmType/osmId, geocodeSource) that re-parsing the ICS
+    // cannot recover (Option B over the Option A ICS re-parse fallback).
+    interface OutofbandEventEntry {
+        icsUrl: string;
+        summary: string;
+        description?: string;
+        location?: string;
+        date: string;
+        endDate?: string;
+        url?: string;
+        imageUrl?: string;
+        cost?: EventCost;
+        lat?: number;
+        lng?: number;
+        osmType?: 'node' | 'way' | 'relation';
+        osmId?: number;
+        geocodeSource?: 'ripper' | 'cached' | 'none';
+    }
+    const outofbandEvents: OutofbandEventEntry[] = [];
+
     for (const config of outofbandConfigs) {
         console.log(`Ripping ${config.config.name}...`);
 
@@ -182,17 +203,50 @@ async function main() {
                     // Apply source-level geo to events missing coords
                     event.lat = sourceGeo.lat;
                     event.lng = sourceGeo.lng;
+                    // Forward OSM identity and geocode provenance so the
+                    // structured outofband-events.json carries full fidelity.
+                    if (sourceGeo.osmType !== undefined) event.osmType = sourceGeo.osmType;
+                    if (sourceGeo.osmId !== undefined) event.osmId = sourceGeo.osmId;
+                    event.geocodeSource = 'ripper';
                 } else if (event.location && event.lat === undefined) {
                     const result = await resolveEventCoords(geoCache, event.location, config.config.name);
                     geoCache = result.cache;
                     if (result.coords) {
                         event.lat = result.coords.lat;
                         event.lng = result.coords.lng;
+                        if (result.coords.osmType !== undefined) event.osmType = result.coords.osmType;
+                        if (result.coords.osmId !== undefined) event.osmId = result.coords.osmId;
                     }
+                    event.geocodeSource = result.geocodeSource;
+                } else if (event.lat !== undefined) {
+                    // Ripper set lat/lng directly (e.g. from source JSON-LD) — tag provenance.
+                    event.geocodeSource = 'ripper';
                 }
             }
 
             const filename = `${config.config.name}-${calendar.name}.ics`;
+
+            // Collect structured event data for outofband-events.json.
+            // Done before toICS() so we capture the original js-joda date/duration
+            // objects (needed for exact endDate computation).
+            for (const event of calendar.events) {
+                outofbandEvents.push({
+                    icsUrl: filename,
+                    summary: event.summary,
+                    ...(event.description !== undefined ? { description: event.description } : {}),
+                    ...(event.location !== undefined ? { location: event.location } : {}),
+                    date: event.date.toString(),
+                    endDate: event.date.plus(event.duration).toString(),
+                    ...(event.url !== undefined ? { url: event.url } : {}),
+                    ...(event.imageUrl !== undefined ? { imageUrl: event.imageUrl } : {}),
+                    ...(event.cost !== undefined ? { cost: event.cost } : {}),
+                    ...(event.lat !== undefined ? { lat: event.lat } : {}),
+                    ...(event.lng !== undefined ? { lng: event.lng } : {}),
+                    ...(event.osmType !== undefined ? { osmType: event.osmType } : {}),
+                    ...(event.osmId !== undefined ? { osmId: event.osmId } : {}),
+                    ...(event.geocodeSource !== undefined ? { geocodeSource: event.geocodeSource } : {}),
+                });
+            }
             const outPath = join("output", filename);
             const icsString = await toICS(calendar);
             await writeFile(outPath, icsString);
@@ -408,10 +462,15 @@ async function main() {
         }
     }
 
+    // Write structured event data (Option B: full fidelity vs. ICS re-parse)
+    const eventsPath = "outofband-events.json";
+    await writeFile(eventsPath, JSON.stringify(outofbandEvents, null, 2));
+    console.log(`\nEvents file written to ${eventsPath} (${outofbandEvents.length} event entries)`);
+
     // Write report locally
     const reportPath = "outofband-report.json";
     await writeFile(reportPath, JSON.stringify(report, null, 2));
-    console.log(`\nReport written to ${reportPath}`);
+    console.log(`Report written to ${reportPath}`);
 
     // Upload to S3
     console.log(`\nUploading to s3://${BUCKET}/${PREFIX}...`);
@@ -434,6 +493,15 @@ async function main() {
         Bucket: BUCKET,
         Key: `${PREFIX}outofband-report.json`,
         Body: JSON.stringify(report, null, 2),
+        ContentType: "application/json",
+    }));
+
+    // Upload structured event data so the main build can merge without re-parsing ICS
+    console.log(`  Uploading ${PREFIX}outofband-events.json`);
+    await s3.send(new PutObjectCommand({
+        Bucket: BUCKET,
+        Key: `${PREFIX}outofband-events.json`,
+        Body: JSON.stringify(outofbandEvents, null, 2),
         ContentType: "application/json",
     }));
 

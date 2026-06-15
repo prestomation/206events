@@ -434,5 +434,46 @@ END:VEVENT
 END:VCALENDAR`;
       expect(parseExternalCalendarEvents(withDoc)[0].imageUrl).toBeUndefined();
     });
+
+    it('extracts lat/lng from a GEO property', () => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dtStart = tomorrow.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:geo-event-1
+SUMMARY:Venue Show
+DTSTART:${dtStart}
+GEO:47.6208;-122.3197
+END:VEVENT
+END:VCALENDAR`;
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events).toHaveLength(1);
+      expect(events[0].lat).toBeCloseTo(47.6208);
+      expect(events[0].lng).toBeCloseTo(-122.3197);
+    });
+
+    it('respects the windowMonths option', () => {
+      // Event 5 months from now — outside default 3-month window
+      const fiveMonths = new Date();
+      fiveMonths.setMonth(fiveMonths.getMonth() + 5);
+      const dtStart = fiveMonths.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:far-future-1
+SUMMARY:Far Future Event
+DTSTART:${dtStart}
+END:VEVENT
+END:VCALENDAR`;
+
+      // With default window (3 months): not included
+      expect(parseExternalCalendarEvents(icsData)).toHaveLength(0);
+      // With expanded window (6 months): included
+      expect(parseExternalCalendarEvents(icsData, { windowMonths: 6 })).toHaveLength(1);
+    });
   });
 });

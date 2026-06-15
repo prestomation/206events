@@ -1278,6 +1278,104 @@ END:VCALENDAR`;
     }
   }
 
+  // Index outofband ripper events so they appear on the website.
+  // Prefer outofband-events.json (Option B: full structured data with cost,
+  // imageUrl, osmType/osmId, exact endDate) when available; fall back to
+  // re-parsing the ICS files (Option A) for older runner versions.
+  if (outofbandReport) {
+    let outofbandEventsIndexed = false;
+    try {
+      const eventsJson = await readFile("outofband-events.json", "utf-8");
+      // readFile succeeded — any error from here is a parse/shape bug, not "file absent".
+      // Re-throw so it surfaces as a build warning rather than silently triggering the
+      // Option A fallback (which would serve degraded data without any visible signal).
+      let entries: Array<{
+        icsUrl: string;
+        summary: string;
+        description?: string;
+        location?: string;
+        date: string;
+        endDate?: string;
+        url?: string;
+        imageUrl?: string;
+        cost?: EventCost;
+        lat?: number;
+        lng?: number;
+        osmType?: 'node' | 'way' | 'relation';
+        osmId?: number;
+        geocodeSource?: 'ripper' | 'cached' | 'none';
+      }>;
+      try {
+        entries = JSON.parse(eventsJson);
+      } catch (parseErr) {
+        throw new Error(`outofband-events.json is not valid JSON: ${parseErr}`);
+      }
+      if (!Array.isArray(entries)) {
+        throw new Error(`outofband-events.json root is not an array (got ${typeof entries})`);
+      }
+      let indexedCount = 0;
+      let skippedMalformed = 0;
+      for (const entry of entries) {
+        // Guard required fields before pushing. A null/missing `date` or `summary`
+        // would be serialised into events-index.json and crash the client
+        // (the website calls .localeCompare() on date and renders summary as text).
+        if (typeof entry.icsUrl !== 'string' || typeof entry.summary !== 'string' || typeof entry.date !== 'string') {
+          skippedMalformed++;
+          continue;
+        }
+        if (!calendarsWithFutureEvents.has(entry.icsUrl)) continue;
+        eventsIndex.push(entry);
+        indexedCount++;
+      }
+      if (skippedMalformed > 0) {
+        console.warn(`[outofband] Skipped ${skippedMalformed} malformed entries in outofband-events.json (missing icsUrl/summary/date)`);
+      }
+      outofbandEventsIndexed = true;
+      console.log(`[outofband] Merged ${indexedCount} of ${entries.length} events from outofband-events.json`);
+    } catch (err: any) {
+      if (err?.code === 'ENOENT') {
+        // File absent — older runner that predates Option B. Fall back silently.
+      } else {
+        // Unexpected error (corrupt JSON, wrong shape, etc.) — log it so the
+        // fallback is visible rather than appearing to be a normal transition.
+        console.warn(`[outofband] outofband-events.json unreadable, falling back to ICS re-parse: ${err?.message ?? err}`);
+      }
+    }
+
+    if (!outofbandEventsIndexed) {
+      // Option A fallback: re-parse ICS files.
+      // Loses osmType/osmId/cost vs. outofband-events.json, but covers older runners.
+      for (const source of outofbandReport.sources) {
+        for (const cal of source.calendars) {
+          const icsUrl = cal.icsFile;
+          if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+          try {
+            const icsContent = await readFile(join("output", icsUrl), "utf-8");
+            // Use a wide window (14 months) to match live-ripper behavior —
+            // some outofband shows (e.g. Seattle Rep, ECCC) are booked far ahead.
+            const events = parseExternalCalendarEvents(icsContent, { windowMonths: 14 });
+            for (const event of events) {
+              eventsIndex.push({
+                icsUrl,
+                summary: event.summary,
+                description: event.description,
+                location: event.location,
+                date: event.date.toString(),
+                endDate: event.date.plus(event.duration).toString(),
+                url: event.url,
+                ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+                ...(event.lat !== undefined ? { lat: event.lat, geocodeSource: 'ripper' as const } : {}),
+                ...(event.lng !== undefined ? { lng: event.lng } : {}),
+              });
+            }
+          } catch {
+            // ICS missing — already warned when registering from the report above
+          }
+        }
+      }
+    }
+  }
+
   // Save updated geo-cache
   await saveGeoCache(geoCache, 'geo-cache.json');
 
