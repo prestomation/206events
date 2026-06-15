@@ -1279,34 +1279,70 @@ END:VCALENDAR`;
   }
 
   // Index outofband ripper events so they appear on the website.
-  // The ICS files were downloaded from S3; we re-parse them here exactly
-  // as we do for outofband external calendars above.
+  // Prefer outofband-events.json (Option B: full structured data with cost,
+  // imageUrl, osmType/osmId, exact endDate) when available; fall back to
+  // re-parsing the ICS files (Option A) for older runner versions.
   if (outofbandReport) {
-    for (const source of outofbandReport.sources) {
-      for (const cal of source.calendars) {
-        const icsUrl = cal.icsFile;
-        if (!calendarsWithFutureEvents.has(icsUrl)) continue;
-        try {
-          const icsContent = await readFile(join("output", icsUrl), "utf-8");
-          // Use a wide window (14 months) to match live-ripper behavior —
-          // some outofband shows (e.g. Seattle Rep, ECCC) are booked far ahead.
-          const events = parseExternalCalendarEvents(icsContent, { windowMonths: 14 });
-          for (const event of events) {
-            eventsIndex.push({
-              icsUrl,
-              summary: event.summary,
-              description: event.description,
-              location: event.location,
-              date: event.date.toString(),
-              endDate: event.date.plus(event.duration).toString(),
-              url: event.url,
-              ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
-              ...(event.lat !== undefined ? { lat: event.lat, geocodeSource: 'ripper' as const } : {}),
-              ...(event.lng !== undefined ? { lng: event.lng } : {}),
-            });
+    let outofbandEventsIndexed = false;
+    try {
+      const eventsJson = await readFile("outofband-events.json", "utf-8");
+      const entries = JSON.parse(eventsJson) as Array<{
+        icsUrl: string;
+        summary: string;
+        description?: string;
+        location?: string;
+        date: string;
+        endDate?: string;
+        url?: string;
+        imageUrl?: string;
+        cost?: EventCost;
+        lat?: number;
+        lng?: number;
+        osmType?: 'node' | 'way' | 'relation';
+        osmId?: number;
+        geocodeSource?: 'ripper' | 'cached' | 'none';
+      }>;
+      let indexedCount = 0;
+      for (const entry of entries) {
+        if (!calendarsWithFutureEvents.has(entry.icsUrl)) continue;
+        eventsIndex.push(entry);
+        indexedCount++;
+      }
+      outofbandEventsIndexed = true;
+      console.log(`[outofband] Merged ${indexedCount} of ${entries.length} events from outofband-events.json`);
+    } catch {
+      // outofband-events.json absent (older runner) — fall back to ICS re-parse
+    }
+
+    if (!outofbandEventsIndexed) {
+      // Option A fallback: re-parse ICS files.
+      // Loses osmType/osmId/cost vs. outofband-events.json, but covers older runners.
+      for (const source of outofbandReport.sources) {
+        for (const cal of source.calendars) {
+          const icsUrl = cal.icsFile;
+          if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+          try {
+            const icsContent = await readFile(join("output", icsUrl), "utf-8");
+            // Use a wide window (14 months) to match live-ripper behavior —
+            // some outofband shows (e.g. Seattle Rep, ECCC) are booked far ahead.
+            const events = parseExternalCalendarEvents(icsContent, { windowMonths: 14 });
+            for (const event of events) {
+              eventsIndex.push({
+                icsUrl,
+                summary: event.summary,
+                description: event.description,
+                location: event.location,
+                date: event.date.toString(),
+                endDate: event.date.plus(event.duration).toString(),
+                url: event.url,
+                ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+                ...(event.lat !== undefined ? { lat: event.lat, geocodeSource: 'ripper' as const } : {}),
+                ...(event.lng !== undefined ? { lng: event.lng } : {}),
+              });
+            }
+          } catch {
+            // ICS missing — already warned when registering from the report above
           }
-        } catch {
-          // ICS missing — already warned when registering from the report above
         }
       }
     }
