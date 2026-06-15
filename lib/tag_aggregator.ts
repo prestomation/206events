@@ -67,15 +67,19 @@ function extractImageUrl(vevent: any): string | undefined {
 /**
  * Parses external calendar ICS data into events, expanding RRULE recurrences.
  * Filters events to only include those within the specified time range.
+ *
+ * @param icsData - Raw ICS/iCal text
+ * @param opts.windowMonths - How many months ahead to include (default: 3)
  */
-export function parseExternalCalendarEvents(icsData: string): RipperCalendarEvent[] {
+export function parseExternalCalendarEvents(icsData: string, opts?: { windowMonths?: number }): RipperCalendarEvent[] {
   const events: RipperCalendarEvent[] = [];
+  const windowMonths = opts?.windowMonths ?? 3;
 
   const now = new Date();
   const oneWeekAgo = new Date(now);
   oneWeekAgo.setDate(now.getDate() - 7);
   const threeMonthsLater = new Date(now);
-  threeMonthsLater.setMonth(now.getMonth() + 3);
+  threeMonthsLater.setMonth(now.getMonth() + windowMonths);
 
   let jcalData: any;
   try {
@@ -100,6 +104,21 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
       const location: string | undefined = event.location || undefined;
       const url: string | undefined = vevent.getFirstPropertyValue('url')?.toString() || undefined;
       const imageUrl: string | undefined = extractImageUrl(vevent);
+
+      // Extract GEO property (RFC 5545 §3.8.1.6). ical.js returns it as [lat, lng].
+      // Only set if both elements are valid finite numbers.
+      let lat: number | undefined;
+      let lng: number | undefined;
+      const geoProp = vevent.getFirstPropertyValue('geo');
+      if (Array.isArray(geoProp) && geoProp.length >= 2) {
+        const rawLat = geoProp[0];
+        const rawLon = geoProp[1];
+        if (typeof rawLat === 'number' && isFinite(rawLat) &&
+            typeof rawLon === 'number' && isFinite(rawLon)) {
+          lat = rawLat;
+          lng = rawLon;
+        }
+      }
 
       const rrule = vevent.getFirstProperty('rrule');
 
@@ -139,6 +158,8 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
                 location,
                 url,
                 imageUrl,
+                ...(lat !== undefined ? { lat } : {}),
+                ...(lng !== undefined ? { lng } : {}),
               });
             }
             instanceCount++;
@@ -170,6 +191,8 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
           location,
           url,
           imageUrl,
+          ...(lat !== undefined ? { lat } : {}),
+          ...(lng !== undefined ? { lng } : {}),
         });
       }
     } catch (error) {

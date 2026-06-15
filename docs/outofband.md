@@ -15,7 +15,7 @@ them via `npm run download-outofband` before publishing.
 2. Script rips all outofband sources, writes `.ics` files to `output/`, and produces `outofband-report.json`
 3. Uploads all `.ics` files + `outofband-report.json` to `s3://calendar-ripper-outofband-220483515252/latest/`
 4. **GitHub Actions** runs `npm run download-outofband` which pulls all files into `output/`
-5. The main `calendar_ripper.ts` reads `outofband-report.json` to register outofband calendars into the manifest and merge error counts — no re-parsing of ICS files needed
+5. The main `calendar_ripper.ts` reads `outofband-report.json` to register outofband calendars into the manifest and merge error counts. It also re-parses each outofband ripper ICS to add events to `events-index.json` (the same re-parse already used for outofband external calendars), so outofband events appear on the website and in search. GEO properties in the ICS are used for lat/lng — no geocoding call is made.
 
 ## The Report (`outofband-report.json`)
 
@@ -54,6 +54,8 @@ them via `npm run download-outofband` before publishing.
 - Manifest metadata (friendlyName, description, tags, friendlyLink) lives in the outofband build, not duplicated in CI
 - Error counts flow through the report into the overall build error count, replacing the old `outofband-error-count.txt` intermediary
 - Outofband calendars with no future events are excluded from the manifest without any ICS reads
+
+**Note:** Outofband ripper events *are* re-parsed from disk into `events-index.json` (GEO extracted inline). This does not conflict with the above rationale — the ICS is already on disk; this is a lightweight read-only parse, not a network fetch. The report still provides the authoritative source list, future-event flags, and error metadata.
 
 ## Manifest integration
 

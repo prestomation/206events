@@ -1278,6 +1278,40 @@ END:VCALENDAR`;
     }
   }
 
+  // Index outofband ripper events so they appear on the website.
+  // The ICS files were downloaded from S3; we re-parse them here exactly
+  // as we do for outofband external calendars above.
+  if (outofbandReport) {
+    for (const source of outofbandReport.sources) {
+      for (const cal of source.calendars) {
+        const icsUrl = cal.icsFile;
+        if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+        try {
+          const icsContent = await readFile(join("output", icsUrl), "utf-8");
+          // Use a wide window (14 months) to match live-ripper behavior —
+          // some outofband shows (e.g. Seattle Rep, ECCC) are booked far ahead.
+          const events = parseExternalCalendarEvents(icsContent, { windowMonths: 14 });
+          for (const event of events) {
+            eventsIndex.push({
+              icsUrl,
+              summary: event.summary,
+              description: event.description,
+              location: event.location,
+              date: event.date.toString(),
+              endDate: event.date.plus(event.duration).toString(),
+              url: event.url,
+              ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+              ...(event.lat !== undefined ? { lat: event.lat, geocodeSource: 'ripper' as const } : {}),
+              ...(event.lng !== undefined ? { lng: event.lng } : {}),
+            });
+          }
+        } catch {
+          // ICS missing — already warned when registering from the report above
+        }
+      }
+    }
+  }
+
   // Save updated geo-cache
   await saveGeoCache(geoCache, 'geo-cache.json');
 
