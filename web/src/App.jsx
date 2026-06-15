@@ -122,7 +122,6 @@ function App() {
   const [showHomepage, setShowHomepage] = useState(true)
   const [showHappeningSoon, setShowHappeningSoon] = useState(false)
   const [showHealthDashboard, setShowHealthDashboard] = useState(false)
-  const [buildErrors, setBuildErrors] = useState(null)
   const [events, setEvents] = useState([])
   const [eventsIndex, setEventsIndex] = useState([])
   const [loading, setLoading] = useState(true)
@@ -516,15 +515,7 @@ function App() {
         console.warn('Venues index not available')
       }
 
-      // Load build errors for health dashboard
-      try {
-        const errorsResponse = await fetch('./build-errors.json')
-        if (errorsResponse.ok) {
-          setBuildErrors(await errorsResponse.json())
-        }
-      } catch (e) {
-        console.warn('Build errors not available, health dashboard will show limited data')
-      }
+
     } catch (error) {
       console.error('Failed to load calendars:', error)
     } finally {
@@ -1643,7 +1634,6 @@ function App() {
       eventsIndex={eventsIndex}
       venues={venues}
       loading={loading}
-      buildErrors={buildErrors}
       favoritesSet={favoritesSet}
       toggleFavorite={toggleFavorite}
       searchFilters={searchFilters}
