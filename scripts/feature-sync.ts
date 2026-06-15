@@ -2,22 +2,29 @@
  * feature-sync — help a template copy discover engine features added upstream.
  *
  * GitHub "Use this template" copies have unrelated history with
- * prestomation/206events, so there is no merge-base to diff against. This
- * script instead does a *content-based* comparison: it diffs the local tree
- * against `upstream/main`, restricts the delta to ENGINE paths (excluding the
- * city-specific CONTENT and CONFIG that every copy deletes/regrows), and
- * clusters the differing files into named "features" the owner can decide on
- * one at a time.
+ * prestomation/206events, so there is no merge-base — and a plain tree diff
+ * can't tell an upstream feature apart from the copy's own per-city rebrand
+ * (206.events → 832.events, Seattle → Houston), which on a fresh copy is most
+ * of the diff. So detection is scoped to commits upstream landed *since the
+ * copy's baseline* (`git log <baseSha>..upstream/main`): those commits define
+ * the candidate ENGINE files, which are then intersected with the copy's
+ * actual HEAD-vs-upstream status (to drop anything already merged) and
+ * clustered into named "features" the owner decides on one at a time.
+ *
+ * The baseline is the upstream commit the copy is reconciled up to, stored in
+ * the ledger (`feature-sync.json` → `lastSyncedSha`). See the SKILL for how a
+ * copy establishes it.
  *
  * It is detection + reporting only. Applying a decision (checking out a
  * feature's files, opening a PR) and recording it in the ledger are driven by
  * skills/upstream-feature-sync/SKILL.md — the agent acts on this JSON.
  *
  * Usage:
- *   npm run feature-sync                 # human-readable summary (skips ledger-decided)
- *   npm run feature-sync -- --json       # machine-readable JSON for the skill
- *   npm run feature-sync -- --all        # include features already decided in the ledger
- *   npm run feature-sync -- --ref <ref>  # compare against a ref other than upstream/main
+ *   npm run feature-sync                  # human-readable summary (skips ledger-decided)
+ *   npm run feature-sync -- --json        # machine-readable JSON for the skill
+ *   npm run feature-sync -- --all         # include features already decided in the ledger
+ *   npm run feature-sync -- --ref <ref>   # compare against a ref other than upstream/main
+ *   npm run feature-sync -- --since <ref> # override the baseline (bootstrap / one-off)
  *
  * The clustering is layered (see docs/upstream-feature-sync.md):
  *   1. design-doc anchored  — a feature named by its docs/<name>.md
@@ -239,7 +246,12 @@ export function groupFeatures(diff: DiffEntry[], upstreamLog: UpstreamCommit[]):
 
 export interface Ledger {
     upstreamRepo: string;
-    /** Upstream sha at the last reconciliation, for reporting. */
+    /**
+     * The baseline: the upstream commit this copy is reconciled up to.
+     * Detection scans `lastSyncedSha..upstream/main`. Seeded at template time
+     * (init-city) and advanced after each sync. Null means "not established
+     * yet" — the SKILL bootstraps it before the detector can run.
+     */
     lastSyncedSha: string | null;
     decisions: Record<
         string,
@@ -265,34 +277,29 @@ export function filterDecided(features: Feature[], ledger: Ledger): Feature[] {
 }
 
 // ---------------------------------------------------------------------------
-// CLI (git glue, untested — the logic above is unit-tested)
+// Candidate selection — pure helpers, unit-tested.
+//
+// A template copy shares NO git history with upstream, so a plain
+// `git diff HEAD upstream/main` cannot tell "upstream added a feature" apart
+// from "the copy rebranded this engine file for its city" (206.events →
+// 832.events, Seattle → Houston). On a fresh copy that rebrand IS the bulk of
+// the diff, drowning real features in noise.
+//
+// The fix: scope detection to commits upstream landed *since the copy's
+// baseline* (`git log <baseSha>..upstream/main`). Those commits, and only
+// those, define the candidate engine files — rebrand-only files the copy
+// touched but upstream didn't are never considered. The baseline lives in the
+// ledger (`lastSyncedSha`); see the SKILL for how it's established.
 // ---------------------------------------------------------------------------
 
-const NUL = String.fromCharCode(0);
-
-const git = (...args: string[]) =>
-    execFileSync("git", args, { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 }).trim();
-
-function readDiff(ref: string): DiffEntry[] {
-    // -M so renames don't show as add+delete pairs.
-    const out = git("diff", "--name-status", "-M", "HEAD", ref);
-    const entries: DiffEntry[] = [];
-    for (const line of out.split("\n").filter(Boolean)) {
-        const parts = line.split("\t");
-        const path = parts[parts.length - 1];
-        const status = parts[0][0] as DiffEntry["status"];
-        if (status !== "A" && status !== "M" && status !== "D") continue;
-        if (classifyPath(path) !== "engine") continue;
-        // "A" in `git diff HEAD ref` means present in ref, absent in HEAD.
-        entries.push({ status, path });
-    }
-    return entries;
-}
-
-function readUpstreamLog(ref: string, limit = 600): UpstreamCommit[] {
+/**
+ * Parse `git log --name-only --format=<NUL>%H<NUL>%s` output (newest-first)
+ * into commits. Kept pure (no git call) so it's testable.
+ */
+export function parseGitLog(raw: string): UpstreamCommit[] {
+    const NUL = String.fromCharCode(0);
     // Each record is `<NUL><sha><NUL><subject>\n<file>\n<file>…`. Splitting the
     // whole stream on NUL yields ["", sha, subject+files, sha, subject+files…].
-    const raw = git("log", `-n${limit}`, "--name-only", "--format=%x00%H%x00%s", ref);
     const tokens = raw.split(NUL);
     const commits: UpstreamCommit[] = [];
     for (let i = 1; i + 1 < tokens.length; i += 2) {
@@ -307,6 +314,60 @@ function readUpstreamLog(ref: string, limit = 600): UpstreamCommit[] {
     return commits;
 }
 
+/** The deduped set of ENGINE files touched by the given commits. */
+export function engineFilesFromCommits(commits: UpstreamCommit[]): Set<string> {
+    const files = new Set<string>();
+    for (const c of commits) {
+        for (const f of c.files) if (classifyPath(f) === "engine") files.add(f);
+    }
+    return files;
+}
+
+/**
+ * Intersect the candidate files (touched by upstream since the baseline) with
+ * the copy's actual HEAD-vs-upstream status, keeping only files that still
+ * differ. A candidate file already identical to upstream (the copy merged it
+ * earlier) has no diff entry and is dropped here.
+ */
+export function selectCandidates(
+    candidateFiles: Set<string>,
+    statusByPath: Map<string, DiffEntry["status"]>,
+): DiffEntry[] {
+    const entries: DiffEntry[] = [];
+    for (const path of candidateFiles) {
+        const status = statusByPath.get(path);
+        if (status) entries.push({ status, path });
+    }
+    return entries;
+}
+
+// ---------------------------------------------------------------------------
+// CLI (git glue, untested — the logic above is unit-tested)
+// ---------------------------------------------------------------------------
+
+const git = (...args: string[]) =>
+    execFileSync("git", args, { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 }).trim();
+
+/** HEAD-vs-ref status per path (A/M/D), for intersecting with candidates. */
+function readStatusMap(ref: string): Map<string, DiffEntry["status"]> {
+    // -M so renames don't show as add+delete pairs.
+    const out = git("diff", "--name-status", "-M", "HEAD", ref);
+    const map = new Map<string, DiffEntry["status"]>();
+    for (const line of out.split("\n").filter(Boolean)) {
+        const parts = line.split("\t");
+        const path = parts[parts.length - 1];
+        const status = parts[0][0] as DiffEntry["status"];
+        if (status === "A" || status === "M" || status === "D") map.set(path, status);
+    }
+    return map;
+}
+
+/** Commits upstream landed since the baseline (newest-first), with files. */
+function readRangeLog(baseSha: string, ref: string): UpstreamCommit[] {
+    const raw = git("log", "--name-only", "--format=%x00%H%x00%s", `${baseSha}..${ref}`);
+    return parseGitLog(raw);
+}
+
 function loadLedger(): Ledger {
     try {
         return { ...EMPTY_LEDGER, ...JSON.parse(readFileSync("feature-sync.json", "utf8")) };
@@ -315,12 +376,14 @@ function loadLedger(): Ledger {
     }
 }
 
-function printHuman(features: Feature[], ref: string): void {
+function printHuman(features: Feature[], ref: string, baseSha: string): void {
     if (!features.length) {
-        console.log(`No new upstream engine features against ${ref}. You're up to date.`);
+        console.log(
+            `No new upstream engine features in ${baseSha.slice(0, 10)}..${ref}. You're up to date.`,
+        );
         return;
     }
-    console.log(`${features.length} candidate feature(s) from ${ref}:\n`);
+    console.log(`${features.length} candidate feature(s) since ${baseSha.slice(0, 10)}:\n`);
     for (const f of features) {
         const tag = f.kind === "doc" ? "[doc]" : f.kind === "minor" ? "[minor]" : "[feat]";
         console.log(`${tag} ${f.title}`);
@@ -337,15 +400,24 @@ async function main() {
     const argv = process.argv.slice(2);
     const asJson = argv.includes("--json");
     const includeAll = argv.includes("--all");
-    const refFlag = argv.indexOf("--ref");
-    const ref = refFlag !== -1 ? argv[refFlag + 1] : "upstream/main";
+    const valueOf = (flag: string) => {
+        const i = argv.indexOf(flag);
+        return i !== -1 ? argv[i + 1] : undefined;
+    };
+    const ref = valueOf("--ref") ?? "upstream/main";
 
-    let diff: DiffEntry[];
+    const ledger = loadLedger();
+    // The baseline is the upstream commit this copy is reconciled up to. It's
+    // recorded in the ledger (`lastSyncedSha`) and can be overridden with
+    // --since for a one-off run or to bootstrap a copy that has none yet.
+    const baseRef = valueOf("--since") ?? ledger.lastSyncedSha ?? undefined;
+
+    let refSha: string;
     try {
-        diff = readDiff(ref);
+        refSha = git("rev-parse", ref);
     } catch {
         console.error(
-            `Could not diff against ${ref}. Add and fetch the upstream remote first:\n` +
+            `Could not resolve ${ref}. Add and fetch the upstream remote first:\n` +
                 `  git remote add upstream https://github.com/prestomation/206events\n` +
                 `  git fetch upstream main`,
         );
@@ -353,21 +425,44 @@ async function main() {
         return;
     }
 
-    const log = readUpstreamLog(ref);
-    const all = groupFeatures(diff, log);
-    const ledger = loadLedger();
-    const features = includeAll ? all : filterDecided(all, ledger);
-    let refSha: string | null = null;
-    try {
-        refSha = git("rev-parse", ref);
-    } catch {
-        refSha = null;
+    if (!baseRef) {
+        console.error(
+            `No baseline recorded — cannot tell upstream features apart from this copy's own\n` +
+                `per-city changes without one. Establish it (see\n` +
+                `skills/upstream-feature-sync/SKILL.md), then re-run:\n` +
+                `  - set "lastSyncedSha" in feature-sync.json to the upstream commit this copy\n` +
+                `    was templated from, or\n` +
+                `  - pass --since <ref> for a one-off run (e.g. --since upstream/main~30).`,
+        );
+        process.exit(2);
+        return;
     }
 
+    let baseSha: string;
+    let commits: UpstreamCommit[];
+    let statusByPath: Map<string, DiffEntry["status"]>;
+    try {
+        baseSha = git("rev-parse", baseRef); // resolve symbolic refs to a concrete sha
+        commits = readRangeLog(baseSha, ref);
+        statusByPath = readStatusMap(ref);
+    } catch {
+        console.error(
+            `Could not read history ${baseRef}..${ref}. Is the upstream remote fetched, and is\n` +
+                `the baseline a commit in upstream's history?`,
+        );
+        process.exit(1);
+        return;
+    }
+
+    const candidateFiles = engineFilesFromCommits(commits);
+    const diff = selectCandidates(candidateFiles, statusByPath);
+    const all = groupFeatures(diff, commits);
+    const features = includeAll ? all : filterDecided(all, ledger);
+
     if (asJson) {
-        console.log(JSON.stringify({ ref, refSha, ledger, features }, null, 2));
+        console.log(JSON.stringify({ ref, refSha, baseSha, ledger, features }, null, 2));
     } else {
-        printHuman(features, ref);
+        printHuman(features, ref, baseSha);
     }
 }
 

@@ -3,11 +3,16 @@ import {
     classifyPath,
     groupFeatures,
     filterDecided,
+    parseGitLog,
+    engineFilesFromCommits,
+    selectCandidates,
     EMPTY_LEDGER,
     type DiffEntry,
     type UpstreamCommit,
     type Ledger,
 } from "./feature-sync.js";
+
+const NUL = String.fromCharCode(0);
 
 describe("classifyPath", () => {
     it("treats shared engine code/automation as engine", () => {
@@ -142,6 +147,62 @@ describe("groupFeatures", () => {
         expect(features).toHaveLength(1);
         expect(features[0].id).toBe("orphan:lib-mystery-ts");
         expect(features[0].sha).toBeUndefined();
+    });
+});
+
+describe("parseGitLog", () => {
+    it("parses NUL-delimited log records into commits with files", () => {
+        // Mirrors `git log --name-only --format=%x00%H%x00%s` output.
+        const raw =
+            `${NUL}abc123${NUL}Add geo-subscribe UI\n` +
+            `docs/design-geo-subscribe.md\nweb/src/GeoSubscribe.jsx\n\n` +
+            `${NUL}def456${NUL}Bump deps\npackage.json\npackage-lock.json`;
+        const commits = parseGitLog(raw);
+        expect(commits).toHaveLength(2);
+        expect(commits[0]).toEqual({
+            sha: "abc123",
+            subject: "Add geo-subscribe UI",
+            files: ["docs/design-geo-subscribe.md", "web/src/GeoSubscribe.jsx"],
+        });
+        expect(commits[1].files).toEqual(["package.json", "package-lock.json"]);
+    });
+
+    it("handles a commit that touched no files", () => {
+        const raw = `${NUL}abc${NUL}Empty merge commit`;
+        const commits = parseGitLog(raw);
+        expect(commits).toHaveLength(1);
+        expect(commits[0].files).toEqual([]);
+    });
+
+    it("returns nothing for empty output", () => {
+        expect(parseGitLog("")).toEqual([]);
+    });
+});
+
+describe("engineFilesFromCommits", () => {
+    it("keeps only engine files and dedupes across commits", () => {
+        const commits: UpstreamCommit[] = [
+            { sha: "a", subject: "x", files: ["lib/a.ts", "sources/v/ripper.yaml", "web/b.js"] },
+            { sha: "b", subject: "y", files: ["lib/a.ts", "geo-cache.json", "city.config.ts"] },
+        ];
+        expect([...engineFilesFromCommits(commits)].sort()).toEqual(["lib/a.ts", "web/b.js"]);
+    });
+});
+
+describe("selectCandidates", () => {
+    it("keeps candidate files that still differ and drops already-merged ones", () => {
+        const candidates = new Set(["lib/a.ts", "web/b.js", "lib/already-have.ts"]);
+        const status = new Map<string, DiffEntry["status"]>([
+            ["lib/a.ts", "M"],
+            ["web/b.js", "A"],
+            // lib/already-have.ts is absent => identical to upstream => dropped
+            ["sources/x.yaml", "M"], // not a candidate => ignored
+        ]);
+        const diff = selectCandidates(candidates, status);
+        expect(diff.sort((a, b) => a.path.localeCompare(b.path))).toEqual([
+            { status: "M", path: "lib/a.ts" },
+            { status: "A", path: "web/b.js" },
+        ]);
     });
 });
 

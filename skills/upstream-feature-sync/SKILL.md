@@ -22,12 +22,18 @@ there's no merge-base, so the plain `git merge upstream/main` recipe in
 `docs/city-template.md` ("Upgrade story") brings everything at once with no
 per-feature framing and no memory of what the owner already declined.
 
-The repo's clean **engine / content / config** separation (see
-`docs/city-template.md`) makes a *content-based* comparison tractable: a copy
-deletes Seattle content once and never recreates those paths, so the engine
-delta against `upstream/main` is exactly the set of candidate features. The
-detector (`scripts/feature-sync.ts`) clusters that delta and a committed ledger
-(`feature-sync.json`) remembers each decision so it's never re-asked.
+A naïve fix — diff the copy's tree against `upstream/main` and call the engine
+delta "features" — **does not work**, because without a merge-base a tree diff
+can't tell an upstream change apart from the copy's own per-city rebrand
+(`206.events` → your domain, `Seattle` → your city) of shared engine files. On
+a fresh copy that rebrand is most of the diff and buries the real features.
+
+So the detector (`scripts/feature-sync.ts`) scopes to commits upstream landed
+**since this copy's baseline** (`git log <baseSha>..upstream/main`). Those
+commits define the candidate engine files; rebrand-only files the copy touched
+but upstream didn't are never considered. A committed ledger
+(`feature-sync.json`) holds the baseline (`lastSyncedSha`) and remembers each
+decision so it's never re-asked.
 
 See `docs/upstream-feature-sync.md` for the full design.
 
@@ -60,13 +66,43 @@ git remote get-url upstream 2>/dev/null || \
 git fetch upstream main
 ```
 
-### 2. Run the detector
+### 2. Establish the baseline (first run only)
+
+The detector needs a **baseline** — the upstream commit this copy is reconciled
+up to — recorded as `lastSyncedSha` in `feature-sync.json`. Detection scans
+`lastSyncedSha..upstream/main`, which is what keeps the copy's own per-city
+rebrand out of the results.
+
+If `lastSyncedSha` is already set, skip to step 3. If it's `null` (a copy that
+hasn't synced before), establish it as the upstream commit the copy was
+**templated from** — i.e. the upstream state at fork time:
+
+```bash
+# Approximate fork time from the copy's earliest commit, then find the
+# upstream commit at/just before it.
+FORK_DATE=$(git log --max-parents=0 -1 --format=%cI)        # root commit timestamp
+BASE=$(git log upstream/main -1 --until="$FORK_DATE" --format=%H)
+echo "proposed baseline: $BASE  $(git log -1 --format='%ci %s' "$BASE")"
+```
+
+**Confirm the date/commit with the owner** (the heuristic can be off if the
+copy rebased or squashed its early history), then write it into the ledger and
+commit:
+
+```bash
+# set lastSyncedSha to $BASE in feature-sync.json, then commit
+```
+
+For a one-off run without committing a baseline, pass `--since <ref>` to the
+detector instead (e.g. `--since upstream/main~30`).
+
+### 3. Run the detector
 
 ```bash
 npm run feature-sync -- --json
 ```
 
-It prints `{ ref, refSha, ledger, features }`. Each **feature** has:
+It prints `{ ref, refSha, baseSha, ledger, features }`. Each **feature** has:
 
 - `id` — stable key (a `docs/<name>.md` path, or `commit:<slug>` for doc-less
   changes). The ledger is keyed on this.
@@ -91,7 +127,7 @@ file (currently `lib/geocoder.ts`, which interleaves engine logic with Seattle
 lookup tables). Take the **logic** changes by hand; do not clobber your city's
 lookup tables.
 
-### 3. Describe each feature and ask the owner
+### 4. Describe each feature and ask the owner
 
 For each surfaced feature, build a short description:
 
@@ -106,7 +142,7 @@ diffstat in the question text so the owner can decide without digging. Lead
 with a recommendation when one is clear (e.g. a pure bug fix → Merge; a UI/
 schema change → the owner's call).
 
-### 4. Apply the decisions
+### 5. Apply the decisions
 
 For each **Merge**:
 
@@ -130,11 +166,13 @@ For **Skip** and **Defer**: make no code change; just record the decision
 changes; a *deferred* one is the same mechanically but signals "revisit later"
 to the owner.
 
-### 5. Update and commit the ledger
+### 6. Update and commit the ledger
 
 Edit `feature-sync.json`:
 
-- Set `lastSyncedSha` to the detector's `refSha`.
+- Set `lastSyncedSha` to the detector's `refSha` (advancing the baseline to the
+  upstream HEAD you just reconciled against, so the next run only sees what
+  lands after it).
 - For every feature you acted on, add a `decisions[<id>]` entry:
   `{ "decision": "merged" | "skipped" | "deferred", "sha": "<feature.sha>",
   "decidedAt": "<ISO date>", "pr": <number if merged> }`.
@@ -148,13 +186,18 @@ edit is lost when the session ends).
 
 The skill is a no-op on the reference instance by design (it *is* upstream), so
 it can't be exercised end-to-end here. To sanity-check the detector against a
-historical delta, point it at an older ref:
+historical delta, set the baseline to an older upstream commit with `--since`:
 
 ```bash
-npm run feature-sync -- --ref upstream/main~30   # what THAT tree lacks vs HEAD
+npm run feature-sync -- --since upstream/main~30   # features upstream added in the last 30 commits
 ```
 
-The clustering/ledger logic is unit-tested in `scripts/feature-sync.test.ts`.
+The clustering/ledger/selection logic is unit-tested in
+`scripts/feature-sync.test.ts`. The detector was validated against a real
+recent template copy (a Houston fork): a naïve tree diff reported 54 false
+"features" (almost all of them the copy's own rebrand), while the
+baseline-scoped detector correctly reported the 2 genuine recent upstream
+features.
 
 ## Notes
 
