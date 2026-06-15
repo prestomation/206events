@@ -91,6 +91,16 @@ export function TopBar() {
             <span style={{ width: 16, height: 16 }}>{Ico.close}</span>
           </button>}
         </div>
+        {/* While the full events index is still streaming in behind the small
+            "soon" payload (issue 649), a search only covers the near-term
+            window. Surface that honestly so results that look empty/partial
+            aren't mistaken for "nothing found". Only shown when actually
+            searching, so the default load has no extra chrome or layout shift. */}
+        {!app.fullEventsLoaded && app.query.trim() && (
+          <div className="a-search-loading" role="status" aria-live="polite">
+            Loading all events…
+          </div>
+        )}
         {focused && !text && (
           <div className="a-suggest">
             <div className="a-eyebrow" style={{ padding: '2px 4px 8px' }}>TRY</div>

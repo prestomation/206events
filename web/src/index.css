@@ -3706,6 +3706,9 @@ html, body, #root { height: 100%; }
 .app206 .a-search-input { flex: 1 1 auto; min-width: 0; border: none; background: none; outline: none; font-family: inherit; font-size: 14.5px; color: var(--ink); }
 .app206 .a-search-input::placeholder { color: var(--ink-3); }
 .app206 .a-search-x { flex: 0 0 auto; width: 24px; height: 24px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: var(--ink-3); }
+/* Transient "full index still loading" hint shown under the search box while a
+   query is active before events-index.json finishes streaming in (issue #649). */
+.app206 .a-search-loading { position: absolute; top: 48px; left: 0; right: 0; z-index: 1004; background: var(--surface); border: 1px solid var(--line-2); border-radius: 12px; box-shadow: var(--shadow-lg); padding: 8px 14px; font-size: 12.5px; color: var(--ink-3); }
 /* z-index above Leaflet controls (1000) — see the .a-dd-menu note below — so
    the search suggestions aren't covered by the map's controls on the Map view. */
 .app206 .a-suggest { position: absolute; top: 48px; left: 0; right: 0; z-index: 1005; background: var(--surface); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: var(--shadow-lg); padding: 12px 14px; }

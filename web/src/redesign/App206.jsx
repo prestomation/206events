@@ -36,7 +36,7 @@ const MIN_CONTENT_W = 420
 
 export function App206(props) {
   const {
-    calendars, eventsIndex, venues, loading,
+    calendars, eventsIndex, fullEventsLoaded, venues, loading,
     favoritesSet, toggleFavorite,
     searchFilters, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
@@ -335,7 +335,7 @@ export function App206(props) {
 
   const model = {
     // raw
-    calendars, eventsIndex, loading,
+    calendars, eventsIndex, fullEventsLoaded, loading,
     favoritesSet, toggleFollow,
     searchFilters, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,

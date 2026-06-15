@@ -66,6 +66,8 @@ import {
   type PhotoEventInput,
   buildCostGaps,
   type CostEventInput,
+  buildEventsIndexSoon,
+  EVENTS_INDEX_SOON_WINDOW_DAYS,
 } from "./discovery.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
@@ -1418,6 +1420,20 @@ END:VCALENDAR`;
   }
 
   await writeFile("output/events-index.json", eventsIndexJson);
+
+  // Near-term "soon" payload (issue #649): the web UI loads this small subset
+  // first for fast first paint, then fetches the full index above in the
+  // background. Covers the next EVENTS_INDEX_SOON_WINDOW_DAYS days and omits
+  // descriptions (the dominant field) to stay tiny. The full file remains the
+  // canonical discovery resource — LLM consumers and the favorites Worker read
+  // it unchanged, so there's no parity impact.
+  const eventsIndexSoon = buildEventsIndexSoon(eventsIndex, new Date(), EVENTS_INDEX_SOON_WINDOW_DAYS);
+  const eventsIndexSoonJson = JSON.stringify(eventsIndexSoon);
+  const eventsIndexSoonSizeKB = (Buffer.byteLength(eventsIndexSoonJson, "utf8") / 1024).toFixed(1);
+  console.log(
+    `Events index (soon, ${EVENTS_INDEX_SOON_WINDOW_DAYS}d): ${eventsIndexSoon.length} events, ${eventsIndexSoonSizeKB} KB`,
+  );
+  await writeFile("output/events-index-soon.json", eventsIndexSoonJson);
 
   // URL-entity gate. HTML entities (`&amp;`, `&#38;`, …) in any URL field are
   // always a bug: `new URL()` accepts them verbatim, so they would ship as

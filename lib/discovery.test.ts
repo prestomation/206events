@@ -3,6 +3,8 @@ import {
   tagSlug,
   buildIndexJson,
   indexDocSchema,
+  buildEventsIndexSoon,
+  EVENTS_INDEX_SOON_WINDOW_DAYS,
   buildTagsJson,
   tagsDocSchema,
   buildVenuesJson,
@@ -78,6 +80,7 @@ describe("buildIndexJson", () => {
       "buildErrors",
       "calendars",
       "events",
+      "eventsSoon",
       "geoCache",
       "llms",
       "self",
@@ -93,6 +96,78 @@ describe("buildIndexJson", () => {
     });
     const roundTripped = JSON.parse(JSON.stringify(doc));
     expect(roundTripped).toEqual(doc);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildEventsIndexSoon
+// ---------------------------------------------------------------------------
+
+describe("buildEventsIndexSoon", () => {
+  // js-joda toString()-style string for an instant `offsetDays` from a fixed
+  // base. The `-07:00` label is applied uniformly to base and all events, so
+  // only the *relative* spacing between events (and vs. NOW) is meaningful — the
+  // absolute wall-clock label isn't, which is all these window tests rely on.
+  const jodaString = (offsetDays: number) => {
+    const base = new Date("2026-06-15T12:00:00-07:00");
+    const d = new Date(base.getTime() + offsetDays * 24 * 60 * 60 * 1000);
+    return `${d.toISOString().replace("Z", "-07:00")}[America/Los_Angeles]`;
+  };
+  const ev = (offsetDays: number, extra: Record<string, unknown> = {}) => ({
+    icsUrl: "test.ics",
+    summary: `Event ${offsetDays}`,
+    description: "x".repeat(500),
+    date: jodaString(offsetDays),
+    ...extra,
+  });
+
+  const NOW = new Date("2026-06-15T12:00:00-07:00");
+
+  it("keeps only events inside the window and drops far-future ones", () => {
+    const index = [ev(0), ev(3), ev(7), ev(20), ev(60)];
+    const soon = buildEventsIndexSoon(index, NOW, EVENTS_INDEX_SOON_WINDOW_DAYS);
+    expect(soon.map((e) => e.summary)).toEqual([
+      "Event 0",
+      "Event 3",
+      "Event 7",
+    ]);
+  });
+
+  it("omits the description field to shrink the payload", () => {
+    const soon = buildEventsIndexSoon([ev(1)], NOW);
+    expect(soon).toHaveLength(1);
+    expect("description" in soon[0]).toBe(false);
+    // Other fields are preserved verbatim.
+    expect(soon[0].summary).toBe("Event 1");
+    expect(soon[0].icsUrl).toBe("test.ics");
+  });
+
+  it("includes events from earlier today (one-day lower grace) but not older", () => {
+    const index = [ev(-0.25), ev(-1.5)];
+    const soon = buildEventsIndexSoon(index, NOW);
+    expect(soon.map((e) => e.summary)).toEqual(["Event -0.25"]); // within 1-day grace; ev(-1.5) dropped
+  });
+
+  it("excludes events exactly at and beyond the upper bound", () => {
+    const index = [ev(EVENTS_INDEX_SOON_WINDOW_DAYS), ev(EVENTS_INDEX_SOON_WINDOW_DAYS - 0.5)];
+    const soon = buildEventsIndexSoon(index, NOW);
+    // The boundary event is excluded (>=), the just-inside one kept.
+    expect(soon).toHaveLength(1);
+  });
+
+  it("keeps an in-progress multi-day event whose endDate is inside the window", () => {
+    // Starts 5 days ago (before the 1-day lower grace) but runs until 3 days
+    // out — should be retained on endDate overlap, not dropped on start.
+    const ongoing = ev(-5, { summary: "Ongoing Festival", endDate: jodaString(3) });
+    const ended = ev(-5, { summary: "Long Over", endDate: jodaString(-3) });
+    const soon = buildEventsIndexSoon([ongoing, ended], NOW);
+    expect(soon.map((e) => e.summary)).toEqual(["Ongoing Festival"]);
+  });
+
+  it("skips entries with unparseable dates rather than throwing", () => {
+    const index = [{ icsUrl: "t.ics", summary: "Bad", date: "not-a-date" }, ev(1)];
+    const soon = buildEventsIndexSoon(index, NOW);
+    expect(soon.map((e) => e.summary)).toEqual(["Event 1"]);
   });
 });
 

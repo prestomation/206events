@@ -60,6 +60,7 @@ export const indexDocSchema = z.object({
     venues: linkSchema,
     calendars: linkSchema,
     events: linkSchema,
+    eventsSoon: linkSchema,
     buildErrors: linkSchema,
     geoCache: linkSchema,
   }),
@@ -78,10 +79,77 @@ export function buildIndexJson(opts: { generated: string; site: string }): Index
       venues: { href: "venues.json", type: "application/json" },
       calendars: { href: "manifest.json", type: "application/json" },
       events: { href: "events-index.json", type: "application/json" },
+      eventsSoon: { href: "events-index-soon.json", type: "application/json" },
       buildErrors: { href: "build-errors.json", type: "application/json" },
       geoCache: { href: "geo-cache.json", type: "application/json" },
     },
   };
+}
+
+// -----------------------------------------------------------------------------
+// events-index-soon.json — near-term payload for fast first paint
+// -----------------------------------------------------------------------------
+
+/**
+ * Number of days of events the "soon" payload covers. Sized wider than the web
+ * UI's 7-day "Happening Soon" window so the boundary is never missed even in the
+ * worst case: the file is anchored to the build's UTC `now` but may be served up
+ * to ~24h stale (the fetch-cache TTL), and the client re-windows against the
+ * user's *local* midnight (a negative tz offset pushes their window later). 9
+ * days leaves comfortable margin over 7 days + ~24h staleness + tz skew; the
+ * client always re-filters precisely and the full index backfills regardless.
+ */
+export const EVENTS_INDEX_SOON_WINDOW_DAYS = 9;
+
+/**
+ * Build the small `events-index-soon.json` payload from the full events
+ * index (issue #649). The web UI loads this first so the near-term views
+ * render immediately, then fetches the full `events-index.json` in the
+ * background to enable search, the map, and the 6-month favorites feed.
+ *
+ * Two size levers:
+ *  - **date window** — keep only events that *overlap* a window from one day
+ *    before `now` (a lower grace so events earlier today that are still ongoing
+ *    are retained) to `now + windowDays`. Overlap (not start-only) so a
+ *    multi-day event already in progress — start before the window but `endDate`
+ *    inside it — isn't dropped.
+ *  - **`description` omitted** — descriptions dominate the payload size and
+ *    aren't shown in the near-term list rows; the detail view reads them
+ *    from the full index once it arrives.
+ *
+ * Pure and deterministic given `now`, so it's unit-testable without clocks.
+ * Event `date`/`endDate` strings are js-joda `toString()` output
+ * (`2026-02-15T19:00-08:00[America/Los_Angeles]`); the bracketed IANA zone is
+ * stripped and the remaining offset-bearing ISO string is parsed to an
+ * absolute instant — mirroring the client's parsing in App.jsx.
+ */
+export function buildEventsIndexSoon<T extends { date: string; endDate?: string; description?: string }>(
+  eventsIndex: T[],
+  now: Date,
+  windowDays: number = EVENTS_INDEX_SOON_WINDOW_DAYS,
+): Omit<T, "description">[] {
+  const DAY_MS = 24 * 60 * 60 * 1000;
+  const lowerBound = new Date(now.getTime() - DAY_MS);
+  const upperBound = new Date(now.getTime() + windowDays * DAY_MS);
+
+  const parseInstant = (s: string | undefined): Date | null => {
+    if (!s) return null;
+    const d = new Date(s.replace(/\[.*\]$/, ""));
+    return isNaN(d.getTime()) ? null : d;
+  };
+
+  const soon: Omit<T, "description">[] = [];
+  for (const event of eventsIndex) {
+    const start = parseInstant(event.date);
+    if (!start) continue;
+    // Fall back to the start instant when there's no parseable endDate.
+    const end = parseInstant(event.endDate) ?? start;
+    if (start >= upperBound) continue; // starts after the window
+    if (end < lowerBound) continue; // already ended before the window
+    const { description: _omit, ...rest } = event;
+    soon.push(rest);
+  }
+  return soon;
 }
 
 // -----------------------------------------------------------------------------
