@@ -96,8 +96,8 @@ steps in `docs/SETUP.md` steps 4–7).
    | `CLOUDFLARE_ACCOUNT_ID` | secret | **Now** — deploys |
    | `CLOUDFLARE_PAGES_PROJECT` | variable | **Now** — the Pages project name |
    | `SITE_URL` | variable | **Now** — `https://<domain>`, no trailing slash |
-   | `TICKETMASTER_API_KEY` | secret | When the first `type: ticketmaster` source lands |
-   | `EVENTBRITE_TOKEN` | secret | When the first `type: eventbrite` source lands |
+   | `TICKETMASTER_API_KEY` | secret | When the first `type: ticketmaster` source lands (the app's **Consumer Key**, not the secret) |
+   | `EVENTBRITE_TOKEN` | secret | When the first `type: eventbrite` source lands (the app's **Private token**) |
    | `DICE_API_KEY` | secret | When the first `type: dice` source lands |
    | `BROWSERBASE_API_KEY` | secret | When the first `proxy: browserbase` source lands |
    | `CLAUDE_ROUTINE_ID` / `CLAUDE_ROUTINE_TOKEN` | secrets | With the build-error responder routine (step 7) |

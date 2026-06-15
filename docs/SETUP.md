@@ -116,6 +116,15 @@ Add only when you add a source of that type: `TICKETMASTER_API_KEY`,
 `EVENTBRITE_TOKEN`, `DICE_API_KEY`, `BROWSERBASE_API_KEY` (Browserbase is
 rung 3 of the proxy ladder — JS-challenge bypass).
 
+Each provider hands you several credentials; use the right one:
+
+- `TICKETMASTER_API_KEY` — the **Consumer Key** from your app at
+  <https://developer.ticketmaster.com> (the Discovery API `apikey` parameter),
+  **not** the Consumer Secret.
+- `EVENTBRITE_TOKEN` — the **Private token** shown for your app at
+  <https://www.eventbrite.com/platform/api-keys> (sent as the Bearer auth
+  header), **not** the public token, API key, or client secret.
+
 ### Discord notifications
 
 `init-city` deletes the Seattle-specific notification workflow. To enable
