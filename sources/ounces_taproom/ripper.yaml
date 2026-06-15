@@ -3,6 +3,8 @@ type: squarespace
 description: "Ounces Taproom & Beer Garden"
 url: "https://www.ounceswestseattle.com/events"
 friendlyLink: https://www.ounceswestseattle.com/events
+cost: free
+imageUrl: "https://images.squarespace-cdn.com/content/v1/578864dcb3db2b900c7dda8a/69996000-9446-4e31-8913-83efeaf137ac/DSC_8379+copy+Medium.jpeg"
 tags: ["Beer", "West Seattle"]
 geo:
   lat: 47.5696307
