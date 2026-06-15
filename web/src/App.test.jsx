@@ -45,6 +45,7 @@ function mockFetch(url) {
   const u = String(url)
   const json = (data) => Promise.resolve({ ok: true, json: async () => data, text: async () => '' })
   if (u.includes('manifest.json')) return json(mockManifest)
+  if (u.includes('events-index-soon.json')) return json(mockEvents)
   if (u.includes('events-index.json')) return json(mockEvents)
   if (u.includes('venues.json')) return json(mockVenues)
   if (u.includes('tags.json')) return json([])
@@ -357,6 +358,7 @@ describe('Multiple favorites lists (signed-in)', () => {
       if (u.endsWith('/lists') && method === 'GET') return json({ lists, updatedAt: '' })
       if (u.includes('/lists')) return json({ ok: true }) // PUT/POST/etc.
       if (u.includes('manifest.json')) return json(mockManifest)
+      if (u.includes('events-index-soon.json')) return json(mockEvents)
       if (u.includes('events-index.json')) return json(mockEvents)
       if (u.includes('venues.json')) return json(mockVenues)
       if (u.includes('build-errors.json')) return json({ buildTime: '', totalErrors: 0, sources: [] })

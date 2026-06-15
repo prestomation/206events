@@ -25,6 +25,10 @@ export async function installDataMocks(page) {
   })
 
   await page.route('**/manifest.json', (route) => route.fulfill(json(mockManifest)))
+  // Two-phase events load (issue 649): the app fetches the small "soon" payload
+  // first, then the full index. Serve the same fixture for both by default so
+  // the shared specs see a complete dataset regardless of timing.
+  await page.route('**/events-index-soon.json', (route) => route.fulfill(json(mockEvents)))
   await page.route('**/events-index.json', (route) => route.fulfill(json(mockEvents)))
   await page.route('**/venues.json', (route) => route.fulfill(json(mockVenues)))
   await page.route('**/build-errors.json', (route) => route.fulfill(json(mockBuildErrors)))

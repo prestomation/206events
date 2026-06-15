@@ -36,6 +36,18 @@ export const mockEvents = [
   { icsUrl: 'test-ripper-cal2.ics', summary: 'Movie Premiere', description: 'A film', location: 'SIFF', date: toJoda(future(3)) },
 ]
 
+// Two-phase load fixtures (issue 649). The "soon" payload covers only the near
+// term and omits `description`; the full index adds a far-future event that the
+// soon payload doesn't contain. Used only by payload-split.spec.js, which
+// overrides both events routes so the shared specs' counts are untouched.
+export const mockEventsSoon = [
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Soon Jazz Show', location: 'Neumos, Capitol Hill', date: toJoda(future(2)), lat: 47.61, lng: -122.32 },
+]
+export const mockEventsFull = [
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Soon Jazz Show', description: 'Live jazz tonight', location: 'Neumos, Capitol Hill', date: toJoda(future(2)), lat: 47.61, lng: -122.32 },
+  { icsUrl: 'test-ripper-cal2.ics', summary: 'Far Future Fest', description: 'A festival far ahead', location: 'SIFF', date: toJoda(future(20)) },
+]
+
 // Events carrying the structured `uncertainty` field (the replacement for the
 // old raw "⚠️ …" description line). Used only by uncertainty.spec.js, which
 // overrides the events-index route so the shared specs' event counts are

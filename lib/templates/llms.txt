@@ -40,6 +40,10 @@ the canonical machine-readable view of everything the build publishes.
   every published calendar, with date, summary, location, and coordinates
   (when available). Events whose location resolved to an OSM feature also
   carry `osmType` / `osmId`. Suitable for full-text search and map display.
+- [events-index-soon.json](/events-index-soon.json): a small subset of
+  `events-index.json` covering only the next ~9 days, with the `description`
+  field omitted. The web UI loads this first for fast first paint, then the
+  full index in the background. Prefer `events-index.json` for complete data.
 - [build-errors.json](/build-errors.json): machine-readable error report
   from the most recent build (per-source parse failures, external feed
   fetch failures, zero-event calendars).

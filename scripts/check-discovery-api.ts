@@ -38,6 +38,7 @@ const REQUIRED_LINK_TARGETS = [
   "venues",
   "calendars",
   "events",
+  "eventsSoon",
   "buildErrors",
   "geoCache",
 ] as const;

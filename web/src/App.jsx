@@ -124,6 +124,13 @@ function App() {
   const [showHealthDashboard, setShowHealthDashboard] = useState(false)
   const [events, setEvents] = useState([])
   const [eventsIndex, setEventsIndex] = useState([])
+  // Two-phase events load (issue #649): the small "soon" payload renders the
+  // near-term views fast, then the full index arrives in the background. This
+  // flag is false until the full index is in `eventsIndex` (or the full fetch
+  // settled). Search surfaces it as a "loading all events" hint (so partial
+  // results aren't read as "nothing found"); the map and favorites feed simply
+  // fill in silently once the full index replaces the soon subset.
+  const [fullEventsLoaded, setFullEventsLoaded] = useState(false)
   const [loading, setLoading] = useState(true)
   const [eventsLoading, setEventsLoading] = useState(false)
   const [eventsError, setEventsError] = useState(null)
@@ -492,16 +499,36 @@ function App() {
 
       setCalendars([...ripperGroups, ...externalGroups, ...recurringGroups])
 
-      // Load events index for full-text event search
+      // Load events index for full-text event search (issue #649).
+      // Phase 1: fetch the small "soon" payload (next ~8 days, no descriptions)
+      // so the near-term views paint immediately. It's a strict subset of the
+      // full index, so phase 2 below simply replaces it — no merge or dedup.
       try {
-        const eventsResponse = await fetch('./events-index.json')
-        if (eventsResponse.ok) {
-          const eventsData = await eventsResponse.json()
-          setEventsIndex(eventsData)
+        const soonResponse = await fetch('./events-index-soon.json')
+        if (soonResponse.ok) {
+          const soonData = await soonResponse.json()
+          if (Array.isArray(soonData)) setEventsIndex(soonData)
         }
       } catch (e) {
-        console.warn('Events index not available, event search disabled')
+        // Soon payload is an optional accelerator; the full fetch below is the
+        // source of truth. Older deploys / previews may not have this file yet.
       }
+
+      // Phase 2: fetch the full index in the background. Not awaited, so it
+      // doesn't block the rest of boot (venues, build errors). When it lands it
+      // replaces the soon subset and unlocks the whole-timeline views.
+      fetch('./events-index.json')
+        .then(r => r.ok ? r.json() : Promise.reject(new Error(`events-index.json ${r.status}`)))
+        .then(fullData => {
+          if (Array.isArray(fullData)) setEventsIndex(fullData)
+          setFullEventsLoaded(true)
+        })
+        .catch(() => {
+          // Full index unavailable — keep whatever the soon payload provided and
+          // stop showing the "loading more" hint so the UI isn't stuck on it.
+          console.warn('Full events index not available; search limited to the near-term window')
+          setFullEventsLoaded(true)
+        })
 
       // Load venues (fixed-location calendars) for the redesigned channel cards
       try {
@@ -1632,6 +1659,7 @@ function App() {
     <App206
       calendars={calendars}
       eventsIndex={eventsIndex}
+      fullEventsLoaded={fullEventsLoaded}
       venues={venues}
       loading={loading}
       favoritesSet={favoritesSet}
