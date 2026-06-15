@@ -148,6 +148,7 @@ describe("buildActions", () => {
         expect(descs).toContain("delete allowed-removals/old.ics");
         expect(descs).toContain("delete .github/workflows/notify-discord.yml");
         expect(descs).toContain("reset event-uncertainty-cache.json to the empty baseline");
+        expect(descs).toContain("reset feature-sync.json to the empty baseline");
         expect(descs).toContain("empty the Seattle lookup tables in lib/geocoder.ts");
         // The external/ and recurring/ dirs themselves are never deleted,
         // and the READMEs survive.

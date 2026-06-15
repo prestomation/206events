@@ -358,6 +358,13 @@ export async function buildActions(root: string, cfg: CityConfig): Promise<Strip
         writeFile(join(root, "event-uncertainty-cache.json"), JSON.stringify({ version: 1, entries: {} }, null, 2) + "\n"));
     add("delete outofband-report.json", () =>
         rm(join(root, "outofband-report.json"), { force: true }));
+    // The upstream-feature-sync ledger resets to the empty baseline; the copy's
+    // first `npm run feature-sync` establishes its own baseline against upstream.
+    add("reset feature-sync.json to the empty baseline", () =>
+        writeFile(
+            join(root, "feature-sync.json"),
+            JSON.stringify({ upstreamRepo: "prestomation/206events", lastSyncedSha: null, decisions: {} }, null, 2) + "\n",
+        ));
 
     // 7. Discord notification workflow — reference-instance specific (hardcoded
     // role mention, 206events defaults). The workflow is self-contained (its
