@@ -78,8 +78,14 @@ async function main() {
                 // Structured event data — placed at root alongside the report so
                 // calendar_ripper.ts can merge it directly without re-parsing ICS.
                 await writeFile("outofband-events.json", body);
-                const entries = JSON.parse(body.toString("utf-8"));
-                console.log(`[download-outofband] Downloaded events index (${Array.isArray(entries) ? entries.length : '?'} event(s))`);
+                // Parse only for the log count — don't let a malformed log message
+                // shadow a successful writeFile above.
+                let eventCount = '?';
+                try {
+                    const entries = JSON.parse(body.toString("utf-8"));
+                    if (Array.isArray(entries)) eventCount = String(entries.length);
+                } catch { /* log message best-effort */ }
+                console.log(`[download-outofband] Downloaded events index (${eventCount} event(s))`);
             } else {
                 const localPath = join("output", filename);
                 await writeFile(localPath, body);

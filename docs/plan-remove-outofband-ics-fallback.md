@@ -56,12 +56,15 @@ if (outofbandReport) {
       indexedCount++;
     }
     console.log(`[outofband] Merged ${indexedCount} of ${entries.length} events from outofband-events.json`);
-  } catch {
+  } catch (err: any) {
     // outofband-events.json missing or corrupt — outofband events will not
     // appear in the website/search. This is always a runner-side problem.
-    console.warn("[outofband] WARNING: outofband-events.json not found or unreadable — outofband events excluded from events-index.json");
-    // Surface as a non-fatal build error so it appears in build-errors.json
-    // and the dashboard rather than passing silently.
+    console.warn(`[outofband] WARNING: outofband-events.json not found or unreadable — outofband events excluded from events-index.json: ${err?.message ?? err}`);
+    // Surface as a non-fatal build error so it counts toward totalErrors and
+    // appears in build-errors.json, the GitHub Actions step summary, the
+    // Discord notification, and the website dashboard. A console.warn alone
+    // is not enough — losing ~1,000 events is significant and must be audible
+    // in every reporting channel.
     buildErrors.push({
       type: "OutofbandEventsFileMissing",
       reason: "outofband-events.json absent — outofband ripper events excluded from website/search",
@@ -72,9 +75,11 @@ if (outofbandReport) {
 
 Note: `buildErrors` above is the local array already used for config/parse
 errors in `calendar_ripper.ts`. Adjust to match whatever the actual error
-accumulation pattern is at that point in the file. The key requirement is that
-the absence shows up as a non-fatal entry in `build-errors.json` and the
-GitHub Actions step summary.
+accumulation pattern is at that point in the file. **Why non-fatal and not
+fatal:** making it fatal would break the entire build whenever S3 is
+inaccessible or the runner hasn't run yet — which would be worse than degraded
+event data. Non-fatal + `totalErrors` increment is the right balance: CI still
+passes, but every reporting surface shows the gap.
 
 **`docs/outofband.md`** — Remove the paragraph describing the Option A
 fallback ("If `outofband-events.json` is absent …").

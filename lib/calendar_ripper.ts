@@ -1286,7 +1286,10 @@ END:VCALENDAR`;
     let outofbandEventsIndexed = false;
     try {
       const eventsJson = await readFile("outofband-events.json", "utf-8");
-      const entries = JSON.parse(eventsJson) as Array<{
+      // readFile succeeded — any error from here is a parse/shape bug, not "file absent".
+      // Re-throw so it surfaces as a build warning rather than silently triggering the
+      // Option A fallback (which would serve degraded data without any visible signal).
+      let entries: Array<{
         icsUrl: string;
         summary: string;
         description?: string;
@@ -1302,6 +1305,14 @@ END:VCALENDAR`;
         osmId?: number;
         geocodeSource?: 'ripper' | 'cached' | 'none';
       }>;
+      try {
+        entries = JSON.parse(eventsJson);
+      } catch (parseErr) {
+        throw new Error(`outofband-events.json is not valid JSON: ${parseErr}`);
+      }
+      if (!Array.isArray(entries)) {
+        throw new Error(`outofband-events.json root is not an array (got ${typeof entries})`);
+      }
       let indexedCount = 0;
       for (const entry of entries) {
         if (!calendarsWithFutureEvents.has(entry.icsUrl)) continue;
@@ -1310,8 +1321,14 @@ END:VCALENDAR`;
       }
       outofbandEventsIndexed = true;
       console.log(`[outofband] Merged ${indexedCount} of ${entries.length} events from outofband-events.json`);
-    } catch {
-      // outofband-events.json absent (older runner) — fall back to ICS re-parse
+    } catch (err: any) {
+      if (err?.code === 'ENOENT') {
+        // File absent — older runner that predates Option B. Fall back silently.
+      } else {
+        // Unexpected error (corrupt JSON, wrong shape, etc.) — log it so the
+        // fallback is visible rather than appearing to be a normal transition.
+        console.warn(`[outofband] outofband-events.json unreadable, falling back to ICS re-parse: ${err?.message ?? err}`);
+      }
     }
 
     if (!outofbandEventsIndexed) {

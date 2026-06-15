@@ -218,6 +218,9 @@ async function main() {
                         if (result.coords.osmId !== undefined) event.osmId = result.coords.osmId;
                     }
                     event.geocodeSource = result.geocodeSource;
+                } else if (event.lat !== undefined) {
+                    // Ripper set lat/lng directly (e.g. from source JSON-LD) — tag provenance.
+                    event.geocodeSource = 'ripper';
                 }
             }
 
