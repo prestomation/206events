@@ -1314,10 +1314,21 @@ END:VCALENDAR`;
         throw new Error(`outofband-events.json root is not an array (got ${typeof entries})`);
       }
       let indexedCount = 0;
+      let skippedMalformed = 0;
       for (const entry of entries) {
+        // Guard required fields before pushing. A null/missing `date` or `summary`
+        // would be serialised into events-index.json and crash the client
+        // (the website calls .localeCompare() on date and renders summary as text).
+        if (typeof entry.icsUrl !== 'string' || typeof entry.summary !== 'string' || typeof entry.date !== 'string') {
+          skippedMalformed++;
+          continue;
+        }
         if (!calendarsWithFutureEvents.has(entry.icsUrl)) continue;
         eventsIndex.push(entry);
         indexedCount++;
+      }
+      if (skippedMalformed > 0) {
+        console.warn(`[outofband] Skipped ${skippedMalformed} malformed entries in outofband-events.json (missing icsUrl/summary/date)`);
       }
       outofbandEventsIndexed = true;
       console.log(`[outofband] Merged ${indexedCount} of ${entries.length} events from outofband-events.json`);
