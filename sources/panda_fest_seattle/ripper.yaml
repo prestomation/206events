@@ -1,0 +1,19 @@
+# verified: 2026-06-15 via eventbrite web ui (1 upcoming event: Panda Fest Seattle 2026, Aug 28-30 at Fisher Pavilion; EVENTBRITE_TOKEN required in CI)
+name: panda-fest-seattle
+type: eventbrite
+description: "Panda Fest Seattle"
+url: "https://www.pandafests.com/events-1/seattle"
+friendlyLink: https://www.pandafests.com/events-1/seattle
+tags: ["Food", "Community", "Arts", "QueenAnne"]
+geo:
+  lat: 47.6205
+  lng: -122.3493
+  label: "Seattle Center Fisher Pavilion, 305 Harrison St, Seattle, WA 98109"
+calendars:
+  - name: panda-fest-seattle
+    friendlyname: "Panda Fest Seattle"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "107176020021"
+      defaultLocation: "Seattle Center Fisher Pavilion, 305 Harrison St, Seattle, WA 98109"
+      defaultDurationHours: 6
