@@ -1,0 +1,14 @@
+geo:
+  lat: 47.6213
+  lng: -122.3518
+  label: Seattle Children's Museum, 305 Harrison St, Seattle, WA 98109
+name: seattle-childrens-museum
+proxy: browserbase
+friendlyname: Seattle Children's Museum
+description: Interactive hands-on museum for children and families at Seattle Center
+icsUrl: https://seattlechildrensmuseum.org/?post_type=tribe_events&ical=1&eventDisplay=list
+infoUrl: https://seattlechildrensmuseum.org/calendar/
+tags:
+  - Kids
+  - Museums
+  - Uptown

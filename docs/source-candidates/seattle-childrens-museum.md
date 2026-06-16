@@ -1,9 +1,9 @@
 ---
 name: "Seattle Children's Museum"
-status: candidate
+status: added
 firstSeen: 2026-06-08
 lastChecked: 2026-06-16
-tags: [Kids, Museums]
+tags: [Kids, Museums, Uptown]
 ---
 Seattle Children's Museum, at Seattle Center (305 Harrison St, Seattle, WA 98109).
 Calendar at https://seattlechildrensmuseum.org/calendar/
@@ -17,3 +17,5 @@ The site shows iCalendar export options on the calendar page; check for:
 - Or look for a subscribe/export link on the calendar page directly
 
 Re-checked 2026-06-16: The ICS feed URL returns an SiteGround sgcaptcha JS challenge page (HTTP 200 with JS redirect) — a direct fetch is blocked by bot detection. Would require `proxy: "browserbase"`. The calendar is powered by Tribe Events (confirmed from the JS challenge page which references tribe_events). Implement as `proxy: "browserbase"` external ICS when ready.
+
+Implemented 2026-06-16: Added as `sources/external/seattle-childrens-museum.yaml` with `proxy: "browserbase"` to bypass SiteGround sgcaptcha JS challenge. ICS feed is the standard Tribe Events endpoint. Tags: Kids, Museums, Uptown.
