@@ -17847,10 +17847,9 @@
     },
     "seattle-center:kpop-fest": {
       "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "resolvedAt": "2026-06-16",
       "source": "agent",
-      "partialFingerprint": "190dwbl"
+      "reason": "Source page only shows start time (2pm), no end time or duration listed"
     },
     "stg:tm-vvG1HZ_1Rl1XOD": {
       "unresolvable": true,
@@ -25709,6 +25708,107 @@
       "resolvedAt": "2026-06-15",
       "source": "agent",
       "reason": "Event date has passed; cost no longer actionable"
+    },
+    "seattle-center:lets-play-sea-26-kexp-gathering-space-fan-experience-x47531": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-kexp-gathering-space-fan-experience-x47531"
+    },
+    "seattle-center:lets-play-sea-26-watch-parties-at-mural-amphitheatre-bosnia-herzegovina-vs-qatar": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-watch-parties-at-mural-amphitheatre-bosnia-herzegovina-vs-qatar"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46320": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "reason": "Listed as \"All Day\" event with no specific start or end time on source page"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47624": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "reason": "Virtual event listed as \"All Day\" \u2014 participants complete the 5K anytime between May 16 and July 15; no specific start/end time"
+    },
+    "seattle-center:lets-play-sea26-workshop-series-pacific-science-center-x47658": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea26-workshop-series-pacific-science-center-x47658"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47679": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47679"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-yoga-x46729": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-yoga-x46729"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-mat-pilates": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-mat-pilates"
+    },
+    "museum_of_flight:mof-member-flying-gizmo-show-2026-07-11": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 2700
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8502/member-flying-gizmo-show"
+    },
+    "mccaw-hall:tm-vvG1HZ_GJyOQYv": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "reason": "Ticketmaster page returns HTTP 403; no duration information accessible"
+    },
+    "stg:tm-vvG1HZ_Gn_Sbkp": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "reason": "Ticketmaster page returns HTTP 403; no duration information accessible"
+    },
+    "stg:tm-vvG1HZ_awJZ-tzy": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "reason": "Ticketmaster page returns HTTP 403; no duration information accessible"
+    },
+    "stg:tm-vvG1HZ_kUohJ7g": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "reason": "Ticketmaster page returns HTTP 403; no duration information accessible"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqObQ0": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "reason": "Ticketmaster page returns HTTP 403; no start time or duration information accessible"
     }
   }
 }
