@@ -80,8 +80,9 @@ describe('BelltownCommunityCouncilRipper', () => {
             const posts = loadSampleData();
             const events = ripper.parseEvents(posts, zone, AFTER_MARCH_2026);
             const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
-            // March 2026 meeting should be filtered out; only April 2031 remains
-            const march2026 = calEvents.find(e => e.date.year() === 2026);
+            // March 2026 post-derived meeting should be filtered out.
+            // Synthesized events for April/May/June 2026 may exist, but not March.
+            const march2026 = calEvents.find(e => e.date.year() === 2026 && e.date.monthValue() === 3);
             expect(march2026).toBeUndefined();
         });
 
@@ -128,7 +129,10 @@ describe('BelltownCommunityCouncilRipper', () => {
             ];
             const events = ripper.parseEvents(posts, zone, BEFORE_ALL_EVENTS);
             const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
-            expect(calEvents).toHaveLength(1);
+            // Two posts for the same date → only one event for that date (deduplication works).
+            // Synthesized events for other months may also be present.
+            const april2031 = calEvents.filter(e => e.date.year() === 2031 && e.date.monthValue() === 4);
+            expect(april2031).toHaveLength(1);
         });
 
         it('falls back to default location when none found', () => {
@@ -140,8 +144,10 @@ describe('BelltownCommunityCouncilRipper', () => {
             }];
             const events = ripper.parseEvents(posts, zone, BEFORE_ALL_EVENTS);
             const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
-            expect(calEvents.length).toBeGreaterThan(0);
-            expect(calEvents[0].location).toBe('Belltown, Seattle, WA');
+            // The post-derived June 2031 event should use the fallback location.
+            const june2031 = calEvents.find(e => e.date.year() === 2031 && e.date.monthValue() === 6);
+            expect(june2031).toBeDefined();
+            expect(june2031!.location).toBe('Belltown, Seattle, WA');
         });
     });
 });

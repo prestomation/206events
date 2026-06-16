@@ -1,4 +1,4 @@
-import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId } from "@js-joda/core";
+import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId, DayOfWeek, TemporalAdjusters } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import '@js-joda/timezone';
 
@@ -90,6 +90,34 @@ export default class BelltownCommunityCouncilRipper implements IRipper {
             };
 
             events.push(event);
+        }
+
+        // Synthesize upcoming 2nd-Wednesday meetings for any months not already covered
+        // by a WordPress post. BCC meets on the 2nd Wednesday of every month at 6:30 PM.
+        for (let i = 0; i < 3; i++) {
+            const month = referenceDate.plusMonths(i).withDayOfMonth(1);
+            const secondWednesday = month
+                .with(TemporalAdjusters.firstInMonth(DayOfWeek.WEDNESDAY))
+                .plusWeeks(1);
+            if (secondWednesday.isBefore(referenceDate)) continue;
+
+            const dateKey = `${secondWednesday.year()}-${secondWednesday.monthValue()}-${secondWednesday.dayOfMonth()}`;
+            if (seen.has(dateKey)) continue;
+            seen.add(dateKey);
+
+            const meetingDateTime = LocalDateTime.of(
+                secondWednesday.year(), secondWednesday.monthValue(), secondWednesday.dayOfMonth(), 18, 30
+            );
+            events.push({
+                id: `bcc-${dateKey}`,
+                ripped: new Date(),
+                date: ZonedDateTime.of(meetingDateTime, zone),
+                duration: Duration.ofMinutes(90),
+                summary: 'Belltown Community Council Meeting',
+                location: '402 Cedar St, Seattle, WA 98121',
+                url: 'https://belltown-cc.org/meetings/',
+                cost: { min: 0 },
+            });
         }
 
         return events;
