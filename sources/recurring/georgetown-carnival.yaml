@@ -1,12 +1,16 @@
 # verified: 2026-06-08 ok
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1b/B-17G%2C_N5017N_Aluminum_Overcast_seen_over_Georgetown_Carnival_01_%2827062442224%29.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1b/B-17G%2C_N5017N_\
+  Aluminum_Overcast_seen_over_Georgetown_Carnival_01_%2827062442224%29.jpg"
 geo:
   lat: 47.5424
   lng: -122.3157
   label: "Georgetown Carnival, Airport Way S & 12th Ave S, Seattle, WA 98108"
+  osmChecked: "2026-06-16"
 name: georgetown-carnival
 friendlyname: Georgetown Carnival
-description: Annual free multidisciplinary arts festival in Historic Georgetown with live music across multiple stages, carnival games, food, drinks, and art on Airport Way S. Running since 2006.
+description: Annual free multidisciplinary arts festival in Historic Georgetown
+  with live music across multiple stages, carnival games, food, drinks, and art
+  on Airport Way S. Running since 2006.
 timezone: America/Los_Angeles
 location: Airport Way S & 12th Ave S, Georgetown, Seattle, WA 98108
 url: https://georgetownseattle.org/events-calendar/georgetown-carnival/

@@ -19,7 +19,8 @@ calendars:
       lat: 47.6110
       lng: -122.3365
       label: "SIFF Cinema Downtown, 600 Pine St, Seattle, WA 98101"
-      osmChecked: 2026-06-12
+      osmType: way
+      osmId: 360389738
   - name: uptown
     timezone: America/Los_Angeles
     friendlyname: "SIFF Cinema Uptown"

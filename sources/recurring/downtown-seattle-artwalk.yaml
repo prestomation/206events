@@ -1,9 +1,11 @@
 # verified: 2026-05-25 ok
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Seattle_-_Pioneer_Square_Pergola_-_2020-04-24.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Seattle_-_Pionee\
+  r_Square_Pergola_-_2020-04-24.jpg"
 geo:
   lat: 47.608
   lng: -122.3351
   label: "Downtown Seattle, WA"
+  osmChecked: "2026-06-16"
 name: downtown-seattle-artwalk
 friendlyname: Downtown Seattle Art Walk
 description: Monthly art walk in Downtown Seattle

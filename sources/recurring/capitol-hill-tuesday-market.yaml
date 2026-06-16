@@ -1,12 +1,15 @@
 # verified: 2026-05-11 ok
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Seattle_Broadway_Market_1.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Seattle_Broadway\
+  _Market_1.jpg"
 geo:
   lat: 47.618751
   lng: -122.3204886
   label: "E Barbara Bailey Way, Capitol Hill, Seattle"
+  osmChecked: "2026-06-16"
 name: capitol-hill-tuesday-market
 friendlyname: Capitol Hill Tuesday Farmers Market
-description: Seasonal Tuesday evening farmers market on Capitol Hill. Runs June through September.
+description: Seasonal Tuesday evening farmers market on Capitol Hill. Runs June
+  through September.
 timezone: America/Los_Angeles
 location: E Barbara Bailey Way, Capitol Hill, Seattle
 url: https://seattlefarmersmarkets.org/chfm

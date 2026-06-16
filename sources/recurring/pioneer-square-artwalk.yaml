@@ -1,8 +1,10 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/63/Pioneer_Square%2C_Seattle_%281933715075%29.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/63/Pioneer_Square%2\
+  C_Seattle_%281933715075%29.jpg"
 geo:
   lat: 47.6007
   lng: -122.3321
   label: "Pioneer Square, Seattle, WA"
+  osmChecked: "2026-06-16"
 name: pioneer-square-artwalk
 friendlyname: Pioneer Square Art Walk
 description: Monthly art walk in Pioneer Square - the nation's first art walk!

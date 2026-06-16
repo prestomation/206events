@@ -3,9 +3,11 @@ geo:
   lat: 47.5519
   lng: -122.3547
   label: "White Center Business Core, 16th Ave SW, Seattle, WA 98146"
+  osmChecked: "2026-06-16"
 name: rat-city-artwalk
 friendlyname: Rat City Art Walk
-description: Monthly art walk in the White Center neighborhood featuring local artists, vendors, live music, and food.
+description: Monthly art walk in the White Center neighborhood featuring local
+  artists, vendors, live music, and food.
 timezone: America/Los_Angeles
 location: 16th Ave SW, White Center, Seattle, WA
 url: https://www.ratcityartwalk.org/

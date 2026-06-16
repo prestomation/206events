@@ -5,10 +5,12 @@ description: "Panda Fest Seattle"
 url: "https://www.pandafests.com/events-1/seattle"
 friendlyLink: https://www.pandafests.com/events-1/seattle
 tags: ["Food", "Community", "Arts", "QueenAnne"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Fisher_pavilion_seattle_center.jpg"
 geo:
   lat: 47.6205
   lng: -122.3493
   label: "Seattle Center Fisher Pavilion, 305 Harrison St, Seattle, WA 98109"
+  osmChecked: 2026-06-16
 calendars:
   - name: panda-fest-seattle
     friendlyname: "Panda Fest Seattle"

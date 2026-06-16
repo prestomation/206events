@@ -1,12 +1,18 @@
 # verified: 2026-05-11 ok
-imageUrl: "https://static.wixstatic.com/media/33c4cc_ecf7dd58e22542cdaff189853be294c9~mv2.png"
+imageUrl: "https://static.wixstatic.com/media/33c4cc_ecf7dd58e22542cdaff189853b\
+  e294c9~mv2.png"
 geo:
   lat: 47.5795585
   lng: -122.3116428
   label: "Roberto Maestas Festival Street, Beacon Hill, Seattle"
+  osmChecked: "2026-06-16"
 name: beacon-arts-street-fairs
 friendlyname: Beacon Arts Street Fairs
-description: Free monthly street fair on Beacon Hill organized by Beacon Arts. Live music, art market, family activities, food vendors, and dance workshops at Roberto Maestas Festival Street, Beacon Hill Light Rail Plaza, and Plaza Roberto Maestas. Each month has a theme (Celebrate Youth, Beacon Hill Pride, Garden Party, Animal Friends, Japan on Beacon Hill).
+description: Free monthly street fair on Beacon Hill organized by Beacon Arts.
+  Live music, art market, family activities, food vendors, and dance workshops
+  at Roberto Maestas Festival Street, Beacon Hill Light Rail Plaza, and Plaza
+  Roberto Maestas. Each month has a theme (Celebrate Youth, Beacon Hill Pride,
+  Garden Party, Animal Friends, Japan on Beacon Hill).
 timezone: America/Los_Angeles
 location: Roberto Maestas Festival Street, Beacon Hill, Seattle
 url: https://www.beacon-arts.org/street-fairs
@@ -19,4 +25,4 @@ schedules:
   - schedule: 2nd Saturday
     start_time: "11:00"
     duration: PT6H
-    months: [ 5, 6, 7, 8, 9 ]
+    months: [5, 6, 7, 8, 9]

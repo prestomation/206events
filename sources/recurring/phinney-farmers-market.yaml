@@ -4,9 +4,15 @@ geo:
   lat: 47.6783508
   lng: -122.3545078
   label: "6761 Phinney Ave N, Seattle"
+  osmType: way
+  osmId: 9116766
 name: phinney-farmers-market
 friendlyname: Phinney Farmers Market
-description: Seasonal Friday afternoon farmers market in the Phinney Ridge neighborhood, tucked into the upper parking lot of the Phinney Neighborhood Association. A partnership between Neighborhood Farmers Markets and the PNA, serving the Phinney Ridge and Greenwood communities. Runs June through September.
+description: Seasonal Friday afternoon farmers market in the Phinney Ridge
+  neighborhood, tucked into the upper parking lot of the Phinney Neighborhood
+  Association. A partnership between Neighborhood Farmers Markets and the PNA,
+  serving the Phinney Ridge and Greenwood communities. Runs June through
+  September.
 timezone: America/Los_Angeles
 location: 6761 Phinney Ave N, Seattle
 url: https://seattlefarmersmarkets.org/pfm

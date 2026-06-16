@@ -1,12 +1,17 @@
 # verified: 2026-06-08 unverifiable
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/67/Seattle_-_Hiram_M._Chittenden_Locks_and_Salmon_Bay_Bridge_from_the_east_-_01.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/67/Seattle_-_Hiram_\
+  M._Chittenden_Locks_and_Salmon_Bay_Bridge_from_the_east_-_01.jpg"
 geo:
   lat: 47.6655
   lng: -122.3989
   label: "Carl S. English Jr. Botanical Garden, 3015 NW 54th St, Seattle, WA 98107"
+  osmChecked: "2026-06-16"
 name: ballard-locks-summer-concerts
 friendlyname: Summer Concerts at the Ballard Locks
-description: Free outdoor summer concert series in the Carl S. English Jr. Botanical Garden at Hiram M. Chittenden Locks, organized by Friends of the Ballard Locks. Concerts run every Saturday and Sunday from June through September, 2:00–4:30 p.m.
+description: Free outdoor summer concert series in the Carl S. English Jr.
+  Botanical Garden at Hiram M. Chittenden Locks, organized by Friends of the
+  Ballard Locks. Concerts run every Saturday and Sunday from June through
+  September, 2:00–4:30 p.m.
 timezone: America/Los_Angeles
 location: 3015 NW 54th St, Seattle, WA 98107
 url: https://ballardlocks.org/free-summer-concerts.html
