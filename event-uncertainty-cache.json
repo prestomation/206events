@@ -1,15 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:live-theater-2026-06-08": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 8100
-      },
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/"
-    },
     "events12:live-theater-2026-06-09": {
       "fields": {
         "startTime": "19:30",
@@ -125,13 +116,6 @@
       "resolvedAt": "2026-06-14",
       "source": "agent",
       "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/ \u2014 $35\u2013$74 dependent on day/time"
-    },
-    "events12:free-things-to-do-2026-06-08": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
     },
     "events12:free-things-to-do-2026-06-09": {
       "unresolvable": true,
@@ -1575,13 +1559,6 @@
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
     },
-    "events12:taste-of-seattle-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-06-09": {
       "unresolvable": true,
       "reason": "Commercial tour \u2014 booking times vary by individual reservation",
@@ -2988,13 +2965,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-06-09": {
       "unresolvable": true,
@@ -4410,13 +4380,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-06-09": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -5481,13 +5444,6 @@
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
     },
-    "events12:sailboat-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
-    },
     "events12:sailboat-2026-06-09": {
       "unresolvable": true,
       "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
@@ -6503,13 +6459,6 @@
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
     },
-    "events12:baseball-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
     "events12:baseball-2026-06-09": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each game has a different start time",
@@ -7286,13 +7235,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
-    "events12:winery-concerts-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list"
     },
     "events12:winery-concerts-2026-06-09": {
       "unresolvable": true,
@@ -8071,13 +8013,6 @@
       "source": "agent",
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list"
     },
-    "events12:concerts-at-the-locks-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg"
-    },
     "events12:concerts-at-the-locks-2026-06-09": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
@@ -8715,13 +8650,6 @@
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg"
     },
-    "events12:bus-to-the-mountains-2026-06-08": {
-      "unresolvable": true,
-      "reason": "General transit service page \u2014 specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/"
-    },
     "events12:bus-to-the-mountains-2026-06-09": {
       "unresolvable": true,
       "reason": "General transit service page \u2014 specific departure times vary by date and destination",
@@ -9303,13 +9231,6 @@
       "source": "agent",
       "evidence": "https://trailheaddirect.org/"
     },
-    "events12:concerts-at-marymoor-park-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
-    },
     "events12:concerts-at-marymoor-park-2026-06-09": {
       "unresolvable": true,
       "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
@@ -9890,13 +9811,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
-    },
-    "events12:acrobatic-show-2026-06-08": {
-      "unresolvable": true,
-      "reason": "Acrobatic Conundrum current-shows page does not list specific start times",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.acrobaticconundrum.com/current-shows"
     },
     "events12:acrobatic-show-2026-06-09": {
       "unresolvable": true,
@@ -13146,16 +13060,6 @@
       "evidence": "https://www.discoverslu.com/events/steamship-sunday-2026/",
       "partialFingerprint": "6s4gxw"
     },
-    "mopop:mopop-willy-wonka-supper-fan-club-2026-06-08": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 9000
-      },
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "evidence": "https://www.mopop.org/events/supper-fan-club-willy-wonka",
-      "partialFingerprint": "1651gxc"
-    },
     "mopop:mopop-usa-vs-paraguay-after-hours-viewing-party-2026-06-12": {
       "fields": {
         "startTime": "17:00"
@@ -14961,13 +14865,6 @@
       "resolvedAt": "2026-05-24",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
-    },
-    "events12:taste-of-pike-place-2026-06-08": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
     },
     "events12:taste-of-pike-place-2026-06-09": {
       "unresolvable": true,
@@ -21657,17 +21554,6 @@
       "source": "agent",
       "evidence": "https://gameatl.com"
     },
-    "ounces-taproom:6a13095a8c270b69f26f7ca0": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.ounceswestseattle.com/events/usa-paraguay",
-      "lastSeen": "2026-06-13"
-    },
     "queer-bar:69f24fc30f0c32679863b38d": {
       "fields": {
         "cost": {
@@ -25812,119 +25698,11 @@
       "source": "agent",
       "reason": "Start time not posted on source page; movies start at dusk (varies by date)"
     },
-    "events12:party-at-the-aquarium-2026-06-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cannot verify timing"
-    },
-    "events12:podcasts-live-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cannot verify timing"
-    },
-    "events12:cocktail-walk-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cannot verify timing"
-    },
-    "events12:small-town-festival-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cannot verify timing"
-    },
-    "events12:scottish-festival-up-north-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cannot verify timing"
-    },
-    "events12:fishing-day-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cannot verify timing"
-    },
-    "events12:state-park-day-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cannot verify timing"
-    },
-    "events12:gig-harbor-festival-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cannot verify timing"
-    },
     "events12:mead-tasting-2026-06-28": {
       "unresolvable": true,
       "resolvedAt": "2026-06-15",
       "source": "agent",
       "reason": "Multiple sessions (12-2pm, 1:30-3:30pm, 3-5pm); cannot determine which applies to this entry"
-    },
-    "events12:performance-art-2026-06-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:performance-art-2026-06-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:performance-art-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:pinball-arcade-games-2026-06-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:pinball-arcade-games-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:musical-cabaret-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:baseball-cards-collectibles-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:duck-parade-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:international-dance-festival-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
-    },
-    "events12:international-dance-festival-2026-06-08": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Event date has passed; cost no longer actionable"
     },
     "events12:international-dance-festival-2026-06-09": {
       "unresolvable": true,
