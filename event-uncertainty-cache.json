@@ -25781,16 +25781,24 @@
       "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8502/member-flying-gizmo-show"
     },
     "mccaw-hall:tm-vvG1HZ_GJyOQYv": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-06-16",
       "source": "agent",
-      "reason": "Ticketmaster page returns HTTP 403; no duration information accessible"
+      "evidence": "https://www.ticketmaster.com/fear-live-ft-hasan-piker-austinshow-seattle-washington-08-22-2026/event/0F0064C9B981AC01"
     },
     "stg:tm-vvG1HZ_Gn_Sbkp": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-06-16",
       "source": "agent",
-      "reason": "Ticketmaster page returns HTTP 403; no duration information accessible"
+      "evidence": "https://www.ticketmaster.com/honestav-the-sweet-american-boy-tour-seattle-washington-08-25-2026/event/0F0064CA99CD8196"
     },
     "stg:tm-vvG1HZ_awJZ-tzy": {
       "unresolvable": true,
@@ -25799,16 +25807,184 @@
       "reason": "Ticketmaster page returns HTTP 403; no duration information accessible"
     },
     "stg:tm-vvG1HZ_kUohJ7g": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-06-16",
       "source": "agent",
-      "reason": "Ticketmaster page returns HTTP 403; no duration information accessible"
+      "evidence": "https://www.ticketmaster.com/public-image-ltd-this-is-not-seattle-washington-09-15-2026/event/0F00646D916E6135"
     },
     "t-mobile-park:tm-vvG1HZ_eEqObQ0": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-06-16",
       "source": "agent",
-      "reason": "Ticketmaster page returns HTTP 403; no start time or duration information accessible"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-09-15-2026/event/0F006429DD8186A4"
+    },
+    "the-fishbowl:6a1e1a288bee8f2b0ff89a66": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.thefishbowlseattle.com/events/clothing-art-swap-party-x5nmy"
+    },
+    "the-fishbowl:6a1e1b5cb3bae40d298bb7e2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.thefishbowlseattle.com/events/open-mic-night-sfg38-grjjr-rcdme-7ews2"
+    },
+    "the-fishbowl:6a1f491fbb6d3010d4c8233a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.thefishbowlseattle.com/events/volunteer-meet-greet-g48be"
+    },
+    "the-fishbowl:6a1f49d916eff43b4b656349": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.thefishbowlseattle.com/events/cocreate-queer-asian-joy-zine-making-ece9h-zhkd6-9rdma"
+    },
+    "the-fishbowl:6a27b9841b398323ca355d71": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.thefishbowlseattle.com/events/drag-trivia-with-vix-opus"
+    },
+    "stg:tm-vvG1HZ_awJZtzy": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/boz-scaggs-rhythm-review-2026-seattle-washington-09-15-2026/event/0F00649CA6029E39"
+    },
+    "seatoday:cityspark-16111505": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/carkeek-stars-work-party/16111505/2026-06-20T00"
+    },
+    "seatoday:cityspark-16111616": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/east-duwamish-work-party/16111616/2026-06-20T00"
+    },
+    "seatoday:cityspark-16677269": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/city-light-review-panel-meeting/16677269/2026-06-17T00"
+    },
+    "seatoday:cityspark-17464919": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/preschool-story-time/17464919/2026-06-23T00"
+    },
+    "seatoday:cityspark-18425354": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/seattle-pride-parade/18425354/2026-06-21T00"
+    },
+    "seatoday:cityspark-17555567": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/seattle-mariners-pregame-field-passes/17555567/2026-06-29T00"
+    },
+    "seatoday:cityspark-18500647": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/school-of-rock-seattle-presents-rock-101-joan-jett-pat-benatar-pearl-jam/18500647"
+    },
+    "seatoday:cityspark-18572311": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/bosnia-herzegovina-vs-qatar-fifa-world-cup-26/18572311"
+    },
+    "seatoday:cityspark-18661808": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/summer-camps-with-prime-factor-enrollment-is-open/18661808"
+    },
+    "seatoday:cityspark-18852693": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-16",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/sekou/18852693"
     }
   }
 }
