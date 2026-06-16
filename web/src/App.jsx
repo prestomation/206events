@@ -19,6 +19,10 @@ import { App206 } from './redesign/App206.jsx'
 import { upcomingIndexEvents, groupIndexEventsByDay } from './redesign/viewModels.js'
 
 const FUSE_THRESHOLD = 0.1
+// Calendar sidebar search can be more forgiving — "downtown community council" should
+// find "Downtown Seattle Community Council" even with a word inserted in the middle.
+// This threshold is UI-only (not subject to favorites filter parity with event-search.ts).
+const CALENDAR_SEARCH_THRESHOLD = 0.4
 // Search the entire field, not just its first ~10 characters. Fuse's default
 // location-based scoring (location:0, distance:100) combined with our strict
 // threshold otherwise rejects any term that isn't near the START of the field —
@@ -903,7 +907,7 @@ function App() {
 
     return new Fuse(searchData, {
       keys: ['searchText'],
-      threshold: FUSE_THRESHOLD,
+      threshold: CALENDAR_SEARCH_THRESHOLD,
       ignoreLocation: FUSE_IGNORE_LOCATION
     })
   }, [calendars])

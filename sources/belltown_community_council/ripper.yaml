@@ -10,4 +10,3 @@ calendars:
   - name: all-events
     friendlyname: "Belltown Community Council"
     timezone: America/Los_Angeles
-    expectEmpty: true  # Community council with intermittent meetings; may have no upcoming events
