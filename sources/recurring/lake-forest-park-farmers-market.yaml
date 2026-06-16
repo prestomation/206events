@@ -2,10 +2,14 @@ imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/21/Farmer%27s_Market
 geo:
   lat: 47.754757
   lng: -122.28032
-  label: "Lake Forest Park Town Center, 17171 Bothell Way NE, Lake Forest Park, WA 98155"
+  label: "Lake Forest Park Town Center, 17171 Bothell Way NE, Lake Forest Park, WA
+  osmChecked: "2026-06-16"
+    98155"
 name: lake-forest-park-farmers-market
 friendlyname: Lake Forest Park Farmers Market
-description: Seasonal Sunday farmers market run by Third Place Commons at Lake Forest Park Town Center, with local produce, prepared foods, crafts, and live music. Runs from Mother's Day through the third Sunday of October.
+description: Seasonal Sunday farmers market run by Third Place Commons at Lake
+  Forest Park Town Center, with local produce, prepared foods, crafts, and live
+  music. Runs from Mother's Day through the third Sunday of October.
 timezone: America/Los_Angeles
 location: Lake Forest Park Town Center, 17171 Bothell Way NE, Lake Forest Park, WA 98155
 url: https://www.thirdplacecommons.org/programs-events/farmers-market/
@@ -18,4 +22,4 @@ schedules:
   - schedule: every Sunday
     start_time: "10:00"
     duration: PT4H
-    months: [ 5, 6, 7, 8, 9, 10 ]
+    months: [5, 6, 7, 8, 9, 10]

@@ -1,12 +1,15 @@
 # verified: 2026-05-11 ok
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Seattle_Broadway_Market_1.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Seattle_Broadway\
+  _Market_1.jpg"
 geo:
   lat: 47.61875
   lng: -122.32049
   label: "E Barbara Bailey Way between Broadway & 10th Ave E, Seattle"
+  osmChecked: "2026-06-16"
 name: capitol-hill-farmers-market
 friendlyname: Capitol Hill Farmers Market
-description: Year-round Sunday farmers market on Capitol Hill featuring local farms, food vendors, and community gathering.
+description: Year-round Sunday farmers market on Capitol Hill featuring local
+  farms, food vendors, and community gathering.
 timezone: America/Los_Angeles
 location: E Barbara Bailey Way between Broadway & 10th Ave E, Seattle
 url: https://seattlefarmersmarkets.org/chfm

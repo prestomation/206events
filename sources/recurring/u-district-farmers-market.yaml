@@ -1,11 +1,14 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Malloy_Apartments_on_15th_Ave_NE%2C_University_District%2C_ca_1928_%28SEATTLE_3789%29.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/43/Malloy_Apartment\
+  s_on_15th_Ave_NE%2C_University_District%2C_ca_1928_%28SEATTLE_3789%29.jpg"
 geo:
   lat: 47.664147
   lng: -122.313176
   label: "University Way NE between NE 50th St & NE 52nd St, Seattle"
+  osmChecked: "2026-06-16"
 name: u-district-farmers-market
 friendlyname: University District Farmers Market
-description: Year-round Saturday farmers market in the U-District. Fresh produce, flowers, baked goods, and artisan foods.
+description: Year-round Saturday farmers market in the U-District. Fresh
+  produce, flowers, baked goods, and artisan foods.
 timezone: America/Los_Angeles
 location: University Way NE between NE 50th St & NE 52nd St, Seattle
 url: https://seattlefarmersmarkets.org/udfm

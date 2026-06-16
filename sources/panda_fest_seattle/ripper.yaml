@@ -9,6 +9,7 @@ geo:
   lat: 47.6205
   lng: -122.3493
   label: "Seattle Center Fisher Pavilion, 305 Harrison St, Seattle, WA 98109"
+  osmChecked: 2026-06-16
 calendars:
   - name: panda-fest-seattle
     friendlyname: "Panda Fest Seattle"

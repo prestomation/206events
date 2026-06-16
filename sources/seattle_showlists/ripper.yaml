@@ -21,7 +21,8 @@ calendars:
       venue: "Europa"
   - name: baba-yaga
     friendlyname: "Baba Yaga"
-    imageUrl: "https://static.spotapps.co/spots/38/c8e7bef2424690bfcac97f433b31c3/:original"
+    imageUrl: "https://static.spotapps.co/spots/38/c8e7bef2424690bfcac97f433b31c3/:\
+      original"
     geo:
       lat: 47.601
       lng: -122.3331
@@ -104,7 +105,8 @@ calendars:
   # --- Columbia City ---
   - name: black-and-tan-hall
     friendlyname: "Black & Tan Hall"
-    imageUrl: "https://static.wixstatic.com/media/e3707e_a44080b6ba0342869ae1c8ccefb7d951~mv2.jpg"
+    imageUrl: "https://static.wixstatic.com/media/e3707e_a44080b6ba0342869ae1c8ccef\
+      b7d951~mv2.jpg"
     geo:
       lat: 47.551
       lng: -122.2774
@@ -158,7 +160,7 @@ calendars:
       lat: 47.6231
       lng: -122.3539
       label: "Black Lodge, 305 Harrison St, Seattle, WA 98109"
-      osmChecked: 2026-06-12
+      osmChecked: 2026-06-16
     timezone: America/Los_Angeles
     tags: ["Eastlake"]
     config:
@@ -198,7 +200,8 @@ calendars:
   # --- Fremont ---
   - name: add-a-ball
     friendlyname: "Add-A-Ball"
-    imageUrl: "https://www.replaymag.com/wp-content/uploads/2020/10/Add-a-Ball-Seattle-1024x578.png"
+    imageUrl: "https://www.replaymag.com/wp-content/uploads/2020/10/Add-a-Ball-Seat\
+      tle-1024x578.png"
     geo:
       lat: 47.652
       lng: -122.3549
@@ -283,7 +286,7 @@ calendars:
       lat: 47.5507
       lng: -122.3525
       label: "Skylark, 3803 Delridge Way SW, Seattle, WA 98106"
-      osmChecked: 2026-06-12
+      osmChecked: 2026-06-16
     timezone: America/Los_Angeles
     tags: ["West Seattle"]
     config:
@@ -292,7 +295,8 @@ calendars:
   # --- White Center ---
   - name: tims-tavern
     friendlyname: "Tim's Tavern"
-    imageUrl: "https://www.westsideseattle.com/sites/default/files/inline-images/tim%27s%20tavern%20-%203.jpeg"
+    imageUrl: "https://www.westsideseattle.com/sites/default/files/inline-images/ti\
+      m%27s%20tavern%20-%203.jpeg"
     geo:
       lat: 47.5288
       lng: -122.3529

@@ -1,11 +1,14 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Juarez-Market-1_%2841903681375%29.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Juarez-Market-1_\
+  %2841903681375%29.jpg"
 geo:
   lat: 47.7193734
   lng: -122.298168
   label: "NE 125th St & 28th Ave NE, Seattle"
+  osmChecked: "2026-06-16"
 name: lake-city-farmers-market
 friendlyname: Lake City Farmers Market
-description: Seasonal Thursday afternoon farmers market in Lake City. Runs June through September.
+description: Seasonal Thursday afternoon farmers market in Lake City. Runs June
+  through September.
 timezone: America/Los_Angeles
 location: NE 125th St & 28th Ave NE, Seattle
 url: https://seattlefarmersmarkets.org/lcfm

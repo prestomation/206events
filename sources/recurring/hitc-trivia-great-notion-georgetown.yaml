@@ -1,9 +1,12 @@
 # verified: 2026-06-08 ok
-imageUrl: "https://greatnotion.com/cdn/shop/files/P1050589_a6da64cc-5829-4a92-92fe-f8718bd90469.jpg"
+imageUrl: "https://greatnotion.com/cdn/shop/files/P1050589_a6da64cc-5829-4a92-9\
+  2fe-f8718bd90469.jpg"
 geo:
   lat: 47.5478544
   lng: -122.3148342
   label: "6235 Airport Way S, Seattle, WA 98108"
+  osmType: node
+  osmId: 2396891306
 name: hitc-trivia-great-notion-georgetown
 friendlyname: Trivia at Great Notion Georgetown
 description: Weekly pub trivia hosted by Head in the Clouds Trivia

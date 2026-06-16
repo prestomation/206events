@@ -1,11 +1,16 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/QueenAnneHillFromFerry2.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/23/QueenAnneHillFro\
+  mFerry2.jpg"
 geo:
   lat: 47.6368215
-  lng: -122.3570590
-  label: "Queen Anne Farmers Market, W Crockett St & Queen Anne Ave N, Seattle, WA 98109"
+  lng: -122.357059
+  label: "Queen Anne Farmers Market, W Crockett St & Queen Anne Ave N, Seattle, WA
+  osmChecked: "2026-06-16"
+    98109"
 name: queen-anne-farmers-market
 friendlyname: Queen Anne Farmers Market
-description: Seasonal Thursday evening farmers market in the Queen Anne neighborhood, featuring an all-food roster of Washington farmers and local food producers. Runs May through October.
+description: Seasonal Thursday evening farmers market in the Queen Anne
+  neighborhood, featuring an all-food roster of Washington farmers and local
+  food producers. Runs May through October.
 timezone: America/Los_Angeles
 location: W Crockett St & Queen Anne Ave N, Seattle, WA 98109
 url: https://qafm.org

@@ -1,12 +1,15 @@
 # verified: 2026-05-25 drift-fixed (duration PT4H→PT5H)
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_\
+  food_truck_Seattle_Washington.JPG"
 geo:
   lat: 47.6153914
   lng: -122.3396249
   label: "2100 6th Ave, Seattle"
+  osmChecked: "2026-06-16"
 name: food-truck-round-up
 friendlyname: Food Truck Round-Up
-description: Monthly food truck gathering at the South Lake Union Saturday Market. Free and family-friendly.
+description: Monthly food truck gathering at the South Lake Union Saturday
+  Market. Free and family-friendly.
 timezone: America/Los_Angeles
 location: 2100 6th Ave, Seattle
 url: http://slumarket.com/popups

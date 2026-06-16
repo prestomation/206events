@@ -1,12 +1,15 @@
 # verified: 2026-05-17 ok
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Seattle_-_Columbia_City_Farmers_Market%2C_circa_1994_%2854569782045%29.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Seattle_-_Columb\
+  ia_City_Farmers_Market%2C_circa_1994_%2854569782045%29.jpg"
 geo:
   lat: 47.5589
   lng: -122.2858
   label: "37th Ave S & S Edmunds St, Seattle"
+  osmChecked: "2026-06-16"
 name: columbia-city-farmers-market
 friendlyname: Columbia City Farmers Market
-description: Seasonal Wednesday evening farmers market in Columbia City, one block from the light rail station. Runs May through October.
+description: Seasonal Wednesday evening farmers market in Columbia City, one
+  block from the light rail station. Runs May through October.
 timezone: America/Los_Angeles
 location: 37th Ave S & S Edmunds St, Seattle
 url: https://seattlefarmersmarkets.org/ccfm

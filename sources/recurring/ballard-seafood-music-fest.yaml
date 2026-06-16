@@ -2,11 +2,14 @@
 imageUrl: "https://seafoodfest.org/wp-content/uploads/2025/12/486-1200x800.jpg"
 geo:
   lat: 47.6680
-  lng: -122.3840
+  lng: -122.384
   label: "Old Ballard (Ballard Ave NW), Seattle, WA 98107"
+  osmChecked: "2026-06-16"
 name: ballard-seafood-music-fest
 friendlyname: Ballard Seafood & Music Fest
-description: Annual three-day festival in Old Ballard with live music across multiple stages, local restaurants, seafood vendors, craft beer, and family activities.
+description: Annual three-day festival in Old Ballard with live music across
+  multiple stages, local restaurants, seafood vendors, craft beer, and family
+  activities.
 timezone: America/Los_Angeles
 location: Ballard Ave NW, Seattle, WA 98107
 url: https://seafoodfest.org/
