@@ -1,0 +1,14 @@
+name: the-fishbowl
+type: squarespace
+description: "The Fishbowl"
+url: "https://www.thefishbowlseattle.com/events"
+friendlyLink: https://www.thefishbowlseattle.com
+tags: ["Arts", "Community", "QueenAnne"]
+geo:
+  lat: 47.6231677
+  lng: -122.3591802
+  label: "The Fishbowl, 323 2nd Ave W, Seattle, WA 98119"
+calendars:
+  - name: the-fishbowl
+    friendlyname: "The Fishbowl"
+    timezone: America/Los_Angeles
