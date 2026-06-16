@@ -20,9 +20,6 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 })
 
-const MAP_CENTER = [cityConfig.map.center.lat, cityConfig.map.center.lng]
-const DEFAULT_ZOOM = cityConfig.map.defaultZoom
-
 // Width (px) of the drill-down side panel on desktop. Kept in sync with the
 // `.event-group-panel` width in index.css so the map can pan a clicked marker
 // out from behind it.
@@ -32,6 +29,18 @@ const PANEL_WIDTH = 340
 // fit. Configured per city in city.config.ts (Seattle's box hugs King County
 // — see the comments there for how its edges were chosen).
 const CLAMP_BOUNDS = cityConfig.map.clampBounds
+
+// Initial viewport, framed at the metro extent (CLAMP_BOUNDS) the moment the
+// map mounts — before any event data has loaded. This lets Leaflet pick the
+// final-ish zoom and start fetching tiles immediately, instead of opening at
+// the city-center zoom and then animating out to frame events once the (heavy)
+// events index resolves. FitBounds still snaps to the real event distribution
+// when events arrive, but from this starting point that adjustment is a small
+// pan rather than a jarring zoom-out, and no city-center tiles are wasted.
+const INITIAL_BOUNDS = [
+  [CLAMP_BOUNDS.south, CLAMP_BOUNDS.west],
+  [CLAMP_BOUNDS.north, CLAMP_BOUNDS.east],
+]
 
 export function isWithinClampBounds(lat, lng) {
   return (
@@ -360,8 +369,8 @@ function EventsMapInner({
   return (
     <div className="events-map-container" data-testid="events-map">
       <MapContainer
-        center={MAP_CENTER}
-        zoom={DEFAULT_ZOOM}
+        bounds={INITIAL_BOUNDS}
+        boundsOptions={{ padding: [0, 0] }}
         style={{ height: '100%', width: '100%' }}
         className="events-map"
       >
