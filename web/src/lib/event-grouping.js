@@ -108,7 +108,7 @@ function dateSortValue(event) {
   return String(event?.date ?? '').replace(/\[.*\]$/, '')
 }
 
-function compareByDate(a, b) {
+export function compareByDate(a, b) {
   const av = dateSortValue(a)
   const bv = dateSortValue(b)
   return av < bv ? -1 : av > bv ? 1 : 0

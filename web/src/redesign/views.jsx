@@ -15,7 +15,7 @@ import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
 import { EventDescription } from '../components/EventDescription.jsx'
 import { stripUncertaintyNote } from '../utils/uncertaintyNote.js'
 import { bestMapHref } from '../lib/maplink.js'
-import { groupKey } from '../lib/event-grouping.js'
+import { groupKey, compareByDate } from '../lib/event-grouping.js'
 import { eventKey } from '../lib/eventKey.js'
 import { formatTagLabel } from '../utils/format.js'
 import { tagGroup, CATEGORY_GROUP_ORDER, isNeighborhoodTag } from './categories.js'
@@ -899,7 +899,7 @@ export function EventDetail({ event }) {
     const selfKey = eventKey(event)
     return (app.allUpcomingEvents || [])
       .filter((e) => e !== event && eventKey(e) !== selfKey && groupKey(e) === key)
-      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+      .sort(compareByDate)
   }, [event, app.allUpcomingEvents])
 
   if (!event) return null
