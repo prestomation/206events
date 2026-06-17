@@ -1,4 +1,4 @@
-import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
+import { Duration, OffsetDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, ParseError } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
@@ -96,27 +96,17 @@ export function parseEventsFromHtml(html: string): Array<SeatEngineEvent | Parse
     return results;
 }
 
-// Parse an ISO 8601 datetime string (e.g. "2026-05-15T19:30:00-07:00") into a ZonedDateTime.
-// The offset in the source string is ignored — events are always in Pacific time.
-// Returns a ParseError if the date components are missing or invalid.
+// Parse an ISO 8601 datetime string (e.g. "2026-05-15T19:30:00-07:00") into a ZonedDateTime
+// in the given timezone, converting from the source offset. SeatEngine serves times in UTC
+// (e.g. "2026-06-21T02:00:00+00:00" = 7 PM PDT), so we must honour the offset rather than
+// treat the bare hour digits as Pacific time.
+// Returns a ParseError if the string is missing, malformed, or contains an invalid date.
 export function parseStartDate(startDate: string, name: string, zone: ZoneId): ZonedDateTime | ParseError {
-    const m = startDate.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/);
-    if (!m) {
-        return { type: 'ParseError', reason: `Unparseable startDate format: ${startDate}`, context: name };
-    }
-
     try {
-        const ldt = LocalDateTime.of(
-            parseInt(m[1], 10),
-            parseInt(m[2], 10),
-            parseInt(m[3], 10),
-            parseInt(m[4], 10),
-            parseInt(m[5], 10),
-            parseInt(m[6], 10),
-        );
-        return ZonedDateTime.of(ldt, zone);
+        const odt = OffsetDateTime.parse(startDate.replace(/Z$/, '+00:00'));
+        return odt.atZoneSameInstant(zone);
     } catch {
-        return { type: 'ParseError', reason: `Invalid date components in: ${startDate}`, context: name };
+        return { type: 'ParseError', reason: `Unparseable startDate format: ${startDate}`, context: name };
     }
 }
 

@@ -167,11 +167,24 @@ describe('parseStartDate', () => {
         }
     });
 
-    it('parses ISO 8601 datetime with Z offset', () => {
+    it('parses ISO 8601 datetime with Z offset, converting UTC to Pacific', () => {
+        // 20:00 UTC = 13:00 PDT (UTC-7)
         const result = parseStartDate('2026-06-01T20:00:00Z', 'Test Show', PACIFIC);
         expect('type' in result).toBe(false);
         if (!('type' in result)) {
-            expect(result.hour()).toBe(20);
+            expect(result.hour()).toBe(13);
+        }
+    });
+
+    it('converts SeatEngine UTC times to Pacific (e.g. 7 PM show stored as 02:00 UTC)', () => {
+        // SeatEngine serves PDT show times as UTC: 7 PM PDT June 20 = 02:00 UTC June 21
+        const result = parseStartDate('2026-06-21T02:00:00+00:00', 'Michael Che Live', PACIFIC);
+        expect('type' in result).toBe(false);
+        if (!('type' in result)) {
+            expect(result.year()).toBe(2026);
+            expect(result.monthValue()).toBe(6);
+            expect(result.dayOfMonth()).toBe(20); // June 20 PDT, not June 21 UTC
+            expect(result.hour()).toBe(19);       // 7 PM PDT
         }
     });
 
