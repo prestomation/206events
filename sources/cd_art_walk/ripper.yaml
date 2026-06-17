@@ -1,5 +1,6 @@
 # verified: 2026-06-10 via eventbrite web ui (9 upcoming events including 6 CD Art Walk First Fridays Jul-Dec 2026; EVENTBRITE_TOKEN required in CI)
 name: cd-art-walk
+sourceRole: venue
 type: eventbrite
 description: "CD Art Walk"
 url: "https://www.eventbrite.com/o/made-space-seattle-12403583534"

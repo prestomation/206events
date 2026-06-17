@@ -7,6 +7,7 @@ geo:
   osmType: relation
   osmId: 537386
 name: beacon-hill-festival
+sourceRole: venue
 friendlyname: Beacon Hill Festival
 description: Annual community festival hosted by Seattle Parks and Recreation at Jefferson Park on Beacon Hill. Live music, talent show, art walk, kite making, bounce houses, food trucks, and free pottery, painting, gardening, and self-defense classes.
 timezone: America/Los_Angeles

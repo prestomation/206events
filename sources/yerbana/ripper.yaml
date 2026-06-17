@@ -1,4 +1,5 @@
 name: yerbana
+sourceRole: venue
 type: eventbrite
 proxy: "outofband"
 description: "Yerbana"

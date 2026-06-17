@@ -1,4 +1,5 @@
 name: swedish-club
+sourceRole: venue
 type: eventbrite
 proxy: "outofband"
 description: "The Swedish Club NW"

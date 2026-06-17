@@ -54,6 +54,21 @@ export type EventCost = { min: number; max?: number } | { paid: true };
 export const costConfigSchema = z.union([z.literal("free"), z.number().min(0)])
     .transform((c): EventCost => c === "free" ? { min: 0 } : { min: c });
 
+// Whether a source is a first-party `venue` (publishes its own programming at a
+// fixed place, or a set of its own places) or an `aggregator` (republishes
+// other organizations' events across many venues — show-listing sites,
+// community calendars, scene round-ups). Required on every source, like `geo`,
+// so the venue/aggregator call is an explicit decision rather than a default.
+//
+// Used by cross-source de-duplication to pick the canonical copy when the same
+// real-world event appears in several feeds: a venue's own listing outranks an
+// aggregator's, so the event card attributes to (and links) the venue. It is
+// NOT derivable from `geo` — an aggregator can carry per-calendar `geo`
+// (seattle_showlists) and a multi-branch first-party source is `geo: null` at
+// the ripper level but still a venue (spl). See docs/cross-source-event-dedup.md.
+export const sourceRoleSchema = z.enum(["venue", "aggregator"]);
+export type SourceRole = z.infer<typeof sourceRoleSchema>;
+
 export const calendarConfigSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
     config: z.object({}).passthrough().optional(),
@@ -91,6 +106,9 @@ export const externalCalendarSchema = z.object({
     // like a brewery's Google Calendar are venues; multi-location feeds
     // (aggregators, cross-city calendars) are not.
     geo: geoSchema.nullable(),
+    // Required: venue (first-party feed for one place/org) or aggregator
+    // (republishes others' events). Drives cross-source dedup canonical pick.
+    sourceRole: sourceRoleSchema,
     // Optional venue photo URL (a link, never image bytes) surfaced in
     // venues.json for single-location feeds.
     imageUrl: z.string().url().optional(),
@@ -132,6 +150,11 @@ export const configSchema = z.object({
     // Multi-branch rippers like SPL can declare ripper-level `geo: null`
     // and set `geo` per calendar instead.
     geo: geoSchema.nullable(),
+    // Required: venue (first-party source for one place, or one org's set of
+    // places like SPL branches) or aggregator (republishes others' events
+    // across many venues, e.g. seattle_showlists). Drives cross-source dedup
+    // canonical pick. Not derivable from `geo` — see sourceRoleSchema.
+    sourceRole: sourceRoleSchema,
     // Optional venue photo URL (a link, never image bytes) surfaced in
     // venues.json. Per-calendar `imageUrl` overrides this for that branch.
     imageUrl: z.string().url().optional(),
@@ -240,6 +263,11 @@ export interface RipperCalendar {
     errors: RipperError[];
     tags: string[];
     parent?: RipperConfig
+    // venue/aggregator role of the source this calendar came from. Ripper
+    // calendars inherit it from `parent.sourceRole`; recurring calendars
+    // (which have no `parent`) carry it directly so the cross-source dedup
+    // pass can rank canonicals without re-loading the recurring config.
+    sourceRole?: SourceRole;
 };
 
 

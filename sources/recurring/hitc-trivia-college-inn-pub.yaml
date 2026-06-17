@@ -8,6 +8,7 @@ geo:
   osmType: node
   osmId: 2464036021
 name: hitc-trivia-college-inn-pub
+sourceRole: venue
 friendlyname: Trivia at College Inn Pub
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

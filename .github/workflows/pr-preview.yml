@@ -184,6 +184,27 @@ jobs:
               }
             }
 
+            // Cross-source duplicate de-duplication. HIGH matches are merged
+            // automatically; MED candidates are todos for the duplicate-resolver
+            // skill — informational, not a build-block.
+            const dupStats = buildErrors.duplicateStats;
+            const dupCandidates = buildErrors.duplicateCandidates || [];
+            let duplicateSection = '';
+            if (dupStats && (dupStats.merged > 0 || dupStats.candidates > 0)) {
+              const summary = `**🔀 Cross-source duplicates:** ${dupStats.merged.toLocaleString()} merged across ${dupStats.groups.toLocaleString()} event(s), ${dupStats.candidates.toLocaleString()} candidate(s) pending review`;
+              if (dupCandidates.length > 0) {
+                const sample = dupCandidates.slice(0, 20).map(c => {
+                  const [a, b] = c.events;
+                  const d = c.score.distanceM == null ? 'no coords' : `${c.score.distanceM}m`;
+                  return `- \`${a.icsUrl}\` ${a.summary} ⟷ \`${b.icsUrl}\` ${b.summary} (${d})`;
+                }).join('\n');
+                const more = dupCandidates.length > 20 ? `\n\n_…and ${dupCandidates.length - 20} more. Run the duplicate-resolver skill to investigate._` : '\n\n_Run the duplicate-resolver skill to investigate._';
+                duplicateSection = `\n\n${summary}\n<details>\n<summary>Show candidate pairs</summary>\n\n${sample}${more}\n\n</details>`;
+              } else {
+                duplicateSection = `\n\n${summary}`;
+              }
+            }
+
             // Proxy escalation-ladder verification queue. Non-fatal: proxy
             // sources still climbing outofband → browserbase → disabled. The
             // proxy-escalation skill (run by the out-of-band job) drives them.
@@ -296,6 +317,7 @@ jobs:
               photoSection,
               costSection,
               uncertaintySection,
+              duplicateSection,
               proxyVerificationSection,
               proxyStaleSection,
               newSourceSection,

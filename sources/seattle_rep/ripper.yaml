@@ -1,4 +1,5 @@
 name: seattle-rep
+sourceRole: venue
 description: "Seattle Repertory Theatre Performances"
 proxy: "outofband"
 url: "https://www.seattlerep.org/plays/json"

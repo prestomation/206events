@@ -1,4 +1,5 @@
 name: csz-seattle
+sourceRole: venue
 type: eventbrite
 proxy: "outofband"
 description: "CSz Seattle (ComedySportz)"

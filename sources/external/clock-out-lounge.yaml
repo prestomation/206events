@@ -6,6 +6,7 @@ geo:
   osmId: 2371319981
   osmType: node
 name: clock-out-lounge
+sourceRole: venue
 friendlyname: Clock-Out Lounge
 description: Intimate 99-capacity music venue in Beacon Hill - the only live music venue in the neighborhood
 icsUrl: https://clockoutlounge.com/?post_type=tribe_events&ical=1&eventDisplay=list

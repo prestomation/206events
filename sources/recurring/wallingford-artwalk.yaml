@@ -4,6 +4,7 @@ geo:
   lng: -122.3338
   label: "Wallingford, Seattle, WA"
 name: wallingford-artwalk
+sourceRole: venue
 friendlyname: Wallingford Art Walk
 description: Summer art walk in the Wallingford neighborhood, May through September
 timezone: America/Los_Angeles

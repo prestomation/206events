@@ -1,5 +1,6 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: substation
+sourceRole: venue
 type: eventbrite
 proxy: "outofband"
 description: "Substation"

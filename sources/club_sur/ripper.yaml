@@ -1,4 +1,5 @@
 name: club-sur
+sourceRole: venue
 type: eventbrite
 proxy: "outofband"
 description: "Club Sur"

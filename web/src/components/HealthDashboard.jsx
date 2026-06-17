@@ -219,6 +219,18 @@ export function HealthDashboard({
             <div className="health-card-label">Missing Costs</div>
           </div>
         )}
+        {buildErrors.duplicateStats && (buildErrors.duplicateStats.merged > 0 || buildErrors.duplicateStats.candidates > 0) && (
+          <div className="health-card health-card--ok">
+            <div className="health-card-value">🔀 {buildErrors.duplicateStats.merged.toLocaleString()}</div>
+            <div className="health-card-label">Cross-source Merged</div>
+          </div>
+        )}
+        {buildErrors.duplicateStats?.candidates > 0 && (
+          <div className="health-card health-card--warning">
+            <div className="health-card-value">🔀 {buildErrors.duplicateStats.candidates.toLocaleString()}</div>
+            <div className="health-card-label">Duplicate Candidates</div>
+          </div>
+        )}
         {pendingProxyVerification.length > 0 && (
           <div className="health-card health-card--warning">
             <div className="health-card-value">🪜 {pendingProxyVerification.length}</div>

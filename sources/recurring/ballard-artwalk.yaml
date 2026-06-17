@@ -6,6 +6,7 @@ geo:
   label: "Ballard, Seattle, WA"
   osmChecked: "2026-06-16"
 name: ballard-artwalk
+sourceRole: venue
 friendlyname: Ballard Art Walk
 description: Monthly art walk in the Ballard neighborhood
 timezone: America/Los_Angeles

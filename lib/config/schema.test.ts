@@ -223,6 +223,7 @@ describe('externalCalendarSchema', () => {
     friendlyname: 'Example Feed',
     icsUrl: 'https://example.com/cal.ics',
     geo: null,
+    sourceRole: 'venue',
   };
 
   it('defaults proxy to false when omitted', () => {

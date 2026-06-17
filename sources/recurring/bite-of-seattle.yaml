@@ -7,6 +7,7 @@ geo:
   osmType: way
   osmId: 4755066
 name: bite-of-seattle
+sourceRole: venue
 friendlyname: Bite of Seattle
 description: Annual food and music festival at Seattle Center with 300+ food vendors, beer and wine gardens, cider tastings, and live music.
 timezone: America/Los_Angeles

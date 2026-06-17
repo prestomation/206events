@@ -7,6 +7,7 @@ geo:
   osmType: way
   osmId: 44660015
 name: emerald-city-comic-con
+sourceRole: venue
 friendlyname: Emerald City Comic Con
 description: Annual four-day comic arts, pop culture, and gaming convention at the Seattle Convention Center. One of the largest fan conventions in the Pacific Northwest.
 timezone: America/Los_Angeles

@@ -4,6 +4,7 @@ geo:
   lng: -122.4009
   label: "Magnolia, Seattle, WA"
 name: magnolia-farmers-market
+sourceRole: venue
 friendlyname: Magnolia Farmers Market
 description: Seasonal Saturday farmers market in the Magnolia neighborhood. Runs June through October.
 timezone: America/Los_Angeles

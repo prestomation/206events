@@ -1,4 +1,5 @@
 name: lumen-field
+sourceRole: venue
 type: ticketmaster
 description: "Seattle's major outdoor stadium, home of the Seahawks and Sounders FC"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"

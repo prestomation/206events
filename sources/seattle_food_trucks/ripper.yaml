@@ -1,4 +1,5 @@
 name: seattle-food-trucks
+sourceRole: venue
 description: "Seattle Food Trucks"
 url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"

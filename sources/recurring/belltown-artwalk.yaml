@@ -5,6 +5,7 @@ geo:
   lng: -122.3473
   label: "Belltown, Seattle, WA"
 name: belltown-artwalk
+sourceRole: venue
 friendlyname: Belltown Art Walk
 description: Monthly art walk in the Belltown neighborhood
 timezone: America/Los_Angeles

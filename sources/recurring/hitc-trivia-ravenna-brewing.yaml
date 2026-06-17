@@ -8,6 +8,7 @@ geo:
   osmType: way
   osmId: 445400290
 name: hitc-trivia-ravenna-brewing
+sourceRole: venue
 friendlyname: Trivia at Ravenna Brewing
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

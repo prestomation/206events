@@ -1,5 +1,6 @@
 geo: null
 name: iloveseattle-community
+sourceRole: aggregator
 friendlyname: iLoveSeattle.org Community Calendar
 description: Community events calendar for Seattle
 icsUrl: https://iloveseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list

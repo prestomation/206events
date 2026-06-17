@@ -8,6 +8,7 @@ geo:
   osmType: way
   osmId: 221155713
 name: hitc-trivia-fiddlers-inn
+sourceRole: venue
 friendlyname: Trivia at Fiddler's Inn
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

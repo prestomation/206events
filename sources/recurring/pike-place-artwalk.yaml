@@ -4,6 +4,7 @@ geo:
   lng: -122.3417
   label: "Pike Place Market, Seattle, WA 98101"
 name: pike-place-artwalk
+sourceRole: venue
 friendlyname: Pike Place Summer Art Walk
 description: Summer art walk at Pike Place Market
 timezone: America/Los_Angeles

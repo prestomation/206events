@@ -246,9 +246,20 @@ export function isMappable(event, {
   if (queryKeySet && !queryKeySet.has(eventKey(event))) return false
 
   if (calendarFilter) {
+    // Single-channel view: show this channel's own events, including copies that
+    // are cross-source duplicates in the global aggregate. This mirrors the
+    // channel-detail list, which renders the raw .ics (untouched by dedup).
+    // Cross-source dedup never matches within one feed, so there's nothing to
+    // collapse here anyway.
     return event.icsUrl === calendarFilter
   }
   if (feedOnly && !(eventAttributions && eventAttributions.has(eventKey(event)))) return false
+  // Fold cross-source duplicates into their canonical pin so a HIGH-merged event
+  // shows one pin — matching the deduped Discover list. Scoped to the global /
+  // tag-aggregate map only: the feed (following) map deliberately does NOT drop
+  // `duplicateOf`, because that path mirrors the favorites-worker ICS feed, which
+  // is parity-locked to keep every copy (docs/cross-source-event-dedup.md).
+  if (!feedOnly && event.duplicateOf) return false
   if (selectedTag && selectedTag !== '__favorites__') {
     const tags = calendarTagsByIcsUrl[event.icsUrl] || []
     if (!tags.includes(selectedTag)) return false

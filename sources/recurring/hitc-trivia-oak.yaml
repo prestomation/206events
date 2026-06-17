@@ -7,6 +7,7 @@ geo:
   osmType: node
   osmId: 9951727017
 name: hitc-trivia-oak
+sourceRole: venue
 friendlyname: Trivia at Oak
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

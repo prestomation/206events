@@ -1,4 +1,5 @@
 name: visit-seattle
+sourceRole: aggregator
 description: "Visit Seattle"
 url: "https://visitseattle.org/events/feed/"
 friendlyLink: "https://visitseattle.org/events/"

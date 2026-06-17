@@ -7,6 +7,7 @@ geo:
   osmType: node
   osmId: 2136792042
 name: hitc-trivia-stoup-ballard
+sourceRole: venue
 friendlyname: Trivia at Stoup Brewing Ballard
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

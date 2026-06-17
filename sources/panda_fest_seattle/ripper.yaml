@@ -1,5 +1,6 @@
 # verified: 2026-06-15 via eventbrite web ui (1 upcoming event: Panda Fest Seattle 2026, Aug 28-30 at Fisher Pavilion; EVENTBRITE_TOKEN required in CI)
 name: panda-fest-seattle
+sourceRole: venue
 type: eventbrite
 description: "Panda Fest Seattle"
 url: "https://www.pandafests.com/events-1/seattle"

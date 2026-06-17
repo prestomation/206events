@@ -1,4 +1,5 @@
 name: third-place-books
+sourceRole: venue
 type: eventbrite
 proxy: "outofband"
 description: "Third Place Books"

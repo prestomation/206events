@@ -1,4 +1,5 @@
 name: taproot
+sourceRole: venue
 type: ovationtix
 description: "Taproot Theatre"
 url: "https://api.ovationtix.com/public/calendar/client(37019)"

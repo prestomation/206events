@@ -11,6 +11,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/event-uncertainty-resolver/SKILL.md`** — Resolve outstanding `UncertaintyError` entries (typically unknown start times) by investigating the source page and writing values into `event-uncertainty-cache.json`
 - **`skills/photo-resolver/SKILL.md`** — Drain the non-fatal `photoGaps` queue in `build-errors.json`: backfill venue photos via source-YAML `imageUrl:` PRs and event photos via the event-uncertainty-cache (`--image-url`), or mark them `unresolvable` when no photo exists
 - **`skills/cost-resolver/SKILL.md`** — Drain the non-fatal `costGaps` queue in `build-errors.json`: backfill uniformly-priced sources via source-YAML `cost:` PRs and per-event prices via the event-uncertainty-cache (`--cost-*`), applying the pricing rubric (min = cheapest general-admission adult, fees excluded)
+- **`skills/duplicate-resolver/SKILL.md`** — Drain the non-fatal `duplicateCandidates` queue in `build-errors.json`: confirm or reject MED-confidence cross-source duplicate pairs (the same real-world event listed by multiple sources) by writing decisions into `event-duplicate-cache.json` via a PR; the next build merges confirmed pairs and keeps rejected ones separate
 - **`skills/event-lookup/SKILL.md`** — Fuzzy-search the published `events-index.json` / `manifest.json` / `venues.json` to answer "is this event already in 206.events, and which source covers it?"
 - **`skills/proxy-escalation/SKILL.md`** — Read the non-fatal `pendingProxyVerification` queue and open PRs that climb the proxy ladder (`outofband → browserbase`) after 3 consecutive failures, or retire a source (disable + mark `blocked`) when browserbase is exhausted
 - **`skills/source-from-event/SKILL.md`** — Default handler for any **event poster image** (or text request describing an event the user wants covered). Uses `event-lookup` to check coverage, then either reports it's covered, hands off a parse-gap fix to `build-report`, or hands off a new-source add to `source-discovery`
@@ -201,6 +202,7 @@ type: eventbrite
 description: "My Venue"
 url: "https://www.my-venue.com/events"
 friendlyLink: https://www.my-venue.com/events
+sourceRole: venue
 tags: ["Music", "Capitol Hill"]
 calendars:
   - name: my-venue
@@ -263,6 +265,7 @@ description: Open-air weekend marketplace in Georgetown.
 timezone: America/Los_Angeles
 location: 5805 Airport Way S, Seattle, WA 98108
 url: http://georgetowntrailerparkmall.com/events
+sourceRole: venue
 tags: ["MakersMarket", "Georgetown"]
 schedules:
   - schedule: every Saturday
@@ -410,6 +413,25 @@ Multi-branch rippers like `spl` may set ripper-level `geo: null` and then
 provide a per-calendar `geo` on each branch that resolves to a non-null
 object. The venues builder emits one venue entry per branch in that case.
 
+### The required `sourceRole` field
+
+Every ripper, external calendar, and recurring event must **also** declare a
+required `sourceRole` of `venue` or `aggregator` (`sourceRoleSchema` in
+`lib/config/schema.ts`), like `geo` — there is no default, and the build fails
+if it's missing. It is used only by cross-source de-duplication to pick the
+canonical copy when the same real-world event appears in several feeds: a
+`venue` (first-party source for one place, or one org's set of places) outranks
+an `aggregator` (a show-listing site, community/neighborhood/city-wide calendar,
+or scene round-up that republishes other orgs' events), so the event card
+attributes to and links the venue.
+
+`sourceRole` is **not** derivable from `geo`: an aggregator can carry
+per-calendar `geo` (`seattle_showlists`), and a multi-branch first-party source
+is ripper-level `geo: null` but still a `venue` (`spl`). When adding a source,
+default to `venue` unless it clearly republishes events that other dedicated
+sources also list. See `docs/cross-source-event-dedup.md` for the curated
+aggregator set.
+
 ### Validation
 
 `scripts/check-discovery-api.ts` runs in CI after the build. It parses
@@ -496,6 +518,18 @@ same PR, both:**
    there.) Capture every distinct visual state the change introduces (e.g. one
    per variant/kind), and regenerate them whenever the UI changes again.
 
+**Always embed these screenshots in the PR body**, not just commit them. A
+reviewer should see the rendered UI in the PR description without digging
+through the Files-changed tab. Reference each committed image by its raw URL on
+the PR branch so GitHub renders it inline:
+
+```markdown
+![Other dates section](https://github.com/prestomation/206events/raw/<branch>/web/e2e/screenshots/<name>.png)
+```
+
+Embed every screenshot the PR adds or regenerates, and re-point/refresh them
+whenever you push new captures.
+
 **Do NOT use pixel-diff assertions (`toHaveScreenshot`/`toMatchSnapshot`)** for
 this — committed baselines are flaky across machines (fonts, rendering). The
 screenshots are documentation for human review; correctness is asserted with
@@ -543,6 +577,7 @@ For **external ICS calendars** (`sources/external/<name>.yaml`):
   icsUrl: "https://example.com/calendar.ics"
   proxy: outofband
   geo: null
+  sourceRole: venue
 ```
 
 The schema in `lib/config/schema.ts` accepts `"outofband"`, `"browserbase"`, or `false`.
@@ -747,8 +782,9 @@ that don't see a category effectively don't enforce it, so a missing
 reporter means the category accumulates silently.
 
 The existing categories — parse errors, geocode errors, zero-event
-calendars, expected-empty, uncertain events, OSM gaps — are all
-plumbed through every surface. Use them as templates.
+calendars, expected-empty, uncertain events, OSM gaps, photo/cost gaps,
+cross-source duplicates — are all plumbed through every surface. Use
+them as templates.
 
 ## Writing Descriptions
 

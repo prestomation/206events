@@ -6,6 +6,7 @@ geo:
   osmType: node
   osmId: 2462449146
 name: hitc-trivia-the-dray
+sourceRole: venue
 friendlyname: Trivia at The Dray
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

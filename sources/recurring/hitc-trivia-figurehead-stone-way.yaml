@@ -8,6 +8,7 @@ geo:
   osmType: node
   osmId: 2143322925
 name: hitc-trivia-figurehead-stone-way
+sourceRole: venue
 friendlyname: Trivia at Figurehead Brewing Stone Way
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

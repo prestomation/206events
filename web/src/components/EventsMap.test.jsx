@@ -145,4 +145,35 @@ describe('isMappable', () => {
       expect(isMappable(inCh, { calendarFilter: 'open.ics', queryKeySet: set2 })).toBe(true)
     })
   })
+
+  // Cross-source dedup marks a HIGH-merged copy with `duplicateOf`. The map drops
+  // it ONLY in the global / tag-aggregate scope (matching the deduped Discover
+  // list); single-channel and feed (following) scopes keep it, matching their own
+  // lists (raw channel .ics / parity-locked favorites feed). See
+  // docs/cross-source-event-dedup.md.
+  describe('duplicateOf (cross-source dedup) suppression', () => {
+    const dup = ev('big show', undefined, { duplicateOf: 'grp1' })
+    const canonical = ev('big show')
+
+    it('suppresses a duplicate in the global Discover scope', () => {
+      expect(isMappable(dup, {})).toBe(false)
+      expect(isMappable(canonical, {})).toBe(true)
+    })
+
+    it('suppresses a duplicate in the tag-aggregate scope', () => {
+      const tagged = ev('big show', undefined, { duplicateOf: 'grp1', icsUrl: 'a.ics' })
+      const tags = { 'a.ics': ['Music'] }
+      expect(isMappable(tagged, { selectedTag: 'Music', calendarTagsByIcsUrl: tags })).toBe(false)
+    })
+
+    it('does NOT suppress in a single open channel (matches the raw channel list)', () => {
+      const inCh = ev('big show', undefined, { duplicateOf: 'grp1', icsUrl: 'open.ics' })
+      expect(isMappable(inCh, { calendarFilter: 'open.ics' })).toBe(true)
+    })
+
+    it('does NOT suppress in the feed/following scope (mirrors the favorites ICS feed)', () => {
+      const attrib = new Set([eventKey(dup)])
+      expect(isMappable(dup, { feedOnly: true, eventAttributions: attrib })).toBe(true)
+    })
+  })
 })

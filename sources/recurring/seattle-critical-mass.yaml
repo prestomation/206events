@@ -4,6 +4,7 @@ geo:
   lng: -122.3369896
   label: "Westlake Park, 401 Pine St, Seattle"
 name: seattle-critical-mass
+sourceRole: venue
 friendlyname: Seattle Critical Mass
 description: Monthly group bike ride through Seattle. Meet at 6:30 PM, ride starts at 7:00 PM.
 timezone: America/Los_Angeles

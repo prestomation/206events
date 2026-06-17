@@ -397,8 +397,11 @@ export function MapPanel({ mobile = false }) {
     return app.eventsIndex.filter((e) => {
       if (!e.lat || !e.lng || !app.inScope(e)) return false
       if (qks && !qks.has(eventKey(e))) return false
-      if (openCh) return e.icsUrl === openCh
+      if (openCh) return e.icsUrl === openCh // channel scope: count its own events (matches isMappable)
       if (feedOnly && !(attrib && attrib.has(eventKey(e)))) return false
+      // Suppress cross-source duplicates only in the global/tag map, not the feed
+      // scope — mirrors EventsMap's isMappable so the badge tracks the rendered pins.
+      if (!feedOnly && e.duplicateOf) return false
       return true
     }).length
   }, [app.eventsIndex, app.openCh, app.inScope, app.eventAttributions, app.queryKeySet, feedOnly])

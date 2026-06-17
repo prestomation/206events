@@ -15,6 +15,8 @@ import { CALENDAR_MODE_OPTIONS } from '../utils/calendarTargets.js'
 import { EventDescription } from '../components/EventDescription.jsx'
 import { stripUncertaintyNote } from '../utils/uncertaintyNote.js'
 import { bestMapHref } from '../lib/maplink.js'
+import { groupKey, compareByDate } from '../lib/event-grouping.js'
+import { eventKey } from '../lib/eventKey.js'
 import { formatTagLabel } from '../utils/format.js'
 import { tagGroup, CATEGORY_GROUP_ORDER, isNeighborhoodTag } from './categories.js'
 
@@ -876,14 +878,41 @@ function ParsedEventRow({ event, distributed, indexEvent }) {
 }
 
 /* ---------------------------------------------------------- EventDetail --- */
+// How many sibling occurrences of a recurring event to list before collapsing
+// the remainder into a "+N more dates" line.
+const OTHER_DATES_CAP = 12
+
 export function EventDetail({ event }) {
   const app = useApp206()
+
+  // "Other dates": occurrences of the conceptually-same event on other days.
+  // Many recurring events (weekly trivia, a multi-night musical) are scraped as
+  // independent dated instances with no recurrence model, so we re-link them
+  // here at display time using the same heuristic key the events map uses
+  // (`groupKey`: normalized title + venue + source feed). We intentionally read
+  // the UNSCOPED upcoming list (`allUpcomingEvents`), not the date-window-scoped
+  // one, so the full cadence shows even when the user is browsing "next 7 days".
+  // Computed before the early return below to keep hook order stable.
+  const otherDates = useMemo(() => {
+    if (!event) return []
+    const key = groupKey(event)
+    const selfKey = eventKey(event)
+    return (app.allUpcomingEvents || [])
+      .filter((e) => e !== event && eventKey(e) !== selfKey && groupKey(e) === key)
+      .sort(compareByDate)
+  }, [event, app.allUpcomingEvents])
+
   if (!event) return null
   const channel = app.channelByIcsUrl.get(event.icsUrl)
   const row = rowFromIndexEvent(event)
   const parsed = parseIndexDate(event.date)
   const color = channel ? channel.color : 'var(--blue)'
-  const more = app.upcomingEvents.filter((e) => e.icsUrl === event.icsUrl && e !== event).slice(0, 3)
+  // Exclude occurrences already surfaced under "Other dates" so the same event
+  // never appears in both lists.
+  const otherDateKeys = new Set(otherDates.map(eventKey))
+  const more = app.upcomingEvents
+    .filter((e) => e.icsUrl === event.icsUrl && e !== event && !otherDateKeys.has(eventKey(e)))
+    .slice(0, 3)
 
   return (
     <div style={{ padding: '2px var(--pad) 24px', maxWidth: 680, margin: '0 auto' }}>
@@ -984,6 +1013,45 @@ export function EventDetail({ event }) {
           </button>
         )}
       </div>
+
+      {Array.isArray(event.dedupedSources) && event.dedupedSources.length > 0 && (
+        <div className="a-dedup-sources" style={{ marginBottom: 20, fontSize: 13, color: 'var(--ink-3)', display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+          <span>Also listed in:</span>
+          {event.dedupedSources.map((icsUrl) => {
+            const ch = app.channelByIcsUrl.get(icsUrl)
+            const label = ch ? ch.name : icsUrl.replace(/\.ics$/, '')
+            const chipStyle = { border: '1px solid var(--line)', borderRadius: 999, padding: '3px 10px', fontSize: 12.5, color: 'var(--ink-2)', background: 'none' }
+            return ch
+              ? <button key={icsUrl} onClick={() => app.openChannel(icsUrl)} style={{ ...chipStyle, cursor: 'pointer' }}>{label}</button>
+              : <span key={icsUrl} style={chipStyle}>{label}</span>
+          })}
+        </div>
+      )}
+
+      {otherDates.length > 0 && (
+        <>
+          <div className="a-rowhdr"><span className="a-eyebrow">OTHER DATES</span><span className="ln" /></div>
+          {otherDates.slice(0, OTHER_DATES_CAP).map((e) => {
+            const r = rowFromIndexEvent(e)
+            return (
+              <div className="ev" key={eventKey(e)} onClick={() => app.openEvent(e)}>
+                <div className="ev-body">
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
+                    <span className="ev-time">{r.day} {r.dateNum.split(' ')[1]}</span>
+                    <span className="ev-title" style={{ flex: 1 }}>{e.summary}</span>
+                  </div>
+                  {r.time && <div className="ev-meta"><span>{r.time}</span></div>}
+                </div>
+              </div>
+            )
+          })}
+          {otherDates.length > OTHER_DATES_CAP && (
+            <div style={{ fontSize: 12.5, color: 'var(--ink-3)', padding: '8px 2px 2px' }}>
+              +{otherDates.length - OTHER_DATES_CAP} more {otherDates.length - OTHER_DATES_CAP === 1 ? 'date' : 'dates'}
+            </div>
+          )}
+        </>
+      )}
 
       {more.length > 0 && channel && (
         <>

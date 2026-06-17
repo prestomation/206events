@@ -9,6 +9,7 @@ geo:
   osmType: node
   osmId: 11013224482
 name: hitc-trivia-here-today
+sourceRole: venue
 friendlyname: Trivia at Here Today Brewery
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

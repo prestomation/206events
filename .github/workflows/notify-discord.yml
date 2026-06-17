@@ -126,7 +126,15 @@ jobs:
             if [ "$STALE_COUNT" -gt 0 ] 2>/dev/null; then
               STALE_LINE=" 🕒 ${STALE_COUNT} browserbase source(s) served stale — live fetch failing, investigate."
             fi
-            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE}${PROXY_LINE}${PHOTO_LINE}${COST_LINE}${STALE_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
+            # Pull the cross-source duplicate-candidate count: MED-confidence
+            # pairs awaiting a confirm/reject from the duplicate-resolver skill.
+            DUP_LINE=""
+            DUP_CANDIDATES=$(curl -s --fail "${SITE_URL}/build-errors.json" 2>/dev/null \
+              | jq -r '.duplicateStats.candidates // 0' 2>/dev/null || echo "0")
+            if [ "$DUP_CANDIDATES" -gt 0 ] 2>/dev/null; then
+              DUP_LINE=" 🔀 ${DUP_CANDIDATES} duplicate candidate(s) — run duplicate-resolver."
+            fi
+            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE}${PROXY_LINE}${PHOTO_LINE}${COST_LINE}${STALE_LINE}${DUP_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
             # For PR Preview success, include preview link and new source summary
             PREVIEW_LINE=""

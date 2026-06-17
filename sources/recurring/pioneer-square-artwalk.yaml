@@ -6,6 +6,7 @@ geo:
   label: "Pioneer Square, Seattle, WA"
   osmChecked: "2026-06-16"
 name: pioneer-square-artwalk
+sourceRole: venue
 friendlyname: Pioneer Square Art Walk
 description: Monthly art walk in Pioneer Square - the nation's first art walk!
 timezone: America/Los_Angeles

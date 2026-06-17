@@ -1,6 +1,6 @@
 import { Duration, ZonedDateTime, LocalTime, LocalDate, DayOfWeek, TemporalAdjusters, ZoneRegion } from "@js-joda/core";
 import { z } from "zod";
-import { RipperCalendarEvent, RipperCalendar, geoSchema, costConfigSchema } from "./schema.js";
+import { RipperCalendarEvent, RipperCalendar, geoSchema, costConfigSchema, sourceRoleSchema } from "./schema.js";
 import { parse } from 'yaml';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -36,6 +36,10 @@ export const recurringEventSchema = z.object({
     // single-location venue (geo object) or not (null). A recurring event at
     // a fixed museum is a venue; a cross-neighborhood art walk is not.
     geo: geoSchema.nullable(),
+    // Required: venue (a hand-coded event at one fixed place, e.g. a farmers
+    // market) or aggregator (a cross-neighborhood art walk / round-up).
+    // Drives cross-source dedup canonical pick.
+    sourceRole: sourceRoleSchema,
     // Optional venue photo URL (a link, never image bytes) surfaced in
     // venues.json.
     imageUrl: z.string().url().optional(),
@@ -95,7 +99,8 @@ export class RecurringEventProcessor {
                 friendlyname: event.friendlyname,
                 events: this.generateRRuleEvent(event, startDate),
                 errors: [],
-                tags: event.tags
+                tags: event.tags,
+                sourceRole: event.sourceRole,
             };
             calendars.push(calendar);
         }
