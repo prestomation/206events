@@ -120,6 +120,24 @@ Reporting Parity rule): `build-errors.json`, the PR comment, the
 `$GITHUB_STEP_SUMMARY`, the Discord notification, the website health dashboard,
 and the build-report skill.
 
+## Parity note (favorites / following)
+
+Suppression of `duplicateOf` entries is applied in the **display-only** redesign
+path (App206's `upcomingEvents`), not in the shared `upcomingIndexEvents` helper.
+The favorites/following path and the favorites-worker ICS feed have no knowledge
+of build-time `duplicateOf`, so applying suppression to the shared helper would
+make the Following preview over-collapse relative to the feed the user actually
+receives — the exact client/server drift the "Favorites Filter Parity" rule
+guards against. Keeping suppression display-only preserves that contract.
+
+## Known limitations / follow-ups
+
+- **Deep-links to a now-suppressed duplicate** resolve against the (suppressed)
+  display list and fall back to the section view instead of redirecting to the
+  canonical. Graceful (no crash; suppressed copies are redundant), but a future
+  improvement is to look the token up in the full index and, when it carries
+  `duplicateOf`, open the canonical.
+
 ## Out of scope / unchanged
 
 - Favorites-worker personal ICS feed and its UID-based merge — unchanged.

@@ -171,7 +171,15 @@ export function App206(props) {
   }, [venues])
 
   /* ---- upcoming events + per-calendar index ---- */
-  const upcomingEvents = useMemo(() => upcomingIndexEvents(eventsIndex || []), [eventsIndex])
+  // Display-only path: drop suppressed cross-source duplicates (`duplicateOf`),
+  // folding them into their canonical (which carries `dedupedSources` for "also
+  // listed in" attribution). Applied HERE, not in the shared upcomingIndexEvents
+  // helper, so the parity-locked favorites/following path (App.jsx) stays aligned
+  // with the favorites-worker feed. See docs/cross-source-event-dedup.md.
+  const upcomingEvents = useMemo(
+    () => upcomingIndexEvents(eventsIndex || []).filter((e) => !e.duplicateOf),
+    [eventsIndex],
+  )
   const eventsByIcsUrl = useMemo(() => {
     const map = new Map()
     for (const e of upcomingEvents) {

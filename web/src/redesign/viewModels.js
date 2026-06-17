@@ -116,15 +116,16 @@ export function groupIndexEventsByDay(events, now = new Date()) {
 }
 
 // Filter events-index to the upcoming window [today, +months) and sort ascending.
-// Suppressed cross-source duplicates (`duplicateOf` set by the build-time dedup
-// pass) are dropped — they're folded into their canonical event, which carries
-// `dedupedSources` for "also listed in" attribution. See
-// docs/cross-source-event-dedup.md.
+// NOTE: this helper is shared by the parity-locked favorites/following path
+// (App.jsx), so it does NOT drop suppressed cross-source duplicates. The
+// display-only redesign path suppresses `duplicateOf` itself (App206), keeping
+// the Following preview aligned with the favorites-worker ICS feed (which has
+// no knowledge of build-time `duplicateOf`). See docs/cross-source-event-dedup.md
+// and the "Favorites Filter Parity" rule.
 export function upcomingIndexEvents(eventsIndex, { months = 6, now = new Date() } = {}) {
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
   const horizon = new Date(now.getFullYear(), now.getMonth() + months, now.getDate())
   return eventsIndex
-    .filter((event) => !event.duplicateOf)
     .map((event) => ({ event, parsed: parseIndexDate(event.date) }))
     .filter(({ parsed }) => {
       if (!parsed) return false
