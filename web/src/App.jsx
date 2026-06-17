@@ -120,8 +120,6 @@ function App() {
 
   const [manifest, setManifest] = useState(null)
   const [venues, setVenues] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedTag, setSelectedTag] = useState('')
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [showHomepage, setShowHomepage] = useState(true)
   const [showHappeningSoon, setShowHappeningSoon] = useState(false)
@@ -164,9 +162,6 @@ function App() {
   const geoFilters = activeList.geoFilters
   const favoritesSet = useMemo(() => new Set(favorites), [favorites])
 
-  const [newFilterInput, setNewFilterInput] = useState('')
-  // View mode for favorites: 'all' | 'calendars' | 'search' | filter string
-  const [favoritesViewMode, setFavoritesViewMode] = useState('all')
 
   // Add-to-calendar button mode ('auto' | 'google' | 'ics'). Client-only
   // preference (no server sync) controlling what the per-event 📅 button does.
@@ -600,7 +595,6 @@ function App() {
   const calendarListRef = useRef(null)
   const agendaRef = useRef(null)
   const savedCalendarListScrollRef = useRef(0)
-  const searchInputRef = useRef(null)
   
   // Track current day-group-header on mobile scroll for the back bar
   useEffect(() => {
@@ -650,25 +644,6 @@ function App() {
     }
   }, [isMobile, mobileView, showHappeningSoon, selectedCalendar, events, eventsLoading])
 
-  // Keyboard shortcuts: "/" to focus search, Escape to clear
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey) {
-        const active = document.activeElement
-        const isInput = active?.tagName === 'INPUT' || active?.tagName === 'TEXTAREA' || active?.isContentEditable
-        if (!isInput) {
-          e.preventDefault()
-          searchInputRef.current?.focus()
-        }
-      }
-      if (e.key === 'Escape' && document.activeElement === searchInputRef.current && searchTerm) {
-        setSearchTerm('')
-        searchInputRef.current?.blur()
-      }
-    }
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [searchTerm])
 
   // Resize functionality
   const handleMouseDown = useCallback((e) => {
@@ -892,57 +867,6 @@ function App() {
     loadCalendars()
   }, [loadCalendars])
 
-  // Fuzzy search setup — calendar names
-  const fuse = useMemo(() => {
-    const searchData = []
-    calendars.forEach(ripper => {
-      ripper.calendars.forEach(calendar => {
-        searchData.push({
-          ...calendar,
-          ripperName: ripper.name,
-          searchText: `${ripper.name} ${ripper.friendlyName || ''} ${ripper.description || ''} ${calendar.name} ${calendar.fullName} ${calendar.tags.join(' ')}`
-        })
-      })
-    })
-
-    return new Fuse(searchData, {
-      keys: ['searchText'],
-      threshold: CALENDAR_SEARCH_THRESHOLD,
-      ignoreLocation: FUSE_IGNORE_LOCATION
-    })
-  }, [calendars])
-
-  // Fuzzy search setup — event content
-  const eventFuse = useMemo(() => {
-    if (!eventsIndex.length) return null
-    return new Fuse(eventsIndex, {
-      keys: ['summary', 'description', 'location'],
-      threshold: FUSE_THRESHOLD,
-      ignoreLocation: FUSE_IGNORE_LOCATION
-    })
-  }, [eventsIndex])
-
-  // Event matches grouped by calendar icsUrl (only computed when searching)
-  const eventMatchesByCalendar = useMemo(() => {
-    const map = new Map()
-    if (!searchTerm || !eventFuse) return map
-    eventFuse.search(searchTerm, { limit: 100 }).forEach(({ item }) => {
-      if (!map.has(item.icsUrl)) map.set(item.icsUrl, [])
-      map.get(item.icsUrl).push(item)
-    })
-    return map
-  }, [searchTerm, eventFuse])
-
-  // When searching, filter loaded events to only matching ones (fuzzy, consistent with sidebar hints)
-  const filteredEvents = useMemo(() => {
-    if (!searchTerm || !selectedCalendar) return events
-    const fuse = new Fuse(events, {
-      keys: ['title', 'description', 'location'],
-      threshold: FUSE_THRESHOLD,
-      ignoreLocation: FUSE_IGNORE_LOCATION
-    })
-    return fuse.search(searchTerm).map(r => r.item)
-  }, [events, searchTerm, selectedCalendar])
 
   // Helper: look up a calendar's friendly name from its icsUrl
   const calendarNameByIcsUrl = useMemo(() => {
@@ -975,107 +899,6 @@ function App() {
     return map
   }, [calendars])
 
-  // Happening Soon: group events from events-index into day buckets for the next 7 days
-  const happeningSoonEvents = useMemo(() => {
-    if (!eventsIndex.length) return []
-
-    const now = new Date()
-    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-    const endDate = new Date(todayStart)
-    endDate.setDate(endDate.getDate() + 7)
-
-    // Parse and filter events to the next 7 days
-    let upcoming = eventsIndex
-      .map(event => {
-        // js-joda toString() format: "2026-02-15T19:00-08:00[America/Los_Angeles]"
-        // Extract the IANA timezone from brackets for display, then strip for Date parsing
-        const tzMatch = event.date.match(/\[(.+)\]$/)
-        const eventTimezone = tzMatch ? tzMatch[1] : undefined
-        const dateStr = event.date.replace(/\[.*\]$/, '')
-        const parsed = new Date(dateStr)
-        if (isNaN(parsed.getTime())) return null
-        let parsedEndDate = null
-        if (event.endDate) {
-          const endDateStr = event.endDate.replace(/\[.*\]$/, '')
-          const parsedEnd = new Date(endDateStr)
-          if (!isNaN(parsedEnd.getTime())) parsedEndDate = parsedEnd
-        }
-        return { ...event, parsedDate: parsed, parsedEndDate, eventTimezone }
-      })
-      .filter(event => {
-        if (!event) return false
-        if (event.parsedDate >= endDate) return false
-        if (event.parsedDate < todayStart) return false
-        // Filter out events whose end time has already passed
-        const effectiveEnd = event.parsedEndDate || event.parsedDate
-        if (effectiveEnd <= now) return false
-        return true
-      })
-
-    // Apply tag filter
-    if (selectedTag) {
-      if (selectedTag === '__favorites__') {
-        upcoming = upcoming.filter(event => favoritesSet.has(event.icsUrl))
-      } else {
-        upcoming = upcoming.filter(event => {
-          const tags = calendarTagsByIcsUrl[event.icsUrl] || []
-          return tags.includes(selectedTag)
-        })
-      }
-    }
-
-    // Apply search filter (fuzzy, consistent with calendar list sidebar hints)
-    if (searchTerm) {
-      const upcomingFuse = new Fuse(upcoming, {
-        keys: ['summary', 'description', 'location'],
-        threshold: FUSE_THRESHOLD,
-        ignoreLocation: FUSE_IGNORE_LOCATION
-      })
-      upcoming = upcomingFuse.search(searchTerm).map(r => r.item)
-    }
-
-    // Sort by date
-    upcoming.sort((a, b) => a.parsedDate - b.parsedDate)
-
-    // Group by day label using diffDays as the key so timezone-shifted
-    // events that resolve to the same calendar day always merge into one group
-    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    const groupsByDiffDays = new Map()
-
-    for (const event of upcoming) {
-      // Use the event's timezone for day grouping so "Today" is correct
-      // for the event's local date, not the viewer's timezone
-      let eventDay
-      if (event.eventTimezone) {
-        try {
-          const parts = event.parsedDate.toLocaleDateString('en-CA', { timeZone: event.eventTimezone }).split('-')
-          eventDay = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]))
-        } catch {
-          eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
-        }
-      } else {
-        eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
-      }
-      const diffDays = Math.round((eventDay - todayStart) / (1000 * 60 * 60 * 24))
-
-      let label
-      if (diffDays === 0) label = 'Today'
-      else if (diffDays === 1) label = 'Tomorrow'
-      else label = dayNames[eventDay.getDay()]
-
-      if (!groupsByDiffDays.has(diffDays)) {
-        const dateSubtitle = localeDateMaybeYear(eventDay, { month: 'short', day: 'numeric' })
-        groupsByDiffDays.set(diffDays, { label, dateSubtitle, events: [] })
-      }
-      groupsByDiffDays.get(diffDays).events.push(event)
-    }
-
-    const groups = [...groupsByDiffDays.entries()]
-      .sort(([a], [b]) => a - b)
-      .map(([, group]) => group)
-
-    return groups
-  }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl, favoritesSet])
 
   // Per-filter match counts and match sets for view mode filtering
   const perFilterMatches = useMemo(() => {
@@ -1148,157 +971,12 @@ function App() {
     return map
   }, [eventsIndex, favoritesSet, perFilterMatches, geoFilters, calendarNameByIcsUrl])
 
-  // Live preview: match count for the text currently being typed in the input
-  const livePreviewMatches = useMemo(() => {
-    const trimmed = newFilterInput.trim()
-    if (!trimmed || !eventsIndex.length) return null
-    const fuse = new Fuse(eventsIndex, {
-      keys: ['summary', 'description', 'location'],
-      threshold: FUSE_THRESHOLD,
-      ignoreLocation: FUSE_IGNORE_LOCATION,
-    })
-    const results = fuse.search(trimmed)
-    return {
-      count: results.length,
-      samples: results.slice(0, 5).map(r => r.item),
-    }
-  }, [newFilterInput, eventsIndex])
 
-  // Reset view mode when switching away from favorites or when filters change
-  useEffect(() => {
-    if (selectedTag !== '__favorites__') return
-    if (favoritesViewMode !== 'all' && favoritesViewMode !== 'calendars' && favoritesViewMode !== 'search') {
-      if (favoritesViewMode.startsWith('geo:')) {
-        const idx = parseInt(favoritesViewMode.split(':')[1])
-        if (!geoFilters[idx]) setFavoritesViewMode('all')
-      } else {
-        // It's a specific filter — check if it still exists
-        if (!searchFilters.includes(favoritesViewMode)) {
-          setFavoritesViewMode('all')
-        }
-      }
-    }
-  }, [searchFilters, selectedTag, geoFilters, favoritesViewMode])
 
-  // Compute events for the favorites view
-  const favoritesEvents = useMemo(() => {
-    if (!eventsIndex.length || selectedTag !== '__favorites__') return []
-    if (!favorites.length && !searchFilters.length && !geoFilters.length) return []
-
-    const now = new Date()
-    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-    const sixMonthsFromNow = new Date(now.getFullYear(), now.getMonth() + 6, now.getDate())
-
-    let upcoming = eventsIndex
-      .map(event => {
-        const tzMatch = event.date.match(/\[(.+)\]$/)
-        const eventTimezone = tzMatch ? tzMatch[1] : undefined
-        const dateStr = event.date.replace(/\[.*\]$/, '')
-        const parsed = new Date(dateStr)
-        if (isNaN(parsed.getTime())) return null
-        let parsedEndDate = null
-        if (event.endDate) {
-          const endDateStr = event.endDate.replace(/\[.*\]$/, '')
-          const parsedEnd = new Date(endDateStr)
-          if (!isNaN(parsedEnd.getTime())) parsedEndDate = parsedEnd
-        }
-        return { ...event, parsedDate: parsed, parsedEndDate, eventTimezone }
-      })
-      .filter(event => {
-        if (!event) return false
-        if (event.parsedDate >= sixMonthsFromNow) return false
-        if (event.parsedDate < todayStart) return false
-        const effectiveEnd = event.parsedEndDate || event.parsedDate
-        if (effectiveEnd <= now) return false
-
-        const isFavorited = favoritesSet.has(event.icsUrl)
-        const key = eventKey(event)
-        const isSearchMatch = searchFilterMatchSummaries.has(key)
-        const isGeoMatch = geoFilters.length > 0 && event.lat != null && event.lng != null &&
-          geoFilters.some(gf => haversineKm(gf.lat, gf.lng, event.lat, event.lng) <= gf.radiusKm)
-
-        if (favoritesViewMode === 'calendars') {
-          return isFavorited
-        } else if (favoritesViewMode === 'search') {
-          return isSearchMatch
-        } else if (favoritesViewMode.startsWith('geo:')) {
-          const geoIndex = parseInt(favoritesViewMode.split(':')[1])
-          const gf = geoFilters[geoIndex]
-          if (!gf) return false
-          if (event.lat == null || event.lng == null) return false
-          return haversineKm(gf.lat, gf.lng, event.lat, event.lng) <= gf.radiusKm
-        } else if (favoritesViewMode !== 'all') {
-          // Specific search filter selected
-          const filterMatches = perFilterMatches.get(favoritesViewMode)
-          return filterMatches ? filterMatches.has(key) : false
-        }
-        // 'all' mode — include events from any active source
-        if (!isFavorited && !isSearchMatch && !isGeoMatch) return false
-        return true
-      })
-
-    // Deduplicate cross-source events (same date + location + title)
-    // Mirrors the dedup logic in infra/favorites-worker/src/feed.ts
-    upcoming = deduplicateEvents(upcoming)
-
-    if (searchTerm) {
-      const fuse = new Fuse(upcoming, {
-        keys: ['summary', 'description', 'location'],
-        threshold: FUSE_THRESHOLD,
-        ignoreLocation: FUSE_IGNORE_LOCATION
-      })
-      upcoming = fuse.search(searchTerm).map(r => r.item)
-    }
-
-    upcoming.sort((a, b) => a.parsedDate - b.parsedDate)
-
-    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    const groupsByDiffDays = new Map()
-
-    for (const event of upcoming) {
-      let eventDay
-      if (event.eventTimezone) {
-        try {
-          const parts = event.parsedDate.toLocaleDateString('en-CA', { timeZone: event.eventTimezone }).split('-')
-          eventDay = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]))
-        } catch {
-          eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
-        }
-      } else {
-        eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
-      }
-      const diffDays = Math.round((eventDay - todayStart) / (1000 * 60 * 60 * 24))
-
-      let label
-      if (diffDays === 0) label = 'Today'
-      else if (diffDays === 1) label = 'Tomorrow'
-      else if (diffDays > 1 && diffDays < 7) label = dayNames[eventDay.getDay()]
-      else label = localeDateMaybeYear(eventDay, { weekday: 'long', month: 'short', day: 'numeric' })
-
-      if (!groupsByDiffDays.has(diffDays)) {
-        const dateSubtitle = localeDateMaybeYear(eventDay, { month: 'short', day: 'numeric' })
-        groupsByDiffDays.set(diffDays, { label, dateSubtitle, events: [] })
-      }
-      groupsByDiffDays.get(diffDays).events.push(event)
-    }
-
-    const groups = [...groupsByDiffDays.entries()]
-      .sort(([a], [b]) => a - b)
-      .map(([, group]) => group)
-
-    return groups
-  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches, geoFilters])
-
-  // Flat list of favorites events for the map (EventsMap expects a flat array, not day groups)
-  const favoritesEventsFlat = useMemo(
-    () => favoritesEvents.flatMap(group => group.events),
-    [favoritesEvents]
-  )
-
-  // Always-on personal feed for the redesigned "Following" view. Same membership
-  // math as favoritesEvents 'all' mode (favorited calendar OR saved-search match
-  // OR geo match), but ungated by selectedTag/searchTerm. Uses the same
-  // parity-locked helpers (haversineKm, eventKey, deduplicateEvents).
+  // Always-on personal feed for the redesigned "Following" view: an event is
+  // included when it matches a followed calendar OR a saved search filter OR a
+  // saved geo filter. Uses the same parity-locked helpers as the favorites-worker
+  // ICS feed (haversineKm, eventKey, deduplicateEvents).
   const followingGroups = useMemo(() => {
     if (!eventsIndex.length) return []
     if (!favorites.length && !searchFilters.length && !geoFilters.length) return []
@@ -1314,63 +992,6 @@ function App() {
     return groupIndexEventsByDay(evs)
   }, [eventsIndex, favoritesSet, searchFilterMatchSummaries, geoFilters, favorites.length, searchFilters.length])
 
-  // Track which calendars matched by name/description (not just event content)
-  const calendarNameMatches = useMemo(() => {
-    const nameMatches = new Set()
-    if (searchTerm) {
-      fuse.search(searchTerm).forEach(item => {
-        nameMatches.add(`${item.item.ripperName}-${item.item.name}`)
-      })
-    }
-    return nameMatches
-  }, [searchTerm, fuse])
-
-  // Filter calendars based on search and tag
-  const filteredCalendars = useMemo(() => {
-    let result = calendars
-
-    if (searchTerm || selectedTag) {
-      const matchingCalendars = new Set()
-
-      if (searchTerm) {
-        // Calendar name/tag matches
-        calendarNameMatches.forEach(id => matchingCalendars.add(id))
-
-        // Event content matches — surface calendars containing matching events
-        for (const icsUrl of eventMatchesByCalendar.keys()) {
-          calendars.forEach(ripper => {
-            ripper.calendars.forEach(calendar => {
-              if (calendar.icsUrl === icsUrl) {
-                matchingCalendars.add(`${ripper.name}-${calendar.name}`)
-              }
-            })
-          })
-        }
-      }
-
-      result = calendars.map(ripper => ({
-        ...ripper,
-        calendars: ripper.calendars.filter(calendar => {
-          const matchesSearch = !searchTerm || matchingCalendars.has(`${ripper.name}-${calendar.name}`)
-          const matchesTag = !selectedTag || (selectedTag === '__favorites__' ? favoritesSet.has(calendar.icsUrl) : calendar.tags.includes(selectedTag))
-          return matchesSearch && matchesTag
-        })
-      })).filter(ripper => ripper.calendars.length > 0)
-
-      // Sort name/description matches to the top when searching
-      if (searchTerm && calendarNameMatches.size > 0) {
-        result.sort((a, b) => {
-          const aHasNameMatch = a.calendars.some(c => calendarNameMatches.has(`${a.name}-${c.name}`))
-          const bHasNameMatch = b.calendars.some(c => calendarNameMatches.has(`${b.name}-${c.name}`))
-          if (aHasNameMatch && !bHasNameMatch) return -1
-          if (!aHasNameMatch && bHasNameMatch) return 1
-          return 0
-        })
-      }
-    }
-
-    return result
-  }, [calendars, searchTerm, selectedTag, calendarNameMatches, eventMatchesByCalendar, favoritesSet])
 
   // Get all unique tags
   const allTags = useMemo(() => {
