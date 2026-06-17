@@ -1649,6 +1649,31 @@
       "decision": "rejected",
       "resolvedAt": "2026-06-17",
       "note": "SIFF Odyssey vs Invite: different films at different cinemas (Downtown vs Uptown, 2055m). This is the stable key produced after the .withSecond(0).withNano(0) ripper fix."
+    },
+    "downtown-seattle-association-westlake-park.ics Soccer Watch Party: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Global Soccer Tournament Watch Party - USA VS Australia|2026-06-19T11:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm \u2014 different venues 381m apart"
+    },
+    "downtown-seattle-association-westlake-park.ics Soccer Watch Party: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Global Soccer Tournament Watch Party - USA VS Australia|2026-06-19T11:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm \u2014 different venues 381m apart"
+    },
+    "downtown-seattle-association-westlake-park.ics Soccer Watch Party: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Global Soccer Tournament Watch Party - USA VS Australia|2026-06-19T11:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm \u2014 different venues 381m apart"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-09-17T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-09-17T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Same event published in two UW feeds: identical title, time, location (Zoom), and URL"
+    },
+    "seatoday-seatoday-all.ics AMAC Captains Summit|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics AMAC Captains Summit|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Same event from seatoday source appearing in two category feeds (all and learning) \u2014 should show once"
     }
   }
 }
