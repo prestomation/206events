@@ -1,3 +1,1639 @@
 {
-  "resolutions": {}
+  "resolutions": {
+    "19hz-all-events.ics PiNKII: Robopup|2026-08-26T21:00-07:00[America/Los_Angeles]::substation-substation.ics PiNKII|2026-08-26T21:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Eventbrite event id on both sides"
+    },
+    "19hz-all-events.ics Star Monster, Odd Language|2026-08-27T21:00-07:00[America/Los_Angeles]::substation-substation.ics Star Monster|2026-08-27T21:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Eventbrite event id on both sides"
+    },
+    "19hz-all-events.ics The Pink Party: Spencer Brown, Qrion|2026-09-07T15:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics The Pink Party|2026-09-07T15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "19hz aggregator 'The Pink Party' at Pier 62 - same event, waterfront geo-scale dist"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Anvil, Graveripper, Midnite Hellion, Star Chamber|2026-06-25T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics ANVIL - Pounding the Past 2026 with GraveRipper, Midnite Hellion, Star Chamber|2026-06-25T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Castle Rat, Unto Others, Wrath Knight|2026-10-07T19:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Castle Rat with Unto Others, Wraith Knight|2026-10-07T19:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Defeated Sanity, Revocation, Fuming Mouth, Weeping|2026-09-23T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Revocation - 20 Years of Torment with Defeated Sanity, Fuming Mouth, Weeping|2026-09-23T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Dying Fetus, Sanguisugabogg, Crowbar, Left To Suffer, Deterioration|2026-10-06T19:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Dying Fetus & Sanguisugabogg with Crowbar, Left to Suffer, Deterioration|2026-10-06T18:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Eihwar|2026-09-12T19:00-07:00[America/Los_Angeles]::neumos-neumos.ics EIHWAR|2026-09-12T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Eihwar|2026-09-12T19:00-07:00[America/Los_Angeles]::showbox-presents-neumos.ics EIHWAR|2026-09-12T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Fear Factory, Darkest Hour, Brotality, Lacabra|2026-11-20T19:00-08:00[America/Los_Angeles]::el-corazon-el-corazon.ics Fear Factory - Cybernetic Domination Tour 2026 with Darkest Hour, Brotality, Lacabra|2026-11-20T19:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] GWAR, Midnight, Mac Sabbath, Atomic Rule|2026-11-23T19:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics GWAR with Midnight, Mac Sabbath, Atomic Rule|2026-11-23T19:45-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Kal-El, Goya, Volume|2026-10-03T19:00-07:00[America/Los_Angeles]::el-corazon-the-funhouse.ics Kal-El with Goya, Volume, Hexecutioner|2026-10-03T20:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] The Convalescence, Squidhammer, Witch Agony, Arsenic Grin, Con-Crete|2026-06-30T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics The Convalescence - A Legacy in Blood Tour with Squidhammer, Witch Agony, Arsenic Grin, Con-crete|2026-06-30T19:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Uncle Acid and the Deadbeats, Messa|2026-09-26T19:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Uncle Acid & the Deadbeats with Messa|2026-09-26T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "NWMetalCalendar-NWMetal.ics [NWMetal] Whitechapel, Chelsea Grin, The Acacia Strain, Netherwalker|2026-12-05T19:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Whitechapel with Netherwalker, The Acacia Strain, Chelsea Grin|2026-12-05T19:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "NWMetal aggregator prefix variant - same show at same venue/date"
+    },
+    "ballard-brewed-all-events.ics Sour Beer day|2026-06-20T12:00:00.106-07:00[America/Los_Angeles]::lucky-envelope-all-events.ics Sour Beer Day|2026-06-20T12:00:00.403-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Sour Beer Day at Lucky Envelope - title=1, geocode-artifact dist"
+    },
+    "barboza-barboza.ics Flower Face with Special Guests|2026-10-20T19:00-07:00[America/Los_Angeles]::neumos-neumos.ics SLIFT with Special Guests|2026-10-20T19:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Barboza (Flower Face) vs Neumos (SLIFT) - different headliners"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Don Toliver: Octane Tour|2026-06-24T19:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Don Toliver|2026-06-24T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Don Toliver same show - arena venue vs Seattle Center listing, dist=1m"
+    },
+    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 6/17/2026 7:30PM|2026-06-17T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle \u2014 Cheap Laughs Open Mic|2026-06-17T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Club Comedy Cheap Laughs - venue vs recurring, dist=6m same event"
+    },
+    "discover-slu-discover-slu.ics Gobble Up SLU 2026|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Gobble Up SLU 2026|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Gobble Up SLU - same event, SLU vs seatoday, title=1"
+    },
+    "discover-slu-discover-slu.ics Gobble Up SLU 2026|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Gobble Up SLU 2026|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Gobble Up SLU - same event, SLU vs seatoday, title=1"
+    },
+    "discover-slu-discover-slu.ics Gobble Up SLU 2026|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Gobble Up SLU 2026|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Gobble Up SLU - same event, SLU vs seatoday, title=1"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Trading Post|2026-09-12T12:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Trading Post|2026-09-12T19:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same downtownseattle.org event URL on both sides"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Trading Post|2026-10-17T12:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Trading Post|2026-10-17T19:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same downtownseattle.org event URL on both sides"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Trading Post|2026-12-12T12:00-08:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Trading Post|2026-12-12T19:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same downtownseattle.org event URL on both sides"
+    },
+    "downtown-seattle-association-occidental-square.ics Pitchside at the Square|2026-06-19T10:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Pitchside at the Square|2026-06-19T17:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same downtownseattle.org event URL on both sides"
+    },
+    "downtown-seattle-association-occidental-square.ics Pitchside at the Square|2026-06-24T10:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Pitchside at the Square|2026-06-24T17:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same downtownseattle.org event URL on both sides"
+    },
+    "downtown-seattle-association-occidental-square.ics Pitchside at the Square|2026-07-01T11:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Pitchside at the Square|2026-07-01T18:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same downtownseattle.org event URL on both sides"
+    },
+    "downtown-seattle-association-occidental-square.ics Pitchside at the Square|2026-07-06T15:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Pitchside at the Square|2026-07-06T22:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same downtownseattle.org event URL on both sides"
+    },
+    "events12-seattle-events.ics Car show|2026-06-27T09:00-07:00[America/Los_Angeles]::external-seafair.ics Greenwood Car Show|2026-06-27T09:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Greenwood Car Show - same event, dist=327m geo-scale"
+    },
+    "events12-seattle-events.ics Night market|2026-06-20T18:00-07:00[America/Los_Angeles]::recurring-columbia-city-night-market.ics Columbia City Night Market|2026-06-20T18:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Columbia City Night Market - same peacepeloton URL, dist=94m"
+    },
+    "external-discover-magnolia.ics Magnolia Summerfest|2026-07-31T00:00Z[UTC]::external-seafair.ics Magnolia Summerfest & Parade|2026-07-31T13:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Magnolia Summerfest - same event, dist=138m"
+    },
+    "external-nw-asian-weekly.ics A Day in Punjab|2026-08-01T00:00Z[UTC]::seattle-center-festal-all-events.ics A Day in Punjab|2026-08-01T11:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Festal event - same festival at Seattle Center, campus-scale dist"
+    },
+    "external-nw-asian-weekly.ics Live Aloha Hawaiian Cultural Festival|2026-09-13T00:00Z[UTC]::seattle-center-festal-all-events.ics Live Aloha Hawaiian Cultural Festival|2026-09-13T11:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Festal event - same festival at Seattle Center, campus-scale dist"
+    },
+    "external-nw-asian-weekly.ics Live Aloha Hawaiian Cultural Festival|2026-09-13T00:00Z[UTC]::visit-seattle-visit-seattle.ics Festal: Live Aloha Hawaiian Cultural Festival|2026-09-13T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Festal event - same festival at Seattle Center, campus-scale dist"
+    },
+    "external-nw-asian-weekly.ics Tibet Fest|2026-08-08T00:00Z[UTC]::seattle-center-festal-all-events.ics Tibet Fest|2026-08-08T11:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Festal event - same festival at Seattle Center, campus-scale dist"
+    },
+    "external-nw-asian-weekly.ics Tibet Fest|2026-08-08T00:00Z[UTC]::visit-seattle-visit-seattle.ics Festal: Tibet Fest|2026-08-08T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Festal event - same festival at Seattle Center, campus-scale dist"
+    },
+    "external-seattle-city-of-lit.ics  Books & Beats|2026-06-17T21:30Z[UTC]::spl-authors-books-authors-books.ics Books & Beats|2026-06-17T14:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Books & Beats|2026-07-15T21:30Z[UTC]::spl-authors-books-authors-books.ics Books & Beats|2026-07-15T14:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Intergenerational Identity Book Club|2026-06-18T22:00Z[UTC]::spl-authors-books-authors-books.ics Intergenerational Identity Book Club|2026-06-18T15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Intergenerational Identity Book Club|2026-06-18T22:00Z[UTC]::spl-southwest.ics Intergenerational Identity Book Club|2026-06-18T15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Intergenerational Identity Book Club|2026-06-25T22:00Z[UTC]::spl-authors-books-authors-books.ics Intergenerational Identity Book Club|2026-06-25T15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Intergenerational Identity Book Club|2026-06-25T22:00Z[UTC]::spl-southwest.ics Intergenerational Identity Book Club|2026-06-25T15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Kids Book Club: Let's Talk About Books|2026-06-25T21:00Z[UTC]::spl-authors-books-authors-books.ics Kids Book Club: Let's Talk About Books|2026-06-25T14:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Kids Book Club: Let's Talk About Books|2026-06-25T21:00Z[UTC]::spl-green-lake.ics Kids Book Club: Let's Talk About Books|2026-06-25T14:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Kids Book Club: Let's Talk About Books|2026-07-30T21:00Z[UTC]::spl-authors-books-authors-books.ics Kids Book Club: Let's Talk About Books|2026-07-30T14:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Silent Reading Party for Kids|2026-07-09T21:00Z[UTC]::spl-authors-books-authors-books.ics Silent Reading Party for Kids|2026-07-09T14:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-city-of-lit.ics  Silent Reading Party for Kids|2026-08-13T21:00Z[UTC]::spl-authors-books-authors-books.ics Silent Reading Party for Kids|2026-08-13T14:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same SPL event (matching title/date) - city-of-lit aggregator vs SPL feed"
+    },
+    "external-seattle-gov-arts.ics 2027 CityArtist Virtual Info Session 2|2026-06-15T13:00Z[UTC]::external-seattle-gov-city-wide.ics 2027 CityArtist Virtual Info Session 2|2026-06-15T13:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics ARTE NOIR | Freedom & Futbol: A Juneteenth Celebration|2026-06-19T11:00Z[UTC]::external-seattle-gov-city-wide.ics ARTE NOIR | Freedom & Futbol: A Juneteenth Celebration|2026-06-19T11:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics ARTE NOIR | Revival Market|2026-06-20T12:00Z[UTC]::external-seattle-gov-city-wide.ics ARTE NOIR | Revival Market|2026-06-20T12:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics BeautyBoiz | World Stunt Block Party|2026-06-26T16:00Z[UTC]::external-seattle-gov-city-wide.ics BeautyBoiz | World Stunt Block Party|2026-06-26T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Black Futures Book Club|2026-07-27T18:00Z[UTC]::external-seattle-gov-city-wide.ics Black Futures Book Club|2026-07-27T18:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Children of Shelly\u2019s Leg | Workshop-Femme Style|2026-06-15T18:00Z[UTC]::external-seattle-gov-city-wide.ics Children of Shelly\u2019s Leg | Workshop-Femme Style|2026-06-15T18:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Children of Shelly\u2019s Leg | Workshop-Masc Style|2026-06-22T18:00Z[UTC]::external-seattle-gov-city-wide.ics Children of Shelly\u2019s Leg | Workshop-Masc Style|2026-06-22T18:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Creative Placemaking Committee (CPC)|2026-06-16T16:00Z[UTC]::external-seattle-gov-city-wide.ics Creative Placemaking Committee (CPC)|2026-06-16T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Creative Placemaking Committee (CPC)|2026-07-21T16:00Z[UTC]::external-seattle-gov-city-wide.ics Creative Placemaking Committee (CPC)|2026-07-21T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Cultural Investments Committee (CIC)|2026-06-18T14:00Z[UTC]::external-seattle-gov-city-wide.ics Cultural Investments Committee (CIC)|2026-06-18T14:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Cultural Investments Committee (CIC)|2026-07-16T14:00Z[UTC]::external-seattle-gov-city-wide.ics Cultural Investments Committee (CIC)|2026-07-16T14:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Delridge Neighborhoods Development Association | Neighborhood Watch Parties|2026-06-15T12:00Z[UTC]::external-seattle-gov-city-wide.ics Delridge Neighborhoods Development Association | Neighborhood Watch Parties|2026-06-15T12:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Delridge Neighborhoods Development Association | Neighborhood Watch Parties|2026-06-24T12:00Z[UTC]::external-seattle-gov-city-wide.ics Delridge Neighborhoods Development Association | Neighborhood Watch Parties|2026-06-24T12:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Delridge Neighborhoods Development Association | Neighborhood Watch Parties|2026-06-26T12:00Z[UTC]::external-seattle-gov-city-wide.ics Delridge Neighborhoods Development Association | Neighborhood Watch Parties|2026-06-26T12:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Delridge Neighborhoods Development Association| Neighborhood Watch Parties|2026-06-19T12:00Z[UTC]::external-seattle-gov-city-wide.ics Delridge Neighborhoods Development Association| Neighborhood Watch Parties|2026-06-19T12:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Duwamish Valley Sustainability Association | South Park United: Mini World Cup|2026-07-19T07:30Z[UTC]::external-seattle-gov-city-wide.ics Duwamish Valley Sustainability Association | South Park United: Mini World Cup|2026-07-19T07:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics First Thursday: Free Zines & Mobile Book Fair|2026-07-02T17:30Z[UTC]::external-seattle-gov-city-wide.ics First Thursday: Free Zines & Mobile Book Fair|2026-07-02T17:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics First Thursday: The Living Legacy of Joe Brazil|2026-07-02T17:30Z[UTC]::external-seattle-gov-city-wide.ics First Thursday: The Living Legacy of Joe Brazil|2026-07-02T17:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Fremont Arts Council | Soccer Meets Summer Solstice in Seattle|2026-06-20T12:00Z[UTC]::external-seattle-gov-city-wide.ics Fremont Arts Council | Soccer Meets Summer Solstice in Seattle|2026-06-20T12:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics LONGEST DAY: Solstice Revelry|2026-06-20T14:00Z[UTC]::external-seattle-gov-city-wide.ics LONGEST DAY: Solstice Revelry|2026-06-20T14:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Longest Day: Free Zines & Mobile Book Fair|2026-06-20T14:00Z[UTC]::external-seattle-gov-city-wide.ics Longest Day: Free Zines & Mobile Book Fair|2026-06-20T14:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Longest Day: Ho'oku'i: The Key to our Bright Future|2026-06-20T14:00Z[UTC]::external-seattle-gov-city-wide.ics Longest Day: Ho'oku'i: The Key to our Bright Future|2026-06-20T14:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Longest Day: Multilingual Indigenous Music by Khu.\u00e9ex'|2026-06-20T17:00Z[UTC]::external-seattle-gov-city-wide.ics Longest Day: Multilingual Indigenous Music by Khu.\u00e9ex'|2026-06-20T17:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Native ACTION Network | Kickin' It Indi-City - An Indigenous World Cup Seattle Celebration|2026-07-02T10:00Z[UTC]::external-seattle-gov-city-wide.ics Native ACTION Network | Kickin' It Indi-City - An Indigenous World Cup Seattle Celebration|2026-07-02T10:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Native ACTION Network | Kickin' It Indi-City - An Indigenous World Cup Seattle Celebration|2026-07-03T10:00Z[UTC]::waterfront-park-waterfront-park.ics Kickin\u2019 It Indi\u2011City: An Indigenous Soccer Celebration|2026-07-03T11:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Kickin' It Indi-City - same event at Pier 62, waterfront geo-scale dist"
+    },
+    "external-seattle-gov-arts.ics Public Art Advisory Committee (PAAC)|2026-06-23T09:00Z[UTC]::external-seattle-gov-city-wide.ics Public Art Advisory Committee (PAAC)|2026-06-23T09:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Public Art Advisory Committee (PAAC)|2026-07-28T09:00Z[UTC]::external-seattle-gov-city-wide.ics Public Art Advisory Committee (PAAC)|2026-07-28T09:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Seattle Arts Commission|2026-07-14T16:00Z[UTC]::external-seattle-gov-city-wide.ics Seattle Arts Commission|2026-07-14T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Setting of the Daybreak Star: Ribbon Skirt|2026-07-09T18:00Z[UTC]::external-seattle-gov-city-wide.ics Setting of the Daybreak Star: Ribbon Skirt|2026-07-09T18:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-06-18T15:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-06-18T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-07-02T15:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-07-02T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-07-16T15:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-07-16T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-07-30T15:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-07-30T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics The Dreaming Room: Soundscapes for Deep Rest|2026-06-18T18:00Z[UTC]::external-seattle-gov-city-wide.ics The Dreaming Room: Soundscapes for Deep Rest|2026-06-18T18:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Titus Ross Jr. | TBNW x THIRTY+ Fashion Mixer + Mini Workshops|2026-06-20T15:00Z[UTC]::external-seattle-gov-city-wide.ics Titus Ross Jr. | TBNW x THIRTY+ Fashion Mixer + Mini Workshops|2026-06-20T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics U District Advocates | The World Cup Comes to the U District|2026-07-18T10:00Z[UTC]::external-seattle-gov-city-wide.ics U District Advocates | The World Cup Comes to the U District|2026-07-18T10:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics U District Advocates | The World Cup Comes to the U District|2026-07-19T10:00Z[UTC]::external-seattle-gov-city-wide.ics U District Advocates | The World Cup Comes to the U District|2026-07-19T10:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics Uptown Arts & Cultural District | Uptown Street Faire|2026-06-21T12:00Z[UTC]::external-seattle-gov-city-wide.ics Uptown Arts & Cultural District | Uptown Street Faire|2026-06-21T12:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Draft Review Session|2026-06-18T12:30Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Draft Review Session|2026-06-18T12:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Draft Review Session|2026-07-02T12:30Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Draft Review Session|2026-07-02T12:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Draft Review Session|2026-07-16T12:30Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Draft Review Session|2026-07-16T12:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Information Session|2026-06-18T11:30Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Information Session|2026-06-18T11:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Information Session|2026-07-02T11:30Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Information Session|2026-07-02T11:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Information Session|2026-07-16T11:30Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Information Session|2026-07-16T11:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Ballard Regnbue Pride Festival & Watch Party|2026-06-26T11:30Z[UTC]::external-seattle-gov-neighborhoods.ics Ballard Regnbue Pride Festival & Watch Party|2026-06-26T11:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-06-18T19:30Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-06-18T19:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-06-25T19:30Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-06-25T19:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-07-02T19:30Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-07-02T19:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-07-09T19:30Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-07-09T19:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-07-16T19:30Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-07-16T19:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-07-23T19:30Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-07-23T19:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-07-30T19:30Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-07-30T19:30Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Native ACTION Network | Kickin' It Indi-City - An Indigenous World Cup Seattle Celebration|2026-07-03T10:00Z[UTC]::waterfront-park-waterfront-park.ics Kickin\u2019 It Indi\u2011City: An Indigenous Soccer Celebration|2026-07-03T11:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Kickin' It Indi-City - same event at Pier 62, waterfront geo-scale dist"
+    },
+    "external-seattle-gov-city-wide.ics Ravenna Park Restore|2026-06-21T10:00Z[UTC]::external-seattle-parks-foundation.ics Ravenna Park Restore|2026-06-21T10:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Ravenna Park Restore - same event, dist=301m geo-scale, title=1"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Bicycle Advisory Board|2026-06-16T17:45Z[UTC]::external-seattle-streets-alliance.ics Seattle Bicycle Advisory Board Meeting|2026-06-16T17:45Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Seattle Bicycle Advisory Board meeting - same event, same time/place"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Bicycle Advisory Board|2026-07-21T17:45Z[UTC]::external-seattle-streets-alliance.ics Seattle Bicycle Advisory Board Meeting|2026-07-21T17:45Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Seattle Bicycle Advisory Board meeting - same event, same time/place"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Renters' Commission meeting|2026-07-01T18:00Z[UTC]::external-seattle-gov-neighborhoods.ics Seattle Renters' Commission meeting|2026-07-01T18:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-gov-city-wide.ics Under the Summer Sky: Sacred Songs & Stories of Inner Freedom|2026-07-04T11:00Z[UTC]::external-seattle-gov-neighborhoods.ics Under the Summer Sky: Sacred Songs & Stories of Inner Freedom|2026-07-04T11:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
+    },
+    "external-seattle-university.ics Defender Initiative Conference 2026\u2014Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-all.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Defender Initiative Conference - same event at Sullivan Hall, SeattleU vs seatoday"
+    },
+    "external-seattle-university.ics Defender Initiative Conference 2026\u2014Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-community.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Defender Initiative Conference - same event at Sullivan Hall, SeattleU vs seatoday"
+    },
+    "external-seattle-university.ics Defender Initiative Conference 2026\u2014Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-learning.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Defender Initiative Conference - same event at Sullivan Hall, SeattleU vs seatoday"
+    },
+    "external-seed-seattle.ics 98118 Fest|2026-08-22T14:00Z[UTC]::rainier-arts-center-rainier-arts-center.ics 98118 Fest|2026-08-22T07:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Columbia Park event (98118 Fest / Cinema Under the Stars), dist=94m"
+    },
+    "external-seed-seattle.ics Cinema Under the Stars|2026-08-08T19:00Z[UTC]::rainier-arts-center-rainier-arts-center.ics Cinema Under the Stars: Elio|2026-08-08T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Columbia Park event (98118 Fest / Cinema Under the Stars), dist=94m"
+    },
+    "external-uw-campus-events.ics AI for Organizations Graduate Certificate Information Session & Q&A|2026-07-13T17:00Z[UTC]::external-uw-information-school.ics AI for Organizations Graduate Certificate Information Session & Q&A|2026-07-13T17:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-06-17T17:00Z[UTC]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-06-17T17:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Environmental Stewardship Committee meeting|2026-07-14T13:00Z[UTC]::external-uw-sustainability.ics Environmental Stewardship Committee meeting|2026-07-14T13:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-07-09T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-07-09T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-07-15T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-07-15T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-07-30T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-07-30T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-08-12T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-08-12T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-08-20T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-08-20T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-08-24T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-08-24T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-09-07T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-09-07T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-09-10T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-09-10T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-07-10T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-07-10T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-07-14T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-07-14T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-07-24T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-07-24T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-08-04T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-08-04T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-08-13T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-08-13T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-08-19T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-08-19T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-09-09T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-09-09T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-07-06T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-07-06T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-07-17T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-07-17T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-07-29T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-07-29T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-08-06T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-08-06T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-08-14T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-08-14T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-08-17T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-08-17T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-09-14T16:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-09-14T16:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "external-uw-campus-events.ics MSIM Admission Advisor Q&A|2026-06-22T13:00Z[UTC]::external-uw-information-school.ics MSIM Admission Advisor Q&A|2026-06-22T13:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "UW campus-events + school-specific feed - same event"
+    },
+    "fremont-brewing-all-events.ics Fremont Solstice Fair|2026-06-20T11:00:00.032-07:00[America/Los_Angeles]::recurring-fremont-fair.ics Fremont Fair & Solstice Festival|2026-06-20T10:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Fremont Brewing Solstice Fair vs Fremont Fair & Solstice Festival - different events"
+    },
+    "lumen-field-lumen-field.ics World Cup: Match 52 Group B - Qatar vs Bosnia-Herzegovina|2026-06-24T12:00-07:00[America/Los_Angeles]::seattle-fwc26-matches-matches.ics FIFA World Cup 26: Bosnia-Herzegovina vs Qatar|2026-06-24T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same World Cup match at Lumen Field, dist=0m"
+    },
+    "mccaw-hall-mccaw-hall.ics Sartaaj Heritage Tour 2026|2026-06-21T19:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Sartaaj Heritage Tour 2026|2026-06-21T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Sartaaj Heritage Tour - same show, McCaw Hall vs Seattle Center, campus-scale dist"
+    },
+    "neumos-neumos.ics EIHWAR|2026-09-12T19:00-07:00[America/Los_Angeles]::showbox-presents-neumos.ics EIHWAR|2026-09-12T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same show at Neumos - venue vs showbox-presents-neumos, matching event id"
+    },
+    "neumos-neumos.ics Faouzia|2026-08-05T19:00-07:00[America/Los_Angeles]::showbox-presents-neumos.ics Faouzia|2026-08-05T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same show at Neumos - venue vs showbox-presents-neumos, matching event id"
+    },
+    "ounces_taproom-all-events.ics Pride Party!|2026-06-27T17:00:00.340-07:00[America/Los_Angeles]::seattle-pride-all-events.ics Pride Party West Seattle|2026-06-27T17:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Pride Party West Seattle at Ounces - same event, dist=0m"
+    },
+    "recurring-bite-of-seattle.ics Bite of Seattle|2026-07-24T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Bite of Seattle|2026-07-24T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Bite of Seattle - same event at Seattle Center, dist=89m"
+    },
+    "recurring-bumbershoot.ics Bumbershoot|2026-09-05T11:00-07:00[America/Los_Angeles]::seattle-film-society-seattle-film-society.ics Bumbershoot | Videorama|2026-09-05T10:00:00.153-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Bumbershoot festival vs SIFF Videorama screening"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-06-22T19:30-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-06-22T19:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Stoup Ballard HITC trivia - recurring vs venue feed, dist=2m"
+    },
+    "recurring-pax-west.ics PAX West|2026-09-04T10:00-07:00[America/Los_Angeles]::seattle-convention-center-all-events.ics PAX West 2026|2026-09-04T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "PAX West - same event at Seattle Convention Center, locText=1"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-06-17T18:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-06-17T18:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Reuben's Ballard vs Downtown - different taprooms"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-06-24T18:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-06-24T18:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Reuben's Ballard vs Downtown - different taprooms"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-07-01T18:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-07-01T18:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Reuben's Ballard vs Downtown - different taprooms"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-07-08T18:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-07-08T18:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Reuben's Ballard vs Downtown - different taprooms"
+    },
+    "seatoday-seatoday-all.ics Artvana Paint & Sip Class, The Toad House Bremerton June 2026|2026-06-30T17:30-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Artvana Paint & Sip Class, The Toad House Bremerton June 2026|2026-06-30T17:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Artvana Paint & Sip Class, The Toad House Bremerton June 2026|2026-06-30T17:30-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Artvana Paint & Sip Class, The Toad House Bremerton June 2026|2026-06-30T17:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Cello Concert with Gretchen Yanover|2026-06-17T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-06-17T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Cello Concert seatoday(Town Hall) vs SPL(Central Library) - conflicting venues, locText=0"
+    },
+    "seatoday-seatoday-all.ics City Light Review Panel Meeting|2026-06-17T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics City Light Review Panel Meeting|2026-06-17T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Coffee & Connections: Chamber Morning Meet-Up|2026-06-18T08:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Coffee & Connections: Chamber Morning Meet-Up|2026-06-18T08:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Future Workspace Summit|2026-06-22T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Future Workspace Summit|2026-06-22T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Green Issaquah: Restoration Event at Park Pointe|2026-06-20T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Green Issaquah: Restoration Event at Park Pointe|2026-06-20T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Green Issaquah: Restoration Event at Park Pointe|2026-06-20T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Green Issaquah: Restoration Event at Park Pointe|2026-06-20T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Juanita Open Space #1 Habitat Stewardship Day|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Juanita Open Space #1 Habitat Stewardship Day|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Juanita Open Space #1 Habitat Stewardship Day|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Juanita Open Space #1 Habitat Stewardship Day|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-19T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-19T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-19T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-19T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-20T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-20T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-20T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-20T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-21T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-21T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-21T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-21T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-22T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-22T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-22T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-22T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-26T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-26T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-26T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-26T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-28T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-28T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-28T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-28T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-29T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-29T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-06-29T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-29T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Lynnwood Chamber Luncheon|2026-06-17T11:30-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Lynnwood Chamber Luncheon|2026-06-17T11:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Men in Blazers Media Match Day Live on 6/19|2026-06-19T08:30-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Men in Blazers Media Match Day Live on 6/19|2026-06-19T08:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Town Center Committee|2026-06-23T12:30-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mill Creek Town Center Committee|2026-06-23T12:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Town Center Committee|2026-06-23T12:30-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Town Center Committee|2026-06-23T12:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Red Cross Blood Drive|2026-06-18T09:30-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Red Cross Blood Drive|2026-06-18T09:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Red Cross Blood Drive|2026-06-18T09:30-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red Cross Blood Drive|2026-06-18T09:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Sacred Geometry 1: Learn the Language of the Divine & Create Sacred Space|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sacred Geometry 1: Learn the Language of the Divine & Create Sacred Space|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Seattle Mariners vs. Los Angeles Angels|2026-06-29T18:40-07:00[America/Los_Angeles]::t-mobile-park-t-mobile-park.ics Seattle Mariners vs. Los Angeles Angels|2026-06-29T18:40-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Mariners vs Angels game - seatoday vs T-Mobile Park, title=1"
+    },
+    "seatoday-seatoday-all.ics Seattle Microsoft Teams Users Group Q2 2026|2026-06-24T11:45-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Seattle Microsoft Teams Users Group Q2 2026|2026-06-24T11:45-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Speakpreneur Seattle - 1 Day Workshop|2026-06-26T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Speakpreneur Seattle - 1 Day Workshop|2026-06-26T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-17T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-17T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-17T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-17T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-22T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-22T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-22T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-22T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-23T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-23T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-23T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-23T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-24T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-24T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-24T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-24T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-29T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-29T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-29T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-29T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-30T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-30T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-06-30T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-30T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-all.ics World Cup Golden Ticket Sweepstakes|2026-06-24T12:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics World Cup Golden Ticket Sweepstakes|2026-06-24T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Artvana Paint & Sip Class, The Toad House Bremerton June 2026|2026-06-30T17:30-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Artvana Paint & Sip Class, The Toad House Bremerton June 2026|2026-06-30T17:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Cello Concert with Gretchen Yanover|2026-06-17T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-06-17T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Cello Concert seatoday(Town Hall) vs SPL(Central Library) - conflicting venues, locText=0"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Red Cross Blood Drive|2026-06-18T09:30-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red Cross Blood Drive|2026-06-18T09:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-arts.ics Seattle Mariners vs. Los Angeles Angels|2026-06-29T18:40-07:00[America/Los_Angeles]::t-mobile-park-t-mobile-park.ics Seattle Mariners vs. Los Angeles Angels|2026-06-29T18:40-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Mariners vs Angels game - seatoday vs T-Mobile Park, title=1"
+    },
+    "seatoday-seatoday-community.ics Cello Concert with Gretchen Yanover|2026-06-17T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-06-17T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Cello Concert seatoday(Town Hall) vs SPL(Central Library) - conflicting venues, locText=0"
+    },
+    "seatoday-seatoday-community.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Green Issaquah: Restoration Event at Park Pointe|2026-06-20T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Green Issaquah: Restoration Event at Park Pointe|2026-06-20T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Juanita Open Space #1 Habitat Stewardship Day|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Juanita Open Space #1 Habitat Stewardship Day|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-19T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-19T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-20T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-20T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-21T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-21T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-22T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-22T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-26T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-26T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-28T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-28T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-06-29T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-06-29T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Mill Creek Town Center Committee|2026-06-23T12:30-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Town Center Committee|2026-06-23T12:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-17T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-17T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-22T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-22T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-23T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-23T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-24T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-24T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-27T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-27T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-29T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-29T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-06-30T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-06-30T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-learning.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Cougar Mountain Geology: Underfoot at Sky Country Trailhead|2026-06-27T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "seatoday-seatoday-learning.ics Seattle Mariners vs. Los Angeles Angels|2026-06-29T18:40-07:00[America/Los_Angeles]::t-mobile-park-t-mobile-park.ics Seattle Mariners vs. Los Angeles Angels|2026-06-29T18:40-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Mariners vs Angels game - seatoday vs T-Mobile Park, title=1"
+    },
+    "seatoday-seatoday-sports.ics Cello Concert with Gretchen Yanover|2026-06-17T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-06-17T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Cello Concert seatoday(Town Hall) vs SPL(Central Library) - conflicting venues, locText=0"
+    },
+    "seatoday-seatoday-sports.ics Seattle Mariners vs. Los Angeles Angels|2026-06-29T18:40-07:00[America/Los_Angeles]::t-mobile-park-t-mobile-park.ics Seattle Mariners vs. Los Angeles Angels|2026-06-29T18:40-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Mariners vs Angels game - seatoday vs T-Mobile Park, title=1"
+    },
+    "seattle-center-festal-all-events.ics A Day in Punjab|2026-08-01T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Fest\u00e1l : A Day in Punjab|2026-08-01T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Festal festival at Seattle Center - 'Festal:' prefix variant, campus-scale dist"
+    },
+    "seattle-center-festal-all-events.ics BrasilFest|2026-08-16T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festal: BrasilFest|2026-08-16T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Festal festival at Seattle Center - 'Festal:' prefix variant, campus-scale dist"
+    },
+    "seattle-center-festal-all-events.ics Festival Sundiata presents Black Arts Fest|2026-08-22T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festival Sundiata presents Black Arts Fest|2026-08-22T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Festal festival at Seattle Center - 'Festal:' prefix variant, campus-scale dist"
+    },
+    "seattle-center-festal-all-events.ics Live Aloha Hawaiian Cultural Festival|2026-09-13T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festal: Live Aloha Hawaiian Cultural Festival|2026-09-13T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Festal festival at Seattle Center - 'Festal:' prefix variant, campus-scale dist"
+    },
+    "seattle-center-festal-all-events.ics Sea Mar Fiestas Patrias|2026-09-19T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festal: Sea Mar Fiestas Patrias|2026-09-19T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Festal festival at Seattle Center - 'Festal:' prefix variant, campus-scale dist"
+    },
+    "seattle-center-festal-all-events.ics Tibet Fest|2026-08-08T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festal: Tibet Fest|2026-08-08T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "same Festal festival at Seattle Center - 'Festal:' prefix variant, campus-scale dist"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-17T19:30-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-17T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "The Play That Goes Wrong - same Seattle Rep show, dist=3m same performance time"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-18T14:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-18T14:00-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "The Play That Goes Wrong - same Seattle Rep show, dist=3m same performance time"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-18T19:30-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-18T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "The Play That Goes Wrong - same Seattle Rep show, dist=3m same performance time"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-20T14:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-20T14:00-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "The Play That Goes Wrong - same Seattle Rep show, dist=3m same performance time"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-20T19:30-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-20T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "The Play That Goes Wrong - same Seattle Rep show, dist=3m same performance time"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-21T14:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-21T14:00-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "The Play That Goes Wrong - same Seattle Rep show, dist=3m same performance time"
+    },
+    "seattle-showlists-the-rabbit-box.ics The Triple Door presents Tracy Bonham at The Rabbit Box|2026-08-20T20:00-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Tracy Bonham at The Rabbit Box|2026-08-20T19:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Tracy Bonham at The Rabbit Box - showlists aggregator vs Triple Door, same show"
+    },
+    "siff-downtown.ics [SIFF] The Odyssey|2026-07-16T19:00:26.444-07:00[America/Los_Angeles]::siff-uptown.ics [SIFF] The Invite|2026-07-16T19:00:26.444-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "SIFF different films (Odyssey vs Invite)"
+    },
+    "spl-beacon-hill.ics Rainbow Family Story Time|2026-06-26T11:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-06-26T10:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "SPL Beacon Hill vs Capitol Hill - different branches/events"
+    },
+    "spl-delridge.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-06-29T10:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-06-29T10:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "SPL Delridge vs Rainier Beach - different branches"
+    },
+    "spl-douglass-truth.ics Family Story Time|2026-06-24T10:30-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-06-24T10:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "SPL Douglass-Truth vs Greenwood - different branches"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-06-22T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-06-22T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-06-29T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-06-29T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-06T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-07-06T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-13T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-07-13T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-20T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-07-20T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-27T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-07-27T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-03T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-08-03T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-10T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-08-10T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-17T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-08-17T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-24T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-08-24T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-31T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-08-31T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-09-07T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-09-07T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-09-14T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-09-14T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-09-21T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-09-21T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-09-28T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-09-28T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-10-05T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-10-05T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-10-12T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-10-12T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-10-19T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-10-19T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-10-26T19:30-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-10-26T19:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-11-02T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-11-02T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-11-09T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-11-09T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-11-16T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-11-16T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-11-23T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-11-23T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-11-30T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-11-30T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-12-07T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-12-07T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-12-14T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-12-14T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-12-21T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-12-21T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-12-28T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2026-12-28T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-01-04T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-01-04T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-01-11T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-01-11T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-01-18T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-01-18T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-01-25T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-01-25T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-02-01T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-02-01T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-02-08T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-02-08T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-02-15T19:30-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-02-15T19:30-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Stoup Ballard vs Stoup Capitol Hill - different locations"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor & KEXP's Roadhoue Present: The Lostines x Kinsey Lee w/Sequoia|2026-07-19T20:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor & KEXP's Roadhouse Present: The Lostines x Kinsey Lee (album release) w/ Sequoia|2026-07-19T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Tractor presents at The Sunset - same show, both Ballard, same date/time"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Sean Hayes, guests|2026-08-17T20:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Sean Hayes w/ guests at The Sunset|2026-08-17T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-17",
+      "note": "Tractor presents at The Sunset - same show, both Ballard, same date/time"
+    }
+  }
 }
