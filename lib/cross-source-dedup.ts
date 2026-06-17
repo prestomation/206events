@@ -197,6 +197,17 @@ export interface DedupResult {
 export type SourceRole = 'venue' | 'aggregator';
 export type RoleLookup = (e: DedupEvent) => SourceRole | undefined;
 
+// This pure matcher stays decoupled from the Zod config schema (it operates on
+// DedupEvent, not configs), so it declares SourceRole locally. Guard against the
+// two declarations drifting: a type-only import (no runtime coupling) that fails
+// to compile if the schema enum and this union ever disagree.
+type _SourceRoleInSync =
+    SourceRole extends import('./config/schema.js').SourceRole
+        ? (import('./config/schema.js').SourceRole extends SourceRole ? true : never)
+        : never;
+const _sourceRoleInSync: _SourceRoleInSync = true;
+void _sourceRoleInSync;
+
 // Lower rank wins the canonical slot. Venue (0) outranks aggregator (1); an
 // unknown role is treated as a venue so the pick never demotes a real venue
 // behind an aggregator just because a role was missing.
