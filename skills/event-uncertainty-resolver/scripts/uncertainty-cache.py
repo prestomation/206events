@@ -193,7 +193,9 @@ def cmd_resolve(args):
 DATE_REGEXES = [
     re.compile(r"(\d{4})-(\d{2})-(\d{2})"),
     re.compile(r"(\d{4})/(\d{2})/(\d{2})"),
-    re.compile(r"(\d{4})(\d{2})(\d{2})"),
+    # Restrict to 20xx years so numeric IDs like Cityspark's 8-digit event IDs
+    # (e.g. cityspark-16111505) aren't falsely matched as YYYYMMDD dates.
+    re.compile(r"(20\d{2})((?:0[1-9]|1[0-2]))((?:0[1-9]|[12]\d|3[01]))"),
 ]
 
 
