@@ -1634,6 +1634,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "Tractor presents at The Sunset - same show, both Ballard, same date/time"
+    },
+    "siff-downtown.ics [SIFF] The Odyssey|2026-07-16T19:00:22.184-07:00[America/Los_Angeles]::siff-uptown.ics [SIFF] The Invite|2026-07-16T19:00:22.184-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "Different SIFF films (The Odyssey vs The Invite) at different cinemas (Downtown vs Uptown), dist 2055m"
     }
   }
 }
