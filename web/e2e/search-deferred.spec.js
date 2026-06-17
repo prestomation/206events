@@ -40,3 +40,24 @@ test('deferred search converges to the filtered set and is clearable', async ({ 
   await page.locator('.a-fchip--search button.a-fchip-x').click()
   await expect(page.getByText('Movie Premiere')).toBeVisible()
 })
+
+test('deferred search also filters the Following feed', async ({ page }) => {
+  // Following only filters via app.matchEvents/app.queryKeySet, which now lag
+  // app.query (deferred). Seed the local feed with both calendars so the search
+  // has something to narrow, then assert it converges — guards the FollowingView
+  // memo's dependency on the deferred queryKeySet.
+  await page.addInitScript(() => {
+    localStorage.setItem('calendar-ripper-favorites', JSON.stringify(['test-ripper-cal1.ics', 'test-ripper-cal2.ics']))
+    localStorage.setItem('calendar-ripper-ftux-seen', '1')
+  })
+  await page.goto('/')
+  await expect(page.getByText('Neumos')).toBeVisible()
+
+  await page.getByText('Following', { exact: true }).first().click()
+  await expect(page.getByText('Jazz Night')).toBeVisible()
+  await expect(page.getByText('Movie Premiere')).toBeVisible()
+
+  await page.getByPlaceholder('Search events & venues…').fill('jazz')
+  await expect(page.getByText('Jazz Night')).toBeVisible()
+  await expect(page.getByText('Movie Premiere')).toHaveCount(0)
+})

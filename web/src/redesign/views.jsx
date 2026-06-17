@@ -339,7 +339,11 @@ export function FollowingView() {
       costHiddenCount = before - gs.reduce((n, g) => n + g.events.length, 0)
     }
     return { groups: gs, costHiddenCount }
-  }, [app.feedGroups, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl])
+    // app.queryKeySet / app.matchEvents are required deps: queryKeySet is now
+    // deferred (App206), so it settles in a render *after* app.query changes —
+    // without it here, the feed would recompute with a stale/null match set and
+    // never re-filter once the deferred search lands.
+  }, [app.feedGroups, app.category, app.neighborhood, app.costFilter, app.query, app.queryKeySet, app.matchEvents, app.channelByIcsUrl])
 
   const counts = { cal: app.favoritesSet.size, place: app.geoFilters.length, search: app.searchFilters.length }
   const total = groups.reduce((n, g) => n + g.events.length, 0)
