@@ -496,6 +496,18 @@ same PR, both:**
    there.) Capture every distinct visual state the change introduces (e.g. one
    per variant/kind), and regenerate them whenever the UI changes again.
 
+**Always embed these screenshots in the PR body**, not just commit them. A
+reviewer should see the rendered UI in the PR description without digging
+through the Files-changed tab. Reference each committed image by its raw URL on
+the PR branch so GitHub renders it inline:
+
+```markdown
+![Other dates section](https://github.com/prestomation/206events/raw/<branch>/web/e2e/screenshots/<name>.png)
+```
+
+Embed every screenshot the PR adds or regenerates, and re-point/refresh them
+whenever you push new captures.
+
 **Do NOT use pixel-diff assertions (`toHaveScreenshot`/`toMatchSnapshot`)** for
 this — committed baselines are flaky across machines (fonts, rendering). The
 screenshots are documentation for human review; correctness is asserted with
