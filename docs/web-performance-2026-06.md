@@ -88,11 +88,11 @@ this live box, so the live box's algorithm can be tuned independently.
 
 **Recommended fixes (in order):**
 
-- **Defer the work off the input.** Wrap the committed query in `useDeferredValue`
-  (already imported in `App206.jsx`, and already used for `dateWindow`) so
-  `queryKeySet` + the dependent re-renders run at low priority and never block
-  typing/scrolling. Zero change to search semantics. **Biggest UX win for the
-  smallest, safest change.**
+- **Defer the work off the input.** ✅ *Implemented in this PR.* The committed
+  query is now wrapped in `useDeferredValue` (`App206.jsx`), mirroring the existing
+  `dateWindow` pattern, so `queryKeySet` + the dependent re-renders run at low
+  priority and never block typing/scrolling. Zero change to search semantics.
+  **Biggest UX win for the smallest, safest change.**
 - **Cut the per-query cost.** `threshold: 0.1` is already near-exact, so the
   fuzzy tolerance buys little over the description field while costing 5–80×. Either
   drop `description` from the live keys (search summary+location fuzzy, 38 ms) and
@@ -125,11 +125,11 @@ doubles it again. `App.test.jsx` exercises the **`App206` TopBar** ("Search even
 & venues…"), not the legacy `searchTerm` path, so this code is unprotected and
 safe to remove.
 
-**Recommended fix:** delete the dead memos and their now-orphaned helpers from
-`App.jsx`. Pure cleanup, ~56 ms + ~5 MB reclaimed per load, no rendered-UI change.
-Keep `perFilterMatches`/`searchFilterMatchSummaries`/`eventAttributions`/
-`followingGroups` — those *are* live (they feed the Following view and attribution
-chips).
+**Recommended fix:** ✅ *Implemented in this PR.* Deleted the dead memos and their
+now-orphaned state/effects from `App.jsx` (~56 ms + ~5 MB reclaimed per load, no
+rendered-UI change). Kept `perFilterMatches`/`searchFilterMatchSummaries`/
+`eventAttributions`/`followingGroups` — those *are* live (they feed the Following
+view and attribution chips).
 
 ### 3. `events-index.json` is dominated by `description` (39% of 9.6 MB) — *load + memory*
 
@@ -165,13 +165,14 @@ work; helps every re-filter (date-window drag, tag/category switches).
 
 ## Suggested sequencing
 
-| # | Change | Risk | Est. win | UI test needed? |
+| # | Change | Risk | Est. win | Status |
 |---|---|---|---|---|
-| 1a | `useDeferredValue` on live query | very low | kills the typing freeze | yes (e2e + screenshot) |
-| 2 | Delete dead `App.jsx` memos | low | ~56 ms + ~5 MB/load | no rendered-UI change |
-| 4 | Cache parsed dates | low | smoother re-filters | yes |
-| 1b | Trim live-search description cost | med (behavior) | 121 → ~3–38 ms/query | yes + product sign-off |
-| 3 | Trim/relocate index `description` | med (payload shape) | ~3.7 MB lighter index | coordinate w/ payload-split |
+| 1a | `useDeferredValue` on live query | very low | kills the typing freeze | ✅ done (this PR) |
+| 2 | Delete dead `App.jsx` memos | low | ~56 ms + ~5 MB/load | ✅ done (this PR) |
+| 4 | Cache parsed dates | low | smoother re-filters | open |
+| 1b | Trim live-search description cost | med (behavior) | 121 → ~3–38 ms/query | open (product sign-off) |
+| 3 | Trim/relocate index `description` | med (payload shape) | ~3.7 MB lighter index | open (coordinate w/ payload-split) |
 
-1a + 2 together address the two headline complaints ("typing in search" and "on
-load") at low risk and are the recommended first PRs.
+1a + 2 address the two headline complaints ("typing in search" and "on load") at
+low risk and are implemented here. 4, 1b, and 3 remain as follow-ups — 1b and 3
+carry product/behavior tradeoffs and should be deliberate decisions.
