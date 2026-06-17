@@ -230,18 +230,33 @@ export function App206(props) {
 
   /* ---- search: ONE Fuse over the upcoming window, matches memoized into a
      key Set so per-view filtering is an O(n) membership test (no per-keystroke
-     index rebuilds → no freeze). ---- */
+     index rebuilds → no freeze). ----
+
+     The Fuse `search()` itself is still pricey on the full prod corpus
+     (`ignoreLocation: true` scans every event's whole description — ~120 ms/query
+     on desktop, several hundred ms on mobile). Running it synchronously when the
+     debounced `query` commits froze the frame and stuttered subsequent typing.
+     So `queryKeySet` (and every consumer that re-renders off it — the Discover /
+     Following lists and the Leaflet marker layer) is computed from a *deferred*
+     copy of the query: React renders the match-set update at low priority and
+     coalesces rapid commits, keeping the input and scrolling responsive while the
+     search runs. Same pattern as `dateWindow` below. `queryPending` is true while
+     the committed and deferred queries diverge — for an optional "searching…" hint.
+     This is the client-only live box; the parity-locked saved-search path
+     (App.jsx `perFilterMatches` / event-search.ts) is untouched. */
+  const deferredQuery = useDeferredValue(query)
+  const queryPending = deferredQuery !== query
   const queryFuse = useMemo(
     () => new Fuse(upcomingEvents, { keys: ['summary', 'description', 'location'], threshold: FUSE_THRESHOLD, ignoreLocation: FUSE_IGNORE_LOCATION }),
     [upcomingEvents]
   )
   const queryKeySet = useMemo(() => {
-    const q = query.trim()
+    const q = deferredQuery.trim()
     if (!q) return null
     const set = new Set()
     for (const r of queryFuse.search(q)) set.add(eventKey(r.item))
     return set
-  }, [queryFuse, query])
+  }, [queryFuse, deferredQuery])
   // Filter any list of index events by the committed query (membership test).
   const matchEvents = useCallback((q, list) => {
     if (!q || !q.trim() || !queryKeySet) return list
@@ -359,7 +374,7 @@ export function App206(props) {
     feedGroups, matchEvents, queryKeySet, inScope,
     // ui state
     section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,
-    query, setQuery, clearSearch, category, setCategory, neighborhood, setNeighborhood,
+    query, setQuery, queryPending, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     costFilter, setCostFilter,
     hasActiveFilters, toast, todayLabel,
     showWelcome, dismissWelcome, helpOpen, openHelp, closeHelp,
