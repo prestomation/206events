@@ -6,7 +6,7 @@ url: https://honkfestwest.org/
 tags: [Music, Community]
 firstSeen: 2026-06-17
 lastChecked: 2026-06-17
-pr: 0
+pr: 666
 ---
 **HONK! Fest West** — `https://honkfestwest.org/` — Annual free street-band festival with 30+ brass, percussion, and activist bands performing in public spaces across Seattle neighborhoods. Free and all-ages.
 
