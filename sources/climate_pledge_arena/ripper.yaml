@@ -1,4 +1,5 @@
 name: climate-pledge-arena
+sourceRole: venue
 type: ticketmaster
 description: "Seattle's premier arena at Seattle Center, home of the Kraken and Storm"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"

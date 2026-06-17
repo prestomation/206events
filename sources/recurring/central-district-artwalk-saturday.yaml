@@ -7,6 +7,7 @@ geo:
   label: "Central District, Seattle, WA"
   osmChecked: "2026-06-16"
 name: central-district-artwalk-saturday
+sourceRole: venue
 friendlyname: Central District Art Walk (Second Saturday)
 description: Monthly art walk in the Central District on second Saturdays
 timezone: America/Los_Angeles

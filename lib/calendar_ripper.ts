@@ -15,6 +15,7 @@ import {
   serializeRipperError,
   EventCost,
   UncertaintyField,
+  SourceRole,
 } from "./config/schema.js";
 import { getFetchForConfig } from "./config/proxy-fetch.js";
 import {
@@ -1446,7 +1447,24 @@ END:VCALENDAR`;
   // Marks only — no event is dropped and no .ics feed changes. Must run after
   // the index is fully assembled (rippers + external + recurring + outofband)
   // and before serialization. See docs/cross-source-event-dedup.md.
-  const dedupResult = findDuplicates(eventsIndex, { resolved: resolutionsFromCache(duplicateCache) });
+  // Map every feed's icsUrl to its venue/aggregator role so the dedup pass can
+  // pick the canonical copy (venue wins over aggregator). Rippers (including
+  // out-of-band ones, which still appear in `configs`) carry it on the config;
+  // recurring calendars carry it directly; external feeds on the calendar.
+  const roleByIcsUrl = new Map<string, SourceRole>();
+  for (const { config } of configs) {
+    for (const cal of config.calendars) {
+      roleByIcsUrl.set(`${config.name}-${cal.name}.ics`, config.sourceRole);
+    }
+  }
+  for (const cal of recurringCalendars) {
+    if (cal.sourceRole) roleByIcsUrl.set(`recurring-${cal.name}.ics`, cal.sourceRole);
+  }
+  for (const cal of activeExternalCalendars) {
+    if (cal.sourceRole) roleByIcsUrl.set(`external-${cal.name}.ics`, cal.sourceRole);
+  }
+
+  const dedupResult = findDuplicates(eventsIndex, { resolved: resolutionsFromCache(duplicateCache), roleByIcsUrl });
   applyDuplicateMarks(dedupResult.groups);
   const duplicateCardsMerged = dedupResult.groups.reduce((n, g) => n + g.suppressed.length, 0);
   console.log(

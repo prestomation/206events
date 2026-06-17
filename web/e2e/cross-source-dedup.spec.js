@@ -48,3 +48,45 @@ test('shows "Also listed in" attribution on the canonical event', async ({ page 
 
   await page.screenshot({ path: 'e2e/screenshots/event-detail-cross-source.png', fullPage: true })
 })
+
+// js-joda-style local datetime N days out at 19:00 (matches map.spec helper).
+function futureJoda(days, hour = 19) {
+  const d = new Date()
+  d.setDate(d.getDate() + days)
+  d.setHours(hour, 0, 0, 0)
+  const pad = (n) => String(n).padStart(2, '0')
+  const off = -d.getTimezoneOffset()
+  const sign = off >= 0 ? '+' : '-'
+  const a = Math.abs(off)
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:00:00${sign}${pad(Math.floor(a / 60))}:${pad(a % 60)}`
+}
+
+test('the map plots the canonical pin once and drops the suppressed duplicate', async ({ page }) => {
+  // Isolated, all-in-window fixture: a canonical + suppressed duplicate pair
+  // plus one unrelated event, all coord-bearing and 2 days out. The desktop map
+  // panel renders a live "<n> EVENTS" badge counting plotted pins. The suppressed
+  // copy (`duplicateOf` set) must not add a pin, so the badge reads 2, not 3.
+  const date = futureJoda(2)
+  const fixture = [
+    {
+      icsUrl: 'test-ripper-cal1.ics', summary: 'Live Aloha Hawaiian Cultural Festival',
+      location: 'Seattle Center, 305 Harrison St, Seattle, WA 98109', date, lat: 47.6235, lng: -122.3517,
+      duplicateGroupId: 'g1', dedupedSources: ['test-ripper-cal2.ics'],
+    },
+    {
+      icsUrl: 'test-ripper-cal2.ics', summary: 'Festal: Live Aloha Hawaiian Cultural Festival',
+      location: 'Seattle Center', date, lat: 47.6250, lng: -122.3517,
+      duplicateGroupId: 'g1', duplicateOf: 'g1',
+    },
+    { icsUrl: 'test-ripper-cal1.ics', summary: 'Jazz Night', location: 'Neumos, Capitol Hill', date, lat: 47.61, lng: -122.32 },
+  ]
+  await page.route('**/events-index.json', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(fixture) }))
+
+  await page.goto('/')
+  // Desktop map panel's live count badge: 2 pins (canonical + Jazz), not 3.
+  const countBadge = page.locator('.a-mapbar .mk-tag').first()
+  await expect(countBadge).toHaveText('2 EVENTS')
+
+  await page.screenshot({ path: 'e2e/screenshots/map-cross-source-dedup.png', fullPage: true })
+})

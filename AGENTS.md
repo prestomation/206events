@@ -202,6 +202,7 @@ type: eventbrite
 description: "My Venue"
 url: "https://www.my-venue.com/events"
 friendlyLink: https://www.my-venue.com/events
+sourceRole: venue
 tags: ["Music", "Capitol Hill"]
 calendars:
   - name: my-venue
@@ -264,6 +265,7 @@ description: Open-air weekend marketplace in Georgetown.
 timezone: America/Los_Angeles
 location: 5805 Airport Way S, Seattle, WA 98108
 url: http://georgetowntrailerparkmall.com/events
+sourceRole: venue
 tags: ["MakersMarket", "Georgetown"]
 schedules:
   - schedule: every Saturday
@@ -411,6 +413,25 @@ Multi-branch rippers like `spl` may set ripper-level `geo: null` and then
 provide a per-calendar `geo` on each branch that resolves to a non-null
 object. The venues builder emits one venue entry per branch in that case.
 
+### The required `sourceRole` field
+
+Every ripper, external calendar, and recurring event must **also** declare a
+required `sourceRole` of `venue` or `aggregator` (`sourceRoleSchema` in
+`lib/config/schema.ts`), like `geo` — there is no default, and the build fails
+if it's missing. It is used only by cross-source de-duplication to pick the
+canonical copy when the same real-world event appears in several feeds: a
+`venue` (first-party source for one place, or one org's set of places) outranks
+an `aggregator` (a show-listing site, community/neighborhood/city-wide calendar,
+or scene round-up that republishes other orgs' events), so the event card
+attributes to and links the venue.
+
+`sourceRole` is **not** derivable from `geo`: an aggregator can carry
+per-calendar `geo` (`seattle_showlists`), and a multi-branch first-party source
+is ripper-level `geo: null` but still a `venue` (`spl`). When adding a source,
+default to `venue` unless it clearly republishes events that other dedicated
+sources also list. See `docs/cross-source-event-dedup.md` for the curated
+aggregator set.
+
 ### Validation
 
 `scripts/check-discovery-api.ts` runs in CI after the build. It parses
@@ -556,6 +577,7 @@ For **external ICS calendars** (`sources/external/<name>.yaml`):
   icsUrl: "https://example.com/calendar.ics"
   proxy: outofband
   geo: null
+  sourceRole: venue
 ```
 
 The schema in `lib/config/schema.ts` accepts `"outofband"`, `"browserbase"`, or `false`.

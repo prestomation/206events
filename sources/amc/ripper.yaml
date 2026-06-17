@@ -1,4 +1,5 @@
 name: amc
+sourceRole: venue
 disabled: true # disabled: AXS/AMC bot protection blocks residential IP + Chrome OOM on 4GB server
 proxy: "outofband" # AMC GraphQL returns 403 from GitHub runner IPs
 description: "AMC Theatres movie showtimes in the Seattle area"

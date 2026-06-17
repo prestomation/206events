@@ -1,5 +1,6 @@
 geo: null
 name: seattle-gov-city-wide
+sourceRole: aggregator
 friendlyname: City of Seattle Events
 description: City of Seattle city-wide event calendar including public meetings, community events, volunteer opportunities, and civic engagement
 icsUrl: https://www.trumba.com/calendars/seattlegov-city-wide.ics

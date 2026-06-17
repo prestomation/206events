@@ -5,6 +5,7 @@ geo:
   lng: -122.3501
   label: "Fremont, Seattle, WA"
 name: fremont-artwalk
+sourceRole: venue
 friendlyname: Fremont First Friday Art Walk
 description: Monthly art walk in the Fremont neighborhood
 timezone: America/Los_Angeles

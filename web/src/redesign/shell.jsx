@@ -395,6 +395,7 @@ export function MapPanel({ mobile = false }) {
     const attrib = app.eventAttributions
     const qks = app.queryKeySet
     return app.eventsIndex.filter((e) => {
+      if (e.duplicateOf) return false // fold cross-source duplicates into their canonical pin
       if (!e.lat || !e.lng || !app.inScope(e)) return false
       if (qks && !qks.has(eventKey(e))) return false
       if (openCh) return e.icsUrl === openCh

@@ -5,6 +5,7 @@ geo:
   lng: -122.3222
   label: "Capitol Hill, Seattle, WA"
 name: capitol-hill-artwalk
+sourceRole: venue
 friendlyname: Capitol Hill Art Walk
 description: Monthly art walk in the Capitol Hill neighborhood
 timezone: America/Los_Angeles

@@ -1,4 +1,5 @@
 name: spectrum-dance
+sourceRole: venue
 type: ovationtix
 description: "Spectrum Dance Theater"
 url: "https://api.ovationtix.com/public/calendar/client(36947)"

@@ -1,5 +1,6 @@
 geo: null
 name: discover-magnolia
+sourceRole: aggregator
 friendlyname: Discover Magnolia
 description: Discover Magnolia
 icsUrl: https://discovermagnolia.org/?post_type=tribe_events&ical=1&eventDisplay=list

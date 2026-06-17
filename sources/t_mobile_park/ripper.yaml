@@ -1,4 +1,5 @@
 name: t-mobile-park
+sourceRole: venue
 type: ticketmaster
 description: "Home of the Seattle Mariners, with a retractable roof and year-round events"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"

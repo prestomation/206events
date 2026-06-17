@@ -4,6 +4,7 @@ geo:
   lng: -122.3551
   label: "Phinney Ridge, Seattle, WA"
 name: phinney-greenwood-artwalk
+sourceRole: venue
 friendlyname: Phinney/Greenwood Art Walk
 description: Monthly art walk in the Phinney/Greenwood neighborhoods
 timezone: America/Los_Angeles

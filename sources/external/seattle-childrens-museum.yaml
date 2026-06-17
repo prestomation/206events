@@ -3,6 +3,7 @@ geo:
   lng: -122.3518
   label: Seattle Children's Museum, 305 Harrison St, Seattle, WA 98109
 name: seattle-childrens-museum
+sourceRole: venue
 proxy: browserbase
 friendlyname: Seattle Children's Museum
 description: Interactive hands-on museum for children and families at Seattle Center

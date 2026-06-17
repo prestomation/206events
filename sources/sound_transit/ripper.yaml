@@ -1,4 +1,5 @@
 name: sound_transit
+sourceRole: venue
 description: "Sound Transit"
 url: "https://www.soundtransit.org/calendar_events_grouped.json"
 friendlyLink: "https://www.soundtransit.org/get-to-know-us/news-events/calendar"

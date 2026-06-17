@@ -6,6 +6,7 @@ geo:
   osmType: way
   osmId: 44660015
 name: pax-west
+sourceRole: venue
 friendlyname: PAX West
 description: Annual four-day gaming convention at the Seattle Convention Center over Labor Day weekend. Tabletop, video games, panels, tournaments, and community events.
 timezone: America/Los_Angeles

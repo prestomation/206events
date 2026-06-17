@@ -6,6 +6,7 @@ geo:
   osmType: node
   osmId: 2422371801
 name: hitc-trivia-veras-pizza
+sourceRole: venue
 friendlyname: Trivia at Vera's Pizza
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

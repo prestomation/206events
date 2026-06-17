@@ -7,6 +7,7 @@ geo:
   label: "Georgetown, Seattle, WA"
   osmChecked: "2026-06-16"
 name: georgetown-artwalk
+sourceRole: venue
 friendlyname: Georgetown Art Attack
 description: Monthly art walk in the Georgetown neighborhood
 timezone: America/Los_Angeles

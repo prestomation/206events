@@ -11,6 +11,7 @@ geo:
   osmType: way
   osmId: 4755066
 name: seattle-christmas-market
+sourceRole: venue
 friendlyname: Seattle Christmas Market
 description: Annual European-style Christmas market at Seattle Center's Fisher Pavilion. Runs from late November through December 24 with German-inspired décor, Glühwein, local artisan vendors, and live entertainment. Timed-entry tickets required.
 timezone: America/Los_Angeles

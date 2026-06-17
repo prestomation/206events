@@ -1,4 +1,5 @@
 name: wayward-music
+sourceRole: venue
 proxy: outofband
 description: "Wayward Music Series"
 url: "https://www.waywardmusic.org/"

@@ -1,5 +1,6 @@
 # verified: 2026-06-08 unverifiable
 name: dacha-theatre
+sourceRole: venue
 description: "Dacha Theatre"
 # Humanitix event pages are JS-rendered; browserbase executes JS to get ticket date links.
 # Outofband (rung 2) uses plain fetch and would fail identically to rung 1.

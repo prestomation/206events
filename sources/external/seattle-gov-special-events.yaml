@@ -1,5 +1,6 @@
 geo: null
 name: seattle-gov-special-events
+sourceRole: aggregator
 friendlyname: City of Seattle — Special Events Planning Calendar
 description: City of Seattle Special Events Planning Calendar
 icsUrl: https://www.trumba.com/calendars/SpecialEventsPlanningCalendar.ics

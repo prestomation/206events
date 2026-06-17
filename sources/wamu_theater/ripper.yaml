@@ -1,5 +1,6 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: wamu-theater
+sourceRole: venue
 type: ticketmaster
 description: "Versatile indoor concert venue inside the Lumen Field Event Center"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"

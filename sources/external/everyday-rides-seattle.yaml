@@ -1,5 +1,6 @@
 geo: null
 name: everyday-rides-seattle
+sourceRole: aggregator
 friendlyname: Everyday Rides — Seattle
 description: Free, community-powered calendar of Seattle-area cycling events — group rides, coffee outsides, Kidical Mass, social rides, time trials, and more from local cycling clubs and organizers
 icsUrl: https://everydayrides.com/cities/seattle-wa/calendar.ics

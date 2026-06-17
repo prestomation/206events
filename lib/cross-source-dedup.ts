@@ -190,10 +190,29 @@ export interface DedupResult {
     candidates: DuplicateCandidate[]; // MED-tier, for the resolver queue
 }
 
-// Canonical pick within a HIGH group: the lexicographically smallest fullKey —
-// deterministic and independent of input order.
-function canonicalOf(events: DedupEvent[]): DedupEvent {
+// venue/aggregator role of a source, looked up by icsUrl. Provided by the build
+// from each source's required `sourceRole`. A missing entry (e.g. an out-of-band
+// path that didn't carry one) is treated as a venue — venues are the common case
+// and the safe default for the canonical pick.
+export type SourceRole = 'venue' | 'aggregator';
+export type RoleLookup = (e: DedupEvent) => SourceRole | undefined;
+
+// Lower rank wins the canonical slot. Venue (0) outranks aggregator (1); an
+// unknown role is treated as a venue so the pick never demotes a real venue
+// behind an aggregator just because a role was missing.
+function roleRank(role: SourceRole | undefined): number {
+    return role === 'aggregator' ? 1 : 0;
+}
+
+// Canonical pick within a HIGH group: prefer a venue source over an aggregator,
+// then break ties on the lexicographically smallest fullKey. Deterministic and
+// independent of input order. When no role lookup is supplied (or every member
+// resolves to the same rank) this reduces to the pure-fullKey order, preserving
+// the original behavior.
+function canonicalOf(events: DedupEvent[], roleOf?: RoleLookup): DedupEvent {
     return [...events].sort((x, y) => {
+        const rx = roleRank(roleOf?.(x)), ry = roleRank(roleOf?.(y));
+        if (rx !== ry) return rx - ry;
         const kx = fullKey(x), ky = fullKey(y);
         return kx < ky ? -1 : kx > ky ? 1 : 0;
     })[0];
@@ -204,13 +223,25 @@ function canonicalOf(events: DedupEvent[]): DedupEvent {
  *
  * `resolved` folds in the duplicate-resolver cache: a pair marked 'confirmed'
  * is promoted to a merge regardless of tier; 'rejected' is dropped entirely.
+ *
+ * `roleByIcsUrl` maps each feed's icsUrl to its venue/aggregator role; it only
+ * influences which member of a HIGH group becomes canonical (venue wins). It
+ * does NOT change tiers or which events match — when omitted, canonical picks
+ * fall back to pure-fullKey order.
  */
 export function findDuplicates(
     events: DedupEvent[],
-    opts: { tuning?: DedupTuning; resolved?: Map<string, 'confirmed' | 'rejected'> } = {},
+    opts: {
+        tuning?: DedupTuning;
+        resolved?: Map<string, 'confirmed' | 'rejected'>;
+        roleByIcsUrl?: Map<string, SourceRole>;
+    } = {},
 ): DedupResult {
     const tuning = opts.tuning ?? DEFAULT_TUNING;
     const resolved = opts.resolved ?? new Map();
+    const roleOf: RoleLookup | undefined = opts.roleByIcsUrl
+        ? (e) => opts.roleByIcsUrl!.get(e.icsUrl)
+        : undefined;
 
     const byDay = new Map<string, DedupEvent[]>();
     for (const e of events) {
@@ -270,7 +301,7 @@ export function findDuplicates(
     const mergedKeys = new Set<string>();
     for (const members of clusters.values()) {
         if (members.length < 2) continue;
-        const canonical = canonicalOf(members);
+        const canonical = canonicalOf(members, roleOf);
         const suppressed = members
             .filter(m => m !== canonical)
             .sort((x, y) => (fullKey(x) < fullKey(y) ? -1 : fullKey(x) > fullKey(y) ? 1 : 0));

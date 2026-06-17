@@ -1,5 +1,6 @@
 # verified: 2026-06-10 via eventbrite web ui (5 upcoming After Hours events; EVENTBRITE_TOKEN required in CI)
 name: seattle-aquarium
+sourceRole: venue
 type: eventbrite
 description: "Seattle Aquarium"
 url: "https://www.seattleaquarium.org/events/"

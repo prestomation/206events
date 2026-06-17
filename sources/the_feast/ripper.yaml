@@ -1,4 +1,5 @@
 name: the-feast
+sourceRole: venue
 type: ovationtix
 description: "The Feast"
 url: "https://api.ovationtix.com/public/calendar/client(35379)"

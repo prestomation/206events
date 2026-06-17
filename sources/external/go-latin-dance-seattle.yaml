@@ -2,6 +2,7 @@
 # 2026-06-04: HTTP 403 from CI; works from non-CI IP — escalating to outofband
 geo: null
 name: go-latin-dance-seattle
+sourceRole: aggregator
 proxy: outofband
 friendlyname: GO Latin Dance Seattle
 description: Seattle-area Latin dance socials, parties, and classes — salsa, bachata, zouk, kizomba, and more across Seattle and nearby venues.

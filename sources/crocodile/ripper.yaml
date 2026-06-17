@@ -1,5 +1,6 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: crocodile
+sourceRole: venue
 type: ticketmaster
 friendlyname: "The Crocodile and Madame Lou's"
 description: "Legendary Seattle live music venue in Belltown, with the intimate

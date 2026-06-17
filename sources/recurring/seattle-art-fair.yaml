@@ -10,6 +10,7 @@ geo:
   osmType: relation
   osmId: 5838734
 name: seattle-art-fair
+sourceRole: venue
 friendlyname: Seattle Art Fair
 description: Annual contemporary art fair at Lumen Field Event Center. Four days showcasing galleries from around the world alongside Pacific Northwest institutions and artists. Founded by Paul G. Allen; now in its tenth year.
 timezone: America/Los_Angeles

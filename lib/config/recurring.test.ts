@@ -20,6 +20,7 @@ describe('RecurringEventProcessor', () => {
 events:
   - geo: null
     name: test-event
+    sourceRole: venue
     friendlyname: "Test Event"
     description: "Test Description"
     timezone: "America/Los_Angeles"
@@ -43,6 +44,7 @@ events:
 events:
   - geo: null
     name: test-event
+    sourceRole: venue
     friendlyname: "Test Event"
     description: "Test Description"
     timezone: "America/Los_Angeles"
@@ -73,6 +75,7 @@ events:
 events:
   - geo: null
     name: weekly-market
+    sourceRole: venue
     friendlyname: "Weekly Sunday Market"
     description: "A weekly market every Sunday"
     timezone: "America/Los_Angeles"
@@ -109,6 +112,7 @@ events:
 events:
   - geo: null
     name: seasonal-market
+    sourceRole: venue
     friendlyname: "Summer Wednesday Market"
     description: "A seasonal weekly market"
     timezone: "America/Los_Angeles"
@@ -143,6 +147,7 @@ events:
 events:
   - geo: null
     name: columbia-city-market
+    sourceRole: venue
     friendlyname: "Columbia City Farmers Market"
     description: "Runs May through October"
     timezone: "America/Los_Angeles"
@@ -177,6 +182,7 @@ events:
 events:
   - geo: null
     name: summer-artwalk
+    sourceRole: venue
     friendlyname: "Summer Art Walk"
     description: "Art walk May through September"
     timezone: "America/Los_Angeles"
@@ -210,6 +216,7 @@ events:
 events:
   - geo: null
     name: custom-months-market
+    sourceRole: venue
     friendlyname: "May-October Market"
     description: "A market running May through October"
     timezone: "America/Los_Angeles"
@@ -240,6 +247,7 @@ events:
 events:
   - geo: null
     name: custom-months-artwalk
+    sourceRole: venue
     friendlyname: "May-September Art Walk"
     description: "An art walk running May through September"
     timezone: "America/Los_Angeles"
@@ -270,6 +278,7 @@ events:
 events:
   - geo: null
     name: open-mic
+    sourceRole: venue
     friendlyname: "Open Mic Night"
     description: "Twice-monthly open mic"
     timezone: "America/Los_Angeles"
@@ -306,6 +315,7 @@ events:
 events:
   - geo: null
     name: open-mic
+    sourceRole: venue
     friendlyname: "Open Mic Night"
     description: "Twice-monthly open mic"
     timezone: "America/Los_Angeles"
@@ -340,6 +350,7 @@ events:
 events:
   - geo: null
     name: summer-open-mic
+    sourceRole: venue
     friendlyname: "Summer Open Mic"
     description: "Twice-monthly open mic in summer"
     timezone: "America/Los_Angeles"
@@ -372,6 +383,7 @@ events:
 events:
   - geo: null
     name: override-event
+    sourceRole: venue
     friendlyname: "Override Event"
     description: "Event with both seasonal and months"
     timezone: "America/Los_Angeles"
@@ -405,6 +417,7 @@ events:
 events:
   - geo: null
     name: georgetown-trailer-park-mall
+    sourceRole: venue
     friendlyname: "Georgetown Trailer Park Mall"
     description: "Weekend marketplace"
     timezone: "America/Los_Angeles"
@@ -470,6 +483,7 @@ events:
 events:
   - geo: null
     name: solo-event
+    sourceRole: venue
     friendlyname: "Solo Event"
     description: "One schedule only"
     timezone: "America/Los_Angeles"
@@ -496,6 +510,7 @@ events:
 events:
   - geo: null
     name: mixed-event
+    sourceRole: venue
     friendlyname: "Mixed Event"
     description: "Two schedules with different timing"
     timezone: "America/Los_Angeles"
@@ -540,6 +555,7 @@ describe('recurringEventSchema', () => {
     url: 'https://example.com',
     tags: ['test'],
     geo: null,
+    sourceRole: 'venue',
   };
 
   it('should validate correct recurring event data', () => {
@@ -585,6 +601,7 @@ describe('recurringEventSchema', () => {
 events:
   - geo: null
     name: free-market
+    sourceRole: venue
     friendlyname: "Free Market"
     description: "Test"
     timezone: "America/Los_Angeles"

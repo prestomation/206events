@@ -4,6 +4,7 @@ geo:
   lng: -122.3121
   label: "University District, Seattle, WA"
 name: university-district-artwalk
+sourceRole: venue
 friendlyname: University District Art Walk
 description: Monthly art walk in the University District
 timezone: America/Los_Angeles

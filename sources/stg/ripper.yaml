@@ -1,5 +1,6 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: stg
+sourceRole: venue
 friendlyname: "Seattle Theatre Group"
 description: "Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"

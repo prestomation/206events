@@ -5,6 +5,7 @@ geo:
   lng: -122.3237
   label: "Chinatown/International District, Seattle, WA"
 name: chinatown-id-artwalk
+sourceRole: venue
 friendlyname: Chinatown/International District Art Walk
 description: Summer art walk in the Chinatown/International District
 timezone: America/Los_Angeles

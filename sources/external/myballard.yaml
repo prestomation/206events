@@ -1,5 +1,6 @@
 geo: null
 name: myballard
+sourceRole: aggregator
 friendlyname: My Ballard
 description: My Ballard
 icsUrl: https://myballard.com/?post_type=tribe_events&ical=1&eventDisplay=list

@@ -7,6 +7,7 @@ geo:
   osmType: way
   osmId: 411895611
 name: hitc-trivia-stoup-capitol-hill
+sourceRole: venue
 friendlyname: Trivia at Stoup Brewing Capitol Hill
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

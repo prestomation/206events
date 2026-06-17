@@ -241,6 +241,11 @@ export function isMappable(event, {
   eventAttributions,
   queryKeySet = null,
 }) {
+  // Fold cross-source duplicates into their canonical pin: a HIGH-merged copy
+  // carries `duplicateOf` and is suppressed everywhere the canonical is shown,
+  // matching the list/search views. Without this the same real-world event
+  // drops two or three overlapping pins.
+  if (event.duplicateOf) return false
   if (!event.lat || !event.lng) return false
   if (!dateInScope(event)) return false
   if (queryKeySet && !queryKeySet.has(eventKey(event))) return false

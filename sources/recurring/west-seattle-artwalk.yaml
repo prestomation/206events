@@ -5,6 +5,7 @@ geo:
   label: "West Seattle Junction, Seattle, WA"
   osmChecked: "2026-06-16"
 name: west-seattle-artwalk
+sourceRole: venue
 friendlyname: West Seattle Art Walk
 description: Monthly art walk in West Seattle
 timezone: America/Los_Angeles

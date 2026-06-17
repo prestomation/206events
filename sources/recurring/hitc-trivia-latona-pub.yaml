@@ -8,6 +8,7 @@ geo:
   osmType: node
   osmId: 1735555959
 name: hitc-trivia-latona-pub
+sourceRole: venue
 friendlyname: Trivia at Latona Pub
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

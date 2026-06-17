@@ -7,6 +7,7 @@ geo:
   osmType: node
   osmId: 2136793139
 name: hitc-trivia-reubens-ballard
+sourceRole: venue
 friendlyname: Trivia at Reuben's Brews Ballard
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

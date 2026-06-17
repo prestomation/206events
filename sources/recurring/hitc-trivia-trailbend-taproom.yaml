@@ -7,6 +7,7 @@ geo:
   osmType: way
   osmId: 217502488
 name: hitc-trivia-trailbend-taproom
+sourceRole: venue
 friendlyname: Trivia at Trailbend Taproom
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

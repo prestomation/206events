@@ -1,4 +1,5 @@
 name: seattle-night-market
+sourceRole: venue
 type: squarespace
 disabled: true  # Squarespace events page returns 404
 description: "206 Night Markets"

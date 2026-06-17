@@ -4,6 +4,7 @@ geo:
   lng: -122.2976
   label: "Lake City, Seattle, WA"
 name: lake-city-artwalk
+sourceRole: venue
 friendlyname: Lake City Art Walk
 description: Monthly art walk in the Lake City neighborhood
 timezone: America/Los_Angeles

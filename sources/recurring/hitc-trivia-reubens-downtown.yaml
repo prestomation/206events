@@ -6,6 +6,7 @@ geo:
   label: "800 Occidental Ave S, Seattle, WA 98134"
   osmChecked: "2026-06-16"
 name: hitc-trivia-reubens-downtown
+sourceRole: venue
 friendlyname: Trivia at Reuben's Brews Downtown
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

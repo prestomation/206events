@@ -6,6 +6,7 @@ geo:
   osmType: node
   osmId: 1766895957
 name: central-cinema
+sourceRole: venue
 friendlyname: Central Cinema
 description: Dinner theater showing classic, cult, and independent films with food and drinks on Capitol Hill
 icsUrl: https://seattle-movies.innocence.com/centralcinema.ics

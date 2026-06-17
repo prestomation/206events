@@ -1,6 +1,7 @@
 # verified: 2026-06-08 unverifiable
 # review: 2026-08-01 — verify mall still has an active event program
 name: pacific-place
+sourceRole: venue
 description: "Pacific Place"
 url: "https://api.mallmaverick.com/properties/790/events?api_key=6c36171ab3f3b2\
   c5b734ac841bc078b4"

@@ -1,4 +1,5 @@
 name: discover-slu
+sourceRole: aggregator
 description: "Discover South Lake Union"
 url: "https://www.discoverslu.com/calendar/"
 friendlyLink: https://www.discoverslu.com/calendar/

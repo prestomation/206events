@@ -8,6 +8,7 @@ geo:
   label: "N 35th St between El Camino & Triangle Spirits, Fremont, Seattle, WA 98103"
   osmChecked: "2026-06-16"
 name: fremont-evening-market
+sourceRole: venue
 friendlyname: Fremont Evening Market
 description: Monthly evening market in Fremont with curated vintage, handmade,
   and local vendors on N 35th Street.

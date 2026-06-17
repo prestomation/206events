@@ -96,6 +96,35 @@ sharing a `duplicateGroupId`, with the canonical event carrying `dedupedSources`
 with "also listed in X, Y". **Events are marked, never deleted** — a wrong match
 groups visually but never destroys data, and the per-source ICS is untouched.
 
+### Canonical selection — venue beats aggregator
+
+Which member of a HIGH group becomes canonical matters: that copy owns the card,
+its title/description/link are what the user sees, and the others are attributed
+to it. When the same real-world event is listed by both the **venue itself** and
+an **aggregator** (a show-listing site, community calendar, or scene round-up
+that republishes other orgs' events), the venue's own listing is the better
+canonical — it's first-party, usually better-titled, and links to the source of
+truth.
+
+Every source therefore declares a required `sourceRole` of `venue` or
+`aggregator` (`sourceRoleSchema` in `lib/config/schema.ts`), mirroring how `geo`
+is a required explicit decision on every source. It is **not** derivable from
+`geo`: an aggregator can carry per-calendar `geo` (e.g. `seattle_showlists`), and
+a multi-branch first-party source is ripper-level `geo: null` but still a venue
+(e.g. `spl`). The build maps each feed's icsUrl to its role and passes
+`roleByIcsUrl` into `findDuplicates`; `canonicalOf` then ranks **venue (0) before
+aggregator (1)**, breaking ties on the lexicographically-smallest fullKey as
+before. A missing role is treated as a venue (the safe default — venues are the
+common case and should never be demoted behind an aggregator over a missing
+field). The role only influences the canonical pick; it never changes which
+events match or their tier.
+
+The aggregator set is curated (the minority): `events12`, `seatoday`,
+`seattle-showlists`, `19hz`, `NWMetalCalendar`, neighborhood/city-wide calendars
+(`visit-seattle`, `downtown-seattle-association`, `seattle-center`, …), and the
+`free-first-thursday` recurring catch-all (so per-museum FFT synthesis wins).
+Everything else is a `venue`.
+
 ## Prod-data calibration (2026-06-17 snapshot, 11,208 events)
 
 A throwaway probe over the live `events-index.json` (kept as the unit-test
@@ -123,12 +152,17 @@ and the build-report skill.
 ## Parity note (favorites / following)
 
 Suppression of `duplicateOf` entries is applied in the **display-only** redesign
-path (App206's `upcomingEvents`), not in the shared `upcomingIndexEvents` helper.
-The favorites/following path and the favorites-worker ICS feed have no knowledge
-of build-time `duplicateOf`, so applying suppression to the shared helper would
-make the Following preview over-collapse relative to the feed the user actually
-receives — the exact client/server drift the "Favorites Filter Parity" rule
-guards against. Keeping suppression display-only preserves that contract.
+path — App206's `upcomingEvents` (list/search) and the events map (the
+`isMappable` predicate in `web/src/components/EventsMap.jsx` plus the map panel's
+`shownCount` in `shell.jsx`) — not in the shared `upcomingIndexEvents` helper.
+The map reads the raw `eventsIndex` directly (it needs every coord-bearing
+event), so it has to drop `duplicateOf` itself; without that a HIGH-merged event
+drops two or three overlapping pins. The favorites/following path and the
+favorites-worker ICS feed have no knowledge of build-time `duplicateOf`, so
+applying suppression to the shared helper would make the Following preview
+over-collapse relative to the feed the user actually receives — the exact
+client/server drift the "Favorites Filter Parity" rule guards against. Keeping
+suppression display-only preserves that contract.
 
 ## Known limitations / follow-ups
 

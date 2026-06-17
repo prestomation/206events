@@ -9,6 +9,7 @@ geo:
   osmType: way
   osmChecked: 2026-04-28
 name: woodland-park-zoo
+sourceRole: venue
 proxy: browserbase
 friendlyname: Woodland Park Zoo
 description: Zoo events, ZooTunes concerts, animal encounters, and dining experiences

@@ -8,6 +8,7 @@ geo:
   osmType: node
   osmId: 2396891306
 name: hitc-trivia-great-notion-georgetown
+sourceRole: venue
 friendlyname: Trivia at Great Notion Georgetown
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

@@ -1,4 +1,5 @@
 name: renton-civic-theatre
+sourceRole: venue
 description: "Renton Civic Theatre"
 url: "https://www.rentoncivictheatre.org/api/shows?limit=50"
 friendlyLink: https://www.rentoncivictheatre.org/shows

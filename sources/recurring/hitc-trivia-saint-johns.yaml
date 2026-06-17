@@ -7,6 +7,7 @@ geo:
   osmType: node
   osmId: 2159323122
 name: hitc-trivia-saint-johns
+sourceRole: venue
 friendlyname: Trivia at Saint John's Bar & Eatery
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

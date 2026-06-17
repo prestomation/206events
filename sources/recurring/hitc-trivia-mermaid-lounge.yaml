@@ -7,6 +7,7 @@ geo:
   osmType: node
   osmId: 2144365453
 name: hitc-trivia-mermaid-lounge
+sourceRole: venue
 friendlyname: Trivia at Mermaid Lounge
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles

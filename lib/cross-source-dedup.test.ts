@@ -135,6 +135,63 @@ describe("findDuplicates", () => {
     });
 });
 
+describe("findDuplicates — role-aware canonical pick", () => {
+    // A real-world event listed by both an aggregator and the venue itself.
+    // The aggregator's icsUrl sorts lexicographically *before* the venue's, so
+    // without role awareness it would win the canonical slot. sourceRole flips
+    // that: the venue's own listing should be canonical and attribute the
+    // aggregator copy as a deduped source.
+    const venue = ev({ icsUrl: "neumos-all.ics", summary: "Big Show", location: "Neumos, 925 E Pike St, Seattle, WA 98122", lat: 47.6142, lng: -122.3185, osmType: "node", osmId: 42 });
+    const aggregator = ev({ icsUrl: "events12-seattle.ics", summary: "Big Show", location: "Neumos, 925 E Pike St, Seattle, WA 98122", lat: 47.6142, lng: -122.3185, osmType: "node", osmId: 42 });
+
+    it("prefers the venue over the aggregator as canonical", () => {
+        const roleByIcsUrl = new Map<string, "venue" | "aggregator">([
+            ["neumos-all.ics", "venue"],
+            ["events12-seattle.ics", "aggregator"],
+        ]);
+        const { groups } = findDuplicates([aggregator, venue], { roleByIcsUrl });
+        expect(groups).toHaveLength(1);
+        expect(groups[0].canonical.icsUrl).toBe("neumos-all.ics");
+        expect(groups[0].sources).toEqual(["events12-seattle.ics"]);
+    });
+
+    it("is order-independent and picks the venue even when the aggregator is first", () => {
+        const roleByIcsUrl = new Map<string, "venue" | "aggregator">([
+            ["neumos-all.ics", "venue"],
+            ["events12-seattle.ics", "aggregator"],
+        ]);
+        const g1 = findDuplicates([venue, aggregator], { roleByIcsUrl }).groups;
+        const g2 = findDuplicates([aggregator, venue], { roleByIcsUrl }).groups;
+        expect(g1[0].canonical.icsUrl).toBe("neumos-all.ics");
+        expect(g2).toEqual(g1);
+    });
+
+    it("falls back to lexicographic order when roles tie (both aggregators)", () => {
+        const roleByIcsUrl = new Map<string, "venue" | "aggregator">([
+            ["neumos-all.ics", "aggregator"],
+            ["events12-seattle.ics", "aggregator"],
+        ]);
+        const { groups } = findDuplicates([venue, aggregator], { roleByIcsUrl });
+        // events12-seattle.ics < neumos-all.ics lexicographically.
+        expect(groups[0].canonical.icsUrl).toBe("events12-seattle.ics");
+    });
+
+    it("treats a missing role as a venue so it outranks a known aggregator", () => {
+        // Only the aggregator carries a role; the other feed is unmarked.
+        const roleByIcsUrl = new Map<string, "venue" | "aggregator">([
+            ["events12-seattle.ics", "aggregator"],
+        ]);
+        const { groups } = findDuplicates([aggregator, venue], { roleByIcsUrl });
+        expect(groups[0].canonical.icsUrl).toBe("neumos-all.ics");
+    });
+
+    it("preserves pure-lexicographic order when no roles are supplied", () => {
+        const { groups } = findDuplicates([venue, aggregator]);
+        // events12-seattle.ics < neumos-all.ics — unchanged legacy behavior.
+        expect(groups[0].canonical.icsUrl).toBe("events12-seattle.ics");
+    });
+});
+
 describe("resolutionsFromCache", () => {
     it("extracts confirmed/rejected decisions and tolerates a cold cache", () => {
         expect(resolutionsFromCache(null).size).toBe(0);
