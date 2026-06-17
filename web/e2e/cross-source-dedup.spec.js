@@ -62,31 +62,41 @@ function futureJoda(days, hour = 19) {
 }
 
 test('the map plots the canonical pin once and drops the suppressed duplicate', async ({ page }) => {
-  // Isolated, all-in-window fixture: a canonical + suppressed duplicate pair
-  // plus one unrelated event, all coord-bearing and 2 days out. The desktop map
-  // panel renders a live "<n> EVENTS" badge counting plotted pins. The suppressed
-  // copy (`duplicateOf` set) must not add a pin, so the badge reads 2, not 3.
+  // Isolated fixture: a canonical + its suppressed cross-source duplicate at the
+  // SAME coordinate, 2 days out (in window). This asserts BOTH map filters, which
+  // are separate code paths:
+  //   - the rendered pins (EventsMap `isMappable`): if the suppressed copy were
+  //     shown, the two same-coord markers would collapse into a 2-cluster icon;
+  //     suppressed, there is exactly one plain marker and no cluster.
+  //   - the live count badge (shell.jsx `shownCount`): reads "1 EVENTS", not 2.
   const date = futureJoda(2)
+  const coord = { lat: 47.6235, lng: -122.3517 }
   const fixture = [
     {
       icsUrl: 'test-ripper-cal1.ics', summary: 'Live Aloha Hawaiian Cultural Festival',
-      location: 'Seattle Center, 305 Harrison St, Seattle, WA 98109', date, lat: 47.6235, lng: -122.3517,
+      location: 'Seattle Center, 305 Harrison St, Seattle, WA 98109', date, ...coord,
       duplicateGroupId: 'g1', dedupedSources: ['test-ripper-cal2.ics'],
     },
     {
       icsUrl: 'test-ripper-cal2.ics', summary: 'Festal: Live Aloha Hawaiian Cultural Festival',
-      location: 'Seattle Center', date, lat: 47.6250, lng: -122.3517,
+      location: 'Seattle Center', date, ...coord,
       duplicateGroupId: 'g1', duplicateOf: 'g1',
     },
-    { icsUrl: 'test-ripper-cal1.ics', summary: 'Jazz Night', location: 'Neumos, Capitol Hill', date, lat: 47.61, lng: -122.32 },
   ]
   await page.route('**/events-index.json', (route) =>
     route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(fixture) }))
 
   await page.goto('/')
-  // Desktop map panel's live count badge: 2 pins (canonical + Jazz), not 3.
-  const countBadge = page.locator('.a-mapbar .mk-tag').first()
-  await expect(countBadge).toHaveText('2 EVENTS')
+  const map = page.locator('.events-map-container:visible').first()
+  await expect(map.locator('.events-map')).toBeVisible()
+
+  // Rendered pins: exactly one plain marker, and NO cluster (a shown duplicate
+  // would cluster the two same-coord markers into a `.cluster-icon` "2").
+  await expect(map.locator('img.leaflet-marker-icon')).toHaveCount(1)
+  await expect(map.locator('.cluster-icon')).toHaveCount(0)
+
+  // Live count badge tracks the same suppression.
+  await expect(page.locator('.a-mapbar .mk-tag').first()).toHaveText('1 EVENTS')
 
   await page.screenshot({ path: 'e2e/screenshots/map-cross-source-dedup.png', fullPage: true })
 })

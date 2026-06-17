@@ -157,12 +157,27 @@ path — App206's `upcomingEvents` (list/search) and the events map (the
 `shownCount` in `shell.jsx`) — not in the shared `upcomingIndexEvents` helper.
 The map reads the raw `eventsIndex` directly (it needs every coord-bearing
 event), so it has to drop `duplicateOf` itself; without that a HIGH-merged event
-drops two or three overlapping pins. The favorites/following path and the
-favorites-worker ICS feed have no knowledge of build-time `duplicateOf`, so
-applying suppression to the shared helper would make the Following preview
-over-collapse relative to the feed the user actually receives — the exact
-client/server drift the "Favorites Filter Parity" rule guards against. Keeping
-suppression display-only preserves that contract.
+drops two or three overlapping pins.
+
+**Suppression is scope-aware so each map scope matches its corresponding list:**
+
+| Scope | List source | Map / count drops `duplicateOf`? |
+|---|---|---|
+| Global Discover / tag aggregate | `upcomingEvents` (deduped) | **Yes** |
+| Single open channel (`calendarFilter`) | `channelEvents` (raw `.ics`, undeduped) | **No** |
+| Feed / Following (`feedOnly`) | `upcomingIndexEvents` (parity-locked, undeduped) | **No** |
+
+A single channel can't contain a cross-source duplicate of itself (the matcher
+only pairs *different* feeds), so showing a channel's own events whole — pins
+matching its raw-`.ics` list — is correct, not a leak. The favorites/following
+path and the favorites-worker ICS feed have no knowledge of build-time
+`duplicateOf`, so the feed map must likewise keep every copy: suppressing it
+there would make the Following preview over-collapse relative to the feed the
+user actually receives — the exact client/server drift the "Favorites Filter
+Parity" rule guards against. Keeping suppression display-only **and**
+global-scope-only preserves that contract. The per-channel chip count
+(`eventCountByIcsUrl`) intentionally counts the channel's own events (undeduped),
+consistent with what you see when you open the channel.
 
 ## Known limitations / follow-ups
 

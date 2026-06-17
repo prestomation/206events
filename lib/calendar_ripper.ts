@@ -1451,6 +1451,12 @@ END:VCALENDAR`;
   // pick the canonical copy (venue wins over aggregator). Rippers (including
   // out-of-band ones, which still appear in `configs`) carry it on the config;
   // recurring calendars carry it directly; external feeds on the calendar.
+  // Role is ripper-level (not per-calendar) — no source needs per-calendar
+  // granularity today; add a `calendarConfigSchema` override later (mirroring
+  // `geo`'s precedence) if one ever does. An events-index entry whose icsUrl
+  // isn't in this map resolves to `undefined` → treated as a venue in
+  // canonicalOf (the safe default): e.g. a stale out-of-band artifact whose
+  // calendar was renamed since the runner last fetched it. Self-heals next run.
   const roleByIcsUrl = new Map<string, SourceRole>();
   for (const { config } of configs) {
     for (const cal of config.calendars) {
