@@ -1,0 +1,31 @@
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/HONK_Festival_2010_-_Extraordinary_Rendition_Band_%28-2%29.jpg/1280px-HONK_Festival_2010_-_Extraordinary_Rendition_Band_%28-2%29.jpg"
+geo: null
+name: honk-fest-west
+sourceRole: venue
+friendlyname: HONK! Fest West
+description: Annual free street-band festival with 30+ brass, percussion, and
+  activist bands performing in public spaces across Seattle neighborhoods. Free
+  and all-ages.
+timezone: America/Los_Angeles
+location: Seattle, WA
+url: https://honkfestwest.org/
+tags:
+  - Music
+  - Community
+cost: free
+# Approximates the last weekend of May (May 29–31 in 2026: Georgetown Fri 6–10pm,
+# Columbia City Sat noon–8pm, Pratt Park Sun noon–6pm). Neighborhoods rotate
+# year to year. Verify dates and locations at honkfestwest.org each spring.
+schedules:
+  - schedule: "last Friday"
+    start_time: "18:00"
+    duration: PT4H
+    months: [5]
+  - schedule: "last Saturday"
+    start_time: "12:00"
+    duration: PT8H
+    months: [5]
+  - schedule: "last Sunday"
+    start_time: "12:00"
+    duration: PT6H
+    months: [5]
