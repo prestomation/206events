@@ -11,6 +11,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/event-uncertainty-resolver/SKILL.md`** — Resolve outstanding `UncertaintyError` entries (typically unknown start times) by investigating the source page and writing values into `event-uncertainty-cache.json`
 - **`skills/photo-resolver/SKILL.md`** — Drain the non-fatal `photoGaps` queue in `build-errors.json`: backfill venue photos via source-YAML `imageUrl:` PRs and event photos via the event-uncertainty-cache (`--image-url`), or mark them `unresolvable` when no photo exists
 - **`skills/cost-resolver/SKILL.md`** — Drain the non-fatal `costGaps` queue in `build-errors.json`: backfill uniformly-priced sources via source-YAML `cost:` PRs and per-event prices via the event-uncertainty-cache (`--cost-*`), applying the pricing rubric (min = cheapest general-admission adult, fees excluded)
+- **`skills/duplicate-resolver/SKILL.md`** — Drain the non-fatal `duplicateCandidates` queue in `build-errors.json`: confirm or reject MED-confidence cross-source duplicate pairs (the same real-world event listed by multiple sources) by writing decisions into `event-duplicate-cache.json` via a PR; the next build merges confirmed pairs and keeps rejected ones separate
 - **`skills/event-lookup/SKILL.md`** — Fuzzy-search the published `events-index.json` / `manifest.json` / `venues.json` to answer "is this event already in 206.events, and which source covers it?"
 - **`skills/proxy-escalation/SKILL.md`** — Read the non-fatal `pendingProxyVerification` queue and open PRs that climb the proxy ladder (`outofband → browserbase`) after 3 consecutive failures, or retire a source (disable + mark `blocked`) when browserbase is exhausted
 - **`skills/source-from-event/SKILL.md`** — Default handler for any **event poster image** (or text request describing an event the user wants covered). Uses `event-lookup` to check coverage, then either reports it's covered, hands off a parse-gap fix to `build-report`, or hands off a new-source add to `source-discovery`
@@ -759,8 +760,9 @@ that don't see a category effectively don't enforce it, so a missing
 reporter means the category accumulates silently.
 
 The existing categories — parse errors, geocode errors, zero-event
-calendars, expected-empty, uncertain events, OSM gaps — are all
-plumbed through every surface. Use them as templates.
+calendars, expected-empty, uncertain events, OSM gaps, photo/cost gaps,
+cross-source duplicates — are all plumbed through every surface. Use
+them as templates.
 
 ## Writing Descriptions
 

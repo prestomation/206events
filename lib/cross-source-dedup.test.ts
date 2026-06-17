@@ -4,6 +4,8 @@ import {
     tierFor,
     locationContradiction,
     findDuplicates,
+    applyDuplicateMarks,
+    resolutionsFromCache,
     pairKey,
     DedupEvent,
 } from "./cross-source-dedup.js";
@@ -114,5 +116,38 @@ describe("findDuplicates", () => {
         const res = findDuplicates([a, b], { resolved });
         expect(res.groups).toHaveLength(0);
         expect(res.candidates).toHaveLength(0);
+    });
+
+    it("applyDuplicateMarks stamps canonical + suppressed in place", () => {
+        const events = [a, b, c].map(e => ({ ...e })); // fresh copies
+        const { groups } = findDuplicates(events);
+        applyDuplicateMarks(groups);
+        const canon = events.find(e => e.icsUrl === "seatoday-all.ics")!;
+        const supp = events.filter(e => e.icsUrl !== "seatoday-all.ics");
+        expect(canon.duplicateGroupId).toBe(groups[0].id);
+        expect(canon.dedupedSources).toEqual(["seatoday-arts.ics", "seatoday-community.ics"]);
+        expect(canon.duplicateOf).toBeUndefined();
+        for (const s of supp) {
+            expect(s.duplicateOf).toBe(groups[0].id);
+            expect(s.duplicateGroupId).toBe(groups[0].id);
+            expect(s.dedupedSources).toBeUndefined();
+        }
+    });
+});
+
+describe("resolutionsFromCache", () => {
+    it("extracts confirmed/rejected decisions and tolerates a cold cache", () => {
+        expect(resolutionsFromCache(null).size).toBe(0);
+        expect(resolutionsFromCache({ resolutions: {} }).size).toBe(0);
+        const m = resolutionsFromCache({
+            resolutions: {
+                "k1": { decision: "confirmed" },
+                "k2": { decision: "rejected", note: "different venues" },
+                "k3": { decision: "bogus" as any },
+            },
+        });
+        expect(m.get("k1")).toBe("confirmed");
+        expect(m.get("k2")).toBe("rejected");
+        expect(m.has("k3")).toBe(false);
     });
 });

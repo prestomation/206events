@@ -1014,6 +1014,20 @@ export function EventDetail({ event }) {
         )}
       </div>
 
+      {Array.isArray(event.dedupedSources) && event.dedupedSources.length > 0 && (
+        <div className="a-dedup-sources" style={{ marginBottom: 20, fontSize: 13, color: 'var(--ink-3)', display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+          <span>Also listed in:</span>
+          {event.dedupedSources.map((icsUrl) => {
+            const ch = app.channelByIcsUrl.get(icsUrl)
+            const label = ch ? ch.name : icsUrl.replace(/\.ics$/, '')
+            const chipStyle = { border: '1px solid var(--line)', borderRadius: 999, padding: '3px 10px', fontSize: 12.5, color: 'var(--ink-2)', background: 'none' }
+            return ch
+              ? <button key={icsUrl} onClick={() => app.openChannel(icsUrl)} style={{ ...chipStyle, cursor: 'pointer' }}>{label}</button>
+              : <span key={icsUrl} style={chipStyle}>{label}</span>
+          })}
+        </div>
+      )}
+
       {otherDates.length > 0 && (
         <>
           <div className="a-rowhdr"><span className="a-eyebrow">OTHER DATES</span><span className="ln" /></div>

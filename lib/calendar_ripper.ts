@@ -31,6 +31,12 @@ import {
   saveUncertaintyCache,
 } from "./event-uncertainty-cache.js";
 import {
+  findDuplicates,
+  applyDuplicateMarks,
+  resolutionsFromCache,
+  type DuplicateCache,
+} from "./cross-source-dedup.js";
+import {
   applyUncertaintyResolutions,
   applyImageBackfill,
   applyCostBackfill,
@@ -513,6 +519,24 @@ export const main = async () => {
   // merges ripper output against this cache between rip and ICS write
   // — rippers themselves don't read it. See docs/event-uncertainty.md.
   const uncertaintyCache = await loadUncertaintyCache('event-uncertainty-cache.json');
+
+  // Load the cross-source duplicate-resolver cache (pairKey -> confirmed/rejected).
+  // Committed file, populated by the duplicate-resolver skill; tolerant of a
+  // cold start. See docs/cross-source-event-dedup.md.
+  let duplicateCache: DuplicateCache = { resolutions: {} };
+  try {
+    const raw = await readFile('event-duplicate-cache.json', 'utf-8');
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === 'object' && typeof parsed.resolutions === 'object' && parsed.resolutions !== null) {
+      duplicateCache = parsed as DuplicateCache;
+    } else {
+      console.warn('event-duplicate-cache.json has unexpected shape, starting with empty cache');
+    }
+  } catch (err: any) {
+    if (err?.code !== 'ENOENT') {
+      console.warn(`event-duplicate-cache.json unreadable, starting with empty cache: ${err?.message ?? err}`);
+    }
+  }
 
   // Load the general-purpose fetch cache and inject it into the fetch layer so
   // every source (rippers, external ICS, platform APIs) is fetched live at most
@@ -1184,6 +1208,13 @@ END:VCALENDAR`;
     osmId?: number;
     geocodeSource?: 'ripper' | 'cached' | 'none';
     uncertainty?: { fields: UncertaintyField[]; kind: 'pending' | 'unresolvable' };
+    // Cross-source dedup marks (set below by the dedup pass, never by a ripper).
+    // All members of a HIGH-confidence duplicate group share `duplicateGroupId`;
+    // suppressed members also carry `duplicateOf`; the canonical carries
+    // `dedupedSources` (icsUrls of the suppressed members) for attribution.
+    duplicateGroupId?: string;
+    duplicateOf?: string;
+    dedupedSources?: string[];
   }> = [];
 
   for (const calendar of allCalendars) {
@@ -1407,6 +1438,21 @@ END:VCALENDAR`;
   // event-uncertainty-resolver skill, but we now also write lastSeen
   // stamps on touched entries.
   await saveUncertaintyCache(uncertaintyCache, 'event-uncertainty-cache.json');
+
+  // Cross-source de-duplication. Recognize the same real-world event listed by
+  // multiple sources and mark HIGH-confidence matches in place (the canonical
+  // gets `dedupedSources`; suppressed copies get `duplicateOf`). MED-confidence
+  // pairs become a non-fatal `duplicateCandidates` queue for the resolver skill.
+  // Marks only — no event is dropped and no .ics feed changes. Must run after
+  // the index is fully assembled (rippers + external + recurring + outofband)
+  // and before serialization. See docs/cross-source-event-dedup.md.
+  const dedupResult = findDuplicates(eventsIndex, { resolved: resolutionsFromCache(duplicateCache) });
+  applyDuplicateMarks(dedupResult.groups);
+  const duplicateCardsMerged = dedupResult.groups.reduce((n, g) => n + g.suppressed.length, 0);
+  console.log(
+    `Cross-source dedup: ${dedupResult.groups.length} group(s) merging ${duplicateCardsMerged} duplicate(s); ` +
+    `${dedupResult.candidates.length} candidate(s) pending review`,
+  );
 
   const eventsIndexJson = JSON.stringify(eventsIndex);
   const eventsIndexSizeKB = (Buffer.byteLength(eventsIndexJson, "utf8") / 1024).toFixed(1);
@@ -1945,6 +1991,31 @@ END:VCALENDAR`;
     // surfaces. Non-fatal — not counted in totalErrors (like photoGaps).
     costStats,
     costGaps,
+    // Cross-source de-duplication: `duplicateStats` summarizes how many
+    // multi-source events were collapsed (HIGH) and how many candidate pairs
+    // await review (MED). `duplicateCandidates` is the duplicate-resolver
+    // skill's work queue. Non-fatal — not counted in totalErrors (like
+    // photoGaps/costGaps). See docs/cross-source-event-dedup.md.
+    duplicateStats: {
+      groups: dedupResult.groups.length,
+      merged: duplicateCardsMerged,
+      candidates: dedupResult.candidates.length,
+    },
+    duplicateCandidates: dedupResult.candidates.map(c => ({
+      key: c.key,
+      score: {
+        title: Number(c.score.title.toFixed(3)),
+        distanceM: c.score.distanceM == null ? null : Math.round(c.score.distanceM),
+        locText: Number(c.score.locText.toFixed(3)),
+      },
+      events: [c.a, c.b].map(e => ({
+        icsUrl: e.icsUrl,
+        summary: e.summary,
+        date: e.date,
+        location: e.location,
+        url: e.url,
+      })),
+    })),
     eventCounts: eventCounts.map(c => ({
       name: c.name,
       type: c.type,
@@ -2128,6 +2199,11 @@ END:VCALENDAR`;
       summaryLines.push("");
       summaryLines.push(`> 💲 **Cost coverage:** ${costStats.eventsWithCost} / ${costStats.totalEvents} events (${costPct}%), ${costStats.freeEvents} free` +
         (costGaps.length > 0 ? ` — ${costGaps.length} missing. Run the cost-resolver skill.` : " — ✅ fully covered."));
+    }
+    {
+      summaryLines.push("");
+      summaryLines.push(`> 🔀 **Cross-source duplicates:** ${duplicateCardsMerged} merged across ${dedupResult.groups.length} event(s)` +
+        (dedupResult.candidates.length > 0 ? ` — ${dedupResult.candidates.length} candidate(s) pending review. Run the duplicate-resolver skill.` : " — no candidates pending."));
     }
     if (pendingProxyVerification.length > 0) {
       summaryLines.push("");

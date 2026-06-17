@@ -87,6 +87,29 @@ export const mockRecurringEvents = [
   { icsUrl: 'test-ripper-cal2.ics', summary: 'Tuesday Trivia Night', description: 'A different bar entirely.', location: 'SIFF', date: toJoda(future(5)), lat: 47.70, lng: -122.40 },
 ]
 
+// Cross-source duplicate marks as the BUILD-TIME dedup pass would emit them
+// (lib/cross-source-dedup.ts). The canonical (cal1) carries `dedupedSources`;
+// the suppressed copy (cal2) carries `duplicateOf` and must be hidden from
+// lists and folded into the canonical's "Also listed in" attribution.
+// Used only by cross-source-dedup.spec.js (overrides the events-index route).
+const dupGroupId = 'test-ripper-cal1.ics Live Aloha Hawaiian Cultural Festival|' + toJoda(future(2))
+export const mockDuplicateEvents = [
+  {
+    icsUrl: 'test-ripper-cal1.ics', summary: 'Live Aloha Hawaiian Cultural Festival',
+    description: 'Hawaiian cultural festival.', location: 'Seattle Center, 305 Harrison St, Seattle, WA 98109',
+    date: toJoda(future(2)), lat: 47.6235, lng: -122.3517,
+    duplicateGroupId: dupGroupId, dedupedSources: ['test-ripper-cal2.ics'],
+  },
+  {
+    icsUrl: 'test-ripper-cal2.ics', summary: 'Festal: Live Aloha Hawaiian Cultural Festival',
+    description: 'Hawaiian cultural festival.', location: 'Seattle Center',
+    date: toJoda(future(2)), lat: 47.6250, lng: -122.3517,
+    duplicateGroupId: dupGroupId, duplicateOf: dupGroupId,
+  },
+  // A normal, unrelated event so the list isn't a single row.
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Jazz Night', description: 'Live jazz', location: 'Neumos, Capitol Hill', date: toJoda(future(4)), lat: 47.61, lng: -122.32 },
+]
+
 export const mockVenues = {
   generated: '',
   venues: [{

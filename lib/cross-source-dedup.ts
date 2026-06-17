@@ -21,10 +21,18 @@ export interface DedupEvent {
     location?: string;
     date: string;        // js-joda string, e.g. 2026-07-02T17:00-07:00[America/Los_Angeles]
     endDate?: string;
+    url?: string;        // carried through for the resolver to investigate; not scored
     lat?: number;
     lng?: number;
     osmType?: 'node' | 'way' | 'relation';
     osmId?: number;
+    // Output marks written by applyDuplicateMarks (never set by the matcher's
+    // scoring). All members of a HIGH group share `duplicateGroupId`; suppressed
+    // members also carry `duplicateOf` (= the group id); the canonical carries
+    // `dedupedSources` (icsUrls of the suppressed members) for attribution.
+    duplicateGroupId?: string;
+    duplicateOf?: string;
+    dedupedSources?: string[];
 }
 
 export interface PairScore {
@@ -284,4 +292,41 @@ export function findDuplicates(
     groups.sort((x, y) => (x.id < y.id ? -1 : x.id > y.id ? 1 : 0));
     filteredCandidates.sort((x, y) => (x.key < y.key ? -1 : x.key > y.key ? 1 : 0));
     return { groups, candidates: filteredCandidates };
+}
+
+// Write the duplicate marks onto the events in place. The group members are the
+// same object references the matcher received, so this mutates the caller's
+// array (the events-index entries) directly.
+export function applyDuplicateMarks(groups: DuplicateGroup[]): void {
+    for (const g of groups) {
+        g.canonical.duplicateGroupId = g.id;
+        g.canonical.dedupedSources = g.sources;
+        for (const s of g.suppressed) {
+            s.duplicateGroupId = g.id;
+            s.duplicateOf = g.id;
+        }
+    }
+}
+
+// The committed resolver cache: pairKey -> decision. Populated by the
+// duplicate-resolver skill; read by the build to confirm/reject MED candidates.
+export interface DuplicateCacheEntry {
+    decision: 'confirmed' | 'rejected';
+    note?: string;
+    resolvedAt?: string;
+}
+export interface DuplicateCache {
+    resolutions: Record<string, DuplicateCacheEntry>;
+}
+
+export const EMPTY_DUPLICATE_CACHE: DuplicateCache = { resolutions: {} };
+
+// Parse a raw (JSON) duplicate cache into the resolved-decisions map that
+// findDuplicates consumes. Tolerant of a missing/blank file (cold start).
+export function resolutionsFromCache(cache: DuplicateCache | null | undefined): Map<string, 'confirmed' | 'rejected'> {
+    const map = new Map<string, 'confirmed' | 'rejected'>();
+    for (const [k, v] of Object.entries(cache?.resolutions ?? {})) {
+        if (v?.decision === 'confirmed' || v?.decision === 'rejected') map.set(k, v.decision);
+    }
+    return map;
 }

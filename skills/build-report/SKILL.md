@@ -238,6 +238,27 @@ genuinely not published).
 
 Same lifecycle as photos: not build failures, a self-limiting todo queue.
 
+### 5.8. Cross-source Duplicate Check
+
+Check `duplicateStats` and `duplicateCandidates` in the build health output.
+HIGH-confidence cross-source duplicates are merged automatically at build time
+(collapsed into one card with attribution); the queue here is the MED-confidence
+candidates awaiting a confirm/reject.
+
+**If nothing is pending:**
+```
+🔀 Cross-source duplicates: N merged, 0 candidates pending ✅
+```
+
+**If there are candidates:**
+Read `skills/duplicate-resolver/SKILL.md` and follow it to confirm or reject the
+candidate pairs. Confirmations and rejections are written to
+`event-duplicate-cache.json` (keyed by the candidate `key`), which the next
+build reads to merge confirmed pairs and suppress rejected ones.
+
+Same lifecycle as photos/costs: not build failures, a self-limiting todo queue
+the resolver drains across builds.
+
 ### 6. Source Discovery (if no actionable errors)
 
 If there are **no actionable errors** (0 config errors, 0 external failures, all geocode errors are virtual/TBA/unresolvable, 0 outstanding uncertain events), read `skills/source-discovery/SKILL.md` and follow it completely.
