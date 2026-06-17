@@ -1644,6 +1644,11 @@
       "decision": "rejected",
       "resolvedAt": "2026-06-17",
       "note": "SIFF Odyssey vs Invite: different films at different cinemas. Also: third millisecond variant from SIFF ripper unstable date bug (fixed separately in sources/siff/ripper.ts)"
+    },
+    "siff-downtown.ics [SIFF] The Odyssey|2026-07-16T19:00-07:00[America/Los_Angeles]::siff-uptown.ics [SIFF] The Invite|2026-07-16T19:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-17",
+      "note": "SIFF Odyssey vs Invite: different films at different cinemas (Downtown vs Uptown, 2055m). This is the stable key produced after the .withSecond(0).withNano(0) ripper fix."
     }
   }
 }
