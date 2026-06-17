@@ -347,7 +347,7 @@ export function App206(props) {
     calendarAddMode, setCalendarAddMode,
     // derived
     channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
-    upcomingEvents: scopedUpcoming, eventsByIcsUrl,
+    upcomingEvents: scopedUpcoming, allUpcomingEvents: upcomingEvents, eventsByIcsUrl,
     feedGroups, matchEvents, queryKeySet, inScope,
     // ui state
     section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,

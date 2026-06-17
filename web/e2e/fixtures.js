@@ -68,6 +68,25 @@ export const mockUncertainEvents = [
   },
 ]
 
+// A recurring event that is NOT modeled as recurring: four identical-title
+// instances at one venue/source on different days (a weekly trivia night),
+// scraped as independent dated events. Plus two distractors that must NOT be
+// folded into the series:
+//   - "Open Mic" — same venue/source, different title (belongs under
+//     "More from <channel>", not "Other dates").
+//   - "Tuesday Trivia Night" at a DIFFERENT venue/source — same title but a
+//     different groupKey (different coords + icsUrl), so it must stay separate.
+// Used only by recurring-dates.spec.js, which overrides the events-index route
+// so the shared specs' counts are untouched.
+export const mockRecurringEvents = [
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Tuesday Trivia Night', description: 'Weekly pub trivia.', location: 'Neumos, Capitol Hill', date: toJoda(future(1)), lat: 47.61, lng: -122.32 },
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Tuesday Trivia Night', description: 'Weekly pub trivia.', location: 'Neumos, Capitol Hill', date: toJoda(future(8)), lat: 47.61, lng: -122.32 },
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Tuesday Trivia Night', description: 'Weekly pub trivia.', location: 'Neumos, Capitol Hill', date: toJoda(future(15)), lat: 47.61, lng: -122.32 },
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Tuesday Trivia Night', description: 'Weekly pub trivia.', location: 'Neumos, Capitol Hill', date: toJoda(future(22)), lat: 47.61, lng: -122.32 },
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Open Mic', description: 'Sign-up at the door.', location: 'Neumos, Capitol Hill', date: toJoda(future(3)), lat: 47.61, lng: -122.32 },
+  { icsUrl: 'test-ripper-cal2.ics', summary: 'Tuesday Trivia Night', description: 'A different bar entirely.', location: 'SIFF', date: toJoda(future(5)), lat: 47.70, lng: -122.40 },
+]
+
 export const mockVenues = {
   generated: '',
   venues: [{
