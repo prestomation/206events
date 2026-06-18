@@ -142,6 +142,8 @@ test('the panel closes via its close button', async ({ page }) => {
 // sheet with the preview mode toggle. Clicking a pin must not crash.
 test.describe('mobile', () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
+  // isMobile is a Chromium-only emulation feature; Firefox rejects it outright.
+  test.skip(({ browserName }) => browserName === 'firefox', 'isMobile not supported in Firefox')
 
   test('clicking a pin opens the draggable bottom sheet without errors', async ({ page }) => {
     const map = await openMap(page)
