@@ -108,17 +108,70 @@ describe('FeedbackModal', () => {
     expect(app.closeFeedback).not.toHaveBeenCalled()
   })
 
-  it('falls back to GitHub issues when no API_URL is configured', () => {
+  it('falls back to a prefilled GitHub issue when no API_URL is configured', () => {
     const openFn = vi.fn()
     vi.stubGlobal('open', openFn)
     const fetchFn = vi.fn()
     vi.stubGlobal('fetch', fetchFn)
+    const app = makeApp({ API_URL: '', feedbackPrefill: { type: 'bug', context: { sourceName: 'Stoup', icsUrl: 'stoup.ics' } } })
+    renderModal(app)
+    fireEvent.change(screen.getByPlaceholderText(/What’s wrong/i), { target: { value: 'Missing events' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    expect(fetchFn).not.toHaveBeenCalled()
+    expect(openFn).toHaveBeenCalledTimes(1)
+    const [url, target, features] = openFn.mock.calls[0]
+    expect(target).toBe('_blank')
+    expect(features).toBe('noopener,noreferrer')
+
+    const parsed = new URL(url)
+    expect(parsed.origin + parsed.pathname).toBe(`https://github.com/${cityConfig.site.repo}/issues/new`)
+    // Title mirrors the worker: [Bug] prefix + the source name as the hint.
+    expect(parsed.searchParams.get('title')).toBe('[Bug] Stoup')
+    expect(parsed.searchParams.get('labels')).toBe('feedback,bug')
+    const body = parsed.searchParams.get('body')
+    expect(body).toContain('**Type:** bug')
+    expect(body).toContain('**Source:** Stoup')
+    expect(body).toContain('**Calendar feed:** stoup.ics')
+    expect(body).toContain('Missing events')
+    expect(app.closeFeedback).toHaveBeenCalled()
+  })
+
+  it('falls back to GitHub when the worker reports feedback is not configured (503)', async () => {
+    const openFn = vi.fn()
+    vi.stubGlobal('open', openFn)
+    const fetchFn = vi.fn(async () => ({ ok: false, status: 503 }))
+    vi.stubGlobal('fetch', fetchFn)
+    const app = makeApp()
+    renderModal(app)
+    fireEvent.change(screen.getByPlaceholderText(/love/i), { target: { value: 'hello there' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => expect(fetchFn).toHaveBeenCalledTimes(1))
+    await waitFor(() => expect(openFn).toHaveBeenCalledTimes(1))
+    const parsed = new URL(openFn.mock.calls[0][0])
+    expect(parsed.searchParams.get('body')).toContain('hello there')
+    expect(screen.queryByText(/something went wrong/i)).not.toBeInTheDocument()
+    expect(app.closeFeedback).toHaveBeenCalled()
+  })
+
+  it('copies the body and opens a short GitHub URL when the message is too long', () => {
+    const openFn = vi.fn()
+    vi.stubGlobal('open', openFn)
+    const writeText = vi.fn(() => Promise.resolve())
+    vi.stubGlobal('navigator', { clipboard: { writeText } })
     const app = makeApp({ API_URL: '' })
     renderModal(app)
-    fireEvent.change(screen.getByPlaceholderText(/love/i), { target: { value: 'hello' } })
+    // '#' percent-encodes to %23 (3 chars each), so 4000 of them blow the
+    // encoded URL well past MAX_ISSUE_URL_LENGTH (6000).
+    const huge = '#'.repeat(4000)
+    fireEvent.change(screen.getByPlaceholderText(/love/i), { target: { value: huge } })
     fireEvent.click(screen.getByRole('button', { name: 'Send' }))
-    expect(fetchFn).not.toHaveBeenCalled()
-    expect(openFn).toHaveBeenCalledWith(expect.stringContaining(`github.com/${cityConfig.site.repo}/issues/new`), '_blank', 'noopener,noreferrer')
-    expect(app.closeFeedback).toHaveBeenCalled()
+
+    expect(writeText).toHaveBeenCalledTimes(1)
+    expect(writeText.mock.calls[0][0]).toContain('#'.repeat(100))
+    const parsed = new URL(openFn.mock.calls[0][0])
+    expect(parsed.searchParams.get('body')).toBe('_Paste your copied feedback here._')
+    expect(app.flash).toHaveBeenCalledWith(expect.stringContaining('copied'))
   })
 })

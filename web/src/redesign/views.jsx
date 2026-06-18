@@ -419,6 +419,12 @@ export function YouView() {
   // users activeList.feedUrl is null, so the card prompts sign-in.
   const feedUrl = app.activeList?.feedUrl || null
   const multiList = (app.lists?.length || 0) > 1
+  // Sign-in / personal-feed UI only makes sense when a favorites backend is
+  // wired up (VITE_FAVORITES_API_URL). Template copies without it run read-only
+  // (favorites in localStorage), so the account + ICS-subscription cards — whose
+  // only message would be a dead "Sign in…" prompt — are hidden entirely. The
+  // UAT demo (?uat=1) keeps them so the placeholder experience still renders.
+  const loginEnabled = !!app.API_URL || app.uatMode
 
   return (
     <div style={{ padding: '2px var(--pad) 24px', maxWidth: 1000, margin: '0 auto' }}>
@@ -437,56 +443,62 @@ export function YouView() {
         </div>
       )}
 
-      {/* account */}
-      <div className="a-accountcard">
-        <div className="a-accountcard-ava">
-          {app.authUser
-            ? <img src={app.authUser.picture} alt="" style={{ width: '100%', height: '100%', borderRadius: 999 }} />
-            : <span style={{ width: 24, height: 24 }}>{Ico.user}</span>}
-        </div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontWeight: 700, fontSize: 15 }}>{app.authUser ? app.authUser.name : 'Not signed in'}</div>
-          <div style={{ fontSize: 12.5, color: 'var(--ink-3)' }}>
-            {app.authUser ? app.authUser.email : 'Sign in to sync sources across devices'}
+      {/* account — only when a favorites backend / login is configured */}
+      {loginEnabled && (
+        <div className="a-accountcard">
+          <div className="a-accountcard-ava">
+            {app.authUser
+              ? <img src={app.authUser.picture} alt="" style={{ width: '100%', height: '100%', borderRadius: 999 }} />
+              : <span style={{ width: 24, height: 24 }}>{Ico.user}</span>}
           </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontWeight: 700, fontSize: 15 }}>{app.authUser ? app.authUser.name : 'Not signed in'}</div>
+            <div style={{ fontSize: 12.5, color: 'var(--ink-3)' }}>
+              {app.authUser ? app.authUser.email : 'Sign in to sync sources across devices'}
+            </div>
+          </div>
+          {app.API_URL && (app.authUser
+            ? <button className="btn btn-ghost" style={{ height: 40, fontSize: 13.5, flex: '0 0 auto' }} onClick={app.handleLogout}>Sign out</button>
+            : <button className="btn btn-ink" style={{ height: 40, fontSize: 13.5, flex: '0 0 auto' }} onClick={app.handleLogin}>{Ico.google}Sign in</button>)}
         </div>
-        {app.API_URL && (app.authUser
-          ? <button className="btn btn-ghost" style={{ height: 40, fontSize: 13.5, flex: '0 0 auto' }} onClick={app.handleLogout}>Sign out</button>
-          : <button className="btn btn-ink" style={{ height: 40, fontSize: 13.5, flex: '0 0 auto' }} onClick={app.handleLogin}>{Ico.google}Sign in</button>)}
-      </div>
+      )}
 
       {/* Lists manager (signed-in): switch between lists, create / rename / delete. */}
       <ListsManager />
 
-      {/* ICS link — per active list */}
-      <div className="a-icscard">
-        <span style={{ width: 24, height: 24, color: 'var(--blue)', flex: '0 0 auto' }}>{Ico.cal}</span>
-        <div style={{ minWidth: 0, flex: 1 }}>
-          <div style={{ fontWeight: 700, color: 'var(--blue-ink)', fontSize: 14.5 }}>
-            {multiList ? `Feed for “${app.activeList.name}”` : 'One feed, one link'}
-          </div>
-          <div style={{ fontSize: 12.5, color: 'var(--blue-ink)', opacity: 0.85, marginTop: 2 }}>
-            {app.uatMode
-              ? 'Demo mode — this is a placeholder link and is not a working subscription.'
-              : feedUrl
-                ? `All ${sourceCount} sources below flow into a single subscription that stays updated.`
-                : 'Sign in to get a single subscription link for everything below.'}
-          </div>
-          {feedUrl && (
-            <div style={{ display: 'flex', gap: 7, marginTop: 9, alignItems: 'center' }}>
-              {app.uatMode && (
-                <span style={{ flex: '0 0 auto', fontSize: 11, fontWeight: 700, color: 'var(--amber)',
-                  border: '1px solid var(--amber)', borderRadius: 6, padding: '2px 6px' }}>DEMO · non-functional</span>
-              )}
-              <code className="a-icscode">{feedUrl}</code>
-              {!app.uatMode && (
-                <button className="btn btn-blue" style={{ height: 38, fontSize: 13, flex: '0 0 auto', padding: '0 13px' }}
-                  onClick={() => { navigator.clipboard?.writeText(feedUrl); app.flash('Link copied ✓') }}>Copy</button>
-              )}
+      {/* ICS link — per active list. Hidden without a backend: there is no
+          personal feed to subscribe to, so the card would only show a dead
+          "Sign in…" prompt. */}
+      {loginEnabled && (
+        <div className="a-icscard">
+          <span style={{ width: 24, height: 24, color: 'var(--blue)', flex: '0 0 auto' }}>{Ico.cal}</span>
+          <div style={{ minWidth: 0, flex: 1 }}>
+            <div style={{ fontWeight: 700, color: 'var(--blue-ink)', fontSize: 14.5 }}>
+              {multiList ? `Feed for “${app.activeList.name}”` : 'One feed, one link'}
             </div>
-          )}
+            <div style={{ fontSize: 12.5, color: 'var(--blue-ink)', opacity: 0.85, marginTop: 2 }}>
+              {app.uatMode
+                ? 'Demo mode — this is a placeholder link and is not a working subscription.'
+                : feedUrl
+                  ? `All ${sourceCount} sources below flow into a single subscription that stays updated.`
+                  : 'Sign in to get a single subscription link for everything below.'}
+            </div>
+            {feedUrl && (
+              <div style={{ display: 'flex', gap: 7, marginTop: 9, alignItems: 'center' }}>
+                {app.uatMode && (
+                  <span style={{ flex: '0 0 auto', fontSize: 11, fontWeight: 700, color: 'var(--amber)',
+                    border: '1px solid var(--amber)', borderRadius: 6, padding: '2px 6px' }}>DEMO · non-functional</span>
+                )}
+                <code className="a-icscode">{feedUrl}</code>
+                {!app.uatMode && (
+                  <button className="btn btn-blue" style={{ height: 38, fontSize: 13, flex: '0 0 auto', padding: '0 13px' }}
+                    onClick={() => { navigator.clipboard?.writeText(feedUrl); app.flash('Link copied ✓') }}>Copy</button>
+                )}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* ADD-TO-CALENDAR BUTTON PREFERENCE */}
       <SectionTitle kicker={Ico.cal} title="Add-to-calendar button" />
