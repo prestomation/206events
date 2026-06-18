@@ -15,7 +15,7 @@ Investigated 2026-06-18:
 - `?format=json` returns 21 upcoming events
 - Events include: Little Courtyard Market, book clubs, community meetings, concerts, garden tours, sidewalk sales
 - No fixed address — multi-venue neighborhood org; `geo: null`
-- `sourceRole: aggregator` (neighborhood community org, not a single venue)
+- `sourceRole: venue` (org hosts its own events — concerts, markets, meetings)
 - Tags: Community, Madison Park
 
 Added as `sources/friends_of_madison_park/ripper.yaml`.
