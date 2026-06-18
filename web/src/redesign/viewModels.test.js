@@ -255,6 +255,13 @@ describe('parseIndexDate', () => {
     // midnight UTC (5 PM PDT). parseIndexDate must normalize before parsing.
     const r = parseIndexDate('2026-06-18T17:00-07:00[America/Los_Angeles]')
     expect(r.date.toISOString()).toBe('2026-06-19T00:00:00.000Z')
+    expect(r.timezone).toBe('America/Los_Angeles')
+  })
+
+  it('parses a UTC Z-suffix string without seconds', () => {
+    const r = parseIndexDate('2026-06-15T19:00Z')
+    expect(r.date.toISOString()).toBe('2026-06-15T19:00:00.000Z')
+    expect(r.timezone).toBeUndefined()
   })
 
   it('parses a PST (-08:00) string without seconds', () => {
