@@ -1,5 +1,6 @@
-name: friends_of_madison_park
-sourceRole: aggregator
+# verified: 2026-06-18 ok
+name: friends-of-madison-park
+sourceRole: venue
 type: squarespace
 description: "Friends of Madison Park"
 url: "https://www.friendsofmadisonpark.com/allevents"

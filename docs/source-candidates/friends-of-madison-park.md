@@ -6,6 +6,7 @@ url: https://www.friendsofmadisonpark.com/allevents
 tags: [Community, "Madison Park"]
 firstSeen: 2026-06-18
 lastChecked: 2026-06-18
+pr: 676
 ---
 Volunteer-run neighborhood community organization for Madison Park, Seattle. Hosts free Concerts in the Park, seasonal markets (Little Courtyard Market), Children's Parade, Garden Tour, Book Club, Art Walks, and community civic meetings.
 
