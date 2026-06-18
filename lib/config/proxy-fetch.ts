@@ -25,6 +25,9 @@ import {
     lookupAnyEntry,
     storeEntry,
     recordStaleServe,
+    recordFreshHit,
+    recordLiveFetch,
+    recordLiveFailure,
 } from "../fetch-cache.js";
 
 export type ProxyType = "outofband" | "browserbase" | false;
@@ -63,6 +66,7 @@ export function withCache(liveFetch: FetchFn): FetchFn {
         // 1. Fresh cache hit — no network call.
         const fresh = lookupFreshEntry(key, nowMs);
         if (fresh) {
+            recordFreshHit();
             return new Response(fresh.content, {
                 status: fresh.status,
                 headers: { "Content-Type": fresh.contentType },
@@ -70,6 +74,7 @@ export function withCache(liveFetch: FetchFn): FetchFn {
         }
 
         // 2. Stale or missing — perform a real fetch.
+        recordLiveFetch();
         try {
             const res = await liveFetch(url, init);
             const content = await res.text();
@@ -94,6 +99,7 @@ export function withCache(liveFetch: FetchFn): FetchFn {
         } catch (err) {
             // 3. Live fetch failed — fall back to the last good copy if we have
             //    one, recording a stale serve so the build report flags it.
+            recordLiveFailure();
             const stale = lookupAnyEntry(key);
             if (stale) {
                 const ageHours = Math.round((nowMs - Date.parse(stale.fetchedAt)) / 3_600_000);

@@ -5,6 +5,7 @@ import {
     resetFetchCache,
     getFetchCache,
     drainStaleServes,
+    getFetchCacheStats,
     emptyFetchCache,
     type FetchCache,
 } from "../fetch-cache.js";
@@ -392,5 +393,55 @@ describe("withCache (generic, over an arbitrary fetch fn)", () => {
         const res = await fetchFn(URL, { method: "POST", body: '{"q":1}' });
         expect(live).toHaveBeenCalledTimes(1);
         expect(await res.text()).toBe("POSTED");
+    });
+});
+
+describe("withCache stats (hit/miss telemetry)", () => {
+    const FRESH = "https://example.com/fresh";
+    const MISS = "https://example.com/miss";
+
+    afterEach(() => {
+        resetFetchCache();
+        delete process.env.FETCH_CACHE_TTL_HOURS;
+    });
+
+    it("counts fresh hits, live fetches, and live failures separately", async () => {
+        const cachedAt = new Date(Date.now() - 30 * 3600 * 1000).toISOString();
+        process.env.FETCH_CACHE_TTL_HOURS = "24";
+        initFetchCache({
+            version: 1,
+            entries: {
+                [FRESH]: { fetchedAt: new Date().toISOString(), status: 200, contentType: "text/html", content: "FRESH" },
+                // stale entry to exercise the failure → stale-serve path
+                [MISS]: { fetchedAt: cachedAt, status: 200, contentType: "text/html", content: "STALE" },
+            },
+        });
+
+        // Fresh hit — no network.
+        const freshFetch = withCache(vi.fn());
+        await freshFetch(FRESH);
+
+        // Live success on a brand-new URL.
+        const okLive: FetchFn = vi.fn(async () => new Response("NEW", { status: 200 }));
+        await withCache(okLive)("https://example.com/new");
+
+        // Live failure on a stale entry → stale serve.
+        const failLive: FetchFn = vi.fn(async () => { throw new Error("boom"); });
+        await withCache(failLive)(MISS);
+
+        const stats = getFetchCacheStats();
+        expect(stats.freshHits).toBe(1);
+        expect(stats.liveFetches).toBe(2); // the new URL + the stale-but-attempted MISS
+        expect(stats.liveFailures).toBe(1);
+        expect(stats.staleServes).toBe(1);
+    });
+
+    it("resets counters on initFetchCache", async () => {
+        initFetchCache(emptyFetchCache());
+        await withCache(vi.fn(async () => new Response("x", { status: 200 })))("https://example.com/a");
+        expect(getFetchCacheStats().liveFetches).toBe(1);
+
+        initFetchCache(emptyFetchCache());
+        expect(getFetchCacheStats()).toEqual({ freshHits: 0, liveFetches: 0, liveFailures: 0, staleServes: 0 });
     });
 });

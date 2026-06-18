@@ -12,6 +12,8 @@ import {
   lookupKnownVenue,
   lookupGeoCache,
   resolveEventCoords,
+  resetGeocodeStats,
+  getGeocodeStats,
   type GeoCache,
 } from './geocoder.js';
 
@@ -940,5 +942,46 @@ describe('resolveEventCoords - firstSeen timestamps', () => {
     expect(result.cache).toBe(primed); // same reference — no new entry written
     expect(result.cache.entries['existing venue, seattle'].firstSeen).toBe(pastDate);
     expect(mockFetch).not.toHaveBeenCalled();
+  });
+});
+
+describe('geocode stats (hit/miss telemetry)', () => {
+  let cache: GeoCache;
+
+  beforeEach(() => {
+    resetGeocodeStats();
+    mockFetch.mockReset();
+    cache = {
+      version: 1,
+      entries: {
+        'the crocodile, 2505 1st ave': {
+          lat: 47.6146, lng: -122.3474, geocodedAt: '2026-01-01', source: 'nominatim',
+        },
+        'totally unresolvable place': {
+          unresolvable: true, geocodedAt: '2026-01-01', source: 'nominatim',
+        },
+      },
+    };
+  });
+
+  it('counts cache hits, unresolvable skips, and Nominatim network calls', async () => {
+    mockFetch.mockResolvedValue({ ok: true, json: async () => [{ lat: '47.62', lon: '-122.35' }] });
+
+    await resolveEventCoords(cache, 'The Crocodile, 2505 1st Ave', 'src'); // geo-cache hit
+    await resolveEventCoords(cache, 'totally unresolvable place', 'src');  // cached unresolvable
+    await resolveEventCoords(cache, 'Brand New Venue, Seattle', 'src');    // network (Nominatim)
+
+    const stats = getGeocodeStats();
+    expect(stats.cacheHits).toBe(1);
+    expect(stats.unresolvableSkips).toBe(1);
+    expect(stats.nominatimCalls).toBe(1);
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('resets counters on resetGeocodeStats', async () => {
+    await resolveEventCoords(cache, 'The Crocodile, 2505 1st Ave', 'src');
+    expect(getGeocodeStats().cacheHits).toBe(1);
+    resetGeocodeStats();
+    expect(getGeocodeStats()).toEqual({ cacheHits: 0, knownVenueHits: 0, unresolvableSkips: 0, nominatimCalls: 0 });
   });
 });
