@@ -28,16 +28,22 @@ test('deferred search converges to the filtered set and is clearable', async ({ 
 
   // Type a query. The deferred match-set settles asynchronously; Playwright's
   // web-first assertions retry until it lands, which is exactly the deferred
-  // path we want to exercise (no synchronous freeze).
-  await page.getByPlaceholder('Search events & venues…').fill('jazz')
+  // path we want to exercise (no synchronous freeze). The input is uncontrolled
+  // (DOM-owned) — assert it reflects exactly what was typed.
+  const input = page.getByPlaceholder('Search events & venues…')
+  await input.fill('jazz')
+  await expect(input).toHaveValue('jazz')
   await expect(page.getByText(/Searching:/)).toBeVisible()
   await expect(page.getByText('Jazz Night')).toBeVisible()
   await expect(page.getByText('Movie Premiere')).toHaveCount(0)
 
   await page.screenshot({ path: 'e2e/screenshots/search-deferred.png' })
 
-  // The input stays interactive: clearing the chip restores the full list.
+  // The input stays interactive: clearing via the chip ✕ (an EXTERNAL query
+  // change) must push back into the uncontrolled input via the ref — the field
+  // empties and the full list returns.
   await page.locator('.a-fchip--search button.a-fchip-x').click()
+  await expect(input).toHaveValue('')
   await expect(page.getByText('Movie Premiere')).toBeVisible()
 })
 

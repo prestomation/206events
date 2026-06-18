@@ -163,16 +163,39 @@ view-model (or a `WeakMap`) when `upcomingEvents` is built, then have the window
 filter / row builder / grouping read the cached value. Removes most repeat regex
 work; helps every re-filter (date-window drag, tag/category switches).
 
+### 5. Search box drops keystrokes on Android (controlled input + IME composition)
+
+Reported separately: typing in the search bar occasionally drops a letter on
+Android, even when the key was pressed. The TopBar search input was **controlled**
+(`<input value={text} …>`, `shell.jsx`). Android Gboard *composes* text
+(autocorrect / prediction / swipe) and the value isn't final until
+`compositionend`; React re-applies `value={text}` on **every TopBar render** —
+including the async re-renders from the debounced `app.query` commit and the
+(now-deferred) `queryKeySet` recompute, which can land mid-composition and
+truncate it, dropping a character. This is a well-known React-on-Android failure
+mode and is **not reproducible in headless Chromium** (no Gboard composition), so
+it can't be guarded by a CI test — verify on-device against a preview.
+
+**Recommended fix:** ✅ *Implemented in this PR.* Made the input **uncontrolled**
+(`defaultValue`, no `value` prop) so the DOM owns the text and React renders never
+re-apply a value mid-keystroke. `text` is kept only as a *mirror* (for the clear
+button / suggestions visibility and the debounce); external query changes (clear
+chip, deep link, suggestion) are pushed into the DOM via the input ref, guarded by
+a `lastPushed` ref so the field never echoes its own debounced commit back over
+in-flight typing.
+
 ## Suggested sequencing
 
 | # | Change | Risk | Est. win | Status |
 |---|---|---|---|---|
 | 1a | `useDeferredValue` on live query | very low | kills the typing freeze | ✅ done (this PR) |
 | 2 | Delete dead `App.jsx` memos | low | ~56 ms + ~5 MB/load | ✅ done (this PR) |
+| 5 | Uncontrolled search input (Android dropped keys) | low | no more dropped letters | ✅ done (this PR) |
 | 4 | Cache parsed dates | low | smoother re-filters | open |
 | 1b | Trim live-search description cost | med (behavior) | 121 → ~3–38 ms/query | open (product sign-off) |
 | 3 | Trim/relocate index `description` | med (payload shape) | ~3.7 MB lighter index | open (coordinate w/ payload-split) |
 
-1a + 2 address the two headline complaints ("typing in search" and "on load") at
-low risk and are implemented here. 4, 1b, and 3 remain as follow-ups — 1b and 3
-carry product/behavior tradeoffs and should be deliberate decisions.
+1a + 2 + 5 address the headline complaints ("typing in search" — both the freeze
+and the Android dropped keys — and "on load") at low risk and are implemented here.
+4, 1b, and 3 remain as follow-ups — 1b and 3 carry product/behavior tradeoffs and
+should be deliberate decisions.

@@ -37,12 +37,35 @@ export function TopBar() {
   const [searchOpen, setSearchOpen] = useState(false)
   const wrapRef = useRef(null)
   const inputRef = useRef(null)
+  // The <input> is UNCONTROLLED (defaultValue, no `value` prop): the DOM owns the
+  // text so React re-renders never re-apply a `value` mid-keystroke. On Android,
+  // re-applying a controlled `value` during an IME composition (Gboard autocorrect
+  // / prediction / swipe) truncates the composition and drops characters — and the
+  // TopBar re-renders on async events (debounced query commit, deferred queryKeySet)
+  // that can land mid-composition. `text` is only a MIRROR of the DOM value, kept
+  // for the clear button / suggestions visibility and the debounce; it never feeds
+  // back into the input. External query changes (clear chip, deep link, suggestion)
+  // are pushed into the DOM via the ref, guarded so we never echo our own debounced
+  // commit back over in-flight typing.
+  const lastPushedRef = useRef(app.query)
+  const pushQuery = (v) => { lastPushedRef.current = v; app.setQuery(v) }
+  const setInputValue = (v) => { setText(v); if (inputRef.current) inputRef.current.value = v }
+  // The live DOM value, preferred over the `text` mirror at commit time: on Android
+  // the mirror can lag the DOM by a final composed segment, so committing the DOM
+  // value avoids losing it on Enter / blur / debounce.
+  const currentValue = () => inputRef.current?.value ?? text
 
-  // Keep the input in sync when the query is cleared elsewhere (e.g. chip ✕).
-  useEffect(() => { setText(app.query) }, [app.query])
+  // Adopt app.query only when it changed to something we did NOT push — an external
+  // clear/deep-link — never the echo of our own debounced commit.
+  useEffect(() => {
+    if (app.query !== lastPushedRef.current) {
+      lastPushedRef.current = app.query
+      setInputValue(app.query)
+    }
+  }, [app.query]) // eslint-disable-line react-hooks/exhaustive-deps
   // Debounce commits into the global query.
   useEffect(() => {
-    const id = setTimeout(() => { if (text !== app.query) app.setQuery(text) }, 200)
+    const id = setTimeout(() => { const v = currentValue(); if (v !== app.query) pushQuery(v) }, 200)
     return () => clearTimeout(id)
   }, [text]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -57,12 +80,12 @@ export function TopBar() {
     return () => document.removeEventListener('mousedown', onDown)
   }, [focused])
 
-  const commit = (v) => { setText(v); app.setQuery(v); setFocused(false); setSearchOpen(false) }
-  const clear = () => { setText(''); app.setQuery(''); inputRef.current?.focus() }
+  const commit = (v) => { setInputValue(v); pushQuery(v); setFocused(false); setSearchOpen(false) }
+  const clear = () => { setInputValue(''); pushQuery(''); inputRef.current?.focus() }
   // Collapse the mobile overlay, keeping whatever query is committed.
-  const closeSearch = () => { app.setQuery(text); setFocused(false); setSearchOpen(false) }
+  const closeSearch = () => { pushQuery(currentValue()); setFocused(false); setSearchOpen(false) }
   const onSearchKeyDown = (e) => {
-    if (e.key === 'Enter') { app.setQuery(text); setFocused(false); setSearchOpen(false); inputRef.current?.blur() }
+    if (e.key === 'Enter') { pushQuery(currentValue()); setFocused(false); setSearchOpen(false); inputRef.current?.blur() }
     else if (e.key === 'Escape') { setFocused(false); setSearchOpen(false) }
   }
 
@@ -84,7 +107,7 @@ export function TopBar() {
             <span style={{ width: 19, height: 19 }}>{Ico.back}</span>
           </button>
           <span className="a-search-ico" style={{ width: 19, height: 19, flex: '0 0 auto' }}>{Ico.search}</span>
-          <input ref={inputRef} className="a-search-input" value={text} onChange={(e) => setText(e.target.value)}
+          <input ref={inputRef} className="a-search-input" defaultValue={app.query} onChange={(e) => setText(e.target.value)}
             onFocus={() => setFocused(true)} onKeyDown={onSearchKeyDown} placeholder="Search events & venues…"
             aria-label="Search events and venues" />
           {text && <button className="a-search-x" onClick={clear} aria-label="Clear search">
