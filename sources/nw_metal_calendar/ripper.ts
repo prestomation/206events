@@ -60,7 +60,7 @@ export default class NWMetalRipper extends HTMLRipper {
                     .withNano(0);
 
                 dayEvents.push({
-                    summary: `[NWMetal] ${name}`,
+                    summary: name,
                     date: eventTime,
                     duration: Duration.ofHours(4),
                     ripped: convert(LocalDateTime.now()).toDate(),

@@ -63,7 +63,7 @@ export default class SAFRipper extends HTMLRipper {
 
                 const a: RipperCalendarEvent = {
                     id,
-                    summary: `[SAF] ${title}`,
+                    summary: title,
                     date: eventTime,
                     duration: Duration.ofHours(2),
                     ripped: convert(LocalDateTime.now()).toDate(),
