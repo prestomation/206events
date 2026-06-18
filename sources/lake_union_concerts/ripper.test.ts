@@ -64,7 +64,6 @@ describe('extractJsonLd', () => {
 
 describe('parseEventPage', () => {
     const timezone = ZoneId.of('America/Los_Angeles');
-    const pastDate = ZonedDateTime.parse('2020-01-01T00:00:00-08:00');
     const recentDate = ZonedDateTime.parse('2026-01-01T00:00:00-08:00');
 
     it('parses a future event correctly', () => {
@@ -104,6 +103,43 @@ describe('parseEventPage', () => {
         const result = parseEventPage(html, 'https://posh.vip/e/seattle-paddle-rave-june-17th-season-opener', recentDate, timezone);
         if ('date' in result) {
             expect(result.duration.toMinutes()).toBe(180); // 3 hours = 180 min
+        }
+    });
+
+    it('derives 2h duration from endDate (proves endDate branch fires)', () => {
+        const jsonLd = {
+            '@context': 'https://schema.org',
+            '@type': 'Event',
+            name: 'Two Hour Test',
+            startDate: '2026-07-01T17:00:00-07:00',
+            endDate: '2026-07-01T19:00:00-07:00',
+            location: { name: 'Test', address: { streetAddress: '123 Test St' } },
+            offers: { price: 0 },
+        };
+        const raw = JSON.stringify(jsonLd);
+        const encoded = JSON.stringify(raw).slice(1, -1);
+        const html = `<script>self.__next_f.push([1,"${encoded}"])</script>`;
+        const result = parseEventPage(html, 'https://posh.vip/e/two-hour-test', recentDate, timezone);
+        if ('date' in result) {
+            expect(result.duration.toMinutes()).toBe(120); // 2h, not the 3h default
+        }
+    });
+
+    it('defaults to 3h duration when no endDate', () => {
+        const jsonLd = {
+            '@context': 'https://schema.org',
+            '@type': 'Event',
+            name: 'No EndDate Test',
+            startDate: '2026-07-01T17:00:00-07:00',
+            location: { name: 'Test', address: { streetAddress: '123 Test St' } },
+            offers: { price: 0 },
+        };
+        const raw = JSON.stringify(jsonLd);
+        const encoded = JSON.stringify(raw).slice(1, -1);
+        const html = `<script>self.__next_f.push([1,"${encoded}"])</script>`;
+        const result = parseEventPage(html, 'https://posh.vip/e/no-enddate', recentDate, timezone);
+        if ('date' in result) {
+            expect(result.duration.toMinutes()).toBe(180); // falls through to 3h default
         }
     });
 

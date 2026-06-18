@@ -4,6 +4,7 @@ import { getFetchForConfig } from '../../lib/config/proxy-fetch.js';
 import '@js-joda/timezone';
 
 const TICKETS_URL = 'https://www.lakeunionconcerts.com/tickets';
+const PAST_EVENT_REASON = 'Event is in the past';
 const USER_AGENT_TICKETS = 'Mozilla/5.0 (compatible; 206events/1.0)';
 const USER_AGENT_POSH = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
@@ -33,7 +34,7 @@ interface PoshEventJsonLd {
 }
 
 export function extractEventUrls(html: string): string[] {
-    const matches = html.match(/https:\/\/posh\.vip\/e\/[a-z0-9-]+/g) ?? [];
+    const matches = html.match(/https:\/\/posh\.vip\/e\/[a-zA-Z0-9_-]+/g) ?? [];
     return [...new Set(matches)];
 }
 
@@ -57,32 +58,14 @@ export function extractJsonLd(html: string): PoshEventJsonLd | null {
         const jsonStart = text.indexOf('{');
         if (jsonStart === -1) continue;
 
-        // First try: parse the whole remainder as JSON (works when chunk is pure JSON-LD)
+        // The RSC chunk for JSON-LD is the object itself; parse the whole remainder.
         try {
             const candidate = JSON.parse(text.slice(jsonStart)) as PoshEventJsonLd;
             if (candidate['@type'] === 'Event' && candidate['@context']?.includes('schema.org')) {
                 return candidate;
             }
         } catch {
-            // Fallback: use brace counting to find the JSON object boundary
-            let depth = 0;
-            let end = -1;
-            for (let i = jsonStart; i < text.length; i++) {
-                if (text[i] === '{') depth++;
-                else if (text[i] === '}') {
-                    depth--;
-                    if (depth === 0) { end = i; break; }
-                }
-            }
-            if (end === -1) continue;
-            try {
-                const candidate = JSON.parse(text.slice(jsonStart, end + 1)) as PoshEventJsonLd;
-                if (candidate['@type'] === 'Event' && candidate['@context']?.includes('schema.org')) {
-                    return candidate;
-                }
-            } catch {
-                continue;
-            }
+            continue;
         }
     }
 
@@ -108,7 +91,7 @@ export function parseEventPage(
     }
 
     if (startZdt.isBefore(now)) {
-        return { type: 'ParseError', reason: 'Event is in the past', context: jsonLd.name };
+        return { type: 'ParseError', reason: PAST_EVENT_REASON, context: jsonLd.name };
     }
 
     let duration = Duration.ofHours(3);
@@ -192,7 +175,7 @@ export default class LakeUnionConcertsRipper implements IRipper {
             const result = parseEventPage(eventHtml, eventUrl, now, timezone);
             if ('date' in result) {
                 events.push(result);
-            } else if (result.reason !== 'Event is in the past') {
+            } else if (result.reason !== PAST_EVENT_REASON) {
                 errors.push(result);
             }
         }
