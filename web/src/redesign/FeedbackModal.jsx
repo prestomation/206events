@@ -16,6 +16,55 @@ const TYPE_OPTIONS = [
   { id: 'source', label: 'Suggest a source' },
 ]
 
+// Per-type issue title prefix + labels. Mirrors TYPE_META in the favorites
+// worker (infra/favorites-worker/src/feedback.ts) so an issue looks the same
+// whether the worker filed it via its token or the user filed it themselves
+// through the GitHub-prefill fallback below. Keep the two in sync.
+const TYPE_META = {
+  general: { titlePrefix: '[Feedback]', labels: ['feedback'] },
+  bug: { titlePrefix: '[Bug]', labels: ['feedback', 'bug'] },
+  source: { titlePrefix: '[Source request]', labels: ['feedback', 'new-source'] },
+}
+
+// GitHub's new-issue GET form 414s on very long URLs. Past this length we open a
+// shorter URL and copy the full body to the clipboard instead.
+const MAX_ISSUE_URL_LENGTH = 6000
+
+// Neutralize GitHub-flavored markdown in short interpolated fields (title +
+// context), mirroring neutralizeMarkdown in the worker so `@user` mass-mentions,
+// issue-number cross-links, and `[text](url)` links don't render in the
+// prefilled issue preview. A zero-width space after the sigil keeps the text
+// readable while breaking the parser. The free-text message is instead wrapped
+// in a code fence (below), same as the worker.
+function neutralizeMarkdown(s) {
+  return s.replace(/[@#[\]]/g, (ch) => `${ch}​`)
+}
+
+function buildIssueTitle(type, message, context) {
+  const hint = neutralizeMarkdown((context.sourceName || message).replace(/\s+/g, ' ').trim()).slice(0, 80)
+  return `${(TYPE_META[type] || TYPE_META.general).titlePrefix} ${hint || 'New submission'}`
+}
+
+// Mirror the worker's buildIssueBody: short metadata lines (markdown-neutralized),
+// then the free-text message in a fenced block (fences inside the message are
+// escaped so they can't break out). The worker additionally stamps
+// **Account:**/**Submitted:** and a footer — those are server-only trust signals
+// the client can't honestly assert, so they're deliberately omitted here.
+function buildIssueBody(type, message, email, context) {
+  const lines = [`**Type:** ${type}`]
+  if (email) lines.push(`**From:** ${neutralizeMarkdown(email)}`)
+  if (context.sourceName) lines.push(`**Source:** ${neutralizeMarkdown(context.sourceName)}`)
+  if (context.icsUrl) lines.push(`**Calendar feed:** ${neutralizeMarkdown(context.icsUrl)}`)
+  if (context.pageUrl) lines.push(`**Page:** ${neutralizeMarkdown(context.pageUrl)}`)
+  lines.push('', '---', '', '```text', message.replace(/```/g, "'''"), '```')
+  return lines.join('\n')
+}
+
+function githubIssueUrl(title, body, labels) {
+  const params = new URLSearchParams({ title, body, labels: labels.join(',') })
+  return `${GITHUB_NEW_ISSUE}?${params.toString()}`
+}
+
 const PLACEHOLDERS = {
   general: 'What do you love, what’s missing, what would you change?',
   bug: 'What’s wrong? Which calendar or event, what you expected vs. what you saw, and a link if you have one.',
@@ -69,16 +118,35 @@ export function FeedbackModal() {
     if (typeof rawContext[key] === 'string' && rawContext[key]) context[key] = rawContext[key]
   }
 
+  // Hand off to GitHub's prefilled new-issue page, carrying the type, message,
+  // email, and context the user already entered. Used when no feedback backend
+  // is configured at all (!app.API_URL) and when a configured worker reports the
+  // feedback route isn't set up (HTTP 503). The noopener,noreferrer features
+  // prevent the opened tab from reaching back through window.opener.
+  const handoffToGithub = (msg) => {
+    const title = buildIssueTitle(type, msg, context)
+    const body = buildIssueBody(type, msg, email.trim(), context)
+    const { labels } = TYPE_META[type] || TYPE_META.general
+    let url = githubIssueUrl(title, body, labels)
+    if (url.length > MAX_ISSUE_URL_LENGTH) {
+      // Too long for a reliable GET: copy the full body and open a short form.
+      // The trailing ?. guards a missing clipboard API (e.g. insecure context),
+      // where writeText is undefined and `.catch` would otherwise throw.
+      navigator.clipboard?.writeText(body)?.catch(() => {})
+      url = githubIssueUrl(title, '_Paste your copied feedback here._', labels)
+      app.flash('Feedback copied — paste it into the GitHub issue')
+    }
+    window.open(url, '_blank', 'noopener,noreferrer')
+    app.closeFeedback()
+  }
+
   const submit = async () => {
     const msg = message.trim()
     if (!msg) { setError('Please enter a message.'); return }
 
-    // No backend (local/preview): hand off to GitHub's new-issue page. The
-    // noopener,noreferrer features prevent the opened tab from reaching back
-    // through window.opener.
+    // No backend (local/preview): hand off to GitHub's new-issue page.
     if (!app.API_URL) {
-      window.open(GITHUB_NEW_ISSUE, '_blank', 'noopener,noreferrer')
-      app.closeFeedback()
+      handoffToGithub(msg)
       return
     }
 
@@ -97,6 +165,12 @@ export function FeedbackModal() {
           website, // honeypot
         }),
       })
+      // Worker is up but the feedback route isn't configured (no GitHub token /
+      // repo) — fall back to the same GitHub hand-off instead of a dead error.
+      if (res.status === 503) {
+        handoffToGithub(msg)
+        return
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       app.flash('Thanks — feedback sent ✓')
       app.closeFeedback()
