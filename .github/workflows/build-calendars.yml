@@ -103,12 +103,21 @@ jobs:
 
     - name: Restore source fetch cache
       # Throttles every source (rippers, external ICS, platform APIs) to one live
-      # fetch per cache key per TTL window, 24h by default (freshness lives in the
-      # JSON's fetchedAt). Immutable per-run key never matches exactly, so the
-      # restore-keys prefix returns the newest entry — same pattern as the
-      # claude-routine rate limit in publish_calendars.yml. PR builds read the
-      # default-branch cache the daily main build writes, so previews ride on
-      # main's recent fetches and make almost no outgoing requests.
+      # fetch per cache key per TTL window, 7 days by default (freshness lives in
+      # the JSON's fetchedAt; see docs/cache-freshness-strategy.md). Immutable
+      # per-run key never matches exactly, so the restore-keys prefix returns the
+      # newest entry — same pattern as the claude-routine rate limit in
+      # publish_calendars.yml.
+      #
+      # PR builds must read main's warm cache, not their own. GHA cache restore
+      # searches the CURRENT ref's scope first and only falls through to the
+      # default branch if it finds nothing there. So PR builds deliberately do
+      # NOT save (see the Save step's `if:` below): with no entry in the PR's
+      # own merge-ref scope, the restore-keys prefix falls through to the
+      # default-branch cache the daily main build writes, and previews ride on
+      # main's recent fetches. (If a PR saved, a cancelled/early run could leave
+      # a near-empty cache in the PR scope that shadows main's — the cause of a
+      # 5%-hit cold preview we hit once; see docs/cache-freshness-strategy.md.)
       uses: actions/cache/restore@v4
       with:
         path: fetch-cache.json
@@ -172,7 +181,12 @@ jobs:
         fi
 
     - name: Save geo-cache
-      if: always()
+      # Only main/scheduled builds persist the cache — never PR builds. A PR
+      # build that wrote into its own merge-ref scope would shadow main's warm
+      # cache on the PR's next restore (GHA searches the current scope before
+      # the default branch). Keeping PRs read-only means previews always fall
+      # through to main's cache. See docs/cache-freshness-strategy.md.
+      if: always() && github.event_name != 'pull_request'
       # Persist the (possibly newly-geocoded) cache back to the GitHub Actions
       # Cache under a unique per-run key. Older entries become unreachable once
       # a newer one exists (restore-keys picks the newest) and expire naturally.
@@ -183,7 +197,11 @@ jobs:
         key: geo-cache-v1-${{ github.run_id }}
 
     - name: Save source fetch cache
-      if: always()
+      # PR builds never save (see Save geo-cache above and the Restore step's
+      # comment): a cancelled/early PR run could otherwise leave a near-empty
+      # cache in the PR scope that shadows main's warm cache. Per-run key on main
+      # is preserved so the proactive oldest-slice refresh persists each build.
+      if: always() && github.event_name != 'pull_request'
       # Unique per-run key so we never collide with a prior entry; older entries
       # are unreachable once a newer one exists (restore-keys picks the newest)
       # and expire naturally. Always runs so a partial build still persists any
