@@ -67,6 +67,9 @@ export default class SIFFRipper extends HTMLRipper {
             const duration = Duration.ofMinutes(lengthMinutes);
             const movieTime = date.withHour(hour24).withMinute(min).withSecond(0).withNano(0);
 
+            if (!title) {
+                return { type: "ParseError", reason: "Missing title", context: e.toString() } as ParseError;
+            }
             const a: RipperCalendarEvent = {
                 description: "",
                 summary: title,
