@@ -5,8 +5,6 @@
 // is responsible for turning an open event object into its `eventKey`
 // (`summary|date`) token and back. URLSearchParams handles percent-encoding of
 // special characters (`|`, `&`, `#`, spaces, unicode) on both set and get.
-
-import { isDateRange, normalizeDateRange } from './viewModels.js'
 //
 // Hash schema (read precedence mirrors App206's content cascade: event > channel > section):
 //   section   -> section      (omitted when 'discover')
@@ -21,6 +19,8 @@ import { isDateRange, normalizeDateRange } from './viewModels.js'
 //   emphasis  -> emphasis      (omitted when 'calendars')
 //   tab       -> healthTab     (health section only; omitted when 'sources')
 //   source    -> healthSource  (health section only; the drilled-into source name)
+
+import { isDateRange, normalizeDateRange } from './viewModels.js'
 
 const DEFAULTS = {
   section: 'discover',
@@ -48,8 +48,9 @@ function parseDateWindow(raw) {
   if (raw == null) return DEFAULTS.dateWindow
   if (raw in LEGACY_DATE) return LEGACY_DATE[raw]
   if (raw.includes('..')) {
-    const [start, end] = raw.split('..')
-    return normalizeDateRange({ start, end }) || DEFAULTS.dateWindow
+    const parts = raw.split('..')
+    if (parts.length !== 2) return DEFAULTS.dateWindow
+    return normalizeDateRange({ start: parts[0], end: parts[1] }) || DEFAULTS.dateWindow
   }
   const n = Number(raw)
   return Number.isInteger(n) && n >= 0 ? n : DEFAULTS.dateWindow

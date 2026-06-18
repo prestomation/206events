@@ -91,6 +91,7 @@ describe('urlHash codec', () => {
     expect(deserializeHash('date=2026-07-24..bogus').dateWindow).toBe('all')
     expect(deserializeHash('date=..').dateWindow).toBe('all')
     expect(deserializeHash('date=2026-02-31..2026-07-28').dateWindow).toBe('all') // impossible day
+    expect(deserializeHash('date=2026-07-24..2026-07-28..foo').dateWindow).toBe('all') // extra segment
   })
 
   it('round-trips an open channel', () => {
