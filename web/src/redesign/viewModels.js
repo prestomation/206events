@@ -21,7 +21,15 @@ export function parseIndexDate(dateStr) {
   if (!dateStr) return null
   const tzMatch = dateStr.match(/\[(.+)\]$/)
   const timezone = tzMatch ? tzMatch[1] : undefined
-  const parsed = new Date(dateStr.replace(/\[.*\]$/, ''))
+  // Strip the IANA bracket suffix, then ensure seconds are present before calling
+  // new Date(). Safari misparses "T17:00-07:00" (no seconds) — it ignores the
+  // UTC offset and treats the time as UTC, so the AddToCalendar link shows the
+  // wrong time while the timezone-aware display stays correct. Adding ":00" makes
+  // the format unambiguous across all browsers.
+  const normalized = dateStr
+    .replace(/\[.*\]$/, '')
+    .replace(/T(\d{2}:\d{2})(?!:\d{2})([-+Z]|$)/, 'T$1:00$2')
+  const parsed = new Date(normalized)
   if (isNaN(parsed.getTime())) return null
   return { date: parsed, timezone }
 }

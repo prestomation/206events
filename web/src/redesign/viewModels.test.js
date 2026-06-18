@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, isDateRange, normalizeDateRange, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
+import { eventInWindow, describeWindow, isDateRange, normalizeDateRange, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS, parseIndexDate } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 import cityConfig from '../../../city.config.ts'
 
@@ -239,6 +239,34 @@ describe('formatTimeRange', () => {
 
   it('returns empty string with no start', () => {
     expect(formatTimeRange(null, d(21))).toBe('')
+  })
+})
+
+describe('parseIndexDate', () => {
+  it('parses a full ISO 8601 offset string with seconds', () => {
+    const r = parseIndexDate('2026-06-18T17:00:00-07:00[America/Los_Angeles]')
+    expect(r.date.toISOString()).toBe('2026-06-19T00:00:00.000Z')
+    expect(r.timezone).toBe('America/Los_Angeles')
+  })
+
+  it('parses an offset string WITHOUT seconds (Safari bug guard)', () => {
+    // Safari historically ignores the UTC offset when seconds are absent, making
+    // new Date("2026-06-18T17:00-07:00") return 5 PM UTC (10 AM PDT) instead of
+    // midnight UTC (5 PM PDT). parseIndexDate must normalize before parsing.
+    const r = parseIndexDate('2026-06-18T17:00-07:00[America/Los_Angeles]')
+    expect(r.date.toISOString()).toBe('2026-06-19T00:00:00.000Z')
+  })
+
+  it('parses a PST (-08:00) string without seconds', () => {
+    const r = parseIndexDate('2026-02-15T19:00-08:00[America/Los_Angeles]')
+    expect(r.date.toISOString()).toBe('2026-02-16T03:00:00.000Z')
+    expect(r.timezone).toBe('America/Los_Angeles')
+  })
+
+  it('returns null for null/undefined', () => {
+    expect(parseIndexDate(null)).toBeNull()
+    expect(parseIndexDate(undefined)).toBeNull()
+    expect(parseIndexDate('')).toBeNull()
   })
 })
 
