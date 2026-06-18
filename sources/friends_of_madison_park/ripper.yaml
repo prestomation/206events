@@ -1,0 +1,13 @@
+# verified: 2026-06-18 ok
+name: friends-of-madison-park
+sourceRole: venue
+type: squarespace
+description: "Friends of Madison Park"
+url: "https://www.friendsofmadisonpark.com/allevents"
+friendlyLink: https://www.friendsofmadisonpark.com/allevents
+geo: null
+tags: ["Community", "Madison Park"]
+calendars:
+  - name: all-events
+    friendlyname: "Friends of Madison Park"
+    timezone: America/Los_Angeles
