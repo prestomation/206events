@@ -138,29 +138,95 @@ export function upcomingIndexEvents(eventsIndex, { months = 6, now = new Date() 
 }
 
 // --- Date-window filter -----------------------------------------------------
-// The "next N days" map/list filter is a single global value: either a number
-// of days from today, or 'all' (no date filtering, the default). These are the
-// discrete slider stops, smallest to largest.
+// The "next N days" map/list filter is a single global value with three shapes:
+//   - a number of days from today (the slider stops below),
+//   - 'all' (no date filtering, the default), or
+//   - a { start, end } custom range of 'YYYY-MM-DD' local days (inclusive),
+//     for picking explicit calendar dates (e.g. a visitor's trip).
+// These are the discrete slider stops, smallest to largest.
 export const DATE_WINDOW_STOPS = [0, 3, 7, 14, 30, 90, 'all']
 
-// True when `event` falls within [today, today + windowDays] (inclusive),
-// honoring the event's own timezone via localDay(). 'all' (or null) matches
-// everything; past events and unparseable dates never match a numeric window.
+// True when `win` is a custom { start, end } range object (the third dateWindow
+// shape, alongside a numeric day count and 'all').
+export function isDateRange(win) {
+  return win != null && typeof win === 'object'
+    && typeof win.start === 'string' && typeof win.end === 'string'
+}
+
+// Parse a 'YYYY-MM-DD' string into a Date at LOCAL midnight, matching how
+// localDay() constructs an event's day so the two compare directly. Returns
+// null when the string is malformed or not a real calendar date (e.g. Feb 31,
+// which Date would silently roll over).
+function parseLocalDay(s) {
+  if (typeof s !== 'string') return null
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+  if (!m) return null
+  const y = +m[1], mo = +m[2], d = +m[3]
+  const date = new Date(y, mo - 1, d)
+  if (date.getFullYear() !== y || date.getMonth() !== mo - 1 || date.getDate() !== d) return null
+  return date
+}
+
+// Validate/normalize a { start, end } pair: both must be real 'YYYY-MM-DD'
+// days; a reversed pair is swapped so start <= end. Returns the canonical
+// { start, end } (preserving the original strings) or null when either side is
+// malformed.
+export function normalizeDateRange(range) {
+  if (!range || typeof range !== 'object') return null
+  const s = parseLocalDay(range.start)
+  const e = parseLocalDay(range.end)
+  if (!s || !e) return null
+  return s <= e ? { start: range.start, end: range.end } : { start: range.end, end: range.start }
+}
+
+// "Jul 24" (single day), "Jul 24 – 28" (same month), or "Jul 28 – Aug 2"
+// (cross-month), appending the year per side when it isn't `now`'s year.
+function formatRangeLabel(range, now = new Date()) {
+  const start = parseLocalDay(range.start)
+  const end = parseLocalDay(range.end)
+  if (!start || !end) return 'Custom dates'
+  const curYear = now.getFullYear()
+  const fmt = (date, withMonth) => date.toLocaleDateString('en-US', {
+    ...(withMonth ? { month: 'short' } : {}),
+    day: 'numeric',
+    ...(date.getFullYear() !== curYear ? { year: 'numeric' } : {}),
+  })
+  if (start.getTime() === end.getTime()) return fmt(start, true)
+  const sameMonth = start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth()
+  return `${fmt(start, true)} – ${fmt(end, !sameMonth)}`
+}
+
+// True when `event` falls within the active window, honoring the event's own
+// timezone via localDay(). 'all' (or null) matches everything; a numeric window
+// is [today, today + windowDays] inclusive; a custom range is [start, end]
+// inclusive. Past events and unparseable dates never match a numeric window or
+// a range. A malformed range matches everything (mirrors the 'all' fallback).
 export function eventInWindow(event, windowDays, now = new Date()) {
   if (windowDays === 'all' || windowDays == null) return true
   const parsed = parseIndexDate(event.date)
   if (!parsed) return false
-  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
   const day = localDay(parsed)
+  if (isDateRange(windowDays)) {
+    const range = normalizeDateRange(windowDays)
+    if (!range) return true
+    return day >= parseLocalDay(range.start) && day <= parseLocalDay(range.end)
+  }
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
   const diff = Math.round((day - todayStart) / 86400000)
   return diff >= 0 && diff <= windowDays
 }
 
-// Human labels for a window stop: the relative phrase plus the resolved
-// absolute end date (null for 'all', which has no end).
+// Human labels for a window value: the relative phrase plus the resolved
+// absolute end date (null for 'all' and for custom ranges, which carry their
+// own dates in the relative phrase).
 export function describeWindow(windowDays, now = new Date()) {
   if (windowDays === 'all' || windowDays == null) {
     return { relative: 'All upcoming', absoluteEnd: null }
+  }
+  if (isDateRange(windowDays)) {
+    const range = normalizeDateRange(windowDays)
+    if (!range) return { relative: 'All upcoming', absoluteEnd: null }
+    return { relative: formatRangeLabel(range, now), absoluteEnd: null }
   }
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
   const end = new Date(todayStart)

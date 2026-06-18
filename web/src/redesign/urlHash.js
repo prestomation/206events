@@ -14,10 +14,13 @@
 //   category  -> category      (omitted when null)
 //   hood      -> neighborhood  (omitted when null)
 //   cost      -> costFilter    ('free' | '10' | '25'; omitted when null)
-//   date      -> dateWindow    (number of days, or 'all'; omitted when 'all')
+//   date      -> dateWindow    (number of days, 'all', or a 'START..END'
+//                               custom range of 'YYYY-MM-DD' days; omitted when 'all')
 //   emphasis  -> emphasis      (omitted when 'calendars')
 //   tab       -> healthTab     (health section only; omitted when 'sources')
 //   source    -> healthSource  (health section only; the drilled-into source name)
+
+import { isDateRange, normalizeDateRange } from './viewModels.js'
 
 const DEFAULTS = {
   section: 'discover',
@@ -37,10 +40,18 @@ const DEFAULTS = {
 // window stop so old deep-links keep working.
 const LEGACY_DATE = { today: 0, weekend: 7, all: 'all' }
 
-// Parse a `date=` token into a window value: a number of days, or 'all'.
+// Parse a `date=` token into a window value: a number of days, 'all', or a
+// { start, end } custom range from the 'START..END' form. A malformed range or
+// number falls back to the default ('all'), matching the defensive posture for
+// every other token.
 function parseDateWindow(raw) {
   if (raw == null) return DEFAULTS.dateWindow
   if (raw in LEGACY_DATE) return LEGACY_DATE[raw]
+  if (raw.includes('..')) {
+    const parts = raw.split('..')
+    if (parts.length !== 2) return DEFAULTS.dateWindow
+    return normalizeDateRange({ start: parts[0], end: parts[1] }) || DEFAULTS.dateWindow
+  }
   const n = Number(raw)
   return Number.isInteger(n) && n >= 0 ? n : DEFAULTS.dateWindow
 }
@@ -92,7 +103,14 @@ export function serializeHash(state) {
   if (s.category) params.set('category', s.category)
   if (s.neighborhood) params.set('hood', s.neighborhood)
   if (s.cost) params.set('cost', s.cost)
-  if (s.dateWindow !== undefined && s.dateWindow !== DEFAULTS.dateWindow) params.set('date', String(s.dateWindow))
+  if (s.dateWindow !== undefined && s.dateWindow !== DEFAULTS.dateWindow) {
+    if (isDateRange(s.dateWindow)) {
+      const r = normalizeDateRange(s.dateWindow)
+      if (r) params.set('date', `${r.start}..${r.end}`)
+    } else {
+      params.set('date', String(s.dateWindow))
+    }
+  }
   if (s.emphasis && s.emphasis !== DEFAULTS.emphasis) params.set('emphasis', s.emphasis)
 
   return params.toString()
