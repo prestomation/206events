@@ -137,6 +137,24 @@ describe('FeedbackModal', () => {
     expect(app.closeFeedback).toHaveBeenCalled()
   })
 
+  it('neutralizes markdown in the title and context fields of the GitHub fallback', () => {
+    const openFn = vi.fn()
+    vi.stubGlobal('open', openFn)
+    vi.stubGlobal('fetch', vi.fn())
+    const app = makeApp({ API_URL: '', feedbackPrefill: { type: 'bug', context: { sourceName: '@evil #1 [x]' } } })
+    renderModal(app)
+    fireEvent.change(screen.getByPlaceholderText(/What’s wrong/i), { target: { value: 'hi' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    const parsed = new URL(openFn.mock.calls[0][0])
+    // A zero-width space is inserted after each markdown sigil, so no raw
+    // @mention / #ref / [link] survives in the title or body.
+    expect(parsed.searchParams.get('title')).not.toContain('@evil')
+    expect(parsed.searchParams.get('title')).toContain('@​evil')
+    expect(parsed.searchParams.get('body')).not.toContain('@evil #1 [x]')
+    expect(parsed.searchParams.get('body')).toContain('@​evil')
+  })
+
   it('falls back to GitHub when the worker reports feedback is not configured (503)', async () => {
     const openFn = vi.fn()
     vi.stubGlobal('open', openFn)

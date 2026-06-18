@@ -30,20 +30,32 @@ const TYPE_META = {
 // shorter URL and copy the full body to the clipboard instead.
 const MAX_ISSUE_URL_LENGTH = 6000
 
+// Neutralize GitHub-flavored markdown in short interpolated fields (title +
+// context), mirroring neutralizeMarkdown in the worker so `@user` mass-mentions,
+// `#123` cross-links, and `[text](url)` links don't render in the prefilled
+// issue preview. A zero-width space after the sigil keeps the text readable
+// while breaking the parser. The free-text message is instead wrapped in a code
+// fence (below), same as the worker.
+function neutralizeMarkdown(s) {
+  return s.replace(/[@#[\]]/g, (ch) => `${ch}​`)
+}
+
 function buildIssueTitle(type, message, context) {
-  const hint = (context.sourceName || message).replace(/\s+/g, ' ').trim().slice(0, 80)
+  const hint = neutralizeMarkdown((context.sourceName || message).replace(/\s+/g, ' ').trim()).slice(0, 80)
   return `${(TYPE_META[type] || TYPE_META.general).titlePrefix} ${hint || 'New submission'}`
 }
 
-// Mirror the worker's buildIssueBody: short metadata lines, then the free-text
-// message in a fenced block (fences inside the message are escaped so they
-// can't break out).
+// Mirror the worker's buildIssueBody: short metadata lines (markdown-neutralized),
+// then the free-text message in a fenced block (fences inside the message are
+// escaped so they can't break out). The worker additionally stamps
+// **Account:**/**Submitted:** and a footer — those are server-only trust signals
+// the client can't honestly assert, so they're deliberately omitted here.
 function buildIssueBody(type, message, email, context) {
   const lines = [`**Type:** ${type}`]
-  if (email) lines.push(`**From:** ${email}`)
-  if (context.sourceName) lines.push(`**Source:** ${context.sourceName}`)
-  if (context.icsUrl) lines.push(`**Calendar feed:** ${context.icsUrl}`)
-  if (context.pageUrl) lines.push(`**Page:** ${context.pageUrl}`)
+  if (email) lines.push(`**From:** ${neutralizeMarkdown(email)}`)
+  if (context.sourceName) lines.push(`**Source:** ${neutralizeMarkdown(context.sourceName)}`)
+  if (context.icsUrl) lines.push(`**Calendar feed:** ${neutralizeMarkdown(context.icsUrl)}`)
+  if (context.pageUrl) lines.push(`**Page:** ${neutralizeMarkdown(context.pageUrl)}`)
   lines.push('', '---', '', '```text', message.replace(/```/g, "'''"), '```')
   return lines.join('\n')
 }
@@ -118,7 +130,9 @@ export function FeedbackModal() {
     let url = githubIssueUrl(title, body, labels)
     if (url.length > MAX_ISSUE_URL_LENGTH) {
       // Too long for a reliable GET: copy the full body and open a short form.
-      navigator.clipboard?.writeText(body).catch(() => {})
+      // The trailing ?. guards a missing clipboard API (e.g. insecure context),
+      // where writeText is undefined and `.catch` would otherwise throw.
+      navigator.clipboard?.writeText(body)?.catch(() => {})
       url = githubIssueUrl(title, '_Paste your copied feedback here._', labels)
       app.flash('Feedback copied — paste it into the GitHub issue')
     }
