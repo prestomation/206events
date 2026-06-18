@@ -3,6 +3,7 @@ sourceRole: venue
 description: "Cardfest Northwest"
 url: "https://cardfestnw.com"
 friendlyLink: "https://cardfestnw.com"
+expectEmpty: true
 geo: null
 tags: ["Gaming"]
 calendars:
