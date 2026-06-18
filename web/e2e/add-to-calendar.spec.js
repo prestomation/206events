@@ -28,7 +28,8 @@ const uy = utcDay.getUTCFullYear()
 const um = pad(utcDay.getUTCMonth() + 1)
 const ud = pad(utcDay.getUTCDate())
 const EXPECTED_UTC_START = `${uy}${um}${ud}T000000Z`  // correct: 5 PM PDT = midnight UTC
-const EXPECTED_UTC_END   = `${uy}${um}${ud}T010000Z`  // 1-hour default end
+// No endDate in fixture → AddToCalendar falls back to startDate + 1 hour = T01:00:00Z
+const EXPECTED_UTC_END   = `${uy}${um}${ud}T010000Z`
 
 const nightMarketFixture = [
   {

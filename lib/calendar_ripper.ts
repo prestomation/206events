@@ -92,7 +92,7 @@ const SITE_BASE_URL = process.env.SITE_BASE_URL || CITY.site.baseUrl;
 // so the offset is unambiguous across all consumers (web client, Google Calendar).
 function zdtToIndexDate(zdt: { toString(): string }): string {
   const s = zdt.toString()
-  return s.replace(/T(\d{2}:\d{2})(?!:\d{2})([-+Z\[]|$)/, 'T$1:00$2')
+  return s.replace(/T(\d{2}:\d{2})(?!:\d{2})([-+Z]|$)/, 'T$1:00$2')
 }
 
 /**
