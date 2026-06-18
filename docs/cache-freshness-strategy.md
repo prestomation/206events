@@ -85,6 +85,34 @@ Tunables (env): `FETCH_CACHE_TTL_HOURS` (cap), `FETCH_REFRESH_FRACTION`
 (slice size, default 0.2), `FETCH_PROACTIVE_REFRESH` (`true` to enable; set by
 the main workflow).
 
+### PR builds are read-only: cache scope and the "self-poisoning" trap
+
+For PR previews to "ride the warm cache," they must restore **main's** cache,
+not their own. GitHub Actions cache restore searches the **current ref's scope
+first** (here the PR's `refs/pull/<n>/merge`) and only falls through to the
+**default branch** if it finds *nothing* in the current scope. The restore key
+is an immutable per-run id with a `restore-keys:` prefix fallback, so any entry
+matching the prefix *in the PR's own scope* wins before main's is ever
+consulted.
+
+This bit us once: a PR-preview build was **cancelled a few seconds into
+`Generate calendars`** (by the `cancel-in-progress` concurrency rule when a new
+commit landed). Because the Save steps were `if: always()`, the cancelled run
+wrote a **near-empty** fetch cache into the PR's scope. The PR's next run then
+matched that sparse in-scope entry, never fell through to main's warm 11.5 MB
+cache, and rebuilt almost cold (**~5% fetch hit** instead of ~98%). The geo
+cache only dropped to ~80% in the same incident because geocodes are immutable,
+so even a partial geo cache stays mostly useful.
+
+**Fix: PR builds never save either cache** — the Save steps are gated
+`if: always() && github.event_name != 'pull_request'`. With nothing ever
+written to a PR's scope, every PR restore falls through to the default-branch
+cache main writes, deterministically. Main keeps its unique per-run key (so the
+proactive oldest-slice refresh above still persists on every main build), and
+PR builds stop writing ~11.5 MB caches they never benefit from — roughly halving
+cache write churn against the 10 GB repo budget. New sources a PR adds still
+miss (no entry anywhere) and fetch live, so they're exercised for real.
+
 ### Why a failed proactive refresh is safe
 
 A forced-refresh entry that fails its live fetch falls back to the last good
