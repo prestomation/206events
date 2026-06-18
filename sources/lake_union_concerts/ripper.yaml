@@ -1,0 +1,14 @@
+name: lake-union-concerts
+sourceRole: venue
+description: "Lake Union Concerts"
+url: "https://www.lakeunionconcerts.com/tickets"
+friendlyLink: https://www.lakeunionconcerts.com/tickets
+tags: ["Music", "Wallingford"]
+geo:
+  lat: 47.6396
+  lng: -122.3333
+  label: "Lake Union, Seattle, WA"
+calendars:
+  - name: lake-union-concerts
+    friendlyname: "Lake Union Concerts (Seattle Paddle Rave & Dock Rock)"
+    timezone: America/Los_Angeles
