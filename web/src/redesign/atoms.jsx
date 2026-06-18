@@ -377,7 +377,7 @@ export function ActiveFilters({ costHiddenCount = null }) {
       {q && (
         <span className="a-fchip a-fchip--search">
           <span style={{ width: 13, height: 13, flex: '0 0 auto' }}>{Ico.search}</span>
-          <span className="a-fchip-label">Searching: “{q}”</span>
+          <span className="a-fchip-label">Searching: “{q}”{app.queryPending ? '…' : ''}</span>
           {!saved && (
             <button className="a-fchip-save" onClick={() => app.addSearchFilter(q)} title="Save this search to your feed">Save</button>
           )}
