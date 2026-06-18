@@ -51,7 +51,15 @@ export interface StaleServe {
   error: string;
 }
 
-export const DEFAULT_TTL_HOURS = 24;
+/**
+ * Hard freshness cap: an entry younger than this is eligible to be served from
+ * cache without a network call. Raised from 24h to 7 days so the build no longer
+ * refetches every source the moment it crosses a day old (the "everything
+ * expires at once" cliff). Freshness within the window is maintained instead by
+ * proactive refresh of the oldest slice on main builds (see
+ * `selectOldestEntriesForRefresh` + docs/cache-freshness-strategy.md).
+ */
+export const DEFAULT_TTL_HOURS = 24 * 7;
 
 /** Entries older than this are dropped on save so removed sources / changed
  *  URLs don't accumulate forever in the persisted cache blob. */
@@ -163,6 +171,11 @@ export function isFresh(entry: FetchCacheEntry, nowMs: number, ttlMs: number = g
 
 let activeCache: FetchCache | null = null;
 let staleServeLog: StaleServe[] = [];
+// Keys to proactively refresh this build: treated as a forced cache miss in
+// `lookupFreshEntry` even when still within the TTL, so they re-fetch live. The
+// build computes this set (the oldest ~20%) on main builds only; empty
+// otherwise. See selectOldestEntriesForRefresh + docs/cache-freshness-strategy.md.
+let proactiveRefreshKeys: Set<string> = new Set();
 
 /** Hit/miss telemetry for the fetch cache, surfaced in the build report so the
  *  cache's effectiveness is observable per build instead of inferred from
@@ -187,6 +200,33 @@ export function initFetchCache(cache: FetchCache): void {
   activeCache = cache;
   staleServeLog = [];
   stats = emptyStats();
+  proactiveRefreshKeys = new Set();
+}
+
+/**
+ * Select the oldest `fraction` of cache entries (by `fetchedAt`) to proactively
+ * refresh. Pure function — returns the key set; the caller passes it to
+ * `setProactiveRefreshKeys`. Entries with an unparseable `fetchedAt` sort oldest
+ * (refreshed first). `fraction` is clamped to [0, 1]; the count rounds up so a
+ * non-empty cache with a positive fraction always refreshes at least one entry.
+ */
+export function selectOldestEntriesForRefresh(cache: FetchCache, fraction: number): Set<string> {
+  const clamped = Math.min(1, Math.max(0, fraction));
+  if (clamped === 0) return new Set();
+  const keys = Object.keys(cache.entries);
+  if (keys.length === 0) return new Set();
+  const count = Math.min(keys.length, Math.ceil(keys.length * clamped));
+  const age = (k: string): number => {
+    const t = Date.parse(cache.entries[k].fetchedAt);
+    return Number.isNaN(t) ? -Infinity : t; // unparseable → oldest
+  };
+  const sorted = [...keys].sort((a, b) => age(a) - age(b)); // ascending: oldest first
+  return new Set(sorted.slice(0, count));
+}
+
+/** Inject the set of keys to force-refresh this build (forced cache miss). */
+export function setProactiveRefreshKeys(keys: Set<string>): void {
+  proactiveRefreshKeys = keys;
 }
 
 export function getFetchCache(): FetchCache | null {
@@ -198,6 +238,7 @@ export function resetFetchCache(): void {
   activeCache = null;
   staleServeLog = [];
   stats = emptyStats();
+  proactiveRefreshKeys = new Set();
 }
 
 export function recordFreshHit(): void { stats.freshHits++; }
@@ -223,9 +264,11 @@ export function recordStaleServe(serve: StaleServe): void {
   stats.staleServes++;
 }
 
-/** A cache entry for `key` that is still fresh, or undefined. */
+/** A cache entry for `key` that is still fresh, or undefined. A key selected for
+ *  proactive refresh is treated as a miss so it re-fetches live this build. */
 export function lookupFreshEntry(key: string, nowMs: number): FetchCacheEntry | undefined {
   if (!activeCache) return undefined;
+  if (proactiveRefreshKeys.has(key)) return undefined;
   const entry = activeCache.entries[key];
   if (entry && isFresh(entry, nowMs)) return entry;
   return undefined;
