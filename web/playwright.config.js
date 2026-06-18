@@ -29,6 +29,7 @@ export default defineConfig({
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
   ],
   // Build the bundle and serve it. Command runs from this config's directory
   // (web/), so it uses web/package.json's own build + preview scripts.
