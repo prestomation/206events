@@ -8,6 +8,11 @@ on:
         required: false
         default: "github-pages"
         type: string
+      proactive-refresh:
+        description: "Force-refresh the oldest slice of the fetch cache (main builds only; PR previews leave this false and read entirely from the warm cache)"
+        required: false
+        default: false
+        type: boolean
     outputs:
       error-count:
         description: "Number of errors during calendar generation"
@@ -114,6 +119,7 @@ jobs:
     - name: Generate calendars
       id: generate-calendars
       env:
+        FETCH_PROACTIVE_REFRESH: ${{ inputs.proactive-refresh }}
         TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
         EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
         DICE_API_KEY: ${{ secrets.DICE_API_KEY }}

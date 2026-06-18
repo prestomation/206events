@@ -10,6 +10,11 @@ import {
     emptyFetchCache,
     keyFor,
     pruneCache,
+    selectOldestEntriesForRefresh,
+    setProactiveRefreshKeys,
+    initFetchCache,
+    resetFetchCache,
+    lookupFreshEntry,
     DEFAULT_TTL_HOURS,
     MAX_ENTRY_AGE_DAYS,
     type FetchCacheEntry,
@@ -18,6 +23,15 @@ import {
 
 function entry(fetchedAt: string): FetchCacheEntry {
     return { fetchedAt, status: 200, contentType: "text/calendar", content: "X" };
+}
+
+// Build a cache whose entries are aged `hoursAgo[i]` hours before `now`.
+function cacheAged(hoursAgo: number[], now = Date.now()): FetchCache {
+    const entries: Record<string, FetchCacheEntry> = {};
+    hoursAgo.forEach((h, i) => {
+        entries[`url${i}`] = entry(new Date(now - h * 3600 * 1000).toISOString());
+    });
+    return { version: 1, entries };
 }
 
 describe("fetch-cache load/save", () => {
@@ -68,7 +82,7 @@ describe("isFresh / getCacheTtlMs", () => {
         delete process.env.FETCH_CACHE_TTL_HOURS;
     });
 
-    it("defaults to a 24h TTL", () => {
+    it("defaults to the DEFAULT_TTL_HOURS window", () => {
         expect(getCacheTtlMs()).toBe(DEFAULT_TTL_HOURS * 3600 * 1000);
     });
 
@@ -134,5 +148,71 @@ describe("pruneCache", () => {
         const removed = pruneCache(cache, now);
         expect(removed).toBe(2);
         expect(Object.keys(cache.entries)).toEqual(["fresh"]);
+    });
+});
+
+describe("DEFAULT_TTL_HOURS", () => {
+    it("is a 7-day cap (raised from 24h)", () => {
+        expect(DEFAULT_TTL_HOURS).toBe(24 * 7);
+    });
+});
+
+describe("selectOldestEntriesForRefresh", () => {
+    it("returns the oldest `fraction` of keys (by fetchedAt), rounding up", () => {
+        // ages: url0=1h, url1=10h, url2=50h, url3=100h (url3 oldest)
+        const cache = cacheAged([1, 10, 50, 100]);
+        // 0.5 of 4 → 2 oldest = url3 (100h) + url2 (50h)
+        const half = selectOldestEntriesForRefresh(cache, 0.5);
+        expect(half).toEqual(new Set(["url3", "url2"]));
+        // 0.2 of 4 → ceil(0.8) = 1 oldest = url3
+        const fifth = selectOldestEntriesForRefresh(cache, 0.2);
+        expect(fifth).toEqual(new Set(["url3"]));
+    });
+
+    it("returns empty for fraction 0 and an empty cache; all keys for fraction 1", () => {
+        const cache = cacheAged([1, 2, 3]);
+        expect(selectOldestEntriesForRefresh(cache, 0)).toEqual(new Set());
+        expect(selectOldestEntriesForRefresh(emptyFetchCache(), 0.5)).toEqual(new Set());
+        expect(selectOldestEntriesForRefresh(cache, 1)).toEqual(new Set(["url0", "url1", "url2"]));
+    });
+
+    it("clamps out-of-range fractions and treats unparseable dates as oldest", () => {
+        const cache = cacheAged([5, 10]);
+        cache.entries["bad"] = entry("not-a-date");
+        // fraction > 1 clamps to 1 → all three
+        expect(selectOldestEntriesForRefresh(cache, 2)).toEqual(new Set(["url0", "url1", "bad"]));
+        // negative clamps to 0
+        expect(selectOldestEntriesForRefresh(cache, -1)).toEqual(new Set());
+        // unparseable sorts oldest; ceil(3 * 0.34) = 2 → the two oldest = "bad" + url1 (10h)
+        expect(selectOldestEntriesForRefresh(cache, 0.34)).toEqual(new Set(["bad", "url1"]));
+        // ceil(3 * 0.2) = 1 → just the oldest ("bad")
+        expect(selectOldestEntriesForRefresh(cache, 0.2)).toEqual(new Set(["bad"]));
+    });
+});
+
+describe("proactive refresh forces a cache miss", () => {
+    afterEach(() => resetFetchCache());
+
+    it("lookupFreshEntry returns undefined for a selected key even when fresh", () => {
+        const cache = cacheAged([1, 1]); // both fresh
+        initFetchCache(cache);
+        const now = Date.now();
+        // Both fresh before selection.
+        expect(lookupFreshEntry("url0", now)).toBeDefined();
+        expect(lookupFreshEntry("url1", now)).toBeDefined();
+
+        setProactiveRefreshKeys(new Set(["url0"]));
+        expect(lookupFreshEntry("url0", now)).toBeUndefined(); // forced miss → re-fetch
+        expect(lookupFreshEntry("url1", now)).toBeDefined();   // untouched
+    });
+
+    it("initFetchCache clears any prior proactive-refresh selection", () => {
+        const cache = cacheAged([1]);
+        initFetchCache(cache);
+        setProactiveRefreshKeys(new Set(["url0"]));
+        expect(lookupFreshEntry("url0", Date.now())).toBeUndefined();
+        // Re-init (new build) clears the selection.
+        initFetchCache(cache);
+        expect(lookupFreshEntry("url0", Date.now())).toBeDefined();
     });
 });

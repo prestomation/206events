@@ -29,6 +29,10 @@ jobs:
       id-token: write    # OIDC token for AWS proxy authentication
       contents: read
     secrets: inherit
+    with:
+      # Main build maintains the shared fetch cache: proactively refresh the
+      # oldest slice so PR previews ride a warm, continuously-refreshed cache.
+      proactive-refresh: true
 
   check-errors:
     runs-on: ubuntu-latest

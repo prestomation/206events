@@ -6,6 +6,7 @@ import {
     getFetchCache,
     drainStaleServes,
     getFetchCacheStats,
+    setProactiveRefreshKeys,
     emptyFetchCache,
     type FetchCache,
 } from "../fetch-cache.js";
@@ -443,5 +444,32 @@ describe("withCache stats (hit/miss telemetry)", () => {
 
         initFetchCache(emptyFetchCache());
         expect(getFetchCacheStats()).toEqual({ freshHits: 0, liveFetches: 0, liveFailures: 0, staleServes: 0 });
+    });
+});
+
+describe("withCache proactive refresh", () => {
+    const URL = "https://example.com/fresh";
+
+    afterEach(() => resetFetchCache());
+
+    it("re-fetches a fresh entry that was selected for proactive refresh", async () => {
+        initFetchCache({
+            version: 1,
+            entries: {
+                [URL]: { fetchedAt: new Date().toISOString(), status: 200, contentType: "text/html", content: "CACHED" },
+            },
+        });
+        const live: FetchFn = vi.fn(async () => new Response("LIVE", { status: 200, headers: { "Content-Type": "text/html" } }));
+
+        // Without selection the fresh entry is served from cache.
+        expect(await (withCache(live))(URL).then(r => r.text())).toBe("CACHED");
+        expect(live).not.toHaveBeenCalled();
+
+        // Select it for refresh → next call goes live and updates the cache.
+        setProactiveRefreshKeys(new Set([URL]));
+        const res = await withCache(live)(URL);
+        expect(live).toHaveBeenCalledTimes(1);
+        expect(await res.text()).toBe("LIVE");
+        expect(getFetchCache()!.entries[URL].content).toBe("LIVE");
     });
 });

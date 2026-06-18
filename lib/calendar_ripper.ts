@@ -25,6 +25,8 @@ import {
   getFetchCache,
   drainStaleServes,
   getFetchCacheStats,
+  selectOldestEntriesForRefresh,
+  setProactiveRefreshKeys,
   pruneCache,
 } from "./fetch-cache.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords, resetGeocodeStats, getGeocodeStats, type GeoCache } from "./geocoder.js";
@@ -547,6 +549,20 @@ export const main = async () => {
   // the GitHub Actions Cache.
   const fetchCache = await loadFetchCache('fetch-cache.json');
   initFetchCache(fetchCache);
+  // Proactive freshness (main/scheduled builds only — gated by the
+  // FETCH_PROACTIVE_REFRESH env set in publish_calendars.yml): force-refresh the
+  // oldest slice of cached entries so the cache stays fresh without the 7-day TTL
+  // causing a mass refetch. PR previews leave this off and read entirely from the
+  // warm cache (new sources still miss → fetch live). See
+  // docs/cache-freshness-strategy.md.
+  if (process.env.FETCH_PROACTIVE_REFRESH === 'true') {
+    const rawFraction = process.env.FETCH_REFRESH_FRACTION;
+    const parsed = rawFraction ? Number(rawFraction) : NaN;
+    const fraction = Number.isFinite(parsed) && parsed >= 0 && parsed <= 1 ? parsed : 0.2;
+    const refreshKeys = selectOldestEntriesForRefresh(fetchCache, fraction);
+    setProactiveRefreshKeys(refreshKeys);
+    console.log(`[fetch-cache] proactive refresh: forcing ${refreshKeys.size} of ${Object.keys(fetchCache.entries).length} entr(ies) live (oldest ${Math.round(fraction * 100)}%)`);
+  }
   // Reset geocode counters so the report reflects this build's hit/miss split.
   resetGeocodeStats();
 
