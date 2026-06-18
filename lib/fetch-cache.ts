@@ -164,19 +164,51 @@ export function isFresh(entry: FetchCacheEntry, nowMs: number, ttlMs: number = g
 let activeCache: FetchCache | null = null;
 let staleServeLog: StaleServe[] = [];
 
+/** Hit/miss telemetry for the fetch cache, surfaced in the build report so the
+ *  cache's effectiveness is observable per build instead of inferred from
+ *  wall-clock. `freshHits` were served from cache (no network); `liveFetches`
+ *  hit the network because the entry was stale/missing; `liveFailures` are the
+ *  subset of live fetches that threw (and then either stale-served or rethrew);
+ *  `staleServes` were satisfied from an over-TTL copy after a live failure. */
+export interface FetchCacheStats {
+  freshHits: number;
+  liveFetches: number;
+  liveFailures: number;
+  staleServes: number;
+}
+
+function emptyStats(): FetchCacheStats {
+  return { freshHits: 0, liveFetches: 0, liveFailures: 0, staleServes: 0 };
+}
+
+let stats: FetchCacheStats = emptyStats();
+
 export function initFetchCache(cache: FetchCache): void {
   activeCache = cache;
   staleServeLog = [];
+  stats = emptyStats();
 }
 
 export function getFetchCache(): FetchCache | null {
   return activeCache;
 }
 
-/** Test/teardown helper — clears the injected cache and stale-serve log. */
+/** Test/teardown helper — clears the injected cache, stale-serve log, and stats. */
 export function resetFetchCache(): void {
   activeCache = null;
   staleServeLog = [];
+  stats = emptyStats();
+}
+
+export function recordFreshHit(): void { stats.freshHits++; }
+export function recordLiveFetch(): void { stats.liveFetches++; }
+export function recordLiveFailure(): void { stats.liveFailures++; }
+
+/** Snapshot of the current counters. Read after the rip/fetch phase to report
+ *  the cache hit rate. Independent of `drainStaleServes` (which clears the log),
+ *  so the order of the two calls doesn't matter. */
+export function getFetchCacheStats(): FetchCacheStats {
+  return { ...stats };
 }
 
 /** Returns and clears the accumulated stale-serve log. */
@@ -188,6 +220,7 @@ export function drainStaleServes(): StaleServe[] {
 
 export function recordStaleServe(serve: StaleServe): void {
   staleServeLog.push(serve);
+  stats.staleServes++;
 }
 
 /** A cache entry for `key` that is still fresh, or undefined. */

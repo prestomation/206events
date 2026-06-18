@@ -24,9 +24,10 @@ import {
   initFetchCache,
   getFetchCache,
   drainStaleServes,
+  getFetchCacheStats,
   pruneCache,
 } from "./fetch-cache.js";
-import { loadGeoCache, saveGeoCache, resolveEventCoords, type GeoCache } from "./geocoder.js";
+import { loadGeoCache, saveGeoCache, resolveEventCoords, resetGeocodeStats, getGeocodeStats, type GeoCache } from "./geocoder.js";
 import {
   loadUncertaintyCache,
   saveUncertaintyCache,
@@ -546,6 +547,8 @@ export const main = async () => {
   // the GitHub Actions Cache.
   const fetchCache = await loadFetchCache('fetch-cache.json');
   initFetchCache(fetchCache);
+  // Reset geocode counters so the report reflects this build's hit/miss split.
+  resetGeocodeStats();
 
   const uncertaintyTotals: UncertaintyMergeStats = {
     resolved: 0,
@@ -1831,6 +1834,33 @@ END:VCALENDAR`;
     geocodeErrors: geocodeErrors.length,
   };
 
+  // Cache effectiveness telemetry. The fetch cache turns the build's network
+  // cost into ~0 when warm; the geocode counters show how much of the build
+  // hit the throttled Nominatim path. Surfaced so a cold cache (the common
+  // cause of a slow build) is visible instead of inferred from wall-clock.
+  const fetchCacheStats = getFetchCacheStats();
+  const geocodeStats = getGeocodeStats();
+  const fetchTotal = fetchCacheStats.freshHits + fetchCacheStats.liveFetches;
+  // Per-location totals (mutually exclusive): the three no-network short-circuits
+  // plus networkLookups. nominatimCalls is a separate per-attempt cost figure and
+  // is intentionally NOT part of this denominator.
+  const geocodeNoNetwork =
+    geocodeStats.cacheHits + geocodeStats.knownVenueHits + geocodeStats.unresolvableSkips;
+  const geocodeTotal = geocodeNoNetwork + geocodeStats.networkLookups;
+  const cacheStats = {
+    fetch: {
+      ...fetchCacheStats,
+      lookups: fetchTotal,
+      hitRate: fetchTotal > 0 ? Math.round((fetchCacheStats.freshHits / fetchTotal) * 100) : 0,
+    },
+    geocode: {
+      ...geocodeStats,
+      lookups: geocodeTotal,
+      // Share of resolved locations that avoided the network entirely.
+      hitRate: geocodeTotal > 0 ? Math.round((geocodeNoNetwork / geocodeTotal) * 100) : 0,
+    },
+  };
+
   // Enumerate venues whose declared `geo` has coords but no OSM feature id.
   // Surfaced in build-errors.json so the daily osm-resolver skill has a
   // deterministic work queue — see skills/osm-resolver/SKILL.md.
@@ -1983,6 +2013,11 @@ END:VCALENDAR`;
     externalCalendarFailures,
     geocodeErrors: geocodeErrors,
     geoStats,
+    // Cache effectiveness (non-fatal telemetry). `fetch` is the source fetch
+    // cache (fresh hit vs live network fetch); `geocode` is the geo-cache /
+    // known-venue / unresolvable short-circuits vs throttled Nominatim calls.
+    // A low hit rate explains a slow build (cold cache). See docs/fetch-cache.md.
+    cacheStats,
     // Uncertainty system: the resolver skill (event-uncertainty-resolver)
     // reads `uncertainEvents` as its work queue. `uncertaintyStats`
     // summarizes the same numbers PR/main build comments display.
@@ -2161,6 +2196,15 @@ END:VCALENDAR`;
   if (proxyStaleServes.length > 0) {
     console.log(`  🕒 ${proxyStaleServes.length} source(s) served from stale cache (live fetch failed): ${proxyStaleServes.map(s => s.source ?? s.url).join(", ")}`);
   }
+  console.log(
+    `  💾 Fetch cache: ${cacheStats.fetch.hitRate}% hit (${cacheStats.fetch.freshHits} fresh / ${cacheStats.fetch.liveFetches} live` +
+    `${cacheStats.fetch.liveFailures > 0 ? `, ${cacheStats.fetch.liveFailures} failed` : ""} of ${cacheStats.fetch.lookups})`
+  );
+  console.log(
+    `  📍 Geocode: ${cacheStats.geocode.hitRate}% no-network of ${cacheStats.geocode.lookups} location(s) ` +
+    `(${cacheStats.geocode.cacheHits} cache, ${cacheStats.geocode.knownVenueHits} known-venue, ${cacheStats.geocode.unresolvableSkips} unresolvable, ` +
+    `${cacheStats.geocode.networkLookups} network); ${cacheStats.geocode.nominatimCalls} Nominatim request(s)`
+  );
   console.log("===========================\n");
 
   // Write GitHub Actions step summary if running in CI
@@ -2209,6 +2253,15 @@ END:VCALENDAR`;
       for (const s of proxyStaleServes) {
         summaryLines.push(`| ${s.source ?? s.url} | ${s.ageHours} | ${s.cachedAt} | ${s.error} |`);
       }
+    }
+    {
+      summaryLines.push("");
+      summaryLines.push(
+        `> 💾 **Fetch cache:** ${cacheStats.fetch.hitRate}% hit — ${cacheStats.fetch.freshHits} fresh / ${cacheStats.fetch.liveFetches} live` +
+        `${cacheStats.fetch.liveFailures > 0 ? ` (${cacheStats.fetch.liveFailures} failed → stale)` : ""} of ${cacheStats.fetch.lookups} lookups. ` +
+        `**📍 Geocode:** ${cacheStats.geocode.hitRate}% no-network of ${cacheStats.geocode.lookups} location(s) — ${cacheStats.geocode.nominatimCalls} Nominatim request(s). ` +
+        `A low hit rate means a cold cache (slow build).`
+      );
     }
     {
       const evPct = photoStats.totalEvents > 0 ? Math.round(photoStats.eventsWithImage / photoStats.totalEvents * 100) : 0;

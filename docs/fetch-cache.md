@@ -142,3 +142,41 @@ A single transient blip clears itself on the next successful fetch. A source
 that keeps serving stale should be investigated; for a browserbase source that
 Browserbase can no longer reach, retire it via `skills/proxy-escalation/SKILL.md`
 (browserbase is the last proxy rung).
+
+## Cache effectiveness metrics
+
+To make the cache's effectiveness **observable per build** (rather than inferred
+from wall-clock — a cold cache is the usual cause of a slow build), every build
+emits hit/miss counters under a non-fatal `cacheStats` key in
+`output/build-errors.json`:
+
+```jsonc
+"cacheStats": {
+  "fetch":   { "freshHits": 812, "liveFetches": 14, "liveFailures": 2, "staleServes": 2, "lookups": 826, "hitRate": 98 },
+  "geocode": { "cacheHits": 9043, "knownVenueHits": 120, "unresolvableSkips": 610, "networkLookups": 7, "nominatimCalls": 9, "lookups": 9780, "hitRate": 100 }
+}
+```
+
+- **`fetch`** — the source fetch cache. `freshHits` were served from cache (no
+  network); `liveFetches` hit the network because the entry was stale/missing;
+  `liveFailures` are the subset that threw (then stale-served or rethrew);
+  `hitRate` = `freshHits / lookups`.
+- **`geocode`** — location resolution (`lib/geocoder.ts`). The four resolution
+  counters are **per location** and mutually exclusive: `cacheHits` (geo-cache),
+  `knownVenueHits` (hardcoded table), and `unresolvableSkips` (cached
+  `unresolvable` marker) avoid the network, while `networkLookups` counts
+  locations that fell through to the network path. `lookups` is their sum and
+  `hitRate` = `(lookups − networkLookups) / lookups`. `nominatimCalls` is a
+  separate **per-request** count of Nominatim HTTP calls — the throttled ~1
+  req/sec cost — and can exceed `networkLookups` because one location may try
+  several candidate strings (venue-prefix and suite-stripped retries).
+
+A **low `hitRate`** on either means the corresponding cache was cold for that
+run — e.g. a PR preview that didn't restore `main`'s warm cache — which directly
+explains a slow `Generate calendars` step. These counters are **non-fatal
+telemetry** (not counted in `totalErrors`); like the coverage stats (`geoStats`,
+`photoStats`, `costStats`) they surface in the build-perf reporting surfaces —
+the console summary and step summary (`lib/calendar_ripper.ts`) and the PR
+comment (`pr-preview.yml`) — but are intentionally not wired into the
+site-health surfaces (Discord, the web health dashboard), since cache hit rate
+is a build-performance signal, not a calendar-health signal.

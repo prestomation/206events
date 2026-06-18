@@ -139,6 +139,15 @@ jobs:
                 (geoStats.geocodeErrors > 0 ? ` — ⚠️ ${geoStats.geocodeErrors} geocode error(s)` : ' — ✅ No geocode errors')
               : '';
 
+            // Cache effectiveness — a low hit rate means a cold cache, which is
+            // the usual cause of a slow preview build. See docs/fetch-cache.md.
+            const cacheStats = buildErrors.cacheStats;
+            const cacheSection = cacheStats
+              ? `\n\n**💾 Cache:** fetch ${cacheStats.fetch.hitRate}% hit (${cacheStats.fetch.freshHits.toLocaleString()} fresh / ${cacheStats.fetch.liveFetches.toLocaleString()} live` +
+                (cacheStats.fetch.liveFailures > 0 ? `, ${cacheStats.fetch.liveFailures} failed→stale` : '') +
+                `) · geocode ${cacheStats.geocode.hitRate}% no-network (${cacheStats.geocode.nominatimCalls.toLocaleString()} Nominatim call(s))`
+              : '';
+
             // Photo coverage stats. Gaps are todos for the photo-resolver
             // skill — informational, not a build-block.
             const photoStats = buildErrors.photoStats;
@@ -314,6 +323,7 @@ jobs:
               `**Preview:** [View Calendar Index](${previewUrl})`,
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               geoSection,
+              cacheSection,
               photoSection,
               costSection,
               uncertaintySection,

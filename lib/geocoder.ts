@@ -683,7 +683,41 @@ export function lookupGeoCache(cache: Readonly<GeoCache>, location: string): Geo
 // this variable must be replaced with a proper serialization queue.
 let lastNominatimCallTime = 0
 
+/** Geocode telemetry, surfaced in the build report so geocoding's contribution
+ *  to build time is observable. The first three are per-location no-network
+ *  resolutions: `cacheHits` from the geo-cache, `knownVenueHits` from the
+ *  hardcoded table, `unresolvableSkips` from a cached `unresolvable` marker.
+ *  `networkLookups` counts locations (once each) that fell through to the
+ *  network path; those four are mutually exclusive per location and sum to the
+ *  total locations resolved. `nominatimCalls` is a separate raw count of
+ *  Nominatim HTTP requests — the throttled ~1 req/sec cost — which can exceed
+ *  `networkLookups` because one location may try several candidate strings. */
+export interface GeocodeStats {
+  cacheHits: number;
+  knownVenueHits: number;
+  unresolvableSkips: number;
+  networkLookups: number;
+  nominatimCalls: number;
+}
+
+function emptyGeocodeStats(): GeocodeStats {
+  return { cacheHits: 0, knownVenueHits: 0, unresolvableSkips: 0, networkLookups: 0, nominatimCalls: 0 };
+}
+
+let geocodeStats: GeocodeStats = emptyGeocodeStats();
+
+/** Reset the geocode counters — call once at the start of a build. */
+export function resetGeocodeStats(): void {
+  geocodeStats = emptyGeocodeStats();
+}
+
+/** Snapshot of the geocode counters — read after the build's geocoding phases. */
+export function getGeocodeStats(): GeocodeStats {
+  return { ...geocodeStats };
+}
+
 export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
+  geocodeStats.nominatimCalls++;
   // Rate limit: enforce 1 req/sec before making the Nominatim call.
   // Capture a single timestamp snapshot, compute the required delay, then
   // record (now + delay) as the next allowed call time before awaiting — this
@@ -828,6 +862,7 @@ export async function resolveEventCoords(
 
   const cached = lookupGeoCache(cache, normalized);
   if (cached !== null) {
+    geocodeStats.cacheHits++;
     return { coords: cached, geocodeSource: 'cached', cache };
   }
 
@@ -837,6 +872,7 @@ export async function resolveEventCoords(
   // adding a hardcoded entry overrides a stale unresolvable marker in the geo-cache.
   const knownVenueCoords = lookupKnownVenue(normalized);
   if (knownVenueCoords !== null) {
+    geocodeStats.knownVenueHits++;
     const knownEntry: GeoCacheEntry = {
       lat: knownVenueCoords.lat,
       lng: knownVenueCoords.lng,
@@ -850,8 +886,13 @@ export async function resolveEventCoords(
   // Already known unresolvable — no network call needed
   const entry = cache.entries[key];
   if (entry?.unresolvable) {
+    geocodeStats.unresolvableSkips++;
     return { coords: null, geocodeSource: 'none', cache };
   }
+
+  // Reached the network path — count this location once (distinct from
+  // nominatimCalls, which counts each candidate HTTP attempt below).
+  geocodeStats.networkLookups++;
 
   // Try geocoding the normalized string first.
   // If it looks like "Venue: 1234 Street..." also try the address-only part.
