@@ -6,7 +6,7 @@ import { useApp206 } from './context.js'
 import { Brand } from './atoms.jsx'
 import { EventsMap } from '../components/EventsMap.jsx'
 import { eventKey } from '../lib/eventKey.js'
-import { DATE_WINDOW_STOPS, describeWindow } from './viewModels.js'
+import { DATE_WINDOW_STOPS, describeWindow, isDateRange, normalizeDateRange } from './viewModels.js'
 
 const NAV_ITEMS = [
   { id: 'discover', label: 'Discover', icon: Ico.spark },
@@ -275,7 +275,11 @@ export function BottomNav() {
 // or 'all'). Label shows both the relative phrase and the resolved end date.
 export function DateWindowSlider({ compact = false }) {
   const app = useApp206()
-  const committedIdx = Math.max(0, DATE_WINDOW_STOPS.indexOf(app.dateWindow))
+  // A custom date range supersedes the slider (the two are mutually exclusive
+  // date modes). When one is active the range owns the header label and the
+  // track is dimmed; dragging the thumb commits a numeric window, clearing it.
+  const rangeActive = isDateRange(app.dateWindow)
+  const committedIdx = rangeActive ? 0 : Math.max(0, DATE_WINDOW_STOPS.indexOf(app.dateWindow))
   // The thumb tracks LOCAL state, so dragging is never blocked by the heavy
   // re-filter / marker rebuild — it updates instantly on every input event.
   // We commit the picked stop to the global window (which triggers that work)
@@ -297,14 +301,17 @@ export function DateWindowSlider({ compact = false }) {
   }
 
   // Label follows the LOCAL thumb so it updates live while dragging. Re-resolved
-  // each render so the absolute end date stays anchored to "now".
-  const { relative, absoluteEnd } = describeWindow(DATE_WINDOW_STOPS[idx])
+  // each render so the absolute end date stays anchored to "now". When a custom
+  // range is active it owns the label (the thumb has no matching stop).
+  const { relative, absoluteEnd } = rangeActive
+    ? describeWindow(app.dateWindow)
+    : describeWindow(DATE_WINDOW_STOPS[idx])
   // "Updating" while the picked stop hasn't been applied yet (debounce in flight)
   // or while the deferred re-filter is still catching up.
-  const pending = idx !== committedIdx || app.dateWindowPending
+  const pending = !rangeActive && (idx !== committedIdx || app.dateWindowPending)
 
   return (
-    <div className={`a-datewindow${compact ? ' a-datewindow--compact' : ''}`}>
+    <div className={`a-datewindow${compact ? ' a-datewindow--compact' : ''}${rangeActive ? ' a-datewindow--overridden' : ''}`}>
       <div className="a-datewindow-label">
         <span className="a-datewindow-rel">
           {relative}
@@ -327,6 +334,58 @@ export function DateWindowSlider({ compact = false }) {
   )
 }
 
+// Format a Date as the 'YYYY-MM-DD' value an <input type="date"> expects, in
+// LOCAL time (toISOString would shift across the UTC boundary).
+function toDateInputValue(date) {
+  const pad = (n) => String(n).padStart(2, '0')
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
+}
+
+// Native From/To date inputs for picking an explicit calendar range (e.g. the
+// days a visitor is in town). Setting both fields switches the global
+// dateWindow to a { start, end } range (superseding the slider); the inputs
+// re-sync whenever the window changes elsewhere (slider, Reset, URL nav).
+export function DateRangeFields() {
+  const app = useApp206()
+  const todayStr = toDateInputValue(new Date())
+  const win = app.dateWindow
+  const [start, setStart] = useState(isDateRange(win) ? win.start : '')
+  const [end, setEnd] = useState(isDateRange(win) ? win.end : '')
+
+  useEffect(() => {
+    if (isDateRange(app.dateWindow)) {
+      setStart(app.dateWindow.start)
+      setEnd(app.dateWindow.end)
+    } else {
+      setStart('')
+      setEnd('')
+    }
+  }, [app.dateWindow])
+
+  // Apply only once BOTH ends are set; an incomplete range leaves the current
+  // window untouched (the slider stays in control until the user finishes).
+  const commit = (s, e) => {
+    if (s && e) app.setDateWindow(normalizeDateRange({ start: s, end: e }) || 'all')
+  }
+  const onStart = (ev) => { const v = ev.target.value; setStart(v); commit(v, end) }
+  const onEnd = (ev) => { const v = ev.target.value; setEnd(v); commit(start, v) }
+
+  return (
+    <div className="a-daterange">
+      <label className="a-daterange-field">
+        <span className="a-daterange-lbl">From</span>
+        <input type="date" className="a-daterange-input" value={start} min={todayStr}
+          onChange={onStart} aria-label="From date" />
+      </label>
+      <label className="a-daterange-field">
+        <span className="a-daterange-lbl">To</span>
+        <input type="date" className="a-daterange-input" value={end} min={start || todayStr}
+          onChange={onEnd} aria-label="To date" />
+      </label>
+    </div>
+  )
+}
+
 export function FilterPopover() {
   const app = useApp206()
   return (
@@ -336,6 +395,10 @@ export function FilterPopover() {
         <div className="a-eyebrow" style={{ marginBottom: 9 }}>WHEN</div>
         <div style={{ marginBottom: 14 }}>
           <DateWindowSlider />
+        </div>
+        <div className="a-eyebrow" style={{ marginBottom: 9 }}>OR PICK DATES</div>
+        <div style={{ marginBottom: 14 }}>
+          <DateRangeFields />
         </div>
         <div style={{ display: 'flex', gap: 8 }}>
           <button className="btn btn-ghost" style={{ flex: 1, height: 38, fontSize: 13 }} onClick={() => app.setDateWindow('all')}>Reset</button>

@@ -4062,6 +4062,15 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
 .app206 .a-datewindow-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 2px solid var(--surface); box-shadow: 0 1px 3px rgba(20,15,10,.25); cursor: pointer; }
 .app206 .a-datewindow-range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--blue); border: 2px solid var(--surface); box-shadow: 0 1px 3px rgba(20,15,10,.25); cursor: pointer; }
 .app206 .a-datewindow-range:focus-visible { box-shadow: 0 0 0 3px var(--blue-soft); }
+/* When a custom date range owns the filter, dim the slider track so it reads as
+   superseded — dragging it re-takes control (committing a numeric window). */
+.app206 .a-datewindow--overridden .a-datewindow-range { opacity: .4; }
+/* Native From/To date inputs (FilterPopover "OR PICK DATES" section). */
+.app206 .a-daterange { display: flex; flex-direction: column; gap: 8px; }
+.app206 .a-daterange-field { display: flex; align-items: center; gap: 10px; }
+.app206 .a-daterange-lbl { flex: 0 0 38px; font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.app206 .a-daterange-input { flex: 1 1 auto; min-width: 0; height: 34px; padding: 0 10px; border-radius: 9px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font-size: 13px; font-family: inherit; }
+.app206 .a-daterange-input:focus-visible { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
 /* Expanded (full-screen) desktop map: lift the panel out of the right column
    to cover the whole app. The MapBridge ResizeObserver re-sizes Leaflet. */
 .app206 .a-map--expanded { position: fixed; inset: 0; z-index: 1200; background: var(--surface); display: block; }

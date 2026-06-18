@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
+import { eventInWindow, describeWindow, isDateRange, normalizeDateRange, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 import cityConfig from '../../../city.config.ts'
 
@@ -64,6 +64,94 @@ describe('describeWindow', () => {
     for (const stop of DATE_WINDOW_STOPS) {
       expect(describeWindow(stop, NOW).relative.length).toBeGreaterThan(0)
     }
+  })
+})
+
+describe('isDateRange / normalizeDateRange', () => {
+  it('recognizes a well-formed range object', () => {
+    expect(isDateRange({ start: '2026-07-24', end: '2026-07-28' })).toBe(true)
+  })
+
+  it('rejects non-range values', () => {
+    expect(isDateRange('all')).toBe(false)
+    expect(isDateRange(7)).toBe(false)
+    expect(isDateRange(null)).toBe(false)
+    expect(isDateRange({ start: '2026-07-24' })).toBe(false) // missing end
+  })
+
+  it('normalizes valid ranges and swaps reversed ones', () => {
+    expect(normalizeDateRange({ start: '2026-07-24', end: '2026-07-28' }))
+      .toEqual({ start: '2026-07-24', end: '2026-07-28' })
+    expect(normalizeDateRange({ start: '2026-07-28', end: '2026-07-24' }))
+      .toEqual({ start: '2026-07-24', end: '2026-07-28' }) // swapped
+  })
+
+  it('returns null for malformed or impossible dates', () => {
+    expect(normalizeDateRange({ start: '2026-02-31', end: '2026-07-28' })).toBeNull() // Feb 31 rolls over
+    expect(normalizeDateRange({ start: 'nope', end: '2026-07-28' })).toBeNull()
+    expect(normalizeDateRange({ start: '2026/07/24', end: '2026-07-28' })).toBeNull() // wrong separator
+    expect(normalizeDateRange(null)).toBeNull()
+  })
+})
+
+describe('eventInWindow (custom range)', () => {
+  const range = { start: '2026-07-24', end: '2026-07-28' }
+
+  it('matches days inside the inclusive range, including both edges', () => {
+    expect(eventInWindow({ date: '2026-07-24T00:30' }, range, NOW)).toBe(true) // start edge
+    expect(eventInWindow({ date: '2026-07-26T08:00' }, range, NOW)).toBe(true) // middle
+    expect(eventInWindow({ date: '2026-07-28T23:30' }, range, NOW)).toBe(true) // end edge (late)
+  })
+
+  it('excludes days just outside the range', () => {
+    expect(eventInWindow({ date: '2026-07-23T23:00' }, range, NOW)).toBe(false)
+    expect(eventInWindow({ date: '2026-07-29T00:30' }, range, NOW)).toBe(false)
+  })
+
+  it('is absolute, not anchored to "now" like a numeric window', () => {
+    // A range entirely before NOW still matches its days (past-event exclusion
+    // is upcomingIndexEvents' job, not this helper's, for ranges as for 'all').
+    expect(eventInWindow({ date: '2026-05-15T19:00' }, { start: '2026-05-10', end: '2026-05-20' }, NOW)).toBe(true)
+  })
+
+  it('normalizes a reversed range before testing', () => {
+    expect(eventInWindow({ date: '2026-07-26T19:00' }, { start: '2026-07-28', end: '2026-07-24' }, NOW)).toBe(true)
+  })
+
+  it('returns false for an unparseable event date', () => {
+    expect(eventInWindow({ date: 'not-a-date' }, range, NOW)).toBe(false)
+  })
+
+  it('treats a malformed range as no filter (matches everything)', () => {
+    expect(eventInWindow({ date: '2030-01-01T19:00' }, { start: 'bad', end: '2026-07-28' }, NOW)).toBe(true)
+  })
+})
+
+describe('describeWindow (custom range)', () => {
+  it('labels a same-month range compactly', () => {
+    expect(describeWindow({ start: '2026-07-24', end: '2026-07-28' }, NOW).relative).toBe('Jul 24 – 28')
+  })
+
+  it('labels a cross-month range with both months', () => {
+    expect(describeWindow({ start: '2026-07-28', end: '2026-08-02' }, NOW).relative).toBe('Jul 28 – Aug 2')
+  })
+
+  it('labels a single-day range as one date', () => {
+    expect(describeWindow({ start: '2026-07-24', end: '2026-07-24' }, NOW).relative).toBe('Jul 24')
+  })
+
+  it('appends the year when the range is outside the current year', () => {
+    const label = describeWindow({ start: '2027-01-02', end: '2027-01-05' }, NOW).relative
+    expect(label).toContain('2027')
+    expect(label).toContain('–')
+  })
+
+  it('carries no absoluteEnd (the dates live in the relative phrase)', () => {
+    expect(describeWindow({ start: '2026-07-24', end: '2026-07-28' }, NOW).absoluteEnd).toBeNull()
+  })
+
+  it('falls back to "All upcoming" for a malformed range', () => {
+    expect(describeWindow({ start: 'bad', end: 'worse' }, NOW)).toEqual({ relative: 'All upcoming', absoluteEnd: null })
   })
 })
 

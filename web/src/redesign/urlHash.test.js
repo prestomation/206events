@@ -76,6 +76,23 @@ describe('urlHash codec', () => {
     expect(deserializeHash('date=-5').dateWindow).toBe('all')
   })
 
+  it('serializes and round-trips a custom date range', () => {
+    const range = { start: '2026-07-24', end: '2026-07-28' }
+    expect(serializeHash({ dateWindow: range })).toBe('date=2026-07-24..2026-07-28')
+    expect(roundTrip({ dateWindow: range })).toEqual({ ...DEFAULTS, dateWindow: range })
+  })
+
+  it('normalizes a reversed range on serialize', () => {
+    expect(serializeHash({ dateWindow: { start: '2026-07-28', end: '2026-07-24' } }))
+      .toBe('date=2026-07-24..2026-07-28')
+  })
+
+  it('falls back to "all" for a malformed range token', () => {
+    expect(deserializeHash('date=2026-07-24..bogus').dateWindow).toBe('all')
+    expect(deserializeHash('date=..').dateWindow).toBe('all')
+    expect(deserializeHash('date=2026-02-31..2026-07-28').dateWindow).toBe('all') // impossible day
+  })
+
   it('round-trips an open channel', () => {
     expect(roundTrip({ channel: 'test-ripper-cal1.ics' })).toEqual({
       ...DEFAULTS,
