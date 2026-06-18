@@ -32,10 +32,10 @@ const MAX_ISSUE_URL_LENGTH = 6000
 
 // Neutralize GitHub-flavored markdown in short interpolated fields (title +
 // context), mirroring neutralizeMarkdown in the worker so `@user` mass-mentions,
-// `#123` cross-links, and `[text](url)` links don't render in the prefilled
-// issue preview. A zero-width space after the sigil keeps the text readable
-// while breaking the parser. The free-text message is instead wrapped in a code
-// fence (below), same as the worker.
+// issue-number cross-links, and `[text](url)` links don't render in the
+// prefilled issue preview. A zero-width space after the sigil keeps the text
+// readable while breaking the parser. The free-text message is instead wrapped
+// in a code fence (below), same as the worker.
 function neutralizeMarkdown(s) {
   return s.replace(/[@#[\]]/g, (ch) => `${ch}​`)
 }
