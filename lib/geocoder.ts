@@ -684,19 +684,24 @@ export function lookupGeoCache(cache: Readonly<GeoCache>, location: string): Geo
 let lastNominatimCallTime = 0
 
 /** Geocode telemetry, surfaced in the build report so geocoding's contribution
- *  to build time is observable. `nominatimCalls` is the expensive throttled
- *  network path (~1 req/sec); everything else resolves without a network call:
- *  `cacheHits` from the geo-cache, `knownVenueHits` from the hardcoded table,
- *  `unresolvableSkips` from a cached `unresolvable` marker. */
+ *  to build time is observable. The first three are per-location no-network
+ *  resolutions: `cacheHits` from the geo-cache, `knownVenueHits` from the
+ *  hardcoded table, `unresolvableSkips` from a cached `unresolvable` marker.
+ *  `networkLookups` counts locations (once each) that fell through to the
+ *  network path; those four are mutually exclusive per location and sum to the
+ *  total locations resolved. `nominatimCalls` is a separate raw count of
+ *  Nominatim HTTP requests — the throttled ~1 req/sec cost — which can exceed
+ *  `networkLookups` because one location may try several candidate strings. */
 export interface GeocodeStats {
   cacheHits: number;
   knownVenueHits: number;
   unresolvableSkips: number;
+  networkLookups: number;
   nominatimCalls: number;
 }
 
 function emptyGeocodeStats(): GeocodeStats {
-  return { cacheHits: 0, knownVenueHits: 0, unresolvableSkips: 0, nominatimCalls: 0 };
+  return { cacheHits: 0, knownVenueHits: 0, unresolvableSkips: 0, networkLookups: 0, nominatimCalls: 0 };
 }
 
 let geocodeStats: GeocodeStats = emptyGeocodeStats();
@@ -884,6 +889,10 @@ export async function resolveEventCoords(
     geocodeStats.unresolvableSkips++;
     return { coords: null, geocodeSource: 'none', cache };
   }
+
+  // Reached the network path — count this location once (distinct from
+  // nominatimCalls, which counts each candidate HTTP attempt below).
+  geocodeStats.networkLookups++;
 
   // Try geocoding the normalized string first.
   // If it looks like "Venue: 1234 Street..." also try the address-only part.

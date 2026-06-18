@@ -1841,9 +1841,12 @@ END:VCALENDAR`;
   const fetchCacheStats = getFetchCacheStats();
   const geocodeStats = getGeocodeStats();
   const fetchTotal = fetchCacheStats.freshHits + fetchCacheStats.liveFetches;
-  const geocodeTotal =
-    geocodeStats.cacheHits + geocodeStats.knownVenueHits +
-    geocodeStats.unresolvableSkips + geocodeStats.nominatimCalls;
+  // Per-location totals (mutually exclusive): the three no-network short-circuits
+  // plus networkLookups. nominatimCalls is a separate per-attempt cost figure and
+  // is intentionally NOT part of this denominator.
+  const geocodeNoNetwork =
+    geocodeStats.cacheHits + geocodeStats.knownVenueHits + geocodeStats.unresolvableSkips;
+  const geocodeTotal = geocodeNoNetwork + geocodeStats.networkLookups;
   const cacheStats = {
     fetch: {
       ...fetchCacheStats,
@@ -1853,10 +1856,8 @@ END:VCALENDAR`;
     geocode: {
       ...geocodeStats,
       lookups: geocodeTotal,
-      // Share of location lookups resolved without a network call.
-      hitRate: geocodeTotal > 0
-        ? Math.round(((geocodeTotal - geocodeStats.nominatimCalls) / geocodeTotal) * 100)
-        : 0,
+      // Share of resolved locations that avoided the network entirely.
+      hitRate: geocodeTotal > 0 ? Math.round((geocodeNoNetwork / geocodeTotal) * 100) : 0,
     },
   };
 
@@ -2200,8 +2201,9 @@ END:VCALENDAR`;
     `${cacheStats.fetch.liveFailures > 0 ? `, ${cacheStats.fetch.liveFailures} failed` : ""} of ${cacheStats.fetch.lookups})`
   );
   console.log(
-    `  📍 Geocode: ${cacheStats.geocode.hitRate}% no-network (${cacheStats.geocode.nominatimCalls} Nominatim calls of ${cacheStats.geocode.lookups} lookups; ` +
-    `${cacheStats.geocode.cacheHits} cache, ${cacheStats.geocode.knownVenueHits} known-venue, ${cacheStats.geocode.unresolvableSkips} unresolvable)`
+    `  📍 Geocode: ${cacheStats.geocode.hitRate}% no-network of ${cacheStats.geocode.lookups} location(s) ` +
+    `(${cacheStats.geocode.cacheHits} cache, ${cacheStats.geocode.knownVenueHits} known-venue, ${cacheStats.geocode.unresolvableSkips} unresolvable, ` +
+    `${cacheStats.geocode.networkLookups} network); ${cacheStats.geocode.nominatimCalls} Nominatim request(s)`
   );
   console.log("===========================\n");
 
@@ -2257,7 +2259,7 @@ END:VCALENDAR`;
       summaryLines.push(
         `> 💾 **Fetch cache:** ${cacheStats.fetch.hitRate}% hit — ${cacheStats.fetch.freshHits} fresh / ${cacheStats.fetch.liveFetches} live` +
         `${cacheStats.fetch.liveFailures > 0 ? ` (${cacheStats.fetch.liveFailures} failed → stale)` : ""} of ${cacheStats.fetch.lookups} lookups. ` +
-        `**📍 Geocode:** ${cacheStats.geocode.hitRate}% no-network — ${cacheStats.geocode.nominatimCalls} Nominatim call(s) of ${cacheStats.geocode.lookups} lookups. ` +
+        `**📍 Geocode:** ${cacheStats.geocode.hitRate}% no-network of ${cacheStats.geocode.lookups} location(s) — ${cacheStats.geocode.nominatimCalls} Nominatim request(s). ` +
         `A low hit rate means a cold cache (slow build).`
       );
     }
