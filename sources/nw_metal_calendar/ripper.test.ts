@@ -13,462 +13,462 @@ const FIXTURE_YEAR = 2024;
 
 const expectedEvents = [
     {
-        "summary": "[NWMetal] 3 Inches of Blood, Toxic Holocaust, Xoth",
+        "summary": "3 Inches of Blood, Toxic Holocaust, Xoth",
         "date": `${FIXTURE_YEAR}-06-07T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Internal Realm (album release)",
+        "summary": "Internal Realm (album release)",
         "date": `${FIXTURE_YEAR}-06-08T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Substation",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Spiter, Desolus, Snakebite Kiss, Vaulderie",
+        "summary": "Spiter, Desolus, Snakebite Kiss, Vaulderie",
         "date": `${FIXTURE_YEAR}-06-10T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Belltown Yacht Club",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] As I Lay Dying, Chelsea Grin, Entheos",
+        "summary": "As I Lay Dying, Chelsea Grin, Entheos",
         "date": `${FIXTURE_YEAR}-07-13T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Temple Theatre (Tacoma)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Headless Bastard, Maxx Shredroom, Laserbeans",
+        "summary": "Headless Bastard, Maxx Shredroom, Laserbeans",
         "date": `${FIXTURE_YEAR}-06-14T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "the Kraken Bar",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] BOTCH, Mortiferum, Caustic Wound",
+        "summary": "BOTCH, Mortiferum, Caustic Wound",
         "date": `${FIXTURE_YEAR}-06-14T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Glyph, Empress, Tower Hill, Rope",
+        "summary": "Glyph, Empress, Tower Hill, Rope",
         "date": `${FIXTURE_YEAR}-06-14T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Substation",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] BOTCH, Helms Alee, Great Falls",
+        "summary": "BOTCH, Helms Alee, Great Falls",
         "date": `${FIXTURE_YEAR}-06-15T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Death To All, Cryptopsy",
+        "summary": "Death To All, Cryptopsy",
         "date": `${FIXTURE_YEAR}-06-15T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "The Crocodile",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Death To All, Cryptopsy",
+        "summary": "Death To All, Cryptopsy",
         "date": `${FIXTURE_YEAR}-06-16T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "The Crocodile",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Exhumed, Skeletal Remains, Morbikon",
+        "summary": "Exhumed, Skeletal Remains, Morbikon",
         "date": `${FIXTURE_YEAR}-06-16T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Madame Lou’s",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Abrams, Goya, Sorcia",
+        "summary": "Abrams, Goya, Sorcia",
         "date": `${FIXTURE_YEAR}-06-18T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Clock-Out Lounge",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] REZN, Mute Duo",
+        "summary": "REZN, Mute Duo",
         "date": `${FIXTURE_YEAR}-06-19T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Substation",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Sumac, White Boy Scream, Grave Infestation",
+        "summary": "Sumac, White Boy Scream, Grave Infestation",
         "date": `${FIXTURE_YEAR}-06-22T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Clock-Out Lounge",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] A Skylit Drive, Silent Theory, What’s Wrong",
+        "summary": "A Skylit Drive, Silent Theory, What’s Wrong",
         "date": `${FIXTURE_YEAR}-06-22T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Funhouse",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Gorgatron, Casket Robbery, Voraath",
+        "summary": "Gorgatron, Casket Robbery, Voraath",
         "date": `${FIXTURE_YEAR}-06-23T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Funhouse",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Eternal, Skelm, Impertinence, Baptation",
+        "summary": "Eternal, Skelm, Impertinence, Baptation",
         "date": `${FIXTURE_YEAR}-06-25T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Overkill Lounge (Tacoma)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Eternal, SerpentSpeech, Void Dancer, Resin Cough",
+        "summary": "Eternal, SerpentSpeech, Void Dancer, Resin Cough",
         "date": `${FIXTURE_YEAR}-06-26T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Jules Maes Saloon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Phrenelith, Witch Vomit, Noroth",
+        "summary": "Phrenelith, Witch Vomit, Noroth",
         "date": `${FIXTURE_YEAR}-06-27T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "High Water Mark (Portland)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Phrenelith, Excarnated Entity, Noroth, Degraved",
+        "summary": "Phrenelith, Excarnated Entity, Noroth, Degraved",
         "date": `${FIXTURE_YEAR}-06-28T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Jules Maes",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Archspire, Aborted, Carcosa, Alluvial",
+        "summary": "Archspire, Aborted, Carcosa, Alluvial",
         "date": `${FIXTURE_YEAR}-06-29T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Mizmor, Tithe",
+        "summary": "Mizmor, Tithe",
         "date": `${FIXTURE_YEAR}-07-06T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Substation",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Eight Bells, Serpentent, Izthmi",
+        "summary": "Eight Bells, Serpentent, Izthmi",
         "date": `${FIXTURE_YEAR}-07-06T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Belltown Yacht Club",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Red Fang, Spoon Benders",
+        "summary": "Red Fang, Spoon Benders",
         "date": `${FIXTURE_YEAR}-07-11T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Yob, Sandrider",
+        "summary": "Yob, Sandrider",
         "date": `${FIXTURE_YEAR}-07-12T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Arkaik, Cyborg Octopus, Dessiderium",
+        "summary": "Arkaik, Cyborg Octopus, Dessiderium",
         "date": `${FIXTURE_YEAR}-07-12T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Funhouse",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Necrot, Phobophilic, Street Tombs, Witch Vomit",
+        "summary": "Necrot, Phobophilic, Street Tombs, Witch Vomit",
         "date": `${FIXTURE_YEAR}-07-12T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Clock-Out Lounge",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] A Day To Remember, The Story So Far, Four Year Strong, Scowl",
+        "summary": "A Day To Remember, The Story So Far, Four Year Strong, Scowl",
         "date": `${FIXTURE_YEAR}-07-15T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "WAMU Theater",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Fallujah, Persefone, Vulvodynia, Dawn of Ouroboros",
+        "summary": "Fallujah, Persefone, Vulvodynia, Dawn of Ouroboros",
         "date": `${FIXTURE_YEAR}-07-19T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Pallbearer, Inter Arma, The Keening",
+        "summary": "Pallbearer, Inter Arma, The Keening",
         "date": `${FIXTURE_YEAR}-07-19T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Substation",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Toxic Reign, Schmutzhund, Distest",
+        "summary": "Toxic Reign, Schmutzhund, Distest",
         "date": `${FIXTURE_YEAR}-07-20T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "the Kraken Bar",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Primus, Coheed and Cambria, Guerilla Toss",
+        "summary": "Primus, Coheed and Cambria, Guerilla Toss",
         "date": `${FIXTURE_YEAR}-07-20T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Spokane Pavilion",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Ragana, Agriculture",
+        "summary": "Ragana, Agriculture",
         "date": `${FIXTURE_YEAR}-07-25T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Madame Lou’s",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Tithe, Vulnere, Vile Rites, Villainous Temple",
+        "summary": "Tithe, Vulnere, Vile Rites, Villainous Temple",
         "date": `${FIXTURE_YEAR}-07-25T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "High Water Mark (Portland)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Cloud Rat, Mem//Brane, Baring Teeth, Flesh Produce",
+        "summary": "Cloud Rat, Mem//Brane, Baring Teeth, Flesh Produce",
         "date": `${FIXTURE_YEAR}-07-27T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Black Lodge",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Tithe, Vulnere, Vile Rites, Baptation",
+        "summary": "Tithe, Vulnere, Vile Rites, Baptation",
         "date": `${FIXTURE_YEAR}-07-28T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Overkill Lounge (Tacoma)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] King Buzzo, Trevor Dunn, JD Pinkus",
+        "summary": "King Buzzo, Trevor Dunn, JD Pinkus",
         "date": `${FIXTURE_YEAR}-08-10T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Neumos",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Megadeth, Mudvayne, All That Remains",
+        "summary": "Megadeth, Mudvayne, All That Remains",
         "date": `${FIXTURE_YEAR}-08-12T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "White River Ampitheatre (Auburn)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Skinlab, Short Fuse, Another Demon",
+        "summary": "Skinlab, Short Fuse, Another Demon",
         "date": `${FIXTURE_YEAR}-08-14T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Anvil, Serpent Rider, Pulsifier, more",
+        "summary": "Anvil, Serpent Rider, Pulsifier, more",
         "date": `${FIXTURE_YEAR}-08-15T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Substation",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Lamb of God, Mastodon, Kerry King, Malevolence",
+        "summary": "Lamb of God, Mastodon, Kerry King, Malevolence",
         "date": `${FIXTURE_YEAR}-08-17T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showare Center",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal]  Mastodon, Lamb of God, Kerry King, Malevolence",
+        "summary": " Mastodon, Lamb of God, Kerry King, Malevolence",
         "date": `${FIXTURE_YEAR}-08-18T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Theater of the Clouds, Moda Center (Portland)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Haunt, Savage Master, Vanishment",
+        "summary": "Haunt, Savage Master, Vanishment",
         "date": `${FIXTURE_YEAR}-08-23T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Red Mesa, Sorcia",
+        "summary": "Red Mesa, Sorcia",
         "date": `${FIXTURE_YEAR}-08-24T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Substation",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] In This Moment, Avatar, TX2",
+        "summary": "In This Moment, Avatar, TX2",
         "date": `${FIXTURE_YEAR}-08-25T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "The Moore Theatre",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Goatwhore, Vitriol, Thantifaxath",
+        "summary": "Goatwhore, Vitriol, Thantifaxath",
         "date": `${FIXTURE_YEAR}-08-25T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Dante’s (Portland)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Goatwhore, Vitriol, Thantifaxath",
+        "summary": "Goatwhore, Vitriol, Thantifaxath",
         "date": `${FIXTURE_YEAR}-08-27T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Substation",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal]  Metallica, Pantera, Mammoth WVH",
+        "summary": " Metallica, Pantera, Mammoth WVH",
         "date": `${FIXTURE_YEAR}-08-30T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Lumen Field",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal]  Metallica, Five Finger Death Punch, Ice Nine Kills",
+        "summary": " Metallica, Five Finger Death Punch, Ice Nine Kills",
         "date": `${FIXTURE_YEAR}-09-01T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Lumen Field",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Have A Nice Life, Mamaleek, Jenny Haniver",
+        "summary": "Have A Nice Life, Mamaleek, Jenny Haniver",
         "date": `${FIXTURE_YEAR}-09-01T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Molder, Dripping Decay, Decaying Crypt",
+        "summary": "Molder, Dripping Decay, Decaying Crypt",
         "date": `${FIXTURE_YEAR}-09-03T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Belltown Yacht Club",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Signs of the Swarm, Cane Hill, Ov Sulfur, 156/Silence, A Wake In Providence",
+        "summary": "Signs of the Swarm, Cane Hill, Ov Sulfur, 156/Silence, A Wake In Providence",
         "date": `${FIXTURE_YEAR}-09-11T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Testament, Kreator, Possessed",
+        "summary": "Testament, Kreator, Possessed",
         "date": `${FIXTURE_YEAR}-09-16T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox SoDo",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Mortiis, Sombre Arcane, Malfet",
+        "summary": "Mortiis, Sombre Arcane, Malfet",
         "date": `${FIXTURE_YEAR}-09-17T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Amorphis, Dark Tranquillity, Fires In The Distance",
+        "summary": "Amorphis, Dark Tranquillity, Fires In The Distance",
         "date": `${FIXTURE_YEAR}-09-22T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Boris, Starcrawler",
+        "summary": "Boris, Starcrawler",
         "date": `${FIXTURE_YEAR}-10-02T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Korn, Gojira, Spiritbox",
+        "summary": "Korn, Gojira, Spiritbox",
         "date": `${FIXTURE_YEAR}-10-08T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "MODA Center (Portland)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Carnifex, Mental Cruelty, Organectomy, Heavy Hitter",
+        "summary": "Carnifex, Mental Cruelty, Organectomy, Heavy Hitter",
         "date": `${FIXTURE_YEAR}-10-09T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Korn, Gojira, Spiritbox",
+        "summary": "Korn, Gojira, Spiritbox",
         "date": `${FIXTURE_YEAR}-10-10T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Tacoma Dome (Tacoma)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Miss May I, In Hearts Wake, Traitors, Bloom",
+        "summary": "Miss May I, In Hearts Wake, Traitors, Bloom",
         "date": `${FIXTURE_YEAR}-10-11T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Iron Maiden, The Hu",
+        "summary": "Iron Maiden, The Hu",
         "date": `${FIXTURE_YEAR}-10-14T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "MODA Center (Portland)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Iron Maiden, The Hu",
+        "summary": "Iron Maiden, The Hu",
         "date": `${FIXTURE_YEAR}-10-16T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Tacoma Dome (Tacoma)",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Hatebreed, Carcass, Harms Way, Crypta",
+        "summary": "Hatebreed, Carcass, Harms Way, Crypta",
         "date": `${FIXTURE_YEAR}-10-20T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox SoDo",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Death Angel, W.A.S.P., Unto Others",
+        "summary": "Death Angel, W.A.S.P., Unto Others",
         "date": `${FIXTURE_YEAR}-10-29T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Moore Theatre",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Animals As Leaders, Plini",
+        "summary": "Animals As Leaders, Plini",
         "date": `${FIXTURE_YEAR}-10-31T19:00-07:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "Showbox",
         "cost": { "paid": true }
     },
     {
-        "summary": "[NWMetal] Morbid Angel, Suffocation, Uada, Mortiferum, Fulci, Knoll",
+        "summary": "Morbid Angel, Suffocation, Uada, Mortiferum, Fulci, Knoll",
         "date": `${FIXTURE_YEAR}-11-30T19:00-08:00[US/Pacific]`,
         "duration": "PT4H",
         "location": "El Corazon",

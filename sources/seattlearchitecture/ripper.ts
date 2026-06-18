@@ -61,9 +61,12 @@ export default class SAFRipper extends HTMLRipper {
 
                 const eventTime = ZonedDateTime.now(ZoneRegion.of("America/Los_Angeles")).withMonth(month).withDayOfMonth(day).withHour(hour).withMinute(minutes).withSecond(0).withNano(0);
 
+                if (!title) {
+                    return { type: "ParseError", reason: "Missing title", context: e.toString() } as ParseError;
+                }
                 const a: RipperCalendarEvent = {
                     id,
-                    summary: `[SAF] ${title}`,
+                    summary: title,
                     date: eventTime,
                     duration: Duration.ofHours(2),
                     ripped: convert(LocalDateTime.now()).toDate(),
