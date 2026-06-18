@@ -47,16 +47,16 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.version }}
+          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.version }}-chromium-firefox
 
-      - name: Install Playwright Chromium + OS deps
+      - name: Install Playwright browsers + OS deps
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps chromium firefox
         working-directory: web
 
-      - name: Install Playwright OS deps (cached browser)
+      - name: Install Playwright OS deps (cached browsers)
         if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps chromium
+        run: npx playwright install-deps chromium firefox
         working-directory: web
 
       - name: Run browser (e2e) tests
