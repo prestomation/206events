@@ -1674,6 +1674,211 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "Same event from seatoday source appearing in two category feeds (all and learning) \u2014 should show once"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave x Witch Paddle Rave|2026-09-20T15:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | Sept 20th | Witch Paddle Rave|2026-09-20T15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same Seattle Paddle Rave event, same posh.vip URL, two sources"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave|2026-06-27T17:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | June 27th|2026-06-27T17:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same Seattle Paddle Rave event, same posh.vip URL, two sources"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave|2026-07-04T09:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | July 4th|2026-07-04T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same Seattle Paddle Rave event, same posh.vip URL, two sources"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave|2026-07-15T17:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | July 15th|2026-07-15T17:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same Seattle Paddle Rave event, same posh.vip URL, two sources"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave|2026-08-01T09:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | August 1st|2026-08-01T09:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same Seattle Paddle Rave event, same posh.vip URL, two sources"
+    },
+    "19hz-all-events.ics Soul of Hex|2026-07-17T21:00-07:00[America/Los_Angeles]::belltown_yacht_club-belltown-yacht-club.ics Soul of Hex, CSJS, Better Together|2026-07-17T21:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same show at Belltown Yacht Club, 19hz lists shortened title"
+    },
+    "NWMetalCalendar-NWMetal.ics Anvil, Graveripper, Midnite Hellion, Star Chamber|2026-06-25T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics ANVIL - Pounding the Past 2026 with GraveRipper, Midnite Hellion, Star Chamber|2026-06-25T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "ANVIL show at El Corazon, venue site vs NW Metal Calendar"
+    },
+    "NWMetalCalendar-NWMetal.ics Defeated Sanity, Revocation, Fuming Mouth, Weeping|2026-09-23T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Revocation - 20 Years of Torment with Defeated Sanity, Fuming Mouth, Weeping|2026-09-23T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Revocation show at El Corazon, venue site vs NW Metal Calendar"
+    },
+    "NWMetalCalendar-NWMetal.ics Dying Fetus, Sanguisugabogg, Crowbar, Left To Suffer, Deterioration|2026-10-06T19:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Dying Fetus & Sanguisugabogg with Crowbar, Left to Suffer, Deterioration|2026-10-06T18:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Dying Fetus at Showbox SoDo, venue site vs NW Metal Calendar"
+    },
+    "NWMetalCalendar-NWMetal.ics Fear Factory, Darkest Hour, Brotality, Lacabra|2026-11-20T19:00-08:00[America/Los_Angeles]::el-corazon-el-corazon.ics Fear Factory - Cybernetic Domination Tour 2026 with Darkest Hour, Brotality, Lacabra|2026-11-20T19:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Fear Factory at El Corazon, venue site vs NW Metal Calendar"
+    },
+    "NWMetalCalendar-NWMetal.ics GWAR, Midnight, Mac Sabbath, Atomic Rule|2026-11-23T19:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics GWAR with Midnight, Mac Sabbath, Atomic Rule|2026-11-23T19:45-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "GWAR at Showbox SoDo, venue site vs NW Metal Calendar"
+    },
+    "NWMetalCalendar-NWMetal.ics Sigh, Dreadnought|2026-07-28T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Sigh with Dreadnought, Undulation|2026-07-28T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Sigh at El Corazon, venue site vs NW Metal Calendar"
+    },
+    "NWMetalCalendar-NWMetal.ics Uncle Acid and the Deadbeats, Messa|2026-09-26T19:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Uncle Acid & the Deadbeats with Messa|2026-09-26T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Uncle Acid at The Showbox, venue site vs NW Metal Calendar"
+    },
+    "NWMetalCalendar-NWMetal.ics Whitechapel, Chelsea Grin, The Acacia Strain, Netherwalker|2026-12-05T19:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Whitechapel with Netherwalker, The Acacia Strain, Chelsea Grin|2026-12-05T19:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Whitechapel at Showbox SoDo, venue site vs NW Metal Calendar"
+    },
+    "ballard-brewed-all-events.ics Sour Beer day|2026-06-20T12:00:00.106-07:00[America/Los_Angeles]::external-washington-beer-blog.ics Sour Beer Day at Lucky Envelope|2026-06-20T00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Sour Beer Day at Lucky Envelope, ballard-brewed calendar vs beer blog"
+    },
+    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 6/24/2026 7:30PM|2026-06-24T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle \u2014 Cheap Laughs Open Mic|2026-06-24T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Club Comedy Cheap Laughs Open Mic, recurring entry vs eventbrite ripper"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-09-18T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-09-18T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same UW iSchool info session in two UW calendar feeds, same URL"
+    },
+    "external-uw-campus-events.ics MSIM Admission Advisor Q&A|2026-08-03T03:00Z[UTC]::external-uw-information-school.ics MSIM Admission Advisor Q&A|2026-08-03T03:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same MSIM Q&A in two UW calendar feeds, same URL"
+    },
+    "external-uw-campus-events.ics MSIM Admission Advisor Q&A|2026-09-11T15:00Z[UTC]::external-uw-information-school.ics MSIM Admission Advisor Q&A|2026-09-11T15:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same MSIM Q&A in two UW calendar feeds, same URL"
+    },
+    "external-uw-campus-events.ics Pick Your Path Through MSIM|2026-08-19T09:00Z[UTC]::external-uw-information-school.ics Pick Your Path Through MSIM|2026-08-19T09:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same UW iSchool info session in two UW calendar feeds, same URL"
+    },
+    "external-washington-beer-blog.ics Sour Beer Day at Lucky Envelope|2026-06-20T00:00Z[UTC]::lucky-envelope-all-events.ics Sour Beer Day|2026-06-20T12:00:00.403-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Sour Beer Day at Lucky Envelope, lucky-envelope ripper vs beer blog"
+    },
+    "seatoday-seatoday-all.ics Business Impact NW Drop Ins|2026-07-01T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Business Impact NW Drop Ins|2026-07-01T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same event in seatoday all-events and learning sub-calendar, same URL"
+    },
+    "seatoday-seatoday-all.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-18",
+      "note": "seatoday location is Town Hall; SPL location is Central Library - different venues 362m apart"
+    },
+    "seatoday-seatoday-all.ics Let's Play SEA '26 - Watch Parties at the Mural Amphitheatre: USA VS. Australia|2026-06-19T10:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Let's Play SEA '26 watch party at Seattle Center, seatoday vs seattle-center feeds"
+    },
+    "seatoday-seatoday-all.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre: Bosnia-Herzegovina VS Qatar|2026-06-24T10:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre: Bosnia-Herzegovina vs Qatar|2026-06-24T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Let's Play SEA '26 watch party at Seattle Center, seatoday vs seattle-center feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-01T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-01T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same event in seatoday-all and seatoday-community, same URL"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-01T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-01T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same event in seatoday-all and seatoday-sports, same URL"
+    },
+    "seatoday-seatoday-arts.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-18",
+      "note": "seatoday location is Town Hall; SPL location is Central Library - different venues"
+    },
+    "seatoday-seatoday-arts.ics Let's Play SEA '26 - Watch Parties at the Mural Amphitheatre: USA VS. Australia|2026-06-19T10:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Let's Play SEA '26 watch party, seatoday-arts vs seattle-center feeds"
+    },
+    "seatoday-seatoday-arts.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre: Bosnia-Herzegovina VS Qatar|2026-06-24T10:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre: Bosnia-Herzegovina vs Qatar|2026-06-24T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Let's Play SEA '26 watch party, seatoday-arts vs seattle-center feeds"
+    },
+    "seatoday-seatoday-community.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-18",
+      "note": "seatoday location is Town Hall; SPL location is Central Library - different venues"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-01T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-01T10:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same event in seatoday-sports and seatoday-community, same URL"
+    },
+    "seatoday-seatoday-food.ics Let's Play SEA '26 - Watch Parties at the Mural Amphitheatre: USA VS. Australia|2026-06-19T10:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Let's Play SEA '26 watch party, seatoday-food vs seattle-center feeds"
+    },
+    "seatoday-seatoday-food.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre: Bosnia-Herzegovina VS Qatar|2026-06-24T10:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre: Bosnia-Herzegovina vs Qatar|2026-06-24T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Let's Play SEA '26 watch party, seatoday-food vs seattle-center feeds"
+    },
+    "seatoday-seatoday-learning.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-18",
+      "note": "seatoday location is Town Hall; SPL location is Central Library - different venues"
+    },
+    "seatoday-seatoday-sports.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-07-01T10:45-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-18",
+      "note": "seatoday location is Town Hall; SPL location is Central Library - different venues"
+    },
+    "seatoday-seatoday-sports.ics Let's Play SEA '26 - Watch Parties at the Mural Amphitheatre: USA VS. Australia|2026-06-19T10:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Let's Play SEA '26 watch party, seatoday-sports vs seattle-center feeds"
+    },
+    "seatoday-seatoday-sports.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre: Bosnia-Herzegovina VS Qatar|2026-06-24T10:30-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre: Bosnia-Herzegovina vs Qatar|2026-06-24T12:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Let's Play SEA '26 watch party, seatoday-sports vs seattle-center feeds"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-25T19:30-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-25T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Same production at Bagley Wright/Seattle Center, seattle-center vs seattle-rep feeds"
+    },
+    "spl-douglass-truth.ics Family Story Time|2026-07-01T10:30-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-07-01T10:30-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-18",
+      "note": "Simultaneous story times at different SPL branches (Douglass-Truth vs Greenwood) 10km apart"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor & KEXP's Roadhoue Present: The Lostines x Kinsey Lee w/Sequoia|2026-07-19T20:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor & KEXP's Roadhouse Present: The Lostines x Kinsey Lee (album release) w/ Sequoia @ THE SUNSET TAVERN|2026-07-19T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-18",
+      "note": "Tractor/KEXP Roadhouse show at Sunset Tavern, both venue calendars list the same show (title confirms venue)"
     }
   }
 }
