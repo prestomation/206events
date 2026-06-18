@@ -544,9 +544,10 @@ export const main = async () => {
 
   // Load the general-purpose fetch cache and inject it into the fetch layer so
   // every source (rippers, external ICS, platform APIs) is fetched live at most
-  // once per TTL window (default 24h; see docs/fetch-cache.md). The body is
-  // re-parsed every build, so only the network call is skipped. Persisted via
-  // the GitHub Actions Cache.
+  // once per TTL window (default 7 days, with proactive oldest-slice refresh on
+  // main builds; see docs/fetch-cache.md + docs/cache-freshness-strategy.md). The
+  // body is re-parsed every build, so only the network call is skipped. Persisted
+  // via the GitHub Actions Cache.
   const fetchCache = await loadFetchCache('fetch-cache.json');
   initFetchCache(fetchCache);
   // Proactive freshness (main/scheduled builds only — gated by the
