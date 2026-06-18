@@ -1,0 +1,12 @@
+name: friends_of_madison_park
+sourceRole: aggregator
+type: squarespace
+description: "Friends of Madison Park"
+url: "https://www.friendsofmadisonpark.com/allevents"
+friendlyLink: https://www.friendsofmadisonpark.com/allevents
+geo: null
+tags: ["Community", "Madison Park"]
+calendars:
+  - name: all-events
+    friendlyname: "Friends of Madison Park"
+    timezone: America/Los_Angeles
