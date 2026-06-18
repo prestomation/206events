@@ -1,0 +1,29 @@
+# verified: 2026-06-18 ok (confirmed via seattlefreshbucks.org and GBA website)
+geo:
+  lat: 47.5442037
+  lng: -122.3214361
+  label: "Georgetown Farmers Market, 6601 Carleton Ave S, Seattle, WA 98108"
+  osmChecked: "2026-06-18"
+name: georgetown-farmers-market
+sourceRole: venue
+friendlyname: Georgetown Farmers Market
+description: Seasonal Thursday farmers market in Georgetown, outside Bloom Bistro at 6601 Carleton Ave S. Features local produce, food vendors, and artisans. Accepts SNAP/EBT.
+timezone: America/Los_Angeles
+location: 6601 Carleton Ave S, Seattle, WA 98108
+url: https://georgetownseattle.org/georgetown-farmers-market/
+tags:
+  - Georgetown
+  - FarmersMarket
+  - Community
+cost: free
+schedules:
+  - schedule: every Thursday
+    start_time: "15:00"
+    duration: PT4H
+    months:
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
