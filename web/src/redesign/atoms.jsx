@@ -279,6 +279,21 @@ export function LocationMapLink({ location, lat, lng, style }) {
   )
 }
 
+// Compact square outbound-link control for an event row — links to the event's
+// own page (tickets / official listing). Mirrors the add-to-calendar icon
+// button's compact styling so the two sit together as trailing row controls
+// instead of a full-width button. stopPropagation keeps a click on it from also
+// firing the row's open-event navigation. Renders nothing without a URL.
+export function EventLinkIcon({ url, title = 'View event page' }) {
+  if (!url) return null
+  return (
+    <a className="ev-extlink" href={url} target="_blank" rel="noopener noreferrer"
+      title={title} aria-label={title} onClick={(e) => e.stopPropagation()}>
+      <span style={{ width: 18, height: 18, display: 'inline-flex' }}>{Ico.globe}</span>
+    </a>
+  )
+}
+
 // A single day-grouped event row. `event` is an events-index entry.
 export function EventRow({ event, noDate = false, showChip = true, showLoc = false, reason = null }) {
   const app = useApp206()

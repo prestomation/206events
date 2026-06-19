@@ -4,7 +4,7 @@
 import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
-import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor } from './atoms.jsx'
+import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor, EventLinkIcon } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
@@ -887,8 +887,11 @@ function ParsedEventRow({ event, distributed, indexEvent }) {
           </div>
         )}
       </div>
-      <AddToCalendar title={event.title} startDate={event.startDate} endDate={event.endDate}
-        description={event.description} location={event.location} url={event.url} mode={app.calendarAddMode} />
+      <div className="ev-actions">
+        <EventLinkIcon url={event.url} title={event.title ? `View ${event.title}` : 'View event page'} />
+        <AddToCalendar title={event.title} startDate={event.startDate} endDate={event.endDate}
+          description={event.description} location={event.location} url={event.url} mode={app.calendarAddMode} />
+      </div>
     </div>
   )
 }
@@ -945,6 +948,17 @@ export function EventDetail({ event }) {
           {costLabel(event.cost) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.spark}</span>{costLabel(event.cost)}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['cost'])} compact /></span>}
         </div>
       </div>
+
+      {/* Primary outbound link to the event's own page (tickets / official
+          listing). This is often the main thing someone wants, so it leads the
+          action row as a full-width button. Absent when the source carries no
+          per-event URL. */}
+      {event.url && (
+        <a className="btn btn-blue" style={{ width: '100%', marginBottom: 10 }}
+          href={event.url} target="_blank" rel="noopener noreferrer">
+          {Ico.globe}View event page
+        </a>
+      )}
 
       <div style={{ display: 'flex', gap: 9, marginBottom: 20 }}>
         <div style={{ flex: 1 }}>
