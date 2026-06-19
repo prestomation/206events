@@ -1,0 +1,13 @@
+name: cp-coffee
+sourceRole: venue
+friendlyname: "C & P Coffee Company"
+description: "West Seattle coffeehouse at 5612 California Ave SW hosting live music (jazz, Brazilian, world, folk, acoustic), open mics, songwriter showcases, book clubs, and community events."
+icsUrl: "https://candpcoffee.com/?post_type=tribe_events&ical=1&eventDisplay=list"
+infoUrl: "https://candpcoffee.com/events/"
+geo:
+  lat: 47.5516578
+  lng: -122.3866639
+  label: "C & P Coffee Company, 5612 California Ave SW, Seattle, WA 98136"
+tags:
+  - Music
+  - "West Seattle"
