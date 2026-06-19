@@ -21,6 +21,13 @@ describe('LidI5Ripper - extractTourLinks', () => {
         expect(links.some(l => l.href === 'https://www.seattleparksfoundation.org/')).toBe(false);
     });
 
+    test('excludes CTA links ("register", "Registration requested") that share a URL with a tour but have no date', () => {
+        const links = ripper.extractTourLinks(loadSampleHtml());
+        // The sample HTML has two CTA anchors for the Freeway Park event; neither
+        // should appear since their text contains no month name.
+        expect(links.some(l => /register/i.test(l.text) && !/\b(january|february|march|april|may|june|july|august|september|october|november|december)\b/i.test(l.text))).toBe(false);
+    });
+
     test('decodes HTML entities in link text', () => {
         const links = ripper.extractTourLinks(loadSampleHtml());
         // &#8211; (en dash) should be decoded by the HTML parser.
