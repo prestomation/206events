@@ -142,10 +142,15 @@ jobs:
             // Cache effectiveness — a low hit rate means a cold cache, which is
             // the usual cause of a slow preview build. See docs/fetch-cache.md.
             const cacheStats = buildErrors.cacheStats;
+            // Proactive-refresh detail only appears on main builds (PR previews
+            // never refresh, so forcedRefresh is 0 and this stays empty).
+            const proactiveSuffix = cacheStats && cacheStats.fetch.forcedRefresh > 0
+              ? `; proactive refresh ${cacheStats.fetch.forcedRefreshApplied}/${cacheStats.fetch.forcedRefresh} applied of ${cacheStats.fetch.cacheSize.toLocaleString()} cached`
+              : '';
             const cacheSection = cacheStats
               ? `\n\n**💾 Cache:** fetch ${cacheStats.fetch.hitRate}% hit (${cacheStats.fetch.freshHits.toLocaleString()} fresh / ${cacheStats.fetch.liveFetches.toLocaleString()} live` +
                 (cacheStats.fetch.liveFailures > 0 ? `, ${cacheStats.fetch.liveFailures} failed→stale` : '') +
-                `) · geocode ${cacheStats.geocode.hitRate}% no-network (${cacheStats.geocode.nominatimCalls.toLocaleString()} Nominatim call(s))`
+                `)${proactiveSuffix} · geocode ${cacheStats.geocode.hitRate}% no-network (${cacheStats.geocode.nominatimCalls.toLocaleString()} Nominatim call(s))`
               : '';
 
             // Photo coverage stats. Gaps are todos for the photo-resolver

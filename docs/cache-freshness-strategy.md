@@ -85,6 +85,26 @@ Tunables (env): `FETCH_CACHE_TTL_HOURS` (cap), `FETCH_REFRESH_FRACTION`
 (slice size, default 0.2), `FETCH_PROACTIVE_REFRESH` (`true` to enable; set by
 the main workflow).
 
+### Observability
+
+Whether the refresh is actually doing useful work is reported per build in
+`cacheStats.fetch` (`output/build-errors.json`, the build step summary, and the
+PR comment — see docs/fetch-cache.md):
+
+- `cacheSize` (M) — entries in the loaded cache,
+- `forcedRefresh` (N) — keys selected for refresh (the oldest ≈20% of M),
+- `forcedRefreshApplied` — how many selected keys were *actually requested* this
+  build (force-missed → re-fetched).
+
+The gap between `forcedRefresh` and `forcedRefreshApplied` is the key signal:
+because the slice is the oldest 20% of **all** cache entries — which includes
+orphaned URLs (per-event detail pages, removed/changed sources, kept up to
+`MAX_ENTRY_AGE_DAYS`) that are never re-requested — much of the budget can land
+on dead keys, so `forcedRefreshApplied` (and thus the observed live-fetch share)
+can be well below the nominal 20%. If that gap is large in practice, a future
+refinement is to draw the slice from *active* keys (those requested in a recent
+build) rather than the whole cache.
+
 ### PR builds are read-only: cache scope and the "self-poisoning" trap
 
 For PR previews to "ride the warm cache," they must restore **main's** cache,

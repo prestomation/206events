@@ -152,7 +152,7 @@ emits hit/miss counters under a non-fatal `cacheStats` key in
 
 ```jsonc
 "cacheStats": {
-  "fetch":   { "freshHits": 812, "liveFetches": 14, "liveFailures": 2, "staleServes": 2, "lookups": 826, "hitRate": 98 },
+  "fetch":   { "freshHits": 812, "liveFetches": 14, "liveFailures": 2, "staleServes": 2, "cacheSize": 1180, "forcedRefresh": 236, "forcedRefreshApplied": 9, "lookups": 826, "hitRate": 98 },
   "geocode": { "cacheHits": 9043, "knownVenueHits": 120, "unresolvableSkips": 610, "networkLookups": 7, "nominatimCalls": 9, "lookups": 9780, "hitRate": 100 }
 }
 ```
@@ -161,6 +161,14 @@ emits hit/miss counters under a non-fatal `cacheStats` key in
   network); `liveFetches` hit the network because the entry was stale/missing;
   `liveFailures` are the subset that threw (then stale-served or rethrew);
   `hitRate` = `freshHits / lookups`.
+  - **Proactive-refresh telemetry** (main builds only; 0 on PR builds):
+    `cacheSize` is the loaded cache's entry count (M); `forcedRefresh` is how
+    many keys were selected for the oldest-slice refresh (N ≈ 20% of M);
+    `forcedRefreshApplied` is how many of those were *actually requested* this
+    build (and thus force-missed → re-fetched). A large `forcedRefresh` with a
+    tiny `forcedRefreshApplied` means the budget is landing on orphaned cache
+    entries (per-event detail pages, removed sources) rather than active
+    sources — see docs/cache-freshness-strategy.md.
 - **`geocode`** — location resolution (`lib/geocoder.ts`). The four resolution
   counters are **per location** and mutually exclusive: `cacheHits` (geo-cache),
   `knownVenueHits` (hardcoded table), and `unresolvableSkips` (cached

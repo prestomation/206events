@@ -443,7 +443,10 @@ describe("withCache stats (hit/miss telemetry)", () => {
         expect(getFetchCacheStats().liveFetches).toBe(1);
 
         initFetchCache(emptyFetchCache());
-        expect(getFetchCacheStats()).toEqual({ freshHits: 0, liveFetches: 0, liveFailures: 0, staleServes: 0 });
+        expect(getFetchCacheStats()).toEqual({
+            freshHits: 0, liveFetches: 0, liveFailures: 0, staleServes: 0,
+            cacheSize: 0, forcedRefresh: 0, forcedRefreshApplied: 0,
+        });
     });
 });
 

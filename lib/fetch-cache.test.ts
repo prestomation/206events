@@ -15,6 +15,7 @@ import {
     initFetchCache,
     resetFetchCache,
     lookupFreshEntry,
+    getFetchCacheStats,
     DEFAULT_TTL_HOURS,
     MAX_ENTRY_AGE_DAYS,
     type FetchCacheEntry,
@@ -214,5 +215,47 @@ describe("proactive refresh forces a cache miss", () => {
         // Re-init (new build) clears the selection.
         initFetchCache(cache);
         expect(lookupFreshEntry("url0", Date.now())).toBeDefined();
+    });
+});
+
+describe("proactive-refresh telemetry (cacheSize / forcedRefresh / forcedRefreshApplied)", () => {
+    afterEach(() => resetFetchCache());
+
+    it("records cacheSize on init and forcedRefresh on selection", () => {
+        const cache = cacheAged([1, 2, 3, 4, 5]); // 5 entries
+        initFetchCache(cache);
+        expect(getFetchCacheStats().cacheSize).toBe(5);
+        expect(getFetchCacheStats().forcedRefresh).toBe(0);
+
+        const keys = selectOldestEntriesForRefresh(cache, 0.4); // ceil(5*0.4)=2
+        setProactiveRefreshKeys(keys);
+        expect(getFetchCacheStats().forcedRefresh).toBe(2);
+    });
+
+    it("counts forcedRefreshApplied only for selected keys that are actually requested", () => {
+        const cache = cacheAged([1, 2, 3, 4]); // url0..url3, url3 oldest
+        initFetchCache(cache);
+        // Select the oldest two (url3, url2) but only request one of them plus a
+        // non-selected one — applied should count just the requested selected key.
+        setProactiveRefreshKeys(new Set(["url3", "url2"]));
+        const now = Date.now();
+        expect(lookupFreshEntry("url3", now)).toBeUndefined(); // selected + requested → applied++
+        expect(lookupFreshEntry("url0", now)).toBeDefined();   // not selected → served
+        expect(getFetchCacheStats().forcedRefresh).toBe(2);
+        expect(getFetchCacheStats().forcedRefreshApplied).toBe(1); // url2 never requested
+    });
+
+    it("resets telemetry on initFetchCache", () => {
+        const cache = cacheAged([1, 1]);
+        initFetchCache(cache);
+        setProactiveRefreshKeys(new Set(["url0"]));
+        lookupFreshEntry("url0", Date.now());
+        expect(getFetchCacheStats().forcedRefreshApplied).toBe(1);
+
+        initFetchCache(cacheAged([1, 2, 3]));
+        const s = getFetchCacheStats();
+        expect(s.forcedRefresh).toBe(0);
+        expect(s.forcedRefreshApplied).toBe(0);
+        expect(s.cacheSize).toBe(3);
     });
 });
