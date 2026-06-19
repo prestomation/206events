@@ -20,7 +20,9 @@ test.beforeEach(async ({ page }) => {
 
 // Phone viewport: the Map is its own bottom-nav tab and the menu drops as a
 // near-full-width sheet that overlaps the map (and its top-left zoom control).
+// isMobile is a Chromium-only emulation feature; Firefox rejects it outright.
 test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
+test.skip(({ browserName }) => browserName === 'firefox', 'isMobile not supported in Firefox')
 
 test('the list dropdown is not covered by map controls on the Map view', async ({ page }) => {
   await page.goto('/')

@@ -17,11 +17,29 @@ function localeDateMaybeYear(date, options) {
 
 // Parse an events-index date string ("2026-02-15T19:00-08:00[America/Los_Angeles]")
 // into a JS Date plus the IANA zone. Returns null when unparseable.
+//
+// Parses components manually and uses Date.UTC() so the UTC offset is always
+// honoured, regardless of browser. Avoids new Date(string) which Safari/WebKit
+// and some Android browsers misparse when seconds are absent — they ignore the
+// UTC offset and treat local time as UTC, producing a wrong AddToCalendar link.
 export function parseIndexDate(dateStr) {
   if (!dateStr) return null
   const tzMatch = dateStr.match(/\[(.+)\]$/)
   const timezone = tzMatch ? tzMatch[1] : undefined
-  const parsed = new Date(dateStr.replace(/\[.*\]$/, ''))
+  const s = dateStr.replace(/\[.*\]$/, '')
+  const m = s.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?(?:([+-])(\d{2}):(\d{2})|(Z))?$/)
+  if (!m) return null
+  const [, yr, mo, da, hr, mn, sc = '00', sign, offH = '00', offM = '00', z] = m
+  // Interpret the wall-clock fields as UTC, then subtract the stated UTC offset.
+  const localMs = Date.UTC(+yr, +mo - 1, +da, +hr, +mn, +sc)
+  let utcMs
+  if (z || !sign) {
+    utcMs = localMs
+  } else {
+    const offsetMs = (sign === '+' ? 1 : -1) * ((+offH * 60 + +offM) * 60000)
+    utcMs = localMs - offsetMs
+  }
+  const parsed = new Date(utcMs)
   if (isNaN(parsed.getTime())) return null
   return { date: parsed, timezone }
 }

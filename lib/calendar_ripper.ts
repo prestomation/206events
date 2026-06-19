@@ -88,6 +88,15 @@ const __dirname = dirname(__filename);
 
 const SITE_BASE_URL = process.env.SITE_BASE_URL || CITY.site.baseUrl;
 
+// ZonedDateTime.toString() omits seconds when second==0, e.g.
+// "2026-06-18T17:00-07:00[America/Los_Angeles]". Some browsers (Safari) misparse
+// this, ignoring the UTC offset and treating the time as UTC. Always emit seconds
+// so the offset is unambiguous across all consumers (web client, Google Calendar).
+function zdtToIndexDate(zdt: { toString(): string }): string {
+  const s = zdt.toString()
+  return s.replace(/T(\d{2}:\d{2})(?!:\d{2})([-+Z]|$)/, 'T$1:00$2')
+}
+
 /**
  * Check if ICS content contains any events with a start date on or after today.
  * Uses ical.js to properly handle recurring events (RRULE expansion).
@@ -1263,8 +1272,8 @@ END:VCALENDAR`;
         // description (no cap) so the detail page can show it in its entirety.
         description: event.uncertainty ? stripUncertaintyNote(event.description) : event.description,
         location: event.location,
-        date: event.date.toString(),
-        endDate: event.date.plus(event.duration).toString(),
+        date: zdtToIndexDate(event.date),
+        endDate: zdtToIndexDate(event.date.plus(event.duration)),
         url: event.url,
         ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
         ...(event.cost ? { cost: event.cost } : {}),
@@ -1313,8 +1322,8 @@ END:VCALENDAR`;
             // that would risk truncating a feed's own "⚠️" text.
             description: event.description,
             location: event.location,
-            date: event.date.toString(),
-            endDate: event.date.plus(event.duration).toString(),
+            date: zdtToIndexDate(event.date),
+            endDate: zdtToIndexDate(event.date.plus(event.duration)),
             url: event.url,
             ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
             // ICS has no standard price property — external events inherit
@@ -1414,8 +1423,8 @@ END:VCALENDAR`;
                 summary: event.summary,
                 description: event.description,
                 location: event.location,
-                date: event.date.toString(),
-                endDate: event.date.plus(event.duration).toString(),
+                date: zdtToIndexDate(event.date),
+                endDate: zdtToIndexDate(event.date.plus(event.duration)),
                 url: event.url,
                 ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
                 ...(event.lat !== undefined ? { lat: event.lat, geocodeSource: 'ripper' as const } : {}),
@@ -1919,7 +1928,7 @@ END:VCALENDAR`;
         source: calendar.parent.name,
         id: event.id,
         summary: event.summary,
-        date: event.date.toString(),
+        date: zdtToIndexDate(event.date),
         url: event.url,
         imageUrl: event.imageUrl,
       });
@@ -1927,7 +1936,7 @@ END:VCALENDAR`;
         source: calendar.parent.name,
         id: event.id,
         summary: event.summary,
-        date: event.date.toString(),
+        date: zdtToIndexDate(event.date),
         url: event.url,
         // By this point cost reflects all three precedence layers:
         // ripper-parsed → cache resolution (applyCostBackfill) → YAML
@@ -1990,7 +1999,7 @@ END:VCALENDAR`;
         event: {
           id: e.event.id,
           summary: e.event.summary,
-          date: e.event.date.toString(),
+          date: zdtToIndexDate(e.event.date),
           url: e.event.url,
         },
         partialFingerprint: e.partialFingerprint,
