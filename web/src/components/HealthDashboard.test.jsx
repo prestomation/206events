@@ -164,4 +164,52 @@ describe('HealthDashboard', () => {
     fireEvent.click(screen.getByRole('button', { name: /Close details/ }))
     expect(screen.queryByRole('dialog')).toBeNull()
   })
+
+  it('clicking a failure-class card opens that class\'s detail panel', async () => {
+    render(<Harness />)
+    await screen.findByText('Source Health Dashboard')
+    // The "Missing Photos" card is a button that activates the photo tab.
+    fireEvent.click(screen.getByRole('button', { name: /Missing Photos/ }))
+    expect(screen.getByText(/Venue Photo Gaps/)).toBeTruthy()
+    expect(screen.getByText('Photoless Show — 2026-05-10')).toBeTruthy()
+
+    // The "Missing Costs" card activates the cost tab.
+    fireEvent.click(screen.getByRole('button', { name: /Missing Costs/ }))
+    expect(screen.getByText(/Cost Gaps/)).toBeTruthy()
+    expect(screen.getByText('Priceless Show — 2026-05-11')).toBeTruthy()
+  })
+
+  it('filters every list and count by the search box', async () => {
+    render(<Harness />)
+    await screen.findByText('Source Health Dashboard')
+    const input = screen.getByLabelText('Filter all health data')
+
+    // Narrow to a single source — the others drop out of the table.
+    fireEvent.change(input, { target: { value: 'broken' } })
+    expect(screen.getByText('broken-source')).toBeTruthy()
+    expect(screen.queryByText('good-source')).toBeNull()
+
+    // A query that matches nothing yields the empty state.
+    fireEvent.change(input, { target: { value: 'zzz-no-match' } })
+    expect(screen.getByText(/No sources match your search/)).toBeTruthy()
+
+    // Clearing restores the full list.
+    fireEvent.click(screen.getByRole('button', { name: /Clear filter/ }))
+    expect(screen.getByText('good-source')).toBeTruthy()
+  })
+
+  it('shows the debug-mode toggle and reports its state', async () => {
+    const onToggleDebug = vi.fn()
+    render(
+      <HealthDashboard
+        healthTab="sources" healthSource={null}
+        onTabChange={() => {}} onSelectSource={() => {}}
+        debugMode={false} onToggleDebug={onToggleDebug}
+      />,
+    )
+    const toggle = await screen.findByRole('switch', { name: /Debug mode/ })
+    expect(toggle.getAttribute('aria-checked')).toBe('false')
+    fireEvent.click(toggle)
+    expect(onToggleDebug).toHaveBeenCalled()
+  })
 })

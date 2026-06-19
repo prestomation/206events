@@ -62,9 +62,14 @@ function parseDateWindow(raw) {
 // is defense-in-depth plus sane fallback behavior.
 const VALID_SECTIONS = new Set(['discover', 'following', 'you', 'map', 'health'])
 
-// The health dashboard's tab ids. An unknown `tab` token falls back to the
-// default ('sources') rather than rendering an empty panel.
-const VALID_HEALTH_TABS = new Set(['sources', 'errors', 'geo', 'uncertain', 'discovery'])
+// The health dashboard's tab ids — one per failure class plus 'discovery'. An
+// unknown `tab` token falls back to the default ('sources') rather than
+// rendering an empty panel. Must stay in sync with the `tabs` list in
+// HealthDashboard.jsx.
+const VALID_HEALTH_TABS = new Set([
+  'sources', 'errors', 'geo', 'uncertain', 'photo', 'cost', 'duplicates',
+  'osm', 'proxy', 'stale', 'zero', 'expectempty', 'discovery',
+])
 
 // Cost-filter buckets (must match COST_FILTER_OPTIONS in viewModels.js).
 // An unknown `cost` token falls back to no filter.

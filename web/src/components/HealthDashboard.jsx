@@ -16,23 +16,63 @@ function statusDot(status) {
   return <span className={`health-status-dot ${meta.dot}`} title={meta.label} />
 }
 
-// Internal health dashboard: scrape source status, build errors, geo/uncertainty stats.
-// Layout: pinned summary cards (display-only) + tabbed detail views, with a
-// per-source detail drawer for drill-down.
+// One summary card. Clickable cards (those backed by a detail panel) render as a
+// button that activates the matching tab; pure coverage-ratio stat cards render
+// as a static div. Keeping both in one component keeps the grid markup uniform.
+function HealthCard({ value, label, tone, tab, onActivate, active }) {
+  const cls = `health-card${tone ? ` health-card--${tone}` : ''}${tab ? ' health-card--clickable' : ''}${active ? ' health-card--active' : ''}`
+  const inner = (
+    <>
+      <div className="health-card-value">{value}</div>
+      <div className="health-card-label">{label}</div>
+    </>
+  )
+  if (tab) {
+    return (
+      <button type="button" className={cls} onClick={() => onActivate(tab)}
+        aria-pressed={!!active} title={`Show ${label}`}>{inner}</button>
+    )
+  }
+  return <div className={cls}>{inner}</div>
+}
+
+// A consistent row in a detail list: a bold type/label, a reason, and an
+// optional muted path/link slot.
+function ErrorItem({ type, reason, path, href }) {
+  return (
+    <div className="health-error-item">
+      {type != null && <span className="health-error-type">{type}</span>}
+      {reason != null && <span className="health-error-reason">{reason}</span>}
+      {href
+        ? <a className="health-error-path" href={href} target="_blank" rel="noopener noreferrer">source</a>
+        : (path != null && <span className="health-error-path">{path}</span>)}
+    </div>
+  )
+}
+
+// Internal health dashboard: scrape source status, build errors, geo/uncertainty
+// stats, and every non-fatal gap queue. Layout: a free-text filter, pinned
+// summary cards (clickable — each opens its class's detail panel), a tab bar,
+// the active detail panel, and a per-source drill-down drawer.
 //
 // The active tab and drilled-into source are *controlled* via props so they can
 // be deep-linked in the URL hash (and so the browser back button closes the
 // drawer instead of leaving the dashboard). App206 owns the state; this
 // component renders it and reports changes through onTabChange / onSelectSource.
+// The text filter is intentionally local (ephemeral) — it's a transient
+// spot-check tool, not a shareable view.
 export function HealthDashboard({
   calendars,
   healthTab = 'sources',
   healthSource = null,
   onTabChange = () => {},
   onSelectSource = () => {},
+  debugMode = false,
+  onToggleDebug = null,
 }) {
   const activeTab = healthTab
   const [buildErrors, setBuildErrors] = useState(null)
+  const [filter, setFilter] = useState('')
 
   useEffect(() => {
     fetch('./build-errors.json')
@@ -98,15 +138,7 @@ export function HealthDashboard({
   const statusOrder = { error: 0, uncertain: 1, warning: 2, 'unexpected-non-empty': 3, 'expected-empty': 4, ok: 5 }
   sources.sort((a, b) => statusOrder[a.status] - statusOrder[b.status])
 
-  const healthyCount = sources.filter(s => s.status === 'ok').length
-  const errorCount = sources.filter(s => s.status === 'error').length
-  const warningCount = sources.filter(s => s.status === 'warning').length
-  const expectedEmptyCount = sources.filter(s => s.status === 'expected-empty').length
-  const unexpectedNonEmptyCount = sources.filter(s => s.status === 'unexpected-non-empty').length
-  // Use geoStats.totalEvents for unique event count (deduplicated across tag-aggregate feeds)
-  // Fall back to sum of per-source counts if geoStats not available
-  const uniqueEventCount = buildErrors.geoStats?.totalEvents ?? sources.reduce((sum, s) => sum + s.events, 0)
-
+  // -- Raw class arrays from build-errors.json --
   const configErrors = buildErrors.configErrors || []
   const externalFailures = buildErrors.externalCalendarFailures || []
   const geocodeErrors = buildErrors.geocodeErrors || []
@@ -114,21 +146,74 @@ export function HealthDashboard({
   const pendingProxyVerification = buildErrors.pendingProxyVerification || []
   const proxyStaleServes = buildErrors.proxyStaleServes || []
   const photoGaps = buildErrors.photoGaps || { venueGaps: [], eventGaps: [] }
-  const photoGapCount = (photoGaps.venueGaps?.length || 0) + (photoGaps.eventGaps?.length || 0)
-  const costGapCount = (buildErrors.costGaps || []).length
+  const photoVenueGaps = photoGaps.venueGaps || []
+  const photoEventGaps = photoGaps.eventGaps || []
+  const costGaps = buildErrors.costGaps || []
+  const osmGaps = buildErrors.osmGaps || []
+  const duplicateCandidates = buildErrors.duplicateCandidates || []
   const urlEntityErrors = buildErrors.urlEntityErrors || []
+  const zeroNames = buildErrors.zeroEventCalendars || []
+  const expectedEmptyNames = buildErrors.expectedEmptyCalendars || []
+  const unexpectedNonEmpty = buildErrors.unexpectedNonEmptyCalendars || []
+
+  // -- Free-text filter applied to every list + count on the page --
+  const q = filter.trim().toLowerCase()
+  const matches = (...parts) => !q || parts.some(p => p != null && String(p).toLowerCase().includes(q))
+
+  const fSources = sources.filter(s => matches(s.name, s.type, s.status))
+  const fConfig = configErrors.filter(e => matches(e.type, e.reason, e.error, e.path))
+  const fExternal = externalFailures.filter(f => matches(f.name, f.friendlyName, f.error))
+  const fUrlEntity = urlEntityErrors.filter(e => matches(e.source, e.calendar, e.field, e.value))
+  const fGeo = geocodeErrors.filter(e => matches(e.source, e.location, e.reason))
+  const fUncertain = uncertainEvents.filter(u => matches(u.source, u.event?.summary, u.event?.date, ...(u.unknownFields || [])))
+  const fProxy = pendingProxyVerification.filter(p => matches(p.name, p.rung, p.recommendation, p.lastError))
+  const fStale = proxyStaleServes.filter(p => matches(p.source, p.url, p.error))
+  const fPhotoVenue = photoVenueGaps.filter(v => matches(v.source, v.name, v.label))
+  const fPhotoEvent = photoEventGaps.filter(e => matches(e.source, e.summary, e.date))
+  const fCost = costGaps.filter(e => matches(e.source, e.summary, e.date))
+  const fOsm = osmGaps.filter(o => matches(o.source, o.name, o.label))
+  const fDup = duplicateCandidates.filter(d => matches(d.key, ...(d.events || []).flatMap(e => [e.summary, e.location, e.icsUrl])))
+  const fZero = zeroNames.filter(n => matches(n))
+  const fExpected = expectedEmptyNames.filter(n => matches(n))
+  const fUnexpected = unexpectedNonEmpty.filter(c => matches(c.name))
+
+  // -- Counts (filtered) for the summary cards --
+  const healthyCount = fSources.filter(s => s.status === 'ok').length
+  const errorCount = fSources.filter(s => s.status === 'error').length
+  const warningCount = fSources.filter(s => s.status === 'warning').length
+  const expectedEmptyCount = fSources.filter(s => s.status === 'expected-empty').length
+  const unexpectedNonEmptyCount = fSources.filter(s => s.status === 'unexpected-non-empty').length
+  // Unique event count: a global aggregate when unfiltered (deduplicated across
+  // tag feeds via geoStats); a filtered subtotal when a query is active.
+  const uniqueEventCount = q
+    ? fSources.reduce((sum, s) => sum + s.events, 0)
+    : (buildErrors.geoStats?.totalEvents ?? sources.reduce((sum, s) => sum + s.events, 0))
+  const photoGapCount = fPhotoVenue.length + fPhotoEvent.length
+
+  // Coverage-ratio stat cards (events-with-geo/photo/cost, cross-source merged)
+  // are global ratios with no list behind them — a ratio over a filtered subset
+  // would mislead, so they're hidden while a query is active.
+  const showCoverage = !q
 
   const tabs = [
-    { id: 'sources', label: 'Sources', count: sources.length, tone: 'neutral' },
-    { id: 'errors', label: 'Errors', count: configErrors.length + externalFailures.length + urlEntityErrors.length, tone: 'error' },
-    { id: 'geo', label: 'Geo', count: geocodeErrors.length, tone: 'warning' },
-    { id: 'uncertain', label: 'Uncertain', count: uncertainEvents.length, tone: 'warning' },
-    { id: 'proxy', label: 'Proxy', count: pendingProxyVerification.length, tone: 'warning' },
+    { id: 'sources', label: 'Sources', count: fSources.length, tone: 'neutral' },
+    { id: 'errors', label: 'Errors', count: fConfig.length + fExternal.length + fUrlEntity.length, tone: 'error' },
+    { id: 'geo', label: 'Geo', count: fGeo.length, tone: 'warning' },
+    { id: 'uncertain', label: 'Uncertain', count: fUncertain.length, tone: 'warning' },
+    { id: 'photo', label: 'Photos', count: photoGapCount, tone: 'warning' },
+    { id: 'cost', label: 'Costs', count: fCost.length, tone: 'warning' },
+    { id: 'duplicates', label: 'Duplicates', count: fDup.length, tone: 'warning' },
+    { id: 'osm', label: 'OSM', count: fOsm.length, tone: 'warning' },
+    { id: 'proxy', label: 'Proxy', count: fProxy.length, tone: 'warning' },
+    { id: 'stale', label: 'Stale', count: fStale.length, tone: 'warning' },
+    { id: 'zero', label: 'Zero events', count: fZero.length, tone: 'warning' },
+    { id: 'expectempty', label: 'Expected empty', count: fExpected.length + fUnexpected.length, tone: 'neutral' },
     { id: 'discovery', label: 'Discovery', count: null, tone: 'neutral' },
   ]
 
   // Resolve the deep-linked source name to its row object (null if absent or
   // stale — e.g. a shared link to a source that no longer exists in this build).
+  // Uses the unfiltered list so a deep link still resolves under an active filter.
   const selectedSource = healthSource ? sources.find(s => s.name === healthSource) || null : null
 
   // Per-source drill-down data for the drawer (best-effort name matching).
@@ -139,115 +224,96 @@ export function HealthDashboard({
     ? geocodeErrors.filter(g => g.source === selectedSource.name)
     : []
 
+  const emptyNote = q ? ' match your search.' : '.'
+
   return (
     <div className="health-dashboard">
-      <h1>Source Health Dashboard</h1>
-      <p className="health-subtitle">
-        Last built: {new Date(buildErrors.buildTime).toLocaleString()}
-      </p>
+      <div className="health-header">
+        <div>
+          <h1>Source Health Dashboard</h1>
+          <p className="health-subtitle">
+            Last built: {new Date(buildErrors.buildTime).toLocaleString()}
+          </p>
+        </div>
+        {onToggleDebug && (
+          <button
+            type="button"
+            className={`health-debug-toggle ${debugMode ? 'health-debug-toggle--on' : ''}`}
+            role="switch"
+            aria-checked={debugMode}
+            onClick={onToggleDebug}
+            title="Show raw build data on every venue and event page"
+          >
+            <span className="health-debug-toggle-track"><span className="health-debug-toggle-thumb" /></span>
+            🐞 Debug mode {debugMode ? 'on' : 'off'}
+          </button>
+        )}
+      </div>
+
+      <div className="health-search">
+        <input
+          type="search"
+          className="health-search-input"
+          placeholder="Filter sources, events, errors…"
+          aria-label="Filter all health data"
+          value={filter}
+          onChange={e => setFilter(e.target.value)}
+        />
+        {q && (
+          <button type="button" className="health-search-clear" onClick={() => setFilter('')} aria-label="Clear filter">
+            Clear
+          </button>
+        )}
+      </div>
 
       <div className="health-summary">
-        <div className="health-card">
-          <div className="health-card-value">{sources.length}</div>
-          <div className="health-card-label">Total Sources</div>
-        </div>
-        <div className="health-card health-card--ok">
-          <div className="health-card-value">{healthyCount}</div>
-          <div className="health-card-label">Healthy</div>
-        </div>
-        <div className="health-card health-card--error">
-          <div className="health-card-value">{errorCount}</div>
-          <div className="health-card-label">With Errors</div>
-        </div>
-        <div className="health-card health-card--warning">
-          <div className="health-card-value">{warningCount}</div>
-          <div className="health-card-label">Zero Events</div>
-        </div>
+        <HealthCard value={fSources.length} label="Total Sources" tab="sources" onActivate={onTabChange} active={activeTab === 'sources'} />
+        <HealthCard value={healthyCount} label="Healthy" tone="ok" tab="sources" onActivate={onTabChange} active={activeTab === 'sources'} />
+        <HealthCard value={errorCount} label="With Errors" tone="error" tab="sources" onActivate={onTabChange} active={activeTab === 'sources'} />
+        <HealthCard value={warningCount} label="Zero Events" tone="warning" tab="zero" onActivate={onTabChange} active={activeTab === 'zero'} />
         {expectedEmptyCount > 0 && (
-          <div className="health-card">
-            <div className="health-card-value">{expectedEmptyCount}</div>
-            <div className="health-card-label">Expected Empty</div>
-          </div>
+          <HealthCard value={expectedEmptyCount} label="Expected Empty" tab="expectempty" onActivate={onTabChange} active={activeTab === 'expectempty'} />
         )}
         {unexpectedNonEmptyCount > 0 && (
-          <div className="health-card health-card--info">
-            <div className="health-card-value">{unexpectedNonEmptyCount}</div>
-            <div className="health-card-label">Expected Empty w/ Events</div>
-          </div>
+          <HealthCard value={unexpectedNonEmptyCount} label="Expected Empty w/ Events" tone="info" tab="expectempty" onActivate={onTabChange} active={activeTab === 'expectempty'} />
         )}
-        <div className="health-card">
-          <div className="health-card-value">{uniqueEventCount.toLocaleString()}</div>
-          <div className="health-card-label">Unique Events</div>
-        </div>
-        {buildErrors.geoStats && (
-          <div className="health-card health-card--ok">
-            <div className="health-card-value">{buildErrors.geoStats.eventsWithGeo.toLocaleString()} / {buildErrors.geoStats.totalEvents.toLocaleString()}</div>
-            <div className="health-card-label">Events with Geo</div>
-          </div>
+        <HealthCard value={uniqueEventCount.toLocaleString()} label="Unique Events" />
+        {showCoverage && buildErrors.geoStats && (
+          <HealthCard value={`${buildErrors.geoStats.eventsWithGeo.toLocaleString()} / ${buildErrors.geoStats.totalEvents.toLocaleString()}`} label="Events with Geo" tone="ok" />
         )}
-        <div className="health-card health-card--warning">
-          <div className="health-card-value">📍 {buildErrors.geoStats?.geocodeErrors ?? geocodeErrors.length}</div>
-          <div className="health-card-label">Geo Misses</div>
-        </div>
+        <HealthCard value={`📍 ${fGeo.length}`} label="Geo Misses" tone="warning" tab="geo" onActivate={onTabChange} active={activeTab === 'geo'} />
         {buildErrors.uncertaintyStats && (
-          <div className="health-card health-card--warning">
-            <div className="health-card-value">❓ {buildErrors.uncertaintyStats.outstanding}</div>
-            <div className="health-card-label">Uncertain Events</div>
-          </div>
+          <HealthCard value={`❓ ${q ? fUncertain.length : buildErrors.uncertaintyStats.outstanding}`} label="Uncertain Events" tone="warning" tab="uncertain" onActivate={onTabChange} active={activeTab === 'uncertain'} />
         )}
-        {buildErrors.photoStats && (
-          <div className="health-card health-card--ok">
-            <div className="health-card-value">🖼️ {buildErrors.photoStats.eventsWithImage.toLocaleString()} / {buildErrors.photoStats.totalEvents.toLocaleString()}</div>
-            <div className="health-card-label">Events with Photo</div>
-          </div>
+        {showCoverage && buildErrors.photoStats && (
+          <HealthCard value={`🖼️ ${buildErrors.photoStats.eventsWithImage.toLocaleString()} / ${buildErrors.photoStats.totalEvents.toLocaleString()}`} label="Events with Photo" tone="ok" />
         )}
         {photoGapCount > 0 && (
-          <div className="health-card health-card--warning">
-            <div className="health-card-value">🖼️ {photoGapCount.toLocaleString()}</div>
-            <div className="health-card-label">Missing Photos</div>
-          </div>
+          <HealthCard value={`🖼️ ${photoGapCount.toLocaleString()}`} label="Missing Photos" tone="warning" tab="photo" onActivate={onTabChange} active={activeTab === 'photo'} />
         )}
-        {buildErrors.costStats && (
-          <div className="health-card health-card--ok">
-            <div className="health-card-value">💲 {buildErrors.costStats.eventsWithCost.toLocaleString()} / {buildErrors.costStats.totalEvents.toLocaleString()}</div>
-            <div className="health-card-label">Events with Cost</div>
-          </div>
+        {showCoverage && buildErrors.costStats && (
+          <HealthCard value={`💲 ${buildErrors.costStats.eventsWithCost.toLocaleString()} / ${buildErrors.costStats.totalEvents.toLocaleString()}`} label="Events with Cost" tone="ok" />
         )}
-        {costGapCount > 0 && (
-          <div className="health-card health-card--warning">
-            <div className="health-card-value">💲 {costGapCount.toLocaleString()}</div>
-            <div className="health-card-label">Missing Costs</div>
-          </div>
+        {fCost.length > 0 && (
+          <HealthCard value={`💲 ${fCost.length.toLocaleString()}`} label="Missing Costs" tone="warning" tab="cost" onActivate={onTabChange} active={activeTab === 'cost'} />
         )}
-        {buildErrors.duplicateStats && (buildErrors.duplicateStats.merged > 0 || buildErrors.duplicateStats.candidates > 0) && (
-          <div className="health-card health-card--ok">
-            <div className="health-card-value">🔀 {buildErrors.duplicateStats.merged.toLocaleString()}</div>
-            <div className="health-card-label">Cross-source Merged</div>
-          </div>
+        {showCoverage && buildErrors.duplicateStats && (buildErrors.duplicateStats.merged > 0 || buildErrors.duplicateStats.candidates > 0) && (
+          <HealthCard value={`🔀 ${buildErrors.duplicateStats.merged.toLocaleString()}`} label="Cross-source Merged" tone="ok" />
         )}
-        {buildErrors.duplicateStats?.candidates > 0 && (
-          <div className="health-card health-card--warning">
-            <div className="health-card-value">🔀 {buildErrors.duplicateStats.candidates.toLocaleString()}</div>
-            <div className="health-card-label">Duplicate Candidates</div>
-          </div>
+        {fDup.length > 0 && (
+          <HealthCard value={`🔀 ${fDup.length.toLocaleString()}`} label="Duplicate Candidates" tone="warning" tab="duplicates" onActivate={onTabChange} active={activeTab === 'duplicates'} />
         )}
-        {pendingProxyVerification.length > 0 && (
-          <div className="health-card health-card--warning">
-            <div className="health-card-value">🪜 {pendingProxyVerification.length}</div>
-            <div className="health-card-label">Proxy Verification</div>
-          </div>
+        {fOsm.length > 0 && (
+          <HealthCard value={`🗺️ ${fOsm.length.toLocaleString()}`} label="OSM Gaps" tone="warning" tab="osm" onActivate={onTabChange} active={activeTab === 'osm'} />
         )}
-        {proxyStaleServes.length > 0 && (
-          <div className="health-card health-card--warning">
-            <div className="health-card-value">🕒 {proxyStaleServes.length}</div>
-            <div className="health-card-label">Stale Browserbase</div>
-          </div>
+        {fProxy.length > 0 && (
+          <HealthCard value={`🪜 ${fProxy.length}`} label="Proxy Verification" tone="warning" tab="proxy" onActivate={onTabChange} active={activeTab === 'proxy'} />
         )}
-        {urlEntityErrors.length > 0 && (
-          <div className="health-card health-card--error">
-            <div className="health-card-value">🔗 {urlEntityErrors.length}</div>
-            <div className="health-card-label">URL Entities</div>
-          </div>
+        {fStale.length > 0 && (
+          <HealthCard value={`🕒 ${fStale.length}`} label="Stale Browserbase" tone="warning" tab="stale" onActivate={onTabChange} active={activeTab === 'stale'} />
+        )}
+        {fUrlEntity.length > 0 && (
+          <HealthCard value={`🔗 ${fUrlEntity.length}`} label="URL Entities" tone="error" tab="errors" onActivate={onTabChange} active={activeTab === 'errors'} />
         )}
       </div>
 
@@ -270,7 +336,7 @@ export function HealthDashboard({
 
       <div className="health-tab-panel" role="tabpanel">
         {activeTab === 'sources' && (
-          sources.length > 0 ? (
+          fSources.length > 0 ? (
             <div className="health-table-wrapper">
               <table className="health-table">
                 <thead>
@@ -284,7 +350,7 @@ export function HealthDashboard({
                   </tr>
                 </thead>
                 <tbody>
-                  {sources.map(source => (
+                  {fSources.map(source => (
                     <tr
                       key={source.name}
                       className={`health-row health-row--${source.status} health-row--expandable ${selectedSource?.name === source.name ? 'health-row--selected' : ''}`}
@@ -302,87 +368,75 @@ export function HealthDashboard({
               </table>
             </div>
           ) : (
-            <p className="health-empty">No source data in this build.</p>
+            <p className="health-empty">No sources{emptyNote}</p>
           )
         )}
 
         {activeTab === 'errors' && (
-          (configErrors.length + externalFailures.length + urlEntityErrors.length) > 0 ? (
+          (fConfig.length + fExternal.length + fUrlEntity.length) > 0 ? (
             <>
-              {urlEntityErrors.length > 0 && (
+              {fUrlEntity.length > 0 && (
                 <div className="health-section">
-                  <h2>🔗 URL Entity Errors ({urlEntityErrors.length})</h2>
+                  <h2>🔗 URL Entity Errors ({fUrlEntity.length})</h2>
                   <p className="health-subtitle">
                     HTML entities (e.g. <code>&amp;amp;</code>) found in URL fields. These are
                     always broken links and fail the build — decode the entity in the ripper
                     (<code>html-entities</code>) or write the literal character in the YAML.
                   </p>
                   <div className="health-error-list">
-                    {urlEntityErrors.map((err, i) => (
-                      <div key={i} className="health-error-item">
-                        <span className="health-error-type">{err.source}{err.calendar ? ` / ${err.calendar}` : ''}</span>
-                        <span className="health-error-reason">{err.field} ({err.entities.join(', ')}): {err.value}</span>
-                      </div>
+                    {fUrlEntity.map((err, i) => (
+                      <ErrorItem key={i}
+                        type={`${err.source}${err.calendar ? ` / ${err.calendar}` : ''}`}
+                        reason={`${err.field} (${err.entities.join(', ')}): ${err.value}`} />
                     ))}
                   </div>
                 </div>
               )}
-              {configErrors.length > 0 && (
+              {fConfig.length > 0 && (
                 <div className="health-section">
-                  <h2>Configuration Errors ({configErrors.length})</h2>
+                  <h2>Configuration Errors ({fConfig.length})</h2>
                   <div className="health-error-list">
-                    {configErrors.map((err, i) => (
-                      <div key={i} className="health-error-item">
-                        <span className="health-error-type">{err.type}</span>
-                        <span className="health-error-reason">{err.reason || err.error}</span>
-                        {err.path && <span className="health-error-path">{err.path}</span>}
-                      </div>
+                    {fConfig.map((err, i) => (
+                      <ErrorItem key={i} type={err.type} reason={err.reason || err.error} path={err.path} />
                     ))}
                   </div>
                 </div>
               )}
-              {externalFailures.length > 0 && (
+              {fExternal.length > 0 && (
                 <div className="health-section">
-                  <h2>External Calendar Failures ({externalFailures.length})</h2>
+                  <h2>External Calendar Failures ({fExternal.length})</h2>
                   <div className="health-error-list">
-                    {externalFailures.map((f, i) => (
-                      <div key={i} className="health-error-item">
-                        <span className="health-error-type">{f.friendlyName || f.name}</span>
-                        <span className="health-error-reason">{f.error}</span>
-                      </div>
+                    {fExternal.map((f, i) => (
+                      <ErrorItem key={i} type={f.friendlyName || f.name} reason={f.error} />
                     ))}
                   </div>
                 </div>
               )}
             </>
           ) : (
-            <p className="health-empty">✅ No configuration or external calendar errors.</p>
+            <p className="health-empty">✅ No configuration or external calendar errors{emptyNote}</p>
           )
         )}
 
         {activeTab === 'geo' && (
-          geocodeErrors.length > 0 ? (
+          fGeo.length > 0 ? (
             <div className="health-section">
-              <h2>📍 Geocode Errors ({geocodeErrors.length})</h2>
+              <h2>📍 Geocode Errors ({fGeo.length})</h2>
               <div className="health-error-list">
-                {geocodeErrors.map((err, i) => (
-                  <div key={i} className="health-error-item">
-                    <span className="health-error-type">{err.source}</span>
-                    <span className="health-error-reason">{err.location}</span>
-                    <span className="health-error-path">{err.reason}</span>
-                  </div>
+                {fGeo.map((err, i) => (
+                  <ErrorItem key={i} type={err.source} reason={err.location} path={err.reason} />
                 ))}
               </div>
             </div>
           ) : (
-            <p className="health-empty">✅ No geocode errors.</p>
+            <p className="health-empty">✅ No geocode errors{emptyNote}</p>
           )
         )}
 
         {activeTab === 'uncertain' && (
-          uncertainEvents.length > 0 ? (
+          fUncertain.length > 0 ? (
             <div className="health-section">
-              <h2>❓ Uncertain Events ({uncertainEvents.length})</h2>
+              <h2>❓ Uncertain Events ({fUncertain.length})</h2>
               <p className="health-subtitle">
                 Events where the ripper couldn't determine one or more fields (typically start time).
                 The placeholder values you see in the calendar will be replaced once the
@@ -391,33 +445,129 @@ export function HealthDashboard({
                 marked unresolvable: {buildErrors.uncertaintyStats?.acknowledgedUnresolvable ?? 0}.
               </p>
               <div className="health-error-list">
-                {uncertainEvents.slice(0, 50).map((u, i) => (
-                  <div key={i} className="health-error-item">
-                    <span className="health-error-type">{u.source}</span>
-                    <span className="health-error-reason">
-                      {u.event.summary} — {u.event.date} (missing: {u.unknownFields.join(', ')})
-                    </span>
-                    {u.event.url && (
-                      <a className="health-error-path" href={u.event.url} target="_blank" rel="noopener noreferrer">
-                        source
-                      </a>
-                    )}
-                  </div>
+                {fUncertain.slice(0, 50).map((u, i) => (
+                  <ErrorItem key={i} type={u.source}
+                    reason={`${u.event.summary} — ${u.event.date} (missing: ${u.unknownFields.join(', ')})`}
+                    href={u.event.url || undefined} />
                 ))}
-                {uncertainEvents.length > 50 && (
-                  <p>…and {uncertainEvents.length - 50} more.</p>
+                {fUncertain.length > 50 && (
+                  <p>…and {fUncertain.length - 50} more.</p>
                 )}
               </div>
             </div>
           ) : (
-            <p className="health-empty">✅ No uncertain events pending resolution.</p>
+            <p className="health-empty">✅ No uncertain events pending resolution{emptyNote}</p>
+          )
+        )}
+
+        {activeTab === 'photo' && (
+          photoGapCount > 0 ? (
+            <>
+              <p className="health-subtitle">
+                Missing photos are non-fatal. Backfill venue photos via the source YAML
+                (<code>imageUrl:</code>) and event photos via the event-uncertainty-cache —
+                see the photo-resolver skill.
+              </p>
+              {fPhotoVenue.length > 0 && (
+                <div className="health-section">
+                  <h2>🖼️ Venue Photo Gaps ({fPhotoVenue.length})</h2>
+                  <div className="health-error-list">
+                    {fPhotoVenue.map((v, i) => (
+                      <ErrorItem key={i} type={v.name} reason={v.label || v.source} href={v.mapUrl || undefined} />
+                    ))}
+                  </div>
+                </div>
+              )}
+              {fPhotoEvent.length > 0 && (
+                <div className="health-section">
+                  <h2>🖼️ Event Photo Gaps ({fPhotoEvent.length})</h2>
+                  <div className="health-error-list">
+                    {fPhotoEvent.slice(0, 100).map((e, i) => (
+                      <ErrorItem key={i} type={e.source} reason={`${e.summary} — ${e.date}`} href={e.url || undefined} />
+                    ))}
+                    {fPhotoEvent.length > 100 && <p>…and {fPhotoEvent.length - 100} more.</p>}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <p className="health-empty">✅ No photo gaps{emptyNote}</p>
+          )
+        )}
+
+        {activeTab === 'cost' && (
+          fCost.length > 0 ? (
+            <div className="health-section">
+              <h2>💲 Cost Gaps ({fCost.length})</h2>
+              <p className="health-subtitle">
+                Events with no confirmed price. Non-fatal — backfill via the cost-resolver skill.
+              </p>
+              <div className="health-error-list">
+                {fCost.slice(0, 100).map((e, i) => (
+                  <ErrorItem key={i} type={e.source} reason={`${e.summary} — ${e.date}`} href={e.url || undefined} />
+                ))}
+                {fCost.length > 100 && <p>…and {fCost.length - 100} more.</p>}
+              </div>
+            </div>
+          ) : (
+            <p className="health-empty">✅ No cost gaps{emptyNote}</p>
+          )
+        )}
+
+        {activeTab === 'duplicates' && (
+          fDup.length > 0 ? (
+            <div className="health-section">
+              <h2>🔀 Duplicate Candidates ({fDup.length})</h2>
+              <p className="health-subtitle">
+                MED-confidence cross-source pairs awaiting review — the same real-world event
+                listed by two sources. Confirm or reject via the duplicate-resolver skill.
+              </p>
+              <div className="health-error-list">
+                {fDup.slice(0, 100).map((d, i) => {
+                  const evs = d.events || []
+                  const score = d.score
+                  const scoreText = score
+                    ? `title ${score.title}, ${score.distanceM == null ? 'no coords' : `${score.distanceM} m`}`
+                    : undefined
+                  return (
+                    <ErrorItem key={i}
+                      type={evs[0]?.summary}
+                      reason={`${evs.map(e => (e.icsUrl || '').replace(/\.ics$/, '')).join(' ↔ ')} — ${evs[0]?.date ?? ''}`}
+                      path={scoreText} />
+                  )
+                })}
+                {fDup.length > 100 && <p>…and {fDup.length - 100} more.</p>}
+              </div>
+            </div>
+          ) : (
+            <p className="health-empty">✅ No duplicate candidates{emptyNote}</p>
+          )
+        )}
+
+        {activeTab === 'osm' && (
+          fOsm.length > 0 ? (
+            <div className="health-section">
+              <h2>🗺️ OSM Gaps ({fOsm.length})</h2>
+              <p className="health-subtitle">
+                Venues with coordinates but no OpenStreetMap feature id. Non-fatal — the
+                geo-resolver / osm-resolver skill fills these in so map links resolve to a place.
+              </p>
+              <div className="health-error-list">
+                {fOsm.slice(0, 100).map((o, i) => (
+                  <ErrorItem key={i} type={o.name} reason={o.label || `${o.lat}, ${o.lng}`} path={o.source} />
+                ))}
+                {fOsm.length > 100 && <p>…and {fOsm.length - 100} more.</p>}
+              </div>
+            </div>
+          ) : (
+            <p className="health-empty">✅ No OSM gaps{emptyNote}</p>
           )
         )}
 
         {activeTab === 'proxy' && (
-          pendingProxyVerification.length > 0 ? (
+          fProxy.length > 0 ? (
             <div className="health-section">
-              <h2>🪜 Proxy Verification Queue ({pendingProxyVerification.length})</h2>
+              <h2>🪜 Proxy Verification Queue ({fProxy.length})</h2>
               <p className="health-subtitle">
                 Sources that need a proxy to be fetched at all, still climbing the
                 escalation ladder (<code>outofband → browserbase → disabled</code>).
@@ -438,7 +588,7 @@ export function HealthDashboard({
                     </tr>
                   </thead>
                   <tbody>
-                    {pendingProxyVerification.map(p => (
+                    {fProxy.map(p => (
                       <tr key={p.name} className="health-row">
                         <td className="health-source-name">{p.name}</td>
                         <td>{p.rung}</td>
@@ -452,7 +602,85 @@ export function HealthDashboard({
               </div>
             </div>
           ) : (
-            <p className="health-empty">✅ No proxy sources pending verification.</p>
+            <p className="health-empty">✅ No proxy sources pending verification{emptyNote}</p>
+          )
+        )}
+
+        {activeTab === 'stale' && (
+          fStale.length > 0 ? (
+            <div className="health-section">
+              <h2>🕒 Stale Cache Serves ({fStale.length})</h2>
+              <p className="health-subtitle">
+                Sources served from a cached copy older than the TTL because the live fetch
+                failed. Counted in total errors. See <code>docs/fetch-cache.md</code>.
+              </p>
+              <div className="health-error-list">
+                {fStale.map((p, i) => (
+                  <ErrorItem key={i}
+                    type={p.source || p.url}
+                    reason={p.error || 'live fetch failed'}
+                    path={p.ageHours != null ? `${Math.round(p.ageHours)}h old` : undefined} />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <p className="health-empty">✅ No stale cache serves{emptyNote}</p>
+          )
+        )}
+
+        {activeTab === 'zero' && (
+          fZero.length > 0 ? (
+            <div className="health-section">
+              <h2>⚠️ Zero-Event Calendars ({fZero.length})</h2>
+              <p className="health-subtitle">
+                Calendars that produced 0 events unexpectedly. Investigate the source (404/403,
+                format change) — or add <code>expectEmpty: true</code> if it's a legitimately
+                intermittent venue.
+              </p>
+              <div className="health-error-list">
+                {fZero.map((name, i) => (
+                  <ErrorItem key={i} type={name} />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <p className="health-empty">✅ No unexpected zero-event calendars{emptyNote}</p>
+          )
+        )}
+
+        {activeTab === 'expectempty' && (
+          (fExpected.length + fUnexpected.length) > 0 ? (
+            <>
+              {fExpected.length > 0 && (
+                <div className="health-section">
+                  <h2>Expected-Empty Calendars ({fExpected.length})</h2>
+                  <p className="health-subtitle">
+                    Calendars flagged <code>expectEmpty: true</code> that produced 0 events — not a problem.
+                  </p>
+                  <div className="health-error-list">
+                    {fExpected.map((name, i) => (
+                      <ErrorItem key={i} type={name} />
+                    ))}
+                  </div>
+                </div>
+              )}
+              {fUnexpected.length > 0 && (
+                <div className="health-section">
+                  <h2>Marked expectEmpty but has events ({fUnexpected.length})</h2>
+                  <p className="health-subtitle">
+                    These now produce events — consider removing the <code>expectEmpty</code> flag so
+                    a future regression to 0 is caught.
+                  </p>
+                  <div className="health-error-list">
+                    {fUnexpected.map((c, i) => (
+                      <ErrorItem key={i} type={c.name} reason={`${c.events} events`} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <p className="health-empty">No expected-empty calendars{emptyNote}</p>
           )
         )}
 

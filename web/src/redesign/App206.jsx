@@ -30,6 +30,10 @@ const MAP_WIDTH_KEY = 'map-panel-width'
 // First-run flag (same `calendar-ripper-*` convention as the favorites keys in
 // App.jsx). Presence means the welcome card has been seen/dismissed.
 const FTUX_SEEN_KEY = 'calendar-ripper-ftux-seen'
+// Debug-mode flag (QA spot-checking). When on, the venue / event detail pages
+// render a curated debug panel of the underlying object's build-health data.
+// Toggled from the Site Health dashboard header; persisted like other prefs.
+const DEBUG_KEY = 'calendar-ripper-debug'
 const MAP_WIDTH_MIN = 320
 const RAIL_W = 84
 const MIN_CONTENT_W = 420
@@ -95,6 +99,22 @@ export function App206(props) {
   const dismissWelcome = useCallback(() => {
     setShowWelcome(false)
     try { localStorage.setItem(FTUX_SEEN_KEY, '1') } catch { /* ignore */ }
+  }, [])
+  // Debug mode — persisted QA toggle. When on, ChannelDetail / EventDetail show
+  // a curated debug panel; build-errors.json is only fetched (by those panels)
+  // while this is true, so a normal visitor pays nothing for it.
+  const [debugMode, setDebugMode] = useState(() => {
+    try { return localStorage.getItem(DEBUG_KEY) === '1' } catch { return false }
+  })
+  const toggleDebug = useCallback(() => {
+    setDebugMode((v) => {
+      const next = !v
+      try {
+        if (next) localStorage.setItem(DEBUG_KEY, '1')
+        else localStorage.removeItem(DEBUG_KEY)
+      } catch { /* ignore */ }
+      return next
+    })
   }, [])
   // Help modal is always available (not gated by the first-run flag).
   const [helpOpen, setHelpOpen] = useState(false)
@@ -362,7 +382,7 @@ export function App206(props) {
     favoritesSet, toggleFollow,
     searchFilters, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
-    eventAttributions, calendarTagsByIcsUrl, calendarNameByIcsUrl,
+    eventAttributions, calendarTagsByIcsUrl, calendarNameByIcsUrl, eventCountByIcsUrl,
     lists, activeListId, activeList, setActiveList, createList, renameList, deleteList, canCreateList, uatMode,
     authUser, handleLogin, handleLogout, API_URL, isMobile,
     channelEvents, channelEventsLoading, channelEventsError,
@@ -382,6 +402,7 @@ export function App206(props) {
     feedbackPrefill, openFeedback, closeFeedback,
     mapRef, mapExpanded, toggleMapExpand, mapScope, setMapScope,
     mapWidth, setMapWidth,
+    debugMode, toggleDebug,
     // handlers
     go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
   }
@@ -406,7 +427,7 @@ export function App206(props) {
   }, [contentKey])
 
   let content
-  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} /></div>
+  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></div>
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />
