@@ -1,4 +1,162 @@
 {
   "version": 1,
-  "entries": {}
+  "entries": {
+    "ashwood playfield": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "gasworks park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "seward park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "bellevue downtown park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "601 union st, seattle, wa 98101": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "bainbridge island": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "burien farmer’s market": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "wedgwood nest": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "hing hay park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "alki beach bathhouse": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "bellevue botanical garden": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "salish steps": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "freeway park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "federal way town square park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "liberty park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "seattle chinese garden": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "westlake park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "washington park arboretum": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "columbia park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "seattle center": {
+      "lat": 47.6205,
+      "lng": -122.3493,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "gene coulon memorial beach park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "lake sammamish state park": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "nordstrom recital hall at benaroya hall, 200 university st, seattle, wa 98101": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "vashon center for the arts": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "bainbridge performing arts center": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    },
+    "volunteer park, 1247 15th ave e, seattle, wa 98112": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-19",
+      "source": "nominatim",
+      "firstSeen": "2026-06-19"
+    }
+  }
 }
