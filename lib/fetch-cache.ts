@@ -292,7 +292,11 @@ export function lookupFreshEntry(key: string, nowMs: number): FetchCacheEntry | 
   if (!activeCache) return undefined;
   if (proactiveRefreshKeys.has(key)) {
     // A selected key that's actually requested this build — count it so we can
-    // tell real (applied) refreshes from budget spent on orphaned entries.
+    // tell real (applied) refreshes from budget spent on orphaned entries. Drop
+    // it from the set on first application so a re-request in the same build
+    // serves the freshly-fetched copy (no redundant re-fetch) and
+    // forcedRefreshApplied stays a distinct-key count bounded by forcedRefresh.
+    proactiveRefreshKeys.delete(key);
     stats.forcedRefreshApplied++;
     return undefined;
   }

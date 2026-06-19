@@ -245,6 +245,17 @@ describe("proactive-refresh telemetry (cacheSize / forcedRefresh / forcedRefresh
         expect(getFetchCacheStats().forcedRefreshApplied).toBe(1); // url2 never requested
     });
 
+    it("force-refreshes a selected key once; a re-request serves the refreshed copy and isn't re-counted", () => {
+        const cache = cacheAged([1, 2]); // both within TTL
+        initFetchCache(cache);
+        setProactiveRefreshKeys(new Set(["url1"]));
+        const now = Date.now();
+        expect(lookupFreshEntry("url1", now)).toBeUndefined(); // forced miss → applied++
+        expect(lookupFreshEntry("url1", now)).toBeDefined();   // dropped from set → served fresh
+        expect(getFetchCacheStats().forcedRefreshApplied).toBe(1); // not double-counted
+        expect(getFetchCacheStats().forcedRefreshApplied).toBeLessThanOrEqual(getFetchCacheStats().forcedRefresh);
+    });
+
     it("resets telemetry on initFetchCache", () => {
         const cache = cacheAged([1, 1]);
         initFetchCache(cache);
