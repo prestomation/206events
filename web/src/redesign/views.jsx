@@ -1183,7 +1183,9 @@ function EventDebugPanel({ event, channel }) {
   const costStr = cost
     ? `${cost.paid ? 'paid' : 'free'}${cost.min != null ? ` min=${cost.min}` : ''}${cost.max != null ? ` max=${cost.max}` : ''}`
     : 'none'
-  const uncertainFields = dbg.uncertainty?.unknownFields || (q.uncertain ? q.uncertain.unknownFields : null)
+  // The events-index `uncertainty` field exposes `.fields` (see atoms.jsx
+  // eventUncertainty); the build-errors queue entry uses `.unknownFields`.
+  const uncertainFields = dbg.uncertainty?.fields || (q.uncertain ? q.uncertain.unknownFields : null)
   return (
     <section className="a-debug" aria-label="Debug info for this event">
       <div className="a-debug-head">🐞 Debug · event</div>
