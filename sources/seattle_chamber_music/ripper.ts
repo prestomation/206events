@@ -135,18 +135,32 @@ export default class SeattleChamberMusicRipper implements IRipper {
     }
 
     private extractCards(html: string, cardData: Map<string, CardData>) {
-        const ids = [...new Map(
-            [...html.matchAll(/e-loop-item-(\d+)/g)].map(m => [m[1], true])
-        ).keys()];
-        const times = [...html.matchAll(/event_item_info_date_time'>([^<]+)</g)].map(m => m[1].trim());
-        const urls = [...html.matchAll(/event_item_link' href='([^']+)'/g)].map(m => m[1]);
+        // Find each event block by its loop-item ID and extract time/URL from within that block.
+        // Block-based parsing avoids index-alignment issues when a card is missing a field.
+        const blockRe = /e-loop-item-(\d+)/g;
+        const positions: Array<{ id: string; pos: number }> = [];
+        let m: RegExpExecArray | null;
+        while ((m = blockRe.exec(html)) !== null) {
+            const id = m[1];
+            if (!positions.some(b => b.id === id)) {
+                positions.push({ id, pos: m.index });
+            }
+        }
 
-        ids.forEach((id, i) => {
+        for (let i = 0; i < positions.length; i++) {
+            const { id, pos } = positions[i];
+            const nextPos = positions[i + 1]?.pos ?? html.length;
+            const block = html.slice(pos, nextPos);
+
             if (!cardData.has(id)) cardData.set(id, {});
             const entry = cardData.get(id)!;
-            if (times[i] && !entry.time) entry.time = times[i];
-            if (urls[i] && !entry.url) entry.url = urls[i];
-        });
+
+            const timeMatch = block.match(/event_item_info_date_time'>([^<]+)</);
+            if (timeMatch && !entry.time) entry.time = timeMatch[1].trim();
+
+            const urlMatch = block.match(/event_item_link' href='([^']+)'/);
+            if (urlMatch && !entry.url) entry.url = urlMatch[1];
+        }
     }
 
     private parseTime(timeStr: string): { hour: number; minute: number } | null {
