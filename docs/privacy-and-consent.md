@@ -33,7 +33,7 @@ banner to ask consent for.
 | `session` JWT cookie | `infra/favorites-worker/src/auth.ts` — set only when a user logs in | Strictly necessary (auth) | No |
 | `oauth_nonce` cookie | `infra/favorites-worker/src/auth.ts` — CSRF nonce during OAuth | Strictly necessary (security) | No |
 | Google OAuth login | `infra/favorites-worker/src/auth.ts` | Strictly necessary for a feature the user requested (login) | No |
-| `localStorage` keys (favorites, search/geo filters, add-mode, map width, FTUX flag, UAT lists) | `web/src/App.jsx`, `web/src/redesign/App206.jsx` | Functional / user preferences | No |
+| `localStorage` keys (favorites, search/geo filters, add-mode, map width, FTUX flag, UAT lists, debug-mode flag) | `web/src/App.jsx`, `web/src/redesign/App206.jsx` | Functional / user preferences | No |
 | GoatCounter analytics | `web/vite.config.js`, `city.config.ts` | Cookieless, no fingerprinting, aggregate only | No |
 | Fonts (Inter / Inter Tight / JetBrains Mono) | **Self-hosted** via `@fontsource`, bundled into the build — `web/src/index.css` | First-party; no third-party request | No |
 | Map tiles | OpenStreetMap — `web/src/components/EventsMap.jsx` | First-party request to OSM, no tracking cookies | No |

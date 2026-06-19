@@ -19,6 +19,8 @@ import { groupKey, compareByDate } from '../lib/event-grouping.js'
 import { eventKey } from '../lib/eventKey.js'
 import { formatTagLabel } from '../utils/format.js'
 import { tagGroup, CATEGORY_GROUP_ORDER, isNeighborhoodTag } from './categories.js'
+import { useBuildErrors } from './useBuildErrors.js'
+import { indexBuildErrors, sourceDebug, eventDebug } from './debugData.js'
 
 // Cap for the Discover "Events" list — the full upcoming window is thousands
 // of events; render the soonest slice to keep the DOM light.
@@ -803,6 +805,8 @@ export function ChannelDetail({ icsUrl }) {
         : evs.length
           ? evs.map((e) => <ParsedEventRow key={e.id} event={e} distributed={channel.distributed} indexEvent={indexByKey.get(parsedEventCostKey(e))} />)
           : !app.channelEventsLoading && <div className="a-empty">Schedule updates daily.</div>}
+
+      <ChannelDebugPanel channel={channel} upcomingCount={evs.length} />
     </div>
   )
 }
@@ -1102,6 +1106,110 @@ export function EventDetail({ event }) {
           })}
         </>
       )}
+
+      <EventDebugPanel event={event} channel={channel} />
     </div>
+  )
+}
+
+/* ----------------------------------------------------------- Debug panels --- */
+// Rendered on the venue (ChannelDetail) and event (EventDetail) pages only when
+// debug mode is on (toggled from the Site Health dashboard). They join the
+// published build-errors.json to the object on screen so a QA pass can spot
+// data-quality issues — missing photos, geocode misses, uncertainty, dedup —
+// without leaving the page. build-errors.json is fetched lazily (only while
+// debug mode is on) via the shared cache in useBuildErrors.
+
+// One labeled key/value row. `warn` tints the value when it flags a gap.
+function DebugRow({ label, value, warn = false }) {
+  return (
+    <div className="a-debug-row">
+      <span className="a-debug-key">{label}</span>
+      <span className={`a-debug-val${warn ? ' a-debug-val--warn' : ''}`}>{value}</span>
+    </div>
+  )
+}
+
+function ChannelDebugPanel({ channel, upcomingCount }) {
+  const app = useApp206()
+  const buildErrors = useBuildErrors(app.debugMode)
+  const dbg = useMemo(
+    () => (app.debugMode ? sourceDebug(indexBuildErrors(buildErrors), channel, { upcomingCount }) : null),
+    [app.debugMode, buildErrors, channel, upcomingCount],
+  )
+  if (!app.debugMode || !dbg) return null
+  const geo = dbg.geo
+  return (
+    <section className="a-debug" aria-label="Debug info for this source">
+      <div className="a-debug-head">🐞 Debug · source</div>
+      <DebugRow label="icsUrl" value={dbg.icsUrl || '—'} />
+      <DebugRow label="source keys" value={dbg.sourceKeys.join(', ') || '—'} />
+      <DebugRow label="type" value={dbg.type} />
+      <DebugRow label="tags" value={(channel.tags || []).join(', ') || '—'} />
+      <DebugRow label="neighborhood" value={channel.hood || (channel.distributed ? 'citywide' : '—')} />
+      <DebugRow label="upcoming events" value={upcomingCount} warn={upcomingCount === 0 && !dbg.expectedEmpty} />
+      <DebugRow label="parse errors" value={dbg.parseErrorCount} warn={dbg.parseErrorCount > 0} />
+      <DebugRow label="uncertain events" value={dbg.uncertaintyCount} warn={dbg.uncertaintyCount > 0} />
+      <DebugRow label="geocode misses" value={dbg.geocodeErrors.length} warn={dbg.geocodeErrors.length > 0} />
+      <DebugRow label="geo" value={geo ? `${geo.lat}, ${geo.lng}${geo.label ? ` (${geo.label})` : ''}` : 'none (distributed)'} warn={!geo && !channel.distributed} />
+      <DebugRow label="OSM id" value={dbg.hasOsmId ? `${geo.osmType || ''} ${geo.osmId}`.trim() : 'missing'} warn={dbg.osmGap} />
+      <DebugRow label="venue photo" value={dbg.missingPhoto ? 'missing' : (dbg.imageUrl ? 'present' : 'n/a')} warn={dbg.missingPhoto} />
+      {dbg.expectedEmpty && <DebugRow label="expectEmpty" value="yes (0 events expected)" />}
+      {dbg.zeroEvent && <DebugRow label="zero events" value="unexpected — investigate" warn />}
+      {dbg.proxy && <DebugRow label="proxy" value={`${dbg.proxy.rung} · ${dbg.proxy.consecutiveFailures} fails`} warn />}
+      {dbg.stale && <DebugRow label="stale serve" value={dbg.stale.error || 'live fetch failed'} warn />}
+      {dbg.errors.length > 0 && (
+        <div className="a-debug-sub">
+          {dbg.errors.slice(0, 8).map((e, i) => (
+            <div key={i} className="a-debug-err">{e.type}: {e.reason}</div>
+          ))}
+          {dbg.errors.length > 8 && <div className="a-debug-err">…and {dbg.errors.length - 8} more</div>}
+        </div>
+      )}
+    </section>
+  )
+}
+
+function EventDebugPanel({ event, channel }) {
+  const app = useApp206()
+  const buildErrors = useBuildErrors(app.debugMode)
+  const dbg = useMemo(
+    () => (app.debugMode ? eventDebug(indexBuildErrors(buildErrors), event) : null),
+    [app.debugMode, buildErrors, event],
+  )
+  if (!app.debugMode || !dbg) return null
+  const q = dbg.queues
+  const cost = dbg.cost
+  const costStr = cost
+    ? `${cost.paid ? 'paid' : 'free'}${cost.min != null ? ` min=${cost.min}` : ''}${cost.max != null ? ` max=${cost.max}` : ''}`
+    : 'none'
+  // The events-index `uncertainty` field exposes `.fields` (see atoms.jsx
+  // eventUncertainty); the build-errors queue entry uses `.unknownFields`.
+  const uncertainFields = dbg.uncertainty?.fields || (q.uncertain ? q.uncertain.unknownFields : null)
+  return (
+    <section className="a-debug" aria-label="Debug info for this event">
+      <div className="a-debug-head">🐞 Debug · event</div>
+      <DebugRow label="eventKey" value={dbg.eventKey} />
+      <DebugRow label="id" value={dbg.id || '—'} />
+      <DebugRow label="source" value={channel ? channel.name : (dbg.icsUrl || '—')} />
+      <DebugRow label="icsUrl" value={dbg.icsUrl || '—'} />
+      <DebugRow label="start" value={dbg.date || '—'} />
+      <DebugRow label="end" value={dbg.endDate || '—'} />
+      <DebugRow label="location" value={dbg.location || '—'} />
+      <DebugRow label="coords" value={dbg.hasCoords ? `${dbg.lat}, ${dbg.lng}` : 'none'} warn={!dbg.hasCoords && !!dbg.location} />
+      <DebugRow label="cost" value={costStr} warn={!!q.costGap} />
+      <DebugRow label="photo" value={dbg.imageUrl ? 'present' : 'missing'} warn={!!q.photoGap} />
+      {uncertainFields && uncertainFields.length > 0 && (
+        <DebugRow label="uncertain fields" value={uncertainFields.join(', ')} warn />
+      )}
+      {dbg.duplicateOf && <DebugRow label="duplicateOf" value={dbg.duplicateOf} />}
+      {Array.isArray(dbg.dedupedSources) && dbg.dedupedSources.length > 0 && (
+        <DebugRow label="also listed in" value={`${dbg.dedupedSources.length} source(s)`} />
+      )}
+      <DebugRow label="in queues" value={
+        [q.uncertain && 'uncertainty', q.costGap && 'cost', q.photoGap && 'photo', q.duplicateCandidate && 'duplicate']
+          .filter(Boolean).join(', ') || 'none'
+      } warn={!!(q.uncertain || q.costGap || q.photoGap || q.duplicateCandidate)} />
+    </section>
   )
 }

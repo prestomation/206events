@@ -2591,6 +2591,155 @@ html, body, #root { height: 100%; }
   margin-top: 2px;
 }
 
+/* Clickable summary cards (those backed by a detail panel) double as the tab
+   selector. They render as <button>, so reset the intrinsic button chrome and
+   keep them visually identical to the static stat cards. */
+.app206 button.health-card {
+  font: inherit;
+  appearance: none;
+  cursor: pointer;
+  display: block;
+}
+.app206 .health-card--clickable:hover {
+  border-color: var(--blue);
+}
+.app206 .health-card--active {
+  box-shadow: 0 0 0 2px var(--blue);
+}
+.app206 .health-card--clickable:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--blue-soft);
+}
+
+/* Header row: title block + debug-mode switch. */
+.app206 .health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.app206 .health-debug-toggle {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 11px;
+  background: var(--surface);
+  border: 1px solid var(--line-2);
+  color: var(--ink-2);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+.app206 .health-debug-toggle--on {
+  background: var(--blue-soft);
+  border-color: transparent;
+  color: var(--blue-ink);
+}
+.app206 .health-debug-toggle-track {
+  width: 32px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--line-2);
+  position: relative;
+  flex: 0 0 auto;
+  transition: background .15s;
+}
+.app206 .health-debug-toggle--on .health-debug-toggle-track { background: var(--blue); }
+.app206 .health-debug-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--surface);
+  transition: transform .15s;
+}
+.app206 .health-debug-toggle--on .health-debug-toggle-thumb { transform: translateX(14px); }
+
+/* Page-wide filter box. */
+.app206 .health-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.app206 .health-search-input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 13px;
+  border-radius: 11px;
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+}
+.app206 .health-search-input:focus-visible {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-soft);
+}
+.app206 .health-search-clear {
+  flex: 0 0 auto;
+  height: 40px;
+  padding: 0 13px;
+  border-radius: 11px;
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  color: var(--ink-3);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Debug-mode panels on the venue / event detail pages. */
+.app206 .a-debug {
+  margin-top: 22px;
+  border: 1px dashed var(--line-2);
+  border-radius: 12px;
+  background: var(--surface-2);
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.app206 .a-debug-head {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.app206 .a-debug-row {
+  display: flex;
+  gap: 10px;
+  padding: 3px 0;
+  border-top: 1px solid var(--line);
+}
+.app206 .a-debug-row:first-of-type { border-top: none; }
+.app206 .a-debug-key {
+  flex: 0 0 130px;
+  color: var(--ink-3);
+}
+.app206 .a-debug-val {
+  flex: 1;
+  min-width: 0;
+  color: var(--ink);
+  word-break: break-word;
+}
+.app206 .a-debug-val--warn { color: var(--amber); font-weight: 600; }
+.app206 .a-debug-sub { margin-top: 8px; }
+.app206 .a-debug-err {
+  color: var(--amber);
+  padding: 2px 0;
+  word-break: break-word;
+}
+
 .app206 .health-section {
   margin-bottom: 24px;
 }
