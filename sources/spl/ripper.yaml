@@ -97,7 +97,6 @@ calendars:
   - name: newholly
     friendlyname: "SPL - NewHolly Branch"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       branch: "NewHolly Branch"
   - name: northeast
@@ -141,7 +140,6 @@ calendars:
   - name: west-seattle
     friendlyname: "SPL - West Seattle Branch"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       branch: "West Seattle Branch"
     tags: ["West Seattle"]
