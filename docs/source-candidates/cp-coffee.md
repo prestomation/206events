@@ -6,7 +6,7 @@ url: https://candpcoffee.com/events/
 tags: [Music, "West Seattle"]
 firstSeen: 2026-06-19
 lastChecked: 2026-06-19
-pr: 0
+pr: 686
 ---
 
 C & P Coffee Company at 5612 California Ave SW, West Seattle (Admiral District). Independent coffeehouse with a rich community events calendar: live music (jazz, Brazilian, reggae, folk, acoustic world music), open mics, songwriter showcases, book clubs, mystery theater, civic events.
