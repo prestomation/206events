@@ -1,0 +1,14 @@
+name: seattle-chamber-music
+sourceRole: venue
+description: "Seattle Chamber Music Society"
+url: "https://www.seattlechambermusic.org/events/"
+friendlyLink: https://www.seattlechambermusic.org/events/
+geo: null
+tags:
+  - Music
+  - Arts
+imageUrl: "https://www.seattlechambermusic.org/wp-content/uploads/2024/01/SCMS-logo-black.jpg"
+calendars:
+  - name: seattle-chamber-music
+    friendlyname: "Seattle Chamber Music Society"
+    timezone: America/Los_Angeles
