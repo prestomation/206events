@@ -74,10 +74,15 @@ export default class LidI5Ripper implements IRipper {
     extractTourLinks(html: string): { href: string; text: string }[] {
         const root = parse(html);
         const links: { href: string; text: string }[] = [];
+        const monthPattern = new RegExp(MONTHS.join('|'), 'i');
         for (const a of root.querySelectorAll('a')) {
             const href = a.getAttribute('href') ?? '';
             if (!/seattleparksfoundation\.org\/event\//i.test(href)) continue;
-            links.push({ href, text: a.text.trim() });
+            const text = a.text.trim();
+            // Skip CTA links ("register", "Registration requested") that share a
+            // URL with a real event but carry no date in their text.
+            if (!monthPattern.test(text)) continue;
+            links.push({ href, text });
         }
         return links;
     }
