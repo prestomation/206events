@@ -6,7 +6,7 @@ url: https://seattleindies.org/events/
 tags: [Gaming, Tech, Community]
 firstSeen: 2026-06-20
 lastChecked: 2026-06-20
-pr: pending
+pr: 691
 ---
 
 **Seattle Indies** — `https://seattleindies.org/events/` — Seattle's independent game developer community organization hosting monthly meetups, showcases, playtesting clubs, co-working sessions, and regional social events.
