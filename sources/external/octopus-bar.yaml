@@ -1,0 +1,14 @@
+name: octopus-bar
+sourceRole: venue
+friendlyname: "The Octopus Bar"
+description: "Wallingford neighborhood bar hosting weekly DJ dance parties, karaoke, trivia, bingo, Smash Bros tournaments, and industry nights."
+icsUrl: "https://theoctopusbar.com/?ical=1&eventDisplay=list"
+infoUrl: "https://theoctopusbar.com/events/list/"
+geo:
+  lat: 47.6612626
+  lng: -122.3327210
+  label: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+tags:
+  - Music
+  - Nightlife
+  - Wallingford
