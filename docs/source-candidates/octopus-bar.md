@@ -12,7 +12,7 @@ lastChecked: 2026-06-20
 
 Investigated 2026-06-20:
 - WordPress site with The Events Calendar (Tribe Events) plugin
-- ICS feed at `https://theoctopusbar.com/?ical=1&eventDisplay=list` — verified working, 23 upcoming events (June–July 2026)
+- ICS feed at `https://theoctopusbar.com/?ical=1&eventDisplay=list` — verified working, 30 upcoming events (June–July 2026)
 - Weekly events: DJ dance parties (Fri/Sat), karaoke (Sun/Mon), trivia (Mon), industry night (Sun), bingo (Wed), Smash Bros tourney (Tue)
 - `geo: {lat: 47.6612626, lng: -122.3327210}` — single fixed location
 - Tags: Music, Nightlife, Wallingford
