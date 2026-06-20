@@ -9,7 +9,7 @@ export interface UncertaintyResolutionFields {
     duration?: number;         // seconds
     location?: string;
     imageUrl?: string;
-    cost?: EventCost;          // { min, max? } USD face value, or { paid: true }
+    cost?: EventCost;          // { min, max? } USD face value, { paid: true }, or { soldOut: true }
 }
 
 export interface UncertaintyCacheEntry {

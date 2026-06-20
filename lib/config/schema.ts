@@ -45,8 +45,11 @@ export const OSM_CHECKED_COOLDOWN_DAYS = 60;
 // An event's admission cost in USD. `min: 0` means free; `max` is present
 // when the source exposes a price range. `{ paid: true }` means "definitely
 // not free, amount unknown" (e.g. Eventbrite `is_free: false` without ticket
-// price data). Prices are face value, excluding service fees.
-export type EventCost = { min: number; max?: number } | { paid: true };
+// price data). `{ soldOut: true }` means the event can no longer be bought —
+// a terminal state that supersedes price (you can't act on a number anyway),
+// so it is its own union member rather than a flag alongside `min`/`max`.
+// Prices are face value, excluding service fees.
+export type EventCost = { min: number; max?: number } | { paid: true } | { soldOut: true };
 
 // YAML sugar for source-level cost declarations: `cost: free` or `cost: 10`
 // (flat USD amount). Normalized to the EventCost object form. Applied as a

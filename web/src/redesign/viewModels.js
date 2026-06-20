@@ -273,22 +273,35 @@ export const COST_FILTER_OPTIONS = [
 export function eventMatchesCost(event, costFilter) {
   if (!costFilter) return true
   const c = event.cost
-  if (!c || c.paid || typeof c.min !== 'number') return false
+  // Unknown, paid-amount-unknown, and sold-out events have no `min` to compare
+  // against — they match only "Any", never a price bucket.
+  if (!c || c.paid || c.soldOut || typeof c.min !== 'number') return false
   if (costFilter === 'free') return c.min === 0
   const cap = Number(costFilter)
   return Number.isFinite(cap) ? c.min <= cap : true
 }
 
-// One display string for a cost object: "Free", "$10", "From $10" (range), or
-// "Ticketed" (paid, amount unknown). null when cost is unknown — show nothing
-// rather than a guess.
+// One display string for a cost object: "Sold out", "Free", "$10", "From $10"
+// (range), or "Ticketed" (paid, amount unknown). null when cost is unknown —
+// show nothing rather than a guess.
 export function costLabel(cost) {
   if (!cost) return null
+  if (cost.soldOut) return 'Sold out'
   if (cost.paid) return 'Ticketed'
   const fmt = (n) => Number.isInteger(n) ? `$${n}` : `$${n.toFixed(2)}`
   if (cost.min === 0) return 'Free'
   if (cost.max != null && cost.max > cost.min) return `From ${fmt(cost.min)}`
   return fmt(cost.min)
+}
+
+// Modifier class for the `.ev-cost` span: `--free` (green) for free events,
+// `--soldout` (muted/strikethrough) for sold-out. Centralized so the two list
+// render sites stay in sync.
+export function costClass(cost) {
+  if (!cost) return ''
+  if (cost.soldOut) return ' ev-cost--soldout'
+  if (!cost.paid && cost.min === 0) return ' ev-cost--free'
+  return ''
 }
 
 // --- Discover filtering -----------------------------------------------------

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, isDateRange, normalizeDateRange, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS, parseIndexDate } from './viewModels.js'
+import { eventInWindow, describeWindow, isDateRange, normalizeDateRange, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, costClass, COST_FILTER_OPTIONS, parseIndexDate } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 import cityConfig from '../../../city.config.ts'
 
@@ -421,6 +421,12 @@ describe('eventMatchesCost', () => {
     }
   })
 
+  it('is strict: sold-out events match no bucket', () => {
+    for (const { value } of COST_FILTER_OPTIONS) {
+      expect(eventMatchesCost({ cost: { soldOut: true } }, value)).toBe(false)
+    }
+  })
+
   it('free bucket requires min === 0', () => {
     expect(eventMatchesCost({ cost: { min: 0 } }, 'free')).toBe(true)
     expect(eventMatchesCost({ cost: { min: 0, max: 20 } }, 'free')).toBe(true)
@@ -445,6 +451,17 @@ describe('costLabel', () => {
     expect(costLabel({ min: 10, max: 45 })).toBe('From $10')
     expect(costLabel({ min: 10, max: 10 })).toBe('$10')
     expect(costLabel({ paid: true })).toBe('Ticketed')
+    expect(costLabel({ soldOut: true })).toBe('Sold out')
+  })
+})
+
+describe('costClass', () => {
+  it('maps each cost shape to its row modifier class', () => {
+    expect(costClass(undefined)).toBe('')
+    expect(costClass({ min: 0 })).toBe(' ev-cost--free')
+    expect(costClass({ min: 10 })).toBe('')
+    expect(costClass({ paid: true })).toBe('')
+    expect(costClass({ soldOut: true })).toBe(' ev-cost--soldout')
   })
 })
 

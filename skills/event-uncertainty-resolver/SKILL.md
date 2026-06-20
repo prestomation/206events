@@ -127,7 +127,7 @@ In your reply, include:
 | `duration` | integer seconds | `10800` (3 hours) |
 | `location` | string (the venue address as you would expect to see in a calendar app) | `123 Main St, Seattle, WA` |
 | `imageUrl` | URL string | `https://example.com/event.jpg` |
-| `cost` | `--cost-free`, `--cost-min <n>` (USD face value, optional `--cost-max <n>`), or `--cost-paid-unknown` | `--cost-min 15 --cost-max 45` |
+| `cost` | `--cost-free`, `--cost-min <n>` (USD face value, optional `--cost-max <n>`), `--cost-paid-unknown`, or `--cost-sold-out` | `--cost-min 15 --cost-max 45` |
 
 For `cost`, apply the pricing rubric in `skills/cost-resolver/SKILL.md`
 (min = cheapest general-admission adult price, fees excluded; prefer

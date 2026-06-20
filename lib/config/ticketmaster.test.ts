@@ -38,6 +38,18 @@ describe('TicketmasterRipper cost extraction', () => {
         expect(e.cost).toEqual({ paid: true });
     });
 
+    it('treats a fully-collapsed $0 range (sold-out) as paid-unknown, not free', () => {
+        // Regression: a sold-out show whose range collapses to min:0/max:0
+        // used to slip past the `max > 0` guard and become { min: 0 } = Free.
+        const e = parseOne(makeEvent({ priceRanges: [{ type: 'standard', currency: 'USD', min: 0, max: 0 }] }));
+        expect(e.cost).toEqual({ paid: true });
+    });
+
+    it('treats a $0 min-only range as paid-unknown, not free', () => {
+        const e = parseOne(makeEvent({ priceRanges: [{ type: 'standard', currency: 'USD', min: 0 }] }));
+        expect(e.cost).toEqual({ paid: true });
+    });
+
     it('handles a min-only price range', () => {
         const e = parseOne(makeEvent({ priceRanges: [{ type: 'standard', currency: 'USD', min: 30 }] }));
         expect(e.cost).toEqual({ min: 30 });
@@ -51,5 +63,54 @@ describe('TicketmasterRipper cost extraction', () => {
     it('still writes the price into the description alongside cost', () => {
         const e = parseOne(makeEvent({ priceRanges: [{ type: 'standard', currency: 'USD', min: 25, max: 75 }] }));
         expect(e.description).toContain('Price: $25 - $75');
+    });
+});
+
+describe('TicketmasterRipper sold-out detection', () => {
+    const pastSale = { public: { startDateTime: '2026-01-01T18:00:00Z' } };
+    const futureSale = { public: { startDateTime: '2099-01-01T18:00:00Z' } };
+
+    it('marks an off-sale event whose public sale has started as sold out', () => {
+        const e = parseOne(makeEvent({
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' }, status: { code: 'offsale' } },
+            sales: pastSale,
+            priceRanges: [{ type: 'standard', currency: 'USD', min: 35, max: 35 }],
+        }));
+        // Sold out supersedes the known price.
+        expect(e.cost).toEqual({ soldOut: true });
+    });
+
+    it('does not mark a not-yet-on-sale (off-sale, future sale) event as sold out', () => {
+        const e = parseOne(makeEvent({
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' }, status: { code: 'offsale' } },
+            sales: futureSale,
+            priceRanges: [{ type: 'standard', currency: 'USD', min: 35 }],
+        }));
+        expect(e.cost).toEqual({ min: 35 });
+    });
+
+    it('stays conservative when off-sale with no sale dates (keeps price)', () => {
+        const e = parseOne(makeEvent({
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' }, status: { code: 'offsale' } },
+            priceRanges: [{ type: 'standard', currency: 'USD', min: 35 }],
+        }));
+        expect(e.cost).toEqual({ min: 35 });
+    });
+
+    it('marks a sold-out event with no price range as sold out', () => {
+        const e = parseOne(makeEvent({
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' }, status: { code: 'offsale' } },
+            sales: pastSale,
+        }));
+        expect(e.cost).toEqual({ soldOut: true });
+    });
+
+    it('leaves an on-sale event priced normally', () => {
+        const e = parseOne(makeEvent({
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' }, status: { code: 'onsale' } },
+            sales: pastSale,
+            priceRanges: [{ type: 'standard', currency: 'USD', min: 35, max: 50 }],
+        }));
+        expect(e.cost).toEqual({ min: 35, max: 50 });
     });
 });

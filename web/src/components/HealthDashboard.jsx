@@ -294,6 +294,9 @@ export function HealthDashboard({
         {showCoverage && buildErrors.costStats && (
           <HealthCard value={`💲 ${buildErrors.costStats.eventsWithCost.toLocaleString()} / ${buildErrors.costStats.totalEvents.toLocaleString()}`} label="Events with Cost" tone="ok" />
         )}
+        {showCoverage && buildErrors.costStats && buildErrors.costStats.soldOutEvents > 0 && (
+          <HealthCard value={`🎟️ ${buildErrors.costStats.soldOutEvents.toLocaleString()}`} label="Sold Out" tone="ok" />
+        )}
         {fCost.length > 0 && (
           <HealthCard value={`💲 ${fCost.length.toLocaleString()}`} label="Missing Costs" tone="warning" tab="cost" onActivate={onTabChange} active={activeTab === 'cost'} />
         )}

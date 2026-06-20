@@ -110,6 +110,17 @@ export const mockDuplicateEvents = [
   { icsUrl: 'test-ripper-cal1.ics', summary: 'Jazz Night', description: 'Live jazz', location: 'Neumos, Capitol Hill', date: toJoda(future(4)), lat: 47.61, lng: -122.32 },
 ]
 
+// Events carrying each `cost` shape, including the new `{ soldOut: true }`
+// state. Used only by cost.spec.js, which overrides the events-index route so
+// the shared specs' event counts are untouched. One row per shape so the
+// rendered label/styling of each can be asserted and screenshotted.
+export const mockCostEvents = [
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Sold Out Show', description: 'A packed house.', location: 'Neumos, Capitol Hill', date: toJoda(future(2)), lat: 47.61, lng: -122.32, cost: { soldOut: true } },
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Free Show', description: 'No cover.', location: 'Neumos, Capitol Hill', date: toJoda(future(3)), lat: 47.61, lng: -122.32, cost: { min: 0 } },
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Priced Show', description: 'Tickets from $25.', location: 'Neumos, Capitol Hill', date: toJoda(future(4)), lat: 47.61, lng: -122.32, cost: { min: 25, max: 75 } },
+  { icsUrl: 'test-ripper-cal1.ics', summary: 'Ticketed Show', description: 'Amount not posted.', location: 'Neumos, Capitol Hill', date: toJoda(future(5)), lat: 47.61, lng: -122.32, cost: { paid: true } },
+]
+
 export const mockVenues = {
   generated: '',
   venues: [{

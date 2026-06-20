@@ -1974,7 +1974,8 @@ END:VCALENDAR`;
   });
   const costStats = {
     eventsWithCost: eventsIndex.filter(e => e.cost !== undefined).length,
-    freeEvents: eventsIndex.filter(e => e.cost !== undefined && !('paid' in e.cost) && e.cost.min === 0).length,
+    freeEvents: eventsIndex.filter(e => e.cost !== undefined && !('paid' in e.cost) && !('soldOut' in e.cost) && e.cost.min === 0).length,
+    soldOutEvents: eventsIndex.filter(e => e.cost !== undefined && 'soldOut' in e.cost).length,
     totalEvents: eventsIndex.length,
     // Live ripper events with no cost whose cache entry is marked
     // unresolvable (a recorded "pricing not published").
@@ -2306,7 +2307,7 @@ END:VCALENDAR`;
     if (costStats.totalEvents > 0) {
       const costPct = Math.round(costStats.eventsWithCost / costStats.totalEvents * 100);
       summaryLines.push("");
-      summaryLines.push(`> 💲 **Cost coverage:** ${costStats.eventsWithCost} / ${costStats.totalEvents} events (${costPct}%), ${costStats.freeEvents} free` +
+      summaryLines.push(`> 💲 **Cost coverage:** ${costStats.eventsWithCost} / ${costStats.totalEvents} events (${costPct}%), ${costStats.freeEvents} free, ${costStats.soldOutEvents} sold out` +
         (costGaps.length > 0 ? ` — ${costGaps.length} missing. Run the cost-resolver skill.` : " — ✅ fully covered."));
     }
     {

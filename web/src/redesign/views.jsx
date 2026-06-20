@@ -7,7 +7,7 @@ import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor, EventLinkIcon } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
-import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
+import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, costClass, COST_FILTER_OPTIONS } from './viewModels.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import cityConfig from '../../../city.config.ts'
@@ -870,7 +870,7 @@ function ParsedEventRow({ event, distributed, indexEvent }) {
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 9 }}>
           <div className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.title}</div>
           {costLabel(cost) && (
-            <span className={`ev-cost${cost && !cost.paid && cost.min === 0 ? ' ev-cost--free' : ''}`}>{costLabel(cost)}</span>
+            <span className={`ev-cost${costClass(cost)}`}>{costLabel(cost)}</span>
           )}
         </div>
         <div className="ev-meta">
@@ -1015,7 +1015,9 @@ export function EventDetail({ event }) {
             decides whether to go, so honesty beats tidiness here. */}
         {(() => {
           const label = costLabel(event.cost)
-          const sub = label === 'Ticketed'
+          const sub = label === 'Sold out'
+            ? 'No longer on sale — check the event site for resale or a waitlist'
+            : label === 'Ticketed'
             ? 'Amount not posted — see the event site'
             : !label && event.url ? 'Check the event site' : null
           const costFields = uncertainFieldsFor(event, ['cost'])
@@ -1181,7 +1183,7 @@ function EventDebugPanel({ event, channel }) {
   const q = dbg.queues
   const cost = dbg.cost
   const costStr = cost
-    ? `${cost.paid ? 'paid' : 'free'}${cost.min != null ? ` min=${cost.min}` : ''}${cost.max != null ? ` max=${cost.max}` : ''}`
+    ? `${cost.soldOut ? 'soldout' : cost.paid ? 'paid' : 'free'}${cost.min != null ? ` min=${cost.min}` : ''}${cost.max != null ? ` max=${cost.max}` : ''}`
     : 'none'
   // The events-index `uncertainty` field exposes `.fields` (see atoms.jsx
   // eventUncertainty); the build-errors queue entry uses `.unknownFields`.

@@ -148,11 +148,11 @@ def cmd_resolve(args):
             fields["location"] = args.location
         if args.image_url is not None:
             fields["imageUrl"] = args.image_url
-        # Cost: --cost-free / --cost-min [--cost-max] / --cost-paid-unknown
-        # are mutually exclusive ways to set the one `cost` field.
-        cost_flags = sum([bool(args.cost_free), args.cost_min is not None, bool(args.cost_paid_unknown)])
+        # Cost: --cost-free / --cost-min [--cost-max] / --cost-paid-unknown /
+        # --cost-sold-out are mutually exclusive ways to set the one `cost` field.
+        cost_flags = sum([bool(args.cost_free), args.cost_min is not None, bool(args.cost_paid_unknown), bool(args.cost_sold_out)])
         if cost_flags > 1:
-            print("Use only one of --cost-free, --cost-min, --cost-paid-unknown.", file=sys.stderr)
+            print("Use only one of --cost-free, --cost-min, --cost-paid-unknown, --cost-sold-out.", file=sys.stderr)
             sys.exit(2)
         if args.cost_max is not None and args.cost_min is None:
             print("--cost-max requires --cost-min.", file=sys.stderr)
@@ -169,6 +169,8 @@ def cmd_resolve(args):
             fields["cost"] = cost
         elif args.cost_paid_unknown:
             fields["cost"] = {"paid": True}
+        elif args.cost_sold_out:
+            fields["cost"] = {"soldOut": True}
         if not fields:
             print("Need at least one field (or --unresolvable).", file=sys.stderr)
             sys.exit(2)
@@ -363,6 +365,7 @@ def main():
     p_res.add_argument("--cost-max", type=float, help="Top of the price range in USD (only with --cost-min)")
     p_res.add_argument("--cost-free", action="store_true", help="Event is free (sugar for --cost-min 0)")
     p_res.add_argument("--cost-paid-unknown", action="store_true", help="Event is ticketed but no price is posted")
+    p_res.add_argument("--cost-sold-out", action="store_true", help="Event is sold out / no longer on sale (terminal state, supersedes price)")
     p_res.add_argument("--evidence", help="URL the resolver verified against")
     p_res.add_argument("--unresolvable", action="store_true", help="Mark as unresolvable")
     p_res.add_argument("--reason", help="Reason text (only with --unresolvable)")

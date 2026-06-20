@@ -226,8 +226,11 @@ Check `costStats` and `costGaps` in the build health output.
 
 **If nothing is missing:**
 ```
-💲 Cost coverage: N/M events (F free) — no missing costs ✅
+💲 Cost coverage: N/M events (F free, S sold out) — no missing costs ✅
 ```
+
+`soldOutEvents` (events whose `cost` is `{ soldOut: true }`) is informational,
+not a gap — sold-out shows are fully resolved, not a todo.
 
 **If there are gaps:**
 Read `skills/cost-resolver/SKILL.md` and follow it to backfill event costs. It

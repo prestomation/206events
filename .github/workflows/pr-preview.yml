@@ -173,7 +173,8 @@ jobs:
             let costSection = '';
             if (costStats && costStats.totalEvents > 0) {
               const costPct = Math.round(costStats.eventsWithCost / costStats.totalEvents * 100);
-              costSection = `\n\n**💲 Cost coverage:** ${costStats.eventsWithCost.toLocaleString()} / ${costStats.totalEvents.toLocaleString()} events (${costPct}%), ${costStats.freeEvents.toLocaleString()} free` +
+              const soldOut = costStats.soldOutEvents || 0;
+              costSection = `\n\n**💲 Cost coverage:** ${costStats.eventsWithCost.toLocaleString()} / ${costStats.totalEvents.toLocaleString()} events (${costPct}%), ${costStats.freeEvents.toLocaleString()} free, ${soldOut.toLocaleString()} sold out` +
                 (costGaps.length > 0 ? ` — ${costGaps.length.toLocaleString()} missing (run the cost-resolver skill)` : ' — ✅ Fully covered');
             }
 
