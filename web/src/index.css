@@ -4036,6 +4036,9 @@ html, body, #root { height: 100%; }
 .app206 .ev-time { font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--ink); flex: 0 0 auto; }
 .app206 .ev-cost { flex: 0 0 auto; font-size: 12px; font-weight: 600; white-space: nowrap; color: var(--ink-3); }
 .app206 .ev-cost--free { color: var(--free); }
+/* Sold out: muted + strikethrough — a terminal state, visually distinct from
+   a price or the green "Free". */
+.app206 .ev-cost--soldout { color: var(--ink-3); text-decoration: line-through; opacity: 0.8; }
 
 /* Inline marker shown next to a fact whose value is approximate (pending) or
    could not be verified (unresolvable). Subtle by design — it qualifies the

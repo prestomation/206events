@@ -152,10 +152,13 @@ export class TicketmasterRipper implements IRipper {
                         descParts.push(`Price: $${range.min} - $${range.max}`);
                     }
                     if (range.min != null) {
-                        if (range.min === 0 && range.max > 0) {
-                            // A $0 minimum alongside a real maximum is junk
-                            // data (hidden platinum/resale rows), not a free
-                            // ticket — Ticketmaster events are never free.
+                        if (range.min === 0) {
+                            // Ticketmaster events are never free. A $0 minimum
+                            // is junk data (hidden platinum/resale rows) or a
+                            // sold-out range that has collapsed to zero — treat
+                            // it as paid-unknown, never as free. The sold-out
+                            // upgrade below refines this when the status and
+                            // sale dates confirm it.
                             cost = { paid: true };
                         } else {
                             cost = {
@@ -163,6 +166,19 @@ export class TicketmasterRipper implements IRipper {
                                 ...(range.max != null && range.max > range.min ? { max: range.max } : {}),
                             };
                         }
+                    }
+                }
+                // An off-sale event whose public sale has already started is
+                // sold out (or the sale has ended) — surface "sold out" rather
+                // than a price the visitor can no longer act on. This is a
+                // terminal state that supersedes any price computed above. We
+                // require the public sale to have started so a not-yet-on-sale
+                // event (also `offsale`) isn't mislabeled; when sale dates are
+                // absent we stay conservative and leave the price as-is.
+                if (status === 'offsale') {
+                    const saleStart = event.sales?.public?.startDateTime;
+                    if (saleStart && new Date(saleStart).getTime() <= Date.now()) {
+                        cost = { soldOut: true };
                     }
                 }
                 if (status === 'postponed') descParts.push('POSTPONED');

@@ -13,6 +13,10 @@ Two related problems with how we report admission cost:
 This doc covers both. Phase 1 is a self-contained bug fix; Phase 2 adds a
 first-class sold-out state and is the feature the title refers to.
 
+> **Status: implemented.** Both phases shipped together. The decisions that
+> were open questions in the original plan are recorded inline below
+> (✅ **Decided**).
+
 ## The reported case
 
 `https://206.events/#event=The+Crane+Wives...&q=Croc` — "The Crane Wives -
@@ -111,19 +115,17 @@ export type EventCost =
     | { soldOut: true };
 ```
 
-**Why a union member and not an orthogonal `event.soldOut` flag.** The user's
-framing ("add sold out as a 'price'") matches the union: sold-out is a terminal
-admission state that supersedes price — you can't buy in at any number, so the
-exact price is moot. This keeps one field (`cost`) as the single thing every
-surface formats, exactly like `{ paid: true }` today, and needs no new
+✅ **Decided — union member, not an orthogonal `event.soldOut` flag.** The
+user's framing ("add sold out as a 'price'") matches the union: sold-out is a
+terminal admission state that supersedes price — you can't buy in at any number,
+so the exact price is moot. This keeps one field (`cost`) as the single thing
+every surface formats, exactly like `{ paid: true }` today, and needs no new
 event-level field plumbed through `events-index.json`.
 
-**Trade-off (call out for review):** a `{ soldOut: true }` event drops a
-simultaneously-known price (e.g. "sold out, was $25"). If we later want
-"Sold out · was $25," promote to an orthogonal flag
-(`{ min: 25, soldOut: true }`) — a strictly larger change touching every
-`costLabel`/filter/stats branch. Recommendation: start with the union member;
-revisit only if the price-too signal is wanted.
+**Trade-off:** a `{ soldOut: true }` event drops a simultaneously-known price
+(e.g. "sold out, was $25"). If we later want "Sold out · was $25," promote to an
+orthogonal flag (`{ min: 25, soldOut: true }`) — a strictly larger change
+touching every `costLabel`/filter/stats branch. Not done now.
 
 ### Detection (where `{ soldOut: true }` comes from)
 
@@ -133,15 +135,25 @@ revisit only if the price-too signal is wanted.
 | `dice` / `axs` / `eventbrite` | per-platform availability/`on_sale_status` | Out of MVP scope; add when those APIs are revisited. Field table in resolver docs makes this incremental. |
 | manual / uncertainty cache | new `--cost-sold-out` flag | Lets the cost-resolver mark a known sold-out event (see below). |
 
-MVP detection = Ticketmaster only. In `ticketmaster.ts`, after computing
-`cost`, upgrade to sold-out when `status === 'offsale'`:
+✅ **Decided — detection is source-specific; MVP is Ticketmaster only.** In
+`ticketmaster.ts`, after computing `cost`, upgrade to sold-out when the event is
+`offsale` **and** its public sale has already started — so a not-yet-on-sale
+event (also `offsale`) isn't mislabeled. When sale dates are absent we stay
+conservative and leave the price as-is (Phase 1 still keeps it from being free):
 
 ```ts
-if (status === 'offsale') cost = { soldOut: true };
+if (status === 'offsale') {
+    const saleStart = event.sales?.public?.startDateTime;
+    if (saleStart && new Date(saleStart).getTime() <= Date.now()) {
+        cost = { soldOut: true };
+    }
+}
 ```
 
-This subsumes the Phase 1 case for sold-out shows specifically, while Phase 1
-still protects any `min:0` that isn't flagged `offsale`.
+The collapsed `min:0` price range is *not* used as the sold-out signal — that
+heuristic is too source-specific — but Phase 1 still maps any `min:0` to
+`{ paid: true }`, so a sold-out show with no usable status is "Ticketed", never
+"Free".
 
 ### Rendering (web UI — `web/src/redesign/`)
 
@@ -156,9 +168,15 @@ if (cost.soldOut) return 'Sold out'
   `index.css` alongside `--free`.
 - **Detail page** (`views.jsx:1013-1040`): "Sold out" with a sub-line and the
   existing "Check the event site" outbound link (resale/waitlist).
-- **Cost filter** (`viewModels.js:267-280`, `eventMatchesCost`): sold-out
-  matches only "Any" — never Free / "$10 or less" (strict on `min`, same as
-  `{ paid: true }` today). Optionally add a "Hide sold out" toggle (stretch).
+- **Cost filter** (`viewModels.js`, `eventMatchesCost`): sold-out matches only
+  "Any" — never Free / "$10 or less" (strict on `min`, same as `{ paid: true }`
+  today). ✅ **Decided — no "hide sold out" toggle.** Not built; sold-out shows
+  still surface in the list with their label.
+
+The list-row modifier class is centralized in a new `costClass(cost)` helper
+(`viewModels.js`) so the two render sites (`atoms.jsx`, `views.jsx`) stay in
+sync: `--free` (green) for free, `--soldout` (muted + strikethrough) for
+sold-out.
 
 ### Server/UI parity
 
@@ -170,12 +188,13 @@ both `feed.ts` and `App.jsx`/`viewModels.js` per that rule.
 ### Reporting parity
 
 `EventCost` flows into `events-index.json` already, so no new serialization.
-`costStats` (`calendar_ripper.ts:1975-1984`) **optionally** gains
-`soldOutEvents`. Per the **Reporting Parity Rule**, *if* we add that counter we
-must plumb it through all five surfaces (step summary, PR comment, Discord, web
-health dashboard, build-report skill) in the same PR. Recommendation: **skip
-the counter for MVP** — sold-out is not a build-health problem, and adding a
-counter is pure overhead. Note it as a follow-up if product wants the metric.
+✅ **Decided — add the `soldOutEvents` counter.** `costStats`
+(`calendar_ripper.ts`) gains `soldOutEvents` (events whose `cost` is
+`{ soldOut: true }`), and per the **Reporting Parity Rule** it is plumbed
+through all five surfaces in this PR: the build step summary, the PR-preview
+comment, the Discord notification, the web health dashboard, and the
+build-report skill. It is informational (sold-out shows are resolved, not a
+gap/todo), so it never counts toward `costGaps` or `totalErrors`.
 
 ### Resolver / cache
 
@@ -196,24 +215,28 @@ Per AGENTS.md "UI Changes": a Playwright e2e spec in `web/e2e/` driving a
 embedded in the PR body. Unit tests for `costLabel`/`eventMatchesCost` and the
 Ticketmaster `offsale` → `{ soldOut: true }` mapping.
 
-## Sequencing
+## What shipped
 
-1. **PR 1 — Phase 1 bug fix.** `ticketmaster.ts` `min:0` → `{ paid: true }` +
-   tests. Small, auto-merge eligible, stops the false-Free immediately.
-2. **PR 2 — Phase 2 feature.** Schema union member, Ticketmaster `offsale`
-   detection, UI label + CSS + filter behavior, e2e + screenshots, resolver
-   `--cost-sold-out`. UI/schema change → **requires manual merge**.
+Both phases landed together in one PR (the UI/schema change requires manual
+merge regardless, so splitting bought nothing here):
 
-Splitting keeps the live data-quality fix from waiting on the larger feature
-review.
+- **Phase 1** — `ticketmaster.ts`: any `min:0` → `{ paid: true }`, plus the
+  `min:0/max:0` and `min:0`-only regression tests.
+- **Phase 2** — `EventCost` union member `{ soldOut: true }`; Ticketmaster
+  `offsale` + sale-started detection; `costLabel`/`costClass` + CSS in the
+  redesign UI; `eventMatchesCost` excludes sold-out from price buckets;
+  `soldOutEvents` counter through all five reporting surfaces;
+  `--cost-sold-out` resolver flag (+ `applyResolution`/cache support, which is
+  generic over the `cost` field); unit tests and a Playwright e2e spec with
+  committed screenshots.
 
-## Open questions for review
+## Decisions (were open questions)
 
-1. **Model:** union member `{ soldOut: true }` (recommended) vs orthogonal flag
-   that preserves price (`{ min, soldOut: true }`)?
-2. **`offsale` semantics:** treat all future-dated `offsale` Ticketmaster events
-   as "Sold out," or only when the price range also collapsed to `min:0`? (The
-   stricter rule risks missing genuinely-sold-out shows that kept a price.)
-3. **Counter:** add `soldOutEvents` to `costStats` (full reporting-parity plumb)
-   now, or defer?
-4. **Filter:** ship a "hide sold out" toggle in this work, or later?
+1. **Model:** union member `{ soldOut: true }` — ✅ chosen over an orthogonal
+   price-preserving flag.
+2. **`offsale` semantics:** sold-out only when `offsale` **and** the public sale
+   has already started; conservative (keep price) when sale dates are absent.
+   The collapsed-`min:0` heuristic is too source-specific to use as the signal.
+3. **Counter:** ✅ `soldOutEvents` added to `costStats` and plumbed through every
+   surface.
+4. **Filter:** ✅ no "hide sold out" toggle — sold-out events still show, labeled.

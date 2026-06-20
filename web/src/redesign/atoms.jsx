@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
-import { rowFromIndexEvent, provFromAttributions, describeWindow, costLabel, COST_FILTER_OPTIONS } from './viewModels.js'
+import { rowFromIndexEvent, provFromAttributions, describeWindow, costLabel, costClass, COST_FILTER_OPTIONS } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
@@ -318,7 +318,7 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
           )}
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
           {costLabel(event.cost) && (
-            <span className={`ev-cost${event.cost && !event.cost.paid && event.cost.min === 0 ? ' ev-cost--free' : ''}`}>
+            <span className={`ev-cost${costClass(event.cost)}`}>
               {costLabel(event.cost)}
             </span>
           )}

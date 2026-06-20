@@ -6,8 +6,10 @@ description: Backfill missing event costs in 206.events. Reads the costGaps work
 # 206.events Cost Resolver
 
 Backfill admission costs for events that don't have one. The data model is
-`cost: { min, max? } | { paid: true }` — USD **face value, excluding fees**;
-`min: 0` means free; `{ paid: true }` means "ticketed, amount unknown".
+`cost: { min, max? } | { paid: true } | { soldOut: true }` — USD **face value,
+excluding fees**; `min: 0` means free; `{ paid: true }` means "ticketed, amount
+unknown"; `{ soldOut: true }` means no longer on sale (a terminal state that
+supersedes price).
 
 There are two kinds of fix:
 
@@ -35,6 +37,7 @@ code, YAML annotations, and every resolution you write:
 | Free entry, paid activities inside (festivals, markets) | cost = cost to walk in = free |
 | Ticketing fees | excluded — face value only (matches Ticketmaster `priceRanges` semantics) |
 | Page confirms tickets but no price posted ("ticketed", "price TBA") | `--cost-paid-unknown` |
+| Event is sold out / no longer on sale | `--cost-sold-out` (the price, if any, no longer matters — the visitor can't buy in) |
 | Pricing looks volatile or ambiguous | prefer `--cost-paid-unknown` over recording a guess |
 
 ## Workflow
