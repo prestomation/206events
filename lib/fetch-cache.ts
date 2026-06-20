@@ -182,16 +182,36 @@ let proactiveRefreshKeys: Set<string> = new Set();
  *  wall-clock. `freshHits` were served from cache (no network); `liveFetches`
  *  hit the network because the entry was stale/missing; `liveFailures` are the
  *  subset of live fetches that threw (and then either stale-served or rethrew);
- *  `staleServes` were satisfied from an over-TTL copy after a live failure. */
+ *  `staleServes` were satisfied from an over-TTL copy after a live failure.
+ *
+ *  Proactive-refresh observability (main builds only; see
+ *  docs/cache-freshness-strategy.md): `cacheSize` is the entry count of the
+ *  loaded cache (M); `forcedRefresh` is how many keys were selected for
+ *  proactive refresh (N, the oldest ~20% of M); `forcedRefreshApplied` is how
+ *  many of those selected keys were *actually requested* this build (and thus
+ *  force-missed → re-fetched). A large gap between `forcedRefresh` and
+ *  `forcedRefreshApplied` means the refresh budget is landing on orphaned cache
+ *  entries (detail pages, removed sources) that aren't re-requested. */
 export interface FetchCacheStats {
   freshHits: number;
   liveFetches: number;
   liveFailures: number;
   staleServes: number;
+  cacheSize: number;
+  forcedRefresh: number;
+  forcedRefreshApplied: number;
 }
 
 function emptyStats(): FetchCacheStats {
-  return { freshHits: 0, liveFetches: 0, liveFailures: 0, staleServes: 0 };
+  return {
+    freshHits: 0,
+    liveFetches: 0,
+    liveFailures: 0,
+    staleServes: 0,
+    cacheSize: 0,
+    forcedRefresh: 0,
+    forcedRefreshApplied: 0,
+  };
 }
 
 let stats: FetchCacheStats = emptyStats();
@@ -200,6 +220,7 @@ export function initFetchCache(cache: FetchCache): void {
   activeCache = cache;
   staleServeLog = [];
   stats = emptyStats();
+  stats.cacheSize = Object.keys(cache.entries).length;
   proactiveRefreshKeys = new Set();
 }
 
@@ -227,6 +248,7 @@ export function selectOldestEntriesForRefresh(cache: FetchCache, fraction: numbe
 /** Inject the set of keys to force-refresh this build (forced cache miss). */
 export function setProactiveRefreshKeys(keys: Set<string>): void {
   proactiveRefreshKeys = keys;
+  stats.forcedRefresh = keys.size;
 }
 
 export function getFetchCache(): FetchCache | null {
@@ -268,7 +290,16 @@ export function recordStaleServe(serve: StaleServe): void {
  *  proactive refresh is treated as a miss so it re-fetches live this build. */
 export function lookupFreshEntry(key: string, nowMs: number): FetchCacheEntry | undefined {
   if (!activeCache) return undefined;
-  if (proactiveRefreshKeys.has(key)) return undefined;
+  if (proactiveRefreshKeys.has(key)) {
+    // A selected key that's actually requested this build — count it so we can
+    // tell real (applied) refreshes from budget spent on orphaned entries. Drop
+    // it from the set on first application so a re-request in the same build
+    // serves the freshly-fetched copy (no redundant re-fetch) and
+    // forcedRefreshApplied stays a distinct-key count bounded by forcedRefresh.
+    proactiveRefreshKeys.delete(key);
+    stats.forcedRefreshApplied++;
+    return undefined;
+  }
   const entry = activeCache.entries[key];
   if (entry && isFresh(entry, nowMs)) return entry;
   return undefined;

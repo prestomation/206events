@@ -2222,9 +2222,15 @@ END:VCALENDAR`;
   if (proxyStaleServes.length > 0) {
     console.log(`  🕒 ${proxyStaleServes.length} source(s) served from stale cache (live fetch failed): ${proxyStaleServes.map(s => s.source ?? s.url).join(", ")}`);
   }
+  // Proactive-refresh visibility (main builds only): show how many of the
+  // selected oldest-slice keys were actually requested (applied) vs selected, so
+  // budget spent on orphaned cache entries is obvious. Empty on PR builds.
+  const proactiveSuffix = cacheStats.fetch.forcedRefresh > 0
+    ? `; proactive refresh ${cacheStats.fetch.forcedRefreshApplied}/${cacheStats.fetch.forcedRefresh} applied of ${cacheStats.fetch.cacheSize} cached`
+    : "";
   console.log(
     `  💾 Fetch cache: ${cacheStats.fetch.hitRate}% hit (${cacheStats.fetch.freshHits} fresh / ${cacheStats.fetch.liveFetches} live` +
-    `${cacheStats.fetch.liveFailures > 0 ? `, ${cacheStats.fetch.liveFailures} failed` : ""} of ${cacheStats.fetch.lookups})`
+    `${cacheStats.fetch.liveFailures > 0 ? `, ${cacheStats.fetch.liveFailures} failed` : ""} of ${cacheStats.fetch.lookups})${proactiveSuffix}`
   );
   console.log(
     `  📍 Geocode: ${cacheStats.geocode.hitRate}% no-network of ${cacheStats.geocode.lookups} location(s) ` +
@@ -2284,7 +2290,7 @@ END:VCALENDAR`;
       summaryLines.push("");
       summaryLines.push(
         `> 💾 **Fetch cache:** ${cacheStats.fetch.hitRate}% hit — ${cacheStats.fetch.freshHits} fresh / ${cacheStats.fetch.liveFetches} live` +
-        `${cacheStats.fetch.liveFailures > 0 ? ` (${cacheStats.fetch.liveFailures} failed → stale)` : ""} of ${cacheStats.fetch.lookups} lookups. ` +
+        `${cacheStats.fetch.liveFailures > 0 ? ` (${cacheStats.fetch.liveFailures} failed → stale)` : ""} of ${cacheStats.fetch.lookups} lookups${proactiveSuffix}. ` +
         `**📍 Geocode:** ${cacheStats.geocode.hitRate}% no-network of ${cacheStats.geocode.lookups} location(s) — ${cacheStats.geocode.nominatimCalls} Nominatim request(s). ` +
         `A low hit rate means a cold cache (slow build).`
       );
