@@ -90,7 +90,7 @@
       "resolvedAt": "2026-06-17",
       "note": "Don Toliver same show - arena venue vs Seattle Center listing, dist=1m"
     },
-    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 6/17/2026 7:30PM|2026-06-17T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle — Cheap Laughs Open Mic|2026-06-17T20:00-07:00[America/Los_Angeles]": {
+    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 6/17/2026 7:30PM|2026-06-17T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle \u2014 Cheap Laughs Open Mic|2026-06-17T20:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "Club Comedy Cheap Laughs - venue vs recurring, dist=6m same event"
@@ -265,12 +265,12 @@
       "resolvedAt": "2026-06-17",
       "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
     },
-    "external-seattle-gov-arts.ics Children of Shelly’s Leg | Workshop-Femme Style|2026-06-15T18:00Z[UTC]::external-seattle-gov-city-wide.ics Children of Shelly’s Leg | Workshop-Femme Style|2026-06-15T18:00Z[UTC]": {
+    "external-seattle-gov-arts.ics Children of Shelly\u2019s Leg | Workshop-Femme Style|2026-06-15T18:00Z[UTC]::external-seattle-gov-city-wide.ics Children of Shelly\u2019s Leg | Workshop-Femme Style|2026-06-15T18:00Z[UTC]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
     },
-    "external-seattle-gov-arts.ics Children of Shelly’s Leg | Workshop-Masc Style|2026-06-22T18:00Z[UTC]::external-seattle-gov-city-wide.ics Children of Shelly’s Leg | Workshop-Masc Style|2026-06-22T18:00Z[UTC]": {
+    "external-seattle-gov-arts.ics Children of Shelly\u2019s Leg | Workshop-Masc Style|2026-06-22T18:00Z[UTC]::external-seattle-gov-city-wide.ics Children of Shelly\u2019s Leg | Workshop-Masc Style|2026-06-22T18:00Z[UTC]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
@@ -350,7 +350,7 @@
       "resolvedAt": "2026-06-17",
       "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
     },
-    "external-seattle-gov-arts.ics Longest Day: Multilingual Indigenous Music by Khu.éex'|2026-06-20T17:00Z[UTC]::external-seattle-gov-city-wide.ics Longest Day: Multilingual Indigenous Music by Khu.éex'|2026-06-20T17:00Z[UTC]": {
+    "external-seattle-gov-arts.ics Longest Day: Multilingual Indigenous Music by Khu.\u00e9ex'|2026-06-20T17:00Z[UTC]::external-seattle-gov-city-wide.ics Longest Day: Multilingual Indigenous Music by Khu.\u00e9ex'|2026-06-20T17:00Z[UTC]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
@@ -360,7 +360,7 @@
       "resolvedAt": "2026-06-17",
       "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
     },
-    "external-seattle-gov-arts.ics Native ACTION Network | Kickin' It Indi-City - An Indigenous World Cup Seattle Celebration|2026-07-03T10:00Z[UTC]::waterfront-park-waterfront-park.ics Kickin’ It Indi‑City: An Indigenous Soccer Celebration|2026-07-03T11:00-07:00[America/Los_Angeles]": {
+    "external-seattle-gov-arts.ics Native ACTION Network | Kickin' It Indi-City - An Indigenous World Cup Seattle Celebration|2026-07-03T10:00Z[UTC]::waterfront-park-waterfront-park.ics Kickin\u2019 It Indi\u2011City: An Indigenous Soccer Celebration|2026-07-03T11:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "Kickin' It Indi-City - same event at Pier 62, waterfront geo-scale dist"
@@ -500,7 +500,7 @@
       "resolvedAt": "2026-06-17",
       "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
     },
-    "external-seattle-gov-city-wide.ics Native ACTION Network | Kickin' It Indi-City - An Indigenous World Cup Seattle Celebration|2026-07-03T10:00Z[UTC]::waterfront-park-waterfront-park.ics Kickin’ It Indi‑City: An Indigenous Soccer Celebration|2026-07-03T11:00-07:00[America/Los_Angeles]": {
+    "external-seattle-gov-city-wide.ics Native ACTION Network | Kickin' It Indi-City - An Indigenous World Cup Seattle Celebration|2026-07-03T10:00Z[UTC]::waterfront-park-waterfront-park.ics Kickin\u2019 It Indi\u2011City: An Indigenous Soccer Celebration|2026-07-03T11:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "Kickin' It Indi-City - same event at Pier 62, waterfront geo-scale dist"
@@ -530,17 +530,17 @@
       "resolvedAt": "2026-06-17",
       "note": "seattle-gov multi-feed pair - same event in arts/city-wide/neighborhoods"
     },
-    "external-seattle-university.ics Defender Initiative Conference 2026—Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-all.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+    "external-seattle-university.ics Defender Initiative Conference 2026\u2014Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-all.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "Defender Initiative Conference - same event at Sullivan Hall, SeattleU vs seatoday"
     },
-    "external-seattle-university.ics Defender Initiative Conference 2026—Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-community.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+    "external-seattle-university.ics Defender Initiative Conference 2026\u2014Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-community.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "Defender Initiative Conference - same event at Sullivan Hall, SeattleU vs seatoday"
     },
-    "external-seattle-university.ics Defender Initiative Conference 2026—Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-learning.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
+    "external-seattle-university.ics Defender Initiative Conference 2026\u2014Next steps with Defender Standards and Funding|2026-06-26T15:30Z[UTC]::seatoday-seatoday-learning.ics Defender Initiative Conference 2026-Next steps with Defender Standards and Funding|2026-06-26T08:30-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "Defender Initiative Conference - same event at Sullivan Hall, SeattleU vs seatoday"
@@ -805,62 +805,62 @@
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
@@ -1165,32 +1165,32 @@
       "resolvedAt": "2026-06-17",
       "note": "Cello Concert seatoday(Town Hall) vs SPL(Central Library) - conflicting venues, locText=0"
     },
-    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-18T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-18T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-19T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-19T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-21T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-21T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-25T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-25T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-26T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-26T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
     },
-    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-06-28T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-06-28T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
@@ -1365,7 +1365,7 @@
       "resolvedAt": "2026-06-17",
       "note": "same Mariners vs Angels game - seatoday vs T-Mobile Park, title=1"
     },
-    "seattle-center-festal-all-events.ics A Day in Punjab|2026-08-01T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festál : A Day in Punjab|2026-08-01T12:00-07:00[America/Los_Angeles]": {
+    "seattle-center-festal-all-events.ics A Day in Punjab|2026-08-01T11:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Fest\u00e1l : A Day in Punjab|2026-08-01T12:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
       "note": "same Festal festival at Seattle Center - 'Festal:' prefix variant, campus-scale dist"
@@ -1653,17 +1653,17 @@
     "downtown-seattle-association-westlake-park.ics Soccer Watch Party: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Global Soccer Tournament Watch Party - USA VS Australia|2026-06-19T11:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-06-17",
-      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm — different venues 381m apart"
+      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm \u2014 different venues 381m apart"
     },
     "downtown-seattle-association-westlake-park.ics Soccer Watch Party: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Global Soccer Tournament Watch Party - USA VS Australia|2026-06-19T11:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-06-17",
-      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm — different venues 381m apart"
+      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm \u2014 different venues 381m apart"
     },
     "downtown-seattle-association-westlake-park.ics Soccer Watch Party: USA vs. Australia|2026-06-19T12:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Global Soccer Tournament Watch Party - USA VS Australia|2026-06-19T11:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-06-17",
-      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm — different venues 381m apart"
+      "note": "Different events: seatoday is at Kimpton Palladian Hotel at 11am, DSA is at Westlake Park at 12pm \u2014 different venues 381m apart"
     },
     "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-09-17T15:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-09-17T15:00Z[UTC]": {
       "decision": "confirmed",
@@ -1673,7 +1673,7 @@
     "seatoday-seatoday-all.ics AMAC Captains Summit|2026-06-28T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics AMAC Captains Summit|2026-06-28T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-17",
-      "note": "Same event from seatoday source appearing in two category feeds (all and learning) — should show once"
+      "note": "Same event from seatoday source appearing in two category feeds (all and learning) \u2014 should show once"
     },
     "19hz-all-events.ics Seattle Paddle Rave x Witch Paddle Rave|2026-09-20T15:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | Sept 20th | Witch Paddle Rave|2026-09-20T15:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
@@ -1750,7 +1750,7 @@
       "resolvedAt": "2026-06-18",
       "note": "Sour Beer Day at Lucky Envelope, ballard-brewed calendar vs beer blog"
     },
-    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 6/24/2026 7:30PM|2026-06-24T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle — Cheap Laughs Open Mic|2026-06-24T20:00-07:00[America/Los_Angeles]": {
+    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 6/24/2026 7:30PM|2026-06-24T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle \u2014 Cheap Laughs Open Mic|2026-06-24T20:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-18",
       "note": "Club Comedy Cheap Laughs Open Mic, recurring entry vs eventbrite ripper"
@@ -1935,12 +1935,12 @@
       "resolvedAt": "2026-06-19",
       "note": "Same event published across multiple seatoday topic feeds (all/arts/community/sports/learning)"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-02T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-02T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-07-02T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-07-02T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-19",
       "note": "Same event published across multiple seatoday topic feeds (all/arts/community/sports/learning)"
     },
-    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-02T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-02T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-07-02T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-07-02T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-19",
       "note": "Same event published across multiple seatoday topic feeds (all/arts/community/sports/learning)"
@@ -2040,7 +2040,7 @@
       "resolvedAt": "2026-06-19",
       "note": "Same event published across multiple seatoday topic feeds (all/arts/community/sports/learning)"
     },
-    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-02T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-02T10:00-07:00[America/Los_Angeles]": {
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-07-02T10:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|o\u0301l\u01eb\u0301|2026-07-02T10:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-06-19",
       "note": "Same event published across multiple seatoday topic feeds (all/arts/community/sports/learning)"
@@ -2079,6 +2079,151 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-19",
       "note": "Same event published across multiple seatoday topic feeds (all/arts/community/sports/learning)"
+    },
+    "19hz-all-events.ics PiNKII: Robopup|2026-08-26T21:00:00-07:00[America/Los_Angeles]::substation-substation.ics PiNKII|2026-08-26T21:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same Eventbrite URL; title variant (headliner vs full lineup)"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave x Witch Paddle Rave|2026-09-20T15:00:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | Sept 20th | Witch Paddle Rave|2026-09-20T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same posh.vip URL; same event at Lake Union"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave|2026-06-27T17:00:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | June 27th|2026-06-27T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same posh.vip URL; title variant adding date suffix"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave|2026-07-04T09:00:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | July 4th|2026-07-04T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same posh.vip URL; title variant"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave|2026-07-15T17:00:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | July 15th|2026-07-15T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same posh.vip URL; title variant"
+    },
+    "19hz-all-events.ics Seattle Paddle Rave|2026-08-01T09:00:00-07:00[America/Los_Angeles]::lake-union-concerts-lake-union-concerts.ics Seattle Paddle Rave | August 1st|2026-08-01T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same posh.vip URL; title variant"
+    },
+    "19hz-all-events.ics Soul of Hex|2026-07-17T21:00:00-07:00[America/Los_Angeles]::belltown_yacht_club-belltown-yacht-club.ics Soul of Hex, CSJS, Better Together|2026-07-17T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same DICE event; 19hz uses headliner-only title variant"
+    },
+    "19hz-all-events.ics Star Monster, Odd Language|2026-08-27T21:00:00-07:00[America/Los_Angeles]::substation-substation.ics Star Monster|2026-08-27T21:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same Eventbrite URL; 19hz has 'Odd Language' opener added"
+    },
+    "19hz-all-events.ics The Pink Party: Spencer Brown, Qrion|2026-09-07T15:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics The Pink Party|2026-09-07T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event at Pier 62; 19hz title adds artist names"
+    },
+    "NWMetalCalendar-NWMetal.ics Anvil, Graveripper, Midnite Hellion, Star Chamber|2026-06-25T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics ANVIL - Pounding the Past 2026 with GraveRipper, Midnite Hellion, Star Chamber|2026-06-25T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same show at El Corazon; NWMetal has lineup-first title, venue has tour name"
+    },
+    "NWMetalCalendar-NWMetal.ics Defeated Sanity, Revocation, Fuming Mouth, Weeping|2026-09-23T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Revocation - 20 Years of Torment with Defeated Sanity, Fuming Mouth, Weeping|2026-09-23T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same show at El Corazon; NWMetal lists headliners, venue uses tour name"
+    },
+    "NWMetalCalendar-NWMetal.ics Dying Fetus, Sanguisugabogg, Crowbar, Left To Suffer, Deterioration|2026-10-06T19:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Dying Fetus & Sanguisugabogg with Crowbar, Left to Suffer, Deterioration|2026-10-06T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same show at Showbox SoDo; 30-min time variance is doors vs showtime"
+    },
+    "NWMetalCalendar-NWMetal.ics Fear Factory, Darkest Hour, Brotality, Lacabra|2026-11-20T19:00-08:00[America/Los_Angeles]::el-corazon-el-corazon.ics Fear Factory - Cybernetic Domination Tour 2026 with Darkest Hour, Brotality, Lacabra|2026-11-20T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same show at El Corazon; same lineup"
+    },
+    "NWMetalCalendar-NWMetal.ics GWAR, Midnight, Mac Sabbath, Atomic Rule|2026-11-23T19:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics GWAR with Midnight, Mac Sabbath, Atomic Rule|2026-11-23T19:45:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same show at Showbox SoDo; 45-min variance is doors vs showtime"
+    },
+    "NWMetalCalendar-NWMetal.ics Sigh, Dreadnought|2026-07-28T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Sigh with Dreadnought, Undulation|2026-07-28T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same show at El Corazon; NWMetal missing Undulation from lineup"
+    },
+    "NWMetalCalendar-NWMetal.ics Uncle Acid and the Deadbeats, Messa|2026-09-26T19:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Uncle Acid & the Deadbeats with Messa|2026-09-26T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same show at The Showbox; title variant"
+    },
+    "NWMetalCalendar-NWMetal.ics Whitechapel, Chelsea Grin, The Acacia Strain, Netherwalker|2026-12-05T19:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Whitechapel with Netherwalker, The Acacia Strain, Chelsea Grin|2026-12-05T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same show at Showbox SoDo; same lineup"
+    },
+    "barboza-barboza.ics Flower Face with Special Guests|2026-10-20T19:00:00-07:00[America/Los_Angeles]::neumos-neumos.ics SLIFT with Special Guests|2026-10-20T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-20",
+      "note": "Different artists at co-located venues: Flower Face at Barboza vs SLIFT at Neumos \u2014 both at 925 E Pike St but separate venues, separate events"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Don Toliver: Octane Tour|2026-06-24T19:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Don Toliver|2026-06-24T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same concert at Climate Pledge Arena on 2026-06-24; title variant (full tour name vs short name)"
+    },
+    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 6/24/2026 7:30PM|2026-06-24T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle \u2014 Cheap Laughs Open Mic|2026-06-24T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same weekly open mic event; title and time vary slightly between Eventbrite listing and recurring entry"
+    },
+    "discover-slu-discover-slu.ics Gobble Up SLU 2026|2026-06-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Gobble Up SLU 2026|2026-06-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event listed by discover-slu and seatoday aggregator"
+    },
+    "discover-slu-discover-slu.ics Gobble Up SLU 2026|2026-06-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Gobble Up SLU 2026|2026-06-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event listed by discover-slu and seatoday aggregator"
+    },
+    "discover-slu-discover-slu.ics Gobble Up SLU 2026|2026-06-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Gobble Up SLU 2026|2026-06-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event listed by discover-slu and seatoday aggregator"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Trading Post|2026-09-12T12:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Trading Post|2026-09-12T19:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event from two sources; both link to downtownseattle.org URL"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Trading Post|2026-10-17T12:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Trading Post|2026-10-17T19:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event from two sources; both link to downtownseattle.org URL"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Trading Post|2026-12-12T12:00-08:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Trading Post|2026-12-12T19:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event from two sources; both link to downtownseattle.org URL"
+    },
+    "downtown-seattle-association-occidental-square.ics Pitchside at the Square|2026-06-24T10:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Pitchside at the Square|2026-06-24T17:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event from two sources; both link to downtownseattle.org URL"
+    },
+    "downtown-seattle-association-occidental-square.ics Pitchside at the Square|2026-07-01T11:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Pitchside at the Square|2026-07-01T18:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event from two sources; both link to downtownseattle.org URL"
+    },
+    "downtown-seattle-association-occidental-square.ics Pitchside at the Square|2026-07-06T15:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Pitchside at the Square|2026-07-06T22:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-20",
+      "note": "Same event from two sources; both link to downtownseattle.org URL"
     }
   }
 }
