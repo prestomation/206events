@@ -27,6 +27,7 @@ calendars:
   - name: crocodile-madame-lous
     friendlyname: "Madame Lou's"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       venueId: "KovZ917AYIq"
       venueName: "Madame Lou's"
