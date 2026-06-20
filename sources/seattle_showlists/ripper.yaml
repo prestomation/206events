@@ -71,6 +71,7 @@ calendars:
   # Belltown Yacht Club: now covered by dedicated DICE ripper at sources/belltown_yacht_club/
   - name: hotel-crocodile
     friendlyname: "Hotel Crocodile"
+    expectEmpty: true
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/74/Crocodile_Cafe.jpg"
     geo:
       lat: 47.6146
