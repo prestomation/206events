@@ -36,6 +36,10 @@ export default class BlackTanHallRipper implements IRipper {
 
         for (const event of rawEvents) {
             if (event['@type'] !== 'Event') continue;
+            if (!event.url) {
+                errors.push({ type: "ParseError", reason: "Event missing URL", context: event.name });
+                continue;
+            }
             if (seen.has(event.url)) continue;
             seen.add(event.url);
 
