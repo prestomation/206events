@@ -555,6 +555,26 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'workhorse coworking, 123 2nd avenue south, #suite 230, edmonds, wa': { lat: 47.8107897, lng: -122.3809867 },
   // Seatoday intersection: Nominatim can't parse "Ave. North" suffix — bus stop node confirms coords
   'west crockett street and queen anne ave. north, seattle, wa': { lat: 47.6368215, lng: -122.3570590 },
+  // Farmers market intersection addresses — Nominatim doesn't resolve "between X & Y" format
+  'ballard ave nw between 20th ave nw & 22nd ave nw, seattle': { lat: 47.6663, lng: -122.3849 },
+  'e barbara bailey way between broadway & 10th ave e, seattle': { lat: 47.6210, lng: -122.3214 },
+  '37th ave s & s edmunds st, seattle': { lat: 47.5600, lng: -122.2874 },
+  'university way ne between ne 50th st & ne 52nd st, seattle': { lat: 47.6641, lng: -122.3133 },
+  // Georgetown Carnival grounds intersection
+  'airport way s & 12th ave s, georgetown, seattle, wa 98108': { lat: 47.5451, lng: -122.3230 },
+  // Outdoor art walks — neighborhood-level centroids
+  'phinney/greenwood neighborhoods, seattle': { lat: 47.6750, lng: -122.3560 },
+  '16th ave sw, white center, seattle, wa': { lat: 47.5187, lng: -122.3658 },
+  // Seattle Center campus — Fisher Pavilion building not indexed by Nominatim
+  'seattle center, fisher pavilion, 305 harrison st, seattle, wa 98109': { lat: 47.6222, lng: -122.3533 },
+  // Founders Court is an outdoor plaza inside Seattle Center grounds
+  'founders court': { lat: 47.6196, lng: -122.3513 },
+  // Pike Place Market constituency office (suite + floor suffix trips Nominatim)
+  'pike place market, 93 pike street #317, 3rd floor, seattle, wa 98101': { lat: 47.6097, lng: -122.3422 },
+  // The Rendezvous: 2320 2nd Ave, Belltown (short name — Nominatim misses without full address)
+  'the rendezvous': { lat: 47.6148, lng: -122.3479 },
+  // Freighthouse Square event center in Tacoma
+  'freighthouse square': { lat: 47.2454, lng: -122.4143 },
 };
 
 /**

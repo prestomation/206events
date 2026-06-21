@@ -103,7 +103,16 @@ export default class Events12Ripper extends HTMLRipper {
                 if (locationElement) {
                     const locationText = locationElement.text.trim();
                     if (mapLink) {
-                        location = mapLink.getAttribute('href') || '';
+                        // Extract the precise address from the Google Maps query param
+                        // (e.g. query=Seattle+Convention+Center%2C+705+Pike+St%2C+Seattle+WA)
+                        // rather than storing the raw URL as the event location.
+                        const href = mapLink.getAttribute('href') || '';
+                        try {
+                            const queryParam = new URL(href).searchParams.get('query');
+                            location = queryParam ?? locationText;
+                        } catch {
+                            location = locationText;
+                        }
                         description = locationText + '\n\n';
                     } else {
                         location = locationText;
