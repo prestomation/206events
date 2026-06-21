@@ -1,0 +1,16 @@
+name: black-tan-hall
+sourceRole: venue
+description: "Black & Tan Hall"
+url: "https://events.humanitix.com/host/black-and-tan-hall"
+friendlyLink: https://events.humanitix.com/host/black-and-tan-hall
+tags: ["Music", "Arts", "Community", "Columbia City"]
+geo:
+  lat: 47.5517578
+  lng: -122.2775615
+  label: "Black & Tan Hall, 5608 Rainier Ave S, Seattle, WA 98118"
+  osmType: node
+  osmId: 2429641109
+calendars:
+  - name: all-events
+    friendlyname: "Black & Tan Hall"
+    timezone: America/Los_Angeles
