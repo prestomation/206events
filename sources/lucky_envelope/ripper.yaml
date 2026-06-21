@@ -13,6 +13,7 @@ geo:
   osmType: node
   osmId: 4321475708
 imageUrl: "https://static1.squarespace.com/static/630403f15865200f779338ce/t/637e89f98f9fba3705f9dd4b/1669237241795/LEB_CIB_BlueBG_Horizontal.png?format=1500w"
+expectEmpty: true
 calendars:
   - name: all-events
     friendlyname: "Lucky Envelope Brewing"

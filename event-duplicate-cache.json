@@ -3974,6 +3974,176 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-21",
       "note": "Same event in seatoday sub-calendars (all + themed calendar) \u2014 identical title, location, URL"
+    },
+    "19hz-all-events.ics 100% Pure Love Pride Edition: Jasmine Infiniti, Exis|2026-06-27T22:00:00-07:00[America/Los_Angeles]::rendezvous-all-events.ics 100% Pure Love : Pride Edition|2026-06-27T22:00:00.028-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event; 19hz aggregator + Rendezvous venue listing, 122m apart, same time, overlapping title with artist names"
+    },
+    "19hz-all-events.ics Northern Cold, IN_DUAL, Thalestriss|2026-07-18T22:00:00-07:00[America/Los_Angeles]::rendezvous-all-events.ics EONS Label Presents: Northern Cold, IN_DUAL, and Thalestriss|2026-07-18T22:00:00.909-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event; 19hz aggregator + Rendezvous venue listing, 122m apart, same artists in title"
+    },
+    "external-seattle-city-of-lit.ics  Books & Beats|2026-08-19T21:30:00Z[UTC]::spl-authors-books-authors-books.ics Books & Beats|2026-08-19T14:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event; SPL Authors & Books + Seattle City of Lit cross-listing, identical title, same location string"
+    },
+    "external-seattle-gov-arts.ics Creative Placemaking Committee (CPC)|2026-08-18T16:00:00Z[UTC]::external-seattle-gov-city-wide.ics Creative Placemaking Committee (CPC)|2026-08-18T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics First Thursday: Free Zines & Mobile Book Fair|2026-08-06T17:30:00Z[UTC]::external-seattle-gov-city-wide.ics First Thursday: Free Zines & Mobile Book Fair|2026-08-06T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics First Thursday: The Living Legacy of Joe Brazil|2026-08-06T17:30:00Z[UTC]::external-seattle-gov-city-wide.ics First Thursday: The Living Legacy of Joe Brazil|2026-08-06T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics Freeway Park 50 Years: Legacy of Dance | CO- Performance & Party: SHOW14|2026-07-18T19:00:00Z[UTC]::external-seattle-gov-city-wide.ics Freeway Park 50 Years: Legacy of Dance | CO- Performance & Party: SHOW14|2026-07-18T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics Freeway Park 50 Years: Legacy of Dance | Dance Workshop 1: Body & Space|2026-07-23T17:00:00Z[UTC]::external-seattle-gov-city-wide.ics Freeway Park 50 Years: Legacy of Dance | Dance Workshop 1: Body & Space|2026-07-23T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics Freeway Park 50 Years: Legacy of Dance | Dance Workshop 2: Scoring - Creative Tools for Artful Living|2026-07-30T17:00:00Z[UTC]::external-seattle-gov-city-wide.ics Freeway Park 50 Years: Legacy of Dance | Dance Workshop 2: Scoring - Creative Tools for Artful Living|2026-07-30T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics Freeway Park 50 Years: Legacy of Dance | Pile Up with Heap Troupe: a Velocity Dance Center residency show|2026-07-26T18:00:00Z[UTC]::external-seattle-gov-city-wide.ics Freeway Park 50 Years: Legacy of Dance | Pile Up with Heap Troupe: a Velocity Dance Center residency show|2026-07-26T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics Freeway Park 50 Years: Legacy of Dance | Planetary Dance and Potluck: A community ritual for peace|2026-08-06T14:00:00Z[UTC]::external-seattle-gov-city-wide.ics Freeway Park 50 Years: Legacy of Dance | Planetary Dance and Potluck: A community ritual for peace|2026-08-06T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics PrideFest 2026|2026-06-28T12:00:00Z[UTC]::seattle-center-seattle-center-events.ics PrideFest 2026|2026-06-28T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event; Seattle gov arts feed + Seattle Center venue calendar, 180m, identical title"
+    },
+    "external-seattle-gov-arts.ics Seattle Arts Commission|2026-08-11T16:00:00Z[UTC]::external-seattle-gov-city-wide.ics Seattle Arts Commission|2026-08-11T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics Seattle Chinatown International District Preservation and Development Authority | CID FIFA World Cup Watch Parties|2026-07-10T11:30:00Z[UTC]::external-seattle-gov-city-wide.ics Seattle Chinatown International District Preservation and Development Authority | CID FIFA World Cup Watch Parties|2026-07-10T11:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics Setting of the Daybreak Star: The Neighborhood Kids|2026-08-13T18:00:00Z[UTC]::external-seattle-gov-city-wide.ics Setting of the Daybreak Star: The Neighborhood Kids|2026-08-13T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-08-13T15:00:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-08-13T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics Union Cultural Center | Rooted in Rhythm - An Afro-Diasporic tour through music and dance|2026-06-27T17:00:00Z[UTC]::external-seattle-gov-city-wide.ics Union Cultural Center | Rooted in Rhythm - An Afro-Diasporic tour through music and dance|2026-06-27T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Draft Review Session|2026-08-06T12:30:00Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Draft Review Session|2026-08-06T12:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Information Session|2026-08-06T11:30:00Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Information Session|2026-08-06T11:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-arts and seattle-gov-city-wide feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-08-06T19:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-08-06T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-city-wide and seattle-gov-neighborhoods feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-08-13T19:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-08-13T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-city-wide and seattle-gov-neighborhoods feeds \u2014 identical title, time, location"
+    },
+    "external-seattle-gov-city-wide.ics PrideFest 2026|2026-06-28T12:00:00Z[UTC]::seattle-center-seattle-center-events.ics PrideFest 2026|2026-06-28T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event; Seattle gov city-wide feed + Seattle Center venue calendar, 180m, identical title"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Bicycle Advisory Board|2026-08-18T17:45:00Z[UTC]::external-seattle-streets-alliance.ics Seattle Bicycle Advisory Board Meeting|2026-08-18T17:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event; Seattle gov city-wide + Streets Alliance, identical time, same meeting (slight title variation)"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Renters' Commission meeting|2026-08-05T18:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Seattle Renters' Commission meeting|2026-08-05T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seattle-gov-city-wide and seattle-gov-neighborhoods feeds \u2014 identical title, time, location"
+    },
+    "external-visit-ballard.ics Ballard Regnbue: PRIDE FESTIVAL & SOCCER WATCH PARTY|2026-06-26T11:30:00Z[UTC]::seattle-pride-all-events.ics Ballard Regnbue: Pride Festival & Pride Match Day Soccer Watch Party|2026-06-26T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event; visit-ballard aggregator + seattle-pride listing, 140m, same time, overlapping title"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seatoday sub-calendars (all + themed calendar) \u2014 identical title, location, URL"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seatoday sub-calendars (all + themed calendar) \u2014 identical title, location, URL"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event in seatoday sub-calendars (themed \u2194 themed) \u2014 identical title, location, URL"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-26T19:30:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-26T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same show; Seattle Center venue calendar + Seattle Rep ripper, 3m apart, same time"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-27T14:00:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-27T14:00-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same show; Seattle Center venue calendar + Seattle Rep ripper, 3m apart, same time"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-27T19:30:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-27T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same show; Seattle Center venue calendar + Seattle Rep ripper, 3m apart, same time"
+    },
+    "seattle-center-seattle-center-events.ics The Play That Goes Wrong|2026-06-28T14:00:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Back By Popular Demand! The Play That Goes Wrong|2026-06-28T14:00-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same show; Seattle Center venue calendar + Seattle Rep ripper, 3m apart, same time"
+    },
+    "seattle-showlists-the-rabbit-box.ics The Triple Door presents Tracy Bonham at The Rabbit Box|2026-08-20T20:00:00-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Tracy Bonham at The Rabbit Box|2026-08-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-21",
+      "note": "Same event; seattle-showlists aggregator + Triple Door ripper, same venue (Rabbit Box, 94 Pike St), doors vs showtime (19:30/20:00)"
+    },
+    "spl-delridge.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-07-06T10:00:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-07-06T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-21",
+      "note": "Different SPL branches (Delridge vs Rainier Beach), 8.3km apart, different start times (10:00 vs 10:30) \u2014 same program running at two distinct locations"
     }
   }
 }
