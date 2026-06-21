@@ -1,6 +1,6 @@
 ---
 name: "Wa Na Wari"
-status: candidate
+status: notviable
 platform: Squarespace
 url: https://wanawari.org/wnw-events
 tags: [Arts, Community, "Central District"]
