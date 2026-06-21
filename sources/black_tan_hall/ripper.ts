@@ -3,49 +3,18 @@ import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } fro
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
+import { extractHumanitixEvents, stripDatePrefix } from "../fremont_abbey/ripper.js";
 
-interface HumanitixEvent {
-    "@type": string;
-    name: string;
-    url: string;
-    startDate: string;
-    endDate?: string;
-    description?: string;
-    image?: string;
-    location?: {
-        name?: string;
-        address?: {
-            streetAddress?: string;
-        };
-    };
-}
-
+// Humanitix emits offsets like "-0700" (no colon); js-joda requires "-07:00".
 function normalizeIsoOffset(dateStr: string): string {
     return dateStr.replace(/([+-])(\d{2})(\d{2})$/, '$1$2:$3');
 }
 
-function extractEvents(html: string): { events: HumanitixEvent[]; parseError?: RipperError } {
-    const scriptRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-    let match: RegExpExecArray | null;
-    while ((match = scriptRegex.exec(html)) !== null) {
-        try {
-            const data: unknown = JSON.parse(match[1]);
-            if (data !== null && typeof data === 'object' && !Array.isArray(data) &&
-                (data as Record<string, unknown>)['@type'] === 'ItemList') {
-                const items = (data as { itemListElement?: Array<Record<string, unknown>> }).itemListElement ?? [];
-                const events: HumanitixEvent[] = [];
-                for (const listItem of items) {
-                    const event = ((listItem['item'] ?? listItem) as HumanitixEvent);
-                    if (event?.['@type'] === 'Event') events.push(event);
-                }
-                if (events.length > 0) return { events };
-            }
-        } catch { /* skip malformed JSON-LD */ }
-    }
-    return {
-        events: [],
-        parseError: { type: "ParseError", reason: "No Humanitix ItemList JSON-LD found on page", context: "black-tan-hall" }
-    };
+function formatLocation(location: { name?: string; address?: { streetAddress?: string } } | undefined): string | undefined {
+    if (!location) return undefined;
+    const street = location.address?.streetAddress ?? '';
+    if (!street || street.toLowerCase().includes('varies')) return undefined;
+    return location.name ? `${location.name}, ${street}` : street;
 }
 
 export default class BlackTanHallRipper implements IRipper {
@@ -60,7 +29,7 @@ export default class BlackTanHallRipper implements IRipper {
         if (!res.ok) throw new Error(`Black & Tan Hall returned HTTP ${res.status}`);
 
         const html = await res.text();
-        const { events: rawEvents, parseError } = extractEvents(html);
+        const { events: rawEvents, parseError } = extractHumanitixEvents(html);
         const errors: RipperError[] = parseError ? [parseError] : [];
         const events: RipperCalendarEvent[] = [];
         const seen = new Set<string>();
@@ -90,20 +59,15 @@ export default class BlackTanHallRipper implements IRipper {
             }
 
             const slug = event.url.split('/').filter(Boolean).pop() ?? '';
-            const location = event.location?.address?.streetAddress
-                ? (event.location.name
-                    ? `${event.location.name}, ${event.location.address.streetAddress}`
-                    : event.location.address.streetAddress)
-                : undefined;
 
             events.push({
                 id: `black-tan-hall-${slug}`,
                 ripped: new Date(),
                 date: startZdt,
                 duration,
-                summary: decode(event.name),
+                summary: decode(stripDatePrefix(event.name)),
                 description: event.description ? decode(event.description).substring(0, 500) : undefined,
-                location,
+                location: formatLocation(event.location),
                 url: event.url,
                 imageUrl: event.image,
                 cost: { paid: true },
