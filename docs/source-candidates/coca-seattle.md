@@ -2,7 +2,7 @@
 name: "Center on Contemporary Art (CoCA) Seattle"
 status: candidate
 firstSeen: 2026-05-16
-lastChecked: 2026-06-16
+lastChecked: 2026-06-21
 tags: [Arts]
 ---
 **Center on Contemporary Art (CoCA) Seattle** — `https://www.cocaseattle.org/events` — Seattle contemporary art center. Squarespace site.
@@ -22,3 +22,5 @@ Re-checked 2026-06-09: Still 0 upcoming events. Monitor for summer/fall programm
 Re-checked 2026-06-13: Still 0 upcoming events.
 
 Re-checked 2026-06-16: Still 0 upcoming events.
+
+Re-checked 2026-06-21: Still 0 upcoming events. Monitor for fall programming announcements.
