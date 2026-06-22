@@ -1,0 +1,20 @@
+geo:
+  lat: 47.6150
+  lng: -122.3153
+  label: "11th Ave between E Pike St and E Pine St, Capitol Hill, Seattle, WA 98122"
+name: on-the-block-capitol-hill
+sourceRole: venue
+friendlyname: On the Block Creative Marketplace
+description: Monthly outdoor vendor market on Capitol Hill's Pike/Pine corridor featuring local art, vintage, streetwear, live music, and a 3v3 basketball bracket. Free and all ages. Every second Saturday, June through September.
+timezone: America/Los_Angeles
+location: 11th Ave between E Pike St and E Pine St, Capitol Hill, Seattle, WA 98122
+url: https://www.ontheblockseattle.org/
+tags:
+  - MakersMarket
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: "2nd Saturday"
+    start_time: "12:00"
+    duration: PT6H
+    months: [6, 7, 8, 9]
