@@ -236,12 +236,16 @@ export function buildTagsJson(opts: {
     }
   }
 
-  // Emit one entry per tag that's actually used by a calendar. Tags don't
-  // need to be pre-registered — the build derives the tag universe from
-  // the configs themselves.
+  // Emit one entry per tag that has at least one event in this build.
+  // Tags declared in configs but producing 0 events (e.g. outofband sources
+  // whose S3 artifact hasn't arrived yet) are omitted — their ICS files
+  // don't exist, so including them in tags.json would produce dangling hrefs
+  // that fail the discovery-API check.
   const tagsToEmit = [...calendarCountPerTag.keys()].filter(tag => {
     if (!includeAll && tag === "All") return false;
-    return true;
+    const slug = tagSlug(tag);
+    const count = aggregateCount.get(`tag-${slug}`) ?? 0;
+    return count > 0;
   });
 
   const entries: TagEntry[] = tagsToEmit
