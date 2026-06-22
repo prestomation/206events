@@ -255,15 +255,28 @@ describe("buildTagsJson", () => {
     expect(withAllDoc.tags.map(t => t.name)).toContain("All");
   });
 
-  it("defaults eventCount to 0 when no matching Aggregate entry exists", () => {
+  it("omits tags with zero events so tags.json never references a non-existent ICS", () => {
     const doc = buildTagsJson({
       manifest: baseManifest,
-      eventCounts: [], // no aggregates known
+      eventCounts: [], // no aggregates known → all tags have 0 events
       generated: "t",
     });
-    for (const tag of doc.tags) {
-      expect(tag.eventCount).toBe(0);
-    }
+    // All tags are excluded because no ICS files exist for them.
+    expect(doc.tags).toHaveLength(0);
+  });
+
+  it("includes a tag with events and omits one without", () => {
+    const partialCounts: EventCountLike[] = [
+      { name: "tag-music", type: "Aggregate", events: 5 },
+      // HOOD and Beer have no aggregate entry → 0 events → omitted
+    ];
+    const doc = buildTagsJson({
+      manifest: baseManifest,
+      eventCounts: partialCounts,
+      generated: "t",
+    });
+    expect(doc.tags.map(t => t.name)).toEqual(["Music"]);
+    expect(doc.tags[0].eventCount).toBe(5);
   });
 
   it("produces JSON with no undefined values", () => {
