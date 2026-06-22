@@ -1,16 +1,16 @@
+# verified: 2026-06-22 drift-fixed (location 1429 12th Ave W→600 W Nickerson St, Seattle, WA 98119)
 imageUrl: "https://static.wixstatic.com/media/256e5b_794d6cd1f3894d92b1c220e1a7\
   5f781e~mv2.jpg"
 geo:
-  lat: 47.6374509
-  lng: -122.3728439
-  label: "1429 12th Ave W, Seattle, WA 98119"
-  osmChecked: "2026-06-16"
+  lat: 47.6521302
+  lng: -122.3645639
+  label: "600 W Nickerson St, Seattle, WA 98119"
 name: hitc-trivia-old-stove-ship-canal
 sourceRole: venue
 friendlyname: Trivia at Old Stove Brewing Ship Canal
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles
-location: 1429 12th Ave W, Seattle, WA 98119
+location: 600 W Nickerson St, Seattle, WA 98119
 url: https://www.headinthecloudstrivia.com
 tags:
   - Trivia
