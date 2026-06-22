@@ -1,16 +1,16 @@
+# verified: 2026-06-22 drift-fixed (location 800 Occidental Ave S→1201 1st Ave, Seattle, WA 98101); flagged (SoDo tag stale — venue is now Downtown, needs human tag update)
 imageUrl: "https://reubensbrews.com/wp-content/uploads/2026/01/240516_Taproom58\
   66-scaled.jpg"
 geo:
-  lat: 47.5953459
-  lng: -122.3316443
-  label: "800 Occidental Ave S, Seattle, WA 98134"
-  osmChecked: "2026-06-16"
+  lat: 47.6061595
+  lng: -122.3378263
+  label: "1201 1st Ave, Seattle, WA 98101"
 name: hitc-trivia-reubens-downtown
 sourceRole: venue
 friendlyname: Trivia at Reuben's Brews Downtown
 description: Weekly pub trivia hosted by Head in the Clouds Trivia
 timezone: America/Los_Angeles
-location: 800 Occidental Ave S, Seattle, WA 98134
+location: 1201 1st Ave, Seattle, WA 98101
 url: https://www.headinthecloudstrivia.com
 tags:
   - Trivia
