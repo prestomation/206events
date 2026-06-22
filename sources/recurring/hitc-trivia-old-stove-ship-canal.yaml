@@ -5,6 +5,8 @@ geo:
   lat: 47.6521302
   lng: -122.3645639
   label: "600 W Nickerson St, Seattle, WA 98119"
+  osmType: node
+  osmId: 9777900720
 name: hitc-trivia-old-stove-ship-canal
 sourceRole: venue
 friendlyname: Trivia at Old Stove Brewing Ship Canal

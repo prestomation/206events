@@ -1,8 +1,10 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Seattle_-_Wallingford_sign_01.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Seattle_-_Wallin\
+  gford_sign_01.jpg"
 geo:
   lat: 47.6603
   lng: -122.3338
   label: "Wallingford, Seattle, WA"
+  osmChecked: "2026-06-22"
 name: wallingford-artwalk
 sourceRole: venue
 friendlyname: Wallingford Art Walk

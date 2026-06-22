@@ -1,8 +1,10 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/89/SR_522_%28Lake_City_Way%29_in_Lake_City%2C_Seattle_-_01.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/89/SR_522_%28Lake_C\
+  ity_Way%29_in_Lake_City%2C_Seattle_-_01.jpg"
 geo:
   lat: 47.719
   lng: -122.2976
   label: "Lake City, Seattle, WA"
+  osmChecked: "2026-06-22"
 name: lake-city-artwalk
 sourceRole: venue
 friendlyname: Lake City Art Walk

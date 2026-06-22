@@ -1,8 +1,10 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/30/50th_and_Phinney%2C_1935.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/30/50th_and_Phinney\
+  %2C_1935.jpg"
 geo:
   lat: 47.6699
   lng: -122.3551
   label: "Phinney Ridge, Seattle, WA"
+  osmChecked: "2026-06-22"
 name: phinney-greenwood-artwalk
 sourceRole: venue
 friendlyname: Phinney/Greenwood Art Walk
