@@ -1,4 +1,4 @@
-# verified: 2026-06-22 drift-fixed (location 800 Occidental Ave S→1201 1st Ave, Seattle, WA 98101); flagged (SoDo tag stale — venue is now Downtown, needs human tag update)
+# verified: 2026-06-22 drift-fixed (location 800 Occidental Ave S→1201 1st Ave, Seattle, WA 98101; SoDo→Downtown tag)
 imageUrl: "https://reubensbrews.com/wp-content/uploads/2026/01/240516_Taproom58\
   66-scaled.jpg"
 geo:
@@ -15,7 +15,7 @@ url: https://www.headinthecloudstrivia.com
 tags:
   - Trivia
   - Pub Trivia
-  - SoDo
+  - Downtown
 cost: free
 schedules:
   - schedule: every Wednesday

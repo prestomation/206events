@@ -172,6 +172,23 @@ Each entry in the body MUST include:
 
 The reviewer should be able to click each URL and confirm the stamp in under a minute.
 
+### 8. Send a push notification if anything needs human attention
+
+After pushing, call `PushNotification` if the batch contains any `flagged`, `deleted`, or `source gone` entries — those need a human to confirm or act on. Silence is correct when the entire batch is `ok` / `drift-fixed` / `unverifiable`.
+
+Use `<routine_summary>` tags in the message body. Lead with the count, then list each flagged/deleted entry with its reason:
+
+```
+<routine_summary>
+Calendar verification: 2 entries need human review (batch of 10).
+
+1. some-venue — flagged: page says "second or third Wednesday depending on month" — ambiguous schedule, needs decision. https://example.com/calendar
+2. dead-venue — deleted (trivia ended May 26, 2026). allowed-removals/recurring-dead-venue.ics added. PR: https://github.com/prestomation/206events/pull/NNN
+</routine_summary>
+```
+
+If all entries resolved cleanly (no flags, no deletions), do **not** send a notification — leave the user in peace.
+
 ## Safety rules
 
 - **`name` rename → mandatory `allowed-removals/<old-filename>` entry.** Subscribers' ICS URLs break otherwise. AGENTS.md is strict on this.
