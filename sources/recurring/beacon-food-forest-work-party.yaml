@@ -1,0 +1,20 @@
+geo:
+  lat: 47.5674923
+  lng: -122.3133592
+  label: "Beacon Food Forest, 15th Ave S & S Dakota St, Seattle, WA 98108"
+name: beacon-food-forest-work-party
+sourceRole: venue
+friendlyname: Beacon Food Forest Third Saturday Work Party
+description: Free monthly community volunteer work party at Seattle's 7-acre public food forest. Help with gardening, harvesting, and stewardship. All experience levels welcome.
+timezone: America/Los_Angeles
+location: 15th Ave S & S Dakota St, Seattle, WA 98108
+url: https://www.beaconfoodforest.org/work-parties
+tags:
+  - Community
+  - Beacon Hill
+  - Parks
+cost: free
+schedules:
+  - schedule: 3rd Saturday
+    start_time: "10:00"
+    duration: PT4H
