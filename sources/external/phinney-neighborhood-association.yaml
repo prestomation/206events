@@ -2,11 +2,14 @@ geo:
   lat: 47.6771417
   lng: -122.3540013
   label: "Phinney Neighborhood Center, 6532 Phinney Ave N, Seattle, WA 98103"
+  osmChecked: "2026-06-22"
 name: phinney-neighborhood-association
 sourceRole: venue
 friendlyname: Phinney Neighborhood Association
-description: Community events, classes, workshops, and programs at the Phinney Neighborhood Center, serving the Phinney Ridge and Greenwood neighborhoods.
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Seattle_-_Phinney_Neighborhood_Center_%28John_B._Allen_School%29_01.jpg"
+description: Community events, classes, workshops, and programs at the Phinney
+  Neighborhood Center, serving the Phinney Ridge and Greenwood neighborhoods.
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Seattle_-_Phinne\
+  y_Neighborhood_Center_%28John_B._Allen_School%29_01.jpg"
 icsUrl: https://www.phinneycenter.org/?post_type=tribe_events&ical=1&eventDisplay=list
 infoUrl: https://www.phinneycenter.org/events/
 tags:

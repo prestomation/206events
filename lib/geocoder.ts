@@ -580,6 +580,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Freighthouse Square: Tacoma event center. Events emit only the bare name (same bare-key
   // constraint as above). Prefix-match would only fire if a separator follows the name.
   'freighthouse square': { lat: 47.2454, lng: -122.4143 },
+  // On the Block Creative Marketplace: outdoor vendor market on Capitol Hill's Pike/Pine corridor.
+  // Nominatim can't resolve "between X and Y" street-segment format.
+  '11th ave between e pike st and e pine st, capitol hill, seattle, wa 98122': { lat: 47.6150, lng: -122.3153 },
 };
 
 /**

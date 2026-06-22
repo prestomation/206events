@@ -1,9 +1,11 @@
 # verified: 2026-05-11 drift-fixed (duration PT4H→PT3H)
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Belltown_with_Monorail_on_5th_Avenue_looking_south_-_Seattle.JPG"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Belltown_with_Mo\
+  norail_on_5th_Avenue_looking_south_-_Seattle.JPG"
 geo:
   lat: 47.6132
   lng: -122.3473
   label: "Belltown, Seattle, WA"
+  osmChecked: "2026-06-22"
 name: belltown-artwalk
 sourceRole: venue
 friendlyname: Belltown Art Walk

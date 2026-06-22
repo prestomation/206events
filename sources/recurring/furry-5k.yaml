@@ -1,13 +1,16 @@
 # verified: 2026-06-01 ok
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a6/2021_Seward_Park_Torii_Front.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a6/2021_Seward_Park\
+  _Torii_Front.jpg"
 geo:
   lat: 47.5519457
   lng: -122.2553282
   label: "Seward Park, 5900 Lake Washington Blvd S, Seattle, WA 98118"
+  osmChecked: "2026-06-22"
 name: furry-5k
 sourceRole: venue
 friendlyname: Furry 5K Fun Run & Walk
-description: Annual dog-friendly 5K run/walk at Seward Park benefiting the Seattle Animal Shelter Foundation. Held the second Sunday of June.
+description: Annual dog-friendly 5K run/walk at Seward Park benefiting the
+  Seattle Animal Shelter Foundation. Held the second Sunday of June.
 timezone: America/Los_Angeles
 location: Seward Park, 5900 Lake Washington Blvd S, Seattle, WA 98118
 url: https://furry5k.com/
@@ -20,4 +23,4 @@ schedules:
   - schedule: 2nd Sunday
     start_time: "11:30"
     duration: PT3H
-    months: [ 6 ]
+    months: [6]

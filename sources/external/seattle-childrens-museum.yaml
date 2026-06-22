@@ -2,6 +2,8 @@ geo:
   lat: 47.6213
   lng: -122.3518
   label: Seattle Children's Museum, 305 Harrison St, Seattle, WA 98109
+  osmType: node
+  osmId: 2494550791
 name: seattle-childrens-museum
 sourceRole: venue
 proxy: browserbase

@@ -1,8 +1,11 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Pike_Place_Market_Seattle.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Pike_Place_Marke\
+  t_Seattle.jpg"
 geo:
   lat: 47.6094
   lng: -122.3417
   label: "Pike Place Market, Seattle, WA 98101"
+  osmType: way
+  osmId: 363400641
 name: pike-place-artwalk
 sourceRole: venue
 friendlyname: Pike Place Summer Art Walk

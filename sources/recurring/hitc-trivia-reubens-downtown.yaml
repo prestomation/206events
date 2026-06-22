@@ -5,6 +5,8 @@ geo:
   lat: 47.6061595
   lng: -122.3378263
   label: "1201 1st Ave, Seattle, WA 98101"
+  osmType: node
+  osmId: 2404255590
 name: hitc-trivia-reubens-downtown
 sourceRole: venue
 friendlyname: Trivia at Reuben's Brews Downtown

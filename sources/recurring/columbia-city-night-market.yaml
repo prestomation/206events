@@ -1,13 +1,18 @@
 # verified: 2026-05-17 ok
-imageUrl: "https://images.squarespace-cdn.com/content/v1/639b4c8ec4f6810729be2b60/1703201728141-ZXMMTHS22LUJO8YJXBAH/156_Peace-Peloton_2023-07-15_CC-Night-Market_%28CBBell%29.jpg"
+imageUrl: "https://images.squarespace-cdn.com/content/v1/639b4c8ec4f6810729be2b\
+  60/1703201728141-ZXMMTHS22LUJO8YJXBAH/156_Peace-Peloton_2023-07-15_CC-Night-M\
+  arket_%28CBBell%29.jpg"
 geo:
   lat: 47.5596
   lng: -122.2893
   label: "Columbia City, Seattle, WA"
+  osmChecked: "2026-06-22"
 name: columbia-city-night-market
 sourceRole: venue
 friendlyname: Columbia City Night Market
-description: Monthly night market organized by Peace Peloton. 60 local vendors, food trucks, beer garden, and live performances. Prioritizes Black-owned businesses. Free, all ages.
+description: Monthly night market organized by Peace Peloton. 60 local vendors,
+  food trucks, beer garden, and live performances. Prioritizes Black-owned
+  businesses. Free, all ages.
 timezone: America/Los_Angeles
 location: Columbia City, Seattle
 url: https://www.peacepeloton.com/night-market
