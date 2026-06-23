@@ -4,7 +4,6 @@ import { parse, HTMLElement } from "node-html-parser";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
-const BASE_URL = "https://lectures.org";
 const TIMEZONE = ZoneId.of("America/Los_Angeles");
 
 // Default start time used when the listing page doesn't show event times.
@@ -45,8 +44,6 @@ function simpleHash(s: string): string {
  */
 export function parseEventsFromHtml(html: HTMLElement): RipperEvent[] {
     const events: RipperEvent[] = [];
-
-    const gridItems = html.querySelectorAll(".grid event-grid .grid-item.event, .main-event-grid .grid-item.event");
 
     // querySelectorAll with compound classes can be finicky; use a broader
     // selector and filter manually to stay compatible with node-html-parser.
@@ -95,7 +92,7 @@ export function parseEventsFromHtml(html: HTMLElement): RipperEvent[] {
             continue;
         }
         const summary = titleEl.textContent.replace(/ /g, " ").trim();
-        if (!summary) continue;
+        if (!summary) { events.push({ type: "ParseError", reason: "Empty event title", context: monthKey }); continue; }
 
         // URL from the primary anchor (first href to /event/)
         const linkEl = item.querySelector("a[href*='/event/']");
