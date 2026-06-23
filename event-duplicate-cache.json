@@ -4304,6 +4304,16 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-23",
       "note": "Same event: Chinatown-ID Seafair Parade on July 19. NW Asian Weekly and Seafair.org both list the same parade at same time, 4m apart in Maynard Ave."
+    },
+    "external-mohai.ics There is No Single American Story: Clint Smith|2026-07-22T19:00:00Z[UTC]::external-seattle-gov-city-wide.ics There is No Single American Story: Clint Smith|2026-07-22T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "MOHAI (venue) and seattle-gov-city-wide (aggregator) list same Clint Smith talk; identical title and timestamp"
+    },
+    "external-seattle-gov-arts.ics The Residency | The Four Corners: We Still Dream of Hip Hop| Part Two|2026-07-08T12:00:00Z[UTC]::external-seattle-gov-city-wide.ics The Residency | The Four Corners: We Still Dream of Hip Hop| Part Two|2026-07-08T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "seattle-gov-arts and seattle-gov-city-wide both aggregate the same Seattle arts event; identical title and timestamp"
     }
   }
 }
