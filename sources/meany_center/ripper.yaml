@@ -1,0 +1,17 @@
+name: meany-center
+sourceRole: venue
+description: "Meany Center for the Performing Arts"
+url: "https://meanycenter.org/tickets/season"
+friendlyLink: https://meanycenter.org/tickets/season
+tags: ["Music", "Dance", "Arts", "University District"]
+imageUrl: "https://meanycenter.org/sites/default/files/images/fy27-cyo_hero_02.jpg"
+geo:
+  lat: 47.6557
+  lng: -122.3107
+  label: "Meany Hall, University of Washington, Seattle, WA 98195"
+  osmType: way
+  osmId: 26447608
+calendars:
+  - name: meany-center
+    friendlyname: "Meany Center for the Performing Arts"
+    timezone: America/Los_Angeles
