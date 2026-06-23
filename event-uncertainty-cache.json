@@ -26877,6 +26877,86 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "reason": "Source listed as all-day event with no precise start time or duration"
+    },
+    "book-larder:book-larder-9349978095834": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "evidence": "https://booklarder.com/products/book-club-kitchen-confidential"
+    },
+    "book-larder:book-larder-9349988483290": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "evidence": "https://booklarder.com/products/book-club-peach-street-to-lobster-lane"
+    },
+    "seattle-chinese-garden:6a35b911ee7e7d1f6fc79533": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "evidence": "https://www.seattlechinesegarden.org/events/chinese-cultural-open-house"
+    },
+    "seattle-chinese-garden:6a35baa4d51ce442fff152d6": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "evidence": "https://www.seattlechinesegarden.org/events/yoga-seattle-chinese-garden"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/52DGRO2TLZJTTRY3ZCDYE4KO": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/52DGRO2TLZJTTRY3ZCDYE4KO"
+    },
+    "ballard-brewed:6a372d1ae2fd70332e24d602": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/women-in-environment"
+    },
+    "couth-buzzard:_6l1k8hhk64p46b9k68p30b9k610j4ba16oo3cb9l6t33ih9m70sj6c218o": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "evidence": "https://www.couthbuzzard.com/event-calendar"
+    },
+    "couth-buzzard:763a77p1j0aj8cglhobutenlb7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "evidence": "https://www.couthbuzzard.com/event-calendar"
     }
   }
 }
