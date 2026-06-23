@@ -4144,6 +4144,161 @@
       "decision": "rejected",
       "resolvedAt": "2026-06-21",
       "note": "Different SPL branches (Delridge vs Rainier Beach), 8.3km apart, different start times (10:00 vs 10:30) \u2014 same program running at two distinct locations"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-09-23T16:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-09-23T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event listed in both UW campus-wide and iSchool feeds"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-06-29T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-06-29T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same weekly trivia night; recurring entry is the hitc (Head in the Clouds) feed, venue feed adds the full name"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Farm Spotlight: Chicken!|2026-07-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Farm Spotlight: Chicken!|2026-07-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-05T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-05T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-05T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-05T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-06T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-06T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-06T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-06T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-05T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-05T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-06T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-06T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-01T09:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-01T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same Seattle Center Watch Party event; seatoday uses general Seattle Center address, venue feed uses specific Mural Amphitheatre location (within same campus, 114m)"
+    },
+    "seatoday-seatoday-arts.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-01T09:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-01T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same Seattle Center Watch Party event; seatoday uses general Seattle Center address, venue feed uses specific Mural Amphitheatre location (within same campus, 114m)"
+    },
+    "seatoday-seatoday-food.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-01T09:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-01T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same Seattle Center Watch Party event; seatoday uses general Seattle Center address, venue feed uses specific Mural Amphitheatre location (within same campus, 114m)"
+    },
+    "seatoday-seatoday-sports.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-01T09:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-01T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same Seattle Center Watch Party event; seatoday uses general Seattle Center address, venue feed uses specific Mural Amphitheatre location (within same campus, 114m)"
+    },
+    "seatoday-seatoday-all.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-learning.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Manchester State Park Low Tide Tour|2026-07-02T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics VIP Ticket Pre-sale Official Seattle Pride Parade Drag Brunch Fundraiser|2026-06-28T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics VIP Ticket Pre-sale Official Seattle Pride Parade Drag Brunch Fundraiser|2026-06-28T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-all.ics VIP Ticket Pre-sale Official Seattle Pride Parade Drag Brunch Fundraiser|2026-06-28T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics VIP Ticket Pre-sale Official Seattle Pride Parade Drag Brunch Fundraiser|2026-06-28T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "seatoday-seatoday-community.ics VIP Ticket Pre-sale Official Seattle Pride Parade Drag Brunch Fundraiser|2026-06-28T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics VIP Ticket Pre-sale Official Seattle Pride Parade Drag Brunch Fundraiser|2026-06-28T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event appearing in multiple seatoday tag sub-feeds"
     }
   }
 }
