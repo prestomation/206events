@@ -1,0 +1,12 @@
+name: seattle-arts-lectures
+sourceRole: venue
+description: "Seattle Arts & Lectures"
+url: "https://lectures.org/events/"
+friendlyLink: https://lectures.org/events/
+tags: ["Books", "Arts", "Education"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Benaroya_Hall_-_Flanked_by_Urban_Light_%28cropped%29.jpg"
+geo: null
+calendars:
+  - name: seattle-arts-lectures
+    friendlyname: "Seattle Arts & Lectures"
+    timezone: America/Los_Angeles
