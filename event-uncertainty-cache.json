@@ -27340,6 +27340,498 @@
       "source": "agent",
       "evidence": "https://raceroster.com/events/2026/107529/ - Half marathon 7:00 AM; adult 5K late pricing $62.52",
       "partialFingerprint": "14306u6-until2026-06-27-tu"
+    },
+    "events12:baseball-in-tacoma-2026-06-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-06-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-06-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-06-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-06-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "events12:baseball-in-tacoma-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-23",
+      "source": "agent",
+      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     }
   }
 }
