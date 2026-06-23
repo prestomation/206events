@@ -27330,13 +27330,16 @@
     },
     "events12:race-at-seward-park-2026-06-27": {
       "fields": {
+        "startTime": "07:00",
+        "duration": 18000,
         "cost": {
           "min": 62.52
         }
       },
       "resolvedAt": "2026-06-23",
       "source": "agent",
-      "evidence": "https://raceroster.com/events/2026/107529/ - adult 5K late pricing $62.52"
+      "evidence": "https://raceroster.com/events/2026/107529/ - Half marathon 7:00 AM; adult 5K late pricing $62.52",
+      "partialFingerprint": "14306u6-until2026-06-27-tu"
     }
   }
 }
