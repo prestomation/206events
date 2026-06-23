@@ -73,8 +73,10 @@ export function eventKey(e: DedupEvent): string {
 
 // icsUrl-qualified key — unique per events-index entry. Used as the internal
 // union-find / group identity (two different feeds can share an `eventKey`).
+// NFC-normalize so that source data with NFD characters (e.g. ó as o+combining
+// acute) matches cache entries that were written with NFC characters.
 function fullKey(e: DedupEvent): string {
-    return `${e.icsUrl} ${eventKey(e)}`;
+    return `${e.icsUrl} ${eventKey(e)}`.normalize('NFC');
 }
 
 // Unordered, stable key for a pair — the join key for the resolver cache.
@@ -368,7 +370,9 @@ export const EMPTY_DUPLICATE_CACHE: DuplicateCache = { resolutions: {} };
 export function resolutionsFromCache(cache: DuplicateCache | null | undefined): Map<string, 'confirmed' | 'rejected'> {
     const map = new Map<string, 'confirmed' | 'rejected'>();
     for (const [k, v] of Object.entries(cache?.resolutions ?? {})) {
-        if (v?.decision === 'confirmed' || v?.decision === 'rejected') map.set(k, v.decision);
+        // NFC-normalize keys so cache entries written with precomposed characters
+        // still match build-generated keys that may use decomposed form.
+        if (v?.decision === 'confirmed' || v?.decision === 'rejected') map.set(k.normalize('NFC'), v.decision);
     }
     return map;
 }
