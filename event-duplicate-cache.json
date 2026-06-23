@@ -4299,6 +4299,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-23",
       "note": "Same event appearing in multiple seatoday tag sub-feeds"
+    },
+    "external-nw-asian-weekly.ics 2026 Chinatown Seafair Parade|2026-07-19T19:00:00Z[UTC]::external-seafair.ics Seattle Chinatown Seafair Parade|2026-07-19T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-23",
+      "note": "Same event: Chinatown-ID Seafair Parade on July 19. NW Asian Weekly and Seafair.org both list the same parade at same time, 4m apart in Maynard Ave."
     }
   }
 }

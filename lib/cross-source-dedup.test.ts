@@ -207,4 +207,35 @@ describe("resolutionsFromCache", () => {
         expect(m.get("k2")).toBe("rejected");
         expect(m.has("k3")).toBe(false);
     });
+
+    it("normalizes NFD cache keys to NFC so they match build-generated keys", () => {
+        // Seatoday delivers titles with NFD characters (e.g. ó as o + combining
+        // acute U+0301). The cache may store NFC or NFD depending on how the
+        // agent wrote the key. resolutionsFromCache must normalize both so that
+        // a build-generated NFC pairKey hits the cache entry.
+        const nfdTitle = "ólǫ́"; // ó + l + o-ogonek + combining acute (NFD)
+        const nfcTitle = nfdTitle.normalize("NFC"); // ól + ǫ́ (NFC)
+        const nfdKey = `seatoday-all.ics ${nfdTitle}|2026-07-05T10:00:00-07:00[America/Los_Angeles]::seatoday-arts.ics ${nfdTitle}|2026-07-05T10:00:00-07:00[America/Los_Angeles]`;
+        const nfcKey = nfdKey.normalize("NFC");
+        expect(nfdKey).not.toBe(nfcKey); // confirm they're actually different
+
+        const m = resolutionsFromCache({ resolutions: { [nfdKey]: { decision: "confirmed" } } });
+        expect(m.get(nfcKey)).toBe("confirmed"); // lookup with NFC key hits NFD cache entry
+    });
+});
+
+describe("pairKey unicode normalization", () => {
+    it("produces the same key for NFD and NFC event summaries", () => {
+        const nfdSummary = "Eric-Paul Riege: ojo|-|ólǫ́"; // NFD
+        const nfcSummary = nfdSummary.normalize("NFC");                     // NFC
+        expect(nfdSummary).not.toBe(nfcSummary); // confirm input actually differs
+
+        const date = "2026-07-05T10:00:00-07:00[America/Los_Angeles]";
+        const aNFD = ev({ icsUrl: "seatoday-all.ics", summary: nfdSummary, date });
+        const bNFD = ev({ icsUrl: "seatoday-arts.ics", summary: nfdSummary, date });
+        const aNFC = ev({ icsUrl: "seatoday-all.ics", summary: nfcSummary, date });
+        const bNFC = ev({ icsUrl: "seatoday-arts.ics", summary: nfcSummary, date });
+
+        expect(pairKey(aNFD, bNFD)).toBe(pairKey(aNFC, bNFC));
+    });
 });
