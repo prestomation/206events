@@ -137,21 +137,7 @@ calendars:
 
   # --- Downtown ---
   # The Triple Door has a dedicated ripper at sources/triple_door/
-  - name: the-rabbit-box
-    friendlyname: "The Rabbit Box"
-    imageUrl: "https://images.squarespace-cdn.com/content/v1/61aa99f150d66370047bc1\
-      5a/f62f1940-10b8-4681-9dce-79a00bbb9e5a/Rabbit_Box_Hero_Image_04.png"
-    geo:
-      lat: 47.6105
-      lng: -122.3425
-      label: "The Rabbit Box, 94 Pike St Suite 11, Seattle, WA 98101"
-      osmChecked: 2026-05-09
-      osmType: node
-      osmId: 5236468223
-    timezone: America/Los_Angeles
-    tags: ["Downtown"]
-    config:
-      venue: "The Rabbit Box"
+  # The Rabbit Box has a dedicated ripper at sources/rabbit_box/
 
   # --- Eastlake ---
   - name: black-lodge
