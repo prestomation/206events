@@ -373,7 +373,8 @@ describe('SeattleShowlistsRipper', () => {
                 'Neptune Theater', 'The Moore Theater', 'The Paramount Theater',
                 'WAMU Theater', 'The Vera Project', 'The Sunset Tavern',
                 'Tractor Tavern', 'Substation', 'Chop Suey', 'Hidden Hall',
-                'Barboza', 'Clock-Out Lounge', 'Belltown Yacht Club'
+                'Barboza', 'Clock-Out Lounge', 'Belltown Yacht Club',
+                'The Rabbit Box'
             ];
             for (const venue of skippedVenues) {
                 expect(VENUE_CONFIG[venue]?.skip, `${venue} should be skipped`).toBe(true);
@@ -386,7 +387,7 @@ describe('SeattleShowlistsRipper', () => {
                 'Black &amp; Tan Hall', 'Black Lodge', 'Blue Moon Tavern',
                 'Central Saloon', 'Conor Byrne Pub',
                 "Darrell's Tavern", 'Hotel Crocodile', 'Nectar Lounge',
-                'Skylark', 'The Rabbit Box', 'The Royal Room',
+                'Skylark', 'The Royal Room',
                 "Tim's Tavern", 'Vermillion'
             ];
             for (const venue of includedVenues) {
