@@ -1,5 +1,8 @@
 name: headinthecloudstrivia
 type: instagram
+# First-party host: publishes its own trivia nights across many bars (geo: null
+# at the ripper level, like spl — a multi-venue first-party source, not a republisher).
+sourceRole: venue
 description: "Head in the Clouds Trivia"
 url: "https://www.instagram.com/headinthecloudstrivia/"
 friendlyLink: https://www.instagram.com/headinthecloudstrivia/
