@@ -1,0 +1,18 @@
+name: rabbit_box
+sourceRole: venue
+type: squarespace
+description: "The Rabbit Box Theatre"
+url: "https://www.therabbitboxseattle.com/events"
+friendlyLink: https://www.therabbitboxseattle.com/events
+imageUrl: "https://images.squarespace-cdn.com/content/v1/61aa99f150d66370047bc15a/f62f1940-10b8-4681-9dce-79a00bbb9e5a/Rabbit_Box_Hero_Image_04.png"
+tags: ["Music", "Comedy", "Pike Place"]
+geo:
+  lat: 47.6105
+  lng: -122.3425
+  label: "The Rabbit Box Theatre, 94 Pike St, Seattle, WA 98101"
+  osmType: node
+  osmId: 5236468223
+calendars:
+  - name: all-events
+    friendlyname: "The Rabbit Box Theatre"
+    timezone: America/Los_Angeles

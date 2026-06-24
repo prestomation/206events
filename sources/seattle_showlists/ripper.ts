@@ -60,7 +60,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Slim's Last Chance":   { address: "5606 1st Ave S, Seattle, WA 98108" },
     "Skylark":              { address: "3803 Delridge Way SW, Seattle, WA 98106" },
     "The Triple Door":      { address: "216 Union St, Seattle, WA 98101", skip: true },
-    "The Rabbit Box":       { address: "94 Pike St, Seattle, WA 98101" },
+    "The Rabbit Box":       { address: "94 Pike St, Seattle, WA 98101", skip: true },
     "The Royal Room":       { address: "5000 Rainier Ave S, Seattle, WA 98118" },
     "Tim's Tavern":         { address: "9655 16th Ave SW, Seattle, WA 98106" },
     "Vermillion":           { address: "1508 11th Ave, Seattle, WA 98122" },
