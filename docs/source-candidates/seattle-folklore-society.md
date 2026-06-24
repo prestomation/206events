@@ -6,7 +6,7 @@ icsUrl: https://seafolklore.org/?post_type=tribe_events&ical=1&eventDisplay=list
 tags: [Music, Arts]
 sourceRole: venue
 geo: null
-addedPR: pending
+addedPR: 713
 lastChecked: 2026-06-24
 ---
 
