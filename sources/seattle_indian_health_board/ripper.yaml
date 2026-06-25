@@ -6,6 +6,7 @@ friendlyLink: https://www.sihb.org/events/
 tags: ["Community"]
 imageUrl: "https://www.sihb.org/wp-content/uploads/sihb-05092-grayscale.jpg"
 geo: null
+expectEmpty: true
 calendars:
   - name: seattle-indian-health-board
     friendlyname: "Seattle Indian Health Board"

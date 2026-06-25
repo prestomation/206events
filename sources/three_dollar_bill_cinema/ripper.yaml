@@ -5,6 +5,7 @@ url: "https://threedollarbillcinema.org/upcomingevents"
 friendlyLink: https://threedollarbillcinema.org
 tags: ["Movies", "Arts"]
 geo: null
+expectEmpty: true
 calendars:
   - name: three-dollar-bill-cinema
     friendlyname: "Three Dollar Bill Cinema"

@@ -7,6 +7,7 @@ friendlyLink: https://www.orquestanw.org/eventcalendar
 tags: ["Music", "Arts", "Community"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Paramount_Northwest_03.jpg"
 geo: null
+expectEmpty: true
 calendars:
   - name: orquesta-northwest
     friendlyname: "Orquesta Northwest"
