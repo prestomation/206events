@@ -55,19 +55,12 @@ export function DiscoverView() {
   const flatCategoryOptions = useMemo(() => categoryGroups.flatMap((g) => g.options), [categoryGroups])
 
   // When a search is active, show how many of each type match on the seg tabs so
-  // the user knows whether the Events tab has results they're not seeing. Counts
-  // reuse the exact filters each mode renders (see filterDiscover* helpers), so
-  // badge == list. null when no search → no badge.
-  const hasQuery = !!app.query.trim()
-  const calMatchCount = useMemo(() => hasQuery
-    ? filterDiscoverChannels(app.channels, { category: app.category, neighborhood: app.neighborhood, query: app.query }).length
-    : null, [hasQuery, app.channels, app.category, app.neighborhood, app.query])
-  const evMatchCount = useMemo(() => hasQuery
-    ? filterDiscoverEvents(app.upcomingEvents, {
-      category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
-      channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
-    }).length
-    : null, [hasQuery, app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
+  // the user knows whether the other tab has results they're not seeing. Counts
+  // are computed once in the app model (single source of truth for the badges,
+  // the empty-state CTA, and the cross-tab hint) and are null when there's no
+  // query → no badge.
+  const calMatchCount = app.calMatchCount
+  const evMatchCount = app.evMatchCount
 
   // How many events pass every filter except the price bucket — i.e. hidden
   // solely for lack of a confirmed price. Feeds the ActiveFilters caption.
@@ -89,13 +82,17 @@ export function DiscoverView() {
           <div className="a-h1">Discover</div>
         </div>
         <div className="a-seg">
-          <button className={app.emphasis === 'calendars' ? 'on' : ''} onClick={() => app.setEmphasis('calendars')}>
+          <button className={app.emphasis === 'calendars' ? 'on' : ''} onClick={() => app.pickEmphasis('calendars')}>
             {Ico.grid}Calendars
-            {calMatchCount != null && <span className="a-seg-count" aria-label={`${calMatchCount} matching calendars`}>{calMatchCount}</span>}
+            {calMatchCount != null && <span
+              className={`a-seg-count${app.emphasis !== 'calendars' && calMatchCount > 0 ? ' a-seg-count--cross' : ''}`}
+              aria-label={`${calMatchCount} matching calendars`}>{calMatchCount}</span>}
           </button>
-          <button className={app.emphasis === 'events' ? 'on' : ''} onClick={() => app.setEmphasis('events')}>
+          <button className={app.emphasis === 'events' ? 'on' : ''} onClick={() => app.pickEmphasis('events')}>
             {Ico.spark}Events
-            {evMatchCount != null && <span className="a-seg-count" aria-label={`${evMatchCount} matching events`}>{evMatchCount}</span>}
+            {evMatchCount != null && <span
+              className={`a-seg-count${app.emphasis !== 'events' && evMatchCount > 0 ? ' a-seg-count--cross' : ''}`}
+              aria-label={`${evMatchCount} matching events`}>{evMatchCount}</span>}
           </button>
         </div>
       </div>
@@ -119,9 +116,67 @@ export function DiscoverView() {
 
       <ActiveFilters costHiddenCount={costHiddenCount} />
 
+      <CrossTabHint />
+
       {app.emphasis === 'calendars' ? <CalendarsMode /> : <div style={{ marginTop: 8 }}><EventsMode /></div>}
     </div>
   )
+}
+
+// Singular/plural noun for a tab's match count ("1 event" / "3 calendars").
+function tabNoun(tab, count) {
+  const singular = tab === 'events' ? 'event' : 'calendar'
+  return count === 1 ? singular : `${singular}s`
+}
+
+// Cross-tab hint (shown above the active list when that list is NON-empty but
+// the *other* tab also has matches the user can't see). The empty-tab case is
+// handled richer by DiscoverEmpty below, so we suppress the hint there to avoid
+// two competing prompts. Works in both directions — "N events also match" when
+// browsing Calendars, "N calendars also match" when browsing Events.
+function CrossTabHint() {
+  const app = useApp206()
+  const q = app.query.trim()
+  if (!q) return null
+  const onCalendars = app.emphasis === 'calendars'
+  const activeCount = onCalendars ? app.calMatchCount : app.evMatchCount
+  if (!activeCount) return null // empty active tab → DiscoverEmpty handles it
+  const otherTab = onCalendars ? 'events' : 'calendars'
+  const otherCount = onCalendars ? app.evMatchCount : app.calMatchCount
+  if (!otherCount) return null
+  return (
+    <button className="a-crosshint" onClick={() => app.pickEmphasis(otherTab)}
+      aria-label={`Switch to ${otherCount} matching ${tabNoun(otherTab, otherCount)}`}>
+      <span className="a-crosshint-ico">{otherTab === 'events' ? Ico.spark : Ico.grid}</span>
+      <span className="a-crosshint-txt"><strong>{otherCount} {tabNoun(otherTab, otherCount)}</strong> also {otherCount === 1 ? 'matches' : 'match'} “{q}”</span>
+      <span className="a-crosshint-go">View{Ico.arrow}</span>
+    </button>
+  )
+}
+
+// Empty state for a Discover mode. When a search is active and the OTHER tab
+// has matches, the "nothing here" message becomes a CTA that points at — and
+// switches to — the tab that does have results. This is the core fix for
+// "no venues match, so the user assumes the site has nothing" (and its mirror).
+function DiscoverEmpty({ kind }) {
+  const app = useApp206()
+  const q = app.query.trim()
+  const otherTab = kind === 'calendars' ? 'events' : 'calendars'
+  const otherCount = kind === 'calendars' ? app.evMatchCount : app.calMatchCount
+  if (q && otherCount > 0) {
+    return (
+      <div className="a-crossempty">
+        <div className="a-crossempty-msg">
+          No {kind === 'calendars' ? 'calendars' : 'events'} match “{q}” — but{' '}
+          <strong>{otherCount} {tabNoun(otherTab, otherCount)}</strong> {otherCount === 1 ? 'does' : 'do'}.
+        </div>
+        <button className="btn btn-blue a-crossempty-cta" onClick={() => app.pickEmphasis(otherTab)}>
+          See {otherCount} {tabNoun(otherTab, otherCount)}{Ico.arrow}
+        </button>
+      </div>
+    )
+  }
+  return <div className="a-empty">{kind === 'calendars' ? 'No calendars match these filters.' : 'No events match.'}</div>
 }
 
 // Pointer-device-only horizontal category picker (see the .a-catchips media
@@ -277,7 +332,7 @@ function CalendarsMode() {
     return out
   }, [app.channels, app.category, app.neighborhood, app.query])
 
-  if (!groups.length) return <div className="a-empty">No calendars match these filters.</div>
+  if (!groups.length) return <DiscoverEmpty kind="calendars" />
 
   return (
     <div>
@@ -307,7 +362,7 @@ function EventsMode() {
     // Events are already date-sorted, so this keeps the soonest.
     return groupIndexEventsByDay(evs.slice(0, EVENTS_MODE_CAP))
   }, [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
-  if (!groups.length) return <div className="a-empty">No events match.</div>
+  if (!groups.length) return <DiscoverEmpty kind="events" />
   return <DayList groups={groups} />
 }
 
