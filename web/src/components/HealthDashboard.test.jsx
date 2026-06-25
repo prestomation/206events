@@ -101,9 +101,9 @@ describe('HealthDashboard', () => {
 
   it('switches tabs to reveal errors, geo, and uncertain detail', async () => {
     render(<Harness />)
-    await screen.findByText('Source Health Dashboard')
-
-    fireEvent.click(screen.getByRole('tab', { name: /Errors/ }))
+    // Wait for loaded state — 'Source Health Dashboard' also appears in the unavailable
+    // state, so we wait for a tab that only renders once build data is fetched.
+    fireEvent.click(await screen.findByRole('tab', { name: /Errors/ }))
     expect(screen.getByText('cannot import')).toBeTruthy()
     expect(screen.getByText('HTTP 404')).toBeTruthy()
 
@@ -128,9 +128,8 @@ describe('HealthDashboard', () => {
     }
     mockFetch(withEntities)
     render(<Harness />)
-    await screen.findByText('Source Health Dashboard')
-    // Summary card
-    expect(screen.getByText('URL Entities')).toBeTruthy()
+    // Summary card — also serves as the loaded-state wait (only rendered once data arrives)
+    expect(await screen.findByText('URL Entities')).toBeTruthy()
     // Errors tab badge includes the entity count; the section renders on click
     fireEvent.click(screen.getByRole('tab', { name: /Errors/ }))
     expect(screen.getByText(/URL Entity Errors/)).toBeTruthy()
@@ -167,9 +166,8 @@ describe('HealthDashboard', () => {
 
   it('clicking a failure-class card opens that class\'s detail panel', async () => {
     render(<Harness />)
-    await screen.findByText('Source Health Dashboard')
-    // The "Missing Photos" card is a button that activates the photo tab.
-    fireEvent.click(screen.getByRole('button', { name: /Missing Photos/ }))
+    // Wait for loaded state via an element only present after data arrives.
+    fireEvent.click(await screen.findByRole('button', { name: /Missing Photos/ }))
     expect(screen.getByText(/Venue Photo Gaps/)).toBeTruthy()
     expect(screen.getByText('Photoless Show — 2026-05-10')).toBeTruthy()
 
@@ -181,8 +179,8 @@ describe('HealthDashboard', () => {
 
   it('filters every list and count by the search box', async () => {
     render(<Harness />)
-    await screen.findByText('Source Health Dashboard')
-    const input = screen.getByLabelText('Filter all health data')
+    // findByLabelText waits for the loaded state (input not present in unavailable state).
+    const input = await screen.findByLabelText('Filter all health data')
 
     // Narrow to a single source — the others drop out of the table.
     fireEvent.change(input, { target: { value: 'broken' } })

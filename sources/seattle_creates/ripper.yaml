@@ -11,4 +11,3 @@ calendars:
   - name: all-events
     friendlyname: "Seattle Creates"
     timezone: America/Los_Angeles
-    expectEmpty: true
