@@ -4314,6 +4314,96 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-23",
       "note": "seattle-gov-arts and seattle-gov-city-wide both aggregate the same Seattle arts event; identical title and timestamp"
+    },
+    "rabbit_box-all-events.ics Kim Richey presented by The Triple Door at The Rabbit Box|2026-10-09T19:30:00.640-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Kim Richey at The Rabbit Box|2026-10-09T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Triple Door presenting at Rabbit Box venue; same event listed by both sources"
+    },
+    "rabbit_box-all-events.ics The Triple Door presents Federico Aubele at the Rabbit Box|2026-09-29T19:30:00.629-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Federico Aubele @ The Rabbit Box|2026-09-29T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Triple Door presenting at Rabbit Box venue; same event listed by both sources"
+    },
+    "rabbit_box-all-events.ics The Triple Door presents Tracy Bonham at The Rabbit Box|2026-08-20T19:30:00.390-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Tracy Bonham at The Rabbit Box|2026-08-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Triple Door presenting at Rabbit Box venue; same event listed by both sources"
+    },
+    "seatoday-seatoday-all.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs arts category feed"
+    },
+    "seatoday-seatoday-all.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs learning category feed"
+    },
+    "seatoday-seatoday-all.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs sports category feed"
+    },
+    "seatoday-seatoday-all.ics Summer Sounds - Concert & Market|2026-07-08T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Sounds - Concert & Market|2026-07-08T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs arts category feed"
+    },
+    "seatoday-seatoday-all.ics Summer Sounds - Concert & Market|2026-07-08T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Summer Sounds - Concert & Market|2026-07-08T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs sports category feed"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs community category feed"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs sports category feed"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs community category feed"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in all vs sports category feed"
+    },
+    "seatoday-seatoday-arts.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in arts vs learning category feed"
+    },
+    "seatoday-seatoday-arts.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in arts vs sports category feed"
+    },
+    "seatoday-seatoday-arts.ics Summer Sounds - Concert & Market|2026-07-08T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Summer Sounds - Concert & Market|2026-07-08T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in arts vs sports category feed"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in community vs sports category feed"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in community vs sports category feed"
+    },
+    "seatoday-seatoday-learning.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Sacred Himalayan Intentions:Mixed Media Textured Mountain Art Workshop|2026-07-05T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-25",
+      "note": "Same seatoday event in learning vs sports category feed"
     }
   }
 }
