@@ -1,11 +1,11 @@
 ---
 name: "On the Boards"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.ontheboards.org/events/
 tags: [Arts, Dance, "Queen Anne"]
 firstSeen: 2026-06-21
-lastChecked: 2026-06-21
+lastChecked: 2026-06-25
 ---
 
 Seattle's leading contemporary performance presenter, hosting dance, theater, and interdisciplinary performance at 100 W Roy St (Queen Anne). Regular season runs Sept–June; Out There festival in spring.
@@ -18,4 +18,4 @@ Investigated 2026-06-21:
 - HTTP 200 accessible, no proxy needed
 - Each individual event page includes an ICS export link (per-event)
 
-**Next steps**: Re-check in August or September 2026 when the 2026-2027 season is announced and events appear in the Squarespace `upcoming` array. When events appear (expect 8–10 per season), implement as `type: squarespace` with `geo: {lat: 47.6250, lng: -122.3580}` (100 W Roy St, Queen Anne). Tags: Arts, Dance, QueenAnne.
+**Confirmed added** 2026-06-25: `sources/on_the_boards/ripper.yaml` exists as `type: squarespace` with `expectEmpty: true` (summer gap). The 2025/2026 season ended June 2026; re-check in August/September 2026 when the 2026-2027 season is announced and events reappear.
