@@ -21,17 +21,19 @@ This fetches `https://206.events/build-errors.json` and prints a structured summ
 - `urlEntityErrors` — URL fields containing HTML entities (`&amp;`, `&#38;`, …). **Fatal** — see below
 - Build timestamp
 
-**If the script returns HTTP 403** (the cloud sandbox IP may be blocked by
-Cloudflare Pages), fall back to downloading from the GitHub Actions artifact
-instead:
+**If the script returns HTTP 403**, the sandbox IP was blocked despite the
+proxy. Try `curl` directly (uses the same proxy and CA bundle):
+
+```bash
+curl -sS --cacert /root/.ccr/ca-bundle.crt "https://206.events/build-errors.json" | python3 -m json.tool
+```
+
+If that also fails, fall back to downloading from the GitHub Actions artifact:
 1. Use `mcp__github__actions_list` to find the latest `build-calendars.yml` run.
 2. Use `mcp__github__actions_get` or list artifacts to find the `build-errors`
    artifact ID for that run.
 3. Download the artifact zip via the GitHub API, extract `build-errors.json`,
-   and parse it manually (e.g. `python3 -c "import json,sys; print(json.dumps(json.load(open('/tmp/build-errors.json')), indent=2))"`).
-
-The artifact URL pattern is:
-`https://github.com/prestomation/206events/actions/runs/<RUN_ID>/artifacts`
+   and parse it manually.
 
 ### 2. Reply with Build Health Report
 
