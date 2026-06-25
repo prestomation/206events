@@ -10366,10 +10366,10 @@
     },
     "climate-pledge-arena:tm-vvG1HZ_ANxGBj1": {
       "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-05-18",
+      "resolvedAt": "2026-06-25",
       "source": "agent",
-      "partialFingerprint": "1d627sk"
+      "reason": "Ticketmaster API does not expose event duration; 2-hour default applied",
+      "partialFingerprint": "2qwqwi"
     },
     "climate-pledge-arena:tm-vvG1HZbUpwk6_f": {
       "unresolvable": true,
