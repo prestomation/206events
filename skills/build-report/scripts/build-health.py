@@ -9,15 +9,19 @@ Defaults to https://206.events/build-errors.json
 
 import json
 import sys
-import urllib.request
+
+import requests
 
 DEFAULT_URL = "https://206.events/build-errors.json"
 
 
 def main():
     url = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_URL
-    with urllib.request.urlopen(url) as resp:
-        d = json.loads(resp.read())
+    # requests automatically uses HTTPS_PROXY and REQUESTS_CA_BUNDLE from the
+    # environment, so this works through the agent proxy without extra flags.
+    resp = requests.get(url)
+    resp.raise_for_status()
+    d = resp.json()
 
     config_errors = d.get("configErrors", [])
     ext_failures = d.get("externalCalendarFailures", [])
