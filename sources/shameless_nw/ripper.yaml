@@ -1,0 +1,20 @@
+# verified: 2026-06-25 via eventbrite web ui (13 upcoming events: Deck'd Out summer series at Monkey Loft; EVENTBRITE_TOKEN required in CI)
+name: shameless-nw
+sourceRole: venue
+type: eventbrite
+description: "Shameless NW - Deck'd Out at Monkey Loft"
+url: "https://www.eventbrite.com/o/shameless-nw-12623653314"
+friendlyLink: https://www.eventbrite.com/o/shameless-nw-12623653314
+tags: ["Music", "SoDo"]
+geo:
+  lat: 47.5771889
+  lng: -122.3344660
+  label: "Monkey Loft, 2915 1st Ave S, Seattle, WA 98134"
+calendars:
+  - name: shameless-nw
+    friendlyname: "Shameless NW - Deck'd Out at Monkey Loft"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "12623653314"
+      defaultLocation: "Monkey Loft, 2915 1st Ave S, Seattle, WA 98134"
+      defaultDurationHours: 4
