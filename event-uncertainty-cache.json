@@ -27496,6 +27496,1970 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
+    },
+    "rabbit_box:695f069e72ca252a83d87708": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69852148f79bcd1295ad4a21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69852f2e51f2ab46bdd25495": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:698b93006df9df2bb415319b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69b391456c33815a083c3616": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69d5686e1d0cb8514d8f4152": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69d5adc4aae30932bdcd90d1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69d948e8141950265a35d492": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69d94bec0c67f71aef232ea6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69e96d47ad33435e6525ca56": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69e97e5e6c90140444802fef": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69e9935fdabbec0620a9ac52": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69f17d400985d84ce6dc1f44": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69fa323cb2aea026e712fee2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69fa40ad0de4e914762f671d": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69fcdfc4cde55d27e13a4072": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69fce1ed75478932549d3b4c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69fce328299fd401e709a8a3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:69ff9d49ec129b151d4158cf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a03ac8f4427d934c1956271": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a1267c7ce8e396d89b1e2a7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a1270e389a9015755cd9e0e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a1726592a2fa8184a941236": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a18a2b27b064d502cf5b643": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a19f01de46f6366516ad2ef": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a1f71b66432a24d2a21db46": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a1f92f6cba4833589ce1de7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a1f968dcba4833589cf1604": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a1f9d499602de7b0e9e9b68": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a1fa382e9e70f7c969491c1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a235f737dab330117926841": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a2371a99ebf0a47714ef4bd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a271afc586b514fac95e7fb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a276245a2f0b1660a5d6cd4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a276b85a53d324d4b5771a1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a276d42e9e49c291c66ab3b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a27716c55fc5616d723808b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a2772ad01e86b485b17943b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a2773d5a2f0b1660a64c941": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a2b16f79e53eb7928b294fe": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a3078cf75fdcc5ff4e08ad7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a30b89b33dfb5129086553f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a30bc55784b932f7f5c340b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a30c15a13381c1f84bb2eaa": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a3498f5e7743f4f4c9b97df": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a34a5ee97928a313505696c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a34ad5ed018676e6b42e551": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a39c30378b0f65bfc88277c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a3b1850655df47d0f484b45": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_knaW0M_": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-storm-vs-dallas-wings-seattle-washington-09-23-2026/event/0F00646A89F64DD9"
+    },
+    "lumen-field:tm-vvG1HZbz274Ioo": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-sounders-fc-vs-real-salt-lake-seattle-washington-09-23-2026/event/"
+    },
+    "stg:tm-vvG1HZ_1xwLlQl": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/elder-seattle-washington-09-23-2026/event/0F0064A8B"
+    },
+    "stg:tm-vvG1HZ_a61i5_X": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-rock-orchestra-by-candlelight-seattle-washington/event/"
+    },
+    "stg:tm-vvG1HZ_GHehX9h": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/dan-and-phil-hard-launch-world-seattle-washington/event/"
+    },
+    "stg:tm-vvG1HZ_u5YpTwV": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/chelsea-wolfe-seattle-washington/event/"
+    },
+    "stg:tm-vvG1HZ_urDN1hB": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/yolanda-del-rio-seattle-washington/event/"
+    },
+    "t-mobile-park:tm-vvG1HZbgRRv6up": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-los-angeles-angels-seattle-washington-09-24-2026/event/"
+    },
+    "t-mobile-park:tm-vvG1HZbgRRZ6uf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-houston-astros-seattle-washington-09-23-2026/event/"
+    },
+    "t-mobile-park:tm-vvG1HZbM3CsJl3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington/event/"
+    },
+    "t-mobile-park:tm-vvG1HZbM3Cwplq": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington/event/"
+    },
+    "wamu-theater:tm-vvG1HZ_GJrcF6l": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-jay-park-seattle-washington/event/"
+    },
+    "wamu-theater:tm-vvG1HZ_GxL19Ok": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/jay-park-with-special-guest-lngshot-seattle-washington/event/"
+    },
+    "ballard-brewed:6a3ad6009fe7d6272f3d1679": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/1xjh9uquloso92vz49wz9hiz8ezzuw-nw4dt-hhnpw"
+    },
+    "lucky-envelope:6a3ad52e0129ae36bc8445ef": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.luckyenvelopebrewing.com/events/new-beer-1"
+    },
+    "seattle-creates:6a3a8151d0370c4ba132932a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlecreates.org/events/monthly-social-jul-2026"
+    },
+    "seattle-creates:6a3c41004a4ba7098c515627": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlecreates.org/events/monthly-social-aug-2026"
+    },
+    "seatoday:cityspark-10499653": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/design-review-board-regular-meeting/10499653/2026-07-06T00"
+    },
+    "seatoday:cityspark-15745903": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/smart-ventures-draft-review-session/15745903/2026-07-02T00"
+    },
+    "seatoday:cityspark-15824048": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/seattle-center-advisory-commission-meeting/15824048/2026-07-02T00"
+    },
+    "seatoday:cityspark-17685258": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/ambassador-committee-meeting/17685258/2026-07-01T00"
+    },
+    "seatoday:cityspark-18342034": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/network-on-aging-meeting/18342034/2026-07-02T00"
+    },
+    "seatoday:cityspark-19010611": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/city-council/19010611/2026-07-07T00"
+    },
+    "seatoday:cityspark-16806454": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/genealogy-drop-in/16806454/2026-06-30T00"
+    },
+    "seatoday:cityspark-17650235": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/bilingual-toddler-story-time-hora-de-cuentos-biling-e-para-ni-os-peque-os/17650235/2026-07-01T00"
+    },
+    "seatoday:cityspark-17650240": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/baby-story-time/17650240/2026-07-07T00"
+    },
+    "seatoday:cityspark-17650264": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/kaleidoscope-play-learn-caleidoscopio-juega-y-aprende/17650264/2026-07-07T00"
+    },
+    "seatoday:cityspark-17650273": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/toddler-play-group/17650273/2026-07-06T00"
+    },
+    "seatoday:cityspark-18228704": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/rainbow-family-story-time/18228704/2026-06-26T00"
+    },
+    "seatoday:cityspark-18572475": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/fit-fall-proof/18572475/2026-07-07T00"
+    },
+    "seatoday:cityspark-18572477": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/la-hora-de-cuentos-familiares/18572477/2026-06-29T00"
+    },
+    "seatoday:cityspark-18572479": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/living-with-conviction-sentenced-to-debt-for-life-in-washington-state-exhibit/18572479/2026-07-07T00"
+    },
+    "seatoday:cityspark-19212085": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/family-story-time/19212085/2026-07-07T00"
+    },
+    "seatoday:cityspark-16949693": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/free-first-thursday-seattle-art-museum/16949693/2026-07-02T00"
+    },
+    "seatoday:cityspark-18807984": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/bike-works-free-bike-repair/18807984/2026-07-01T00"
+    },
+    "seatoday:cityspark-19153176": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/richmond-highlands-neighborhood-walk-free/19153176/2026-06-27T00"
+    },
+    "seatoday:cityspark-18807983": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/monday-mahjong/18807983/2026-07-06T00"
+    },
+    "seatoday:cityspark-18807985": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/tuesday-senior-exercise/18807985/2026-07-07T00"
+    },
+    "seatoday:cityspark-18807987": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/thursday-tai-chi/18807987/2026-07-02T00"
+    },
+    "seatoday:cityspark-18807988": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/ping-pong/18807988/2026-07-03T00"
+    },
+    "seatoday:cityspark-18807991": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/chinese-dance/18807991/2026-07-08T00"
+    },
+    "seatoday:cityspark-18845330": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/american-mah-jongg/18845330/2026-07-08T00"
+    },
+    "seatoday:cityspark-17806359": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/issaquah-farmers-market/17806359/2026-06-27T00"
+    },
+    "seatoday:cityspark-18794723": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/farm-fresh-market-in-historic-downtown-issaquah/18794723/2026-07-04T00"
+    },
+    "seatoday:cityspark-19010608": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/delridge-farmers-market/19010608/2026-07-04T00"
+    },
+    "seatoday:cityspark-19069384": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/kent-farmers-market/19069384/2026-06-27T00"
+    },
+    "seatoday:cityspark-17684826": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/business-impact-nw-drop-ins/17684826/2026-07-01T00"
+    },
+    "seatoday:cityspark-17738949": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/denkyem-drop-in-and-colab/17738949/2026-06-25T00"
+    },
+    "seatoday:cityspark-17825507": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/reach-connecting-people-experiencing-homelessness-with-help-and-resources/17825507/2026-07-02T00"
+    },
+    "seatoday:cityspark-18407649": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/coffee-conversations/18407649/2026-06-29T00"
+    },
+    "seatoday:cityspark-18662081": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/clinical-mental-health-counseling-programs-information-session/18662081/2026-07-08T00"
+    },
+    "seatoday:cityspark-18807916": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/post-season-tax-help/18807916/2026-06-25T00"
+    },
+    "seatoday:cityspark-18820803": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/valley-and-mountain-sunday-celebration/18820803/2026-06-28T00"
+    },
+    "seatoday:cityspark-18908581": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/freedom-day/18908581/2026-06-28T00"
+    },
+    "seatoday:cityspark-18912256": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/sensory-days/18912256/2026-06-27T00"
+    },
+    "seatoday:cityspark-18995735": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/greener-living-save-your-food/18995735/2026-06-26T00"
+    },
+    "seatoday:cityspark-19057893": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/march-with-gsba-in-the-2026-seattle-pride-parade/19057893/2026-06-28T00"
+    },
+    "seatoday:cityspark-19086707": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/virtual-in-person-citizenship-class/19086707/2026-07-07T00"
+    },
+    "seatoday:cityspark-19149971": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/fuel-the-community/19149971/2026-07-02T00"
+    },
+    "seatoday:cityspark-19170378": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/social-security-overpayment-legal-support-clinic/19170378/2026-06-26T00"
+    },
+    "seatoday:cityspark-19170379": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/nature-kids/19170379/2026-06-26T00"
+    },
+    "seatoday:cityspark-19183533": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/ma-in-psychology-virtual-information-session-with-dr-lebeau/19183533/2026-07-08T00"
+    },
+    "seatoday:cityspark-19183545": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/facilitated-q-a-sessions-for-campus-partners/19183545/2026-07-08T00"
+    },
+    "seatoday:cityspark-19227462": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/senior-social-seminar-decluttering-workshop-with-aarp-washington/19227462/2026-06-30T00"
+    },
+    "seatoday:cityspark-18670042": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/cougar-mountain-geology-underfoot-at-sky-country-trailhead/18670042/2026-06-27T00"
+    },
+    "seatoday:cityspark-19034503": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/watering-and-weeding-at-the-miyawaki-forest/19034503/2026-06-26T00"
+    },
+    "seatoday:cityspark-19056713": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/restoration-event-native-plant-nursery/19056713/2026-07-02T00"
+    },
+    "seatoday:cityspark-19056715": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/mindfulness-walk-pioneer-park-se/19056715/2026-06-25T00"
+    },
+    "seatoday:cityspark-19208282": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/manchester-state-park-low-tide-tour/19208282/2026-07-02T00"
+    },
+    "seatoday:cityspark-19208313": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/dumas-bay-sanctuary-low-tide-tour/19208313/2026-06-29T00"
+    },
+    "seatoday:cityspark-18692859": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/celebrate-kirkland-fourth-of-july-parade/18692859/2026-07-04T00"
+    },
+    "seatoday:cityspark-18836105": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/soccer-watch-party-round-of-32/18836105/2026-06-28T00"
+    },
+    "seatoday:cityspark-18852721": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/down-home-fourth-of-july-wagon-decorating-competition/18852721/2026-07-03T00"
+    },
+    "seatoday:cityspark-18896238": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/eritrean-association-in-greater-seattle-eritrean-arts-and-music-festival/18896238/2026-07-03T00"
+    },
+    "seatoday:cityspark-18912242": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/music-in-the-park-with-mariachi-family-fun-extravaganza/18912242/2026-07-08T00"
+    },
+    "seatoday:cityspark-19045847": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/2026-fifa-world-cup-watch-party/19045847/2026-07-03T00"
+    },
+    "seatoday:cityspark-19057887": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/rainbow-elder-breakfast/19057887/2026-07-04T00"
+    },
+    "seatoday:cityspark-19061049": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/the-concert-truck/19061049/2026-07-01T00"
+    },
+    "seatoday:cityspark-19062523": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/the-concert-truck/19062523/2026-07-06T00"
+    },
+    "seatoday:cityspark-19074108": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/kickin-it-indi-city-an-indigenous-soccer-celebration/19074108/2026-07-03T00"
+    },
+    "seatoday:cityspark-19215688": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/let-s-play-sea-26-watch-parties-at-the-mural-amphitheatre-egypt-vs-iran/19215688/2026-06-26T00"
+    },
+    "seatoday:cityspark-19215689": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/let-s-play-swa-26-watch-parties-at-the-mural-amphitheatre/19215689/2026-07-04T00"
+    },
+    "seatoday:cityspark-19215693": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/let-s-play-sea-26-watch-parties-at-the-mural-amphitheatre/19215693/2026-07-06T00"
+    },
+    "seatoday:cityspark-19212081": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/summer-quest-introduction-to-stress-reduction-calming-techniques/19212081/2026-06-29T00"
+    },
+    "seatoday:cityspark-19212086": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/summer-quest-sound-bath/19212086/2026-07-01T00"
+    },
+    "seatoday:cityspark-19235727": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/summer-quest-cempasuchitl-mixed-media-aventura-de-verano-cempasuchitl-t-cnica-mixta/19235727/2026-07-06T00"
+    },
+    "seatoday:cityspark-19235729": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/play-street-jugando-al-aire-libre/19235729/2026-07-07T00"
+    },
+    "seatoday:cityspark-19237641": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/summer-quest-indigenous-plants-as-helping-grounding-remedies/19237641/2026-06-25T00"
+    },
+    "seatoday:cityspark-17923214": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/story-time-at-the-garden-for-preschoolers/17923214/2026-07-03T00"
+    },
+    "seatoday:cityspark-18838624": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/family-business-exchange-webinar-navigating-the-complex-world-of-m-a/18838624/2026-06-25T00"
+    },
+    "seatoday:cityspark-19097159": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/courtyard-keys-bell-on-piano/19097159/2026-07-05T00"
+    },
+    "seatoday:cityspark-19153178": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/lunchtime-concert-series-simply-magic/19153178/2026-07-07T00"
+    },
+    "seatoday:cityspark-17580236": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/official-fc-barcelona-summer-camp-seattle-wa/17580236/2026-07-08T00"
+    },
+    "seatoday:cityspark-18662150": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/theatre33-summer-camp/18662150/2026-07-06T00"
+    },
+    "seatoday:cityspark-18662238": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/dungeons-dragons-summer-camp/18662238/2026-07-06T00"
+    },
+    "seatoday:cityspark-18722067": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/summer-break-camps/18722067/2026-06-29T00"
+    },
+    "seatoday:cityspark-19043215": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/northwest-films-presents-nw-film-camp/19043215/2026-07-06T00"
+    },
+    "seatoday:cityspark-2027211857": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/champ-camp-great-outdoors-at-university-of-washington-bothell/2027211857/2026-07-06T00"
+    },
+    "seatoday:cityspark-17743218": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/sailing-shore-school/17743218/2026-07-04T00"
+    },
+    "seatoday:cityspark-18077030": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/5k-edmonds-4th-of-july-run-1k-family-fun-run/18077030/2026-07-04T00"
+    },
+    "seatoday:cityspark-18500743": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/school-of-rock-seattle-presents-rush-modern-metal-best-of-the-80-s/18500743/2026-06-28T00"
+    },
+    "seatoday:cityspark-18988895": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/cello-concert-with-gretchen-yanover/18988895/2026-07-01T00"
+    },
+    "seatoday:cityspark-19147615": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/tasting-notes-hosted-by-kenji-lopez-alt-james-ehnes-two-shows/19147615/2026-07-06T00"
+    },
+    "seatoday:cityspark-18291332": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/bruce-lee-s-chinatown-tour/18291332/2026-06-30T00"
+    },
+    "seatoday:cityspark-18876261": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/secrets-of-seattle-s-historic-shoreline-walking-tour/18876261/2026-07-07T00"
+    },
+    "seatoday:cityspark-19069385": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/cascade-rock-gem-jewelry-show/19069385/2026-06-28T00"
+    },
+    "seatoday:cityspark-18529153": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/public-tour-highlights-from-sam-s-collection/18529153/2026-07-05T00"
+    },
+    "seatoday:cityspark-18529154": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/public-tour-journeys-through-time-and-space/18529154/2026-07-02T00"
+    },
+    "seatoday:cityspark-18661910": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/sam-gallery-presents-play/18661910/2026-06-28T00"
+    },
+    "seatoday:cityspark-18958098": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/the-beautiful-game-how-soccer-connects-us-all/18958098/2026-07-08T00"
+    },
+    "seatoday:cityspark-17157120": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/homebuyer-education-workshop-virtual/17157120/2026-06-27T00"
+    },
+    "seatoday:cityspark-17751608": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/weeklies-lorcana-league/17751608/2026-07-05T00"
+    },
+    "seatoday:cityspark-17751612": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/pokemon-league/17751612/2026-07-08T00"
+    },
+    "seatoday:cityspark-17758340": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/tour-the-abbey/17758340/2026-06-30T00"
+    },
+    "seatoday:cityspark-18061639": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/startup-425-coworking/18061639/2026-07-01T00"
+    },
+    "seatoday:cityspark-18342108": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/bad-girls-brunch/18342108/2026-07-05T00"
+    },
+    "seatoday:cityspark-18407733": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/fourth-of-july-hometown-celebration/18407733/2026-07-04T00"
+    },
+    "seatoday:cityspark-18662197": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/western-games-show/18662197/2026-06-28T00"
+    },
+    "seatoday:cityspark-18756517": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/defender-initiative-conference-2026-next-steps-with-defender-standards-and-funding/18756517/2026-06-26T00"
+    },
+    "seatoday:cityspark-18771452": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/farm-spotlight-chicken/18771452/2026-07-05T00"
+    },
+    "seatoday:cityspark-18778436": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/homebuyer-education-workshop-in-person/18778436/2026-07-04T00"
+    },
+    "seatoday:cityspark-19028258": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/i-love-boosters/19028258/2026-06-25T00"
+    },
+    "seatoday:cityspark-19061502": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/remembering-resisting-lgbtq-history-from-nazi-germany-to-today/19061502/2026-07-05T00"
+    },
+    "seatoday:cityspark-19112186": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/made-in-bellevue-series/19112186/2026-07-01T00"
+    },
+    "seatoday:cityspark-19122204": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/2026-business-development-breakfast-every-month-on-the-second-wednesday/19122204/2026-07-08T00"
+    },
+    "seatoday:cityspark-19122208": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/maximize-your-membership-every-month-on-the-first-tuesday/19122208/2026-07-07T00"
+    },
+    "seatoday:cityspark-19128684": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/backrooms/19128684/2026-06-25T00"
+    },
+    "seatoday:cityspark-19151163": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/kill-team-summer-siege/19151163/2026-06-27T00"
+    },
+    "seatoday:cityspark-19183530": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/renton-s-hometown-4th-of/19183530/2026-07-04T00"
+    },
+    "events12:world-cup-soccer-2026-07-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1AfFk-V": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "reason": "Ticketmaster/TicketWeb API does not expose event duration; 2-hour default applied",
+      "partialFingerprint": "r45os7"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1AfFAfV": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "reason": "Ticketmaster/TicketWeb API does not expose event duration; 2-hour default applied",
+      "partialFingerprint": "2dcbo7"
+    },
+    "crocodile:tm-rZ7HnEZ1Afvp70": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "reason": "Ticketmaster/TicketWeb API does not expose event duration; 2-hour default applied",
+      "partialFingerprint": "qem2u4"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-07-04": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.mopop.org/events/the-brunch-bundle-at-mopop",
+      "partialFingerprint": "vd8blu"
+    },
+    "mopop:mopop-sound-off-2027-applications-2026-07-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "reason": "Application deadline event, not time-bounded; no start/end time on page",
+      "partialFingerprint": "4db4at"
+    },
+    "mopop:mopop-find-your-perspective-youth-photography-workshops-2026-11-07": {
+      "fields": {
+        "startTime": "10:30",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.mopop.org/events/find-your-perspective-free-photography-lessons",
+      "partialFingerprint": "ga7q8v"
+    },
+    "discover-slu:discover-slu-tugboat-tuesdays-2026-2-2-2-2-2-2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "reason": "No end time listed on source page; only 5:00 PM start confirmed",
+      "partialFingerprint": "1or7c2o"
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2-2-2-2/",
+      "partialFingerprint": "1r1zwu5"
+    },
+    "discover-slu:discover-slu-dont-tell-comedy-3-2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "reason": "No end time listed on source page; 7:30 PM start confirmed",
+      "partialFingerprint": "fvj9j8"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47684": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "reason": "Event page returns 404; exhibit runs all day (no specific end time)",
+      "partialFingerprint": "mklvdv"
+    },
+    "seattle-center:lets-play-sea26-workshop-series-seattle-childrens-museum": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea26-workshop-series-seattle-childrens-museum",
+      "partialFingerprint": "mklvdv"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-yoga-x46732": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-yoga-x46732",
+      "partialFingerprint": "i2gove"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-zumba-x46733": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-zumba-x46733",
+      "partialFingerprint": "57z29z"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46734": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-06-25",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-mat-pilates-x46734",
+      "partialFingerprint": "57z29z"
     }
   }
 }
