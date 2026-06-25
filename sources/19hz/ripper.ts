@@ -172,7 +172,7 @@ export default class Hz19Ripper extends HTMLRipper {
     private seenEvents = new Set<string>();
     private readonly timezone = ZoneId.of('America/Los_Angeles');
     // Populated during parseEvents; consumed in the rip() post-processing pass.
-    private readonly instagramLinks = new Map<string, string>();
+    private instagramLinks = new Map<string, string>();
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.instagramLinks.clear();
@@ -183,15 +183,16 @@ export default class Hz19Ripper extends HTMLRipper {
         // silently skipped so the build never fails on a missing image.
         if (this.instagramLinks.size > 0) {
             const igFetch = getFetchForConfig({ proxy: false });
-            for (const calendar of calendars) {
-                for (const event of calendar.events) {
-                    if (event.imageUrl || !event.id) continue;
-                    const igUrl = this.instagramLinks.get(event.id);
-                    if (!igUrl) continue;
-                    const imageUrl = await fetchInstagramOgImage(igFetch, igUrl);
-                    if (imageUrl) event.imageUrl = imageUrl;
-                }
-            }
+            const allEvents = calendars.flatMap(c => c.events);
+            await Promise.all(
+                allEvents
+                    .filter(e => !e.imageUrl && e.id && this.instagramLinks.has(e.id))
+                    .map(async event => {
+                        const igUrl = this.instagramLinks.get(event.id!);
+                        const imageUrl = await fetchInstagramOgImage(igFetch, igUrl!);
+                        if (imageUrl) event.imageUrl = imageUrl;
+                    }),
+            );
         }
 
         return calendars;
