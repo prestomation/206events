@@ -1,5 +1,5 @@
-import { describe, expect, test } from 'vitest';
-import Hz19Ripper, { parseTimeCell, parsePriceCell } from './ripper.js';
+import { describe, expect, test, vi, afterEach } from 'vitest';
+import Hz19Ripper, { parseTimeCell, parsePriceCell, extractInstagramPostUrl, fetchInstagramOgImage } from './ripper.js';
 import { ZonedDateTime } from '@js-joda/core';
 import fs from 'fs';
 import path from 'path';
@@ -66,6 +66,99 @@ describe('parsePriceCell', () => {
     test('empty string', () => expect(parsePriceCell('')).toBeUndefined());
 });
 
+describe('extractInstagramPostUrl', () => {
+    test('extracts instagram post from links column', () => {
+        const cell = parse(`<td><a href='https://www.instagram.com/p/ABC123/'>Instagram Page</a></td>`).querySelector('td')!;
+        expect(extractInstagramPostUrl(cell, undefined)).toBe('https://www.instagram.com/p/ABC123/');
+    });
+
+    test('extracts instagram reel from links column', () => {
+        const cell = parse(`<td><a href='https://www.instagram.com/reel/XYZ789/'>Instagram Reel</a></td>`).querySelector('td')!;
+        expect(extractInstagramPostUrl(cell, undefined)).toBe('https://www.instagram.com/reel/XYZ789/');
+    });
+
+    test('ignores instagram profile links', () => {
+        const cell = parse(`<td><a href='https://www.instagram.com/someuser/'>Instagram</a></td>`).querySelector('td')!;
+        expect(extractInstagramPostUrl(cell, undefined)).toBeNull();
+    });
+
+    test('falls back to event URL when it is an instagram post', () => {
+        expect(extractInstagramPostUrl(null, 'https://www.instagram.com/p/ABC123/')).toBe('https://www.instagram.com/p/ABC123/');
+    });
+
+    test('returns null when no instagram links', () => {
+        const cell = parse(`<td><a href='https://facebook.com/events/123/'>Facebook Page</a></td>`).querySelector('td')!;
+        expect(extractInstagramPostUrl(cell, 'https://eventbrite.com/e/123')).toBeNull();
+    });
+
+    test('prefers links-column instagram over event URL', () => {
+        const cell = parse(`<td><a href='https://www.instagram.com/p/FROM_LINKS/'>Instagram Page</a></td>`).querySelector('td')!;
+        const result = extractInstagramPostUrl(cell, 'https://www.instagram.com/p/FROM_EVENT_URL/');
+        expect(result).toBe('https://www.instagram.com/p/FROM_LINKS/');
+    });
+
+    test('returns null when cell is null and event URL is not instagram', () => {
+        expect(extractInstagramPostUrl(null, 'https://eventbrite.com/e/123')).toBeNull();
+    });
+
+    test('returns null when cell is null and event URL is undefined', () => {
+        expect(extractInstagramPostUrl(null, undefined)).toBeNull();
+    });
+});
+
+describe('fetchInstagramOgImage', () => {
+    afterEach(() => { vi.restoreAllMocks(); });
+
+    test('extracts og:image from embed HTML (property first)', async () => {
+        const embedHtml = `<html><head><meta property="og:image" content="https://cdninstagram.com/image.jpg"/></head></html>`;
+        const mockFetch = vi.fn().mockResolvedValue(new Response(embedHtml, { status: 200 }));
+        const imageUrl = await fetchInstagramOgImage(mockFetch, 'https://www.instagram.com/p/ABC123/');
+        expect(imageUrl).toBe('https://cdninstagram.com/image.jpg');
+        expect(mockFetch).toHaveBeenCalledWith(
+            'https://www.instagram.com/p/ABC123/embed/',
+            expect.objectContaining({ headers: expect.any(Object) }),
+        );
+    });
+
+    test('extracts og:image with content attribute first', async () => {
+        const embedHtml = `<html><head><meta content="https://cdninstagram.com/other.jpg" property="og:image"/></head></html>`;
+        const mockFetch = vi.fn().mockResolvedValue(new Response(embedHtml, { status: 200 }));
+        const imageUrl = await fetchInstagramOgImage(mockFetch, 'https://www.instagram.com/p/ABC123/');
+        expect(imageUrl).toBe('https://cdninstagram.com/other.jpg');
+    });
+
+    test('decodes HTML entities in image URL', async () => {
+        const embedHtml = `<html><head><meta property="og:image" content="https://cdninstagram.com/img.jpg?a=1&amp;b=2"/></head></html>`;
+        const mockFetch = vi.fn().mockResolvedValue(new Response(embedHtml, { status: 200 }));
+        const imageUrl = await fetchInstagramOgImage(mockFetch, 'https://www.instagram.com/p/ABC123/');
+        expect(imageUrl).toBe('https://cdninstagram.com/img.jpg?a=1&b=2');
+    });
+
+    test('strips trailing slash before appending /embed/', async () => {
+        const mockFetch = vi.fn().mockResolvedValue(new Response('', { status: 200 }));
+        await fetchInstagramOgImage(mockFetch, 'https://www.instagram.com/p/ABC123/');
+        expect(mockFetch).toHaveBeenCalledWith(
+            'https://www.instagram.com/p/ABC123/embed/',
+            expect.any(Object),
+        );
+    });
+
+    test('returns null on HTTP error', async () => {
+        const mockFetch = vi.fn().mockResolvedValue(new Response('', { status: 403 }));
+        expect(await fetchInstagramOgImage(mockFetch, 'https://www.instagram.com/p/ABC123/')).toBeNull();
+    });
+
+    test('returns null when no og:image in HTML', async () => {
+        const mockFetch = vi.fn().mockResolvedValue(new Response('<html><head><title>Login</title></head></html>', { status: 200 }));
+        expect(await fetchInstagramOgImage(mockFetch, 'https://www.instagram.com/p/ABC123/')).toBeNull();
+    });
+
+    test('returns null on network error', async () => {
+        const mockFetch = vi.fn().mockRejectedValue(new Error('Network error'));
+        expect(await fetchInstagramOgImage(mockFetch, 'https://www.instagram.com/p/ABC123/')).toBeNull();
+    });
+});
+
 describe('19hz Ripper', () => {
     test('parses events from sample HTML', async () => {
         const ripper = new Hz19Ripper();
@@ -74,7 +167,7 @@ describe('19hz Ripper', () => {
         const events = await ripper.parseEvents(html, testDate, {});
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
-        expect(validEvents.length).toBe(6);
+        expect(validEvents.length).toBe(8);
     });
 
     test('parses event title and URL', async () => {
@@ -167,9 +260,13 @@ describe('19hz Ripper', () => {
 
         const feb19 = validEvents.filter(e => e.date.dayOfMonth() === 19);
         const feb20 = validEvents.filter(e => e.date.dayOfMonth() === 20);
+        const feb21 = validEvents.filter(e => e.date.dayOfMonth() === 21);
+        const feb22 = validEvents.filter(e => e.date.dayOfMonth() === 22);
 
         expect(feb19.length).toBe(4);
         expect(feb20.length).toBe(2);
+        expect(feb21.length).toBe(1);
+        expect(feb22.length).toBe(1);
     });
 
     test('deduplicates events across multiple parseEvents calls', async () => {
@@ -182,7 +279,7 @@ describe('19hz Ripper', () => {
         const firstEvents = firstCall.filter(e => 'summary' in e);
         const secondEvents = secondCall.filter(e => 'summary' in e);
 
-        expect(firstEvents.length).toBe(6);
+        expect(firstEvents.length).toBe(8);
         expect(secondEvents.length).toBe(0);
     });
 
@@ -224,6 +321,21 @@ describe('19hz Ripper', () => {
         // "21+" (no price) → no cost field
         const magicCity = validEvents.find(e => e.summary.includes('Magic City Hippies'));
         expect(magicCity!.cost).toBeUndefined();
+    });
+
+    test('event with Instagram event URL has no imageUrl before rip()', async () => {
+        const ripper = new Hz19Ripper();
+        const html = loadSampleHtml();
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        // The "IG Only Event" uses an Instagram URL as its main event link.
+        // parseEvents itself doesn't fetch images; imageUrl is set in rip().
+        const igEvent = validEvents.find(e => e.summary === 'IG Only Event');
+        expect(igEvent).toBeDefined();
+        expect(igEvent!.imageUrl).toBeUndefined();
+        expect(igEvent!.url).toContain('instagram.com/p/');
     });
 
     test('handles empty HTML gracefully', async () => {
