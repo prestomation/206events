@@ -11,7 +11,7 @@ import { FeedbackModal } from './FeedbackModal.jsx'
 import { WelcomeModal, HelpModal, isCleanColdLoad } from './Onboarding.jsx'
 import { DiscoverView, FollowingView, YouView, ChannelDetail, EventDetail } from './views.jsx'
 import { HealthDashboard } from '../components/HealthDashboard.jsx'
-import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, eventInWindow } from './viewModels.js'
+import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, eventInWindow, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
 import { isCategoryTag, isNeighborhoodTag } from './categories.js'
 import { eventKey } from '../lib/eventKey.js'
 import { haversineKm } from '../lib/haversine.js'
@@ -376,6 +376,43 @@ export function App206(props) {
     new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).toUpperCase().replace(',', ' ·'),
   [])
 
+  /* ---- Discover cross-tab match counts + smart default emphasis ----
+     A frequent confusion on Discover: a search like "jazz" matches no *venues*
+     (calendar names/tags) but plenty of *events*, and the Calendars tab is the
+     default — so the user sees "No calendars match" and assumes the whole site
+     has nothing. We compute both counts once here (single source of truth for
+     the seg badges, the empty-state CTA, and the cross-tab hint) and use them to
+     (a) land the user on whichever tab has results when a *new* search begins,
+     and (b) surface the other tab's matches when they're on the side that has
+     fewer/zero. Counts are null when there's no query (no badge). They mirror
+     exactly what each mode renders (same filterDiscover* helpers). */
+  const calMatchCount = useMemo(() => query.trim()
+    ? filterDiscoverChannels(channels, { category, neighborhood, query }).length
+    : null, [query, channels, category, neighborhood])
+  const evMatchCount = useMemo(() => query.trim()
+    ? filterDiscoverEvents(scopedUpcoming, {
+      category, neighborhood, cost: costFilter, query, channelByIcsUrl, queryKeySet,
+    }).length
+    : null, [query, scopedUpcoming, category, neighborhood, costFilter, channelByIcsUrl, queryKeySet])
+
+  // An explicit tab choice (seg button or a cross-tab CTA) suppresses the smart
+  // default until the *next* new search — we never yank a user off a tab they
+  // deliberately chose. `pickEmphasis` is the user-initiated setter; bare
+  // `setEmphasis` (deep links, the effect below) doesn't latch.
+  const emphasisPicked = useRef(false)
+  const prevHadQuery = useRef(!!query.trim())
+  const pickEmphasis = useCallback((tab) => { emphasisPicked.current = true; setEmphasis(tab) }, [])
+  useEffect(() => {
+    const hasQuery = !!query.trim()
+    if (hasQuery && !prevHadQuery.current) emphasisPicked.current = false // new search re-arms it
+    prevHadQuery.current = hasQuery
+    if (!hasQuery || emphasisPicked.current) return
+    // Only rescue the user off an *empty* tab; if the current tab has any
+    // results, stay put and let the cross-tab hint point at the other side.
+    if (emphasis === 'calendars' && calMatchCount === 0 && evMatchCount > 0) setEmphasis('events')
+    else if (emphasis === 'events' && evMatchCount === 0 && calMatchCount > 0) setEmphasis('calendars')
+  }, [query, emphasis, calMatchCount, evMatchCount])
+
   const model = {
     // raw
     calendars, eventsIndex, fullEventsLoaded, loading,
@@ -393,7 +430,8 @@ export function App206(props) {
     upcomingEvents: scopedUpcoming, allUpcomingEvents: upcomingEvents, eventsByIcsUrl,
     feedGroups, matchEvents, queryKeySet, inScope,
     // ui state
-    section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis,
+    section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis, pickEmphasis,
+    calMatchCount, evMatchCount,
     query, setQuery, queryPending, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     costFilter, setCostFilter,
     hasActiveFilters, toast, todayLabel,

@@ -3925,6 +3925,26 @@ html, body, #root { height: 100%; }
 /* Match-count badge shown on each seg tab while a search is active. */
 .app206 .a-seg-count { flex: 0 0 auto; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--surface-3); color: var(--ink-3); font-family: var(--font-mono); font-size: 11px; font-weight: 600; line-height: 18px; text-align: center; }
 .app206 .a-seg button.on .a-seg-count { background: var(--blue); color: #fff; }
+/* "Loud" badge: the INACTIVE tab has matches the user isn't seeing — draw the
+   eye to it so they know to switch. */
+.app206 .a-seg-count--cross { background: var(--blue); color: #fff; }
+
+/* Cross-tab hint: shown above a non-empty list when the OTHER tab also matches
+   the active search. A full-width tappable strip that switches tabs. */
+.app206 .a-crosshint { display: flex; align-items: center; gap: 9px; width: 100%; margin: 2px 0 12px; padding: 9px 13px; border-radius: 11px; background: var(--blue-soft); border: 1px solid var(--blue); color: var(--blue-ink); font-size: 13.5px; text-align: left; }
+.app206 .a-crosshint:hover { filter: brightness(.98); }
+.app206 .a-crosshint-ico { display: inline-flex; flex: 0 0 auto; }
+.app206 .a-crosshint-ico svg { width: 16px; height: 16px; }
+.app206 .a-crosshint-txt { flex: 1 1 auto; min-width: 0; }
+.app206 .a-crosshint-go { display: inline-flex; align-items: center; gap: 3px; flex: 0 0 auto; font-weight: 700; }
+.app206 .a-crosshint-go svg { width: 15px; height: 15px; }
+
+/* Cross-tab empty state: the active tab has zero matches but the other tab has
+   results — turn the dead end into a CTA that switches to the matching tab. */
+.app206 .a-crossempty { padding: 24px 0 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 13px; }
+.app206 .a-crossempty-msg { font-size: 15px; color: var(--ink-2); line-height: 1.45; }
+.app206 .a-crossempty-msg strong { color: var(--ink); }
+.app206 .a-crossempty-cta { height: 42px; font-size: 14px; }
 .app206 .a-discover-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
 
 /* ---- filter dropdowns (Category / Neighborhood) ---- */
