@@ -18071,8 +18071,7 @@
       "unresolvable": true,
       "reason": "Eastside Honoring Juneteenth is June 13 only; remaining dates are events12 date-range expansion",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1j8znsp-until2026-06-19-tu"
+      "source": "agent"
     },
     "events12:yakima-music-festival-2026-06-19": {
       "unresolvable": true,
@@ -18183,22 +18182,19 @@
       "unresolvable": true,
       "reason": "Daily start times not listed on website; check festival schedule page",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "x15h98-until2026-06-21-tu"
+      "source": "agent"
     },
     "events12:bluegrass-festival-2026-06-20": {
       "unresolvable": true,
       "reason": "Daily start times not listed on website; check festival schedule page",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "x15h98-until2026-06-21-tu"
+      "source": "agent"
     },
     "events12:bluegrass-festival-2026-06-21": {
       "unresolvable": true,
       "reason": "Daily start times not listed on website; check festival schedule page",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "x15h98-until2026-06-21-tu"
+      "source": "agent"
     },
     "events12:edmonds-art-fair-2026-06-19": {
       "fields": {
@@ -18313,15 +18309,13 @@
       "unresolvable": true,
       "reason": "Website returns loading/verification page; air show times not accessible",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1a72dk9-until2026-06-21-tu"
+      "source": "agent"
     },
     "events12:air-show-in-olympia-2026-06-21": {
       "unresolvable": true,
       "reason": "Website returns loading/verification page; air show times not accessible",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1a72dk9-until2026-06-21-tu"
+      "source": "agent"
     },
     "events12:civil-war-battle-in-yakima-2026-06-20": {
       "unresolvable": true,
@@ -18374,8 +18368,7 @@
       "unresolvable": true,
       "reason": "Website returned 403; performance times not accessible",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1fdu7ba-until2026-06-28-tu"
+      "source": "agent"
     },
     "events12:short-plays-in-edmonds-2026-06-26": {
       "fields": {
@@ -18405,8 +18398,7 @@
       "unresolvable": true,
       "reason": "Website returned 403; performance times not accessible",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1fdu7ba-until2026-06-28-tu"
+      "source": "agent"
     },
     "events12:wine-oysters-2026-06-26": {
       "fields": {
@@ -20514,8 +20506,7 @@
       "unresolvable": true,
       "reason": "Museum of Flight calendar page does not list Father's Day-specific times yet; regular hours are 10am-5pm but Father's Day programming timing not confirmed",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1ohvy4d-until2026-06-21-tu"
+      "source": "agent"
     },
     "events12:race-at-seward-park-2026-06-25": {
       "unresolvable": true,
