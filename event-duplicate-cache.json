@@ -4404,6 +4404,51 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-25",
       "note": "Same seatoday event in learning vs sports category feed"
+    },
+    "19hz-all-events.ics Deck'd Out: KEXP Showcase|2026-09-03T19:00:00-07:00[America/Los_Angeles]::shameless-nw-shameless-nw.ics Deck'd Out  #12 Shameless Presents KEXP Showcase + more|2026-09-03T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same Eventbrite event (1989970194420) at Monkey Loft, listed by both 19hz and Shameless NW"
+    },
+    "barboza-barboza.ics Wesley Joseph with Special Guests|2026-10-19T19:00:00-07:00[America/Los_Angeles]::neumos-neumos.ics Frog with Special Guests|2026-10-19T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-26",
+      "note": "Different artists (Wesley Joseph @ Barboza vs Frog @ Neumos) \u2014 co-located venues at 925 E Pike St but separate shows with separate booking URLs"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-09-25T15:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-09-25T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same UW iSchool event listed in both uw-campus-events and uw-information-school feeds with identical title, time, and URL"
+    },
+    "seatoday-seatoday-all.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-06-27T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-06-27T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same event from seatoday's CitySpark feed (cityspark-16952116) appearing in both the all-events and arts category calendars"
+    },
+    "seatoday-seatoday-all.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-06-27T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-06-27T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same event from seatoday's CitySpark feed (cityspark-16952116) appearing in both the all-events and learning category calendars"
+    },
+    "seatoday-seatoday-all.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-07-04T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-07-04T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same event from seatoday's CitySpark feed (cityspark-16952116) appearing in both the all-events and arts category calendars"
+    },
+    "seatoday-seatoday-all.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-07-04T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-07-04T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same event from seatoday's CitySpark feed (cityspark-16952116) appearing in both the all-events and learning category calendars"
+    },
+    "seatoday-seatoday-arts.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-06-27T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-06-27T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same event from seatoday's CitySpark feed appearing in both arts and learning category calendars"
+    },
+    "seatoday-seatoday-arts.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-07-04T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Rising Artisans Kids Fine Art Classes Ages 9+|2026-07-04T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same event from seatoday's CitySpark feed appearing in both arts and learning category calendars"
     }
   }
 }
