@@ -50,6 +50,115 @@ function ErrorItem({ type, reason, path, href }) {
   )
 }
 
+// Dual-axis line chart: events (left, blue) and calendars (right, orange).
+// Pure SVG — no dependencies.
+function CoverageChart({ history }) {
+  const W = 760, H = 260
+  const ML = 58, MR = 58, MT = 28
+  const PW = W - ML - MR, PH = H - MT - 46
+
+  if (history.length < 2) return null
+
+  const events = history.map(p => p.events)
+  const calendars = history.map(p => p.calendars)
+
+  const eMax = niceCeil(Math.max(...events))
+  const cMax = niceCeil(Math.max(...calendars))
+
+  const xOf = i => ML + (i / (history.length - 1)) * PW
+  const yOfE = v => MT + PH - (v / eMax) * PH
+  const yOfC = v => MT + PH - (v / cMax) * PH
+
+  const ePoints = history.map((p, i) => `${xOf(i)},${yOfE(p.events)}`).join(' ')
+  const cPoints = history.map((p, i) => `${xOf(i)},${yOfC(p.calendars)}`).join(' ')
+
+  // X-axis ticks: one per month boundary
+  const xTicks = []
+  let lastMonth = null
+  history.forEach((p, i) => {
+    const m = p.date.slice(0, 7)
+    if (m !== lastMonth) { xTicks.push({ i, label: fmtMonth(p.date) }); lastMonth = m }
+  })
+
+  // Y gridlines (5 steps)
+  const eGrids = [0, 0.25, 0.5, 0.75, 1].map(t => ({ y: MT + PH - t * PH, val: Math.round(t * eMax) }))
+  const cGrids = [0, 0.25, 0.5, 0.75, 1].map(t => ({ val: Math.round(t * cMax) }))
+
+  const dots = history.length <= 90
+
+  return (
+    <div className="health-coverage-chart">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Event and calendar coverage over time">
+        {/* gridlines */}
+        {eGrids.map((g, i) => (
+          <line key={i} x1={ML} x2={ML + PW} y1={g.y} y2={g.y} stroke="var(--line)" strokeWidth="1" />
+        ))}
+
+        {/* event series (blue) */}
+        <polyline points={ePoints} fill="none" stroke="#2563eb" strokeWidth="2" strokeLinejoin="round" />
+        {dots && history.map((p, i) => (
+          <circle key={i} cx={xOf(i)} cy={yOfE(p.events)} r="3" fill="#2563eb" />
+        ))}
+
+        {/* calendar series (orange) */}
+        <polyline points={cPoints} fill="none" stroke="#ea580c" strokeWidth="2" strokeLinejoin="round" />
+        {dots && history.map((p, i) => (
+          <circle key={i} cx={xOf(i)} cy={yOfC(p.calendars)} r="3" fill="#ea580c" />
+        ))}
+
+        {/* left y-axis labels (events) */}
+        {eGrids.map((g, i) => (
+          <text key={i} x={ML - 6} y={g.y} textAnchor="end" dominantBaseline="middle"
+            fontSize="11" fill="var(--ink-3)">{g.val.toLocaleString()}</text>
+        ))}
+
+        {/* right y-axis labels (calendars) */}
+        {cGrids.map((g, i) => (
+          <text key={i} x={ML + PW + 6} y={MT + PH - (g.val / cMax) * PH}
+            textAnchor="start" dominantBaseline="middle"
+            fontSize="11" fill="var(--ink-3)">{g.val}</text>
+        ))}
+
+        {/* x-axis ticks */}
+        {xTicks.map((t, i) => (
+          <g key={i}>
+            <line x1={xOf(t.i)} x2={xOf(t.i)} y1={MT + PH} y2={MT + PH + 5} stroke="var(--line)" strokeWidth="1" />
+            <text x={xOf(t.i)} y={MT + PH + 16} textAnchor="middle" fontSize="11" fill="var(--ink-3)">{t.label}</text>
+          </g>
+        ))}
+
+        {/* axis lines */}
+        <line x1={ML} x2={ML} y1={MT} y2={MT + PH} stroke="var(--line)" strokeWidth="1" />
+        <line x1={ML + PW} x2={ML + PW} y1={MT} y2={MT + PH} stroke="var(--line)" strokeWidth="1" />
+        <line x1={ML} x2={ML + PW} y1={MT + PH} y2={MT + PH} stroke="var(--line)" strokeWidth="1" />
+
+        {/* legend */}
+        <rect x={W - MR - 130} y={MT + 4} width={10} height={10} rx="2" fill="#2563eb" />
+        <text x={W - MR - 116} y={MT + 13} fontSize="11" fill="var(--ink-2)">Events</text>
+        <rect x={W - MR - 130} y={MT + 20} width={10} height={10} rx="2" fill="#ea580c" />
+        <text x={W - MR - 116} y={MT + 29} fontSize="11" fill="var(--ink-2)">Calendars</text>
+      </svg>
+    </div>
+  )
+}
+
+function niceCeil(v) {
+  if (v <= 0) return 10
+  const mag = Math.pow(10, Math.floor(Math.log10(v)))
+  const steps = [1, 2, 2.5, 5, 10]
+  for (const s of steps) {
+    const candidate = Math.ceil(v / (mag * s)) * (mag * s)
+    if (candidate >= v) return candidate
+  }
+  return Math.ceil(v / mag) * mag
+}
+
+function fmtMonth(dateStr) {
+  const [, m] = dateStr.split('-')
+  return ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][parseInt(m, 10)]
+}
+
 // Internal health dashboard: scrape source status, build errors, geo/uncertainty
 // stats, and every non-fatal gap queue. Layout: a free-text filter, pinned
 // summary cards (clickable — each opens its class's detail panel), a tab bar,
@@ -73,11 +182,19 @@ export function HealthDashboard({
   const activeTab = healthTab
   const [buildErrors, setBuildErrors] = useState(null)
   const [filter, setFilter] = useState('')
+  const [eventHistory, setEventHistory] = useState([])
 
   useEffect(() => {
     fetch('./build-errors.json')
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (data) setBuildErrors(data) })
+      .catch(() => {})
+  }, [])
+
+  useEffect(() => {
+    fetch('./event-history.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(data => { if (Array.isArray(data) && data.length > 0) setEventHistory(data) })
       .catch(() => {})
   }, [])
 
@@ -249,6 +366,8 @@ export function HealthDashboard({
           </button>
         )}
       </div>
+
+      {eventHistory.length > 0 && <CoverageChart history={eventHistory} />}
 
       <div className="health-search">
         <input

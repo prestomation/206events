@@ -211,6 +211,29 @@ jobs:
         path: fetch-cache.json
         key: fetch-cache-v1-${{ github.run_id }}
 
+    - name: Restore event history
+      uses: actions/cache/restore@v4
+      with:
+        path: docs/event-history.json
+        key: event-history-v1-${{ github.run_id }}
+        restore-keys: |
+          event-history-v1-
+
+    - name: Update event history
+      if: github.event_name != 'pull_request'
+      run: node scripts/update-event-history.mjs
+
+    - name: Copy event history to output (PR builds)
+      if: github.event_name == 'pull_request'
+      run: cp docs/event-history.json output/event-history.json
+
+    - name: Save event history
+      if: always() && github.event_name != 'pull_request'
+      uses: actions/cache/save@v4
+      with:
+        path: docs/event-history.json
+        key: event-history-v1-${{ github.run_id }}
+
     - name: Validate discovery API
       run: npm run check-discovery-api
 

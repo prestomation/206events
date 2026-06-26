@@ -2661,6 +2661,21 @@ html, body, #root { height: 100%; }
 }
 .app206 .health-debug-toggle--on .health-debug-toggle-thumb { transform: translateX(14px); }
 
+/* Coverage chart */
+.app206 .health-coverage-chart {
+  margin: 0 0 20px 0;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 8px 4px;
+  overflow: hidden;
+}
+.app206 .health-coverage-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Page-wide filter box. */
 .app206 .health-search {
   display: flex;
