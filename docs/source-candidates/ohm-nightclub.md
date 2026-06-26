@@ -6,7 +6,7 @@ url: https://dice.fm/venue/ohm-nightclub-6d7m3
 tags: [Music, Nightlife, "Pioneer Square"]
 firstSeen: 2026-06-26
 lastChecked: 2026-06-26
-pr: TBD
+pr: 734
 ---
 
 Pioneer Square nightclub at 172 S Washington St, Seattle, WA 98104. R&B, Hip Hop, and Afro Beats venue. Open Friday and Saturday nights.
