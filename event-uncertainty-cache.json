@@ -18378,18 +18378,28 @@
       "partialFingerprint": "1fdu7ba-until2026-06-28-tu"
     },
     "events12:short-plays-in-edmonds-2026-06-26": {
-      "unresolvable": true,
-      "reason": "Website returned 403; performance times not accessible",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "startTime": "20:00",
+        "duration": 8100,
+        "cost": {
+          "min": 31.0
+        }
+      },
+      "resolvedAt": "2026-06-26",
       "source": "agent",
-      "partialFingerprint": "1fdu7ba-until2026-06-28-tu"
+      "evidence": "https://edmondsdriftwoodplayers.org/festival-of-shorts/"
     },
     "events12:short-plays-in-edmonds-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Website returned 403; performance times not accessible",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "startTime": "20:00",
+        "duration": 8100,
+        "cost": {
+          "min": 31.0
+        }
+      },
+      "resolvedAt": "2026-06-26",
       "source": "agent",
-      "partialFingerprint": "1fdu7ba-until2026-06-28-tu"
+      "evidence": "https://edmondsdriftwoodplayers.org/festival-of-shorts/"
     },
     "events12:short-plays-in-edmonds-2026-06-28": {
       "unresolvable": true,
@@ -29221,17 +29231,26 @@
     },
     "seattle-center:summer-walker": {
       "fields": {
-        "duration": 16200
+        "duration": 16200,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-06-26",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-walker"
     },
     "seattle-center:visit-seattle-drone-show-july-1": {
-      "unresolvable": true,
+      "fields": {
+        "startTime": "22:00",
+        "duration": 3600,
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-06-26",
       "source": "agent",
-      "reason": "Page says show starts around 10pm-11:30pm PT but no explicit end time given"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/visit-seattle-drone-show-july-1"
     },
     "seattle-center:lets-play-sea-26-armory-fan-experience-round-of-32-x47256": {
       "unresolvable": true,
@@ -29242,7 +29261,10 @@
     "seattle-center:lets-play-sea-26-global-marketplace-x47288": {
       "fields": {
         "startTime": "10:00",
-        "duration": 36000
+        "duration": 36000,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-06-26",
       "source": "agent",
@@ -29251,7 +29273,10 @@
     "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47534": {
       "fields": {
         "startTime": "09:00",
-        "duration": 32400
+        "duration": 32400,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-06-26",
       "source": "agent",
@@ -29271,7 +29296,11 @@
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47685": {
       "fields": {
-        "duration": 18000
+        "startTime": "13:00",
+        "duration": 18000,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-06-26",
       "source": "agent",
@@ -29279,7 +29308,10 @@
     },
     "seattle-center:artists-at-the-center-shelby-natasha": {
       "fields": {
-        "duration": 3600
+        "duration": 3600,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-06-26",
       "source": "agent",
@@ -29294,7 +29326,10 @@
     "seattle-center:lets-play-sea-26-armory-fan-experience-round-of-32-x47257": {
       "fields": {
         "startTime": "10:30",
-        "duration": 36000
+        "duration": 36000,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-06-26",
       "source": "agent",
@@ -29303,7 +29338,10 @@
     "seattle-center:lets-play-sea-26-global-marketplace-x47289": {
       "fields": {
         "startTime": "10:00",
-        "duration": 36000
+        "duration": 36000,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-06-26",
       "source": "agent",
@@ -29312,7 +29350,10 @@
     "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47535": {
       "fields": {
         "startTime": "09:00",
-        "duration": 32400
+        "duration": 32400,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-06-26",
       "source": "agent",
@@ -29474,6 +29515,125 @@
       "resolvedAt": "2026-06-26",
       "source": "agent",
       "evidence": "https://bothellkenmorechamber.org/event/new-membership-sprint-5/ \u2014 Cost: Free"
+    },
+    "discover-slu:discover-slu-happy-hour-4-good-2026-2": {
+      "fields": {
+        "duration": 7200,
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/happy-hour-4-good-2026-2/"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_udFhiwB": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "lumen-field:tm-vvG1HZ_A3P9iHx": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "stg:tm-vvG1HZ_k2HMWnH": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "stg:tm-vvG1HZbl3neKhL": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "stg:tm-vvG1HZ_uExpf9c": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "t-mobile-park:tm-vvG1HZbgRRe6uh": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "t-mobile-park:tm-vvG1HZbM3CwUlP": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "wamu-theater:tm-vvG1HZ_1hd7ZJT": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "wamu-theater:tm-vvG1HZ_1xpjbPC": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
+    },
+    "seatoday:cityspark-19262143": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Shoreline Cars and Coffee meetup \u2014 no admission price published on event page (Cars and Coffee events are spectator-free but unconfirmed)"
+    },
+    "seatoday:cityspark-18547095": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "German Cars and Coffee meetup \u2014 no admission price published on event page"
+    },
+    "seatoday:cityspark-14396825": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Get With It Auto Cars and Coffee at Mercury Coffee Bellevue \u2014 no admission price published on event page"
+    },
+    "seatoday:cityspark-19262145": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Get With It Auto Cars and Coffee \u2014 no admission price published on event page"
+    },
+    "seatoday:cityspark-19056714": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Brandon Street NA Restoration Event (Seattle.gov) \u2014 no cost details found on listing"
+    },
+    "seatoday:cityspark-19034510": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Heritage Tree Tour \u2014 no specific event page found; admission status unconfirmed"
+    },
+    "seatoday:cityspark-15822263": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Maximize Your Membership member event \u2014 pricing is member-specific, public admission cost unclear"
+    },
+    "seatoday:cityspark-18962038": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event title truncated in listing \u2014 insufficient info to determine cost"
+    },
+    "seatoday:cityspark-18661708": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event title truncated in listing \u2014 insufficient info to determine cost"
     }
   }
 }

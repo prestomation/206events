@@ -11,6 +11,8 @@ geo:
   lat: 47.5771889
   lng: -122.3344660
   label: "Monkey Loft, 2915 1st Ave S, Seattle, WA 98134"
+  osmType: node
+  osmId: 2350317084
 calendars:
   - name: shameless-nw
     friendlyname: "Shameless NW - Deck'd Out at Monkey Loft"
