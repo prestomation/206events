@@ -583,6 +583,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // On the Block Creative Marketplace: outdoor vendor market on Capitol Hill's Pike/Pine corridor.
   // Nominatim can't resolve "between X and Y" street-segment format.
   '11th ave between e pike st and e pine st, capitol hill, seattle, wa 98122': { lat: 47.6150, lng: -122.3153 },
+  // Caffe Ladro in Edmonds — stale unresolvable cache entry; full-name query resolves correctly
+  'caffe ladro, 8403 main street, edmonds, wa': { lat: 47.8079939, lng: -122.3475204 },
+  // Green River College Kent Campus — suite/room suffix prevents Nominatim from resolving
+  'green river college - kent campus, 417 ramsay way, suite 112, room 282/283, kent, wa': { lat: 47.3845, lng: -122.2352 },
 };
 
 /**
