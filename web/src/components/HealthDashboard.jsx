@@ -54,8 +54,10 @@ function ErrorItem({ type, reason, path, href }) {
 // Pure SVG — no dependencies.
 function CoverageChart({ history }) {
   const W = 760, H = 260
-  const ML = 58, MR = 58, MT = 28, MB = 46
-  const PW = W - ML - MR, PH = H - MT - MB
+  const ML = 58, MR = 58, MT = 28
+  const PW = W - ML - MR, PH = H - MT - 46
+
+  if (history.length < 2) return null
 
   const events = history.map(p => p.events)
   const calendars = history.map(p => p.calendars)
