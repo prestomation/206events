@@ -18398,8 +18398,7 @@
       "unresolvable": true,
       "reason": "Website returned 403; performance times not accessible",
       "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1fdu7ba-until2026-06-28-tu"
+      "source": "agent"
     },
     "events12:wine-oysters-2026-06-26": {
       "fields": {
