@@ -29367,6 +29367,113 @@
       "resolvedAt": "2026-06-26",
       "source": "agent",
       "evidence": "https://www.redmond.gov/Calendar.aspx?EID=3190"
+    },
+    "events12:world-cup-soccer-2026-06-26": {
+      "fields": {
+        "startTime": "20:00",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches \u2014 Egypt vs. Iran, 8:00 PM PT"
+    },
+    "events12:world-cup-soccer-2026-06-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "No FIFA match scheduled at Lumen Field on this date; events12 range-expanded the June 26 Egypt vs. Iran listing"
+    },
+    "events12:world-cup-soccer-2026-06-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "No FIFA match scheduled at Lumen Field on this date; events12 range-expanded the June 26 Egypt vs. Iran listing"
+    },
+    "events12:world-cup-soccer-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "No FIFA match scheduled at Lumen Field on this date; events12 range-expanded the June 26 Egypt vs. Iran listing"
+    },
+    "events12:world-cup-soccer-2026-06-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "No FIFA match scheduled at Lumen Field on this date; events12 range-expanded the June 26 Egypt vs. Iran listing"
+    },
+    "events12:world-cup-soccer-2026-06-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "No FIFA match scheduled at Lumen Field on this date; events12 range-expanded the June 26 Egypt vs. Iran listing"
+    },
+    "events12:world-cup-soccer-2026-06-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "No FIFA match scheduled at Lumen Field on this date; events12 range-expanded the June 26 Egypt vs. Iran listing"
+    },
+    "seatoday:cityspark-19022971": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "CitySpark API: drinks served \"at cost\" (per-pour price varies by bottle)"
+    },
+    "seatoday:cityspark-19256753": {
+      "fields": {
+        "cost": {
+          "min": 90.0
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://bothellkenmorechamber.org/event/willard-art-frame-youth-art-summer-camp/2026-06-29/ \u2014 half-day $90, full-day $160, full-week $720"
+    },
+    "seatoday:cityspark-19256763": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck \u2014 free and open to the public"
+    },
+    "seatoday:cityspark-19256767": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck \u2014 free and open to the public"
+    },
+    "seatoday:cityspark-19256770": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck \u2014 free and open to the public"
+    },
+    "seatoday:cityspark-18771441": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://bothellkenmorechamber.org/event/new-membership-sprint-5/ \u2014 Cost: Free"
     }
   }
 }

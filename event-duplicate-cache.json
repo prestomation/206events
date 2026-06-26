@@ -4449,6 +4449,66 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-26",
       "note": "Same event from seatoday's CitySpark feed appearing in both arts and learning category calendars"
+    },
+    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 7/1/2026 7:30PM|2026-07-01T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle \u2014 Cheap Laughs Open Mic|2026-07-01T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same weekly Cheap Laughs Open Mic at Club Comedy Seattle; recurring YAML lists 8pm, venue ripper (Eventbrite) shows 7pm - time discrepancy is between sources for the same event"
+    },
+    "external-seattle-gov-city-wide.ics Jet City Improv Festival|2026-07-16T00:00:00Z[UTC]::jet-city-improv-jet-city-improv.ics Jet City Improv Festival 2026|2026-07-16T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same festival at West of Lenin; city-wide calendar lists festival start as all-day event, venue lists specific 7pm performance - same real-world event"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18307676) appearing in all-events and arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18307676) appearing in all-events and community category feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18307676) appearing in arts and community category feeds"
+    },
+    "seatoday-seatoday-all.ics German Cars and Coffee|2026-06-27T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics German Cars and Coffee|2026-06-27T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18547095) appearing in all-events and food category feeds"
+    },
+    "seatoday-seatoday-all.ics Membership Luncheon: Summer Business Check-In|2026-07-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Membership Luncheon: Summer Business Check-In|2026-07-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18297438) appearing in multiple category feeds"
+    },
+    "seatoday-seatoday-all.ics Membership Luncheon: Summer Business Check-In|2026-07-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Membership Luncheon: Summer Business Check-In|2026-07-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18297438) appearing in multiple category feeds"
+    },
+    "seatoday-seatoday-food.ics Membership Luncheon: Summer Business Check-In|2026-07-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Membership Luncheon: Summer Business Check-In|2026-07-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18297438) appearing in multiple category feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18978022) appearing in multiple category feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18978022) appearing in multiple category feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-26",
+      "note": "Same seatoday CitySpark event (18978022) appearing in multiple category feeds"
     }
   }
 }
