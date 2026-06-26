@@ -1,0 +1,20 @@
+name: ohm-nightclub
+sourceRole: venue
+type: dice
+proxy: "outofband"
+description: "OHM Nightclub"
+url: "https://events-api.dice.fm/v1/events?filter[venues][]=Ohm+Nightclub"
+friendlyLink: https://dice.fm/venue/ohm-nightclub-6d7m3
+tags: ["Music", "Nightlife", "Pioneer Square"]
+geo:
+  lat: 47.6010022
+  lng: -122.3318723
+  label: "OHM Nightclub, 172 S Washington St, Seattle, WA 98104"
+calendars:
+  - name: ohm-nightclub
+    friendlyname: "OHM Nightclub"
+    timezone: America/Los_Angeles
+    config:
+      venueName: "Ohm Nightclub"
+      defaultLocation: "172 S Washington St, Seattle, WA 98104"
+      defaultDurationHours: 3
