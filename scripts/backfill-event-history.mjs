@@ -48,6 +48,7 @@ async function tryPr(n) {
   const calendars = countCalendars(manifest);
   const date = errors.buildTime.slice(0, 10);
 
+  if (events === 0 && calendars === 0) return null;
   return { date, events, calendars, buildTime: errors.buildTime, pr: n };
 }
 

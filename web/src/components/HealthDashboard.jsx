@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 // Human-readable label + tone for each source status.
 const STATUS_META = {
@@ -57,12 +57,11 @@ function CoverageChart({ history }) {
   const ML = 58, MR = 58, MT = 28, MB = 46
   const PW = W - ML - MR, PH = H - MT - MB
 
-  const dates = history.map(p => p.date)
   const events = history.map(p => p.events)
   const calendars = history.map(p => p.calendars)
 
-  const eMin = 0, eMax = niceCeil(Math.max(...events))
-  const cMin = 0, cMax = niceCeil(Math.max(...calendars))
+  const eMax = niceCeil(Math.max(...events))
+  const cMax = niceCeil(Math.max(...calendars))
 
   const xOf = i => ML + (i / (history.length - 1)) * PW
   const yOfE = v => MT + PH - (v / eMax) * PH
