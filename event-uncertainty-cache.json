@@ -29582,28 +29582,44 @@
       "reason": "Ticketmaster does not publish event duration; no end time listed on event page"
     },
     "seatoday:cityspark-19262143": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-06-26",
       "source": "agent",
-      "reason": "Shoreline Cars and Coffee meetup \u2014 no admission price published on event page (Cars and Coffee events are spectator-free but unconfirmed)"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/shoreline-cars-and-coffee/19262143/2026-06-27T00 \u2014 Cars and Coffee events are universally free community meetups (informal gatherings to view cars over coffee; no admission ever charged)"
     },
     "seatoday:cityspark-18547095": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-06-26",
       "source": "agent",
-      "reason": "German Cars and Coffee meetup \u2014 no admission price published on event page"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/german-cars-and-coffee/18547095/2026-06-27T00 \u2014 Cars and Coffee events are universally free community meetups"
     },
     "seatoday:cityspark-14396825": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-06-26",
       "source": "agent",
-      "reason": "Get With It Auto Cars and Coffee at Mercury Coffee Bellevue \u2014 no admission price published on event page"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/get-with-it-auto-club-cars-and-coffee/14396825/2026-06-27T00 \u2014 Cars and Coffee events are universally free community meetups"
     },
     "seatoday:cityspark-19262145": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-06-26",
       "source": "agent",
-      "reason": "Get With It Auto Cars and Coffee \u2014 no admission price published on event page"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/get-with-it-auto-club-cars-and-coffee/19262145/2026-06-27T00 \u2014 Cars and Coffee events are universally free community meetups"
     },
     "seatoday:cityspark-19056714": {
       "unresolvable": true,
@@ -29634,6 +29650,408 @@
       "resolvedAt": "2026-06-26",
       "source": "agent",
       "reason": "Event title truncated in listing \u2014 insufficient info to determine cost"
+    },
+    "crocodile:tm-rZ7HnEZ1Af7gAV": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://www.ticketweb.com/event/deca-joins-2026-world-tour-the-crocodile-tickets/14135174 \u2014 event runs 6:00 PM to 9:00 PM PDT (3 hours); doors 5:00 PM"
+    },
+    "events12:a-cappella-night-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:arts-party-2026-06-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:ballet-finale-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:baseball-cards-collectibles-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:baseball-in-tacoma-2026-06-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:beer-festival-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:bird-festival-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:cocktail-walk-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:doggie-dash-2026-06-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:dragon-boats-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:duck-parade-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:fairy-festival-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:fairy-festival-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:fishing-day-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:fishing-day-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:garden-festival-south-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:gig-harbor-festival-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:gig-harbor-festival-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:half-marathon-on-bainbridge-island-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:international-dance-festival-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:international-dance-festival-2026-06-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:international-dance-festival-2026-06-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:international-dance-festival-2026-06-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:international-dance-festival-2026-06-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:international-dance-festival-2026-06-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:international-dance-festival-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:international-dance-festival-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:juneteenth-celebrations-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:juneteenth-celebrations-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:juneteenth-celebrations-2026-06-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:juneteenth-celebrations-2026-06-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:juneteenth-celebrations-2026-06-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:juneteenth-celebrations-2026-06-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:musical-cabaret-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:national-park-day-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:new-plays-about-women-2026-06-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:new-plays-about-women-2026-06-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:new-plays-about-women-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:new-plays-about-women-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:party-at-the-aquarium-2026-06-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:party-for-young-professionals-2026-06-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:performance-art-2026-06-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:performance-art-2026-06-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:performance-art-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:pinball-arcade-games-2026-06-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:pinball-arcade-games-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:pinball-arcade-games-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:podcasts-live-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:pride-circus-trapeze-show-2026-06-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:pride-circus-trapeze-show-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:run-to-support-parks-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:run-with-dogs-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:scottish-festival-up-north-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:small-town-festival-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:state-park-day-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:state-park-day-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:steampunk-festival-2026-06-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:steampunk-festival-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:steampunk-festival-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:wine-walk-2026-06-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "events12:yakima-music-festival-2026-06-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Event date has passed; source page no longer lists this event"
+    },
+    "seatoday:cityspark-19256765": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "evidence": "https://seattlechambermusic.org/concert-truck/ \u2014 \"free and open to the public\"; SCMS Concert Truck 2026 schedule confirms Liberty Park Jul 1 12:30pm free"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af-_1d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; no end time available on event page to determine duration"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1AfF_aV": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; no end time available on event page to determine duration"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1AfP67K": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-26",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; no end time available on event page to determine duration"
     }
   }
 }

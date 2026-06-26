@@ -4512,7 +4512,8 @@
     },
     "19hz-all-events.ics Aaron Hibell|2026-07-10T21:00:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Aaron Hibell with Kotier|2026-07-10T21:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
-      "resolvedAt": "2026-06-26"
+      "resolvedAt": "2026-06-26",
+      "note": "Same AXS event ID 1332845 in both URLs; 19hz lists headliner only, Showbox adds opener Kotier \u2014 same show"
     }
   }
 }
