@@ -1,0 +1,12 @@
+name: queer-power-alliance
+type: squarespace
+sourceRole: venue
+description: "Queer Power Alliance"
+url: "https://queerpoweralliance.org/events"
+friendlyLink: https://queerpoweralliance.org/events
+tags: ["Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Queer Power Alliance Events"
+    timezone: America/Los_Angeles
