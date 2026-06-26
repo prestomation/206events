@@ -199,30 +199,28 @@ export class TicketmasterRipper implements IRipper {
 
                 events.push(calEvent);
 
-                // The Ticketmaster Discovery API never returns an end time,
-                // so duration is always the 2-hour placeholder above. Flag
-                // every event as duration-uncertain. When the start time was
-                // also missing (localDate only) we add startTime to the
-                // unknown fields too.
-                const unknownFields: UncertaintyField[] = startTimeUnknown
-                    ? ["startTime", "duration"]
-                    : ["duration"];
-                const start = event.dates?.start ?? {};
-                const fingerprint = simpleHash(
-                    `${start.localDate ?? ''}|${start.localTime ?? ''}|${start.dateTime ?? ''}`
-                );
-                const uncertainty: UncertaintyError = {
-                    type: "Uncertainty",
-                    reason: startTimeUnknown
-                        ? "Ticketmaster listing has date only (no start time); duration also unavailable from API"
-                        : "Ticketmaster API does not expose event duration",
-                    source,
-                    calendar: calendarName,
-                    unknownFields,
-                    event: calEvent,
-                    partialFingerprint: fingerprint,
-                };
-                events.push(uncertainty);
+                // The Ticketmaster Discovery API never returns an end time, so
+                // duration is pervasively unavailable — we use the 2-hour
+                // placeholder above and do NOT flag it as uncertain (it can
+                // never be resolved). Start time is only occasionally missing
+                // (date-only listings), so that case gets an UncertaintyError.
+                if (startTimeUnknown) {
+                    const unknownFields: UncertaintyField[] = ["startTime"];
+                    const start = event.dates?.start ?? {};
+                    const fingerprint = simpleHash(
+                        `${start.localDate ?? ''}|${start.localTime ?? ''}|${start.dateTime ?? ''}`
+                    );
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: "Ticketmaster listing has date only (no start time); using 19:30 placeholder",
+                        source,
+                        calendar: calendarName,
+                        unknownFields,
+                        event: calEvent,
+                        partialFingerprint: fingerprint,
+                    };
+                    events.push(uncertainty);
+                }
             } catch (error) {
                 events.push({
                     type: "ParseError",

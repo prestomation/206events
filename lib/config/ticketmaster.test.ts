@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { ZoneId } from '@js-joda/core';
 import '@js-joda/timezone';
 import { TicketmasterRipper } from './ticketmaster.js';
-import { RipperCalendarEvent } from './schema.js';
+import { RipperCalendarEvent, UncertaintyError } from './schema.js';
 
 const tz = ZoneId.of('America/Los_Angeles');
 
@@ -20,6 +20,11 @@ function parseOne(event: any): RipperCalendarEvent {
     const results = ripper.parseEvents([event], tz, { venueName: 'Test Venue' });
     const [e] = results.filter(r => 'summary' in r) as RipperCalendarEvent[];
     return e;
+}
+
+function parseRaw(event: any): ReturnType<TicketmasterRipper['parseEvents']> {
+    const ripper = new TicketmasterRipper();
+    return ripper.parseEvents([event], tz, { venueName: 'Test Venue' }, 'test-source', 'test-cal');
 }
 
 describe('TicketmasterRipper cost extraction', () => {
@@ -112,5 +117,32 @@ describe('TicketmasterRipper sold-out detection', () => {
             priceRanges: [{ type: 'standard', currency: 'USD', min: 35, max: 50 }],
         }));
         expect(e.cost).toEqual({ min: 35, max: 50 });
+    });
+});
+
+describe('TicketmasterRipper duration / start-time uncertainty', () => {
+    it('emits no uncertainty when start time is known via localDate+localTime', () => {
+        const results = parseRaw(makeEvent({
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' } },
+        }));
+        const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty');
+        expect(uncertainties).toHaveLength(0);
+    });
+
+    it('emits no uncertainty when start time is known via dateTime', () => {
+        const results = parseRaw(makeEvent({
+            dates: { start: { dateTime: '2026-03-10T19:00:00Z' } },
+        }));
+        const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty');
+        expect(uncertainties).toHaveLength(0);
+    });
+
+    it('emits exactly one UncertaintyError with unknownFields=[startTime] for date-only listings', () => {
+        const results = parseRaw(makeEvent({
+            dates: { start: { localDate: '2026-03-10' } },
+        }));
+        const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty') as UncertaintyError[];
+        expect(uncertainties).toHaveLength(1);
+        expect(uncertainties[0].unknownFields).toEqual(['startTime']);
     });
 });
