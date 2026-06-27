@@ -5,7 +5,7 @@ proxy: "outofband"
 description: "Barnes & Noble Northgate"
 url: "https://www.eventbrite.com/o/barnes-noble-northgate-seattle-wa-81544301213"
 friendlyLink: https://stores.barnesandnoble.com/store/2280
-tags: ["Books"]
+tags: ["Books", "Northgate"]
 geo:
   lat: 47.706267
   lng: -122.325811
