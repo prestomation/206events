@@ -33,19 +33,20 @@ const SYNTHETIC_EVENTS = {
 };
 
 describe('DICERipper — fetchAllEvents retry', () => {
-    it('retries on 429 and succeeds when rate limit clears', async () => {
+    it('retries up to maxRetries times and succeeds on the final retry', async () => {
+        // maxRetries=3: attempts 0,1,2 fail with 429; attempt 3 succeeds → 4 total calls
         const ripper = new DICERipper();
         let callCount = 0;
         const mockFetch = async (_url: string, _opts: any): Promise<Response> => {
             callCount++;
-            if (callCount < 3) {
+            if (callCount < 4) {
                 return new Response(null, { status: 429, statusText: 'Too Many Requests', headers: { 'Retry-After': '0' } });
             }
             return new Response(JSON.stringify({ data: [], links: {} }), { status: 200 });
         };
         const events = await ripper.fetchAllEvents('Test Venue', 'fake-key', mockFetch as any);
         expect(events).toEqual([]);
-        expect(callCount).toBe(3);
+        expect(callCount).toBe(4); // 1 initial + 3 retries
     });
 
     it('throws after exhausting retries on 429', async () => {
@@ -64,6 +65,20 @@ describe('DICERipper — fetchAllEvents retry', () => {
         };
         await expect(ripper.fetchAllEvents('Test Venue', 'fake-key', mockFetch as any)).rejects.toThrow('403');
         expect(callCount).toBe(1);
+    });
+
+    it('falls back to exponential backoff when Retry-After is a non-numeric date string', async () => {
+        // parseInt("Fri, 27 Jun...") === NaN; guard ensures fallback to 2^0 * 1000 ms, not NaN
+        const ripper = new DICERipper();
+        let callCount = 0;
+        const mockFetch = async (): Promise<Response> => {
+            callCount++;
+            if (callCount < 2) {
+                return new Response(null, { status: 429, headers: { 'Retry-After': 'Fri, 27 Jun 2026 12:00:00 GMT' } });
+            }
+            return new Response(JSON.stringify({ data: [], links: {} }), { status: 200 });
+        };
+        await expect(ripper.fetchAllEvents('Test Venue', 'fake-key', mockFetch as any)).resolves.toEqual([]);
     });
 });
 

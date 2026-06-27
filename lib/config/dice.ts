@@ -98,9 +98,13 @@ export class DICERipper implements IRipper {
                 });
                 if (res.status !== 429) break;
                 if (attempt < maxRetries) {
-                    // Respect Retry-After header if present, otherwise use exponential backoff
+                    // Respect Retry-After (seconds) if present, otherwise exponential backoff.
+                    // Guard against date-string Retry-After values where parseInt returns NaN.
                     const retryAfter = res.headers.get('Retry-After');
-                    const delayMs = retryAfter ? parseInt(retryAfter, 10) * 1000 : (1000 * Math.pow(2, attempt));
+                    const retryAfterSecs = retryAfter !== null ? parseInt(retryAfter, 10) : NaN;
+                    const delayMs = Number.isFinite(retryAfterSecs) && retryAfterSecs >= 0
+                        ? retryAfterSecs * 1000
+                        : 1000 * Math.pow(2, attempt);
                     await new Promise(resolve => setTimeout(resolve, delayMs));
                 }
             }
