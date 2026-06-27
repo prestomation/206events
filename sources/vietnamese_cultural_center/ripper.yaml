@@ -1,0 +1,15 @@
+name: vietnamese_cultural_center
+sourceRole: venue
+type: squarespace
+description: "Vietnamese Cultural Center"
+url: "https://vietnameseculturalctr.squarespace.com/events"
+friendlyLink: https://vietnameseculturalctr.squarespace.com/events
+tags: ["Community", "West Seattle"]
+geo:
+  lat: 47.53763
+  lng: -122.36253
+  label: "Vietnamese Cultural Center, 2236 SW Orchard St, Seattle, WA 98106"
+calendars:
+  - name: all-events
+    friendlyname: "Vietnamese Cultural Center"
+    timezone: America/Los_Angeles
