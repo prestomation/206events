@@ -60,8 +60,9 @@ export function parseEventPage(html: string, pageUrl: string): RipperEvent {
         if (!name || !rawStart) continue;
 
         // BentoBox stores local Pacific time with a Z suffix as if it were UTC.
-        // Strip the Z and parse as a local datetime, then apply the Pacific timezone.
-        const localStart = rawStart.replace(/Z$/, "");
+        // Strip any trailing timezone designator (Z or ±HH:MM) and parse as a
+        // local datetime, then apply the Pacific timezone explicitly.
+        const localStart = rawStart.replace(/Z$|[+-]\d{2}:\d{2}$/, "");
         let startZdt: ZonedDateTime;
         try {
             startZdt = ZonedDateTime.of(LocalDateTime.parse(localStart), TIMEZONE);
@@ -77,7 +78,7 @@ export function parseEventPage(html: string, pageUrl: string): RipperEvent {
         const rawEnd = data.endDate;
         if (rawEnd) {
             try {
-                const localEnd = rawEnd.replace(/Z$/, "");
+                const localEnd = rawEnd.replace(/Z$|[+-]\d{2}:\d{2}$/, "");
                 const endZdt = ZonedDateTime.of(LocalDateTime.parse(localEnd), TIMEZONE);
                 const mins = Duration.between(startZdt, endZdt).toMinutes();
                 if (mins > 0) duration = Duration.ofMinutes(mins);

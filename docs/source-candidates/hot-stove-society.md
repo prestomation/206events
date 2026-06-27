@@ -6,7 +6,7 @@ url: https://www.hotstovesociety.com/store/events/
 tags: [Food, Belltown]
 firstSeen: 2026-06-27
 lastChecked: 2026-06-27
-pr: 0
+pr: 739
 ---
 
 Tom Douglas's culinary school at Hotel Andra (2000 4th Ave, Seattle). Offers cooking classes, radio show tapings, junior chef camps, and themed dinner events.
