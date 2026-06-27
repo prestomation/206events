@@ -10,6 +10,8 @@ geo:
   lat: 47.6010022
   lng: -122.3318723
   label: "OHM Nightclub, 172 S Washington St, Seattle, WA 98104"
+  osmType: node
+  osmId: 13178246014
 calendars:
   - name: ohm-nightclub
     friendlyname: "OHM Nightclub"

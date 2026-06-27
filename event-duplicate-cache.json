@@ -4514,6 +4514,81 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-26",
       "note": "Same AXS event ID 1332845 in both URLs; 19hz lists headliner only, Showbox adds opener Kotier \u2014 same show"
+    },
+    "crocodile-crocodile-main.ics School of Rock Seattle Presents: Rush, Modern Metal, & Best of The 80's|2026-06-28T09:45:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics School of Rock Seattle Presents: Rush, Modern Metal, & Best of The 80's|2026-06-28T09:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same show at The Crocodile, Crocodile venue feed vs seatoday aggregator"
+    },
+    "crocodile-crocodile-main.ics School of Rock Seattle Presents: Rush, Modern Metal, & Best of The 80's|2026-06-28T09:45:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics School of Rock Seattle Presents: Rush, Modern Metal, & Best of The 80's|2026-06-28T09:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same show at The Crocodile, Crocodile venue feed vs seatoday aggregator"
+    },
+    "crocodile-crocodile-main.ics School of Rock Seattle Presents: Rush, Modern Metal, & Best of The 80's|2026-06-28T09:45:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics School of Rock Seattle Presents: Rush, Modern Metal, & Best of The 80's|2026-06-28T09:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same show at The Crocodile, Crocodile venue feed vs seatoday aggregator"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Henry Art Gallery, same CitySpark ID 18307676, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Henry Art Gallery, same CitySpark ID 18307676, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Henry Art Gallery, same CitySpark ID 18307676, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-10T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-10T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Bluetree Farm, same CitySpark ID 19139705, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-10T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-10T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Bluetree Farm, same CitySpark ID 19139705, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-10T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-10T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Bluetree Farm, same CitySpark ID 19139705, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-all.ics Let's Play SWA '26- Watch Parties at the Mural Amphitheatre|2026-07-04T09:15:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-04T09:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same World Cup watch party at Mural Amphitheatre; seatoday has typo SWA->SEA, 114m apart at same venue"
+    },
+    "seatoday-seatoday-food.ics Let's Play SWA '26- Watch Parties at the Mural Amphitheatre|2026-07-04T09:15:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-04T09:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same World Cup watch party at Mural Amphitheatre; seatoday has typo SWA->SEA, 114m apart at same venue"
+    },
+    "seatoday-seatoday-sports.ics Let's Play SWA '26- Watch Parties at the Mural Amphitheatre|2026-07-04T09:15:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-04T09:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same World Cup watch party at Mural Amphitheatre; seatoday has typo SWA->SEA, 114m apart at same venue"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Westfield Southcenter, same CitySpark ID 18978022, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Westfield Southcenter, same CitySpark ID 18978022, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-27",
+      "note": "Same event at Westfield Southcenter, same CitySpark ID 18978022, cross-listed in seatoday categories"
     }
   }
 }
