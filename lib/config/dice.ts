@@ -87,14 +87,29 @@ export class DICERipper implements IRipper {
         let nextUrl: string | null = `${DICE_API_URL}?page%5Bsize%5D=50&filter%5Bvenues%5D%5B%5D=${encodeURIComponent(venueName)}`;
 
         while (nextUrl && page <= MAX_PAGES) {
-            const res: Response = await fetchFn(nextUrl, {
-                headers: {
-                    'x-api-key': apiKey,
-                    'Accept': 'application/json'
+            let res: Response | null = null;
+            const maxRetries = 3;
+            for (let attempt = 0; attempt <= maxRetries; attempt++) {
+                res = await fetchFn(nextUrl, {
+                    headers: {
+                        'x-api-key': apiKey,
+                        'Accept': 'application/json'
+                    }
+                });
+                if (res.status !== 429) break;
+                if (attempt < maxRetries) {
+                    // Respect Retry-After (seconds) if present, otherwise exponential backoff.
+                    // Guard against date-string Retry-After values where parseInt returns NaN.
+                    const retryAfter = res.headers.get('Retry-After');
+                    const retryAfterSecs = retryAfter !== null ? parseInt(retryAfter, 10) : NaN;
+                    const delayMs = Number.isFinite(retryAfterSecs) && retryAfterSecs >= 0
+                        ? retryAfterSecs * 1000
+                        : 1000 * Math.pow(2, attempt);
+                    await new Promise(resolve => setTimeout(resolve, delayMs));
                 }
-            });
-            if (!res.ok) {
-                throw new Error(`DICE API error: ${res.status} ${res.statusText}`);
+            }
+            if (!res || !res.ok) {
+                throw new Error(`DICE API error: ${res?.status} ${res?.statusText}`);
             }
 
             const data: any = await res.json();

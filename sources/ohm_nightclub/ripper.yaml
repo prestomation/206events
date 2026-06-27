@@ -1,7 +1,6 @@
 name: ohm-nightclub
 sourceRole: venue
 type: dice
-proxy: "outofband"
 description: "OHM Nightclub"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=Ohm+Nightclub"
 friendlyLink: https://dice.fm/venue/ohm-nightclub-6d7m3
