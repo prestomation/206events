@@ -32,6 +32,41 @@ const SYNTHETIC_EVENTS = {
     withMarkdownDesc: { id: 'syn-6', name: 'Markdown Event', date: '2026-03-01T03:00:00Z', date_end: '2026-03-01T05:00:00Z', timezone: 'America/Los_Angeles', address: '123 Test St', venue: 'Test Venue', url: null, description: null, raw_description: '***\\*Bold header\\**** and *italic* text', images: [] },
 };
 
+describe('DICERipper — fetchAllEvents retry', () => {
+    it('retries on 429 and succeeds when rate limit clears', async () => {
+        const ripper = new DICERipper();
+        let callCount = 0;
+        const mockFetch = async (_url: string, _opts: any): Promise<Response> => {
+            callCount++;
+            if (callCount < 3) {
+                return new Response(null, { status: 429, statusText: 'Too Many Requests', headers: { 'Retry-After': '0' } });
+            }
+            return new Response(JSON.stringify({ data: [], links: {} }), { status: 200 });
+        };
+        const events = await ripper.fetchAllEvents('Test Venue', 'fake-key', mockFetch as any);
+        expect(events).toEqual([]);
+        expect(callCount).toBe(3);
+    });
+
+    it('throws after exhausting retries on 429', async () => {
+        const ripper = new DICERipper();
+        const mockFetch = async (): Promise<Response> =>
+            new Response(null, { status: 429, statusText: 'Too Many Requests', headers: { 'Retry-After': '0' } });
+        await expect(ripper.fetchAllEvents('Test Venue', 'fake-key', mockFetch as any)).rejects.toThrow('429');
+    });
+
+    it('throws immediately on non-429 errors without retry', async () => {
+        const ripper = new DICERipper();
+        let callCount = 0;
+        const mockFetch = async (): Promise<Response> => {
+            callCount++;
+            return new Response(null, { status: 403, statusText: 'Forbidden' });
+        };
+        await expect(ripper.fetchAllEvents('Test Venue', 'fake-key', mockFetch as any)).rejects.toThrow('403');
+        expect(callCount).toBe(1);
+    });
+});
+
 describe.skipIf(!HAVE_SAMPLES)('DICERipper', () => {
     describe('parsing — Vera Project sample', () => {
         it('extracts events with no errors', () => {
