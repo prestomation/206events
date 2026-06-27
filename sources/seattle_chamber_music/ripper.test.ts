@@ -215,6 +215,13 @@ describe('SeattleChamberMusicRipper', () => {
         it('returns null for malformed date text', () => {
             expect(ripper.parseTruckEventDate('Saturday', '1pm', baseDate)).toBeNull();
         });
+
+        it('bumps year when date is more than 6 months in the past', () => {
+            // March 1 relative to an October 1 base is 7 months ago → interprets as next year
+            const octoberBase = LocalDate.of(2026, 10, 1);
+            const result = ripper.parseTruckEventDate('March 1', '1pm', octoberBase);
+            expect(result).toEqual({ year: 2027, month: 3, day: 1, hour: 13, minute: 0 });
+        });
     });
 
     describe('inferLocation', () => {
