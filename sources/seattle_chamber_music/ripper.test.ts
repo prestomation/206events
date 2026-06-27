@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { LocalDate } from '@js-joda/core';
 import SeattleChamberMusicRipper from './ripper.js';
 
 // Minimal HTML fixture with two event cards — one Concert Truck (location from title),
@@ -30,7 +31,36 @@ var data = {"calendars":[{"entries":[
 <a href="/events/page/2/"></a>
 `;
 
-// Access private methods via cast to any for testing
+const TRUCK_SCHEDULE_HTML = `
+<ul class="elementor-icon-list-items">
+  <li class="elementor-icon-list-item">
+    <a href="https://www.seattlechambermusic.org/events/the-concert-truck-6-27-26/" target="_blank">
+      <span class="elementor-icon-list-icon"><i class="fas fa-music-alt"></i></span>
+      <span class="elementor-icon-list-text">Sat. June 27 | 12pm | Hing Hay Park</span>
+    </a>
+  </li>
+  <li class="elementor-icon-list-item">
+    <a href="https://www.seattlechambermusic.org/events/the-concert-truck-2-6-27-26/" target="_blank">
+      <span class="elementor-icon-list-icon"><i class="fas fa-music-alt"></i></span>
+      <span class="elementor-icon-list-text">Sat. June 27 | 7pm | Alki Beach Bathhouse</span>
+    </a>
+  </li>
+  <li class="elementor-icon-list-item">
+    <a href="https://www.seattlechambermusic.org/events/the-concert-truck-7-5-26/" target="_blank">
+      <span class="elementor-icon-list-icon"><i class="fas fa-music-alt"></i></span>
+      <span class="elementor-icon-list-text">Sun. July 5 | 1pm | Seattle Center* (Seattle Center Classical)</span>
+    </a>
+  </li>
+  <li class="elementor-icon-list-item">
+    <a href="https://www.seattlechambermusic.org/events/the-concert-truck-7-1-26/" target="_blank">
+      <span class="elementor-icon-list-icon"><i class="fas fa-music-alt"></i></span>
+      <span class="elementor-icon-list-text">Wed. July 1 | 12:30pm | Liberty Park*</span>
+    </a>
+  </li>
+</ul>
+`;
+
+// Access private/public methods via cast to any for testing
 const ripper = new SeattleChamberMusicRipper() as any;
 
 describe('SeattleChamberMusicRipper', () => {
@@ -82,16 +112,115 @@ describe('SeattleChamberMusicRipper', () => {
     });
 
     describe('parseTime', () => {
-        it('parses 12-hour AM/PM times', () => {
+        it('parses "H:MM AM/PM" format from main events page', () => {
             expect(ripper.parseTime('12:00 PM')).toEqual({ hour: 12, minute: 0 });
             expect(ripper.parseTime('6:00 PM')).toEqual({ hour: 18, minute: 0 });
             expect(ripper.parseTime('7:30 AM')).toEqual({ hour: 7, minute: 30 });
             expect(ripper.parseTime('12:00 AM')).toEqual({ hour: 0, minute: 0 });
         });
 
+        it('parses compact "Ham/pm" format from Concert Truck schedule page', () => {
+            expect(ripper.parseTime('12pm')).toEqual({ hour: 12, minute: 0 });
+            expect(ripper.parseTime('6pm')).toEqual({ hour: 18, minute: 0 });
+            expect(ripper.parseTime('11am')).toEqual({ hour: 11, minute: 0 });
+            expect(ripper.parseTime('1pm')).toEqual({ hour: 13, minute: 0 });
+            expect(ripper.parseTime('7pm')).toEqual({ hour: 19, minute: 0 });
+        });
+
+        it('parses compact "H:MMam/pm" format with minutes', () => {
+            expect(ripper.parseTime('12:30pm')).toEqual({ hour: 12, minute: 30 });
+            expect(ripper.parseTime('6:30pm')).toEqual({ hour: 18, minute: 30 });
+        });
+
         it('returns null for unparseable input', () => {
             expect(ripper.parseTime('noon')).toBeNull();
             expect(ripper.parseTime('')).toBeNull();
+        });
+    });
+
+    describe('extractTruckSchedule', () => {
+        it('parses schedule entries from Concert Truck page', () => {
+            const events = ripper.extractTruckSchedule(TRUCK_SCHEDULE_HTML);
+            expect(events).toHaveLength(4);
+        });
+
+        it('extracts correct id, date, time, venue, and url', () => {
+            const events = ripper.extractTruckSchedule(TRUCK_SCHEDULE_HTML);
+            const first = events[0];
+            expect(first.id).toBe('scms-the-concert-truck-6-27-26');
+            expect(first.dateText).toBe('June 27');
+            expect(first.timeText).toBe('12pm');
+            expect(first.venue).toBe('Hing Hay Park');
+            expect(first.url).toBe('https://www.seattlechambermusic.org/events/the-concert-truck-6-27-26/');
+        });
+
+        it('strips trailing asterisks and parenthetical notes from venue', () => {
+            const events = ripper.extractTruckSchedule(TRUCK_SCHEDULE_HTML);
+            // "Seattle Center* (Seattle Center Classical)" → "Seattle Center"
+            const julyFive = events.find((e: any) => e.id === 'scms-the-concert-truck-7-5-26');
+            expect(julyFive?.venue).toBe('Seattle Center');
+            // "Liberty Park*" → "Liberty Park"
+            const liberty = events.find((e: any) => e.id === 'scms-the-concert-truck-7-1-26');
+            expect(liberty?.venue).toBe('Liberty Park');
+        });
+
+        it('parses time with minutes (12:30pm)', () => {
+            const events = ripper.extractTruckSchedule(TRUCK_SCHEDULE_HTML);
+            const liberty = events.find((e: any) => e.id === 'scms-the-concert-truck-7-1-26');
+            expect(liberty?.timeText).toBe('12:30pm');
+        });
+
+        it('returns empty array for empty HTML', () => {
+            expect(ripper.extractTruckSchedule('')).toEqual([]);
+            expect(ripper.extractTruckSchedule('<html>no truck schedule</html>')).toEqual([]);
+        });
+    });
+
+    describe('parseTruckEventDate', () => {
+        const baseDate = LocalDate.of(2026, 6, 27);
+
+        it('parses a future date in the same year', () => {
+            const result = ripper.parseTruckEventDate('July 5', '1pm', baseDate);
+            expect(result).toEqual({ year: 2026, month: 7, day: 5, hour: 13, minute: 0 });
+        });
+
+        it('parses the current date', () => {
+            const result = ripper.parseTruckEventDate('June 27', '12pm', baseDate);
+            expect(result).toEqual({ year: 2026, month: 6, day: 27, hour: 12, minute: 0 });
+        });
+
+        it('parses a date slightly in the past (within 6 months) as same year', () => {
+            const result = ripper.parseTruckEventDate('June 18', '12pm', baseDate);
+            expect(result).toEqual({ year: 2026, month: 6, day: 18, hour: 12, minute: 0 });
+        });
+
+        it('parses time with minutes', () => {
+            const result = ripper.parseTruckEventDate('July 1', '12:30pm', baseDate);
+            expect(result).toEqual({ year: 2026, month: 7, day: 1, hour: 12, minute: 30 });
+        });
+
+        it('parses evening times correctly', () => {
+            const result = ripper.parseTruckEventDate('June 27', '7pm', baseDate);
+            expect(result).toEqual({ year: 2026, month: 6, day: 27, hour: 19, minute: 0 });
+        });
+
+        it('returns null for invalid month', () => {
+            expect(ripper.parseTruckEventDate('Julyyy 5', '1pm', baseDate)).toBeNull();
+        });
+
+        it('returns null for invalid time', () => {
+            expect(ripper.parseTruckEventDate('July 5', 'noon', baseDate)).toBeNull();
+        });
+
+        it('returns null for malformed date text', () => {
+            expect(ripper.parseTruckEventDate('Saturday', '1pm', baseDate)).toBeNull();
+        });
+
+        it('bumps year when date is more than 6 months in the past', () => {
+            // March 1 relative to an October 1 base is 7 months ago → interprets as next year
+            const octoberBase = LocalDate.of(2026, 10, 1);
+            const result = ripper.parseTruckEventDate('March 1', '1pm', octoberBase);
+            expect(result).toEqual({ year: 2027, month: 3, day: 1, hour: 13, minute: 0 });
         });
     });
 
