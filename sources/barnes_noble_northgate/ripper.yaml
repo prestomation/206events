@@ -1,0 +1,20 @@
+name: barnes-noble-northgate
+sourceRole: venue
+type: eventbrite
+proxy: "outofband"
+description: "Barnes & Noble Northgate"
+url: "https://www.eventbrite.com/o/barnes-noble-northgate-seattle-wa-81544301213"
+friendlyLink: https://stores.barnesandnoble.com/store/2280
+tags: ["Books", "Northgate"]
+geo:
+  lat: 47.706267
+  lng: -122.325811
+  label: "Barnes & Noble, 401 NE Northgate Way, Seattle, WA 98125"
+calendars:
+  - name: barnes-noble-northgate
+    friendlyname: "Barnes & Noble Northgate"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "81544301213"
+      defaultLocation: "401 NE Northgate Way, Seattle, WA 98125"
+      defaultDurationHours: 2
