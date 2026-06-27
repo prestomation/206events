@@ -1,0 +1,14 @@
+name: hot-stove-society
+sourceRole: venue
+description: "Hot Stove Society"
+url: "https://www.hotstovesociety.com/store/events/"
+friendlyLink: "https://www.hotstovesociety.com/store/events/"
+tags: ["Food", "Belltown"]
+geo:
+  lat: 47.6132
+  lng: -122.3401
+  label: "Hot Stove Society, 2000 4th Ave, Seattle, WA 98121"
+calendars:
+  - name: hot-stove-society
+    friendlyname: "Hot Stove Society"
+    timezone: America/Los_Angeles
