@@ -74,9 +74,9 @@ opened. `ical.js` is a non-trivial parser shipped to every visitor up front.
 
 **Fix:** dynamic-import it inside `loadEvents` (`const ICAL = (await
 import('ical.js')).default`). Moves it out of the entry chunk into a chunk
-fetched only on first channel open. (`src/lib/icsImage.js` also imports it —
-route both through the same lazy boundary, or keep `icsImage` lazy at its call
-site.)
+fetched only on first channel open. (`src/lib/icsImage.js` operates on an
+already-parsed VEVENT handed in by the caller and imports nothing itself, so it
+needs no change — it works on whatever the lazily-loaded parser produces.)
 
 #### N-3. Vendor chunk splitting
 
@@ -88,7 +88,8 @@ N-1/N-2 (which already carve out the map and ICAL).
 
 #### N-4. Offload Fuse search/index-build to a Web Worker (larger lift)
 
-Even deferred (O-1a, shipped), the Fuse `search()` still runs on the main thread
+Even deferred (the `useDeferredValue` change shipped in the June pass), the Fuse
+`search()` still runs on the main thread
 (~120 ms desktop / ~0.5 s mobile per committed query) and the index build runs
 on load. Moving the index build + queries into a Worker keeps the main thread
 free for input and scroll entirely. This is the structural fix if O-1b's
@@ -131,7 +132,7 @@ grow past a threshold. No browser needed; runs in seconds.
   growth: when `description` bloat pushes the index past budget, the PR that
   added the events is the one that sees the failure. Fits alongside the existing
   `scripts/check-discovery-api.ts` (which already budgets `venues.json` at
-  100 KB — extend that pattern rather than invent a new harness).
+  500 KB — extend that pattern rather than invent a new harness).
 - **JS bundle budget.** After `vite build`, sum the entry chunk's gzip size and
   assert a ceiling. This is what makes N-1/N-2/N-3 *stick* — without a budget,
   the next eager `import` of a heavy dep silently undoes them.
