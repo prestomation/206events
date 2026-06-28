@@ -13,6 +13,7 @@ import { haversineKm } from './lib/haversine.js'
 import { deduplicateEvents } from './lib/event-dedup.js'
 import { eventKey } from './lib/eventKey.js'
 import { extractIcsImageUrl } from './lib/icsImage.js'
+import { createSearchClient } from './lib/searchClient.js'
 import { App206 } from './redesign/App206.jsx'
 import { upcomingIndexEvents, groupIndexEventsByDay } from './redesign/viewModels.js'
 
@@ -132,6 +133,14 @@ function App() {
   // fill in silently once the full index replaces the soon subset.
   const [fullEventsLoaded, setFullEventsLoaded] = useState(false)
   const [loading, setLoading] = useState(true)
+  // Live-search runs in a Web Worker so the events-index JSON.parse, the Fuse
+  // index build, and every per-query scan stay off the main thread (no typing /
+  // scroll freeze). Created once; falls back to a main-thread engine where
+  // Workers are unavailable. See lib/searchClient.js and docs/web-search-worker.md.
+  const searchClientRef = useRef(null)
+  if (searchClientRef.current === null) searchClientRef.current = createSearchClient()
+  const searchClient = searchClientRef.current
+  useEffect(() => () => searchClient.destroy(), [searchClient])
   const [eventsLoading, setEventsLoading] = useState(false)
   const [eventsError, setEventsError] = useState(null)
   const [sidebarWidth, setSidebarWidth] = useState(() =>
@@ -500,7 +509,12 @@ function App() {
         const soonResponse = await fetch('./events-index-soon.json')
         if (soonResponse.ok) {
           const soonData = await soonResponse.json()
-          if (Array.isArray(soonData)) setEventsIndex(soonData)
+          if (Array.isArray(soonData)) {
+            setEventsIndex(soonData)
+            // Index the near-term subset so search works during the window
+            // before the full index lands (cheap clone — soon has no descriptions).
+            searchClient.index(soonData)
+          }
         }
       } catch (e) {
         // Soon payload is an optional accelerator; the full fetch below is the
@@ -510,8 +524,15 @@ function App() {
       // Phase 2: fetch the full index in the background. Not awaited, so it
       // doesn't block the rest of boot (venues, build errors). When it lands it
       // replaces the soon subset and unlocks the whole-timeline views.
+      //
+      // The main thread only reads the response bytes (`arrayBuffer()` — no
+      // parse); the ~9.6 MB JSON.parse + Fuse index build happen in the search
+      // worker, which hands the parsed array back for rendering. Keeping the
+      // fetch on the main thread preserves the service-worker cache / offline
+      // path (the request still originates from the page).
       fetch('./events-index.json')
-        .then(r => r.ok ? r.json() : Promise.reject(new Error(`events-index.json ${r.status}`)))
+        .then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(`events-index.json ${r.status}`)))
+        .then(buf => searchClient.parse(buf))
         .then(fullData => {
           if (Array.isArray(fullData)) setEventsIndex(fullData)
           setFullEventsLoaded(true)
@@ -541,7 +562,7 @@ function App() {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [searchClient])
 
   // Offline detection
   useEffect(() => {
@@ -896,7 +917,11 @@ function App() {
 
   // Per-filter match counts and match sets for view mode filtering
   const perFilterMatches = useMemo(() => {
-    if (!eventsIndex.length) return new Map()
+    // No saved filters → no matches to compute, and (more importantly) no reason
+    // to build a full-corpus Fuse index on the main thread. This is the common
+    // case (anonymous / no saved searches), so the guard skips an ~11k-event
+    // index build per events-index load for most visitors.
+    if (!eventsIndex.length || !searchFilters.length) return new Map()
     const fuse = new Fuse(eventsIndex, {
       keys: ['summary', 'description', 'location'],
       threshold: FUSE_THRESHOLD,
@@ -1281,6 +1306,7 @@ function App() {
     <App206
       calendars={calendars}
       eventsIndex={eventsIndex}
+      searchClient={searchClient}
       fullEventsLoaded={fullEventsLoaded}
       venues={venues}
       loading={loading}

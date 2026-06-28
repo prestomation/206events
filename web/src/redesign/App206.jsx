@@ -3,7 +3,6 @@
 // and renders the responsive shell (rail · content · map / bottom nav).
 
 import { useState, useMemo, useRef, useCallback, useEffect, useLayoutEffect, useDeferredValue } from 'react'
-import Fuse from 'fuse.js'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
 import { Lightbox } from './atoms.jsx'
@@ -17,11 +16,6 @@ import { eventKey } from '../lib/eventKey.js'
 import { haversineKm } from '../lib/haversine.js'
 import { deserializeHash } from './urlHash.js'
 import { useUrlState } from './useUrlState.js'
-
-const FUSE_THRESHOLD = 0.1
-// Search the entire field, not just its first ~10 characters — see App.jsx /
-// event-search.ts for the full rationale (favorites filter parity).
-const FUSE_IGNORE_LOCATION = true
 
 // Desktop map-column resize bounds. RAIL_W mirrors the 84px rail column in the
 // .app206 grid; MIN_CONTENT_W is the floor below which the content column gets
@@ -40,7 +34,7 @@ const MIN_CONTENT_W = 420
 
 export function App206(props) {
   const {
-    calendars, eventsIndex, fullEventsLoaded, venues, loading,
+    calendars, eventsIndex, searchClient, fullEventsLoaded, venues, loading,
     favoritesSet, toggleFavorite,
     searchFilters, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
@@ -248,35 +242,50 @@ export function App206(props) {
     return [...set].sort()
   }, [channels])
 
-  /* ---- search: ONE Fuse over the upcoming window, matches memoized into a
-     key Set so per-view filtering is an O(n) membership test (no per-keystroke
-     index rebuilds → no freeze). ----
+  /* ---- search: the Fuse index build + per-query scan run in a Web Worker
+     (App.jsx owns the client), so the expensive pass — `ignoreLocation: true`
+     scans every event's whole description, ~120 ms/query desktop and several
+     hundred ms on mobile — never blocks the main thread. The worker returns a
+     Set of matched event keys; per-view filtering stays an O(n) membership test.
 
-     The Fuse `search()` itself is still pricey on the full prod corpus
-     (`ignoreLocation: true` scans every event's whole description — ~120 ms/query
-     on desktop, several hundred ms on mobile). Running it synchronously when the
-     debounced `query` commits froze the frame and stuttered subsequent typing.
-     So `queryKeySet` (and every consumer that re-renders off it — the Discover /
-     Following lists and the Leaflet marker layer) is computed from a *deferred*
-     copy of the query: React renders the match-set update at low priority and
-     coalesces rapid commits, keeping the input and scrolling responsive while the
-     search runs. Same pattern as `dateWindow` below. `queryPending` is true while
-     the committed and deferred queries diverge — for an optional "searching…" hint.
-     This is the client-only live box; the parity-locked saved-search path
-     (App.jsx `perFilterMatches` / event-search.ts) is untouched. */
+     `query` is still routed through `useDeferredValue` so the search is kicked
+     off at low priority (and rapid commits coalesce), but the heavy work is now
+     off-thread regardless. `queryKeySet` is null when there's no query (= "no
+     filter") OR while the first result for a new query is still in flight —
+     consumers show the full list until the Set lands, and `queryPending` drives
+     the "Searching…" hint so a partial frame isn't read as the final result.
+
+     The worker indexes the raw corpus (a superset of `upcomingEvents`); extra
+     keys for past/duplicate events are harmless because consumers only membership-
+     test events already scoped to the upcoming, de-duplicated window. This is the
+     client-only live box; the parity-locked saved-search path (App.jsx
+     `perFilterMatches` / event-search.ts) is untouched. */
   const deferredQuery = useDeferredValue(query)
-  const queryPending = deferredQuery !== query
-  const queryFuse = useMemo(
-    () => new Fuse(upcomingEvents, { keys: ['summary', 'description', 'location'], threshold: FUSE_THRESHOLD, ignoreLocation: FUSE_IGNORE_LOCATION }),
-    [upcomingEvents]
-  )
-  const queryKeySet = useMemo(() => {
+  const [queryKeySet, setQueryKeySet] = useState(null)
+  const [searchInFlight, setSearchInFlight] = useState(false)
+  useEffect(() => {
     const q = deferredQuery.trim()
-    if (!q) return null
-    const set = new Set()
-    for (const r of queryFuse.search(q)) set.add(eventKey(r.item))
-    return set
-  }, [queryFuse, deferredQuery])
+    if (!q) {
+      setQueryKeySet(null)
+      setSearchInFlight(false)
+      return
+    }
+    let cancelled = false
+    setSearchInFlight(true)
+    searchClient.search(q)
+      .then((keys) => {
+        if (cancelled) return
+        setQueryKeySet(keys || null)
+        setSearchInFlight(false)
+      })
+      .catch(() => {
+        if (!cancelled) setSearchInFlight(false)
+      })
+    return () => { cancelled = true }
+    // Re-run when the corpus changes (soon → full index) so results refresh
+    // against the newly-indexed events.
+  }, [deferredQuery, searchClient, eventsIndex])
+  const queryPending = deferredQuery !== query || searchInFlight
   // Filter any list of index events by the committed query (membership test).
   const matchEvents = useCallback((q, list) => {
     if (!q || !q.trim() || !queryKeySet) return list
