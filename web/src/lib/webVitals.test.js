@@ -70,11 +70,11 @@ describe('webVitals', () => {
 
     it('swallows a throwing count() so a beacon never breaks the page', () => {
       const throwing = vi.fn(() => { throw new Error('blocked') })
-      expect(() => reportVital({ name: 'CLS', rating: 'good' })).not.toThrow()
-      // The queued item from the throwing attempt above is consumed; a fresh
-      // report against a throwing counter still must not propagate.
       window.goatcounter = { count: throwing }
       expect(() => reportVital({ name: 'TTFB', rating: 'good' })).not.toThrow()
+      // The throwing counter must actually have been exercised (otherwise this
+      // test would pass trivially without proving the catch path runs).
+      expect(throwing).toHaveBeenCalledWith({ path: 'vitals/TTFB/good', title: 'web-vital', event: true })
     })
   })
 })

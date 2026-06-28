@@ -21,8 +21,10 @@ import { onLCP, onINP, onCLS, onFCP, onTTFB } from 'web-vitals'
 
 // Hosts/paths that must never report: local dev, the htmlpreview mirror, and
 // Cloudflare Pages preview deploys (*.pages.dev) / gh-pages /preview/ paths.
-// Mirrors the prod-only guard the GoatCounter loader uses in vite.config.js so
-// PR previews and local dev don't pollute the field data.
+// Extends the prod-only guard the GoatCounter loader uses in vite.config.js
+// (which blocks localhost/htmlpreview and /preview/ paths) by ALSO excluding
+// *.pages.dev, so PR previews and local dev don't pollute the field data even
+// where the loader still injects count.js.
 const BLOCKED_HOSTS = ['localhost', '127.0.0.1', 'htmlpreview.github.io']
 
 export function isReportingEnv(loc = (typeof window !== 'undefined' ? window.location : null)) {
@@ -42,6 +44,10 @@ export function vitalPath(metric) {
 
 // GoatCounter's count.js loads async and may not be present when the first
 // metric fires. Queue beacons and flush whenever count() becomes available.
+// Module-level and never reset: that's correct here because each web-vitals
+// callback fires once per page load and a real navigation reloads this module
+// (the app does full-page reloads, not client-side route remounts), so the
+// queue can't leak or double-send across loads.
 const queue = []
 
 export function flushVitals(gc = (typeof window !== 'undefined' ? window.goatcounter : null)) {
