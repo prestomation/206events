@@ -13,10 +13,16 @@ import { createSearchEngine } from './searchEngine.js'
 // browsers) it transparently falls back to running the exact same engine on the
 // main thread, so search behavior is identical everywhere — only the thread it
 // runs on differs. Callers never branch on which path is active.
-export function createSearchClient() {
+// `options.workerFactory` is a test seam: when provided it's used to build the
+// worker (so unit tests can inject a fake that drives the real worker handler
+// without a browser). Production passes nothing and gets the real module worker.
+export function createSearchClient(options = {}) {
+  const { workerFactory } = options
   let worker = null
   try {
-    if (typeof Worker !== 'undefined') {
+    if (workerFactory) {
+      worker = workerFactory()
+    } else if (typeof Worker !== 'undefined') {
       worker = new Worker(new URL('./searchWorker.js', import.meta.url), { type: 'module' })
     }
   } catch {
