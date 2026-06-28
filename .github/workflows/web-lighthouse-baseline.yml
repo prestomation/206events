@@ -1,0 +1,72 @@
+name: Lighthouse Baseline (main)
+
+# Records main's Core Web Vitals as the baseline the PR Lighthouse comment
+# (pr-preview.yml) trends against. Runs Lighthouse against PRODUCTION
+# (https://206.events) on every push to main that touches the web bundle, then
+# saves the representative metrics to the GitHub Actions cache. PR runs restore
+# that cache (caches created on the default branch are readable from PRs) and
+# show the "vs main" column. No commit-back, no external store.
+# See docs/web-performance-measurement-impl.md.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - '.github/workflows/web-lighthouse-baseline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One baseline run at a time; a newer push supersedes an in-flight one.
+concurrency:
+  group: lighthouse-baseline
+  cancel-in-progress: true
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse against production
+        id: lhci
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: https://206.events
+          configPath: ./web/lighthouserc.json
+          temporaryPublicStorage: true
+
+      - name: Extract baseline metrics
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const { pathToFileURL } = require('url');
+            const { extractMetrics } =
+              await import(pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/lighthouse-report.mjs`).href);
+
+            const resultsPath = '${{ steps.lhci.outputs.resultsPath }}' || '.lighthouseci';
+            const manifest = JSON.parse(fs.readFileSync(path.join(resultsPath, 'manifest.json'), 'utf8'));
+            const lhrByPath = {};
+            for (const entry of manifest) {
+              try { lhrByPath[entry.jsonPath] = JSON.parse(fs.readFileSync(entry.jsonPath, 'utf8')); } catch {}
+            }
+            const metrics = extractMetrics(manifest, lhrByPath);
+            fs.mkdirSync('lighthouse-baseline', { recursive: true });
+            fs.writeFileSync(
+              'lighthouse-baseline/metrics.json',
+              JSON.stringify({ metrics, sha: context.sha, ts: new Date().toISOString() }, null, 2),
+            );
+            core.notice(`Lighthouse baseline recorded: ${JSON.stringify(metrics)}`);
+
+      # Rotating key (run_id) so each baseline is a fresh entry; the PR job's
+      # prefix restore-key fetches the newest.
+      - name: Save baseline to cache
+        uses: actions/cache/save@v4
+        with:
+          path: lighthouse-baseline
+          key: lighthouse-baseline-v1-${{ github.run_id }}

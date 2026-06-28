@@ -315,30 +315,53 @@ A breach surfaces in the LH report's "Performance budget" audit. (If you'd
 rather gate bytes deterministically without LH noise, keep this in the dedicated
 Layer-1 CI check instead — but LH makes it free here.)
 
-### B.5 Tracking over time (not just per-PR)
+### B.5 Trend reporting (implemented): a PR comment with two comparisons
 
-The per-PR comment + `temporary-public-storage` link covers review. For a
-**trend across `main`**:
+The job posts/updates a **single** `## 🔦 Lighthouse` PR comment (find-or-update,
+mirroring the Calendar Preview comment so there's no per-run spam) with a table
+of the scores and **two** delta columns:
 
-- **Lightweight (recommended start):** add a `push: branches: [main]` trigger
-  that runs the same job and writes the median category scores + LCP/TBT/CLS to
-  the **GitHub Step Summary** (and, optionally, appends one NDJSON row to a
-  committed `docs/lighthouse-history.ndjson`). Cheap, no infra, versioned with
-  the repo — matches how this project already prefers committed JSON over
-  external stores.
-- **Heavyweight (only if needed):** stand up an **LHCI server** and point
-  `upload.target` at it for full historical dashboards. This is real infra
-  (a hosted service + DB) and almost certainly overkill for a community
-  calendar — list it as the escalation path, not the default.
+| Metric | This PR | vs prev push | Main baseline | vs main |
+|---|---|---|---|---|
+| Performance | 82 | +2 🟢 | 85 | −3 🔴 |
+| LCP | 2.9 s | −0.20 s 🟢 | 2.5 s | +0.4 s 🔴 |
+| … | | | | |
 
-### B.6 PR-comment hygiene
+- **vs prev push** — the previous run *on this PR*, stored in the comment itself
+  as a hidden `<!-- lighthouse-trend:{…} -->` payload (current run + a small
+  recent-run history). No external state; each push reads its own prior comment,
+  computes deltas, and rewrites — plus a one-line Performance sparkline
+  (`77 → 79 → 80 → 82`) over the PR's runs.
+- **vs main** — the last scores recorded on `main`, restored from the Actions
+  cache (below). Absent on a cold cache → the column shows "—" and a "not
+  recorded yet" note.
 
-The `treosh` action with `temporaryPublicStorage` already emits a status with
-the report link. If a richer inline comment is wanted, mirror the existing
-`pr-preview.yml` `github-script` comment pattern (find-or-update a single
-`## 🔦 Lighthouse` bot comment) rather than posting a new comment per run, to
-avoid comment spam — consistent with how the Calendar Preview comment updates in
-place.
+🟢 = better, 🔴 = worse, **≈ = within noise** (a per-metric threshold — 1 perf
+point, 100 ms LCP/FCP, 50 ms TBT, 30 ms INP, 0.01 CLS — so hosted-runner jitter
+doesn't read as a regression).
+
+The pure logic (metric extraction, direction-aware deltas, table/markdown,
+embed/parse round-trip) lives in **`scripts/lighthouse-report.mjs`** and is
+unit-tested in `scripts/lighthouse-report.test.mjs`; the workflow step is a thin
+github-script that reads the LHCI results, calls the module, and upserts the
+comment.
+
+### B.6 Main baseline (implemented): cache, not commit-back
+
+**`.github/workflows/web-lighthouse-baseline.yml`** runs Lighthouse against
+**production** (`https://206.events`) on every push to `main` touching `web/**`,
+extracts the representative metrics with the same `scripts/lighthouse-report.mjs`
+helper, and saves `{metrics, sha, ts}` to the GitHub Actions cache under a
+rotating key (`lighthouse-baseline-v1-<run_id>`). The PR job restores it via the
+`lighthouse-baseline-v1-` prefix restore-key (newest wins).
+
+This deliberately uses the **Actions cache rather than a committed baseline
+file**: it avoids a CI commit-back to `main` (and the trigger-loop risk that
+brings), and caches created on the default branch are readable from PR runs. The
+tradeoff is eviction (7-day idle / repo cache pressure) — handled gracefully by
+the "no baseline yet" state. If a durable, versioned history is later wanted, the
+escalation path is appending an NDJSON row to a committed file from this same
+main job, or an LHCI server; both are overkill for now.
 
 ---
 
