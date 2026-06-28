@@ -15,6 +15,15 @@ function localeDateMaybeYear(date, options) {
   return date.toLocaleDateString('en-US', opts)
 }
 
+// Memo of the expensive parse step (regex + offset math), keyed by the raw
+// date string. The same index date string is parsed 3–4× per render (row label,
+// day grouping, upcoming-window filter, AddToCalendar), so caching the parsed
+// millis avoids re-running the regex on every call. Bounded by the corpus's
+// distinct date strings (~event count), and stable for the session.
+// Stores { ms, timezone } (or null for unparseable input); a fresh Date is
+// minted per call so callers can never mutate a shared instance.
+const parseIndexDateCache = new Map()
+
 // Parse an events-index date string ("2026-02-15T19:00-08:00[America/Los_Angeles]")
 // into a JS Date plus the IANA zone. Returns null when unparseable.
 //
@@ -24,11 +33,18 @@ function localeDateMaybeYear(date, options) {
 // UTC offset and treat local time as UTC, producing a wrong AddToCalendar link.
 export function parseIndexDate(dateStr) {
   if (!dateStr) return null
+  const cached = parseIndexDateCache.get(dateStr)
+  if (cached !== undefined) {
+    return cached ? { date: new Date(cached.ms), timezone: cached.timezone } : null
+  }
   const tzMatch = dateStr.match(/\[(.+)\]$/)
   const timezone = tzMatch ? tzMatch[1] : undefined
   const s = dateStr.replace(/\[.*\]$/, '')
   const m = s.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?(?:([+-])(\d{2}):(\d{2})|(Z))?$/)
-  if (!m) return null
+  if (!m) {
+    parseIndexDateCache.set(dateStr, null)
+    return null
+  }
   const [, yr, mo, da, hr, mn, sc = '00', sign, offH = '00', offM = '00', z] = m
   // Interpret the wall-clock fields as UTC, then subtract the stated UTC offset.
   const localMs = Date.UTC(+yr, +mo - 1, +da, +hr, +mn, +sc)
@@ -40,7 +56,11 @@ export function parseIndexDate(dateStr) {
     utcMs = localMs - offsetMs
   }
   const parsed = new Date(utcMs)
-  if (isNaN(parsed.getTime())) return null
+  if (isNaN(parsed.getTime())) {
+    parseIndexDateCache.set(dateStr, null)
+    return null
+  }
+  parseIndexDateCache.set(dateStr, { ms: utcMs, timezone })
   return { date: parsed, timezone }
 }
 

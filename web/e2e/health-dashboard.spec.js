@@ -49,11 +49,13 @@ test('fetches build-errors.json and renders the health dashboard when navigating
   await page.goto('/#section=health')
   await expect(page.getByText('Source Health Dashboard')).toBeVisible()
 
+  // The build time from our fixture should appear once the fetch resolves. Wait
+  // for it before asserting the request count: the heading above renders in the
+  // pre-fetch loading state, so the count is only stable after the data lands.
+  await expect(page.getByText(/1\/15\/2026/)).toBeVisible()
+
   // build-errors.json must have been fetched exactly once
   expect(buildErrorsRequests).toHaveLength(1)
-
-  // The build time from our fixture should appear
-  await expect(page.getByText(/1\/15\/2026/)).toBeVisible()
 
   await page.screenshot({ path: 'e2e/screenshots/health-dashboard.png' })
 })

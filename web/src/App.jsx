@@ -1,8 +1,6 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import Fuse from 'fuse.js'
-import ICAL from 'ical.js'
 import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
-import { EventsMap } from './components/EventsMap.jsx'
 import { AttributionChips } from './components/AttributionChips.jsx'
 import { AddToCalendar } from './components/AddToCalendar.jsx'
 import { EventDescription } from './components/EventDescription.jsx'
@@ -172,10 +170,6 @@ function App() {
     setCalendarAddModeState(mode)
     try { localStorage.setItem('calendar-ripper-add-mode', mode) } catch {}
   }, [])
-
-  // Map view toggle (for events panel)
-  const [showMapView, setShowMapView] = useState(false)
-  const [showFavoritesMap, setShowFavoritesMap] = useState(false)
 
   // Auth state. In UAT mode we fake a signed-in user so the multi-list UI shows.
   const [authUser, setAuthUser] = useState(() => uatMode ? UAT_USER : null)
@@ -1053,6 +1047,9 @@ function App() {
       setEventsLoading(true)
       setEventsError(null)
       try {
+        // Lazy-load the iCal parser: it's only needed when a channel detail is
+        // opened, so keep it out of the entry chunk (see docs/web-performance-plan.md N-2).
+        const ICAL = (await import('ical.js')).default
         const controller = new AbortController()
         const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
         
