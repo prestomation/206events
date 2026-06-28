@@ -275,6 +275,24 @@ describe('parseIndexDate', () => {
     expect(parseIndexDate(undefined)).toBeNull()
     expect(parseIndexDate('')).toBeNull()
   })
+
+  it('caches by string yet returns equal-but-distinct, mutation-safe Dates', () => {
+    // The parse is memoized (O-4), but each call must mint a fresh Date so a
+    // caller mutating one result can't corrupt a later call's value.
+    const str = '2026-06-18T17:00:00-07:00[America/Los_Angeles]'
+    const a = parseIndexDate(str)
+    const b = parseIndexDate(str)
+    expect(a.date.getTime()).toBe(b.date.getTime())
+    expect(a.timezone).toBe(b.timezone)
+    expect(a.date).not.toBe(b.date)
+    a.date.setFullYear(1999)
+    expect(parseIndexDate(str).date.toISOString()).toBe('2026-06-19T00:00:00.000Z')
+  })
+
+  it('caches unparseable strings without re-running the regex', () => {
+    expect(parseIndexDate('not-a-date')).toBeNull()
+    expect(parseIndexDate('not-a-date')).toBeNull()
+  })
 })
 
 describe('rowFromIndexEvent time fields', () => {

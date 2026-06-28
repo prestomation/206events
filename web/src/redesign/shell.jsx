@@ -1,11 +1,16 @@
 // App shell chrome: top bar, desktop rail, mobile bottom nav, map panel, toast.
 
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { Brand } from './atoms.jsx'
-import { EventsMap } from '../components/EventsMap.jsx'
 import { eventKey } from '../lib/eventKey.js'
+
+// Lazy-load the Leaflet map stack (leaflet + react-leaflet + cluster plugin + CSS)
+// so it lands in its own async chunk instead of the entry bundle. Many sessions
+// never reveal the map; even when shown, the app becomes interactive before the
+// ~150 KB+ map engine parses. See docs/web-performance-plan.md N-1.
+const EventsMap = lazy(() => import('../components/EventsMap.jsx').then((m) => ({ default: m.EventsMap })))
 import { DATE_WINDOW_STOPS, describeWindow, isDateRange, normalizeDateRange } from './viewModels.js'
 
 const NAV_ITEMS = [
@@ -493,19 +498,21 @@ export function MapPanel({ mobile = false }) {
   }, [app.eventsIndex, app.openCh, app.inScope, app.eventAttributions, app.queryKeySet, feedOnly])
 
   const map = (
-    <EventsMap
-      eventsIndex={app.eventsIndex}
-      geoFilters={app.geoFilters}
-      calendarFilter={app.openCh || null}
-      calendarTagsByIcsUrl={app.calendarTagsByIcsUrl}
-      selectedTag={null}
-      calendarNameByIcsUrl={app.calendarNameByIcsUrl}
-      eventAttributions={app.eventAttributions}
-      dateInScope={app.inScope}
-      feedOnly={feedOnly}
-      queryKeySet={app.queryKeySet}
-      mapRef={mobile ? undefined : app.mapRef}
-    />
+    <Suspense fallback={<div className="a-maploading" aria-busy="true">Loading map…</div>}>
+      <EventsMap
+        eventsIndex={app.eventsIndex}
+        geoFilters={app.geoFilters}
+        calendarFilter={app.openCh || null}
+        calendarTagsByIcsUrl={app.calendarTagsByIcsUrl}
+        selectedTag={null}
+        calendarNameByIcsUrl={app.calendarNameByIcsUrl}
+        eventAttributions={app.eventAttributions}
+        dateInScope={app.inScope}
+        feedOnly={feedOnly}
+        queryKeySet={app.queryKeySet}
+        mapRef={mobile ? undefined : app.mapRef}
+      />
+    </Suspense>
   )
   // Mobile gets an explicit All/Following toggle since the Map tab has no section
   // context to mirror. It rides inside the floating filter bar (an overlay) next

@@ -29,11 +29,31 @@ prior doc for detail.
 - Deleted dead full-corpus memos from `App.jsx` (~56 ms + ~5 MB/load reclaimed).
 - Uncontrolled search input (fixes Android dropped keystrokes).
 
+### Shipped in this pass (low-risk bundle/CPU batch)
+
+The four low-risk, no-behavior-change items below have landed. Build output
+confirms the entry chunk dropped from one monolith to a ~174 KB entry plus
+separately-cached `vendor` (~182 KB), `EventsMap` (~205 KB), and `ical` (~81 KB)
+async chunks.
+
+- **N-1 — lazy Leaflet map.** `EventsMap` is now `React.lazy` + `<Suspense>` in
+  `web/src/redesign/shell.jsx`, and the dead eager `EventsMap` import (plus dead
+  `showMapView`/`showFavoritesMap` state) was removed from `App.jsx`. Leaflet now
+  ships as its own async chunk instead of the entry bundle.
+- **N-2 — lazy `ical.js`.** Dynamic-imported inside `loadEvents` in `App.jsx`
+  (`const ICAL = (await import('ical.js')).default`), so the parser loads only on
+  first channel open.
+- **O-4 — parsed-date cache.** `parseIndexDate` in `redesign/viewModels.js`
+  memoizes the regex/offset parse keyed by the raw string, minting a fresh
+  (mutation-safe) `Date` per call.
+- **N-3 — vendor chunk splitting.** `web/vite.config.js` now sets
+  `manualChunks: { vendor: ['react', 'react-dom', 'fuse.js', 'dompurify'] }`.
+
 ### Open items carried forward from the June pass
 
 | # | Change | Risk | Est. win |
 |---|---|---|---|
-| O-4 | Cache parsed dates per event (parse once, not 3–4× per render) | low | smoother re-filters (date-window drag, tag switches) |
+| O-4 ✅ | Cache parsed dates per event (parse once, not 3–4× per render) — **shipped**, see above | low | smoother re-filters (date-window drag, tag switches) |
 | O-1b | Trim live-search description cost (drop `description` from live Fuse keys, or substring-match it) | med (behavior) | 121 → ~3–38 ms/query |
 | O-3 | Trim/relocate index `description` (39% of payload, search-only) | med (payload shape) | ~3.7 MB lighter index, less heap, faster parse |
 
@@ -47,7 +67,7 @@ The June analysis focused on data-path CPU. It did **not** look at bundle
 composition / Time-to-Interactive, where there are clean wins because two of the
 heaviest dependencies are loaded eagerly despite being behind a toggle.
 
-#### N-1. Lazy-load the Leaflet map stack (biggest TTI win)
+#### N-1. Lazy-load the Leaflet map stack (biggest TTI win) ✅ shipped
 
 `EventsMap` is imported **statically** in `web/src/redesign/shell.jsx`:
 
@@ -66,7 +86,7 @@ and render it inside `<Suspense fallback={…}>`. The map chunk then loads only
 when the user first reveals the map. This is the single largest reduction to the
 initial JS the browser must parse before the app is interactive.
 
-#### N-2. Lazy-load `ical.js`
+#### N-2. Lazy-load `ical.js` ✅ shipped
 
 `ICAL` is imported eagerly in `App.jsx` but is only used in **one place** — the
 `loadEvents` effect that parses a channel's `.ics` when a channel detail is
@@ -78,7 +98,7 @@ fetched only on first channel open. (`src/lib/icsImage.js` operates on an
 already-parsed VEVENT handed in by the caller and imports nothing itself, so it
 needs no change — it works on whatever the lazily-loaded parser produces.)
 
-#### N-3. Vendor chunk splitting
+#### N-3. Vendor chunk splitting ✅ shipped
 
 `web/vite.config.js` has no `build.rollupOptions.output.manualChunks`, so Vite's
 default chunking applies. Splitting stable vendor code (`react`/`react-dom`,
@@ -100,15 +120,16 @@ plumbing) — propose only if O-1b is rejected and search lag persists.
 
 | Order | Item | Risk | Why first |
 |---|---|---|---|
-| 1 | N-1 lazy map | low | biggest TTI win, no behavior change |
-| 2 | N-2 lazy ICAL | low | removes a parser from the entry chunk |
-| 3 | O-4 parsed-date cache | low | smoother re-filters, no behavior change |
-| 4 | N-3 vendor chunks | low | better repeat-visit caching |
+| 1 ✅ | N-1 lazy map | low | biggest TTI win, no behavior change |
+| 2 ✅ | N-2 lazy ICAL | low | removes a parser from the entry chunk |
+| 3 ✅ | O-4 parsed-date cache | low | smoother re-filters, no behavior change |
+| 4 ✅ | N-3 vendor chunks | low | better repeat-visit caching |
 | 5 | O-1b / O-3 | med | product sign-off (behavior/payload shape) |
 | 6 | N-4 search Worker | med-high | only if O-1b rejected and lag remains |
 
-N-1 through N-3 + O-4 are all low-risk, no-user-visible-behavior changes and can
-ship as small independent PRs.
+N-1 through N-3 + O-4 (the low-risk, no-user-visible-behavior batch) have
+**shipped**. The remaining items (O-1b/O-3 product sign-off; N-4 search Worker)
+are still open and carry a deliberate tradeoff.
 
 ---
 

@@ -73,6 +73,18 @@ export default defineConfig({
   build: {
     outDir: '../output',
     manifest: true,
+    rollupOptions: {
+      output: {
+        // Split stable third-party code into its own long-lived chunk so a
+        // content/UI deploy doesn't bust its cache, improving repeat-visit load.
+        // The Leaflet map and ical.js are already carved into their own async
+        // chunks via React.lazy / dynamic import, so they're intentionally not
+        // listed here. See docs/web-performance-plan.md N-3.
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'fuse.js', 'dompurify'],
+        },
+      },
+    },
   },
   server: {
     fs: {

@@ -4219,6 +4219,9 @@ html, body, #root { height: 100%; }
 .app206 .a-mappanel, .app206 .a-mapview { position: relative; height: 100%; }
 .app206 .a-mappanel { border-left: 1px solid var(--line); }
 .app206 .a-mappanel .events-map-container, .app206 .a-mapview .events-map-container { height: 100%; }
+/* Suspense fallback while the lazy-loaded Leaflet chunk fetches (see N-1). Fills
+   the map area so the panel doesn't collapse during the brief load. */
+.app206 .a-maploading { height: 100%; display: flex; align-items: center; justify-content: center; color: var(--ink-3); font-size: 14px; }
 /* Draggable divider between the content column and the map. Straddles the
    panel's left border so it's easy to grab; a grip becomes visible on hover/
    focus. Drag adjusts --a-map-w (App206); double-click resets to the default. */
