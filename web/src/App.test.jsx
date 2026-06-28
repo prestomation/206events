@@ -361,13 +361,13 @@ describe('Multiple favorites lists (signed-in)', () => {
       const u = String(url)
       const method = (opts && opts.method) || 'GET'
       const json = (data) => Promise.resolve({
-    ok: true,
-    json: async () => data,
-    text: async () => '',
-    // The full events-index load reads bytes (no main-thread parse) and hands
-    // them to the search worker / fallback, so the response must back arrayBuffer.
-    arrayBuffer: async () => new TextEncoder().encode(JSON.stringify(data)).buffer,
-  })
+        ok: true,
+        json: async () => data,
+        text: async () => '',
+        // The full events-index load reads bytes (no main-thread parse) and hands
+        // them to the search worker / fallback, so the response must back arrayBuffer.
+        arrayBuffer: async () => new TextEncoder().encode(JSON.stringify(data)).buffer,
+      })
       if (u.includes('/auth/me')) return json({ user: USER })
       if (u.endsWith('/lists') && method === 'GET') return json({ lists, updatedAt: '' })
       if (u.includes('/lists')) return json({ ok: true }) // PUT/POST/etc.

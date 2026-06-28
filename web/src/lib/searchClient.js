@@ -47,6 +47,15 @@ export function createSearchClient() {
   // Worker path: correlate each reply to its request by a monotonic reqId.
   let nextId = 1
   const pending = new Map()
+  // If the worker dies at runtime (load 404, module parse error, CSP at load),
+  // `onmessage` never fires and in-flight promises would hang forever. On error
+  // we reject everything pending and switch to a main-thread engine so future
+  // calls degrade gracefully instead of leaving the UI stuck "Searching…".
+  let fallbackEngine = null
+  const rejectAll = (err) => {
+    for (const { reject } of pending.values()) reject(err)
+    pending.clear()
+  }
   worker.onmessage = (e) => {
     const msg = e.data
     if (!msg || msg.reqId == null) return
@@ -56,6 +65,10 @@ export function createSearchClient() {
     if (msg.type === 'parseError') entry.reject(new Error(msg.error))
     else if (msg.type === 'parsed') entry.resolve(msg.events)
     else if (msg.type === 'result') entry.resolve(msg.keys)
+  }
+  worker.onerror = () => {
+    if (!fallbackEngine) fallbackEngine = createSearchEngine([])
+    rejectAll(new Error('search worker failed; using main-thread fallback'))
   }
   const call = (payload, transfer) =>
     new Promise((resolve, reject) => {
@@ -67,13 +80,20 @@ export function createSearchClient() {
   return {
     isWorker: true,
     index(events) {
+      if (fallbackEngine) { fallbackEngine = createSearchEngine(events); return }
       worker.postMessage({ type: 'index', events })
     },
     parse(buffer) {
+      if (fallbackEngine) {
+        const events = JSON.parse(new TextDecoder().decode(buffer))
+        fallbackEngine = createSearchEngine(events)
+        return Promise.resolve(events)
+      }
       // Transfer the ArrayBuffer (zero-copy) so the big payload isn't cloned.
       return call({ type: 'parse', buffer }, [buffer])
     },
     search(q) {
+      if (fallbackEngine) return Promise.resolve(fallbackEngine.search(q))
       return call({ type: 'search', q })
     },
     destroy() {
@@ -82,7 +102,7 @@ export function createSearchClient() {
       } catch {
         /* already gone */
       }
-      pending.clear()
+      rejectAll(new Error('search client destroyed'))
     },
   }
 }
