@@ -116,6 +116,41 @@ shows until the first result for a new query lands. `query` still flows through
 regardless. All downstream consumers (`matchEvents`, `evMatchCount`, the
 cross-tab smart-switch, the Leaflet marker layer) read `queryKeySet` unchanged.
 
+## Measured impact (local A/B)
+
+A same-machine Lighthouse A/B (mobile preset, median of 3, **identical** 6.6 MB
+synthetic 11k-event index served to both builds via a local static server —
+`main` vs this branch) isolates the code change from hosting noise:
+
+| Metric | main | this branch | Δ |
+|---|---|---|---|
+| **TBT** (main-thread blocking; lab proxy for INP) | 8062 ms | 3957 ms | **−4105 ms (−51%)** |
+| **TTI** | 12973 ms | 8894 ms | **−4078 ms** |
+| Total main-thread work | 10220 ms | 9542 ms | −679 ms |
+| JS bootup (script eval) | 8695 ms | 8042 ms | −653 ms |
+| Longest single main-thread task | **8064 ms** | **3434 ms** | the monolithic parse-+-2×-Fuse-build block is broken up |
+| FCP | 3153 ms | 3154 ms | ≈ |
+| CLS | 0.000 | 0.000 | ≈ |
+| LCP | 3533 ms | 4522 ms | **+989 ms** |
+| Performance (composite) | 54 | 48 | −6 |
+
+The headline — **TBT halves and the single 8-second blocking task drops to
+3.4 s** — is exactly the interactivity win this change targets (the "typing /
+scrolling freezes" complaint maps to TBT/INP). The **tradeoff is LCP +~1 s**:
+full-content render is now gated on the worker round-trip (fetch → transfer →
+parse → post back) instead of an inline parse, so the largest element paints a
+bit later even though the main thread is free. Because Lighthouse weights LCP
+heavily, the *composite* score dips 6 points despite the large TBT/TTI gains — a
+load-only lab score under-represents an interactivity-focused change (and can't
+see the INP win at all, since it performs no interaction).
+
+> Note: this is the **opposite** of what the CI "🔦 Lighthouse" PR comment
+> showed. That comment compares the **cold Cloudflare preview** against a
+> **production** baseline (`206.events`, warm CDN/Brotli/SW) — an
+> infra-vs-infra gap, not a code delta. The uniform regression it showed across
+> CLS/FCP (which this change cannot affect) is the tell; the same-environment
+> numbers above are the real code impact.
+
 ## Parity note
 
 This is the **client-only live search box**. It is *not* the parity-locked
