@@ -31,11 +31,25 @@ tracker**. So:
 - We report **bucketed ratings** (`good` / `needs-improvement` / `poor`), never
   raw per-visitor timings, so nothing is individually identifying.
 
+**Two data planes, never joined.** The site has an authenticated plane (the
+favorites-worker: `session` JWT + Google identity) and an analytics plane
+(GoatCounter + Web Vitals). Login stitches the *authenticated* plane — that's
+inherent to login, and its cookie is strictly necessary/exempt — but it must
+**not** stitch the analytics plane: a beacon never carries the logged-in identity
+(no user id / email / `listId`) and is never routed through the authenticated
+worker, so a signed-in user's beacon is identical to an anonymous one. The one
+discipline that preserves "non-identifying": **never enrich a beacon with
+identity for segmentation.**
+
 GoatCounter is **count-only** — it records a hit against a path string, with no
 numeric payload. So the metric *value* must be encoded into the path (the
 bucket), and we accept that we get **rating distributions, not percentiles**.
-Percentiles would require a numeric sink and a fresh privacy review — explicitly
-out of scope here.
+Percentiles are out of scope here — but note the blocker is **technical, not
+privacy**: GoatCounter can't store a number. True p75 distributions would need a
+numeric sink, and a **first-party, unauthenticated** collector that stores
+`{metric, value, timestamp}` with no identity stays banner-free under the same
+cookieless/non-identifying rules. The rating buckets are also the official CWV
+p75 thresholds, so for trend-tracking they're usually sufficient anyway.
 
 ### A.1 Dependency
 
@@ -170,6 +184,12 @@ section to `docs/privacy-and-consent.md`:
 - **Why it doesn't cross a line:** ratings are aggregate buckets, not
   identifying data; this rides the existing analytics channel rather than adding
   a tracker.
+- **Two planes, never joined:** the authenticated favorites-worker plane (session
+  JWT + identity) stays separate from the analytics plane — beacons never carry
+  the logged-in identity, so login doesn't make the telemetry identifying.
+
+This was implemented in `docs/privacy-and-consent.md` (inventory row + a
+"Web Vitals RUM: bucketed, and on a separate plane from login" section).
 
 ### A.6 What you get
 
