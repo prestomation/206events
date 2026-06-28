@@ -1,23 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:live-theater-2026-06-20": {
-      "fields": {
-        "cost": {
-          "min": 35
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "https://taproottheatre.org/2026/barefoot-in-the-park/ \u2014 $35\u2013$74 dependent on day/time"
-    },
-    "events12:free-things-to-do-2026-06-20": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/"
-    },
     "events12:free-things-to-do-2026-06-21": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1570,13 +1553,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-06-21": {
       "unresolvable": true,
       "reason": "Commercial tour \u2014 booking times vary by individual reservation",
@@ -2899,13 +2875,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-06-21": {
       "unresolvable": true,
@@ -4237,13 +4206,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-06-21": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -5223,13 +5185,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
     },
     "events12:sailboat-2026-06-21": {
       "unresolvable": true,
@@ -6294,13 +6249,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05"
-    },
     "events12:baseball-2026-06-21": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each game has a different start time",
@@ -7093,13 +7041,6 @@
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
       "lastSeen": "2026-06-21"
     },
-    "events12:winery-concerts-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list"
-    },
     "events12:winery-concerts-2026-06-21": {
       "unresolvable": true,
       "reason": "Concert listing without individual show times on the listing page",
@@ -7888,13 +7829,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg"
-    },
     "events12:concerts-at-the-locks-2026-06-21": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
@@ -8527,13 +8461,6 @@
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
-    "events12:bus-to-the-mountains-2026-06-20": {
-      "unresolvable": true,
-      "reason": "General transit service page \u2014 specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/"
-    },
     "events12:bus-to-the-mountains-2026-06-21": {
       "unresolvable": true,
       "reason": "General transit service page \u2014 specific departure times vary by date and destination",
@@ -9102,13 +9029,6 @@
       "evidence": "https://trailheaddirect.org/",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-marymoor-park-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
-    },
     "events12:concerts-at-marymoor-park-2026-06-21": {
       "unresolvable": true,
       "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
@@ -9605,22 +9525,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
-    },
-    "19hz:19hz-2026/06/20-Daniel Allan": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "dzv1d7",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/06/20-Gee Lee w/ Sloane Motion, Cheeks": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "1h3kzkm",
-      "lastSeen": "2026-06-13"
     },
     "19hz:19hz-2026/06/21-Neumonic, Snuffy": {
       "unresolvable": true,
@@ -14496,13 +14400,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
     },
-    "events12:taste-of-pike-place-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu"
-    },
     "events12:taste-of-pike-place-2026-06-21": {
       "unresolvable": true,
       "resolvedAt": "2026-05-25",
@@ -17002,22 +16899,6 @@
       "source": "agent",
       "partialFingerprint": "138p15l"
     },
-    "19hz:19hz-2026/06/20-Chai Solstice": {
-      "unresolvable": true,
-      "reason": "End time not listed on Partiful page",
-      "resolvedAt": "2026-06-08",
-      "source": "agent",
-      "partialFingerprint": "1vko8a6",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/06/20-FRQ TMPO": {
-      "unresolvable": true,
-      "reason": "Instagram post; no end time listed",
-      "resolvedAt": "2026-06-08",
-      "source": "agent",
-      "partialFingerprint": "1vrz9sn",
-      "lastSeen": "2026-06-13"
-    },
     "19hz:19hz-2026/06/23-Electric Taco Tuesday": {
       "unresolvable": true,
       "reason": "End time not listed on ticketing page (Eventim)",
@@ -17965,13 +17846,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:yakima-music-festival-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Start times not listed on Chinook Fest website; schedule requires festival guide",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "128lpax-until2026-06-21-tu"
-    },
     "events12:yakima-music-festival-2026-06-21": {
       "unresolvable": true,
       "reason": "Start times not listed on Chinook Fest website; schedule requires festival guide",
@@ -17980,37 +17854,12 @@
       "partialFingerprint": "128lpax-until2026-06-21-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:festival-on-the-columbia-river-2026-06-20": {
-      "fields": {
-        "cost": {
-          "min": 30
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "Gorge Blues and Brews 2026 \u2014 Saturday $30 per Facebook event page",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:marysville-strawberry-festival-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Website returns verification challenge; festival hours not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "13htocj-until2026-06-21-tu"
-    },
     "events12:marysville-strawberry-festival-2026-06-21": {
       "unresolvable": true,
       "reason": "Website returns verification challenge; festival hours not accessible",
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "13htocj-until2026-06-21-tu"
-    },
-    "events12:small-town-festival-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Festival hours not found on website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "tw4631-until2026-06-21-tu"
     },
     "events12:small-town-festival-2026-06-21": {
       "unresolvable": true,
@@ -18019,27 +17868,11 @@
       "source": "agent",
       "partialFingerprint": "tw4631-until2026-06-21-tu"
     },
-    "events12:bluegrass-festival-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Daily start times not listed on website; check festival schedule page",
-      "resolvedAt": "2026-06-11",
-      "source": "agent"
-    },
     "events12:bluegrass-festival-2026-06-21": {
       "unresolvable": true,
       "reason": "Daily start times not listed on website; check festival schedule page",
       "resolvedAt": "2026-06-11",
       "source": "agent"
-    },
-    "events12:edmonds-art-fair-2026-06-20": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 32400
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://www.edmondsartsfestival.com/",
-      "partialFingerprint": "1tjk279-until2026-06-21-tu"
     },
     "events12:edmonds-art-fair-2026-06-21": {
       "fields": {
@@ -18051,29 +17884,12 @@
       "evidence": "https://www.edmondsartsfestival.com/",
       "partialFingerprint": "1tjk279-until2026-06-21-tu"
     },
-    "events12:brewery-running-series-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Individual event start times not listed on main page; check Eventbrite for details",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "962uq6-until2026-06-21-tu"
-    },
     "events12:brewery-running-series-2026-06-21": {
       "unresolvable": true,
       "reason": "Individual event start times not listed on main page; check Eventbrite for details",
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "962uq6-until2026-06-21-tu"
-    },
-    "events12:fremont-parade-and-fair-2026-06-20": {
-      "fields": {
-        "startTime": "13:00",
-        "duration": 7200
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://fremontartscouncil.org/parade",
-      "partialFingerprint": "2d5vxp-until2026-06-21-tu"
     },
     "events12:fremont-parade-and-fair-2026-06-21": {
       "unresolvable": true,
@@ -18082,29 +17898,12 @@
       "source": "agent",
       "partialFingerprint": "2d5vxp-until2026-06-21-tu"
     },
-    "events12:wooden-boats-2026-06-20": {
-      "unresolvable": true,
-      "reason": "No event URL provided; cannot determine start time",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1wa0ma1-until2026-06-21-tu"
-    },
     "events12:wooden-boats-2026-06-21": {
       "unresolvable": true,
       "reason": "No event URL provided; cannot determine start time",
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "1wa0ma1-until2026-06-21-tu"
-    },
-    "events12:burien-festival-2026-06-20": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 36000
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://www.discoverburien.org/calendar/2025/6/strawberry-festival",
-      "partialFingerprint": "44cixx-until2026-06-21-tu"
     },
     "events12:burien-festival-2026-06-21": {
       "fields": {
@@ -18116,13 +17915,6 @@
       "evidence": "https://www.discoverburien.org/calendar/2025/6/strawberry-festival",
       "partialFingerprint": "44cixx-until2026-06-21-tu"
     },
-    "events12:small-town-festival-south-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Festival start times not found on website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1m16eas-until2026-06-21-tu"
-    },
     "events12:small-town-festival-south-2026-06-21": {
       "unresolvable": true,
       "reason": "Festival start times not found on website",
@@ -18130,24 +17922,11 @@
       "source": "agent",
       "partialFingerprint": "1m16eas-until2026-06-21-tu"
     },
-    "events12:air-show-in-olympia-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Website returns loading/verification page; air show times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent"
-    },
     "events12:air-show-in-olympia-2026-06-21": {
       "unresolvable": true,
       "reason": "Website returns loading/verification page; air show times not accessible",
       "resolvedAt": "2026-06-11",
       "source": "agent"
-    },
-    "events12:civil-war-battle-in-yakima-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Start times not found on website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1s5wo42-until2026-06-21-tu"
     },
     "events12:civil-war-battle-in-yakima-2026-06-21": {
       "unresolvable": true,
@@ -18173,13 +17952,6 @@
       "source": "agent",
       "partialFingerprint": "k0diq0-until2026-06-21-tu",
       "lastSeen": "2026-06-21"
-    },
-    "events12:gourmet-cooking-class-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Multiple different cooking classes with varying start times per day",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1vmda95-until2026-06-27-tu"
     },
     "events12:gourmet-cooking-class-2026-06-27": {
       "unresolvable": true,
@@ -18486,13 +18258,6 @@
       "evidence": "https://skandia-folkdance.org/midsommarfest.html",
       "partialFingerprint": "ny5sar-until2026-06-28-tu"
     },
-    "events12:music-by-candlelight-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Events12 links to general Fever landing page; multiple different candlelight concerts run daily with different times (6:15pm, 8:30pm, etc.)",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "8kffbv-until2026-06-28-tu"
-    },
     "events12:music-by-candlelight-2026-06-21": {
       "unresolvable": true,
       "reason": "Events12 links to general Fever landing page; multiple different candlelight concerts run daily with different times (6:15pm, 8:30pm, etc.)",
@@ -18551,13 +18316,6 @@
       "partialFingerprint": "8kffbv-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:crazy-comedy-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Full performance schedule not publicly listed; mix of evening shows and matinees, specific per-day times require calling Seattle Rep box office",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1udm97s-until2026-06-28-tu"
-    },
     "events12:crazy-comedy-2026-06-21": {
       "unresolvable": true,
       "reason": "Full performance schedule not publicly listed; mix of evening shows and matinees, specific per-day times require calling Seattle Rep box office",
@@ -18613,13 +18371,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "1udm97s-until2026-06-28-tu"
-    },
-    "events12:garden-walk-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "51vnas-until2026-07-25-tu"
     },
     "events12:garden-walk-2026-06-21": {
       "unresolvable": true,
@@ -18894,13 +18645,6 @@
       "source": "agent",
       "partialFingerprint": "51vnas-until2026-07-25-tu",
       "lastSeen": "2026-06-21"
-    },
-    "events12:zoo-concerts-2026-06-20": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu"
     },
     "events12:zoo-concerts-2026-06-21": {
       "unresolvable": true,
@@ -19783,13 +19527,6 @@
       "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:classical-music-2026-06-20": {
-      "unresolvable": true,
-      "reason": "Varying start times per location and date; check individual event listings on SCMS website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
-    },
     "events12:classical-music-2026-06-21": {
       "unresolvable": true,
       "reason": "Varying start times per location and date; check individual event listings on SCMS website",
@@ -20122,13 +19859,6 @@
       "source": "agent",
       "partialFingerprint": "cw48eo-until2026-09-11-tu"
     },
-    "events12:chinese-acrobats-2026-06-20": {
-      "unresolvable": true,
-      "reason": "TicketLeap page returning error; show times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "78taog-until2026-06-28-tu"
-    },
     "events12:chinese-acrobats-2026-06-21": {
       "unresolvable": true,
       "reason": "TicketLeap page returning error; show times not accessible",
@@ -20306,15 +20036,6 @@
       "resolvedAt": "2026-06-12",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea26-workshop-series-seattle-childrens-museum-x47542"
-    },
-    "events12:marysville-festival-2026-06-20": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 46800
-      },
-      "resolvedAt": "2026-06-12",
-      "source": "agent",
-      "evidence": "https://www.marysvillestrawberryfest.com"
     },
     "events12:marysville-festival-2026-06-21": {
       "fields": {
@@ -21795,17 +21516,6 @@
       "source": "agent",
       "evidence": "https://fever.pxf.io/JKKyo2"
     },
-    "events12:medieval-fair-2026-06-20": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.kitsapmedievalfaire.org/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:slug-festival-2026-06-27": {
       "fields": {
         "cost": {
@@ -21827,27 +21537,6 @@
       "source": "agent",
       "evidence": "https://www.nwtrek.org/event/slug-fest/",
       "lastSeen": "2026-06-21"
-    },
-    "events12:wine-at-the-zoo-2026-06-20": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://zoo.org/tastingflight/",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:architectural-tour-2026-06-20": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-2026-06-21": {
       "fields": {
@@ -21919,16 +21608,6 @@
       "source": "agent",
       "evidence": "https://seattlearchitecture.org/tours/",
       "lastSeen": "2026-06-21"
-    },
-    "events12:on-the-water-2026-06-20": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
     },
     "events12:on-the-water-2026-06-21": {
       "fields": {
@@ -23259,28 +22938,6 @@
       "resolvedAt": "2026-06-13",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
-    },
-    "19hz:19hz-2026/06/20-DJ Diesel": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/06/20-Insison": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed",
-      "lastSeen": "2026-06-13"
     },
     "19hz:19hz-2026/06/21-Iconic (Birthday Sunset Session)": {
       "fields": {
@@ -24898,13 +24555,6 @@
       "resolvedAt": "2026-06-17",
       "source": "agent",
       "reason": "Only start time (5pm) listed on event page; no end time or duration found"
-    },
-    "events12:juneteenth-celebrations-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-17",
-      "source": "agent",
-      "reason": "Kenmore Juneteenth event is June 17 only; June 20 entry appears to be a data error",
-      "lastSeen": "2026-06-21"
     },
     "t-mobile-park:tm-vvG1HZ_eEq-zQt": {
       "unresolvable": true,
@@ -29373,12 +29023,6 @@
       "source": "agent",
       "reason": "Event date has passed; source page no longer lists this event"
     },
-    "events12:doggie-dash-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-26",
-      "source": "agent",
-      "reason": "Event date has passed; source page no longer lists this event"
-    },
     "seatoday:cityspark-19256765": {
       "fields": {
         "cost": {
@@ -29828,6 +29472,460 @@
       "resolvedAt": "2026-06-27",
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/tournaments-ping-pong/18807994/2026-07-10T00"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47687": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47687"
+    },
+    "seattle-center:lets-play-sea-26-global-dj-program-international-fountain-live-music-session": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-dj-program-international-fountain-live-music-session"
+    },
+    "seattle-center:seattle-storm-vs-portland": {
+      "fields": {
+        "duration": 16200
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-portland"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47291": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-marketplace-x47291"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47538": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47538"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46331": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "reason": "Listed as All Day with no specific start/end times \u2014 permanent installation across campus"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47635": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "reason": "Virtual 5K completable any time May 16-July 15; no specific start/end times"
+    },
+    "seattle-center:seattle-center-classical": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-classical"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-round-of-16": {
+      "fields": {
+        "duration": 23400
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-armory-fan-experience-round-of-16"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47688": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47688"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-6-20-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-6-20-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-6-21-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-6-21-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-6-27-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-6-27-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-6-28-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-6-28-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-6-30-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-6-30-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-7-1-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-7-1-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-7-2-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-7-2-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-7-5-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-7-5-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-2-7-6-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-2-7-6-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-18-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-18-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-19-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-19-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-20-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-20-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-21-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-21-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-24-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-24-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-25-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-25-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-26-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-26-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-27-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-27-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-28-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-28-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-6-30-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-6-30-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-7-1-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-7-1-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-7-2-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-7-2-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-7-4-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-7-4-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-7-5-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-7-5-26/"
+    },
+    "seattle-chamber-music:scms-the-concert-truck-7-6-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/the-concert-truck-7-6-26/"
+    },
+    "vietnamese_cultural_center:692df2645c09e8699f989858": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://vietnameseculturalctr.squarespace.com/events/summer-picnic-d9fgh"
+    },
+    "vietnamese_cultural_center:692df2cccd68f82f23c9ee41": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://vietnameseculturalctr.squarespace.com/events/thuong-tiec-thuyen-nhan"
+    },
+    "vietnamese_cultural_center:692df3afcd68f82f23ca45aa": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://vietnameseculturalctr.squarespace.com/events/childrens-moonlight-festival-d69jd"
+    },
+    "vietnamese_cultural_center:692df4118da8cd555c6e6518": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://vietnameseculturalctr.squarespace.com/events/tranhungdaomemorial-gxklb"
+    },
+    "vietnamese_cultural_center:692df467cb21416662905e78": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://vietnameseculturalctr.squarespace.com/events/t-thin-l-t-n-thanksgiving-day-of-service-gpphl"
+    },
+    "seatoday:cityspark-15411877": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/golden-gardens-park-work-parties/15411877/2026-07-11T00"
+    },
+    "seatoday:cityspark-18291156": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/lwsc-dressage-schooling-show/18291156/2026-07-11T00"
+    },
+    "seatoday:cityspark-18317493": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/growing-garlic/18317493/2026-07-11T00"
+    },
+    "seatoday:cityspark-18326327": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/2026-mill-creek-festival-street-fair/18326327/2026-07-11T00"
+    },
+    "seatoday:cityspark-18661731": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/rtc-italian-day/18661731/2026-07-11T00"
+    },
+    "seatoday:cityspark-18771453": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/family-day-of-play-at-grass-lawn-park/18771453/2026-07-11T00"
+    },
+    "seatoday:cityspark-19010888": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/keep-issaquah-beautiful-day/19010888/2026-07-11T00"
+    },
+    "seatoday:cityspark-19233658": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/30th-annual-truck-show/19233658/2026-07-11T00"
+    },
+    "t-mobile-park:tm-vvG1HZbM3CVUlY": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns HTTP 401; start time not accessible. Sept 27 is a home game day so tour time unclear."
     }
   }
 }
