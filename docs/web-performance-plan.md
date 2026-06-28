@@ -106,15 +106,24 @@ default chunking applies. Splitting stable vendor code (`react`/`react-dom`,
 doesn't bust the vendor cache, improving repeat-visit load. Pairs naturally with
 N-1/N-2 (which already carve out the map and ICAL).
 
-#### N-4. Offload Fuse search/index-build to a Web Worker (larger lift)
+#### N-4. Offload Fuse search/index-build to a Web Worker (larger lift) ✅ shipped
 
 Even deferred (the `useDeferredValue` change shipped in the June pass), the Fuse
 `search()` still runs on the main thread
 (~120 ms desktop / ~0.5 s mobile per committed query) and the index build runs
 on load. Moving the index build + queries into a Worker keeps the main thread
 free for input and scroll entirely. This is the structural fix if O-1b's
-behavior change isn't acceptable. Bigger change (message protocol, async result
-plumbing) — propose only if O-1b is rejected and search lag persists.
+behavior change isn't acceptable.
+
+**Shipped** rather than waiting on an O-1b rejection: it's the only option that
+also gets the ~9.6 MB `JSON.parse` off the main thread, and it's behavior-
+preserving (search semantics unchanged), whereas O-1b/O-3 carry a fuzzy→near-
+exact tradeoff. The worker owns the events-index parse, the Fuse index build, and
+every query; the main thread hands over raw bytes (transferred `ArrayBuffer`,
+zero-copy) and receives only small results (the parsed array once, a match
+key-set per query). Falls back to a main-thread engine where Workers are
+unavailable. Full design in [`web-search-worker.md`](./web-search-worker.md).
+Modules: `web/src/lib/{searchEngine,searchWorker,searchClient}.js`.
 
 ### Recommended optimization sequencing
 
@@ -124,12 +133,14 @@ plumbing) — propose only if O-1b is rejected and search lag persists.
 | 2 ✅ | N-2 lazy ICAL | low | removes a parser from the entry chunk |
 | 3 ✅ | O-4 parsed-date cache | low | smoother re-filters, no behavior change |
 | 4 ✅ | N-3 vendor chunks | low | better repeat-visit caching |
-| 5 | O-1b / O-3 | med | product sign-off (behavior/payload shape) |
-| 6 | N-4 search Worker | med-high | only if O-1b rejected and lag remains |
+| 5 ✅ | N-4 search Worker | med-high | parse + Fuse build + every query off the main thread |
+| 6 | O-1b / O-3 | med | product sign-off (behavior/payload shape) |
 
-N-1 through N-3 + O-4 (the low-risk, no-user-visible-behavior batch) have
-**shipped**. The remaining items (O-1b/O-3 product sign-off; N-4 search Worker)
-are still open and carry a deliberate tradeoff.
+N-1 through N-4 + O-4 have **shipped** — the search worker (N-4) takes the
+events-index parse, the Fuse index build, and every query off the main thread
+without changing search behavior. The remaining items (O-1b/O-3) carry a
+deliberate fuzzy→near-exact / payload-shape tradeoff and stay open for product
+sign-off; the worker reduces their urgency since search no longer blocks input.
 
 ---
 
