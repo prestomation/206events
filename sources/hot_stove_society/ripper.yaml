@@ -4,10 +4,14 @@ description: "Hot Stove Society"
 url: "https://www.hotstovesociety.com/store/events/"
 friendlyLink: "https://www.hotstovesociety.com/store/events/"
 tags: ["Food", "Belltown"]
+imageUrl: "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdaf\
+  a/media/images/75321hs1.jpg"
 geo:
   lat: 47.6132
   lng: -122.3401
   label: "Hot Stove Society, 2000 4th Ave, Seattle, WA 98121"
+  osmType: node
+  osmId: 2327731984
 calendars:
   - name: hot-stove-society
     friendlyname: "Hot Stove Society"

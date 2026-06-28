@@ -4589,6 +4589,76 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-27",
       "note": "Same event at Westfield Southcenter, same CitySpark ID 18978022, cross-listed in seatoday categories"
+    },
+    "seatoday-seatoday-all.ics 2026 Mill Creek Festival & Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Mill Creek Festival & Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday all vs community sub-feed"
+    },
+    "seatoday-seatoday-all.ics 2026 Mill Creek Festival & Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 2026 Mill Creek Festival & Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday all vs food sub-feed"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday all vs arts sub-feed"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday all vs community sub-feed"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-11T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-11T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday all vs community sub-feed"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-11T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-11T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday all vs sports sub-feed"
+    },
+    "seatoday-seatoday-all.ics Seattle Center Classical|2026-07-05T12:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Seattle Center Classical|2026-07-05T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same concert at Seattle Center International Fountain, 141m apart \u2014 same venue complex"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday all vs community sub-feed"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday all vs sports sub-feed"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday arts vs community sub-feed"
+    },
+    "seatoday-seatoday-arts.ics Seattle Center Classical|2026-07-05T12:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Seattle Center Classical|2026-07-05T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same concert at Seattle Center International Fountain, seatoday arts sub-feed vs seattle-center direct"
+    },
+    "seatoday-seatoday-community.ics 2026 Mill Creek Festival & Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 2026 Mill Creek Festival & Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday community vs food sub-feed"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-11T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-11T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday community vs sports sub-feed"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, seatoday community vs sports sub-feed"
     }
   }
 }

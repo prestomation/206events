@@ -5,10 +5,15 @@ description: "Vietnamese Cultural Center"
 url: "https://vietnameseculturalctr.squarespace.com/events"
 friendlyLink: https://vietnameseculturalctr.squarespace.com/events
 tags: ["Community", "West Seattle"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/62bb1863febe28121f973c\
+  2b/eb07f577-0d26-4020-9a19-0f89a8a54ae5/VCC+Columns+Sign+20180217_140305-1024\
+  x768.jpg"
 geo:
   lat: 47.53763
   lng: -122.36253
   label: "Vietnamese Cultural Center, 2236 SW Orchard St, Seattle, WA 98106"
+  osmType: way
+  osmId: 231984609
 calendars:
   - name: all-events
     friendlyname: "Vietnamese Cultural Center"
