@@ -406,6 +406,12 @@ jobs:
 
       - name: Post Lighthouse trend comment
         uses: actions/github-script@v7
+        # Pass the action's outputs via env (not string-interpolated into the
+        # script) — GitHub's hardening guidance, and it can't break the script
+        # if a value ever contains a quote.
+        env:
+          LH_RESULTS_PATH: ${{ steps.lhci.outputs.resultsPath }}
+          LH_LINKS: ${{ steps.lhci.outputs.links }}
         with:
           script: |
             const fs = require('fs');
@@ -414,7 +420,7 @@ jobs:
             const { extractMetrics, parseEmbeddedTrend, buildComment, COMMENT_MARKER } =
               await import(pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/lighthouse-report.mjs`).href);
 
-            const resultsPath = '${{ steps.lhci.outputs.resultsPath }}' || '.lighthouseci';
+            const resultsPath = process.env.LH_RESULTS_PATH || '.lighthouseci';
             let manifest;
             try {
               manifest = JSON.parse(fs.readFileSync(path.join(resultsPath, 'manifest.json'), 'utf8'));
@@ -430,7 +436,7 @@ jobs:
 
             let reportUrl = null;
             try {
-              const links = JSON.parse('${{ steps.lhci.outputs.links }}' || '{}');
+              const links = JSON.parse(process.env.LH_LINKS || '{}');
               reportUrl = Object.values(links)[0] || null;
             } catch {}
 

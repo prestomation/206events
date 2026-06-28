@@ -86,14 +86,21 @@ export function extractMetrics(manifest, lhrByPath) {
   }
 }
 
+// Encode/decode the embedded trend payload as base64. base64's alphabet
+// ([A-Za-z0-9+/=]) can't contain "-->", so the JSON — whatever a future field
+// holds — can never prematurely close the HTML comment and corrupt the marker.
+function encodeTrend(payload) {
+  return Buffer.from(JSON.stringify(payload), 'utf8').toString('base64')
+}
+
 // Find and parse the trend payload embedded in a prior PR comment. Returns
 // { current, history } or null when absent/unparseable.
 export function parseEmbeddedTrend(body) {
   if (!body) return null
-  const m = body.match(new RegExp(`<!-- ${COMMENT_MARKER}:(.*?)-->`, 's'))
+  const m = body.match(new RegExp(`<!-- ${COMMENT_MARKER}:([A-Za-z0-9+/=]*)\\s*-->`, 's'))
   if (!m) return null
   try {
-    const data = JSON.parse(m[1].trim())
+    const data = JSON.parse(Buffer.from(m[1], 'base64').toString('utf8'))
     return data && typeof data === 'object' ? data : null
   } catch { return null }
 }
@@ -131,14 +138,22 @@ export function buildComment({ current, previous, baselineMain, reportUrl, meta,
   const chrono = [...(priorHistory || [])].reverse()
     .concat(previous ? [previous] : [])
     .concat(current ? [current] : [])
-  const sparkline = chrono.map((h) => h?.perf).filter((v) => v != null).join(' → ')
+  const sparkline = chrono.map((h) => h?.perf).filter((v) => Number.isFinite(v)).join(' → ')
 
   const baseLine = baselineMain
     ? `Main baseline: \`${(baselineMain.sha || '').slice(0, 7) || 'unknown'}\`${baselineMain.ts ? ` · ${baselineMain.ts.slice(0, 10)}` : ''}`
     : 'Main baseline: _not recorded yet — runs after the next push to `main`._'
 
+  // The trend payload to embed for the next push: this run becomes `current`,
+  // and the just-superseded `previous` leads the capped history.
+  const embedded = {
+    current: metricsRow(current),
+    history: [previous, ...(priorHistory || [])].filter(Boolean).slice(0, MAX_HISTORY).map(metricsRow),
+    meta,
+  }
+
   const lines = [
-    `<!-- ${COMMENT_MARKER}:${JSON.stringify({ current: metricsRow(current), history: [previous, ...(priorHistory || [])].filter(Boolean).slice(0, MAX_HISTORY).map(metricsRow), meta })} -->`,
+    `<!-- ${COMMENT_MARKER}:${encodeTrend(embedded)} -->`,
     '## 🔦 Lighthouse',
     '',
     'Lab audit of the deployed preview (mobile, median of runs). Warn-only — these numbers don\'t gate the PR. 🟢 = better, 🔴 = worse, ≈ = within noise.',
@@ -151,9 +166,5 @@ export function buildComment({ current, previous, baselineMain, reportUrl, meta,
     `\n<sub>commit \`${(meta?.sha || '').slice(0, 7)}\`</sub>`,
   ].filter((l) => l !== '')
 
-  return {
-    markdown: lines.join('\n'),
-    // Convenience for callers/tests: the parsed-back payload shape.
-    embedded: { current: metricsRow(current), history: [previous, ...(priorHistory || [])].filter(Boolean).slice(0, MAX_HISTORY).map(metricsRow), meta },
-  }
+  return { markdown: lines.join('\n'), embedded }
 }

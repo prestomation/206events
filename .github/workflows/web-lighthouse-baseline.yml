@@ -41,6 +41,8 @@ jobs:
 
       - name: Extract baseline metrics
         uses: actions/github-script@v7
+        env:
+          LH_RESULTS_PATH: ${{ steps.lhci.outputs.resultsPath }}
         with:
           script: |
             const fs = require('fs');
@@ -49,7 +51,10 @@ jobs:
             const { extractMetrics } =
               await import(pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/lighthouse-report.mjs`).href);
 
-            const resultsPath = '${{ steps.lhci.outputs.resultsPath }}' || '.lighthouseci';
+            const resultsPath = process.env.LH_RESULTS_PATH || '.lighthouseci';
+            // Intentionally NOT wrapped in try/catch (unlike the PR job): if the
+            // production audit produced no manifest, the baseline run SHOULD fail
+            // loudly — a broken baseline is a real signal, and it can't affect PRs.
             const manifest = JSON.parse(fs.readFileSync(path.join(resultsPath, 'manifest.json'), 'utf8'));
             const lhrByPath = {};
             for (const entry of manifest) {

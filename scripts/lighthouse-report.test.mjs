@@ -89,8 +89,18 @@ describe('parseEmbeddedTrend', () => {
   it('returns null when no marker is present', () => {
     expect(parseEmbeddedTrend('just a normal comment')).toBeNull()
   })
-  it('returns null on malformed JSON', () => {
+  it('returns null on a malformed (non-base64 / non-JSON) payload', () => {
     expect(parseEmbeddedTrend(`<!-- ${COMMENT_MARKER}:{not json} -->`)).toBeNull()
+  })
+  it('survives a payload value that itself contains "-->" (base64-encoded)', () => {
+    const { markdown } = buildComment({
+      current: { perf: 82 }, previous: null, baselineMain: null, reportUrl: null,
+      meta: { sha: 'abc-->xyz', ts: '2026-06-28T00:00:00Z' }, priorHistory: [],
+    })
+    // The raw "-->" must not appear inside the marker (it would close it early).
+    const marker = markdown.match(/<!-- lighthouse-trend:(.*?)-->/s)[1]
+    expect(marker).not.toContain('-->')
+    expect(parseEmbeddedTrend(markdown).meta.sha).toBe('abc-->xyz')
   })
 })
 
@@ -124,5 +134,39 @@ describe('buildComment', () => {
     // history now leads with the just-superseded "previous"
     expect(embedded.history[0].perf).toBe(80)
     expect(embedded.history.length).toBeLessThanOrEqual(8)
+  })
+
+  it('threads embedded payload across many pushes: caps at 8, newest-first, no growth', () => {
+    // Simulate the real workflow loop: each push reads the prior comment's
+    // embedded payload and feeds current=parse(comment) back in.
+    let prevEmbedded = null
+    for (let i = 0; i < 15; i++) {
+      const run = { perf: 70 + i, lcp: 3000 - i, inp: null, tbt: 200, cls: 0.02, fcp: 1400 }
+      const { markdown, embedded } = buildComment({
+        current: run,
+        previous: prevEmbedded?.current || null,
+        priorHistory: prevEmbedded?.history || [],
+        baselineMain: null, reportUrl: null,
+        meta: { sha: `sha${i}`, ts: `2026-06-${String(i + 1).padStart(2, '0')}T00:00:00Z` },
+      })
+      // The next push parses what this one embedded (the real round-trip).
+      prevEmbedded = parseEmbeddedTrend(markdown)
+      expect(embedded.history.length).toBeLessThanOrEqual(8)
+    }
+    // After 15 pushes: history holds the 8 most recent *previous* runs,
+    // newest-first (the run before the last is perf 83, then 82, …).
+    expect(prevEmbedded.current.perf).toBe(84) // 70 + 14
+    expect(prevEmbedded.history.length).toBe(8)
+    expect(prevEmbedded.history[0].perf).toBe(83)
+    expect(prevEmbedded.history[7].perf).toBe(76)
+  })
+
+  it('keeps NaN out of the sparkline', () => {
+    const { markdown } = buildComment({
+      current: { perf: 82 }, previous: { perf: NaN }, baselineMain: null, reportUrl: null,
+      meta: { sha: 's', ts: 't' }, priorHistory: [{ perf: 80 }],
+    })
+    expect(markdown).toContain('80 → 82')
+    expect(markdown).not.toContain('NaN')
   })
 })
