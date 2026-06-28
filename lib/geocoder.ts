@@ -383,6 +383,7 @@ const UW_BUILDING_COORDS: Record<string, GeoCoords> = {
   SFCO: { lat: 47.6610, lng: -122.3145 },
   EDP: { lat: 47.6515, lng: -122.3011 },
   SUZ: { lat: 47.6557, lng: -122.3076 },
+  EMLB: { lat: 47.6580, lng: -122.2907 },
 };
 
 /**

@@ -4659,6 +4659,56 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-28",
       "note": "Same event, seatoday community vs sports sub-feed"
+    },
+    "external-uw-botanic-gardens.ics Arboretum Walking Tour|2026-07-11T10:00:00Z[UTC]::external-uw-campus-events.ics Arboretum Walking Tour|2026-07-11T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, same URL (ideal-logic.com), both feeds from UW Botanic Gardens"
+    },
+    "external-uw-botanic-gardens.ics Arboretum Walking Tour|2026-07-25T10:00:00Z[UTC]::external-uw-campus-events.ics Arboretum Walking Tour|2026-07-25T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, same URL (ideal-logic.com), both feeds from UW Botanic Gardens"
+    },
+    "external-uw-botanic-gardens.ics Arboretum Walking Tour|2026-08-08T10:00:00Z[UTC]::external-uw-campus-events.ics Arboretum Walking Tour|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, same URL (ideal-logic.com), both feeds from UW Botanic Gardens"
+    },
+    "external-uw-botanic-gardens.ics Arboretum Walking Tour|2026-08-22T10:00:00Z[UTC]::external-uw-campus-events.ics Arboretum Walking Tour|2026-08-22T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, same URL (ideal-logic.com), both feeds from UW Botanic Gardens"
+    },
+    "external-uw-botanic-gardens.ics Field Sketching Plants in Watercolor (in-person)|2026-07-11T10:00:00Z[UTC]::external-uw-campus-events.ics Field Sketching Plants in Watercolor (in-person)|2026-07-11T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, same URL, both UW Botanic Gardens feeds"
+    },
+    "external-uw-botanic-gardens.ics Forest Bathing (in-person)|2026-07-18T10:00:00Z[UTC]::external-uw-campus-events.ics Forest Bathing (in-person)|2026-07-18T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same event, same URL, both UW Botanic Gardens feeds"
+    },
+    "seatoday-seatoday-all.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-06T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same World Cup watch party at Seattle Center Mural Amphitheatre, same July 6 event"
+    },
+    "seatoday-seatoday-arts.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-06T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same World Cup watch party at Seattle Center, seatoday arts feed vs seattle-center"
+    },
+    "seatoday-seatoday-food.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-06T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same World Cup watch party at Seattle Center, seatoday food feed vs seattle-center"
+    },
+    "seatoday-seatoday-sports.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-06T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-28",
+      "note": "Same World Cup watch party at Seattle Center, seatoday sports feed vs seattle-center"
     }
   }
 }

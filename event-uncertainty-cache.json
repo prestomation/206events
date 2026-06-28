@@ -29926,6 +29926,123 @@
       "resolvedAt": "2026-06-28",
       "source": "agent",
       "reason": "Ticketmaster event page returns HTTP 401; start time not accessible. Sept 27 is a home game day so tour time unclear."
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47292": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-marketplace-x47292"
+    },
+    "seattle-center:lets-play-sea-26-watch-parties-at-mural-amphitheatre-x47757": {
+      "fields": {
+        "startTime": "11:30",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-watch-parties-at-mural-amphitheatre-x47757"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46332": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "reason": "Listed as \"All Day\" with no specific start/end time on the event page"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47636": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "reason": "Virtual 5k experience with no fixed start time; participants complete on their own schedule anytime May 16 - July 15"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-round-of-16-x47259": {
+      "fields": {
+        "duration": 23400
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-armory-fan-experience-round-of-16-x47259"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47689": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47689"
+    },
+    "seattle-center:lets-play-sea26-workshop-series-the-vera-project": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea26-workshop-series-the-vera-project"
+    },
+    "seattle-center:visit-seattle-drone-show-july-6": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/visit-seattle-drone-show-july-6"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_5pXUjXS": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-kehlani-world-tour-north-america-seattle-washington-09-27-2026/event/0F0064B5BED9CFB3"
+    },
+    "stg:tm-vvG1HZ_5CgVD69": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/hokus-pokus-live-seattle-washington-09-27-2026/event/0F0064B3B5D3B1D7"
+    },
+    "stg:tm-vvG1HZ_dL4BjyW": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-growlers-seattle-washington-09-27-2026/event/0F006437D5E9CE7D"
+    },
+    "wamu-theater:tm-vvG1HZ_1BO3av0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/for-king-country-seattle-washington-09-27-2026/event/0F0064AEA0489064"
+    },
+    "wamu-theater:tm-vvG1HZ_51VmtMV": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-28",
+      "source": "agent",
+      "reason": "Ticketmaster amplified access service listing - explicitly tagged \"Not an Event Ticket\" in title; not a real event"
     }
   }
 }
