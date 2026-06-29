@@ -29914,583 +29914,11 @@
       "source": "agent",
       "evidence": "https://www.stoupbrewing.com/stoup-event/trivia-at-stoup-brewing-ballard-with-head-in-the-clouds-4259.html"
     },
-    "events12:fishing-day-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:fishing-day-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:state-park-day-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:state-park-day-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:state-park-day-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:national-park-day-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; NPS fee-free day start/end times vary by park location"
-    },
-    "events12:duck-parade-2026-06-06": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "https://www.cityofup.com/418/Duck-Daze"
-    },
-    "events12:gig-harbor-festival-2026-06-06": {
-      "fields": {
-        "duration": 39600
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "https://www.gigharborchamber.net/maritime-gig-festival"
-    },
-    "events12:gig-harbor-festival-2026-06-07": {
-      "fields": {
-        "duration": 21600
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "https://www.gigharborchamber.net/maritime-gig-festival"
-    },
-    "events12:bird-festival-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Start time and duration not listed on source page; event has passed"
-    },
-    "events12:garden-festival-south-2026-06-07": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "https://www.parkstacoma.gov/ptdflowergardenfest/"
-    },
-    "events12:scottish-festival-up-north-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not specified on source page and event has passed"
-    },
-    "19hz:19hz-2026/06/20-Chai Solstice": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "No end time published on Partiful source page; event has passed"
-    },
     "seatoday:cityspark-19294882": {
       "unresolvable": true,
       "resolvedAt": "2026-06-29",
       "source": "agent",
       "reason": "6amcity embed URL returned no accessible content; pricing not determined"
-    },
-    "events12:performance-art-2026-06-04": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:performance-art-2026-06-05": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:performance-art-2026-06-06": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:musical-cabaret-2026-06-06": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:baseball-cards-collectibles-2026-06-06": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:pinball-arcade-games-2026-06-05": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:pinball-arcade-games-2026-06-06": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:pinball-arcade-games-2026-06-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:ballet-finale-2026-06-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:international-dance-festival-2026-06-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:international-dance-festival-2026-06-08": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:international-dance-festival-2026-06-09": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:international-dance-festival-2026-06-10": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:international-dance-festival-2026-06-11": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:international-dance-festival-2026-06-12": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:international-dance-festival-2026-06-13": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:international-dance-festival-2026-06-14": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:beer-festival-2026-06-13": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:a-cappella-night-2026-06-13": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:fairy-festival-2026-06-13": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:fairy-festival-2026-06-14": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:wine-at-the-zoo-2026-06-20": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:medieval-fair-2026-06-20": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:air-show-in-olympia-2026-06-20": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:arts-party-2026-06-17": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:bluegrass-festival-2026-06-19": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:bluegrass-festival-2026-06-20": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:pride-circus-trapeze-show-2026-06-12": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:pride-circus-trapeze-show-2026-06-13": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "events12 listing"
-    },
-    "events12:cocktail-walk-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:half-marathon-on-bainbridge-island-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:run-to-support-parks-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:party-for-young-professionals-2026-06-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:new-plays-about-women-2026-06-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:new-plays-about-women-2026-06-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:new-plays-about-women-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:new-plays-about-women-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:steampunk-festival-2026-06-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:steampunk-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:steampunk-festival-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:yakima-music-festival-2026-06-18": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:yakima-music-festival-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:yakima-music-festival-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:wine-train-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:festival-on-the-columbia-river-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:festival-on-the-columbia-river-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:run-with-dogs-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time and/or cost not resolvable from source page after event date"
-    },
-    "events12:party-at-the-aquarium-2026-06-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:podcasts-live-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:small-town-festival-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:dragon-boats-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:juneteenth-celebrations-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:juneteenth-celebrations-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:juneteenth-celebrations-2026-06-15": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:juneteenth-celebrations-2026-06-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:juneteenth-celebrations-2026-06-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:juneteenth-celebrations-2026-06-18": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:juneteenth-celebrations-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:juneteenth-celebrations-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:wine-walk-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
-    },
-    "events12:doggie-dash-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; start time not resolvable after event date"
     },
     "19hz:19hz-2026/06/23-DIE": {
       "unresolvable": true,
@@ -30646,69 +30074,11 @@
       "source": "agent",
       "reason": "posh.vip event page has no accessible og:image"
     },
-    "events12:yakima-music-festival-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; page at chinookfest.com not accessible; multiple fields unknown"
-    },
-    "events12:father-s-day-restaurants-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past Father's Day event; OpenTable has no fixed start time for restaurant promotions"
-    },
-    "events12:zoo-brunch-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "reason": "Past event; multiple fields unknown"
-    },
     "t-mobile-park:tm-vvG1HZ_eEqJIQB": {
       "unresolvable": true,
       "resolvedAt": "2026-06-29",
       "source": "agent",
       "reason": "Ticketmaster page returns HTTP 403; MLB tours page lists no specific start times"
-    },
-    "events12:free-museum-for-dads-2026-06-21": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/3411/dads-get-in-free"
-    },
-    "events12:car-show-2026-06-21": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "https://fendersonfrontstreet.com"
-    },
-    "events12:bluegrass-festival-2026-06-21": {
-      "fields": {
-        "cost": {
-          "min": 30.0
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "http://wenatcheeriverbluegrassfestival.com/camping/"
-    },
-    "events12:air-show-in-olympia-2026-06-21": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-29",
-      "source": "agent",
-      "evidence": "https://olympicairshow.com"
     },
     "seatoday:cityspark-19296241": {
       "fields": {
@@ -30779,6 +30149,201 @@
       "resolvedAt": "2026-06-29",
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events/embed"
+    },
+    "sam:sam-gallery-presents-play-jun-3-26": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/hours"
+    },
+    "sam:earthcorps-biodiversity-photography-jun-4-26": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 39600
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/hours"
+    },
+    "sam:fresh-off-the-field-mariners-cleats-jul-1-26": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/hours"
+    },
+    "sam:sam-gallery-presents-all-that-jul-1-26": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/hours"
+    },
+    "sam:marks-with-feeling-may-29-26": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/hours"
+    },
+    "seattle-center:x47684.xml": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/x47684.xml"
+    },
+    "seattle-center:x47685.xml": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/x47685.xml"
+    },
+    "seattle-center:x47686.xml": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/x47686.xml"
+    },
+    "seattle-center:x47687.xml": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/x47687.xml"
+    },
+    "seattle-center:x47688.xml": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/x47688.xml"
+    },
+    "seattle-center:x47689.xml": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/x47689.xml"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47293": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-marketplace-x47293"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47315": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47315"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47316": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47316"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46333": {
+      "fields": {
+        "startTime": "06:00",
+        "duration": 64740
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46333"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46334": {
+      "fields": {
+        "startTime": "06:00",
+        "duration": 64740
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46334"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47637": {
+      "fields": {
+        "startTime": "07:00",
+        "duration": 57600
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47637"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-round-of-16-x47260": {
+      "fields": {
+        "duration": 23400
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-armory-fan-experience-round-of-16-x47260"
+    },
+    "native_action_network:699639b59494797b5f1f1363": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://nativeactionnetwork.org/events/m53uk03y1zzzdrzxbjdr3vgdqnwdl3"
+    },
+    "native_action_network:69963a05ffbbfc623d966d05": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://nativeactionnetwork.org/events/3vha02o94tvmu4vkrzys9jc5ef4k4u"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_6RiMezM": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/uicideboy-present-grey-day-tour-2026-seattle-washington-09-28-2026/event/0F00647BECDC2E37"
+    },
+    "stg:tm-vvG1HZ_55etDF9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/igorrr-north-american-tour-2026-seattle-washington-09-28-2026/event/0F0064B2C2A7B217"
     }
   }
 }
