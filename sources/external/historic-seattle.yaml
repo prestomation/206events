@@ -1,0 +1,17 @@
+geo:
+  lat: 47.6108988
+  lng: -122.3254848
+  label: "Historic Seattle, 1117 Minor Ave, Seattle, WA 98101"
+  osmType: way
+  osmId: 365611010
+name: historic-seattle
+sourceRole: venue
+friendlyname: Historic Seattle
+description: "Historic Seattle hosts lectures, building tours, and preservation events at landmark venues around the city."
+icsUrl: https://historicseattle.org/events/?ical=1
+infoUrl: https://historicseattle.org/events/
+imageUrl: "https://historicseattle.org/wp-content/uploads/2016/04/HS_GiveBig-FB-header-cropped-NW.png"
+tags:
+  - Arts
+  - Education
+  - First Hill

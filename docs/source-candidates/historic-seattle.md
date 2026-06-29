@@ -1,18 +1,23 @@
 ---
 name: "Historic Seattle"
-status: blocked
-platform: WordPress (SiteGround)
+status: added
+platform: WordPress (Tribe Events)
 url: https://historicseattle.org/events/
-tags: [Community, Arts]
+icsUrl: https://historicseattle.org/events/?ical=1
+tags: [Arts, Education, "First Hill"]
 firstSeen: 2026-06-11
-lastChecked: 2026-06-11
+lastChecked: 2026-06-29
+pr: TBD
 ---
 **Historic Seattle** — `https://historicseattle.org/events/` — Nonprofit preservation organization with property tours, lectures, advocacy events, and building history programs across Seattle.
 
 Investigated 2026-06-11:
 - SiteGround captcha (`sg-captcha: challenge` header) blocks automated access; returns HTTP 202 with `x-robots-tag: noindex`
-- Cannot fetch event data without a browser proxy
-- Would require `proxy: "browserbase"` to access
 - No ICS feed visible from the public-facing pages
+- Marked blocked pending browserbase support
 
-**Verdict**: Blocked — SiteGround captcha. Not worth implementing until browserbase proxy support is confirmed for this source. Re-evaluate if the captcha is removed.
+Re-investigated 2026-06-29:
+- ICS endpoint now returns HTTP 200 with valid VCALENDAR (SiteGround captcha no longer blocking)
+- `https://historicseattle.org/events/?ical=1` returns 1+ upcoming event (Tribe Events plugin ECPv6.16.2)
+- Implemented as `sources/external/historic-seattle.yaml`
+- 1 event confirmed in local build: "Historic Talks in Historic Buildings with Feliks Banel" (July 14, 2026)
