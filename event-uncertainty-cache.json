@@ -30645,6 +30645,140 @@
       "resolvedAt": "2026-06-29",
       "source": "agent",
       "reason": "posh.vip event page has no accessible og:image"
+    },
+    "events12:yakima-music-festival-2026-06-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Past event; page at chinookfest.com not accessible; multiple fields unknown"
+    },
+    "events12:father-s-day-restaurants-2026-06-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Past Father's Day event; OpenTable has no fixed start time for restaurant promotions"
+    },
+    "events12:zoo-brunch-2026-06-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Past event; multiple fields unknown"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqJIQB": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Ticketmaster page returns HTTP 403; MLB tours page lists no specific start times"
+    },
+    "events12:free-museum-for-dads-2026-06-21": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/3411/dads-get-in-free"
+    },
+    "events12:car-show-2026-06-21": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://fendersonfrontstreet.com"
+    },
+    "events12:bluegrass-festival-2026-06-21": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "http://wenatcheeriverbluegrassfestival.com/camping/"
+    },
+    "events12:air-show-in-olympia-2026-06-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://olympicairshow.com"
+    },
+    "seatoday:cityspark-19296241": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed"
+    },
+    "seatoday:cityspark-18807897": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed"
+    },
+    "seatoday:cityspark-19153180": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed"
+    },
+    "seatoday:cityspark-18529084": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed"
+    },
+    "seatoday:cityspark-19132321": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed"
+    },
+    "seatoday:cityspark-19213441": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed"
+    },
+    "seatoday:cityspark-19021514": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed"
     }
   }
 }
