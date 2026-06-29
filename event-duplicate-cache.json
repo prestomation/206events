@@ -4729,6 +4729,96 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-29",
       "note": "Same 2026 World Cup watch party at Mural Amphitheatre, Seattle Center - seatoday sports feed vs seattle-center venue feed"
+    },
+    "sam-sam-asian-art.ics Free First Thursday: Seattle Asian Art Museum|2026-08-06T10:00:00-07:00[America/Los_Angeles]::sam-sam-downtown.ics Free First Thursday: Seattle Art Museum|2026-08-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-29",
+      "note": "SAM Downtown (1300 1st Ave) and SAM Asian Art Museum (Volunteer Park, Capitol Hill) are separate buildings \u2014 both offer Free First Thursday but at different locations; subscribers want both"
+    },
+    "external-seattle-city-of-lit.ics  Kids Book Club: Let's Talk About Books|2026-08-27T21:00:00Z[UTC]::spl-authors-books-authors-books.ics Kids Book Club: Let's Talk About Books|2026-08-27T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "SPL and Seattle City of Lit co-promote the same author event; same title and time (2pm PDT), SPL is the venue"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Beach Naturalist Shore Stroll|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same Beach Naturalist Shore Stroll event at Olympic Sculpture Park; SAM runs it, seatoday also lists it"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Beach Naturalist Shore Stroll|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same Beach Naturalist Shore Stroll event at Olympic Sculpture Park; SAM runs it, seatoday also lists it"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Beach Naturalist Shore Stroll|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same Beach Naturalist Shore Stroll event at Olympic Sculpture Park; SAM runs it, seatoday also lists it"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Beach Naturalist Shore Stroll|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same Beach Naturalist Shore Stroll event at Olympic Sculpture Park; SAM runs it, seatoday also lists it"
+    },
+    "seatoday-seatoday-all.ics 2026 Mill Creek Festival & Street Fair|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Mill Creek Festival & Street Fair|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-all.ics 2026 Mill Creek Festival & Street Fair|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 2026 Mill Creek Festival & Street Fair|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-community.ics 2026 Mill Creek Festival & Street Fair|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 2026 Mill Creek Festival & Street Fair|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same event appearing in multiple seatoday sub-feeds"
     }
   }
 }
