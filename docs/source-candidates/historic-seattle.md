@@ -7,7 +7,7 @@ icsUrl: https://historicseattle.org/events/?ical=1
 tags: [Arts, Education, "First Hill"]
 firstSeen: 2026-06-11
 lastChecked: 2026-06-29
-pr: TBD
+pr: 758
 ---
 **Historic Seattle** — `https://historicseattle.org/events/` — Nonprofit preservation organization with property tours, lectures, advocacy events, and building history programs across Seattle.
 
