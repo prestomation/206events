@@ -4709,6 +4709,26 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-28",
       "note": "Same World Cup watch party at Seattle Center, seatoday sports feed vs seattle-center"
+    },
+    "seatoday-seatoday-all.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same 2026 World Cup watch party at Mural Amphitheatre, Seattle Center - seatoday aggregator vs seattle-center venue feed"
+    },
+    "seatoday-seatoday-arts.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same 2026 World Cup watch party at Mural Amphitheatre, Seattle Center - seatoday arts feed vs seattle-center venue feed"
+    },
+    "seatoday-seatoday-food.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same 2026 World Cup watch party at Mural Amphitheatre, Seattle Center - seatoday food feed vs seattle-center venue feed"
+    },
+    "seatoday-seatoday-sports.ics Let's Play SEA '26- Watch Parties at the Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Let's Play SEA '26-Watch Parties at Mural Amphitheatre|2026-07-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Same 2026 World Cup watch party at Mural Amphitheatre, Seattle Center - seatoday sports feed vs seattle-center venue feed"
     }
   }
 }
