@@ -4819,6 +4819,26 @@
       "decision": "confirmed",
       "resolvedAt": "2026-06-29",
       "note": "Same event appearing in multiple seatoday sub-feeds"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-09-29T15:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-09-29T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-29",
+      "note": "Identical event (same title, time, Zoom location, URL) listed in two UW feeds: uw-campus-events and uw-information-school"
+    },
+    "spl-columbia.ics Family Story Time|2026-07-09T10:30:00-07:00[America/Los_Angeles]::spl-west-seattle.ics Preschool Story Time|2026-07-09T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-29",
+      "note": "Different programs at different SPL branches 7km apart: 'Family Story Time' at Columbia vs 'Preschool Story Time' at West Seattle \u2014 not the same event"
+    },
+    "spl-douglass-truth.ics Family Story Time|2026-07-08T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-07-08T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-29",
+      "note": "Same program name 'Family Story Time' but independent events at separate SPL branches (Douglass-Truth vs Greenwood) 10km apart \u2014 SPL runs story time at multiple branches simultaneously"
+    },
+    "spl-lake-city.ics Arabic Story Time / \u0648\u0642\u062a \u0627\u0644\u0642\u0635\u0635 \u0628\u0627\u0644\u0639\u0631\u0628\u064a\u0629|2026-07-11T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Family Story Time|2026-07-11T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-29",
+      "note": "Different programs at different SPL branches: 'Arabic Story Time' at Lake City vs 'Family Story Time' at Northgate \u2014 distinct language/focus and separate branches"
     }
   }
 }

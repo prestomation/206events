@@ -9,6 +9,7 @@ sourceRole: venue
 proxy: browserbase
 friendlyname: Seattle Children's Museum
 description: Interactive hands-on museum for children and families at Seattle Center
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Children%E2%80%99s_Museum_%282891578446%29.jpg"
 icsUrl: https://seattlechildrensmuseum.org/?post_type=tribe_events&ical=1&eventDisplay=list
 infoUrl: https://seattlechildrensmuseum.org/calendar/
 tags:
