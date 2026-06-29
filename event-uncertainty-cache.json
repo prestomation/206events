@@ -30491,6 +30491,160 @@
       "resolvedAt": "2026-06-29",
       "source": "agent",
       "reason": "Past event; start time not resolvable after event date"
+    },
+    "19hz:19hz-2026/06/23-DIE": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/23-DJ Pop Up": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/23-DJs in a Dive Bar: N4T3": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/23-Flowshop: Open Jam": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/24-Match Point: World Cup Celebration": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/25-Breakfast for Dinner": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/25-Dirty Pop: Pride": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/25-Match Point: World Cup Celebration": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/26-Match Point: World Cup Celebration": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Instagram/Facebook post requires login \u2014 no accessible image URL"
+    },
+    "19hz:19hz-2026/06/25-1morning": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184048006%2F2993203586663%2F1%2Foriginal.20260507-183533?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=489cd307f0145fb1e2ee2c49fc04dd63"
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/1988781431799"
+    },
+    "19hz:19hz-2026/06/23-Listening Session: Aphex Twin - Selected Ambient Works 85-92": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/a900e6_53213b637faf4088891e4a881087f451~mv2.png"
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.shibuyahifi.com/event-details/aphex-twin-selected-ambient-works-85-92-2"
+    },
+    "19hz:19hz-2026/06/25-Deck'd Out: Pride Edition": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186260236%2F74927433109%2F1%2Foriginal.20260605-173833?w=1880&auto=format%2Ccompress&q=75&sharp=10&s=6406f3db9eac0606ce6e90b779287c27"
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/deckd-out-2-pride-edition-w-open-house-collective-idle-tickets-1989969464236"
+    },
+    "19hz:19hz-2026/06/25-Listening Session: Odesza - The Last Goodbye": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/3c970b_7df25686c3124b158ad10ad3c684af91~mv2.jpeg"
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.shibuyahifi.com/event-details/odesza-the-last-goodbye-9"
+    },
+    "19hz:19hz-2026/06/26-Noches Lucidas: Futbol Edition": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184368249%2F241247032294%2F1%2Foriginal.20260512-053948?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=4982953df1ca6aa9f5d05b250f7d8c10"
+      },
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/1989283111336"
+    },
+    "19hz:19hz-2026/06/24-Love is Love": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "Partiful event page has no accessible image (no og:image in content)"
+    },
+    "19hz:19hz-2026/06/25-Massive Pride Thursday: Mitch Ferrino": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "HTTP 403 from tixr.com"
+    },
+    "19hz:19hz-2026/06/25-Subshift, Juush": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "HTTP 429 from shotgun.live"
+    },
+    "19hz:19hz-2026/06/26-A Rooftop Named Desire": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "HTTP 403 from ra.co"
+    },
+    "19hz:19hz-2026/06/26-Andrew Bayer": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "HTTP 403 from tixr.com"
+    },
+    "19hz:19hz-2026/06/26-Bottom Forty Underground Pride: Friday": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "HTTP 403 from tixr.com"
+    },
+    "19hz:19hz-2026/06/26-Bottom Forty Underground Pride: Weekend Pass": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "HTTP 403 from tixr.com"
+    },
+    "19hz:19hz-2026/06/26-Club V: Rainbow Edition": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "HTTP 403 from dice.fm"
+    },
+    "19hz:19hz-2026/06/26-CRUSH: BabiDoll": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "JS-rendered kremwerk.com ticket page \u2014 no image extractable"
+    },
+    "19hz:19hz-2026/06/26-Glitter Night": {
+      "unresolvable": true,
+      "resolvedAt": "2026-06-29",
+      "source": "agent",
+      "reason": "posh.vip event page has no accessible og:image"
     }
   }
 }
