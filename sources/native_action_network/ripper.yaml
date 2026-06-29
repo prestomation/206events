@@ -1,0 +1,12 @@
+name: native_action_network
+type: squarespace
+sourceRole: venue
+description: "Native Action Network"
+url: "https://nativeactionnetwork.org/events"
+friendlyLink: https://nativeactionnetwork.org/events
+tags: ["Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Native Action Network Events"
+    timezone: America/Los_Angeles
