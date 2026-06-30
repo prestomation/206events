@@ -163,6 +163,7 @@ function parseInstance(
 
     return {
         id,
+        ripped: new Date(),
         summary,
         date: startZdt,
         duration: DEFAULT_DURATION,
