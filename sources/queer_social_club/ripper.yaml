@@ -1,0 +1,12 @@
+name: queer-social-club
+type: squarespace
+sourceRole: aggregator
+description: "Queer Social Club"
+url: "https://queersocialclub.com/events-seattle"
+friendlyLink: https://queersocialclub.com/events-seattle
+tags: ["LGBTQ", "Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Queer Social Club Seattle Events"
+    timezone: America/Los_Angeles
