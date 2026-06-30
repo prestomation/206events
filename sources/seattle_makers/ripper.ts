@@ -159,8 +159,11 @@ export default class SeattleMakersRipper implements IRipper {
                 const startZdt = startLdt.atZone(timezone);
                 if (startZdt.isBefore(now)) continue;
 
-                // Use actual duration for single-session events; default 2h for multi-day series
+                // Use actual duration for single-session events; for multi-session series
+                // (endStr spans days/weeks), cap at 2h and note it in the description so
+                // subscribers know to check the source for individual session times.
                 let duration = Duration.ofHours(2);
+                let description: string | undefined;
                 if (endStr) {
                     const endLdt = parseEventDate(endStr);
                     if (endLdt) {
@@ -168,6 +171,8 @@ export default class SeattleMakersRipper implements IRipper {
                         const diffMinutes = Duration.between(startZdt, endZdt).toMinutes();
                         if (diffMinutes > 0 && diffMinutes <= 8 * 60) {
                             duration = Duration.ofMinutes(diffMinutes);
+                        } else if (diffMinutes > 8 * 60) {
+                            description = `Multi-session series — see ${eventUrl} for individual session times.`;
                         }
                     }
                 }
@@ -180,6 +185,7 @@ export default class SeattleMakersRipper implements IRipper {
                     summary,
                     url: eventUrl,
                     location: LOCATION,
+                    ...(description ? { description } : {}),
                 });
             }
         }
