@@ -1,0 +1,17 @@
+# verified: 2026-06-30 via eventbrite web ui (4 upcoming events: Jul 11 Bremerton, Jul 19 Seattle, Jul 25 Seattle, Jul 26 Vashon; EVENTBRITE_TOKEN required in CI)
+name: tone-circle-seattle
+sourceRole: venue
+type: eventbrite
+description: "Tone Circle Seattle"
+url: "https://www.eventbrite.com/o/tone-circle-seattle-110446705671"
+friendlyLink: https://www.eventbrite.com/o/tone-circle-seattle-110446705671
+tags: ["Community"]
+geo: null
+calendars:
+  - name: tone-circle-seattle
+    friendlyname: "Tone Circle Seattle"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "110446705671"
+      defaultLocation: "Seattle, WA"
+      defaultDurationHours: 2
