@@ -1,0 +1,15 @@
+# verified: 2026-06-30 ok (4 upcoming events: Iona Fyfe Jul 29, Scottish Fish Sep 19, Hayden Stern Sep 26, Katie McNally Nov 7)
+name: seattle-folklore-society
+sourceRole: venue
+description: "Seattle Folklore Society"
+url: "https://www.seafolklore.org/events/"
+friendlyLink: https://seafolklore.org/events/
+geo: null
+imageUrl: "https://www.seafolklore.org/wp-content/uploads/2016/05/cropped-sfs-square-180x180.png"
+tags:
+  - Music
+  - Arts
+calendars:
+  - name: seattle-folklore-society
+    friendlyname: "Seattle Folklore Society"
+    timezone: America/Los_Angeles
