@@ -22,6 +22,6 @@ Investigated 2026-06-25:
 - geo: 47.5612832, -122.3869565 (4559 California Ave SW, verified via Nominatim)
 
 Retrying 2026-06-30:
-- Re-implementing with venueName: "Easy Street Records" (DICE page title confirms this name)
-- 429 rate-limit retry logic now in place — previous parse error should not recur
-- If CI returns 0 events + parse error again, next step is to try "Easy Street Records & Cafe"
+- First attempt with venueName: "Easy Street Records" → 0 events + 1 parse error (same pattern as June 25)
+- All existing DICE sources (sunset-tavern, black_lodge, kremwerk, etc.) returned 0 events with NO parse errors in the same CI run — confirming the DICE API is functional but "Easy Street Records" is not a recognized venue name
+- Second attempt: switching to venueName: "Easy Street Records & Cafe" (Songkick lists venue as "Easy Street Records & Cafe - West Seattle")
