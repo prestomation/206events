@@ -1,7 +1,7 @@
 ---
 name: "Unicorn"
 status: added
-pr: TBD
+pr: 782
 platform: recurring YAML (Squarespace events collection unpopulated)
 url: https://www.unicornseattle.com/events
 tags: [Nightlife, Trivia, "Pub Trivia", "Capitol Hill"]
