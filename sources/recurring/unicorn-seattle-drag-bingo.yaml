@@ -1,0 +1,22 @@
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Seattle_-_July_2023_-_44.jpg"
+geo:
+  lat: 47.6142340
+  lng: -122.3172456
+  label: "Unicorn, 1118 E Pike St, Seattle, WA 98122"
+  osmType: node
+  osmId: 1387947219
+name: unicorn-seattle-drag-bingo
+sourceRole: venue
+friendlyname: Drag Queen Bingo at Unicorn
+description: Weekly free drag queen bingo night at Unicorn, a carnival-themed bar and lounge on Capitol Hill.
+timezone: America/Los_Angeles
+location: 1118 E Pike St, Seattle, WA 98122
+url: https://www.unicornseattle.com/events
+tags:
+  - Nightlife
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "20:00"
+    duration: PT3H
