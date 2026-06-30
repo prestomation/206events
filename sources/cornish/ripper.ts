@@ -99,9 +99,10 @@ export default class CornishRipper implements IRipper {
             }];
         }
 
-        const location = evt.location_name
-            ? `${evt.location_name}, ${evt.address}`
-            : (evt.address || 'Cornish College of the Arts, Seattle, WA');
+        const parts = [evt.location_name, evt.address].filter(Boolean);
+        const location = parts.length > 0
+            ? parts.join(', ')
+            : 'Cornish College of the Arts, Seattle, WA';
 
         const url = evt.localist_url || evt.ticket_url || undefined;
         const imageUrl = evt.photo_url || undefined;
@@ -145,9 +146,7 @@ export default class CornishRipper implements IRipper {
                 }
             }
 
-            const id = evt.event_instances.length > 1
-                ? `cornish-${inst.id}`
-                : `cornish-${evt.id}`;
+            const id = `cornish-${inst.id}`;
 
             results.push({
                 id,

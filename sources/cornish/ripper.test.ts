@@ -29,7 +29,7 @@ describe('CornishRipper.parseEvent', () => {
         expect(event.url).toBe('https://events.seattleu.edu/event/softening-the-blow');
         expect(event.imageUrl).toContain('localist-images');
         expect(event.cost).toEqual({ min: 0 });
-        expect(event.id).toBe('cornish-53251215885546');
+        expect(event.id).toBe('cornish-53251215885547');
     });
 
     it('sets duration from start/end times', () => {
@@ -116,7 +116,7 @@ describe('CornishRipper.parseEvent', () => {
         expect(results[0].location).toBe('2014 9th Ave, Seattle, WA');
     });
 
-    it('uses instance id for events with multiple instances', () => {
+    it('uses instance id for all events (single and multi-instance)', () => {
         const data = loadSampleData();
         const item = JSON.parse(JSON.stringify(data.events[0]));
         item.event.event_instances.push({
@@ -131,8 +131,8 @@ describe('CornishRipper.parseEvent', () => {
         const results = ripper.parseEvent(item);
         expect(results).toHaveLength(2);
         const ids = results.filter(r => 'id' in r).map(r => (r as any).id as string);
-        expect(ids[0]).toContain('cornish-53251215885547'); // instance id
-        expect(ids[1]).toContain('cornish-99999');
+        expect(ids[0]).toBe('cornish-53251215885547');
+        expect(ids[1]).toBe('cornish-99999');
     });
 
     it('uses default 2-hour duration when no end time', () => {
