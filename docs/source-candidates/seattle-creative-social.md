@@ -6,7 +6,7 @@ url: https://www.seattlecreativesocial.com/events
 tags: [Community]
 firstSeen: 2026-05-28
 lastChecked: 2026-06-30
-pr: 0
+pr: 765
 ---
 **Seattle Creative Social** — `https://www.seattlecreativesocial.com/events` — Monthly casual networking events for creative professionals (designers, writers, photographers, founders) at rotating Seattle venues.
 
