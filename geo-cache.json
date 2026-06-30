@@ -253,6 +253,42 @@
       "geocodedAt": "2026-06-30",
       "source": "nominatim",
       "firstSeen": "2026-06-30"
+    },
+    "ne seattle tool library, 10228 fischer place northeast, seattle, wa, 98125, united states": {
+      "lat": 47.7027479,
+      "lng": -122.3008364,
+      "osmId": 5662177087,
+      "osmType": "node",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "shoreline tool library, 16610 aurora avenue north, shoreline, wa, 98133, united states": {
+      "lat": 47.7498358,
+      "lng": -122.345035,
+      "osmId": 309273860,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "12558 lake city way ne, 12558 lake city way northeast, seattle, wa, 98125, united states": {
+      "lat": 47.7208853,
+      "lng": -122.293994,
+      "osmId": 2462338146,
+      "osmType": "node",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "the bike shack, 10228 fischer place northeast, seattle, wa, 98125, united states": {
+      "lat": 47.7028608,
+      "lng": -122.300846,
+      "osmId": 5662177088,
+      "osmType": "node",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
     }
   }
 }
