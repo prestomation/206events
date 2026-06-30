@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { extractCalendarData, parseEvents } from './ripper.js';
+import { extractCalendarData, parseEvents, parsePriceMin } from './ripper.js';
 import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
 import { ZonedDateTime, ZoneId } from '@js-joda/core';
 import fs from 'fs';
@@ -142,18 +142,15 @@ describe('parseEvents', () => {
         expect(audition).toBeUndefined();
     });
 
-    test('free events have cost.min = 0 (Seattle Center Classical)', () => {
-        const html = loadSample();
-        const results = parseEvents(html, NOW);
-        const events = results.filter((e): e is RipperCalendarEvent => 'date' in e);
-
-        // Seattle Center Classical is a free festival
-        const classical = events.find(e => e.summary.includes('Seattle Center Classical'));
-        expect(classical).toBeDefined();
-        // prices: null → no cost set (the event doesn't advertise a price)
-        // Free festivals from GSCC often have null prices rather than ".free"
-        // Just verify the event exists with correct fields
-        expect(classical!.summary).toBeTruthy();
+    test('parsePriceMin handles all price formats', () => {
+        expect(parsePriceMin(null)).toBeUndefined();
+        expect(parsePriceMin('')).toBeUndefined();
+        expect(parsePriceMin('.free')).toBe(0);
+        expect(parsePriceMin('.freewill')).toBe(0);
+        expect(parsePriceMin('$15')).toBe(15);
+        expect(parsePriceMin('$12.50')).toBe(12.5);
+        expect(parsePriceMin('Adults $25, Students $10')).toBe(25);
+        expect(parsePriceMin('no price info')).toBeUndefined();
     });
 
     test('Buon Natale St Marks show is included (Seattle) but Lynnwood show is excluded', () => {

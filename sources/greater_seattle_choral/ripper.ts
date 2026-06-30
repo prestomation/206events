@@ -50,7 +50,7 @@ export function extractCalendarData(html: string): CalendarData | null {
         const ch = html[i];
         if (escape) { escape = false; continue; }
         if (ch === '\\') { escape = true; continue; }
-        if (ch === '"' && !escape) { inStr = !inStr; continue; }
+        if (ch === '"') { inStr = !inStr; continue; }
         if (inStr) continue;
         if (ch === '{') depth++;
         else if (ch === '}') {
@@ -79,7 +79,7 @@ function formatLocation(inst: GsccInstance): string {
     return parts.filter(Boolean).join(', ');
 }
 
-function parsePriceMin(prices: string | null): number | undefined {
+export function parsePriceMin(prices: string | null): number | undefined {
     if (!prices) return undefined;
     if (prices === '.free') return 0;
     if (prices === '.freewill') return 0;
@@ -105,7 +105,7 @@ export function parseEvents(html: string, now: ZonedDateTime): RipperEvent[] {
             if (evt.type === 'Audition') continue;
 
             for (const inst of Object.values(evt.instances)) {
-                if (inst.vcity !== 'Seattle') continue;
+                if (inst.vcity.toLowerCase() !== 'seattle') continue;
 
                 // Stable ID: eid + date + time (handles multi-showing events uniquely)
                 const timeSlug = inst.time.replace(/:/g, '').slice(0, 4);
@@ -114,6 +114,8 @@ export function parseEvents(html: string, now: ZonedDateTime): RipperEvent[] {
                 seen.add(id);
 
                 const result = parseInstance(evt, inst, id, now);
+                // Past events are expected stale data, not parse errors
+                if ('type' in result && result.reason === 'Event is in the past') continue;
                 results.push(result);
             }
         }
