@@ -1,0 +1,19 @@
+name: gallery-mack
+sourceRole: venue
+type: squarespace
+description: "Gallery Mack"
+url: "https://www.gallerymack.com/exhibitions"
+friendlyLink: https://www.gallerymack.com/exhibitions
+tags: ["Arts", "Belltown"]
+cost: free
+geo:
+  lat: 47.6113199
+  lng: -122.3447840
+  label: "Gallery Mack, 2100 Western Avenue, Seattle, WA 98121"
+  osmType: node
+  osmId: 2327723046
+  osmChecked: "2026-06-30"
+calendars:
+  - name: all-events
+    friendlyname: "Gallery Mack"
+    timezone: America/Los_Angeles
