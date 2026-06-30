@@ -1,11 +1,10 @@
 geo: null
 name: myballard
 sourceRole: aggregator
-friendlyname: My Ballard
-description: My Ballard
+friendlyname: My Ballard — Ballard Neighborhood Events
+description: Ballard's neighborhood events calendar — community events, workshops, book clubs, fitness classes, and local happenings across the Ballard area.
 icsUrl: https://myballard.com/?post_type=tribe_events&ical=1&eventDisplay=list
 infoUrl: https://myballard.com/events/
-disabled: true
 tags:
   - Community
   - Ballard
