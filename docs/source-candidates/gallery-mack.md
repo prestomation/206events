@@ -6,7 +6,7 @@ url: https://www.gallerymack.com/exhibitions
 tags: [Arts, Belltown]
 firstSeen: 2026-06-30
 lastChecked: 2026-06-30
-pr: pending
+pr: 781
 ---
 
 **Gallery Mack** — `https://www.gallerymack.com/exhibitions` — contemporary art gallery at 2100 Western Avenue, Belltown. Hosts rotating solo and group exhibitions with opening receptions.
