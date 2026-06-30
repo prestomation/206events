@@ -24,3 +24,5 @@ Re-checked 2026-06-13: Still 0 upcoming events.
 Re-checked 2026-06-16: Still 0 upcoming events.
 
 Re-checked 2026-06-21: Still 0 upcoming events. Monitor for fall programming announcements.
+
+Re-checked 2026-06-30: Still 0 upcoming events (Squarespace `upcoming: []`). Monitor for fall 2026 programming.
