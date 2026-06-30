@@ -158,16 +158,7 @@
       "source": "nominatim",
       "firstSeen": "2026-06-19"
     },
-    "9th ave gallery, 2014 9th ave, seattle, wa": {
-      "lat": 47.6169204,
-      "lng": -122.3360443,
-      "osmId": 364222265,
-      "osmType": "way",
-      "geocodedAt": "2026-06-30",
-      "source": "nominatim",
-      "firstSeen": "2026-06-30"
-    },
-    "phinney center concert hall, 6532 phinney ave n, seattle, wa 98103": {
+    "phinney center, 6532 phinney ave n, seattle, wa, 98103": {
       "lat": 47.6771417,
       "lng": -122.3540013,
       "osmId": 161317413,
@@ -176,7 +167,88 @@
       "source": "nominatim",
       "firstSeen": "2026-06-30"
     },
-    "phinney center concert hall, brick building, 6532 phinney ave n, seattle": {
+    "reverie ballroom, 915 east pine street, seattle, wa, 98122": {
+      "lat": 47.6149886,
+      "lng": -122.3197679,
+      "osmId": 6465643503,
+      "osmType": "node",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "eagles mother aerie, 8201 lake city way ne, seattle, wa, 98118": {
+      "lat": 47.6887717,
+      "lng": -122.3108196,
+      "osmId": 235376569,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "versal dance school, 7023 ne 175th st, kenmore, wa, 98028": {
+      "lat": 47.7559803,
+      "lng": -122.2461185,
+      "osmId": 755375752,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "juanita community club, 13027 100th ave ne, juanita, wa, 98034": {
+      "lat": 47.7175307,
+      "lng": -122.2082754,
+      "osmId": 327788026,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "virtual via zoom, seattle, wa, united states": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "aria ballroom, 15300 ne 95th st, redmond, wa, 98052": {
+      "lat": 47.685916,
+      "lng": -122.135491,
+      "osmId": 6350363,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "star center, 3873 s 66th st, tacoma, wa, 98409": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "sunset hill community club, 3003 nw 66th st, seattle, wa, 98117": {
+      "lat": 47.6763696,
+      "lng": -122.3960649,
+      "osmId": 217236517,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "omculture, 2210 n pacific st, seattle, wa, 98103": {
+      "lat": 47.649647,
+      "lng": -122.332405,
+      "osmId": 326804797,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "normanna lodge (sons of norway), 2725 oakes ave, everett, wa, 98201": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "pacific ballroom dance, 1604 15th st sw, #109, auburn, wa, 98001": {
       "unresolvable": true,
       "geocodedAt": "2026-06-30",
       "source": "nominatim",

@@ -1,0 +1,10 @@
+# verified: 2026-06-30 ok — 30 events, Tribe Events ICS, social dancing community calendar
+geo: null
+name: seattle-dance-info
+sourceRole: aggregator
+friendlyname: Seattle Dance Info
+description: Community calendar for social dancing events in the Seattle area — swing, tango, ballroom, blues, and more.
+icsUrl: https://seattledanceinfo.com/?post_type=tribe_events&ical=1&eventDisplay=list
+infoUrl: https://seattledanceinfo.com/calendar/
+tags:
+  - Dance
