@@ -1,0 +1,24 @@
+imageUrl: "https://images.pikeplacemarket.org/wp-content/uploads/2024/05/20200809/farmers_market-south_lake_union-pike_place_market-square.jpg"
+geo:
+  lat: 47.6226138
+  lng: -122.3362007
+  label: "Van Vorst Plaza, 426 Terry Ave N, Seattle, WA 98109"
+name: pike-place-market-express-slu
+sourceRole: venue
+friendlyname: Pike Place Market Express @ South Lake Union
+description: Weekly Thursday farmers market bringing Pike Place Market farmers
+  directly to South Lake Union's Van Vorst Plaza. Features local produce,
+  flowers, honey, jams, and organic meats from market farmers. Runs June
+  through October.
+timezone: America/Los_Angeles
+location: Van Vorst Plaza, 426 Terry Ave N, Seattle, WA 98109
+url: https://www.pikeplacemarket.org/events-calendar/pike-place-market-presents-south-lake-union-farmers-market/
+tags:
+  - FarmersMarket
+  - South Lake Union
+cost: free
+schedules:
+  - schedule: every Thursday
+    start_time: "10:00"
+    duration: PT4H
+    months: [6, 7, 8, 9, 10]
