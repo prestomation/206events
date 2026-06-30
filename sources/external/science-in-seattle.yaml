@@ -1,0 +1,10 @@
+name: science-in-seattle
+sourceRole: aggregator
+friendlyname: Science in Seattle
+description: Community calendar of Seattle-area life science conferences, symposiums, networking events, and science pub nights, spanning academia, industry, biotech, and pharma.
+icsUrl: https://scienceinseattle.com/events/?post_type=tribe_events&ical=1&eventDisplay=list
+infoUrl: https://scienceinseattle.com/events/list/
+geo: null
+tags:
+  - Education
+  - Community
