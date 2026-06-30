@@ -24,4 +24,8 @@ Investigated 2026-06-25:
 Retrying 2026-06-30:
 - First attempt with venueName: "Easy Street Records" → 0 events + 1 parse error (same pattern as June 25)
 - All existing DICE sources (sunset-tavern, black_lodge, kremwerk, etc.) returned 0 events with NO parse errors in the same CI run — confirming the DICE API is functional but "Easy Street Records" is not a recognized venue name
-- Second attempt: switching to venueName: "Easy Street Records & Cafe" (Songkick lists venue as "Easy Street Records & Cafe - West Seattle")
+- Second attempt: venueName: "Easy Street Records & Cafe" (Songkick lists venue as "Easy Street Records & Cafe - West Seattle") → same 0 events + 1 parse error
+- Third attempt: venueName: "Easy Street Records Cafe" (no ampersand) → same 0 events + 1 parse error
+- Fourth attempt: venueName: "easy-street-records-lg5w" (full DICE permalink slug, in case API accepts slugs rather than display names)
+- Note: all existing DICE sources use cached fetch-cache responses and never make live requests; ESR always makes a live request (failed responses not cached), so parse errors are not 429 rate-limit — they indicate non-200 API response for all name variants tried
+- The correct DICE venue name cannot be determined from this environment (dice.fm and DICE API both blocked)
