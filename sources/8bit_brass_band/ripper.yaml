@@ -1,0 +1,11 @@
+name: 8bit-brass-band
+description: "8-Bit Brass Band"
+url: "https://www.8bitbrassband.com/event-pages-sitemap.xml"
+friendlyLink: https://www.8bitbrassband.com/event-list
+sourceRole: venue
+geo: null
+tags: ["Music"]
+calendars:
+  - name: 8bit-brass-band
+    friendlyname: "8-Bit Brass Band"
+    timezone: America/Los_Angeles
