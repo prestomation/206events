@@ -30286,6 +30286,236 @@
       "resolvedAt": "2026-06-30",
       "source": "agent",
       "reason": "Ticketmaster event page returns 403; tour pages do not list per-event start times"
+    },
+    "queer-social-club:69d2a5c880f70258a88bb98c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/seattle-zine-fest \u2014 SZF is BACK and still FREE to table + attend"
+    },
+    "queer-social-club:69f245146611b113b27ee01b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/rpdr-all-stars-11-viewing-party-9cg8a-trc9r \u2014 No Cover! Join your host Issa Man"
+    },
+    "queer-social-club:69f24532b8a6fe46858f5d63": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/rpdr-all-stars-11-viewing-party-9cg8a-7n8e5 \u2014 No Cover! \u2014 same recurring event, Free + No Cover tag"
+    },
+    "queer-social-club:69f24549a897b97afd807ae3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/rpdr-all-stars-11-viewing-party-9cg8a-eksyx \u2014 No Cover! \u2014 same recurring event, Free + No Cover tag"
+    },
+    "queer-social-club:6a1767d1fbf44b419428f95a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/trivia-tuesday-ballard-kn4fk-ph428-blsnm \u2014 Tagged Free + No Cover"
+    },
+    "queer-social-club:6a176893d4d0b657ed3be6d5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/drag-queen-bingo-b56sy-fje6m-l8jxs \u2014 NO COVER!! FREE TO PLAY!!!"
+    },
+    "queer-social-club:69cd7cb5a27810324ac4969d": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/w-i-c-k-e-d-the-ball \u2014 Ticketed \u2014 limited online tickets available, price not posted on event page"
+    },
+    "queer-social-club:69e01f0c8869f36e262ebba2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/geekfest-west-game-expo \u2014 Ticketed \u2014 Tickets & Details at geekfest.com, price not on QSC page"
+    },
+    "queer-social-club:6a1f23ccfcc6c84e70ef048c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/tacoma-pride-block-party \u2014 Ticketed via Strangertickets, price not visible in raw HTML"
+    },
+    "queer-social-club:6a330162b72e3c16b6f1a439": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/bikini-day-party \u2014 Ticketed via Partiful (partiful.com/e/K5kZEavjbBySn5k0d5V2), price not on QSC page"
+    },
+    "queer-social-club:6a39ae2127909d767036e684": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/bass-n-babes-presents-shmani \u2014 Ticketed via Eventbrite, price not on QSC page"
+    },
+    "queer-social-club:6a39ae72665b33084a8cfb12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/allison-oconor-lesbian-comedian-via-nyc \u2014 Ticketed via TicketWeb (ticketweb.com), price not visible in raw HTML"
+    },
+    "queer-social-club:6a3c31728c0a3a58cc6c7c5a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/sapphic-masquerade-ball \u2014 Ticketed event, no price posted on page"
+    },
+    "queer-social-club:6a1e4f674c7d196c42b8fc0d": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/last-tuesday-drink-and-draw-5a8nw-4ea4k \u2014 $15 to participate, 35 passes available online"
+    },
+    "queer-social-club:6a1f3349687bf34df81460a2": {
+      "fields": {
+        "cost": {
+          "min": 10
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/the-big-gay-punk-show-tacoma \u2014 $10 ADV // $15 DOS"
+    },
+    "greater-seattle-choral-consortium:gscc-2919-2026-07-05-1530": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://classicalking.org/seattlecenterclassical \u2014 Free outdoor day of music, community singing \u2014 confirmed in page meta description"
+    },
+    "crocodile:tm-Z7r9jZ1A7P9xF": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1A7P9xF \u2014 Ticketmaster event, priceRanges not returned by API \u2014 likely not yet on sale"
+    },
+    "crocodile:tm-Z7r9jZ1A7Pw18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1A7Pw18 \u2014 Ticketmaster event, priceRanges not returned by API \u2014 likely not yet on sale"
+    },
+    "stg:tm-vvG1HZ_59N_-IA": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/she-him-seattle-washington-09-29-2026/event/0F0064B5E3661A05 \u2014 Ticketmaster event, priceRanges not returned by API \u2014 likely not yet on sale"
+    },
+    "stg:tm-vvG1HZ_7KOx_0d": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/snarky-puppy-seattle-washington-09-29-2026/event/0F006444E0899903 \u2014 Ticketmaster event, priceRanges not returned by API \u2014 likely not yet on sale"
+    },
+    "seattle-folklore-society:seattle-folklore-society-hayden-stern-band-album-release-opening-set-by-vienna-scheyer-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 26
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/hayden-stern-band-album-release-opening-set-by-vienna-scheyer/ \u2014 General advance $26, at door $28; member/student/senior $24"
+    },
+    "seattle-folklore-society:seattle-folklore-society-katie-mcnally-neil-pearlman-in-concert-2026-11-07": {
+      "fields": {
+        "cost": {
+          "min": 26
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/katie-mcnally-neil-pearlman-in-concert/ \u2014 General advance $26, at door $28; tickets on sale Sept 7"
+    },
+    "seattle-creative-social:6a4356bbaa375e1a5e247b5e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-06-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecreativesocial.com/events/thirity-two \u2014 Ticketed event (JS SPA, pricing not in raw HTML)"
     }
   }
 }
