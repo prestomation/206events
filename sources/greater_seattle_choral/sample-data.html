@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+ <meta charset='UTF-8'>
+ <title>Greater Seattle Choral Consortium Event Calendar – Greater Seattle Choral Consortium</title>
+ <link rel='canonical' href='https://seattlesings.org/calendar/'>
+ <link rel='preconnect' href='https://fonts.googleapis.com'>
+ <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+ <link href='https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap' rel='stylesheet'>
+ <link rel='stylesheet' href='/styles/base.css?v=62' type='text/css' media='all' />
+ <link rel='stylesheet' href='/styles/local.css?v=62' type='text/css' media='all' />
+ <meta name='viewport' content='width=device-width, initial-scale=1'>
+ <meta name='description' content='The online calendar of the Greater Seattle Choral Consortium.'>
+ <meta property='og:site_name' content='Greater Seattle Choral Consortium' />
+ <meta property='og:type' content='website' />
+ <meta property='og:title' content='Greater Seattle Choral Consortium Event Calendar – Greater Seattle Choral Consortium' />
+ <meta property='og:description' content='The online calendar of the Greater Seattle Choral Consortium.' />
+ <meta property='og:url' content='https://seattlesings.org/calendar/' />
+ <meta property='og:image' content='https://seattlesings.org/opengraph-image3.jpg' />
+ <meta property='og:image:width' content='847' />
+ <meta property='og:image:height' content='635' />
+ <meta name='twitter:card' content='summary'>
+ <meta name='twitter:site' content='@seattlesings'>
+ <meta name='twitter:creator' content='@seattlesings'>
+ <meta name='twitter:title' content='Greater Seattle Choral Consortium Event Calendar – Greater Seattle Choral Consortium'>
+ <meta name='twitter:description' content='The online calendar of the Greater Seattle Choral Consortium.'>
+ <meta name='twitter:image' content='https://seattlesings.org/opengraph-image3.jpg'>
+ <link rel='apple-touch-icon' sizes='180x180' href='/icons/apple-touch-icon.png'>
+ <link rel='icon' type='image/png' sizes='32x32' href='/icons/favicon-32x32.png'>
+ <link rel='icon' type='image/png' sizes='16x16' href='/icons/favicon-16x16.png'>
+ <link rel='manifest' href='/icons/site.webmanifest'>
+ <link rel='mask-icon' href='/icons/safari-pinned-tab.svg' color='#5bbad5'>
+ <link rel='shortcut icon' href='/icons/favicon.ico'>
+ <meta name='msapplication-TileColor' content='#2d89ef'>
+ <meta name='msapplication-config' content='/icons/browserconfig.xml'>
+ <meta name='theme-color' content='#ffffff'>
+ <script type='text/javascript' src='/scripts/gscc.js?v=62'></script>
+</head>
+<body>
+<div id='innerbody'>
+ <a id='header' href='/'></a>
+ <div id='main'>
+<style>
+#footer
+{
+    margin-top:0;
+}
+.week .week-header
+{
+    text-align:center;
+    border-top:2px solid var(--greenborder);
+    background-color:var(--green83);
+    background-image:url(/styles/gscc-background.jpg);
+    background-size:cover;
+    background-position:center;
+    color:white;
+    margin:0 var(--lrmargininv) 0;
+    padding:14px var(--lrmargin);
+}
+.week .week-header .week-span
+{
+    font-size:180%;
+    line-height:120%;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+@media screen and (max-width:576px) { .week .week-header .week-span { font-size:160% } }
+@media screen and (max-width:360px) { .week .week-header .week-span { font-size:140% } }
+.week .week-header .week-counts
+{
+    font-size:100%;
+    line-height:100%;
+}
+.week .week-header-expandable
+{
+    text-align:center;
+    background-image:linear-gradient(to bottom, var(--blue71), var(--blue8e));
+    color:white;
+    margin:0 var(--lrmargininv);
+    padding:6px 20px;
+    cursor:pointer;
+    user-select:none;
+}
+.week .event
+{
+    font-size:100%;
+    margin:0 var(--lrmargininv);
+    padding:12px var(--lrmargin) 10px;
+}
+@media screen and (max-width:576px) { .week .event { padding:10px var(--lrmargin) 8px; } }
+.week .event .type,
+.week .event .name
+{
+    font-weight:bold;
+    font-size:120%;
+    line-height:125%;
+}
+.week .event .subtitle
+{
+    font-weight:bold;
+    font-size:100%;
+}
+.week .event .ensembles
+{
+    font-size:100%;
+}
+.week .event .date-location,
+.week .event .instance,
+.week .event .tickets
+{
+    font-size:90%;
+    line-height:135%;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.week .instance .today
+{
+    background-color:var(--cautionyellowlight);
+    margin-left:-3px;
+    padding-left:3px;
+    padding-right:3px;
+}
+.week .event .description
+{
+    font-size:90%;
+    line-height:125%;
+}
+.week .event .description p
+{
+    margin:10px 0;
+}
+.week .event.gshadow .type
+{
+    display:none;
+}
+.week .event.gshadow .name,
+.week .event.gshadow .subtitle,
+.week .event.gshadow .ensembles
+{
+    color:var(--greentext);
+}
+.week .event.bshadow
+{
+    border-top-color:var(--blue8e);
+}
+.week .event.bshadow .type,
+.week .event.bshadow .name,
+.week .event.bshadow .subtitle,
+.week .event.bshadow .ensembles
+{
+    color:var(--bluetext);
+}
+</style>
+<h1>Event Calendar</h1>
+<p>
+Welcome to the online calendar of the <a href='/gscc'>Greater Seattle Choral Consortium!</a>
+Here you will find a complete list of the concerts and other events hosted by our 105 member choirs.
+Use the <b>Search for Events</b> button to find specific concerts or to look for concerts close to where you live.
+</p>
+<div class='center' style='margin-top:0; padding-bottom:20px'>
+<div class='button' id='filter-invite'>Search&nbsp;for&nbsp;Events</div>
+</div>
+<div class='searchbox' id='filter-searchbox' style='display:none; margin-top:0'>
+<div class='inner'>
+<h2 class='center'>GSCC Event Search</h2>
+<div class='row'>
+<div class='item'>Only show&nbsp;&nbsp;</div>
+<div class='item'>
+<input id='filter-select' name='event-type' type='radio'>&nbsp;events of type&nbsp;
+<select id='filter-type'>
+<option value='Concert'>Concert</option>
+<option value='Special Performance'>Special Performance</option>
+<option value='Sing-Along'>Sing-Along</option>
+<option value='Fundraiser'>Fundraiser</option>
+<option value='Open House'>Open House</option>
+<option value='Audition'>Audition</option>
+<option value='Masterclass'>Masterclass</option>
+<option value='Lecture'>Lecture</option>
+<option value='Camp'>Camp</option>
+<option value='Other'>Other Event</option>
+</select><br>
+<input id='filter-all' name='event-type' type='radio'>&nbsp;events of any type
+</div>
+</div>
+<div class='row'>
+<div class='item'>
+Only show events within&nbsp;
+<select id='filter-distance'>
+<option value='5'>5 miles</option>
+<option value='10'>10 miles</option>
+<option value='15'>15 miles</option>
+<option value='20'>20 miles</option>
+<option value='30'>30 miles</option>
+<option value='1000'>any distance </option>
+</select>&nbsp;
+of&nbsp;
+</div>
+<div class='item'>
+<input id='filter-bycity' name='location-type' type='radio'>&nbsp;City:&nbsp;
+<select id='filter-city'>
+<option value=''></option>
+<option value='47.6062095,-122.3320708'>Seattle</option>
+<option value='47.8209301,-122.3151313'>Lynnwood</option>
+<option value='47.4435903,-122.2960726'>Seatac</option>
+<option value='47.9789848,-122.2020794'>Everett</option>
+<option value='47.2528768,-122.4442906'>Tacoma</option>
+<option value='47.6162683,-122.0355736'>Sammamish</option>
+<option value='47.5650067,-122.6269768'>Bremerton</option>
+</select><br>
+<input id='filter-byzip' name='location-type' type='radio'>&nbsp;ZIP Code:&nbsp;
+<input id='filter-zip' style='width:5em' type='text'><div class='spinner' id='filter-zip-searching'></div><br>
+<input id='filter-bylocation' name='location-type' type='radio'>&nbsp;My location <div class='spinner' id='filter-geo-searching'></div>
+</div>
+</div>
+<div class='row'>
+<div class='item'>
+Only show events containing:&nbsp;
+<input id='filter-name' type='text'>
+</div>
+</div>
+<div class='row'>
+<div class='buttonsrow'>
+<div class='button' id='filter-reset'>Reset</div><div class='button' id='filter-cancel'>Cancel</div>
+</div>
+</div>
+</div> <!-- inner -->
+</div> <!-- searchbox -->
+<div id='calendar-data'></div>
+<script>
+'use strict';
+var dom = {ready:false};
+var calendarData = {"99":{"0":{"url":"https://raincityvoices.regfox.com/starbershop?t=S26WBST","eid":"2872","name":"Starbershop: an a cappella space odyssey!","shortname":"starbershop-an-a-cappella-space-odyssey-2872","subtitle":null,"eurl":"https://www.raincityvoices.org/starbershop","description":"\"Starbershop! An A Cappella Space Odyssey\" invites you on a whimsical journey through the cosmos, where love and adventure collide in the most unexpected ways. Set against the vibrant backdrop of Rain City, the story explores themes of love, community, and the importance of embracing our emotions. Follow Angelica Ripley, a determined communications officer, and John Robinson, a stowaway with a heart full of hope, as they navigate the challenges of space travel aboard the SS Chordbuster.","prices":"Adults: $40; Student: $15; Senior: $10; Pay-as-you-can option","type":"Concert","status":"Ok","nname":"Rain City Voices Barbershop Chorus^rain-city-voices-barbershop-chorus/","instances":{"0":{"date":"2026-06-27","time":"13:00:00","url":"https://raincityvoices.regfox.com/starbershop?t=S26WBST","vid":"518","vname":"Shoreline Community College Theater","vshort":"shoreline-community-college-theater-shoreline","vstreet":"16101 Greenwood Ave N Main Auditorium","vcity":"Shoreline","vstate":"WA","vzip":"98133","latitude":"47.74751","longitude":"-122.35862"},"1":{"date":"2026-06-27","time":"17:00:00","url":"https://raincityvoices.regfox.com/starbershop?t=S26WBST","vid":"518","vname":"Shoreline Community College Theater","vshort":"shoreline-community-college-theater-shoreline","vstreet":"16101 Greenwood Ave N Main Auditorium","vcity":"Shoreline","vstate":"WA","vzip":"98133","latitude":"47.74751","longitude":"-122.35862"}}},"1":{"url":"https://events.com/r/en_US/tickets/this-is-our-song-issaquah-june-1032117","eid":"2697","name":"This is Our Song","shortname":"this-is-our-song-2697","subtitle":null,"eurl":".","description":"A joyful, soul-stirring celebration of life in all its beauty and complexity, featuring folk tunes, spirituals, favorites, and contemporary works. Come ready to tap your feet, reflect, and be inspired by music that moves us forward—together.","prices":"$30/person; $25 for seniors/veterans/students; $60 for a family of 3 or 4","type":"Concert","status":"Ok","nname":"Master Chorus Eastside^master-chorus-eastside/","instances":{"0":{"date":"2026-06-28","time":"15:00:00","url":"https://events.com/r/en_US/tickets/this-is-our-song-issaquah-june-1032117","vid":"440","vname":"Our Savior Lutheran Church","vshort":"our-savior-lutheran-church-issaquah","vstreet":"745 Front St. S","vcity":"Issaquah","vstate":"WA","vzip":"98027","latitude":"47.52200","longitude":"-122.03539"}}}},"100":{"0":{"url":".","eid":"2919","name":"Seattle Center Classical","shortname":"seattle-center-classical-2919","subtitle":"Seattle Sings Singalong at the Center","eurl":"https://classicalking.org/seattlecenterclassical","description":"A free outdoor live music festival at Seattle Center!\n\nSeattle Center Classical is a free outdoor music festival produced by Classical KING in collaboration with Seattle Center, bringing together many of the Pacific Northwest’s leading classical music organizations for an afternoon of live performances, musical discovery, and community celebration.\n\nThe festival will conclude with a shared community singing experience led by conductors from the Greater Seattle Choral Consortium. Singers will be positioned throughout the audience, inviting attendees to participate in a musical moment that reflects the spirit of the festival: Classical Music for Everyone. Whether you’re an experienced singer or simply enjoy singing with others, everyone is welcome to participate.\n\nGSCC participants are asked to join in a brief rehearsal at 3:30 pm in the Seattle Center Armory Loft #3. We will walk to the International Fountain at 4:30 and the singalong will commence at 5:30.","prices":null,"type":"Festival","status":"Ok","nname":"Greater Seattle Choral Consortium^greater-seattle-choral-consortium/","instances":{"0":{"date":"2026-07-05","time":"15:30:00","url":".","vid":"583","vname":"Seattle Center","vshort":"seattle-center-mural-amphitheatre-seattle","vstreet":"305 Harrison St","vcity":"Seattle","vstate":"WA","vzip":"98109","latitude":"47.62180","longitude":"-122.35766"}}}},"103":{"0":{"url":".","eid":"2918","name":"Choir of the Sound - Summer Auditions","shortname":"choir-of-the-sound-summer-auditions-2918","subtitle":null,"eurl":"https://www.choirofthesound.org/join-us/","description":"Choir of the Sound is thrilled to announce auditions for our upcoming 50th Anniversary season beginning on September 14th!\n\nAudition dates are Tuesday,  July 21st and Monday,  July 27th starting at 6:00pm, held in 15-minute increments and scheduled on a first come/first serve basis.\nIf you have any questions or would like to schedule an audition, please email auditions@choirofthesound.org or call 206-528-9990. \n\nWhat to expect during your audition: (no prepared piece is required)\nYour audition will begin with an extended warm-up to display the range and qualities of your singing voice, quizzed on intervals, rhythm, and pitch retention, sing a short musical excerpt consisting of a simple melody and sight-read your voice part on a standard four-part chorale/hymn\n\nFor more information on Choir of the Sound, please visit www.choirofthesound.org","prices":".free","type":"Audition","status":"Ok","nname":"Choir of the Sound^choir-of-the-sound/","instances":{"0":{"date":"2026-07-21","time":"18:00:00","url":".","vid":"215","vname":"Terrace View Presbyterian Church","vshort":"terrace-view-presbyterian-church-mountlake-terrace","vstreet":"4700 228th St. SW","vcity":"Mountlake Terrace","vstate":"WA","vzip":"98043","latitude":"47.79134","longitude":"-122.29681"}}}},"104":{"0":{"url":".","eid":"2918","name":"Choir of the Sound - Summer Auditions","shortname":"choir-of-the-sound-summer-auditions-2918","subtitle":null,"eurl":"https://www.choirofthesound.org/join-us/","description":"Choir of the Sound is thrilled to announce auditions for our upcoming 50th Anniversary season beginning on September 14th!\n\nAudition dates are Tuesday,  July 21st and Monday,  July 27th starting at 6:00pm, held in 15-minute increments and scheduled on a first come/first serve basis.\nIf you have any questions or would like to schedule an audition, please email auditions@choirofthesound.org or call 206-528-9990. \n\nWhat to expect during your audition: (no prepared piece is required)\nYour audition will begin with an extended warm-up to display the range and qualities of your singing voice, quizzed on intervals, rhythm, and pitch retention, sing a short musical excerpt consisting of a simple melody and sight-read your voice part on a standard four-part chorale/hymn\n\nFor more information on Choir of the Sound, please visit www.choirofthesound.org","prices":".free","type":"Audition","status":"Ok","nname":"Choir of the Sound^choir-of-the-sound/","instances":{"0":{"date":"2026-07-27","time":"18:00:00","url":".","vid":"215","vname":"Terrace View Presbyterian Church","vshort":"terrace-view-presbyterian-church-mountlake-terrace","vstreet":"4700 228th St. SW","vcity":"Mountlake Terrace","vstate":"WA","vzip":"98043","latitude":"47.79134","longitude":"-122.29681"}}}},"106":{"0":{"url":".","eid":"2917","name":"Auditions (by appointment)","shortname":"auditions-by-appointment-2917","subtitle":null,"eurl":"https://seattlebachchoir.org/audition/","description":null,"prices":".free","type":"Audition","status":"Ok","nname":"Seattle Bach Choir^seattle-bach-choir/","instances":{"0":{"date":"2026-08-11","time":"19:00:00","url":".","vid":"217","vname":"Maple Leaf Lutheran Church","vshort":"maple-leaf-lutheran-church-seattle","vstreet":"10005 32nd Ave NE","vcity":"Seattle","vstate":"WA","vzip":"98125","latitude":"47.70144","longitude":"-122.29452"}}}},"108":{"0":{"url":null,"eid":"2920","name":"Chansons et Madrigaux","shortname":"chansons-et-madrigaux-2920","subtitle":"French chansons from the Renaissance and early 20th century","eurl":".","description":"Join us for an all-French lineup of classic chansons, with selections from both the Renaissance (Josquin, Lassus, Janequin, and more) as well as a set of more “modern” takes from Debussy, Ravel, and Hahn.","prices":".freewill","type":"Concert","status":"Ok","nname":"Summer Fling Singers^summer-fling-singers/","instances":{"0":{"date":"2026-08-29","time":"19:00:00","url":"","vid":"67","vname":"St. Margaret's Episcopal Church","vshort":"st-margarets-episcopal-church-bellevue","vstreet":"4228 Factoria Blvd SE","vcity":"Bellevue","vstate":"WA","vzip":"98006","latitude":"47.56918","longitude":"-122.16873"}}},"1":{"url":".","eid":"2917","name":"Auditions (by appointment)","shortname":"auditions-by-appointment-2917","subtitle":null,"eurl":"https://seattlebachchoir.org/audition/","description":null,"prices":".free","type":"Audition","status":"Ok","nname":"Seattle Bach Choir^seattle-bach-choir/","instances":{"0":{"date":"2026-08-25","time":"19:00:00","url":".","vid":"217","vname":"Maple Leaf Lutheran Church","vshort":"maple-leaf-lutheran-church-seattle","vstreet":"10005 32nd Ave NE","vcity":"Seattle","vstate":"WA","vzip":"98125","latitude":"47.70144","longitude":"-122.29452"}}}},"111":{"0":{"url":"http://www.northwestsound.org","eid":"2899","name":"4th Annual Bellevue Youth Choral Festival","shortname":"4th-annual-bellevue-youth-choral-festival-2899","subtitle":"Enjoy a evening of wonderful music for FREE!","eurl":"http://www.northwestsound.org","description":"A Cappella Northwest proudly presents:\n\n4th Annual Youth Choral Festival\n\nEnjoy the Bellevue Chapter, students and quartets as they perform at our free performance at Interlake High School PAC at 5 pm","prices":"Free Admission","type":"Festival","status":"Ok","nname":"A Cappella Northwest ACNW: (Bellevue Chapter, Barbershop Harmony Society)^a-cappella-northwest-acnw-bellevue-chapter-barbershop-harmony-society/","instances":{"0":{"date":"2026-09-19","time":"17:00:00","url":"http://www.northwestsound.org","vid":"639","vname":"Interlake High School PAC","vshort":"interlake-high-school-pac-performing-arts-center-bellevue","vstreet":"16245 NE 24th St","vcity":"Bellevue","vstate":"WA","vzip":"98008","latitude":"0.00000","longitude":"0.00000"}}},"1":{"url":null,"eid":"2916","name":"Meet the Chorus Night","shortname":"meet-the-chorus-night-2916","subtitle":"Join us at the first rehearsal of our Fall term!","eurl":".","description":"Prospective singers are welcome to come early to our first rehearsal to meet members of the chorus, enjoy some treats, and learn about our group. Then stay for our rehearsal to see what it's like! If possible, rsvp to emeraldcitywomenschorus@gmail.com.","prices":".free","type":"Open House","status":"Ok","nname":"Emerald City Women's Chorus^emerald-city-womens-chorus/","instances":{"0":{"date":"2026-09-14","time":"18:30:00","url":"","vid":"454","vname":"Woodland Park United Methodist Church","vshort":"woodland-park-united-methodist-church-sanctuary-seattle","vstreet":"302 N 78th St","vcity":"Seattle","vstate":"WA","vzip":"98103","latitude":"47.68574","longitude":"-122.35494"}}}},"118":{"0":{"url":null,"eid":"2915","name":"Deck the Halls","shortname":"deck-the-halls-2915","subtitle":"Annual Fall Wine Tasting Benefit","eurl":null,"description":null,"prices":"$85 (general)","type":"Fundraiser","status":"Ok","nname":"Seattle Choral Company^seattle-choral-company/","instances":{"0":{"date":"2026-11-07","time":"18:00:00","url":"","vid":"496","vname":"Covington Cellars","vshort":"covington-cellars-wine-tasting-and-barrel-rooms-snohomish","vstreet":"9206200th St SE Suite C-1","vcity":"Snohomish","vstate":"WA","vzip":"98296","latitude":"47.84796","longitude":"-122.14053"}}}},"120":{"0":{"url":null,"eid":"2891","name":"Actus Tragicus","shortname":"actus-tragicus-2891","subtitle":"Bach and others","eurl":"https://seattlebachchoir.org/event/actus-tragicus/","description":"One of J. S. Bach’s most important works, Cantata 106 “Gottes Zeit ist die allerbeste Zeit,” forms the centerpiece of this concert. With texts that come from both the Hebrew Bible and the New Testament, as well as several hymns, this funeral cantata is filled with hope. These texts inspire the Renaissance and contemporary selections that comprise the remainder of the program, including a setting by Caspar Othmayr of the last words of Martin Luther.","prices":".freewill","type":"Concert","status":"Ok","nname":"Seattle Bach Choir^seattle-bach-choir/","instances":{"0":{"date":"2026-11-22","time":"15:00:00","url":"","vid":"54","vname":"Trinity Parish Episcopal Church","vshort":"trinity-parish-episcopal-church-seattle","vstreet":"609 8th Avenue","vcity":"Seattle","vstate":"WA","vzip":"98104","latitude":"47.60514","longitude":"-122.32595"}}}},"122":{"0":{"url":"https://www.seattlechoralcompany.org/current-season/","eid":"2912","name":"Buon Natale","shortname":"buon-natale-2912","subtitle":"An Italian Christmas","eurl":"https://www.seattlechoralcompany.org/current-season/","description":"Featured works:\nLaud to the Nativity - by Ottorino Respighi\nEight Nativity Songs of the Sicilian People - by Francesco Frontini/Arr. Howard Arman\nAve Maria - by Giuseppe Verdi\nSanta Lucia - arr. by Barlow Bradford\n\nWith guest artists:\nEllaina Lewis, soprano\nHeidi Vanderford, mezzo-soprano\nStephen Rumph, tenor\n\nSeattle Choral Company’s “Buon Natale: An Italian Christmas” celebrates the richness and emotional breadth of Italian sacred and seasonal music through a program that spans folk tradition, Romantic expression, and early 20th-century choral artistry. At its center is Ottorino Respighi’s luminous “Lauda per la Natività del Signore,” a radiant retelling of the Nativity that blends Renaissance-inspired textures with lush modern harmony. \n\nThe program also includes Francesco Paolo Frontini’s “Eight Nativity Songs of the Sicilian People,” which brings forward the warmth and regional color of southern Italian folk-inflected carols, alongside Giuseppe Verdi’s deeply contemplative “Ave Maria,” a moment of stillness shaped by his late-life spiritual reflection. \n\nRounding out the concert is Barlow Bradford’s arrangement of the beloved Neapolitan carol “Santa Lucia,” offering a vibrant, lyrical close that connects popular tradition with choral elegance. Together, these works create a sweeping portrait of Italian Christmas music, balancing intimacy, devotion, and festive brilliance.","prices":"$35 (general), $30 (senior 65+), $10 (student), child 6-10 free","type":"Concert","status":"Ok","nname":"Seattle Choral Company^seattle-choral-company/","instances":{"0":{"date":"2026-12-05","time":"20:00:00","url":"https://www.seattlechoralcompany.org/current-season/","vid":"78","vname":"St. Mark's Cathedral","vshort":"st-marks-cathedral-seattle","vstreet":"1245 Tenth Avenue East","vcity":"Seattle","vstate":"WA","vzip":"98102","latitude":"47.63186","longitude":"-122.32155"},"1":{"date":"2026-12-06","time":"15:00:00","url":"https://www.seattlechoralcompany.org/current-season/","vid":"58","vname":"Trinity Lutheran Church","vshort":"trinity-lutheran-church-lynnwood","vstreet":"6215 196th St. SW","vcity":"Lynnwood","vstate":"WA","vzip":"98036","latitude":"47.82199","longitude":"-122.31806"}}}},"135":{"0":{"url":null,"eid":"2892","name":"Requiem","shortname":"requiem-2892","subtitle":"Mozart a la Czerny","eurl":"https://seattlebachchoir.org/event/requiem/","description":"Much legend and fiction surround Mozart’s final days while he wrote his Requiem Mass. What is certain is that this is a masterwork. We will perform this summation of Mozart’s creative genius in the traditional completion by Franz Süssmayr. Instead of orchestral accompaniment, however, we will share a more intimate version using famed Czech-Austrian composer and pedagogue Carl Czerny’s four-hand piano transcription.","prices":".freewill","type":"Concert","status":"Ok","nname":"Seattle Bach Choir^seattle-bach-choir/","instances":{"0":{"date":"2027-03-07","time":"15:00:00","url":"","vid":"217","vname":"Maple Leaf Lutheran Church","vshort":"maple-leaf-lutheran-church-seattle","vstreet":"10005 32nd Ave NE","vcity":"Seattle","vstate":"WA","vzip":"98125","latitude":"47.70144","longitude":"-122.29452"}}}},"136":{"0":{"url":"https://www.seattlechoralcompany.org/current-season/","eid":"2913","name":"Rachmaninoff Vespers","shortname":"rachmaninoff-vespers-2913","subtitle":null,"eurl":"https://www.seattlechoralcompany.org/current-season/","description":"Sergei Rachmaninoff’s All-Night Vigil (often called the Vespers) stands as one of the most profound achievements in sacred choral music, a sweeping musical meditation that draws deeply from the traditions of the Russian Orthodox liturgy. Written in 1915, the work is celebrated for its rich harmonic language, expansive sonorities, and moments of radiant stillness that evoke both human intimacy and spiritual transcendence. From its hushed opening chant to its climactic, bell-like textures, the Vespers invites listeners into a world of prayer and reflection, where ancient chant and late-Romantic expression meet in luminous balance. It remains a cornerstone of the choral repertoire, cherished for its emotional depth and extraordinary beauty.","prices":"$35 (general), $30 (senoir 65+), $10 (student), child 6-10 free","type":"Concert","status":"Ok","nname":"Seattle Choral Company^seattle-choral-company/","instances":{"0":{"date":"2027-03-13","time":"20:00:00","url":"https://www.seattlechoralcompany.org/current-season/","vid":"78","vname":"St. Mark's Cathedral","vshort":"st-marks-cathedral-seattle","vstreet":"1245 Tenth Avenue East","vcity":"Seattle","vstate":"WA","vzip":"98102","latitude":"47.63186","longitude":"-122.32155"},"1":{"date":"2027-03-14","time":"15:00:00","url":"https://www.seattlechoralcompany.org/current-season/","vid":"58","vname":"Trinity Lutheran Church","vshort":"trinity-lutheran-church-lynnwood","vstreet":"6215 196th St. SW","vcity":"Lynnwood","vstate":"WA","vzip":"98036","latitude":"47.82199","longitude":"-122.31806"}}}},"148":{"0":{"url":null,"eid":"2893","name":"Matters of Life & Death","shortname":"matters-of-life-death-2893","subtitle":"Words of Whitman","eurl":"https://seattlebachchoir.org/event/matters-of-life-death/","description":"Few poets have captured the breadth, the embodiment, and the joy of every aspect of human existence quite the way Walt Whitman did. Through his texts, we see how he reveled in and marveled at human life—and death. Settings of portions of his Lincoln elegy—//When Lilacs Last in the Dooryard Bloom’d//—and //Whispers of Heavenly Death// by such living composers as Dan Locklair and Stephen Chatman are paired with Vincent Persichetti’s exuberant and life-affirming //Celebrations.//","prices":".freewill","type":"Concert","status":"Ok","nname":"Seattle Bach Choir^seattle-bach-choir/","instances":{"0":{"date":"2027-06-06","time":"15:00:00","url":"","vid":"54","vname":"Trinity Parish Episcopal Church","vshort":"trinity-parish-episcopal-church-seattle","vstreet":"609 8th Avenue","vcity":"Seattle","vstate":"WA","vzip":"98104","latitude":"47.60514","longitude":"-122.32595"}}},"1":{"url":"https://www.seattlechoralcompany.org/current-season/","eid":"2914","name":"Of Light & Remembrance","shortname":"of-light-remembrance-2914","subtitle":null,"eurl":"https://www.seattlechoralcompany.org/current-season/","description":"Eternal Light - A Requiem - by Howard Goodall\nIlluminare - by Elaine Hagenberg\n\nExperience an evening of profound beauty, hope, and remembrance as two beloved contemporary choral masterpieces come together in one unforgettable program. Howard Goodall's Eternal Light- A Requiem offers a deeply human reflection on loss and consolation, blending the ancient Requiem tradition with poetry and music of extraordinary warmth.\n\nPaired with Elaine Hagenberg's radiant Illuminare, a journey from darkness into light inspired by texts spanning centuries, this concert invites audiences into a moving exploration of grief, healing, wonder, and renewal through the power of the human voice.","prices":"$35 (general), $30 (senior 65+), $10 (student), child 6-10 free","type":"Concert","status":"Ok","nname":"Seattle Choral Company^seattle-choral-company/","instances":{"0":{"date":"2027-06-05","time":"20:00:00","url":"https://www.seattlechoralcompany.org/current-season/","vid":"58","vname":"Trinity Lutheran Church","vshort":"trinity-lutheran-church-lynnwood","vstreet":"6215 196th St. SW","vcity":"Lynnwood","vstate":"WA","vzip":"98036","latitude":"47.82199","longitude":"-122.31806"},"1":{"date":"2027-06-06","time":"15:00:00","url":"https://www.seattlechoralcompany.org/current-season/","vid":"58","vname":"Trinity Lutheran Church","vshort":"trinity-lutheran-church-lynnwood","vstreet":"6215 196th St. SW","vcity":"Lynnwood","vstate":"WA","vzip":"98036","latitude":"47.82199","longitude":"-122.31806"}}}}};
+const zipkey = 'b988ceb6';
+// constants
+const FIRST_WEEK = 100;
+const LAST_WEEK = FIRST_WEEK + 52;
+const WEEKS_CHUNK = 4;
+// globals
+var currentFilter = {};
+var nextWeekToAppend = FIRST_WEEK;
+function isSearching()
+{
+    return isVisible(dom.filterSearchbox);
+}
+function safeTextContent(item, _class)
+{
+    var source = item.getElementsByClassName(_class);
+    return source.length ? source[0].textContent.replace(/\u00a0/g, " ") : "";
+}
+function entryString(item)
+{
+    // normalize the type
+    var type = item.type || "Other Event";
+    if (type == "Festival")
+        type = "Concert";
+    // skip if filtered out
+    var maxInstanceMask = 0;
+    for (var index in item.instances)
+        maxInstanceMask |= 1 << index;
+    var instanceMask = maxInstanceMask;
+    if (currentFilter.searching)
+    {
+        // type filter
+        if (!currentFilter.alltypes && type != currentFilter.type)
+            return "";
+        // location filter
+        if (currentFilter.geopos)
+        {
+            instanceMask = 0;
+            for (var instnum in item.instances)
+                if (latLongDistance(+item.instances[instnum].latitude, +item.instances[instnum].longitude,
+                        currentFilter.geopos.latitude, currentFilter.geopos.longitude) < currentFilter.distance)
+                    instanceMask |= 1 << instnum;
+            if (instanceMask == 0)
+                return "";
+        }
+        // name filter
+        if (currentFilter.name)
+        {
+            // make the search string if needed
+            if (!item.searchString)
+            {
+                item.searchString = item.name.toLowerCase() + " " + (item.subtitle || "").toLowerCase();
+                var ensembles = item.nname.split("^^");
+                for (var index = 0; index < ensembles.length; index++)
+                    item.searchString += " " + ensembles[index].split("^")[0].toLowerCase();
+            }
+            if (item.searchString.indexOf(currentFilter.name) == -1)
+                return "";
+        }
+    }
+    // if all instances and we're cached, just use that
+    var cacheIndex = instanceMask;
+    if (item.cached && item.cached[cacheIndex])
+        return item.cached[cacheIndex];
+    // outer div
+    var shadow = (type == "Concert") ? "gshadow" : "bshadow";
+    var result = "<div class='event " + shadow + "'>\n";
+    // border area begin
+    result += "<div class='event-header'>\n";
+    // title, with optional link
+    var url = "/event/" + item.shortname;
+    var name = GSCC.deorphan(GSCC.htmlize(item.name));
+    var status = "";
+    if (item.status != "Ok")
+        status = "<b style='background-color:red; color:white; padding:3px 7px'>" + item.status.toUpperCase() + "</b>&nbsp;";
+    result += "<a href='" + url + "'>" + status + "<span class='type'>" + type + ":</span> <span class='name'>" + name + "</span></a>";
+    if (item.subtitle)
+    {
+        var subtitle = GSCC.htmlize(item.subtitle);
+        result += "<span class='subtitle'>&mdash;&nbsp;" + subtitle + "</span>";
+    }
+    // ensembles
+    var ensembles = GSCC.ensemblesListString(item.nname, true);
+    result += "<div class='ensembles'>" + ensembles + "</div>\n";
+    // output date & location of this item
+    var dateloc = "";
+    for (var index in item.instances)
+        if ((instanceMask >> (index|0)) & 1)
+            dateloc += GSCC.dateAndLocationString(item.instances[index], true, (item.status != "Ok"));
+    result += dateloc + "\n";
+    // ticket prices
+    var prices = "";
+    if (type != "Audition" && item.prices)
+    {
+        prices = GSCC.htmlize(GSCC.pricesString(item.prices));
+        result += "<div class='tickets'>Tickets: " + prices + "</div>\n";
+    }
+    // header area end
+    result += "</div>\n";
+    // output the description, after converting links and italics
+    var description;
+    if (item.description)
+    {
+        description = GSCC.markupToHTML(item.description);
+        if (item.description.length > 550)
+        {
+            for (var split = 400; split < item.description.length; split++)
+            {
+                var ch = item.description.charAt(split);
+                if (ch == '.' || ch == '?' || ch == '!')
+                {
+                    var next = item.description.charAt(split + 1);
+                    if (next == ' ' || next == '\r' || next == '\n')
+                        break;
+                }
+                if (ch == '\r' || ch == '\n')
+                    break;
+            }
+            var shortText = item.description.slice(0, split).trim();
+            if (shortText != item.description.trim())
+            {
+                var long = description;
+                var insert = "...&nbsp;<a class='readmore' href='#'>(Read&nbsp;More)</a>";
+                var short = GSCC.markupToHTML(shortText, insert);
+                description = "<div>" + short + "</div>";
+                description += "<div style='display:none'>" + long + "</div>";
+            }
+        }
+    }
+    else if (item.eurl && item.eurl != ".")
+    {
+        var url = GSCC.htmlize(item.eurl);
+        description = "<p><a href='" + url + "' target='_blank' rel='noowner'>Visit the event website for more information&nbsp;&rarr;</a></p>";
+    }
+    else
+        description = "<p>(No description available.)</p>";
+    result += "<div class='description'>" + description + "</div>";
+    // close up the item
+    result += "</div>\n";
+    // cache the result
+    if (!item.cached)
+        item.cached = [];
+    item.cached[cacheIndex] = result;
+    return result;
+}
+function weekString(weekData)
+{
+    // get the info and punt if no entries created (unlikely)
+    if (!weekData || weekData.length == 0)
+        return "";
+    // generate the contents, separated into types
+    var entries = {};
+    for (var index in weekData)
+    {
+        // generate the current entry
+        var entry = entryString(weekData[index]);
+        if (!entry)
+            continue;
+        // put it in the right bucket
+        var bucket = weekData[index].type;
+        if (bucket == "Festival")
+            bucket = "Concert";
+        if (!entries[bucket])
+            entries[bucket] = [];
+        entries[bucket].push(entry);
+    }
+    // if nothing present, return empty
+    var buckets = Object.keys(entries).sort(
+        function(a,b)
+        {
+            var aa = (a == "Other") ? "zzz" : a;
+            var bb = (b == "Other") ? "zzz" : b;
+            return (aa < bb) ? -1 : (aa > bb) ? 1 : 0;
+        });
+    if (buckets.length == 0)
+        return "";
+    // determine the date range, always Monday - Sunday
+    var startDate = new Date(weekData[0].instances[0].date + "T12:00");
+    while (startDate.getDay() != 1)
+        startDate.setDate(startDate.getDate() - 1);
+    var endDate = new Date(startDate);
+    endDate.setDate(endDate.getDate() + 6);
+    endDate.setHours(23);
+    // create a div for this week
+    var today = new Date();
+    var result = "<div class='week" + ((endDate < today) ? " past" : "") + "'>";
+    // generate the header
+    var range = GSCC.dateRangeString(startDate, endDate);
+    result += " <div class='thick-separator' style='padding-top:0'></div><div class='week-header'><div class='week-span'>" + range + ((endDate < today) ? " (Past)" : "") + "</div>";
+    // determine the primary bucket
+    var primaryType = currentFilter.type;
+    var primary = (entries[primaryType] || []);
+    // generate count info
+    var type = currentFilter.type.toLowerCase() + ((primary.length == 1) ? "" : "s");
+    result += "<div class='week-counts'>";
+    if (!currentFilter.searching)
+        result += (primary.length ? primary.length : "no") + " " + type + " this week"
+    else
+        result += "Found " + (primary.length ? primary.length : "no") + " " + type + currentFilter.description;
+    result += "</div>"
+    result += "</div>";
+    // add the primary matches
+    result += primary.join("");
+    // now do all the other buckets
+    for (var typeIndex = 0; typeIndex < buckets.length; typeIndex++)
+    {
+        var type = buckets[typeIndex];
+        if (type == primaryType)
+            continue;
+        var bucket = entries[type];
+        // generate the container
+        result += "<div class='week-header-expandable'>";
+        result += (primary.length == 0) ? "but " : (typeIndex == 0) ? "plus " : "and ";
+        result += bucket.length + " " + type.toLowerCase() + ((bucket.length == 1) ? "" : "s");
+        result += " (click to show<span class='wide'> details</span>)</div>";
+        result += "<div class='bucket-container' style='display:none'>" + bucket.join("") + "</div>";
+    }
+    // close the div
+    result += "</div>\n";
+    return result;
+}
+function resetFilters()
+{
+    dom.filterSelect.checked = true;
+    dom.filterAll.checked = false;
+    dom.filterType.value = "Concert";
+    dom.filterName.value = "";
+    dom.geoFilter.reset();
+}
+function updateFiltered()
+{
+    // default search parameters
+    currentFilter =
+    {
+        'searching': false,
+        'alltypes': false,
+        'type': "Concert",
+        'distance': 0,
+        'name': "",
+        'geopos': null,
+        'description': ""
+    };
+    // if the search box is visible, grab the live parameter values
+    currentFilter.searching = isSearching();
+    if (currentFilter.searching)
+    {
+        if (dom.filterAll.checked)
+            currentFilter.alltypes = true;
+        else
+            currentFilter.type = dom.filterType.value;
+        currentFilter.distance = dom.geoFilter.distance();
+        currentFilter.geopos = dom.geoFilter.location();
+        currentFilter.name = dom.filterName.value.toLowerCase();
+    }
+    // craft a description of what we're searching
+    currentFilter.description = "";
+    if (currentFilter.searching)
+    {
+        if (currentFilter.name != "")
+            currentFilter.description += " containing '" + currentFilter.name + "'";
+        if (currentFilter.geopos)
+            currentFilter.description += dom.geoFilter.asString();
+    }
+    // reset the state
+    nextWeekToAppend = FIRST_WEEK;
+    dom.calendarData.innerHTML = "";
+    appendWeeks();
+    updateScroll();
+}
+function toggleNextSibling(event)
+{
+    event.preventDefault();
+    var target = this.nextSibling || this.parentElement.nextSibling;
+    var newtext = (target.style.display == "none") ? "hide" : "show";
+    this.innerHTML = this.innerHTML.replaceAll("hide", newtext).replaceAll("show", newtext);
+    target.style.display = (target.style.display == "none") ? "" : "none";
+    scrollItems(target);
+}
+function readMore(event)
+{
+    event.preventDefault();
+    var prev = this.parentElement.parentElement;
+    var next = prev.nextSibling;
+    prev.style.display = "none";
+    next.style.display = "";
+    scrollItems(next);
+}
+function updateScroll()
+{
+    while (nextWeekToAppend < LAST_WEEK)
+    {
+        var bottom = window.pageYOffset + window.innerHeight;
+        if (bottom < dom.calendarData.offsetTop + dom.calendarData.offsetHeight - 100)
+            return;
+        appendWeeks();
+    }
+}
+function appendWeeks()
+{
+    // skip if exhausted
+    if (nextWeekToAppend >= LAST_WEEK)
+        return;
+    // rebuild the next chunk of weeks
+    var html = "";
+    var weeks = 0;
+    var first = (nextWeekToAppend == FIRST_WEEK);
+    for ( ; nextWeekToAppend < LAST_WEEK && weeks < WEEKS_CHUNK; nextWeekToAppend++)
+        if (calendarData[nextWeekToAppend])
+        {
+            var week = weekString(calendarData[nextWeekToAppend]);
+            if (week)
+            {
+                html += week;
+                weeks++;
+            }
+        }
+    // if we're done, add a final marker
+    if (nextWeekToAppend >= LAST_WEEK)// && (html || !first))
+        html += "<div class='week'><div class='week-header thick-separator'><div class='week-span'>The End</div></div></div>";
+    // set the data
+    dom.calendarData.insertAdjacentHTML("beforeend", html);
+    hookElementEvent('click', dom.clickExpanders, toggleNextSibling);
+    hookElementEvent('click', dom.readMore, readMore);
+}
+// DOM state
+document.addEventListener('DOMContentLoaded',
+    function()
+    {
+        dom.nonConcertEvents = document.getElementsByClassName('event nonconcert');
+        dom.clickExpanders = document.getElementsByClassName('week-header-expandable');
+        dom.readMore = document.getElementsByClassName('readmore');
+        dom.calendarData = document.getElementById('calendar-data');
+        dom.filterSearchbox = document.getElementById('filter-searchbox');
+        dom.filterInvite = document.getElementById('filter-invite');
+        hookElementEvent('click', dom.filterInvite,
+            function(event)
+            {
+                event.preventDefault();
+                hideElement(dom.filterInvite);
+                showAndScrollElement(dom.filterSearchbox);
+                resetFilters();
+                updateFiltered();
+            });
+        hookElementEvent('click', document.getElementById('filter-cancel'),
+            function(event)
+            {
+                event.preventDefault();
+                showElement(dom.filterInvite);
+                hideElement(dom.filterSearchbox);
+                updateFiltered();
+            });
+        hookElementEvent('click', document.getElementById('filter-reset'),
+            function(event)
+            {
+                event.preventDefault();
+                resetFilters();
+                updateFiltered();
+                this.blur();
+            });
+        dom.filterSelect = document.getElementById('filter-select');
+        hookElementEvent('change', dom.filterSelect, function(event) { updateFiltered(); });
+        dom.filterAll = document.getElementById('filter-all');
+        hookElementEvent('change', dom.filterAll, function(event) { updateFiltered(); });
+        dom.filterType = document.getElementById('filter-type');
+        hookElementEvent('change', dom.filterType, function(event) { updateFiltered(); });
+        hookElementEvent('click', dom.filterType, function(event) { dom.filterSelect.checked = true; dom.filterAll.checked = false; });
+        dom.filterName = document.getElementById('filter-name');
+        hookElementEvent('change', dom.filterName, function(event) { updateFiltered(); });
+        hookElementEvent('keyup', dom.filterName, function(event) { updateFiltered(); });
+        dom.geoFilter = new GeoSearchFilter(function() { updateFiltered(); });
+        window.onscroll = updateScroll;
+        // mark us ready
+        dom.ready = true;
+        // allow query strings to prepopulate search:
+        //    type=<concert type>
+        //    name=<search string>
+        //    from=me|<zip>|<city>
+        //    distance=<valid distance>
+        var tokens = getUrlTokens();
+        var searchType = tokens.type;
+        var searchName = tokens.name;
+        var searchFrom = tokens.from;
+        var searchDistance = tokens.distance;
+        var scrollit = false;
+        resetFilters();
+        if (searchType || searchName || searchDistance || searchFrom)
+        {
+            hideElement(dom.filterInvite);
+            showElement(dom.filterSearchbox);
+            // match search type against the first part of the type string, case-insensitive
+            if (searchType)
+            {
+                searchType = searchType.toUpperCase();
+                if (searchType == 'ALL')
+                {
+                    dom.filterSelect.checked = false;
+                    dom.filterAll.checked = true;
+                }
+                else
+                {
+                    dom.filterSelect.checked = true;
+                    dom.filterAll.checked = false;
+                    forEachElement(dom.filterType.getElementsByTagName('option'),
+                        function()
+                        {
+                            if (this.textContent.toUpperCase().substr(0, searchType.length) == searchType)
+                                dom.filterType.value = this.value;
+                        });
+                }
+            }
+            // name goes in as-is
+            if (searchName)
+                dom.filterName.value = searchName;
+            // distance goes in as-is, though it will default if it doesn't match
+            if (searchDistance)
+                dom.geoFilter.setDistance(searchDistance);
+            // from is trickier
+            if (searchFrom)
+            {
+                // 'me' is special for my location
+                if (searchFrom == 'me')
+                    dom.geoFilter.setByLocation();
+                // a 5-digit number is a zip code
+                else if (searchFrom.length == 5 && parseInt(searchFrom, 10))
+                    dom.geoFilter.setByZip(searchFrom);
+                // anything else is matched case-insensitively against the list of cities
+                else
+                    dom.geoFilter.setByCity(searchFrom);
+            }
+            // scroll into view
+            scrollit = true;
+        }
+        // update the filter
+        updateFiltered();
+        if (scrollit)
+            scrollItems(dom.calendarData);
+    });
+</script>
+  <div id='footer'>Copyright © 2026, <span class='wide'>Greater Seattle Choral Consortium</span><span class='narrow'>GSCC</span>. Updated 30-Jun-2026 0:00:07</div>
+ </div>
+</div>
+</body>
+</html>

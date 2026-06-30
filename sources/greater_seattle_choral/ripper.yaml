@@ -1,0 +1,11 @@
+name: greater-seattle-choral-consortium
+description: "Greater Seattle Choral Consortium"
+url: "https://seattlesings.org/calendar/"
+friendlyLink: https://seattlesings.org/calendar/
+sourceRole: aggregator
+geo: null
+tags: ["Music", "Arts"]
+calendars:
+  - name: seattle-events
+    friendlyname: "Greater Seattle Choral Consortium"
+    timezone: America/Los_Angeles
