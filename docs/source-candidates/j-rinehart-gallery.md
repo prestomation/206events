@@ -4,6 +4,8 @@ status: added
 firstSeen: 2026-06-30
 lastChecked: 2026-06-30
 tags: [Art, "Pioneer Square"]
+platform: Squarespace
+url: https://www.jrinehartgallery.com/gallery-events
 pr: 767
 ---
 
