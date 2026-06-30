@@ -1,0 +1,19 @@
+# verified: 2026-06-30 ok
+name: side-rail-collective
+sourceRole: venue
+type: squarespace
+description: "Side Rail Collective"
+url: "https://www.siderailcollective.com/calendar"
+friendlyLink: https://www.siderailcollective.com/calendar
+tags: ["Arts", "Georgetown"]
+geo:
+  lat: 47.5528924
+  lng: -122.3209540
+  label: "Side Rail Collective, 5511 1/2 Airport Way S, Seattle, WA 98108"
+  osmType: node
+  osmId: 2396888055
+  osmChecked: "2026-06-30"
+calendars:
+  - name: all-events
+    friendlyname: "Side Rail Collective"
+    timezone: America/Los_Angeles
