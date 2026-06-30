@@ -4,6 +4,7 @@ url: "https://www.8bitbrassband.com/event-pages-sitemap.xml"
 friendlyLink: https://www.8bitbrassband.com/event-list
 sourceRole: venue
 geo: null
+expectEmpty: true
 tags: ["Music"]
 calendars:
   - name: 8bit-brass-band
