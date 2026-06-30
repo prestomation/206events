@@ -31,6 +31,7 @@ calendars:
   - name: sam-sculpture-park
     friendlyname: "Olympic Sculpture Park"
     timezone: America/Los_Angeles
+    cost: free
     config:
       location: "Olympic Sculpture Park"
     tags: ["Belltown"]

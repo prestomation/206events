@@ -11,6 +11,7 @@ geo:
   label: "Seattle Makers, 3012 16th Ave W, Seattle, WA 98119"
   osmType: node
   osmId: 12720536301
+imageUrl: "https://seattlemakers.org/wp-content/uploads/2023/12/maker_meetup.webp"
 calendars:
   - name: seattle-makers
     friendlyname: "Seattle Makers"
