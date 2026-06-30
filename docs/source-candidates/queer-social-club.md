@@ -6,6 +6,7 @@ url: https://queersocialclub.com/events-seattle
 tags: [LGBTQ, Community]
 firstSeen: 2026-06-30
 lastChecked: 2026-06-30
+pr: 773
 ---
 
 Seattle-based LGBTQ+ community events aggregator curating social events across multiple venues. Squarespace `events-stacked` collection exposing a `?format=json` endpoint.
