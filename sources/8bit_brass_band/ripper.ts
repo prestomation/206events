@@ -100,7 +100,7 @@ export function parseEventFromJsonLd(
         (jsonLd.location?.name ? `${jsonLd.location.name}, Seattle, WA` : "Seattle, WA");
 
     return {
-        id: `8bit-brass-band-${slug}`,
+        id: `8bit-brass-band-${slug}-${startZdt.toLocalDate()}`,
         ripped: new Date(),
         date: startZdt,
         duration,
@@ -124,7 +124,7 @@ export default class EightBitBrassBandRipper implements IRipper {
         });
         if (!sitemapRes.ok) throw new Error(`Sitemap fetch failed: HTTP ${sitemapRes.status}`);
         const sitemapXml = await sitemapRes.text();
-        const eventUrls = extractSitemapUrls(sitemapXml);
+        const eventUrls = extractSitemapUrls(sitemapXml).slice(0, 100);
 
         const events: RipperCalendarEvent[] = [];
         const errors: RipperError[] = [];

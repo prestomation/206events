@@ -107,7 +107,7 @@ describe("parseEventFromJsonLd", () => {
         const result = parseEventFromJsonLd(seattleEvent, url, timezone);
         expect("date" in result).toBe(true);
         if ("date" in result) {
-            expect(result.id).toBe("8bit-brass-band-8bit-at-the-croc");
+            expect(result.id).toBe("8bit-brass-band-8bit-at-the-croc-2026-04-05");
             expect(result.summary).toBe(seattleEvent.name);
             expect(result.location).toContain("Seattle");
             expect(result.imageUrl).toBe(seattleEvent.image.url);
@@ -166,7 +166,7 @@ describe("parseEventFromJsonLd", () => {
         const url = "https://www.8bitbrassband.com/event-details/my-stable-slug";
         const result = parseEventFromJsonLd(event, url, timezone);
         if ("date" in result) {
-            expect(result.id).toBe("8bit-brass-band-my-stable-slug");
+            expect(result.id).toBe("8bit-brass-band-my-stable-slug-2026-04-05");
         }
     });
 
