@@ -1,0 +1,26 @@
+# verified: 2026-06-30 via eventbrite web ui (1 upcoming event: RailSpur July Artwalk, July 2 2026)
+name: railspur
+sourceRole: venue
+type: eventbrite
+description: "RailSpur Seattle"
+url: "https://www.eventbrite.com/o/railspur-seattle-120887697562"
+friendlyLink: https://railspurseattle.com/
+imageUrl: "https://urban-villages.com/app/uploads/2025/01/419-Occidental-Ave-Exterior-Stairwell-2.jpg"
+tags:
+  - Arts
+  - Music
+  - "Pioneer Square"
+geo:
+  lat: 47.5985491
+  lng: -122.3332623
+  label: "RailSpur, 419 Occidental Ave S, Seattle, WA 98104"
+  osmType: way
+  osmId: 226324179
+calendars:
+  - name: railspur
+    friendlyname: "RailSpur Seattle"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "120887697562"
+      defaultLocation: "419 Occidental Ave S, Seattle, WA 98104"
+      defaultDurationHours: 3
