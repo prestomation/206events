@@ -1,5 +1,6 @@
 name: the-fishbowl
 sourceRole: venue
+expectEmpty: true
 type: squarespace
 description: "The Fishbowl"
 url: "https://www.thefishbowlseattle.com/events"

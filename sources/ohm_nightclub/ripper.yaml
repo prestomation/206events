@@ -1,5 +1,6 @@
 name: ohm-nightclub
 sourceRole: venue
+expectEmpty: true
 type: dice
 description: "OHM Nightclub"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=Ohm+Nightclub"

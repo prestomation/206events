@@ -1,6 +1,7 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: vera-project
 sourceRole: venue
+expectEmpty: true
 type: dice
 description: "The Vera Project"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Vera+Project"

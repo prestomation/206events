@@ -1,5 +1,6 @@
 name: kremwerk
 sourceRole: venue
+expectEmpty: true
 type: dice
 description: "Kremwerk + Timbre Room + Cherry Complex"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=Kremwerk+Complex"
