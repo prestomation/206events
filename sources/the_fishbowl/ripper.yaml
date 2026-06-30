@@ -1,6 +1,6 @@
 name: the-fishbowl
 sourceRole: venue
-expectEmpty: true
+expectEmpty: true # site live, no upcoming events posted as of 2026-06-30
 type: squarespace
 description: "The Fishbowl"
 url: "https://www.thefishbowlseattle.com/events"
