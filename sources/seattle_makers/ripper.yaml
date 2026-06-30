@@ -1,0 +1,17 @@
+# verified: 2026-06-30 via AJAX endpoint (71 events in July 2026, 58 unique post IDs)
+name: seattle-makers
+sourceRole: venue
+description: "Seattle Makers"
+url: "https://seattlemakers.org/events/"
+friendlyLink: https://seattlemakers.org/
+tags: ["Workshops", "Community", "Queen Anne"]
+geo:
+  lat: 47.6470402
+  lng: -122.3772236
+  label: "Seattle Makers, 3012 16th Ave W, Seattle, WA 98119"
+  osmType: node
+  osmId: 12720536301
+calendars:
+  - name: seattle-makers
+    friendlyname: "Seattle Makers"
+    timezone: America/Los_Angeles

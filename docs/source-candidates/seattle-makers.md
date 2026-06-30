@@ -1,9 +1,10 @@
 ---
 name: "Seattle Makers"
-status: candidate
+status: added
 firstSeen: 2026-05-06
-lastChecked: 2026-05-06
-tags: [Workshops, Community]
+lastChecked: 2026-06-30
+tags: [Workshops, Community, "Queen Anne"]
+pr: pending
 ---
 `https://seattlemakers.org/events/` — Seattle makerspace running the
 **EventPrime** WP plugin (`pp_event` post type, `pe-ajax-events` class).
