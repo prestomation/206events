@@ -1,0 +1,12 @@
+name: seattle-creative-social
+sourceRole: venue
+type: squarespace
+description: "Seattle Creative Social"
+url: "https://www.seattlecreativesocial.com/events"
+friendlyLink: https://www.seattlecreativesocial.com/events
+geo: null
+tags: ["Community"]
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Creative Social"
+    timezone: America/Los_Angeles
