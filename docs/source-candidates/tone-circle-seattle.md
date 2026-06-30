@@ -6,7 +6,7 @@ url: https://www.eventbrite.com/o/tone-circle-seattle-110446705671
 tags: [Community]
 firstSeen: 2026-06-30
 lastChecked: 2026-06-30
-pr: pending
+pr: 764
 ---
 
 Community vocal toning and sound meditation organization based in Seattle. Hosts
