@@ -1,0 +1,19 @@
+name: easy-street-records
+sourceRole: venue
+type: dice
+description: "Easy Street Records"
+url: "https://events-api.dice.fm/v1/events?filter[venues][]=Easy+Street+Records"
+friendlyLink: https://easystreetonline.com/Events
+tags: ["Music", "West Seattle"]
+geo:
+  lat: 47.5612832
+  lng: -122.3869565
+  label: "Easy Street Records, 4559 California Ave SW, Seattle, WA 98116"
+calendars:
+  - name: easy-street-records
+    friendlyname: "Easy Street Records"
+    timezone: America/Los_Angeles
+    config:
+      venueName: "Easy Street Records"
+      defaultLocation: "4559 California Ave SW, Seattle, WA 98116"
+      defaultDurationHours: 3
