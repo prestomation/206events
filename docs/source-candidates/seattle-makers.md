@@ -3,7 +3,7 @@ name: "Seattle Makers"
 status: added
 firstSeen: 2026-05-06
 lastChecked: 2026-06-30
-tags: [Workshops, Community, "Queen Anne"]
+tags: [Workshops, Community, QueenAnne]
 pr: pending
 ---
 `https://seattlemakers.org/events/` — Seattle makerspace running the
