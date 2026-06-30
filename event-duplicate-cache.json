@@ -4839,6 +4839,96 @@
       "decision": "rejected",
       "resolvedAt": "2026-06-29",
       "note": "Different programs at different SPL branches: 'Arabic Story Time' at Lake City vs 'Family Story Time' at Northgate \u2014 distinct language/focus and separate branches"
+    },
+    "j_rinehart_gallery-all-events.ics POST-GAME ART WALK|2026-07-01T14:00:00.341-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Post Game Art Walk|2026-07-01T21:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Identical title, same date, same Pioneer Square location, same time (14:00PT = 21:00UTC)"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-07-06T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-06T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event, same location, same time \u2014 recurring entry is the generic name, Stoup entry names the host (Head in the Clouds)"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-13T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Beach Naturalist Shore Stroll|2026-07-13T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event at Olympic Sculpture Park, both SAM and seatoday list it"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-13T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Beach Naturalist Shore Stroll|2026-07-13T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event at Olympic Sculpture Park, both SAM and seatoday list it"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-13T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Beach Naturalist Shore Stroll|2026-07-13T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event at Olympic Sculpture Park, both SAM and seatoday list it"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-13T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Beach Naturalist Shore Stroll|2026-07-13T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event at Olympic Sculpture Park, both SAM and seatoday list it"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-13T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-13T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event appearing across multiple seatoday tag-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-13T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-13T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event appearing across multiple seatoday tag-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event appearing across multiple seatoday tag-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event appearing across multiple seatoday tag-filtered calendars"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-13T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-13T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event appearing across multiple seatoday tag-filtered calendars"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-06-30",
+      "note": "Same event appearing across multiple seatoday tag-filtered calendars"
+    },
+    "j_rinehart_gallery-all-events.ics ASSEMBLY ART FAIR|2026-07-23T11:00:00.745-07:00[America/Los_Angeles]::recurring-seattle-art-fair.ics Seattle Art Fair|2026-07-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-30",
+      "note": "Different events: Assembly Art Fair at J. Rinehart Gallery; Seattle Art Fair at Lumen Field Event Center (460m apart, different times)"
+    },
+    "j_rinehart_gallery-all-events.ics JULY FIRST THURSDAY ART WALK!|2026-07-02T17:00:00.261-07:00[America/Los_Angeles]::seattle-jazz-fellowship-all-events.ics First Thursday Art Walk - Free Show |2026-07-02T20:00:00.225-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-30",
+      "note": "Different events at same art walk evening: gallery opening at J. Rinehart vs jazz free show at Seattle Jazz Fellowship (different venues, different times)"
+    },
+    "j_rinehart_gallery-all-events.ics OPENING NIGHT | Seattle Art Fair|2026-07-23T18:00:00.626-07:00[America/Los_Angeles]::recurring-seattle-art-fair.ics Seattle Art Fair|2026-07-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-30",
+      "note": "Gallery opening night event at J. Rinehart Gallery vs the main Seattle Art Fair at Lumen Field (different venues)"
+    },
+    "j_rinehart_gallery-all-events.ics SEATTLE ART FAIR|2026-07-23T18:00:00.445-07:00[America/Los_Angeles]::recurring-seattle-art-fair.ics Seattle Art Fair|2026-07-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-30",
+      "note": "Gallery exhibit at J. Rinehart Gallery vs the main Seattle Art Fair at Lumen Field Event Center (different venues, different times)"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-07-06T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-07-06T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-30",
+      "note": "Different events same venue: board games (18:30, QSC) vs trivia night (19:30, Head in the Clouds)"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-02-22T19:30:00-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-02-22T19:30:00-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-06-30",
+      "note": "Same trivia host but different locations: Ballard (1108 NW 52nd St) vs Capitol Hill (1158 Broadway)"
     }
   }
 }
