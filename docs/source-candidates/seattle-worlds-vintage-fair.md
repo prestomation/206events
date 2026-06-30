@@ -1,9 +1,10 @@
 ---
 name: "Seattle World's Vintage Fair"
-status: candidate
+status: added
 firstSeen: 2026-06-07
-lastChecked: 2026-06-07
+lastChecked: 2026-06-30
 tags: [Community, QueenAnne]
+pr: pending
 ---
 **Seattle World's Vintage Fair** — `https://www.seattleworldsvintagefair.com/` — Annual one-day vintage fair at Seattle Center Exhibition Hall, organized by Throwbacks NW & Por Vida NW (the team behind Tacoma Sunday Market). Features vintage clothing, antiques, collectibles, textiles, accessories, records, sneakers, and more.
 

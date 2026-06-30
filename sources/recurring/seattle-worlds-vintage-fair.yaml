@@ -1,0 +1,24 @@
+geo:
+  lat: 47.6239530
+  lng: -122.3514885
+  label: "Seattle Center Exhibition Hall, 301 Mercer St, Seattle, WA 98109"
+  osmType: way
+  osmId: 56629742
+name: seattle-worlds-vintage-fair
+sourceRole: venue
+friendlyname: "Seattle World's Vintage Fair"
+description: "Seattle World's Vintage Fair"
+timezone: America/Los_Angeles
+location: Seattle Center Exhibition Hall, 301 Mercer St, Seattle, WA 98109
+url: https://www.seattleworldsvintagefair.com/
+tags:
+  - Community
+  - QueenAnne
+# Annual one-day vintage fair (vintage clothing, antiques, collectibles, records).
+# Confirmed 2nd Saturday of May: 2025 May 10, 2026 May 9. Verify at
+# seattleworldsvintagefair.com each year before the event.
+schedules:
+  - schedule: "2nd Saturday"
+    start_time: "10:00"
+    duration: PT9H
+    months: [5]
