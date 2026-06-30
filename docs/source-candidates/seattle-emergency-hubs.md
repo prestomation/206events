@@ -6,7 +6,7 @@ url: https://seattleemergencyhubs.org/
 tags: [Community, Volunteer]
 firstSeen: 2026-06-30
 lastChecked: 2026-06-30
-pr: pending
+pr: 779
 ---
 **Seattle Emergency Hubs** — `https://seattleemergencyhubs.org/` — volunteer-run neighborhood
 disaster-preparedness network. Hub groups across Seattle neighborhoods (Ballard, Beacon Hill,
