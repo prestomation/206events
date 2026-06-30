@@ -1,0 +1,11 @@
+name: cornish
+sourceRole: venue
+description: "Cornish College of the Arts"
+url: "https://events.seattleu.edu/api/2/events"
+friendlyLink: https://events.seattleu.edu/group/cornish-college-of-the-arts
+tags: ["Arts", "Music", "Theatre", "Belltown"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Cornish College of the Arts"
+    timezone: America/Los_Angeles
