@@ -1,0 +1,24 @@
+geo:
+  lat: 47.5604
+  lng: -122.2886
+  label: "Rainier Ave S, Columbia City, Seattle, WA 98118"
+name: columbia-city-beatwalk
+sourceRole: venue
+friendlyname: Columbia City Beatwalk
+description: Free outdoor live music festival in Columbia City's historic commercial
+  district. Multiple stages along Rainier Ave S feature diverse genres including
+  Latin, jazz, R&B, hip-hop, world music, and roots. Every 2nd Sunday, June–September.
+  Free and family-friendly.
+timezone: America/Los_Angeles
+location: Rainier Ave S, Columbia City, Seattle, WA 98118
+url: https://beatwalk.org
+tags:
+  - Music
+  - Columbia City
+  - Community
+cost: free
+schedules:
+  - schedule: "2nd Sunday"
+    start_time: "16:00"
+    duration: PT8H
+    months: [6, 7, 8, 9]
