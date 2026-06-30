@@ -6,7 +6,7 @@ url: https://scienceinseattle.com/events/list/
 tags: [Education, Community]
 firstSeen: 2026-06-30
 lastChecked: 2026-06-30
-pr: pending
+pr: 780
 ---
 
 **Science in Seattle** — `https://scienceinseattle.com/events/list/` — community calendar covering life-science conferences, symposiums, networking, and workshops in the Seattle area (academia, industry, biotech, pharma), plus science pub nights. Event organizers submit their own listings, so this is a community aggregator rather than one org's own events.
