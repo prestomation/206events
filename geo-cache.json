@@ -157,6 +157,30 @@
       "geocodedAt": "2026-06-19",
       "source": "nominatim",
       "firstSeen": "2026-06-19"
+    },
+    "9th ave gallery, 2014 9th ave, seattle, wa": {
+      "lat": 47.6169204,
+      "lng": -122.3360443,
+      "osmId": 364222265,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "phinney center concert hall, 6532 phinney ave n, seattle, wa 98103": {
+      "lat": 47.6771417,
+      "lng": -122.3540013,
+      "osmId": 161317413,
+      "osmType": "way",
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
+    },
+    "phinney center concert hall, brick building, 6532 phinney ave n, seattle": {
+      "unresolvable": true,
+      "geocodedAt": "2026-06-30",
+      "source": "nominatim",
+      "firstSeen": "2026-06-30"
     }
   }
 }
