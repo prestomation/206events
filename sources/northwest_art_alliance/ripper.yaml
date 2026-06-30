@@ -1,0 +1,12 @@
+name: northwest-art-alliance
+sourceRole: venue
+type: squarespace
+description: "Northwest Art Alliance"
+url: "https://nwartalliance.org/nwaa-events"
+friendlyLink: https://nwartalliance.org/nwaa-events
+geo: null
+tags: ["Arts", "MakersMarket"]
+calendars:
+  - name: all-events
+    friendlyname: "Northwest Art Alliance Events"
+    timezone: America/Los_Angeles
