@@ -1,11 +1,12 @@
 ---
 name: "Cornish College of the Arts"
-status: candidate
+status: added
 platform: Seattle University Localist (JSON API, numeric group_id filter)
 url: https://events.seattleu.edu/group/cornish-college-of-the-arts
 tags: [Arts, Music, Theatre]
 firstSeen: 2026-05-08
-lastChecked: 2026-06-16
+lastChecked: 2026-06-30
+pr: 762
 ---
 
 Cornish merged into Seattle University; its public event calendar is now a
@@ -46,3 +47,5 @@ Surfaced again 2026-06-07 from a poster-board photo (source-from-event): a
 "Summer at Cornish" poster on a community kiosk.
 
 Re-checked 2026-06-16: Still 0 upcoming events in the Cornish Localist group (`group_id=50276813607690`). Still in summer academic lull.
+
+Re-checked 2026-06-30: 1 upcoming event — "Softening the Blow" (July 11, 2026, 1–4pm at 9th Ave Gallery). Implemented as `sources/cornish` custom Localist JSON ripper. PR #762.
