@@ -1,0 +1,105 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "8-Bit Brass Band at The Crocodile",
+    "description": "The 8-Bit Brass Band brings the noise.",
+    "startDate": "2026-04-05T20:00:00-07:00",
+    "endDate": "2026-04-06T00:00:00-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.8bitbrassband.com/event-details/8bit-at-the-croc",
+      "name": "The Crocodile",
+      "address": "2505 1st Ave, Seattle, WA 98121, USA"
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://static.wixstatic.com/media/example.jpg",
+      "width": "2000",
+      "height": "1333"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "8-Bit Brass Band at Nectar Lounge",
+    "startDate": "2026-06-15T20:00:00-07:00",
+    "endDate": "2026-06-15T23:00:00-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.8bitbrassband.com/event-details/8bit-nectar-lounge",
+      "name": "Nectar Lounge",
+      "address": "412 N 36th St, Seattle, WA 98103, USA"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "HONK! Fest West 2026",
+    "description": "Three days of free community music festival all around Seattle!",
+    "startDate": "2026-05-29T19:00:00-07:00",
+    "endDate": "2026-05-31T23:00:00-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.8bitbrassband.com/event-details/honk-fest-west-2026",
+      "name": "See website for neighborhoods & stage maps"
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://static.wixstatic.com/media/honk-flyer.jpg",
+      "width": "1535",
+      "height": "2192"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Chewbacchus 2026 in New Orleans",
+    "startDate": "2026-02-07T12:00:00-06:00",
+    "endDate": "2026-02-07T23:00:00-06:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.8bitbrassband.com/event-details/chewbacchus-2026-in-new-orleans",
+      "name": "New Orleans",
+      "address": "New Orleans, LA, USA"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "HONK! TX",
+    "startDate": "2026-03-14T10:00:00-05:00",
+    "endDate": "2026-03-14T22:00:00-05:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.8bitbrassband.com/event-details/honk-tx",
+      "name": "Austin",
+      "address": "Austin, TX, USA"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Past Seattle Event",
+    "startDate": "2025-12-01T20:00:00-08:00",
+    "endDate": "2025-12-01T23:00:00-08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.8bitbrassband.com/event-details/past-seattle-event",
+      "name": "Magnuson Park Hangar 30",
+      "address": "6310 NE 74th St, Seattle, WA 98115, USA"
+    }
+  }
+]
