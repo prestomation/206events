@@ -3,7 +3,7 @@ name: "Pratt Fine Arts Center"
 status: notviable
 platform: ARTdynamix (Dream Warrior Group) / Canvas (canvas.pratt.org)
 url: https://pratt.org/
-tags: [Arts, Education, "Central District"]
+tags: [Arts, Education, Belltown]
 firstSeen: 2026-06-30
 lastChecked: 2026-06-30
 ---
