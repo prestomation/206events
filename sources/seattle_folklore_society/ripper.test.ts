@@ -46,13 +46,13 @@ describe('parseDateTimeStr', () => {
 describe('sample HTML parsing', () => {
     it('finds the events list container', () => {
         const root = parse(sampleHtml);
-        const list = root.querySelector('#em-events-list-1');
+        const list = root.querySelector('.em-events-list');
         expect(list).not.toBeNull();
     });
 
     it('extracts event titles from sample data', () => {
         const root = parse(sampleHtml);
-        const eventsList = root.querySelector('#em-events-list-1')!;
+        const eventsList = root.querySelector('.em-events-list')!;
         const blocks = eventsList.querySelectorAll('div > div');
         const titles: string[] = [];
         for (const block of blocks) {
@@ -67,7 +67,7 @@ describe('sample HTML parsing', () => {
 
     it('extracts date strings from sample data', () => {
         const root = parse(sampleHtml);
-        const eventsList = root.querySelector('#em-events-list-1')!;
+        const eventsList = root.querySelector('.em-events-list')!;
         const blocks = eventsList.querySelectorAll('div > div');
         const dates: string[] = [];
         for (const block of blocks) {
@@ -80,7 +80,7 @@ describe('sample HTML parsing', () => {
 
     it('extracts venue when present', () => {
         const root = parse(sampleHtml);
-        const eventsList = root.querySelector('#em-events-list-1')!;
+        const eventsList = root.querySelector('.em-events-list')!;
         const blocks = eventsList.querySelectorAll('div > div');
         const venues: string[] = [];
         for (const block of blocks) {

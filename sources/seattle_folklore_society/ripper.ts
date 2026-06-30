@@ -1,6 +1,6 @@
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { parse } from "node-html-parser";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
@@ -53,9 +53,10 @@ export function parseDateTimeStr(dateStr: string): { start: LocalDateTime; durat
     }
 }
 
-// Extract the URL slug as a stable event ID
-function slugFromUrl(url: string): string {
-    return url.replace(/\/$/, '').split('/').pop() ?? url;
+// Combine URL slug + date for a stable, collision-free event ID
+function eventId(url: string, date: LocalDateTime): string {
+    const slug = url.replace(/\/$/, '').split('/').pop() ?? url;
+    return `seattle-folklore-society-${slug}-${date.toLocalDate().toString()}`;
 }
 
 export default class SeattleFolkloreSocietyRipper implements IRipper {
@@ -85,11 +86,14 @@ export default class SeattleFolkloreSocietyRipper implements IRipper {
         }
 
         const root = parse(html);
-        const eventsList = root.querySelector('#em-events-list-1');
+        // Events Manager plugin renders a list widget with class "em-events-list".
+        // The trailing numeric ID (#em-events-list-1) is a widget instance counter
+        // that can change if the page is edited — match by class for resilience.
+        const eventsList = root.querySelector('.em-events-list');
         if (!eventsList) {
             errors.push({
                 type: "ParseError",
-                reason: 'Could not find #em-events-list-1 — page layout may have changed',
+                reason: 'Could not find .em-events-list — page layout may have changed',
                 context: 'seattle-folklore-society',
             });
             return this.buildCalendar(ripper, events, errors);
@@ -124,7 +128,7 @@ export default class SeattleFolkloreSocietyRipper implements IRipper {
             if (start.toLocalDate().isBefore(today)) continue;
 
             // Location: look for a <span> containing "Venue:"
-            let location = DEFAULT_LOCATION;
+            let location: string | undefined;
             for (const span of block.querySelectorAll('span')) {
                 const text = span.text.trim();
                 if (text.startsWith('Venue:')) {
@@ -134,17 +138,32 @@ export default class SeattleFolkloreSocietyRipper implements IRipper {
             }
 
             const startZdt = start.atZone(timezone);
-            const id = `seattle-folklore-society-${slugFromUrl(url)}`;
+            const id = eventId(url, start);
 
-            events.push({
+            const event: RipperCalendarEvent = {
                 id,
                 ripped: new Date(),
                 date: startZdt,
                 duration,
                 summary: title,
                 url,
-                location,
-            });
+                location: location ?? DEFAULT_LOCATION,
+            };
+            events.push(event);
+
+            // When no explicit Venue: span is present, the location may be wrong
+            // (events are sometimes hosted at Fremont Abbey or other venues).
+            // Signal the gap so the uncertainty resolver can confirm the address.
+            if (!location) {
+                const unknownFields: UncertaintyField[] = ['location'];
+                errors.push({
+                    type: 'Uncertainty',
+                    source: 'seattle-folklore-society',
+                    reason: `No "Venue:" span found — location defaulted to Phinney Center Concert Hall`,
+                    unknownFields,
+                    event,
+                });
+            }
         }
 
         return this.buildCalendar(ripper, events, errors);
