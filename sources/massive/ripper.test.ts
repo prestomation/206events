@@ -57,6 +57,23 @@ describe('MassiveRipper', () => {
         expect(events).toHaveLength(1);
     });
 
+    it('falls back to a stable name+date id when no Tixr url is present', () => {
+        const html = `<html><body>
+            <div class="event-item">
+                <script type="application/ld+json">{"name":"Open Club Night!"}</script>
+                <div class="infotext hide">Jul 3, 2026 10:00 PM</div>
+            </div>
+        </body></html>`;
+
+        const { events: first } = extractMassiveEvents(html, TIMEZONE);
+        const { events: second } = extractMassiveEvents(html, TIMEZONE);
+
+        expect(first).toHaveLength(1);
+        expect(first[0].id).toBe('massive-open-club-night-2026-07-03');
+        // Stable across separate parses of the same source content — no Date.now()/random.
+        expect(second[0].id).toBe(first[0].id);
+    });
+
     it('emits a ParseError for an event card missing the date/time text', () => {
         const html = `<html><body>
             <div class="event-item">

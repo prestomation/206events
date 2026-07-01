@@ -68,7 +68,7 @@ export function extractMassiveEvents(
         }
 
         const url = data.offers?.url;
-        const id = extractEventId(url);
+        const id = extractEventId(url, data.name, date);
         if (seen.has(id)) continue;
         seen.add(id);
 
@@ -95,11 +95,17 @@ export function extractMassiveEvents(
     return { events, errors };
 }
 
-function extractEventId(url: string | undefined): string {
-    if (!url) return `massive-unknown-${Date.now()}`;
-    // "https://tixr.com/e/197329" -> "massive-197329"
-    const match = url.match(/\/e\/([^/?]+)/);
-    return match ? `massive-${match[1]}` : `massive-${url}`;
+function extractEventId(url: string | undefined, name: string, date: ZonedDateTime): string {
+    if (url) {
+        // "https://tixr.com/e/197329" -> "massive-197329"
+        const match = url.match(/\/e\/([^/?]+)/);
+        if (match) return `massive-${match[1]}`;
+        return `massive-${url}`;
+    }
+    // No Tixr URL: fall back to a stable hash of name + date so ids don't
+    // change between builds (see AGENTS.md "Ripper Design: Stable Event IDs").
+    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return `massive-${slug}-${date.toLocalDate().toString()}`;
 }
 
 export default class MassiveRipper implements IRipper {
