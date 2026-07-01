@@ -1,0 +1,15 @@
+name: chophouse-row
+sourceRole: venue
+type: squarespace
+description: "Chophouse Row"
+url: "https://www.chophouserow.com/events"
+friendlyLink: https://www.chophouserow.com/
+tags: ["Music", "Capitol Hill"]
+geo:
+  lat: 47.6136581
+  lng: -122.3177114
+  label: "Chophouse Row, 1424 11th Ave, Seattle, WA 98122"
+calendars:
+  - name: chophouse-row-events
+    friendlyname: "Chophouse Row"
+    timezone: America/Los_Angeles
