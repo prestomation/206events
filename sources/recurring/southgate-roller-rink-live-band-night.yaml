@@ -1,0 +1,22 @@
+geo:
+  lat: 47.5160493
+  lng: -122.3559728
+  label: "Southgate Roller Rink, 9646 17th Ave SW, Seattle, WA 98106"
+  osmType: node
+  osmId: 6120367415
+name: southgate-roller-rink-live-band-night
+sourceRole: venue
+friendlyname: "Live Band Night (21+) at Southgate Roller Rink"
+description: Weekly 21+ live music skate night at Southgate Roller Rink; see the rink's events page for the current band lineup.
+timezone: America/Los_Angeles
+location: 9646 17th Ave SW, Seattle, WA 98106
+url: http://www.southgaterollerrink.com/events.html
+tags:
+  - Sports
+  - Music
+  - White Center
+cost: 20
+schedules:
+  - schedule: every Friday
+    start_time: "21:00"
+    duration: PT3H
