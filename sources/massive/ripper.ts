@@ -25,6 +25,7 @@ interface MassiveJsonLdEvent {
 export function extractMassiveEvents(
     html: string,
     timezone: ZoneId,
+    now: ZonedDateTime = ZonedDateTime.now(timezone),
 ): { events: RipperCalendarEvent[]; errors: RipperError[] } {
     const events: RipperCalendarEvent[] = [];
     const errors: RipperError[] = [];
@@ -54,6 +55,8 @@ export function extractMassiveEvents(
             continue;
         }
 
+        if (data["@type"] !== "Event") continue;
+
         if (!data.name) {
             errors.push({ type: "ParseError", reason: "JSON-LD Event missing name", context: JSON.stringify(data).substring(0, 200) });
             continue;
@@ -66,6 +69,8 @@ export function extractMassiveEvents(
             errors.push({ type: "ParseError", reason: `Could not parse date/time "${timeText}": ${error}`, context: data.name });
             continue;
         }
+
+        if (date.isBefore(now)) continue;
 
         const url = data.offers?.url;
         const id = extractEventId(url, data.name, date);
@@ -112,6 +117,7 @@ export default class MassiveRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
         const timezone = ZoneId.of("America/Los_Angeles");
+        const now = ZonedDateTime.now(timezone);
 
         const res = await fetchFn(ripper.config.url.toString(), {
             headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" },
@@ -119,7 +125,7 @@ export default class MassiveRipper implements IRipper {
         if (!res.ok) throw new Error(`Massive returned HTTP ${res.status}`);
 
         const html = await res.text();
-        const { events, errors } = extractMassiveEvents(html, timezone);
+        const { events, errors } = extractMassiveEvents(html, timezone, now);
 
         const calConfig = ripper.config.calendars[0];
         return [{
