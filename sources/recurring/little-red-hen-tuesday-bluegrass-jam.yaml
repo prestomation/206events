@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6802354
+  lng: -122.3248030
+  label: "Little Red Hen, 7115 Woodlawn Ave NE, Seattle, WA 98115"
+  osmType: node
+  osmId: 2463139502
+name: little-red-hen-tuesday-bluegrass-jam
+sourceRole: venue
+friendlyname: Tequila Tuesday Bluegrass Open Jam at Little Red Hen
+description: Weekly bluegrass open jam session at Little Red Hen, Seattle's longtime country-western bar near Green Lake.
+timezone: America/Los_Angeles
+location: 7115 Woodlawn Ave NE, Seattle, WA 98115
+url: http://www.littleredhen.com/pages/cal.html
+tags:
+  - Music
+  - Green Lake
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "19:30"
+    duration: PT2H30M

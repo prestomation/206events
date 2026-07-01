@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6802354
+  lng: -122.3248030
+  label: "Little Red Hen, 7115 Woodlawn Ave NE, Seattle, WA 98115"
+  osmType: node
+  osmId: 2463139502
+name: little-red-hen-monday-line-dance
+sourceRole: venue
+friendlyname: Monday Line Dance Night at Little Red Hen
+description: Weekly line dance practice session followed by a line dance party at Little Red Hen, Seattle's longtime country-western bar near Green Lake.
+timezone: America/Los_Angeles
+location: 7115 Woodlawn Ave NE, Seattle, WA 98115
+url: http://www.littleredhen.com/pages/cal.html
+tags:
+  - Dance
+  - Green Lake
+cost: free
+schedules:
+  - schedule: every Monday
+    start_time: "20:00"
+    duration: PT3H
