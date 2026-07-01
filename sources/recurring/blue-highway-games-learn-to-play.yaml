@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6385835
+  lng: -122.3571008
+  label: "Blue Highway Games, 2203 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 2019051176
+name: blue-highway-games-learn-to-play
+sourceRole: venue
+friendlyname: "Learn to Play: A Featured Game at Blue Highway Games"
+description: Monthly beginner-friendly event at Blue Highway Games where staff teach a different featured game each month at dedicated learn-to-play tables.
+timezone: America/Los_Angeles
+location: 2203 Queen Anne Ave N, Seattle, WA 98109
+url: https://www.bluehighwaygames.com/events-details/monthly-regular-events/learn-to-play-a-featured-game/
+tags:
+  - Gaming
+  - QueenAnne
+cost: 5
+schedules:
+  - schedule: last Saturday
+    start_time: "19:00"
+    duration: PT3H

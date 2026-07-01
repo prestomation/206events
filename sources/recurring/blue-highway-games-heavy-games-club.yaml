@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6385835
+  lng: -122.3571008
+  label: "Blue Highway Games, 2203 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 2019051176
+name: blue-highway-games-heavy-games-club
+sourceRole: venue
+friendlyname: Heavy Games Club at Blue Highway Games
+description: Monthly meetup at Blue Highway Games for longer, more complex "heavy" board games, run as two back-to-back four-hour sessions.
+timezone: America/Los_Angeles
+location: 2203 Queen Anne Ave N, Seattle, WA 98109
+url: https://www.bluehighwaygames.com/events-details/monthly-regular-events/heavy-games-club/
+tags:
+  - Gaming
+  - QueenAnne
+cost: free
+schedules:
+  - schedule: 1st Sunday
+    start_time: "12:00"
+    duration: PT8H

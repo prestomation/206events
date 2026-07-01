@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6385835
+  lng: -122.3571008
+  label: "Blue Highway Games, 2203 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 2019051176
+name: blue-highway-games-puzzle-exchange
+sourceRole: venue
+friendlyname: Used Puzzle Exchange at Blue Highway Games
+description: Monthly free community swap at Blue Highway Games where puzzle enthusiasts trade and pick up used jigsaw puzzles.
+timezone: America/Los_Angeles
+location: 2203 Queen Anne Ave N, Seattle, WA 98109
+url: https://www.bluehighwaygames.com/events-details/monthly-regular-events/used-puzzle-exchange/
+tags:
+  - Gaming
+  - QueenAnne
+cost: free
+schedules:
+  - schedule: last Sunday
+    start_time: "11:00"
+    duration: PT4H
