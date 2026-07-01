@@ -1,7 +1,7 @@
 ---
 name: "Massive"
 status: added
-pr: TBD
+pr: 786
 platform: Webflow (custom HTML scraper — JSON-LD + hidden date/time text)
 url: https://www.massive.club/calendar
 tags: [Nightlife, "Capitol Hill"]
