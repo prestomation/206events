@@ -94,7 +94,7 @@ export function parseEventPage(html: string): ParsedEventDate | RipperError {
         const [, startMonthName, startDay, endMonthName, endDay, year] = wordRangeMatch;
         const startMonth = MONTHS[startMonthName];
         const endMonth = endMonthName ? MONTHS[endMonthName] : startMonth;
-        if (!startMonth || !endMonth) {
+        if (startMonth === undefined || endMonth === undefined) {
             return { type: 'ParseError', reason: `Unknown month name in: ${dateStr}`, context: dateStr };
         }
         try {
@@ -109,7 +109,7 @@ export function parseEventPage(html: string): ParsedEventDate | RipperError {
     } else if (wordSingleMatch) {
         const [, monthName, day, year] = wordSingleMatch;
         const month = MONTHS[monthName];
-        if (!month) {
+        if (month === undefined) {
             return { type: 'ParseError', reason: `Unknown month name in: ${dateStr}`, context: dateStr };
         }
         try {
