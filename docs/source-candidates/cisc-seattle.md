@@ -6,7 +6,7 @@ url: https://cisc-seattle.org/events/
 tags: [Community, "International District"]
 firstSeen: 2026-07-01
 lastChecked: 2026-07-01
-pr:
+pr: 805
 ---
 
 Community services nonprofit headquartered at 611 S Lane St, Seattle
