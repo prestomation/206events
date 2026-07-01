@@ -1,6 +1,7 @@
 ---
 name: "The Beer Junction"
-status: candidate
+status: added
+pr: 787
 platform: Squarespace
 url: https://www.thebeerjunction.com/upcoming-events
 tags: [Beer, "West Seattle"]
