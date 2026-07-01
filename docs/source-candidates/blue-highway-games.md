@@ -1,6 +1,7 @@
 ---
 name: "Blue Highway Games"
-status: candidate
+status: added
+pr: 799
 platform: recurring YAML (Lightspeed-powered site; interactive calendar is an Elfsight JS widget, not fetchable)
 url: https://www.bluehighwaygames.com/
 tags: [Gaming, QueenAnne, Beer]
