@@ -1,0 +1,18 @@
+name: sonic-boom-records
+sourceRole: venue
+type: squarespace
+description: "Sonic Boom Records"
+url: "https://www.sonicboomrecords.com/instores"
+friendlyLink: https://www.sonicboomrecords.com/instores
+tags: ["Music", "Ballard"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/59caac19e3df2884118eccb4/1781050055556-KRXTO6XJILK4QQGUCO55/Feed%2BPanel%2B1.jpg"
+geo:
+  lat: 47.6685217
+  lng: -122.3850971
+  label: "Sonic Boom Records, 2209 NW Market St, Seattle, WA 98107"
+  osmType: node
+  osmId: 2275838764
+calendars:
+  - name: all-events
+    friendlyname: "Sonic Boom Records"
+    timezone: America/Los_Angeles
