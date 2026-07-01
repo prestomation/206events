@@ -1,0 +1,23 @@
+geo:
+  lat: 47.6123580
+  lng: -122.2957890
+  label: "Madrona Grocery Outlet, 1126 Martin Luther King Jr Way, Seattle, WA 98122"
+name: central-district-farmers-market
+sourceRole: venue
+friendlyname: Central District Farmers Market
+description: Weekly outdoor farmers market (formerly known as the Madrona Farmers
+  Market) in the Madrona Grocery Outlet parking lot at MLK Jr Way & E Union St,
+  run by the Seattle Farmers Market Association. Seasonal produce, fishers, and
+  ranchers alongside artisan foods. Runs May through October.
+timezone: America/Los_Angeles
+location: "Madrona Grocery Outlet, 1126 Martin Luther King Jr Way, Seattle, WA 98122"
+url: http://www.sfmamarkets.com/central-district-farmers-market
+tags:
+  - FarmersMarket
+  - Central District
+cost: free
+schedules:
+  - schedule: every Friday
+    start_time: "15:00"
+    duration: PT4H
+    months: [5, 6, 7, 8, 9, 10]
