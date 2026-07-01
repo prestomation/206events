@@ -1,7 +1,7 @@
 ---
 name: "Dreamland Bar & Diner - Dream Girls Drag Brunch"
 status: added
-pr: pending
+pr: 784
 platform: recurring YAML (Tock ticketing, no public feed)
 url: https://www.dreamlandfremont.com/drag
 tags: [Nightlife, Fremont]
