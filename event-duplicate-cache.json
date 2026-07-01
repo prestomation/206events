@@ -5344,6 +5344,26 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-01",
       "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "nectar-lounge-nectar-lounge.ics DEB\u00cd TIRAR M\u00c1S FIESTAS | A BAD BUNNY NIGHT|2026-08-08T21:30:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Debi Tirar Mas Fiestas: A Bad Bunny Night|2026-08-08T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event \u2014 visit-seattle uses noon default; venue source has actual 21:30 time"
+    },
+    "seattle-center-festal-all-events.ics D\u00eda de Muertos Festival Seattle|2026-10-31T11:00:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festal: Dia de Muertos Festival Seattle|2026-10-31T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event \u2014 Festal Dia de Muertos at Seattle Center; visit-seattle uses noon default"
+    },
+    "seattle-showlists-nectar-lounge.ics DEB\u00cd TIRAR M\u00c1S FIESTAS | A BAD BUNNY NIGHT|2026-08-08T20:00:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Debi Tirar Mas Fiestas: A Bad Bunny Night|2026-08-08T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event \u2014 seattle-showlists aggregates Nectar Lounge; visit-seattle uses noon default"
+    },
+    "tractor-tavern-tractor-tavern.ics Liam St. John w/ Davis Corley|2026-08-07T20:00:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Liam St. John|2026-08-07T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event at Tractor Tavern \u2014 visit-seattle truncated title and uses noon default"
     }
   }
 }

@@ -1,7 +1,6 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: sunset-tavern
 sourceRole: venue
-expectEmpty: true
 type: dice
 description: "Sunset Tavern"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Sunset+Tavern"
