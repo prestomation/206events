@@ -1,6 +1,7 @@
 ---
 name: "The Missing Piece"
-status: candidate
+status: added
+pr: 792
 platform: "WordPress / The Events Calendar (Tribe Events) REST API"
 url: https://www.themissingpiecegames.com/events/
 tags: [Gaming, "West Seattle"]
