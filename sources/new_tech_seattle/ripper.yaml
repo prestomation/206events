@@ -1,0 +1,16 @@
+name: new-tech-seattle
+sourceRole: venue
+description: "New Tech Seattle"
+url: "https://www.meetup.com/newtechseattle/events/"
+friendlyLink: https://www.newtechnorthwest.com/
+tags: ["Tech", "South Lake Union"]
+geo:
+  lat: 47.6223468
+  lng: -122.3420478
+  label: "The Collective Seattle, 400 Dexter Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 11978458746
+calendars:
+  - name: calendar
+    friendlyname: "New Tech Seattle"
+    timezone: America/Los_Angeles
