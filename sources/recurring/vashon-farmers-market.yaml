@@ -1,0 +1,22 @@
+geo:
+  lat: 47.4480526
+  lng: -122.4607191
+  label: "Village Green, 17519 Vashon Highway SW, Vashon, WA 98070"
+name: vashon-farmers-market
+sourceRole: venue
+friendlyname: Vashon Farmers Market
+description: Weekly seasonal farmers market at the Village Green in the town of
+  Vashon, run by the Vashon Island Growers Association (VIGA). Local produce,
+  artisan goods, and live music.
+timezone: America/Los_Angeles
+location: "Village Green, 17519 Vashon Highway SW, Vashon, WA 98070"
+url: https://www.vigavashon.org/market
+tags:
+  - FarmersMarket
+  - Vashon
+cost: free
+schedules:
+  - schedule: every Saturday
+    start_time: "10:00"
+    duration: PT5H
+    months: [5, 6, 7, 8, 9]
