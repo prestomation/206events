@@ -1,0 +1,16 @@
+name: massive
+sourceRole: venue
+description: "Massive"
+url: "https://www.massive.club/calendar"
+friendlyLink: https://www.massive.club/
+tags: ["Nightlife", "Capitol Hill"]
+geo:
+  lat: 47.6150824
+  lng: -122.3237201
+  label: "Massive, 619 E Pine St, Seattle, WA 98122"
+  osmType: node
+  osmId: 2158768961
+calendars:
+  - name: calendar
+    friendlyname: "Massive"
+    timezone: America/Los_Angeles
