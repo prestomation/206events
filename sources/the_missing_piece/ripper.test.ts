@@ -72,6 +72,19 @@ describe('The Missing Piece Ripper', () => {
     expect(event.summary).toBe('American Mah Jongg');
   });
 
+  test('ignores non-numeric cost values instead of producing NaN', () => {
+    const ripper = new TheMissingPieceRipper();
+    const date = ZonedDateTime.parse('2026-07-01T00:00:00-07:00[America/Los_Angeles]');
+    const sample = loadSampleData();
+    const scrabble = sample.events.find((e: any) => e.title === 'Scrabble Night');
+    const malformed = { ...scrabble, id: 99999999, cost_details: { values: ['TBD', 'also-not-a-number'] } };
+
+    const results = ripper.parseEvents({ events: [malformed] }, date);
+    const event = results[0] as RipperCalendarEvent;
+
+    expect(event.cost).toBeUndefined();
+  });
+
   test('returns a ParseError when the events array is missing', () => {
     const ripper = new TheMissingPieceRipper();
     const date = ZonedDateTime.parse('2026-07-01T00:00:00-07:00[America/Los_Angeles]');

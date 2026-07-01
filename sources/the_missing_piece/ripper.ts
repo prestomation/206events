@@ -12,6 +12,9 @@ import '@js-joda/timezone';
 export default class TheMissingPieceRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
+        if (ripper.config.calendars.length === 0) {
+            throw new Error("No calendars configured");
+        }
         const cal = ripper.config.calendars[0];
         const allEvents: RipperEvent[] = [];
 
@@ -82,7 +85,7 @@ export default class TheMissingPieceRipper implements IRipper {
 
             const venue = event.venue;
             const location = venue
-                ? `${venue.venue}, ${venue.address}, ${venue.city}, ${venue.stateprovince} ${venue.zip}`
+                ? decode(`${venue.venue}, ${venue.address}, ${venue.city}, ${venue.stateprovince} ${venue.zip}`)
                 : undefined;
 
             return {
@@ -108,9 +111,10 @@ export default class TheMissingPieceRipper implements IRipper {
 
     private parseCost(costDetails: any): EventCost | undefined {
         const values: string[] = costDetails?.values ?? [];
-        if (values.length === 0) return undefined;
-        if (values.length === 1) return { min: parseFloat(values[0]) };
-        return { min: parseFloat(values[0]), max: parseFloat(values[1]) };
+        const parsed = values.map((v) => parseFloat(v)).filter((n) => !isNaN(n));
+        if (parsed.length === 0) return undefined;
+        if (parsed.length === 1) return { min: parsed[0] };
+        return { min: parsed[0], max: parsed[1] };
     }
 
     private stripHtml(html: string): string {
