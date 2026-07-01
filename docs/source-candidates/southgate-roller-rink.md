@@ -1,6 +1,7 @@
 ---
 name: "Southgate Roller Rink"
-status: candidate
+status: added
+pr: 804
 platform: recurring YAML (7 named weekly themed skate nights)
 url: http://www.southgaterollerrink.com/schedule.html
 tags: [Sports, "White Center"]
@@ -15,3 +16,4 @@ Investigated 2026-07-01:
 - Address confirmed via Nominatim: 9646 17th Ave SW, Seattle, WA 98106 (47.5160493, -122.3559728), matching OSM node 6120367415 ("Southgate Roller Rink", leisure=sports_centre)
 - Skipped as too generic/not distinct "events": Family Skate sessions (multiple per day, effectively normal operating hours) and the Sunday "Learn to Skate" paid class (registration-based instruction, not a themed public night) — same reasoning as skipped registration-based classes in `docs/source-candidates/blue-highway-games.md`
 - Implemented as 7 separate `sources/recurring/southgate-roller-rink-*.yaml` files (one per distinctly-named event), following the Blue Highway Games precedent for a single venue with multiple differently-named recurring events (one YAML file = one RipperCalendar/ICS)
+- Confirmed in CI (PR #804): all 7 calendars produced 1 event each in the build preview
