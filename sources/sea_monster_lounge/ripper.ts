@@ -87,8 +87,8 @@ export function extractSeaMonsterEvents(
         const result = parseSeaMonsterEvent(raw, timezone);
         if ("date" in result) {
             if (result.date.isBefore(now)) continue; // past event — filtered in the caller, not the parse method
-            if (seen.has(result.id!)) continue;
-            seen.add(result.id!);
+            if (result.id && seen.has(result.id)) continue;
+            if (result.id) seen.add(result.id);
             events.push(result);
         } else {
             errors.push(result);
