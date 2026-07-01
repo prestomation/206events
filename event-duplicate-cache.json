@@ -4929,6 +4929,441 @@
       "decision": "rejected",
       "resolvedAt": "2026-06-30",
       "note": "Same trivia host but different locations: Ballard (1108 NW 52nd St) vs Capitol Hill (1158 Broadway)"
+    },
+    "19hz-all-events.ics Franc Moody (DJ Set)|2026-08-20T20:00:00-07:00[America/Los_Angeles]::nectar-lounge-nectar-lounge.ics FRANC MOODY (DJ Set) plus DJ Max Gain|2026-08-20T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "19hz-all-events.ics Franc Moody (DJ Set)|2026-08-20T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-nectar-lounge.ics FRANC MOODY (DJ Set) plus DJ Max Gain|2026-08-20T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "19hz-all-events.ics Fun Party: Mike Servito, DJ Having Sex|2026-07-03T22:00:00-07:00[America/Los_Angeles]::massive-calendar.ics Fun Party: Mike Servito (NYC)|2026-07-03T22:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "19hz-all-events.ics Massive Halloween: 3 Year Anniversary Weekend|2026-10-30T22:00:00-07:00[America/Los_Angeles]::massive-calendar.ics Massive Halloween (3yr Anniversary Weekend)|2026-10-30T22:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "cornish-all-events.ics Softening the Blow|2026-07-11T13:00:00-07:00::external-seattle-university.ics Softening the Blow|2026-07-11T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "downtown-seattle-association-occidental-square.ics Chasing Abbey \u2013 Downtown Summer Sounds|2026-08-13T16:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Chasing Abbey \u2013 Downtown Summer Sounds|2026-08-13T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "downtown-seattle-association-occidental-square.ics G Flip \u2013 Downtown Summer Sounds|2026-08-27T16:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics G Flip \u2013 Downtown Summer Sounds|2026-08-27T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "downtown-seattle-association-occidental-square.ics La Luz \u2013 Downtown Summer Sounds|2026-08-20T16:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics La Luz \u2013 Downtown Summer Sounds|2026-08-20T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "downtown-seattle-association-occidental-square.ics Saba \u2013 Downtown Summer Sounds|2026-08-06T16:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Saba \u2013 Downtown Summer Sounds|2026-08-06T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-arts.ics Ancestral Future: Live Photoshoot and Artist Talk|2026-07-18T15:00:00Z[UTC]::external-seattle-gov-city-wide.ics Ancestral Future: Live Photoshoot and Artist Talk|2026-07-18T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-arts.ics Expressive Figure Drawing Workshop with Lila Alexis Thomas|2026-07-11T12:00:00Z[UTC]::external-seattle-gov-city-wide.ics Expressive Figure Drawing Workshop with Lila Alexis Thomas|2026-07-11T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-arts.ics The Residency | The Four Corners: We Still Dream of Hip Hop| Part Two|2026-07-09T16:00:00Z[UTC]::external-seattle-gov-city-wide.ics The Residency | The Four Corners: We Still Dream of Hip Hop| Part Two|2026-07-09T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-arts.ics This Room is Ours: Centering the Black Figure: Roundtable Talk|2026-07-02T18:00:00Z[UTC]::external-seattle-gov-city-wide.ics This Room is Ours: Centering the Black Figure: Roundtable Talk|2026-07-02T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-arts.ics This Room is Ours: Centering the Black Figure: Roundtable Talk|2026-07-02T18:00:00Z[UTC]::seatoday-seatoday-all.ics This Room is Ours: Centering the Black Figure|2026-07-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-arts.ics This Room is Ours: Centering the Black Figure: Roundtable Talk|2026-07-02T18:00:00Z[UTC]::seatoday-seatoday-arts.ics This Room is Ours: Centering the Black Figure|2026-07-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-arts.ics This Room is Ours: Centering the Black Figure: Roundtable Talk|2026-07-02T18:00:00Z[UTC]::seatoday-seatoday-community.ics This Room is Ours: Centering the Black Figure|2026-07-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics King County Environmental Health Services' Rodent Roadshow Workshop Field Trip|2026-07-25T11:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics King County Environmental Health Services' Rodent Roadshow Workshop Field Trip|2026-07-25T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-02T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-02T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-03T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-03T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-04T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-04T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-05T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-05T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-06T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-06T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-07T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-08T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-08T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-09T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-09T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-10T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-10T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-11T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-11T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-12T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-12T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-13T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-13T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-14T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-14T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-15T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-15T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-16T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-16T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-17T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-17T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-18T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-19T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-19T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-20T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-20T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-21T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-21T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-22T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-22T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-23T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-23T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-24T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-24T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-25T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-25T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-26T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-27T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-27T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-28T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-28T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-29T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-29T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-30T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-30T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-07-31T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-07-31T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-01T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-01T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-02T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-02T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-03T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-03T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-04T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-04T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-05T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-05T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-06T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-06T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-07T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-08T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-08T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-09T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-09T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-10T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-10T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-11T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-11T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-12T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-12T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics SALT|2026-08-13T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics SALT|2026-08-13T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics This Room is Ours: Centering the Black Figure: Roundtable Talk|2026-07-02T18:00:00Z[UTC]::seatoday-seatoday-all.ics This Room is Ours: Centering the Black Figure|2026-07-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics This Room is Ours: Centering the Black Figure: Roundtable Talk|2026-07-02T18:00:00Z[UTC]::seatoday-seatoday-arts.ics This Room is Ours: Centering the Black Figure|2026-07-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "external-seattle-gov-city-wide.ics This Room is Ours: Centering the Black Figure: Roundtable Talk|2026-07-02T18:00:00Z[UTC]::seatoday-seatoday-community.ics This Room is Ours: Centering the Black Figure|2026-07-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "gallery-110-all-events.ics Closing Receptions - Artist / Mother + Love in the Eighth Decade|2026-08-01T16:00:00.712-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Closing Reception \u2013 Kathy Roseth: Love in the Eighth Decade|2026-08-01T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-07-03T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-07-03T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Beach Naturalist Shore Stroll|2026-07-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Beach Naturalist Shore Stroll|2026-07-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Beach Naturalist Shore Stroll|2026-07-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Beach Naturalist Shore Stroll|2026-07-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-all.ics Exceptional Connections July Networking Luncheon|2026-07-14T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Exceptional Connections July Networking Luncheon|2026-07-14T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-all.ics Exceptional Connections July Networking Luncheon|2026-07-14T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Exceptional Connections July Networking Luncheon|2026-07-14T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-all.ics Meet Me at the Park|2026-07-14T06:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Meet Me at the Park|2026-07-14T06:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-community.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-community.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-food.ics Exceptional Connections July Networking Luncheon|2026-07-14T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Exceptional Connections July Networking Luncheon|2026-07-14T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "seatoday-seatoday-food.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-07-14T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Theo Kandel, guests|2026-09-16T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Theo Kandel w/ guests AT The Sunset|2026-09-16T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event in multiple feeds \u2014 title/time/location match"
+    },
+    "nectar-lounge-nectar-lounge.ics DEB\u00cd TIRAR M\u00c1S FIESTAS | A BAD BUNNY NIGHT|2026-08-08T21:30:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Debi Tirar Mas Fiestas: A Bad Bunny Night|2026-08-08T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event \u2014 visit-seattle uses noon default; venue source has actual 21:30 time"
+    },
+    "seattle-center-festal-all-events.ics D\u00eda de Muertos Festival Seattle|2026-10-31T11:00:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festal: Dia de Muertos Festival Seattle|2026-10-31T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event \u2014 Festal Dia de Muertos at Seattle Center; visit-seattle uses noon default"
+    },
+    "seattle-showlists-nectar-lounge.ics DEB\u00cd TIRAR M\u00c1S FIESTAS | A BAD BUNNY NIGHT|2026-08-08T20:00:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Debi Tirar Mas Fiestas: A Bad Bunny Night|2026-08-08T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event \u2014 seattle-showlists aggregates Nectar Lounge; visit-seattle uses noon default"
+    },
+    "tractor-tavern-tractor-tavern.ics Liam St. John w/ Davis Corley|2026-08-07T20:00:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Liam St. John|2026-08-07T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-01",
+      "note": "Same event at Tractor Tavern \u2014 visit-seattle truncated title and uses noon default"
     }
   }
 }

@@ -5,6 +5,7 @@ friendlyname: Capitol Hill Seattle (CHS)
 description: Community events calendar from Capitol Hill Seattle (CHS Blog), covering happenings, arts, music, community gatherings, and neighborhood events across Seattle's Capitol Hill neighborhood.
 icsUrl: https://www.capitolhillseattle.com/?post_type=tribe_events&ical=1&eventDisplay=list
 proxy: browserbase
+disabled: true
 infoUrl: https://www.capitolhillseattle.com/calendar/
 tags:
   - Capitol Hill

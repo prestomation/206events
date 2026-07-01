@@ -1,6 +1,5 @@
 name: black_lodge
 sourceRole: venue
-expectEmpty: true
 type: dice
 description: "The Black Lodge"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Black+Lodge"

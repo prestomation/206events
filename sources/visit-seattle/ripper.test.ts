@@ -48,7 +48,7 @@ describe('parseRSSItems', () => {
 });
 
 describe('parseEventPage', () => {
-    it('parses multi-day event date and location', () => {
+    it('parses multi-day event date and location (word-based same-month range)', () => {
         const result = parseEventPage(loadSampleEventPage());
         expect('type' in result).toBe(false);
         if ('type' in result) return;
@@ -61,18 +61,43 @@ describe('parseEventPage', () => {
         expect(result.location).toBe('Seattle Center');
     });
 
-    it('parses single-day event', () => {
+    it('parses cross-month range (word-based)', () => {
+        const html = `<html><body>
+            <h4><span>October 31-November 1, 2026</span> | <span> Seattle Center</span></h4>
+        </body></html>`;
+        const result = parseEventPage(html);
+        expect('type' in result).toBe(false);
+        if ('type' in result) return;
+        expect(result.startDate.monthValue()).toBe(10);
+        expect(result.startDate.dayOfMonth()).toBe(31);
+        expect(result.endDate.monthValue()).toBe(11);
+        expect(result.endDate.dayOfMonth()).toBe(1);
+        expect(result.location).toBe('Seattle Center');
+    });
+
+    it('parses single-day event (word-based)', () => {
+        const html = `<html><body>
+            <h4><span>August 1, 2026</span> | <span> Seattle Center Armory</span></h4>
+        </body></html>`;
+        const result = parseEventPage(html);
+        expect('type' in result).toBe(false);
+        if ('type' in result) return;
+        expect(result.startDate.monthValue()).toBe(8);
+        expect(result.startDate.dayOfMonth()).toBe(1);
+        expect(result.endDate.equals(result.startDate)).toBe(true);
+        expect(result.location).toBe('Seattle Center Armory');
+    });
+
+    it('parses single-day event (legacy numeric)', () => {
         const html = `<html><body>
             <h4><span>8/1/2026</span> | <span> Seattle Center Armory</span></h4>
         </body></html>`;
         const result = parseEventPage(html);
         expect('type' in result).toBe(false);
         if ('type' in result) return;
-        expect(result.startDate.year()).toBe(2026);
         expect(result.startDate.monthValue()).toBe(8);
         expect(result.startDate.dayOfMonth()).toBe(1);
         expect(result.endDate.equals(result.startDate)).toBe(true);
-        expect(result.location).toBe('Seattle Center Armory');
     });
 
     it('returns ParseError when no h4 date found', () => {
@@ -84,7 +109,7 @@ describe('parseEventPage', () => {
 
     it('decodes HTML entities in location', () => {
         const html = `<html><body>
-            <h4><span>9/13/2026</span> | <span> Seattle Center &amp; Armory</span></h4>
+            <h4><span>September 13, 2026</span> | <span> Seattle Center &amp; Armory</span></h4>
         </body></html>`;
         const result = parseEventPage(html);
         expect('type' in result).toBe(false);

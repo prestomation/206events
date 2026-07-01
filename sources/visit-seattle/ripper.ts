@@ -42,11 +42,19 @@ export function parseRSSItems(xml: string): RSSItem[] {
     return items;
 }
 
+const MONTHS: { [key: string]: number } = {
+    January: 1, February: 2, March: 3, April: 4,
+    May: 5, June: 6, July: 7, August: 8,
+    September: 9, October: 10, November: 11, December: 12,
+};
+
 // Parses the event date/location from a Visit Seattle event page.
-// Matches: <h4><span>M/D/YYYY through M/D/YYYY</span> | <span> Location</span></h4>
-// or:      <h4><span>M/D/YYYY</span> | <span> Location</span></h4>
+// Handles legacy numeric formats and current word-based formats:
+//   <h4><span>October 31-November 1, 2026</span> | <span> Location</span></h4>
+//   <h4><span>July 24-26, 2026</span> | <span> Location</span></h4>
+//   <h4><span>October 31, 2026</span> | <span> Location</span></h4>
 export function parseEventPage(html: string): ParsedEventDate | RipperError {
-    const h4Match = html.match(/<h4><span>([\d/]+(?: through [\d/]+)?)<\/span>\s*\|\s*<span>\s*([^<]+)<\/span><\/h4>/);
+    const h4Match = html.match(/<h4><span>([^<]+)<\/span>\s*\|\s*<span>\s*([^<]+)<\/span><\/h4>/);
     if (!h4Match) {
         return { type: 'ParseError', reason: 'No date/location h4 found on event page', context: html.slice(0, 200) };
     }
@@ -54,8 +62,14 @@ export function parseEventPage(html: string): ParsedEventDate | RipperError {
     const dateStr = h4Match[1].trim();
     const location = decodeHtmlEntities(h4Match[2].trim());
 
+    // Legacy: M/D/YYYY through M/D/YYYY
     const rangeMatch = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4}) through (\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    // Legacy: M/D/YYYY
     const singleMatch = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    // Current: "October 31-November 1, 2026" or "July 24-26, 2026"
+    const wordRangeMatch = dateStr.match(/^(\w+)\s+(\d{1,2})\s*[-–]\s*(?:(\w+)\s+)?(\d{1,2}),\s+(\d{4})$/);
+    // Current: "October 31, 2026"
+    const wordSingleMatch = dateStr.match(/^(\w+)\s+(\d{1,2}),\s+(\d{4})$/);
 
     if (rangeMatch) {
         const [, sm, sd, sy, em, ed, ey] = rangeMatch;
@@ -72,6 +86,34 @@ export function parseEventPage(html: string): ParsedEventDate | RipperError {
         const [, m, d, y] = singleMatch;
         try {
             const date = LocalDate.of(parseInt(y), parseInt(m), parseInt(d));
+            return { startDate: date, endDate: date, location };
+        } catch {
+            return { type: 'ParseError', reason: `Invalid date: ${dateStr}`, context: dateStr };
+        }
+    } else if (wordRangeMatch) {
+        const [, startMonthName, startDay, endMonthName, endDay, year] = wordRangeMatch;
+        const startMonth = MONTHS[startMonthName];
+        const endMonth = endMonthName ? MONTHS[endMonthName] : startMonth;
+        if (startMonth === undefined || endMonth === undefined) {
+            return { type: 'ParseError', reason: `Unknown month name in: ${dateStr}`, context: dateStr };
+        }
+        try {
+            return {
+                startDate: LocalDate.of(parseInt(year), startMonth, parseInt(startDay)),
+                endDate: LocalDate.of(parseInt(year), endMonth, parseInt(endDay)),
+                location,
+            };
+        } catch {
+            return { type: 'ParseError', reason: `Invalid date in range: ${dateStr}`, context: dateStr };
+        }
+    } else if (wordSingleMatch) {
+        const [, monthName, day, year] = wordSingleMatch;
+        const month = MONTHS[monthName];
+        if (month === undefined) {
+            return { type: 'ParseError', reason: `Unknown month name in: ${dateStr}`, context: dateStr };
+        }
+        try {
+            const date = LocalDate.of(parseInt(year), month, parseInt(day));
             return { startDate: date, endDate: date, location };
         } catch {
             return { type: 'ParseError', reason: `Invalid date: ${dateStr}`, context: dateStr };

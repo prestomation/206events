@@ -1,6 +1,5 @@
 name: belltown_yacht_club
 sourceRole: venue
-expectEmpty: true
 type: dice
 description: "Belltown Yacht Club"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=Belltown+Yacht+Club"
