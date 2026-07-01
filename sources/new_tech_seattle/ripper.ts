@@ -1,9 +1,13 @@
 import { Duration, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
 
+// The Collective Seattle is a coworking space that hosts many unrelated
+// event series; this ripper only ever covers New Tech Seattle's own
+// meetup, so the address is a fixed constant rather than resolved from
+// the per-event `venue.__ref` (the venue is never expected to change).
 const LOCATION = "The Collective Seattle, 400 Dexter Ave N, Seattle, WA 98109";
 const DEFAULT_DURATION = Duration.ofHours(2);
 const DESCRIPTION_MAX_LENGTH = 500;
@@ -75,17 +79,34 @@ export function extractNewTechSeattleEvents(
     const errors: RipperError[] = [];
     const seen = new Set<string>();
 
-    for (const [key, raw] of Object.entries(apolloState)) {
+    for (const [key, rawEntry] of Object.entries(apolloState)) {
         if (!key.startsWith("Event:")) continue;
+        const raw = rawEntry as NewTechSeattleEvent;
 
-        const result = parseNewTechSeattleEvent(raw as NewTechSeattleEvent, timezone);
-        if ("date" in result) {
-            if (result.date.isBefore(now)) continue; // past event — filtered in the caller, not the parse method
-            if (result.id && seen.has(result.id)) continue;
-            if (result.id) seen.add(result.id);
-            events.push(result);
-        } else {
+        const result = parseNewTechSeattleEvent(raw, timezone);
+        if ("type" in result) {
             errors.push(result);
+            continue;
+        }
+
+        const { event, durationUncertain } = result;
+        if (event.date.isBefore(now)) continue; // past event — filtered in the caller, not the parse method
+        // Dedup on Meetup's own numeric event id (not the derived date-based
+        // RipperCalendarEvent.id) so two distinct events landing on the same
+        // calendar day are never mistaken for a refetch of the same event.
+        if (seen.has(raw.id!)) continue;
+        seen.add(raw.id!);
+        events.push(event);
+
+        if (durationUncertain) {
+            const unknownFields: UncertaintyField[] = ["duration"];
+            errors.push({
+                type: "Uncertainty",
+                source: "new-tech-seattle",
+                reason: `No endTime listed for the ${event.date.toLocalDate()} occurrence`,
+                unknownFields,
+                event,
+            });
         }
     }
 
@@ -95,14 +116,14 @@ export function extractNewTechSeattleEvents(
 function parseNewTechSeattleEvent(
     raw: NewTechSeattleEvent,
     timezone: ZoneId,
-): RipperCalendarEvent | RipperError {
+): { event: RipperCalendarEvent; durationUncertain: boolean } | RipperError {
     const title = raw.title;
     const dateTime = raw.dateTime;
 
-    if (!title || !dateTime) {
+    if (!raw.id || !title || !dateTime) {
         return {
             type: "ParseError",
-            reason: "Event missing title or dateTime",
+            reason: "Event missing id, title, or dateTime",
             context: JSON.stringify(raw).substring(0, 200),
         };
     }
@@ -114,20 +135,27 @@ function parseNewTechSeattleEvent(
         return { type: "ParseError", reason: `Invalid dateTime "${dateTime}": ${error}`, context: title };
     }
 
+    // A missing/invalid endTime is signaled to the caller as duration
+    // uncertainty (see events12's canonical pattern) rather than silently
+    // publishing the DEFAULT_DURATION guess as fact.
     let duration = DEFAULT_DURATION;
+    let durationUncertain = true;
     if (raw.endTime) {
         try {
             const end = ZonedDateTime.parse(raw.endTime).withZoneSameInstant(timezone);
             const diffMinutes = Duration.between(start, end).toMinutes();
-            if (diffMinutes > 0) duration = Duration.ofMinutes(diffMinutes);
+            if (diffMinutes > 0) {
+                duration = Duration.ofMinutes(diffMinutes);
+                durationUncertain = false;
+            }
         } catch {
-            // Fall back to DEFAULT_DURATION.
+            // Fall back to DEFAULT_DURATION; durationUncertain stays true.
         }
     }
 
-    const id = `new-tech-seattle-${start.toLocalDate().toString()}`;
+    const id = `new-tech-seattle-${raw.id}`;
 
-    return {
+    const event: RipperCalendarEvent = {
         id,
         ripped: new Date(),
         date: start,
@@ -137,6 +165,8 @@ function parseNewTechSeattleEvent(
         location: LOCATION,
         url: raw.eventUrl,
     };
+
+    return { event, durationUncertain };
 }
 
 export default class NewTechSeattleRipper implements IRipper {
