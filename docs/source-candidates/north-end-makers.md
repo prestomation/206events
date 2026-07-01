@@ -1,11 +1,12 @@
 ---
 name: "North End Makers"
-status: candidate
+status: added
 platform: Eventbrite
 url: https://www.eventbrite.com/o/north-end-makers-32678506429
 tags: [Community, Northgate]
 firstSeen: 2026-07-01
 lastChecked: 2026-07-01
+pr: 791
 ---
 
 **North End Makers** — `https://northendmakers.org/` — volunteer-run 501(c)(3) makerspace at 12317 15th Ave NE #103, Seattle, WA 98125 (Pinehurst/Northgate). Provides tools, classes, and community space for woodworking, 3D printing, electronics, and other STEAM disciplines.
