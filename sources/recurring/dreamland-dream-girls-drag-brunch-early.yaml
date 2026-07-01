@@ -1,0 +1,20 @@
+geo:
+  lat: 47.6501070
+  lng: -122.3516172
+  label: "Dreamland Bar & Diner, 3401 Evanston Ave N, Seattle, WA 98103"
+  osmType: way
+  osmId: 114918102
+name: dreamland-dream-girls-drag-brunch-early
+sourceRole: venue
+friendlyname: Dream Girls Drag Brunch (Matinee) at Dreamland
+description: Weekly Saturday drag brunch matinee on Dreamland's neo-tropical patio in Fremont, with rotating drag queens performing to pop hits. Tickets required, sold via Tock.
+timezone: America/Los_Angeles
+location: 3401 Evanston Ave N, Seattle, WA 98103
+url: https://www.dreamlandfremont.com/drag
+tags:
+  - Nightlife
+  - Fremont
+schedules:
+  - schedule: every Saturday
+    start_time: "11:15"
+    duration: PT1H30M
