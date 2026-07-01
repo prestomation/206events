@@ -1,6 +1,7 @@
 ---
 name: "Sea Monster Lounge"
 status: added
+pr: 798
 platform: Wix (embedded warmup JSON)
 url: https://www.seamonsterlounge.com/buy-tickets-in-advance
 tags: [Music, Wallingford]
@@ -16,4 +17,4 @@ Investigated 2026-07-01:
 - No ticket price signal in the feed — `cost` intentionally omitted rather than guessed
 - Not a duplicate of `sources/external/go-latin-dance-seattle.yaml` (which only carries Latin-dance-social nights hosted at this venue among several others) — this source covers the venue's own full nightly music calendar; cross-source dedup will reconcile any overlapping events
 
-Implemented as a custom `IRipper` (`sources/sea_monster_lounge/ripper.ts`) — PR TBD.
+Implemented as a custom `IRipper` (`sources/sea_monster_lounge/ripper.ts`) — PR #798.
