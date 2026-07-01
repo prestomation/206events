@@ -22,6 +22,8 @@ cost: free
 # Center is taken over by the full Punk Rock Flea Market weekend (e.g. no
 # CHASM in June 2026 due to the June 20 PRFM weekend) - not encodable as a
 # schedule exception, so an occasional false-positive occurrence is expected.
+# Re-verify the skip month against punkrockfleamarketseattle.com/pages/upcoming-chasm
+# each year (calendar-verification skill).
 schedules:
   - schedule: 3rd Saturday
     start_time: "12:00"
