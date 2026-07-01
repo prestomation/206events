@@ -1,0 +1,19 @@
+# verified: 2026-07-01 ok
+name: the-beer-junction
+sourceRole: venue
+type: squarespace
+description: "The Beer Junction"
+url: "https://www.thebeerjunction.com/upcoming-events"
+friendlyLink: https://www.thebeerjunction.com/upcoming-events
+tags: ["Beer", "West Seattle"]
+geo:
+  lat: 47.5625293
+  lng: -122.3870064
+  label: "The Beer Junction, 4511 California Ave SW, Seattle, WA 98116"
+  osmType: node
+  osmId: 2397401916
+  osmChecked: "2026-07-01"
+calendars:
+  - name: all-events
+    friendlyname: "The Beer Junction"
+    timezone: America/Los_Angeles
