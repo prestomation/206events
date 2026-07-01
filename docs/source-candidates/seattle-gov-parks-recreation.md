@@ -1,6 +1,7 @@
 ---
 name: "City of Seattle — Parks and Recreation"
-status: candidate
+status: added
+pr: 806
 platform: Trumba ICS
 url: https://www.seattle.gov/parks/recreation/events-and-attractions/public-meeting-and-events-calendar
 tags: [Community, Parks]
@@ -18,4 +19,6 @@ Investigated 2026-07-01:
 - `geo: null` (multi-location, citywide) / `sourceRole: aggregator` (matches the existing `seattle-gov-*` family per `docs/cross-source-event-dedup.md`)
 - No proxy needed — 200 from sandbox
 
-**Implemented 2026-07-01** as `sources/external/seattle-gov-parks-recreation.yaml`.
+**Implemented 2026-07-01** as `sources/external/seattle-gov-parks-recreation.yaml` — PR #806. CI preview confirmed 500 events fetched with 0 errors on this source.
+
+**Overlap note:** the PR preview surfaced heavy title-level overlap with the already-implemented `seattle-gov-city-wide` feed (53 of 65 distinct event titles also appear there — e.g. "Chinese Dance", "Dancing til Dusk", "Monday Mahjong", "Magnuson Park Advisory Committee"). This matches the known pattern already documented in `docs/cross-source-event-dedup.md` ("HIGH is dominated by one publisher's overlapping themed sub-feeds ... `seattle-gov-*`") — the city's Trumba system publishes largely the same event pool across themed sub-calendars (arts/city-wide/neighborhoods/parks-recreation), not independent content. The cross-source duplicate-candidate queue picked these up (65 pending pairs) for the duplicate-resolver skill to confirm/merge. Net new distinct content from this feed: ~12 titles not found on city-wide (Big Day of Play, Westcrest/Kingfisher/Orchard Street restoration events, Board of Parks Commissioners subcommittee meetings, etc.), plus the `Parks` tag categorization that `seattle-gov-city-wide` doesn't carry.
