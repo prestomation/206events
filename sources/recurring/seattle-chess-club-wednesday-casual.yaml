@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6809409
+  lng: -122.3247939
+  label: "Orlov Chess Academy, 7212 Woodlawn Ave NE, Seattle, WA 98115"
+  osmType: node
+  osmId: 2463139527
+name: seattle-chess-club-wednesday-casual
+sourceRole: venue
+friendlyname: Wednesday Casual Chess at The Seattle Chess Club
+description: Free, drop-in casual chess night hosted by The Seattle Chess Club (founded 1879) at Orlov Chess Academy near Green Lake. Play with whoever is there — all skill levels welcome.
+timezone: America/Los_Angeles
+location: 7212 Woodlawn Ave NE, Seattle, WA 98115
+url: https://seattlechess.club/events/wednesday-casual-chess/
+tags:
+  - Gaming
+  - Green Lake
+cost: free
+schedules:
+  - schedule: every Wednesday
+    start_time: "19:00"
+    duration: PT4H
