@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6076248
+  lng: -122.3022459
+  label: "Garfield Community Center, 2323 E Cherry St, Seattle, WA 98122"
+  osmType: way
+  osmId: 228779140
+name: seattle-running-club-thursday-social-run
+sourceRole: venue
+friendlyname: Seattle Running Club - Thursday Social Run
+description: Weekly casual group run hosted by the Seattle Running Club, meeting at the east side of the Garfield Community Center near the parking lot. Open to all paces.
+timezone: America/Los_Angeles
+location: Garfield Community Center, 2323 E Cherry St, Seattle, WA 98122
+url: https://www.seattlerunningclub.org/group-runs/
+tags:
+  - Running
+  - Central District
+cost: free
+schedules:
+  - schedule: every Thursday
+    start_time: "18:00"
+    duration: PT1H30M
