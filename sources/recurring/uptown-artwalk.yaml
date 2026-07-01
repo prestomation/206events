@@ -1,0 +1,19 @@
+geo:
+  lat: 47.6238
+  lng: -122.3568
+  label: "Uptown / Lower Queen Anne, Seattle, WA"
+name: uptown-artwalk
+sourceRole: venue
+friendlyname: Uptown Art Walk
+description: Monthly art walk in the Uptown / Lower Queen Anne neighborhood
+timezone: America/Los_Angeles
+location: Uptown / Lower Queen Anne neighborhood, Seattle
+url: https://www.uptownartwalk.com/
+tags:
+  - Artwalk
+  - Uptown
+cost: free
+schedules:
+  - schedule: 3rd Thursday
+    start_time: "17:00"
+    duration: PT3H
