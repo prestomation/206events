@@ -6,7 +6,7 @@ url: https://www.seattlerunningclub.org/group-runs/
 tags: [Running, "Central District"]
 firstSeen: 2026-05-22
 lastChecked: 2026-07-01
-pr:
+pr: 789
 ---
 
 **Seattle Running Club** — `https://www.seattlerunningclub.org/group-runs/` — non-profit Puget Sound running club (est. 2005) offering training, competition, and community group runs.
