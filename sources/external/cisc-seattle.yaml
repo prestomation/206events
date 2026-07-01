@@ -1,0 +1,16 @@
+geo:
+  lat: 47.5963366
+  lng: -122.3254653
+  label: "CISC, 611 S Lane St, Seattle, WA 98104"
+  osmType: node
+  osmId: 3425421916
+  osmChecked: 2026-07-01
+name: cisc-seattle
+sourceRole: venue
+friendlyname: CISC (Chinese Information and Service Center)
+description: Community programs from Seattle's Chinese Information and Service Center — free yoga, tech help, and craft classes at the Chinatown-International District's Sunshine Garden senior center, plus senior programs in the region
+icsUrl: https://cisc-seattle.org/events/?ical=1
+infoUrl: https://cisc-seattle.org/events/
+tags:
+  - Community
+  - "International District"
