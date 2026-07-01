@@ -1,0 +1,23 @@
+# verified: 2026-07-01 via eventbrite web ui (4 upcoming events: Facilities Team Meeting, Mini Painting and Terrain Building Night, Game Night, 3D Printing Meetup; EVENTBRITE_TOKEN required in CI)
+name: north-end-makers
+sourceRole: venue
+type: eventbrite
+description: "North End Makers"
+url: "https://www.eventbrite.com/o/north-end-makers-32678506429"
+friendlyLink: https://northendmakers.org/
+tags: ["Community", "Northgate"]
+imageUrl: "https://northendmakers.org/images/cardlogo.png"
+geo:
+  lat: 47.7182668
+  lng: -122.3129509
+  label: "North End Makerspace, 12317 15th Ave NE #103, Seattle, WA 98125"
+  osmType: node
+  osmId: 13578357748
+calendars:
+  - name: north-end-makers
+    friendlyname: "North End Makers"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "32678506429"
+      defaultLocation: "12317 15th Ave NE #103, Seattle, WA 98125"
+      defaultDurationHours: 2
