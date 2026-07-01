@@ -1,0 +1,594 @@
+{
+  "total": 4,
+  "total_pages": 1,
+  "events": [
+    {
+      "id": 10004147,
+      "global_id": "www.themissingpiecegames.com?id=10004147",
+      "global_id_lineage": [
+        "www.themissingpiecegames.com?id=10004147"
+      ],
+      "author": "2",
+      "status": "publish",
+      "date": "2021-06-24 19:41:34",
+      "date_utc": "2021-06-25 02:41:34",
+      "modified": "2026-05-31 15:44:12",
+      "modified_utc": "2026-05-31 22:44:12",
+      "url": "https://www.themissingpiecegames.com/event/scrabble-night/2026-06-30/",
+      "rest_url": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/events/10004147",
+      "title": "Scrabble Night",
+      "description": "<p>Join us for some casual Scrabble&#8230;all experience levels welcome!\u00a0 We encourage you to bring your set along in case we have several tables of players.</p>",
+      "excerpt": "",
+      "slug": "scrabble-night",
+      "image": {
+        "url": "https://www.themissingpiecegames.com/wp-content/uploads/2021/06/91605814_450287835781394_6725237960205139968_n.jpg",
+        "id": 3255
+      },
+      "all_day": false,
+      "start_date": "2026-06-30 18:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "30",
+        "hour": "18",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-06-30 22:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "06",
+        "day": "30",
+        "hour": "22",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-07-01 01:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "01",
+        "hour": "01",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-01 05:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "01",
+        "hour": "05",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Los_Angeles",
+      "timezone_abbr": "PST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "",
+        "currency_code": "",
+        "currency_position": "",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Classic Games",
+          "slug": "classic-games",
+          "term_group": 0,
+          "term_taxonomy_id": 65,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 17,
+          "filter": "raw",
+          "id": 65,
+          "urls": {
+            "self": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/categories/65",
+            "collection": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 2729,
+        "author": "1",
+        "status": "publish",
+        "date": "2021-05-24 16:37:29",
+        "date_utc": "2021-05-24 23:37:29",
+        "modified": "2025-11-24 12:54:30",
+        "modified_utc": "2025-11-24 20:54:30",
+        "url": "https://www.themissingpiecegames.com/venue/the-missing-piece-games/",
+        "venue": "The Missing Piece",
+        "description": "<p><em>The Missing Piece loves hosting events like this for the community! If you love attending them, please remember to support the store while in attendance by buying food and beverages and maybe even a game to take home. We do have a no outside food and beverage policy.</em></p>\n<p>&nbsp;</p>\n<p><em>Parking is available in our parking lot, and there is always street parking along 34th, 35th and 36th Avenues if the lot is full. The C-Line also stops right in front of our storefront.</em></p>\n<p>&nbsp;</p>\n<p><em>If you have any questions about this event or want to talk to us about hosting an event please contact us at <a href=\"mailto:hello@themissingpiecegames.com\">hello@themissingpiecegames.com</a>.</em></p>",
+        "slug": "the-missing-piece-games",
+        "address": "4707 California Ave SW B",
+        "city": "Seattle",
+        "country": "United States",
+        "state": "WA",
+        "zip": "98116",
+        "phone": "(206) 420-8960",
+        "stateprovince": "WA",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "www.themissingpiecegames.com?id=2729",
+        "global_id_lineage": [
+          "www.themissingpiecegames.com?id=2729"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 2730,
+          "author": "1",
+          "status": "publish",
+          "date": "2021-05-24 16:38:23",
+          "date_utc": "2021-05-24 23:38:23",
+          "modified": "2021-05-24 16:38:23",
+          "modified_utc": "2021-05-24 23:38:23",
+          "url": "https://www.themissingpiecegames.com/organizer/the-missing-piece-games/",
+          "organizer": "The Missing Piece Games",
+          "slug": "the-missing-piece-games",
+          "phone": "(206) 420-8960",
+          "website": "https://www.themissingpiecegames.com",
+          "email": "hello@themissingpiecegames.com",
+          "global_id": "www.themissingpiecegames.com?id=2730",
+          "global_id_lineage": [
+            "www.themissingpiecegames.com?id=2730"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "ticketed": false,
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 10004131,
+      "global_id": "www.themissingpiecegames.com?id=10004131",
+      "global_id_lineage": [
+        "www.themissingpiecegames.com?id=10004131"
+      ],
+      "author": "2",
+      "status": "publish",
+      "date": "2023-06-18 14:06:26",
+      "date_utc": "2023-06-18 21:06:26",
+      "modified": "2026-05-31 15:38:48",
+      "modified_utc": "2026-05-31 22:38:48",
+      "url": "https://www.themissingpiecegames.com/event/american-mah-jongg-2/2026-07-01/",
+      "rest_url": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/events/10004131",
+      "title": "American Mah Jongg",
+      "description": "<p>All playing levels welcome! We are an open, friendly group of experienced and newer players who play American Mah Jongg and follow NMJL rules. Please bring a current NMJL card with you. If you don&#8217;t have one, someone usually has an extra card to loan out. For more info email Stacey Rea:\u00a0<a href=\"mailto:stacey1955@gmail.com\" target=\"_blank\" rel=\"noopener\">stacey1955@gmail.com</a>.</p>",
+      "excerpt": "",
+      "slug": "american-mah-jongg-2",
+      "image": false,
+      "all_day": false,
+      "start_date": "2026-07-01 14:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "01",
+        "hour": "14",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-01 17:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "01",
+        "hour": "17",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-07-01 21:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "01",
+        "hour": "21",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-02 00:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "02",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Los_Angeles",
+      "timezone_abbr": "PST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "",
+        "currency_code": "",
+        "currency_position": "",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "General",
+          "slug": "general",
+          "term_group": 0,
+          "term_taxonomy_id": 66,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 254,
+          "filter": "raw",
+          "id": 66,
+          "urls": {
+            "self": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/categories/66",
+            "collection": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 2729,
+        "author": "1",
+        "status": "publish",
+        "date": "2021-05-24 16:37:29",
+        "date_utc": "2021-05-24 23:37:29",
+        "modified": "2025-11-24 12:54:30",
+        "modified_utc": "2025-11-24 20:54:30",
+        "url": "https://www.themissingpiecegames.com/venue/the-missing-piece-games/",
+        "venue": "The Missing Piece",
+        "description": "<p><em>The Missing Piece loves hosting events like this for the community! If you love attending them, please remember to support the store while in attendance by buying food and beverages and maybe even a game to take home. We do have a no outside food and beverage policy.</em></p>\n<p>&nbsp;</p>\n<p><em>Parking is available in our parking lot, and there is always street parking along 34th, 35th and 36th Avenues if the lot is full. The C-Line also stops right in front of our storefront.</em></p>\n<p>&nbsp;</p>\n<p><em>If you have any questions about this event or want to talk to us about hosting an event please contact us at <a href=\"mailto:hello@themissingpiecegames.com\">hello@themissingpiecegames.com</a>.</em></p>",
+        "slug": "the-missing-piece-games",
+        "address": "4707 California Ave SW B",
+        "city": "Seattle",
+        "country": "United States",
+        "state": "WA",
+        "zip": "98116",
+        "phone": "(206) 420-8960",
+        "stateprovince": "WA",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "www.themissingpiecegames.com?id=2729",
+        "global_id_lineage": [
+          "www.themissingpiecegames.com?id=2729"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 8058,
+          "author": "2",
+          "status": "publish",
+          "date": "2023-06-18 14:06:27",
+          "date_utc": "2023-06-18 21:06:27",
+          "modified": "2023-06-18 14:06:27",
+          "modified_utc": "2023-06-18 21:06:27",
+          "url": "https://www.themissingpiecegames.com/organizer/stacey-rea/",
+          "organizer": "Stacey Rea",
+          "slug": "stacey-rea",
+          "email": "stacey1955@gmail.com",
+          "global_id": "www.themissingpiecegames.com?id=8058",
+          "global_id_lineage": [
+            "www.themissingpiecegames.com?id=8058"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "ticketed": false,
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 17733,
+      "global_id": "www.themissingpiecegames.com?id=17733",
+      "global_id_lineage": [
+        "www.themissingpiecegames.com?id=17733"
+      ],
+      "author": "2",
+      "status": "publish",
+      "date": "2026-05-31 16:38:11",
+      "date_utc": "2026-05-31 23:38:11",
+      "modified": "2026-05-31 16:38:11",
+      "modified_utc": "2026-05-31 23:38:11",
+      "url": "https://www.themissingpiecegames.com/event/500-piece-jigsaw-puzzle-race-10/",
+      "rest_url": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/events/17733",
+      "title": "500 Piece Jigsaw Puzzle Race!",
+      "description": "<p>The Jigsaw Puzzle Race is back on!\u00a0 Tables of 4 will compete to build the same 500 piece jigsaw puzzle the fastest. It&#8217;s $5 per person to enter, and everyone at the winner&#8217;s table gets a 2-hour voucher for booking time in our exclusive VIP rooms. (That&#8217;s $40 in value for each person at the winning table!).\u00a0 Also, someone from your table can take home the puzzle.</p>\n<p>Grab some friends and sign up for your tickets right here on this page to reserve your spot.\u00a0 You can sign up individually as well and see what new friends you can make on puzzle day. (If you sign up individually and don&#8217;t have a table preference, we suggest signing up for a seat at a table that is already partially filled if possible. That way you won&#8217;t be at a table by yourself against a full table at the event!)</p>\n<p>If the event fills up, you can sign up for the waitlist below as well. We often get last minute cancellations and it helps to have some people on standby to fill in the available seats. If there are no open spots, you can always build another puzzle with the other waitlisters for fun!</p>",
+      "excerpt": "",
+      "slug": "500-piece-jigsaw-puzzle-race-10",
+      "image": {
+        "url": "https://www.themissingpiecegames.com/wp-content/uploads/2023/11/graphic.jpg",
+        "id": 9235
+      },
+      "all_day": false,
+      "start_date": "2026-07-25 18:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "25",
+        "hour": "18",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-25 22:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "25",
+        "hour": "22",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-07-26 01:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "26",
+        "hour": "01",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-26 05:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "26",
+        "hour": "05",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Los_Angeles",
+      "timezone_abbr": "PDT",
+      "cost": "Free \u2013 &#036;5.00",
+      "cost_details": {
+        "currency_symbol": "",
+        "currency_code": "",
+        "currency_position": "",
+        "values": [
+          "0",
+          "5"
+        ]
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "General",
+          "slug": "general",
+          "term_group": 0,
+          "term_taxonomy_id": 66,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 254,
+          "filter": "raw",
+          "id": 66,
+          "urls": {
+            "self": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/categories/66",
+            "collection": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 2729,
+        "author": "1",
+        "status": "publish",
+        "date": "2021-05-24 16:37:29",
+        "date_utc": "2021-05-24 23:37:29",
+        "modified": "2025-11-24 12:54:30",
+        "modified_utc": "2025-11-24 20:54:30",
+        "url": "https://www.themissingpiecegames.com/venue/the-missing-piece-games/",
+        "venue": "The Missing Piece",
+        "description": "<p><em>The Missing Piece loves hosting events like this for the community! If you love attending them, please remember to support the store while in attendance by buying food and beverages and maybe even a game to take home. We do have a no outside food and beverage policy.</em></p>\n<p>&nbsp;</p>\n<p><em>Parking is available in our parking lot, and there is always street parking along 34th, 35th and 36th Avenues if the lot is full. The C-Line also stops right in front of our storefront.</em></p>\n<p>&nbsp;</p>\n<p><em>If you have any questions about this event or want to talk to us about hosting an event please contact us at <a href=\"mailto:hello@themissingpiecegames.com\">hello@themissingpiecegames.com</a>.</em></p>",
+        "slug": "the-missing-piece-games",
+        "address": "4707 California Ave SW B",
+        "city": "Seattle",
+        "country": "United States",
+        "state": "WA",
+        "zip": "98116",
+        "phone": "(206) 420-8960",
+        "stateprovince": "WA",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "www.themissingpiecegames.com?id=2729",
+        "global_id_lineage": [
+          "www.themissingpiecegames.com?id=2729"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 2730,
+          "author": "1",
+          "status": "publish",
+          "date": "2021-05-24 16:38:23",
+          "date_utc": "2021-05-24 23:38:23",
+          "modified": "2021-05-24 16:38:23",
+          "modified_utc": "2021-05-24 23:38:23",
+          "url": "https://www.themissingpiecegames.com/organizer/the-missing-piece-games/",
+          "organizer": "The Missing Piece Games",
+          "slug": "the-missing-piece-games",
+          "phone": "(206) 420-8960",
+          "website": "https://www.themissingpiecegames.com",
+          "email": "hello@themissingpiecegames.com",
+          "global_id": "www.themissingpiecegames.com?id=2730",
+          "global_id_lineage": [
+            "www.themissingpiecegames.com?id=2730"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "ticketed": [
+        "woo"
+      ],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 17077,
+      "global_id": "www.themissingpiecegames.com?id=17077",
+      "global_id_lineage": [
+        "www.themissingpiecegames.com?id=17077"
+      ],
+      "author": "4",
+      "status": "publish",
+      "date": "2026-03-08 21:39:00",
+      "date_utc": "2026-03-09 04:39:00",
+      "modified": "2026-03-08 21:39:00",
+      "modified_utc": "2026-03-09 04:39:00",
+      "url": "https://www.themissingpiecegames.com/event/one-piece-op-17-release-event/",
+      "rest_url": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/events/17077",
+      "title": "One Piece OP-17 Release Event",
+      "description": "<p>Welcome fellow pirates! Set a course to The Missing Piece to compete with fellow fans of the One Piece Card Game using the new cards in the latest set!</p>\n<p>5:30pm &#8211; In person sign ups begin. This is also a great time to get to know the other participants, get food or drinks from our amazing baristas, and pick up any supplies you may need for the event, such as sleeves!</p>\n<p>6:00pm &#8211; Deck building begins! Players will have 50 minutes to build a 40 card deck from the 6 booster packs provided! Remember, it is assumed that you have a Leader that is all colors, so you have no color restrictions when deck building.</p>\n<p>6:50pm &#8211; Round 1 pairings are announced. There will be three 30 minute rounds where players will compete in a best-of-one match!</p>\n<p>Around 8:30pm &#8211; Prizes are awarded! All players will receive promotional items for participating, with additional prizes based on their performance in the event!</p>",
+      "excerpt": "",
+      "slug": "one-piece-op-17-release-event",
+      "image": {
+        "url": "https://www.themissingpiecegames.com/wp-content/uploads/2023/10/one-piece-card-game.jpg",
+        "id": 8959
+      },
+      "all_day": false,
+      "start_date": "2026-08-21 17:30:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "21",
+        "hour": "17",
+        "minutes": "30",
+        "seconds": "00"
+      },
+      "end_date": "2026-08-21 21:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "21",
+        "hour": "21",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-08-22 00:30:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "22",
+        "hour": "00",
+        "minutes": "30",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-08-22 04:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "08",
+        "day": "22",
+        "hour": "04",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Los_Angeles",
+      "timezone_abbr": "PDT",
+      "cost": "&#036;35.00",
+      "cost_details": {
+        "currency_symbol": "",
+        "currency_code": "",
+        "currency_position": "",
+        "values": [
+          "35"
+        ]
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Collectable Card Games",
+          "slug": "collectable-card-games",
+          "term_group": 0,
+          "term_taxonomy_id": 68,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 332,
+          "filter": "raw",
+          "id": 68,
+          "urls": {
+            "self": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/categories/68",
+            "collection": "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 2729,
+        "author": "1",
+        "status": "publish",
+        "date": "2021-05-24 16:37:29",
+        "date_utc": "2021-05-24 23:37:29",
+        "modified": "2025-11-24 12:54:30",
+        "modified_utc": "2025-11-24 20:54:30",
+        "url": "https://www.themissingpiecegames.com/venue/the-missing-piece-games/",
+        "venue": "The Missing Piece",
+        "description": "<p><em>The Missing Piece loves hosting events like this for the community! If you love attending them, please remember to support the store while in attendance by buying food and beverages and maybe even a game to take home. We do have a no outside food and beverage policy.</em></p>\n<p>&nbsp;</p>\n<p><em>Parking is available in our parking lot, and there is always street parking along 34th, 35th and 36th Avenues if the lot is full. The C-Line also stops right in front of our storefront.</em></p>\n<p>&nbsp;</p>\n<p><em>If you have any questions about this event or want to talk to us about hosting an event please contact us at <a href=\"mailto:hello@themissingpiecegames.com\">hello@themissingpiecegames.com</a>.</em></p>",
+        "slug": "the-missing-piece-games",
+        "address": "4707 California Ave SW B",
+        "city": "Seattle",
+        "country": "United States",
+        "state": "WA",
+        "zip": "98116",
+        "phone": "(206) 420-8960",
+        "stateprovince": "WA",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "www.themissingpiecegames.com?id=2729",
+        "global_id_lineage": [
+          "www.themissingpiecegames.com?id=2729"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 2730,
+          "author": "1",
+          "status": "publish",
+          "date": "2021-05-24 16:38:23",
+          "date_utc": "2021-05-24 23:38:23",
+          "modified": "2021-05-24 16:38:23",
+          "modified_utc": "2021-05-24 23:38:23",
+          "url": "https://www.themissingpiecegames.com/organizer/the-missing-piece-games/",
+          "organizer": "The Missing Piece Games",
+          "slug": "the-missing-piece-games",
+          "phone": "(206) 420-8960",
+          "website": "https://www.themissingpiecegames.com",
+          "email": "hello@themissingpiecegames.com",
+          "global_id": "www.themissingpiecegames.com?id=2730",
+          "global_id_lineage": [
+            "www.themissingpiecegames.com?id=2730"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "ticketed": [
+        "woo"
+      ],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    }
+  ]
+}

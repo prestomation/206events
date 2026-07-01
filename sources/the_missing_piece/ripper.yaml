@@ -1,0 +1,16 @@
+name: the-missing-piece
+sourceRole: venue
+description: "The Missing Piece"
+url: "https://www.themissingpiecegames.com/wp-json/tribe/events/v1/events"
+friendlyLink: "https://www.themissingpiecegames.com/events/"
+tags: ["Gaming", "West Seattle"]
+geo:
+  lat: 47.5608924
+  lng: -122.3872868
+  label: "The Missing Piece, 4707 California Ave SW B, Seattle, WA 98116"
+  osmType: node
+  osmId: 441028241
+calendars:
+  - name: the-missing-piece
+    friendlyname: "The Missing Piece"
+    timezone: America/Los_Angeles
