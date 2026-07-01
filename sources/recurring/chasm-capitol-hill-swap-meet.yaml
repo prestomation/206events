@@ -1,0 +1,30 @@
+# verified: 2026-07-01 ok
+geo:
+  lat: 47.6222589
+  lng: -122.3125185
+  label: "406 15th Ave E, Seattle, WA 98112"
+  osmType: way
+  osmId: 6457203
+name: chasm-capitol-hill-swap-meet
+sourceRole: venue
+friendlyname: CHASM (Capitol Hill Awesome Swap Meet)
+description: Monthly vintage, handmade, and collectibles swap meet at the
+  Quality Flea Center on Capitol Hill, with live DJs and occasional live
+  music, belly dance, or puppet shows. A different mix of vendors each month.
+timezone: America/Los_Angeles
+location: "406 15th Ave E, Seattle, WA 98112"
+url: https://www.punkrockfleamarketseattle.com/pages/upcoming-chasm
+tags:
+  - MakersMarket
+  - Capitol Hill
+cost: free
+# Runs every third Saturday all year, except the month the Quality Flea
+# Center is taken over by the full Punk Rock Flea Market weekend (e.g. no
+# CHASM in June 2026 due to the June 20 PRFM weekend) - not encodable as a
+# schedule exception, so an occasional false-positive occurrence is expected.
+# Re-verify the skip month against punkrockfleamarketseattle.com/pages/upcoming-chasm
+# each year (calendar-verification skill).
+schedules:
+  - schedule: 3rd Saturday
+    start_time: "12:00"
+    duration: PT6H
