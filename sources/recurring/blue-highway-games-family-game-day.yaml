@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6385835
+  lng: -122.3571008
+  label: "Blue Highway Games, 2203 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 2019051176
+name: blue-highway-games-family-game-day
+sourceRole: venue
+friendlyname: Family Game Day at Blue Highway Games
+description: Monthly all-day, all-ages open-play event at Blue Highway Games, with staff on hand to recommend and teach games; includes a preschool games session in the morning.
+timezone: America/Los_Angeles
+location: 2203 Queen Anne Ave N, Seattle, WA 98109
+url: https://www.bluehighwaygames.com/events-details/monthly-regular-events/family-game-day/
+tags:
+  - Gaming
+  - QueenAnne
+cost: free
+schedules:
+  - schedule: 2nd Sunday
+    start_time: "10:00"
+    duration: PT11H

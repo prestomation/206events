@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6385835
+  lng: -122.3571008
+  label: "Blue Highway Games, 2203 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 2019051176
+name: blue-highway-games-friday-game-night
+sourceRole: venue
+friendlyname: Community Game Night at Blue Highway Games
+description: Weekly drop-in board game meetup at Blue Highway Games on Queen Anne. Bring your own game or borrow one from their library of hundreds of titles; first come, first served seating.
+timezone: America/Los_Angeles
+location: 2203 Queen Anne Ave N, Seattle, WA 98109
+url: https://www.bluehighwaygames.com/events-details/community-game-night-friday-night-meet-up/
+tags:
+  - Gaming
+  - QueenAnne
+cost: free
+schedules:
+  - schedule: every Friday
+    start_time: "19:00"
+    duration: PT4H

@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6385835
+  lng: -122.3571008
+  label: "Blue Highway Games, 2203 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 2019051176
+name: blue-highway-games-beer-and-board-games
+sourceRole: venue
+friendlyname: "Beer & Board Games (21+) at Blue Highway Games"
+description: Monthly 21+ board game night at Blue Highway Games featuring a different local brewery each month; entry includes two drink tickets redeemable for beer or a soft drink.
+timezone: America/Los_Angeles
+location: 2203 Queen Anne Ave N, Seattle, WA 98109
+url: https://www.bluehighwaygames.com/events-details/monthly-regular-events/beer-board-games-21/
+tags:
+  - Gaming
+  - Beer
+  - QueenAnne
+cost: 10
+schedules:
+  - schedule: 3rd Saturday
+    start_time: "19:00"
+    duration: PT3H
