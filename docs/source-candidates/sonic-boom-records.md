@@ -6,7 +6,7 @@ url: https://www.sonicboomrecords.com/instores
 tags: ["Music", "Ballard"]
 firstSeen: 2026-07-01
 lastChecked: 2026-07-01
-pr:
+pr: 794
 ---
 Independent record store at 2209 NW Market St, Ballard, hosting in-store
 listening parties and occasional live performances tied to new releases
