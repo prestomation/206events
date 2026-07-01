@@ -1,6 +1,7 @@
 ---
 name: "The Seattle Chess Club"
-status: candidate
+status: added
+pr: 797
 platform: recurring YAML (WordPress + Modern Events Calendar, verified via per-event pages)
 url: https://seattlechess.club/events/
 tags: [Gaming, "Green Lake"]
