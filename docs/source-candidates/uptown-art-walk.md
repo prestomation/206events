@@ -1,18 +1,18 @@
 ---
 name: "Uptown Art Walk"
-status: candidate
+status: added
 platform: "Recurring (no feed/API — hand-coded schedule)"
 url: https://www.uptownartwalk.com/
 tags: [Artwalk, Uptown]
 firstSeen: 2026-07-01
 lastChecked: 2026-07-01
-pr:
+pr: 796
 ---
 
 **Uptown Art Walk** — free, self-guided monthly art walk in the Uptown /
 Lower Queen Anne neighborhood, hosted by a rotating group of local
 merchants and galleries (e.g. A/NT Gallery, The Fishbowl, Far Eats Cafe).
-Not currently covered by any existing source — `sources/recurring/` has
+Not previously covered by any existing source — `sources/recurring/` has
 art walks for Ballard, Belltown, Capitol Hill, Central District,
 Chinatown-ID, Downtown, Fremont, Georgetown, Lake City,
 Phinney/Greenwood, Pike Place, Pioneer Square, Rat City, U-District,
@@ -26,12 +26,14 @@ Investigated 2026-07-01:
 - Schedule: **3rd Thursday of every month, 5:00–8:00 PM** — matches the
   `RipperCalendar` recurring-YAML pattern used by every other art walk in
   the repo (single `schedule:` entry, no per-event dates published)
-- No ICS/API — same as the other hand-coded art walks, this is a
-  `sources/recurring/uptown-artwalk.yaml` candidate, not a ripper
 - The older `uptownartwalkseattle.wordpress.com` site is stale (last blog
-  post 2015) and should **not** be used as the URL; the active site is
+  post 2015) and was not used as the URL; the active site is
   `uptownartwalk.com`
-- Suggested geo: centroid of Uptown neighborhood, ~lat 47.6238, lng
-  -122.3568 (near 2nd Ave W / Republican St, matching The Fishbowl's
-  geocoded location at lat 47.6231677, lng -122.3591802)
-- Tags: `Artwalk`, `Uptown`
+- Geo: centroid of Uptown neighborhood, lat 47.6238, lng -122.3568 (near
+  2nd Ave W / Republican St, matching The Fishbowl's geocoded location at
+  lat 47.6231677, lng -122.3591802)
+
+Implemented 2026-07-01 as `sources/recurring/uptown-artwalk.yaml` (3rd
+Thursday, 5:00 PM, PT3H duration, `Artwalk`/`Uptown` tags). Verified with
+`ONLY_SOURCE=uptown-artwalk npm run generate-calendars` — 1 event, 0
+errors, correctly tagged into `tag-artwalk`/`tag-uptown`/`tag-all`.
