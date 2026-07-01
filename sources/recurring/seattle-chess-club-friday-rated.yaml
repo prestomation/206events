@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6809409
+  lng: -122.3247939
+  label: "Orlov Chess Academy, 7212 Woodlawn Ave NE, Seattle, WA 98115"
+  osmType: node
+  osmId: 2463139527
+name: seattle-chess-club-friday-rated
+sourceRole: venue
+friendlyname: Friday Night Rated Chess at The Seattle Chess Club
+description: Weekly USCF-rated tournament game hosted by The Seattle Chess Club (founded 1879) at Orlov Chess Academy near Green Lake. 40 moves in 90 minutes, then sudden death in 60 minutes with a 10-second increment.
+timezone: America/Los_Angeles
+location: 7212 Woodlawn Ave NE, Seattle, WA 98115
+url: https://seattlechess.club/events/friday-night-rated-chess/
+tags:
+  - Gaming
+  - Green Lake
+cost: 5
+schedules:
+  - schedule: every Friday
+    start_time: "19:15"
+    duration: PT4H30M
