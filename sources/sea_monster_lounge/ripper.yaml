@@ -1,0 +1,14 @@
+name: sea-monster-lounge
+sourceRole: venue
+description: "Sea Monster Lounge"
+url: "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+friendlyLink: https://www.seamonsterlounge.com/
+tags: ["Music", "Wallingford"]
+geo:
+  lat: 47.661643
+  lng: -122.3323207
+  label: "Sea Monster Lounge, 2202 N 45th St, Seattle, WA 98103"
+calendars:
+  - name: calendar
+    friendlyname: "Sea Monster Lounge"
+    timezone: America/Los_Angeles
