@@ -279,4 +279,45 @@ describe('BookLarderRipper - parseProduct', () => {
         expect(event).not.toBeNull();
         expect(event!.url).toBe(`https://booklarder.com/products/${product.handle}`);
     });
+
+    test('extracts paid cost from Shopify variant price', async () => {
+        const data = loadSampleData();
+        // "Author Talk: Saeng Douangdara, The Lao Kitchen" — variant price $39.00
+        const product = data.products.find((p: any) => p.id === 9185262829786);
+        expect(product).toBeDefined();
+
+        const event = await ripper.parseProduct(product);
+        expect('date' in event).toBe(true);
+        if ('date' in event) {
+            expect(event.cost).toEqual({ min: 39 });
+        }
+    });
+
+    test('extracts free cost when variant price is 0.00', async () => {
+        const data = loadSampleData();
+        // "Seattle Independent Bookstore Day 2026!" — variant price $0.00
+        const product = data.products.find((p: any) => p.id === 9205656027354);
+        expect(product).toBeDefined();
+
+        const event = await ripper.parseProduct(product);
+        expect('date' in event).toBe(true);
+        if ('date' in event) {
+            expect(event.cost).toEqual({ min: 0 });
+        }
+    });
+
+    test('cost is undefined when no variants', async () => {
+        const product = {
+            id: 99998,
+            title: 'No Variants Event',
+            handle: 'no-variants-event',
+            body_html: '<p>Join us on <strong>March 5th</strong> at 6pm.</p>',
+            product_type: 'Event',
+        };
+        const event = await ripper.parseProduct(product);
+        expect('date' in event).toBe(true);
+        if ('date' in event) {
+            expect(event.cost).toBeUndefined();
+        }
+    });
 });

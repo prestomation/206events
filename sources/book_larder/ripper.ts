@@ -1,4 +1,4 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
@@ -15,6 +15,10 @@ interface ShopifyImage {
     src: string;
 }
 
+interface ShopifyVariant {
+    price: string;
+}
+
 interface ShopifyProduct {
     id: number;
     title: string;
@@ -22,6 +26,7 @@ interface ShopifyProduct {
     body_html: string;
     product_type: string;
     images?: ShopifyImage[];
+    variants?: ShopifyVariant[];
 }
 
 interface ParsedDate {
@@ -116,6 +121,14 @@ export default class BookLarderRipper implements IRipper {
         // already absolute CDN URLs.
         const imageUrl = product.images?.[0]?.src || undefined;
 
+        // Shopify variant price: "0.00" = free, ">0" = paid (USD face value).
+        let cost: EventCost | undefined;
+        const priceStr = product.variants?.[0]?.price;
+        if (priceStr !== undefined) {
+            const price = parseFloat(priceStr);
+            cost = isNaN(price) ? undefined : { min: price };
+        }
+
         return {
             id: `book-larder-${product.id}`,
             ripped: new Date(),
@@ -125,6 +138,7 @@ export default class BookLarderRipper implements IRipper {
             location: LOCATION,
             url: `https://booklarder.com/products/${product.handle}`,
             imageUrl,
+            cost,
         };
     }
 

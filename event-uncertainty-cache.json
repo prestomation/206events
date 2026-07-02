@@ -31048,6 +31048,249 @@
       "source": "agent",
       "evidence": "https://www.siderailcollective.com/calendar/figure-drawing-wpjhx-tlyfx-b4cp6-xcxf8-b2t7m-7j2tt-k79ct-7yymn",
       "lastSeen": "2026-07-02"
+    },
+    "new-tech-seattle:new-tech-seattle-313629078": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/312558728/"
+    },
+    "new-tech-seattle:new-tech-seattle-312558728": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-313786636": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-314687391": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-djlbztyjcpbnb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-djlbztyjcqblb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-djlbztykccbqb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-djlbztykcdbmb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-djlbztykcfbmb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-djlbztykcgbrb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-djlbztykchbpb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "new-tech-seattle:new-tech-seattle-djlbztykcjblb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.newtechnorthwest.com/"
+    },
+    "19hz:19hz-2026/07/01-FRQ TMPO": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "19hz price cell empty; Instagram source is not accessible for pricing",
+      "partialFingerprint": "0"
+    },
+    "19hz:19hz-2026/07/04-4th of July": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "Instagram post mentions 21+ age restriction but no price; cannot confirm free or ticketed",
+      "partialFingerprint": "12a4"
+    },
+    "19hz:19hz-2026/07/09-Continuum: DJ Vodka Twist": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "No end time published; Facebook event did not render content"
+    },
+    "19hz:19hz-2026/07/11-Cruise/Disco": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "No end time published; Instagram source rendered no text content"
+    },
+    "19hz:19hz-2026/08/02-Kasbo (3 Hour Set)": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/wrg-presents-soundwavs-w-kasbo",
+      "partialFingerprint": "12a4"
+    },
+    "19hz:19hz-2026/08/07-Serum": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/serum-182422",
+      "partialFingerprint": "12a4"
+    },
+    "19hz:19hz-2026/08/23-Close Friends Only": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "Duration not published; cost: early bird tickets announced but no price stated on Instagram"
+    },
+    "19hz:19hz-2026/09/11-Fantasm": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://wl.eventim.us/event/fantasm/695470?afflky=Level1",
+      "partialFingerprint": "12a4"
+    },
+    "19hz:19hz-2026/09/17-Luca Lozano & Mr. Ho": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "Starts at 9 PM, runs past midnight into Sept 18; no official closing time published"
+    },
+    "19hz:19hz-2026/09/18-R3HAB": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/r3hab-185838",
+      "partialFingerprint": "12a4"
+    },
+    "19hz:19hz-2026/09/25-Kremfest 2026": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "Multi-night festival (Sept 25-27); no official end time published for the first night"
+    },
+    "19hz:19hz-2026/10/01-Julien-K, NITE": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "Doors 7 PM / show 8 PM; no official end time published by venue or promoter"
+    },
+    "19hz:19hz-2026/10/09-Jessica Audiffred (360 Experience)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "AXS 403; no end time published. Cost: ticketed (AXS) but face value not accessible"
+    },
+    "19hz:19hz-2026/10/16-Know Good, Blookah, Terminal 6": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "AXS 403; no end time published. Cost: ticketed (AXS) but face value not accessible"
+    },
+    "19hz:19hz-2026/11/21-Jai Wolf, Conrad.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "AXS 403; no end time published. Cost: ticketed (AXS) but face value not accessible (resale 7+ but not face value)"
+    },
+    "19hz:19hz-2026/11/28-Afrojack": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.insomniac.com/events/afrojack-2026-11-28-seattle-wa/",
+      "partialFingerprint": "12a4"
     }
   }
 }
