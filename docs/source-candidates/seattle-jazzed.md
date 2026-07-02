@@ -1,6 +1,7 @@
 ---
 name: "Seattle JazzED"
-status: candidate
+status: added
+pr: 827
 platform: Squarespace
 url: https://www.seattlejazzed.org/events
 tags: [Music]
