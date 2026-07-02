@@ -6,7 +6,7 @@ url: https://www.seattleastro.org/events
 tags: [Education, Community]
 firstSeen: 2026-07-02
 lastChecked: 2026-07-02
-pr:
+pr: 831
 ---
 
 Amateur astronomy club serving the greater Puget Sound region — monthly
