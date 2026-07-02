@@ -1,5 +1,5 @@
 import { Duration, LocalDate, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -14,6 +14,15 @@ const DAY_ENDPOINT = `${BASE_URL}/wp-json/nwff/v1/html/calendar/day`;
 const DISCOVERY_WINDOW_DAYS = 70;
 const DEFAULT_DURATION = Duration.ofHours(2);
 const TIMEZONE = ZoneId.of("America/Los_Angeles");
+
+// Some /education/workshops/ pages (multi-day camps) give a *date* for each
+// day of the camp via a `CourseInstance` per day, but never a time of day —
+// the source simply doesn't publish a start time in machine-readable form.
+// Rather than guess a real time, we emit the event with these placeholders
+// and pair it with an UncertaintyError (same pattern as sources/events12),
+// so the event-uncertainty-resolver skill can fill in the real time later.
+const DEFAULT_UNKNOWN_TIME_HOUR = 12;
+const DEFAULT_UNKNOWN_TIME_MINUTE = 0;
 
 const MONTHS = [
     "January", "February", "March", "April", "May", "June",
@@ -137,6 +146,44 @@ export function extractFreeTextDateTime(html: string): LocalDateTime | null {
 }
 
 /**
+ * Extracts every *date-only* `itemprop="startDate"` value (content is
+ * exactly `YYYY-MM-DDT` — a real date with no time component), as used by
+ * multi-day camp pages under /education/workshops/ where each day of the
+ * camp gets its own `CourseInstance` block but the source never publishes
+ * a time of day. Returns the dates in the order they appear (typically
+ * chronological). Public for testing.
+ */
+export function extractDateOnlyStartDates(html: string): LocalDate[] {
+    const re = /itemprop="startDate" content="(\d{4}-\d{2}-\d{2})T"/g;
+    const dates: LocalDate[] = [];
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(html)) !== null) {
+        try {
+            dates.push(LocalDate.parse(m[1]));
+        } catch {
+            continue;
+        }
+    }
+    return dates;
+}
+
+/**
+ * Extracts the ticket/registration URL from the nearest schema.org
+ * `itemprop="offers"` block. A missing or empty offers URL is the
+ * generic signal this site uses for informational, non-attendable pages
+ * (e.g. the "NWFF Summer Break 2026" closure notice, which has an empty
+ * `content=""`) as opposed to real screenings/events/workshops, which
+ * always link to an Eventive or JotForm registration URL. Public for
+ * testing.
+ */
+export function extractOffersUrl(html: string): string | null {
+    const m = html.match(/itemprop="offers"[^>]*>[\s\S]{0,300}?itemprop="url" content="([^"]*)"/);
+    if (!m) return null;
+    const url = decode(m[1]).trim();
+    return url.length ? url : null;
+}
+
+/**
  * Extracts "Venue Name, Address" from the nearest schema.org `location`
  * block (MovieTheater on /films/, Place elsewhere) — shape is otherwise
  * identical between prefixes. Public for testing.
@@ -164,46 +211,89 @@ export function extractDuration(html: string): Duration {
 
 /**
  * Parses a single NWFF detail page (any of /films/, /events/,
- * /education/workshops/) into a RipperCalendarEvent. Never returns null —
- * a page with no title or no parseable start date/time (e.g. the
- * "NWFF Summer Break 2026" closure notice, or a multi-day camp expressed
- * as a date range) becomes a ParseError so the gap is visible in build
- * reporting instead of silently dropped or guessed at.
+ * /education/workshops/) into zero, one, or two results:
+ *   - `[]` — an informational, non-attendable page (no title, or no
+ *     ticket/registration URL and no date signal at all — e.g. the
+ *     "NWFF Summer Break 2026" closure notice). Not a parse gap: there is
+ *     no event here to report.
+ *   - `[event]` — a normal event with a known date and time.
+ *   - `[event, uncertainty]` — a real, ticketed event whose *date* is
+ *     known (from date-only `startDate` metas) but whose time of day
+ *     isn't published anywhere on the page (multi-day camps under
+ *     /education/workshops/). `event` carries placeholder start
+ *     time/duration and `uncertainty` flags them for the
+ *     event-uncertainty-resolver skill, per docs/event-uncertainty.md —
+ *     never silently guessed as fact.
+ *   - `[error]` — a ticketed/registerable page whose date genuinely could
+ *     not be extracted by any strategy; a real gap worth surfacing.
+ * Never returns null and never drops a real event without a trace.
  */
-export function parseDetailPage(html: string, url: string): RipperCalendarEvent | RipperError {
+export function parseDetailPage(html: string, url: string): (RipperCalendarEvent | RipperError)[] {
     const slug = slugFromUrl(url);
     if (!slug) {
-        return { type: "ParseError", reason: "Could not extract a URL slug", context: url };
+        return [{ type: "ParseError", reason: "Could not extract a URL slug", context: url }];
     }
 
     const title = extractTitle(html);
     if (!title) {
-        return { type: "ParseError", reason: "No <h1 itemprop=\"name\"> title found", context: url };
+        return [];
     }
+
+    const offersUrl = extractOffersUrl(html);
+    const location = extractLocation(html);
 
     const localDateTime = extractCleanStartDate(html) ?? extractFreeTextDateTime(html);
-    if (!localDateTime) {
-        return {
-            type: "ParseError",
-            reason: "No parseable start date/time found (no valid startDate meta and no free-text date/time block matched)",
-            context: url,
+    if (localDateTime) {
+        const date = localDateTime.atZone(TIMEZONE);
+        const event: RipperCalendarEvent = {
+            id: `${slug}-${date.toLocalDate().toString()}`,
+            ripped: new Date(),
+            date,
+            duration: extractDuration(html),
+            summary: title,
+            location: location ?? undefined,
+            url,
         };
+        return [event];
     }
 
-    const date = localDateTime.atZone(TIMEZONE);
-    const location = extractLocation(html);
-    const duration = extractDuration(html);
+    const dateOnlyDates = extractDateOnlyStartDates(html);
+    if (dateOnlyDates.length > 0) {
+        const startDate = dateOnlyDates.reduce((min, d) => (d.isBefore(min) ? d : min), dateOnlyDates[0]);
+        const endDate = dateOnlyDates.reduce((max, d) => (d.isAfter(max) ? d : max), dateOnlyDates[0]);
+        const spanDays = Duration.between(startDate.atStartOfDay(), endDate.atStartOfDay()).toDays() + 1;
+        const date = startDate.atTime(DEFAULT_UNKNOWN_TIME_HOUR, DEFAULT_UNKNOWN_TIME_MINUTE).atZone(TIMEZONE);
+        const event: RipperCalendarEvent = {
+            id: `${slug}-${startDate.toString()}`,
+            ripped: new Date(),
+            date,
+            duration: Duration.ofDays(spanDays),
+            summary: title,
+            location: location ?? undefined,
+            url,
+        };
+        const unknownFields: UncertaintyField[] = ["startTime", "duration"];
+        const uncertainty: UncertaintyError = {
+            type: "Uncertainty",
+            reason: `NWFF workshop page gives a date for each day of the camp (${startDate.toString()} to ${endDate.toString()}) but no time of day anywhere on the page`,
+            source: "northwest-film-forum",
+            unknownFields,
+            event,
+        };
+        return [event, uncertainty];
+    }
 
-    const event: RipperCalendarEvent = {
-        id: `${slug}-${date.toLocalDate().toString()}`,
-        ripped: new Date(),
-        date,
-        duration,
-        summary: title,
-        location: location ?? undefined,
-        url,
-    };
-    return event;
+    if (!offersUrl) {
+        // No ticket/registration link and no date signal at all — an
+        // informational page (closure notice, etc.), not real programming.
+        return [];
+    }
+
+    return [{
+        type: "ParseError",
+        reason: "No parseable start date/time found (no valid startDate meta, no date-only startDate metas, and no free-text date/time block matched) despite a ticket/registration URL being present",
+        context: url,
+    }];
 }
 
 /**
@@ -252,12 +342,13 @@ export default class NorthwestFilmForumRipper implements IRipper {
                 continue;
             }
 
-            const result = parseDetailPage(html, url);
-            if ("date" in result) {
-                if (result.date.isBefore(now)) continue;
-                events.push(result);
-            } else {
-                errors.push(result);
+            for (const result of parseDetailPage(html, url)) {
+                if ("date" in result) {
+                    if (result.date.isBefore(now)) continue;
+                    events.push(result);
+                } else {
+                    errors.push(result);
+                }
             }
         }
 

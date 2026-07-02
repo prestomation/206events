@@ -60,3 +60,35 @@ Detail-page notes beyond the original investigation:
 - `ONLY_SOURCE=northwest-film-forum` build: 40 events, 3 non-fatal
   `ParseError`s (the "NWFF Summer Break 2026" closure notice + the two
   multi-day camp pages above — all correctly unparseable, not bugs).
+
+**CI fix (post-review):** the initial push failed CI's new-source gate —
+`lib/calendar_ripper.ts` treats *any* `ParseError`/`InvalidDateError` on a
+brand-new source as fatal (unlike an already-deployed source, where the
+same errors are just non-fatal `build-errors.json` entries). Re-examined
+the three failing pages and split them by what they actually are, instead
+of lumping them all into `ParseError`:
+- The two camp pages (`camp1-2026`, `camp2-2026`) *are* real, ticketed
+  events with a genuinely known date range (one `CourseInstance` per camp
+  day) — only the time of day is unpublished. That's exactly the
+  Event Uncertainty System's use case (see AGENTS.md "Event Uncertainty
+  System"), not a parse failure: the ripper now emits the event (with a
+  placeholder noon start time and a duration spanning the dated range)
+  paired with an `UncertaintyError` (`unknownFields: ["startTime",
+  "duration"]`), same pattern as `sources/events12`. `Uncertainty` is not
+  in the gate's fatal set, so this surfaces as a normal, resolvable
+  uncertainty-queue entry instead of blocking the merge.
+- The closure notice has no ticket/registration URL at all (`offers.url`
+  is `""`) and no date signal in any form — a generic, reusable signal
+  that a page is informational rather than an attendable event (every
+  real screening/event/workshop page links out to Eventive or JotForm).
+  `parseDetailPage` now recognizes this and returns no result for it
+  (not an error, not a guess) rather than reporting a spurious gap.
+- A ticketed page with a title but genuinely no parseable date in any of
+  the three strategies (clean ISO, free-text, date-only) still returns a
+  real `ParseError` — that gap stays visible; none of the current live
+  pages hit this path.
+
+Re-verified: `ONLY_SOURCE=northwest-film-forum` build now reports 42
+events, 0 `ParseError`s, 2 non-fatal `Uncertainty` entries (the two
+camps). `npx vitest run sources/northwest_film_forum`: 40/40 passing.
+`npm run typecheck`: clean.

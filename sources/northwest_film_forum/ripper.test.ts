@@ -8,11 +8,13 @@ import {
     extractTitle,
     extractCleanStartDate,
     extractFreeTextDateTime,
+    extractDateOnlyStartDates,
+    extractOffersUrl,
     extractLocation,
     extractDuration,
     parseDetailPage,
 } from "./ripper.js";
-import { RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -158,6 +160,43 @@ describe("extractFreeTextDateTime", () => {
     });
 });
 
+describe("extractDateOnlyStartDates", () => {
+    it("extracts every date-only startDate on a multi-day workshop page", () => {
+        const dates = extractDateOnlyStartDates(readSample("sample-data-workshop.html"));
+        expect(dates.map(d => d.toString())).toEqual([
+            "2026-07-27", "2026-07-28", "2026-07-29", "2026-07-30", "2026-07-31",
+        ]);
+    });
+
+    it("returns an empty array for a page with a real time-of-day startDate", () => {
+        expect(extractDateOnlyStartDates(readSample("sample-data-film.html"))).toEqual([]);
+    });
+
+    it("returns an empty array for the closure notice (startDate is just \"T\", not date-only)", () => {
+        expect(extractDateOnlyStartDates(readSample("sample-data-closure.html"))).toEqual([]);
+    });
+});
+
+describe("extractOffersUrl", () => {
+    it("extracts the ticket/registration URL from a /films/ page", () => {
+        expect(extractOffersUrl(readSample("sample-data-film.html")))
+            .toBe("https://nwfilmforum.eventive.org/schedule/6a21eca1bfe1194ea66d024b");
+    });
+
+    it("extracts the registration URL from a multi-day workshop page", () => {
+        expect(extractOffersUrl(readSample("sample-data-workshop.html")))
+            .toBe("https://pci.jotform.com/form/260876607692167");
+    });
+
+    it("returns null for the closure notice (empty offers content=\"\")", () => {
+        expect(extractOffersUrl(readSample("sample-data-closure.html"))).toBeNull();
+    });
+
+    it("returns null when no offers block is present", () => {
+        expect(extractOffersUrl("<html><body>none</body></html>")).toBeNull();
+    });
+});
+
 describe("extractLocation", () => {
     it("extracts venue name and address from a /films/ MovieTheater block", () => {
         expect(extractLocation(readSample("sample-data-film.html")))
@@ -186,9 +225,10 @@ describe("extractDuration", () => {
 
 describe("parseDetailPage", () => {
     it("parses a /films/ page using the clean startDate meta", () => {
-        const result = parseDetailPage(readSample("sample-data-film.html"), FILM_URL);
-        expect("date" in result).toBe(true);
-        const event = result as RipperCalendarEvent;
+        const results = parseDetailPage(readSample("sample-data-film.html"), FILM_URL);
+        expect(results.length).toBe(1);
+        expect("date" in results[0]).toBe(true);
+        const event = results[0] as RipperCalendarEvent;
         expect(event.id).toBe("free-forum-stop-making-sense-2026-07-10");
         expect(event.summary).toBe("FREE FORUM 2026: Stop Making Sense");
         expect(event.date.year()).toBe(2026);
@@ -203,9 +243,10 @@ describe("parseDetailPage", () => {
     });
 
     it("parses an /events/ page using the free-text date/time fallback", () => {
-        const result = parseDetailPage(readSample("sample-data-event.html"), EVENT_URL);
-        expect("date" in result).toBe(true);
-        const event = result as RipperCalendarEvent;
+        const results = parseDetailPage(readSample("sample-data-event.html"), EVENT_URL);
+        expect(results.length).toBe(1);
+        expect("date" in results[0]).toBe(true);
+        const event = results[0] as RipperCalendarEvent;
         expect(event.id).toBe("squeakyfest-seattle-2026-07-22");
         expect(event.summary).toBe("SqueakyFest Seattle");
         expect(event.date.monthValue()).toBe(7);
@@ -215,30 +256,60 @@ describe("parseDetailPage", () => {
         expect(event.location).toBe("Northwest Film Forum, 1515 12th Ave, Seattle WA 98122");
     });
 
-    it("returns a ParseError for the closure notice with no parseable date", () => {
-        const result = parseDetailPage(readSample("sample-data-closure.html"), CLOSURE_URL);
-        expect("type" in result).toBe(true);
-        expect((result as RipperError).type).toBe("ParseError");
-        expect((result as RipperError).context).toBe(CLOSURE_URL);
+    it("returns an empty array for the closure notice (no ticket URL, no date signal — not a real event)", () => {
+        const results = parseDetailPage(readSample("sample-data-closure.html"), CLOSURE_URL);
+        expect(results).toEqual([]);
     });
 
-    it("returns a ParseError for a multi-day camp expressed as a date range", () => {
-        const result = parseDetailPage(readSample("sample-data-workshop.html"), WORKSHOP_URL);
-        expect("type" in result).toBe(true);
-        expect((result as RipperError).type).toBe("ParseError");
+    it("returns [event, uncertainty] for a multi-day camp with dated-but-timeless CourseInstances", () => {
+        const results = parseDetailPage(readSample("sample-data-workshop.html"), WORKSHOP_URL);
+        expect(results.length).toBe(2);
+
+        expect("date" in results[0]).toBe(true);
+        const event = results[0] as RipperCalendarEvent;
+        expect(event.id).toBe("camp2-2026-2026-07-27");
+        expect(event.summary).toContain("Summer Camp 2");
+        expect(event.date.toLocalDate().toString()).toBe("2026-07-27");
+        expect(event.date.hour()).toBe(12); // placeholder — real time unknown
+        expect(event.duration.toDays()).toBe(5); // Jul 27–31 inclusive
+        expect(event.location).toBe("Northwest Film Forum, 1515 12th Ave, Seattle WA 98122");
+
+        expect("type" in results[1]).toBe(true);
+        const uncertainty = results[1] as UncertaintyError;
+        expect(uncertainty.type).toBe("Uncertainty");
+        expect(uncertainty.source).toBe("northwest-film-forum");
+        expect(uncertainty.unknownFields).toEqual(["startTime", "duration"]);
+        expect(uncertainty.event.id).toBe(event.id);
     });
 
-    it("returns a ParseError (not a crash) for a page with no title", () => {
-        const result = parseDetailPage("<html><body>empty</body></html>", FILM_URL);
-        expect("type" in result).toBe(true);
-        expect((result as RipperError).type).toBe("ParseError");
+    it("returns an empty array (not a crash) for a page with no title", () => {
+        const results = parseDetailPage("<html><body>empty</body></html>", FILM_URL);
+        // No title at all is treated as "nothing to report", same as the
+        // closure-notice case — not a page we can attribute an error to.
+        expect(results).toEqual([]);
+    });
+
+    it("returns a ParseError for a ticketed page with a title but no parseable date at all", () => {
+        const html = `
+            <h1 itemprop="name">Some Real Ticketed Thing</h1>
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <meta itemprop="url" content="https://nwfilmforum.eventive.org/schedule/abc123" />
+            </div>
+        `;
+        const results = parseDetailPage(html, FILM_URL);
+        expect(results.length).toBe(1);
+        expect("type" in results[0]).toBe(true);
+        expect((results[0] as RipperError).type).toBe("ParseError");
+        expect((results[0] as RipperError).context).toBe(FILM_URL);
     });
 
     it("produces stable, deterministic ids across repeated parses", () => {
         const html = readSample("sample-data-film.html");
         const first = parseDetailPage(html, FILM_URL);
         const second = parseDetailPage(html, FILM_URL);
-        expect("date" in first && "date" in second).toBe(true);
-        expect((first as RipperCalendarEvent).id).toBe((second as RipperCalendarEvent).id);
+        expect(first.length).toBe(1);
+        expect(second.length).toBe(1);
+        expect("date" in first[0] && "date" in second[0]).toBe(true);
+        expect((first[0] as RipperCalendarEvent).id).toBe((second[0] as RipperCalendarEvent).id);
     });
 });
