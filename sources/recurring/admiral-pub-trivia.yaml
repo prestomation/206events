@@ -1,0 +1,33 @@
+geo:
+  lat: 47.5826988
+  lng: -122.3862243
+  label: "2306 California Ave SW, Seattle, WA 98116"
+  osmType: node
+  osmId: 2445204016
+name: admiral-pub-trivia
+sourceRole: venue
+friendlyname: Trivia Night at The Admiral Pub
+description: Free weekly pub trivia in the Admiral District of West Seattle. Six rounds, cash prizes for the top two teams.
+timezone: America/Los_Angeles
+location: "2306 California Ave SW, Seattle, WA 98116"
+url: https://admiralpubseattle.com/trivia-night-seattle
+tags:
+  - Trivia
+  - "Pub Trivia"
+  - "West Seattle"
+cost: free
+# Runs every Tuesday, Wednesday, and Thursday, except the last Thursday of the
+# month (pinball tournament instead of trivia) - not encodable as a schedule
+# exception, so an occasional false-positive occurrence on that Thursday is
+# expected. Re-verify against admiralpubseattle.com/trivia-night-seattle
+# periodically (calendar-verification skill).
+schedules:
+  - schedule: every Tuesday
+    start_time: "19:00"
+    duration: PT2H
+  - schedule: every Wednesday
+    start_time: "19:00"
+    duration: PT2H
+  - schedule: every Thursday
+    start_time: "19:00"
+    duration: PT2H
