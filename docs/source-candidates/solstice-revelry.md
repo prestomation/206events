@@ -3,7 +3,7 @@ name: Solstice Revelry
 status: notviable
 platform: none
 url: https://www.seattle.gov/event-calendar?trumbaEmbed=view%3Devent&eventid=194912857
-tags: [Community, PioneerSquare]
+tags: [Community, "Pioneer Square"]
 firstSeen: 2026-07-02
 lastChecked: 2026-07-02
 pr:
