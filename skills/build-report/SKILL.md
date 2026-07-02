@@ -86,14 +86,25 @@ If a source returns 403 or consistently fails to fetch, follow the proxy escalat
 | 2 | `proxy: "outofband"` | Source works from home IP but CI 403s it |
 | 3 | `proxy: "browserbase"` | JS challenge (e.g. SiteGround sgcaptcha) blocks even residential IP |
 
-**Escalation is one rung at a time, one PR at a time — with one exception:**
-1. **No proxy yet and CI 403s it?** → Add `proxy: "outofband"` in a PR. The out-of-band runner fetches from a residential IP.
-2. **Already `proxy: outofband` and still failing?** → Escalate to `proxy: "browserbase"` in a follow-up PR. Browserbase executes JS to bypass bot detection.
-3. **Already `proxy: browserbase` and still failing?** → Flag in the report for human review. The source may need a custom ripper or alternative URL.
+**Don't prove or merge a proxy change from build-report.** build-report runs in
+CI, where the `outofband`/`browserbase` fetch paths can't be exercised — so
+testing and merging a proxy fix belongs to the out-of-band run, not here. Never
+hand-pick a final rung and merge it.
 
-**JS-challenge exception — skip directly to `proxy: "browserbase"` when the response is a JS bot-challenge page.** If the ripper returns 0 events (or errors) and a manual fetch of the URL returns a JavaScript challenge page (recognizable by `window.location.reload()`, `sgcaptcha`, Cloudflare challenge, or similar JS-redirect HTML), a residential-IP fetch (outofband) will get the same challenge and won't help. Go straight to browserbase in a single PR; document the evidence in the PR body. Do not skip rung 2 for any other reason.
-
-**For sources that ALREADY carry a proxy (`outofband` or `browserbase`), you do not escalate them here.** Their failures are tracked automatically in the `pendingProxyVerification` queue (see step 5.5), and the **proxy-escalation skill** — run by the out-of-band job — drives them up the ladder after 3 consecutive failures (and retires them after browserbase fails 3 times). Your job for those is to *report* the queue, not act on it. Rung 1 (no proxy yet → add `outofband`) is the only step still done by hand here, because a `proxy: false` source isn't in the queue yet.
+1. **A `proxy: false` source that now 403s in CI** → **stage it, don't fix it
+   here.** Open a PR that adds `proxy: "outofband"` (the ladder entry point) and
+   label it `requires-proxy-testing` (`mcp__github__issue_write` `method: update`
+   `labels: ["requires-proxy-testing"]`); leave it **open and unmerged**.
+   `skills/proxy-escalation/SKILL.md` (out-of-band job, Mode A) tests the ladder
+   from the residential environment and merges the working rung — climbing to
+   `browserbase` if `outofband` also fails — or closes the PR if none work. Note
+   any JS-challenge evidence (`window.location.reload()`, `sgcaptcha`, Cloudflare)
+   in the PR body so Mode A skips straight to `browserbase`.
+2. **A source that ALREADY carries a proxy (`outofband`/`browserbase`) and is
+   failing** → do nothing here. It's tracked in the `pendingProxyVerification`
+   queue (step 5.5); the out-of-band run escalates it after 3 consecutive failures
+   and retires it after browserbase fails 3 times. Your job is to *report* the
+   queue, not act on it.
 
 - Do NOT disable the ripper without human approval (the proxy-escalation skill handles browserbase-exhausted retirement automatically)
 
@@ -167,13 +178,18 @@ build.
 ```
 
 **If entries exist**, report each with its `rung`, `consecutiveFailures`, and
-`recommendation`. If any entry has a recommendation of `promote-to-browserbase`
-or `retire`, read `skills/proxy-escalation/SKILL.md` and follow it to open the
-escalation PR(s). Entries with recommendation `verifying` are still within the
-3-failure budget — just report them, no action needed.
+`recommendation`. **Report only — do not run proxy-escalation from here.**
+build-report runs in the CI-style environment, where the `outofband` and
+`browserbase` fetch paths can't be exercised, so it can't verify or escalate
+anything. Proxy escalation (both the `requires-proxy-testing` staged-PR queue and
+this `pendingProxyVerification` queue) is drained by
+`skills/proxy-escalation/SKILL.md` **inside the out-of-band generate job**
+(`skills/outofband-generate/SKILL.md`), which runs from the residential
+environment where those paths work. Entries with recommendation `verifying` are
+still within the 3-failure budget. Just surface the queue so it's visible:
 
 ```
-🪜 Proxy verification: N pending — M ready to escalate
+🪜 Proxy verification: N pending — M ready to escalate (handled by the out-of-band run)
   - <source> (<rung>, <consecutiveFailures> fails) → <recommendation>
 ```
 
@@ -193,10 +209,11 @@ broken. See `docs/fetch-cache.md`.
 
 **If entries exist**, report each with its `source` (or `url`), `ageHours`, and
 `error`. A single transient blip clears itself on the next build; a source that
-keeps serving stale needs investigation — verify the source URL still works and,
-if Browserbase can no longer fetch it, follow `skills/proxy-escalation/SKILL.md`
-to retire it (disable + candidate doc `status: blocked`), since browserbase is
-the last proxy rung.
+keeps serving stale needs investigation — verify the source URL still works. If
+Browserbase can no longer fetch it, **flag it for retirement but don't act here**:
+retiring a browserbase source (disable + candidate doc `status: blocked`) is a
+proxy-ladder action handled by `skills/proxy-escalation/SKILL.md` in the
+out-of-band run, since browserbase is the last proxy rung.
 
 ```
 🕒 Browserbase stale serves: N

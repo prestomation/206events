@@ -32,8 +32,12 @@ live entirely in your account and need no secrets or workflow changes.
 
 **Purpose:** drain `build-errors.json` — fix broken sources, resolve
 geocode errors, and chain into the resolver skills (uncertainty, photos,
-costs, proxy escalation). When the build is healthy it falls through to
-source discovery, so even this one routine keeps a copy improving.
+costs). When the build is healthy it falls through to source discovery, so
+even this one routine keeps a copy improving. (Proxy escalation is **not**
+run here — build-report runs in the CI-style environment where the proxy
+fetch paths can't be tested; it only *reports* the proxy queue. Escalation
+runs in the out-of-band job — see `skills/outofband-generate/SKILL.md` and
+`docs/proxy-verification.md`.)
 
 **Trigger & cadence:** fired by the repo, not a schedule. The
 `trigger-error-routine` job in `.github/workflows/publish_calendars.yml`

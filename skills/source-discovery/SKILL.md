@@ -87,9 +87,15 @@ the source of truth — update it as the candidate's situation changes:
   ("no public calendar", "not Seattle", "platform requires browser").
 - **Source blocked**: Flip `status: blocked` with the reason
   ("Cloudflare bot protection", "needs paid API key").
-- **Source needs a proxy**: `status: proxy` — the source was confirmed working locally but CI blocks it. Note which proxy rung is needed:
-  - `proxy: "outofband"` — CI 403s it but home IP works. Note which CI run confirmed the failure.
-  - `proxy: "browserbase"` — CI and home IP both fail (JS challenge, e.g. SiteGround sgcaptcha). Note which out-of-band run confirmed the failure.
+- **Source needs a proxy**: `status: proxy` — the pipeline works locally but CI
+  blocks it. `proxy` covers the whole proxy pipeline: while its
+  `requires-proxy-testing` PR is open the source is **staged/awaiting the ladder
+  test** (step 7a); once `skills/proxy-escalation/SKILL.md` merges the working
+  rung it **stays `proxy`** (now live via that rung). Note the PR number, the CI
+  evidence of the block, and — once merged — the proven rung, in the body. You do
+  **not** pick a rung yourself; proxy-escalation proves `outofband` vs
+  `browserbase` from the out-of-band environment (or closes the PR if neither
+  works, flipping this to `status: blocked`).
 
 Each candidate is one file, so two PRs touching different candidates
 never conflict on this directory.
@@ -144,20 +150,35 @@ To implement:
    | **404 / 410 / DNS failure** | Our URL was wrong or the source has moved | Do not implement yet. Update the candidate entry to `🔍 Investigating` and search for the correct URL. Only mark `❌ Not Viable` once no working URL can be found. |
    | **403 / 429 / connection reset** | Blocked — but by what? | See below |
 
-   **Proxy escalation ladder:** When a source works locally but fails in CI, escalate one rung at a time. Each escalation is a **separate PR** — you must observe the failure before moving up.
+   **Proxy escalation ladder:** When a source works locally but CI blocks it, do
+   **not** pick a proxy rung and merge. Which rung works can only be proven in the
+   out-of-band (residential) environment, so leave that to the proxy-escalation
+   skill. Your job is to **stage** the PR, not to prove or merge the proxy.
 
    | Rung | Config | When |
    |------|--------|------|
    | 1 | `proxy: false` (default) | Source works from GitHub Actions |
-   | 2 | `proxy: "outofband"` | Source works from Claude Code/home IP but CI 403s it |
+   | 2 | `proxy: "outofband"` | Works from a residential IP but CI 403s it |
    | 3 | `proxy: "browserbase"` | JS challenge (e.g. SiteGround sgcaptcha) blocks even residential IP |
 
    **Workflow:**
-   - **Fetch succeeds locally (200 + data)** → implement with no proxy, push PR. If CI fetches successfully, done (rung 1).
-   - **CI returns 403/captcha** → add `proxy: "outofband"` in a follow-up PR. If out-of-band report shows success, done (rung 2).
-   - **Out-of-band also fails (captcha/JS challenge)** → escalate to `proxy: "browserbase"` in another follow-up PR (rung 3).
-   - **Never skip rungs.** A source should never go from `proxy: false` directly to `proxy: "browserbase"`.
-   - **Fetch fails locally (403 / CAPTCHA / connection reset / non-200)** → do NOT implement. Record what you observed in `docs/source-candidates/<slug>.md` with `status: blocked` or `status: candidate`, and move on.
+   - **Fetch succeeds locally (200 + data)** → implement with `proxy: false`, push
+     the PR, let CI run.
+   - **CI fetches it successfully (events > 0)** → merge as normal. No proxy
+     needed (rung 1); done.
+   - **CI blocks it (403 / captcha / 0 events caused by a block)** → the source
+     needs a proxy. **Do NOT add a proxy rung, and do NOT merge.** Leave the PR
+     open at `proxy: false` and **stage it for proxy testing** (see step 7a):
+     apply the `requires-proxy-testing` label, set the candidate `status: proxy`,
+     and stop. `skills/proxy-escalation/SKILL.md` — run inside the out-of-band
+     job, the one environment where the proxy fetch paths work — checks the PR
+     out, tests `outofband` then `browserbase` locally, and **merges the lowest
+     working rung** or **closes** the PR if none work. You never hand-pick a rung.
+   - **Fetch fails locally too (403 / CAPTCHA / connection reset / non-200)** → do
+     NOT implement and do NOT stage. A source you can't reach from anywhere has
+     nothing to prove — record what you observed in
+     `docs/source-candidates/<slug>.md` with `status: blocked` or
+     `status: candidate`, and move on.
 
    **Do not guess at the data shape** if you cannot fetch the source. An implementation written against an inaccessible URL is a guess — it will produce 0 events or parse errors. Only implement once you have seen a real sample response.
 
@@ -210,7 +231,9 @@ and CI shows events.
 
 After the PR is open:
 
-1. **Check event count in CI** — Read the PR's GitHub Actions build log. Find the new source's event count. **If 0 events** (and the source was not flagged as proxy-required), keep searching for the correct URL or source format. Update the candidate entry to `🔍 Investigating`. Do not mark `❌ Not Viable` unless you are confident no working URL exists. **Do not add `expectEmpty: true` to a new source with 0 events** — the build intentionally fails in this case to prevent merging unverified pipelines. `expectEmpty` is only appropriate after the pipeline has been confirmed to work at least once.
+1. **Check event count in CI** — Read the PR's GitHub Actions build log. Find the new source's event count.
+   - **If 0 events because CI was blocked** (the log shows a `403`/`429`, a captcha/JS-challenge body, or a connection reset for this source) → the pipeline is fine; CI's IP is the problem. **Stage it for proxy testing (step 7a)** — do not keep hunting for a URL.
+   - **If 0 events for any other reason** (and the source was not staged for proxy) → keep searching for the correct URL or source format. Update the candidate entry to `🔍 Investigating`. Do not mark `❌ Not Viable` unless you are confident no working URL exists. **Do not add `expectEmpty: true` to a new source with 0 events** — the build intentionally fails in this case to prevent merging unverified pipelines. `expectEmpty` is only appropriate after the pipeline has been confirmed to work at least once.
 
 2. **Trigger Amazon Q review** — Post a top-level PR comment using this template (substituting the actual values):
 
@@ -229,6 +252,35 @@ After the PR is open:
 
 5. **When Q is clean + events confirmed (>0)** → Flip the candidate's `status:` frontmatter to `added` in `docs/source-candidates/<slug>.md` (and add the `pr:` field) and commit the update to the PR branch.
 
+### 7a. Staging a CI-blocked source for proxy testing
+
+When the pipeline is correct but CI can't fetch the source (step 6.2 → "CI blocks
+it"), **do not merge and do not pick a proxy rung.** Stage the open PR so the
+proxy-escalation skill can prove and merge the right rung from the out-of-band
+environment:
+
+1. **Leave the source at `proxy: false`.** You're not guessing a rung — that's
+   proxy-escalation's job. Leave the PR open (ready-for-review is fine).
+2. **Label the PR `requires-proxy-testing`:**
+   ```
+   mcp__github__issue_write  method: update  issue_number: <pr>  labels: ["requires-proxy-testing"]
+   ```
+   > `issue_write` replaces the PR's full label set, so include any labels it
+   > should keep. GitHub usually auto-creates the label on first use; **if the
+   > call is rejected because the label doesn't exist, stop and ask the human to
+   > create the `requires-proxy-testing` label once** (repo → Labels → New label),
+   > then retry. Do not silently skip the label — the out-of-band job finds these
+   > PRs *by* that label.
+3. **Add a PR-body note** so the reason is visible:
+   `⏳ Needs proxy testing — pipeline verified locally, but CI is blocked (<evidence, e.g. HTTP 403 in run #NNN>). Left open for skills/proxy-escalation (out-of-band job) to test the ladder and merge the working rung.`
+4. **Set the candidate `status: proxy`** in `docs/source-candidates/<slug>.md`,
+   note that it's staged (`PR #NNN, awaiting proxy-ladder testing`), and bump
+   `lastChecked`.
+5. **Stop here for this source.** Do not merge, do not add `expectEmpty`, do not
+   escalate rungs yourself. Report it as staged (see step 8) and move on — the
+   next out-of-band run drains it. It is not counted as `added` until a rung is
+   proven and the PR merges.
+
 ### 8. Report findings and request review
 
 Include a "🔍 Source Discovery" section in the daily report:
@@ -236,6 +288,7 @@ Include a "🔍 Source Discovery" section in the daily report:
 ```
 🔍 Source Discovery
   ✅ Added: venue name — type — N events — PR #XXX (Q clean, ready for review)
+  ⏳ Staged (needs proxy): venue name — type — PR #XXX (CI blocked; requires-proxy-testing — out-of-band job will test the ladder)
   💡 Candidate: venue name — type — URL
   ❌ Not viable: venue name — reason
   💀 Dead source flagged: source name — symptom
@@ -258,8 +311,16 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Respect the existing tag system** — adding a new tag is just using it in a source's `tags:` field. The build no longer requires registration in a central allow-list; it does fail on near-duplicate spellings (e.g. `"Capitol Hill"` vs `"CapitolHill"`). Check `lib/config/tags.ts` for the preferred spellings before introducing a new tag.
 - **Tags should reflect a venue's PRIMARY identity** — only add a tag if the venue is primarily known for that category. A music venue that occasionally hosts comedy nights gets `Music` but NOT `Comedy`. A venue that is equally known for both (e.g., a comedy club that also does music) can have both. When in doubt, use fewer tags.
 - **Validate the live source before implementing** — always attempt a fetch before writing parser code. A 200 with events in the Claude Code web environment is the only green light to implement. A 404 means the URL was wrong — keep searching. A 403, CAPTCHA, or any non-200 in Claude Code web means the source is blocked here; record it as `status: blocked` and move on — do not implement. Never implement a source you cannot fetch; an implementation written against an inaccessible URL is a guess.
-- **Never add a source that returns 0 events** — new sources must produce at least 1 event in CI before merging. The build now fails on new sources with 0 events (no `expectEmpty` exemption for brand-new sources). A source with 0 events has no proven data pipeline. Keep as `🔍 Investigating` until the correct URL or data shape is found.
-- **Proxy escalation is one rung at a time** — never skip from `proxy: false` directly to `proxy: "browserbase"`. Try rung 1 (direct fetch), then rung 2 (`proxy: "outofband"`), then rung 3 (`proxy: "browserbase"`). Each escalation is a separate PR so you can observe the failure. If the source is inaccessible even locally (CAPTCHA, Cloudflare, connection refused), record it as `status: blocked` in `docs/source-candidates/<slug>.md` with notes on what you observed, and do not implement it.
+- **Never *merge* a source that returns 0 events** — a source must produce at least 1 event before it merges. The build fails on new non-proxy sources with 0 events (no `expectEmpty` exemption for brand-new sources). A source with 0 events has no proven data pipeline. Keep as `🔍 Investigating` until the correct URL or data shape is found — **unless** the 0 is because CI is blocked, in which case stage it (`requires-proxy-testing`, `status: proxy`) and let the out-of-band proxy-escalation run prove a rung before it merges. Either way, nothing merges at 0 events.
+- **Don't hand-pick a proxy rung — stage instead.** When CI blocks a source you
+  can otherwise fetch locally, do not add `proxy: "outofband"`/`"browserbase"` and
+  do not merge. Leave the PR open at `proxy: false`, label it
+  `requires-proxy-testing`, set the candidate `status: proxy`, and stop (step 7a).
+  `skills/proxy-escalation/SKILL.md` — running in the out-of-band job, the only
+  place the proxy paths work — tests the ladder and merges the lowest working rung
+  (or closes the PR if none work). If the source is inaccessible even locally
+  (CAPTCHA, Cloudflare, connection refused), it isn't stageable: record it as
+  `status: blocked` in `docs/source-candidates/<slug>.md` and do not implement it.
 - **A 404 is not "not viable"** — it means the URL was wrong. Update the candidate to `🔍 Investigating` and keep searching for the correct URL. Only mark `❌ Not Viable` when no working URL can be found after investigation.
 - **Iterate with Q until clean** — don't request human review until Amazon Q has no blocking comments.
 - **Never hardcode source credentials** — when a source needs an API key/token/secret, read it from `process.env.<SOURCE>_<NAME>` (guard a missing value with a `ParseError`, never a hardcoded fallback), wire it into `.env.example` and the build workflow, and tell Preston to add the repo secret **in both the PR body and the chat report**. Hardcoded keys fail the gitleaks scan. See step 6a.

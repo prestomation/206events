@@ -54,7 +54,7 @@ shows 3 upcoming, but primary ticketing is SimpleTix...
 | `candidate`    | Identified but not yet implemented                                   |
 | `investigating`| Actively being researched                                            |
 | `added`        | Implemented and merged. Keep the file as a historical record.        |
-| `proxy`        | Implemented with `proxy: "outofband"` because GH Actions IPs blocked |
+| `proxy`        | Needs a proxy (CI-blocked). Staged while its `requires-proxy-testing` PR is open (awaiting the ladder test); stays `proxy` once merged and live via the proven rung |
 | `blocked`      | Site is hard-blocked (Cloudflare, CAPTCHA) — needs new approach      |
 | `notviable`    | Evaluated and rejected (low volume, outside Seattle, no API, etc.)   |
 | `dead`         | Was working, now broken / silent. Needs investigation.               |

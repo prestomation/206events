@@ -119,7 +119,8 @@ def main():
                   f"→ {p.get('recommendation')}"
                   + (f"  [{p.get('lastError')}]" if p.get('lastError') else ""))
         if actionable:
-            print("  → run skills/proxy-escalation/SKILL.md to open escalation PR(s)")
+            print("  → handled by the out-of-band run (skills/outofband-generate → "
+                  "skills/proxy-escalation); build-report only reports it")
     else:
         print("🪜 Proxy verification: 0 pending ✅")
 
