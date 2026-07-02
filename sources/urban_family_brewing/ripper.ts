@@ -71,7 +71,8 @@ export default class UrbanFamilyBrewingRipper implements IRipper {
             if ('date' in result) {
                 if (seen.has(result.id!)) continue;
                 seen.add(result.id!);
-                if (result.date.isBefore(now)) continue;
+                const eventEnd = result.date.plus(result.duration);
+                if (eventEnd.isBefore(now)) continue;
             }
             events.push(result);
         }

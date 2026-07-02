@@ -60,6 +60,15 @@ describe('UrbanFamilyBrewingRipper', () => {
         expect(calEvents.length).toBe(0);
     });
 
+    it('keeps an event that is still in progress (started before now, ends after)', () => {
+        // "Yoga in the Brewery" on 2026-06-28 runs 11:00am-12:00pm; check mid-event.
+        const midEvent = ZonedDateTime.of(LocalDateTime.of(2026, 6, 28, 11, 30, 0), TZ);
+        const events = ripper.parseEvents(sampleHtml, midEvent) as any[];
+        const calEvents = events.filter(e => 'date' in e);
+        const yoga = calEvents.find(e => e.summary === 'Yoga in the Brewery');
+        expect(yoga).toBeDefined();
+    });
+
     it('deduplicates events with the same event id', () => {
         const doubled = sampleHtml + sampleHtml;
         const single = ripper.parseEvents(sampleHtml, NOW);
