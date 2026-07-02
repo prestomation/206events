@@ -1,0 +1,116 @@
+{
+  "board-meeting-2026-08-12-19-00": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Board Meeting",
+    "description": "The SAS board meetings are open to the public and we encourage club members to attend and get involved. This is a hybrid (in person and online) event.",
+    "startDate": "2026-08-12T19:00:00-07:00",
+    "endDate": "2026-08-12T21:00:00-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.seattleastro.org/events-1/board-meeting-2026-08-12-19-00",
+      "name": "Seattle",
+      "address": "Seattle, WA 98108, USA"
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://static.wixstatic.com/media/example-board-meeting.jpg",
+      "width": "1161",
+      "height": "607"
+    }
+  },
+  "membership-meetup-2026-08-19-18-30": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Membership Meetup",
+    "description": "Club members meet to share stories, learn new techniques, and hear from guest speakers.",
+    "startDate": "2026-08-19T18:30:00-07:00",
+    "endDate": "2026-08-19T21:00:00-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.seattleastro.org/events-1/membership-meetup-2026-08-19-18-30",
+      "name": "Theodor Jacobsen Observatory (OBS)",
+      "address": "4324 Memorial Way Northeast, Seattle, WA 98105, USA"
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://static.wixstatic.com/media/example-membership-meetup.jpg",
+      "width": "640",
+      "height": "481"
+    }
+  },
+  "lakewood-playground-star-party-2026-08-27-18-30": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Lakewood Playground Star Party",
+    "description": "Meet amateur astronomers, view through their telescopes, and learn about the night sky.",
+    "startDate": "2026-08-27T18:30:00-07:00",
+    "endDate": "2026-08-27T22:30:00-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.seattleastro.org/events-1/lakewood-playground-star-party-2026-08-27-18-30",
+      "name": "Lakewood Playground",
+      "address": "5013 S Angeline St, Seattle, WA 98118, USA"
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://static.wixstatic.com/media/example-lakewood.jpg",
+      "width": "6000",
+      "height": "4000"
+    }
+  },
+  "duvall-stargazing-2026-08-14-20-00": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Duvall Stargazing",
+    "description": "Dark-sky stargazing east of the city.",
+    "startDate": "2026-08-14T20:00:00-07:00",
+    "endDate": "2026-08-15T00:00:00-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.seattleastro.org/events-1/duvall-stargazing-2026-08-14-20-00",
+      "name": "Duvall",
+      "address": "Duvall, WA 98019, USA"
+    }
+  },
+  "board-meeting-2025-11-11-19-00": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Board Meeting",
+    "description": "The SAS board meetings are open to the public.",
+    "startDate": "2025-11-11T19:00:00-08:00",
+    "endDate": "2025-11-11T21:00:00-08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.seattleastro.org/events-1/board-meeting-2025-11-11-19-00",
+      "name": "Seattle",
+      "address": "Seattle, WA 98108, USA"
+    }
+  },
+  "snoqualmie-point-park-stargazing-2026-11-07-18-00-2": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Snoqualmie Point Park Stargazing",
+    "description": "Stargazing east of the city.",
+    "startDate": "2026-11-07T18:00:00-08:00",
+    "endDate": "2026-11-07T22:00:00-08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "url": "https://www.seattleastro.org/events-1/snoqualmie-point-park-stargazing-2026-11-07-18-00-2",
+      "name": "Snoqualmie Point Park",
+      "address": "35800 SE Winery Rd, Snoqualmie, WA 98065, USA"
+    }
+  }
+}

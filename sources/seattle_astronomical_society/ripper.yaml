@@ -1,0 +1,11 @@
+name: seattle-astronomical-society
+description: "Seattle Astronomical Society"
+url: "https://www.seattleastro.org/event-pages-sitemap.xml"
+friendlyLink: "https://www.seattleastro.org/events"
+sourceRole: venue
+geo: null
+tags: ["Education", "Community"]
+calendars:
+  - name: seattle-astronomical-society
+    friendlyname: "Seattle Astronomical Society"
+    timezone: America/Los_Angeles
