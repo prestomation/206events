@@ -44,7 +44,9 @@ proxy-escalation treats the browserbase rung as *untested* (leaves the PR open)
 rather than failed, so a JS-challenge source is never wrongly discarded — but set
 the key so those PRs can actually be resolved.
 
-Then re-sync `main` so the just-merged sources are included in this run:
+Then re-sync `main` to pick up any sources whose PRs have already merged:
+(a Mode A PR that's still finishing its CI/auto-merge will land on `main` and be
+included on the **next** run, not this one — that one-run delay is expected.)
 
 ```bash
 cd /root/.openclaw/workspace-calendar/repo && git checkout main && git pull origin main
