@@ -6,7 +6,7 @@ url: https://blog.fantagraphics.com/events/
 tags: [Arts, Books, Georgetown]
 firstSeen: 2026-07-02
 lastChecked: 2026-07-02
-pr: pending
+pr: 830
 ---
 
 Comics/graphic-novel publisher Fantagraphics' bookstore and gallery space at
