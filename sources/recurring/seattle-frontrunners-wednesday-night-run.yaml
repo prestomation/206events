@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6302957
+  lng: -122.3141354
+  label: "Seattle Asian Art Museum, 1400 E Prospect St, Seattle, WA 98112"
+  osmType: way
+  osmId: 36839785
+name: seattle-frontrunners-wednesday-night-run
+sourceRole: venue
+friendlyname: Seattle Frontrunners - Wednesday Night Run/Walk
+description: LGBTQ+ running and walking club's weekly Wednesday evening run/walk, starting in front of the Seattle Asian Art Museum in Volunteer Park. 4 mile route through Capitol Hill, rain or shine, open to all paces.
+timezone: America/Los_Angeles
+location: Seattle Asian Art Museum, 1400 E Prospect St, Seattle, WA 98112
+url: https://www.seattlefrontrunners.org/wednesday-night
+tags:
+  - Running
+  - LGBTQ
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: every Wednesday
+    start_time: "18:30"
+    duration: PT1H30M
