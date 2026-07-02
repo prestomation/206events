@@ -137,6 +137,24 @@ describe('CenterForWoodenBoatsRipper', () => {
             expect(event.date.minute()).toBe(30);
         });
 
+        it('picks up a schedule change rather than the coincidentally-identical fallback', () => {
+            // A start time different from the 9:30 AM fallback proves this is
+            // actually parsed from the schedule list, not just falling back.
+            const html = `
+                <h2>Norm Blanchard W.O.O.D. Regatta: September 19th, 2026</h2>
+                <h3>Tentative Race Day Schedule: Saturday, September 19, 2026</h3>
+                <ul><ul><ul>
+                    <li><p>10:15 AM – 10:45: Registration</p></li>
+                    <li><p>11:00 AM Skippers meeting</p></li>
+                </ul></ul></ul>
+            `;
+            const ripper = new CenterForWoodenBoatsRipper();
+            const event = ripper.parseWoodRegatta(html) as RipperCalendarEvent;
+
+            expect(event.date.hour()).toBe(10);
+            expect(event.date.minute()).toBe(15);
+        });
+
         it('falls back to 9:30 AM when no schedule list is published yet', () => {
             const ripper = new CenterForWoodenBoatsRipper();
             const html = '<h2>Norm Blanchard W.O.O.D. Regatta: September 19th, 2026</h2>';
