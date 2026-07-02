@@ -1,0 +1,18 @@
+name: west-seattle-nursery
+sourceRole: venue
+type: squarespace
+description: "West Seattle Nursery"
+url: "https://www.westseattlenursery.com/events-classes"
+friendlyLink: https://www.westseattlenursery.com/
+tags: ["Community", "West Seattle"]
+geo:
+  lat: 47.5541895
+  lng: -122.3873843
+  label: "West Seattle Nursery, 5275 California Avenue SW, Seattle, WA 98136"
+  osmType: way
+  osmId: 231264464
+imageUrl: "https://images.squarespace-cdn.com/content/v1/611c48d97aac4e4796d12f67/afc3243f-ea2f-4d01-8771-31801810efd2/wsn+logos-01.png"
+calendars:
+  - name: west-seattle-nursery
+    friendlyname: "West Seattle Nursery"
+    timezone: America/Los_Angeles
