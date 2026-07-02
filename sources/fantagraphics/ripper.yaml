@@ -1,0 +1,16 @@
+name: fantagraphics-bookstore
+sourceRole: venue
+description: "Fantagraphics Bookstore & Gallery"
+url: "https://blog.fantagraphics.com/wp-json/tribe/events/v1/events"
+friendlyLink: https://fantagraphics.com/bookstore
+tags: ["Arts", "Books", "Georgetown"]
+geo:
+  lat: 47.5490859
+  lng: -122.3169537
+  label: "Fantagraphics Bookstore and Gallery, 1201 S Vale St, Seattle, WA 98108"
+  osmType: node
+  osmId: 2396891149
+calendars:
+  - name: fantagraphics-bookstore
+    friendlyname: "Fantagraphics Bookstore & Gallery"
+    timezone: America/Los_Angeles
