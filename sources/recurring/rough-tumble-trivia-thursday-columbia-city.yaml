@@ -1,0 +1,21 @@
+geo:
+  lat: 47.5573933
+  lng: -122.2844919
+  label: "Rough & Tumble Pub, 4914 Rainier Ave S, Seattle, WA 98118"
+  osmType: way
+  osmId: 603767199
+name: rough-tumble-trivia-thursday-columbia-city
+sourceRole: venue
+friendlyname: Trivia Thursday at Rough & Tumble - Columbia City
+description: Weekly pub trivia at Rough & Tumble's Columbia City location, Seattle's Official US Soccer bar. Six-person team cap, prize sponsors, and rotating celebrity guest hosts. Free to play.
+timezone: America/Los_Angeles
+location: "4914 Rainier Ave S, Seattle, WA 98118"
+url: https://www.roughandtumblepub.com/events-schedules
+tags:
+  - Trivia
+  - "Columbia City"
+cost: free
+schedules:
+  - schedule: every Thursday
+    start_time: "19:00"
+    duration: PT2H
