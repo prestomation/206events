@@ -1,0 +1,24 @@
+geo:
+  lat: 47.6170377
+  lng: -122.3191692
+  label: "Cal Anderson Park, 1635 11th Ave, Seattle, WA 98122"
+  osmType: way
+  osmId: 158721036
+name: capitol-hill-running-club
+sourceRole: venue
+friendlyname: Capitol Hill Running Club
+description: Community-driven running club formed after the closure of the Capitol Hill Fleet Feet store, hosting weekly group runs from the southern entrance of Cal Anderson Park. Open to all paces.
+timezone: America/Los_Angeles
+location: Cal Anderson Park - Southern Entrance, 1635 11th Ave, Seattle, WA 98122
+url: https://www.caphillrunclub.com/
+tags:
+  - Running
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "18:00"
+    duration: PT1H30M
+  - schedule: every Thursday
+    start_time: "18:00"
+    duration: PT1H30M
