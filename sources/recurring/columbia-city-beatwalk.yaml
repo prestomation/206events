@@ -2,6 +2,10 @@ geo:
   lat: 47.5604
   lng: -122.2886
   label: "Rainier Ave S, Columbia City, Seattle, WA 98118"
+  # Nominatim returned Rainier Avenue South itself (way/427900949, highway/primary,
+  # 131m) — the beatwalk spans the whole street, so there's no single venue
+  # feature to attach an osmId to. Rejected 2026-07-02 geo-resolver run.
+  osmChecked: "2026-07-02"
 name: columbia-city-beatwalk
 sourceRole: venue
 friendlyname: Columbia City Beatwalk

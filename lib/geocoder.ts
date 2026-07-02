@@ -384,6 +384,9 @@ const UW_BUILDING_COORDS: Record<string, GeoCoords> = {
   EDP: { lat: 47.6515, lng: -122.3011 },
   SUZ: { lat: 47.6557, lng: -122.3076 },
   EMLB: { lat: 47.6580, lng: -122.2907 },
+  // Added 2026-07-02 geo-resolver batch — verified via each building's own listing.
+  LAW: { lat: 47.659183, lng: -122.310631 }, // William H. Gates Hall (UW School of Law)
+  UWTT: { lat: 47.660745, lng: -122.314667 }, // UW Tower, Building T
 };
 
 /**
@@ -588,6 +591,63 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'caffe ladro, 8403 main street, edmonds, wa': { lat: 47.8079939, lng: -122.3475204 },
   // Green River College Kent Campus — suite/room suffix prevents Nominatim from resolving
   'green river college - kent campus, 417 ramsay way, suite 112, room 282/283, kent, wa': { lat: 47.3845, lng: -122.2352 },
+
+  // --- 2026-07-02 geo-resolver batch: "venue name only" unresolvable entries ---
+  // Addresses verified against each venue's own site/official listing, then
+  // forward-geocoded via Nominatim (never reverse-geocoded street numbers).
+  'alki beach bathhouse': { lat: 47.579690, lng: -122.409633 },
+  'ashwood playfield': { lat: 47.619285, lng: -122.199640 }, // Bellevue, WA
+  'bell harbor patio, seattle': { lat: 47.611143, lng: -122.349210 },
+  'bellevue botanical garden': { lat: 47.609144, lng: -122.179506 },
+  'bellevue downtown park': { lat: 47.611941, lng: -122.204388 },
+  'cal anderson park sun bowl': { lat: 47.615697, lng: -122.318288 },
+  'columbia park': { lat: 47.560033, lng: -122.286900 },
+  'concord international school': { lat: 47.523505, lng: -122.324305 },
+  'federal way town square park': { lat: 47.317826, lng: -122.308114 },
+  'firn rooftop bar': { lat: 47.598643, lng: -122.333666 },
+  'freeway park': { lat: 47.609164, lng: -122.330511 },
+  'fremont social': { lat: 47.651340, lng: -122.355990 },
+  'gasworks park': { lat: 47.647548, lng: -122.332751 },
+  'kite hill @ gas works park': { lat: 47.647548, lng: -122.332751 },
+  'gene coulon memorial beach park': { lat: 47.506975, lng: -122.202523 },
+  'golden gardens bathouse': { lat: 47.691780, lng: -122.403968 }, // source spelling, missing "h"
+  'herkimer udistrict': { lat: 47.669801, lng: -122.313223 },
+  'hing hay park': { lat: 47.598935, lng: -122.325178 },
+  'international fountain lawn': { lat: 47.621462, lng: -122.350989 },
+  'lake sammamish state park': { lat: 47.553546, lng: -122.066618 },
+  'ltd bar & grill': { lat: 47.652156, lng: -122.355222 },
+  'magnolia tidelands park': { lat: 47.631102, lng: -122.392797 },
+  'magnuson hanger': { lat: 47.682846, lng: -122.260988 }, // source spelling — "Hangar 30"
+  'magnuson park amphitheater': { lat: 47.683008, lng: -122.259515 },
+  'mohai/lake union park': { lat: 47.627511, lng: -122.336751 },
+  'muckleshoot community center, auburn, wa': { lat: 47.250614, lng: -122.104415 },
+  'north: bitterlake community center': { lat: 47.7201, lng: -122.3473 }, // matches existing 'bitterlake community center' entry
+  'olallie state park, north bend, wa': { lat: 47.433550, lng: -121.708183 },
+  'outer planet brewing': { lat: 47.618031, lng: -122.316545 },
+  'outside erickson theatre, capitol hill': { lat: 47.614672, lng: -122.321742 },
+  'seattle chinese garden': { lat: 47.547655, lng: -122.351107 },
+  'seward park': { lat: 47.549776, lng: -122.257754 },
+  'south ravenna park, near the tennis court': { lat: 47.669227, lng: -122.302929 },
+  'stoup brewing - capitol hill': { lat: 47.611666, lng: -122.320641 },
+  'the funhouse': { lat: 47.618796, lng: -122.329222 },
+  'the marketplace at factoria, factoria blvd se, bellevue, wa': { lat: 47.573361, lng: -122.170042 },
+  'union station plaza': { lat: 47.599281, lng: -122.330056 },
+  'university friends meeting house': { lat: 47.656262, lng: -122.318924 },
+  'vashon center for the arts': { lat: 47.428756, lng: -122.460132 },
+  'washington park arboretum': { lat: 47.639935, lng: -122.294347 },
+  'westlake park': { lat: 47.610900, lng: -122.336900 },
+  'youngstown cultural arts center theater': { lat: 47.563585, lng: -122.363035 },
+  'bainbridge performing arts center': { lat: 47.626104, lng: -122.518500 },
+  'bainbridge arts and crafts': { lat: 47.624713, lng: -122.520378 },
+  'darrington bluegrass music park': { lat: 48.257213, lng: -121.613039 },
+  'darrington music park': { lat: 48.257213, lng: -121.613039 },
+  "tony v's garage": { lat: 47.979183, lng: -122.206860 }, // Everett, WA
+  "burien farmer's market": { lat: 47.467057, lng: -122.340214 },
+  'burien farmer’s market': { lat: 47.467057, lng: -122.340214 }, // curly-apostrophe source variant
+  // SPL ID/Chinatown branch + study room suffix that lookupSPLBranchCoords misses
+  // (the "/chinatown" text breaks the branch substring match) — same coords as
+  // the 'international district branch' entry in SPL_BRANCH_COORDS.
+  'international district/chinatown branch, study room': { lat: 47.5979, lng: -122.3238 },
 };
 
 /**

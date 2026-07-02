@@ -2,6 +2,8 @@ geo:
   lat: 47.6123580
   lng: -122.2957890
   label: "Madrona Grocery Outlet, 1126 Martin Luther King Jr Way, Seattle, WA 98122"
+  osmType: way
+  osmId: 224205595
 imageUrl: "https://images.squarespace-cdn.com/content/v1/53ceeb21e4b086e0430f639b/8b0d589e-5f22-46a7-b099-fabaccac40fc/Madrona+Page+Banner.png"
 name: central-district-farmers-market
 sourceRole: venue
