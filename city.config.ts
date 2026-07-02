@@ -105,6 +105,7 @@ const cityConfig = {
         "Pike Place",
         "Pioneer Square",
         "QueenAnne",
+        "Rainier Valley",
         "Ravenna",
         "Redmond",
         "Renton",
