@@ -3,7 +3,7 @@ name: "SOL Yoga Seattle"
 status: added
 platform: Squarespace
 url: https://www.solyogaseattle.com/events
-tags: [Wellness]
+tags: [Wellness, Leschi]
 firstSeen: 2026-07-02
 lastChecked: 2026-07-02
 pr: 825
@@ -15,4 +15,4 @@ Investigated 2026-07-02:
 - `/events?format=json` returns 1 upcoming event (**SOL Sound Bath**, July 24, 2026) and 30 past entries showing an active recurring cadence of special events roughly every 2-4 weeks (Sound Baths, Reset workshops, themed classes) going back to at least December 2025
 - Implemented as `sources/sol_yoga_seattle/ripper.yaml` (built-in `squarespace` type), confirmed 1 event live via `ONLY_SOURCE` build
 - `geo`: single fixed venue location (both "SOL Up"/"SOL Down" rooms share one address)
-- Neighborhood is Leschi/Madison Valley, which isn't in the registered neighborhood list — left off rather than force an imprecise tag
+- Neighborhood is Leschi/Madison Valley; CI's `check-discovery-api` requires a registered neighborhood tag for any source with a fixed `geo`, so registered `"Leschi"` in `city.config.ts`'s `neighborhoods` list and tagged the source with it
