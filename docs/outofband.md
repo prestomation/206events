@@ -11,6 +11,15 @@ them via `npm run download-outofband` before publishing.
 
 ## How it works
 
+> **Proxy escalation runs first.** Because the out-of-band runner is the only
+> environment where the `outofband` (residential IP) and `browserbase` fetch
+> paths work, the job first runs `skills/proxy-escalation/SKILL.md`
+> (via `skills/outofband-generate/SKILL.md`, step 3): it drains any open
+> `requires-proxy-testing` PRs — testing the ladder locally and **merging the
+> working rung or closing** the PR — and acts on the `pendingProxyVerification`
+> queue, then re-pulls `main` so newly-merged sources are included below. See
+> `docs/proxy-verification.md`.
+
 1. **The cron runner** runs `npm run generate-outofband` on a schedule from a residential IP
 2. Script rips all outofband sources, writes `.ics` files to `output/`, produces `outofband-report.json` and `outofband-events.json`
 3. Uploads all `.ics` files + `outofband-report.json` + `outofband-events.json` to `s3://calendar-ripper-outofband-220483515252/latest/`

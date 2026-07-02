@@ -1,44 +1,164 @@
 # 206.events Proxy Escalation
 
 Drive proxy-marked calendar sources up the fetch-proxy escalation ladder
-(`outofband → browserbase → disabled`) based on the automated
-`pendingProxyVerification` queue. One escalation per PR.
+(`false → outofband → browserbase → disabled`). Two responsibilities:
+
+- **Mode A — verify staged sources *before* they merge.** A new source that CI
+  blocks is left as an **open, unmerged PR** labelled `requires-proxy-testing`.
+  Nothing lands on `main` until a proxy rung is proven to work. This mode drains
+  those PRs: check each out locally, test the ladder rung by rung, **merge** the
+  PR at the lowest rung that works, or **close** ("throw away") the PR when no
+  rung works.
+- **Mode B — escalate already-live sources that have degraded.** A source that
+  was working via a proxy but has now failed 3 consecutive times climbs the next
+  rung (or retires), driven by the automated `pendingProxyVerification` queue.
+
+**This skill runs from inside the out-of-band generate job**
+(`skills/outofband-generate/SKILL.md`) — the residential environment where the
+`outofband` (plain fetch from a non-CI IP) and `browserbase` fetch paths
+actually work. It is invoked **first**, before that job generates calendars.
+It is **not** run from the build-report skill: build-report runs in the CI-style
+environment where these proxy paths can't be exercised, so it can only *report*
+the queue, not act on it.
 
 ## Why this skill exists
 
-A source that 403s from GitHub Actions IPs gets added with `proxy: "outofband"`
-on the belief a residential IP can reach it — but that belief can't be proven in
-the PR build (the out-of-band runner hasn't fetched it yet) and might be wrong
-(e.g. a SiteGround JS captcha blocks even residential IPs). The build no longer
-fails for these unproven sources: they're exempted from the fatal "new source
-produced 0 events" gate and tracked in a non-fatal queue instead.
+A source that 403s from GitHub Actions IPs needs a proxy, but which rung works
+(`outofband` vs `browserbase`) can't be proven in the CI/PR build:
 
-The out-of-band cron runner (`scripts/generate-outofband.ts`) is the sole writer
-of `proxy-verification.json` in S3. Each run it records whether every proxy
-source was reachable this run — `outofband` sources from its own residential
-fetch, `browserbase` sources from the published `build-errors.json` — and
-maintains a per-source consecutive-failure counter. After **3 consecutive
-failures** at a rung, a source is due to climb. **This skill is the actuator**
-that reads the queue and opens the escalation PRs. The runner counts; the skill
-acts.
+- The out-of-band runner fetches from a residential IP — it can reach sources CI
+  can't, so `outofband` is only verifiable *here*.
+- Even a residential fetch can fail (e.g. a SiteGround JS captcha, `sgcaptcha`,
+  blocks residential IPs too), in which case only `browserbase` (which executes
+  JS) works.
+
+Rather than merge an unproven source and discover the answer over many builds,
+**Mode A proves the rung here and merges only what works.** Mode B remains the
+backstop for a live source that later degrades: the out-of-band cron runner
+(`scripts/generate-outofband.ts`) is the sole writer of `proxy-verification.json`
+in S3, maintaining a per-source consecutive-failure counter; after **3
+consecutive failures** at a rung a source is due to climb, and this skill acts on
+that queue.
 
 See `docs/proxy-verification.md` for the full design and `docs/outofband.md` for
 the out-of-band architecture.
 
 ## When to run
 
-- The **build-report skill** (step 5.5) directs you here when
-  `pendingProxyVerification` contains entries recommending
-  `promote-to-browserbase` or `retire`.
-- The post-build Discord notification nudges "run proxy-escalation" when the
-  published `build-errors.json` shows actionable proxy entries.
+Invoked at the **start of every out-of-band generate run**
+(`skills/outofband-generate/SKILL.md`, before it generates calendars), and
+runnable on demand. Do both modes, in order:
 
-If every pending entry is `verifying` (still within the 3-failure budget), there
-is **nothing to do** — report and stop.
+1. **Mode A first** — drain any open `requires-proxy-testing` PRs (below).
+2. **Then Mode B** — act on the `pendingProxyVerification` queue.
 
-## Steps
+If there are no `requires-proxy-testing` PRs and every `pendingProxyVerification`
+entry is `verifying` (within the 3-failure budget), there is **nothing to do** —
+report and stop.
 
-### 1. Read the queue
+---
+
+## Mode A — verify staged `requires-proxy-testing` PRs (run first)
+
+`skills/source-discovery/SKILL.md` stages a new source that CI blocks by leaving
+its PR **open and unmerged** with the `requires-proxy-testing` label, instead of
+merging it speculatively. Drain these before Mode B and before the generate job.
+
+### A1. Find staged PRs
+
+```
+mcp__github__search_pull_requests  q: "repo:prestomation/206events is:open is:pr label:requires-proxy-testing"
+```
+
+If none, skip to **Mode B**. Otherwise handle each PR in turn.
+
+### A2. Check the PR out locally and identify the source
+
+```bash
+git fetch origin <pr-branch>
+git checkout <pr-branch>
+git rev-list HEAD..origin/main | grep -q . && git rebase origin/main   # rebase only if behind
+```
+
+From the PR diff, find the source's config file:
+
+- **External calendar:** `sources/external/<name>.yaml`
+- **Ripper:** `sources/<name>/ripper.yaml`
+
+### A3. Ladder-test locally — lowest working rung wins
+
+For each rung **in order**, set the source's `proxy:` field, then build only that
+source and read its event count from `output/build-errors.json` (event counts /
+`zeroEventCalendars` / `externalCalendarFailures`) plus the produced `.ics`:
+
+```bash
+ONLY_SOURCE=<name> FETCH_CACHE_TTL_HOURS=99999 npm run generate-calendars
+```
+
+| Order | Rung | Set in YAML | Success |
+|-------|------|-------------|---------|
+| 1 | outofband | `proxy: "outofband"` | ≥1 future event, no fetch failure |
+| 2 | browserbase | `proxy: "browserbase"` | ≥1 future event, no fetch failure |
+
+- **Rung 1 (`proxy: false`) is skipped.** The source is staged precisely because
+  CI's direct fetch is blocked, and that CI IP isn't reproducible here. Because
+  this runs from the residential out-of-band environment, a plain fetch here
+  **is** the `outofband` rung.
+- Stop at the **first** rung that returns events.
+- **⚠️ Browserbase 402 / "Payment Required" / credits or billing exhausted is
+  NOT a ladder failure.** All browserbase fetches fail at once when Browserbase
+  billing lapses — that says nothing about the source. Do **not** close the PR
+  and do **not** treat browserbase as "failed". Leave the PR open with its label,
+  report `browserbase untested — Browserbase credits/billing exhausted; retry
+  when restored`, and move to the next PR. The next run retries it once credits
+  are back.
+- **Transient/infra errors** (network timeout, our proxy `407`, a temporary
+  `5xx`) are likewise not ladder failures — leave the PR open and retry next run.
+  Only a genuine block (`403`, JS challenge, `0` events with a real response
+  body) counts against the rung.
+
+### A4. A rung works → merge the PR at that rung
+
+1. Keep the working `proxy:` value in the YAML.
+2. Flip `docs/source-candidates/<slug>.md` frontmatter to `status: proxy`, note
+   the working rung in the body, and bump `lastChecked`.
+3. Commit to the PR branch and push:
+   ```bash
+   git commit -am "proxy: <rung> — verified locally (<N> events)"
+   git push
+   ```
+4. Run the `code-reviewer` subagent on the diff (per AGENTS.md), convert the PR
+   to ready-for-review, resolve threads. A verified proxy source is a
+   broken-source repair → **auto-merge-eligible** once green (squash).
+5. The `requires-proxy-testing` label can be left as-is (the PR is being merged);
+   optionally clear it with `mcp__github__issue_write` (`method: update`,
+   `issue_number: <pr>`, `labels: []`).
+
+### A5. No rung works → close ("throw away") the PR and log findings
+
+1. Post a top-level comment (`mcp__github__add_issue_comment`) documenting each
+   rung's result — status codes, JS-challenge evidence, event counts — e.g.
+   *"outofband: HTTP 403; browserbase: 11 KB `sgcaptcha` JS challenge, 0 events.
+   Proxy ladder exhausted; closing."*
+2. Close the PR: `mcp__github__update_pull_request` (`state: closed`).
+3. Record the findings **in the local workspace** on a **separate** small docs
+   PR (the closed branch is discarded, so its changes won't merge):
+   - Add a `docs/discovery-log/YYYY-MM-DD.md` entry:
+     `- ⛔ Blocked: <name> — proxy ladder exhausted (outofband + browserbase both blocked), PR #NNN closed`
+   - Flip `docs/source-candidates/<slug>.md` frontmatter to `status: blocked`
+     with the full ladder history in the body. The daily discovery cron then
+     won't re-propose it.
+4. Continue to the next staged PR, then fall through to **Mode B**.
+
+---
+
+## Mode B — escalate degraded live sources (`pendingProxyVerification`)
+
+This is the automated counter queue for sources **already on `main`** that were
+working via a proxy and have since failed 3 consecutive times. One escalation per
+PR.
+
+### B1. Read the queue
 
 Fetch the live queue from the published report:
 
@@ -77,19 +197,20 @@ source failure. All browserbase sources fail simultaneously when billing lapses.
    No retirement PRs opened — sources will recover when billing is restored.
 ```
 
-Stop the skill here — do not proceed to steps 3a/3b for 402 entries.
+Stop Mode B here — do not proceed to steps B3a/B3b for 402 entries.
 
 **⚠️ JS challenge = skip outofband, go straight to browserbase.**
-When investigating a source that's in the queue at rung 1 (no proxy) or when a
-build-report session finds a ripper producing 0 events, check if the response
-body is a JavaScript bot-challenge page. Indicators: `window.location.reload()`,
+When investigating a queue entry, check whether the response body is a
+JavaScript bot-challenge page. Indicators: `window.location.reload()`,
 `sgcaptcha`, Cloudflare challenge HTML, or an openresty/nginx JS-redirect page.
-If confirmed, skip rung 2 (`outofband`) and open a PR adding
+If confirmed, skip the `outofband` rung and open a PR setting
 `proxy: "browserbase"` directly. Document the evidence (e.g., "curl returns
 11 KB JS challenge page") in the PR body. Outofband is a plain HTTP fetch from a
 residential IP and cannot execute JavaScript — it will get the same challenge.
+(In **Mode A** the same shortcut applies: if rung 1's `outofband` test returns a
+JS challenge, don't bother re-testing — jump to the `browserbase` rung.)
 
-### 2. Locate the source's config
+### B2. Locate the source's config
 
 The `name` is the source name. Find its config file:
 
@@ -99,7 +220,7 @@ The `name` is the source name. Find its config file:
 If both exist with the same bare name (rare), the `rung` and the source's
 `proxy:` field disambiguate.
 
-### 3a. `promote-to-browserbase` — climb a rung
+### B3a. `promote-to-browserbase` — climb a rung
 
 The `outofband` rung failed 3 times in a row. Open **one PR** batching all
 `promote-to-browserbase` sources together. Change each source's `proxy` field
@@ -123,7 +244,7 @@ count and `lastError`.
 If a source has a candidate doc under `docs/source-candidates/<slug>.md`,
 add a dated note recording the escalation.
 
-### 3b. `retire` — top of the ladder exhausted
+### B3b. `retire` — top of the ladder exhausted
 
 `browserbase` (the highest rung) failed 3 times in a row (with errors that are
 **not** HTTP 402 — see the billing check above). There is nowhere higher to
@@ -146,7 +267,7 @@ this source" decision, not a routine fix. Convert to ready-for-review, post a
 brief comment explaining the ladder history, and stop. Do **not** enable
 auto-merge.
 
-### 4. PR hygiene (per AGENTS.md)
+### B4. PR hygiene (per AGENTS.md)
 
 For each PR:
 1. Branch off latest `origin/main` (rebase before pushing).
@@ -163,18 +284,24 @@ together in the same build report belong together in one commit, making bulk
 reverts easy and keeping the changelog clean. Only split into multiple PRs if
 the sources have meaningfully different contexts (e.g., different error types).
 
-### 5. Reply
+## Reply
 
-Summarize what you escalated:
+Summarize both modes:
 
 ```
 🪜 Proxy escalation:
-  - el-centro-de-la-raza: outofband → browserbase (3 fails, HTTP 403) — PR #NNN
-  - some-dead-feed: retired (browserbase exhausted) — PR #NNN (awaiting human merge)
+  Mode A (staged PRs):
+    - jazz-alley: verified at outofband (42 events) — merged PR #NNN
+    - some-blocked-venue: ladder exhausted (outofband 403, browserbase sgcaptcha) — closed PR #NNN, marked blocked
+    - other-venue: browserbase untested (Browserbase credits exhausted) — left open, will retry
+  Mode B (live queue):
+    - el-centro-de-la-raza: outofband → browserbase (3 fails, HTTP 403) — PR #NNN
+    - some-dead-feed: retired (browserbase exhausted) — PR #NNN (awaiting human merge)
 ```
 
 If nothing was actionable, say so:
 
 ```
-🪜 Proxy escalation: N pending, all within the 3-failure budget — no action.
+🪜 Proxy escalation: 0 staged PRs; N queue entries all within the 3-failure
+   budget — no action.
 ```

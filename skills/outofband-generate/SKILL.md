@@ -21,7 +21,29 @@ cd /root/.openclaw/workspace-calendar/repo && git pull origin main
 cd /root/.openclaw/workspace-calendar/repo && npm install --prefer-offline 2>&1 | tail -3
 ```
 
-### 3. Run Out-of-Band Generation
+### 3. Drain staged proxy PRs first (proxy escalation)
+
+**Before generating anything, run `skills/proxy-escalation/SKILL.md`.** This is
+the only environment where the proxy fetch paths (`outofband` = plain fetch from
+this residential IP; `browserbase`) actually work, so proving and merging
+proxy-dependent sources belongs here — not in the CI-side build-report skill.
+
+Read `skills/proxy-escalation/SKILL.md` and follow it end to end:
+
+- **Mode A** — find open PRs labelled `requires-proxy-testing`, check each out,
+  test the ladder locally, and **merge** the PR at the lowest working rung or
+  **close** it if no rung works (browserbase-credit exhaustion ≠ failure — leave
+  those open). Newly-merged sources land on `main`.
+- **Mode B** — act on the `pendingProxyVerification` queue for already-live
+  sources that have degraded.
+
+Then re-sync `main` so the just-merged sources are included in this run:
+
+```bash
+cd /root/.openclaw/workspace-calendar/repo && git checkout main && git pull origin main
+```
+
+### 4. Run Out-of-Band Generation
 
 ```bash
 cd /root/.openclaw/workspace-calendar/repo && \
@@ -30,14 +52,14 @@ cd /root/.openclaw/workspace-calendar/repo && \
   npm run generate-outofband 2>&1
 ```
 
-### 4. Reply with Summary
+### 5. Reply with Summary
 
 From the output, extract and report:
 - How many sources ran
 - Total events uploaded to S3
 - Any errors encountered
 
-### 5. Error Handling Decision Tree
+### 6. Error Handling Decision Tree
 
 For each error, apply this logic:
 
@@ -72,7 +94,11 @@ If the error looks transient (network timeout, temporary 5xx):
 #### 🚫 HTTP 403 from Runner IPs
 If a source returns 403 specifically for this runner's IPs:
 - Flag it in the report
-- Note: this source needs `proxy: true` added to its `ripper.yaml`
+- This is a **proxy-ladder** matter, handled by `skills/proxy-escalation/SKILL.md`
+  (step 3), not by hand-editing YAML here. If it's an existing `outofband` source
+  now failing, it will surface in the `pendingProxyVerification` queue and climb
+  after 3 consecutive failures (Mode B). Do not add a raw `proxy: true` — the
+  schema only accepts `"outofband"`, `"browserbase"`, or `false`.
 - Do NOT disable the ripper
 
 #### ❌ Only Disable if Source is Clearly Gone

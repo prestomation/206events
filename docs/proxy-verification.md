@@ -1,8 +1,33 @@
 # Proxy Verification & Auto-Escalation
 
-How 206.events lets a source that *probably* needs a proxy be added without
-failing `main`, verifies it out-of-band, and climbs the proxy escalation ladder
-automatically.
+How 206.events proves which proxy rung a source needs **before merging it**, and
+climbs the proxy escalation ladder for live sources that later degrade.
+
+## Two flows
+
+1. **Prove-before-merge (Mode A) — new sources.** A source that CI blocks is
+   **not merged**. `skills/source-discovery/SKILL.md` leaves its PR **open** and
+   labels it `requires-proxy-testing`. The out-of-band generate job
+   (`skills/outofband-generate/SKILL.md`) runs `skills/proxy-escalation/SKILL.md`
+   **first**, which checks each staged PR out locally, tests the ladder
+   (`outofband` then `browserbase`) from the residential environment where those
+   paths actually work, and **merges the lowest working rung** — or **closes** the
+   PR and marks the candidate `blocked` when no rung works. Nothing hits `main`
+   until a rung is proven. (Browserbase credit/billing exhaustion is *not* a
+   failure — the PR is left open and retried when credits return.)
+
+2. **Auto-escalation (Mode B) — live sources that degrade.** A source already on
+   `main` that was reachable via a proxy but has since failed 3 consecutive times
+   climbs the next rung (or retires), driven by the automated
+   `pendingProxyVerification` counter described below. This is the backstop for
+   drift after a source was proven — including a Mode-A `outofband` source that
+   the real residential runner later can't reach.
+
+**build-report does not drive either flow.** It runs in the CI-style environment
+where the proxy paths can't be exercised, so it only *reports* the queue; the
+out-of-band run is the sole actuator. The rest of this document details the
+counter mechanism (Mode B) and the fatal-gate exemption that keeps an unproven
+proxy source from reddening `main`.
 
 ## The problem
 
@@ -117,9 +142,11 @@ bookkeeping failure never fails the out-of-band run.
 
 ### 4. Auto-escalation (`skills/proxy-escalation/SKILL.md`)
 
-The **proxy-escalation skill**, run by the out-of-band job (and surfaced via the
-build-report skill / Discord nudge), reads the queue and opens **one PR per
-source**:
+The **proxy-escalation skill** is run by the out-of-band generate job
+(`skills/outofband-generate/SKILL.md`, step 3), which invokes it **before**
+generating calendars. It first drains the Mode-A `requires-proxy-testing` staged
+PRs (test the ladder, merge or close), then reads the `pendingProxyVerification`
+queue for Mode B and opens **one PR per source**:
 
 - `promote-to-browserbase` → change `proxy: outofband` to `proxy: browserbase`.
   Broken-source repair — auto-merge-eligible once green.
@@ -133,9 +160,29 @@ escalating" rule — now automated rather than manual.
 
 ## Lifecycle, end to end
 
+### Mode A — prove before merge (new source)
+
 ```
-add with proxy: outofband
-        │  (main build: exempt from fatal gate, skipped until cron runs)
+source-discovery: CI blocks the source
+        │  (PR left OPEN at proxy: false, labelled requires-proxy-testing; nothing on main)
+        ▼
+out-of-band job → proxy-escalation (Mode A) checks the PR out and tests the ladder
+        │
+        ├── outofband works ────────► set proxy: outofband, MERGE the PR
+        │
+        ├── browserbase works ──────► set proxy: browserbase, MERGE the PR
+        │
+        ├── browserbase 402 / no credits ─► leave PR open, retry next run (NOT a failure)
+        │
+        └── neither works ──────────► CLOSE the PR + candidate doc status: blocked
+                                       + discovery-log ⛔ entry (separate docs PR)
+```
+
+### Mode B — degradation of a live source (backstop)
+
+```
+source already on main via a proxy, now failing
+        │  (main build: exempt from fatal gate for unproven proxy sources)
         ▼
 out-of-band cron fetches it
         │
@@ -165,8 +212,10 @@ out-of-band cron fetches it
 | `lib/calendar_ripper.ts` | Fatal exemption + surfaces `pendingProxyVerification`. |
 | `scripts/generate-outofband.ts` | Sole writer of `proxy-verification.json`; computes outcomes. |
 | `scripts/download-outofband.ts` | Skips the private counter file. |
-| `skills/proxy-escalation/SKILL.md` | The actuator — opens escalation PRs. |
-| `skills/build-report/` | Reports the queue (step 5.5); routes to the skill. |
+| `skills/source-discovery/SKILL.md` | Stages a CI-blocked source: open PR + `requires-proxy-testing` label (Mode A input). |
+| `skills/outofband-generate/SKILL.md` | Out-of-band job; runs proxy-escalation first, then generates. |
+| `skills/proxy-escalation/SKILL.md` | The actuator — drains staged PRs (Mode A) and the counter queue (Mode B). |
+| `skills/build-report/` | **Reports** the queue (step 5.5) only — does **not** run the skill. |
 
 ## Parameters
 
