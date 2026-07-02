@@ -5364,6 +5364,421 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-01",
       "note": "Same event at Tractor Tavern \u2014 visit-seattle truncated title and uses noon default"
+    },
+    "club-comedy-club-comedy.ics Club Comedy Seattle Cheap Laughs Open Mic Night 7/8/2026 7:30PM|2026-07-08T19:00-07:00[America/Los_Angeles]::recurring-club-comedy-cheap-laughs.ics Club Comedy Seattle \u2014 Cheap Laughs Open Mic|2026-07-08T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same weekly Cheap Laughs Open Mic at Club Comedy Seattle, 328 15th Ave E; the ~30-60min time difference is the recurring entry's nominal 8pm slot vs Eventbrite's specific listing (7:30pm doors), same venue and event."
+    },
+    "external-seafair.ics Ballard Music & Seafoodfest|2026-07-10T11:00:00Z[UTC]::external-visit-ballard.ics Ballard Music & Seafoodfest (FRIDAY NIGHT)|2026-07-10T17:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-02",
+      "note": "Verified via web search (seafoodfest.org, myballard.com): the Friday-night program is a specific stage show (Marvin's Garden, 5pm-10pm w/ headliner) distinct from the general festival listing; different venue names ~130m apart, title variant denotes a specific sub-program not the whole festival."
+    },
+    "external-seattle-gov-city-wide.ics Center City Cinema|2026-08-01T19:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Center City Cinema|2026-08-01T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Center City Cinema|2026-08-07T19:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Center City Cinema|2026-08-07T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Center City Cinema|2026-08-08T19:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Center City Cinema|2026-08-08T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Cheasty Forest at Hanford Steps|2026-07-19T13:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Cheasty Forest at Hanford Steps|2026-07-19T13:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Chinese Dance|2026-07-08T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Chinese Dance|2026-07-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Chinese Dance|2026-07-15T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Chinese Dance|2026-07-15T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Chinese Dance|2026-07-22T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Chinese Dance|2026-07-22T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Chinese Dance|2026-07-29T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Chinese Dance|2026-07-29T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Chinese Dance|2026-08-05T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Chinese Dance|2026-08-05T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Chinese Dance|2026-08-12T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Chinese Dance|2026-08-12T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Dancing til Dusk|2026-07-07T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-07-07T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Dancing til Dusk|2026-07-09T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-07-09T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Dancing til Dusk|2026-07-14T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-07-14T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Dancing til Dusk|2026-07-21T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-07-21T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Dancing til Dusk|2026-07-23T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-07-23T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Dancing til Dusk|2026-07-28T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-07-28T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Dancing til Dusk|2026-07-30T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-07-30T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Magnuson Park Advisory Committee|2026-07-08T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Magnuson Park Advisory Committee|2026-07-08T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Magnuson Park Advisory Committee|2026-08-12T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Magnuson Park Advisory Committee|2026-08-12T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Monday Mahjong|2026-06-29T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Monday Mahjong|2026-06-29T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Monday Mahjong|2026-07-06T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Monday Mahjong|2026-07-06T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Monday Mahjong|2026-07-13T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Monday Mahjong|2026-07-13T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Monday Mahjong|2026-07-20T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Monday Mahjong|2026-07-20T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Orchard Street Ravine Work Party|2026-07-11T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Orchard Street Ravine Work Party|2026-07-11T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Orchard Street Ravine Work Party|2026-08-08T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Orchard Street Ravine Work Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Ping Pong|2026-07-03T13:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Ping Pong|2026-07-03T13:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Ping Pong|2026-07-17T13:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Ping Pong|2026-07-17T13:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-07-10T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-07-10T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-07-17T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-07-17T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-07-24T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-07-24T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-07-31T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-07-31T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-08-07T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-08-07T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Thistle Street GS Restoration Event|2026-07-28T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Thistle Street GS Restoration Event|2026-07-28T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Thursday  Tai Chi|2026-07-02T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Thursday  Tai Chi|2026-07-02T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Thursday  Tai Chi|2026-07-09T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Thursday  Tai Chi|2026-07-09T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Thursday  Tai Chi|2026-07-16T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Thursday  Tai Chi|2026-07-16T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Thursday  Tai Chi|2026-07-23T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Thursday  Tai Chi|2026-07-23T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Thursday  Tai Chi|2026-07-30T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Thursday  Tai Chi|2026-07-30T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Thursday  Tai Chi|2026-08-06T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Thursday  Tai Chi|2026-08-06T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tournaments Ping Pong|2026-07-10T13:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tournaments Ping Pong|2026-07-10T13:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tournaments Ping Pong|2026-08-07T13:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tournaments Ping Pong|2026-08-07T13:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tuesday Senior Exercise|2026-06-30T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tuesday Senior Exercise|2026-06-30T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tuesday Senior Exercise|2026-07-07T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tuesday Senior Exercise|2026-07-07T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tuesday Senior Exercise|2026-07-14T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tuesday Senior Exercise|2026-07-14T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tuesday Senior Exercise|2026-07-21T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tuesday Senior Exercise|2026-07-21T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tuesday Senior Exercise|2026-07-28T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tuesday Senior Exercise|2026-07-28T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tuesday Senior Exercise|2026-08-04T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tuesday Senior Exercise|2026-08-04T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Tuesday Senior Exercise|2026-08-11T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Tuesday Senior Exercise|2026-08-11T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Yoga|2026-07-07T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Yoga|2026-07-07T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Yoga|2026-07-14T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Yoga|2026-07-14T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Yoga|2026-07-21T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Yoga|2026-07-21T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Yoga|2026-07-28T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Yoga|2026-07-28T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Yoga|2026-08-04T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Yoga|2026-08-04T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Yoga|2026-08-11T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Yoga|2026-08-11T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Zumba|2026-07-06T17:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Zumba|2026-07-06T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Zumba|2026-07-13T17:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Zumba|2026-07-13T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Zumba|2026-07-20T17:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Zumba|2026-07-20T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Zumba|2026-07-27T17:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Zumba|2026-07-27T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Zumba|2026-08-03T17:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Zumba|2026-08-03T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "external-seattle-gov-city-wide.ics Zumba|2026-08-10T17:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Zumba|2026-08-10T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Seattle Parks & Recreation event published to both the city-wide and parks-recreation feeds; identical title, location, and time."
+    },
+    "rabbit_box-all-events.ics The Triple Door and Debra Heesch present The Ghost of Buena Vista Past, Shadow Theater & Songs by Michelle Lassaline (|2026-09-27T15:00:00.404-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics The Ghost of Buena Vista Past, Shadow Theater & Songs by Michelle Lassaline at The Rabbit Box|2026-09-27T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Rabbit Box Theatre show at 94 Pike St, Seattle presented by The Triple Door; identical date/time, same address, title variant only (presenter prefix vs 'at The Rabbit Box' suffix)."
+    },
+    "rabbit_box-all-events.ics The Triple Door and Debra Heesch present The Ghost of Buena Vista Past, Shadow Theater & Songs by Michelle Lassaline|2026-09-26T19:00:00.404-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics The Ghost of Buena Vista Past, Shadow Theater & Songs by Michelle Lassaline at The Rabbit Box|2026-09-26T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same Rabbit Box Theatre show at 94 Pike St, Seattle presented by The Triple Door; identical date/time, same address, title variant only (presenter prefix vs 'at The Rabbit Box' suffix)."
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-15T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Beach Naturalist Shore Stroll|2026-07-15T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same SAM Olympic Sculpture Park 'Beach Naturalist Shore Stroll' program, cross-listed by seatoday.com in one of its topic feeds; identical title/time, same address (distance is geocoding noise)."
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-15T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Beach Naturalist Shore Stroll|2026-07-15T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same SAM Olympic Sculpture Park 'Beach Naturalist Shore Stroll' program, cross-listed by seatoday.com in one of its topic feeds; identical title/time, same address (distance is geocoding noise)."
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-15T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Beach Naturalist Shore Stroll|2026-07-15T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same SAM Olympic Sculpture Park 'Beach Naturalist Shore Stroll' program, cross-listed by seatoday.com in one of its topic feeds; identical title/time, same address (distance is geocoding noise)."
+    },
+    "sam-sam-sculpture-park.ics Beach Naturalist Shore Stroll|2026-07-15T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Beach Naturalist Shore Stroll|2026-07-15T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same SAM Olympic Sculpture Park 'Beach Naturalist Shore Stroll' program, cross-listed by seatoday.com in one of its topic feeds; identical title/time, same address (distance is geocoding noise)."
+    },
+    "seatoday-seatoday-all.ics 250th Anniversary Celebration Community Pancake Breakfast|2026-07-03T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 250th Anniversary Celebration Community Pancake Breakfast|2026-07-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-all.ics 250th Anniversary Celebration Community Pancake Breakfast|2026-07-03T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 250th Anniversary Celebration Community Pancake Breakfast|2026-07-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-all.ics AI for Seniors and Business|2026-07-15T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics AI for Seniors and Business|2026-07-15T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-07-05T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-07-05T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Confirmed via web search: 9456 35th Ave SW is a genuine (older/alternate) address for The Missing Piece (themissingpiecegames.com), the same West Seattle game cafe as the ripper's canonical 4707 California Ave SW; same recurring American Mah Jongg event/time."
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-07-12T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-07-12T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Confirmed via web search: 9456 35th Ave SW is a genuine (older/alternate) address for The Missing Piece (themissingpiecegames.com), the same West Seattle game cafe as the ripper's canonical 4707 California Ave SW; same recurring American Mah Jongg event/time."
+    },
+    "seatoday-seatoday-all.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-all.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-all.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-15T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-15T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-arts.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-arts.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-community.ics 250th Anniversary Celebration Community Pancake Breakfast|2026-07-03T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 250th Anniversary Celebration Community Pancake Breakfast|2026-07-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-community.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Red, White|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-15T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-02",
+      "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
     }
   }
 }
