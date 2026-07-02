@@ -1,0 +1,18 @@
+name: sol-yoga-seattle
+sourceRole: venue
+type: squarespace
+description: "SOL Yoga Seattle"
+url: "https://www.solyogaseattle.com/events"
+friendlyLink: https://www.solyogaseattle.com/
+tags: ["Wellness"]
+geo:
+  lat: 47.6029228
+  lng: -122.2844562
+  label: "SOL Yoga Seattle, 200 Lake Washington Blvd, Seattle, WA 98122"
+  osmType: way
+  osmId: 164135606
+imageUrl: "https://images.squarespace-cdn.com/content/v1/6746ec1b8f2ea01242a8c186/ca0c3f77-362d-4f4d-b8ab-1c819ebfa8fa/SOL_Logos_SVG_art_Logo_only_white+Sarah+Goble+copy.png"
+calendars:
+  - name: sol-yoga-seattle
+    friendlyname: "SOL Yoga Seattle"
+    timezone: America/Los_Angeles
