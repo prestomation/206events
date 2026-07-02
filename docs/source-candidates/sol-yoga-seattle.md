@@ -6,7 +6,7 @@ url: https://www.solyogaseattle.com/events
 tags: [Wellness]
 firstSeen: 2026-07-02
 lastChecked: 2026-07-02
-pr: TBD
+pr: 825
 ---
 **SOL Yoga Seattle** — `https://www.solyogaseattle.com/events` — yoga studio with two spaces ("SOL Up" and "SOL Down") at 200 Lake Washington Blvd, Leschi/Madison Valley, on the lake next to Daniel's Broiler. Hosts special events beyond regular class schedule: sound baths, "SOL Reset" workshops, artist-inspired themed classes, and live-music classes.
 
