@@ -3,7 +3,7 @@ name: "The Admiral Pub"
 status: added
 platform: recurring YAML
 url: https://admiralpubseattle.com/trivia-night-seattle
-tags: [Trivia, "West Seattle"]
+tags: [Trivia, "Pub Trivia", "West Seattle"]
 firstSeen: 2026-07-02
 lastChecked: 2026-07-02
 pr: 808
