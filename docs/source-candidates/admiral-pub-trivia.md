@@ -6,7 +6,7 @@ url: https://admiralpubseattle.com/trivia-night-seattle
 tags: [Trivia, "West Seattle"]
 firstSeen: 2026-07-02
 lastChecked: 2026-07-02
-pr:
+pr: 808
 ---
 
 **The Admiral Pub** — `https://admiralpubseattle.com/trivia-night-seattle` — West Seattle sports bar in the Admiral District, 2306 California Ave SW. Hosts free pub trivia three nights a week with cash prizes.
