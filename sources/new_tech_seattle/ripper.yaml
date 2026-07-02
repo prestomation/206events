@@ -10,6 +10,7 @@ geo:
   label: "The Collective Seattle, 400 Dexter Ave N, Seattle, WA 98109"
   osmType: node
   osmId: 11978458746
+imageUrl: "https://www.newtechnorthwest.com/wp-content/uploads/2021/07/New-Tech-NW-Preview-1200x630-1.png"
 calendars:
   - name: calendar
     friendlyname: "New Tech Seattle"

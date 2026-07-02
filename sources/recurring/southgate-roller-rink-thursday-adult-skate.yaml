@@ -4,6 +4,7 @@ geo:
   label: "Southgate Roller Rink, 9646 17th Ave SW, Seattle, WA 98106"
   osmType: node
   osmId: 6120367415
+imageUrl: "http://www.southgaterollerrink.com/sg.jpg"
 name: southgate-roller-rink-thursday-adult-skate
 sourceRole: venue
 friendlyname: "Thursday Adult Skate (21+) at Southgate Roller Rink"

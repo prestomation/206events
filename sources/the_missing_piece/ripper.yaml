@@ -10,6 +10,7 @@ geo:
   label: "The Missing Piece, 4707 California Ave SW B, Seattle, WA 98116"
   osmType: node
   osmId: 441028241
+imageUrl: "https://www.themissingpiecegames.com/wp-content/uploads/2020/03/TMP_LogoTag_LoResRGB.png"
 calendars:
   - name: the-missing-piece
     friendlyname: "The Missing Piece"
