@@ -1,0 +1,21 @@
+name: urban-family-brewing
+sourceRole: venue
+# Node fetch (no browser headers) returns HTTP 202 with a SiteGround sgcaptcha
+# JS-challenge redirect (`/.well-known/sgcaptcha/`) — confirmed via live probe.
+# Skipping straight to browserbase per the JS-challenge exception (a plain
+# outofband fetch would hit the same challenge).
+proxy: "browserbase"
+description: "Urban Family Brewing Co."
+url: "https://urbanfamilybrewing.com/home/calendar/"
+friendlyLink: https://urbanfamilybrewing.com/home/calendar/
+tags: ["Beer", "Ballard"]
+geo:
+  lat: 47.6661818
+  lng: -122.37103
+  label: "Urban Family Brewing Co., 1103 NW 52nd St, Seattle, WA 98107"
+  osmType: node
+  osmId: 7241641164
+calendars:
+  - name: urban-family-brewing
+    friendlyname: "Urban Family Brewing Co. (Ballard)"
+    timezone: America/Los_Angeles
