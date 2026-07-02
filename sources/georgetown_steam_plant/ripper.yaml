@@ -1,6 +1,7 @@
 name: georgetown-steam-plant
 sourceRole: venue
 type: squarespace
+expectEmpty: true
 description: "Georgetown Steam Plant"
 url: "https://www.georgetownsteamplant.org/events"
 friendlyLink: https://www.georgetownsteamplant.org/events
