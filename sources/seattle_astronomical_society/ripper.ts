@@ -26,7 +26,8 @@ interface WixEventJsonLd {
 
 /** Extract event page URLs from the Wix event-pages sitemap XML. */
 export function extractSitemapUrls(xml: string): string[] {
-    const matches = [...xml.matchAll(/<loc>(https:\/\/www\.seattleastro\.org\/events-1\/[^<]+)<\/loc>/g)];
+    const prefixPattern = EVENT_URL_PREFIX.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const matches = [...xml.matchAll(new RegExp(`<loc>(${prefixPattern}[^<]+)<\\/loc>`, "g"))];
     return matches.map(m => m[1]);
 }
 
@@ -146,17 +147,29 @@ export default class SeattleAstronomicalSocietyRipper implements IRipper {
         const errors: RipperError[] = [];
 
         for (const eventUrl of eventUrls) {
-            const pageRes = await fetchFn(eventUrl, { headers: { "User-Agent": USER_AGENT } });
-            if (!pageRes.ok) {
+            let html: string;
+            try {
+                const pageRes = await fetchFn(eventUrl, { headers: { "User-Agent": USER_AGENT } });
+                if (!pageRes.ok) {
+                    errors.push({
+                        type: "ParseError",
+                        reason: `HTTP ${pageRes.status} fetching event page`,
+                        context: eventUrl,
+                    });
+                    continue;
+                }
+                html = await pageRes.text();
+            } catch (error) {
+                // Isolate per-page fetch failures (timeout, DNS, connection reset) so one bad
+                // page doesn't discard events already parsed from earlier pages in this loop.
                 errors.push({
                     type: "ParseError",
-                    reason: `HTTP ${pageRes.status} fetching event page`,
+                    reason: `Failed to fetch event page: ${error}`,
                     context: eventUrl,
                 });
                 continue;
             }
 
-            const html = await pageRes.text();
             const jsonLd = extractEventJsonLd(html);
             if (!jsonLd) {
                 errors.push({ type: "ParseError", reason: "No JSON-LD Event found", context: eventUrl });
