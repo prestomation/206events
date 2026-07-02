@@ -1,0 +1,21 @@
+# verified: 2026-07-02 via direct eventbrite fetch (1 upcoming event: FCS presents
+# Iskwelahang Pilipino of Boston's "Musikang Kalipay", July 3 2026)
+name: filipino-community-seattle
+sourceRole: venue
+type: eventbrite
+description: "Filipino Community of Seattle"
+url: "https://www.eventbrite.com/o/filipino-community-of-seattle-56553753403"
+friendlyLink: https://www.filcommsea.org/
+tags: ["Community", "Rainier Valley"]
+geo:
+  lat: 47.5500466
+  lng: -122.2871571
+  label: "Filipino Community Center, 5740 Martin Luther King Jr Way S, Seattle, WA 98118"
+calendars:
+  - name: filipino-community-seattle
+    friendlyname: "Filipino Community of Seattle"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "56553753403"
+      defaultLocation: "5740 Martin Luther King Jr Way S, Seattle, WA 98118"
+      defaultDurationHours: 3
