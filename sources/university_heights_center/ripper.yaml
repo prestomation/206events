@@ -1,0 +1,18 @@
+name: university-heights-center
+sourceRole: venue
+type: squarespace
+description: "University Heights Center"
+url: "https://www.uheightscenter.org/upcoming-events"
+friendlyLink: https://www.uheightscenter.org/
+tags: ["Community", "University District"]
+geo:
+  lat: 47.6658699
+  lng: -122.3135511
+  label: "University Heights Center, 5031 University Way NE, Seattle, WA 98105"
+  osmType: way
+  osmId: 54356423
+imageUrl: "https://images.squarespace-cdn.com/content/v1/649f328206e24240aa7d5ffb/daef9c30-166c-4143-9479-622c7f2f6d93/uheights_logo_white.png"
+calendars:
+  - name: university-heights-center
+    friendlyname: "University Heights Center"
+    timezone: America/Los_Angeles
