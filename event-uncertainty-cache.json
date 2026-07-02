@@ -22295,11 +22295,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://www.c895.org/wp-content/uploads/2026/05/WSDOT-Ferry-Tour-2-740x326.png"
       },
       "resolvedAt": "2026-06-13",
       "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed",
+      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed | image: https://www.c895.org/2026/05/the-c895-summer-ferry-tour-is-sailing-your-way/",
       "lastSeen": "2026-06-13"
     },
     "19hz:19hz-2026/07/03-VTSS": {
@@ -30307,6 +30308,90 @@
       "resolvedAt": "2026-06-30",
       "source": "agent",
       "evidence": "https://www.seattlecreativesocial.com/events/thirity-two \u2014 Ticketed event (JS SPA, pricing not in raw HTML)"
+    },
+    "19hz:19hz-2026/07/01-Habitat": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187219702%2F25505141929%2F1%2Foriginal.20260618-184159?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=49a04e91c2e1c56b2776465429c2b9d1"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/habitat-july-1-2026-tickets-1992158447544?aff=19hz"
+    },
+    "19hz:19hz-2026/07/02-Club World: Secret Headliner, RZRKT": {
+      "fields": {
+        "imageUrl": "https://images.posh.vip/originals/6a29d0f29ee636dbb57544f9"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/wrg-presents-club-world-w-special-guests?t=19hz"
+    },
+    "19hz:19hz-2026/07/02-Deck'd Out: DJ Said": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186260240%2F74927433109%2F1%2Foriginal.20260605-173839?w=1880&auto=format%2Ccompress&q=75&sharp=10&s=6747728b557427832f5d185fdf4e797c"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/deckd-out-3-off99-shameless-present-dj-said-sf-costa-showcase-tickets-1989969538458?aff=19hz"
+    },
+    "19hz:19hz-2026/07/02-ESSE": {
+      "fields": {
+        "imageUrl": "https://images.posh.vip/originals/6a27a67047903cd48cbc1d9a"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/esse-pres-by-club-bahay?t=19hz"
+    },
+    "19hz:19hz-2026/07/02-OKAYVAL": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184332032%2F2993203586663%2F1%2Foriginal.20260511-195226?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=3f2b3d89146ea37303a5da8ec8c36c62"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/okayval-tickets-1984575350296?aff=19hz"
+    },
+    "19hz:19hz-2026/07/03-AR/CO": {
+      "fields": {
+        "imageUrl": "https://images.posh.vip/originals/6a283c1d13454f23d2dc0327"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/wrg-presents-arco?t=19hz"
+    },
+    "19hz:19hz-2026/07/03-Colours Global": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186791309%2F1979013042743%2F1%2Foriginal.20260612-210049?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=453cd4c47241a0c3ffffcad741b7a20e"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/colours-global-july-3rd-tickets-1991799826900?aff=19hz"
+    },
+    "19hz:19hz-2026/07/03-Sof Of July: Npxpb, N4T3 B2B Corse, Type-O B2B No_Contvct, Silent J B2B Stephanie": {
+      "fields": {
+        "imageUrl": "https://images.posh.vip/originals/6a0cf43ac60af479dec412c9"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/vroom-vroom-presents-collective-launch-party-sof-of-july"
+    },
+    "19hz:19hz-2026/07/03-Yaeji": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187218976%2F2993203586663%2F1%2Foriginal.20260618-183211?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=2b843849d12afc261bc36f11c62f7447"
+      },
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/yaeji-at-substation-seattle-tickets-1989678761737?aff=19hz"
+    },
+    "19hz:19hz-2026/07/03-Rabba's House: Mike Dunn": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "Shopify product listing has no og:image or product photo (confirmed via page source)"
+    },
+    "19hz:19hz-2026/07/03-BOTCASH": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-02",
+      "source": "agent",
+      "reason": "Ticket page (tickets.oraseattle.com) only has generic venue/brand logos, no event-specific poster"
     }
   }
 }
