@@ -1,6 +1,7 @@
 ---
 name: "Seattle Frontrunners"
 status: added
+pr: 822
 platform: recurring YAML
 url: https://www.seattlefrontrunners.org/runs-walks
 tags: [Running, LGBTQ, "Capitol Hill", "Green Lake"]
