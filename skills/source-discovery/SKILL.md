@@ -88,11 +88,14 @@ the source of truth — update it as the candidate's situation changes:
 - **Source blocked**: Flip `status: blocked` with the reason
   ("Cloudflare bot protection", "needs paid API key").
 - **Source needs a proxy**: `status: proxy` — the pipeline works locally but CI
-  blocks it, so it's **staged** as an open, unmerged `requires-proxy-testing` PR
-  (step 7a). Note the PR number and the CI evidence of the block. You do **not**
-  pick a rung — `skills/proxy-escalation/SKILL.md` proves `outofband` vs
-  `browserbase` from the out-of-band environment and merges the working one (or
-  closes the PR if neither works, flipping this to `status: blocked`).
+  blocks it. `proxy` covers the whole proxy pipeline: while its
+  `requires-proxy-testing` PR is open the source is **staged/awaiting the ladder
+  test** (step 7a); once `skills/proxy-escalation/SKILL.md` merges the working
+  rung it **stays `proxy`** (now live via that rung). Note the PR number, the CI
+  evidence of the block, and — once merged — the proven rung, in the body. You do
+  **not** pick a rung yourself; proxy-escalation proves `outofband` vs
+  `browserbase` from the out-of-band environment (or closes the PR if neither
+  works, flipping this to `status: blocked`).
 
 Each candidate is one file, so two PRs touching different candidates
 never conflict on this directory.

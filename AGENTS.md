@@ -913,7 +913,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 **Cause:** The upstream website is blocking requests from GitHub Actions runner IPs.
 
 **Fix:**
-1. Add `proxy: "outofband"` to the ripper's `ripper.yaml` (the schema only accepts `"outofband"` or `false` — `proxy: true` will fail Zod validation and the ripper will be dropped silently into `configErrors`)
+1. Don't hand-pick a rung and merge. **Stage the source for proxy testing** so the out-of-band run proves the rung: open a PR that sets `proxy: "outofband"` (the ladder entry point) and label it `requires-proxy-testing`, left open (see `skills/build-report/SKILL.md` → "HTTP 403 / Persistent Fetch Failures"). `skills/proxy-escalation/SKILL.md` (out-of-band job, Mode A) then tests the ladder and merges the working rung or closes the PR. (The schema accepts `"outofband"`, `"browserbase"`, or `false` — `proxy: true` fails Zod validation and the ripper is dropped silently into `configErrors`.)
 2. If the ripper uses direct `fetch()` calls (custom `IRipper` implementations), refactor to use the proxy-aware fetch:
    ```typescript
    import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";

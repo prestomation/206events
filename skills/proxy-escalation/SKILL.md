@@ -67,7 +67,7 @@ merging it speculatively. Drain these before Mode B and before the generate job.
 ### A1. Find staged PRs
 
 ```
-mcp__github__search_pull_requests  q: "repo:prestomation/206events is:open is:pr label:requires-proxy-testing"
+mcp__github__search_pull_requests  query: "repo:prestomation/206events is:open is:pr label:requires-proxy-testing"
 ```
 
 If none, skip to **Mode B**. Otherwise handle each PR in turn.
@@ -75,7 +75,7 @@ If none, skip to **Mode B**. Otherwise handle each PR in turn.
 ### A2. Check the PR out locally and identify the source
 
 ```bash
-git fetch origin <pr-branch>
+git fetch origin main <pr-branch>
 git checkout <pr-branch>
 git rev-list HEAD..origin/main | grep -q . && git rebase origin/main   # rebase only if behind
 ```
@@ -100,18 +100,27 @@ ONLY_SOURCE=<name> FETCH_CACHE_TTL_HOURS=99999 npm run generate-calendars
 | 1 | outofband | `proxy: "outofband"` | ≥1 future event, no fetch failure |
 | 2 | browserbase | `proxy: "browserbase"` | ≥1 future event, no fetch failure |
 
-- **Rung 1 (`proxy: false`) is skipped.** The source is staged precisely because
-  CI's direct fetch is blocked, and that CI IP isn't reproducible here. Because
-  this runs from the residential out-of-band environment, a plain fetch here
-  **is** the `outofband` rung.
+- **The direct (`proxy: false`) rung is skipped.** The source is staged because
+  CI's direct fetch is blocked, and that CI IP isn't reproducible here — so this
+  test sets the `proxy:` field itself for each rung and **ignores whatever value
+  the PR arrived with** (source-discovery stages at `proxy: false`, build-report
+  at `proxy: "outofband"` — this test overwrites either). Because it runs from the
+  residential out-of-band environment, a plain fetch here **is** the `outofband`
+  rung; the two rungs actually tested are `outofband` then `browserbase`.
 - Stop at the **first** rung that returns events.
-- **⚠️ Browserbase 402 / "Payment Required" / credits or billing exhausted is
-  NOT a ladder failure.** All browserbase fetches fail at once when Browserbase
-  billing lapses — that says nothing about the source. Do **not** close the PR
-  and do **not** treat browserbase as "failed". Leave the PR open with its label,
-  report `browserbase untested — Browserbase credits/billing exhausted; retry
-  when restored`, and move to the next PR. The next run retries it once credits
-  are back.
+- **⚠️ A browserbase result that isn't about the source is NOT a ladder failure.**
+  Do **not** close the PR or score the `browserbase` rung as failed when:
+  - **`402` / "Payment Required" / credits or billing exhausted** — all browserbase
+    fetches fail at once when Browserbase billing lapses; it says nothing about the
+    source.
+  - **`BROWSERBASE_API_KEY` not set** — `createBrowserbaseFetch()`
+    (`lib/config/proxy-fetch.ts`) *throws* `"BROWSERBASE_API_KEY not set"`, so the
+    rung was never actually exercised. The out-of-band runner must export this key
+    (see `skills/outofband-generate/SKILL.md`, step 4); if it's missing, the
+    browserbase rung is **untested**, not failed.
+
+  In these cases leave the PR open with its label, report `browserbase untested —
+  <reason>; retry when restored`, and move to the next PR — the next run retries it.
 - **Transient/infra errors** (network timeout, our proxy `407`, a temporary
   `5xx`) are likewise not ladder failures — leave the PR open and retry next run.
   Only a genuine block (`403`, JS challenge, `0` events with a real response
@@ -207,8 +216,8 @@ If confirmed, skip the `outofband` rung and open a PR setting
 `proxy: "browserbase"` directly. Document the evidence (e.g., "curl returns
 11 KB JS challenge page") in the PR body. Outofband is a plain HTTP fetch from a
 residential IP and cannot execute JavaScript — it will get the same challenge.
-(In **Mode A** the same shortcut applies: if rung 1's `outofband` test returns a
-JS challenge, don't bother re-testing — jump to the `browserbase` rung.)
+(In **Mode A** the same shortcut applies: if the `outofband` test returns a JS
+challenge, don't bother re-testing — jump to the `browserbase` rung.)
 
 ### B2. Locate the source's config
 

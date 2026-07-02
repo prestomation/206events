@@ -37,6 +37,13 @@ Read `skills/proxy-escalation/SKILL.md` and follow it end to end:
 - **Mode B** — act on the `pendingProxyVerification` queue for already-live
   sources that have degraded.
 
+**`BROWSERBASE_API_KEY` must be exported in this environment** — the Mode A
+ladder test fetches the `browserbase` rung live via `createBrowserbaseFetch()`,
+which throws `"BROWSERBASE_API_KEY not set"` without it. If the key is absent,
+proxy-escalation treats the browserbase rung as *untested* (leaves the PR open)
+rather than failed, so a JS-challenge source is never wrongly discarded — but set
+the key so those PRs can actually be resolved.
+
 Then re-sync `main` so the just-merged sources are included in this run:
 
 ```bash
@@ -49,8 +56,13 @@ cd /root/.openclaw/workspace-calendar/repo && git checkout main && git pull orig
 cd /root/.openclaw/workspace-calendar/repo && \
   OUTOFBAND_BUCKET=calendar-ripper-outofband-220483515252 \
   AWS_DEFAULT_REGION=us-west-2 \
+  BROWSERBASE_API_KEY="$BROWSERBASE_API_KEY" \
   npm run generate-outofband 2>&1
 ```
+
+> `BROWSERBASE_API_KEY` is passed through so the proxy-escalation ladder test
+> (step 3) and any `browserbase` sources can be fetched. It must be present in
+> the runner's environment.
 
 ### 5. Reply with Summary
 
