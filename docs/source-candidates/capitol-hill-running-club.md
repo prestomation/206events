@@ -1,6 +1,7 @@
 ---
 name: "Capitol Hill Running Club"
-status: candidate
+status: added
+pr: 819
 platform: recurring YAML (no ICS/API, fixed weekly schedule stated on site)
 url: https://www.caphillrunclub.com/
 tags: [Running, "Capitol Hill"]
