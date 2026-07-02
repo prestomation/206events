@@ -475,5 +475,43 @@ END:VCALENDAR`;
       // With expanded window (6 months): included
       expect(parseExternalCalendarEvents(icsData, { windowMonths: 6 })).toHaveLength(1);
     });
+
+    it('replaces an RRULE occurrence with its RECURRENCE-ID override instead of emitting both', () => {
+      const formatICS = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      // Weekly series starting 3 weeks ago so it has already produced several
+      // instances, one of which (4 weeks after DTSTART, i.e. 1 week from now)
+      // is overridden by a Google-Calendar-style sibling VEVENT — same UID,
+      // a RECURRENCE-ID marking which occurrence it replaces, no RRULE.
+      const dtStart = new Date();
+      dtStart.setDate(dtStart.getDate() - 21);
+      const overrideDate = new Date(dtStart);
+      overrideDate.setDate(overrideDate.getDate() + 28);
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:weekly-override-1
+SUMMARY:Weekly Group Run
+DTSTART:${formatICS(dtStart)}
+RRULE:FREQ=WEEKLY
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-override-1
+SUMMARY:Special Demo Run
+DTSTART:${formatICS(overrideDate)}
+RECURRENCE-ID:${formatICS(overrideDate)}
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      const atOverrideSlot = events.filter(
+        e => e.date.toString().startsWith(overrideDate.toISOString().slice(0, 16))
+      );
+      // Exactly one event for that slot — the override — not both it and
+      // the generic weekly instance.
+      expect(atOverrideSlot).toHaveLength(1);
+      expect(atOverrideSlot[0].summary).toBe('Special Demo Run');
+    });
   });
 });
