@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6802626
+  lng: -122.3285083
+  label: "Green Lake Community Center, 7201 East Green Lake Dr N, Seattle, WA 98115"
+  osmType: way
+  osmId: 34148647
+name: seattle-frontrunners-saturday-morning-run
+sourceRole: venue
+friendlyname: Seattle Frontrunners - Saturday Morning Run/Walk
+description: LGBTQ+ running and walking club's weekly Saturday morning run/walk, meeting west of the Green Lake Community Center by the lakeshore lifeguard station. Multiple pacing groups, open to all speeds and abilities.
+timezone: America/Los_Angeles
+location: Green Lake Community Center (lakeshore lifeguard station), 7201 East Green Lake Dr N, Seattle, WA 98115
+url: https://www.seattlefrontrunners.org/saturday-morning
+tags:
+  - Running
+  - LGBTQ
+  - Green Lake
+cost: free
+schedules:
+  - schedule: every Saturday
+    start_time: "09:15"
+    duration: PT1H30M

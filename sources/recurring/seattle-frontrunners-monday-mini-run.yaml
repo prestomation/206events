@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6170377
+  lng: -122.3191692
+  label: "Cal Anderson Park, 1635 11th Ave, Seattle, WA 98122"
+  osmType: way
+  osmId: 158721036
+name: seattle-frontrunners-monday-mini-run
+sourceRole: venue
+friendlyname: Seattle Frontrunners - Monday Mini-Runs
+description: LGBTQ+ running and walking club's weekly Monday evening mini-run, meeting at the Cal Anderson Park Shelterhouse on the north side of Bobby Morris Playfield. Rotating ~3 mile routes, open to all paces.
+timezone: America/Los_Angeles
+location: Cal Anderson Park Shelterhouse, 1635 11th Ave, Seattle, WA 98112
+url: https://www.seattlefrontrunners.org/monday-night-mini-runs
+tags:
+  - Running
+  - LGBTQ
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: every Monday
+    start_time: "18:30"
+    duration: PT1H
