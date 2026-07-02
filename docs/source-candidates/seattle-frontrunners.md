@@ -13,7 +13,7 @@ lastChecked: 2026-07-02
 
 Investigated 2026-07-02:
 - `https://www.seattlefrontrunners.org/runs-walks` lists several "year-round" recurring runs, each with its own dedicated page:
-  - **Monday Mini-Runs** (`/monday-night-mini-runs`) — Mondays 6:30 PM, Cal Anderson Park Shelterhouse (north side of Bobby Morris Playfield), 1635 11th Ave, Seattle, WA 98112. ~3 mile routes, rotating courses.
+  - **Monday Mini-Runs** (`/monday-night-mini-runs`) — Mondays 6:30 PM, Cal Anderson Park Shelterhouse (north side of Bobby Morris Playfield), 1635 11th Ave, Seattle, WA 98122. ~3 mile routes, rotating courses.
   - **Wednesday Night Run/Walk** (`/wednesday-night`) — Wednesdays 6:30 PM, in front of the Seattle Asian Art Museum, Volunteer Park, 1400 E Prospect St, Seattle, WA 98112. 4 mile run/walk through Capitol Hill, rain or shine.
   - **Saturday Morning Run/Walk** (`/saturday-morning`) — Saturdays 9:15 AM, west of Green Lake Community Center by the lakeshore lifeguard station, 7201 East Green Lake Dr N, Seattle, WA 98115.
   - **Tuesday Night Track** (`/tuesday-night-track`) — Tuesdays 7:00 PM, Roosevelt High School track, 1410 NE 66th St, Seattle, WA 98115. Seasonal (roughly March–Thanksgiving per site copy); exact start/end dates not stated, so left out of the initial implementation to avoid guessing a wrong season window.
