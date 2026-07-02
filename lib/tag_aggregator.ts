@@ -203,8 +203,16 @@ export function parseExternalCalendarEvents(icsData: string, opts?: { windowMont
         const zonedDateTime = ZonedDateTime.parse(
           startDate.toISOString().replace('Z', '+00:00[UTC]')
         );
+        // A RECURRENCE-ID override shares its master's UID with every other
+        // override of the same series (Google Calendar's convention), so a
+        // bare `uid` id would collide across distinct override occurrences
+        // (e.g. two different brand demo runs replacing two different weeks
+        // of the same group run). Suffix with the occurrence date to keep
+        // ids unique and stable, matching the RRULE-expansion branch above.
+        const recurrenceId = vevent.getFirstPropertyValue('recurrence-id');
+        const id = recurrenceId ? `${uid}-${startDate.toISOString()}` : uid;
         events.push({
-          id: uid,
+          id,
           ripped: new Date(),
           date: zonedDateTime,
           duration: Duration.ofHours(durationHours),

@@ -513,5 +513,53 @@ END:VCALENDAR`;
       expect(atOverrideSlot).toHaveLength(1);
       expect(atOverrideSlot[0].summary).toBe('Special Demo Run');
     });
+
+    it('gives two distinct RECURRENCE-ID overrides of the same series distinct, stable ids', () => {
+      // Google Calendar gives every override occurrence of a series the same
+      // UID as the master — differentiated only by RECURRENCE-ID. Without a
+      // date suffix, two different overrides (e.g. two different brand demo
+      // runs replacing two different weeks) would collide on the same id,
+      // which breaks the uncertainty/photo/cost cache join key (source:id).
+      const formatICS = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const dtStart = new Date();
+      dtStart.setDate(dtStart.getDate() - 21);
+      const override1 = new Date(dtStart);
+      override1.setDate(override1.getDate() + 28);
+      const override2 = new Date(dtStart);
+      override2.setDate(override2.getDate() + 35);
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:weekly-override-2
+SUMMARY:Weekly Group Run
+DTSTART:${formatICS(dtStart)}
+RRULE:FREQ=WEEKLY
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-override-2
+SUMMARY:Brand A Demo Run
+DTSTART:${formatICS(override1)}
+RECURRENCE-ID:${formatICS(override1)}
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-override-2
+SUMMARY:Brand B Demo Run
+DTSTART:${formatICS(override2)}
+RECURRENCE-ID:${formatICS(override2)}
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      const overrideEvents = events.filter(e => e.summary.startsWith('Brand'));
+      expect(overrideEvents).toHaveLength(2);
+      expect(new Set(overrideEvents.map(e => e.id)).size).toBe(2);
+      // Stable across re-parses of the same source content.
+      const idsAgain = parseExternalCalendarEvents(icsData)
+        .filter(e => e.summary.startsWith('Brand'))
+        .map(e => e.id);
+      expect(idsAgain).toEqual(overrideEvents.map(e => e.id));
+    });
   });
 });
