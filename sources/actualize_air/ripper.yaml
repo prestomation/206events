@@ -1,0 +1,19 @@
+name: actualize-air
+sourceRole: venue
+type: eventbrite
+description: "Actualize AiR"
+url: "https://actualize.space"
+friendlyLink: https://actualize.space
+tags: ["Arts", "Pioneer Square"]
+geo:
+  lat: 47.6013737
+  lng: -122.3292697
+  label: "Actualize AiR, 112 Prefontaine Place S, Seattle, WA 98104"
+calendars:
+  - name: actualize-air
+    friendlyname: "Actualize AiR"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "87597942133"
+      defaultLocation: "112 Prefontaine Place S, Seattle, WA 98104"
+      defaultDurationHours: 3
