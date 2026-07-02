@@ -31264,22 +31264,37 @@
       "reason": "Doors 7 PM / show 8 PM; no official end time published by venue or promoter"
     },
     "19hz:19hz-2026/10/09-Jessica Audiffred (360 Experience)": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-07-02",
       "source": "agent",
-      "reason": "AXS 403; no end time published. Cost: ticketed (AXS) but face value not accessible"
+      "evidence": "https://www.axs.com/events/1496213/jessica-audiffred-360-experience-tickets?cid=19hz",
+      "partialFingerprint": "12a4"
     },
     "19hz:19hz-2026/10/16-Know Good, Blookah, Terminal 6": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-07-02",
       "source": "agent",
-      "reason": "AXS 403; no end time published. Cost: ticketed (AXS) but face value not accessible"
+      "evidence": "https://www.axs.com/events/1495183/know-good-tickets",
+      "partialFingerprint": "12a4"
     },
     "19hz:19hz-2026/11/21-Jai Wolf, Conrad.": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-07-02",
       "source": "agent",
-      "reason": "AXS 403; no end time published. Cost: ticketed (AXS) but face value not accessible (resale 7+ but not face value)"
+      "evidence": "https://www.axs.com/events/1495149/jai-wolf-tickets",
+      "partialFingerprint": "12a4"
     },
     "19hz:19hz-2026/11/28-Afrojack": {
       "fields": {
