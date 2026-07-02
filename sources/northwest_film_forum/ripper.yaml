@@ -1,0 +1,11 @@
+name: northwest-film-forum
+description: "Northwest Film Forum"
+url: "https://nwfilmforum.org/calendar/"
+friendlyLink: https://nwfilmforum.org/calendar/
+sourceRole: venue
+geo: null
+tags: ["Movies", "Capitol Hill"]
+calendars:
+  - name: northwest-film-forum
+    friendlyname: "Northwest Film Forum"
+    timezone: America/Los_Angeles

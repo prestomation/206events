@@ -1,3 +1,8 @@
+# Superseded by the first-party sources/northwest_film_forum ripper, which
+# scrapes nwfilmforum.org directly and covers /films/, /events/, and
+# /education/workshops/ (this third-party ICS mirror only ever covered
+# /films/ screenings). Disabled rather than deleted so the history/URL
+# mapping stays visible; see docs/source-candidates/northwest-film-forum.md.
 geo: null
 name: nw-film-forum
 sourceRole: venue
@@ -5,6 +10,7 @@ friendlyname: Northwest Film Forum
 description: Nonprofit film arts center on Capitol Hill presenting independent, international, and local films
 icsUrl: https://seattle-movies.innocence.com/nwff.ics
 infoUrl: https://nwfilmforum.org/
+disabled: true
 tags:
   - Movies
   - Arts
