@@ -1,0 +1,18 @@
+name: center-for-wooden-boats
+sourceRole: venue
+description: "Center for Wooden Boats"
+url: "https://www.cwb.org/"
+friendlyLink: "https://www.cwb.org/"
+tags: ["Community", "South Lake Union"]
+imageUrl: "https://static1.squarespace.com/static/5c48db894eddeca43abfade1/t/659730baa0b95460bd342f03/1736897620089/RAD02665.jpg?format=1500w"
+geo:
+  lat: 47.6271962
+  lng: -122.3359006
+  label: "Center for Wooden Boats, 1010 Valley St, Seattle, WA 98109"
+  osmType: way
+  osmId: 49747361
+  osmChecked: "2026-07-02"
+calendars:
+  - name: center-for-wooden-boats
+    friendlyname: "Center for Wooden Boats"
+    timezone: America/Los_Angeles
