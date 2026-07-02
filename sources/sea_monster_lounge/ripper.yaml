@@ -8,6 +8,8 @@ geo:
   lat: 47.661643
   lng: -122.3323207
   label: "Sea Monster Lounge, 2202 N 45th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2061048097
 imageUrl: "https://static.wixstatic.com/media/51bae9_3e014cb7724a4ae68668b5d05c978aa7~mv2.jpg"
 calendars:
   - name: calendar
