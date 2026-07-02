@@ -80,6 +80,28 @@ describe('FantagraphicsRipper', () => {
         expect('type' in events[0]).toBe(true);
     });
 
+    test('handles an invalid timezone string with a ParseError, not a crash', () => {
+        const malformed = {
+            id: 88888,
+            title: 'Bad Timezone Event',
+            slug: 'bad-timezone-event',
+            url: 'https://blog.fantagraphics.com/events/bad-timezone-event/',
+            start_date: '2026-08-01 18:00:00',
+            timezone: 'Not/A_Real_Zone',
+            venue: { venue: 'Fantagraphics Bookstore and Gallery', address: '1201 S Vale St', city: 'Seattle', state: 'WA', zip: '98108' },
+        };
+        const result = parseTribeEvent(malformed as any);
+        expect('type' in result).toBe(true);
+        expect((result as RipperError).type).toBe('ParseError');
+        expect((result as RipperError).reason).toContain('Invalid timezone');
+
+        // Also exercise it through the full filter+parse pipeline — a bad
+        // timezone on one event must not throw and abort the others.
+        const events = ripper.parseEvents([malformed] as any);
+        expect(events.length).toBe(1);
+        expect('type' in events[0]).toBe(true);
+    });
+
     test('produces stable, deterministic event ids across repeated parses', () => {
         const firstPass = ripper.parseEvents(sampleData.events)
             .filter((e): e is RipperCalendarEvent => 'date' in e)
@@ -110,6 +132,14 @@ describe('parseTribeCost', () => {
 
     test('parses a dollar range', () => {
         expect(parseTribeCost('$10 - $20')).toEqual({ min: 10, max: 20 });
+    });
+
+    test('parses a dollar range using an en dash (WordPress wptexturize output)', () => {
+        expect(parseTribeCost('$10.00 – $20.00')).toEqual({ min: 10, max: 20 });
+    });
+
+    test('parses a dollar range using an em dash', () => {
+        expect(parseTribeCost('$10—$20')).toEqual({ min: 10, max: 20 });
     });
 });
 

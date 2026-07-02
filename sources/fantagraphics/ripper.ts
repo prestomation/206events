@@ -61,7 +61,9 @@ export function parseTribeCost(raw: string | undefined): EventCost | undefined {
 
     if (/^free$/i.test(trimmed)) return { min: 0 };
 
-    const rangeMatch = trimmed.match(/\$(\d+(?:\.\d+)?)\s*-\s*\$?(\d+(?:\.\d+)?)/);
+    // WordPress commonly texturizes a plain "-" into an en dash (–) or em
+    // dash (—) in admin-entered text, so match any of the three.
+    const rangeMatch = trimmed.match(/\$(\d+(?:\.\d+)?)\s*[-–—]\s*\$?(\d+(?:\.\d+)?)/);
     if (rangeMatch) {
         const min = parseFloat(rangeMatch[1]);
         const max = parseFloat(rangeMatch[2]);
@@ -106,7 +108,12 @@ export function parseTribeEvent(raw: TribeEvent): RipperCalendarEvent | RipperEr
         return { type: "ParseError", reason: "Event missing slug, title, or start_date", context: JSON.stringify(raw).slice(0, 200) };
     }
 
-    const timezone = raw.timezone ? ZoneId.of(raw.timezone) : ZoneId.of("America/Los_Angeles");
+    let timezone: ZoneId;
+    try {
+        timezone = raw.timezone ? ZoneId.of(raw.timezone) : ZoneId.of("America/Los_Angeles");
+    } catch (error) {
+        return { type: "ParseError", reason: `Invalid timezone "${raw.timezone}": ${error}`, context };
+    }
 
     let startDateTime: ZonedDateTime;
     try {
@@ -161,6 +168,9 @@ export default class FantagraphicsRipper implements IRipper {
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);
+        if (!ripper.config.calendars || ripper.config.calendars.length === 0) {
+            throw new Error("No calendars configured for fantagraphics-bookstore ripper");
+        }
         const calConfig = ripper.config.calendars[0];
 
         let events: RipperEvent[];
