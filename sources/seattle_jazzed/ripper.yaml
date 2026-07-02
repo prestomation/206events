@@ -1,0 +1,14 @@
+name: seattle-jazzed
+sourceRole: venue
+type: squarespace
+description: "Seattle JazzED"
+url: "https://www.seattlejazzed.org/events"
+friendlyLink: https://www.seattlejazzed.org/
+cost: free
+tags: ["Music"]
+geo: null
+imageUrl: "https://static1.squarespace.com/static/56ec36287c65e44921a975cb/t/56ec4fc937013bc0124bc700/1458327510671/Jazz+Ed+Logos-03.png?format=1500w"
+calendars:
+  - name: seattle-jazzed
+    friendlyname: "Seattle JazzED"
+    timezone: America/Los_Angeles
