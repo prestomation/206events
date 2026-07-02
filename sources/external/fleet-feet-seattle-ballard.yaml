@@ -1,0 +1,17 @@
+geo:
+  lat: 47.6678553
+  lng: -122.3845817
+  label: "Fleet Feet Seattle-Ballard, 5404 22nd Ave NW, Seattle, WA 98107"
+  osmType: node
+  osmId: 2995124385
+  osmChecked: 2026-07-02
+name: fleet-feet-seattle-ballard
+sourceRole: venue
+friendlyname: Fleet Feet Seattle-Ballard
+description: Running specialty store hosting a weekly group run plus periodic shoe-brand demo runs and community nights from its Ballard location
+icsUrl: https://calendar.google.com/calendar/ical/c_80092bed54a556bdfeaefa5af3f8bedc6352c1043791a4a3c61873abe889e0e6%40group.calendar.google.com/public/basic.ics
+infoUrl: https://www.fleetfeetseattle.com/events
+tags:
+  - Running
+  - Ballard
+cost: free

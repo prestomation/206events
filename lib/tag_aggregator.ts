@@ -92,6 +92,24 @@ export function parseExternalCalendarEvents(icsData: string, opts?: { windowMont
   const comp = new ICAL.Component(jcalData);
   const vevents = comp.getAllSubcomponents('vevent');
 
+  // Google Calendar (and other producers) represent a modified occurrence of
+  // a recurring event as a separate VEVENT sharing the master's UID plus a
+  // RECURRENCE-ID marking which occurrence it replaces (e.g. "this week's
+  // run is actually a demo run"). ICAL.RecurExpansion only expands the
+  // master's RRULE/EXDATE — it has no notion of sibling override VEVENTs —
+  // so without this, both the generic recurring instance and its override
+  // would be emitted for the same slot. Collect the overridden occurrences
+  // up front so the RRULE expansion below can skip them; the override
+  // VEVENT itself is still emitted via the non-recurring branch.
+  const overriddenOccurrences = new Set<string>();
+  for (const vevent of vevents) {
+    const recurrenceId = vevent.getFirstPropertyValue('recurrence-id');
+    const uid = vevent.getFirstPropertyValue('uid')?.toString();
+    if (recurrenceId && uid) {
+      overriddenOccurrences.add(`${uid}|${recurrenceId.toJSDate().toISOString()}`);
+    }
+  }
+
   for (const vevent of vevents) {
     try {
       const event = new ICAL.Event(vevent);
@@ -144,6 +162,10 @@ export function parseExternalCalendarEvents(icsData: string, opts?: { windowMont
           while (instanceCount < 10000 && (next = expand.next())) {
             const startDate = next.toJSDate();
             if (startDate > threeMonthsLater) break;
+            if (overriddenOccurrences.has(`${uid}|${startDate.toISOString()}`)) {
+              instanceCount++;
+              continue;
+            }
             if (startDate >= oneWeekAgo) {
               const zonedDateTime = ZonedDateTime.parse(
                 startDate.toISOString().replace('Z', '+00:00[UTC]')
@@ -181,8 +203,16 @@ export function parseExternalCalendarEvents(icsData: string, opts?: { windowMont
         const zonedDateTime = ZonedDateTime.parse(
           startDate.toISOString().replace('Z', '+00:00[UTC]')
         );
+        // A RECURRENCE-ID override shares its master's UID with every other
+        // override of the same series (Google Calendar's convention), so a
+        // bare `uid` id would collide across distinct override occurrences
+        // (e.g. two different brand demo runs replacing two different weeks
+        // of the same group run). Suffix with the occurrence date to keep
+        // ids unique and stable, matching the RRULE-expansion branch above.
+        const recurrenceId = vevent.getFirstPropertyValue('recurrence-id');
+        const id = recurrenceId ? `${uid}-${startDate.toISOString()}` : uid;
         events.push({
-          id: uid,
+          id,
           ripped: new Date(),
           date: zonedDateTime,
           duration: Duration.ofHours(durationHours),

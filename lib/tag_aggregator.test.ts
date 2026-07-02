@@ -475,5 +475,91 @@ END:VCALENDAR`;
       // With expanded window (6 months): included
       expect(parseExternalCalendarEvents(icsData, { windowMonths: 6 })).toHaveLength(1);
     });
+
+    it('replaces an RRULE occurrence with its RECURRENCE-ID override instead of emitting both', () => {
+      const formatICS = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      // Weekly series starting 3 weeks ago so it has already produced several
+      // instances, one of which (4 weeks after DTSTART, i.e. 1 week from now)
+      // is overridden by a Google-Calendar-style sibling VEVENT — same UID,
+      // a RECURRENCE-ID marking which occurrence it replaces, no RRULE.
+      const dtStart = new Date();
+      dtStart.setDate(dtStart.getDate() - 21);
+      const overrideDate = new Date(dtStart);
+      overrideDate.setDate(overrideDate.getDate() + 28);
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:weekly-override-1
+SUMMARY:Weekly Group Run
+DTSTART:${formatICS(dtStart)}
+RRULE:FREQ=WEEKLY
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-override-1
+SUMMARY:Special Demo Run
+DTSTART:${formatICS(overrideDate)}
+RECURRENCE-ID:${formatICS(overrideDate)}
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      const atOverrideSlot = events.filter(
+        e => e.date.toString().startsWith(overrideDate.toISOString().slice(0, 16))
+      );
+      // Exactly one event for that slot — the override — not both it and
+      // the generic weekly instance.
+      expect(atOverrideSlot).toHaveLength(1);
+      expect(atOverrideSlot[0].summary).toBe('Special Demo Run');
+    });
+
+    it('gives two distinct RECURRENCE-ID overrides of the same series distinct, stable ids', () => {
+      // Google Calendar gives every override occurrence of a series the same
+      // UID as the master — differentiated only by RECURRENCE-ID. Without a
+      // date suffix, two different overrides (e.g. two different brand demo
+      // runs replacing two different weeks) would collide on the same id,
+      // which breaks the uncertainty/photo/cost cache join key (source:id).
+      const formatICS = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const dtStart = new Date();
+      dtStart.setDate(dtStart.getDate() - 21);
+      const override1 = new Date(dtStart);
+      override1.setDate(override1.getDate() + 28);
+      const override2 = new Date(dtStart);
+      override2.setDate(override2.getDate() + 35);
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:weekly-override-2
+SUMMARY:Weekly Group Run
+DTSTART:${formatICS(dtStart)}
+RRULE:FREQ=WEEKLY
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-override-2
+SUMMARY:Brand A Demo Run
+DTSTART:${formatICS(override1)}
+RECURRENCE-ID:${formatICS(override1)}
+END:VEVENT
+BEGIN:VEVENT
+UID:weekly-override-2
+SUMMARY:Brand B Demo Run
+DTSTART:${formatICS(override2)}
+RECURRENCE-ID:${formatICS(override2)}
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      const overrideEvents = events.filter(e => e.summary.startsWith('Brand'));
+      expect(overrideEvents).toHaveLength(2);
+      expect(new Set(overrideEvents.map(e => e.id)).size).toBe(2);
+      // Stable across re-parses of the same source content.
+      const idsAgain = parseExternalCalendarEvents(icsData)
+        .filter(e => e.summary.startsWith('Brand'))
+        .map(e => e.id);
+      expect(idsAgain).toEqual(overrideEvents.map(e => e.id));
+    });
   });
 });
