@@ -1,6 +1,7 @@
 ---
 name: "Actualize AiR (Artist in Residency)"
-status: candidate
+status: added
+pr: 824
 platform: Eventbrite
 url: https://actualize.space
 tags: [Arts, "Pioneer Square"]
@@ -21,3 +22,4 @@ Re-investigated 2026-07-02:
 - Fetched `https://www.eventbrite.com/o/actualize-air-87597942133` directly — the organizer profile now lists 3 upcoming dated events: "Figure Drawing Series [July]", "[August]", "[September]" (`numEvents: 41` on the organizer record, `hostingSince: 1`)
 - Fetched one event page directly (`/e/figure-drawing-series-july-tickets-1992867011879`) — confirmed `"status":"live"`, a working "Get tickets" CTA, and `"organizer":{"id":"87597942133", ...}` matching the same organizer ID used in the reverted attempt — this is not a stale search snippet, it's a live purchasable listing tied to the exact organizer ID the ripper queries
 - Re-implementing with the same `eventbrite` ripper config as the reverted PR #804 attempt. Since events are confirmed live only 1 day after the prior 0-event CI result, the org appears to publish in bursts — CI's live API call will be the final confirmation this time
+- **Confirmed 2026-07-02 (PR #824):** CI's live Eventbrite API call returned 3 events (Figure Drawing Series July/August/September). Source added.
