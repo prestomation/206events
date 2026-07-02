@@ -1,0 +1,501 @@
+{
+  "events": [
+    {
+      "id": 27465,
+      "global_id": "blog.fantagraphics.com?id=27465",
+      "global_id_lineage": [
+        "blog.fantagraphics.com?id=27465"
+      ],
+      "author": "82",
+      "status": "publish",
+      "date": "2026-06-22 17:21:20",
+      "date_utc": "2026-06-23 00:21:20",
+      "modified": "2026-06-22 17:21:20",
+      "modified_utc": "2026-06-23 00:21:20",
+      "url": "https://blog.fantagraphics.com/events/seattle-wa-hot-off-the-press-book-fair-at-the-fantagraphics-bookstore-gallery-2/",
+      "rest_url": "https://blog.fantagraphics.com/wp-json/tribe/events/v1/events/27465",
+      "title": "Seattle, WA: Hot Off the Press Book Fair at the Fantagraphics Bookstore &#038; Gallery",
+      "description": "<p>Don\u2019t miss our 13th annual Hot Off the Press Book Fair on Saturday, July 11. This edition focuses on Fantagraphics at 50 with legacy artists like Jaime Hernandez, Jim Woodring, Megan Kelso, Katie Skelly, and Jim Blanchard joined by an amazing assortment of more than 50 regional and national artists presenting comix, prints, art, and more. Music by Northwest garage rock stalwarts The Fall-Outs (featuring our own Dave Holmes), Martin Bland\u2019s Randomized Control Trials, and D J Thirst \u2018N\u2019 Howl. Always a highlight of the summer.</p>",
+      "excerpt": "",
+      "slug": "seattle-wa-hot-off-the-press-book-fair-at-the-fantagraphics-bookstore-gallery-2",
+      "image": {
+        "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/IMG_1475.jpeg?fit=750%2C944&ssl=1",
+        "id": 27466,
+        "extension": "jpeg",
+        "width": 750,
+        "height": 944,
+        "filesize": 249615,
+        "sizes": {
+          "medium": {
+            "width": 238,
+            "height": 300,
+            "mime-type": "image/jpeg",
+            "filesize": 33249,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/IMG_1475.jpeg?fit=238%2C300&ssl=1"
+          },
+          "large": {
+            "width": 477,
+            "height": 600,
+            "mime-type": "image/jpeg",
+            "filesize": 108568,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/IMG_1475.jpeg?fit=477%2C600&ssl=1"
+          },
+          "thumbnail": {
+            "width": 119,
+            "height": 150,
+            "mime-type": "image/jpeg",
+            "filesize": 9973,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/IMG_1475.jpeg?fit=119%2C150&ssl=1"
+          },
+          "authorship-box-avatar": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/jpeg",
+            "filesize": 11764,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/IMG_1475.jpeg?resize=150%2C150&ssl=1"
+          },
+          "authorship-box-related": {
+            "width": 70,
+            "height": 70,
+            "mime-type": "image/jpeg",
+            "filesize": 3334,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/IMG_1475.jpeg?resize=70%2C70&ssl=1"
+          },
+          "authorship-custom-avatar": {
+            "width": 100,
+            "height": 100,
+            "mime-type": "image/jpeg",
+            "filesize": 5929,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/IMG_1475.jpeg?resize=100%2C100&ssl=1"
+          },
+          "post-thumbnail": {
+            "width": 125,
+            "height": 125,
+            "mime-type": "image/jpeg",
+            "filesize": 8490,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/IMG_1475.jpeg?resize=125%2C125&ssl=1"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2026-07-11 17:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "11",
+        "hour": "17",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-11 21:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "11",
+        "hour": "21",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-07-12 00:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "12",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-12 04:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "12",
+        "hour": "04",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Los_Angeles",
+      "timezone_abbr": "PDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": false,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 10944,
+        "author": "74",
+        "status": "publish",
+        "date": "2015-05-29 22:20:17",
+        "date_utc": "2015-05-29 22:20:17",
+        "modified": "2015-05-29 22:20:17",
+        "modified_utc": "2015-05-29 22:20:17",
+        "url": "https://blog.fantagraphics.com/venue/fantagraphics-bookstore-and-gallery/",
+        "venue": "Fantagraphics Bookstore and Gallery",
+        "slug": "fantagraphics-bookstore-and-gallery",
+        "address": "1201 S Vale St",
+        "city": "Seattle",
+        "country": "United States",
+        "state": "WA",
+        "zip": "98108",
+        "phone": "(206) 658-0110",
+        "website": "fantagraphics.com/bookstore",
+        "stateprovince": "WA",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "blog.fantagraphics.com?id=10944",
+        "global_id_lineage": [
+          "blog.fantagraphics.com?id=10944"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    },
+    {
+      "id": 27468,
+      "global_id": "blog.fantagraphics.com?id=27468",
+      "global_id_lineage": [
+        "blog.fantagraphics.com?id=27468"
+      ],
+      "author": "82",
+      "status": "publish",
+      "date": "2026-06-22 17:24:18",
+      "date_utc": "2026-06-23 00:24:18",
+      "modified": "2026-06-23 14:50:41",
+      "modified_utc": "2026-06-23 21:50:41",
+      "url": "https://blog.fantagraphics.com/events/portland-or-katie-skelly-heaven-jaime-hernandez-locas-book-launch-at-floating-world-comics/",
+      "rest_url": "https://blog.fantagraphics.com/wp-json/tribe/events/v1/events/27468",
+      "title": "Portland, OR: Katie Skelly (Heaven) + Jaime Hernandez (Locas) Book Launch at Floating World Comics",
+      "description": "<p>It&#8217;s a double feature: celebrate Floating World&#8217;s 20th (!!) anniversary with a book talk and signing with <a href=\"https://www.fantagraphics.com/collections/katie-skelly\">Katie Skelly</a> (<a href=\"https://www.fantagraphics.com/products/heaven\"><em>Heaven</em></a>) and <a href=\"https://www.fantagraphics.com/collections/jaime-hernandez\">Jaime Hernandez</a> (<a href=\"https://www.fantagraphics.com/products/locas-the-maggie-and-hopey-stories\"><em>Locas</em></a>)!</p>",
+      "excerpt": "",
+      "slug": "portland-or-katie-skelly-heaven-jaime-hernandez-locas-book-launch-at-floating-world-comics",
+      "image": {
+        "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?fit=1080%2C1350&ssl=1",
+        "id": 27474,
+        "extension": "jpg",
+        "width": 1080,
+        "height": 1350,
+        "filesize": 808950,
+        "sizes": {
+          "medium": {
+            "width": 240,
+            "height": 300,
+            "mime-type": "image/jpeg",
+            "filesize": 28365,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?fit=240%2C300&ssl=1"
+          },
+          "large": {
+            "width": 480,
+            "height": 600,
+            "mime-type": "image/jpeg",
+            "filesize": 83473,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?fit=480%2C600&ssl=1"
+          },
+          "thumbnail": {
+            "width": 120,
+            "height": 150,
+            "mime-type": "image/jpeg",
+            "filesize": 9184,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?fit=120%2C150&ssl=1"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 960,
+            "mime-type": "image/jpeg",
+            "filesize": 159773,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?fit=768%2C960&ssl=1"
+          },
+          "authorship-box-avatar": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/jpeg",
+            "filesize": 11071,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?resize=150%2C150&ssl=1"
+          },
+          "authorship-box-related": {
+            "width": 70,
+            "height": 70,
+            "mime-type": "image/jpeg",
+            "filesize": 3393,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?resize=70%2C70&ssl=1"
+          },
+          "authorship-custom-avatar": {
+            "width": 100,
+            "height": 100,
+            "mime-type": "image/jpeg",
+            "filesize": 5767,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?resize=100%2C100&ssl=1"
+          },
+          "post-thumbnail": {
+            "width": 125,
+            "height": 125,
+            "mime-type": "image/jpeg",
+            "filesize": 8206,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Skelly-and-Hernandez-Floating-World-Insta-2.jpg?resize=125%2C125&ssl=1"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2026-07-12 16:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "12",
+        "hour": "16",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-12 18:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "12",
+        "hour": "18",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-07-12 23:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "12",
+        "hour": "23",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-13 01:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "13",
+        "hour": "01",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Los_Angeles",
+      "timezone_abbr": "PDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": false,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 10575,
+        "author": "82",
+        "status": "publish",
+        "date": "2015-05-08 18:45:27",
+        "date_utc": "2015-05-08 18:45:27",
+        "modified": "2022-10-12 10:56:10",
+        "modified_utc": "2022-10-12 17:56:10",
+        "url": "https://blog.fantagraphics.com/venue/floating-world-comics/",
+        "venue": "Floating World Comics",
+        "slug": "floating-world-comics",
+        "address": "1223 Lloyd Center",
+        "city": "Portland",
+        "country": "United States",
+        "state": "OR",
+        "zip": "97232",
+        "phone": "(503) 241-0227",
+        "website": "floatingworldcomics.com/",
+        "stateprovince": "OR",
+        "show_map": false,
+        "show_map_link": true,
+        "global_id": "blog.fantagraphics.com?id=10575",
+        "global_id_lineage": [
+          "blog.fantagraphics.com?id=10575"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    },
+    {
+      "id": 27471,
+      "global_id": "blog.fantagraphics.com?id=27471",
+      "global_id_lineage": [
+        "blog.fantagraphics.com?id=27471"
+      ],
+      "author": "82",
+      "status": "publish",
+      "date": "2026-06-23 13:20:31",
+      "date_utc": "2026-06-23 20:20:31",
+      "modified": "2026-06-23 13:20:31",
+      "modified_utc": "2026-06-23 20:20:31",
+      "url": "https://blog.fantagraphics.com/events/los-angeles-ca-katie-skelly-heaven-book-launch-at-secret-headquarters/",
+      "rest_url": "https://blog.fantagraphics.com/wp-json/tribe/events/v1/events/27471",
+      "title": "Los Angeles, CA: Katie Skelly (Heaven) Book Launch at Secret Headquarters",
+      "description": "<p>Don&#8217;t miss the LA launch for Katie&#8217;s Skelly&#8217;s first new book since\u00a0<em>Maids</em>,\u00a0<em>Heaven</em>!\u00a0<em>Publishers Weekly</em> wrote, &#8220;Skelly once again tosses cute, sexy, gruesome, and strangely touching comics stylings into a witches\u2019 brew of canny feminist horror.&#8221; Be there or be square!</p>",
+      "excerpt": "",
+      "slug": "los-angeles-ca-katie-skelly-heaven-book-launch-at-secret-headquarters",
+      "image": {
+        "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?fit=1080%2C1350&ssl=1",
+        "id": 27472,
+        "extension": "jpg",
+        "width": 1080,
+        "height": 1350,
+        "filesize": 609476,
+        "sizes": {
+          "medium": {
+            "width": 240,
+            "height": 300,
+            "mime-type": "image/jpeg",
+            "filesize": 22920,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?fit=240%2C300&ssl=1"
+          },
+          "large": {
+            "width": 480,
+            "height": 600,
+            "mime-type": "image/jpeg",
+            "filesize": 59422,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?fit=480%2C600&ssl=1"
+          },
+          "thumbnail": {
+            "width": 120,
+            "height": 150,
+            "mime-type": "image/jpeg",
+            "filesize": 8206,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?fit=120%2C150&ssl=1"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 960,
+            "mime-type": "image/jpeg",
+            "filesize": 110471,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?fit=768%2C960&ssl=1"
+          },
+          "authorship-box-avatar": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/jpeg",
+            "filesize": 10040,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?resize=150%2C150&ssl=1"
+          },
+          "authorship-box-related": {
+            "width": 70,
+            "height": 70,
+            "mime-type": "image/jpeg",
+            "filesize": 3293,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?resize=70%2C70&ssl=1"
+          },
+          "authorship-custom-avatar": {
+            "width": 100,
+            "height": 100,
+            "mime-type": "image/jpeg",
+            "filesize": 5506,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?resize=100%2C100&ssl=1"
+          },
+          "post-thumbnail": {
+            "width": 125,
+            "height": 125,
+            "mime-type": "image/jpeg",
+            "filesize": 7446,
+            "url": "https://i0.wp.com/blog.fantagraphics.com/wp-content/uploads/2026/06/Katie-Skelly-Secret-Headquarters-Insta.jpg?resize=125%2C125&ssl=1"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2026-07-17 17:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "17",
+        "hour": "17",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-07-17 19:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "17",
+        "hour": "19",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-07-18 00:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "18",
+        "hour": "00",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-07-18 02:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "07",
+        "day": "18",
+        "hour": "02",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Los_Angeles",
+      "timezone_abbr": "PDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": false,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [],
+      "tags": [],
+      "venue": {
+        "id": 10569,
+        "author": "74",
+        "status": "publish",
+        "date": "2015-05-08 17:57:30",
+        "date_utc": "2015-05-08 17:57:30",
+        "modified": "2023-10-16 13:31:36",
+        "modified_utc": "2023-10-16 20:31:36",
+        "url": "https://blog.fantagraphics.com/venue/secret-headquarters/",
+        "venue": "Secret Headquarters",
+        "slug": "secret-headquarters",
+        "address": "3137 Glendale Blvd",
+        "city": "Los Angeles",
+        "country": "United States",
+        "state": "CA",
+        "zip": "90039",
+        "phone": "(323) 666-2228",
+        "website": "https://www.thesecretheadquarters.com/",
+        "stateprovince": "CA",
+        "show_map": false,
+        "show_map_link": true,
+        "global_id": "blog.fantagraphics.com?id=10569",
+        "global_id_lineage": [
+          "blog.fantagraphics.com?id=10569"
+        ]
+      },
+      "organizer": [],
+      "custom_fields": []
+    }
+  ],
+  "rest_url": "https://blog.fantagraphics.com/wp-json/tribe/events/v1/events/?page=1&per_page=50&start_date=2026-07-01 00:00:00&end_date=2028-07-02 23:59:59&status=publish",
+  "total": 3,
+  "total_pages": 1
+}
