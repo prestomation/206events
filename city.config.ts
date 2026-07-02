@@ -95,6 +95,7 @@ const cityConfig = {
         "Kenmore",
         "Lake City",
         "Lake Forest Park",
+        "Leschi",
         "Madison Park",
         "Madrona",
         "Magnolia",
