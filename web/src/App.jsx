@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
+import { useState, useEffect, useMemo, useRef, useCallback, startTransition } from 'react'
 import Fuse from 'fuse.js'
 import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
 import { AttributionChips } from './components/AttributionChips.jsx'
@@ -534,8 +534,16 @@ function App() {
         .then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(`events-index.json ${r.status}`)))
         .then(buf => searchClient.parse(buf))
         .then(fullData => {
-          if (Array.isArray(fullData)) setEventsIndex(fullData)
-          setFullEventsLoaded(true)
+          // The soon→full swap re-renders the whole app over ~10k+ events in
+          // one commit — profiled at >1 s of main-thread block on production
+          // data (several seconds on phones), landing right when the user
+          // starts interacting. Mark it as a transition so React renders it
+          // at low priority and can interrupt it to service taps/typing; the
+          // soon subset stays on screen until the full tree is ready.
+          startTransition(() => {
+            if (Array.isArray(fullData)) setEventsIndex(fullData)
+            setFullEventsLoaded(true)
+          })
         })
         .catch(() => {
           // Full index unavailable — keep whatever the soon payload provided and
@@ -1338,6 +1346,7 @@ function App() {
       handleLogout={handleLogout}
       API_URL={API_URL}
       isMobile={isMobile}
+      isDesktop={breakpoint === 'desktop'}
       channelEvents={events}
       channelEventsLoading={eventsLoading}
       channelEventsError={eventsError}

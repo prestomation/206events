@@ -199,25 +199,6 @@ function MapBridge({ mapRef }) {
   return null
 }
 
-function formatEventDate(dateStr) {
-  if (!dateStr) return ''
-  try {
-    const cleaned = dateStr.replace(/\[.*\]$/, '')
-    const d = new Date(cleaned)
-    if (isNaN(d.getTime())) return dateStr
-    return d.toLocaleDateString('en-US', {
-      weekday: 'short',
-      month: 'short',
-      day: 'numeric',
-      ...(d.getFullYear() !== new Date().getFullYear() ? { year: 'numeric' } : {}),
-      hour: '2-digit',
-      minute: '2-digit',
-    })
-  } catch {
-    return dateStr
-  }
-}
-
 // Pure predicate deciding whether an event belongs on the map under the active
 // filters. Extracted so it can be unit-tested without rendering Leaflet, and so
 // the favorites-parity rule has one place to live.
@@ -311,12 +292,11 @@ function EventsMapInner({
   // Empty/absent search → '' (no remount); size disambiguates match-set changes.
   const scopeQueryToken = queryKeySet ? `q${queryKeySet.size}` : ''
 
-  // Parse dates for popup display
-  const eventsWithDates = useMemo(() => mappableEvents.map(event => ({
-    ...event,
-    formattedDate: formatEventDate(event.date),
-    calendarName: calendarNameByIcsUrl[event.icsUrl] || event.icsUrl?.replace('.ics', ''),
-  })), [mappableEvents, calendarNameByIcsUrl])
+  // NOTE: no per-event decoration pass here. This memo's predecessor cloned
+  // every mappable event to attach a formatted date + calendar name — ~11k
+  // Intl-formatting calls and object clones on every corpus/filter change, for
+  // display strings only ever read in the drill-down panel (≤ 50 rows). The
+  // panel now derives both at render time from the raw instance.
 
   // Temporal grouping: collapse the many instances of a conceptually-same
   // recurring event at one venue into a single group → a single marker. Runs on
@@ -325,7 +305,7 @@ function EventsMapInner({
   // coordinate, so grouping first and culling the groups (below) is equivalent
   // to and cheaper than culling instances. The spatial MarkerClusterGroup layer
   // then still clusters distinct venues on top — the two are complementary.
-  const eventGroups = useMemo(() => groupEvents(eventsWithDates), [eventsWithDates])
+  const eventGroups = useMemo(() => groupEvents(mappableEvents), [mappableEvents])
 
   // Viewport culling: only render markers within (a padded) current map bounds,
   // re-filtering when the map pans/zooms. This keeps a date-window change cheap
@@ -412,7 +392,7 @@ function EventsMapInner({
           </Circle>
         ))}
 
-        <FitBounds events={eventsWithDates} geoFilters={geoFilters} fitKey={`${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}|${scopeQueryToken}`} />
+        <FitBounds events={mappableEvents} geoFilters={geoFilters} fitKey={`${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}|${scopeQueryToken}`} />
 
         {/* Event markers — bare markers with lazy (on-click) popups.
             Keyed on the scope (calendar / tag / feed / search) so a scope change
@@ -439,10 +419,11 @@ function EventsMapInner({
       <EventGroupPanel
         group={selectedGroup}
         eventAttributions={eventAttributions}
+        calendarNameByIcsUrl={calendarNameByIcsUrl}
         onClose={() => setSelectedGroup(null)}
       />
 
-      {eventsWithDates.length === 0 && (
+      {mappableEvents.length === 0 && (
         <div className="events-map-empty">
           {queryKeySet
             ? 'No events match your search on the map'

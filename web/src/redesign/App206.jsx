@@ -42,7 +42,7 @@ export function App206(props) {
     followingGroups,
     lists, activeListId, activeList, setActiveList, createList, renameList, deleteList, canCreateList, uatMode,
     authUser, handleLogin, handleLogout, API_URL,
-    isMobile,
+    isMobile, isDesktop,
     channelEvents, channelEventsLoading, channelEventsError, onSelectChannel,
     createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
     calendarAddMode, setCalendarAddMode,
@@ -119,6 +119,12 @@ export function App206(props) {
   const mapRef = useRef(null)
   const [mapExpanded, setMapExpanded] = useState(false)
   const toggleMapExpand = useCallback(() => setMapExpanded((v) => !v), [])
+  // The expanded map only exists inside the desktop-only map column. Reset the
+  // flag when the viewport leaves desktop so re-widening later doesn't surprise
+  // the user with a full-screen map they closed a session ago.
+  useEffect(() => {
+    if (!isDesktop) setMapExpanded(false)
+  }, [isDesktop])
   // Desktop only: user-draggable width of the map column (px). null = use the
   // CSS default clamp(). Persisted so a resized map sticks across reloads.
   // Clamped in setMapWidth so the content column never collapses; passing null
@@ -491,7 +497,14 @@ export function App206(props) {
         <div className="a-content" key={contentKey} ref={contentRef}>
           {loading ? <div className="a-empty" style={{ padding: '40px var(--pad)' }}>Loading…</div> : content}
         </div>
-        <div className={`a-map${mapExpanded ? ' a-map--expanded' : ''}`}><MapPanel /></div>
+        {/* The persistent map column exists only at the desktop breakpoint
+            (>= 1024px, where the CSS grid shows it). Below that it used to be
+            merely display:none while React still mounted it — so phones paid
+            for Leaflet plus the full marker pipeline over every event (twice,
+            once more for the Map tab's own instance) without ever seeing this
+            panel. Mount it only where it's visible; the mobile/tablet Map tab
+            renders its own <MapPanel mobile /> in the content area instead. */}
+        {isDesktop && <div className={`a-map${mapExpanded ? ' a-map--expanded' : ''}`}><MapPanel /></div>}
         <div className="a-nav"><BottomNav /></div>
         {filterOpen && <FilterPopover />}
         <Toast />

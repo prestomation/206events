@@ -88,6 +88,39 @@ describe('EventGroupPanel', () => {
     ])
   })
 
+  // Instances from the map path no longer carry a pre-stamped calendarName —
+  // the panel resolves the source line from the calendarNameByIcsUrl prop.
+  it('resolves the source line via calendarNameByIcsUrl when instances carry none', () => {
+    const bare = instance({ calendarName: undefined, icsUrl: 'test-ripper-cal1.ics' })
+    const { container } = render(
+      <EventGroupPanel
+        group={group({ instances: [bare] })}
+        calendarNameByIcsUrl={{ 'test-ripper-cal1.ics': 'Neumos' }}
+        onClose={() => {}}
+      />,
+    )
+    expect(container.querySelector('.egp-source')).toHaveTextContent('Neumos')
+  })
+
+  it('falls back to the icsUrl-derived name without a lookup entry', () => {
+    const bare = instance({ calendarName: undefined, icsUrl: 'test-ripper-cal1.ics' })
+    const { container } = render(
+      <EventGroupPanel group={group({ instances: [bare] })} onClose={() => {}} />,
+    )
+    expect(container.querySelector('.egp-source')).toHaveTextContent('test-ripper-cal1')
+  })
+
+  it('prefers an instance-stamped calendarName over the lookup', () => {
+    const { container } = render(
+      <EventGroupPanel
+        group={group()}
+        calendarNameByIcsUrl={{ 'test-ripper-cal1.ics': 'Neumos' }}
+        onClose={() => {}}
+      />,
+    )
+    expect(container.querySelector('.egp-source')).toHaveTextContent('Paramount')
+  })
+
   it('inserts a month divider when the month changes', () => {
     const instances = [
       instance({ date: '2026-07-30T19:00:00-07:00', url: 'https://example.com/a' }),

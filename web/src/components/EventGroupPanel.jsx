@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { googleMapsUrl } from '../lib/maplink.js'
 import { eventKey } from '../lib/eventKey.js'
+import { cachedDateTimeFormat } from '../lib/dateFormat.js'
 import { useBreakpoint } from '../hooks/useBreakpoint.js'
 import { AttributionChips } from './AttributionChips.jsx'
 
@@ -30,10 +31,10 @@ function dateParts(dateStr) {
   const d = new Date(cleaned)
   if (Number.isNaN(d.getTime())) return null
   return {
-    dow: d.toLocaleDateString('en-US', { weekday: 'short' }),
-    day: d.toLocaleDateString('en-US', { day: 'numeric' }),
-    time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
-    monthLabel: d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+    dow: cachedDateTimeFormat('en-US', { weekday: 'short' }).format(d),
+    day: cachedDateTimeFormat('en-US', { day: 'numeric' }).format(d),
+    time: cachedDateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }).format(d),
+    monthLabel: cachedDateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(d),
   }
 }
 
@@ -53,9 +54,11 @@ function dateParts(dateStr) {
  *                       or null/undefined when nothing is selected (renders nothing)
  *   eventAttributions - optional Map<compositeKey, Attribution[]> for the "why it
  *                       appears" chips (uses the representative instance)
+ *   calendarNameByIcsUrl - optional map of icsUrl → friendly calendar name for the
+ *                       source line (instances may instead carry `calendarName`)
  *   onClose           - called on the close button or Esc
  */
-export function EventGroupPanel({ group, eventAttributions, onClose }) {
+export function EventGroupPanel({ group, eventAttributions, calendarNameByIcsUrl, onClose }) {
   const isMobile = useBreakpoint() === 'mobile'
   // Mobile sheet height in dvh; opens at the peek size, dragged to resize.
   const [sheetDvh, setSheetDvh] = useState(SHEET_PEEK_DVH)
@@ -79,6 +82,12 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
   const overflow = instances.length - shown.length
   const mapUrl = googleMapsUrl({ location: rep.location, lat: rep.lat, lng: rep.lng })
   const attributions = eventAttributions?.get(eventKey(rep))
+  // Source line: resolved here (≤ 1 lookup per open) rather than pre-stamped on
+  // every mappable event by EventsMap. Kept as a fallback chain so instances
+  // that already carry a calendarName (tests, other callers) still work.
+  const calendarName = rep.calendarName
+    || (calendarNameByIcsUrl && calendarNameByIcsUrl[rep.icsUrl])
+    || rep.icsUrl?.replace('.ics', '')
 
   // Drag the bottom sheet by its handle (mobile only). Pointer capture routes
   // all moves to the handle even as the finger leaves it, and pointercancel is
@@ -123,7 +132,7 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
           <span className="dow">{p ? p.dow : ''}</span>
           <span className="num">{p ? p.day : '•'}</span>
         </span>
-        <span className="egp-when">{p ? p.time : (inst.formattedDate || inst.date)}</span>
+        <span className="egp-when">{p ? p.time : inst.date}</span>
         {isHttpUrl(inst.url) && <span className="egp-go" aria-hidden="true">→</span>}
       </>
     )
@@ -159,7 +168,7 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
       <header className="egp-head">
         <div className="egp-eyebrow">{count > 1 ? `${count} dates` : 'Event'}</div>
         <h2 className="egp-title">{summary}</h2>
-        {rep.calendarName && <div className="egp-source">{rep.calendarName}</div>}
+        {calendarName && <div className="egp-source">{calendarName}</div>}
         <button type="button" className="egp-close" onClick={() => onClose?.()} aria-label="Close">×</button>
       </header>
 

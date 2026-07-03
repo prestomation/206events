@@ -50,9 +50,10 @@ test.afterEach(async ({ page }) => {
   expect(page.__pageErrors ?? [], 'no uncaught page errors').toEqual([])
 })
 
-// Boot the app, reveal the map, and return the *visible* map container. On
-// mobile the desktop column map is also in the DOM (display:none), so every
-// query is scoped to the visible container to avoid strict-mode ambiguity.
+// Boot the app, reveal the map, and return the *visible* map container. The
+// desktop map column only mounts at the desktop breakpoint (see
+// map-mount.spec.js), but queries stay scoped to the visible container so the
+// helper is robust at any viewport.
 async function openMap(page) {
   await page.goto('/')
   await expect(page.getByText('Neumos')).toBeVisible()
