@@ -47,7 +47,7 @@ export function parseTimeStr(raw: string): { hour: number; minute: number } | nu
  *   "Friday, June 19 showtime TBD"
  *   "Wednesday, June 24 show at 10pm"
  *   "Friday, June 26 show after 11pm"
- *   "Wednesday, July 1 show at 11:30pm"
+ *   "Wednesday, July 1 show 11:30pm" (bare — no "at"/"time")
  *   "Monday, July 6 showtime TBD"
  */
 export function parseShowItem(
