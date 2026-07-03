@@ -87,16 +87,22 @@ its own browser — CI jobs don't share disk with the e2e workflow. CLI:
 
 ```
 node scripts/boot-profile.mjs <url> [--runs 3] [--cpu 4] [--out metrics.json]
+                                    [--index-delay 2500] [--settle 12000]
 ```
 
 Per run: fresh browser context → init scripts (long-task observer, FTUX flag
 pre-set so the welcome modal doesn't intercept the tap) → route-delay
 `events-index.json` → navigate → wait splash detached → wait 500 ms → tap
-Following → wait nav-active + double-rAF → wait settle → collect. Output is
-`{ metrics: { worstTask, totalBlock, swapBlock, tapResponse, splashTime },
-runs: [...], meta: { url, cpu, runs } }` with each metric the **median**
-across runs. Non-2xx page load or a missing splash/nav selector fails the
-run loudly (a broken harness must not report a green-looking 0).
+Following → wait nav-active + double-rAF → wait settle → collect → open the
+Map tab via Discover. Output is `{ metrics: { worstTask, totalBlock,
+swapBlock, tapResponse, splashTime, mapOpen }, runs: [...], meta: { url, cpu,
+runs, indexDelayMs, settleMs } }` with each metric the **median** across
+runs. A non-2xx page load or a missing splash/nav selector fails the run
+loudly (a broken harness must not report a green-looking 0). Tap latency is
+stamped from Node wall-clock anchored to the page's constant
+`performance.timeOrigin` — an in-page timestamp (or a sampled
+`performance.now()` offset) would queue behind the very main-thread block
+being measured and bias the metric low.
 
 ### 2. The report module — `scripts/boot-profile-report.mjs`
 

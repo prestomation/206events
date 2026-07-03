@@ -29,7 +29,10 @@ function parseArgs(argv) {
     else if (a === '--cpu') args.cpu = Number(argv[++i])
     else if (a === '--index-delay') args.indexDelay = Number(argv[++i])
     else if (a === '--settle') args.settle = Number(argv[++i])
-    else if (a === '--out') args.out = argv[++i]
+    else if (a === '--out') {
+      args.out = argv[++i]
+      if (!args.out || args.out.startsWith('--')) throw new Error('--out requires a file path')
+    }
     else if (!a.startsWith('--') && !args.url) args.url = a
     else throw new Error(`Unknown argument: ${a}`)
   }
@@ -66,26 +69,39 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
           for (const e of list.getEntries()) window.__longtasks.push({ start: e.startTime, dur: e.duration })
         }).observe({ type: 'longtask', buffered: true })
       } catch { /* longtask API missing — metrics will be 0 and obviously wrong */ }
+      // The swap-block wait reads the events-index.json resource entry; make
+      // sure an image-heavy boot can't evict it from the default 250-entry
+      // resource-timing buffer.
+      try { performance.setResourceTimingBufferSize(1000) } catch { /* ignore */ }
     })
 
     // Delay ONLY the full index (the glob doesn't match events-index-soon.json),
     // pinning the production ordering: splash dismisses on soon, full lands later.
     await page.route('**/events-index.json', async (route) => {
       await new Promise((r) => setTimeout(r, indexDelay))
-      await route.continue()
+      // The context may already be closing if the run failed while the delay
+      // timer was pending — don't let that rejection mask the real error.
+      await route.continue().catch(() => {})
     })
 
-    await page.goto(url, { waitUntil: 'commit', timeout: 120_000 })
+    const response = await page.goto(url, { waitUntil: 'commit', timeout: 120_000 })
+    if (!response || !response.ok()) {
+      throw new Error(`Page load failed: ${url} returned ${response ? response.status() : 'no response'}`)
+    }
 
     // Splash gone + bottom nav present = booted on the soon payload.
     await page.waitForSelector('.loading-screen', { state: 'detached', timeout: 120_000 })
     await page.waitForSelector('.a-bottom', { state: 'visible', timeout: 120_000 })
     const splashTime = await page.evaluate(() => performance.now())
 
-    // Sync Node wall-clock to the page's performance.now() so tap latency can
-    // be stamped from OUTSIDE the (possibly blocked) main thread. An evaluate
-    // at tap time would itself queue behind the block and under-measure.
-    const clockOffset = Date.now() - (await page.evaluate(() => performance.now()))
+    // Sync Node wall-clock to the page's performance.now() timeline so tap
+    // latency can be stamped from OUTSIDE the (possibly blocked) main thread —
+    // an evaluate at tap time would itself queue behind the block and
+    // under-measure. Use performance.timeOrigin (a constant) rather than
+    // sampling performance.now(): a "Date.now() - now()" pairing is skewed by
+    // however long the evaluate queued behind main-thread work, biasing
+    // tapResponse low; a constant can't be corrupted by protocol/queue latency.
+    const clockOffset = await page.evaluate(() => performance.timeOrigin)
     const pageNow = () => Date.now() - clockOffset
 
     const navButton = (label) => page.locator('.a-bottom button', { hasText: label }).first()

@@ -12,9 +12,11 @@ name: Boot Profile Baseline (main)
 on:
   push:
     branches: [main]
+    # web/** covers the harness (the only input that changes recorded
+    # metrics); the report modules only shape the PR comment, so they don't
+    # retrigger the baseline.
     paths:
       - 'web/**'
-      - 'scripts/boot-profile-report.mjs'
       - '.github/workflows/web-boot-profile-baseline.yml'
   workflow_dispatch:
 
