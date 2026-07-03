@@ -119,6 +119,12 @@ export function App206(props) {
   const mapRef = useRef(null)
   const [mapExpanded, setMapExpanded] = useState(false)
   const toggleMapExpand = useCallback(() => setMapExpanded((v) => !v), [])
+  // The expanded map only exists inside the desktop-only map column. Reset the
+  // flag when the viewport leaves desktop so re-widening later doesn't surprise
+  // the user with a full-screen map they closed a session ago.
+  useEffect(() => {
+    if (!isDesktop) setMapExpanded(false)
+  }, [isDesktop])
   // Desktop only: user-draggable width of the map column (px). null = use the
   // CSS default clamp(). Persisted so a resized map sticks across reloads.
   // Clamped in setMapWidth so the content column never collapses; passing null

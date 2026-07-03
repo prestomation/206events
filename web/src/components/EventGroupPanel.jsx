@@ -132,7 +132,7 @@ export function EventGroupPanel({ group, eventAttributions, calendarNameByIcsUrl
           <span className="dow">{p ? p.dow : ''}</span>
           <span className="num">{p ? p.day : '•'}</span>
         </span>
-        <span className="egp-when">{p ? p.time : (inst.formattedDate || inst.date)}</span>
+        <span className="egp-when">{p ? p.time : inst.date}</span>
         {isHttpUrl(inst.url) && <span className="egp-go" aria-hidden="true">→</span>}
       </>
     )
