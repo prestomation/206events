@@ -1338,6 +1338,7 @@ function App() {
       handleLogout={handleLogout}
       API_URL={API_URL}
       isMobile={isMobile}
+      isDesktop={breakpoint === 'desktop'}
       channelEvents={events}
       channelEventsLoading={eventsLoading}
       channelEventsError={eventsError}
