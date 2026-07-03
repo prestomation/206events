@@ -5,6 +5,7 @@
 import { formatTagLabel } from '../utils/format.js'
 import { isNeighborhoodTag, primaryCategoryTag, channelColor } from './categories.js'
 import { eventKey } from '../lib/eventKey.js'
+import { cachedDateTimeFormat } from '../lib/dateFormat.js'
 
 const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const DOW_SHORT = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
@@ -12,7 +13,7 @@ const DOW_SHORT = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 // Like toLocaleDateString but appends year: 'numeric' when the date is in a different year.
 function localeDateMaybeYear(date, options) {
   const opts = date.getFullYear() !== new Date().getFullYear() ? { ...options, year: 'numeric' } : options
-  return date.toLocaleDateString('en-US', opts)
+  return cachedDateTimeFormat('en-US', opts).format(date)
 }
 
 // Memo of the expensive parse step (regex + offset math), keyed by the raw
@@ -70,7 +71,8 @@ function localDay(parsed) {
   const { date, timezone } = parsed
   if (timezone) {
     try {
-      const parts = date.toLocaleDateString('en-CA', { timeZone: timezone }).split('-')
+      // en-CA's default date format is YYYY-MM-DD, split for the components.
+      const parts = cachedDateTimeFormat('en-CA', { timeZone: timezone }).format(date).split('-')
       return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]))
     } catch { /* fall through */ }
   }
@@ -81,10 +83,10 @@ function localDay(parsed) {
 // timezone, dropping a ":00" minute so "7:00 PM" reads "7 PM". `mer` is '' when
 // the locale produced no AM/PM marker (e.g. a 24h locale override).
 function timeParts(d, timezone) {
-  const s = d.toLocaleTimeString('en-US', {
+  const s = cachedDateTimeFormat('en-US', {
     hour: 'numeric', minute: '2-digit',
     ...(timezone ? { timeZone: timezone } : {}),
-  })
+  }).format(d)
   const m = s.match(/^(.*)\s(AM|PM)$/i)
   if (!m) return { label: s.replace(':00', ''), mer: '' }
   return { label: m[1].replace(':00', ''), mer: m[2] }
@@ -107,9 +109,9 @@ export function formatTimeRange(start, end, timezone) {
     if (s.mer && s.mer === e.mer) return `${s.label} – ${endStr}`
     return `${startStr} – ${endStr}`
   }
-  const endDay = end.toLocaleDateString('en-US', {
+  const endDay = cachedDateTimeFormat('en-US', {
     weekday: 'short', ...(timezone ? { timeZone: timezone } : {}),
-  })
+  }).format(end)
   return `${startStr} → ${endDay} ${endStr}`
 }
 
@@ -224,11 +226,11 @@ function formatRangeLabel(range, now = new Date()) {
   const end = parseLocalDay(range.end)
   if (!start || !end) return 'Custom dates'
   const curYear = now.getFullYear()
-  const fmt = (date, withMonth) => date.toLocaleDateString('en-US', {
+  const fmt = (date, withMonth) => cachedDateTimeFormat('en-US', {
     ...(withMonth ? { month: 'short' } : {}),
     day: 'numeric',
     ...(date.getFullYear() !== curYear ? { year: 'numeric' } : {}),
-  })
+  }).format(date)
   if (start.getTime() === end.getTime()) return fmt(start, true)
   const sameMonth = start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth()
   return `${fmt(start, true)} – ${fmt(end, !sameMonth)}`

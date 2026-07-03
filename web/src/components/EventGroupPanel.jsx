@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { googleMapsUrl } from '../lib/maplink.js'
 import { eventKey } from '../lib/eventKey.js'
+import { cachedDateTimeFormat } from '../lib/dateFormat.js'
 import { useBreakpoint } from '../hooks/useBreakpoint.js'
 import { AttributionChips } from './AttributionChips.jsx'
 
@@ -30,10 +31,10 @@ function dateParts(dateStr) {
   const d = new Date(cleaned)
   if (Number.isNaN(d.getTime())) return null
   return {
-    dow: d.toLocaleDateString('en-US', { weekday: 'short' }),
-    day: d.toLocaleDateString('en-US', { day: 'numeric' }),
-    time: d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
-    monthLabel: d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+    dow: cachedDateTimeFormat('en-US', { weekday: 'short' }).format(d),
+    day: cachedDateTimeFormat('en-US', { day: 'numeric' }).format(d),
+    time: cachedDateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }).format(d),
+    monthLabel: cachedDateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(d),
   }
 }
 
