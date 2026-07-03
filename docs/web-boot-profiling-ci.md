@@ -12,7 +12,8 @@ whole corpus.
 ## Why Lighthouse isn't enough
 
 PR #835 fixed a multi-second input freeze that users hit right after the
-splash dismissed. Lighthouse *did* see part of it (TBT 3534 ms on main), but:
+splash dismissed. Lighthouse *did* see part of it (TBT 3534 ms on the main
+baseline, per the Lighthouse trend comment on #835), but:
 
 - Lighthouse's audit window is the initial load. The full-index swap lands on
   a **network-timing-dependent schedule** — on a fast connection it can fall
@@ -31,11 +32,17 @@ freeze precisely and verified the fix. This plan productionizes that harness.
 
 One Playwright/Chromium session per run: **mobile viewport (390×844), 4× CDP
 CPU throttle** (mid-range-phone stand-in), `PerformanceObserver` for long
-tasks injected before any page script. The harness intercepts
-`**/events-index.json` and delays the response by **2.5 s** so the splash
-always dismisses on the soon payload first — pinning the production ordering
-regardless of network speed — then taps the **Following** bottom tab 500 ms
-after the splash detaches.
+tasks injected before any page script, and the context created with
+**`serviceWorkers: 'block'`**. Blocking the SW is load-bearing, not hygiene:
+`web/src/sw.js` precaches `events-index.json` on install and serves it
+stale-while-revalidate, and SW-originated fetches are invisible to Playwright
+route interception — with the SW active, whether the delay below applies
+becomes a race between SW activation and the phase-2 fetch. (The e2e suite
+blocks it for the same reason — see `web/playwright.config.js`.) The harness
+intercepts `**/events-index.json` and delays the response by **2.5 s** so the
+splash always dismisses on the soon payload first — pinning the production
+ordering regardless of network speed — then taps the **Following** bottom tab
+500 ms after the splash detaches.
 
 Reported metrics (all lower-is-better, medians over `--runs`, default 3):
 
@@ -61,8 +68,10 @@ web/scripts/boot-profile.mjs           the harness: URL in, metrics JSON out
 
 ### 1. The harness — `web/scripts/boot-profile.mjs`
 
-Lives under `web/` so it resolves the already-installed `playwright-core`
-(and CI reuses the browser installed for the e2e job). CLI:
+Lives under `web/` so it can `import { chromium } from '@playwright/test'`
+(the one Playwright package `web/package.json` declares; `playwright-core`
+is only a transitive dep and must not be imported directly). The job installs
+its own browser — CI jobs don't share disk with the e2e workflow. CLI:
 
 ```
 node scripts/boot-profile.mjs <url> [--runs 3] [--cpu 4] [--out metrics.json]
@@ -103,7 +112,9 @@ prefers it, as it touches the shipped Lighthouse path. Unit tests either way
   `node scripts/boot-profile.mjs <preview-url> --runs 3 --out ../boot-profile/metrics.json`
   → restore `boot-profile-baseline-v1-` from the Actions cache (prefix
   restore-key) → `actions/github-script` upserts the comment via the report
-  module. `permissions: pull-requests: write`.
+  module. `permissions: { contents: read, pull-requests: write }` — both,
+  matching the lighthouse job; `pull-requests: write` alone would replace the
+  default set and break the job's own checkout.
 - **Warn-only**, like Lighthouse: the job never fails the PR on a regression
   (a step summary `::warning::` when a metric exceeds 2× baseline is cheap
   and worth adding). Gating budgets are a later decision once a few weeks of
@@ -150,6 +161,14 @@ loudly; an absent/cold cache just drops the "vs main" column on PRs.
 
 - **Chromium-only** (CDP throttling); fine — this is a lab trend, not
   compat coverage.
+- **The harness runs SW-less** (`serviceWorkers: 'block'`, above), so it
+  measures the cold, network-served path — deliberately, since that's the
+  deterministic one. If the service-worker caching strategy changes (e.g.
+  the precache list or stale-while-revalidate behavior), the harness
+  assumption should be revisited alongside it.
+- **Fork PRs**: same posture as the lighthouse job — without the Cloudflare
+  secrets there's no `deployment-url`, so the job is skipped; and a fork's
+  read-only `GITHUB_TOKEN` couldn't upsert the comment anyway.
 - **Preview ≠ production CDN** (Cloudflare Pages preview vs prod), but both
   columns compare like-to-like (preview↔preview for prev-push,
   prod↔prod-measured-baseline for vs-main is *not* like-to-like — accepted,
