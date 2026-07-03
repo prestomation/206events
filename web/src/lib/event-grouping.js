@@ -16,7 +16,35 @@
 // prefers it (see the seriesId short-circuit below), making that migration a
 // no-op for this consumer.
 
-import { titleSimilarity } from './event-dedup.js'
+// Jaccard token similarity with a memoized tokenization, equivalent to
+// event-dedup.js's titleSimilarity for the already-lowercased normalized
+// titles compared here (that file is parity-locked with the favorites worker,
+// so the perf variant lives locally). The greedy clustering below compares
+// each event against every existing cluster in its venue bucket, and a
+// nightly run repeats one normalized title across all its instances —
+// re-tokenizing both sides per comparison dominated the map-pipeline profile.
+// The cache is bounded by the corpus's distinct normalized titles and lives
+// for the session (same pattern as parseIndexDateCache in viewModels.js).
+const titleTokenCache = new Map()
+
+function titleTokens(s) {
+  let tokens = titleTokenCache.get(s)
+  if (!tokens) {
+    tokens = new Set(s.split(/\s+/).filter(Boolean))
+    titleTokenCache.set(s, tokens)
+  }
+  return tokens
+}
+
+function cachedTitleSimilarity(a, b) {
+  const tokA = titleTokens(a)
+  const tokB = titleTokens(b)
+  if (tokA.size === 0 || tokB.size === 0) return 0
+  let intersection = 0
+  for (const t of tokA) if (tokB.has(t)) intersection++
+  const union = tokA.size + tokB.size - intersection
+  return intersection / union
+}
 
 // ~50m grid for venue identity, matching event-dedup.js's 0.05km neighborhood,
 // so geocoding jitter doesn't split one series across two markers.
@@ -174,7 +202,7 @@ export function groupEvents(events) {
     const clusters = [] // { norm, items[] }
     for (const ev of venueBuckets.get(vk)) {
       const norm = normalizeTitle(ev.summary)
-      const match = clusters.find((c) => titleSimilarity(norm, c.norm) >= GROUP_TITLE_SIMILARITY)
+      const match = clusters.find((c) => cachedTitleSimilarity(norm, c.norm) >= GROUP_TITLE_SIMILARITY)
       if (match) match.items.push(ev)
       else clusters.push({ norm, items: [ev] })
     }

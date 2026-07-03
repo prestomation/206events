@@ -54,9 +54,11 @@ function dateParts(dateStr) {
  *                       or null/undefined when nothing is selected (renders nothing)
  *   eventAttributions - optional Map<compositeKey, Attribution[]> for the "why it
  *                       appears" chips (uses the representative instance)
+ *   calendarNameByIcsUrl - optional map of icsUrl → friendly calendar name for the
+ *                       source line (instances may instead carry `calendarName`)
  *   onClose           - called on the close button or Esc
  */
-export function EventGroupPanel({ group, eventAttributions, onClose }) {
+export function EventGroupPanel({ group, eventAttributions, calendarNameByIcsUrl, onClose }) {
   const isMobile = useBreakpoint() === 'mobile'
   // Mobile sheet height in dvh; opens at the peek size, dragged to resize.
   const [sheetDvh, setSheetDvh] = useState(SHEET_PEEK_DVH)
@@ -80,6 +82,12 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
   const overflow = instances.length - shown.length
   const mapUrl = googleMapsUrl({ location: rep.location, lat: rep.lat, lng: rep.lng })
   const attributions = eventAttributions?.get(eventKey(rep))
+  // Source line: resolved here (≤ 1 lookup per open) rather than pre-stamped on
+  // every mappable event by EventsMap. Kept as a fallback chain so instances
+  // that already carry a calendarName (tests, other callers) still work.
+  const calendarName = rep.calendarName
+    || (calendarNameByIcsUrl && calendarNameByIcsUrl[rep.icsUrl])
+    || rep.icsUrl?.replace('.ics', '')
 
   // Drag the bottom sheet by its handle (mobile only). Pointer capture routes
   // all moves to the handle even as the finger leaves it, and pointercancel is
@@ -160,7 +168,7 @@ export function EventGroupPanel({ group, eventAttributions, onClose }) {
       <header className="egp-head">
         <div className="egp-eyebrow">{count > 1 ? `${count} dates` : 'Event'}</div>
         <h2 className="egp-title">{summary}</h2>
-        {rep.calendarName && <div className="egp-source">{rep.calendarName}</div>}
+        {calendarName && <div className="egp-source">{calendarName}</div>}
         <button type="button" className="egp-close" onClick={() => onClose?.()} aria-label="Close">×</button>
       </header>
 
