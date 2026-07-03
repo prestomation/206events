@@ -986,10 +986,14 @@ export function EventDetail({ event }) {
   const parsed = parseIndexDate(event.date)
   const color = channel ? channel.color : 'var(--blue)'
   // Exclude occurrences already surfaced under "Other dates" so the same event
-  // never appears in both lists.
+  // never appears in both lists. The open event itself is excluded by KEY, not
+  // object identity: `event` may come from an earlier corpus generation (the
+  // "soon" payload) than `upcomingEvents` (the full index, swapped in behind
+  // it), in which case the same event is a different object.
+  const selfKey = eventKey(event)
   const otherDateKeys = new Set(otherDates.map(eventKey))
   const more = app.upcomingEvents
-    .filter((e) => e.icsUrl === event.icsUrl && e !== event && !otherDateKeys.has(eventKey(e)))
+    .filter((e) => e.icsUrl === event.icsUrl && eventKey(e) !== selfKey && !otherDateKeys.has(eventKey(e)))
     .slice(0, 3)
 
   return (
