@@ -1,6 +1,7 @@
 # Boot-Interactivity Profiling in CI — Implementation Plan
 
-**Status: plan — not yet implemented.**
+**Status: implemented** (same PR as this plan; see the harness, report
+modules, and workflow wiring referenced below).
 
 A per-PR main-thread profiling job with a trend comment, modeled on the
 existing Lighthouse pipeline (`docs/web-performance-measurement-impl.md`).
@@ -51,11 +52,22 @@ Reported metrics (all lower-is-better, medians over `--runs`, default 3):
 | `worstTask` | Longest main-thread task through settle (ms) | any single giant block (the #835 failure mode) | ±150 ms |
 | `totalBlock` | Sum of long-task time through settle (ms) | death-by-a-thousand-cuts regressions | ±300 ms |
 | `swapBlock` | Longest task starting after the events-index response (ms) | regressions specific to the soon→full swap | ±150 ms |
-| `tapResponse` | Tap → nav-state painted (ms), tapped mid-swap | the user-reported symptom, directly | ±100 ms |
+| `tapResponse` | Tap Following → nav-state painted (ms), tapped mid-swap | the user-reported symptom, directly | ±100 ms |
 | `splashTime` | Navigation → splash detached (ms) | boot-path regressions | ±300 ms |
+| `mapOpen` | Tap Map (post-settle, first open) → Leaflet container painted (ms) | map chunk load + Leaflet init + marker pipeline over the full corpus | ±200 ms |
 
 "Settle" = 12 s after the full-index response (enough for the swap render and
 follow-on effects at 4× throttle; tunable).
+
+The two taps are deliberately split so each metric has one owner when it
+moves: `tapResponse` taps **Following** mid-swap — a cheap empty-feed view,
+so it isolates "did the app yield to input during the swap render" (the
+regression class the `startTransition` fix addresses). `mapOpen` taps **Map**
+only after settle, when the corpus is deterministically the full index, so it
+cleanly captures the lazy-chunk + Leaflet-init + marker-pipeline cost without
+racing the swap. Tapping Map mid-swap instead was considered and rejected:
+it conflates four causes (swap block, chunk fetch over CI network, Leaflet
+init, marker build) into one number that can't tell you what regressed.
 
 ## Architecture (mirrors Lighthouse exactly)
 
@@ -147,14 +159,13 @@ loudly; an absent/cold cache just drops the "vs main" column on PRs.
 
 ## Rollout
 
-1. **PR 1 (this plan)** — human review of the approach. Settled in review:
-   the report modules share an extracted `scripts/trend-comment.mjs` (see
-   above), and `--runs` stays at 3. Remaining open question: what the
-   mid-swap tap targets (Following vs Map — see the discussion in the PR).
-2. **PR 2 (implementation)** — harness + report module + tests + both
-   workflow changes + a "shipped" update to this doc and
-   `docs/web-performance-plan.md` Part 2. New CI infrastructure →
-   **manual merge**.
+1. **Plan review** — done. Settled: the report modules share an extracted
+   `scripts/trend-comment.mjs`; `--runs` stays at 3; the mid-swap tap
+   targets Following with a separate post-settle `mapOpen` metric.
+2. **Implementation** — ships in the same PR as this plan (owner approved
+   the plan in-session): harness + report modules + tests + both workflow
+   changes + `docs/web-performance-plan.md` Part 2 note. New CI
+   infrastructure → **manual merge**.
 3. After ~2 weeks of trend comments, revisit: tighten noise bands, consider
    a step-summary warning threshold, consider gating only `worstTask`.
 

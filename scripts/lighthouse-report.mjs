@@ -8,6 +8,19 @@
 //     marker, so no external state is needed), and
 //   - vs the MAIN BASELINE (the last scores recorded on main, restored from the
 //     Actions cache by web-lighthouse-baseline.yml).
+//
+// The generic table/trend machinery lives in scripts/trend-comment.mjs (shared
+// with scripts/boot-profile-report.mjs); this module contributes the
+// Lighthouse-specific metric table, marker, and LHCI-result extraction.
+
+import {
+  formatMetric,
+  formatDelta,
+  parseEmbeddedTrend as parseTrendWithMarker,
+  buildTrendComment,
+} from './trend-comment.mjs'
+
+export { formatMetric, formatDelta }
 
 // The metrics we surface, in display order. `unit` drives formatting;
 // `lowerIsBetter` drives the improved/regressed indicator; `noise` is the
@@ -25,41 +38,6 @@ export const METRICS = [
 // Hidden marker carrying this PR's trend state (current run + recent history),
 // so the next push can compute deltas without any external store.
 export const COMMENT_MARKER = 'lighthouse-trend'
-const MAX_HISTORY = 8
-
-// Format a metric value for display. null → "—".
-export function formatMetric(unit, value) {
-  if (value == null || Number.isNaN(value)) return '—'
-  switch (unit) {
-    case 'score': return String(Math.round(value))
-    case 'sec': return `${(value / 1000).toFixed(1)} s`
-    case 'ms': return `${Math.round(value)} ms`
-    case 'num': return value.toFixed(3)
-    default: return String(value)
-  }
-}
-
-function formatMagnitude(unit, absValue) {
-  switch (unit) {
-    case 'score': return String(Math.round(absValue))
-    case 'sec': return `${(absValue / 1000).toFixed(2)} s`
-    case 'ms': return `${Math.round(absValue)} ms`
-    case 'num': return absValue.toFixed(3)
-    default: return String(absValue)
-  }
-}
-
-// A direction-aware delta string for one metric. Returns "—" when either side
-// is missing, "≈" for within-noise changes, else e.g. "−0.20 s 🟢" (improved)
-// or "+3 🔴" (regressed). 🟢 always means "better", regardless of metric.
-export function formatDelta(metric, current, prev) {
-  if (current == null || prev == null || Number.isNaN(current) || Number.isNaN(prev)) return '—'
-  const d = current - prev
-  if (Math.abs(d) <= metric.noise) return '≈'
-  const improved = metric.lowerIsBetter ? d < 0 : d > 0
-  const sign = d > 0 ? '+' : '−'
-  return `${sign}${formatMagnitude(metric.unit, Math.abs(d))} ${improved ? '🟢' : '🔴'}`
-}
 
 // Pull the metrics we care about out of an LHCI run. `manifest` is the parsed
 // .lighthouseci/manifest.json array; `lhrByPath` maps each entry's jsonPath to
@@ -86,27 +64,10 @@ export function extractMetrics(manifest, lhrByPath) {
   }
 }
 
-// Encode/decode the embedded trend payload as base64. base64's alphabet
-// ([A-Za-z0-9+/=]) can't contain "-->", so the JSON — whatever a future field
-// holds — can never prematurely close the HTML comment and corrupt the marker.
-function encodeTrend(payload) {
-  return Buffer.from(JSON.stringify(payload), 'utf8').toString('base64')
-}
-
 // Find and parse the trend payload embedded in a prior PR comment. Returns
 // { current, history } or null when absent/unparseable.
 export function parseEmbeddedTrend(body) {
-  if (!body) return null
-  const m = body.match(new RegExp(`<!-- ${COMMENT_MARKER}:([A-Za-z0-9+/=]*)\\s*-->`, 's'))
-  if (!m) return null
-  try {
-    const data = JSON.parse(Buffer.from(m[1], 'base64').toString('utf8'))
-    return data && typeof data === 'object' ? data : null
-  } catch { return null }
-}
-
-function metricsRow(metrics) {
-  return METRICS.reduce((o, m) => { o[m.key] = metrics?.[m.key] ?? null; return o }, {})
+  return parseTrendWithMarker(COMMENT_MARKER, body)
 }
 
 // Build the PR comment markdown plus the trend payload to embed for next time.
@@ -117,54 +78,16 @@ function metricsRow(metrics) {
 //   meta         — { sha, ts } stamps for this run (ts = ISO string)
 //   priorHistory — the `history` array from the old comment (newest first)
 export function buildComment({ current, previous, baselineMain, reportUrl, meta, priorHistory }) {
-  const header = ['Metric', 'This PR', 'vs prev push', 'Main baseline', 'vs main']
-  const sep = header.map(() => '---')
-  const rows = METRICS.map((m) => {
-    const cur = current?.[m.key] ?? null
-    const prev = previous?.[m.key] ?? null
-    const base = baselineMain?.metrics?.[m.key] ?? null
-    return [
-      m.label,
-      formatMetric(m.unit, cur),
-      formatDelta(m, cur, prev),
-      formatMetric(m.unit, base),
-      formatDelta(m, cur, base),
-    ]
+  return buildTrendComment({
+    spec: {
+      metrics: METRICS,
+      marker: COMMENT_MARKER,
+      title: '## 🔦 Lighthouse',
+      intro: 'Lab audit of the deployed preview (mobile, median of runs). Warn-only — these numbers don\'t gate the PR. 🟢 = better, 🔴 = worse, ≈ = within noise.',
+      sparklineKey: 'perf',
+      sparklineLabel: 'Performance trend (this PR)',
+      reportLinkLabel: 'Full report',
+    },
+    current, previous, baselineMain, reportUrl, meta, priorHistory,
   })
-  const table = [header, sep, ...rows].map((r) => `| ${r.join(' | ')} |`).join('\n')
-
-  // A tiny Performance-score sparkline over recent runs (oldest → newest):
-  // older history, then the previous push, then this run.
-  const chrono = [...(priorHistory || [])].reverse()
-    .concat(previous ? [previous] : [])
-    .concat(current ? [current] : [])
-  const sparkline = chrono.map((h) => h?.perf).filter((v) => Number.isFinite(v)).join(' → ')
-
-  const baseLine = baselineMain
-    ? `Main baseline: \`${(baselineMain.sha || '').slice(0, 7) || 'unknown'}\`${baselineMain.ts ? ` · ${baselineMain.ts.slice(0, 10)}` : ''}`
-    : 'Main baseline: _not recorded yet — runs after the next push to `main`._'
-
-  // The trend payload to embed for the next push: this run becomes `current`,
-  // and the just-superseded `previous` leads the capped history.
-  const embedded = {
-    current: metricsRow(current),
-    history: [previous, ...(priorHistory || [])].filter(Boolean).slice(0, MAX_HISTORY).map(metricsRow),
-    meta,
-  }
-
-  const lines = [
-    `<!-- ${COMMENT_MARKER}:${encodeTrend(embedded)} -->`,
-    '## 🔦 Lighthouse',
-    '',
-    'Lab audit of the deployed preview (mobile, median of runs). Warn-only — these numbers don\'t gate the PR. 🟢 = better, 🔴 = worse, ≈ = within noise.',
-    '',
-    table,
-    '',
-    sparkline ? `**Performance trend (this PR):** ${sparkline}` : '',
-    baseLine,
-    reportUrl ? `\n[Full report ↗](${reportUrl})` : '',
-    `\n<sub>commit \`${(meta?.sha || '').slice(0, 7)}\`</sub>`,
-  ].filter((l) => l !== '')
-
-  return { markdown: lines.join('\n'), embedded }
 }
