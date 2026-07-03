@@ -183,6 +183,14 @@ sluggishness was only found after users reported it. The goal here is to make
 performance a **tracked, regression-gated number** with three layers, cheapest
 first.
 
+> **Shipped July 2026 — boot-interactivity profiling.** In addition to the
+> layers below, every PR now gets a Playwright lab profile of the deployed
+> preview measuring what Lighthouse's initial-load window can't: post-splash
+> long tasks and tap responsiveness while the full events index lands (the
+> #835 failure mode). Harness: `web/scripts/boot-profile.mjs`; trend comment
+> + main baseline mirror the Lighthouse pipeline. Full design:
+> [`web-boot-profiling-ci.md`](./web-boot-profiling-ci.md).
+
 ### Layer 1 — Payload & bundle budgets in CI (cheapest, highest leverage)
 
 A lightweight check that fails (or warns) when the things we already know matter

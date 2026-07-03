@@ -463,3 +463,96 @@ jobs:
             } else {
               await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: markdown });
             }
+
+  # Boot-interactivity profile against the deployed preview: post-splash
+  # main-thread long tasks and tap responsiveness while the full events index
+  # lands — the window Lighthouse's initial-load audit can't see (it never taps
+  # mid-swap; its lab INP is null). Same posture as the lighthouse job above:
+  # informational/warn-only, skipped without a preview URL, one upserted PR
+  # comment trending vs the previous push (embedded in the comment) and vs the
+  # main baseline (Actions cache, saved by web-boot-profile-baseline.yml).
+  # See docs/web-boot-profiling-ci.md.
+  boot-profile:
+    runs-on: ubuntu-latest
+    needs: deploy-preview
+    if: needs.deploy-preview.outputs.deployment-url != ''
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Install Chromium
+        working-directory: web
+        run: npx playwright install chromium --with-deps
+
+      - name: Profile the deployed preview
+        working-directory: web
+        run: node scripts/boot-profile.mjs "$PREVIEW_URL" --runs 3 --out ../boot-profile/metrics.json
+        env:
+          PREVIEW_URL: ${{ needs.deploy-preview.outputs.deployment-url }}
+
+      # Restore the latest main-branch baseline (saved by
+      # web-boot-profile-baseline.yml). Caches created on the default branch
+      # are readable from PR runs; the exact key never matches, so the prefix
+      # restore-key pulls the newest. Cold/absent cache → no baseline column.
+      - name: Restore main boot-profile baseline
+        uses: actions/cache/restore@v4
+        with:
+          path: boot-profile-baseline
+          key: boot-profile-baseline-v1-${{ github.run_id }}
+          restore-keys: |
+            boot-profile-baseline-v1-
+
+      - name: Post boot-profile trend comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const { pathToFileURL } = require('url');
+            const { parseEmbeddedTrend, buildComment, COMMENT_MARKER } =
+              await import(pathToFileURL(`${process.env.GITHUB_WORKSPACE}/scripts/boot-profile-report.mjs`).href);
+
+            let current;
+            try {
+              current = JSON.parse(fs.readFileSync('boot-profile/metrics.json', 'utf8')).metrics;
+            } catch (e) {
+              core.warning(`No boot-profile metrics: ${e.message}`);
+              return;
+            }
+
+            let baselineMain = null;
+            try { baselineMain = JSON.parse(fs.readFileSync('boot-profile-baseline/metrics.json', 'utf8')); } catch {}
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+            });
+            const existing = comments.find(c => c.user.type === 'Bot' && c.body.includes(`<!-- ${COMMENT_MARKER}`));
+            const prev = existing ? parseEmbeddedTrend(existing.body) : null;
+
+            const { markdown } = buildComment({
+              current,
+              previous: prev?.current || null,
+              priorHistory: prev?.history || [],
+              baselineMain,
+              reportUrl: null,
+              meta: { sha: context.payload.pull_request.head.sha, ts: new Date().toISOString() },
+            });
+
+            if (existing) {
+              await github.rest.issues.updateComment({ owner: context.repo.owner, repo: context.repo.repo, comment_id: existing.id, body: markdown });
+            } else {
+              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: markdown });
+            }
