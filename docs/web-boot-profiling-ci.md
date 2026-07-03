@@ -95,12 +95,13 @@ table with **vs prev push** (embedded base64 trend state in the comment, max
 8 history entries) and **vs main baseline** columns, 🟢/🔴/≈ indicators.
 
 The generic machinery (embedded-trend parse/serialize, delta table renderer)
-is ~120 lines duplicated from `lighthouse-report.mjs`. **Option A (default):**
-copy the pattern — two small independent files, zero refactor risk.
-**Option B:** extract a shared `scripts/trend-comment.mjs` both modules
-parameterize with their `METRICS` + marker; do this only if the reviewer
-prefers it, as it touches the shipped Lighthouse path. Unit tests either way
-(`scripts/boot-profile-report.test.mjs`, mirroring the Lighthouse tests).
+is ~120 lines shared with `lighthouse-report.mjs`. **Decided: extract it**
+into a shared `scripts/trend-comment.mjs` that both report modules
+parameterize with their `METRICS` table and comment marker. The extraction
+refactors the shipped Lighthouse path, so the implementation PR must keep
+`scripts/lighthouse-report.test.mjs` green unchanged — those existing tests
+are the proof the refactor didn't alter the Lighthouse comment — and add
+`scripts/boot-profile-report.test.mjs` for the new module.
 
 ### 3. PR-side job — `boot-profile` in `pr-preview.yml`
 
@@ -146,10 +147,10 @@ loudly; an absent/cold cache just drops the "vs main" column on PRs.
 
 ## Rollout
 
-1. **PR 1 (this plan)** — human review of the approach. Open questions to
-   settle in review: Option A vs B on the report module; whether `tapResponse`
-   should tap Following (cheap view) or Map (heavier, but conflates Leaflet
-   init); runs=3 vs 5.
+1. **PR 1 (this plan)** — human review of the approach. Settled in review:
+   the report modules share an extracted `scripts/trend-comment.mjs` (see
+   above), and `--runs` stays at 3. Remaining open question: what the
+   mid-swap tap targets (Following vs Map — see the discussion in the PR).
 2. **PR 2 (implementation)** — harness + report module + tests + both
    workflow changes + a "shipped" update to this doc and
    `docs/web-performance-plan.md` Part 2. New CI infrastructure →
