@@ -49,6 +49,37 @@ async chunks.
 - **N-3 — vendor chunk splitting.** `web/vite.config.js` now sets
   `manualChunks: { vendor: ['react', 'react-dom', 'fuse.js', 'dompurify'] }`.
 
+### Shipped July 2026 — the full-index main-thread block
+
+A profiling pass against production data (10.9 MB / ~11k events) explained the
+"tap a tab right after the splash and nothing happens for seconds" report: when
+the full `events-index.json` replaced the soon subset, one synchronous commit
+re-rendered the whole app — a single **1.4 s long task on a fast desktop,
+~11 s at 4× CPU throttling** — landing right as the user starts interacting.
+Four changes shipped (one commit each):
+
+- **Desktop-only map mount.** The `.a-map` column is CSS-hidden below 1024px
+  but was still mounted, so phones ran Leaflet + the full marker pipeline for
+  an invisible panel (plus a second instance for the Map tab). It now mounts
+  only at the desktop breakpoint (`App206.jsx`; pinned by
+  `web/e2e/map-mount.spec.js`).
+- **Cached `Intl.DateTimeFormat` instances.** `web/src/lib/dateFormat.js`
+  caches formatters by locale+options; the hot `viewModels.js` call sites
+  (`localDay`, `timeParts`, `localeDateMaybeYear`) and `EventGroupPanel` use it.
+  `toLocale*String` constructs a formatter per call (~0.1–1 ms each — ~3 s of
+  the throttled block).
+- **No eager per-event map decoration.** `EventsMap` no longer clones every
+  mappable event to stamp `formattedDate`/`calendarName` (the drill-down panel
+  derives them at render time), and `groupEvents` memoizes title token sets
+  instead of re-tokenizing per comparison.
+- **`startTransition` full-index swap.** The soon→full `setEventsIndex` in
+  `App.jsx` is a transition, so React services input mid-render instead of
+  blocking until the commit finishes.
+
+Re-profiled after: total long-task time at 4× throttle dropped **14.1 s →
+1.9 s** (worst task 10.9 s → 0.86 s), and a tab tap fired while the full index
+lands now responds in ~180 ms instead of freezing for the length of the block.
+
 ### Open items carried forward from the June pass
 
 | # | Change | Risk | Est. win |
