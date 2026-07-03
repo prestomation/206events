@@ -1,0 +1,18 @@
+name: base-experimental-arts
+sourceRole: venue
+type: squarespace
+description: "Base: Experimental Arts + Space"
+url: "https://thisisbase.org/events"
+friendlyLink: https://thisisbase.org/
+tags: ["Arts", "Georgetown"]
+geo:
+  lat: 47.5447090
+  lng: -122.3280442
+  label: "Base: Experimental Arts + Space, 6520 5th Ave S #122, Seattle, WA 98108"
+  osmChecked: "2026-07-03"
+  osmType: way
+  osmId: 231288129
+calendars:
+  - name: base-experimental-arts
+    friendlyname: "Base: Experimental Arts + Space"
+    timezone: America/Los_Angeles
