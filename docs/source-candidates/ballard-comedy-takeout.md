@@ -6,7 +6,7 @@ url: https://www.eventbrite.com/e/ballard-comedy-takeout-weekly-open-mic-on-thur
 tags: [Comedy, Ballard]
 firstSeen: 2026-07-02
 lastChecked: 2026-07-03
-pr:
+pr: 838
 ---
 
 Weekly comedy open mic at Ballard Mandarin (5500 8th Ave NW, Seattle, WA
