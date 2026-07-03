@@ -83,9 +83,8 @@ export function parseShowItem(
         return { dateStr, hour: t.hour, minute: t.minute, timeKnown: true, timeApproximate: true, matchName };
     }
 
-    // "show at HH:MMpm" or "showtime HH:MMpm"
-    const atMatch = clean.match(/show(?:time)?\s+at\s+([\d:]+\s*(?:am|pm))/i)
-        ?? clean.match(/showtime\s+([\d:]+\s*(?:am|pm))/i);
+    // "show at HH:MMpm", "showtime HH:MMpm", or bare "show HH:MMpm"
+    const atMatch = clean.match(/show(?:time)?\s+(?:at\s+)?([\d:]+\s*(?:am|pm))/i);
     if (atMatch) {
         const parsed = parseTimeStr(atMatch[1].replace(/\s+/g, ''));
         if (!parsed) {

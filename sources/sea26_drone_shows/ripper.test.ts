@@ -82,6 +82,29 @@ describe('parseShowItem', () => {
         expect(show.matchName).toBe('Match 82');
     });
 
+    it('parses bare "show 11:15pm" (no "at", no "time" suffix) as a known exact time', () => {
+        const result = parseShowItem('Friday, June 19 show 11:15pm', 'Friday, June 19 show 11:15pm (USA vs. Australia)', 2026);
+        expect(result).not.toHaveProperty('type');
+        const show = result as any;
+        expect(show.dateStr).toBe('2026-06-19');
+        expect(show.hour).toBe(23);
+        expect(show.minute).toBe(15);
+        expect(show.timeKnown).toBe(true);
+        expect(show.timeApproximate).toBe(false);
+        expect(show.matchName).toBe('USA vs. Australia');
+    });
+
+    it('parses bare "show 10pm" (no "at", no "time" suffix)', () => {
+        const result = parseShowItem('Monday, July 6 show 10pm', 'Monday, July 6 show 10pm (USA vs. Belgium)', 2026);
+        expect(result).not.toHaveProperty('type');
+        const show = result as any;
+        expect(show.dateStr).toBe('2026-07-06');
+        expect(show.hour).toBe(22);
+        expect(show.minute).toBe(0);
+        expect(show.timeKnown).toBe(true);
+        expect(show.matchName).toBe('USA vs. Belgium');
+    });
+
     it('returns ParseError for unrecognizable text', () => {
         const result = parseShowItem('No date here', 'No date here', 2026) as any;
         expect(result.type).toBe('ParseError');
