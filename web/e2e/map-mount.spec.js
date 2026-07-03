@@ -14,7 +14,10 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('mobile (< 768px)', () => {
-  test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
+  // Viewport width alone drives the breakpoint, and these tests only click —
+  // no isMobile/hasTouch emulation needed, so they also run under Firefox
+  // (which rejects isMobile outright).
+  test.use({ viewport: { width: 390, height: 844 } })
 
   test('no map is mounted until the Map tab opens the single instance', async ({ page }) => {
     await page.goto('/')
