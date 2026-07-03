@@ -1,0 +1,79 @@
+name: Boot Profile Baseline (main)
+
+# Records main's boot-interactivity metrics as the baseline the PR
+# boot-profile comment (pr-preview.yml) trends against. Runs the profiling
+# harness against PRODUCTION (https://206.events) on every push to main that
+# touches the web bundle or the harness, then saves the metrics to the GitHub
+# Actions cache. PR runs restore that cache (caches created on the default
+# branch are readable from PRs) and show the "vs main" column. No commit-back,
+# no external store. Mirrors web-lighthouse-baseline.yml.
+# See docs/web-boot-profiling-ci.md.
+
+on:
+  push:
+    branches: [main]
+    # web/** covers the harness (the only input that changes recorded
+    # metrics); the report modules only shape the PR comment, so they don't
+    # retrigger the baseline.
+    paths:
+      - 'web/**'
+      - '.github/workflows/web-boot-profile-baseline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One baseline run at a time; a newer push supersedes an in-flight one.
+concurrency:
+  group: boot-profile-baseline
+  cancel-in-progress: true
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Install Chromium
+        working-directory: web
+        run: npx playwright install chromium --with-deps
+
+      # Intentionally no error tolerance (unlike the PR job's comment step):
+      # if production can't be profiled, the baseline run SHOULD fail loudly —
+      # a broken baseline is a real signal, and it can't affect PRs.
+      - name: Profile production
+        working-directory: web
+        run: node scripts/boot-profile.mjs https://206.events/ --runs 3 --out ../boot-profile/metrics.json
+
+      - name: Extract baseline metrics
+        run: |
+          node -e '
+            const fs = require("fs");
+            const { metrics } = JSON.parse(fs.readFileSync("boot-profile/metrics.json", "utf8"));
+            fs.mkdirSync("boot-profile-baseline", { recursive: true });
+            fs.writeFileSync(
+              "boot-profile-baseline/metrics.json",
+              JSON.stringify({ metrics, sha: process.env.GITHUB_SHA, ts: new Date().toISOString() }, null, 2),
+            );
+            console.log("Boot-profile baseline recorded:", JSON.stringify(metrics));
+          '
+
+      # Rotating key (run_id) so each baseline is a fresh entry; the PR job's
+      # prefix restore-key fetches the newest.
+      - name: Save baseline to cache
+        uses: actions/cache/save@v4
+        with:
+          path: boot-profile-baseline
+          key: boot-profile-baseline-v1-${{ github.run_id }}
