@@ -4,6 +4,7 @@ description: "Fantagraphics Bookstore & Gallery"
 url: "https://blog.fantagraphics.com/wp-json/tribe/events/v1/events"
 friendlyLink: https://fantagraphics.com/bookstore
 tags: ["Arts", "Books", "Georgetown"]
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Seattle_Georgetown_Records_01.jpg"
 geo:
   lat: 47.5490859
   lng: -122.3169537

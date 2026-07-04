@@ -5779,6 +5779,121 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-02",
       "note": "Same seatoday.com listing cross-published into multiple seatoday topic feeds (all/arts/community/food/sports); identical title, location, and time."
+    },
+    "discover-slu-discover-slu.ics Summer Jazz Lab Performance|2026-07-10T12:00:00-07:00[America/Los_Angeles]::seattle-jazzed-seattle-jazzed.ics Summer Jazz Lab Performance|2026-07-10T12:00:00.277-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event, two feeds (discover-slu and seattle-jazzed), 249m apart"
+    },
+    "native_action_network-all-events.ics Kickin\u2019 It Indi-City|2026-07-02T10:00:00.319-07:00[America/Los_Angeles]::seattle-fwc26-events.ics Kickin It Indi-City Indigenous Soccer Celebration|2026-07-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same Indigenous Soccer Celebration event listed by native action network and FWC26 site"
+    },
+    "northwest-film-forum-northwest-film-forum.ics Seattle Film Society In Focus: Zia Mohajerjasbi|2026-07-16T19:00:00-07:00[America/Los_Angeles]::seattle-film-society-seattle-film-society.ics IN FOCUS | Zia Mohajerjasbi|2026-07-16T19:00:00.492-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same Seattle Film Society screening at NWFF, title variant (SFS in-focus prefix vs IN FOCUS)"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents:  Dave Hause & The Mermaid x American Steel w/ Dead Bars NIGHT 1|2026-10-02T19:30:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Dave Hause & The Mermaid x American Steel w/ Dead Bars AT The Sunset|2026-10-02T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same show: Tractor Tavern presents at Sunset Tavern venue. Both feeds list the same Oct 2 concert."
+    },
+    "reubens-brews-ballard.ics * NO Trivia Night July 1st *|2026-07-01T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics * NO Trivia Night July 1st *|2026-07-01T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-04",
+      "note": "Different locations (Ballard vs Downtown). Trivia nights at different Reuben's Brews locations are separate events even if same cancellation notice."
+    },
+    "sam-sam-asian-art.ics Free First Thursday: Seattle Asian Art Museum|2026-07-02T10:00:00-07:00[America/Los_Angeles]::sam-sam-downtown.ics Free First Thursday: Seattle Art Museum|2026-07-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-04",
+      "note": "Different SAM venues: Asian Art Museum (Capitol Hill) vs downtown SAM. Both hold FFT but at different locations with different programming."
+    },
+    "seattle-center-seattle-center-events.ics Seattle Center Classical|2026-07-05T12:00:00-07:00[America/Los_Angeles]::seattle-fwc26-events.ics Seattle Center Classical|2026-07-05T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-04",
+      "note": "Different start times (12pm vs 5pm) \u2014 likely different performance slots, not the same occurrence."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs arts sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs community sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Morning Buzz|2026-07-08T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Morning Buzz|2026-07-08T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs community sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Morning Buzz|2026-07-08T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Morning Buzz|2026-07-08T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs learning sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs arts sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs community sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs food sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs community sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs sports sub-calendar)"
+    },
+    "seatoday-seatoday-all.ics Weeding Wednesday at the Community Garden|2026-07-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Weeding Wednesday at the Community Garden|2026-07-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday all vs community sub-calendar)"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday arts vs community sub-calendar)"
+    },
+    "seatoday-seatoday-arts.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday arts vs community sub-calendar)"
+    },
+    "seatoday-seatoday-arts.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday arts vs food sub-calendar)"
+    },
+    "seatoday-seatoday-community.ics Morning Buzz|2026-07-08T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Morning Buzz|2026-07-08T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday community vs learning sub-calendar)"
+    },
+    "seatoday-seatoday-community.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Red, White & Play Fest at Dave & Buster's|2026-07-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday community vs food sub-calendar)"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same event in seatoday sub-calendars (seatoday community vs sports sub-calendar)"
     }
   }
 }
