@@ -1,7 +1,8 @@
 # Tab-Switch Responsiveness — Improvement Plan
 
-**Status: proposed** (measurement shipped in the same PR as this plan;
-the fixes below are follow-up work, each its own PR).
+**Status: implemented** (same PR as this plan: measurement plus Fixes 1–3
+and Fix 4's first step, one commit each; Fix 4's full context-slice split
+remains follow-up, to be justified by the `youOpen` trend).
 
 Reported symptom: once the page has loaded, tapping the **You** or **Map**
 bottom-nav tab is noticeably slow. This is a different regression class from
@@ -77,8 +78,9 @@ All four causes live in the redesigned shell (`web/src/redesign/`):
 
 ## Staged fixes
 
-Ordered by leverage-per-risk. Each is an independent PR; UI-behavior changes
-ship with Playwright e2e coverage + screenshots per AGENTS.md.
+Ordered by leverage-per-risk. Each landed as its own commit in the same PR
+as this plan; UI-behavior changes ship with Playwright e2e coverage +
+screenshots per AGENTS.md.
 
 ### Fix 1 — `startTransition` on section navigation (small, do first)
 
@@ -117,13 +119,14 @@ that), not a re-boot.
 - Implementation sketch: render the mobile map *outside* the keyed
   `.a-content` (a sibling shown only when `section === 'map'`), so the keyed
   scroll-restore behavior of the list views is untouched.
-- **Must ship with a harness update.** The `mapReopen` and `youOpen`
-  preambles in `web/scripts/boot-profile.mjs` wait for `.leaflet-container`
-  to become `detached` after leaving the Map tab — under this fix it never
-  detaches, so every run would hang to its 60 s timeout and fail loudly.
-  The same PR must switch those waits to `hidden` (and the reopen anchor
-  from "container visible" to "container visible again", which `hidden` →
-  `visible` already expresses).
+- **Shipped with the required harness update.** The `mapReopen` and
+  `youOpen` preambles in `web/scripts/boot-profile.mjs` used to wait for
+  `.leaflet-container` to become `detached` after leaving the Map tab —
+  under this fix it never detaches, which would have hung every run to its
+  60 s timeout. The waits now use `hidden` (hidden = not visible OR
+  detached, so the harness is valid in both the old and new worlds), and
+  the reopen anchor's `hidden` → `visible` transition expresses "container
+  visible again".
 
 ### Fix 3 — make first marker render cheap (helps `mapOpen` and `mapReopen`)
 
@@ -157,6 +160,12 @@ index (killing repeated `eventKey` string builds in `shownCount` /
 - Risk: highest of the four — touches every consumer; do last, measure
   before/after with the same metrics, and keep the favorites-parity paths
   (App.jsx) untouched per the Favorites Filter Parity rule.
+- **Shipped: the first step only** — the model is now built in `useMemo`
+  (parent re-renders with unchanged props no longer re-render every
+  consumer) and `eventKey` is memoized per event object via WeakMap. The
+  full slice split is deliberately deferred: with Fixes 1–2 in, a section
+  change's remaining breadth may not be worth the churn — decide from the
+  `youOpen` trend, per "What fixed looks like" below.
 
 ## What "fixed" looks like
 
