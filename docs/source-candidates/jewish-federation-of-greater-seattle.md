@@ -6,7 +6,7 @@ url: https://www.jewishinseattle.org/community-calendar/
 tags: [Community]
 firstSeen: 2026-07-03
 lastChecked: 2026-07-04
-pr:
+pr: 841
 ---
 
 **Jewish Federation of Greater Seattle Community Calendar** — city-wide secular community
