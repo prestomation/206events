@@ -51,7 +51,7 @@ export function median(values) {
   return s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2
 }
 
-// One measured pass. Returns the six per-run metrics (ms, rounded).
+// One measured pass. Returns the eight per-run metrics (ms, rounded).
 async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
   const context = await browser.newContext({
     viewport: { width: 390, height: 844 },
@@ -194,7 +194,12 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
     const youXY = await navBox('You')
     const youAt = pageNow()
     await page.mouse.click(youXY.x, youXY.y)
-    await navActive('You')
+    // Anchor on the You view's own heading, not the nav active-state: if
+    // section navigation later becomes a startTransition (see
+    // docs/web-tab-switch-performance.md Fix 1), the nav highlight will paint
+    // before the view swap — a nav-state anchor would then collapse this
+    // metric to input-feedback latency and stop tracking the swap itself.
+    await page.waitForSelector('.a-h1:text-is("You")', { state: 'visible', timeout: 60_000 })
     const youPainted = await afterPaint()
     const youOpen = youPainted - youAt
 

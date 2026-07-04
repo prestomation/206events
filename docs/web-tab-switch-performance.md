@@ -25,6 +25,19 @@ The existing `mapOpen` (first open, includes the chunk fetch) stays as-is.
 Every fix below names the metric that must move; a fix that doesn't move its
 metric on the PR trend comment isn't done.
 
+First CI measurement (this PR's preview, production corpus, 4× throttle):
+`mapOpen` 4982 ms, **`mapReopen` 4399 ms**, `youOpen` 114 ms. That confirms
+the map diagnosis quantitatively — a *repeat* open costs ~90% of a first
+open, i.e. the lazy-chunk fetch is a small slice and the recurring
+Leaflet-init + marker-pipeline re-boot is nearly the whole bill (Fix 2's
+target). `youOpen` measuring fast in this mobile lab run suggests the
+perceived You-tab slowness concentrates in paths this first metric doesn't
+own — e.g. switching *away from the Map tab* (Leaflet teardown in the same
+commit, eliminated by Fix 2), lower-end devices, or the desktop persistent-
+map re-render breadth (Fix 4). Watch the trend before investing in Fix 4;
+if `youOpen` stays low after Fixes 1–2 land, re-profile the desktop path
+before assuming the context split is still needed.
+
 ## Why the clicks are slow
 
 All four causes live in the redesigned shell (`web/src/redesign/`):
@@ -104,6 +117,13 @@ that), not a re-boot.
 - Implementation sketch: render the mobile map *outside* the keyed
   `.a-content` (a sibling shown only when `section === 'map'`), so the keyed
   scroll-restore behavior of the list views is untouched.
+- **Must ship with a harness update.** The `mapReopen` and `youOpen`
+  preambles in `web/scripts/boot-profile.mjs` wait for `.leaflet-container`
+  to become `detached` after leaving the Map tab — under this fix it never
+  detaches, so every run would hang to its 60 s timeout and fail loudly.
+  The same PR must switch those waits to `hidden` (and the reopen anchor
+  from "container visible" to "container visible again", which `hidden` →
+  `visible` already expresses).
 
 ### Fix 3 — make first marker render cheap (helps `mapOpen` and `mapReopen`)
 

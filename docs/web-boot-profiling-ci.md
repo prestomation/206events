@@ -56,7 +56,7 @@ Reported metrics (all lower-is-better, medians over `--runs`, default 3):
 | `splashTime` | Navigation → splash detached (ms) | boot-path regressions | ±300 ms |
 | `mapOpen` | Tap Map (post-settle, first open) → Leaflet container painted (ms) | map chunk load + Leaflet init + marker pipeline over the full corpus | ±200 ms |
 | `mapReopen` | Tap Map a second time (after leaving the tab) → Leaflet painted (ms) | the recurring per-visit cost: leaving the tab unmounts Leaflet, so every re-entry pays init + marker pipeline again, chunk already cached | ±200 ms |
-| `youOpen` | Tap You from Discover (post-settle) → nav-state painted (ms) | full-view teardown/mount on tab switch + the shell-wide re-render every section change causes | ±150 ms |
+| `youOpen` | Tap You from Discover (post-settle) → You heading painted (ms) | full-view teardown/mount on tab switch + the shell-wide re-render every section change causes | ±150 ms |
 
 "Settle" = 12 s after the full-index response (enough for the swap render and
 follow-on effects at 4× throttle; tunable).
@@ -79,6 +79,9 @@ pays Leaflet init + the marker pipeline again with the chunk cache warm —
 exactly the cost a keep-the-map-mounted fix would eliminate. `youOpen` taps
 You from Discover: it owns the synchronous teardown of the heaviest list view
 plus the You mount and the shell-wide re-render a section change triggers.
+It anchors on the You view's *heading* (not the nav active-state) so the
+metric keeps tracking the view swap even after section navigation becomes a
+`startTransition` and the nav highlight starts painting first.
 Each measured tap starts from a quiet main thread (post-transition paint +
 500 ms pause) so it owns only its own transition. See
 `docs/web-tab-switch-performance.md` for the improvement plan these two
@@ -154,8 +157,10 @@ are the proof the refactor didn't alter the Lighthouse comment — and add
   (a step summary `::warning::` when a metric exceeds 2× baseline is cheap
   and worth adding). Gating budgets are a later decision once a few weeks of
   trend data show the real noise floor.
-- Runtime budget: ~3 runs × ~35 s + install ≈ **4–5 min**, parallel to the
-  existing lighthouse job so PR wall-clock is unchanged.
+- Runtime budget: ~3 runs × ~50 s + install ≈ **5–6 min** (the post-settle
+  tab-switch phase — a second Leaflet boot at 4× throttle plus two reset
+  round-trips and their 500 ms guards — added roughly 15 s per run), still
+  parallel to the existing lighthouse job so PR wall-clock is unchanged.
 
 ### 4. Main baseline — `web-boot-profile-baseline.yml`
 
