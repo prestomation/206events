@@ -164,15 +164,16 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
     const mapOpen = mapPainted - mapAt
 
     // --- mapReopen: leave the Map tab, then open it a second time ----------
-    // Leaving the tab unmounts Leaflet entirely (the content area is keyed by
-    // section), so every RE-entry pays init + the full marker pipeline again.
-    // With the lazy map chunk already cached by mapOpen, this isolates that
-    // recurring cost from mapOpen's one-time chunk fetch. The detached wait +
+    // Measures the recurring cost of returning to the Map tab with the lazy
+    // chunk already cached by mapOpen. Before the Fix 2 keep-alive this was a
+    // full Leaflet re-boot (init + marker pipeline); with it, a CSS re-show.
+    // The `hidden` state matches both worlds (hidden = not visible OR
+    // detached), so the harness stays valid across that change. The wait +
     // paint + pause make sure the measured tap starts from a quiet main
-    // thread with the old map fully torn down.
+    // thread with the old map fully out of view.
     await page.mouse.click(discoverXY.x, discoverXY.y)
     await navActive('Discover')
-    await page.waitForSelector('.leaflet-container', { state: 'detached', timeout: 60_000 })
+    await page.waitForSelector('.leaflet-container', { state: 'hidden', timeout: 60_000 })
     await afterPaint()
     await page.waitForTimeout(500)
     const mapReopenAt = pageNow()
@@ -188,7 +189,7 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
     // the metric owns that transition rather than a Map teardown.
     await page.mouse.click(discoverXY.x, discoverXY.y)
     await navActive('Discover')
-    await page.waitForSelector('.leaflet-container', { state: 'detached', timeout: 60_000 })
+    await page.waitForSelector('.leaflet-container', { state: 'hidden', timeout: 60_000 })
     await afterPaint()
     await page.waitForTimeout(500)
     const youXY = await navBox('You')

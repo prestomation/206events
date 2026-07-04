@@ -3858,6 +3858,15 @@ html, body, #root { height: 100%; }
 .app206 .a-rail { grid-area: rail; display: none; }
 .app206 .a-top { grid-area: top; }
 .app206 .a-content { grid-area: content; overflow-y: auto; overflow-x: hidden; position: relative; }
+/* Keep-alive container for the mobile Map tab: shares the content grid cell
+   and swaps visibility with .a-content instead of unmounting, so a return
+   visit skips the Leaflet re-boot (docs/web-tab-switch-performance.md Fix 2).
+   display:none (not visibility) so the hidden panel costs no layout/paint;
+   re-showing resizes the container, which MapBridge's ResizeObserver turns
+   into an invalidateSize(). */
+.app206 .a-maptab { grid-area: content; position: relative; overflow: hidden; min-height: 0; }
+.app206 .a-maptab--hidden { display: none; }
+.app206 .a-content--maphidden { display: none; }
 .app206 .a-map { grid-area: map; display: none; }
 .app206 .a-nav { grid-area: nav; }
 @media (min-width: 1024px) {

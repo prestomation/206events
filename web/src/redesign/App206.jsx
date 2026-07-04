@@ -506,9 +506,25 @@ export function App206(props) {
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />
-  else if (section === 'map') content = <MapPanel mobile />
+  else if (section === 'map') content = null // rendered by the keep-alive .a-maptab sibling below
   else if (section === 'following') content = <FollowingView />
   else content = <YouView />
+
+  // Keep-alive for the Map tab (Fix 2, docs/web-tab-switch-performance.md):
+  // the tab's <MapPanel mobile> renders in a SIBLING of the keyed content
+  // area and, once first opened, stays mounted for the rest of the session —
+  // leaving the tab only hides it with CSS. Unmounting through the keyed
+  // container made every re-entry pay Leaflet init + the full marker
+  // pipeline again (mapReopen ≈ 90% of mapOpen); now a return visit is a
+  // style flip plus the MapBridge ResizeObserver's invalidateSize(). The
+  // lazy-until-first-open guarantee pinned by web/e2e/map-mount.spec.js is
+  // preserved: nothing mounts until the first visit. The latch is a render-
+  // time ref (monotonic, never unset) rather than state so the first entry
+  // mounts the map in the same pass. While `loading` the content area still
+  // shows its Loading… row instead, matching the other sections.
+  const mapTabOpenedRef = useRef(false)
+  if (section === 'map' && !loading) mapTabOpenedRef.current = true
+  const mapTabActive = contentKey === 'map' && !loading
 
   return (
     <App206Context.Provider value={model}>
@@ -516,9 +532,14 @@ export function App206(props) {
         style={mapWidth ? { '--a-map-w': `${mapWidth}px` } : undefined}>
         <div className="a-rail"><RailNav /></div>
         <div className="a-top"><TopBar /></div>
-        <div className="a-content" key={contentKey} ref={contentRef}>
+        <div className={`a-content${mapTabActive ? ' a-content--maphidden' : ''}`} key={contentKey} ref={contentRef}>
           {loading ? <div className="a-empty" style={{ padding: '40px var(--pad)' }}>Loading…</div> : content}
         </div>
+        {mapTabOpenedRef.current && (
+          <div className={`a-maptab${mapTabActive ? '' : ' a-maptab--hidden'}`}>
+            <MapPanel mobile />
+          </div>
+        )}
         {/* The persistent map column exists only at the desktop breakpoint
             (>= 1024px, where the CSS grid shows it). Below that it used to be
             merely display:none while React still mounted it — so phones paid
