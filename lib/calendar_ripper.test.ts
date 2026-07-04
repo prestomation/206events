@@ -9,7 +9,7 @@ import {
   prepareTaggedExternalCalendars,
   createAggregateCalendars
 } from './tag_aggregator.js';
-import { hasFutureEventsInICS, attachEventCoords, attachEventCost } from './calendar_ripper.js';
+import { hasFutureEventsInICS, attachEventCoords, attachEventCost, attachEventImage } from './calendar_ripper.js';
 
 // Mock the file system operations
 vi.mock('fs/promises', () => ({
@@ -493,5 +493,52 @@ describe('attachEventCost', () => {
     const event: any = makeEvent();
     attachEventCost(makeCalendar([event]));
     expect(event.cost).toBeUndefined();
+  });
+});
+
+describe('attachEventImage', () => {
+  const makeEvent = (imageUrl?: string) => ({
+    ripped: new Date(),
+    date: ZonedDateTime.parse('2026-06-01T18:00:00-07:00[America/Los_Angeles]'),
+    duration: Duration.ofHours(2),
+    summary: 'Test',
+    ...(imageUrl ? { imageUrl } : {}),
+  });
+  const makeCalendar = (events: any[], parentImage?: string, calendarImage?: string): RipperCalendar => ({
+    name: 'cal',
+    friendlyname: 'Cal',
+    events,
+    errors: [],
+    tags: [],
+    parent: {
+      name: 'venue',
+      geo: null,
+      ...(parentImage ? { imageUrl: parentImage } : {}),
+      calendars: [{ name: 'cal', ...(calendarImage ? { imageUrl: calendarImage } : {}) }],
+    } as any,
+  });
+
+  it('applies the ripper-level imageUrl default to unphotographed events', () => {
+    const event: any = makeEvent();
+    attachEventImage(makeCalendar([event], 'https://example.com/venue.jpg'));
+    expect(event.imageUrl).toBe('https://example.com/venue.jpg');
+  });
+
+  it('calendar-level imageUrl wins over ripper-level (mirrors cost precedence)', () => {
+    const event: any = makeEvent();
+    attachEventImage(makeCalendar([event], 'https://example.com/venue.jpg', 'https://example.com/branch.jpg'));
+    expect(event.imageUrl).toBe('https://example.com/branch.jpg');
+  });
+
+  it('never overwrites a ripper-parsed or cache-backfilled imageUrl', () => {
+    const event: any = makeEvent('https://example.com/event-specific.jpg');
+    attachEventImage(makeCalendar([event], 'https://example.com/venue.jpg'));
+    expect(event.imageUrl).toBe('https://example.com/event-specific.jpg');
+  });
+
+  it('leaves events untouched when no imageUrl is declared anywhere', () => {
+    const event: any = makeEvent();
+    attachEventImage(makeCalendar([event]));
+    expect(event.imageUrl).toBeUndefined();
   });
 });

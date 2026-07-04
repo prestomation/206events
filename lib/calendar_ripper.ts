@@ -408,6 +408,22 @@ export function attachEventCost(calendar: RipperCalendar): void {
   }
 }
 
+/**
+ * Apply the source-declared `imageUrl` default to every event the ripper
+ * didn't photograph. Calendar-level `imageUrl` wins over ripper-level,
+ * mirroring `attachEventCost`/`attachEventCoords` precedence; a
+ * ripper-parsed photo or a cache resolution (applyImageBackfill, which runs
+ * earlier) always wins over this YAML default. Mutates events in place.
+ */
+export function attachEventImage(calendar: RipperCalendar): void {
+  const calendarCfg = calendar.parent?.calendars.find(c => c.name === calendar.name);
+  const defaultImage = calendarCfg?.imageUrl ?? calendar.parent?.imageUrl;
+  if (!defaultImage) return;
+  for (const event of calendar.events) {
+    if (event.imageUrl === undefined) event.imageUrl = defaultImage;
+  }
+}
+
 export const main = async () => {
   const loader = new RipperLoader("sources/");
   let [configs, errors] = await loader.loadConfigs();
@@ -852,6 +868,7 @@ export const main = async () => {
       totalErrorCount += errorCount;
       geoCache = await attachEventCoords(calendar, geoCache, geocodeErrors);
       attachEventCost(calendar);
+      attachEventImage(calendar);
       const icsString = await toICS(calendar);
       const calConfig = config.config.calendars.find(c => c.name === calendar.name);
       const isExpectEmpty = calConfig?.expectEmpty ?? config.config.expectEmpty ?? false;
@@ -1325,7 +1342,10 @@ END:VCALENDAR`;
             date: zdtToIndexDate(event.date),
             endDate: zdtToIndexDate(event.date.plus(event.duration)),
             url: event.url,
-            ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+            // ICS has no standard IMAGE property most feeds populate — external
+            // events inherit the feed-level YAML `imageUrl` when the feed didn't
+            // carry its own, mirroring the `cost` fallback below.
+            ...(event.imageUrl ?? calendar.imageUrl ? { imageUrl: event.imageUrl ?? calendar.imageUrl } : {}),
             // ICS has no standard price property — external events inherit
             // the feed-level YAML `cost` declaration when present.
             ...(calendar.cost ? { cost: calendar.cost } : {}),

@@ -5894,6 +5894,91 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-04",
       "note": "Same event in seatoday sub-calendars (seatoday community vs sports sub-calendar)"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-07-10T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-07-10T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same drag show at Unicorn (1118 E Pike St), same date/time, listed by both the venue-adjacent recurring entry and Queer Social Club aggregator."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Forterra Fridays: July 2026|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Forterra Fridays: July 2026|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Forterra Fridays: July 2026|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Forterra Fridays: July 2026|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-17T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-17T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-17T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-17T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Lynnwood Par 4 Parks Golf Tournament - CADDYSHACK!|2026-07-17T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lynnwood Par 4 Parks Golf Tournament - CADDYSHACK!|2026-07-17T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Lynnwood Par 4 Parks Golf Tournament - CADDYSHACK!|2026-07-17T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lynnwood Par 4 Parks Golf Tournament - CADDYSHACK!|2026-07-17T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-community.ics Forterra Fridays: July 2026|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Forterra Fridays: July 2026|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-17T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-17T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-community.ics Lynnwood Par 4 Parks Golf Tournament - CADDYSHACK!|2026-07-17T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lynnwood Par 4 Parks Golf Tournament - CADDYSHACK!|2026-07-17T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same seatoday feed, cross-calendar duplication between the all-events aggregate and its category calendar (identical title, date, location, source URL) \u2014 the documented safest-possible-merge pattern (docs/cross-source-event-dedup.md)."
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Dave Hause & The Mermaid x American Steel w/ Tim Hause NIGHT 2|2026-10-03T19:30:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Dave Hause & The Mermaid x American Steel AT The Sunset|2026-10-03T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-04",
+      "note": "Same Dave Hause/American Steel show, same date/time; Tractor-produced NIGHT 2 held at the neighboring Sunset Tavern (title cross-references \"AT The Sunset\" / \"NIGHT 2\"); Tractor feed location is a ripper default (own venue address) rather than the actual venue."
     }
   }
 }
