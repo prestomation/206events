@@ -30599,14 +30599,14 @@
     },
     "19hz:19hz-2026/10/16-Know Good, Blookah, Terminal 6": {
       "fields": {
-        "duration": 18000,
+        "duration": 10800,
         "cost": {
           "paid": true
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "Start time confirmed 11pm (doors 11pm, show 11pm) via showboxpresents.com; no end time listed; late-night 5h default applied; AXS blocked - face value unresolvable"
+      "evidence": "Start time confirmed 11pm via showboxpresents.com; 3h applied (ending 2am = WA state last call limit); AXS blocked from cloud - face value unresolvable"
     },
     "19hz:19hz-2026/11/21-Jai Wolf, Conrad.": {
       "fields": {
