@@ -142,7 +142,7 @@ export function TopBar() {
       </div>
       <nav className="a-topnav">
         {items.map((it) => (
-          <button key={it.id} className={`${app.section === it.id ? 'on' : ''} ${it.mobileOnly ? 'a-mapTabHide' : ''}`}
+          <button key={it.id} className={`${app.navSection === it.id ? 'on' : ''} ${it.mobileOnly ? 'a-mapTabHide' : ''}`}
             onClick={() => app.go(it.id)}>{it.icon}<span>{it.label}</span></button>
         ))}
       </nav>
@@ -255,7 +255,7 @@ export function RailNav() {
     <div className="a-railinner">
       <div className="logo">206</div>
       {items.map((it) => (
-        <button key={it.id} className={`a-railitem ${app.section === it.id ? 'on' : ''}`} onClick={() => app.go(it.id)}>
+        <button key={it.id} className={`a-railitem ${app.navSection === it.id ? 'on' : ''}`} onClick={() => app.go(it.id)}>
           {it.icon}<span>{it.label}</span>
         </button>
       ))}
@@ -268,7 +268,7 @@ export function BottomNav() {
   return (
     <nav className="a-bottom">
       {NAV_ITEMS.map((it) => (
-        <button key={it.id} className={`t ${app.section === it.id ? 'on' : ''} ${it.mobileOnly ? 'a-mapTabHide' : ''}`}
+        <button key={it.id} className={`t ${app.navSection === it.id ? 'on' : ''} ${it.mobileOnly ? 'a-mapTabHide' : ''}`}
           onClick={() => app.go(it.id)}>{it.icon}<span>{it.label}</span></button>
       ))}
     </nav>
