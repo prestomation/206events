@@ -78,6 +78,27 @@ python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py resolve \
 The build's `applyImageBackfill` pass applies these `imageUrl` resolutions on
 the next build (see `docs/event-uncertainty.md` and `docs/photos.md`).
 
+### 3c. Retire a whole photo-less source (`skipEventPhotos` → PR)
+
+When a source has a **venue `imageUrl`** but its event pages carry **no
+harvestable per-event image** (only a generic site/category logo, e.g.
+`sources/seattle_makers`), don't mark its events `unresolvable` one at a time —
+every new event the venue publishes would re-enter the queue. Instead retire the
+whole source's event-photo backfill in one PR:
+
+1. Confirm the pattern by fetching **two or three** distinct event pages for the
+   source and verifying none carries an event-specific image (just the venue's
+   logo/banner).
+2. Add `skipEventPhotos: true` at the **ripper level** of `sources/<name>/ripper.yaml`
+   (alongside the venue `imageUrl:`), with a one-line comment noting what you
+   verified.
+3. Open a PR (content change — auto-merge-eligible per AGENTS.md).
+
+The events keep displaying the venue photo; they just stop appearing in
+`eventGaps`. Only use this when per-event photos genuinely don't exist — if the
+ripper *could* be enhanced to extract a real per-event image, prefer that.
+See the `skipEventPhotos` section in `docs/photos.md`.
+
 ### 4. Re-trigger the build and report
 
 After venue PRs merge / event resolutions are written, re-trigger the build so

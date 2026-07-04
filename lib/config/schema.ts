@@ -164,6 +164,15 @@ export const configSchema = z.object({
     // Optional source-level cost default for events the ripper didn't price.
     // Per-calendar `cost` overrides this, mirroring `geo` precedence.
     cost: costConfigSchema.optional(),
+    // When true, this source's events are excluded from the photo-gap backfill
+    // queue (photoGaps). Use for venues whose events have no harvestable
+    // per-event image: the venue `imageUrl` is the intended photo for every
+    // event. Events still DISPLAY the venue photo (venueImageForCalendar); this
+    // only stops the photo-resolver from queuing them, so a whole venue doesn't
+    // churn as per-event "unresolvable" markings. Analogous to `expectEmpty`.
+    // Only meaningful alongside a venue `imageUrl`; if per-event photos later
+    // become harvestable, remove the flag and let the photo-resolver backfill.
+    skipEventPhotos: z.boolean().default(false),
 }).strict();
 
 

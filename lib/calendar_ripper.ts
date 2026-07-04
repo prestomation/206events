@@ -1950,19 +1950,27 @@ END:VCALENDAR`;
     if (!calendar.parent) continue; // recurring events are venues, covered by venueGaps
     const icsUrl = `${calendar.parent.name}-${calendar.name}.ics`;
     if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+    // Sources that declare `skipEventPhotos` have no harvestable per-event
+    // image — the venue photo is the intended image for every event — so their
+    // events are kept out of the photo backfill queue entirely (they still
+    // display the venue photo via venueImageForCalendar). Cost gaps are
+    // unaffected.
+    const skipEventPhotos = calendar.parent.skipEventPhotos === true;
     for (const event of calendar.events) {
-      ripperEventsForPhotoGaps.push({
-        source: calendar.parent.name,
-        id: event.id,
-        summary: event.summary,
-        date: zdtToIndexDate(event.date),
-        url: event.url,
-        // The event's OWN image only (ripper-parsed or cache-backfilled). The
-        // venue-photo display fallback (venueImageForCalendar) is intentionally
-        // not applied here, so an event that only shows the generic venue photo
-        // stays in this backfill queue until it gets a real event-specific one.
-        imageUrl: event.imageUrl,
-      });
+      if (!skipEventPhotos) {
+        ripperEventsForPhotoGaps.push({
+          source: calendar.parent.name,
+          id: event.id,
+          summary: event.summary,
+          date: zdtToIndexDate(event.date),
+          url: event.url,
+          // The event's OWN image only (ripper-parsed or cache-backfilled). The
+          // venue-photo display fallback (venueImageForCalendar) is intentionally
+          // not applied here, so an event that only shows the generic venue photo
+          // stays in this backfill queue until it gets a real event-specific one.
+          imageUrl: event.imageUrl,
+        });
+      }
       ripperEventsForCostGaps.push({
         source: calendar.parent.name,
         id: event.id,

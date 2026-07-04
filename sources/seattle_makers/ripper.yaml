@@ -12,6 +12,10 @@ geo:
   osmType: node
   osmId: 12720536301
 imageUrl: "https://seattlemakers.org/wp-content/uploads/2023/12/maker_meetup.webp"
+# Event pages carry only a generic category logo (e.g. laser_logo.jpg), no
+# per-event photo to harvest — the venue imageUrl above is the intended image
+# for every event, so keep these out of the photo-resolver backfill queue.
+skipEventPhotos: true
 calendars:
   - name: seattle-makers
     friendlyname: "Seattle Makers"

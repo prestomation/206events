@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { toICS, RipperCalendar, RipperCalendarEvent, externalCalendarSchema, costConfigSchema } from './schema.js';
+import { toICS, RipperCalendar, RipperCalendarEvent, externalCalendarSchema, costConfigSchema, configSchema } from './schema.js';
 import { ZonedDateTime, Duration } from '@js-joda/core';
 
 function makeEvent(overrides: Partial<RipperCalendarEvent> = {}): RipperCalendarEvent {
@@ -246,6 +246,28 @@ describe('toICS', () => {
       expect(unfolded).toContain('https://example.com/event-specific.png');
       expect(unfolded).not.toContain('venue.jpg');
     });
+  });
+});
+
+describe('configSchema skipEventPhotos', () => {
+  const base = {
+    name: 'seattle-makers',
+    description: 'Seattle Makers',
+    url: 'https://example.com/events',
+    friendlyLink: 'https://example.com',
+    geo: null,
+    sourceRole: 'venue',
+    calendars: [{ name: 'c', timezone: 'America/Los_Angeles', friendlyname: 'C' }],
+  };
+
+  it('defaults skipEventPhotos to false when omitted', () => {
+    const parsed = configSchema.parse(base);
+    expect(parsed.skipEventPhotos).toBe(false);
+  });
+
+  it('accepts skipEventPhotos: true', () => {
+    const parsed = configSchema.parse({ ...base, skipEventPhotos: true });
+    expect(parsed.skipEventPhotos).toBe(true);
   });
 });
 
