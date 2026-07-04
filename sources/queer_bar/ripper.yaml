@@ -1,5 +1,6 @@
 name: queer-bar
 sourceRole: venue
+expectEmpty: true
 description: "Queer/Bar"
 url: "https://www.thequeerbar.com/events-one"
 friendlyLink: https://www.thequeerbar.com/events-one

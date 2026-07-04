@@ -1,6 +1,7 @@
 name: seattle-pridefest
 sourceRole: venue
 type: squarespace
+expectEmpty: true
 description: "Seattle PrideFest"
 url: "https://www.seattlepridefest.org/schedule"
 friendlyLink: https://www.seattlepridefest.org/schedule
