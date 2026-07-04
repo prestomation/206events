@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
 import { mockDuplicateEvents } from './fixtures.js'
+import { screenshotStable } from './screenshot.js'
 
 // Verifies the web side of cross-source de-duplication: the build stamps
 // `duplicateOf` on suppressed copies and `dedupedSources` on the canonical
@@ -46,7 +47,7 @@ test('shows "Also listed in" attribution on the canonical event', async ({ page 
   // cal2's channel friendly name is "SIFF" (see fixtures mockManifest).
   await expect(attribution.getByText('SIFF')).toBeVisible()
 
-  await page.screenshot({ path: 'e2e/screenshots/event-detail-cross-source.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/event-detail-cross-source.png', { fullPage: true })
 })
 
 // js-joda-style local datetime N days out at 19:00 (matches map.spec helper).
@@ -98,5 +99,5 @@ test('the map plots the canonical pin once and drops the suppressed duplicate', 
   // Live count badge tracks the same suppression.
   await expect(page.locator('.a-mapbar .mk-tag').first()).toHaveText('1 EVENTS')
 
-  await page.screenshot({ path: 'e2e/screenshots/map-cross-source-dedup.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/map-cross-source-dedup.png', { fullPage: true, expectMarkers: true })
 })

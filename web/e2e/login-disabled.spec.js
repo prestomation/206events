@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Read-only mode: a bundle built WITHOUT VITE_FAVORITES_API_URL has no favorites
 // backend, so the You view hides the sign-in/account card and the personal-feed
@@ -42,5 +43,5 @@ test('hides the sign-in and personal-feed cards when no backend is configured', 
   // Read-only config still works.
   await expect(page.getByRole('button', { name: /Send feedback/i })).toBeVisible()
 
-  await page.screenshot({ path: 'e2e/screenshots/you-login-disabled.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/you-login-disabled.png', { fullPage: true })
 })

@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
 import { mockCostEvents } from './fixtures.js'
+import { screenshotStable } from './screenshot.js'
 
 // Verifies the cost label/styling for every `cost` shape, with emphasis on the
 // new `{ soldOut: true }` state — a sold-out show must read "Sold out" (not
@@ -49,7 +50,7 @@ test('renders the correct cost label and styling for each shape in the list', as
   // Paid, amount unknown: "Ticketed".
   await expect(ticketedRow.locator('.ev-cost')).toHaveText('Ticketed')
 
-  await page.screenshot({ path: 'e2e/screenshots/cost-list-shapes.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/cost-list-shapes.png', { fullPage: true })
 })
 
 test('shows "Sold out" with a helpful sub-line on the detail page', async ({ page }) => {
@@ -65,5 +66,5 @@ test('shows "Sold out" with a helpful sub-line on the detail page', async ({ pag
   // It must NOT say Free anywhere on the detail.
   await expect(page.getByText('Free', { exact: true })).toHaveCount(0)
 
-  await page.screenshot({ path: 'e2e/screenshots/event-detail-sold-out.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/event-detail-sold-out.png', { fullPage: true })
 })

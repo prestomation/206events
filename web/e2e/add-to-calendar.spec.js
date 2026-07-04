@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Regression test for the AddToCalendar UTC-offset bug:
 // js-joda emits seconds-less ISO strings like "2026-06-18T17:00-07:00[America/Los_Angeles]"
@@ -88,5 +89,5 @@ test('AddToCalendar Google link carries the correct UTC timestamp for a seconds-
   expect(href).toContain(EXPECTED_UTC_START)
   expect(href).toContain(EXPECTED_UTC_END)
 
-  await page.screenshot({ path: 'e2e/screenshots/add-to-calendar-correct-time.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/add-to-calendar-correct-time.png', { fullPage: true })
 })

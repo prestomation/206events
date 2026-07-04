@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Verifies the custom date-range filter (FilterPopover "OR PICK DATES" → native
 // From/To inputs): picking explicit calendar dates narrows the events list to
@@ -71,12 +72,12 @@ test('narrows the events list to a picked From/To range', async ({ page }) => {
   const to = page.getByLabel('To date')
   await expect(from).toHaveValue('')
   await expect(to).toHaveValue('')
-  await page.screenshot({ path: 'e2e/screenshots/date-range-popover.png' })
+  await screenshotStable(page, 'e2e/screenshots/date-range-popover.png')
 
   // Pick the visitor's days. The filter applies once both ends are set.
   await from.fill(IN_A.ymd)
   await to.fill(IN_B.ymd)
-  await page.screenshot({ path: 'e2e/screenshots/date-range-filled.png' })
+  await screenshotStable(page, 'e2e/screenshots/date-range-filled.png')
 
   // Close the popover (Done) and confirm the list is now just the two in-range
   // shows; the early and late ones are filtered out.
@@ -89,7 +90,7 @@ test('narrows the events list to a picked From/To range', async ({ page }) => {
   // The active-filter chip reflects the picked range (starts with "MMM D").
   await expect(page.locator('.a-activefilters')).toContainText(startLabel)
 
-  await page.screenshot({ path: 'e2e/screenshots/date-range-result.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/date-range-result.png', { fullPage: true })
 })
 
 test('round-trips a custom range through the URL (shareable link)', async ({ page }) => {

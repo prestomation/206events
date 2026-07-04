@@ -6,6 +6,14 @@ import {
   mockIcs,
 } from './fixtures.js'
 
+// 256×256 solid pale-green (#e2eadd) PNG served for every OSM tile request
+// (below). Deliberately NOT Leaflet's #ddd pane color, so a capture where the
+// mock failed to serve (blank pane) is visually distinguishable from one
+// where tiles genuinely loaded.
+const MOCK_TILE_PNG = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAACAElEQVR42u3TMQ0AAAgEsffvkYURFcxooEkVXHLpKXgrEmAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAOogAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAANgABUwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADIABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA8C1+Bcn6Cl9RbkAAAAASUVORK5CYII=',
+  'base64')
+
 // Register browser-level network stubs for every runtime fetch the app makes,
 // so the suite is hermetic (no calendar generation, no live network, no
 // favorites API). Mirrors the `mockFetch` switch in web/src/App.test.jsx.
@@ -36,6 +44,15 @@ export async function installDataMocks(page) {
 
   await page.route('**/*.ics', (route) =>
     route.fulfill({ status: 200, contentType: 'text/calendar', body: mockIcs }))
+
+  // Map tiles: serve the static pale-green PNG above for every OSM tile
+  // request. Keeps the suite hermetic (no third-party requests, no
+  // network-dependent flakiness) and makes map screenshots deterministic —
+  // without this, tile loads race the capture and committed screenshots
+  // sometimes show a blank gray map (see e2e/screenshot.js, which waits for
+  // .leaflet-tile-loaded and relies on tiles resolving instantly).
+  await page.route('https://*.tile.openstreetmap.org/**', (route) =>
+    route.fulfill({ status: 200, contentType: 'image/png', body: MOCK_TILE_PNG }))
 
   // Favorites API: respond as logged-out so the app renders deterministically.
   await page.route('**/auth/me', (route) => route.fulfill({ status: 401, contentType: 'application/json', body: '{}' }))

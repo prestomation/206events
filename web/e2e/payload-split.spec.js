@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
 import { mockEventsSoon, mockEventsFull } from './fixtures.js'
+import { screenshotStable } from './screenshot.js'
 
 // Verifies the two-phase events load (issue 649): the small "soon" payload
 // paints the near-term events immediately, then the full index streams in
@@ -42,14 +43,14 @@ test('renders the soon payload first, then loads the full index behind it', asyn
   await expect(page.locator('.a-search-loading')).toBeVisible()
   await expect(page.locator('.a-search-loading')).toContainText('Loading all events')
   await expect(page.locator('.ev', { hasText: 'Far Future Fest' })).toHaveCount(0)
-  await page.screenshot({ path: 'e2e/screenshots/payload-split-loading.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/payload-split-loading.png', { fullPage: true })
 
   // Phase 2: release the full index. The hint clears and the far-future event
   // becomes searchable.
   releaseFull()
   await expect(page.locator('.a-search-loading')).toHaveCount(0)
   await expect(page.locator('.ev', { hasText: 'Far Future Fest' })).toBeVisible()
-  await page.screenshot({ path: 'e2e/screenshots/payload-split-loaded.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/payload-split-loaded.png', { fullPage: true })
 
   expect(pageErrors, 'no uncaught page errors').toEqual([])
 })

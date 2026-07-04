@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Perf guard: the persistent desktop map column (.a-map) is shown by CSS only
 // at >= 1024px, but it used to stay MOUNTED at every width — so phones and
@@ -40,7 +41,7 @@ test.describe('mobile (< 768px)', () => {
     await expect(page.getByRole('button', { name: 'Map' })).toHaveClass(/\bon\b/)
     await expect(page.locator('.events-map')).toBeVisible()
     await expect(page.locator('.leaflet-container')).toHaveCount(1)
-    await page.screenshot({ path: 'e2e/screenshots/map-mount-mobile-tab.png' })
+    await screenshotStable(page, 'e2e/screenshots/map-mount-mobile-tab.png', { expectMarkers: true })
 
     // Leaving the tab keeps that single instance mounted but hidden (the
     // keep-alive), and returning re-shows the SAME instance — still one.
@@ -52,7 +53,7 @@ test.describe('mobile (< 768px)', () => {
     await page.getByRole('button', { name: 'Map' }).click()
     await expect(page.locator('.events-map')).toBeVisible()
     await expect(page.locator('.leaflet-container')).toHaveCount(1)
-    await page.screenshot({ path: 'e2e/screenshots/map-mount-mobile-return.png' })
+    await screenshotStable(page, 'e2e/screenshots/map-mount-mobile-return.png', { expectMarkers: true })
   })
 })
 
@@ -81,6 +82,6 @@ test.describe('desktop (>= 1024px)', () => {
 
     await expect(page.locator('.a-map .events-map')).toBeVisible()
     await expect(page.locator('.leaflet-container')).toHaveCount(1)
-    await page.screenshot({ path: 'e2e/screenshots/map-mount-desktop.png' })
+    await screenshotStable(page, 'e2e/screenshots/map-mount-desktop.png', { expectMarkers: true })
   })
 })
