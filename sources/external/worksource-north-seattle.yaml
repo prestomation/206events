@@ -6,6 +6,7 @@ description: WorkSource North Seattle
 icsUrl: https://www.trumba.com/calendars/worksource-north-seattle.ics
 infoUrl: https://www.worksourcewa.com/
 proxy: outofband
+disabled: true  # Trumba calendar removed — returns 403 "Page Not Found" since at least 2026-07-04
 tags:
   - Community
   - Education
