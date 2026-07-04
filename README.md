@@ -1,5 +1,7 @@
 # 206.events
 
+[![ko-fi](https://img.shields.io/badge/Ko--fi-donate-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white)](https://ko-fi.com/prestomation)
+
 Subscribe to Seattle-area event calendars in your favorite calendar app. This project scrapes event data from dozens of local websites, ICS feeds, and APIs, then publishes them as standard iCalendar (.ics) files you can add to Google Calendar, Apple Calendar, Outlook, or any other calendar application.
 
 ## Build this for your own city
