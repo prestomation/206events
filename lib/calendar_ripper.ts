@@ -1982,6 +1982,11 @@ END:VCALENDAR`;
     unresolvableImageKeys: unresolvableKeys,
   });
   const photoStats = {
+    // Display coverage: counts events-index entries that render an image,
+    // which includes the venue-photo fallback (venueImageForCalendar). This is
+    // intentionally broader than photoGaps below, which counts events lacking
+    // their OWN image (the backfill work queue) — a venue-only event shows a
+    // photo (counted here) yet still wants a real one (still a gap there).
     eventsWithImage: eventsIndex.filter(e => e.imageUrl).length,
     totalEvents: eventsIndex.length,
     venuesWithImage: venuesDoc.venues.filter(v => v.imageUrl).length,
