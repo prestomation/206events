@@ -450,7 +450,12 @@ export function App206(props) {
     else if (emphasis === 'events' && evMatchCount === 0 && calMatchCount > 0) setEmphasis('calendars')
   }, [query, emphasis, calMatchCount, evMatchCount])
 
-  const model = {
+  // The context value is memoized so its identity only changes when one of
+  // its constituents does (Fix 4 first step, docs/web-tab-switch-performance.md):
+  // a parent (App.jsx) re-render with unchanged props no longer re-renders
+  // every context consumer. Setters from useState/useCallback are referentially
+  // stable and listed anyway so the dep array mechanically mirrors the object.
+  const model = useMemo(() => ({
     // raw
     calendars, eventsIndex, fullEventsLoaded, loading,
     favoritesSet, toggleFollow,
@@ -480,7 +485,33 @@ export function App206(props) {
     debugMode, toggleDebug,
     // handlers
     go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
-  }
+  }), [
+    calendars, eventsIndex, fullEventsLoaded, loading,
+    favoritesSet, toggleFollow,
+    searchFilters, addSearchFilter, removeSearchFilter,
+    geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
+    eventAttributions, calendarTagsByIcsUrl, calendarNameByIcsUrl, eventCountByIcsUrl,
+    lists, activeListId, activeList, setActiveList, createList, renameList, deleteList, canCreateList, uatMode,
+    authUser, handleLogin, handleLogout, API_URL, isMobile,
+    channelEvents, channelEventsLoading, channelEventsError,
+    createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
+    calendarAddMode, setCalendarAddMode,
+    channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
+    scopedUpcoming, upcomingEvents, eventsByIcsUrl,
+    feedGroups, matchEvents, queryKeySet, inScope,
+    section, navSection, openCh, openEventObj, dateWindow, dateWindowPending, emphasis, setEmphasis, pickEmphasis,
+    calMatchCount, evMatchCount,
+    query, queryPending, clearSearch, category, neighborhood,
+    costFilter,
+    hasActiveFilters, toast, todayLabel,
+    showWelcome, dismissWelcome, helpOpen, openHelp, closeHelp,
+    lightbox, openLightbox, closeLightbox,
+    feedbackPrefill, openFeedback, closeFeedback,
+    mapExpanded, toggleMapExpand, mapScope,
+    mapWidth, setMapWidth,
+    debugMode, toggleDebug,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
+  ])
 
   // Preserve each view's scroll position across navigation. The `.a-content`
   // scroll container is keyed by view, so forward-nav into an event/channel
