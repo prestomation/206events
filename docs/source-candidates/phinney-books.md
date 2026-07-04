@@ -2,7 +2,7 @@
 name: "Phinney Books"
 status: candidate
 platform: Squarespace
-url: http://www.phinneybooks.com/upcoming-events/
+url: https://www.phinneybooks.com/upcoming-events/
 tags: [Books, Greenwood]
 firstSeen: 2026-07-04
 lastChecked: 2026-07-04
