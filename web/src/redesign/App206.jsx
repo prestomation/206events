@@ -549,12 +549,18 @@ export function App206(props) {
   // pipeline again (mapReopen ≈ 90% of mapOpen); now a return visit is a
   // style flip plus the MapBridge ResizeObserver's invalidateSize(). The
   // lazy-until-first-open guarantee pinned by web/e2e/map-mount.spec.js is
-  // preserved: nothing mounts until the first visit. The latch is a render-
-  // time ref (monotonic, never unset) rather than state so the first entry
-  // mounts the map in the same pass. While `loading` the content area still
-  // shows its Loading… row instead, matching the other sections.
-  const mapTabOpenedRef = useRef(false)
-  if (section === 'map' && !loading) mapTabOpenedRef.current = true
+  // preserved: nothing mounts until the first visit. The first entry mounts
+  // the map in the same pass (mapTabVisit is true for it directly); the
+  // monotonic keep-alive latch is written in an effect, NOT during render —
+  // a render-phase write would survive a discarded transition render (tap
+  // Map, tap away before commit) and mount the hidden map for a tab that
+  // was never shown. While `loading` the content area still shows its
+  // Loading… row instead, matching the other sections.
+  const mapTabVisit = section === 'map' && !loading
+  const [mapTabOpened, setMapTabOpened] = useState(false)
+  useEffect(() => {
+    if (mapTabVisit) setMapTabOpened(true)
+  }, [mapTabVisit])
   const mapTabActive = contentKey === 'map' && !loading
 
   return (
@@ -566,7 +572,7 @@ export function App206(props) {
         <div className={`a-content${mapTabActive ? ' a-content--maphidden' : ''}`} key={contentKey} ref={contentRef}>
           {loading ? <div className="a-empty" style={{ padding: '40px var(--pad)' }}>Loading…</div> : content}
         </div>
-        {mapTabOpenedRef.current && (
+        {(mapTabVisit || mapTabOpened) && (
           <div className={`a-maptab${mapTabActive ? '' : ' a-maptab--hidden'}`}>
             <MapPanel mobile />
           </div>

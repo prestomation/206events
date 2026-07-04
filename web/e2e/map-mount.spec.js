@@ -33,8 +33,11 @@ test.describe('mobile (< 768px)', () => {
     await expect(page.locator('.a-map')).toHaveCount(0)
     await expect(page.locator('.leaflet-container')).toHaveCount(0)
 
-    // Opening the Map tab mounts exactly one map.
+    // Opening the Map tab mounts exactly one map. The nav highlight is driven
+    // by the urgent navSection state (section renders in a transition), so
+    // pin that the tapped tab actually lights up.
     await page.getByRole('button', { name: 'Map' }).click()
+    await expect(page.getByRole('button', { name: 'Map' })).toHaveClass(/\bon\b/)
     await expect(page.locator('.events-map')).toBeVisible()
     await expect(page.locator('.leaflet-container')).toHaveCount(1)
     await page.screenshot({ path: 'e2e/screenshots/map-mount-mobile-tab.png' })
