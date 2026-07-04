@@ -5,10 +5,13 @@ description: "Actualize AiR"
 url: "https://actualize.space"
 friendlyLink: https://actualize.space
 tags: ["Arts", "Pioneer Square"]
+imageUrl: "https://img.youtube.com/vi/DPGb8fOhtqI/maxresdefault.jpg"
 geo:
   lat: 47.6013737
   lng: -122.3292697
   label: "Actualize AiR, 112 Prefontaine Place S, Seattle, WA 98104"
+  osmType: node
+  osmId: 2351711880
 calendars:
   - name: actualize-air
     friendlyname: "Actualize AiR"

@@ -7,10 +7,15 @@ description: "Filipino Community of Seattle"
 url: "https://www.eventbrite.com/o/filipino-community-of-seattle-56553753403"
 friendlyLink: https://www.filcommsea.org/
 tags: ["Community", "Rainier Valley"]
+imageUrl: "https://static.wixstatic.com/media/73496a_06c0b15b6c704c02b42e67f730\
+  75cd71~mv2.jpg"
 geo:
   lat: 47.5500466
   lng: -122.2871571
-  label: "Filipino Community Center, 5740 Martin Luther King Jr Way S, Seattle, WA 98118"
+  label: "Filipino Community Center, 5740 Martin Luther King Jr Way S, Seattle, WA
+    98118"
+  osmType: way
+  osmId: 234836853
 calendars:
   - name: filipino-community-seattle
     friendlyname: "Filipino Community of Seattle"
