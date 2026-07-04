@@ -1,3 +1,6 @@
+import { existsSync, readFileSync, mkdirSync, appendFileSync } from 'fs'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
 import {
   mockManifest,
   mockEvents,
@@ -6,10 +9,19 @@ import {
   mockIcs,
 } from './fixtures.js'
 
-// 256×256 solid pale-green (#e2eadd) PNG served for every OSM tile request
-// (below). Deliberately NOT Leaflet's #ddd pane color, so a capture where the
-// mock failed to serve (blank pane) is visually distinguishable from one
-// where tiles genuinely loaded.
+// Real OSM raster tiles committed as fixtures (see e2e/tiles/README.md), so
+// map screenshots show an actual rendered map while the suite stays hermetic
+// (no third-party requests at test time). Keyed by tile path, ignoring the
+// {a,b,c} subdomain. Cached after first read.
+const TILES_DIR = join(dirname(fileURLToPath(import.meta.url)), 'tiles')
+const MISSING_TILES_LOG = join(dirname(fileURLToPath(import.meta.url)), '..', 'test-results', 'missing-tiles.log')
+const tileCache = new Map()
+
+// Fallback for tile coordinates not covered by the fixtures: a 256×256 solid
+// pale-green (#e2eadd) PNG. Deliberately NOT Leaflet's #ddd pane color, so a
+// capture where fixtures are missing (viewport/zoom drift after a fixture or
+// spec change) is visually obvious — refetch with:
+//   node scripts/fetch-map-tiles.mjs   (reads test-results/missing-tiles.log)
 const MOCK_TILE_PNG = Buffer.from(
   'iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAACAElEQVR42u3TMQ0AAAgEsffvkYURFcxooEkVXHLpKXgrEmAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAOogAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAAMAAYAAwABgADgAHAAGAADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAANgABUwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADAAGAAOAAcAAYAAwABgADIABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA4ABwABgADAAGAAMAAYAA8C1+Bcn6Cl9RbkAAAAASUVORK5CYII=',
   'base64')
@@ -45,14 +57,30 @@ export async function installDataMocks(page) {
   await page.route('**/*.ics', (route) =>
     route.fulfill({ status: 200, contentType: 'text/calendar', body: mockIcs }))
 
-  // Map tiles: serve the static pale-green PNG above for every OSM tile
-  // request. Keeps the suite hermetic (no third-party requests, no
-  // network-dependent flakiness) and makes map screenshots deterministic —
-  // without this, tile loads race the capture and committed screenshots
-  // sometimes show a blank gray map (see e2e/screenshot.js, which waits for
-  // .leaflet-tile-loaded and relies on tiles resolving instantly).
-  await page.route('https://*.tile.openstreetmap.org/**', (route) =>
-    route.fulfill({ status: 200, contentType: 'image/png', body: MOCK_TILE_PNG }))
+  // Map tiles: serve committed fixture tiles (real OSM imagery) for every
+  // tile request, falling back to the pale-green placeholder for uncovered
+  // coordinates. Keeps the suite hermetic (no third-party requests, no
+  // network-dependent flakiness) and makes map screenshots deterministic AND
+  // real-looking (see e2e/screenshot.js, which waits for .leaflet-tile-loaded
+  // and relies on tiles resolving instantly). Uncovered tile paths are
+  // appended to test-results/missing-tiles.log so `node
+  // scripts/fetch-map-tiles.mjs` can backfill them after a spec change.
+  await page.route('https://*.tile.openstreetmap.org/**', (route) => {
+    const m = new URL(route.request().url()).pathname.match(/^\/(\d+)\/(\d+)\/(\d+)\.png$/)
+    const key = m ? `${m[1]}-${m[2]}-${m[3]}` : null
+    if (key && !tileCache.has(key)) {
+      const file = join(TILES_DIR, `${key}.png`)
+      tileCache.set(key, existsSync(file) ? readFileSync(file) : null)
+      if (tileCache.get(key) === null) {
+        try {
+          mkdirSync(dirname(MISSING_TILES_LOG), { recursive: true })
+          appendFileSync(MISSING_TILES_LOG, `${m[1]}/${m[2]}/${m[3]}\n`)
+        } catch { /* recording is best-effort */ }
+      }
+    }
+    const body = (key && tileCache.get(key)) || MOCK_TILE_PNG
+    return route.fulfill({ status: 200, contentType: 'image/png', body })
+  })
 
   // Favorites API: respond as logged-out so the app renders deterministically.
   await page.route('**/auth/me', (route) => route.fulfill({ status: 401, contentType: 'application/json', body: '{}' }))
