@@ -30854,12 +30854,12 @@
     "seatoday:cityspark-19319939": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 16.0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API (ppid:9228): Price=0, PriceHigh=0"
+      "evidence": "Seattle Children's Museum admission $16 WA residents / $18 non-WA; event is 'free with admission or membership' per description"
     },
     "seatoday:cityspark-19320970": {
       "fields": {
@@ -30904,12 +30904,12 @@
     "seatoday:cityspark-15998889": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 5.0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API (ppid:9228): Price=0, PriceHigh=0"
+      "evidence": "Eastside Audubon monthly walk; bellevuebotanical.org states 'Each walk costs $5 per person'"
     },
     "seatoday:cityspark-19323499": {
       "fields": {
@@ -30944,22 +30944,22 @@
     "seatoday:cityspark-18981047": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API: price not determinable from available data"
+      "evidence": "Edmonds Chamber: 'free to attend and open to members of the Edmonds Chamber and Edmonds Waterfront Center and any who are considering membership'"
     },
     "seatoday:cityspark-19320969": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API: price not determinable from available data"
+      "evidence": "City of Bellevue volunteer cleanup; bellevuewa.gov confirms free, cleanup supplies provided"
     },
     "seatoday:cityspark-19322179": {
       "fields": {
@@ -30974,42 +30974,42 @@
     "seatoday:cityspark-19320118": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API: price not determinable from available data"
+      "evidence": "UW academic grand rounds (CME lecture); standard academic grand rounds are free, no registration required"
     },
     "seatoday:cityspark-19306921": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API: price not determinable from available data"
+      "evidence": "Kirkland Urban open-air market and outdoor concert series; no ticket or admission mentioned"
     },
     "seatoday:cityspark-17161838": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API: price not determinable from available data"
+      "evidence": "Seattle Southside Chamber event page: Fees/Admission field shows 'Free'"
     },
     "seatoday:cityspark-18841694": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API: price not determinable from available data"
+      "evidence": "GSBA casual coffee shop meetup; description: 'just an opportunity to meet fellow Capitol Hill business owners'; no admission fee"
     },
     "seatoday:cityspark-18318126": {
       "fields": {
@@ -31024,12 +31024,12 @@
     "seatoday:cityspark-19321073": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "CitySpark API: price not determinable from available data"
+      "evidence": "City of Redmond: 'A free informational webinar intended for building owners, managers, and industry professionals'"
     },
     "seatoday:cityspark-19294940": {
       "fields": {
@@ -31040,6 +31040,17 @@
       "resolvedAt": "2026-07-04",
       "source": "agent",
       "evidence": "CitySpark API: Price=0 (general admission free), PriceHigh=1875 (sponsor/exhibitor packages excluded per rubric)"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqlbh1": {
+      "fields": {
+        "duration": 4500,
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "MLB.com confirms 75-min ballpark tour duration; Ticketmaster blocked from cloud - face value unknown (Vivid Seats resale from $67 excluded); start time not confirmed (12:30pm typical but Oct 2 date/gameday status unverified)"
     }
   }
 }
