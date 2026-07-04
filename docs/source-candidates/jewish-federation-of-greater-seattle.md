@@ -1,11 +1,11 @@
 ---
 name: "Jewish Federation of Greater Seattle"
-status: candidate
+status: added
 platform: ICS (Tribe Events / The Events Calendar)
 url: https://www.jewishinseattle.org/community-calendar/
 tags: [Community]
 firstSeen: 2026-07-03
-lastChecked: 2026-07-03
+lastChecked: 2026-07-04
 pr:
 ---
 
@@ -21,3 +21,7 @@ Investigated 2026-07-03:
   Zumba/dance classes, a UW Pacific Connections Garden walking tour, a summer softball
   league) — a mix of cultural, educational, and community programming, not worship services
 - 🔥 High confidence — verified ICS feed, ready for `sources/external/` as a standard ICS entry
+
+Implemented 2026-07-04: Added `sources/external/jewish-federation-of-greater-seattle.yaml`
+(`sourceRole: aggregator`, `geo: null`, `Community` tag). Local `ONLY_SOURCE` build confirmed
+29 events (17 upcoming) with 0 errors.
