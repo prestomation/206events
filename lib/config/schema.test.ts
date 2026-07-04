@@ -214,6 +214,38 @@ describe('toICS', () => {
       // And the URL survives unfolding (strip CRLF + leading space).
       expect(ics.replace(/\r\n /g, '')).toContain(longUrl);
     });
+
+    // A calendar whose parent ripper declares a venue photo. Events without
+    // their own image should fall back to it (display only); events with their
+    // own image keep it.
+    const makeCalendarWithVenue = (events: RipperCalendarEvent[], venueImage: string): RipperCalendar => ({
+      name: 'test-calendar',
+      friendlyname: 'Test Calendar',
+      events,
+      errors: [],
+      tags: [],
+      parent: {
+        name: 'venue',
+        geo: null,
+        imageUrl: venueImage,
+        calendars: [{ name: 'test-calendar' }],
+      } as any,
+    });
+
+    it('falls back to the venue photo for an event with no image of its own', async () => {
+      const ics = await toICS(makeCalendarWithVenue([makeEvent()], 'https://example.com/venue.jpg'));
+      const unfolded = ics.replace(/\r\n /g, '');
+      expect(unfolded).toContain('IMAGE;VALUE=URI;DISPLAY=BADGE;FMTTYPE=image/jpeg:https://example.com/venue.jpg');
+      expect(unfolded).toContain('ATTACH;FMTTYPE=image/jpeg:https://example.com/venue.jpg');
+    });
+
+    it("keeps the event's own image over the venue fallback", async () => {
+      const event = makeEvent({ imageUrl: 'https://example.com/event-specific.png' });
+      const ics = await toICS(makeCalendarWithVenue([event], 'https://example.com/venue.jpg'));
+      const unfolded = ics.replace(/\r\n /g, '');
+      expect(unfolded).toContain('https://example.com/event-specific.png');
+      expect(unfolded).not.toContain('venue.jpg');
+    });
   });
 });
 

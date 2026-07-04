@@ -340,6 +340,24 @@ function foldIcsLine(line: string): string {
     return out;
 }
 
+/**
+ * Resolve the venue photo to use as a DISPLAY-ONLY fallback for events that
+ * have no image of their own. Calendar-level `imageUrl` wins over ripper-level,
+ * mirroring the `cost`/`geo` precedence.
+ *
+ * Deliberately NOT written onto `event.imageUrl`: that field means "the event's
+ * own image" and is what the photo-gap backfill queue (`buildPhotoGaps`) keys
+ * on. A venue photo is a placeholder for the card and the ICS feed, not a
+ * resolved event image — stamping it onto the event would drop the event out of
+ * the backfill queue and it would never get a real event-specific photo.
+ * Recurring calendars (no `parent`) return undefined; their events already carry
+ * their own `imageUrl` from the recurring YAML.
+ */
+export function venueImageForCalendar(calendar: RipperCalendar): string | undefined {
+    const calendarCfg = calendar.parent?.calendars.find(c => c.name === calendar.name);
+    return calendarCfg?.imageUrl ?? calendar.parent?.imageUrl;
+}
+
 export const toICS = async (calendar: RipperCalendar): Promise<string> => {
 
     const mapped: icsOriginal.EventAttributes[] = calendar.events.map(e => {
@@ -436,8 +454,10 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
     // emitting one VEVENT per `calendar.events` entry in the same order (every
     // event validates, since createICSEvents would otherwise reject). We walk
     // BEGIN:VEVENT boundaries and inject right after each block's opener for
-    // the matching event when it carries an imageUrl.
-    if (calendar.events.some(e => e.imageUrl)) {
+    // the matching event's image — its own `imageUrl` if present, otherwise the
+    // venue photo as a display fallback (see venueImageForCalendar).
+    const venueImageUrl = venueImageForCalendar(calendar);
+    if (calendar.events.some(e => e.imageUrl) || venueImageUrl) {
         const lines = ics.split('\r\n');
         const out: string[] = [];
         let eventIdx = -1;
@@ -455,7 +475,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
                     );
                     continue;
                 }
-                const raw = calendar.events[eventIdx]?.imageUrl;
+                const raw = calendar.events[eventIdx]?.imageUrl ?? venueImageUrl;
                 const url = raw ? safeUrl(raw) : undefined;
                 if (url) {
                     const mime = imageMimeFromUrl(url);

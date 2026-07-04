@@ -16,6 +16,7 @@ import {
   EventCost,
   UncertaintyField,
   SourceRole,
+  venueImageForCalendar,
 } from "./config/schema.js";
 import { getFetchForConfig } from "./config/proxy-fetch.js";
 import {
@@ -405,22 +406,6 @@ export function attachEventCost(calendar: RipperCalendar): void {
   if (!defaultCost) return;
   for (const event of calendar.events) {
     if (event.cost === undefined) event.cost = defaultCost;
-  }
-}
-
-/**
- * Apply the source-declared `imageUrl` default to every event the ripper
- * didn't photograph. Calendar-level `imageUrl` wins over ripper-level,
- * mirroring `attachEventCost`/`attachEventCoords` precedence; a
- * ripper-parsed photo or a cache resolution (applyImageBackfill, which runs
- * earlier) always wins over this YAML default. Mutates events in place.
- */
-export function attachEventImage(calendar: RipperCalendar): void {
-  const calendarCfg = calendar.parent?.calendars.find(c => c.name === calendar.name);
-  const defaultImage = calendarCfg?.imageUrl ?? calendar.parent?.imageUrl;
-  if (!defaultImage) return;
-  for (const event of calendar.events) {
-    if (event.imageUrl === undefined) event.imageUrl = defaultImage;
   }
 }
 
@@ -868,7 +853,6 @@ export const main = async () => {
       totalErrorCount += errorCount;
       geoCache = await attachEventCoords(calendar, geoCache, geocodeErrors);
       attachEventCost(calendar);
-      attachEventImage(calendar);
       const icsString = await toICS(calendar);
       const calConfig = config.config.calendars.find(c => c.name === calendar.name);
       const isExpectEmpty = calConfig?.expectEmpty ?? config.config.expectEmpty ?? false;
@@ -1272,11 +1256,17 @@ END:VCALENDAR`;
     // Skip calendars excluded from manifest (no future events)
     if (!calendarsWithFutureEvents.has(icsUrl)) continue;
 
+    // Venue photo used as a display fallback for events without their own image
+    // (see venueImageForCalendar). Deliberately not written onto event.imageUrl,
+    // so those events stay in the photo-gap backfill queue below.
+    const venueImageUrl = venueImageForCalendar(calendar);
+
     for (const event of calendar.events) {
       // Coordinates were resolved once by attachEventCoords before the ICS
       // write (the single resolution pass — see that function's note on error
       // parity). Read the attached fields here rather than geocoding again.
       const { lat, lng, osmType, osmId, geocodeSource } = event;
+      const displayImageUrl = event.imageUrl ?? venueImageUrl;
 
       eventsIndex.push({
         icsUrl,
@@ -1292,7 +1282,7 @@ END:VCALENDAR`;
         date: zdtToIndexDate(event.date),
         endDate: zdtToIndexDate(event.date.plus(event.duration)),
         url: event.url,
-        ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+        ...(displayImageUrl ? { imageUrl: displayImageUrl } : {}),
         ...(event.cost ? { cost: event.cost } : {}),
         ...(lat !== undefined ? { lat } : {}),
         ...(lng !== undefined ? { lng } : {}),
@@ -1967,6 +1957,10 @@ END:VCALENDAR`;
         summary: event.summary,
         date: zdtToIndexDate(event.date),
         url: event.url,
+        // The event's OWN image only (ripper-parsed or cache-backfilled). The
+        // venue-photo display fallback (venueImageForCalendar) is intentionally
+        // not applied here, so an event that only shows the generic venue photo
+        // stays in this backfill queue until it gets a real event-specific one.
         imageUrl: event.imageUrl,
       });
       ripperEventsForCostGaps.push({
