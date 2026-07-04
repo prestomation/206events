@@ -55,11 +55,13 @@ Reported metrics (all lower-is-better, medians over `--runs`, default 3):
 | `tapResponse` | Tap Following → nav-state painted (ms), tapped mid-swap | the user-reported symptom, directly | ±100 ms |
 | `splashTime` | Navigation → splash detached (ms) | boot-path regressions | ±300 ms |
 | `mapOpen` | Tap Map (post-settle, first open) → Leaflet container painted (ms) | map chunk load + Leaflet init + marker pipeline over the full corpus | ±200 ms |
+| `mapReopen` | Tap Map a second time (after leaving the tab) → Leaflet painted (ms) | the recurring per-visit cost: leaving the tab unmounts Leaflet, so every re-entry pays init + marker pipeline again, chunk already cached | ±200 ms |
+| `youOpen` | Tap You from Discover (post-settle) → nav-state painted (ms) | full-view teardown/mount on tab switch + the shell-wide re-render every section change causes | ±150 ms |
 
 "Settle" = 12 s after the full-index response (enough for the swap render and
 follow-on effects at 4× throttle; tunable).
 
-The two taps are deliberately split so each metric has one owner when it
+The taps are deliberately split so each metric has one owner when it
 moves: `tapResponse` taps **Following** mid-swap — a cheap empty-feed view,
 so it isolates "did the app yield to input during the swap render" (the
 regression class the `startTransition` fix addresses). `mapOpen` taps **Map**
@@ -68,6 +70,19 @@ cleanly captures the lazy-chunk + Leaflet-init + marker-pipeline cost without
 racing the swap. Tapping Map mid-swap instead was considered and rejected:
 it conflates four causes (swap block, chunk fetch over CI network, Leaflet
 init, marker build) into one number that can't tell you what regressed.
+
+The post-settle tab-switch pair (`mapReopen`, `youOpen`) measures the
+steady-state click experience — the user-reported "clicking You or the Map
+is quite slow once the page is loaded" symptom. `mapReopen` re-opens the Map
+tab after leaving it: the content area is keyed by section, so the re-entry
+pays Leaflet init + the marker pipeline again with the chunk cache warm —
+exactly the cost a keep-the-map-mounted fix would eliminate. `youOpen` taps
+You from Discover: it owns the synchronous teardown of the heaviest list view
+plus the You mount and the shell-wide re-render a section change triggers.
+Each measured tap starts from a quiet main thread (post-transition paint +
+500 ms pause) so it owns only its own transition. See
+`docs/web-tab-switch-performance.md` for the improvement plan these two
+metrics are designed to verify.
 
 ## Architecture (mirrors Lighthouse exactly)
 
@@ -94,10 +109,11 @@ Per run: fresh browser context → init scripts (long-task observer, FTUX flag
 pre-set so the welcome modal doesn't intercept the tap) → route-delay
 `events-index.json` → navigate → wait splash detached → wait 500 ms → tap
 Following → wait nav-active + double-rAF → wait settle → collect → open the
-Map tab via Discover. Output is `{ metrics: { worstTask, totalBlock,
-swapBlock, tapResponse, splashTime, mapOpen }, runs: [...], meta: { url, cpu,
-runs, indexDelayMs, settleMs } }` with each metric the **median** across
-runs. A non-2xx page load or a missing splash/nav selector fails the run
+Map tab via Discover → back to Discover and re-open Map → back to Discover
+and open You. Output is `{ metrics: { worstTask, totalBlock, swapBlock,
+tapResponse, splashTime, mapOpen, mapReopen, youOpen }, runs: [...], meta:
+{ url, cpu, runs, indexDelayMs, settleMs } }` with each metric the
+**median** across runs. A non-2xx page load or a missing splash/nav selector fails the run
 loudly (a broken harness must not report a green-looking 0). Tap latency is
 stamped from Node wall-clock anchored to the page's constant
 `performance.timeOrigin` — an in-page timestamp (or a sampled

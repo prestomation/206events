@@ -12,7 +12,9 @@
 // with it active, the delay below is a race), and the full events-index.json
 // response delayed so the splash always dismisses on the "soon" payload first.
 // Then: tap Following mid-swap (tapResponse), let the swap settle, snapshot
-// long tasks, and finally open the Map tab from Discover (mapOpen).
+// long tasks, and finally exercise post-settle tab switches: first Map open
+// from Discover (mapOpen), a second Map open after leaving the tab
+// (mapReopen), and a Discover → You switch (youOpen).
 //
 // Emits { metrics, runs, meta } with each metric the MEDIAN across runs.
 // Any run failure exits non-zero — a broken harness must not look green.
@@ -161,6 +163,41 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
     const mapPainted = await afterPaint()
     const mapOpen = mapPainted - mapAt
 
+    // --- mapReopen: leave the Map tab, then open it a second time ----------
+    // Leaving the tab unmounts Leaflet entirely (the content area is keyed by
+    // section), so every RE-entry pays init + the full marker pipeline again.
+    // With the lazy map chunk already cached by mapOpen, this isolates that
+    // recurring cost from mapOpen's one-time chunk fetch. The detached wait +
+    // paint + pause make sure the measured tap starts from a quiet main
+    // thread with the old map fully torn down.
+    await page.mouse.click(discoverXY.x, discoverXY.y)
+    await navActive('Discover')
+    await page.waitForSelector('.leaflet-container', { state: 'detached', timeout: 60_000 })
+    await afterPaint()
+    await page.waitForTimeout(500)
+    const mapReopenAt = pageNow()
+    await page.mouse.click(mapXY.x, mapXY.y)
+    await page.waitForSelector('.leaflet-container', { state: 'visible', timeout: 60_000 })
+    const mapReopenPainted = await afterPaint()
+    const mapReopen = mapReopenPainted - mapReopenAt
+
+    // --- youOpen: Discover → You switch, post-settle -----------------------
+    // The representative "You is slow" transition: tearing down the (largest)
+    // Discover view and mounting You in one synchronous commit, under the
+    // shell-wide re-render every section change causes. Routed via Discover so
+    // the metric owns that transition rather than a Map teardown.
+    await page.mouse.click(discoverXY.x, discoverXY.y)
+    await navActive('Discover')
+    await page.waitForSelector('.leaflet-container', { state: 'detached', timeout: 60_000 })
+    await afterPaint()
+    await page.waitForTimeout(500)
+    const youXY = await navBox('You')
+    const youAt = pageNow()
+    await page.mouse.click(youXY.x, youXY.y)
+    await navActive('You')
+    const youPainted = await afterPaint()
+    const youOpen = youPainted - youAt
+
     const round = (v) => Math.round(v)
     return {
       worstTask: round(worstTask),
@@ -169,6 +206,8 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
       tapResponse: round(tapResponse),
       splashTime: round(splashTime),
       mapOpen: round(mapOpen),
+      mapReopen: round(mapReopen),
+      youOpen: round(youOpen),
     }
   } finally {
     await context.close()
