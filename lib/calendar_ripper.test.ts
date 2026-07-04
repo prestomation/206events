@@ -10,6 +10,7 @@ import {
   createAggregateCalendars
 } from './tag_aggregator.js';
 import { hasFutureEventsInICS, attachEventCoords, attachEventCost } from './calendar_ripper.js';
+import { venueImageForCalendar } from './config/schema.js';
 
 // Mock the file system operations
 vi.mock('fs/promises', () => ({
@@ -493,5 +494,40 @@ describe('attachEventCost', () => {
     const event: any = makeEvent();
     attachEventCost(makeCalendar([event]));
     expect(event.cost).toBeUndefined();
+  });
+});
+
+describe('venueImageForCalendar', () => {
+  const makeCalendar = (parentImage?: string, calendarImage?: string): RipperCalendar => ({
+    name: 'cal',
+    friendlyname: 'Cal',
+    events: [],
+    errors: [],
+    tags: [],
+    parent: {
+      name: 'venue',
+      geo: null,
+      ...(parentImage ? { imageUrl: parentImage } : {}),
+      calendars: [{ name: 'cal', ...(calendarImage ? { imageUrl: calendarImage } : {}) }],
+    } as any,
+  });
+
+  it('returns the ripper-level imageUrl as the venue fallback', () => {
+    expect(venueImageForCalendar(makeCalendar('https://example.com/venue.jpg')))
+      .toBe('https://example.com/venue.jpg');
+  });
+
+  it('calendar-level imageUrl wins over ripper-level (mirrors cost precedence)', () => {
+    expect(venueImageForCalendar(makeCalendar('https://example.com/venue.jpg', 'https://example.com/branch.jpg')))
+      .toBe('https://example.com/branch.jpg');
+  });
+
+  it('returns undefined when no imageUrl is declared anywhere', () => {
+    expect(venueImageForCalendar(makeCalendar())).toBeUndefined();
+  });
+
+  it('returns undefined for a recurring calendar (no parent)', () => {
+    const recurring: RipperCalendar = { name: 'cal', friendlyname: 'Cal', events: [], errors: [], tags: [] };
+    expect(venueImageForCalendar(recurring)).toBeUndefined();
   });
 });

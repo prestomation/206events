@@ -29777,7 +29777,7 @@
     "events12:fireworks-party-2026-07-04": {
       "fields": {
         "cost": {
-          "min": 50.0
+          "min": 50
         }
       },
       "resolvedAt": "2026-07-02",
@@ -29787,8 +29787,8 @@
     "events12:traditional-music-2026-07-04": {
       "fields": {
         "cost": {
-          "min": 40.0,
-          "max": 50.0
+          "min": 40,
+          "max": 50
         }
       },
       "resolvedAt": "2026-07-02",
@@ -30375,7 +30375,7 @@
     "new-tech-seattle:new-tech-seattle-313629078": {
       "fields": {
         "cost": {
-          "min": 21.0
+          "min": 21
         }
       },
       "resolvedAt": "2026-07-02",
@@ -30681,7 +30681,10 @@
     "northwest-film-forum:camp1-2026-2026-07-20": {
       "fields": {
         "startTime": "10:00",
-        "duration": 18000
+        "duration": 18000,
+        "cost": {
+          "min": 375
+        }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -30690,7 +30693,10 @@
     "northwest-film-forum:camp2-2026-2026-07-27": {
       "fields": {
         "startTime": "10:00",
-        "duration": 18000
+        "duration": 18000,
+        "cost": {
+          "min": 375
+        }
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -30848,7 +30854,7 @@
     "seatoday:cityspark-19319939": {
       "fields": {
         "cost": {
-          "min": 16.0
+          "min": 16
         }
       },
       "resolvedAt": "2026-07-04",
@@ -30898,7 +30904,7 @@
     "seatoday:cityspark-15998889": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-07-04",
@@ -31045,6 +31051,3175 @@
       "resolvedAt": "2026-07-04",
       "source": "agent",
       "evidence": "MLB.com confirms 75-min ballpark tour duration; Ticketmaster blocked from cloud - face value unknown (Vivid Seats resale from $67 excluded); start time not confirmed (12:30pm typical but Oct 2 date/gameday status unverified)"
+    },
+    "northwest-film-forum:free-forum-babe-pig-in-the-city-2026-07-09": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-babe-pig-in-the-city/"
+    },
+    "northwest-film-forum:free-forum-beau-travail-2026-07-08": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-beau-travail/"
+    },
+    "northwest-film-forum:free-forum-blue-velvet-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-blue-velvet/"
+    },
+    "northwest-film-forum:free-forum-cure-2026-07-09": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-cure/"
+    },
+    "northwest-film-forum:free-forum-happy-together-2026-07-10": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-happy-together/"
+    },
+    "northwest-film-forum:free-forum-killer-of-sheep-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-killer-of-sheep/"
+    },
+    "northwest-film-forum:free-forum-memoria-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-memoria/"
+    },
+    "northwest-film-forum:free-forum-mississippi-masala-2026-07-08": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-mississippi-masala/"
+    },
+    "northwest-film-forum:free-forum-soundtrack-to-a-coup-detat-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-soundtrack-to-a-coup-detat/"
+    },
+    "northwest-film-forum:free-forum-stop-making-sense-2026-07-10": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-stop-making-sense/"
+    },
+    "northwest-film-forum:free-forum-the-young-girls-of-rochefort-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-the-young-girls-of-rochefort/"
+    },
+    "northwest-film-forum:free-forum-thief-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-thief/"
+    },
+    "northwest-film-forum:free-forum-who-framed-roger-rabbit-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-who-framed-roger-rabbit/"
+    },
+    "northwest-film-forum:free-forum-yi-yi-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/free-forum-yi-yi/"
+    },
+    "northwest-film-forum:animation-domination-persepolis-2026-07-26": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/animation-domination-persepolis/"
+    },
+    "northwest-film-forum:animation-domination-the-land-before-time-2026-07-19": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/animation-domination-the-land-before-time/"
+    },
+    "northwest-film-forum:animation-domination-the-last-unicorn-2026-08-02": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/animation-domination-the-last-unicorn/"
+    },
+    "northwest-film-forum:animation-domination-the-wolf-house-2026-08-16": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/animation-domination-the-wolf-house/"
+    },
+    "northwest-film-forum:asco-without-permission-2026-07-15": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/asco-without-permission/"
+    },
+    "northwest-film-forum:beacon-of-flesh-2026-07-29": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/beacon-of-flesh/"
+    },
+    "northwest-film-forum:camp-2026-07-25": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/camp/"
+    },
+    "northwest-film-forum:drunken-noodles-2026-07-31": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/drunken-noodles/"
+    },
+    "northwest-film-forum:squeakyfest-seattle-2026-07-22": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/events/squeakyfest-seattle/"
+    },
+    "northwest-film-forum:wtf-with-stuff-transexual-menace-2026-07-15": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-transexual-menace/"
+    },
+    "northwest-film-forum:love-lies-bleeding-2026-07-28": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/love-lies-bleeding/"
+    },
+    "northwest-film-forum:early-summer-2026-07-17": {
+      "fields": {
+        "cost": {
+          "min": 12
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/early-summer/"
+    },
+    "northwest-film-forum:indie-v-industry-fireside-chat-joey-goldie-2026-08-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/indie-v-industry-fireside-chat-joey-goldie/"
+    },
+    "northwest-film-forum:page-screen-animation-case-study-2026-07-07": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/page-screen-animation-case-study/"
+    },
+    "northwest-film-forum:work-progress-screening-like-father-like-daughter-2026-08-04": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/work-progress-screening-like-father-like-daughter/"
+    },
+    "chophouse-row:67103733cfc2481c77f6224a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/small-business-meetup"
+    },
+    "chophouse-row:686dafcd32a6da15cda48185": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/writing-happy-hour-november20"
+    },
+    "chophouse-row:69f92c0847489f552cf79e70": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/lit-up"
+    },
+    "chophouse-row:6a2735b7fa05a034ae55791e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a2735e573c1e86e3b6d9c62": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a273639137ea337b20ec648": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a27366c0e75854307d33841": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a27368ef2a712529843dca5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a2736c652e7b74ad7d58c46": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a2736f9137ea337b20f388a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a3f0298998b557fec53dbf1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a3f02cfddbc962f4289408e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a3f02efe9f8d02628b62e0d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a3f03637df51e62b626c9f6": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a3f03b47de30e3e1214c433": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444dcc4f47ae59758453ee": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444e0c4fa8a62b86680c9a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444e45cf60b2614ac863b1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444e762ba6933c2839662f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444eb13b49e13d6c1928ad": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444f0bbd80f67cdadcb402": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444f294fa8a62b86688331": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444f536a0397051b72bf2a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a444f7a3b49e13d6c1987a1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:67193e5fd001cd6beebc8ac8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/yoga-with-jennifer-isaacson-x-sweatbox"
+    },
+    "chophouse-row:67d05dcf8912b207a71213ef": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/hand-sewing-basics-july12"
+    },
+    "side-rail-collective:69cd55c0c107ce74625b980d": {
+      "fields": {
+        "cost": {
+          "min": 25
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/circle-singing-june-ssmc9"
+    },
+    "side-rail-collective:69cd55f7aa9c1b7ce78b13f4": {
+      "fields": {
+        "cost": {
+          "min": 25
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/circle-singing-june-ssmc9"
+    },
+    "side-rail-collective:69cd5621967c754e69416551": {
+      "fields": {
+        "cost": {
+          "min": 25
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/circle-singing-june-ssmc9"
+    },
+    "side-rail-collective:6a41a2c67df51e62b6b48883": {
+      "fields": {
+        "cost": {
+          "min": 25
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/circle-singing-june-ssmc9"
+    },
+    "side-rail-collective:6a41a2ceb52a355c76f04b83": {
+      "fields": {
+        "cost": {
+          "min": 25
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/circle-singing-june-ssmc9"
+    },
+    "side-rail-collective:6a41a2d0a29f3368b75c8f17": {
+      "fields": {
+        "cost": {
+          "min": 25
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/circle-singing-june-ssmc9"
+    },
+    "side-rail-collective:69fc1b71aa38606b699e0034": {
+      "fields": {
+        "cost": {
+          "min": 35
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/astro-collage-july12"
+    },
+    "side-rail-collective:69fc1bb7bc493c2c4c6d8b26": {
+      "fields": {
+        "cost": {
+          "min": 35
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/astro-collage-july12"
+    },
+    "side-rail-collective:69fc1c9b630ea43fe2e7bce6": {
+      "fields": {
+        "cost": {
+          "min": 35
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/astro-collage-july12"
+    },
+    "side-rail-collective:6a1a1913c057810a68c05318": {
+      "fields": {
+        "cost": {
+          "min": 70
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/healing-expressions-workshop"
+    },
+    "side-rail-collective:69cd58d3cc500a7fccc7beab": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/open-arts-night-kn78w-zhc4c-x8eah-9lg2c"
+    },
+    "side-rail-collective:69f6cc132a65a5690ab1091a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:69f6cc1581d0a268e8af6bca": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:69f6cc18b3939129ffa2cda1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:69f6cc1be61f4720c274ef0e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:69f6cc1e82601b1a55b0f577": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a15ba66698f233b223a3f6b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a15bb9903b7082013c3dcd1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a28db3f6230ef37a6f187fd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a41a88f432e78103753bed6": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a41a8b65edbeb6537b9d5f8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a4188735ae8be5469e280d7": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "No pricing signal on the event page, the venue calendar, or the venue site \u2014 genuinely unpublished"
+    },
+    "side-rail-collective:6a41a205be9e5d3af1f4c8ec": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "No pricing signal on the event page, the venue calendar, or the venue site \u2014 genuinely unpublished"
+    },
+    "side-rail-collective:6a41a249acaeac2e2122f7aa": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "No pricing signal on the event page, the venue calendar, or the venue site \u2014 genuinely unpublished"
+    },
+    "side-rail-collective:6a41a34dacaeac2e212339a2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "No pricing signal on the event page, the venue calendar, or the venue site \u2014 genuinely unpublished"
+    },
+    "side-rail-collective:6a41a37fbeb5e427893000ae": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "No pricing signal on the event page, the venue calendar, or the venue site \u2014 genuinely unpublished"
+    },
+    "side-rail-collective:6a41a38222df9302fa4dde90": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "No pricing signal on the event page, the venue calendar, or the venue site \u2014 genuinely unpublished"
+    },
+    "seattle-center:lets-play-sea-26-watch-parties-at-mural-amphitheatre-x47993": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-watch-parties-at-mural-amphitheatre-x47993"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47695": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47695"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47660": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-marketplace-x47660"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46339": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "Self-guided all-day walking activity across Seattle Center grounds; no fixed start time or duration published"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47643": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "Self-paced virtual 5K completable anytime May 16 - July 15; no fixed start time"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47322": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "reason": "Sculpture carving occurs July 1-8 9am-6pm; the calendared date (July 14) is mid-way through an open-ended public-viewing period through July 19 with no set visiting hours"
+    },
+    "seatoday:cityspark-17685260": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/board-of-directors-meeting/17685260/2026-07-17T00"
+    },
+    "seattle-food-trucks:sft-143890": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143891": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143892": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143893": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143894": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143895": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143896": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143897": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143898": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143899": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143900": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143901": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143902": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143903": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143904": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143905": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143906": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143907": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143908": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143909": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-143910": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144347": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144348": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144349": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144350": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144697": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144698": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144699": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144700": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144951": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144952": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144953": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144954": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144955": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144956": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144957": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-144958": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145084": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145085": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145086": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145087": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145088": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145089": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145090": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145091": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145092": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145093": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145094": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145095": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145096": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145097": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145098": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145099": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145100": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145101": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145102": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145103": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145104": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145259": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145260": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145261": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145262": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145263": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145264": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145265": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145266": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145267": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145268": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145269": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145270": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145271": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145272": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145273": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145274": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145275": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145276": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145277": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145278": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145279": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145434": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145435": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145436": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145437": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145438": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145439": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145440": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145441": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145442": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145443": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145444": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145445": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145446": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145447": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145448": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145449": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145450": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145451": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145452": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145453": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145454": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145651": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145652": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145653": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145654": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145655": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145656": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145657": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145658": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145659": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-145660": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146362": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146363": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146364": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146365": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146366": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146367": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146368": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146369": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146370": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146371": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146372": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146373": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146374": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146375": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146376": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146377": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146378": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146379": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146380": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146381": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146382": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146383": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146384": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146385": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146386": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146387": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146388": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146389": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146390": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146391": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146392": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146607": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146608": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146609": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146610": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146611": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146612": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146613": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146614": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146615": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146616": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146617": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146618": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146619": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146620": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146621": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146622": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146623": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146624": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146625": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146626": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146627": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146628": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146630": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146631": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146632": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146633": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146634": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146635": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146636": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146637": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146807": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146808": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146809": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146810": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146811": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146812": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146813": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146814": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146815": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146877": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146878": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146879": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146880": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146881": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146882": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146883": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146884": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146885": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146955": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146956": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146957": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146958": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146959": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146960": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146961": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146962": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146963": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146964": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146965": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-146966": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147060": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147061": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147062": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147063": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147064": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147065": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147066": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147067": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147068": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147069": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147070": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147071": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147406": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147407": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147408": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-147409": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149258": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149274": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149857": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149860": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149863": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149864": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149865": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149866": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149867": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149868": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149869": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149870": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149871": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149872": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149873": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149874": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-149875": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150501": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150505": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150510": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150511": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150512": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150513": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150614": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150626": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150666": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150667": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150668": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150669": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150670": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150671": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150672": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150673": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150674": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150675": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150676": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150677": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150678": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150679": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150680": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150681": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150682": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150683": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150684": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150685": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150686": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150796": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150797": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150798": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150799": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150800": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150801": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150802": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150803": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150804": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150805": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150806": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150807": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150808": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150809": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150810": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150811": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150812": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150813": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150814": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150815": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150816": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150844": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150845": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150848": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150849": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150850": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "seattle-food-trucks:sft-150851": {
+      "fields": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+      },
+      "resolvedAt": "2026-07-04",
+      "source": "agent",
+      "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
     }
   }
 }

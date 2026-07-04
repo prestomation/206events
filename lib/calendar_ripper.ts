@@ -16,6 +16,7 @@ import {
   EventCost,
   UncertaintyField,
   SourceRole,
+  venueImageForCalendar,
 } from "./config/schema.js";
 import { getFetchForConfig } from "./config/proxy-fetch.js";
 import {
@@ -1255,11 +1256,17 @@ END:VCALENDAR`;
     // Skip calendars excluded from manifest (no future events)
     if (!calendarsWithFutureEvents.has(icsUrl)) continue;
 
+    // Venue photo used as a display fallback for events without their own image
+    // (see venueImageForCalendar). Deliberately not written onto event.imageUrl,
+    // so those events stay in the photo-gap backfill queue below.
+    const venueImageUrl = venueImageForCalendar(calendar);
+
     for (const event of calendar.events) {
       // Coordinates were resolved once by attachEventCoords before the ICS
       // write (the single resolution pass — see that function's note on error
       // parity). Read the attached fields here rather than geocoding again.
       const { lat, lng, osmType, osmId, geocodeSource } = event;
+      const displayImageUrl = event.imageUrl ?? venueImageUrl;
 
       eventsIndex.push({
         icsUrl,
@@ -1275,7 +1282,7 @@ END:VCALENDAR`;
         date: zdtToIndexDate(event.date),
         endDate: zdtToIndexDate(event.date.plus(event.duration)),
         url: event.url,
-        ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+        ...(displayImageUrl ? { imageUrl: displayImageUrl } : {}),
         ...(event.cost ? { cost: event.cost } : {}),
         ...(lat !== undefined ? { lat } : {}),
         ...(lng !== undefined ? { lng } : {}),
@@ -1325,7 +1332,10 @@ END:VCALENDAR`;
             date: zdtToIndexDate(event.date),
             endDate: zdtToIndexDate(event.date.plus(event.duration)),
             url: event.url,
-            ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
+            // ICS has no standard IMAGE property most feeds populate — external
+            // events inherit the feed-level YAML `imageUrl` when the feed didn't
+            // carry its own, mirroring the `cost` fallback below.
+            ...(event.imageUrl ?? calendar.imageUrl ? { imageUrl: event.imageUrl ?? calendar.imageUrl } : {}),
             // ICS has no standard price property — external events inherit
             // the feed-level YAML `cost` declaration when present.
             ...(calendar.cost ? { cost: calendar.cost } : {}),
@@ -1940,15 +1950,27 @@ END:VCALENDAR`;
     if (!calendar.parent) continue; // recurring events are venues, covered by venueGaps
     const icsUrl = `${calendar.parent.name}-${calendar.name}.ics`;
     if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+    // Sources that declare `skipEventPhotos` have no harvestable per-event
+    // image — the venue photo is the intended image for every event — so their
+    // events are kept out of the photo backfill queue entirely (they still
+    // display the venue photo via venueImageForCalendar). Cost gaps are
+    // unaffected.
+    const skipEventPhotos = calendar.parent.skipEventPhotos === true;
     for (const event of calendar.events) {
-      ripperEventsForPhotoGaps.push({
-        source: calendar.parent.name,
-        id: event.id,
-        summary: event.summary,
-        date: zdtToIndexDate(event.date),
-        url: event.url,
-        imageUrl: event.imageUrl,
-      });
+      if (!skipEventPhotos) {
+        ripperEventsForPhotoGaps.push({
+          source: calendar.parent.name,
+          id: event.id,
+          summary: event.summary,
+          date: zdtToIndexDate(event.date),
+          url: event.url,
+          // The event's OWN image only (ripper-parsed or cache-backfilled). The
+          // venue-photo display fallback (venueImageForCalendar) is intentionally
+          // not applied here, so an event that only shows the generic venue photo
+          // stays in this backfill queue until it gets a real event-specific one.
+          imageUrl: event.imageUrl,
+        });
+      }
       ripperEventsForCostGaps.push({
         source: calendar.parent.name,
         id: event.id,
@@ -1968,6 +1990,11 @@ END:VCALENDAR`;
     unresolvableImageKeys: unresolvableKeys,
   });
   const photoStats = {
+    // Display coverage: counts events-index entries that render an image,
+    // which includes the venue-photo fallback (venueImageForCalendar). This is
+    // intentionally broader than photoGaps below, which counts events lacking
+    // their OWN image (the backfill work queue) — a venue-only event shows a
+    // photo (counted here) yet still wants a real one (still a gap there).
     eventsWithImage: eventsIndex.filter(e => e.imageUrl).length,
     totalEvents: eventsIndex.length,
     venuesWithImage: venuesDoc.venues.filter(v => v.imageUrl).length,

@@ -153,6 +153,7 @@ export class RecurringEventProcessor {
                 location: event.location,
                 url: event.url,
                 ...(event.cost ? { cost: event.cost } : {}),
+                ...(event.imageUrl ? { imageUrl: event.imageUrl } : {}),
                 rrule: rrule
             });
         }

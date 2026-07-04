@@ -19,7 +19,7 @@ import {
   EventCountLike,
   VenueEntry,
 } from "./discovery.js";
-import { RipperConfig, ExternalCalendar, OSM_CHECKED_COOLDOWN_DAYS } from "./config/schema.js";
+import { RipperConfig, ExternalCalendar, OSM_CHECKED_COOLDOWN_DAYS, RipperCalendar, venueImageForCalendar } from "./config/schema.js";
 import { RecurringEvent } from "./config/recurring.js";
 import cityConfig from "../city.config.js";
 
@@ -1192,6 +1192,41 @@ describe("buildPhotoGaps", () => {
     });
     expect(() => photoGapsSchema.parse(gaps)).not.toThrow();
     expect(gaps.eventGaps.map(e => e.source)).toEqual(["alpha", "zeta"]);
+  });
+
+  // Regression guard for the venue-photo fallback contract (PR #843): an event
+  // that only shows the venue photo must (a) render an image on the card, yet
+  // (b) STAY in the backfill queue so the photo-resolver still gets it a real
+  // one. This models both sides of the build wiring with the real helpers:
+  // the events-index card resolves `event.imageUrl ?? venueImageForCalendar`,
+  // while buildPhotoGaps receives the event's OWN (unfilled) imageUrl.
+  it("keeps a venue-photo-only event in the backfill queue while it still displays an image", () => {
+    const calendar: RipperCalendar = {
+      name: "cal",
+      friendlyname: "Cal",
+      events: [],
+      errors: [],
+      tags: [],
+      parent: {
+        name: "venue",
+        geo: null,
+        imageUrl: "https://example.com/venue.jpg",
+        calendars: [{ name: "cal" }],
+      } as any,
+    };
+    const ownImageUrl = undefined; // event has no image of its own
+
+    // (a) The card falls back to the venue photo, so it renders an image.
+    const displayImageUrl = ownImageUrl ?? venueImageForCalendar(calendar);
+    expect(displayImageUrl).toBe("https://example.com/venue.jpg");
+
+    // (b) The gap queue sees only the OWN imageUrl, so the event stays queued.
+    const gaps = buildPhotoGaps({
+      venues: [],
+      ripperEvents: [{ source: "venue", id: "e1", summary: "Show", date: "2026-06-01T20:00:00-07:00", imageUrl: ownImageUrl }],
+      unresolvableImageKeys: new Set(),
+    });
+    expect(gaps.eventGaps.map(e => e.eventId)).toEqual(["e1"]);
   });
 });
 

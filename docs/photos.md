@@ -39,6 +39,18 @@ shared `event-uncertainty-cache.json`, keyed `source:eventId`, for events that
 don't already have one. It never overwrites an existing image and skips entries
 marked `unresolvable`. See `docs/event-uncertainty.md`.
 
+### Venue-photo display fallback
+
+An event that still has no image after ripper-parse and backfill falls back to
+its **venue photo** for display only. `venueImageForCalendar` (`lib/config/
+schema.ts`) resolves the calendar/ripper-level `imageUrl`, and it is applied at
+the serialization boundaries — the `events-index.json` card and the `toICS`
+`IMAGE`/`ATTACH` injection — **not** written onto `event.imageUrl`. Keeping
+`event.imageUrl` meaning "the event's own image" is what lets a venue-only event
+show a photo (no blank card) while still appearing in the backfill queue below,
+so the photo-resolver can later find a real per-event image. Recurring events
+carry their own `imageUrl` straight from the recurring YAML.
+
 ## Venues
 
 - Venues declare a static `imageUrl` in their source YAML next to `geo:`
@@ -54,10 +66,26 @@ Every build writes a `photoGaps` + `photoStats` section into
 `build-errors.json` (built by `buildPhotoGaps` in `lib/discovery.ts`):
 
 - `photoGaps.venueGaps` — venues with no `imageUrl` (fix via YAML PR).
-- `photoGaps.eventGaps` — live ripper events with no `imageUrl` that are **not**
-  marked `unresolvable` (fix via the uncertainty cache).
+- `photoGaps.eventGaps` — live ripper events with no **own** `imageUrl` that are
+  **not** marked `unresolvable` and whose source does **not** set
+  `skipEventPhotos` (fix via the uncertainty cache). The venue-photo display
+  fallback is deliberately excluded here, so an event that only shows the venue
+  photo stays queued for a real per-event image.
+- `photoStats.eventsWithImage` — **display** coverage: counts `events-index`
+  entries that render an image, *including* the venue-photo fallback. It is
+  intentionally broader than `eventGaps` (the backfill work queue), so a
+  venue-only event is both "covered" (shows a photo) and "a gap" (wants its own).
 - `photoStats` — `{ eventsWithImage, totalEvents, venuesWithImage, totalVenues,
   unresolvable }`.
+
+**`skipEventPhotos`** (ripper-level YAML boolean, default false) — for a venue
+whose events have no harvestable per-event image (the venue photo is the
+intended image for every event), set `skipEventPhotos: true` to keep the whole
+source out of `eventGaps`. Events still display the venue photo; this just stops
+the resolver churning through them as per-event `unresolvable` markings. It is
+the source-wide analog of `unresolvable`, and the direct parallel of
+`expectEmpty` for zero-event calendars. `sources/seattle_makers/ripper.yaml` is
+the reference use.
 
 It is **non-fatal** (not counted in `totalErrors`, like `osmGaps`). The full
 list lives directly in `build-errors.json` rather than a separate file — large
