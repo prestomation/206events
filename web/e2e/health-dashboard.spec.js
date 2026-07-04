@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
 import { mockBuildErrors } from './fixtures.js'
+import { screenshotStable } from './screenshot.js'
 
 // Verifies that build-errors.json is NOT fetched on regular page load, only
 // when the user navigates to the health section. This covers the lazy-load
@@ -57,5 +58,5 @@ test('fetches build-errors.json and renders the health dashboard when navigating
   // build-errors.json must have been fetched exactly once
   expect(buildErrorsRequests).toHaveLength(1)
 
-  await page.screenshot({ path: 'e2e/screenshots/health-dashboard.png' })
+  await screenshotStable(page, 'e2e/screenshots/health-dashboard.png')
 })

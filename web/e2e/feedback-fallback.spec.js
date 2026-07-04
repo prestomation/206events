@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // When the feedback worker route isn't configured it returns HTTP 503; the modal
 // then hands off to a GitHub "new issue" page with the user's type, message, and
@@ -35,14 +36,14 @@ test('hands off to a prefilled GitHub issue when feedback is not configured (503
   // build, captured in you-login-disabled.png).
   await expect(page.getByText('Not signed in')).toBeVisible()
   await expect(page.getByText(/Sign in to sync sources across devices/i)).toBeVisible()
-  await page.screenshot({ path: 'e2e/screenshots/you-login-enabled.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/you-login-enabled.png', { fullPage: true })
 
   await page.getByRole('button', { name: /Send feedback/i }).click()
   const dialog = page.getByRole('dialog', { name: 'Send feedback' })
   await expect(dialog).toBeVisible()
 
   await dialog.getByRole('textbox').first().fill('Events are missing from this calendar')
-  await page.screenshot({ path: 'e2e/screenshots/feedback-modal.png' })
+  await screenshotStable(page, 'e2e/screenshots/feedback-modal.png')
   await dialog.getByRole('button', { name: 'Send' }).click()
 
   // The modal closed and we opened a prefilled GitHub new-issue URL.

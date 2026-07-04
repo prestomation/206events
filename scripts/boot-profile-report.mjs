@@ -26,6 +26,8 @@ export const METRICS = [
   { key: 'tapResponse', label: 'Tap mid-swap → response', unit: 'ms', lowerIsBetter: true, noise: 100 },
   { key: 'splashTime', label: 'Splash time', unit: 'ms', lowerIsBetter: true, noise: 300 },
   { key: 'mapOpen', label: 'Map first open', unit: 'ms', lowerIsBetter: true, noise: 200 },
+  { key: 'mapReopen', label: 'Map re-open', unit: 'ms', lowerIsBetter: true, noise: 200 },
+  { key: 'youOpen', label: 'You tab open', unit: 'ms', lowerIsBetter: true, noise: 150 },
 ]
 
 export const COMMENT_MARKER = 'boot-profile-trend'

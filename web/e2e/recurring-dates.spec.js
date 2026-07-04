@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
 import { mockRecurringEvents } from './fixtures.js'
+import { screenshotStable } from './screenshot.js'
 
 // Verifies the "Other dates" section on the event detail page: recurring events
 // that aren't modeled as recurring (independent dated instances at one venue)
@@ -46,7 +47,7 @@ test('lists sibling occurrences of an un-modeled recurring event', async ({ page
   await expect(page.getByText(/MORE FROM/)).toBeVisible()
   await expect(page.locator('.ev', { hasText: 'Open Mic' })).toHaveCount(1)
 
-  await page.screenshot({ path: 'e2e/screenshots/event-detail-other-dates.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/event-detail-other-dates.png', { fullPage: true })
 })
 
 test('clicking an other-date navigates to that occurrence', async ({ page }) => {

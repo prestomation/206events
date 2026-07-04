@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Exercises event navigation + outbound-link affordances across the three
 // surfaces that show events (issue: event-page-navigation):
@@ -89,7 +90,7 @@ test('event detail shows a "View event page" link to the source URL', async ({ p
   await expect(viewLink).toHaveAttribute('href', EVENT_URL)
   await expect(viewLink).toHaveAttribute('target', '_blank')
 
-  await page.screenshot({ path: 'e2e/screenshots/event-detail-view-event-page.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/event-detail-view-event-page.png', { fullPage: true })
 })
 
 test('main events row: whole row opens the event; the venue chip opens the channel', async ({ page }) => {
@@ -98,7 +99,7 @@ test('main events row: whole row opens the event; the venue chip opens the chann
 
   const row = page.locator('.ev', { hasText: 'Jazz Night' }).first()
   await expect(row).toBeVisible()
-  await page.screenshot({ path: 'e2e/screenshots/main-events-list.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/main-events-list.png', { fullPage: true })
 
   // Clicking the row body (the title) opens the event detail.
   await row.locator('.ev-title').click()
@@ -126,7 +127,7 @@ test('venue page rows carry a compact outbound-link icon and still open the even
   await expect(link).toHaveAttribute('href', EVENT_URL)
   await expect(link).toHaveAttribute('target', '_blank')
 
-  await page.screenshot({ path: 'e2e/screenshots/venue-detail-row-link-icon.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/venue-detail-row-link-icon.png', { fullPage: true })
 
   // Clicking the row body (not the icon) still opens the event detail.
   await row.locator('.ev-title').click()

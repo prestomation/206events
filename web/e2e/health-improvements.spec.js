@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Exercises the Site Health improvements:
 //   1. Clickable failure-class summary cards that open a raw-data detail panel.
@@ -69,14 +70,14 @@ test.afterEach(async ({ page }) => {
 test('summary cards are clickable and open the matching detail panel', async ({ page }) => {
   await page.goto('/#section=health')
   await expect(page.getByText('Source Health Dashboard')).toBeVisible()
-  await page.screenshot({ path: 'e2e/screenshots/health-dashboard-overview.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/health-dashboard-overview.png', { fullPage: true })
 
   // The "Missing Photos" card is a button that opens the photo panel.
   await page.getByRole('button', { name: /Missing Photos/ }).click()
   await expect(page.getByText(/Venue Photo Gaps/)).toBeVisible()
   await expect(page.getByText(/Event Photo Gaps/)).toBeVisible()
   await expect(page.getByText('Photoless Show — 2026-03-21')).toBeVisible()
-  await page.screenshot({ path: 'e2e/screenshots/health-photo-panel.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/health-photo-panel.png', { fullPage: true })
 
   // The "Duplicate Candidates" card opens the duplicates panel.
   await page.getByRole('button', { name: /Duplicate Candidates/ }).click()
@@ -93,7 +94,7 @@ test('the search box filters every list and count on the page', async ({ page })
   await input.fill('cal2')
   await expect(page.getByText('test-ripper-cal2')).toBeVisible()
   await expect(page.getByText('test-ripper-cal1')).toHaveCount(0)
-  await page.screenshot({ path: 'e2e/screenshots/health-search-filter.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/health-search-filter.png', { fullPage: true })
 
   // A non-matching query shows the empty state.
   await input.fill('zzz-no-match')
@@ -110,7 +111,7 @@ test('the debug-mode toggle flips on and persists', async ({ page }) => {
   await expect(toggle).toHaveAttribute('aria-checked', 'false')
   await toggle.click()
   await expect(toggle).toHaveAttribute('aria-checked', 'true')
-  await page.screenshot({ path: 'e2e/screenshots/health-debug-toggle-on.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/health-debug-toggle-on.png', { fullPage: true })
 
   // Persisted to localStorage so the detail pages pick it up.
   const stored = await page.evaluate(() => localStorage.getItem('calendar-ripper-debug'))
@@ -135,7 +136,7 @@ test.describe('debug panels (debug mode pre-enabled)', () => {
     await expect(panel.getByText('1', { exact: false }).first()).toBeVisible()
     await expect(panel.getByText(/parse errors/)).toBeVisible()
     await expect(panel.getByText(/venue photo/)).toBeVisible()
-    await page.screenshot({ path: 'e2e/screenshots/debug-venue-panel.png', fullPage: true })
+    await screenshotStable(page, 'e2e/screenshots/debug-venue-panel.png', { fullPage: true })
   })
 
   test('event page shows an event debug panel', async ({ page }) => {
@@ -148,6 +149,6 @@ test.describe('debug panels (debug mode pre-enabled)', () => {
     await expect(panel.getByText(/eventKey/)).toBeVisible()
     await expect(panel.getByText('Jazz Night|', { exact: false })).toBeVisible()
     await expect(panel.getByText(/coords/)).toBeVisible()
-    await page.screenshot({ path: 'e2e/screenshots/debug-event-panel.png', fullPage: true })
+    await screenshotStable(page, 'e2e/screenshots/debug-event-panel.png', { fullPage: true })
   })
 })

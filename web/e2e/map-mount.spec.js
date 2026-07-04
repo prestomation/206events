@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Perf guard: the persistent desktop map column (.a-map) is shown by CSS only
 // at >= 1024px, but it used to stay MOUNTED at every width — so phones and
@@ -8,6 +9,12 @@ import { installDataMocks } from './mock-routes.js'
 // when the Map tab was opened). These specs pin the fix: below the desktop
 // breakpoint no Leaflet exists until the user opens the Map tab, and then
 // exactly one instance does; at desktop the persistent column still renders.
+//
+// Keep-alive addendum (docs/web-tab-switch-performance.md Fix 2): after the
+// first Map-tab open, leaving the tab HIDES the map instead of unmounting it,
+// so a return visit skips the Leaflet re-boot. The invariant is therefore
+// two-sided: zero instances before the first open (lazy), and exactly one —
+// never zero, never two — from the first open onward (kept alive).
 
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
@@ -27,11 +34,26 @@ test.describe('mobile (< 768px)', () => {
     await expect(page.locator('.a-map')).toHaveCount(0)
     await expect(page.locator('.leaflet-container')).toHaveCount(0)
 
-    // Opening the Map tab mounts exactly one map.
+    // Opening the Map tab mounts exactly one map. The nav highlight is driven
+    // by the urgent navSection state (section renders in a transition), so
+    // pin that the tapped tab actually lights up.
+    await page.getByRole('button', { name: 'Map' }).click()
+    await expect(page.getByRole('button', { name: 'Map' })).toHaveClass(/\bon\b/)
+    await expect(page.locator('.events-map')).toBeVisible()
+    await expect(page.locator('.leaflet-container')).toHaveCount(1)
+    await screenshotStable(page, 'e2e/screenshots/map-mount-mobile-tab.png', { expectMarkers: true })
+
+    // Leaving the tab keeps that single instance mounted but hidden (the
+    // keep-alive), and returning re-shows the SAME instance — still one.
+    await page.getByRole('button', { name: 'Discover' }).click()
+    await expect(page.getByText('Jazz Night').first()).toBeVisible()
+    await expect(page.locator('.leaflet-container')).toHaveCount(1)
+    await expect(page.locator('.leaflet-container')).toBeHidden()
+
     await page.getByRole('button', { name: 'Map' }).click()
     await expect(page.locator('.events-map')).toBeVisible()
     await expect(page.locator('.leaflet-container')).toHaveCount(1)
-    await page.screenshot({ path: 'e2e/screenshots/map-mount-mobile-tab.png' })
+    await screenshotStable(page, 'e2e/screenshots/map-mount-mobile-return.png', { expectMarkers: true })
   })
 })
 
@@ -60,6 +82,6 @@ test.describe('desktop (>= 1024px)', () => {
 
     await expect(page.locator('.a-map .events-map')).toBeVisible()
     await expect(page.locator('.leaflet-container')).toHaveCount(1)
-    await page.screenshot({ path: 'e2e/screenshots/map-mount-desktop.png' })
+    await screenshotStable(page, 'e2e/screenshots/map-mount-desktop.png', { expectMarkers: true })
   })
 })

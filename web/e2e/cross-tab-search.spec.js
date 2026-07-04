@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Discover has two segmented tabs — Calendars (venues) and Events — and a
 // single search box. A query like "jazz" matches no venue names/tags but does
@@ -58,7 +59,7 @@ test('A: an empty Calendars tab offers a CTA to the matching Events', async ({ p
   await expect(cta).toContainText('No calendars match')
   const toEvents = cta.getByRole('button', { name: /See 1 event/ })
   await expect(toEvents).toBeVisible()
-  await page.screenshot({ path: 'e2e/screenshots/cross-tab-empty-calendars.png' })
+  await screenshotStable(page, 'e2e/screenshots/cross-tab-empty-calendars.png')
 
   await toEvents.click()
   await expect(seg(page, 'Events')).toHaveClass(/on/)
@@ -95,7 +96,7 @@ test('A (mirror): an empty Events tab offers a CTA to the matching Calendars', a
   await expect(cta).toContainText('No events match')
   const toCalendars = cta.getByRole('button', { name: /See 1 calendar/ })
   await expect(toCalendars).toBeVisible()
-  await page.screenshot({ path: 'e2e/screenshots/cross-tab-empty-events.png' })
+  await screenshotStable(page, 'e2e/screenshots/cross-tab-empty-events.png')
 
   await toCalendars.click()
   await expect(seg(page, 'Calendars')).toHaveClass(/on/)
@@ -117,7 +118,7 @@ test('D: when both tabs match, the active list flags the other tab', async ({ pa
   await expect(hint).toContainText('event')
   // The inactive (Events) badge is drawn loud.
   await expect(seg(page, 'Events').locator('.a-seg-count--cross')).toBeVisible()
-  await page.screenshot({ path: 'e2e/screenshots/cross-tab-hint.png' })
+  await screenshotStable(page, 'e2e/screenshots/cross-tab-hint.png')
 
   // Tapping the hint switches to Events; now the hint mirrors back to Calendars.
   await hint.click()

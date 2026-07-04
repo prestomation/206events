@@ -2,7 +2,7 @@
 // from App.jsx, derives the view-models, owns local navigation/overlay state,
 // and renders the responsive shell (rail · content · map / bottom nav).
 
-import { useState, useMemo, useRef, useCallback, useEffect, useLayoutEffect, useDeferredValue } from 'react'
+import { useState, useMemo, useRef, useCallback, useEffect, useLayoutEffect, useDeferredValue, startTransition } from 'react'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
 import { Lightbox } from './atoms.jsx'
@@ -54,6 +54,12 @@ export function App206(props) {
   // objects don't exist until async data lands) — useUrlState resolves them.
   const initialUrl = deserializeHash(window.location.hash.slice(1))
   const [section, setSection] = useState(() => initialUrl.section)
+  // Urgent mirror of `section` for the nav highlight only. Section changes
+  // render the whole view swap inside startTransition (see `go`), so without
+  // this the tapped tab couldn't show ANY feedback until the swap finished —
+  // the exact "tab feels dead" symptom docs/web-tab-switch-performance.md
+  // Fix 1 addresses. This paints on the next frame; the swap follows.
+  const [navSection, setNavSection] = useState(() => initialUrl.section)
   const [openCh, setOpenCh] = useState(null)        // icsUrl
   const [openEventObj, setOpenEventObj] = useState(null)
   const [filterOpen, setFilterOpen] = useState(false)
@@ -319,16 +325,32 @@ export function App206(props) {
   const scopedUpcoming = useMemo(() => upcomingEvents.filter(inScope), [upcomingEvents, inScope])
   const feedGroups = useMemo(() => scopeGroups(followingGroups || []), [followingGroups, scopeGroups])
 
-  /* ---- navigation handlers ---- */
+  /* ---- navigation handlers ----
+     Every navigation renders a full keyed-view swap (teardown + mount of large
+     subtrees), so the state changes that trigger it run inside startTransition:
+     React renders the swap at interruptible transition priority instead of
+     blocking the tap handler until the whole commit lands (the pattern
+     PR 835 shipped, applied to navigation — Fix 1 in
+     docs/web-tab-switch-performance.md). Only the tiny nav-highlight update
+     (`navSection`) stays urgent so the pressed tab lights up immediately. */
   const clearOverlays = useCallback(() => { setOpenCh(null); setOpenEventObj(null) }, [])
-  const go = useCallback((id) => { clearOverlays(); onSelectChannel(null); setSection(id) }, [clearOverlays, onSelectChannel])
+  const go = useCallback((id) => {
+    setNavSection(id)
+    startTransition(() => { clearOverlays(); onSelectChannel(null); setSection(id) })
+  }, [clearOverlays, onSelectChannel])
   const openChannel = useCallback((icsUrl) => {
-    setOpenEventObj(null); setOpenCh(icsUrl)
-    const ch = channelByIcsUrl.get(icsUrl)
-    if (ch) onSelectChannel({ ...ch.cal, ripperName: ch.ripperName })
+    startTransition(() => {
+      setOpenEventObj(null); setOpenCh(icsUrl)
+      const ch = channelByIcsUrl.get(icsUrl)
+      if (ch) onSelectChannel({ ...ch.cal, ripperName: ch.ripperName })
+    })
   }, [channelByIcsUrl, onSelectChannel])
-  const openEvent = useCallback((event) => { setOpenCh(null); onSelectChannel(null); setOpenEventObj(event) }, [onSelectChannel])
-  const back = useCallback(() => { clearOverlays(); onSelectChannel(null) }, [clearOverlays, onSelectChannel])
+  const openEvent = useCallback((event) => {
+    startTransition(() => { setOpenCh(null); onSelectChannel(null); setOpenEventObj(event) })
+  }, [onSelectChannel])
+  const back = useCallback(() => {
+    startTransition(() => { clearOverlays(); onSelectChannel(null) })
+  }, [clearOverlays, onSelectChannel])
   const toggleFilter = useCallback(() => setFilterOpen((v) => !v), [])
 
   /* ---- health dashboard handlers ---- */
@@ -428,7 +450,12 @@ export function App206(props) {
     else if (emphasis === 'events' && evMatchCount === 0 && calMatchCount > 0) setEmphasis('calendars')
   }, [query, emphasis, calMatchCount, evMatchCount])
 
-  const model = {
+  // The context value is memoized so its identity only changes when one of
+  // its constituents does (Fix 4 first step, docs/web-tab-switch-performance.md):
+  // a parent (App.jsx) re-render with unchanged props no longer re-renders
+  // every context consumer. Setters from useState/useCallback are referentially
+  // stable and listed anyway so the dep array mechanically mirrors the object.
+  const model = useMemo(() => ({
     // raw
     calendars, eventsIndex, fullEventsLoaded, loading,
     favoritesSet, toggleFollow,
@@ -445,7 +472,7 @@ export function App206(props) {
     upcomingEvents: scopedUpcoming, allUpcomingEvents: upcomingEvents, eventsByIcsUrl,
     feedGroups, matchEvents, queryKeySet, inScope,
     // ui state
-    section, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis, pickEmphasis,
+    section, navSection, openCh, openEventObj, dateWindow, setDateWindow, dateWindowPending, emphasis, setEmphasis, pickEmphasis,
     calMatchCount, evMatchCount,
     query, setQuery, queryPending, clearSearch, category, setCategory, neighborhood, setNeighborhood,
     costFilter, setCostFilter,
@@ -458,7 +485,33 @@ export function App206(props) {
     debugMode, toggleDebug,
     // handlers
     go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
-  }
+  }), [
+    calendars, eventsIndex, fullEventsLoaded, loading,
+    favoritesSet, toggleFollow,
+    searchFilters, addSearchFilter, removeSearchFilter,
+    geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
+    eventAttributions, calendarTagsByIcsUrl, calendarNameByIcsUrl, eventCountByIcsUrl,
+    lists, activeListId, activeList, setActiveList, createList, renameList, deleteList, canCreateList, uatMode,
+    authUser, handleLogin, handleLogout, API_URL, isMobile,
+    channelEvents, channelEventsLoading, channelEventsError,
+    createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
+    calendarAddMode, setCalendarAddMode,
+    channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
+    scopedUpcoming, upcomingEvents, eventsByIcsUrl,
+    feedGroups, matchEvents, queryKeySet, inScope,
+    section, navSection, openCh, openEventObj, dateWindow, dateWindowPending, emphasis, setEmphasis, pickEmphasis,
+    calMatchCount, evMatchCount,
+    query, queryPending, clearSearch, category, neighborhood,
+    costFilter,
+    hasActiveFilters, toast, todayLabel,
+    showWelcome, dismissWelcome, helpOpen, openHelp, closeHelp,
+    lightbox, openLightbox, closeLightbox,
+    feedbackPrefill, openFeedback, closeFeedback,
+    mapExpanded, toggleMapExpand, mapScope,
+    mapWidth, setMapWidth,
+    debugMode, toggleDebug,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
+  ])
 
   // Preserve each view's scroll position across navigation. The `.a-content`
   // scroll container is keyed by view, so forward-nav into an event/channel
@@ -484,9 +537,31 @@ export function App206(props) {
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />
-  else if (section === 'map') content = <MapPanel mobile />
+  else if (section === 'map') content = null // rendered by the keep-alive .a-maptab sibling below
   else if (section === 'following') content = <FollowingView />
   else content = <YouView />
+
+  // Keep-alive for the Map tab (Fix 2, docs/web-tab-switch-performance.md):
+  // the tab's <MapPanel mobile> renders in a SIBLING of the keyed content
+  // area and, once first opened, stays mounted for the rest of the session —
+  // leaving the tab only hides it with CSS. Unmounting through the keyed
+  // container made every re-entry pay Leaflet init + the full marker
+  // pipeline again (mapReopen ≈ 90% of mapOpen); now a return visit is a
+  // style flip plus the MapBridge ResizeObserver's invalidateSize(). The
+  // lazy-until-first-open guarantee pinned by web/e2e/map-mount.spec.js is
+  // preserved: nothing mounts until the first visit. The first entry mounts
+  // the map in the same pass (mapTabVisit is true for it directly); the
+  // monotonic keep-alive latch is written in an effect, NOT during render —
+  // a render-phase write would survive a discarded transition render (tap
+  // Map, tap away before commit) and mount the hidden map for a tab that
+  // was never shown. While `loading` the content area still shows its
+  // Loading… row instead, matching the other sections.
+  const mapTabVisit = section === 'map' && !loading
+  const [mapTabOpened, setMapTabOpened] = useState(false)
+  useEffect(() => {
+    if (mapTabVisit) setMapTabOpened(true)
+  }, [mapTabVisit])
+  const mapTabActive = contentKey === 'map' && !loading
 
   return (
     <App206Context.Provider value={model}>
@@ -494,9 +569,14 @@ export function App206(props) {
         style={mapWidth ? { '--a-map-w': `${mapWidth}px` } : undefined}>
         <div className="a-rail"><RailNav /></div>
         <div className="a-top"><TopBar /></div>
-        <div className="a-content" key={contentKey} ref={contentRef}>
+        <div className={`a-content${mapTabActive ? ' a-content--maphidden' : ''}`} key={contentKey} ref={contentRef}>
           {loading ? <div className="a-empty" style={{ padding: '40px var(--pad)' }}>Loading…</div> : content}
         </div>
+        {(mapTabVisit || mapTabOpened) && (
+          <div className={`a-maptab${mapTabActive ? '' : ' a-maptab--hidden'}`}>
+            <MapPanel mobile />
+          </div>
+        )}
         {/* The persistent map column exists only at the desktop breakpoint
             (>= 1024px, where the CSS grid shows it). Below that it used to be
             merely display:none while React still mounted it — so phones paid

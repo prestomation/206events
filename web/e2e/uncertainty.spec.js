@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
 import { mockUncertainEvents } from './fixtures.js'
+import { screenshotStable } from './screenshot.js'
 
 // Verifies the inline uncertainty badge — the structured replacement for the
 // old raw "⚠️ Duration could not be verified against the source." description
@@ -48,7 +49,7 @@ test('shows a "pending" badge in the list and detail, and no raw ⚠️ note', a
   await pendingBadge.click()
   await expect(page.getByRole('tooltip')).toContainText(/approximate — our automated check/)
 
-  await page.screenshot({ path: 'e2e/screenshots/event-detail-uncertainty-pending.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/event-detail-uncertainty-pending.png', { fullPage: true })
 })
 
 test('shows an "unverified" badge for unresolvable fields', async ({ page }) => {
@@ -69,5 +70,5 @@ test('shows an "unverified" badge for unresolvable fields', async ({ page }) => 
   await badge.click()
   await expect(page.getByRole('tooltip')).toContainText(/not posted by the source/)
 
-  await page.screenshot({ path: 'e2e/screenshots/event-detail-uncertainty-unresolvable.png', fullPage: true })
+  await screenshotStable(page, 'e2e/screenshots/event-detail-uncertainty-unresolvable.png', { fullPage: true })
 })

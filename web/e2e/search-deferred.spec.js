@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
 // Live search is deferred (useDeferredValue in App206) so the expensive Fuse
 // pass + dependent re-renders run at low priority and never block typing. This
@@ -37,7 +38,7 @@ test('deferred search converges to the filtered set and is clearable', async ({ 
   await expect(page.getByText('Jazz Night')).toBeVisible()
   await expect(page.getByText('Movie Premiere')).toHaveCount(0)
 
-  await page.screenshot({ path: 'e2e/screenshots/search-deferred.png' })
+  await screenshotStable(page, 'e2e/screenshots/search-deferred.png')
 
   // The input stays interactive: clearing via the chip ✕ (an EXTERNAL query
   // change) must push back into the uncontrolled input via the ref — the field

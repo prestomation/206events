@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useState, useCallback, useRef, memo } from 'react'
+import { useMemo, useEffect, useState, useCallback, useRef, memo, startTransition } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
@@ -310,15 +310,29 @@ function EventsMapInner({
   // Viewport culling: only render markers within (a padded) current map bounds,
   // re-filtering when the map pans/zooms. This keeps a date-window change cheap
   // while the user is zoomed into a neighborhood — we rebuild dozens of markers,
-  // not thousands. `bounds` is null until the map reports its first viewport, in
-  // which case we render everything (the initial fit frames all events anyway).
+  // not thousands. `bounds` is null until the map reports its first viewport;
+  // that first render is culled to the clamp box the map always opens framed
+  // at (INITIAL_BOUNDS), so far-flung out-of-county groups never enter the
+  // initial marker build — they appear as soon as the real viewport includes
+  // them (ViewportTracker seeds actual bounds right after mount).
   const [bounds, setBounds] = useState(null)
   const onBounds = useCallback((b) => setBounds(b), [])
   const visibleGroups = useMemo(() => {
-    if (!bounds) return eventGroups
-    const padded = bounds.pad(0.5) // ~50% buffer so just-offscreen markers stay put while panning
+    const b = bounds || L.latLngBounds(INITIAL_BOUNDS)
+    const padded = b.pad(0.5) // ~50% buffer so just-offscreen markers stay put while panning
     return eventGroups.filter((g) => padded.contains([g.lat, g.lng]))
   }, [eventGroups, bounds])
+
+  // Defer the marker/cluster layer behind the map shell's first paint: the
+  // container + tiles commit and paint first, then the (thousands-strong)
+  // marker build renders in an interruptible transition. This is what the
+  // mapOpen/mapReopen "container painted" metrics perceive — tiles first,
+  // pins a beat later — and it keeps the open tap responsive.
+  // (Fix 3, docs/web-tab-switch-performance.md.)
+  const [markersReady, setMarkersReady] = useState(false)
+  useEffect(() => {
+    startTransition(() => setMarkersReady(true))
+  }, [])
 
   // The group whose drill-down panel is open (null = closed).
   const [selectedGroup, setSelectedGroup] = useState(null)
@@ -345,7 +359,7 @@ function EventsMapInner({
   // default icon in a real browser. Clicking opens the side detail panel rather
   // than a Leaflet popup. Keyed on the stable group key (date-independent) so
   // slider drags update markers in place.
-  const markers = useMemo(() => visibleGroups.map((group) => {
+  const markers = useMemo(() => !markersReady ? [] : visibleGroups.map((group) => {
     const iconProps = group.count > 1 ? { icon: createGroupBadgeIcon(group.count) } : {}
     return (
       <Marker
@@ -355,7 +369,7 @@ function EventsMapInner({
         eventHandlers={{ click: () => openGroup(group) }}
       />
     )
-  }), [visibleGroups, openGroup])
+  }), [markersReady, visibleGroups, openGroup])
 
   return (
     <div className="events-map-container" data-testid="events-map">
@@ -402,7 +416,7 @@ function EventsMapInner({
             The search token is included so narrowing to (or clearing) a search
             refits the view and clears stale clusters; the key deliberately omits
             the date window so slider drags update markers in place. */}
-        <MarkerClusterGroup
+        {markersReady && <MarkerClusterGroup
           key={`cluster-${calendarFilter || ''}|${selectedTag || ''}|${feedOnly ? 'feed' : 'all'}|${scopeQueryToken}`}
           chunkedLoading
           iconCreateFunction={createClusterIcon}
@@ -411,7 +425,7 @@ function EventsMapInner({
           spiderfyOnMaxZoom={true}
         >
           {markers}
-        </MarkerClusterGroup>
+        </MarkerClusterGroup>}
       </MapContainer>
 
       {/* Drill-down: clicking a marker opens this side panel with the group's
