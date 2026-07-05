@@ -7,6 +7,8 @@ url: "https://scc-web.ungerboeck.net/coe/coe_p1_all.aspx?oc=01&cc=COESOP"
 friendlyLink: https://seattlecc.com
 tags: ["Downtown", "Events"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/25/Seattle_Convention_Center%2C_2024.jpg"
+# All event gap URLs point to the same /upcoming-events/ listing page — no per-event images.
+skipEventPhotos: true
 geo:
   lat: 47.6137
   lng: -122.332

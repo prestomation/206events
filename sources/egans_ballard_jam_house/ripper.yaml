@@ -5,6 +5,8 @@ url: "https://www.ballardjamhouse.com/schedule.html"
 friendlyLink: https://www.ballardjamhouse.com/schedule.html
 tags: ["Music", "Ballard"]
 imageUrl: "https://www.ballardjamhouse.com/images/marquee.jpg"
+# Events all link to schedule.html with no per-event images — text-only schedule page.
+skipEventPhotos: true
 geo:
   lat: 47.6685088
   lng: -122.3793412

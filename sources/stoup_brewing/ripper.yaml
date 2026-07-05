@@ -6,6 +6,8 @@ friendlyLink: https://stoupbrewing.com/stoup-events/
 tags: ["Beer"]
 cost: free
 imageUrl: "https://s3.us-west-2.amazonaws.com/stoupbrewing.com/uploads/202403/20/115358_642/img1.webp"
+# All event pages use the generic venue photo (/img/event-ballard.webp) — no per-event images.
+skipEventPhotos: true
 geo:
   lat: 47.6666
   lng: -122.3712
