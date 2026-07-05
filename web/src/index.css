@@ -4243,6 +4243,13 @@ html, body, #root { height: 100%; }
 }
 .app206 .a-scrubber-bubble-month { font-family: var(--font-display); font-weight: 800; font-size: 15px; }
 .app206 .a-scrubber-bubble-day { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; opacity: .82; text-transform: uppercase; }
+/* Desktop handle sits 6–40px in from the edge, so the mobile bubble offset (24px)
+   would be covered by the circle. Push the bubble clear of the handle's left edge
+   (40px) so its arrow still points at the handle. Placed AFTER the base rule so
+   this equal-specificity override wins when the query matches. */
+@media (min-width: 1024px) {
+  .app206 .a-scrubber-bubble { right: 47px; }
+}
 @media (prefers-color-scheme: dark) {
   .app206 .a-scrubber-handle { box-shadow: 0 1px 6px rgba(0,0,0,.45); }
 }
