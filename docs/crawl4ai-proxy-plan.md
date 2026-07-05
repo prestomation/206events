@@ -166,7 +166,7 @@ current proxy source through it**, producing a results matrix like the one in
 (where the home IP + the container live) — it cannot be exercised from CI or a
 web session.
 
-### Sources to test (snapshot at time of writing — 20)
+### Sources to test (snapshot at time of writing — 21)
 
 **`proxy: outofband` (9):**
 
@@ -182,7 +182,7 @@ web session.
 | `wayward_music` | HTML ripper |
 | `flying_lion_brewing` | HTML ripper |
 
-**`proxy: browserbase` (11):**
+**`proxy: browserbase` (12):**
 
 | Source | Kind |
 |---|---|
@@ -197,6 +197,7 @@ web session.
 | `hugo-house` | external ICS |
 | `populus-seattle` | external ICS |
 | `early-music-seattle` | external ICS |
+| `shunpike` | external ICS |
 
 (Regenerate the live list before running:
 `rg -l 'proxy:\s*(outofband|browserbase)' sources/`.)
@@ -272,9 +273,29 @@ No sources migrated yet; ladder unchanged.
 ### Phase 3 — escalation ladder + reporting parity
 
 - **`lib/proxy-verification.ts`** (+ `.test.ts`) — insert `crawl4ai` into the
-  rung order and add a `promote-to-crawl4ai` recommendation; `outofband` now
+  rung order and add a `promote-to-crawl4ai` recommendation; `outofband`
   escalates to `crawl4ai` (3 strikes), `crawl4ai` to `browserbase`, `browserbase`
   to `retire`.
+
+  **⚠️ Capability-inversion caveat — the ladder is not strictly monotonic.**
+  crawl4ai (residential IP + JS) is *more* capable than browserbase (datacenter
+  IP + JS) for the very sources crawl4ai exists to serve: an
+  **IP-gated ∧ JS-gated** source clears crawl4ai but browserbase's datacenter IP
+  can't get past the IP gate. Blindly escalating such a source `crawl4ai →
+  browserbase` promotes it to a rung guaranteed to fail, wasting a PR and three
+  more build cycles before it retires. So the escalation out of `crawl4ai` must
+  branch on *why* it's failing:
+  - **crawl4ai fails with a fresh JS/anti-bot wall it can't clear (not an IP
+    issue)** → `promote-to-browserbase` is correct (browserbase's managed
+    browser + stealth may clear a challenge the self-hosted image can't).
+  - **crawl4ai fails on a source already known to be IP-gated** (it only ever
+    worked from the residential IP — e.g. it previously passed at `outofband`,
+    or the Phase 0 matrix tagged it IP-gated) → **skip browserbase and go
+    straight to `retire`**, since the datacenter rung cannot help.
+
+  Record the IP-gated signal (from Phase 0 and/or the source's ladder history)
+  so `evaluateProxyVerification` can pick the right branch instead of always
+  climbing to browserbase. Cover both branches in `proxy-verification.test.ts`.
 - **`scripts/generate-outofband.ts`** counter logic — crawl4ai outcomes are
   determined from the runner's own fetch this run (like `outofband`), since
   crawl4ai runs on the runner, not live in CI.
@@ -302,7 +323,8 @@ toward zero and removes the 402-takes-down-everything single point of failure.
 - **`infra/crawl4ai/`** — a `docker-compose.yml` pinning the crawl4ai image, plus
   a `README.md` covering: run on the residential runner, bind loopback, set the
   JWT, resource sizing (~2 GB image, budget RAM/CPU for a browser), health check
-  (`GET /monitor/health`), and how the runner's cron reaches it on `localhost`.
+  (`GET /health`; verify the exact path against the pinned image version), and
+  how the runner's cron reaches it on `localhost`.
 - The runner's cron/setup gains a step to ensure the container is up before
   `generate-outofband` runs (and a clear failure if it isn't, so a down container
   surfaces as a proxy-verification signal rather than a silent zero).
