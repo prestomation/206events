@@ -56,6 +56,45 @@ describe('FeedbackModal', () => {
     expect(screen.getByText('Stoup Brewing')).toBeInTheDocument()
   })
 
+  it('shows the event identity and seeds the editable template message from an event report', () => {
+    const app = makeApp({
+      feedbackPrefill: {
+        type: 'bug',
+        message: 'Problem with "Trivia Night" (Fri Jul 10): ',
+        context: { eventTitle: 'Trivia Night', eventDate: 'Fri Jul 10 · 7:00 PM', sourceName: 'Neumos' },
+      },
+    })
+    renderModal(app)
+    // Chip leads with the event title, then date + source.
+    expect(screen.getByText('Trivia Night')).toBeInTheDocument()
+    expect(screen.getByText(/Fri Jul 10 · 7:00 PM/)).toBeInTheDocument()
+    expect(screen.getByText(/Neumos/)).toBeInTheDocument()
+    // Editable template message is pre-filled so the user can submit in one tap.
+    expect(screen.getByRole('button', { name: 'Report a problem' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByPlaceholderText(/What’s wrong/i)).toHaveValue('Problem with "Trivia Night" (Fri Jul 10): ')
+  })
+
+  it('POSTs the event context fields for an event report', async () => {
+    const fetchFn = vi.fn(async () => ({ ok: true }))
+    vi.stubGlobal('fetch', fetchFn)
+    const app = makeApp({
+      feedbackPrefill: {
+        type: 'bug',
+        message: 'seed: ',
+        context: { eventTitle: 'Trivia Night', eventDate: 'Fri Jul 10', sourceName: 'Neumos', icsUrl: 'neumos.ics' },
+      },
+    })
+    renderModal(app)
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+    await waitFor(() => expect(fetchFn).toHaveBeenCalledTimes(1))
+    const payload = JSON.parse(fetchFn.mock.calls[0][1].body)
+    expect(payload).toMatchObject({
+      type: 'bug',
+      message: 'seed:',
+      context: { eventTitle: 'Trivia Night', eventDate: 'Fri Jul 10', sourceName: 'Neumos', icsUrl: 'neumos.ics' },
+    })
+  })
+
   it('pre-fills the email for signed-in users', () => {
     const app = makeApp({ authUser: { email: 'me@example.com' } })
     renderModal(app)

@@ -41,7 +41,7 @@ function neutralizeMarkdown(s) {
 }
 
 function buildIssueTitle(type, message, context) {
-  const hint = neutralizeMarkdown((context.sourceName || message).replace(/\s+/g, ' ').trim()).slice(0, 80)
+  const hint = neutralizeMarkdown((context.eventTitle || context.sourceName || message).replace(/\s+/g, ' ').trim()).slice(0, 80)
   return `${(TYPE_META[type] || TYPE_META.general).titlePrefix} ${hint || 'New submission'}`
 }
 
@@ -53,6 +53,8 @@ function buildIssueTitle(type, message, context) {
 function buildIssueBody(type, message, email, context) {
   const lines = [`**Type:** ${type}`]
   if (email) lines.push(`**From:** ${neutralizeMarkdown(email)}`)
+  if (context.eventTitle) lines.push(`**Event:** ${neutralizeMarkdown(context.eventTitle)}`)
+  if (context.eventDate) lines.push(`**Date:** ${neutralizeMarkdown(context.eventDate)}`)
   if (context.sourceName) lines.push(`**Source:** ${neutralizeMarkdown(context.sourceName)}`)
   if (context.icsUrl) lines.push(`**Calendar feed:** ${neutralizeMarkdown(context.icsUrl)}`)
   if (context.pageUrl) lines.push(`**Page:** ${neutralizeMarkdown(context.pageUrl)}`)
@@ -90,7 +92,10 @@ export function FeedbackModal() {
   useEffect(() => {
     if (!prefill) return
     setType(prefill.type || 'general')
-    setMessage('')
+    // A caller may seed an editable template (e.g. the per-event/venue "Report a
+    // problem" buttons) so the user can submit with one tap or add detail. When
+    // absent the box starts empty and the placeholder guides.
+    setMessage(prefill.message || '')
     setEmail(app.authUser?.email || '')
     setWebsite('')
     setError('')
@@ -114,7 +119,7 @@ export function FeedbackModal() {
   // (the worker also validates these).
   const rawContext = prefill.context || {}
   const context = {}
-  for (const key of ['sourceName', 'icsUrl', 'pageUrl']) {
+  for (const key of ['sourceName', 'icsUrl', 'pageUrl', 'eventTitle', 'eventDate']) {
     if (typeof rawContext[key] === 'string' && rawContext[key]) context[key] = rawContext[key]
   }
 
@@ -202,9 +207,11 @@ export function FeedbackModal() {
           ))}
         </div>
 
-        {context.sourceName && (
+        {(context.eventTitle || context.sourceName) && (
           <div className="a-modal-context">
-            About <strong>{context.sourceName}</strong>
+            About <strong>{context.eventTitle || context.sourceName}</strong>
+            {context.eventTitle && context.eventDate && <> · {context.eventDate}</>}
+            {context.eventTitle && context.sourceName && <> · {context.sourceName}</>}
           </div>
         )}
 

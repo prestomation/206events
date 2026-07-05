@@ -95,6 +95,37 @@ describe('Feedback API', () => {
     expect(calls[0].payload.body).toContain('stoup.ics')
   })
 
+  it('includes event identity and titles the issue with the event for an event report', async () => {
+    const { calls } = mockGitHub()
+    const res = await post({
+      type: 'bug',
+      message: 'Wrong start time',
+      context: {
+        eventTitle: 'Trivia Night',
+        eventDate: 'Fri Jul 10 · 7:00 PM',
+        sourceName: 'Neumos',
+        icsUrl: 'neumos.ics',
+        pageUrl: 'https://206.events/#x',
+      },
+    })
+    expect(res.status).toBe(200)
+    // The event title (not the source) drives the issue title for an event report.
+    expect(calls[0].payload.title).toContain('[Bug]')
+    expect(calls[0].payload.title).toContain('Trivia Night')
+    const body = calls[0].payload.body as string
+    expect(body).toContain('**Event:** Trivia Night')
+    expect(body).toContain('**Date:** Fri Jul 10 · 7:00 PM')
+    expect(body).toContain('**Source:** Neumos')
+  })
+
+  it('neutralizes markdown in event context fields', async () => {
+    const { calls } = mockGitHub()
+    await post({ type: 'bug', message: 'x', context: { eventTitle: '@everyone [click](http://evil)' } })
+    const body = calls[0].payload.body as string
+    expect(body).not.toContain('@everyone')
+    expect(body).not.toContain('](http://evil)')
+  })
+
   it('uses new-source label for a source request', async () => {
     const { calls } = mockGitHub()
     await post({ type: 'source', message: 'Please add the Tractor Tavern' })

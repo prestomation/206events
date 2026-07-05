@@ -923,8 +923,9 @@ export function ChannelDetail({ icsUrl }) {
         <button className="btn btn-ghost" style={{ flex: 1, minWidth: 0, height: 40, fontSize: 13.5 }}
           onClick={() => app.openFeedback({
             type: 'bug',
+            message: `Problem with ${channel.name}: `,
             context: { sourceName: channel.name, icsUrl: channel.cal.icsUrl, pageUrl: window.location.href },
-          })}>{Ico.spark}Report a problem with this source</button>
+          })}>{Ico.spark}Report a problem</button>
       </div>
 
       {channel.distributed && (
@@ -1121,6 +1122,25 @@ export function EventDetail({ event }) {
             navigator.clipboard?.writeText(window.location.href)
             app.flash('Link copied ✓')
           }}><span style={{ width: 18, height: 18 }}>{Ico.link}</span></button>
+      </div>
+
+      {/* Report a problem with this specific event. Pre-fills the feedback modal
+          with the event's identity (title + date + source) and an editable
+          template message, so a wrong time/location/duplicate can be reported in
+          one tap. Mirrors the venue page's "Report a problem" button. */}
+      <div style={{ display: 'flex', marginBottom: 20 }}>
+        <button className="btn btn-ghost" style={{ flex: 1, minWidth: 0, height: 40, fontSize: 13.5 }}
+          onClick={() => app.openFeedback({
+            type: 'bug',
+            message: `Problem with "${event.summary}" (${row.day} ${row.dateNum}): `,
+            context: {
+              eventTitle: event.summary,
+              eventDate: `${row.day} ${row.dateNum}${row.time ? ` · ${row.time}` : ''}`,
+              sourceName: channel?.name,
+              icsUrl: event.icsUrl,
+              pageUrl: window.location.href,
+            },
+          })}>{Ico.spark}Report a problem</button>
       </div>
 
       {event.description && (

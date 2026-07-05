@@ -21,6 +21,8 @@ interface FeedbackContext {
   sourceName?: string
   icsUrl?: string
   pageUrl?: string
+  eventTitle?: string
+  eventDate?: string
 }
 
 interface FeedbackBody {
@@ -118,6 +120,8 @@ function buildIssueBody(args: {
   // `@` preceded by the local-part, so GitHub won't parse it as a mention.
   lines.push(`**From:** ${email || 'anonymous'}`)
   lines.push(`**Account:** ${authenticated ? 'signed-in' : 'not signed in'}`)
+  if (context.eventTitle) lines.push(`**Event:** ${neutralizeMarkdown(context.eventTitle)}`)
+  if (context.eventDate) lines.push(`**Date:** ${neutralizeMarkdown(context.eventDate)}`)
   if (context.sourceName) lines.push(`**Source:** ${neutralizeMarkdown(context.sourceName)}`)
   if (context.icsUrl) lines.push(`**Calendar feed:** ${neutralizeMarkdown(context.icsUrl)}`)
   if (context.pageUrl) lines.push(`**Page:** ${neutralizeMarkdown(context.pageUrl)}`)
@@ -190,6 +194,8 @@ export async function handlePostFeedback(c: Context<{ Bindings: Env }>) {
     sourceName: sanitizeContextField(rawContext.sourceName),
     icsUrl: sanitizeContextField(rawContext.icsUrl),
     pageUrl: sanitizeContextField(rawContext.pageUrl),
+    eventTitle: sanitizeContextField(rawContext.eventTitle),
+    eventDate: sanitizeContextField(rawContext.eventDate),
   }
 
   if (!(await withinRateLimit(c))) {
@@ -197,7 +203,7 @@ export async function handlePostFeedback(c: Context<{ Bindings: Env }>) {
   }
 
   const meta = TYPE_META[type]
-  const titleHint = sanitizeTitlePart(context.sourceName || message)
+  const titleHint = sanitizeTitlePart(context.eventTitle || context.sourceName || message)
   const title = `${meta.titlePrefix} ${titleHint || 'New submission'}`
   const submittedAt = new Date().toISOString()
   const issueBody = buildIssueBody({ type, message, email, authenticated, context, submittedAt })
