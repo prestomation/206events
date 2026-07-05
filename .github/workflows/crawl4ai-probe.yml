@@ -1,0 +1,37 @@
+# TEMPORARY diagnostic workflow — probes whether currently-proxied sources can be
+# fetched from a GitHub Actions IP via a plain fetch vs a headless browser
+# (crawl4ai's engine). Informs where crawl4ai belongs in the proxy ladder.
+# Delete after the crawl4ai-proxy investigation concludes.
+name: crawl4ai-probe
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - claude/crawl4ai-proxy-plan-44ab8h
+    paths:
+      - "scripts/probe-proxy-sources.mjs"
+      - ".github/workflows/crawl4ai-probe.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run probe from CI IP
+        run: |
+          set -e
+          mkdir -p "$RUNNER_TEMP/probe"
+          cp scripts/probe-proxy-sources.mjs "$RUNNER_TEMP/probe/probe.mjs"
+          cd "$RUNNER_TEMP/probe"
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.60.0
+          npx playwright install --with-deps chromium
+          node probe.mjs
