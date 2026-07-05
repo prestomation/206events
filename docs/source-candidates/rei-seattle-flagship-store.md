@@ -1,6 +1,6 @@
 ---
 name: "REI Seattle Flagship Store — Classes & Events"
-status: notviable
+status: investigating
 platform: unknown (rei.com events platform)
 url: https://www.rei.com/events/p/us-wa-seattle
 tags: [Community]
@@ -20,7 +20,7 @@ listed activities are paid, registration-required classes/courses
 (gear clinics, avalanche safety, etc.) rather than free public
 happenings, and the `us-wa-seattle` filter isn't scoped to the
 flagship store alone — it would need per-store disambiguation to avoid
-pulling in Bellevue/Redmond/Tukwila REI events. Leaving as
-`notviable` pending a confirmed, store-scoped, structured feed; worth
-a fresh look if `/events/p/us-wa-seattle` turns out to expose a real
-JSON endpoint on a future pass.
+pulling in Bellevue/Redmond/Tukwila REI events. The underlying data
+format is still unconfirmed, so leaving as `investigating` rather than
+rejecting outright; next pass should try to find a real JSON endpoint
+scoped to the flagship store before deciding viability.
