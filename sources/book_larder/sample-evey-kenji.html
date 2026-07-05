@@ -1,0 +1,44 @@
+<!--
+  Trimmed capture of the live Book Larder / Evey product page for
+  "Tasting Notes with Kenji Lopez-Alt + Seattle Chamber Music Society"
+  (https://booklarder.com/collections/evey-events/products/tasting-notes-with-kenji-lopez-alt-seattle-chamber-music-society).
+
+  Only the Evey event-metadata region is kept (hidden input + the visible
+  Event Date / Event Time / Location blocks), preserving the real
+  label/value-in-separate-flex-columns markup so the ripper's extraction
+  regexes are exercised against the structure they actually run on.
+  This is an off-site event: the venue is The Triple Door, not the store.
+-->
+<div class="evey-event-details">
+  <input id="event-date" type="hidden" name="properties[Event-Date]" value="Jul 06, 2026 05:00 PM">
+
+  <!-- Evey Date Display -->
+  <div class="product-area__row" style="display:flex;flex-wrap:wrap;">
+    <div class="product-area__col product-area__col-nbm">
+      <p><strong>Event Date:</strong></p>
+    </div>
+    <div class="product-area__col product-area__col-nbm" style="margin-left: 10px;">
+      <p>Jul  6, 2026</p>
+    </div>
+  </div>
+
+  <!-- Evey Time Display -->
+  <div class="product-area__row" style="display:flex;flex-wrap:wrap;">
+    <div class="product-area__col product-area__col-nbm">
+      <p><strong>Event Time:</strong></p>
+    </div>
+    <div class="product-area__col product-area__col-nbm" style="margin-left: 10px;">
+      <p>05:00 pm - 10:00 pm</p>
+    </div>
+  </div>
+
+  <!-- Evey Location Display -->
+  <div class="product-area__row" style="display:flex;flex-wrap:wrap;">
+    <div class="product-area__col product-area__col-nbm">
+      <p><strong>Location:</strong></p>
+    </div>
+    <div class="product-area__col product-area__col-nbm" style="margin-left: 10px;">
+      <a href="https://maps.app.goo.gl/example" target="_blank"><p style="text-decoration: underline;">The Triple Door, 216 Union St, Seattle, WA 98101</p></a>
+    </div>
+  </div>
+</div>

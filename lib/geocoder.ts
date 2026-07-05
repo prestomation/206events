@@ -499,6 +499,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'the new frontier lounge': { lat: 47.6677, lng: -122.3829 },
   'the paramount theatre': { lat: 47.6120, lng: -122.3321 },
   'the taproom at pike place': { lat: 47.6097, lng: -122.3425 },
+  // Matches the coords/OSM identity in sources/triple_door/ripper.yaml so an
+  // off-site event carrying "The Triple Door, ..." (e.g. a Book Larder author
+  // event held there) resolves to the same place as the venue's own feed.
+  'the triple door': { lat: 47.6082, lng: -122.3387, osmType: 'node', osmId: 2404249354 },
   'twilight cafe & bar': { lat: 45.5886, lng: -122.7319 },
   'vue lounge': { lat: 47.6134, lng: -122.3203 },
   'volunteer park amphitheater': { lat: 47.6372, lng: -122.3150 },

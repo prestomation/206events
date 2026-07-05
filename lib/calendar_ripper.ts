@@ -371,13 +371,20 @@ export async function attachEventCoords(
     : (calendar.parent?.geo ?? null);
 
   for (const event of calendar.events) {
-    if (resolvedGeo) {
+    if (resolvedGeo && (event.lat == null || event.lng == null)) {
       // Declared venue coords — no geocoding needed.
       event.lat = resolvedGeo.lat;
       event.lng = resolvedGeo.lng;
       event.osmType = resolvedGeo.osmType;
       event.osmId = resolvedGeo.osmId;
       event.geocodeSource = 'ripper';
+    } else if (resolvedGeo) {
+      // The ripper supplied explicit per-event coordinates for an event held
+      // somewhere other than the source's default venue (e.g. a bookstore's
+      // off-site author event). Keep them instead of overwriting with the
+      // venue geo, mirroring how a ripper-parsed cost wins over the YAML cost
+      // default in attachEventCost.
+      event.geocodeSource = event.geocodeSource ?? 'ripper';
     } else {
       const result = await resolveEventCoords(geoCache, event.location, sourceName);
       geoCache = result.cache;
