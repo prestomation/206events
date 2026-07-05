@@ -19,6 +19,10 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 // or two and the normal scrollbar is enough.
 const MIN_DAYS = 4
 
+// Handle height (px). Module-level so the pointer→fraction math and the render
+// agree on the usable travel (track height minus the handle).
+const HANDLE_H = 34
+
 export function DayScrubber({ dayIndex, onSeek }) {
   const mountRef = useRef(null)
   const containerRef = useRef(null)
@@ -94,12 +98,16 @@ export function DayScrubber({ dayIndex, onSeek }) {
     }
   }, [enabled, dragging, count])
 
-  // Translate a pointer Y into a timeline fraction + nearest tick index.
+  // Translate a pointer Y into a timeline fraction + nearest tick index. The
+  // fraction is measured over the handle's usable travel (track height minus the
+  // handle), offset by half the handle, so the grip's CENTER tracks the finger
+  // rather than trailing it toward the middle.
   const fromPointer = useCallback((clientY) => {
     const track = trackRef.current
     if (!track) return { f: 0, idx: 0 }
     const r = track.getBoundingClientRect()
-    const f = r.height > 0 ? Math.min(1, Math.max(0, (clientY - r.top) / r.height)) : 0
+    const usable = r.height - HANDLE_H
+    const f = usable > 0 ? Math.min(1, Math.max(0, (clientY - r.top - HANDLE_H / 2) / usable)) : 0
     const idx = Math.round(f * (count - 1))
     return { f, idx }
   }, [count])
@@ -107,7 +115,6 @@ export function DayScrubber({ dayIndex, onSeek }) {
   const onPointerDown = useCallback((e) => {
     if (!enabled) return
     e.preventDefault()
-    e.currentTarget.setPointerCapture?.(e.pointerId)
     setDragging(true)
     setActive(true)
     const { f, idx } = fromPointer(e.clientY)
@@ -115,20 +122,32 @@ export function DayScrubber({ dayIndex, onSeek }) {
     setLabelIdx(idx)
   }, [enabled, fromPointer])
 
-  const onPointerMove = useCallback((e) => {
+  // Track the drag on the WINDOW rather than via pointer capture: the handle is
+  // a small target and capture doesn't hold reliably across engines (Firefox
+  // dropped it mid-drag), so once the finger leaves the handle the moves must
+  // still be heard. Window listeners catch every move/up regardless of what's
+  // under the cursor.
+  useEffect(() => {
     if (!dragging) return
-    const { f, idx } = fromPointer(e.clientY)
-    setFraction(f)
-    setLabelIdx(idx)
-  }, [dragging, fromPointer])
-
-  const endDrag = useCallback((e) => {
-    if (!dragging) return
-    e.currentTarget.releasePointerCapture?.(e.pointerId)
-    setDragging(false)
-    setActive(false)
-    const { idx } = fromPointer(e.clientY)
-    onSeek?.(dayIndex[idx])
+    const onMove = (e) => {
+      const { f, idx } = fromPointer(e.clientY)
+      setFraction(f)
+      setLabelIdx(idx)
+    }
+    const onUp = (e) => {
+      const { idx } = fromPointer(e.clientY)
+      setDragging(false)
+      setActive(false)
+      onSeek?.(dayIndex[idx])
+    }
+    window.addEventListener('pointermove', onMove)
+    window.addEventListener('pointerup', onUp)
+    window.addEventListener('pointercancel', onUp)
+    return () => {
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', onUp)
+      window.removeEventListener('pointercancel', onUp)
+    }
   }, [dragging, fromPointer, onSeek, dayIndex])
 
   const onKeyDown = useCallback((e) => {
@@ -148,7 +167,6 @@ export function DayScrubber({ dayIndex, onSeek }) {
 
   if (!enabled) return null
 
-  const HANDLE_H = 34
   const usable = Math.max(0, trackH - HANDLE_H)
   const handleTop = Math.round(fraction * usable)
   const tick = dayIndex[Math.min(labelIdx, count - 1)]
@@ -172,7 +190,7 @@ export function DayScrubber({ dayIndex, onSeek }) {
           className="a-scrubber-handle"
           style={{ top: handleTop, height: HANDLE_H }}
           role="slider"
-          aria-label="Scroll to date"
+          aria-label="Date scrubber"
           aria-orientation="vertical"
           aria-valuemin={0}
           aria-valuemax={count - 1}
@@ -180,12 +198,11 @@ export function DayScrubber({ dayIndex, onSeek }) {
           aria-valuetext={tick ? tick.dayLabel : ''}
           tabIndex={0}
           onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerCancel={endDrag}
           onKeyDown={onKeyDown}
-          onMouseEnter={() => setActive(true)}
-          onMouseLeave={() => { if (!dragging) setActive(false) }}
+          // Hover reveal is mouse-only: a touch tap synthesizes pointerenter with
+          // no matching leave, which would strand the bubble on screen.
+          onPointerEnter={(e) => { if (e.pointerType === 'mouse') setActive(true) }}
+          onPointerLeave={(e) => { if (e.pointerType === 'mouse' && !dragging) setActive(false) }}
         >
           <span className="a-scrubber-grip" />
         </button>

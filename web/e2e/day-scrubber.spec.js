@@ -68,7 +68,7 @@ test('the scrubber handle is a date slider on the events list', async ({ page })
   await expect(page.getByText('Day 00 Show 0', { exact: true })).toBeVisible()
 
   // The handle is present and exposes an ARIA slider with a date valuetext.
-  const handle = page.getByRole('slider', { name: 'Scroll to date' })
+  const handle = page.getByRole('slider', { name: 'Date scrubber' })
   await expect(handle).toBeVisible()
   await expect(handle).toHaveAttribute('aria-valuetext', /.+/)
 
@@ -90,7 +90,7 @@ test('dragging the handle jumps the list to a later day', async ({ page }) => {
   // A far day is not rendered in the first page.
   await expect(page.getByText('Day 38 Show 0', { exact: true })).toHaveCount(0)
 
-  const handle = page.getByRole('slider', { name: 'Scroll to date' })
+  const handle = page.getByRole('slider', { name: 'Date scrubber' })
   const track = page.locator('.a-scrubber')
   const tb = await track.boundingBox()
   const hb = await handle.boundingBox()
@@ -120,7 +120,7 @@ test('keyboard moves the scrubber to the end of the timeline', async ({ page }) 
   await gotoEvents(page)
   await expect(page.getByText('Day 00 Show 0', { exact: true })).toBeVisible()
 
-  const handle = page.getByRole('slider', { name: 'Scroll to date' })
+  const handle = page.getByRole('slider', { name: 'Date scrubber' })
   await handle.focus()
   await handle.press('End')
 
@@ -140,5 +140,5 @@ test('no scrubber for a short list', async ({ page }) => {
   await routeEvents(page, makeEvents(2))
   await gotoEvents(page)
   await expect(page.getByText('Day 00 Show 0', { exact: true })).toBeVisible()
-  await expect(page.getByRole('slider', { name: 'Scroll to date' })).toHaveCount(0)
+  await expect(page.getByRole('slider', { name: 'Date scrubber' })).toHaveCount(0)
 })
