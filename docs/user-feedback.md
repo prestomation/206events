@@ -16,8 +16,11 @@ Web UI (FeedbackModal) ──POST /feedback──▶ favorites-worker ──GitH
 ```
 
 1. The user opens the modal from the **You** view ("Send feedback" /
-   "Suggest a source") or from a **Channel** page ("Report a problem with this
-   source", which pre-fills the source name / feed URL).
+   "Suggest a source"), from a **Venue (Channel)** page ("Report a problem",
+   which pre-fills the source name / feed URL), or from an **Event** page
+   ("Report a problem", which additionally pre-fills the event title + date and
+   seeds an editable template message so a wrong time/location/duplicate can be
+   reported in one tap).
 2. The modal POSTs JSON to the favorites worker's `/feedback` route with
    `credentials: 'include'`.
 3. The worker validates + spam-checks the submission, then creates a labeled
@@ -38,7 +41,9 @@ falls back to opening GitHub's "new issue" page in a new tab.
   "context": {                               // optional
     "sourceName": "Stoup Brewing",
     "icsUrl": "stoup_brewing-all-events.ics",
-    "pageUrl": "https://206.events/#..."
+    "pageUrl": "https://206.events/#...",
+    "eventTitle": "Trivia Night",             // set by the per-event report button
+    "eventDate": "Fri Jul 10 · 7:00 PM"       // set by the per-event report button
   },
   "website": ""                              // honeypot — must be empty
 }
@@ -193,6 +198,6 @@ The worker redeploys automatically on push to `main` touching
 | Worker tests | `infra/favorites-worker/test/feedback.test.ts` |
 | Modal UI | `web/src/redesign/FeedbackModal.jsx` |
 | App-context wiring (`openFeedback` / `closeFeedback`) | `web/src/redesign/App206.jsx` |
-| Entry-point buttons | `web/src/redesign/views.jsx` (YouView, ChannelDetail) |
+| Entry-point buttons | `web/src/redesign/views.jsx` (YouView, ChannelDetail, EventDetail) |
 | Modal styles | `web/src/index.css` (`.a-modal*`, `.a-hp`) |
 | Web tests | `web/src/redesign/FeedbackModal.test.jsx` |
