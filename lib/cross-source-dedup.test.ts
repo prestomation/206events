@@ -122,6 +122,16 @@ describe("strong same-venue/same-instant signal", () => {
         expect(s.osmSame).toBe(false);
         expect(tierFor(s)).toBeNull();
     });
+
+    it("escalates to a merge once a human confirms the strong-signal candidate", () => {
+        // The resolver's 'confirmed' decision promotes the sub-titleGate pair
+        // from MED candidate to a HIGH merge — the intended human-in-the-loop path.
+        const resolved = new Map<string, "confirmed" | "rejected">([[pairKey(bookLarder5pm, tripleDoor5pm), "confirmed"]]);
+        const { groups, candidates } = findDuplicates([bookLarder5pm, tripleDoor5pm], { resolved });
+        expect(groups).toHaveLength(1);
+        expect(groups[0].suppressed).toHaveLength(1);
+        expect(candidates).toHaveLength(0);
+    });
 });
 
 describe("findDuplicates", () => {
