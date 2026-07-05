@@ -38324,6 +38324,7 @@
     },
     "events12:a-cappella-night-2026-06-13": {
       "fields": {
+        "imageUrl": "https://res.cloudinary.com/hxn9dbuhd/image/upload/f_auto,c_limit,w_1200,q_auto/v1778158423/organizations/0/8/a/0/08a0cef1-fba2-4815-8a3f-e7387a898a3c/7a9ec415-7e1f-41df-9ebe-c969327b2d0c.png",
         "cost": {
           "min": 20.0,
           "max": 25.0
@@ -38961,6 +38962,156 @@
       "source": "agent",
       "reason": "Multiple official race start times this date (Half Marathon 7:00, 5K 8:30, 10K 9:30, Kids Fun Run 10:45) with no single event time; cheapest adult race (5K) is $62.52",
       "partialFingerprint": "14306u6-until2026-06-27-tu"
+    },
+    "seattle-showlists:showlist-1001900": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Listing page (seattle.showlists.net) has no per-event images, only site/sponsor logos; no og:image"
+    },
+    "seattle-showlists:showlist-1005862": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Listing page (seattle.showlists.net) has no per-event images, only site/sponsor logos; no og:image"
+    },
+    "seattle-showlists:showlist-1006784": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Listing page (seattle.showlists.net) has no per-event images, only site/sponsor logos; no og:image"
+    },
+    "seattle-showlists:showlist-1006785": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Listing page (seattle.showlists.net) has no per-event images, only site/sponsor logos; no og:image"
+    },
+    "events12:anacortes-festival-2026-06-07": {
+      "fields": {
+        "imageUrl": "https://chambermaster.blob.core.windows.net/images/events/228/23469/EventPhotoFull_2023%20WFF%20NEW-01.png"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://business.anacortes.org/events/details/2026-anacortes-waterfront-festival-23469"
+    },
+    "royal-room:royal-room-70s-a-generation": {
+      "fields": {
+        "imageUrl": "https://theroyalroomseattle.com/wp-content/uploads/2026/02/Brian-Kirk-TRibute-to-Cal-Tjader-Bellingham-Group_2-Brian-Kirk.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://theroyalroomseattle.com/event/70s-a-generation/"
+    },
+    "royal-room:royal-room-bebop-boleros-bossa-2": {
+      "fields": {
+        "imageUrl": "https://theroyalroomseattle.com/wp-content/uploads/2026/05/2026_OCT_7_Robin_Kallsen_Laura_Steeves_Poster-Robin-Kallsen.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://theroyalroomseattle.com/event/bebop-boleros-bossa-2/"
+    },
+    "royal-room:royal-room-ben-sherman": {
+      "fields": {
+        "imageUrl": "https://theroyalroomseattle.com/wp-content/uploads/2026/06/Ben-Sherman-Quartet-Royal-Room-Poster-Ben-Sherman.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://theroyalroomseattle.com/event/ben-sherman/"
+    },
+    "royal-room:royal-room-bluetopia": {
+      "fields": {
+        "imageUrl": "https://theroyalroomseattle.com/wp-content/uploads/2026/05/2026_08_02_Bluetopia-Louise.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://theroyalroomseattle.com/event/bluetopia/"
+    },
+    "vashon-center-for-the-arts:vashon-48801AQHMRLTRLKHTVVSGQHTMLHGKSGHS": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/8/0/0/d/2/800d224b1e7d61e130350b7bf8644067.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/"
+    },
+    "vashon-center-for-the-arts:vashon-73601AGTJSDMRRHHCHRQSCLRVRLDPRMQN": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/3/1/8/9/d/3189d8bcb9c05a83ebbc9088c68b81bf.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/"
+    },
+    "vashon-center-for-the-arts:vashon-76401ADQTCVSBMHNJBVTLKRDDQKCTSTRJ": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/2/5/6/8/a/2568a9b34823885b3aad9bcbe7237d06.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/"
+    },
+    "vashon-center-for-the-arts:vashon-76601ATPKJGRNKVVHLSJKLRGVJNDHKVDL": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/4/8/f/9/5/48f956ef81cbcb558862cb402676170f.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/"
+    },
+    "taproot:ovationtix-taproot-11794510": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source URL (web.ovationtix.com/trs/pe.c/37019) returns HTTP 404 'AudienceView Professional Client Not Found' \u2014 the client-facing ticket page endpoint appears dead"
+    },
+    "taproot:ovationtix-taproot-11810659": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source URL (web.ovationtix.com/trs/pe.c/37019) returns HTTP 404 'AudienceView Professional Client Not Found' \u2014 the client-facing ticket page endpoint appears dead"
+    },
+    "taproot:ovationtix-taproot-11810660": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source URL (web.ovationtix.com/trs/pe.c/37019) returns HTTP 404 'AudienceView Professional Client Not Found' \u2014 the client-facing ticket page endpoint appears dead"
+    },
+    "taproot:ovationtix-taproot-11810662": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source URL (web.ovationtix.com/trs/pe.c/37019) returns HTTP 404 'AudienceView Professional Client Not Found' \u2014 the client-facing ticket page endpoint appears dead"
+    },
+    "sound_transit:sound-transit-180983": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Sound Transit calendar event pages are text-only (title, date, location, transit-planning links); no images of any kind, no og:image"
+    },
+    "sound_transit:sound-transit-182186": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Sound Transit calendar event pages are text-only (title, date, location, transit-planning links); no images of any kind, no og:image"
+    },
+    "sound_transit:sound-transit-182189": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Sound Transit calendar event pages are text-only (title, date, location, transit-planning links); no images of any kind, no og:image"
+    },
+    "sound_transit:sound-transit-182192": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Sound Transit calendar event pages are text-only (title, date, location, transit-planning links); no images of any kind, no og:image"
+    },
+    "the-missing-piece:10004131": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Page has full og:* meta tags but no og:image; only images present are the site logo and a generic 'related events' placeholder graphic, neither event-specific"
     }
   }
 }
