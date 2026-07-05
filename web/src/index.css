@@ -3898,6 +3898,8 @@ html, body, #root { height: 100%; }
    events" hint while the full index is still fetching; `.a-listend` is the
    terminal marker so the list never reads as an accidental dead end. */
 .app206 .a-listmore { padding: 22px 0 30px; text-align: center; color: var(--ink-3); font-size: 13px; }
+.app206 .a-listmore--btn { display: block; width: 100%; background: none; border: none; font: inherit; color: var(--ink-3); cursor: pointer; }
+.app206 .a-listmore--btn:hover { color: var(--ink-2); }
 .app206 .a-listend { padding: 22px 0 34px; text-align: center; color: var(--ink-3); font-size: 13px; font-weight: 600; }
 
 /* ---- top bar ---- */

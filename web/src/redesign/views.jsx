@@ -375,17 +375,21 @@ function EventsMode() {
   )
 
   const hasMore = visibleCount < filtered.length
+  const loadMore = () => setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, filtered.length))
   const sentinelRef = useRef(null)
   useEffect(() => {
     if (!hasMore || typeof IntersectionObserver === 'undefined') return
     const el = sentinelRef.current
     if (!el) return
     // rootMargin preloads the next page ~a screen early so scrolling stays smooth
-    // rather than pausing at the bottom while the next batch mounts.
+    // rather than pausing at the bottom while the next batch mounts. The observer
+    // is deliberately NOT re-created per page (deps exclude visibleCount): each
+    // +EVENTS_PAGE_SIZE rows pushes the sentinel back out of the rootMargin, so
+    // it re-fires on the next scroll. This relies on a page being taller than
+    // viewport + rootMargin (60 rows always are) — if the page size is ever cut
+    // dramatically, add visibleCount to the deps so growth re-arms the observer.
     const io = new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting)) {
-        setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, filtered.length))
-      }
+      if (entries.some((e) => e.isIntersecting)) loadMore()
     }, { rootMargin: '800px 0px' })
     io.observe(el)
     return () => io.disconnect()
@@ -396,12 +400,16 @@ function EventsMode() {
     <>
       <DayList groups={groups} />
       {hasMore ? (
-        // More rows already in memory — the sentinel triggers the next page.
-        <div ref={sentinelRef} className="a-listmore" aria-hidden="true">Loading more…</div>
+        // More rows already in memory. The IntersectionObserver auto-advances
+        // this into view while scrolling; it's also a real button so keyboard/AT
+        // users — and any browser without IntersectionObserver — can still page.
+        <button ref={sentinelRef} type="button" className="a-listmore a-listmore--btn" onClick={loadMore}>
+          Load more
+        </button>
       ) : !app.fullEventsLoaded ? (
         // Everything we have is rendered, but the full index is still fetching
         // (or a reconnect retry is in flight) — more days are on the way.
-        <div className="a-listmore">Loading more events…</div>
+        <div className="a-listmore" role="status">Loading more events…</div>
       ) : (
         // Genuine end of the list.
         <div className="a-listend">That’s all {filtered.length} event{filtered.length === 1 ? '' : 's'}.</div>

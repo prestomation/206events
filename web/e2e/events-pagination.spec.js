@@ -88,6 +88,28 @@ test('pages through the full events list on scroll and marks the end', async ({ 
   expect(pageErrors, 'no uncaught page errors').toEqual([])
 })
 
+test('the "Load more" button pages the list when IntersectionObserver is unavailable', async ({ page }) => {
+  // Remove IntersectionObserver so auto-advance is off — this is the fallback
+  // path (old browsers, keyboard/AT users) where the button is the only way to
+  // page. addInitScript runs before the app's scripts on navigation.
+  await page.addInitScript(() => { try { delete window.IntersectionObserver } catch { window.IntersectionObserver = undefined } })
+  await installDataMocks(page)
+  const events = makeEvents()
+  await page.route('**/events-index-soon.json', (route) => route.fulfill(json(events)))
+  await page.route('**/events-index.json', (route) => route.fulfill(json(events)))
+
+  await gotoEvents(page)
+
+  // First page only; without the observer the list can't auto-advance.
+  const loadMore = page.getByRole('button', { name: 'Load more' })
+  await expect(loadMore).toBeVisible()
+  await expect(page.getByText('Event #060', { exact: true })).toHaveCount(0)
+
+  // Clicking reveals the next page.
+  await loadMore.click()
+  await expect(page.getByText('Event #060', { exact: true })).toBeVisible()
+})
+
 test('retries the full events index when connectivity returns', async ({ page }) => {
   await installDataMocks(page)
 

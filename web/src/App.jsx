@@ -140,6 +140,10 @@ function App() {
   // Guards against overlapping full-index fetches (boot phase-2 racing a
   // reconnect retry or a service-worker DATA_UPDATED refresh).
   const fullIndexInFlightRef = useRef(false)
+  // A forced refresh (DATA_UPDATED / boot) that arrives while a fetch is already
+  // in flight is remembered here and replayed when that fetch settles, so fresh
+  // data is never silently dropped just because the timing overlapped.
+  const fullIndexForceQueuedRef = useRef(false)
   const [loading, setLoading] = useState(true)
   // Live-search runs in a Web Worker so the events-index JSON.parse, the Fuse
   // index build, and every per-query scan stay off the main thread (no typing /
@@ -471,7 +475,12 @@ function App() {
   // service-worker DATA_UPDATED refresh. The reconnect retry passes false so it
   // no-ops once the index is already loaded.
   const loadFullEventsIndex = useCallback((force = false) => {
-    if (fullIndexInFlightRef.current) return Promise.resolve()
+    // A fetch is already running: a forced refresh queues a replay (so it isn't
+    // dropped); a non-forced retry just no-ops (the in-flight fetch covers it).
+    if (fullIndexInFlightRef.current) {
+      if (force) fullIndexForceQueuedRef.current = true
+      return Promise.resolve()
+    }
     if (!force && fullIndexLoadedRef.current) return Promise.resolve()
     fullIndexInFlightRef.current = true
     return fetch('./events-index.json')
@@ -497,7 +506,14 @@ function App() {
         console.warn('Full events index not available; search limited to the near-term window')
         setFullEventsLoaded(true)
       })
-      .finally(() => { fullIndexInFlightRef.current = false })
+      .finally(() => {
+        fullIndexInFlightRef.current = false
+        // Replay a forced refresh that landed mid-flight (see the guard above).
+        if (fullIndexForceQueuedRef.current) {
+          fullIndexForceQueuedRef.current = false
+          loadFullEventsIndex(true)
+        }
+      })
   }, [searchClient])
 
   const loadCalendars = useCallback(async () => {
