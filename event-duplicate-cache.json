@@ -5984,6 +5984,96 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-05",
       "note": "Same event, two seatoday calendar feeds (all vs community)"
+    },
+    "external-uw-botanic-gardens.ics Garden Ready for Fall Birds (Online)|2026-09-09T19:00:00Z[UTC]::external-uw-campus-events.ics Garden Ready for Fall Birds (Online)|2026-09-09T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same UW event listed on both the Botanic Gardens and Campus Events feeds \u2014 identical URL, title, and location"
+    },
+    "external-uw-botanic-gardens.ics Gardening with the Seasons: Fall (online)|2026-09-17T19:00:00Z[UTC]::external-uw-campus-events.ics Gardening with the Seasons: Fall (online)|2026-09-17T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same UW event listed on both the Botanic Gardens and Campus Events feeds \u2014 identical URL, title, and location"
+    },
+    "external-uw-botanic-gardens.ics Native Plants 101: Gardening with Bulbs (Online)|2026-09-16T19:00:00Z[UTC]::external-uw-campus-events.ics Native Plants 101: Gardening with Bulbs (Online)|2026-09-16T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same UW event listed on both the Botanic Gardens and Campus Events feeds \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics 5th Annual Plein Air Magnuson Park: Paint Out|2026-07-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics 5th Annual Plein Air Magnuson Park: Paint Out|2026-07-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics FREE Homebuyer Education Class: Down Payment Assistance in WA|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics FREE Homebuyer Education Class: Down Payment Assistance in WA|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics GeekFest West 2026|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics GeekFest West 2026|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics PAWA with SPACE Paints Magnuson Park  2026|2026-07-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics PAWA with SPACE Paints Magnuson Park  2026|2026-07-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics PAWA with SPACE Paints Magnuson Park  2026|2026-07-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics PAWA with SPACE Paints Magnuson Park  2026|2026-07-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-all.ics Tukwila United World Cup Viewing Lounge|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|\u00f3l\u01eb\u0301|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-arts.ics PAWA with SPACE Paints Magnuson Park  2026|2026-07-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics PAWA with SPACE Paints Magnuson Park  2026|2026-07-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
+    },
+    "seatoday-seatoday-community.ics Tukwila United World Cup Viewing Lounge|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tukwila United World Cup Viewing Lounge|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event republished across sibling seatoday category feeds (all/arts/community/sports/learning) \u2014 identical URL, title, and location"
     }
   }
 }
