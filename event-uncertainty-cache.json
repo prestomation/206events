@@ -18484,11 +18484,10 @@
     },
     "events12:chinese-acrobats-2026-06-28": {
       "unresolvable": true,
-      "reason": "TicketLeap page returning error; show times not accessible",
-      "resolvedAt": "2026-06-11",
+      "resolvedAt": "2026-07-05",
       "source": "agent",
-      "partialFingerprint": "78taog-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
+      "reason": "events.ticketleap.com ticket page returns a client-side error, no pricing content loads (re-checked; fingerprint changed since last check)",
+      "partialFingerprint": "78taog-until2026-06-28-tk"
     },
     "t-mobile-park:tm-vvG1HZ_eEqQbQ2": {
       "unresolvable": true,
@@ -28781,9 +28780,12 @@
     },
     "seattle-folklore-society:seattle-folklore-society-abbey-arts-presents-scottish-songstress-iona-fyfe-at-fremont-abbey-july-29th-with-co-sponsors-sfs-2026-07-29": {
       "fields": {
-        "location": "Fremont Abbey, 4272 Fremont Ave N, Seattle, WA 98103"
+        "location": "Fremont Abbey, 4272 Fremont Ave N, Seattle, WA 98103",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-06-30",
+      "resolvedAt": "2026-07-05",
       "source": "agent",
       "evidence": "https://www.seafolklore.org/events/abbey-arts-presents-scottish-songstress-iona-fyfe-at-fremont-abbey-july-29th-with-co-sponsors-sfs/"
     },
@@ -37850,6 +37852,317 @@
       "resolvedAt": "2026-07-05",
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/greener-living-mason-jar-magic/18995739/2026-07-17T00"
+    },
+    "events12:dance-music-festival-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Event date already passed; pnw.beyondwonderland.com now promotes the 2027 festival with no 2026-specific start time or price shown",
+      "partialFingerprint": "6z58hs-until2026-06-28-tu"
+    },
+    "events12:pride-parade-festival-2026-06-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "seattlepride.org/events/parade still displays 2025 parade details with no 2026-specific info published",
+      "partialFingerprint": "xfe7i1-until2026-06-28-tu"
+    },
+    "seatoday:cityspark-19306922": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "6amcity.com CitySpark embed page is a JS-rendered SPA; no HTML content is retrievable via automated fetch, so no cost info is accessible",
+      "partialFingerprint": "1oc6ono"
+    },
+    "seatoday:cityspark-18957026": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "6amcity.com CitySpark embed page is a JS-rendered SPA; no HTML content is retrievable via automated fetch, so no cost info is accessible",
+      "partialFingerprint": "10t967w"
+    },
+    "seatoday:cityspark-18906659": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "6amcity.com CitySpark embed page is a JS-rendered SPA; no HTML content is retrievable via automated fetch, so no cost info is accessible",
+      "partialFingerprint": "owi22i"
+    },
+    "seatoday:cityspark-19266012": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "6amcity.com CitySpark embed page is a JS-rendered SPA; no HTML content is retrievable via automated fetch, so no cost info is accessible",
+      "partialFingerprint": "qf8xf9"
+    },
+    "seatoday:cityspark-18519372": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "6amcity.com CitySpark embed page is a JS-rendered SPA; no HTML content is retrievable via automated fetch, so no cost info is accessible",
+      "partialFingerprint": "baw9yy"
+    },
+    "19hz:19hz-2026/06/24-Massive Pride 2026": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "tixr.com returned HTTP 403 on repeated fetch; no doors/end time found for this event page",
+      "partialFingerprint": "1tnb6dp"
+    },
+    "19hz:19hz-2026/06/25-Kremwerk Pride: Weekend Pass": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "tickets.kremwerk.com is a JS-rendered page returning only 'Loading...'; no end time recoverable",
+      "partialFingerprint": "geb93"
+    },
+    "19hz:19hz-2026/06/26-Cuff Pride Fest 2026: Aluna, Dan Slater, Horse Meat Disco, Jon Klaft, Paulo": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "wl.eventim.us returned HTTP 403; corroborating sources list only dates, no hours",
+      "partialFingerprint": "3dtfw9"
+    },
+    "19hz:19hz-2026/06/27-Beyond Wonderland at the Gorge": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "beyondpnw.frontgatetickets.com now promotes the 2027 edition; no reliable 2026 gate time found",
+      "partialFingerprint": "8wug9u"
+    },
+    "events12:performance-art-2026-06-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://ontheboards.org/events/25-26/nwnw",
+      "partialFingerprint": "1es0swj-until2026-06-06-tk"
+    },
+    "events12:performance-art-2026-06-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://ontheboards.org/events/25-26/nwnw",
+      "partialFingerprint": "1es0swj-until2026-06-06-tk"
+    },
+    "events12:performance-art-2026-06-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://ontheboards.org/events/25-26/nwnw",
+      "partialFingerprint": "1es0swj-until2026-06-06-tk"
+    },
+    "events12:party-at-the-aquarium-2026-06-05": {
+      "fields": {
+        "startTime": "17:30",
+        "duration": 16200
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleaquarium.org/splash/",
+      "partialFingerprint": "kgatjh-until2026-06-05-tu"
+    },
+    "events12:pinball-arcade-games-2026-06-05": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.nwpinballshow.com/tickets",
+      "partialFingerprint": "ixhiqf-until2026-06-07-tk"
+    },
+    "events12:pinball-arcade-games-2026-06-06": {
+      "fields": {
+        "cost": {
+          "min": 60.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.nwpinballshow.com/tickets",
+      "partialFingerprint": "ixhiqf-until2026-06-07-tk"
+    },
+    "events12:pinball-arcade-games-2026-06-07": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.nwpinballshow.com/tickets",
+      "partialFingerprint": "ixhiqf-until2026-06-07-tk"
+    },
+    "events12:podcasts-live-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "cascadepbs.org/ideas-festival and linked pages omit per-session start times, only general festival hours",
+      "partialFingerprint": "6gvh3x-until2026-06-06-tu"
+    },
+    "events12:musical-cabaret-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "no ticket price found on seattlecabaretfestival.com or linked checkout page; only a venue food/drink minimum is mentioned",
+      "partialFingerprint": "pdyz3o-until2026-06-06-tk"
+    },
+    "events12:cocktail-walk-2026-06-06": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 10800,
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.visitballard.com/event/ballard-cocktail-trail/",
+      "partialFingerprint": "t9pe05-until2026-06-06-tu"
+    },
+    "events12:baseball-cards-collectibles-2026-06-06": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.wsscaseattle.com/general-info.html",
+      "partialFingerprint": "1toexj2-until2026-06-06-tk"
+    },
+    "events12:small-town-festival-2026-06-06": {
+      "fields": {
+        "startTime": "10:30",
+        "duration": 41400
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://duvalldays.org/2026-schedule/",
+      "partialFingerprint": "1r9dw4g-until2026-06-06-tu"
+    },
+    "events12:duck-parade-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "cityofup.com/418/Duck-Daze does not state an admission cost or explicit free language",
+      "partialFingerprint": "nog13c-until2026-06-06-tk"
+    },
+    "events12:scottish-festival-up-north-2026-06-06": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 32400,
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.bellingham.org/eventdetail/32306/bellingham-scottish-gathering",
+      "partialFingerprint": "1yb1e1z-until2026-06-06-tu"
+    },
+    "events12:fishing-day-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "wdfw.wa.gov/fishing/free gives no clock-time window; a regulatory allowance, not a scheduled event with hours",
+      "partialFingerprint": "buzm5i-until2026-06-07-tu"
+    },
+    "events12:fishing-day-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "wdfw.wa.gov/fishing/free gives no clock-time window; a regulatory allowance, not a scheduled event with hours",
+      "partialFingerprint": "buzm5i-until2026-06-07-tu"
+    },
+    "events12:state-park-day-2026-06-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "discoverpass.wa.gov lists only qualifying dates, no specific hours",
+      "partialFingerprint": "1q5bayd-until2026-06-07-tu"
+    },
+    "events12:state-park-day-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "discoverpass.wa.gov lists only qualifying dates, no specific hours",
+      "partialFingerprint": "1q5bayd-until2026-06-07-tu"
+    },
+    "events12:state-park-day-2026-06-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "discoverpass.wa.gov lists only qualifying dates, no specific hours",
+      "partialFingerprint": "1q5bayd-until2026-06-19-tu"
+    },
+    "events12:gig-harbor-festival-2026-06-06": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 39600
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.gigharborchamber.net/maritime-gig-festival",
+      "partialFingerprint": "i6uar5-until2026-06-07-tu"
+    },
+    "events12:gig-harbor-festival-2026-06-07": {
+      "fields": {
+        "startTime": "10:30",
+        "duration": 19800
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.gigharborchamber.net/maritime-gig-festival",
+      "partialFingerprint": "i6uar5-until2026-06-07-tu"
+    },
+    "events12:half-marathon-on-bainbridge-island-2026-06-07": {
+      "fields": {
+        "startTime": "08:37",
+        "duration": 15780,
+        "cost": {
+          "min": 79.0,
+          "max": 114.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.orcarunning.com/great-ferry-race/",
+      "partialFingerprint": "btos6c-until2026-06-07-tu"
+    },
+    "events12:ballet-finale-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "pnb.org/season/season-encore/ has only a Buy Tickets link with no price shown; order.pnb.org 404'd",
+      "partialFingerprint": "bhkn41-until2026-06-07-tk"
+    },
+    "events12:run-to-support-parks-2026-06-07": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 10800,
+        "cost": {
+          "min": 28.0,
+          "max": 50.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://runsignup.com/Race/Info/WA/Redmond/BigBackyard5K",
+      "partialFingerprint": "14spilk-until2026-06-07-tu"
     }
   }
 }
