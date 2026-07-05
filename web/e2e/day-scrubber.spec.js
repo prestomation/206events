@@ -95,21 +95,25 @@ test('dragging the handle jumps the list to a later day', async ({ page }) => {
   const tb = await track.boundingBox()
   const hb = await handle.boundingBox()
 
-  // Grab the handle and drag most of the way down the track. The date bubble
-  // appears while dragging.
+  // Grab the handle and drag part way down. The date bubble appears while
+  // dragging, and the list scrolls LIVE — before the finger is lifted.
   await page.mouse.move(hb.x + hb.width / 2, hb.y + hb.height / 2)
   await page.mouse.down()
   await page.mouse.move(tb.x + tb.width / 2, tb.y + tb.height * 0.55, { steps: 12 })
   await expect(page.locator('.a-scrubber-bubble')).toBeVisible()
+  // Real-time scroll: the list has already moved while the button is still down.
+  await expect
+    .poll(async () => page.locator('.a-content').evaluate((el) => el.scrollTop))
+    .toBeGreaterThan(0)
   await screenshotStable(page, 'e2e/screenshots/day-scrubber-drag.png', { fullPage: false })
   await page.mouse.move(tb.x + tb.width / 2, tb.y + tb.height * 0.9, { steps: 8 })
   await page.mouse.up()
 
-  // Releasing seeks: a far-future day that wasn't rendered before is now
-  // reachable, and the list scrolled away from the top.
+  // Dragging near the end brought a far-future day (not in the first page) into
+  // view, and the list is scrolled well down.
   await expect(page.getByText('Day 38 Show 0', { exact: true })).toBeVisible()
   const scrollTop = await page.locator('.a-content').evaluate((el) => el.scrollTop)
-  expect(scrollTop, 'list scrolled down after the seek').toBeGreaterThan(0)
+  expect(scrollTop, 'list scrolled down after the drag').toBeGreaterThan(0)
 
   expect(pageErrors, 'no uncaught page errors').toEqual([])
 })

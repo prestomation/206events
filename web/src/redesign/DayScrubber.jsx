@@ -1,12 +1,13 @@
-// Google-Photos-style day scrubber for the events list. A slim handle pinned to
-// the right edge of the scroll viewport tracks how far through the day timeline
-// the reader is; grabbing it (mouse, touch, or keyboard) reveals a date bubble
-// and jumps the list to a specific day on release.
+// Google-Photos-style day scrubber for the events list. A slim scrollbar-like
+// handle hugs the right edge of the scroll viewport and tracks how far through
+// the day timeline the reader is; grabbing it (mouse, touch, or keyboard)
+// reveals a date bubble and scrolls the list LIVE, day by day, as you drag.
 //
-// It lives INSIDE the `.a-content` scroll container (it finds that container by
-// walking up the DOM) and pins itself with `position: sticky; top: 0` on a
-// zero-height mount, so it never perturbs the list's layout. The actual track is
-// an absolutely-positioned overlay sized to the container's visible height.
+// The track is `position: fixed`, sized/placed from the `.a-content` scroll
+// container's rect (measured once, kept current on resize). Fixed — not sticky —
+// so the track stays put while the list scrolls under it during a drag, and so
+// its geometry is a stable reference (a sticky element shifts when the header
+// scrolls off, which otherwise corrupts the pointer→day math mid-drag).
 //
 // `dayIndex` is the full-timeline tick list from dayIndexForScrubber() — one
 // entry per distinct day with the index of its first event. `onSeek(day)` is
@@ -24,17 +25,18 @@ const MIN_DAYS = 4
 const HANDLE_H = 34
 
 export function DayScrubber({ dayIndex, onSeek }) {
-  const mountRef = useRef(null)
+  const anchorRef = useRef(null)
   const containerRef = useRef(null)
-  const trackRef = useRef(null)
   const rafRef = useRef(0)
+  const dragCleanupRef = useRef(null)
 
   // Fraction [0,1] of the handle along the track. Driven by scroll position
   // (which day is at the top) except while dragging, when the finger drives it.
   const [fraction, setFraction] = useState(0)
   const [active, setActive] = useState(false) // dragging or hovering → show bubble
   const [dragging, setDragging] = useState(false)
-  const [trackH, setTrackH] = useState(0)
+  // Fixed-position geometry of the track, derived from the scroll container.
+  const [geom, setGeom] = useState(null) // { top, height, right }
   // The day the bubble currently names. While idle it's the top-of-viewport day;
   // while dragging it's the day under the finger.
   const [labelIdx, setLabelIdx] = useState(0)
@@ -50,21 +52,27 @@ export function DayScrubber({ dayIndex, onSeek }) {
     keyToIdxRef.current = m
   }, [dayIndex])
 
-  // Resolve the scroll container once mounted and keep its visible height in
-  // sync (viewport resize, orientation change) so the track spans it exactly.
+  // Resolve the scroll container and mirror its viewport rect into `geom`. The
+  // container's own rect only moves on layout/resize (never on the internal
+  // scroll that the drag drives), so a ResizeObserver + window resize keep it
+  // current without a scroll listener.
   useEffect(() => {
     if (!enabled) return
-    const container = mountRef.current?.closest('.a-content')
+    const container = anchorRef.current?.closest('.a-content')
     containerRef.current = container
     if (!container) return
-    const measure = () => setTrackH(container.clientHeight)
+    const measure = () => {
+      const r = container.getBoundingClientRect()
+      setGeom({ top: r.top, height: container.clientHeight, right: Math.max(0, window.innerWidth - r.right) })
+    }
     measure()
     let ro
     if (typeof ResizeObserver !== 'undefined') {
       ro = new ResizeObserver(measure)
       ro.observe(container)
     }
-    return () => ro?.disconnect()
+    window.addEventListener('resize', measure)
+    return () => { ro?.disconnect(); window.removeEventListener('resize', measure) }
   }, [enabled])
 
   // While idle, follow the scroll position: find the day header currently at the
@@ -98,57 +106,72 @@ export function DayScrubber({ dayIndex, onSeek }) {
     }
   }, [enabled, dragging, count])
 
-  // Translate a pointer Y into a timeline fraction + nearest tick index. The
-  // fraction is measured over the handle's usable travel (track height minus the
-  // handle), offset by half the handle, so the grip's CENTER tracks the finger
-  // rather than trailing it toward the middle.
+  // Translate a pointer Y into a timeline fraction + nearest tick index, using
+  // the fixed track geometry (stable, never shifts mid-drag). The fraction spans
+  // the handle's usable travel (height minus the handle) and is offset by half
+  // the handle so the grip's CENTER tracks the finger rather than trailing it.
   const fromPointer = useCallback((clientY) => {
-    const track = trackRef.current
-    if (!track) return { f: 0, idx: 0 }
-    const r = track.getBoundingClientRect()
-    const usable = r.height - HANDLE_H
-    const f = usable > 0 ? Math.min(1, Math.max(0, (clientY - r.top - HANDLE_H / 2) / usable)) : 0
+    if (!geom) return { f: 0, idx: 0 }
+    const usable = geom.height - HANDLE_H
+    const f = usable > 0 ? Math.min(1, Math.max(0, (clientY - geom.top - HANDLE_H / 2) / usable)) : 0
     const idx = Math.round(f * (count - 1))
     return { f, idx }
-  }, [count])
+  }, [geom, count])
 
+  // Drag: seek LIVE as the finger moves so the list scrolls in real time, not
+  // only on release. Listeners live on the window (the handle is a small target
+  // and pointer capture doesn't hold across engines), attached synchronously in
+  // pointerdown so no early move is missed. Moves are coalesced to one seek per
+  // frame, and a seek fires only when the day under the finger actually changes.
   const onPointerDown = useCallback((e) => {
-    if (!enabled) return
+    if (!enabled || !geom) return
     e.preventDefault()
-    setDragging(true)
     setActive(true)
-    const { f, idx } = fromPointer(e.clientY)
-    setFraction(f)
-    setLabelIdx(idx)
-  }, [enabled, fromPointer])
+    setDragging(true)
 
-  // Track the drag on the WINDOW rather than via pointer capture: the handle is
-  // a small target and capture doesn't hold reliably across engines (Firefox
-  // dropped it mid-drag), so once the finger leaves the handle the moves must
-  // still be heard. Window listeners catch every move/up regardless of what's
-  // under the cursor.
-  useEffect(() => {
-    if (!dragging) return
-    const onMove = (e) => {
-      const { f, idx } = fromPointer(e.clientY)
+    let lastIdx = -1
+    let pendingY = e.clientY
+    let rafId = 0
+    const apply = () => {
+      rafId = 0
+      const { f, idx } = fromPointer(pendingY)
       setFraction(f)
       setLabelIdx(idx)
+      if (idx !== lastIdx) { lastIdx = idx; onSeek?.(dayIndex[idx]) }
     }
-    const onUp = (e) => {
-      const { idx } = fromPointer(e.clientY)
+    const onMove = (ev) => {
+      pendingY = ev.clientY
+      if (!rafId) rafId = requestAnimationFrame(apply)
+    }
+    const cleanup = () => {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = 0 }
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', onUp)
+      window.removeEventListener('pointercancel', onUp)
+      dragCleanupRef.current = null
+    }
+    const onUp = (ev) => {
+      pendingY = ev.clientY
+      cleanup()
+      apply()
       setDragging(false)
       setActive(false)
-      onSeek?.(dayIndex[idx])
     }
     window.addEventListener('pointermove', onMove)
     window.addEventListener('pointerup', onUp)
     window.addEventListener('pointercancel', onUp)
-    return () => {
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('pointerup', onUp)
-      window.removeEventListener('pointercancel', onUp)
-    }
-  }, [dragging, fromPointer, onSeek, dayIndex])
+    dragCleanupRef.current = cleanup
+
+    // Seek to the initial press position immediately.
+    const seed = fromPointer(e.clientY)
+    setFraction(seed.f)
+    setLabelIdx(seed.idx)
+    lastIdx = seed.idx
+    onSeek?.(dayIndex[seed.idx])
+  }, [enabled, geom, fromPointer, onSeek, dayIndex])
+
+  // Drop any live drag listeners if we unmount mid-drag.
+  useEffect(() => () => dragCleanupRef.current?.(), [])
 
   const onKeyDown = useCallback((e) => {
     let next = null
@@ -167,46 +190,49 @@ export function DayScrubber({ dayIndex, onSeek }) {
 
   if (!enabled) return null
 
-  const usable = Math.max(0, trackH - HANDLE_H)
+  const usable = geom ? Math.max(0, geom.height - HANDLE_H) : 0
   const handleTop = Math.round(fraction * usable)
   const tick = dayIndex[Math.min(labelIdx, count - 1)]
 
   return (
-    <div className="a-scrubber-mount" ref={mountRef}>
-      <div
-        className={`a-scrubber${active ? ' a-scrubber--active' : ''}${dragging ? ' a-scrubber--drag' : ''}`}
-        style={{ height: trackH }}
-        ref={trackRef}
-      >
-        <div className="a-scrubber-track" />
-        {active && tick && (
-          <div className="a-scrubber-bubble" style={{ top: handleTop + HANDLE_H / 2 }} role="status">
-            <span className="a-scrubber-bubble-month">{tick.monthLabel}</span>
-            <span className="a-scrubber-bubble-day">{tick.dayLabel}</span>
-          </div>
-        )}
-        <button
-          type="button"
-          className="a-scrubber-handle"
-          style={{ top: handleTop, height: HANDLE_H }}
-          role="slider"
-          aria-label="Date scrubber"
-          aria-orientation="vertical"
-          aria-valuemin={0}
-          aria-valuemax={count - 1}
-          aria-valuenow={labelIdx}
-          aria-valuetext={tick ? tick.dayLabel : ''}
-          tabIndex={0}
-          onPointerDown={onPointerDown}
-          onKeyDown={onKeyDown}
-          // Hover reveal is mouse-only: a touch tap synthesizes pointerenter with
-          // no matching leave, which would strand the bubble on screen.
-          onPointerEnter={(e) => { if (e.pointerType === 'mouse') setActive(true) }}
-          onPointerLeave={(e) => { if (e.pointerType === 'mouse' && !dragging) setActive(false) }}
+    <>
+      {/* Zero-size anchor: only used to locate the `.a-content` scroll container. */}
+      <span ref={anchorRef} aria-hidden style={{ position: 'absolute', width: 0, height: 0 }} />
+      {geom && (
+        <div
+          className={`a-scrubber${active ? ' a-scrubber--active' : ''}${dragging ? ' a-scrubber--drag' : ''}`}
+          style={{ position: 'fixed', top: geom.top, height: geom.height, right: geom.right }}
         >
-          <span className="a-scrubber-grip" />
-        </button>
-      </div>
-    </div>
+          <div className="a-scrubber-track" />
+          {active && tick && (
+            <div className="a-scrubber-bubble" style={{ top: handleTop + HANDLE_H / 2 }} role="status">
+              <span className="a-scrubber-bubble-month">{tick.monthLabel}</span>
+              <span className="a-scrubber-bubble-day">{tick.dayLabel}</span>
+            </div>
+          )}
+          <button
+            type="button"
+            className="a-scrubber-handle"
+            style={{ top: handleTop, height: HANDLE_H }}
+            role="slider"
+            aria-label="Date scrubber"
+            aria-orientation="vertical"
+            aria-valuemin={0}
+            aria-valuemax={count - 1}
+            aria-valuenow={labelIdx}
+            aria-valuetext={tick ? tick.dayLabel : ''}
+            tabIndex={0}
+            onPointerDown={onPointerDown}
+            onKeyDown={onKeyDown}
+            // Hover reveal is mouse-only: a touch tap synthesizes pointerenter with
+            // no matching leave, which would strand the bubble on screen.
+            onPointerEnter={(e) => { if (e.pointerType === 'mouse') setActive(true) }}
+            onPointerLeave={(e) => { if (e.pointerType === 'mouse' && !dragging) setActive(false) }}
+          >
+            <span className="a-scrubber-grip" />
+          </button>
+        </div>
+      )}
+    </>
   )
 }

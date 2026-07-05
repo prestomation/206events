@@ -4182,44 +4182,36 @@ html, body, #root { height: 100%; }
 .app206 .a-day-line { flex: 1; height: 1px; background: var(--line); align-self: center; }
 
 /* ---- day scrubber (Google-Photos-style jump-to-date handle) ----
-   A zero-height sticky mount pins to the top of the `.a-content` scroll
-   viewport so the absolutely-positioned track (sized to the viewport in JS)
-   rides the right edge without ever pushing the list. Only the handle is a
-   pointer target — the rest of the strip stays click-through. */
-.app206 .a-scrubber-mount { position: sticky; top: 0; height: 0; z-index: 20; pointer-events: none; }
-.app206 .a-scrubber { position: absolute; right: -2px; top: 0; width: 44px; pointer-events: none; touch-action: none; }
+   A `position: fixed` strip pinned to the right edge of the `.a-content`
+   viewport (top/height/right set inline from the container's rect). Slim, like
+   a scrollbar — only the thumb is a pointer target, the rest stays
+   click-through. `.a-scrubber` height is set inline. */
+.app206 .a-scrubber { width: 16px; pointer-events: none; touch-action: none; z-index: 30; }
 .app206 .a-scrubber-track {
-  position: absolute; right: 7px; top: 10px; bottom: 10px; width: 3px;
+  position: absolute; right: 4px; top: 8px; bottom: 8px; width: 3px;
   border-radius: 3px; background: var(--line-2); opacity: 0; transition: opacity .15s ease;
 }
 .app206 .a-scrubber--active .a-scrubber-track { opacity: .75; }
+/* The thumb hugs the very edge (right:0) so it reads as a scrollbar and takes
+   minimal width; it grows a touch on hover/drag. */
 .app206 .a-scrubber-handle {
-  position: absolute; right: 0; width: 34px; padding: 0;
+  position: absolute; right: 0; width: 16px; padding: 0;
   display: flex; align-items: center; justify-content: center;
   pointer-events: auto; cursor: grab; touch-action: none; background: transparent; border: none;
 }
 .app206 .a-scrubber-handle:active { cursor: grabbing; }
 .app206 .a-scrubber-grip {
-  width: 30px; height: 30px; border-radius: 999px;
-  background: var(--surface); border: 1px solid var(--line-2);
-  box-shadow: 0 1px 5px rgba(0,0,0,.16);
-  display: flex; align-items: center; justify-content: center;
-  transition: transform .12s ease, background .12s ease, border-color .12s ease;
-}
-.app206 .a-scrubber-grip::before {
-  content: ''; width: 12px; height: 2px; border-radius: 2px; background: var(--ink-3);
-  box-shadow: 0 -4px 0 var(--ink-3), 0 4px 0 var(--ink-3);
+  width: 7px; height: 100%; border-radius: 999px;
+  background: var(--line-2); box-shadow: 0 1px 4px rgba(0,0,0,.18);
+  transition: width .12s ease, background .12s ease;
 }
 .app206 .a-scrubber--active .a-scrubber-grip,
 .app206 .a-scrubber-handle:hover .a-scrubber-grip,
-.app206 .a-scrubber-handle:focus-visible .a-scrubber-grip { background: var(--blue); border-color: var(--blue); }
-.app206 .a-scrubber--active .a-scrubber-grip::before,
-.app206 .a-scrubber-handle:hover .a-scrubber-grip::before,
-.app206 .a-scrubber-handle:focus-visible .a-scrubber-grip::before { background: #fff; box-shadow: 0 -4px 0 #fff, 0 4px 0 #fff; }
-.app206 .a-scrubber--drag .a-scrubber-grip { transform: scale(1.08); }
+.app206 .a-scrubber-handle:focus-visible .a-scrubber-grip { width: 11px; background: var(--blue); }
+.app206 .a-scrubber--drag .a-scrubber-grip { width: 11px; background: var(--blue); }
 .app206 .a-scrubber-handle:focus-visible { outline: none; }
 .app206 .a-scrubber-bubble {
-  position: absolute; right: 44px; transform: translateY(-50%);
+  position: absolute; right: 22px; transform: translateY(-50%);
   background: var(--ink); color: var(--paper); padding: 6px 11px; border-radius: 10px;
   box-shadow: 0 3px 14px rgba(0,0,0,.24);
   display: flex; flex-direction: column; align-items: flex-end;
@@ -4232,7 +4224,7 @@ html, body, #root { height: 100%; }
 .app206 .a-scrubber-bubble-month { font-family: var(--font-display); font-weight: 800; font-size: 15px; }
 .app206 .a-scrubber-bubble-day { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; opacity: .82; text-transform: uppercase; }
 @media (prefers-color-scheme: dark) {
-  .app206 .a-scrubber-grip { box-shadow: 0 1px 5px rgba(0,0,0,.4); }
+  .app206 .a-scrubber-grip { box-shadow: 0 1px 4px rgba(0,0,0,.4); }
 }
 
 /* ---- provenance chips ---- */
