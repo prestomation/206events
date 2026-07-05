@@ -4,13 +4,8 @@
 name: crawl4ai-stealth-probe
 
 on:
+  # On-demand only — the investigation is complete (see docs/crawl4ai-proxy-plan.md).
   workflow_dispatch: {}
-  push:
-    branches:
-      - claude/crawl4ai-proxy-plan-44ab8h
-    paths:
-      - "scripts/probe-crawl4ai.py"
-      - ".github/workflows/crawl4ai-stealth-probe.yml"
 
 permissions:
   contents: read

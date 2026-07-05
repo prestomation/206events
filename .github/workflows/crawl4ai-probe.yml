@@ -5,18 +5,13 @@
 name: crawl4ai-probe
 
 on:
+  # On-demand only — the investigation is complete (see docs/crawl4ai-proxy-plan.md).
   workflow_dispatch:
     inputs:
       probe_only:
         description: "Comma-separated source names to probe (empty = all)"
         required: false
         default: ""
-  push:
-    branches:
-      - claude/crawl4ai-proxy-plan-44ab8h
-    paths:
-      - "scripts/probe-proxy-sources.mjs"
-      - ".github/workflows/crawl4ai-probe.yml"
 
 permissions:
   contents: read
