@@ -1,0 +1,16 @@
+name: seattle-social-club
+sourceRole: venue
+type: eventbrite
+description: "Seattle Social Club"
+url: "https://www.eventbrite.com/o/seattle-social-club-42795102333"
+friendlyLink: https://www.eventbrite.com/o/seattle-social-club-42795102333
+tags: ["Community"]
+geo: null
+calendars:
+  - name: seattle-social-club
+    friendlyname: "Seattle Social Club"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "42795102333"
+      defaultLocation: "Seattle, WA"
+      defaultDurationHours: 2
