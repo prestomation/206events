@@ -38163,6 +38163,804 @@
       "source": "agent",
       "evidence": "https://runsignup.com/Race/Info/WA/Redmond/BigBackyard5K",
       "partialFingerprint": "14spilk-until2026-06-07-tu"
+    },
+    "events12:garden-festival-south-2026-06-07": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.parkstacoma.gov/fgf-2026/",
+      "partialFingerprint": "9i2fon-until2026-06-07-tk"
+    },
+    "events12:international-dance-festival-2026-06-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattleidf.org/tickets/",
+      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
+    },
+    "events12:international-dance-festival-2026-06-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattleidf.org/tickets/",
+      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
+    },
+    "events12:international-dance-festival-2026-06-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattleidf.org/tickets/",
+      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
+    },
+    "events12:international-dance-festival-2026-06-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattleidf.org/tickets/",
+      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
+    },
+    "events12:international-dance-festival-2026-06-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattleidf.org/tickets/",
+      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
+    },
+    "events12:international-dance-festival-2026-06-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattleidf.org/tickets/",
+      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
+    },
+    "events12:international-dance-festival-2026-06-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattleidf.org/tickets/",
+      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
+    },
+    "events12:international-dance-festival-2026-06-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattleidf.org/tickets/",
+      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
+    },
+    "events12:party-for-young-professionals-2026-06-10": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 9000,
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.uwkc.org/event/happy-hour-hellos-community-june-10/",
+      "partialFingerprint": "1qy81yr-until2026-06-10-tu"
+    },
+    "events12:pride-circus-trapeze-show-2026-06-12": {
+      "fields": {
+        "cost": {
+          "min": 30.0,
+          "max": 60.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://emeraldcitytrapeze.com/pride-show-2026/",
+      "partialFingerprint": "1meorjb-until2026-06-13-tk"
+    },
+    "events12:pride-circus-trapeze-show-2026-06-13": {
+      "fields": {
+        "cost": {
+          "min": 30.0,
+          "max": 60.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://emeraldcitytrapeze.com/pride-show-2026/",
+      "partialFingerprint": "1meorjb-until2026-06-13-tk"
+    },
+    "events12:beer-festival-2026-06-13": {
+      "fields": {
+        "cost": {
+          "min": 60.0,
+          "max": 65.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://tickets.washingtonbrewersguild.org/e/wabrewersfest2026/tickets",
+      "partialFingerprint": "19fe9mw-until2026-06-13-tk"
+    },
+    "events12:dragon-boats-2026-06-13": {
+      "fields": {
+        "startTime": "08:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlerefined.com/lifestyle/paddles-up-seattle-dragon-boat-festival-makes-a-splash-on-lake-union-seafair-seattle-summer-june-2026-rowing-racing-pnw-culture",
+      "partialFingerprint": "14jwvly-until2026-06-13-tu"
+    },
+    "events12:a-cappella-night-2026-06-13": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.zeffy.com/en-US/ticketing/a-cappella-palooza",
+      "partialFingerprint": "1ijmzxt-until2026-06-13-tk"
+    },
+    "events12:fairy-festival-2026-06-13": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://lakewoldgardens.org/annual-festivals/fairyfest/",
+      "partialFingerprint": "19oh3er-until2026-06-14-tk"
+    },
+    "events12:fairy-festival-2026-06-14": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://lakewoldgardens.org/annual-festivals/fairyfest/",
+      "partialFingerprint": "19oh3er-until2026-06-14-tk"
+    },
+    "events12:juneteenth-celebrations-2026-06-13": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 14400
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://eastsideforall.org/event/eastside-honoring-juneteenth/",
+      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
+    },
+    "events12:juneteenth-celebrations-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page describes a single-day event on June 13 only; no occurrence listed for this date",
+      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
+    },
+    "events12:juneteenth-celebrations-2026-06-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page describes a single-day event on June 13 only; no occurrence listed for this date",
+      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
+    },
+    "events12:juneteenth-celebrations-2026-06-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page describes a single-day event on June 13 only; no occurrence listed for this date",
+      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
+    },
+    "events12:juneteenth-celebrations-2026-06-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page describes a single-day event on June 13 only; no occurrence listed for this date",
+      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
+    },
+    "events12:juneteenth-celebrations-2026-06-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page describes a single-day event on June 13 only; no occurrence listed for this date",
+      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
+    },
+    "events12:juneteenth-celebrations-2026-06-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page describes a single-day event on June 13 only; no occurrence listed for this date",
+      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
+    },
+    "events12:juneteenth-celebrations-2026-06-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page describes a single-day event on June 13 only; no occurrence listed for this date",
+      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
+    },
+    "events12:arts-party-2026-06-17": {
+      "fields": {
+        "cost": {
+          "min": 85.0,
+          "max": 100.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://myedmondsnews.com/2026/06/celebrate-the-arts-party-kicks-off-2026-edmonds-arts-festival/",
+      "partialFingerprint": "8qxg0m-until2026-06-17-tk"
+    },
+    "events12:aquarium-party-2026-06-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleaquarium.org/after-hours/",
+      "partialFingerprint": "s7f90x-until2026-06-25-tk"
+    },
+    "events12:aquarium-party-2026-06-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleaquarium.org/after-hours/",
+      "partialFingerprint": "s7f90x-until2026-06-25-tk"
+    },
+    "events12:wine-walk-2026-06-19": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 14400
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://wsjunction.org/rock-walk/",
+      "partialFingerprint": "stistc-until2026-06-19-tu"
+    },
+    "events12:festival-on-the-columbia-river-2026-06-19": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 14400,
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.tickettomato.com/event/9918/gorge-blues-and-brews",
+      "partialFingerprint": "c6xxdi-until2026-06-20-tu"
+    },
+    "events12:festival-on-the-columbia-river-2026-06-20": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 28800,
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.tickettomato.com/event/9918/gorge-blues-and-brews",
+      "partialFingerprint": "c6xxdi-until2026-06-20-tu"
+    },
+    "events12:bird-festival-2026-06-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Two-day, multi-site festival (guided walks, cruise, native plant sale) with no single start time; most activities are free/PWYC and the general festival has no admission fee",
+      "partialFingerprint": "1wa72zj-until2026-06-07-tu"
+    },
+    "events12:new-plays-about-women-2026-06-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Staged reading confirmed 7:00pm Thursday via secondary source; ticketed but no per-ticket price posted; no run time/end time given",
+      "partialFingerprint": "1be7z8q-until2026-06-14-tu"
+    },
+    "events12:new-plays-about-women-2026-06-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Staged reading confirmed 7:00pm Friday via secondary source; ticketed but no per-ticket price posted; no run time/end time given",
+      "partialFingerprint": "1be7z8q-until2026-06-14-tu"
+    },
+    "events12:new-plays-about-women-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Three showtimes that day (11am/3pm/7:30pm); can't tell which this entry represents; ticketed but no per-ticket price posted",
+      "partialFingerprint": "1be7z8q-until2026-06-14-tu"
+    },
+    "events12:new-plays-about-women-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Two showtimes that day (11am/3pm); ambiguous which this entry represents; ticketed but no per-ticket price posted",
+      "partialFingerprint": "1be7z8q-until2026-06-14-tu"
+    },
+    "events12:steampunk-festival-2026-06-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "2026 schedule is image-only; only overall span known (Fri 5pm - Sun 3pm), no per-day start time; Eventbrite sales ended, no price recoverable",
+      "partialFingerprint": "1vu8me-until2026-06-14-tu"
+    },
+    "events12:steampunk-festival-2026-06-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "2026 schedule is image-only; only overall span known (Fri 5pm - Sun 3pm), no per-day start time; Eventbrite sales ended, no price recoverable",
+      "partialFingerprint": "1vu8me-until2026-06-14-tu"
+    },
+    "events12:steampunk-festival-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "2026 schedule is image-only; only overall span known (Fri 5pm - Sun 3pm), no per-day start time; Eventbrite sales ended, no price recoverable",
+      "partialFingerprint": "1vu8me-until2026-06-14-tu"
+    },
+    "events12:run-with-dogs-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Runners start 11:30am per furry5k.com (Early Bird $40, race day $50), but no finish/end time posted for the 5K",
+      "partialFingerprint": "18jbsyk-until2026-06-14-tu"
+    },
+    "events12:national-park-day-2026-06-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Generic multi-park free-entrance day (Flag Day); no single start time or duration, hours vary per individual park",
+      "partialFingerprint": "t4pf5g-until2026-06-14-tu"
+    },
+    "events12:yakima-music-festival-2026-06-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "No daily schedule/set times published; only multi-day/VIP passes listed (from $417), no single-day GA price, online sales closed",
+      "partialFingerprint": "128lpax-until2026-06-21-tu"
+    },
+    "events12:yakima-music-festival-2026-06-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "No daily schedule/set times published; only multi-day/VIP passes listed (from $417), no single-day GA price, online sales closed",
+      "partialFingerprint": "128lpax-until2026-06-21-tu"
+    },
+    "events12:yakima-music-festival-2026-06-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "No daily schedule/set times published; only multi-day/VIP passes listed (from $417), no single-day GA price, online sales closed",
+      "partialFingerprint": "128lpax-until2026-06-21-tu"
+    },
+    "events12:yakima-music-festival-2026-06-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "No daily schedule/set times published; only multi-day/VIP passes listed (from $417), no single-day GA price, online sales closed",
+      "partialFingerprint": "128lpax-until2026-06-21-tu"
+    },
+    "events12:wine-train-2026-06-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Departs 5:00pm (check-in 4:30pm) per Northwest Railway Museum, $99/ticket, but no return/end time posted",
+      "partialFingerprint": "150hefl-until2026-06-19-tu"
+    },
+    "events12:bluegrass-festival-2026-06-19": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "http://wenatcheeriverbluegrassfestival.com/camping/",
+      "partialFingerprint": "x15h98-until2026-06-21-tk"
+    },
+    "events12:bluegrass-festival-2026-06-20": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "http://wenatcheeriverbluegrassfestival.com/camping/",
+      "partialFingerprint": "x15h98-until2026-06-21-tk"
+    },
+    "events12:bluegrass-festival-2026-06-21": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "http://wenatcheeriverbluegrassfestival.com/camping/",
+      "partialFingerprint": "x15h98-until2026-06-21-tk"
+    },
+    "events12:doggie-dash-2026-06-20": {
+      "fields": {
+        "startTime": "08:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/brc-seattle-x-dogs-doughnuts-run-walk-tickets-1990143141710",
+      "partialFingerprint": "l7minf-until2026-06-20-tu"
+    },
+    "events12:wine-at-the-zoo-2026-06-20": {
+      "fields": {
+        "cost": {
+          "min": 38.0,
+          "max": 68.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://zoo.org/tastingflight/",
+      "partialFingerprint": "1fkzfh1-until2026-06-20-tk"
+    },
+    "events12:medieval-fair-2026-06-20": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.kitsapmedievalfaire.org/",
+      "partialFingerprint": "k1fk3v-until2026-06-20-tk"
+    },
+    "events12:air-show-in-olympia-2026-06-20": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://olympicairshow.com",
+      "partialFingerprint": "1a72dk9-until2026-06-21-tk"
+    },
+    "events12:air-show-in-olympia-2026-06-21": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://olympicairshow.com",
+      "partialFingerprint": "1a72dk9-until2026-06-21-tk"
+    },
+    "events12:bus-to-the-mountains-2026-06-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Trailhead Direct service is weekends/designated-holidays only; this date is a weekday with no scheduled service",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-2026-06-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Trailhead Direct service is weekends/designated-holidays only; this date is a weekday with no scheduled service",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-2026-06-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Trailhead Direct service is weekends/designated-holidays only; this date is a weekday with no scheduled service",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-2026-06-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Trailhead Direct service is weekends/designated-holidays only; this date is a weekday with no scheduled service",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Trailhead Direct service is weekends/designated-holidays only; this date is a weekday with no scheduled service",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:concerts-at-the-locks-2026-06-20": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.myballard.com/2026/06/02/free-summer-concerts-return-to-the-ballard-locks/",
+      "partialFingerprint": "1kq007z-until2026-09-07-tu"
+    },
+    "events12:concerts-at-the-locks-2026-06-21": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.myballard.com/2026/06/02/free-summer-concerts-return-to-the-ballard-locks/",
+      "partialFingerprint": "1kq007z-until2026-09-07-tu"
+    },
+    "events12:concerts-at-the-locks-2026-06-27": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.myballard.com/2026/06/02/free-summer-concerts-return-to-the-ballard-locks/",
+      "partialFingerprint": "1kq007z-until2026-09-07-tu"
+    },
+    "events12:concerts-at-the-locks-2026-06-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Series runs Saturdays/Sundays only; this date is a weekday with no concert",
+      "partialFingerprint": "1kq007z-until2026-09-07-tu"
+    },
+    "events12:concerts-at-the-locks-2026-06-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Series runs Saturdays/Sundays only; this date is a weekday with no concert",
+      "partialFingerprint": "1kq007z-until2026-09-07-tu"
+    },
+    "events12:concerts-at-the-locks-2026-06-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Series runs Saturdays/Sundays only; this date is a weekday with no concert",
+      "partialFingerprint": "1kq007z-until2026-09-07-tu"
+    },
+    "events12:concerts-at-the-locks-2026-06-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Series runs Saturdays/Sundays only; this date is a weekday with no concert",
+      "partialFingerprint": "1kq007z-until2026-09-07-tu"
+    },
+    "events12:concerts-at-the-locks-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Series runs Saturdays/Sundays only; this date is a weekday with no concert",
+      "partialFingerprint": "1kq007z-until2026-09-07-tu"
+    },
+    "events12:father-s-day-restaurants-2026-06-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Generic OpenTable restaurant-listing aggregator for Father's Day; no single event start time, duration, or price \u2014 varies per restaurant",
+      "partialFingerprint": "k0diq0-until2026-06-21-tu"
+    },
+    "events12:free-museum-for-dads-2026-06-21": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/3411/dads-get-in-free",
+      "partialFingerprint": "1ohvy4d-until2026-06-21-tk"
+    },
+    "events12:car-show-2026-06-21": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://fendersonfrontstreet.com/",
+      "partialFingerprint": "1yxup61-until2026-06-21-tk"
+    },
+    "events12:historical-dinner-party-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page blocked (403 twice); only a stale reference matching last year's date/day-of-week found, can't confirm this year's specifics",
+      "partialFingerprint": "pw4wfi-until2026-06-26-tu"
+    },
+    "events12:food-fair-2026-06-26": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.thefair.com/the-taste-nw/",
+      "partialFingerprint": "dt39ty-until2026-06-28-tu"
+    },
+    "events12:food-fair-2026-06-27": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.thefair.com/the-taste-nw/",
+      "partialFingerprint": "dt39ty-until2026-06-28-tu"
+    },
+    "events12:motorcycle-racing-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Friday is practice/qualifying day; no specific start time published (only in an inaccessible PDF schedule)",
+      "partialFingerprint": "1ca6ba5-until2026-06-28-tu"
+    },
+    "events12:pirate-fair-on-the-coast-2026-06-26": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://rustyscupperspiratedaze.net/",
+      "partialFingerprint": "1fykxx7-until2026-06-28-tu"
+    },
+    "events12:pirate-fair-on-the-coast-2026-06-27": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://rustyscupperspiratedaze.net/",
+      "partialFingerprint": "1fykxx7-until2026-06-28-tu"
+    },
+    "events12:edmonds-wine-walk-2026-06-27": {
+      "fields": {
+        "cost": {
+          "min": 40.0,
+          "max": 50.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.artwalkedmonds.com/wine-walks",
+      "partialFingerprint": "1rx8vq4-until2026-06-27-tk"
+    },
+    "events12:bremerton-festival-fireworks-2026-06-27": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 39600
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.bremertonbridgeblast.com",
+      "partialFingerprint": "k145lo-until2026-06-28-tu"
+    },
+    "events12:bus-to-the-mountains-2026-06-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Trailhead Direct fares page gives adult one-way fare ($3) but does not publish specific first/last bus times",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-2026-06-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Trailhead Direct fares page gives adult one-way fare ($3) but does not publish specific first/last bus times",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Saturday is a service day, but Trailhead Direct fares page gives adult one-way fare ($3) without publishing specific first/last bus times",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:zoo-brunch-2026-06-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Page confirms a 60-minute ticketed timeslot, but multiple timeslots are offered through the day (no single start time); ticket price could not be retrieved",
+      "partialFingerprint": "zosrw4-until2026-06-21-tu"
+    },
+    "events12:short-plays-in-edmonds-2026-06-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Run time confirmed ~2h15m (2-hour show plus 15-minute intermission), but site blocked (403) so no curtain time or ticket price found",
+      "partialFingerprint": "1fdu7ba-until2026-06-27-tu"
+    },
+    "events12:short-plays-in-edmonds-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Run time confirmed ~2h15m (2-hour show plus 15-minute intermission), but site blocked (403) so no curtain time or ticket price found",
+      "partialFingerprint": "1fdu7ba-until2026-06-27-tu"
+    },
+    "events12:short-plays-in-edmonds-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Run time confirmed ~2h15m (2-hour show plus 15-minute intermission), but site blocked (403) so no curtain time or ticket price found",
+      "partialFingerprint": "1fdu7ba-until2026-06-27-tu"
+    },
+    "events12:wine-oysters-2026-06-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Price confirmed ($38, $32 wine-club) across multiple sources, but reported session windows conflict (12-5pm vs 4-8pm both attributed to Friday) \u2014 can't determine a single reliable start/end time",
+      "partialFingerprint": "mtcvai-until2026-06-27-tu"
+    },
+    "events12:wine-oysters-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Price confirmed ($38, $32 wine-club) across multiple sources, but reported session windows conflict (12-5pm vs 4-8pm both attributed to Friday) \u2014 can't determine a single reliable start/end time",
+      "partialFingerprint": "mtcvai-until2026-06-27-tu"
+    },
+    "events12:motorcycle-racing-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Saturday racing confirmed to start 8:00 AM, but no end time given (all-day racing)",
+      "partialFingerprint": "1ca6ba5-until2026-06-28-tu"
+    },
+    "events12:race-at-seward-park-2026-06-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Multiple official race start times this date (Half Marathon 7:00, 5K 8:30, 10K 9:30, Kids Fun Run 10:45) with no single event time; cheapest adult race (5K) is $62.52",
+      "partialFingerprint": "14306u6-until2026-06-27-tu"
     }
   }
 }
