@@ -429,6 +429,31 @@ describe('attachEventCoords', () => {
     expect(errors).toHaveLength(0);
   });
 
+  it('keeps ripper-supplied per-event coords instead of overwriting with venue geo', async () => {
+    // An off-site event (e.g. a bookstore's author event held at another venue)
+    // where the ripper already resolved coordinates. The source-level venue geo
+    // must not clobber them — mirrors ripper-parsed cost winning over the YAML
+    // cost default.
+    const event: any = { ...makeEvent(), location: 'The Triple Door, 216 Union St, Seattle, WA 98101', lat: 47.6082, lng: -122.3387, osmType: 'node', osmId: 2404249354, geocodeSource: 'ripper' };
+    const calendar: RipperCalendar = {
+      name: 'cal',
+      friendlyname: 'Cal',
+      events: [event],
+      errors: [],
+      tags: [],
+      parent: { name: 'venue', geo: { lat: 47.6588, lng: -122.3499, label: 'Book Larder' }, calendars: [{ name: 'cal' }] } as any,
+    };
+    const errors: any[] = [];
+    await attachEventCoords(calendar, emptyCache, errors);
+
+    // Ripper coords preserved, not replaced by the Fremont venue geo.
+    expect(event.lat).toBe(47.6082);
+    expect(event.lng).toBe(-122.3387);
+    expect(event.osmId).toBe(2404249354);
+    expect(event.geocodeSource).toBe('ripper');
+    expect(errors).toHaveLength(0);
+  });
+
   it('reports exactly one geocode error for an unresolvable location (geo:null source)', async () => {
     const event: any = { ...makeEvent(), location: 'TBA' };
     const calendar: RipperCalendar = {
