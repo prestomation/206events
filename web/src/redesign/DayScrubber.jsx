@@ -126,6 +126,9 @@ export function DayScrubber({ dayIndex, onSeek }) {
   const onPointerDown = useCallback((e) => {
     if (!enabled || !geom) return
     e.preventDefault()
+    // Tear down any drag still in flight (a re-entrant / second-finger press)
+    // so its window listeners can't orphan.
+    dragCleanupRef.current?.()
     setActive(true)
     setDragging(true)
 
