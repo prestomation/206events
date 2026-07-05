@@ -132,6 +132,14 @@ function App() {
   // results aren't read as "nothing found"); the map and favorites feed simply
   // fill in silently once the full index replaces the soon subset.
   const [fullEventsLoaded, setFullEventsLoaded] = useState(false)
+  // Whether the full index actually landed (vs the fetch settling in failure —
+  // e.g. offline). Distinct from `fullEventsLoaded`, which flips true on either
+  // outcome so the "loading more" hints stop. A ref (not state) because it only
+  // gates the reconnect retry below; nothing renders off it directly.
+  const fullIndexLoadedRef = useRef(false)
+  // Guards against overlapping full-index fetches (boot phase-2 racing a
+  // reconnect retry or a service-worker DATA_UPDATED refresh).
+  const fullIndexInFlightRef = useRef(false)
   const [loading, setLoading] = useState(true)
   // Live-search runs in a Web Worker so the events-index JSON.parse, the Fuse
   // index build, and every per-query scan stay off the main thread (no typing /
@@ -449,6 +457,49 @@ function App() {
   }, [authUser])
 
   // Load calendar metadata from JSON manifest
+  // Fetch + parse the full events index (issue #649 phase 2). Extracted so the
+  // reconnect handler can retry it after an offline boot (the initial attempt
+  // fails silently and only the near-term "soon" subset is shown until a retry).
+  //
+  // The main thread only reads the response bytes (`arrayBuffer()` — no parse);
+  // the ~9.6 MB JSON.parse + Fuse index build happen in the search worker, which
+  // hands the parsed array back for rendering. Keeping the fetch on the main
+  // thread preserves the service-worker cache / offline path (the request still
+  // originates from the page).
+  //
+  // `force` re-fetches even after a successful load — used by boot and the
+  // service-worker DATA_UPDATED refresh. The reconnect retry passes false so it
+  // no-ops once the index is already loaded.
+  const loadFullEventsIndex = useCallback((force = false) => {
+    if (fullIndexInFlightRef.current) return Promise.resolve()
+    if (!force && fullIndexLoadedRef.current) return Promise.resolve()
+    fullIndexInFlightRef.current = true
+    return fetch('./events-index.json')
+      .then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(`events-index.json ${r.status}`)))
+      .then(buf => searchClient.parse(buf))
+      .then(fullData => {
+        fullIndexLoadedRef.current = true
+        // The soon→full swap re-renders the whole app over ~10k+ events in one
+        // commit — profiled at >1 s of main-thread block on production data
+        // (several seconds on phones), landing right when the user starts
+        // interacting. Mark it as a transition so React renders it at low
+        // priority and can interrupt it to service taps/typing; the soon subset
+        // stays on screen until the full tree is ready.
+        startTransition(() => {
+          if (Array.isArray(fullData)) setEventsIndex(fullData)
+          setFullEventsLoaded(true)
+        })
+      })
+      .catch(() => {
+        // Full index unavailable (offline / transient failure) — keep whatever
+        // the soon payload provided and stop showing the "loading more" hint.
+        // `fullIndexLoadedRef` stays false so the reconnect handler retries.
+        console.warn('Full events index not available; search limited to the near-term window')
+        setFullEventsLoaded(true)
+      })
+      .finally(() => { fullIndexInFlightRef.current = false })
+  }, [searchClient])
+
   const loadCalendars = useCallback(async () => {
     try {
       const response = await fetch('./manifest.json')
@@ -523,34 +574,10 @@ function App() {
 
       // Phase 2: fetch the full index in the background. Not awaited, so it
       // doesn't block the rest of boot (venues, build errors). When it lands it
-      // replaces the soon subset and unlocks the whole-timeline views.
-      //
-      // The main thread only reads the response bytes (`arrayBuffer()` — no
-      // parse); the ~9.6 MB JSON.parse + Fuse index build happen in the search
-      // worker, which hands the parsed array back for rendering. Keeping the
-      // fetch on the main thread preserves the service-worker cache / offline
-      // path (the request still originates from the page).
-      fetch('./events-index.json')
-        .then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(`events-index.json ${r.status}`)))
-        .then(buf => searchClient.parse(buf))
-        .then(fullData => {
-          // The soon→full swap re-renders the whole app over ~10k+ events in
-          // one commit — profiled at >1 s of main-thread block on production
-          // data (several seconds on phones), landing right when the user
-          // starts interacting. Mark it as a transition so React renders it
-          // at low priority and can interrupt it to service taps/typing; the
-          // soon subset stays on screen until the full tree is ready.
-          startTransition(() => {
-            if (Array.isArray(fullData)) setEventsIndex(fullData)
-            setFullEventsLoaded(true)
-          })
-        })
-        .catch(() => {
-          // Full index unavailable — keep whatever the soon payload provided and
-          // stop showing the "loading more" hint so the UI isn't stuck on it.
-          console.warn('Full events index not available; search limited to the near-term window')
-          setFullEventsLoaded(true)
-        })
+      // replaces the soon subset and unlocks the whole-timeline views. `force`
+      // so a service-worker DATA_UPDATED refresh re-fetches even after a prior
+      // successful load.
+      loadFullEventsIndex(true)
 
       // Load venues (fixed-location calendars) for the redesigned channel cards
       try {
@@ -570,19 +597,26 @@ function App() {
     } finally {
       setLoading(false)
     }
-  }, [searchClient])
+  }, [searchClient, loadFullEventsIndex])
 
-  // Offline detection
+  // Offline detection + reconnect recovery. If the full index never loaded
+  // (offline boot left us on the near-term "soon" subset), coming back online
+  // retries it silently so the all-events list fills in without a reload. No
+  // banner — the retry is invisible; the list just grows past the near-term
+  // window once the fetch lands.
   useEffect(() => {
     const goOffline = () => setIsOffline(true)
-    const goOnline = () => setIsOffline(false)
+    const goOnline = () => {
+      setIsOffline(false)
+      loadFullEventsIndex(false)
+    }
     window.addEventListener('offline', goOffline)
     window.addEventListener('online', goOnline)
     return () => {
       window.removeEventListener('offline', goOffline)
       window.removeEventListener('online', goOnline)
     }
-  }, [])
+  }, [loadFullEventsIndex])
 
   // Listen for service worker data update messages and reload in-memory data
   useEffect(() => {

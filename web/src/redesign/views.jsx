@@ -22,9 +22,10 @@ import { tagGroup, CATEGORY_GROUP_ORDER, isNeighborhoodTag } from './categories.
 import { useBuildErrors } from './useBuildErrors.js'
 import { indexBuildErrors, sourceDebug, eventDebug } from './debugData.js'
 
-// Cap for the Discover "Events" list — the full upcoming window is thousands
-// of events; render the soonest slice to keep the DOM light.
-const EVENTS_MODE_CAP = 200
+// Page size for the Discover "Events" list — the full upcoming window is
+// thousands of events, so it's rendered a page at a time via infinite scroll
+// (see EventsMode) to keep the DOM light while every event stays reachable.
+const EVENTS_PAGE_SIZE = 60
 
 // Build grouped dropdown options for the Category filter (taxonomy groups), and
 // a flat option list for Neighborhood — each with a live calendar count.
@@ -353,17 +354,60 @@ function CalendarsMode() {
 
 function EventsMode() {
   const app = useApp206()
-  const groups = useMemo(() => {
-    const evs = filterDiscoverEvents(app.upcomingEvents, {
-      category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
-      channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
-    })
-    // Cap the rendered set: a 6-month all-events list is thousands of rows.
-    // Events are already date-sorted, so this keeps the soonest.
-    return groupIndexEventsByDay(evs.slice(0, EVENTS_MODE_CAP))
-  }, [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
-  if (!groups.length) return <DiscoverEmpty kind="events" />
-  return <DayList groups={groups} />
+  // Full (uncapped) filtered set, already date-sorted. A 6-month all-events list
+  // is thousands of rows, so we don't render it all at once — we page through it
+  // below with an IntersectionObserver (infinite scroll).
+  const filtered = useMemo(() => filterDiscoverEvents(app.upcomingEvents, {
+    category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
+    channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
+  }), [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
+
+  // How many of `filtered` to render. Grows a page at a time as the sentinel
+  // scrolls into view. Resets to one page whenever `filtered`'s identity changes
+  // — a filter edit or the soon→full index swap — so the user starts back near
+  // the top of the new list rather than deep in a stale scroll position.
+  const [visibleCount, setVisibleCount] = useState(EVENTS_PAGE_SIZE)
+  useEffect(() => { setVisibleCount(EVENTS_PAGE_SIZE) }, [filtered])
+
+  const groups = useMemo(
+    () => groupIndexEventsByDay(filtered.slice(0, visibleCount)),
+    [filtered, visibleCount],
+  )
+
+  const hasMore = visibleCount < filtered.length
+  const sentinelRef = useRef(null)
+  useEffect(() => {
+    if (!hasMore || typeof IntersectionObserver === 'undefined') return
+    const el = sentinelRef.current
+    if (!el) return
+    // rootMargin preloads the next page ~a screen early so scrolling stays smooth
+    // rather than pausing at the bottom while the next batch mounts.
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, filtered.length))
+      }
+    }, { rootMargin: '800px 0px' })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [hasMore, filtered.length])
+
+  if (!filtered.length) return <DiscoverEmpty kind="events" />
+  return (
+    <>
+      <DayList groups={groups} />
+      {hasMore ? (
+        // More rows already in memory — the sentinel triggers the next page.
+        <div ref={sentinelRef} className="a-listmore" aria-hidden="true">Loading more…</div>
+      ) : !app.fullEventsLoaded ? (
+        // Everything we have is rendered, but the full index is still fetching
+        // (or a reconnect retry is in flight) — more days are on the way.
+        <div className="a-listmore">Loading more events…</div>
+      ) : (
+        // Genuine end of the list.
+        <div className="a-listend">That’s all {filtered.length} event{filtered.length === 1 ? '' : 's'}.</div>
+      )}
+    </>
+  )
 }
 
 /* ------------------------------------------------------------ Following --- */
