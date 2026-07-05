@@ -42,6 +42,7 @@ export interface PairScore {
     locText: number;        // location-string token Jaccard, 0..1
     timeOverlap: boolean | null; // ranges overlap, or null if a range is unknown
     contradicted: boolean;  // location strings carry conflicting zips (hard veto)
+    sameStartInstant: boolean; // identical start instant (not just overlap)
 }
 
 export type Tier = 'high' | 'med' | null;
@@ -53,6 +54,15 @@ export interface DedupTuning {
     medTitle: number;
     medRadiusM: number;
     medLocText: number;
+    // Strong same-event signal: two cross-source events at the identical OSM
+    // venue node AND the identical start instant are almost certainly the same
+    // event even when the two feeds word the title very differently (e.g. a
+    // venue feed vs. the host org's feed). Such a pair is surfaced as a MED
+    // candidate — bypassing `titleGate`/`medTitle` — provided its title Jaccard
+    // clears this lower floor (guards against pairing unrelated same-slot events,
+    // e.g. two rooms of one library branch). Still human-reviewed, never
+    // auto-merged.
+    strongSignalTitleFloor: number;
 }
 
 // Defaults calibrated against the 2026-06-17 prod snapshot — see
@@ -64,6 +74,7 @@ export const DEFAULT_TUNING: DedupTuning = {
     medTitle: 0.5,
     medRadiusM: 500,
     medLocText: 0.5,
+    strongSignalTitleFloor: 0.3,
 };
 
 // A stable identity for an events-index entry (matches web/src/lib/eventKey.js).
@@ -147,6 +158,7 @@ export function locationContradiction(a: DedupEvent, b: DedupEvent): boolean {
 }
 
 export function scorePair(a: DedupEvent, b: DedupEvent): PairScore {
+    const ia = instant(a.date), ib = instant(b.date);
     return {
         title: jaccard(tokens(a.summary), tokens(b.summary)),
         osmSame: !!(a.osmId != null && b.osmId != null && a.osmType === b.osmType && a.osmId === b.osmId),
@@ -154,7 +166,18 @@ export function scorePair(a: DedupEvent, b: DedupEvent): PairScore {
         locText: jaccard(tokens(a.location), tokens(b.location)),
         timeOverlap: timeOverlap(a, b),
         contradicted: locationContradiction(a, b),
+        sameStartInstant: ia != null && ib != null && ia === ib,
     };
+}
+
+// A near-certain same-event signal that doesn't lean on the title: an identical
+// OSM venue node and an identical start instant (cross-source), with no ZIP
+// contradiction. Two feeds describing the same show at the same place and
+// minute clear this even when they word the title very differently. Keyed on
+// the *exact* instant (not overlap) so a venue's early and late seatings of a
+// double feature stay distinct.
+export function strongSameEventSignal(s: PairScore, tuning: DedupTuning = DEFAULT_TUNING): boolean {
+    return !s.contradicted && s.osmSame && s.sameStartInstant && s.title >= tuning.strongSignalTitleFloor;
 }
 
 export function tierFor(s: PairScore, tuning: DedupTuning = DEFAULT_TUNING): Tier {
@@ -168,6 +191,12 @@ export function tierFor(s: PairScore, tuning: DedupTuning = DEFAULT_TUNING): Tie
     if (s.title >= tuning.medTitle &&
         s.timeOverlap !== false &&
         (near(tuning.medRadiusM) || s.locText >= tuning.medLocText)) {
+        return 'med';
+    }
+    // Same venue + same start instant: surface for human review even when the
+    // title similarity is below medTitle (a venue feed and the host org's feed
+    // often word the same show very differently). MED, never auto-merged.
+    if (strongSameEventSignal(s, tuning)) {
         return 'med';
     }
     return null;
@@ -281,7 +310,10 @@ export function findDuplicates(
                 const a = evs[i], b = evs[j];
                 if (a.icsUrl === b.icsUrl) continue; // cross-source only
                 const score = scorePair(a, b);
-                if (score.title < tuning.titleGate) continue;
+                // Cheap title prefilter — but never drop a pair carrying the
+                // strong same-venue/same-instant signal, whose whole point is to
+                // catch duplicates the two feeds title differently.
+                if (score.title < tuning.titleGate && !strongSameEventSignal(score, tuning)) continue;
 
                 const pk = pairKey(a, b);
                 const decision = resolved.get(pk);

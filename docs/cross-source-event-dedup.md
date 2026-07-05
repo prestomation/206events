@@ -82,11 +82,33 @@ numbers or known-neighborhood tokens, the pair is vetoed out of the HIGH tier
 |---|---|---|
 | **HIGH** | title ≥ 0.6 · time-overlap · (OSM-same **or** ≤ 75 m) · **not** location-contradicted | Auto-merge: collapse + attribute |
 | **MED** | title ≥ 0.5 · overlap-or-touching · (OSM-same **or** ≤ 500 m **or** loc-text ≥ 0.5), incl. coordless | Duplicate-candidate queue → resolver |
+| **MED (strong signal)** | OSM-same · **same start instant** · title ≥ 0.3 · **not** location-contradicted | Duplicate-candidate queue → resolver |
 | **LOW** | below the above | Ignore |
 
 Campus-scale matches (Seattle Center, 90–170 m) intentionally land in **MED**,
 not HIGH — that 75–200 m band is exactly where genuinely *adjacent but
 distinct* venues live, so they get reviewed rather than silently merged.
+
+### The strong same-venue/same-instant signal
+
+The title-based tiers rely on the two feeds wording the event similarly. But a
+venue's own feed and a partner/host org's feed often title the *same* show very
+differently — e.g. Book Larder republishing an author event it hosts at The
+Triple Door lists *"Tasting Notes with Kenji Lopez-Alt + Seattle Chamber Music
+Society"* while the Triple Door feed lists *"Tasting Notes - Hosted by Kenji
+Lopez-Alt & James Ehnes"* (title Jaccard ≈ 0.36, below the 0.4 `titleGate`).
+When two **cross-source** events nonetheless share the **identical OSM venue
+node** *and* the **identical start instant** (with no ZIP contradiction), that
+is a near-certain same-event signal on its own, so the pair is surfaced as a
+**MED** candidate even though the title floor it must clear (`strongSignalTitleFloor`,
+default 0.3) is well below `medTitle`. It is **never** auto-merged — a human (the
+duplicate-resolver skill) confirms or rejects it.
+
+Keyed on the *exact* start instant, not overlap: a venue's early and late
+seatings of a double feature (e.g. a 5 PM and an 8:30 PM show) stay distinct,
+and only the copies that genuinely share a start collapse. The minimal title
+floor keeps unrelated same-slot listings apart (e.g. two different programs in
+two rooms of one library branch that share an OSM node).
 
 ### Auto-merge behavior — collapse + attribute
 

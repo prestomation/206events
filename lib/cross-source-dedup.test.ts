@@ -69,6 +69,61 @@ describe("scorePair / tierFor", () => {
     });
 });
 
+describe("strong same-venue/same-instant signal", () => {
+    // Real prod case: a venue feed (The Triple Door) and a partner feed
+    // (Book Larder, republishing the show it hosts there) list the same event
+    // with very differently worded titles. After the Book Larder ripper resolves
+    // the off-site venue, both carry the Triple Door's OSM node and the identical
+    // 5 PM start — but the titles' Jaccard (~0.36) sits below titleGate (0.4).
+    const at = (time: string, endTime: string) => ({ date: `${day}T${time}-07:00[America/Los_Angeles]`, endDate: `${day}T${endTime}-07:00[America/Los_Angeles]` });
+    const bookLarder5pm = ev({ icsUrl: "book-larder-all-events.ics", summary: "Tasting Notes with Kenji Lopez-Alt + Seattle Chamber Music Society", location: "The Triple Door, 216 Union St, Seattle, WA 98101", lat: 47.6082, lng: -122.3387, osmType: "node", osmId: 2404249354, ...at("17:00", "22:00") });
+    const tripleDoor5pm = ev({ icsUrl: "triple-door-the-triple-door.ics", summary: "Tasting Notes - Hosted by Kenji Lopez-Alt & James Ehnes", location: "Mainstage Theatre, 216 Union Street, Seattle", lat: 47.6082, lng: -122.3387, osmType: "node", osmId: 2404249354, ...at("17:00", "22:00") });
+    const tripleDoor830pm = ev({ icsUrl: "triple-door-the-triple-door.ics", summary: "Tasting Notes - Hosted by Kenji Lopez-Alt & James Ehnes", location: "Mainstage Theatre, 216 Union Street, Seattle", lat: 47.6082, lng: -122.3387, osmType: "node", osmId: 2404249354, ...at("20:30", "23:30") });
+
+    it("scores sameStartInstant true only for the identical start", () => {
+        expect(scorePair(bookLarder5pm, tripleDoor5pm).sameStartInstant).toBe(true);
+        expect(scorePair(bookLarder5pm, tripleDoor830pm).sameStartInstant).toBe(false);
+    });
+
+    it("surfaces the sub-titleGate 5 PM pair as MED, not null", () => {
+        const s = scorePair(bookLarder5pm, tripleDoor5pm);
+        expect(s.title).toBeLessThan(0.4);          // below titleGate
+        expect(s.title).toBeGreaterThanOrEqual(0.3); // above the strong-signal floor
+        expect(s.osmSame).toBe(true);
+        expect(tierFor(s)).toBe("med");
+    });
+
+    it("findDuplicates queues the pair as a candidate despite the low title", () => {
+        const { groups, candidates } = findDuplicates([bookLarder5pm, tripleDoor5pm]);
+        expect(groups).toHaveLength(0);             // MED, never auto-merged
+        expect(candidates).toHaveLength(1);
+        expect(candidates[0].key).toBe(pairKey(bookLarder5pm, tripleDoor5pm));
+    });
+
+    it("does NOT match the 8:30 seating against the 5 PM copy (different instant)", () => {
+        // Keyed on the exact instant, so the venue's later seating stays distinct
+        // even though the 5–10 PM window overlaps 8:30.
+        expect(tierFor(scorePair(bookLarder5pm, tripleDoor830pm))).toBeNull();
+        const { candidates } = findDuplicates([bookLarder5pm, tripleDoor830pm]);
+        expect(candidates).toHaveLength(0);
+    });
+
+    it("requires a minimal title overlap (floor) even with identical venue+instant", () => {
+        const unrelated = ev({ icsUrl: "other.ics", summary: "Completely Different Poetry Reading", location: "Mainstage Theatre, 216 Union Street, Seattle", lat: 47.6082, lng: -122.3387, osmType: "node", osmId: 2404249354, ...at("17:00", "22:00") });
+        const s = scorePair(bookLarder5pm, unrelated);
+        expect(s.sameStartInstant).toBe(true);
+        expect(s.title).toBeLessThan(0.3);          // below the floor
+        expect(tierFor(s)).toBeNull();
+    });
+
+    it("requires the same OSM node (different venue at same instant does not fire)", () => {
+        const elsewhere = ev({ icsUrl: "other.ics", summary: "Tasting Notes - Hosted by Kenji Lopez-Alt & James Ehnes", location: "Somewhere Else, Seattle", osmType: "node", osmId: 555, ...at("17:00", "22:00") });
+        const s = scorePair(bookLarder5pm, elsewhere);
+        expect(s.osmSame).toBe(false);
+        expect(tierFor(s)).toBeNull();
+    });
+});
+
 describe("findDuplicates", () => {
     const a = ev({ icsUrl: "seatoday-all.ics", summary: "Free Outdoor Yoga", location: "Cal Anderson Park, Seattle, WA 98122", lat: 47.617, lng: -122.319, osmType: "way", osmId: 111 });
     const b = ev({ icsUrl: "seatoday-community.ics", summary: "Free Outdoor Yoga", location: "Cal Anderson Park, Seattle, WA 98122", lat: 47.617, lng: -122.319, osmType: "way", osmId: 111 });
