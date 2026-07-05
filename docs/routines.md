@@ -121,12 +121,15 @@ daily).
 
 ```
 List the open GitHub issues on this repo that have no linked PR. Pick the
-most actionable one. For a new-source request, follow
-skills/source-discovery/SKILL.md (quality gates included). For a broken or
-incorrect calendar, follow skills/build-report/SKILL.md conventions to fix
-the ripper. For an event poster or "is X covered?" question, follow
-skills/source-from-event/SKILL.md. Open a PR and comment on the issue with
-the result.
+most actionable one. For an in-app "Report a problem" feedback issue about a
+specific published event (labelled feedback/bug, e.g. "[Bug] <event name>"),
+follow skills/event-report-triage/SKILL.md — assume our data is wrong and
+verify against the live source; never dismiss it because the description is
+blank. For a new-source request, follow skills/source-discovery/SKILL.md
+(quality gates included). For a broken or incorrect calendar, follow
+skills/build-report/SKILL.md conventions to fix the ripper. For an event
+poster or "is X covered?" question, follow skills/source-from-event/SKILL.md.
+Open a PR and comment on the issue with the result.
 ```
 
 **Secrets & repo coupling:** none for the routine itself. (The
