@@ -4181,6 +4181,79 @@ html, body, #root { height: 100%; }
 .app206 .a-day-sub { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; color: var(--ink-3); text-transform: uppercase; white-space: nowrap; }
 .app206 .a-day-line { flex: 1; height: 1px; background: var(--line); align-self: center; }
 
+/* ---- day scrubber (Google-Photos-style jump-to-date handle) ----
+   A `position: fixed` strip pinned to the right edge of the `.a-content`
+   viewport (top/height/right set inline from the container's rect). Slim, like
+   a scrollbar — only the thumb is a pointer target, the rest stays
+   click-through. `.a-scrubber` height is set inline. */
+.app206 .a-scrubber { width: 16px; pointer-events: none; touch-action: none; z-index: 30; }
+.app206 .a-scrubber-track {
+  position: absolute; right: 4px; top: 8px; bottom: 8px; width: 3px;
+  border-radius: 3px; background: var(--line-2); opacity: 0; transition: opacity .15s ease;
+}
+.app206 .a-scrubber--active .a-scrubber-track { opacity: .75; }
+/* The thumb is a circle centered on the container's right edge, so its right
+   half sits off the edge (clipped by the screen on a full-width layout) and
+   only a half-circle grabber shows — like a scroll nub. `right: -17px` +
+   `width: 34px` = a 34px circle centred on the edge; the grip dots sit in the
+   visible left half. */
+.app206 .a-scrubber-handle {
+  position: absolute; right: -17px; width: 34px; padding: 0 0 0 5px;
+  display: flex; align-items: center; justify-content: flex-start;
+  border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--line-2);
+  box-shadow: 0 1px 6px rgba(0,0,0,.22);
+  pointer-events: auto; cursor: grab; touch-action: none;
+  transition: background .12s ease, border-color .12s ease;
+}
+.app206 .a-scrubber-handle:active { cursor: grabbing; }
+/* On desktop the content column's right edge abuts the map + its resize divider
+   (`.a-mapresize`, z-index 600), so a half-off circle would collide with it.
+   There's no screen edge there anyway — seat the full circle just inside, clear
+   of the divider. The half-off look stays on mobile/tablet, where the content
+   edge IS the screen edge. */
+@media (min-width: 1024px) {
+  .app206 .a-scrubber-handle { right: 6px; }
+}
+/* Three vertical dots as a drag affordance, kept in the visible half. */
+.app206 .a-scrubber-grip {
+  width: 3px; height: 3px; border-radius: 50%; background: var(--ink-3);
+  box-shadow: 0 -5px 0 var(--ink-3), 0 5px 0 var(--ink-3);
+  transition: background .12s ease, box-shadow .12s ease;
+}
+.app206 .a-scrubber--active .a-scrubber-handle,
+.app206 .a-scrubber-handle:hover,
+.app206 .a-scrubber-handle:focus-visible,
+.app206 .a-scrubber--drag .a-scrubber-handle { background: var(--blue); border-color: var(--blue); }
+.app206 .a-scrubber--active .a-scrubber-grip,
+.app206 .a-scrubber-handle:hover .a-scrubber-grip,
+.app206 .a-scrubber-handle:focus-visible .a-scrubber-grip,
+.app206 .a-scrubber--drag .a-scrubber-grip { background: #fff; box-shadow: 0 -5px 0 #fff, 0 5px 0 #fff; }
+.app206 .a-scrubber-handle:focus-visible { outline: none; }
+.app206 .a-scrubber-bubble {
+  position: absolute; right: 24px; transform: translateY(-50%);
+  background: var(--ink); color: var(--paper); padding: 6px 11px; border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(0,0,0,.24);
+  display: flex; flex-direction: column; align-items: flex-end;
+  white-space: nowrap; pointer-events: none; line-height: 1.15;
+}
+.app206 .a-scrubber-bubble::after {
+  content: ''; position: absolute; right: -5px; top: 50%; transform: translateY(-50%);
+  border: 6px solid transparent; border-left-color: var(--ink); border-right: none;
+}
+.app206 .a-scrubber-bubble-month { font-family: var(--font-display); font-weight: 800; font-size: 15px; }
+.app206 .a-scrubber-bubble-day { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em; opacity: .82; text-transform: uppercase; }
+/* Desktop handle sits 6–40px in from the edge, so the mobile bubble offset (24px)
+   would be covered by the circle. Push the bubble clear of the handle's left edge
+   (40px) so its arrow still points at the handle. Placed AFTER the base rule so
+   this equal-specificity override wins when the query matches. */
+@media (min-width: 1024px) {
+  .app206 .a-scrubber-bubble { right: 47px; }
+}
+@media (prefers-color-scheme: dark) {
+  .app206 .a-scrubber-handle { box-shadow: 0 1px 6px rgba(0,0,0,.45); }
+}
+
 /* ---- provenance chips ---- */
 .app206 .prov-chip { display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 9px; border-radius: 999px; font-size: 11px; font-weight: 600; max-width: 100%; }
 .app206 .prov-chip svg { display: block; }

@@ -16,6 +16,15 @@ function localeDateMaybeYear(date, options) {
   return cachedDateTimeFormat('en-US', opts).format(date)
 }
 
+// Stable `YYYY-MM-DD` key for a local Date. Used as the day-group's DOM anchor
+// (`data-day` on `.a-daystick`) so the day scrubber can scroll to a given day,
+// and as the join key between a group and its scrubber tick.
+export function isoDayKey(day) {
+  const m = String(day.getMonth() + 1).padStart(2, '0')
+  const d = String(day.getDate()).padStart(2, '0')
+  return `${day.getFullYear()}-${m}-${d}`
+}
+
 // Memo of the expensive parse step (regex + offset math), keyed by the raw
 // date string. The same index date string is parsed 3–4× per render (row label,
 // day grouping, upcoming-window filter, AddToCalendar), so caching the parsed
@@ -147,12 +156,45 @@ export function groupIndexEventsByDay(events, now = new Date()) {
       byDiff.set(diffDays, {
         label,
         dateSubtitle: localeDateMaybeYear(eventDay, { month: 'short', day: 'numeric' }),
+        dayKey: isoDayKey(eventDay),
         events: [],
       })
     }
     byDiff.get(diffDays).events.push(event)
   }
   return [...byDiff.entries()].sort(([a], [b]) => a - b).map(([, g]) => g)
+}
+
+// Distinct days across a full (date-sorted, ascending) events-index list, for
+// the day scrubber. Each tick carries the day's key, a short/long label, and the
+// index of its FIRST event in the source array — so the scrubber can grow the
+// paged list far enough to include that day before scrolling to it. Unlike
+// groupIndexEventsByDay this walks the WHOLE list (not just a rendered page), so
+// the scrubber spans the entire timeline even before every page is on screen.
+export function dayIndexForScrubber(events, now = new Date()) {
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const out = []
+  let lastKey = null
+  for (let i = 0; i < events.length; i++) {
+    const parsed = parseIndexDate(events[i].date)
+    if (!parsed) continue
+    const eventDay = localDay(parsed)
+    const key = isoDayKey(eventDay)
+    if (key === lastKey) continue
+    lastKey = key
+    const diffDays = Math.round((eventDay - todayStart) / 86400000)
+    let dayLabel
+    if (diffDays === 0) dayLabel = 'Today'
+    else if (diffDays === 1) dayLabel = 'Tomorrow'
+    else dayLabel = localeDateMaybeYear(eventDay, { weekday: 'short', month: 'short', day: 'numeric' })
+    out.push({
+      dayKey: key,
+      firstIndex: i,
+      dayLabel,
+      monthLabel: localeDateMaybeYear(eventDay, { month: 'short' }),
+    })
+  }
+  return out
 }
 
 // Filter events-index to the upcoming window [today, +months) and sort ascending.
