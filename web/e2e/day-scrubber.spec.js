@@ -146,3 +146,27 @@ test('no scrubber for a short list', async ({ page }) => {
   await expect(page.getByText('Day 00 Show 0', { exact: true })).toBeVisible()
   await expect(page.getByRole('slider', { name: 'Date scrubber' })).toHaveCount(0)
 })
+
+test('mobile: the handle is a half-off-edge circle without horizontal overflow', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 780 })
+  await installDataMocks(page)
+  await routeEvents(page, makeEvents())
+  await gotoEvents(page)
+  await expect(page.getByText('Day 00 Show 0', { exact: true })).toBeVisible()
+
+  const handle = page.getByRole('slider', { name: 'Date scrubber' })
+  await expect(handle).toBeVisible()
+  // The circle's right half sits off the screen edge, but must not make the page
+  // scroll sideways.
+  const noOverflow = await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)
+  expect(noOverflow, 'no horizontal overflow from the edge handle').toBe(true)
+
+  // Grab the visible (left) half so the bubble + blue state show for the shot.
+  const hb = await handle.boundingBox()
+  await page.mouse.move(hb.x + 4, hb.y + hb.height / 2)
+  await page.mouse.down()
+  await page.mouse.move(hb.x + 4, hb.y + hb.height / 2 + 40, { steps: 4 })
+  await expect(page.locator('.a-scrubber-bubble')).toBeVisible()
+  await screenshotStable(page, 'e2e/screenshots/day-scrubber-mobile.png', { fullPage: false })
+  await page.mouse.up()
+})
