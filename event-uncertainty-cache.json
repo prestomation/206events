@@ -39112,6 +39112,84 @@
       "resolvedAt": "2026-07-05",
       "source": "agent",
       "reason": "Page has full og:* meta tags but no og:image; only images present are the site logo and a generic 'related events' placeholder graphic, neither event-specific"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46340": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source lists All Day, no precise time given",
+      "partialFingerprint": "v6r6ng"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle-x47644": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source lists All Day, no precise time given (virtual event with a flexible completion window May 16-July 15, not a single-time occurrence)",
+      "partialFingerprint": "v6r6ng"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-semifinal": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-armory-fan-experience-semifinal",
+      "partialFingerprint": "uepz54"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47696": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47696",
+      "partialFingerprint": "6kzwlh"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47323": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source lists All Day, no precise time given \u2014 actual carving occurred July 1-8 (9am-6pm); the listed date is just the public-viewing window with no listed hours",
+      "partialFingerprint": "1an5v1"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47661": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source lists All Day, no precise time given",
+      "partialFingerprint": "1an5v1"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46341": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source lists All Day, no precise time given",
+      "partialFingerprint": "1an5v1"
+    },
+    "seattle-center:unity-loop-5k-virtual-experience-welcoming-the-world-to-seattle": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source lists All Day, no precise time given (virtual event, flexible completion window)",
+      "partialFingerprint": "1an5v1"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-semifinal-x47264": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-armory-fan-experience-semifinal-x47264",
+      "partialFingerprint": "wjko07"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47697": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47697",
+      "partialFingerprint": "1bw9212"
     }
   }
 }
