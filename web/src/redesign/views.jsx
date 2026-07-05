@@ -1,13 +1,14 @@
 // Composite views for the redesigned UI: Discover, Following, You (config),
 // ChannelDetail, EventDetail, SearchView.
 
-import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
+import { useState, useMemo, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor, EventLinkIcon } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
-import { groupIndexEventsByDay, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, costClass, COST_FILTER_OPTIONS } from './viewModels.js'
+import { groupIndexEventsByDay, dayIndexForScrubber, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, costClass, COST_FILTER_OPTIONS } from './viewModels.js'
+import { DayScrubber } from './DayScrubber.jsx'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import cityConfig from '../../../city.config.ts'
@@ -367,12 +368,40 @@ function EventsMode() {
   // — a filter edit or the soon→full index swap — so the user starts back near
   // the top of the new list rather than deep in a stale scroll position.
   const [visibleCount, setVisibleCount] = useState(EVENTS_PAGE_SIZE)
-  useEffect(() => { setVisibleCount(EVENTS_PAGE_SIZE) }, [filtered])
+  useEffect(() => { setVisibleCount(EVENTS_PAGE_SIZE); seekTargetRef.current = null }, [filtered])
 
   const groups = useMemo(
     () => groupIndexEventsByDay(filtered.slice(0, visibleCount)),
     [filtered, visibleCount],
   )
+
+  // Full-timeline day ticks for the scrubber (one per distinct day across the
+  // whole filtered set, not just the rendered page).
+  const dayIndex = useMemo(() => dayIndexForScrubber(filtered), [filtered])
+
+  // Day-scrubber seek. `data-day` on each `.a-daystick` is the join key. If the
+  // target day is already rendered we scroll to it right away; otherwise we grow
+  // the paged list far enough to include it and let the layout effect below
+  // finish the scroll once that day's header commits (before paint, no flash).
+  const listRef = useRef(null)
+  const seekTargetRef = useRef(null)
+  const scrollToDayKey = useCallback((key) => {
+    const container = listRef.current?.closest('.a-content')
+    if (!container) return false
+    const header = container.querySelector(`.a-daystick[data-day="${key}"]`)
+    if (!header) return false
+    container.scrollTop += header.getBoundingClientRect().top - container.getBoundingClientRect().top
+    return true
+  }, [])
+  const seekToDay = useCallback((day) => {
+    if (!day) return
+    if (scrollToDayKey(day.dayKey)) return
+    seekTargetRef.current = day.dayKey
+    setVisibleCount((c) => Math.min(Math.max(c, day.firstIndex + EVENTS_PAGE_SIZE), filtered.length))
+  }, [scrollToDayKey, filtered.length])
+  useLayoutEffect(() => {
+    if (seekTargetRef.current && scrollToDayKey(seekTargetRef.current)) seekTargetRef.current = null
+  }, [groups, scrollToDayKey])
 
   const hasMore = visibleCount < filtered.length
   const loadMore = () => setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, filtered.length))
@@ -397,7 +426,8 @@ function EventsMode() {
 
   if (!filtered.length) return <DiscoverEmpty kind="events" />
   return (
-    <>
+    <div ref={listRef}>
+      <DayScrubber dayIndex={dayIndex} onSeek={seekToDay} />
       <DayList groups={groups} />
       {hasMore ? (
         // More rows already in memory. The IntersectionObserver auto-advances
@@ -414,7 +444,7 @@ function EventsMode() {
         // Genuine end of the list.
         <div className="a-listend">That’s all {filtered.length} event{filtered.length === 1 ? '' : 's'}.</div>
       )}
-    </>
+    </div>
   )
 }
 

@@ -353,7 +353,7 @@ export function DayList({ groups, withReason = false }) {
     <div>
       {groups.map((g) => (
         <div key={g.label + g.dateSubtitle}>
-          <div className="a-daystick">
+          <div className="a-daystick" data-day={g.dayKey}>
             <span className="a-day-kick">{g.label}</span>
             <span className="a-day-sub">{g.dateSubtitle}</span>
             <span className="a-day-line" />

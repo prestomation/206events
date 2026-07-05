@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { eventInWindow, describeWindow, isDateRange, normalizeDateRange, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, costClass, COST_FILTER_OPTIONS, parseIndexDate } from './viewModels.js'
+import { eventInWindow, describeWindow, isDateRange, normalizeDateRange, DATE_WINDOW_STOPS, channelFromCalendar, formatTimeRange, rowFromIndexEvent, groupIndexEventsByDay, dayIndexForScrubber, isoDayKey, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, costClass, COST_FILTER_OPTIONS, parseIndexDate } from './viewModels.js'
 import { eventKey } from '../lib/eventKey.js'
 import cityConfig from '../../../city.config.ts'
 
@@ -494,5 +494,51 @@ describe('groupIndexEventsByDay year display', () => {
     const groups = groupIndexEventsByDay([{ summary: 'Show', date: '2027-03-10T19:00:00' }], NOW)
     expect(groups[0].label).toMatch(/2027/)
     expect(groups[0].dateSubtitle).toMatch(/2027/)
+  })
+
+  it('tags each group with a stable YYYY-MM-DD dayKey matching the scrubber', () => {
+    const groups = groupIndexEventsByDay([{ summary: 'Show', date: at(3) }], NOW)
+    expect(groups[0].dayKey).toBe('2026-06-04')
+  })
+})
+
+describe('dayIndexForScrubber', () => {
+  it('emits one tick per distinct day with the first event index', () => {
+    const events = [
+      { summary: 'A', date: at(0, 10) },
+      { summary: 'B', date: at(0, 20) }, // same day → no new tick
+      { summary: 'C', date: at(2, 19) },
+      { summary: 'D', date: at(5, 19) },
+    ]
+    const ticks = dayIndexForScrubber(events, NOW)
+    expect(ticks.map((t) => t.dayKey)).toEqual(['2026-06-01', '2026-06-03', '2026-06-06'])
+    expect(ticks.map((t) => t.firstIndex)).toEqual([0, 2, 3])
+  })
+
+  it('labels today and tomorrow, and carries a month label', () => {
+    const ticks = dayIndexForScrubber([
+      { summary: 'A', date: at(0) },
+      { summary: 'B', date: at(1) },
+      { summary: 'C', date: at(9) },
+    ], NOW)
+    expect(ticks[0].dayLabel).toBe('Today')
+    expect(ticks[1].dayLabel).toBe('Tomorrow')
+    expect(ticks[2].monthLabel).toMatch(/Jun/)
+  })
+
+  it('skips unparseable dates without emitting a tick', () => {
+    const ticks = dayIndexForScrubber([
+      { summary: 'bad', date: 'not-a-date' },
+      { summary: 'ok', date: at(1) },
+    ], NOW)
+    expect(ticks).toHaveLength(1)
+    expect(ticks[0].firstIndex).toBe(1)
+  })
+})
+
+describe('isoDayKey', () => {
+  it('zero-pads month and day', () => {
+    expect(isoDayKey(new Date(2026, 0, 5))).toBe('2026-01-05')
+    expect(isoDayKey(new Date(2026, 10, 20))).toBe('2026-11-20')
   })
 })
