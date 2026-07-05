@@ -1,14 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-06-27": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-06-28": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1505,13 +1497,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-06-28": {
       "unresolvable": true,
       "reason": "Commercial tour \u2014 booking times vary by individual reservation",
@@ -2785,13 +2770,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-06-28": {
       "unresolvable": true,
@@ -4074,13 +4052,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-06-28": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -5011,14 +4982,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-06-28": {
       "unresolvable": true,
@@ -6028,14 +5991,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-06-28": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each game has a different start time",
@@ -6770,14 +6725,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
     "events12:winery-concerts-2026-06-28": {
@@ -7516,14 +7463,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
     "events12:concerts-at-the-locks-2026-06-28": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
@@ -8100,14 +8039,6 @@
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
-    "events12:bus-to-the-mountains-2026-06-27": {
-      "unresolvable": true,
-      "reason": "General transit service page \u2014 specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:bus-to-the-mountains-2026-06-28": {
       "unresolvable": true,
       "reason": "General transit service page \u2014 specific departure times vary by date and destination",
@@ -8620,13 +8551,6 @@
       "evidence": "https://trailheaddirect.org/",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-marymoor-park-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
-    },
     "events12:concerts-at-marymoor-park-2026-06-28": {
       "unresolvable": true,
       "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
@@ -9074,30 +8998,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
-    },
-    "19hz:19hz-2026/06/27-Beyond Wonderland at the Gorge": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "8wug9u",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/06/27-Rik Jam, Dalwayne, Iotosh": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "2nvjvp",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/06/27-edIT (Hardware Set)": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "2nw6v8",
-      "lastSeen": "2026-06-13"
     },
     "19hz:19hz-2026/07/02-Bottom Forty Campout": {
       "unresolvable": true,
@@ -13846,14 +13746,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
     },
-    "events12:taste-of-pike-place-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:taste-of-pike-place-2026-06-28": {
       "unresolvable": true,
       "resolvedAt": "2026-05-25",
@@ -15577,13 +15469,6 @@
       },
       "evidence": "https://www.seattlecenter.com/events/event-calendar/mundo-catrina-cultural-procession-web-use"
     },
-    "19hz:19hz-2026/06/27-Club Milk": {
-      "resolvedAt": "2026-05-28",
-      "source": "agent",
-      "unresolvable": true,
-      "reason": "19hz source pages (Instagram/Partiful/ticketing) list start time but no end time \u2014 duration unresolvable",
-      "lastSeen": "2026-06-13"
-    },
     "19hz:19hz-2026/07/11-Rabbit Junk": {
       "resolvedAt": "2026-05-28",
       "source": "agent",
@@ -16296,14 +16181,6 @@
       "resolvedAt": "2026-06-08",
       "source": "agent",
       "partialFingerprint": "138p15l"
-    },
-    "19hz:19hz-2026/06/27-Cuff Pride Fest 2026: Saturday": {
-      "unresolvable": true,
-      "reason": "Eventim page returns 403; end time not determinable",
-      "resolvedAt": "2026-06-08",
-      "source": "agent",
-      "partialFingerprint": "bentgb",
-      "lastSeen": "2026-06-13"
     },
     "19hz:19hz-2026/06/28-Cuff Pride Fest 2026: Sunday": {
       "unresolvable": true,
@@ -17220,60 +17097,11 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:gourmet-cooking-class-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Multiple different cooking classes with varying start times per day",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1vmda95-until2026-06-27-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:short-plays-in-edmonds-2026-06-27": {
-      "fields": {
-        "startTime": "20:00",
-        "duration": 8100,
-        "cost": {
-          "min": 31
-        }
-      },
-      "resolvedAt": "2026-06-26",
-      "source": "agent",
-      "evidence": "https://edmondsdriftwoodplayers.org/festival-of-shorts/"
-    },
     "events12:short-plays-in-edmonds-2026-06-28": {
       "unresolvable": true,
       "reason": "Website returned 403; performance times not accessible",
       "resolvedAt": "2026-06-11",
       "source": "agent"
-    },
-    "events12:wine-oysters-2026-06-27": {
-      "fields": {
-        "cost": {
-          "min": 38
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "https://www.pattersoncellars.com/oysters \u2014 GA $38/ticket",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:early-independence-day-2026-06-27": {
-      "fields": {
-        "startTime": "13:00",
-        "duration": 34200
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://jblm.armymwr.com/programs/specialevents/freedomfest",
-      "partialFingerprint": "15vaxg5-until2026-06-27-tu"
-    },
-    "events12:food-fair-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Opening times not listed on the Taste NW website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "dt39ty-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
     },
     "events12:food-fair-2026-06-28": {
       "unresolvable": true,
@@ -17281,14 +17109,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "dt39ty-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:motorcycle-racing-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Race start times not listed on website; check event schedule page",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1ca6ba5-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:motorcycle-racing-2026-06-28": {
@@ -17299,54 +17119,12 @@
       "partialFingerprint": "1ca6ba5-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:pirate-fair-on-the-coast-2026-06-27": {
-      "unresolvable": true,
-      "reason": "2026 schedule not on main page; check /2026-schedule for times",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1fykxx7-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:pirate-fair-on-the-coast-2026-06-28": {
       "unresolvable": true,
       "reason": "2026 schedule not on main page; check /2026-schedule for times",
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "1fykxx7-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:parade-in-greenwood-2026-06-27": {
-      "fields": {
-        "startTime": "18:30",
-        "duration": 7200
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://www.seafair.org/event/greenwood-parade/",
-      "partialFingerprint": "1js68es-until2026-06-27-tu"
-    },
-    "events12:edmonds-wine-walk-2026-06-27": {
-      "fields": {
-        "startTime": "17:00",
-        "duration": 10800,
-        "cost": {
-          "min": 43
-        }
-      },
-      "resolvedAt": "2026-06-14",
-      "source": "agent",
-      "evidence": "https://www.artwalkedmonds.com/wine-walks - events12 description states \"$43 Edmonds Summer Wine Walk... ticket includes tasting glass and 10 tickets\"",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:japanese-festival-2026-06-27": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 28800
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://www.japanfairus.org",
-      "partialFingerprint": "3q3e93-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:japanese-festival-2026-06-28": {
@@ -17360,31 +17138,12 @@
       "partialFingerprint": "3q3e93-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:pride-parade-festivals-2026-06-27": {
-      "fields": {
-        "startTime": "12:00",
-        "duration": 28800
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://seattleprideguide.com/capitolhill",
-      "partialFingerprint": "15tnoyi-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:pride-parade-festivals-2026-06-28": {
       "unresolvable": true,
       "reason": "Capitol Hill PrideFest is June 27 only per event page; June 28 likely refers to another event",
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "15tnoyi-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:gem-mineral-show-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Show times not listed on website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1kmjf3y-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:gem-mineral-show-2026-06-28": {
@@ -17395,17 +17154,6 @@
       "partialFingerprint": "1kmjf3y-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:logging-festival-2026-06-27": {
-      "fields": {
-        "startTime": "09:30",
-        "duration": 28800
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://www.cityofbuckley.com/220/Buckley-Log-Show",
-      "partialFingerprint": "1ixqss9-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:logging-festival-2026-06-28": {
       "unresolvable": true,
       "reason": "2026 schedule not yet published; 2025 log show was Saturday-only",
@@ -17414,31 +17162,12 @@
       "partialFingerprint": "1ixqss9-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:dance-music-festival-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Festival start times not listed on website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "6z58hs-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:dance-music-festival-2026-06-28": {
       "unresolvable": true,
       "reason": "Festival start times not listed on website",
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "6z58hs-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:bremerton-festival-fireworks-2026-06-27": {
-      "fields": {
-        "startTime": "11:00",
-        "duration": 39600
-      },
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "evidence": "https://www.bremertonbridgeblast.com",
-      "partialFingerprint": "k145lo-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:bremerton-festival-fireworks-2026-06-28": {
@@ -17462,14 +17191,6 @@
       "evidence": "https://skandia-folkdance.org/midsommarfest.html",
       "partialFingerprint": "ny5sar-until2026-06-28-tu"
     },
-    "events12:music-by-candlelight-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Events12 links to general Fever landing page; multiple different candlelight concerts run daily with different times (6:15pm, 8:30pm, etc.)",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "8kffbv-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:music-by-candlelight-2026-06-28": {
       "unresolvable": true,
       "reason": "Events12 links to general Fever landing page; multiple different candlelight concerts run daily with different times (6:15pm, 8:30pm, etc.)",
@@ -17478,27 +17199,12 @@
       "partialFingerprint": "8kffbv-until2026-06-28-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:crazy-comedy-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Full performance schedule not publicly listed; mix of evening shows and matinees, specific per-day times require calling Seattle Rep box office",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1udm97s-until2026-06-28-tu"
-    },
     "events12:crazy-comedy-2026-06-28": {
       "unresolvable": true,
       "reason": "Full performance schedule not publicly listed; mix of evening shows and matinees, specific per-day times require calling Seattle Rep box office",
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "1udm97s-until2026-06-28-tu"
-    },
-    "events12:garden-walk-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
     },
     "events12:garden-walk-2026-06-28": {
       "unresolvable": true,
@@ -17723,13 +17429,6 @@
       "source": "agent",
       "partialFingerprint": "51vnas-until2026-07-25-tu",
       "lastSeen": "2026-06-21"
-    },
-    "events12:zoo-concerts-2026-06-27": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu"
     },
     "events12:zoo-concerts-2026-06-28": {
       "unresolvable": true,
@@ -18563,14 +18262,6 @@
       "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:classical-music-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Varying start times per location and date; check individual event listings on SCMS website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1wtiw6a-until2026-07-06-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:classical-music-2026-06-28": {
       "unresolvable": true,
       "reason": "Varying start times per location and date; check individual event listings on SCMS website",
@@ -18641,14 +18332,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "1wtiw6a-until2026-07-06-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:live-theater-2026-06-27": {
-      "unresolvable": true,
-      "reason": "Barefoot in the Park closes June 20 per Taproot website; events12 date range expansion includes post-closing dates",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "8mclbx-until2026-07-05-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:live-theater-2026-06-28": {
@@ -18798,14 +18481,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "cw48eo-until2026-09-11-tu"
-    },
-    "events12:chinese-acrobats-2026-06-27": {
-      "unresolvable": true,
-      "reason": "TicketLeap page returning error; show times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "78taog-until2026-06-28-tu",
-      "lastSeen": "2026-06-21"
     },
     "events12:chinese-acrobats-2026-06-28": {
       "unresolvable": true,
@@ -20316,17 +19991,6 @@
       "evidence": "https://delillecellars.com/events/from-washington-to-france-wine-dinner/",
       "lastSeen": "2026-06-21"
     },
-    "events12:slug-festival-2026-06-27": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.nwtrek.org/event/slug-fest/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:slug-festival-2026-06-28": {
       "fields": {
         "cost": {
@@ -20337,27 +20001,6 @@
       "source": "agent",
       "evidence": "https://www.nwtrek.org/event/slug-fest/",
       "lastSeen": "2026-06-21"
-    },
-    "events12:architectural-tour-2026-06-27": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:on-the-water-2026-06-27": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
     },
     "events12:on-the-water-2026-06-28": {
       "fields": {
@@ -22462,13 +22105,6 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-welcomes-bosnia-and-herzegovina"
     },
-    "events12:movies-in-seattle-parks-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Start time not posted on source page; movies start at dusk (varies by date)",
-      "lastSeen": "2026-06-21"
-    },
     "events12:movies-in-seattle-parks-2026-06-28": {
       "unresolvable": true,
       "resolvedAt": "2026-06-15",
@@ -23508,12 +23144,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "reason": "Eventbrite lists as all-day event with no specific end time"
-    },
-    "19hz:19hz-2026/06/27-Obsession": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "Ticket page does not list end time or duration for this club event"
     },
     "19hz:19hz-2026/07/18-Global Groove: Summer Fest": {
       "unresolvable": true,
@@ -24715,25 +24345,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:race-at-seward-park-2026-06-27": {
-      "fields": {
-        "startTime": "07:00",
-        "duration": 18000,
-        "cost": {
-          "min": 62.52
-        }
-      },
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "evidence": "https://raceroster.com/events/2026/107529/ - Half marathon 7:00 AM; adult 5K late pricing $62.52",
-      "partialFingerprint": "14306u6-until2026-06-27-tu"
-    },
-    "events12:baseball-in-tacoma-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-06-28": {
       "unresolvable": true,
@@ -27346,12 +26957,6 @@
       "resolvedAt": "2026-06-26",
       "source": "agent",
       "evidence": "https://www.redmond.gov/Calendar.aspx?EID=3190"
-    },
-    "events12:world-cup-soccer-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-26",
-      "source": "agent",
-      "reason": "No FIFA match scheduled at Lumen Field on this date; events12 range-expanded the June 26 Egypt vs. Iran listing"
     },
     "events12:world-cup-soccer-2026-06-28": {
       "unresolvable": true,
@@ -31056,7 +30661,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/babepiginthecityposter-1200x1770.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31066,7 +30672,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/beautravailposter.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31076,7 +30683,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/bluevelvetposter2.png"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31086,7 +30694,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/curepostersmall-1200x1773.png"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31096,7 +30705,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/happytogetherposter.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31106,7 +30716,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/KillerofSheep_2025_poster_2025x3000-1-1200x1778.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31116,7 +30727,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/memoriaposter-1200x1796.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31126,7 +30738,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/mississippimasalaposter.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31136,7 +30749,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/Soundtrack_ToACoupDetat_DVD_Kanopy.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31146,7 +30760,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2023/08/films_stop-making-sense-40th_poster_a24.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31156,7 +30771,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/younggirlsrochefortposter.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31166,7 +30782,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/thiefposter.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31176,7 +30793,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/whoframedrogerrabbitposter-1200x1745.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31186,7 +30804,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/yiyposter.png"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31196,7 +30815,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/persepolisposter-1200x1600.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31206,7 +30826,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/thelandbeforetimeposter-1200x1772.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31216,7 +30837,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/thelastunicornposter-1200x1599.png"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31226,7 +30848,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/thewolfhouseposterSMALL-1200x1778.png"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31236,7 +30859,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/ascowithoutpermissionposter-1200x1778.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31246,7 +30870,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/beaconoffleshposterSMALL-1200x1778.png"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31256,7 +30881,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/05/CAMP-ONE-SHEET-FilmBy-1200x1778.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31266,7 +30892,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/drunkennoodlespostersmall.png"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31286,7 +30913,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/transexualmenaceposter-1200x1800.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31296,7 +30924,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/loveliesbleedingposterSMALL-1200x1778.png"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -31306,7 +30935,8 @@
       "fields": {
         "cost": {
           "min": 12
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/02/earlysummerposter-1200x1701.jpg"
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
@@ -34220,6 +33850,4006 @@
       "resolvedAt": "2026-07-04",
       "source": "agent",
       "evidence": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+    },
+    "queer-social-club:6a3ed6f52d6cec576cf0effd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed72b5dc0042df9ed3e08": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed73a46b22f1b876ab00e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed74866a6540a13f8c67f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed755e72dd036046edac9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed7a8dd8fea5a635651fb": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed7f53658235397b8e07f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed80edd8fea5a635679ba": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed81c63ab3123f8241081": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed82b1e670b3081dd8afa": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed851cd0b7079632ba68e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed8d7cfa89f4546f89ad7": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed8e80b97ae4417cca305": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed8f9edfb8c74ee9ec630": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3ed90a23d9982c19291fe1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "seattle-makers:seattle-makers-146606": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-152096": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154176": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154158": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-153512": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-153514": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-153516": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-153518": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-153520": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154879": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154880": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "queer-social-club:6a427b3138b66d015d11def8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a431f2bdf47525123938692": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a431f6887633d38355b49b5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a4320bb1a60f4069a83e1b7": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a4320d87251eb277968a343": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a43211f4a935c0b19f01042": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a4321c9af44bf1a7d06f16d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a4322bf26117b758099ca6e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a432385daac52719c493bc0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a432400daac52719c495a32": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a43241f1a60f4069a853884": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a432469114fec59535347e2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a4324b8114fec59535360ff": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a43257609d9c723db6581bc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a43258fcd8b1f3a600380c3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a427d65d244f5619bc63c67": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/figure-it-out-life-drawing"
+    },
+    "queer-social-club:6a427c5206912a27c1fe7ca6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://chopsuey.com/tm-event/trans-indie-music-showcase/"
+    },
+    "queer-social-club:6a4326e2b02d836d088106c0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a4327478c1fdf45229f8781": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a3f449c998b557fec63026d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Event page not found (404); cost not determinable"
+    },
+    "queer-social-club:6a4326087f25c863a1ca02d9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a43261e5d6ccd23316fc022": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a427bf29b2d83314b7650fe": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-board-meeting-2026-07-08-19-00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-board-meeting-2026-08-12-19-00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-board-meeting-2026-09-09-19-00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-board-meeting-2026-10-14-19-00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-board-meeting-2026-11-11-19-00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-lakewood-playground-star-party-2026-07-18-19-00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-lakewood-playground-star-party-2026-08-27-18-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-lakewood-playground-star-party-2026-09-19-18-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-lakewood-playground-star-party-2026-10-17-17-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-lakewood-playground-star-party-2026-11-14-16-00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-lakewood-playground-star-party-2026-12-19-16-00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-membership-meetup-2026-07-15-18-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-membership-meetup-2026-08-19-18-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-membership-meetup-2026-09-16-18-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-membership-meetup-2026-10-21-18-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-membership-meetup-2026-11-18-18-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/"
+    },
+    "urban-family-brewing:urban-family-brewing-121": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-122": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-146": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-147": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-173": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-196": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-197": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-222": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-223": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-247": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-248": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-280": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-281": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-303": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-304": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-328": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-329": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-352": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-353": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-382": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-383": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-384": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-408": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-423": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-424": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-452": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-453": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-581": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-84": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-85": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-86": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-87": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-43": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-539": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-540": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-541": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-543": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-555": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-558": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-559": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-560": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-562": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-563": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-564": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-577": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-580": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-517": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-518": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-519": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-520": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-557": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "urban-family-brewing:urban-family-brewing-582": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/home/calendar/"
+    },
+    "sea-monster-lounge:sea-monster-lounge-adrian-xavier-friends-2026-07-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-bigtooth-2026-07-28-19-30-2026-07-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-black-dogs-2026-07-09-22-00-1-2026-07-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-buena-vibra-2026-07-04-19-00-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-buena-vibra-2026-07-25-19-00-2026-07-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-celestial-navigation-2026-08-06-19-30-2026-08-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-comfort-food-2026-07-16-22-00-2026-07-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-crack-sabbath-15-2026-07-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-dub-lounge-international-2026-07-15-22-00-2026-07-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-emerald-city-ragtime-band-2026-08-13-19-00-2026-08-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-foleada-2026-07-21-19-30-2026-07-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-funkligula-2026-07-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-funky-2-death-2026-07-10-22-00-2026-07-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-funky-2-death-2026-07-17-22-00-2026-07-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-funky-2-death-2026-07-24-22-00-2026-07-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-funky-2-death-2026-07-31-22-00-2026-07-31": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-funky-2-death-2026-08-07-22-00-2026-08-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-funky-2-death-2026-08-14-22-00-2026-08-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-hot-rod-2026-07-08-19-30-2026-07-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-hot-rod-2026-08-12-19-30-2026-08-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-how-now-brown-cow-2026-07-16-19-30-2026-07-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-hurricane-dreamz-2026-07-08-22-00-2026-07-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-hurricane-dreamz-2026-08-12-22-00-2026-08-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-jammah-2026-07-30-22-00-2026-07-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-jerry-joseph-the-jackmormons-2-2026-07-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-joe-doria-presents-2026-07-07-22-00-2026-07-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-joe-doria-presents-2026-07-14-22-00-2026-07-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-joe-doria-presents-2026-07-21-22-00-2026-07-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-john-kessler-2-2026-07-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-kiki-valera-y-son-cuban-2026-07-11-19-00-2026-07-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-la-luz-2026-07-06-22-00-2026-07-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-la-luz-2026-07-13-22-00-2026-07-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-la-luz-2026-07-20-22-00-2026-07-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-la-luz-2026-07-27-22-00-2026-07-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-la-luz-2026-08-03-22-00-2026-08-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-la-luz-2026-08-10-22-00-2026-08-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-la-rebelion-de-seattle-2026-07-18-19-00-2026-07-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-manazma-sheen-2026-07-30-19-30-2026-07-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-marmalade-2026-08-06-22-00-2026-08-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-paige-sandusky-band-2026-08-13-22-00-2-2026-08-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-paige-sandusky-band-2026-08-13-22-00-2026-08-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-randy-weeks-the-silent-treatment-2026-07-05-18-00-2026-07-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-randy-weeks-the-silent-treatment-2026-07-19-18-00-2026-07-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-randy-weeks-the-silent-treatment-2026-08-02-18-00-2026-08-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-randy-weeks-the-silent-treatment-2026-08-05-18-00-2026-08-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-red-dress-2026-08-09-17-00-2026-08-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-reposado-10-2026-07-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-ron-weinstein-trio-2026-07-05-21-00-2026-07-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-ron-weinstein-trio-2026-07-12-21-00-2026-07-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-ron-weinstein-trio-2026-07-19-21-00-2026-07-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-ron-weinstein-trio-2026-07-26-21-00-2026-07-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-ron-weinstein-trio-2026-08-02-21-00-2026-08-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-ron-weinstein-trio-2026-08-09-21-00-2026-08-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-sea-monster-p-funk-tribute-4th-of-july-celebration-show-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-sea-monster-salsa-saturdays-2026-08-01-19-00-2026-08-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-sea-monster-salsa-saturdays-2026-08-08-19-00-2026-08-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-sea-monster-salsa-saturdays-2026-08-15-19-00-2026-08-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-shady-bottom-2026-07-10-20-00-2026-07-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-shady-bottom-2026-08-14-20-00-2026-08-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-slick-moore-lucinda-2026-07-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-super-krewe-2026-07-15-19-30-2026-07-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sea-monster-lounge:sea-monster-lounge-tarik-friends-2026-07-23-19-30-2026-07-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "seattle-makers:seattle-makers-154053": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154056": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154057": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154058": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154059": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154060": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154061": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154062": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154063": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154064": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154065": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154067": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154827": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154828": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154829": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154830": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154831": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154832": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154833": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154834": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154020": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-83/"
+    },
+    "seattle-makers:seattle-makers-154023": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-83/"
+    },
+    "seattle-makers:seattle-makers-154025": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-83/"
+    },
+    "seattle-makers:seattle-makers-154178": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-83/"
+    },
+    "seattle-makers:seattle-makers-154180": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-83/"
+    },
+    "seattle-makers:seattle-makers-154182": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-83/"
+    },
+    "seattle-makers:seattle-makers-156889": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-guided-studio-with-free-machine-time-7/"
+    },
+    "seattle-makers:seattle-makers-157330": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-guided-studio-with-free-machine-time-7/"
+    },
+    "seattle-makers:seattle-makers-154865": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-22/"
+    },
+    "seattle-makers:seattle-makers-155599": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-22/"
+    },
+    "seattle-makers:seattle-makers-156933": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-22/"
+    },
+    "seattle-makers:seattle-makers-157336": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-22/"
+    },
+    "seattle-makers:seattle-makers-157339": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-22/"
+    },
+    "seattle-makers:seattle-makers-155153": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-4/"
+    },
+    "seattle-makers:seattle-makers-152634": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-152652": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-152677": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154031": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154032": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154039": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154165": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154172": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154308": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154311": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154871": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154876": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154882": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-154885": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-155594": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-155602": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-156247": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-156877": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-156901": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-156907": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-157334": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-157345": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-157348": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "sam:free-first-thursday-seattle-art-museum-aug-6-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:free-first-thursday-seattle-art-museum-jul-2-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:free-first-thursday-seattle-asian-art-museum-aug-6-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:free-first-thursday-seattle-asian-art-museum-jul-2-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:free-first-thursday-seattle-asian-art-museum-sep-3-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-aug-9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-5": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jul-9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-jun-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-sep-5": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:beyond-mysticism-public-tour-sep-6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:chanoyu-tea-culture-of-japan-demonstration-jul-11-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:chanoyu-tea-culture-of-japan-demonstration-jul-18-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:chanoyu-tea-culture-of-japan-demonstration-nov-14-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:chanoyu-tea-culture-of-japan-demonstration-nov-21-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:chanoyu-tea-culture-of-japan-demonstration-oct-10-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:chanoyu-tea-culture-of-japan-demonstration-oct-17-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:chanoyu-tea-culture-of-japan-demonstration-sep-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:chanoyu-tea-culture-of-japan-demonstration-sep-19-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:conversations-with-curators-25-years-behind-the-art-stories-from-conservation-oct-15-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:conversations-with-curators-preparing-the-past-medieval-japanese-buddhist-art-sep-17-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-1-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-15-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-16-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-2-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-22-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-23-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-8-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-9-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-11-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-18-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-19-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-25-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-26-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-4-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jul-5-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-jun-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-journeys-through-time-and-space-aug-16-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-journeys-through-time-and-space-aug-2-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-journeys-through-time-and-space-aug-23-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-journeys-through-time-and-space-aug-6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-journeys-through-time-and-space-aug-9-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-journeys-through-time-and-space-jul-19-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-journeys-through-time-and-space-jul-2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:public-tour-journeys-through-time-and-space-jul-26-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:sam-camp-big-bold-grades-1-3-jul-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:sam-camp-creative-ceramics-grades-4-6-jul-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:sam-camp-nature-explorers-grades-1-3-jul-6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:sam-camp-playful-plots-grades-1-3-jul-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:sam-camp-printmaking-paradise-grades-4-6-jul-6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:sam-camp-sculpt-away-grades-4-6-jul-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:sam-gallery-presents-troy-gua-expression-aug-5-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:sam-talks-an-evening-with-saya-woolfalk-aug-27-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:seattle-symphony-young-artist-collaborative-student-recital-jul-10-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:summer-institute-for-educators-identity-bridging-past-and-future-aug-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "sam:up-close-with-conservators-beneath-the-surface-conserving-schubert-sonata-nov-19-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/plan-your-visit"
+    },
+    "northwest-film-forum:interbay-cinema-society-presents-what-grows-uninvited-2026-07-17": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/hoganseidel2026poster-1200x1800.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:mourning-sickness-vol-5-9-to-5-2026-07-25": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/02/9-to-5.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:seattle-film-society-in-focus-zia-mohajerjasbi-2026-07-16": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/Instagram-4_5.png"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:sfcs-10-first-cow-2026-08-20": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/03/Poster-1200x1873.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:sfcs-10-rrr-2026-07-16": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2023/03/films_rrr-celebrrration_poster.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:soviet-gems-animation-ethnofolk-tales-2026-07-14": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:staff-selects-microcosmos-2026-07-18": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/02/microcosmos-poster-1200x1600.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:the-end-of-summer-2026-09-11": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/03/theendofsummerposter.png"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:truth-to-fiction-baby-doe-2026-09-03": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/babydoeposter-1200x1800.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:truth-to-fiction-shermans-march-4k-restoration-2026-08-06": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/shermansmarchposterOLD.jpg"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:unstreamable-shot-andy-warhol-2026-07-24": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/05/ishotandywarholposter_small.png"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "northwest-film-forum:unstreamable-tekkonkinkreet-2026-08-21": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/04/tekkonkinkreetposter.png"
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+    },
+    "stg:tm-vvG1HZ_6mMUBx-": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "stg:tm-vvG1HZ_7KNkaIY": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "stg:tm-vvG1HZ_7QrYUCV": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "stg:tm-vvG1HZ_a3lRbS2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "stg:tm-vvG1HZ_A5DPBnF": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "stg:tm-vvG1HZ_aB93Fzr": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "stg:tm-vvG1HZ_aeUc1tM": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "stg:tm-vvG1HZ_aeURnnZ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "stg:tm-vvG1HZ_GmEqyv9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/calendar"
+    },
+    "rabbit_box:6a3cab307d83516a2a6d24e7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a3cad46f7c107091fd2d792": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a3caeee6529cb01504ed993": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a3ddd2772572b39e77adf5a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a3ef2b23760bc7ab1b2b004": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a3f1f70b52a355c766bb782": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a43039b8c1fdf452292025e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a44576c3b49e13d6c1cebf1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a446591c5585d1158008fc1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a446fd21ec6544bcfbe4583": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a447b348e15864cebca161f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a456f5a57edbc70b8010d83": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "rabbit_box:6a458494073f797401053129": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
+    },
+    "center-for-wooden-boats:sunday-public-sail-2026-07-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.cwb.org/public-sail"
+    },
+    "center-for-wooden-boats:sunday-public-sail-2026-08-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.cwb.org/public-sail"
+    },
+    "center-for-wooden-boats:sunday-public-sail-2026-09-27": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.cwb.org/public-sail"
+    },
+    "center-for-wooden-boats:norm-blanchard-wood-regatta-2026-09-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.cwb.org/wood-regatta"
+    },
+    "center-for-wooden-boats:dinner-on-the-docks-sugartime-trio-2026-07-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.cwb.org/dinneronthedocksw/sugartime"
+    },
+    "west-seattle-nursery:69deb35d46e0a85c592021d6": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/bonsai-x-bonsai-class"
+    },
+    "west-seattle-nursery:69ded1c11e563c4e036bb6c2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/"
+    },
+    "west-seattle-nursery:6a0cd854cc0cfa4a70dd1598": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/"
+    },
+    "west-seattle-nursery:6a2854f776b3414513017d7c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/"
+    },
+    "west-seattle-nursery:6a3d8171f8869f023a62576f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_65j71xp": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_FECi1Ir": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZbMtMBN6q": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "lumen-field:tm-vvG1HZ_A3P_GHm": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "lumen-field:tm-vvG1HZ_F5JP9Ku": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "lumen-field:tm-vvG1HZbz2cbat3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "wamu-theater:tm-vvG1HZ_ahgjxJJ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "wamu-theater:tm-vvG1HZbgMofUIc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "visit-seattle:visit-seattle-festal-dia-de-muertos-festival-seattle": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/"
+    },
+    "visit-seattle:visit-seattle-festal-diwali-lights-of-india": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/"
+    },
+    "visit-seattle:visit-seattle-festal-seattle-hmong-new-year": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/"
+    },
+    "visit-seattle:visit-seattle-bob-schneider": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/"
+    },
+    "visit-seattle:visit-seattle-debi-tirar-mas-fiestas-a-bad-bunny-night": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/"
+    },
+    "visit-seattle:visit-seattle-jon-de-lucias-brubeck-octet-project": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/"
+    },
+    "visit-seattle:visit-seattle-liam-st-john": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/"
+    },
+    "northwest-art-alliance:68f92eb653e2fc5301dc2e51": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwartalliance.org/nwaa-events/fiber-flair-2027"
+    },
+    "northwest-art-alliance:69811655c2dbce06e1f5e018": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwartalliance.org/nwaa-events/the-6th-annual-attic-sale"
+    },
+    "northwest-art-alliance:69810bb5a841de7b9c0eb904": {
+      "fields": {
+        "cost": {
+          "min": 5.0,
+          "max": 8.0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://nwartalliance.org/nwaa-events/the-38th-annual-best-of-the-northwest-fall-show"
+    },
+    "seattle-film-society:6a40a823e2b63d07378165c9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattlefilmsociety.com/calendar/discussion-123"
+    },
+    "seattle-film-society:6a40a89332e61d4c309b8908": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattlefilmsociety.com/calendar/discussion-123"
+    },
+    "seattle-film-society:6a40a9f682829739da7f7162": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.seattlefilmsociety.com/calendar/discussion-123"
+    },
+    "base-experimental-arts:6977f556f53e2d48f24bda44": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://thisisbase.org/events/2026/7/18/base-residency-entry-point-ajani-brannum-la"
+    },
+    "base-experimental-arts:69f390e7169c31020014671c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://thisisbase.org/events/2026/3/14/base-pilot-program-pairings-collaborations-in-movement-and-music-wp8rn"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/WI76NWDAHUKCRNDAG6Z3LFFJ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/WI76NWDAHUKCRNDAG6Z3LFFJ"
+    },
+    "couth-buzzard:_8ks3gchm8l1j4b9p70o48b9k69332b9p84qkab9i6kqk2cq28cs34gq16s": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.couthbuzzard.com/events"
+    },
+    "fantagraphics-bookstore:seattle-wa-hot-off-the-press-book-fair-at-the-fantagraphics-bookstore-gallery-2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://blog.fantagraphics.com/events/seattle-wa-hot-off-the-press-book-fair-at-the-fantagraphics-bookstore-gallery-2"
+    },
+    "sonic-boom-records:6a28aa374edfa008989a55cc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.sonicboomrecords.com/instores/2026/7/8/listening-party-panda-bear-amp-sonic-boom-a-of-when"
+    },
+    "sol-yoga-seattle:69f393cf1894b721588d76c9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/sol-sound-bath-95aty-2"
+    },
+    "seattle-japanese-garden:6a3d99db85318e39447898c7": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page returns 404 - event no longer listed"
+    },
+    "the-beer-junction:6a3b1886002c114a4a26be5d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "reason": "Source page returns 404 - event no longer listed"
+    },
+    "seatoday:cityspark-19332492": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/down-home-fourth-of-july/19332492/2026-07-04T00"
+    },
+    "seatoday:cityspark-19330329": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/stars-stripes-sunshine-4th-of-july-celebration/19330329/2026-07-04T00"
+    },
+    "seatoday:cityspark-18670952": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/gsba-capitol-hill-monthly-safety-call/18670952/2026-07-09T00"
+    },
+    "seatoday:cityspark-19069375": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/providence-point-community-sale/19069375/2026-07-17T00"
+    },
+    "seatoday:cityspark-18587549": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://forterra.org/event/forterra-fridays-july-2026/"
+    },
+    "seatoday:cityspark-18297434": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/chamber-chat-live-business-interviews/18297434/2026-07-17T00"
+    },
+    "seatoday:cityspark-18127588": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/sam-camp-big-bold-grades-1-3/18127588/2026-07-17T00"
+    },
+    "seatoday:cityspark-18995739": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-05",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/greener-living-mason-jar-magic/18995739/2026-07-17T00"
     }
   }
 }

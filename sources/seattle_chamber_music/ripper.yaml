@@ -8,6 +8,8 @@ tags:
   - Music
   - Arts
 imageUrl: "https://www.seattlechambermusic.org/wp-content/uploads/2024/01/SCMS-logo-black.jpg"
+# All event pages use a generic program banner SVG — no per-event artist photos.
+skipEventPhotos: true
 calendars:
   - name: seattle-chamber-music
     friendlyname: "Seattle Chamber Music Society"

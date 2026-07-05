@@ -7,6 +7,8 @@ url: "https://ticketing.useast.veezi.com/sessions/?siteToken=qnxpcc571jey8whdwr\
 friendlyLink: https://www.majesticbay.com
 tags: ["Movies", "Ballard"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d3/The_Majestic_Bay_theater_neon_at_night.jpg"
+# Veezi ticketing pages return 403; Veezi platform does not expose per-event artwork.
+skipEventPhotos: true
 geo:
   lat: 47.6689
   lng: -122.3841

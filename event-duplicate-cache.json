@@ -5979,6 +5979,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-04",
       "note": "Same Dave Hause/American Steel show, same date/time; Tractor-produced NIGHT 2 held at the neighboring Sunset Tavern (title cross-references \"AT The Sunset\" / \"NIGHT 2\"); Tractor feed location is a ripper default (own venue address) rather than the actual venue."
+    },
+    "seatoday-seatoday-all.ics Down Home Fourth of July|2026-07-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Down Home Fourth of July|2026-07-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-05",
+      "note": "Same event, two seatoday calendar feeds (all vs community)"
     }
   }
 }
