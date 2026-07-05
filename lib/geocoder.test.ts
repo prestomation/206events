@@ -395,6 +395,11 @@ describe('stripSuiteFloorSuffixes', () => {
     expect(result).toBe('2100 24th Ave E, Seattle, WA');
   });
 
+  it('strips Unit NNN', () => {
+    const result = stripSuiteFloorSuffixes('3131 Western Ave Unit 421 Seattle, WA 98121');
+    expect(result).toBe('3131 Western Ave Seattle, WA 98121');
+  });
+
   it('strips trailing ", United States"', () => {
     const result = stripSuiteFloorSuffixes('600 4th Ave, Seattle, WA 98104, United States');
     expect(result).toBe('600 4th Ave, Seattle, WA 98104');

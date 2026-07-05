@@ -205,6 +205,7 @@ export function stripSuiteFloorSuffixes(location: string): string | null {
   result = result.replace(/[,\s]*#\s*[\w-]+/g, '');
   result = result.replace(/[,\s]*\bSuite\s+[\w-]+/gi, '');
   result = result.replace(/[,\s]*\bSte\.?\s+[\w-]+/gi, '');
+  result = result.replace(/[,\s]*\bUnit\s+[\w-]+/gi, '');
   result = result.replace(/[,\s]*\bFloor\s+[\w-]+/gi, '');
   result = result.replace(/[,\s]*\bFlr\.?\s+[\w-]+/gi, '');
   result = result.replace(/[,\s]*\bRoom\s+[\w-]+/gi, '');
@@ -650,6 +651,43 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // (the "/chinatown" text breaks the branch substring match) — same coords as
   // the 'international district branch' entry in SPL_BRANCH_COORDS.
   'international district/chinatown branch, study room': { lat: 47.5979, lng: -122.3238 },
+
+  // --- 2026-07-05 geo-resolver batch: more "venue name only" / address-format unresolvable entries ---
+  // Addresses verified against each venue's own site/official listing, then
+  // forward-geocoded via Nominatim (never reverse-geocoded street numbers).
+  'campion ballroom': { lat: 47.6068, lng: -122.3195 }, // Seattle University, Campion Hall
+  'bill wright golf complex': { lat: 47.5660, lng: -122.3091 }, // Jefferson Park Par 3 Course
+  'gallery axis': { lat: 47.5997, lng: -122.3340 },
+  'sarajevo nightclub': { lat: 47.6123, lng: -122.3465 },
+  'salish steps': { lat: 47.6089, lng: -122.3428 }, // Overlook Walk, Seattle Waterfront Park
+  'picklewood paddle club': { lat: 47.5673, lng: -122.3352 },
+  'radiant self, institute of awakened mastery, seattle, wa': { lat: 47.6991, lng: -122.3283 },
+  // Cougar Mountain Regional Wildland Park centroid — source names a specific
+  // trailhead within the park that Nominatim doesn't index separately.
+  'sky country trailhead cougar mountain, bellevue, wa': { lat: 47.5280, lng: -122.1038 },
+  'the chapel lounge': { lat: 47.6003, lng: -122.3344 },
+  // Source misspells "Evans" as "Evan"
+  'park pointe, southeast evan street, issaquah, wa': { lat: 47.5254, lng: -122.0314 },
+  'manchester state park group camp site': { lat: 47.5766, lng: -122.5499 },
+  'cooley llp, seattle, united states': { lat: 47.6140, lng: -122.3353 },
+  'bainbridge island pac town square': { lat: 47.6261, lng: -122.5185 },
+  'red hawk avalon': { lat: 46.5532, lng: -123.3661 }, // Pe Ell, WA
+  'the 4bs': { lat: 47.6591, lng: -122.3645 },
+  // ARTS at King Street Station — prefix-matches all "303 South Jackson Street, <room>"
+  // variants (3rd floor lounge/living room, plaza, top floor) since lookupKnownVenue
+  // matches on a leading-substring + separator, not just the existing
+  // 'arts at king street station' name-based key.
+  '303 south jackson street': { lat: 47.5983, lng: -122.3303 },
+  'pier 58 park': { lat: 47.6068, lng: -122.3417 },
+  // Approximate downtown-Kent block; source intersection (2nd & Harrison) isn't indexed
+  'kent, 2nd & harrison streets, kent, wa, 98032, united states': { lat: 47.3775, lng: -122.2349 },
+  'occidental ave. s (between s. jackson st and s. main st.)': { lat: 47.6005, lng: -122.3331 }, // Occidental Park
+  // Mt Baker Light Rail Station — source describes meeting "just off Rainier Ave S & S Forest St, by the Mt Baker Light Rail Station"
+  'we meet on the nw corner of the art space building, just off rainier ave. s. & s. forest st., by the mt. baker light rail station.': { lat: 47.5767, lng: -122.2978 },
+  'seattle aquarium, 1483 alaskan way pier 59, seattle, wa 98101': { lat: 47.6076, lng: -122.3432 },
+  '1483 alaskan way pier 59, seattle, wa 98101': { lat: 47.6076, lng: -122.3432 },
+  '1620 12th ave (12th ave arts building)': { lat: 47.6157, lng: -122.3167 },
+  'b612 gallery: pioneer square, 1915 1st ave south': { lat: 47.5855, lng: -122.3345 },
 };
 
 /**
