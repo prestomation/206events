@@ -1,12 +1,12 @@
 ---
 name: "Seattle Social Club"
-status: candidate
+status: added
 platform: Eventbrite
 url: https://www.eventbrite.com/o/seattle-social-club-42795102333
 tags: [Community]
 firstSeen: 2026-07-04
-lastChecked: 2026-07-04
-pr:
+lastChecked: 2026-07-05
+pr: 851
 ---
 
 Social meetup organizer for single millennials / people looking to make
@@ -24,3 +24,6 @@ Investigated 2026-07-04:
   fallback since events move between venues (itinerant, `geo: null` at
   ripper level).
 - Not currently covered elsewhere in `sources/` or `sources/external/`.
+
+Implemented 2026-07-05 in PR #851 (`sources/seattle_social_club/ripper.yaml`,
+built-in `eventbrite` type, `geo: null`, `sourceRole: venue`).
