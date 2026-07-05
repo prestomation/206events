@@ -5,7 +5,12 @@
 name: crawl4ai-probe
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      probe_only:
+        description: "Comma-separated source names to probe (empty = all)"
+        required: false
+        default: ""
   push:
     branches:
       - claude/crawl4ai-proxy-plan-44ab8h
@@ -26,6 +31,9 @@ jobs:
         with:
           node-version: "20"
       - name: Run probe from CI IP
+        env:
+          # Set by workflow_dispatch input; empty on push = probe all sources.
+          PROBE_ONLY: ${{ github.event.inputs.probe_only }}
         run: |
           set -e
           mkdir -p "$RUNNER_TEMP/probe"

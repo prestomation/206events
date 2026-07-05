@@ -104,10 +104,33 @@ async function browserFetch(browser, url, kind) {
         return { status: "ERR", rootStatus, verdict: "ERROR", snippet: String(e).slice(0, 80) };
       }
     }
-    // External ICS: fetch raw body via the context request client (shares cleared cookies).
-    const r = await ctx.request.get(url, { headers: { "User-Agent": UA, Accept: "text/calendar,*/*" }, timeout: 45000 });
-    const body = await r.text();
-    return { status: r.status(), rootStatus, ...classify(body, kind) };
+
+    // External ICS — try several ways to actually clear a JS challenge, report the best.
+    // Strategy A: shared-cookie request client after the root visit.
+    let best = null;
+    const consider = (r, tag) => {
+      if (!best || (r.verdict === "ICS" && best.verdict !== "ICS")) best = { ...r, via: tag };
+    };
+    try {
+      const r = await ctx.request.get(url, { headers: { "User-Agent": UA, Accept: "text/calendar,*/*" }, timeout: 45000 });
+      consider({ status: r.status(), ...classify(await r.text(), kind) }, "A:cookie-replay");
+    } catch (e) { consider({ status: "ERR", verdict: "ERROR", snippet: String(e).slice(0, 60) }, "A"); }
+
+    // Strategy B: navigate the PAGE straight at the ICS URL and let the sgcaptcha
+    // set-cookie + window.location.reload() cycle complete in-page (networkidle),
+    // then read what finally rendered. This is the faithful "browser clears it" path.
+    try {
+      await page.goto(url, { waitUntil: "networkidle", timeout: 45000 }).catch(() => {});
+      await page.waitForTimeout(6000); // sgcaptcha sets cookie then reloads
+      // Try a fresh request now that the clearance cookie should be set.
+      const r2 = await ctx.request.get(url, { headers: { "User-Agent": UA, Accept: "text/calendar,*/*" }, timeout: 45000 });
+      consider({ status: r2.status(), ...classify(await r2.text(), kind) }, "B:post-challenge-request");
+      // Also inspect what the page itself shows (Chromium may render the ICS as text).
+      const shown = await page.evaluate(() => document.body ? document.body.innerText : "").catch(() => "");
+      if (/BEGIN:VCALENDAR/.test(shown)) consider({ status: 200, ...classify(shown, kind) }, "B:page-text");
+    } catch (e) { consider({ status: "ERR", verdict: "ERROR", snippet: String(e).slice(0, 60) }, "B"); }
+
+    return { rootStatus, ...best };
   } catch (e) {
     return { status: "ERR", verdict: "ERROR", snippet: String(e).slice(0, 80) };
   } finally {
@@ -115,11 +138,14 @@ async function browserFetch(browser, url, kind) {
   }
 }
 
+const only = process.env.PROBE_ONLY ? new Set(process.env.PROBE_ONLY.split(",").map(s => s.trim())) : null;
+const sourceList = only ? SOURCES.filter(([, name]) => only.has(name)) : SOURCES;
+
 const results = [];
 const browser = await chromium.launch({ args: ["--no-sandbox"] });
-console.log(`browser ${browser.version()} — probing ${SOURCES.length} sources from CI IP\n`);
+console.log(`browser ${browser.version()} — probing ${sourceList.length} sources from CI IP\n`);
 
-for (const [proxy, name, kind, url] of SOURCES) {
+for (const [proxy, name, kind, url] of sourceList) {
   const plain = await plainFetch(url, kind);
   const browserRes = await browserFetch(browser, url, kind);
   const row = { proxy, name, kind, plain, browser: browserRes };
