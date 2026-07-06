@@ -16,7 +16,10 @@ DEFAULT_URL = "https://206.events/build-errors.json"
 
 def main():
     url = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_URL
-    with urllib.request.urlopen(url) as resp:
+    # Cloudflare 403s urllib's default User-Agent from cloud sandboxes; send
+    # a browser-like one so this works there too.
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; 206events-skill/1.0)"})
+    with urllib.request.urlopen(req) as resp:
         d = json.loads(resp.read())
 
     zero_event = d.get("zeroEventCalendars", [])

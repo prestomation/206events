@@ -6234,6 +6234,11 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-06",
       "note": "Different event titles (Firefighter Story Time vs Family Story Time) at different SPL branches (Northgate vs Southwest) — not the same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-10-06T15:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-10-06T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-06",
+      "note": "Same title, same time, same URL (ischool.uw.edu/programs/informatics), both listed as Zoom — two UW feeds republishing the same info session."
     }
   }
 }

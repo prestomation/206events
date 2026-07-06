@@ -32,7 +32,10 @@ DEFAULT_ERRORS_URL = "https://206.events/build-errors.json"
 
 def load(url):
     if url.startswith("http://") or url.startswith("https://"):
-        with urllib.request.urlopen(url) as resp:
+        # Cloudflare 403s urllib's default User-Agent from cloud sandboxes;
+        # send a browser-like one so this works there too.
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; 206events-skill/1.0)"})
+        with urllib.request.urlopen(req) as resp:
             return json.loads(resp.read())
     with open(url) as f:
         return json.load(f)

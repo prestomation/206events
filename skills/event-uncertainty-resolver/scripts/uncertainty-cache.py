@@ -50,7 +50,10 @@ CACHE_FILENAME = "event-uncertainty-cache.json"
 
 
 def fetch_json(url):
-    with urllib.request.urlopen(url) as resp:
+    # Cloudflare 403s urllib's default User-Agent from cloud sandboxes; send
+    # a browser-like one so this works there too.
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; 206events-skill/1.0)"})
+    with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read())
 
 

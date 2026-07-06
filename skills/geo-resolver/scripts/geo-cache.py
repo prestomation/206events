@@ -25,14 +25,15 @@ DEFAULT_GEOCACHE_URL = "https://206.events/geo-cache.json"
 def fetch_json(url):
     """Fetch JSON from a URL, exiting with a friendly message on failure.
 
-    The published site sits behind Cloudflare, which can 403 some IPs (e.g.
-    cloud sandboxes) or be transiently unreachable. Surface that as a clear
-    one-line error rather than an unhandled urllib traceback.
+    The published site sits behind Cloudflare, which 403s urllib's default
+    User-Agent (bare "Python-urllib/x.y") even though a browser-like UA is
+    let through — send one so this works from cloud sandboxes too.
     """
     import urllib.request
     import urllib.error
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; 206events-skill/1.0)"})
     try:
-        with urllib.request.urlopen(url) as resp:
+        with urllib.request.urlopen(req) as resp:
             return json.loads(resp.read())
     except (urllib.error.URLError, ValueError) as e:
         print(f"Failed to fetch {url}: {e}", file=sys.stderr)
