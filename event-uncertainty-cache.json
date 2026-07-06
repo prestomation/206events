@@ -21037,14 +21037,14 @@
     },
     "19hz:19hz-2026/07/10-Mandragora": {
       "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184529328%2F2993203586663%2F1%2Foriginal.20260513-183548?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=0401857c1cb4d7272e5f53b6b15975f3",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-06-13",
+      "resolvedAt": "2026-07-06",
       "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed",
-      "lastSeen": "2026-06-13"
+      "evidence": "https://19hz.info/"
     },
     "19hz:19hz-2026/07/11-Marie Vaunt": {
       "fields": {
@@ -37989,6 +37989,156 @@
       "resolvedAt": "2026-07-06",
       "source": "agent",
       "reason": "no image accessible without login (Facebook/Instagram)"
+    },
+    "19hz:19hz-2026/07/07-Listening Session: Boards of Canada - Inferno": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/3c970b_2a89ccea1d174f0398f1a2814ef353f5~mv2.jpg"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/08-Listening Session: Thom Yorke - Eraser": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/a900e6_f77619d2181b48589ba64aaf62666202~mv2.jpg"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/09-Deck'd Out: Gab Rhome": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186260249%2F74927433109%2F1%2Foriginal.20260605-173845?w=1880&auto=format%2Ccompress&q=75&sharp=10&s=eb5060e2d3066f0f85a1099b9bf7e2c5"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/10-Never Dull": {
+      "fields": {
+        "imageUrl": "https://images.posh.vip/originals/6a192ce01df10467b2e1386a"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/10-Samantha Loveridge": {
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/eventservice/image/upload/q_auto,f_auto/v1778860839/saas/logos/image_1778860822412_tryzwrj4g.webp"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/10-Sorry for Party Rocking": {
+      "fields": {
+        "imageUrl": "https://i.ticketweb.com/i/00/13/52/99/63_Edp.jpg?v=4"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/11-2000's Rave": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186630317%2F2993203586663%2F1%2Foriginal.20260610-205655?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=3069c70e1ff5de2170eb5c8c1df1b5d1"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/11-Gimme Gimme Disco": {
+      "fields": {
+        "imageUrl": "https://i.ticketweb.com/i/00/13/51/44/13_Edp.jpg?v=4"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/11-Machine Burning: Austin Robertson": {
+      "fields": {
+        "imageUrl": "https://fatsoma.imgix.net/W1siZiIsInB1YmxpYy8yMDI2LzYvMTUvMTcvNTcvMTgvNjMxL1JhY2tNdWx0aXBhcnQyMDI2MDYxNS01OC0xMGQ3NjJuLmpwZyJdXQ?w=768&h=432&fit=fillmax&fill=blur&auto=format&q=60"
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://19hz.info/"
+    },
+    "19hz:19hz-2026/07/09-PUMP": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/10-Cristoph": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/12-Deck Jam": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/15-Dreamscape: Monolink": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/16-Bass Alliance: R.O.A.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/16-Chasing Lights: Andhim": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/18-Jungle Bounce: Shweta": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/18-Minimal Effort Presents: Yotto": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/18-Rumble: Chris Lake": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/18-Vicious Vinyl": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/19-Dreamscape: Monolink": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/24-Bassline Collective": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) \u2014 image not accessible from automated fetch"
+    },
+    "19hz:19hz-2026/07/23-Soundgarden Tribute: Outshined": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "TicketWeb 404 \u2014 event no longer listed, no image retrievable"
     }
   }
 }
