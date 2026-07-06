@@ -4,12 +4,14 @@ import { eventKey } from './eventKey.js'
 // The live-search index, factored out so the **search worker** and its
 // **main-thread fallback** share one definition (no drift between threads).
 //
-// These options mirror the App206 live search box: fuzzy over
+// These options serve BOTH client search paths: the App206 live search box and
+// the saved-filter matching (App.jsx routes saved filters through the search
+// worker — docs/following-tab-performance.md, Fix 1). Fuzzy over
 // summary/description/location, a near-exact threshold, and a whole-field scan
 // (`ignoreLocation`) so a term anywhere in a long description still matches.
-// They are intentionally the same literals used by App.jsx / App206.jsx — the
-// live box is client-only and NOT the parity-locked saved-search path
-// (event-search.ts), so keeping the constants here is safe.
+// The saved-filter path is parity-locked to the favorites worker
+// (infra/favorites-worker/src/event-search.ts): these literals MUST match it,
+// and web/src/filter-parity.test.js pins them.
 export const SEARCH_FUSE_OPTIONS = {
   keys: ['summary', 'description', 'location'],
   threshold: 0.1,

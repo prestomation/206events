@@ -974,14 +974,14 @@ The personal ICS feed is assembled **server-side** in the Cloudflare Worker (`in
 
 | Concern | Server (Worker) | Client (Web UI) |
 |---|---|---|
-| Search filters | Fuse.js in `event-search.ts` | Fuse.js in `App.jsx` (`searchFilterMatchSummaries`) |
+| Search filters | Fuse.js in `event-search.ts` | Fuse.js in `web/src/lib/searchEngine.js` (`SEARCH_FUSE_OPTIONS`; `App.jsx` routes saved filters through the search worker) |
 | Geo filters | Haversine in `feed.ts` | Haversine in `App.jsx` (`geoFilterMatchMap`) |
 | Deduplication | UID-based in `ics-merge.ts` | UID-based in display logic |
 | List resolution | `resolveList` by token `listId` in `feed.ts` | active list (`activeList`) in `App.jsx` |
 
 ### Keeping them in sync
 
-- The Fuse.js threshold, keys, and matching logic must be identical between `event-search.ts` and `App.jsx`
+- The Fuse.js threshold, keys, and matching logic must be identical between `event-search.ts` and `web/src/lib/searchEngine.js` (`SEARCH_FUSE_OPTIONS`) — `web/src/filter-parity.test.js` pins the literals
 - The haversine formula must be identical between `feed.ts` and `App.jsx`
 - When changing either implementation, always update the other in the same PR
 
