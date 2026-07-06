@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
-import { mockManifest } from './fixtures.js'
+import { mockManifest, streamPairFor } from './fixtures.js'
 import { screenshotStable } from './screenshot.js'
 
 // Infinite scroll + offline recovery for the Discover "Events" list.
@@ -133,7 +133,6 @@ test('retries the full events index when connectivity returns', async ({ page })
   // Fail BOTH full-corpus paths on the first attempt — the app tries the
   // NDJSON stream, then falls back to the monolithic file, so an "offline
   // boot" means both 503. On the retry the stream succeeds.
-  const { streamPairFor } = await import('./fixtures.js')
   const pair = streamPairFor(full)
   let streamAttempts = 0
   await page.route('**/events-index.ndjson', (route) => {

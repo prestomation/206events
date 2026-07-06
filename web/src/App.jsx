@@ -503,6 +503,12 @@ function App() {
       }
       if (texts.length > 0) {
         await searchClient.applyDescriptions(texts)
+        // Re-check the generation after the await: a DATA_UPDATED refresh may
+        // have completed a NEW stream while applyDescriptions was in flight,
+        // in which case these texts belong to the old corpus — bail and let
+        // the new stream's own descriptions pass (already triggered) win.
+        const genNow = streamMetaRef.current && streamMetaRef.current.generated
+        if (streamGen !== genNow) return
         startTransition(() => setEventsIndex(prev => prev.map(e =>
           e && typeof e.d === 'number' && texts[e.d] !== undefined
             ? { ...e, description: texts[e.d] }
