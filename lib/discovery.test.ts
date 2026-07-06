@@ -237,9 +237,17 @@ describe("buildEventsIndexStream", () => {
     ...extra,
   });
 
+  const GEN = "2026-06-15T12:00:00.000Z";
+
   it("sorts events by start instant ascending", () => {
-    const { events } = buildEventsIndexStream([ev(7), ev(0), ev(3)]);
+    const { events } = buildEventsIndexStream([ev(7), ev(0), ev(3)], GEN);
     expect(events.map((e) => e.summary)).toEqual(["Event 0", "Event 3", "Event 7"]);
+  });
+
+  it("stamps the same generation token on the header and the dictionary", () => {
+    const { header, dictionary } = buildEventsIndexStream([ev(0, { description: "x" })], GEN);
+    expect(header).toEqual({ format: "events-stream/1", generated: GEN });
+    expect(dictionary.generated).toBe(GEN);
   });
 
   it("extracts descriptions to a first-appearance dictionary and replaces them with d refs", () => {
@@ -250,27 +258,27 @@ describe("buildEventsIndexStream", () => {
       ev(2, { description: shared }),
       ev(3), // no description at all
     ];
-    const { events, descriptions } = buildEventsIndexStream(index);
-    expect(descriptions).toEqual([shared, "One-off gala."]);
+    const { events, dictionary } = buildEventsIndexStream(index, GEN);
+    expect(dictionary.descriptions).toEqual([shared, "One-off gala."]);
     expect(events.map((e) => e.d)).toEqual([0, 1, 0, undefined]);
     expect(events.every((e) => !("description" in e))).toBe(true);
   });
 
   it("treats an empty-string description as absent", () => {
-    const { events, descriptions } = buildEventsIndexStream([ev(0, { description: "" })]);
-    expect(descriptions).toEqual([]);
+    const { events, dictionary } = buildEventsIndexStream([ev(0, { description: "" })], GEN);
+    expect(dictionary.descriptions).toEqual([]);
     expect("d" in events[0]).toBe(false);
   });
 
   it("sorts unparseable dates to the end instead of dropping them", () => {
     const bad = { icsUrl: "t.ics", summary: "Bad", date: "not-a-date" };
-    const { events } = buildEventsIndexStream([bad, ev(0)]);
+    const { events } = buildEventsIndexStream([bad, ev(0)], GEN);
     expect(events.map((e) => e.summary)).toEqual(["Event 0", "Bad"]);
   });
 
   it("preserves all non-description fields verbatim", () => {
     const rich = ev(0, { lat: 47.6, lng: -122.3, cost: { min: 0 }, description: "x" });
-    const { events } = buildEventsIndexStream([rich]);
+    const { events } = buildEventsIndexStream([rich], GEN);
     expect(events[0]).toMatchObject({ lat: 47.6, lng: -122.3, cost: { min: 0 }, d: 0 });
   });
 });

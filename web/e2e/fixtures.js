@@ -38,8 +38,9 @@ export const mockEvents = [
 
 // Derive the streaming payload pair (events-index.ndjson + event-descriptions.json)
 // from a plain events fixture, mirroring lib/discovery.ts buildEventsIndexStream:
-// date-sorted NDJSON with `description` replaced by a `d` dictionary index.
-export function streamPairFor(events) {
+// a metadata header line, then date-sorted events with `description` replaced by
+// a `d` dictionary index; the dictionary doc carries the same `generated` stamp.
+export function streamPairFor(events, generated = '2026-01-01T00:00:00.000Z') {
   const toMs = (s) => new Date(String(s).replace(/\[.*\]$/, '')).getTime()
   const sorted = [...events].sort((a, b) => toMs(a.date) - toMs(b.date))
   const descriptions = []
@@ -49,7 +50,11 @@ export function streamPairFor(events) {
     if (!byText.has(description)) { byText.set(description, descriptions.length); descriptions.push(description) }
     return { ...rest, d: byText.get(description) }
   })
-  return { ndjson: stream.map((e) => JSON.stringify(e)).join('\n') + '\n', descriptions }
+  const header = { format: 'events-stream/1', generated }
+  return {
+    ndjson: [header, ...stream].map((e) => JSON.stringify(e)).join('\n') + '\n',
+    dictionary: { generated, descriptions },
+  }
 }
 
 // Two-phase load fixtures (issue 649). The "soon" payload covers only the near

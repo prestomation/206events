@@ -44,11 +44,14 @@ function createInlineClient() {
       return events
     },
     stream(onBatch) {
-      // Same NDJSON semantics as the worker path, run inline. Batches are
-      // delivered from push(); end() flushes the final line and rebuilds the
-      // engine over the streamed corpus.
+      // Same NDJSON semantics as the worker path, run inline: an optional
+      // first-line metadata header ({format:'events-stream/1', generated}) is
+      // kept out of the corpus and returned from end(); batches are delivered
+      // from push(); end() flushes the final line and rebuilds the engine
+      // over the streamed corpus.
       const decoder = new TextDecoder()
       let remainder = ''
+      let meta = null
       const events = []
       const drain = (text, flush) => {
         const lines = text.split('\n')
@@ -56,10 +59,17 @@ function createInlineClient() {
         const batch = []
         for (const line of lines) {
           const trimmed = line.trim()
-          if (trimmed) batch.push(JSON.parse(trimmed))
+          if (!trimmed) continue
+          const obj = JSON.parse(trimmed)
+          if (meta === null && events.length === 0 && batch.length === 0 &&
+              obj && typeof obj.format === 'string' && obj.format.startsWith('events-stream')) {
+            meta = obj
+            continue
+          }
+          batch.push(obj)
         }
         if (batch.length > 0) {
-          events.push(...batch)
+          for (const e of batch) events.push(e)
           onBatch(batch)
         }
       }
@@ -71,7 +81,7 @@ function createInlineClient() {
           drain(remainder + decoder.decode(), true)
           corpus = events
           engine = createSearchEngine(corpus)
-          return corpus.length
+          return { count: corpus.length, meta }
         },
       }
     },
@@ -143,7 +153,7 @@ export function createSearchClient(options = {}) {
     batchHandlers.delete(msg.reqId)
     if (msg.type === 'parseError') entry.reject(new Error(msg.error))
     else if (msg.type === 'parsed') entry.resolve(msg.events)
-    else if (msg.type === 'streamDone') entry.resolve(msg.count)
+    else if (msg.type === 'streamDone') entry.resolve({ count: msg.count, meta: msg.meta ?? null })
     else if (msg.type === 'descriptionsDone') entry.resolve()
     else if (msg.type === 'result') entry.resolve(msg.keys)
   }
@@ -180,12 +190,21 @@ export function createSearchClient(options = {}) {
       const done = new Promise((resolve, reject) => {
         pending.set(reqId, { resolve, reject })
       })
+      // A mid-stream parseError settles `done` before the caller reaches
+      // end() — mark it handled so the early rejection doesn't surface as an
+      // unhandledrejection; end() still returns the original promise, so the
+      // caller observes the failure normally.
+      done.catch(() => {})
       return {
         async push(buffer) {
+          // Once the request has settled (mid-stream parseError, worker
+          // death), stop pumping — the worker would misread late chunks as a
+          // fresh stream and could transiently index a garbage partial corpus.
+          if (!pending.has(reqId)) return
           worker.postMessage({ type: 'streamChunk', reqId, buffer }, [buffer])
         },
         end() {
-          worker.postMessage({ type: 'streamEnd', reqId })
+          if (pending.has(reqId)) worker.postMessage({ type: 'streamEnd', reqId })
           return done
         },
       }

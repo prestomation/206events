@@ -1578,15 +1578,16 @@ END:VCALENDAR`;
   // Streaming payload pair (docs/event-payload-scaling.md §5 step 2): a
   // date-sorted NDJSON stream the web UI consumes incrementally (first-week
   // paint from a small prefix), with descriptions extracted to a lazily
-  // fetched dictionary (`d` = index into event-descriptions.json). The full
+  // fetched dictionary (`d` = index into event-descriptions.json). The shared
+  // `generated` stamp lets the client reject a mixed-generation pair. The full
   // events-index.json above remains the canonical discovery resource — the
   // favorites Worker and LLM consumers read it unchanged.
-  const stream = buildEventsIndexStream(eventsIndex);
-  const streamNdjson = toNdjson(stream.events);
-  const descriptionsJson = JSON.stringify(stream.descriptions);
+  const stream = buildEventsIndexStream(eventsIndex, new Date().toISOString());
+  const streamNdjson = toNdjson([stream.header, ...stream.events]);
+  const descriptionsJson = JSON.stringify(stream.dictionary);
   console.log(
     `Events index (stream): ${stream.events.length} events, ${(Buffer.byteLength(streamNdjson, "utf8") / 1024).toFixed(1)} KB` +
-    ` + ${stream.descriptions.length} descriptions, ${(Buffer.byteLength(descriptionsJson, "utf8") / 1024).toFixed(1)} KB`,
+    ` + ${stream.dictionary.descriptions.length} descriptions, ${(Buffer.byteLength(descriptionsJson, "utf8") / 1024).toFixed(1)} KB`,
   );
   await writeFile("output/events-index.ndjson", streamNdjson);
   await writeFile("output/event-descriptions.json", descriptionsJson);

@@ -29,7 +29,7 @@ test('renders the soon payload first, then streams the full corpus behind it', a
     await fullGate
     await route.fulfill({ status: 200, contentType: 'application/x-ndjson', body: streamPair.ndjson })
   })
-  await page.route('**/event-descriptions.json', (route) => route.fulfill(json(streamPair.descriptions)))
+  await page.route('**/event-descriptions.json', (route) => route.fulfill(json(streamPair.dictionary)))
 
   const pageErrors = []
   page.on('pageerror', (err) => pageErrors.push(err))

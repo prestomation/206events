@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
 // Regression test for the AddToCalendar UTC-offset bug:
@@ -47,12 +47,9 @@ const nightMarketFixture = [
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
 
-  // Override both events-index endpoints with our seconds-less fixture.
+  // Override the events corpus with our seconds-less fixture.
   // Later route() registration wins in Playwright (LIFO).
-  await page.route('**/events-index-soon.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(nightMarketFixture) }))
-  await page.route('**/events-index.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(nightMarketFixture) }))
+  await overrideEventsIndex(page, nightMarketFixture)
 
   // Force Google Calendar mode so AddToCalendar renders an <a href> we can
   // inspect. Desktop "auto" mode defaults to .ics (a download button with no href).

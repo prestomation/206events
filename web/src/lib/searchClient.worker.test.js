@@ -124,7 +124,7 @@ describe('createSearchClient (worker path, injected fake worker)', () => {
     const stream = client.stream(batch => batches.push(...batch))
     await stream.push(new TextEncoder().encode(ndjson.slice(0, cut)).buffer)
     await stream.push(new TextEncoder().encode(ndjson.slice(cut)).buffer)
-    const count = await stream.end()
+    const { count } = await stream.end()
     expect(count).toBe(2)
     expect(batches.map(e => e.summary)).toEqual(['Jazz Night', 'Movie Premiere'])
     const keys = await client.search('jazz')
@@ -154,6 +154,45 @@ describe('createSearchClient (worker path, injected fake worker)', () => {
     const stream = client.stream(() => {})
     await stream.push(new TextEncoder().encode('{broken\n').buffer)
     await expect(stream.end()).rejects.toThrow()
+    client.destroy()
+  })
+
+  it('parses the header line through the real worker handler and echoes it in streamDone', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const header = { format: 'events-stream/1', generated: '2026-01-01T00:00:00.000Z' }
+    const ndjson = [header, ...EVENTS].map(e => JSON.stringify(e)).join('\n') + '\n'
+    const batches = []
+    const stream = client.stream(batch => batches.push(...batch))
+    await stream.push(new TextEncoder().encode(ndjson).buffer)
+    const { count, meta } = await stream.end()
+    expect(count).toBe(2)
+    expect(meta).toEqual(header)
+    expect(batches).toHaveLength(2)
+    client.destroy()
+  })
+
+  it('treats an empty stream (no chunks) as a zero-event corpus, not an error', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const stream = client.stream(() => {})
+    const { count } = await stream.end()
+    expect(count).toBe(0)
+    // The engine was rebuilt over the empty corpus — search still resolves.
+    expect((await client.search('anything')).size).toBe(0)
+    client.destroy()
+  })
+
+  it('stops pumping chunks after a mid-stream parse error (no garbage re-index)', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const stream = client.stream(() => {})
+    await stream.push(new TextEncoder().encode('{broken\n').buffer)
+    // Wait for the rejection to reach the client (marked handled internally).
+    await expect(stream.end()).rejects.toThrow()
+    const postedBefore = fake.posted.length
+    await stream.push(new TextEncoder().encode(JSON.stringify(EVENTS[0]) + '\n').buffer)
+    expect(fake.posted.length).toBe(postedBefore) // push() short-circuited
     client.destroy()
   })
 

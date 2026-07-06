@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 
 // Map-view smoke tests. These exercise the real built bundle: temporal-group
 // markers, the drill-down panel, and (critically) that clicking a pin never
@@ -37,9 +37,9 @@ const json = (body) => ({ status: 200, contentType: 'application/json', body: JS
 
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
-  // Override the events index with geocoded, map-friendly fixtures (this route
-  // is registered after installDataMocks', so it takes precedence).
-  await page.route('**/events-index.json', (route) => route.fulfill(json(mapEvents)))
+  // Override the events corpus with geocoded, map-friendly fixtures (these
+  // routes are registered after installDataMocks', so they take precedence).
+  await overrideEventsIndex(page, mapEvents)
 
   const pageErrors = []
   page.on('pageerror', (err) => pageErrors.push(err))

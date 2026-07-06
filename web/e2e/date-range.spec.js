@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
 // Verifies the custom date-range filter (FilterPopover "OR PICK DATES" → native
@@ -40,11 +40,7 @@ test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
   // Isolated fixtures (kept out of the shared mockEvents so other specs' counts
   // are unaffected). Later route wins; cover both two-phase endpoints.
-  const body = JSON.stringify(EVENTS)
-  await page.route('**/events-index-soon.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body }))
-  await page.route('**/events-index.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body }))
+  await overrideEventsIndex(page, EVENTS)
 
   const pageErrors = []
   page.on('pageerror', (err) => pageErrors.push(err))

@@ -57,7 +57,7 @@ export async function installDataMocks(page) {
   await page.route('**/events-index.json', (route) => route.fulfill(json(mockEvents)))
   await page.route('**/events-index.ndjson', (route) =>
     route.fulfill({ status: 200, contentType: 'application/x-ndjson', body: streamPair.ndjson }))
-  await page.route('**/event-descriptions.json', (route) => route.fulfill(json(streamPair.descriptions)))
+  await page.route('**/event-descriptions.json', (route) => route.fulfill(json(streamPair.dictionary)))
   await page.route('**/venues.json', (route) => route.fulfill(json(mockVenues)))
   await page.route('**/build-errors.json', (route) => route.fulfill(json(mockBuildErrors)))
   await page.route('**/tags.json', (route) => route.fulfill(json([])))
@@ -98,6 +98,23 @@ export async function installDataMocks(page) {
   await page.route('**/search-filters/**', (route) => route.fulfill(json({})))
   await page.route('**/geo-filters', (route) => route.fulfill(json([])))
   await page.route('**/geo-filters/**', (route) => route.fulfill(json({})))
+}
+
+// Override the events corpus for a spec, covering every load path the app
+// has: the "soon" payload, the NDJSON stream + description dictionary it
+// prefers, and the monolithic events-index.json fallback. Register AFTER
+// installDataMocks (later route wins). Specs that override only
+// events-index.json would otherwise be silently ignored — the app streams
+// events-index.ndjson first. Pass { soon } to serve a different near-term
+// subset (defaults to the same events).
+export async function overrideEventsIndex(page, events, { soon } = {}) {
+  const json = (body) => ({ status: 200, contentType: 'application/json', body: JSON.stringify(body) })
+  const pair = streamPairFor(events)
+  await page.route('**/events-index-soon.json', (route) => route.fulfill(json(soon ?? events)))
+  await page.route('**/events-index.json', (route) => route.fulfill(json(events)))
+  await page.route('**/events-index.ndjson', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/x-ndjson', body: pair.ndjson }))
+  await page.route('**/event-descriptions.json', (route) => route.fulfill(json(pair.dictionary)))
 }
 
 // Logged-in variant: stub auth/me to return a user and /lists to return canned

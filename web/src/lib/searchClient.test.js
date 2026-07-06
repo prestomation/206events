@@ -74,8 +74,9 @@ describe('createSearchClient (main-thread fallback)', () => {
     const batches = []
     const stream = client.stream(batch => batches.push(...batch))
     for (const c of chunks) await stream.push(new TextEncoder().encode(c).buffer)
-    const count = await stream.end()
+    const { count, meta } = await stream.end()
     expect(count).toBe(2)
+    expect(meta).toBeNull() // no header line in this fixture
     expect(batches.map(e => e.summary)).toEqual(['Jazz Night', 'Movie Premiere'])
     const keys = await client.search('premiere')
     expect(keys.has(eventKey(EVENTS[1]))).toBe(true)
@@ -88,8 +89,29 @@ describe('createSearchClient (main-thread fallback)', () => {
     const batches = []
     const stream = client.stream(batch => batches.push(...batch))
     await stream.push(new TextEncoder().encode(ndjson).buffer)
-    expect(await stream.end()).toBe(2)
+    expect((await stream.end()).count).toBe(2)
     expect(batches).toHaveLength(2)
+    client.destroy()
+  })
+
+  it('recognizes the metadata header line, keeps it out of batches, and returns it from end()', async () => {
+    const client = createSearchClient()
+    const header = { format: 'events-stream/1', generated: '2026-01-01T00:00:00.000Z' }
+    const ndjson = [header, ...EVENTS].map(e => JSON.stringify(e)).join('\n') + '\n'
+    const batches = []
+    const stream = client.stream(batch => batches.push(...batch))
+    await stream.push(new TextEncoder().encode(ndjson).buffer)
+    const { count, meta } = await stream.end()
+    expect(count).toBe(2)
+    expect(meta).toEqual(header)
+    expect(batches.map(e => e.summary)).toEqual(['Jazz Night', 'Movie Premiere'])
+    client.destroy()
+  })
+
+  it('resolves an empty stream to a zero-event corpus', async () => {
+    const client = createSearchClient()
+    const stream = client.stream(() => {})
+    expect((await stream.end()).count).toBe(0)
     client.destroy()
   })
 

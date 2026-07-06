@@ -193,11 +193,32 @@ export function filterPastIndexEvents<T extends { date: string; endDate?: string
   });
 }
 
+/**
+ * First line of `events-index.ndjson`. Carries the build stamp so consumers
+ * can verify the stream and the description dictionary come from the same
+ * build (the two files cross-reference by array index, so mixing generations
+ * — a deploy landing between the two fetches, or one file cached and the
+ * other live — would silently attach wrong text). Distinguishable from an
+ * event line by its `format` field.
+ */
+export interface EventsStreamHeader {
+  format: "events-stream/1";
+  generated: string;
+}
+
+/** Shape of `event-descriptions.json` — `generated` pairs it with the stream header. */
+export interface EventDescriptionsDoc {
+  generated: string;
+  descriptions: string[];
+}
+
 export interface EventsIndexStream<T> {
+  /** Header line — serialize as the first NDJSON line, before the events. */
+  header: EventsStreamHeader;
   /** Date-ascending events, `description` replaced by `d` (dictionary index). */
   events: Array<Omit<T, "description"> & { d?: number }>;
-  /** Unique description strings; an event's text is `descriptions[event.d]`. */
-  descriptions: string[];
+  /** `event-descriptions.json` body; an event's text is `descriptions[event.d]`. */
+  dictionary: EventDescriptionsDoc;
 }
 
 /**
@@ -220,9 +241,13 @@ export interface EventsIndexStream<T> {
  * bracketed IANA zone, parse the offset-bearing ISO string). Events with an
  * unparseable `date` sort to the end of the stream rather than being
  * dropped.
+ *
+ * `generated` stamps both the stream header and the dictionary doc so
+ * consumers can reject a mixed-generation pair (see `EventsStreamHeader`).
  */
 export function buildEventsIndexStream<T extends { date: string; description?: string }>(
   eventsIndex: T[],
+  generated: string,
 ): EventsIndexStream<T> {
   const instant = (s: string): number => {
     const ms = new Date(String(s).replace(/\[.*\]$/, "")).getTime();
@@ -245,15 +270,19 @@ export function buildEventsIndexStream<T extends { date: string; description?: s
     return { ...rest, d };
   });
 
-  return { events, descriptions };
+  return {
+    header: { format: "events-stream/1", generated },
+    events,
+    dictionary: { generated, descriptions },
+  };
 }
 
 /**
- * Serialize the stream events as NDJSON (one JSON object per line, trailing
- * newline). Consumers must ignore empty lines.
+ * Serialize items (the stream header + events) as NDJSON — one JSON object
+ * per line, trailing newline. Consumers must ignore empty lines.
  */
-export function toNdjson(events: Array<Record<string, unknown>>): string {
-  return events.map(e => JSON.stringify(e)).join("\n") + (events.length > 0 ? "\n" : "");
+export function toNdjson(items: ReadonlyArray<unknown>): string {
+  return items.map(item => JSON.stringify(item)).join("\n") + (items.length > 0 ? "\n" : "");
 }
 
 // -----------------------------------------------------------------------------

@@ -14,10 +14,13 @@
 //   { type: 'search', reqId, q }               → reply { type:'result', reqId, keys }
 //   NDJSON streaming (docs/event-payload-scaling.md §5 step 2) — one stream at
 //   a time per reqId; chunks must arrive in order (guaranteed: they're posted
-//   sequentially from one reader loop):
+//   sequentially from one reader loop). The stream's first line may be a
+//   metadata header ({format:'events-stream/1', generated}) — recognized,
+//   kept out of the corpus, and echoed back in streamDone so the client can
+//   pair the stream with its description dictionary:
 //   { type: 'streamChunk', reqId, buffer }     → reply { type:'streamBatch', reqId, events }
-//                                                  (only when the chunk completed ≥1 line)
-//   { type: 'streamEnd', reqId }               → reply { type:'streamDone', reqId, count }
+//                                                  (only when the chunk completed ≥1 event line)
+//   { type: 'streamEnd', reqId }               → reply { type:'streamDone', reqId, count, meta }
 //                                                  or { type:'parseError', reqId, error }
 //   { type: 'descriptions', reqId, texts }     → attach texts[e.d] to the streamed
 //                                                  corpus, rebuild the index;
@@ -34,16 +37,31 @@ export function createWorkerHandler() {
   // Streamed corpus state. The worker keeps its own copy of the parsed events
   // (it produced them — no extra transfer cost) so `descriptions` can enrich
   // and re-index without the main thread resending the corpus.
-  let stream = null // { reqId, decoder, remainder, events }
+  let stream = null // { reqId, decoder, remainder, events, meta }
   let corpus = []
 
-  const parseLines = (text, into) => {
+  const newStream = (reqId) => ({ reqId, decoder: new TextDecoder(), remainder: '', events: [], meta: null })
+
+  const isStreamHeader = (obj) =>
+    obj && typeof obj.format === 'string' && obj.format.startsWith('events-stream')
+
+  // Parse complete lines out of `text` into the stream state (header line to
+  // `stream.meta`, event lines to `stream.events` and the returned batch);
+  // returns the unterminated remainder.
+  const parseLines = (text, batch) => {
     let start = 0
     for (;;) {
       const nl = text.indexOf('\n', start)
       if (nl === -1) break
       const line = text.slice(start, nl).trim()
-      if (line) into.push(JSON.parse(line))
+      if (line) {
+        const obj = JSON.parse(line)
+        if (stream.meta === null && stream.events.length === 0 && batch.length === 0 && isStreamHeader(obj)) {
+          stream.meta = obj
+        } else {
+          batch.push(obj)
+        }
+      }
       start = nl + 1
     }
     return text.slice(start)
@@ -77,14 +95,15 @@ export function createWorkerHandler() {
 
     if (msg.type === 'streamChunk') {
       try {
-        if (!stream || stream.reqId !== msg.reqId) {
-          stream = { reqId: msg.reqId, decoder: new TextDecoder(), remainder: '', events: [] }
-        }
+        if (!stream || stream.reqId !== msg.reqId) stream = newStream(msg.reqId)
         const batch = []
         const text = stream.remainder + stream.decoder.decode(msg.buffer, { stream: true })
         stream.remainder = parseLines(text, batch)
         if (batch.length > 0) {
-          stream.events.push(...batch)
+          // Loop, not push(...batch): a cache-served response can arrive as one
+          // chunk, and spreading a whole large corpus into arguments caps at
+          // the engine's max argument count.
+          for (const e of batch) stream.events.push(e)
           post({ type: 'streamBatch', reqId: msg.reqId, events: batch })
         }
       } catch (err) {
@@ -96,8 +115,12 @@ export function createWorkerHandler() {
 
     if (msg.type === 'streamEnd') {
       try {
-        if (!stream || stream.reqId !== msg.reqId) {
-          post({ type: 'parseError', reqId: msg.reqId, error: 'streamEnd without matching stream' })
+        // A zero-byte stream (legitimate: a zero-event deploy emits an empty
+        // or header-only file) never delivered a chunk — treat it as an empty
+        // corpus, mirroring the inline client, rather than erroring.
+        if (!stream) stream = newStream(msg.reqId)
+        if (stream.reqId !== msg.reqId) {
+          post({ type: 'parseError', reqId: msg.reqId, error: 'streamEnd for a different stream' })
           return
         }
         // Flush the decoder and any final unterminated line.
@@ -106,12 +129,12 @@ export function createWorkerHandler() {
         const tail = text.trim()
         if (tail) parseLines(tail + '\n', batch)
         if (batch.length > 0) {
-          stream.events.push(...batch)
+          for (const e of batch) stream.events.push(e)
           post({ type: 'streamBatch', reqId: msg.reqId, events: batch })
         }
         corpus = stream.events
         engine = createSearchEngine(corpus)
-        post({ type: 'streamDone', reqId: msg.reqId, count: corpus.length })
+        post({ type: 'streamDone', reqId: msg.reqId, count: corpus.length, meta: stream.meta })
       } catch (err) {
         post({ type: 'parseError', reqId: msg.reqId, error: String((err && err.message) || err) })
       } finally {

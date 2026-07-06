@@ -67,11 +67,13 @@ const clickNav = (label) => fireEvent.click(screen.getAllByText(label)[0].closes
 // description-dictionary pair (docs/event-payload-scaling.md). The ndjson
 // response carries a minimal ReadableStream-shaped `body` so App's stream
 // reader loop runs for real; events reference descriptions by `d`.
+const STREAM_GEN = '2026-01-01T00:00:00.000Z'
 function streamingMockFetch(url) {
   const u = String(url)
   if (u.includes('events-index.ndjson')) {
+    const header = { format: 'events-stream/1', generated: STREAM_GEN }
     const streamEvents = mockEvents.map(({ description, ...rest }, i) => ({ ...rest, d: i }))
-    const bytes = new TextEncoder().encode(streamEvents.map(e => JSON.stringify(e)).join('\n') + '\n')
+    const bytes = new TextEncoder().encode([header, ...streamEvents].map(e => JSON.stringify(e)).join('\n') + '\n')
     // Two chunks so the remainder/boundary path is exercised in-app too.
     const chunks = [bytes.slice(0, Math.floor(bytes.length / 2)), bytes.slice(Math.floor(bytes.length / 2))]
     return Promise.resolve({
@@ -84,7 +86,7 @@ function streamingMockFetch(url) {
     })
   }
   if (u.includes('event-descriptions.json')) {
-    return Promise.resolve({ ok: true, json: async () => mockEvents.map(e => e.description) })
+    return Promise.resolve({ ok: true, json: async () => ({ generated: STREAM_GEN, descriptions: mockEvents.map(e => e.description) }) })
   }
   return mockFetch(url)
 }

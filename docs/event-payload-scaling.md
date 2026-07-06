@@ -179,6 +179,12 @@ carrier for lazy consumers. Splitting them out:
 | Core: date-sorted NDJSON, events carry `d` = index into dictionary | **448 KB** |
 | `event-descriptions.json`: the 3,580 unique strings | 392 KB |
 
+Because the two files cross-reference by array index, the stream's first
+line is a metadata header (`{"format":"events-stream/1","generated":…}`)
+and the dictionary carries the same `generated` stamp — consumers reject
+a mixed-generation pair (a deploy landing between the two fetches would
+otherwise silently attach wrong text).
+
 Total transfer is roughly unchanged (840 vs 861 KB) — the win is *when*
 the bytes load: the 392 KB dictionary is fetched lazily by the search
 worker (search over descriptions lights up a few seconds later —

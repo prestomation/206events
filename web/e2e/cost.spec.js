@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { mockCostEvents } from './fixtures.js'
 import { screenshotStable } from './screenshot.js'
 
@@ -10,10 +10,9 @@ import { screenshotStable } from './screenshot.js'
 
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
-  // Override events-index with the cost fixtures (kept out of the shared
+  // Override the events corpus with the cost fixtures (kept out of the shared
   // mockEvents so other specs' counts are unaffected). Later route wins.
-  await page.route('**/events-index.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(mockCostEvents) }))
+  await overrideEventsIndex(page, mockCostEvents)
 
   const pageErrors = []
   page.on('pageerror', (err) => pageErrors.push(err))

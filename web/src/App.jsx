@@ -149,6 +149,15 @@ function App() {
   // list only ever grows — swapping the 9-day soon subset for a shorter
   // streamed prefix would make rows vanish and then reappear.
   const soonCountRef = useRef(0)
+  // Whether description text is attached to the corpus (inline via the
+  // monolithic fallback, or applied from event-descriptions.json). False
+  // after a stream whose dictionary fetch failed or mismatched — the online
+  // handler retries so detail views / description search / saved-filter
+  // parity heal without a reload.
+  const descriptionsLoadedRef = useRef(false)
+  // Stream header from events-index.ndjson ({format, generated}), used to
+  // reject a description dictionary from a different build generation.
+  const streamMetaRef = useRef(null)
   const [loading, setLoading] = useState(true)
   // Live-search runs in a Web Worker so the events-index JSON.parse, the Fuse
   // index build, and every per-query scan stay off the main thread (no typing /
@@ -465,6 +474,47 @@ function App() {
     return () => { cancelled = true }
   }, [authUser])
 
+  // Fetch event-descriptions.json and attach the texts to the streamed corpus
+  // (events carry `d` dictionary refs — docs/event-payload-scaling.md).
+  // Separate and retryable (the online handler calls it) so a failed or
+  // mismatched dictionary fetch degrades for minutes, not the whole session.
+  // No-ops until the stream corpus is in place and once descriptions are
+  // attached. Uses a functional state update so it enriches whatever corpus
+  // is current — no stale closure over a particular streamed array.
+  const loadEventDescriptions = useCallback(async () => {
+    if (!fullIndexLoadedRef.current || descriptionsLoadedRef.current) return
+    try {
+      const dr = await fetch('./event-descriptions.json')
+      if (!dr.ok) throw new Error(`event-descriptions.json ${dr.status}`)
+      const doc = await dr.json()
+      // Current shape is { generated, descriptions }; tolerate a bare array
+      // (no pairing token) so a hand-rolled or transitional file still works.
+      const texts = Array.isArray(doc) ? doc : (doc && Array.isArray(doc.descriptions) ? doc.descriptions : null)
+      if (!texts) throw new Error('event-descriptions.json has an unexpected shape')
+      // Generation pairing: the stream and dictionary cross-reference by array
+      // index, so a mixed pair (deploy landed between the two fetches, or one
+      // came from cache) would attach the wrong text to events. Skip and let a
+      // later retry (online handler / DATA_UPDATED refresh) find a matched pair.
+      const streamGen = streamMetaRef.current && streamMetaRef.current.generated
+      const dictGen = !Array.isArray(doc) && doc ? doc.generated : null
+      if (streamGen && dictGen && streamGen !== dictGen) {
+        console.warn(`Description dictionary generation mismatch (stream ${streamGen} vs dict ${dictGen}); deferring`)
+        return
+      }
+      if (texts.length > 0) {
+        await searchClient.applyDescriptions(texts)
+        startTransition(() => setEventsIndex(prev => prev.map(e =>
+          e && typeof e.d === 'number' && texts[e.d] !== undefined
+            ? { ...e, description: texts[e.d] }
+            : e,
+        )))
+      }
+      descriptionsLoadedRef.current = true
+    } catch {
+      console.warn('Event descriptions not available; detail/description search limited until retry')
+    }
+  }, [searchClient])
+
   // Load calendar metadata from JSON manifest
   // Fetch + parse the full events index (issue #649 phase 2). Extracted so the
   // reconnect handler can retry it after an offline boot (the initial attempt
@@ -512,60 +562,60 @@ function App() {
       // commit at the end.
       const progressive = !fullIndexLoadedRef.current
       const streamed = []
+      let settled = false
       let lastFlushCount = 0
       let flushTimer = null
       const flush = () => {
         flushTimer = null
-        if (!progressive || streamed.length <= Math.max(soonCountRef.current, lastFlushCount)) return
+        // `settled` guards a timer that was armed before the stream finished
+        // or failed: without it, a pending flush firing after the fallback
+        // path committed the full monolithic corpus would overwrite it with
+        // this stream's truncated prefix — permanently, since nothing
+        // re-renders afterwards.
+        if (settled || !progressive || streamed.length <= Math.max(soonCountRef.current, lastFlushCount)) return
         lastFlushCount = streamed.length
         const snapshot = streamed.slice()
         startTransition(() => setEventsIndex(snapshot))
       }
       const stream = searchClient.stream(batch => {
-        streamed.push(...batch)
+        for (const e of batch) streamed.push(e)
         // Coalesce flushes: network chunks arrive every few ms; committing a
         // render per chunk would thrash. One flush per 250 ms keeps the list
         // visibly filling without stacking transitions.
         if (progressive && flushTimer === null) flushTimer = setTimeout(flush, 250)
       })
 
-      const reader = r.body.getReader()
-      for (;;) {
-        const { done, value } = await reader.read()
-        if (done) break
-        // The worker decodes the whole ArrayBuffer, so hand it exactly the
-        // chunk's bytes: a view that doesn't span its buffer (offset/pooled
-        // allocations) must be sliced before the zero-copy transfer.
-        const buf = (value.byteOffset === 0 && value.byteLength === value.buffer.byteLength)
-          ? value.buffer
-          : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)
-        await stream.push(buf)
+      let meta = null
+      try {
+        const reader = r.body.getReader()
+        for (;;) {
+          const { done, value } = await reader.read()
+          if (done) break
+          // The worker decodes the whole ArrayBuffer, so hand it exactly the
+          // chunk's bytes: a view that doesn't span its buffer (offset/pooled
+          // allocations) must be sliced before the zero-copy transfer.
+          const buf = (value.byteOffset === 0 && value.byteLength === value.buffer.byteLength)
+            ? value.buffer
+            : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)
+          await stream.push(buf)
+        }
+        meta = (await stream.end()).meta
+      } finally {
+        settled = true
+        if (flushTimer !== null) { clearTimeout(flushTimer); flushTimer = null }
       }
-      await stream.end()
-      if (flushTimer !== null) clearTimeout(flushTimer)
+      streamMetaRef.current = meta
       fullIndexLoadedRef.current = true
+      // New stream generation → whatever descriptions were attached before
+      // belong to the previous corpus; refetch below.
+      descriptionsLoadedRef.current = false
       startTransition(() => setEventsIndex(streamed.slice()))
 
       // Descriptions are deliberately non-fatal: the corpus is fully usable
       // without them (list rows, map, counts never render descriptions). On
-      // failure the detail view shows none and description search stays off —
-      // same degradation the soon-only window has today.
-      try {
-        const dr = await fetch('./event-descriptions.json')
-        if (!dr.ok) throw new Error(`event-descriptions.json ${dr.status}`)
-        const texts = await dr.json()
-        if (Array.isArray(texts) && texts.length > 0) {
-          await searchClient.applyDescriptions(texts)
-          const enriched = streamed.map(e =>
-            e && typeof e.d === 'number' && texts[e.d] !== undefined
-              ? { ...e, description: texts[e.d] }
-              : e,
-          )
-          startTransition(() => setEventsIndex(enriched))
-        }
-      } catch {
-        console.warn('Event descriptions not available; detail/description search limited')
-      }
+      // failure the detail view shows none and description search stays off
+      // until the online handler retries.
+      await loadEventDescriptions()
     }
 
     const parseMonolithic = () =>
@@ -574,6 +624,8 @@ function App() {
         .then(buf => searchClient.parse(buf))
         .then(fullData => {
           fullIndexLoadedRef.current = true
+          // Monolithic events carry descriptions inline — nothing to backfill.
+          descriptionsLoadedRef.current = true
           // The soon→full swap re-renders the whole app over ~10k+ events in one
           // commit — profiled at >1 s of main-thread block on production data
           // (several seconds on phones), landing right when the user starts
@@ -603,7 +655,7 @@ function App() {
           loadFullEventsIndex(true)
         }
       })
-  }, [searchClient])
+  }, [searchClient, loadEventDescriptions])
 
   const loadCalendars = useCallback(async () => {
     try {
@@ -715,6 +767,9 @@ function App() {
     const goOnline = () => {
       setIsOffline(false)
       loadFullEventsIndex(false)
+      // Also heal a corpus whose description dictionary failed or mismatched
+      // (no-op when descriptions are already attached).
+      loadEventDescriptions()
     }
     window.addEventListener('offline', goOffline)
     window.addEventListener('online', goOnline)
@@ -722,7 +777,7 @@ function App() {
       window.removeEventListener('offline', goOffline)
       window.removeEventListener('online', goOnline)
     }
-  }, [loadFullEventsIndex])
+  }, [loadFullEventsIndex, loadEventDescriptions])
 
   // Listen for service worker data update messages and reload in-memory data
   useEffect(() => {
