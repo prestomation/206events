@@ -1532,8 +1532,11 @@ END:VCALENDAR`;
     const dropped = eventsIndex.length - upcoming.length;
     if (dropped > 0) {
       console.log(`Events index: dropped ${dropped} event(s) that ended >${PAST_EVENT_GRACE_HOURS}h ago`);
+      // Refill with a loop, not push(...upcoming) — spreading into arguments
+      // caps at the engine's max argument count, which a corpus of "all events
+      // into the future" could plausibly exceed.
       eventsIndex.length = 0;
-      eventsIndex.push(...upcoming);
+      for (const event of upcoming) eventsIndex.push(event);
     }
   }
 
