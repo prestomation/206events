@@ -1,7 +1,7 @@
 // Composite views for the redesigned UI: Discover, Following, You (config),
 // ChannelDetail, EventDetail, SearchView.
 
-import { useState, useMemo, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
+import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor, EventLinkIcon } from './atoms.jsx'
@@ -9,6 +9,7 @@ import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, dayIndexForScrubber, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, costClass, COST_FILTER_OPTIONS } from './viewModels.js'
 import { DayScrubber } from './DayScrubber.jsx'
+import { useDayScrubberSeek } from './useDayScrubber.js'
 import { GeoFiltersSection } from '../components/GeoFiltersSection.jsx'
 import { AddToCalendar } from '../components/AddToCalendar.jsx'
 import cityConfig from '../../../city.config.ts'
@@ -353,58 +354,43 @@ function CalendarsMode() {
   )
 }
 
-function EventsMode() {
-  const app = useApp206()
-  // Full (uncapped) filtered set, already date-sorted. A 6-month all-events list
-  // is thousands of rows, so we don't render it all at once — we page through it
-  // below with an IntersectionObserver (infinite scroll).
-  const filtered = useMemo(() => filterDiscoverEvents(app.upcomingEvents, {
-    category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
-    channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
-  }), [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
-
-  // How many of `filtered` to render. Grows a page at a time as the sentinel
-  // scrolls into view. Resets to one page whenever `filtered`'s identity changes
-  // — a filter edit or the soon→full index swap — so the user starts back near
+// Infinite-scroll list of index events grouped by day, with a Google-Photos
+// day scrubber down the right edge. Shared by the Discover events feed and the
+// Following feed — both can be thousands of rows, so both page a screenful at a
+// time and both need the identical scrubber seek behavior.
+//
+// `events` is the full (uncapped), date-sorted event array; the tick list spans
+// all of it while only `visibleCount` rows render. `withReason` shows feed
+// attribution chips (Following). `pendingMore` swaps the end-of-list caption for
+// a "still loading" one while an upstream fetch is in flight (Discover's
+// soon→full index swap). `emptyState` renders when there are no events.
+function PagedDayList({ events, withReason = false, pendingMore = false, emptyState = null }) {
+  // How many of `events` to render. Grows a page at a time as the sentinel
+  // scrolls into view. Resets to one page whenever `events`'s identity changes
+  // — a filter edit or the soon→full index swap — so the reader starts back near
   // the top of the new list rather than deep in a stale scroll position.
   const [visibleCount, setVisibleCount] = useState(EVENTS_PAGE_SIZE)
-  useEffect(() => { setVisibleCount(EVENTS_PAGE_SIZE); seekTargetRef.current = null }, [filtered])
 
   const groups = useMemo(
-    () => groupIndexEventsByDay(filtered.slice(0, visibleCount)),
-    [filtered, visibleCount],
+    () => groupIndexEventsByDay(events.slice(0, visibleCount)),
+    [events, visibleCount],
   )
 
   // Full-timeline day ticks for the scrubber (one per distinct day across the
-  // whole filtered set, not just the rendered page).
-  const dayIndex = useMemo(() => dayIndexForScrubber(filtered), [filtered])
+  // whole set, not just the rendered page).
+  const dayIndex = useMemo(() => dayIndexForScrubber(events), [events])
 
-  // Day-scrubber seek. `data-day` on each `.a-daystick` is the join key. If the
-  // target day is already rendered we scroll to it right away; otherwise we grow
-  // the paged list far enough to include it and let the layout effect below
-  // finish the scroll once that day's header commits (before paint, no flash).
-  const listRef = useRef(null)
-  const seekTargetRef = useRef(null)
-  const scrollToDayKey = useCallback((key) => {
-    const container = listRef.current?.closest('.a-content')
-    if (!container) return false
-    const header = container.querySelector(`.a-daystick[data-day="${key}"]`)
-    if (!header) return false
-    container.scrollTop += header.getBoundingClientRect().top - container.getBoundingClientRect().top
-    return true
-  }, [])
-  const seekToDay = useCallback((day) => {
-    if (!day) return
-    if (scrollToDayKey(day.dayKey)) return
-    seekTargetRef.current = day.dayKey
-    setVisibleCount((c) => Math.min(Math.max(c, day.firstIndex + EVENTS_PAGE_SIZE), filtered.length))
-  }, [scrollToDayKey, filtered.length])
-  useLayoutEffect(() => {
-    if (seekTargetRef.current && scrollToDayKey(seekTargetRef.current)) seekTargetRef.current = null
-  }, [groups, scrollToDayKey])
+  // Day-scrubber seek: scroll to the day, growing the page far enough to include
+  // it first when it isn't rendered yet. `groups` is the commit signal the
+  // deferred scroll retries on.
+  const { listRef, seekToDay, clearSeekTarget } = useDayScrubberSeek({
+    grow: (day) => setVisibleCount((c) => Math.min(Math.max(c, day.firstIndex + EVENTS_PAGE_SIZE), events.length)),
+    commitDep: groups,
+  })
+  useEffect(() => { setVisibleCount(EVENTS_PAGE_SIZE); clearSeekTarget() }, [events, clearSeekTarget])
 
-  const hasMore = visibleCount < filtered.length
-  const loadMore = () => setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, filtered.length))
+  const hasMore = visibleCount < events.length
+  const loadMore = () => setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, events.length))
   const sentinelRef = useRef(null)
   useEffect(() => {
     if (!hasMore || typeof IntersectionObserver === 'undefined') return
@@ -422,13 +408,13 @@ function EventsMode() {
     }, { rootMargin: '800px 0px' })
     io.observe(el)
     return () => io.disconnect()
-  }, [hasMore, filtered.length])
+  }, [hasMore, events.length])
 
-  if (!filtered.length) return <DiscoverEmpty kind="events" />
+  if (!events.length) return emptyState
   return (
     <div ref={listRef}>
       <DayScrubber dayIndex={dayIndex} onSeek={seekToDay} />
-      <DayList groups={groups} />
+      <DayList groups={groups} withReason={withReason} />
       {hasMore ? (
         // More rows already in memory. The IntersectionObserver auto-advances
         // this into view while scrolling; it's also a real button so keyboard/AT
@@ -436,15 +422,32 @@ function EventsMode() {
         <button ref={sentinelRef} type="button" className="a-listmore a-listmore--btn" onClick={loadMore}>
           Load more
         </button>
-      ) : !app.fullEventsLoaded ? (
-        // Everything we have is rendered, but the full index is still fetching
-        // (or a reconnect retry is in flight) — more days are on the way.
+      ) : pendingMore ? (
+        // Everything we have is rendered, but more is still on the way upstream.
         <div className="a-listmore" role="status">Loading more events…</div>
       ) : (
         // Genuine end of the list.
-        <div className="a-listend">That’s all {filtered.length} event{filtered.length === 1 ? '' : 's'}.</div>
+        <div className="a-listend">That’s all {events.length} event{events.length === 1 ? '' : 's'}.</div>
       )}
     </div>
+  )
+}
+
+function EventsMode() {
+  const app = useApp206()
+  // Full (uncapped) filtered set, already date-sorted. A 6-month all-events list
+  // is thousands of rows — PagedDayList renders it a page at a time.
+  const filtered = useMemo(() => filterDiscoverEvents(app.upcomingEvents, {
+    category: app.category, neighborhood: app.neighborhood, cost: app.costFilter, query: app.query,
+    channelByIcsUrl: app.channelByIcsUrl, queryKeySet: app.queryKeySet,
+  }), [app.upcomingEvents, app.category, app.neighborhood, app.costFilter, app.query, app.channelByIcsUrl, app.queryKeySet])
+
+  return (
+    <PagedDayList
+      events={filtered}
+      pendingMore={!app.fullEventsLoaded}
+      emptyState={<DiscoverEmpty kind="events" />}
+    />
   )
 }
 
@@ -485,7 +488,12 @@ export function FollowingView() {
   }, [app.feedGroups, app.category, app.neighborhood, app.costFilter, app.query, app.queryKeySet, app.matchEvents, app.channelByIcsUrl])
 
   const counts = { cal: app.favoritesSet.size, place: app.geoFilters.length, search: app.searchFilters.length }
-  const total = groups.reduce((n, g) => n + g.events.length, 0)
+  // Flatten the day-grouped feed back to a single date-sorted event array for
+  // PagedDayList (it re-groups the rendered page and derives the scrubber ticks
+  // from the whole timeline). `groups` is already ascending, so a flatMap
+  // preserves order.
+  const flat = useMemo(() => groups.flatMap((g) => g.events), [groups])
+  const total = flat.length
 
   return (
     <div style={{ padding: '2px var(--pad) 24px', maxWidth: 1000, margin: '0 auto' }}>
@@ -510,7 +518,7 @@ export function FollowingView() {
       </button>
 
       {total ? (
-        <DayList groups={groups} withReason />
+        <PagedDayList events={flat} withReason />
       ) : app.hasActiveFilters ? (
         <div className="a-empty" style={{ textAlign: 'center', padding: '40px 0' }}>
           <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink-2)', marginBottom: 6 }}>No feed events match these filters</div>
