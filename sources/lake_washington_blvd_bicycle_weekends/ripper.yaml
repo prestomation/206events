@@ -8,6 +8,7 @@ tags:
   - Parks
   - Seward Park
 imageUrl: "https://parkways.seattle.gov/wp-content/uploads/sites/25/2026/04/BicycleWeekends_Poster_Schedule-2.png"
+skipEventPhotos: true # all events share the same blog post URL, no per-event images
 geo:
   lat: 47.566
   lng: -122.2555

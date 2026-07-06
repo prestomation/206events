@@ -3,6 +3,8 @@ sourceRole: venue
 description: "Dancing Til Dusk"
 url: https://danceforjoy.biz/dancingtildusk/
 friendlyLink: https://danceforjoy.biz/dancingtildusk/
+imageUrl: "https://danceforjoy.biz/images/dancedusk/2026/dancing2a.jpg"
+skipEventPhotos: true # all events share the same generic page, no per-event images
 geo: null
 tags: ["Dance", "Community"]
 calendars:
