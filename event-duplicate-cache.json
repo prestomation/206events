@@ -6224,6 +6224,16 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-06",
       "note": "Same event republished across sibling seatoday category feeds (sports/community) — identical URL, title, and location"
+    },
+    "spl-delridge.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-07-13T10:00:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-07-13T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-06",
+      "note": "Same program name but different SPL branches (Delridge vs Rainier Beach) and different start times (10:00 vs 10:30) — independent events for different communities"
+    },
+    "spl-northgate.ics Firefighter Story Time|2026-07-13T11:00:00-07:00[America/Los_Angeles]::spl-southwest.ics Family Story Time|2026-07-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-06",
+      "note": "Different event titles (Firefighter Story Time vs Family Story Time) at different SPL branches (Northgate vs Southwest) — not the same event"
     }
   }
 }
