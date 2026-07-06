@@ -17,6 +17,19 @@
 // from Discover (mapOpen), a second Map open after leaving the tab
 // (mapReopen), and a Discover → You switch (youOpen).
 //
+// Each run then makes a SECOND pass with seeded personalization (a
+// representative logged-in profile written to the app's own localStorage
+// keys: 35 followed calendars pulled from the deployment's manifest, 14
+// saved searches, 1 geo filter — the anonymous localStorage path exercises
+// the identical perFilterMatches / followingGroups code as a signed-in
+// list). It owns the two metrics the anonymous pass can't see
+// (docs/following-tab-performance.md):
+//   personalizedSettle — total long-task ms from nav through the settle
+//     window with the profile seeded; the saved-search matching storm
+//     lives here when it runs on the main thread.
+//   followingOpen — post-settle Discover → Following switch with a
+//     populated feed: tap → Following view painted.
+//
 // Emits { metrics, runs, meta } with each metric the MEDIAN across runs.
 // Any run failure exits non-zero — a broken harness must not look green.
 
@@ -50,6 +63,37 @@ export function median(values) {
   const s = [...values].sort((a, b) => a - b)
   const mid = Math.floor(s.length / 2)
   return s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2
+}
+
+// The seeded personalization profile (docs/following-tab-performance.md):
+// sized to the report that motivated the metrics — 33 calendars, 14 saved
+// searches, 1 geo fence. Search terms are common Seattle-calendar words so
+// they produce real match sets against the production corpus.
+export const SEED_SEARCHES = [
+  'jazz', 'trivia', 'farmers market', 'comedy', 'punk', 'film festival',
+  'beer', 'art walk', 'poetry', 'karaoke', 'drag', 'vinyl', 'soccer', 'book club',
+]
+export const SEED_GEO = [{ lat: 47.6062, lng: -122.3321, radiusKm: 5, label: 'Boot-profile seed' }]
+export const SEED_FAVORITES_COUNT = 35
+
+// Pull real calendar icsUrls from the deployment's manifest so the seeded
+// favorites reference calendars that actually exist in its events index.
+export function seedFavoritesFromManifest(manifest, count = SEED_FAVORITES_COUNT) {
+  const icsUrls = []
+  for (const ripper of manifest.rippers || []) {
+    for (const cal of ripper.calendars || []) if (cal.icsUrl) icsUrls.push(cal.icsUrl)
+  }
+  for (const cal of manifest.externalCalendars || []) if (cal.icsUrl) icsUrls.push(cal.icsUrl)
+  for (const cal of manifest.recurringCalendars || []) if (cal.icsUrl) icsUrls.push(cal.icsUrl)
+  if (!icsUrls.length) throw new Error('manifest.json has no calendar icsUrls to seed favorites from')
+  return icsUrls.slice(0, count)
+}
+
+async function fetchSeedFavorites(url) {
+  const base = url.endsWith('/') ? url : `${url}/`
+  const res = await fetch(new URL('manifest.json', base))
+  if (!res.ok) throw new Error(`manifest.json fetch for favorite seeding failed: HTTP ${res.status}`)
+  return seedFavoritesFromManifest(await res.json())
 }
 
 // One measured pass. Returns the eight per-run metrics (ms, rounded).
@@ -226,6 +270,99 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
   }
 }
 
+// The personalized pass: same boot choreography as profileOnce (throttle,
+// blocked SW, delayed full corpus), but with the seed profile in localStorage
+// before any app script runs. Returns { personalizedSettle, followingOpen }.
+async function profilePersonalizedOnce(browser, { url, cpu, indexDelay, settle }, seedFavorites) {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    serviceWorkers: 'block',
+  })
+  try {
+    const page = await context.newPage()
+    const cdp = await context.newCDPSession(page)
+    await cdp.send('Emulation.setCPUThrottlingRate', { rate: cpu })
+
+    await page.addInitScript(({ favorites, searches, geo }) => {
+      try {
+        localStorage.setItem('calendar-ripper-ftux-seen', '1')
+        // The app's own personalization keys (App.jsx) — the anonymous
+        // localStorage list runs the same saved-filter matching code a
+        // signed-in list does, so no auth is needed in the lab.
+        localStorage.setItem('calendar-ripper-favorites', JSON.stringify(favorites))
+        localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(searches))
+        localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(geo))
+      } catch { /* ignore */ }
+      window.__longtasks = []
+      try {
+        new PerformanceObserver((list) => {
+          for (const e of list.getEntries()) window.__longtasks.push({ start: e.startTime, dur: e.duration })
+        }).observe({ type: 'longtask', buffered: true })
+      } catch { /* longtask API missing — metrics will be 0 and obviously wrong */ }
+      try { performance.setResourceTimingBufferSize(1000) } catch { /* ignore */ }
+    }, { favorites: seedFavorites, searches: SEED_SEARCHES, geo: SEED_GEO })
+
+    const delayRoute = async (route) => {
+      await new Promise((r) => setTimeout(r, indexDelay))
+      await route.continue().catch(() => {})
+    }
+    await page.route('**/events-index.ndjson', delayRoute)
+    await page.route('**/events-index.json', delayRoute)
+
+    const response = await page.goto(url, { waitUntil: 'commit', timeout: 120_000 })
+    if (!response || !response.ok()) {
+      throw new Error(`Page load failed: ${url} returned ${response ? response.status() : 'no response'}`)
+    }
+    await page.waitForSelector('.loading-screen', { state: 'detached', timeout: 120_000 })
+    await page.waitForSelector('.a-bottom', { state: 'visible', timeout: 120_000 })
+
+    // --- personalizedSettle: long-task total through the settled boot -------
+    // Same window as the anonymous pass's totalBlock (full corpus landed +
+    // fixed settle), with the profile seeded. When saved-search matching runs
+    // on the main thread this is where its multi-second storm shows up; run
+    // in the worker it should track the anonymous totalBlock.
+    await page.waitForFunction(() =>
+      performance.getEntriesByType('resource')
+        .some((r) => /events-index\.(nd)?json/.test(r.name) && !/events-index-soon/.test(r.name)),
+    { timeout: 120_000 })
+    await page.waitForTimeout(settle)
+    const durations = await page.evaluate(() => (window.__longtasks || []).map((t) => t.dur))
+    const personalizedSettle = durations.reduce((s, d) => s + d, 0)
+
+    // --- followingOpen: post-settle Discover → Following with a real feed ---
+    const navButton = (label) => page.locator('.a-bottom button', { hasText: label }).first()
+    const navBox = async (label) => {
+      const box = await navButton(label).boundingBox()
+      if (!box) throw new Error(`Bottom-nav "${label}" button not found — selector drift?`)
+      return { x: box.x + box.width / 2, y: box.y + box.height / 2 }
+    }
+    const clockOffset = await page.evaluate(() => performance.timeOrigin)
+    const pageNow = () => Date.now() - clockOffset
+    const afterPaint = () => page.evaluate(() =>
+      new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => r(performance.now())))))
+
+    const followingXY = await navBox('Following')
+    await afterPaint()
+    await page.waitForTimeout(500)
+    const followingAt = pageNow()
+    await page.mouse.click(followingXY.x, followingXY.y)
+    // Anchor on the view's own heading (not the nav highlight): navigation is
+    // a startTransition, so the pressed state paints before the swap — the
+    // heading is the "feed is on screen" signal this metric owns.
+    await page.waitForSelector('.a-h1:text-is("Following")', { state: 'visible', timeout: 60_000 })
+    const followingPainted = await afterPaint()
+    const followingOpen = followingPainted - followingAt
+
+    const round = (v) => Math.round(v)
+    return {
+      personalizedSettle: round(personalizedSettle),
+      followingOpen: round(followingOpen),
+    }
+  } finally {
+    await context.close()
+  }
+}
+
 export function summarize(runs) {
   const keys = Object.keys(runs[0])
   const metrics = {}
@@ -235,11 +372,17 @@ export function summarize(runs) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2))
+  // Resolve the seeded-favorites list once, up front — a deployment whose
+  // manifest can't be read must fail the harness, not silently skip the
+  // personalized metrics.
+  const seedFavorites = await fetchSeedFavorites(args.url)
   const browser = await chromium.launch()
   const runs = []
   try {
     for (let i = 1; i <= args.runs; i++) {
-      const run = await profileOnce(browser, args)
+      const anonymous = await profileOnce(browser, args)
+      const personalized = await profilePersonalizedOnce(browser, args, seedFavorites)
+      const run = { ...anonymous, ...personalized }
       runs.push(run)
       console.error(`run ${i}/${args.runs}: ${JSON.stringify(run)}`)
     }

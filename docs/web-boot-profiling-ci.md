@@ -57,9 +57,21 @@ Reported metrics (all lower-is-better, medians over `--runs`, default 3):
 | `mapOpen` | Tap Map (post-settle, first open) → Leaflet container painted (ms) | map chunk load + Leaflet init + marker pipeline over the full corpus | ±200 ms |
 | `mapReopen` | Tap Map a second time (after leaving the tab) → Leaflet painted (ms) | the recurring per-visit cost: leaving the tab unmounts Leaflet, so every re-entry pays init + marker pipeline again, chunk already cached | ±200 ms |
 | `youOpen` | Tap You from Discover (post-settle) → You heading painted (ms) | full-view teardown/mount on tab switch + the shell-wide re-render every section change causes | ±150 ms |
+| `personalizedSettle` | Sum of long-task time through settle with **seeded personalization** (ms) | main-thread cost that only exists for a logged-in profile — the saved-search matching storm (docs/following-tab-performance.md) | ±300 ms |
+| `followingOpen` | Tap Following from Discover (post-settle, **seeded**) → Following heading painted (ms) | entering the tab with a populated feed: feed render + (desktop-class) shell re-render | ±150 ms |
 
 "Settle" = 12 s after the full-index response (enough for the swap render and
 follow-on effects at 4× throttle; tunable).
+
+The last two run in a **second pass per run** with a representative
+logged-in profile seeded into the app's own localStorage keys before boot
+(35 followed calendars pulled live from the deployment's `manifest.json`,
+14 saved searches, 1 geo filter — see `SEED_*` in the harness). The
+anonymous localStorage path exercises the identical
+`perFilterMatches`/`followingGroups` code as a signed-in list, so no auth
+is needed in the lab. All the anonymous-pass metrics keep their original
+meaning; `personalizedSettle` is `totalBlock`'s methodology re-measured
+under the seeded profile, so their gap isolates what personalization costs.
 
 The taps are deliberately split so each metric has one owner when it
 moves: `tapResponse` taps **Following** mid-swap — a cheap empty-feed view,
@@ -113,8 +125,11 @@ pre-set so the welcome modal doesn't intercept the tap) → route-delay
 `events-index.json` → navigate → wait splash detached → wait 500 ms → tap
 Following → wait nav-active + double-rAF → wait settle → collect → open the
 Map tab via Discover → back to Discover and re-open Map → back to Discover
-and open You. Output is `{ metrics: { worstTask, totalBlock, swapBlock,
-tapResponse, splashTime, mapOpen, mapReopen, youOpen }, runs: [...], meta:
+and open You. A second, personalization-seeded pass then boots a fresh
+context with the seed profile in localStorage and measures
+`personalizedSettle` + `followingOpen`. Output is `{ metrics: { worstTask,
+totalBlock, swapBlock, tapResponse, splashTime, mapOpen, mapReopen, youOpen,
+personalizedSettle, followingOpen }, runs: [...], meta:
 { url, cpu, runs, indexDelayMs, settleMs } }` with each metric the
 **median** across runs. A non-2xx page load or a missing splash/nav selector fails the run
 loudly (a broken harness must not report a green-looking 0). Tap latency is

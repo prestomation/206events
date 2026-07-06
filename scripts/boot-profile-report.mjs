@@ -28,6 +28,11 @@ export const METRICS = [
   { key: 'mapOpen', label: 'Map first open', unit: 'ms', lowerIsBetter: true, noise: 200 },
   { key: 'mapReopen', label: 'Map re-open', unit: 'ms', lowerIsBetter: true, noise: 200 },
   { key: 'youOpen', label: 'You tab open', unit: 'ms', lowerIsBetter: true, noise: 150 },
+  // Seeded-personalization pass (docs/following-tab-performance.md): a
+  // representative logged-in profile (35 favorites / 14 saved searches /
+  // 1 geo filter) written to localStorage before boot.
+  { key: 'personalizedSettle', label: 'Personalized boot blocking', unit: 'ms', lowerIsBetter: true, noise: 300 },
+  { key: 'followingOpen', label: 'Following tab open (seeded)', unit: 'ms', lowerIsBetter: true, noise: 150 },
 ]
 
 export const COMMENT_MARKER = 'boot-profile-trend'
