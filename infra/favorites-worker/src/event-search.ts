@@ -6,7 +6,9 @@ const FUSE_THRESHOLD = 0.1
 // location-based scoring (location:0, distance:100) combined with our strict
 // threshold otherwise rejects any term that isn't near the START of the field —
 // e.g. "Elton"/"John" in "One Night Without Elton John" never matched while
-// "choir" did. Must stay in sync with web/src/App.jsx (favorites filter parity).
+// "choir" did. Must stay in sync with web/src/lib/searchEngine.js
+// (SEARCH_FUSE_OPTIONS — favorites filter parity; pinned by
+// web/src/filter-parity.test.js).
 const FUSE_IGNORE_LOCATION = true
 
 interface CachedResource<T> {

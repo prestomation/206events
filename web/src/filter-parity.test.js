@@ -4,13 +4,14 @@ import { haversineKm } from './lib/haversine.js'
 import { eventKey } from './lib/eventKey.js'
 import { deduplicateEvents } from './lib/event-dedup.js'
 import { isMappable } from './components/EventsMap.jsx'
+import { SEARCH_FUSE_OPTIONS, createSearchEngine } from './lib/searchEngine.js'
 
-const FUSE_THRESHOLD = 0.1
-// Must match the worker (infra/favorites-worker/src/event-search.ts) and App.jsx.
-// ignoreLocation lets a term match anywhere in the field, not just near its start.
-const FUSE_IGNORE_LOCATION = true
-const FUSE_KEYS = ['summary', 'description', 'location']
-const FUSE_OPTIONS = { keys: FUSE_KEYS, threshold: FUSE_THRESHOLD, ignoreLocation: FUSE_IGNORE_LOCATION }
+// The client has ONE search definition (lib/searchEngine.js), used by both the
+// live search box and the saved-filter matching (App.jsx routes saved filters
+// through the search worker / createSearchEngine). It must match the worker
+// (infra/favorites-worker/src/event-search.ts) — the pinning test below is the
+// parity contract for the option literals.
+const FUSE_OPTIONS = SEARCH_FUSE_OPTIONS
 
 // Shared fixture — a realistic slice of events-index entries
 const FIXTURE_EVENTS = [
@@ -27,7 +28,34 @@ const FIXTURE_EVENTS = [
 ]
 
 describe('Filter parity: client matches worker behavior', () => {
+  describe('Fuse option literals', () => {
+    // Pin the exact literals used by infra/favorites-worker/src/event-search.ts
+    // (FUSE_THRESHOLD / FUSE_IGNORE_LOCATION / inline keys). If this test fails,
+    // one side changed without the other — update BOTH in the same PR, per the
+    // Favorites Filter Parity rule in AGENTS.md.
+    it('SEARCH_FUSE_OPTIONS matches the worker-side event-search.ts config', () => {
+      expect(SEARCH_FUSE_OPTIONS).toEqual({
+        keys: ['summary', 'description', 'location'],
+        threshold: 0.1,
+        ignoreLocation: true,
+      })
+    })
+  })
+
   describe('Search filters', () => {
+    // The saved-filter path consumes match sets from the search engine (via the
+    // worker). Assert the engine's Set-of-keys output agrees with a raw Fuse
+    // pass using the same options — i.e. the engine adds no filtering of its own.
+    it('createSearchEngine returns the same matches as a raw Fuse pass', () => {
+      const engine = createSearchEngine(FIXTURE_EVENTS)
+      const fuse = new Fuse(FIXTURE_EVENTS, FUSE_OPTIONS)
+      for (const term of ['punk', 'jazz', 'Elton', 'trivia']) {
+        const engineKeys = [...engine.search(term)].sort()
+        const fuseKeys = [...new Set(fuse.search(term).map(r => eventKey(r.item)))].sort()
+        expect(engineKeys).toEqual(fuseKeys)
+      }
+    })
+
     it('matches "punk" to the right event', () => {
       const fuse = new Fuse(FIXTURE_EVENTS, FUSE_OPTIONS)
       const results = fuse.search('punk').map(r => r.item.icsUrl)

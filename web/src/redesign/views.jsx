@@ -488,6 +488,12 @@ export function FollowingView() {
   }, [app.feedGroups, app.category, app.neighborhood, app.costFilter, app.query, app.queryKeySet, app.matchEvents, app.channelByIcsUrl])
 
   const counts = { cal: app.favoritesSet.size, place: app.geoFilters.length, search: app.searchFilters.length }
+  const searchesPending = app.savedSearchesPending && counts.search > 0
+  // The full status row is a first-pass affordance: once a match set is on
+  // screen, later recomputes (full-corpus / descriptions checkpoints, filter
+  // edits) only refresh slightly-stale matches — the chip spinner alone covers
+  // those without flashing a row over a feed that's already valid.
+  const searchesFirstPass = searchesPending && !app.savedSearchesMatched
   // Flatten the day-grouped feed back to a single date-sorted event array for
   // PagedDayList (it re-groups the rendered page and derives the scrubber ticks
   // from the whole timeline). `groups` is already ascending, so a flatMap
@@ -513,9 +519,26 @@ export function FollowingView() {
         <span style={{ fontSize: 12, color: 'var(--ink-3)', fontWeight: 600 }}>Feeding this:</span>
         <span className="prov-chip prov-cal"><span style={{ width: 12, height: 12 }}>{Ico.cal}</span>{counts.cal} calendars</span>
         <span className="prov-chip prov-place"><span style={{ width: 12, height: 12 }}>{Ico.pin}</span>{counts.place} places</span>
-        <span className="prov-chip prov-search"><span style={{ width: 12, height: 12 }}>{Ico.search}</span>{counts.search} searches</span>
+        <span className="prov-chip prov-search">
+          {searchesPending
+            ? <span className="a-feedpending-spin" aria-hidden="true" />
+            : <span style={{ width: 12, height: 12 }}>{Ico.search}</span>}
+          {counts.search} searches
+        </span>
         <span style={{ marginLeft: 'auto', width: 16, height: 16, color: 'var(--ink-3)', flex: '0 0 auto' }}>{Ico.arrow}</span>
       </button>
+
+      {/* Saved-search matching runs in the worker and lands a beat after the
+          feed first paints (docs/following-tab-performance.md, Fix 3). Until it
+          does, the feed below is calendars + places only — say so instead of
+          letting a partial feed read as the final one. role="status" so AT
+          announces the resolution without stealing focus. */}
+      {searchesFirstPass && (
+        <div className="a-feedpending" role="status">
+          <span className="a-feedpending-spin" aria-hidden="true" />
+          Matching your {counts.search === 1 ? 'saved search' : `${counts.search} saved searches`}…
+        </div>
+      )}
 
       {total ? (
         <PagedDayList events={flat} withReason />

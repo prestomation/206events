@@ -15,15 +15,6 @@ import { createSearchClient } from './lib/searchClient.js'
 import { App206 } from './redesign/App206.jsx'
 import { upcomingIndexEvents, groupIndexEventsByDay } from './redesign/viewModels.js'
 
-const FUSE_THRESHOLD = 0.1
-// Search the entire field, not just its first ~10 characters. Fuse's default
-// location-based scoring (location:0, distance:100) combined with our strict
-// threshold otherwise rejects any term that isn't near the START of the field —
-// e.g. "Elton"/"John" in "One Night Without Elton John" never matched while
-// "choir" did. Must stay in sync with infra/favorites-worker/src/event-search.ts
-// (favorites filter parity).
-const FUSE_IGNORE_LOCATION = true
-
 // Multiple favorites lists. Anonymous users get a single synthetic list backed
 // by the original localStorage keys (so their experience is unchanged). Signed-in
 // users get server-sourced lists, each with its own ICS feed URL.
@@ -151,6 +142,14 @@ function App() {
   // Stream header from events-index.ndjson ({format, generated}), used to
   // reject a description dictionary from a different build generation.
   const streamMetaRef = useRef(null)
+  // Corpus generation counter for the saved-search matching effect. Bumped only
+  // at the checkpoints where re-matching is worth it — the soon payload, a full
+  // index commit (stream or monolithic), and the description attach — NOT on
+  // every eventsIndex identity change. The progressive NDJSON stream commits a
+  // new array identity every 250 ms while 6+ MB arrives; keying the saved-filter
+  // recompute on identity re-ran the whole per-filter search pass on each flush
+  // (docs/following-tab-performance.md, Cause 2). 0 means "no corpus yet".
+  const [corpusGen, setCorpusGen] = useState(0)
   const [loading, setLoading] = useState(true)
   // Live-search runs in a Web Worker so the events-index JSON.parse, the Fuse
   // index build, and every per-query scan stay off the main thread (no typing /
@@ -502,11 +501,17 @@ function App() {
         // the new stream's own descriptions pass (already triggered) win.
         const genNow = streamMetaRef.current && streamMetaRef.current.generated
         if (streamGen !== genNow) return
-        startTransition(() => setEventsIndex(prev => prev.map(e =>
-          e && typeof e.d === 'number' && texts[e.d] !== undefined
-            ? { ...e, description: texts[e.d] }
-            : e,
-        )))
+        startTransition(() => {
+          setEventsIndex(prev => prev.map(e =>
+            e && typeof e.d === 'number' && texts[e.d] !== undefined
+              ? { ...e, description: texts[e.d] }
+              : e,
+          ))
+          // Authoritative saved-search checkpoint: description matches only
+          // exist from here on (the worker corpus was enriched above, before
+          // this commit, so a search fired off this bump sees the new text).
+          setCorpusGen(g => g + 1)
+        })
       }
       descriptionsLoadedRef.current = true
     } catch {
@@ -608,7 +613,12 @@ function App() {
       // New stream generation → whatever descriptions were attached before
       // belong to the previous corpus; refetch below.
       descriptionsLoadedRef.current = false
-      startTransition(() => setEventsIndex(streamed.slice()))
+      startTransition(() => {
+        setEventsIndex(streamed.slice())
+        // Full-corpus saved-search checkpoint (stream.end() above resolved
+        // only after the worker finished indexing this corpus).
+        setCorpusGen(g => g + 1)
+      })
 
       // Descriptions are deliberately non-fatal: the corpus is fully usable
       // without them (list rows, map, counts never render descriptions). On
@@ -632,7 +642,12 @@ function App() {
           // priority and can interrupt it to service taps/typing; the soon subset
           // stays on screen until the full tree is ready.
           startTransition(() => {
-            if (Array.isArray(fullData)) setEventsIndex(fullData)
+            if (Array.isArray(fullData)) {
+              setEventsIndex(fullData)
+              // Full-corpus saved-search checkpoint (descriptions are inline
+              // on the monolithic payload, so this is also the final one).
+              setCorpusGen(g => g + 1)
+            }
           })
         })
 
@@ -722,6 +737,9 @@ function App() {
             // Index the near-term subset so search works during the window
             // before the full index lands (cheap clone — soon has no descriptions).
             searchClient.index(soonData)
+            // First saved-search checkpoint: near-term matches show in the
+            // Following feed right away instead of waiting for the full corpus.
+            setCorpusGen(g => g + 1)
           }
         }
       } catch (e) {
@@ -1066,47 +1084,75 @@ function App() {
   }, [calendars])
 
 
-  // Per-filter match counts and match sets for view mode filtering.
-  // State + effect (not useMemo) so fuse.js can be dynamic-imported: most
-  // visitors have no saved filters, and keeping Fuse out of the eager bundle
-  // means they never download it (live search runs in the worker). The Fuse
-  // options MUST stay identical to infra/favorites-worker/src/event-search.ts
-  // (favorites filter parity) — only the load timing changed.
+  // Per-filter match sets for the personal feed and attribution chips.
+  //
+  // The matching runs in the search worker (searchClient) — the same engine,
+  // corpus, and Fuse options as the live search box (SEARCH_FUSE_OPTIONS in
+  // lib/searchEngine.js), which are in turn the parity-locked literals from
+  // infra/favorites-worker/src/event-search.ts (favorites filter parity; the
+  // parity tests in filter-parity.test.js pin them). It used to build its own
+  // Fuse index over the full corpus on the MAIN thread and re-run one scan per
+  // saved filter on every eventsIndex identity change — for a logged-in user
+  // with many saved searches that was multiple seconds of main-thread block,
+  // repeated ~6–12× per boot (docs/following-tab-performance.md, Causes 1–2).
+  //
+  // Recompute triggers are deliberate checkpoints, not identities:
+  //   - `corpusGen` bumps on soon-payload / full-index / descriptions commits
+  //     (never on the 250 ms progressive stream flushes), and
+  //   - `searchFiltersKey` compares the filter LIST by value, so the post-login
+  //     server fetch delivering the same list as localStorage is a no-op.
+  //
+  // `savedSearchesPending` is true while a recompute is in flight — the
+  // Following view uses it to show a "matching your saved searches" hint
+  // instead of silently rendering a feed the search matches haven't joined yet.
   const [perFilterMatches, setPerFilterMatches] = useState(() => new Map())
+  const [savedSearchesPending, setSavedSearchesPending] = useState(false)
+  // NUL-joined so multi-word filters ("farmers market") survive the round-trip;
+  // filter text is user-typed and can contain any printable character.
+  const searchFiltersKey = searchFilters.join('\u0000')
   useEffect(() => {
-    // No saved filters → no matches to compute, and (more importantly) no reason
-    // to build a full-corpus Fuse index on the main thread. This is the common
-    // case (anonymous / no saved searches), so the guard skips an ~11k-event
-    // index build per events-index load for most visitors.
-    if (!eventsIndex.length || !searchFilters.length) {
+    // No saved filters → nothing to compute. This is the common case
+    // (anonymous / no saved searches) and it costs nothing.
+    const filters = searchFiltersKey ? searchFiltersKey.split('\u0000') : []
+    if (corpusGen === 0 || filters.length === 0) {
       setPerFilterMatches((prev) => (prev.size === 0 ? prev : new Map()))
+      setSavedSearchesPending(false)
       return
     }
     let cancelled = false
-    import('fuse.js').then(({ default: Fuse }) => {
+    setSavedSearchesPending(true)
+    const attempt = () => Promise.all(filters.map((filter) =>
+      searchClient.search(filter).then((keys) => [filter, keys || new Set()]),
+    ))
+    attempt().catch((err) => {
+      // A worker death rejects the whole in-flight batch, but by then
+      // searchClient has already swapped in its main-thread fallback engine
+      // (rejectAll in lib/searchClient.js) — one retry self-heals instead of
+      // stranding matching until the next corpus checkpoint (which, after the
+      // descriptions pass, never comes).
+      if (cancelled) throw err
+      return attempt()
+    }).then((entries) => {
+      // A superseded run (newer checkpoint / filter edit) must not clobber the
+      // newer run's result — its own effect instance owns the state now.
       if (cancelled) return
-      const fuse = new Fuse(eventsIndex, {
-        keys: ['summary', 'description', 'location'],
-        threshold: FUSE_THRESHOLD,
-        ignoreLocation: FUSE_IGNORE_LOCATION,
+      // Matches and the pending flag commit in the SAME transition: clearing
+      // pending at urgent priority would drop the "matching…" hint frames
+      // before the matched rows land — exactly the silent-partial-feed state
+      // the hint exists to prevent.
+      startTransition(() => {
+        setPerFilterMatches(new Map(entries))
+        setSavedSearchesPending(false)
       })
-      const result = new Map()
-      for (const filter of searchFilters) {
-        const matches = new Set()
-        for (const r of fuse.search(filter)) {
-          matches.add(eventKey(r.item))
-        }
-        result.set(filter, matches)
-      }
-      setPerFilterMatches(result)
     }).catch((err) => {
-      // Chunk-load failure (offline mid-session, stale deploy where the old
-      // hashed fuse chunk is gone): leave the matches empty rather than
-      // letting an unhandled rejection kill saved-filter attribution silently.
-      console.warn('fuse.js failed to load; saved search filters inactive:', err)
+      if (cancelled) return
+      // Retry also failed: keep whatever matches we had rather than letting
+      // an unhandled rejection kill saved-filter attribution silently.
+      console.warn('saved search filters could not be matched:', err)
+      setSavedSearchesPending(false)
     })
     return () => { cancelled = true }
-  }, [searchFilters, eventsIndex])
+  }, [searchFiltersKey, corpusGen, searchClient])
 
   // Compute summaries matching search filters (for favorites view) — derived from perFilterMatches
   const searchFilterMatchSummaries = useMemo(() => {
@@ -1483,6 +1529,8 @@ function App() {
       favoritesSet={favoritesSet}
       toggleFavorite={toggleFavorite}
       searchFilters={searchFilters}
+      savedSearchesPending={savedSearchesPending}
+      savedSearchesMatched={perFilterMatches.size > 0}
       addSearchFilter={addSearchFilter}
       removeSearchFilter={removeSearchFilter}
       geoFilters={geoFilters}
