@@ -10,6 +10,7 @@ on:
       - 'web/**'
       - 'package.json'
       - 'package-lock.json'
+      - 'scripts/check-bundle-budget.mjs'
       - '.github/workflows/web-e2e.yml'
   push:
     branches: [main]
@@ -17,6 +18,7 @@ on:
       - 'web/**'
       - 'package.json'
       - 'package-lock.json'
+      - 'scripts/check-bundle-budget.mjs'
       - '.github/workflows/web-e2e.yml'
 
 jobs:
@@ -61,6 +63,12 @@ jobs:
 
       - name: Run browser (e2e) tests
         run: npm run test:e2e
+
+      # The Playwright webServer built the bundle into output/ — assert the
+      # eager JS/CSS stays under budget so lazy-loading wins aren't silently
+      # undone (docs/lighthouse-performance-plan.md Phase 4).
+      - name: Check eager bundle budget
+        run: npm run check-bundle-budget
 
       - name: Upload Playwright report
         if: failure()

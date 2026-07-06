@@ -1,5 +1,3 @@
-import { createSearchEngine } from './searchEngine.js'
-
 // Main-thread handle around the search worker (web/src/lib/searchWorker.js).
 //
 // Exposes a small promise-based API:
@@ -28,19 +26,44 @@ import { createSearchEngine } from './searchEngine.js'
 // The main-thread implementation, used when no worker can be spawned AND as
 // the degraded runtime fallback when a worker dies mid-session. Semantics
 // mirror the worker handler (searchWorker.js) exactly.
+//
+// searchEngine.js (and Fuse behind it) is dynamic-imported so the fallback
+// engine stays out of the eager bundle — the worker path, which nearly every
+// browser takes, never pays for it. Sync entry points (index, stream batches)
+// record the corpus immediately and the engine build catches up when the
+// module lands; every async entry point awaits the import, so search behavior
+// is identical to the previous eager-import version — only first-call latency
+// on the rare fallback path changes.
 function createInlineClient() {
-  let engine = createSearchEngine([])
+  let createEngine = null
+  let engine = null
   let corpus = []
+  const rebuild = () => {
+    if (createEngine) engine = createEngine(corpus)
+  }
+  const engineReady = import('./searchEngine.js').then((m) => {
+    createEngine = m.createSearchEngine
+    rebuild()
+  }).catch((err) => {
+    // Chunk-load failure (offline mid-session, stale deploy). Degrade to a
+    // stub whose search() resolves null — the documented "no result" value
+    // callers already handle — instead of leaving every method rejecting
+    // forever (and firing an unhandled rejection at client creation).
+    console.warn('search engine failed to load; search inactive:', err)
+    createEngine = () => ({ search: () => null })
+    rebuild()
+  })
   return {
     isWorker: false,
     index(events) {
       corpus = Array.isArray(events) ? events : []
-      engine = createSearchEngine(corpus)
+      rebuild()
     },
     async parse(buffer) {
       const events = JSON.parse(new TextDecoder().decode(buffer))
       corpus = Array.isArray(events) ? events : []
-      engine = createSearchEngine(corpus)
+      await engineReady
+      rebuild()
       return events
     },
     stream(onBatch) {
@@ -80,7 +103,8 @@ function createInlineClient() {
         async end() {
           drain(remainder + decoder.decode(), true)
           corpus = events
-          engine = createSearchEngine(corpus)
+          await engineReady
+          rebuild()
           return { count: corpus.length, meta }
         },
       }
@@ -96,9 +120,11 @@ function createInlineClient() {
           ? { ...e, description: list[e.d] }
           : e,
       )
-      engine = createSearchEngine(corpus)
+      await engineReady
+      rebuild()
     },
     async search(q) {
+      await engineReady
       return engine.search(q)
     },
     destroy() {},

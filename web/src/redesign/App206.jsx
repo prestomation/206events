@@ -2,20 +2,27 @@
 // from App.jsx, derives the view-models, owns local navigation/overlay state,
 // and renders the responsive shell (rail · content · map / bottom nav).
 
-import { useState, useMemo, useRef, useCallback, useEffect, useLayoutEffect, useDeferredValue, startTransition } from 'react'
+import { useState, useMemo, useRef, useCallback, useEffect, useLayoutEffect, useDeferredValue, startTransition, lazy, Suspense } from 'react'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
 import { Lightbox } from './atoms.jsx'
 import { FeedbackModal } from './FeedbackModal.jsx'
 import { WelcomeModal, HelpModal, isCleanColdLoad } from './Onboarding.jsx'
 import { DiscoverView, FollowingView, YouView, ChannelDetail, EventDetail } from './views.jsx'
-import { HealthDashboard } from '../components/HealthDashboard.jsx'
 import { channelFromCalendar, upcomingIndexEvents, rowFromIndexEvent, eventInWindow, filterDiscoverChannels, filterDiscoverEvents } from './viewModels.js'
 import { isCategoryTag, isNeighborhoodTag } from './categories.js'
 import { eventKey } from '../lib/eventKey.js'
 import { haversineKm } from '../lib/haversine.js'
 import { deserializeHash } from './urlHash.js'
 import { useUrlState } from './useUrlState.js'
+
+// Lazy-load the health dashboard: it's behind the You-tab "Site health"
+// section that most sessions never open, so it (and its build-errors plumbing)
+// stays out of the eager bundle. Same pattern as EventsMap in shell.jsx —
+// see docs/lighthouse-performance-plan.md Phase 1c.
+const HealthDashboard = lazy(() =>
+  import('../components/HealthDashboard.jsx').then((m) => ({ default: m.HealthDashboard })),
+)
 
 // Desktop map-column resize bounds. RAIL_W mirrors the 84px rail column in the
 // .app206 grid; MIN_CONTENT_W is the floor below which the content column gets
@@ -533,7 +540,7 @@ export function App206(props) {
   }, [contentKey])
 
   let content
-  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></div>
+  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><Suspense fallback={<div aria-busy="true">Loading site health…</div>}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></Suspense></div>
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />

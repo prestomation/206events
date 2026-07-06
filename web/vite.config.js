@@ -23,6 +23,12 @@ function goatcounterSnippet(code) {
     </script>`
 }
 
+// Resolved base path for the font-preload hrefs, captured in configResolved
+// (a closure var because Vite calls hooks with a plugin context as `this`,
+// not the plugin object). '/' today; kept base-aware for template copies
+// that might deploy under a subpath.
+let fontPreloadBase = '/'
+
 export default defineConfig({
   plugins: [
     react(),
@@ -41,6 +47,41 @@ export default defineConfig({
         }
         return out
       }
+    },
+    {
+      // Preload the font weights the first screen renders (body text +
+      // display headings) so the browser fetches them in parallel with the
+      // stylesheet instead of discovering them only after the CSS parses —
+      // the HTML → CSS → font chain Lighthouse flags. Only a build-time
+      // concern: the hashed asset names come from the output bundle, and dev
+      // serves fonts un-hashed. Preloading all nine weights would compete
+      // with the critical path, so only these three are listed.
+      // See docs/lighthouse-performance-plan.md Phase 1b.
+      name: 'preload-first-screen-fonts',
+      configResolved(config) {
+        fontPreloadBase = config.base || '/'
+      },
+      transformIndexHtml: {
+        order: 'post',
+        handler(_html, ctx) {
+          if (!ctx.bundle) return []
+          const FIRST_SCREEN_FONTS = [
+            /^inter-latin-400-normal-[\w-]+\.woff2$/,
+            /^inter-latin-600-normal-[\w-]+\.woff2$/,
+            /^inter-tight-latin-700-normal-[\w-]+\.woff2$/,
+          ]
+          return Object.keys(ctx.bundle)
+            .filter((name) => {
+              const base = name.split('/').pop()
+              return FIRST_SCREEN_FONTS.some((re) => re.test(base))
+            })
+            .map((name) => ({
+              tag: 'link',
+              attrs: { rel: 'preload', href: `${fontPreloadBase}${name}`, as: 'font', type: 'font/woff2', crossorigin: true },
+              injectTo: 'head',
+            }))
+        },
+      },
     },
     {
       name: 'copy-service-worker',
@@ -77,11 +118,14 @@ export default defineConfig({
       output: {
         // Split stable third-party code into its own long-lived chunk so a
         // content/UI deploy doesn't bust its cache, improving repeat-visit load.
-        // The Leaflet map and ical.js are already carved into their own async
-        // chunks via React.lazy / dynamic import, so they're intentionally not
-        // listed here. See docs/web-performance-plan.md N-3.
+        // The Leaflet map, ical.js, and fuse.js are carved into their own
+        // async chunks via React.lazy / dynamic import, so they're
+        // intentionally not listed here — putting fuse.js back would pin it
+        // in the eager vendor chunk and undo the lazy-load. See
+        // docs/web-performance-plan.md N-3 and
+        // docs/lighthouse-performance-plan.md Phase 1c.
         manualChunks: {
-          vendor: ['react', 'react-dom', 'fuse.js', 'dompurify'],
+          vendor: ['react', 'react-dom', 'dompurify'],
         },
       },
     },

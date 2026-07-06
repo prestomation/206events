@@ -1,10 +1,8 @@
 import { useState, useEffect, useMemo, useRef, useCallback, startTransition } from 'react'
-import Fuse from 'fuse.js'
 import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
 import { AttributionChips } from './components/AttributionChips.jsx'
 import { AddToCalendar } from './components/AddToCalendar.jsx'
 import { EventDescription } from './components/EventDescription.jsx'
-import { HealthDashboard } from './components/HealthDashboard.jsx'
 import { LoadingScreen } from './components/LoadingScreen.jsx'
 import { useBreakpoint } from './hooks/useBreakpoint.js'
 import { formatTagLabel } from './utils/format.js'
@@ -18,10 +16,6 @@ import { App206 } from './redesign/App206.jsx'
 import { upcomingIndexEvents, groupIndexEventsByDay } from './redesign/viewModels.js'
 
 const FUSE_THRESHOLD = 0.1
-// Calendar sidebar search can be more forgiving — "downtown community council" should
-// find "Downtown Seattle Community Council" even with a word inserted in the middle.
-// This threshold is UI-only (not subject to favorites filter parity with event-search.ts).
-const CALENDAR_SEARCH_THRESHOLD = 0.4
 // Search the entire field, not just its first ~10 characters. Fuse's default
 // location-based scoring (location:0, distance:100) combined with our strict
 // threshold otherwise rejects any term that isn't near the START of the field —
@@ -122,7 +116,6 @@ function App() {
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [showHomepage, setShowHomepage] = useState(true)
   const [showHappeningSoon, setShowHappeningSoon] = useState(false)
-  const [showHealthDashboard, setShowHealthDashboard] = useState(false)
   const [events, setEvents] = useState([])
   const [eventsIndex, setEventsIndex] = useState([])
   // Two-phase events load (issue #649): the small "soon" payload renders the
@@ -806,8 +799,6 @@ function App() {
     return () => clearTimeout(timer)
   }, [dataRefreshed])
 
-  const [currentDayHeader, setCurrentDayHeader] = useState(null)
-
   const breakpoint = useBreakpoint()
   const isMobile = breakpoint === 'mobile'
   const isTablet = breakpoint === 'tablet'
@@ -820,55 +811,6 @@ function App() {
   const agendaRef = useRef(null)
   const savedCalendarListScrollRef = useRef(0)
   
-  // Track current day-group-header on mobile scroll for the back bar
-  useEffect(() => {
-    if (!isMobile || mobileView !== 'detail') {
-      setCurrentDayHeader(null)
-      return
-    }
-
-    let scrollCleanup = null
-    let attached = false
-
-    const setup = () => {
-      if (attached) return
-      const container = agendaRef.current
-      if (!container) return
-
-      const handleScroll = () => {
-        const headers = container.querySelectorAll('.day-group-header')
-        let current = null
-        const containerTop = container.getBoundingClientRect().top
-
-        for (const header of headers) {
-          if (header.getBoundingClientRect().top <= containerTop + 10) {
-            current = {
-              label: header.querySelector('.day-group-label')?.textContent || '',
-              date: header.querySelector('.day-group-date')?.textContent || ''
-            }
-          }
-        }
-        setCurrentDayHeader(current)
-      }
-
-      container.addEventListener('scroll', handleScroll, { passive: true })
-      handleScroll()
-      attached = true
-      scrollCleanup = () => container.removeEventListener('scroll', handleScroll)
-    }
-
-    // Try immediately, and also after a frame for navigation timing
-    // (agendaRef may not be set yet after view transitions)
-    setup()
-    const frameId = requestAnimationFrame(setup)
-
-    return () => {
-      cancelAnimationFrame(frameId)
-      scrollCleanup?.()
-    }
-  }, [isMobile, mobileView, showHappeningSoon, selectedCalendar, events, eventsLoading])
-
-
   // Resize functionality
   const handleMouseDown = useCallback((e) => {
     e.preventDefault()
@@ -1124,27 +1066,46 @@ function App() {
   }, [calendars])
 
 
-  // Per-filter match counts and match sets for view mode filtering
-  const perFilterMatches = useMemo(() => {
+  // Per-filter match counts and match sets for view mode filtering.
+  // State + effect (not useMemo) so fuse.js can be dynamic-imported: most
+  // visitors have no saved filters, and keeping Fuse out of the eager bundle
+  // means they never download it (live search runs in the worker). The Fuse
+  // options MUST stay identical to infra/favorites-worker/src/event-search.ts
+  // (favorites filter parity) — only the load timing changed.
+  const [perFilterMatches, setPerFilterMatches] = useState(() => new Map())
+  useEffect(() => {
     // No saved filters → no matches to compute, and (more importantly) no reason
     // to build a full-corpus Fuse index on the main thread. This is the common
     // case (anonymous / no saved searches), so the guard skips an ~11k-event
     // index build per events-index load for most visitors.
-    if (!eventsIndex.length || !searchFilters.length) return new Map()
-    const fuse = new Fuse(eventsIndex, {
-      keys: ['summary', 'description', 'location'],
-      threshold: FUSE_THRESHOLD,
-      ignoreLocation: FUSE_IGNORE_LOCATION,
-    })
-    const result = new Map()
-    for (const filter of searchFilters) {
-      const matches = new Set()
-      for (const r of fuse.search(filter)) {
-        matches.add(eventKey(r.item))
-      }
-      result.set(filter, matches)
+    if (!eventsIndex.length || !searchFilters.length) {
+      setPerFilterMatches((prev) => (prev.size === 0 ? prev : new Map()))
+      return
     }
-    return result
+    let cancelled = false
+    import('fuse.js').then(({ default: Fuse }) => {
+      if (cancelled) return
+      const fuse = new Fuse(eventsIndex, {
+        keys: ['summary', 'description', 'location'],
+        threshold: FUSE_THRESHOLD,
+        ignoreLocation: FUSE_IGNORE_LOCATION,
+      })
+      const result = new Map()
+      for (const filter of searchFilters) {
+        const matches = new Set()
+        for (const r of fuse.search(filter)) {
+          matches.add(eventKey(r.item))
+        }
+        result.set(filter, matches)
+      }
+      setPerFilterMatches(result)
+    }).catch((err) => {
+      // Chunk-load failure (offline mid-session, stale deploy where the old
+      // hashed fuse chunk is gone): leave the matches empty rather than
+      // letting an unhandled rejection kill saved-filter attribution silently.
+      console.warn('fuse.js failed to load; saved search filters inactive:', err)
+    })
+    return () => { cancelled = true }
   }, [searchFilters, eventsIndex])
 
   // Compute summaries matching search filters (for favorites view) — derived from perFilterMatches
