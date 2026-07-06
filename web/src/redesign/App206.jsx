@@ -43,7 +43,7 @@ export function App206(props) {
   const {
     calendars, eventsIndex, searchClient, fullEventsLoaded, venues, loading,
     favoritesSet, toggleFavorite,
-    searchFilters, addSearchFilter, removeSearchFilter,
+    searchFilters, savedSearchesPending, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
     eventAttributions, calendarTagsByIcsUrl, calendarNameByIcsUrl, eventCountByIcsUrl,
     followingGroups,
@@ -466,7 +466,7 @@ export function App206(props) {
     // raw
     calendars, eventsIndex, fullEventsLoaded, loading,
     favoritesSet, toggleFollow,
-    searchFilters, addSearchFilter, removeSearchFilter,
+    searchFilters, savedSearchesPending, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
     eventAttributions, calendarTagsByIcsUrl, calendarNameByIcsUrl, eventCountByIcsUrl,
     lists, activeListId, activeList, setActiveList, createList, renameList, deleteList, canCreateList, uatMode,
@@ -495,7 +495,7 @@ export function App206(props) {
   }), [
     calendars, eventsIndex, fullEventsLoaded, loading,
     favoritesSet, toggleFollow,
-    searchFilters, addSearchFilter, removeSearchFilter,
+    searchFilters, savedSearchesPending, addSearchFilter, removeSearchFilter,
     geoFilters, addGeoFilter, deleteGeoFilter, editGeoFilter,
     eventAttributions, calendarTagsByIcsUrl, calendarNameByIcsUrl, eventCountByIcsUrl,
     lists, activeListId, activeList, setActiveList, createList, renameList, deleteList, canCreateList, uatMode,
