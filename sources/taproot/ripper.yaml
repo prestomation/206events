@@ -12,6 +12,7 @@ geo:
   osmType: way
   osmId: 55197419
 imageUrl: "https://taproottheatre.org/wp-content/uploads/2026/03/Taproot_Logo_Teal.jpg"
+skipEventPhotos: true # OvationTix productionLogoLink is null for these shows; all events link to the same calendar page
 calendars:
   - name: taproot
     friendlyname: "Taproot Theatre"

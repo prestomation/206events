@@ -11,6 +11,7 @@ geo:
   osmType: way
   osmId: 365742481
 imageUrl: "https://www.goballardfc.com/wp-content/uploads/sites/67/2024/02/cropped-bfc-star-badge.png"
+skipEventPhotos: true # all events link to the same schedule page, no per-event images
 calendars:
   - name: ballard-fc
     friendlyname: "Ballard FC"
