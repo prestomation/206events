@@ -8,13 +8,14 @@ const metric = (key) => METRICS.find((m) => m.key === key)
 
 const sample = {
   worstTask: 860, totalBlock: 1900, swapBlock: 240, tapResponse: 180, splashTime: 2500,
-  mapOpen: 1200, mapReopen: 950, youOpen: 400,
+  mapOpen: 1200, mapReopen: 950, youOpen: 400, personalizedSettle: 2100, followingOpen: 450,
 }
 
 describe('METRICS', () => {
   it('covers every harness metric, all lower-is-better ms durations', () => {
     expect(METRICS.map((m) => m.key)).toEqual(
-      ['worstTask', 'totalBlock', 'swapBlock', 'tapResponse', 'splashTime', 'mapOpen', 'mapReopen', 'youOpen'])
+      ['worstTask', 'totalBlock', 'swapBlock', 'tapResponse', 'splashTime', 'mapOpen', 'mapReopen', 'youOpen',
+        'personalizedSettle', 'followingOpen'])
     for (const m of METRICS) {
       expect(m.unit).toBe('ms')
       expect(m.lowerIsBetter).toBe(true)
