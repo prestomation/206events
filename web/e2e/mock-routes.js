@@ -7,6 +7,7 @@ import {
   mockVenues,
   mockBuildErrors,
   mockIcs,
+  streamPairFor,
 } from './fixtures.js'
 
 // Real OSM raster tiles committed as fixtures (see e2e/tiles/README.md), so
@@ -45,11 +46,18 @@ export async function installDataMocks(page) {
   })
 
   await page.route('**/manifest.json', (route) => route.fulfill(json(mockManifest)))
-  // Two-phase events load (issue 649): the app fetches the small "soon" payload
-  // first, then the full index. Serve the same fixture for both by default so
-  // the shared specs see a complete dataset regardless of timing.
+  // Events load: the app fetches the small "soon" payload first, then streams
+  // the NDJSON corpus + lazy description dictionary (falling back to the
+  // monolithic events-index.json only when the stream files are absent). All
+  // four routes serve views of the same fixture so the shared specs see a
+  // complete dataset regardless of timing, and every spec exercises the real
+  // streaming path by default.
+  const streamPair = streamPairFor(mockEvents)
   await page.route('**/events-index-soon.json', (route) => route.fulfill(json(mockEvents)))
   await page.route('**/events-index.json', (route) => route.fulfill(json(mockEvents)))
+  await page.route('**/events-index.ndjson', (route) =>
+    route.fulfill({ status: 200, contentType: 'application/x-ndjson', body: streamPair.ndjson }))
+  await page.route('**/event-descriptions.json', (route) => route.fulfill(json(streamPair.descriptions)))
   await page.route('**/venues.json', (route) => route.fulfill(json(mockVenues)))
   await page.route('**/build-errors.json', (route) => route.fulfill(json(mockBuildErrors)))
   await page.route('**/tags.json', (route) => route.fulfill(json([])))

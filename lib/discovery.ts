@@ -61,6 +61,8 @@ export const indexDocSchema = z.object({
     calendars: linkSchema,
     events: linkSchema,
     eventsSoon: linkSchema,
+    eventsStream: linkSchema,
+    eventDescriptions: linkSchema,
     buildErrors: linkSchema,
     geoCache: linkSchema,
   }),
@@ -80,6 +82,8 @@ export function buildIndexJson(opts: { generated: string; site: string }): Index
       calendars: { href: "manifest.json", type: "application/json" },
       events: { href: "events-index.json", type: "application/json" },
       eventsSoon: { href: "events-index-soon.json", type: "application/json" },
+      eventsStream: { href: "events-index.ndjson", type: "application/x-ndjson" },
+      eventDescriptions: { href: "event-descriptions.json", type: "application/json" },
       buildErrors: { href: "build-errors.json", type: "application/json" },
       geoCache: { href: "geo-cache.json", type: "application/json" },
     },
@@ -150,6 +154,106 @@ export function buildEventsIndexSoon<T extends { date: string; endDate?: string;
     soon.push(rest);
   }
   return soon;
+}
+
+// -----------------------------------------------------------------------------
+// events-index.ndjson + event-descriptions.json — streaming payload
+// -----------------------------------------------------------------------------
+
+/**
+ * Grace window for dropping already-ended events from the events index.
+ * Mirrors the lower bound of `buildEventsIndexSoon`: an event that ended
+ * within the last day is kept, so events earlier today (and up to ~24h of
+ * fetch-cache staleness) never flicker out before the client's own precise
+ * re-filtering would keep them.
+ */
+export const PAST_EVENT_GRACE_HOURS = 24;
+
+/**
+ * Drop events that ended more than `graceHours` before `now`.
+ *
+ * The per-calendar manifest gate (`calendarsWithFutureEvents` in
+ * `calendar_ripper.ts`) only excludes calendars with *no* future events —
+ * a calendar with one future event ships its entire history. This is the
+ * per-event filter: measured on 2026-07-06 production data it removes 740
+ * rows (6%) that every client render pass was filtering out anyway (see
+ * `docs/event-payload-scaling.md` §4). Events with an unparseable `date`
+ * are kept — dropping data over a parse quirk would be silent loss.
+ */
+export function filterPastIndexEvents<T extends { date: string; endDate?: string }>(
+  eventsIndex: T[],
+  now: Date,
+  graceHours: number = PAST_EVENT_GRACE_HOURS,
+): T[] {
+  const lowerBound = now.getTime() - graceHours * 60 * 60 * 1000;
+  return eventsIndex.filter(event => {
+    const end = new Date(String(event.endDate ?? event.date).replace(/\[.*\]$/, ""));
+    if (isNaN(end.getTime())) return true;
+    return end.getTime() >= lowerBound;
+  });
+}
+
+export interface EventsIndexStream<T> {
+  /** Date-ascending events, `description` replaced by `d` (dictionary index). */
+  events: Array<Omit<T, "description"> & { d?: number }>;
+  /** Unique description strings; an event's text is `descriptions[event.d]`. */
+  descriptions: string[];
+}
+
+/**
+ * Build the streaming payload pair (`events-index.ndjson` +
+ * `event-descriptions.json`) from the full events index. See
+ * `docs/event-payload-scaling.md` §5 step 2 for the design.
+ *
+ * - **Date-sorted ascending** so a client consuming the NDJSON stream can
+ *   render the near-term window from a small prefix of the file — time to
+ *   first paint scales with the window, not the corpus.
+ * - **Descriptions extracted to a dictionary**: `description` is ~40% of
+ *   the payload, is ~71% duplicated across recurring/multi-date events, and
+ *   is only needed by the detail view and search — both of which can load
+ *   it lazily. Events reference their text by dictionary index via `d`
+ *   (absent when the event has no description). Dictionary entries are
+ *   ordered by first appearance, so the output is deterministic for a
+ *   given input order.
+ *
+ * The sort mirrors `buildEventsIndexSoon`'s instant parsing (strip the
+ * bracketed IANA zone, parse the offset-bearing ISO string). Events with an
+ * unparseable `date` sort to the end of the stream rather than being
+ * dropped.
+ */
+export function buildEventsIndexStream<T extends { date: string; description?: string }>(
+  eventsIndex: T[],
+): EventsIndexStream<T> {
+  const instant = (s: string): number => {
+    const ms = new Date(String(s).replace(/\[.*\]$/, "")).getTime();
+    return isNaN(ms) ? Number.MAX_SAFE_INTEGER : ms;
+  };
+
+  const sorted = [...eventsIndex].sort((a, b) => instant(a.date) - instant(b.date));
+
+  const descriptions: string[] = [];
+  const indexByText = new Map<string, number>();
+  const events = sorted.map(event => {
+    const { description, ...rest } = event;
+    if (description === undefined || description === "") return rest;
+    let d = indexByText.get(description);
+    if (d === undefined) {
+      d = descriptions.length;
+      indexByText.set(description, d);
+      descriptions.push(description);
+    }
+    return { ...rest, d };
+  });
+
+  return { events, descriptions };
+}
+
+/**
+ * Serialize the stream events as NDJSON (one JSON object per line, trailing
+ * newline). Consumers must ignore empty lines.
+ */
+export function toNdjson(events: Array<Record<string, unknown>>): string {
+  return events.map(e => JSON.stringify(e)).join("\n") + (events.length > 0 ? "\n" : "");
 }
 
 // -----------------------------------------------------------------------------

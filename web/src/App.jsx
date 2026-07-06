@@ -144,6 +144,11 @@ function App() {
   // in flight is remembered here and replayed when that fetch settles, so fresh
   // data is never silently dropped just because the timing overlapped.
   const fullIndexForceQueuedRef = useRef(false)
+  // How many events the "soon" payload put on screen. Progressive stream
+  // flushes are held until the streamed prefix exceeds this, so the visible
+  // list only ever grows — swapping the 9-day soon subset for a shorter
+  // streamed prefix would make rows vanish and then reappear.
+  const soonCountRef = useRef(0)
   const [loading, setLoading] = useState(true)
   // Live-search runs in a Web Worker so the events-index JSON.parse, the Fuse
   // index build, and every per-query scan stay off the main thread (no typing /
@@ -465,11 +470,22 @@ function App() {
   // reconnect handler can retry it after an offline boot (the initial attempt
   // fails silently and only the near-term "soon" subset is shown until a retry).
   //
-  // The main thread only reads the response bytes (`arrayBuffer()` — no parse);
-  // the ~9.6 MB JSON.parse + Fuse index build happen in the search worker, which
-  // hands the parsed array back for rendering. Keeping the fetch on the main
-  // thread preserves the service-worker cache / offline path (the request still
-  // originates from the page).
+  // Preferred path (docs/event-payload-scaling.md): stream the date-sorted
+  // `events-index.ndjson`. The main thread only pumps response chunks (no
+  // parse) into the search worker, which decodes/parses lines off-thread and
+  // posts back small batches; on first load the visible list grows
+  // progressively as the stream arrives instead of swapping wholesale when a
+  // monolithic file finishes. Descriptions ship separately
+  // (`event-descriptions.json`, `d` dictionary refs) and are fetched after the
+  // stream completes — off the boot-critical path — then attached for the
+  // detail view and the parity-locked saved-filter search.
+  //
+  // Fallback path: deploys/previews without the NDJSON files (and responses
+  // without a readable body stream) fall back to the monolithic
+  // `events-index.json` + worker parse, which inlines descriptions.
+  //
+  // Keeping every fetch on the main thread preserves the service-worker cache /
+  // offline path (requests still originate from the page).
   //
   // `force` re-fetches even after a successful load — used by boot and the
   // service-worker DATA_UPDATED refresh. The reconnect retry passes false so it
@@ -483,22 +499,95 @@ function App() {
     }
     if (!force && fullIndexLoadedRef.current) return Promise.resolve()
     fullIndexInFlightRef.current = true
-    return fetch('./events-index.json')
-      .then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(`events-index.json ${r.status}`)))
-      .then(buf => searchClient.parse(buf))
-      .then(fullData => {
-        fullIndexLoadedRef.current = true
-        // The soon→full swap re-renders the whole app over ~10k+ events in one
-        // commit — profiled at >1 s of main-thread block on production data
-        // (several seconds on phones), landing right when the user starts
-        // interacting. Mark it as a transition so React renders it at low
-        // priority and can interrupt it to service taps/typing; the soon subset
-        // stays on screen until the full tree is ready.
-        startTransition(() => {
-          if (Array.isArray(fullData)) setEventsIndex(fullData)
-          setFullEventsLoaded(true)
-        })
+
+    const streamNdjson = async () => {
+      const r = await fetch('./events-index.ndjson')
+      if (!r.ok || !r.body) throw new Error(`events-index.ndjson ${r.status}`)
+
+      // Progressive flushes only make sense on first load, and only once the
+      // streamed prefix covers more than the soon subset already on screen
+      // (the stream is date-sorted, so a longer prefix is a superset in time).
+      // On a forced refresh the full corpus is already rendered — flushing a
+      // prefix would shrink the list — so batches buffer and land in one
+      // commit at the end.
+      const progressive = !fullIndexLoadedRef.current
+      const streamed = []
+      let lastFlushCount = 0
+      let flushTimer = null
+      const flush = () => {
+        flushTimer = null
+        if (!progressive || streamed.length <= Math.max(soonCountRef.current, lastFlushCount)) return
+        lastFlushCount = streamed.length
+        const snapshot = streamed.slice()
+        startTransition(() => setEventsIndex(snapshot))
+      }
+      const stream = searchClient.stream(batch => {
+        streamed.push(...batch)
+        // Coalesce flushes: network chunks arrive every few ms; committing a
+        // render per chunk would thrash. One flush per 250 ms keeps the list
+        // visibly filling without stacking transitions.
+        if (progressive && flushTimer === null) flushTimer = setTimeout(flush, 250)
       })
+
+      const reader = r.body.getReader()
+      for (;;) {
+        const { done, value } = await reader.read()
+        if (done) break
+        // The worker decodes the whole ArrayBuffer, so hand it exactly the
+        // chunk's bytes: a view that doesn't span its buffer (offset/pooled
+        // allocations) must be sliced before the zero-copy transfer.
+        const buf = (value.byteOffset === 0 && value.byteLength === value.buffer.byteLength)
+          ? value.buffer
+          : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)
+        await stream.push(buf)
+      }
+      await stream.end()
+      if (flushTimer !== null) clearTimeout(flushTimer)
+      fullIndexLoadedRef.current = true
+      startTransition(() => setEventsIndex(streamed.slice()))
+
+      // Descriptions are deliberately non-fatal: the corpus is fully usable
+      // without them (list rows, map, counts never render descriptions). On
+      // failure the detail view shows none and description search stays off —
+      // same degradation the soon-only window has today.
+      try {
+        const dr = await fetch('./event-descriptions.json')
+        if (!dr.ok) throw new Error(`event-descriptions.json ${dr.status}`)
+        const texts = await dr.json()
+        if (Array.isArray(texts) && texts.length > 0) {
+          await searchClient.applyDescriptions(texts)
+          const enriched = streamed.map(e =>
+            e && typeof e.d === 'number' && texts[e.d] !== undefined
+              ? { ...e, description: texts[e.d] }
+              : e,
+          )
+          startTransition(() => setEventsIndex(enriched))
+        }
+      } catch {
+        console.warn('Event descriptions not available; detail/description search limited')
+      }
+    }
+
+    const parseMonolithic = () =>
+      fetch('./events-index.json')
+        .then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(`events-index.json ${r.status}`)))
+        .then(buf => searchClient.parse(buf))
+        .then(fullData => {
+          fullIndexLoadedRef.current = true
+          // The soon→full swap re-renders the whole app over ~10k+ events in one
+          // commit — profiled at >1 s of main-thread block on production data
+          // (several seconds on phones), landing right when the user starts
+          // interacting. Mark it as a transition so React renders it at low
+          // priority and can interrupt it to service taps/typing; the soon subset
+          // stays on screen until the full tree is ready.
+          startTransition(() => {
+            if (Array.isArray(fullData)) setEventsIndex(fullData)
+          })
+        })
+
+    return streamNdjson()
+      .catch(() => parseMonolithic())
+      .then(() => setFullEventsLoaded(true))
       .catch(() => {
         // Full index unavailable (offline / transient failure) — keep whatever
         // the soon payload provided and stop showing the "loading more" hint.
@@ -577,6 +666,7 @@ function App() {
         if (soonResponse.ok) {
           const soonData = await soonResponse.json()
           if (Array.isArray(soonData)) {
+            soonCountRef.current = soonData.length
             setEventsIndex(soonData)
             // Index the near-term subset so search works during the window
             // before the full index lands (cheap clone — soon has no descriptions).

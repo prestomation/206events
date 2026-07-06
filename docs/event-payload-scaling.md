@@ -1,6 +1,20 @@
 # Event Payload Scaling — Format Benchmarks & Streaming Plan
 
-**Status: analysis + proposal.** Measurements are reproducible with
+**Status: steps 1–2 implemented (same PR); step 3 is a staged follow-up.**
+The build applies the per-event past filter (`filterPastIndexEvents`) and
+emits the streaming pair (`events-index.ndjson` + `event-descriptions.json`,
+`buildEventsIndexStream` in `lib/discovery.ts`); the web client streams the
+NDJSON through the search worker with progressive batch rendering and
+fetches the description dictionary lazily (`loadFullEventsIndex` in
+`web/src/App.jsx`, stream protocol in `web/src/lib/searchWorker.js` /
+`searchClient.js`). `events-index-soon.json` and the monolithic
+`events-index.json` still ship: the soon file remains phase 1 of boot, and
+the monolithic file is both the client's fallback (pre-stream deploys /
+no-stream responses) and the unchanged canonical discovery resource for the
+favorites Worker and LLM consumers. Retiring the soon file (step 3) waits
+until the stream path has proven itself in production.
+
+Measurements are reproducible with
 `node scripts/bench-event-payload.mjs` (defaults to downloading the live
 production index). Numbers below are from production data on 2026-07-06:
 **12,521 events, 11,052 KB (10.8 MB) raw** — up from 9,369 KB / 11,220

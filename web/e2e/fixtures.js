@@ -36,6 +36,22 @@ export const mockEvents = [
   { icsUrl: 'test-ripper-cal2.ics', summary: 'Movie Premiere', description: 'A film', location: 'SIFF', date: toJoda(future(3)) },
 ]
 
+// Derive the streaming payload pair (events-index.ndjson + event-descriptions.json)
+// from a plain events fixture, mirroring lib/discovery.ts buildEventsIndexStream:
+// date-sorted NDJSON with `description` replaced by a `d` dictionary index.
+export function streamPairFor(events) {
+  const toMs = (s) => new Date(String(s).replace(/\[.*\]$/, '')).getTime()
+  const sorted = [...events].sort((a, b) => toMs(a.date) - toMs(b.date))
+  const descriptions = []
+  const byText = new Map()
+  const stream = sorted.map(({ description, ...rest }) => {
+    if (description === undefined || description === '') return rest
+    if (!byText.has(description)) { byText.set(description, descriptions.length); descriptions.push(description) }
+    return { ...rest, d: byText.get(description) }
+  })
+  return { ndjson: stream.map((e) => JSON.stringify(e)).join('\n') + '\n', descriptions }
+}
+
 // Two-phase load fixtures (issue 649). The "soon" payload covers only the near
 // term and omits `description`; the full index adds a far-future event that the
 // soon payload doesn't contain. Used only by payload-split.spec.js, which

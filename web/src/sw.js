@@ -11,13 +11,26 @@ const DATA_URL_PATTERNS = [
   /manifest\.json$/,
   /events-index\.json$/,
   /events-index-soon\.json$/,
+  /events-index\.ndjson$/,
+  /event-descriptions\.json$/,
   /\.ics$/,
 ]
 
 // Critical data files precached on install so sidebar, search, and Happening Soon
 // work offline from the very first visit. The "soon" payload (issue #649) is the
-// fast-first-paint subset; the full index is precached too so search works offline.
-const PRECACHE_DATA_URLS = ['./manifest.json', './events-index-soon.json', './events-index.json']
+// fast-first-paint subset; the NDJSON stream + description dictionary are the
+// full corpus the app loads (docs/event-payload-scaling.md). The monolithic
+// events-index.json is deliberately NOT precached: the app only falls back to
+// it when the NDJSON files are absent — impossible on a deploy that shipped
+// this worker — and precaching it would double the install download. It still
+// matches DATA_URL_PATTERNS, so if the fallback ever does fetch it, it's
+// cached from then on.
+const PRECACHE_DATA_URLS = [
+  './manifest.json',
+  './events-index-soon.json',
+  './events-index.ndjson',
+  './event-descriptions.json',
+]
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

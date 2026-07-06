@@ -5,6 +5,9 @@ import {
   indexDocSchema,
   buildEventsIndexSoon,
   EVENTS_INDEX_SOON_WINDOW_DAYS,
+  filterPastIndexEvents,
+  buildEventsIndexStream,
+  toNdjson,
   buildTagsJson,
   tagsDocSchema,
   buildVenuesJson,
@@ -79,8 +82,10 @@ describe("buildIndexJson", () => {
     expect(Object.keys(doc.links).sort()).toEqual([
       "buildErrors",
       "calendars",
+      "eventDescriptions",
       "events",
       "eventsSoon",
+      "eventsStream",
       "geoCache",
       "llms",
       "self",
@@ -168,6 +173,118 @@ describe("buildEventsIndexSoon", () => {
     const index = [{ icsUrl: "t.ics", summary: "Bad", date: "not-a-date" }, ev(1)];
     const soon = buildEventsIndexSoon(index, NOW);
     expect(soon.map((e) => e.summary)).toEqual(["Event 1"]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// filterPastIndexEvents
+// ---------------------------------------------------------------------------
+
+describe("filterPastIndexEvents", () => {
+  const jodaString = (offsetDays: number) => {
+    const base = new Date("2026-06-15T12:00:00-07:00");
+    const d = new Date(base.getTime() + offsetDays * 24 * 60 * 60 * 1000);
+    return `${d.toISOString().replace("Z", "-07:00")}[America/Los_Angeles]`;
+  };
+  const ev = (offsetDays: number, extra: Record<string, unknown> = {}) => ({
+    icsUrl: "test.ics",
+    summary: `Event ${offsetDays}`,
+    date: jodaString(offsetDays),
+    ...extra,
+  });
+  const NOW = new Date("2026-06-15T12:00:00-07:00");
+
+  it("drops events that ended more than the grace window ago, keeps the rest", () => {
+    const index = [ev(-5), ev(-1.5), ev(-0.5), ev(0), ev(30)];
+    const kept = filterPastIndexEvents(index, NOW);
+    expect(kept.map((e) => e.summary)).toEqual(["Event -0.5", "Event 0", "Event 30"]);
+  });
+
+  it("judges by endDate, not start — an in-progress multi-day event survives", () => {
+    const ongoing = ev(-5, { summary: "Ongoing Festival", endDate: jodaString(3) });
+    const over = ev(-5, { summary: "Long Over", endDate: jodaString(-3) });
+    expect(filterPastIndexEvents([ongoing, over], NOW).map((e) => e.summary)).toEqual([
+      "Ongoing Festival",
+    ]);
+  });
+
+  it("keeps events with unparseable dates rather than silently losing data", () => {
+    const index = [{ icsUrl: "t.ics", summary: "Bad", date: "not-a-date" }];
+    expect(filterPastIndexEvents(index, NOW)).toHaveLength(1);
+  });
+
+  it("honors a custom grace window", () => {
+    const index = [ev(-0.5)];
+    expect(filterPastIndexEvents(index, NOW, 1)).toHaveLength(0); // 1h grace: 12h-old event dropped
+    expect(filterPastIndexEvents(index, NOW, 24)).toHaveLength(1);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildEventsIndexStream + toNdjson
+// ---------------------------------------------------------------------------
+
+describe("buildEventsIndexStream", () => {
+  const jodaString = (offsetDays: number) => {
+    const base = new Date("2026-06-15T12:00:00-07:00");
+    const d = new Date(base.getTime() + offsetDays * 24 * 60 * 60 * 1000);
+    return `${d.toISOString().replace("Z", "-07:00")}[America/Los_Angeles]`;
+  };
+  const ev = (offsetDays: number, extra: Record<string, unknown> = {}) => ({
+    icsUrl: "test.ics",
+    summary: `Event ${offsetDays}`,
+    date: jodaString(offsetDays),
+    ...extra,
+  });
+
+  it("sorts events by start instant ascending", () => {
+    const { events } = buildEventsIndexStream([ev(7), ev(0), ev(3)]);
+    expect(events.map((e) => e.summary)).toEqual(["Event 0", "Event 3", "Event 7"]);
+  });
+
+  it("extracts descriptions to a first-appearance dictionary and replaces them with d refs", () => {
+    const shared = "Weekly trivia night at the same pub.";
+    const index = [
+      ev(0, { description: shared }),
+      ev(1, { description: "One-off gala." }),
+      ev(2, { description: shared }),
+      ev(3), // no description at all
+    ];
+    const { events, descriptions } = buildEventsIndexStream(index);
+    expect(descriptions).toEqual([shared, "One-off gala."]);
+    expect(events.map((e) => e.d)).toEqual([0, 1, 0, undefined]);
+    expect(events.every((e) => !("description" in e))).toBe(true);
+  });
+
+  it("treats an empty-string description as absent", () => {
+    const { events, descriptions } = buildEventsIndexStream([ev(0, { description: "" })]);
+    expect(descriptions).toEqual([]);
+    expect("d" in events[0]).toBe(false);
+  });
+
+  it("sorts unparseable dates to the end instead of dropping them", () => {
+    const bad = { icsUrl: "t.ics", summary: "Bad", date: "not-a-date" };
+    const { events } = buildEventsIndexStream([bad, ev(0)]);
+    expect(events.map((e) => e.summary)).toEqual(["Event 0", "Bad"]);
+  });
+
+  it("preserves all non-description fields verbatim", () => {
+    const rich = ev(0, { lat: 47.6, lng: -122.3, cost: { min: 0 }, description: "x" });
+    const { events } = buildEventsIndexStream([rich]);
+    expect(events[0]).toMatchObject({ lat: 47.6, lng: -122.3, cost: { min: 0 }, d: 0 });
+  });
+});
+
+describe("toNdjson", () => {
+  it("emits one JSON object per line with a trailing newline", () => {
+    const out = toNdjson([{ a: 1 }, { b: 2 }]);
+    expect(out).toBe('{"a":1}\n{"b":2}\n');
+    const parsed = out.split("\n").filter(Boolean).map((l) => JSON.parse(l));
+    expect(parsed).toEqual([{ a: 1 }, { b: 2 }]);
+  });
+
+  it("returns an empty string for an empty corpus", () => {
+    expect(toNdjson([])).toBe("");
   });
 });
 

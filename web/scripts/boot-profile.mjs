@@ -8,9 +8,10 @@
 //
 // Per run: mobile viewport, N× CDP CPU throttle, long-task observer injected
 // before any page script, service workers BLOCKED (sw.js precaches
-// events-index.json and SW-originated fetches bypass route interception —
-// with it active, the delay below is a race), and the full events-index.json
-// response delayed so the splash always dismisses on the "soon" payload first.
+// the events index and SW-originated fetches bypass route interception —
+// with it active, the delay below is a race), and the full events corpus
+// (events-index.ndjson, plus the monolithic fallback) delayed so the splash
+// always dismisses on the "soon" payload first.
 // Then: tap Following mid-swap (tapResponse), let the swap settle, snapshot
 // long tasks, and finally exercise post-settle tab switches: first Map open
 // from Discover (mapOpen), a second Map open after leaving the tab
@@ -71,20 +72,25 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
           for (const e of list.getEntries()) window.__longtasks.push({ start: e.startTime, dur: e.duration })
         }).observe({ type: 'longtask', buffered: true })
       } catch { /* longtask API missing — metrics will be 0 and obviously wrong */ }
-      // The swap-block wait reads the events-index.json resource entry; make
+      // The swap-block wait reads the events-index resource entry; make
       // sure an image-heavy boot can't evict it from the default 250-entry
       // resource-timing buffer.
       try { performance.setResourceTimingBufferSize(1000) } catch { /* ignore */ }
     })
 
-    // Delay ONLY the full index (the glob doesn't match events-index-soon.json),
+    // Delay ONLY the full corpus (the globs don't match events-index-soon.json),
     // pinning the production ordering: splash dismisses on soon, full lands later.
-    await page.route('**/events-index.json', async (route) => {
+    // Both the NDJSON stream (preferred path, docs/event-payload-scaling.md) and
+    // the monolithic events-index.json (fallback / pre-stream deploys) are
+    // delayed so the choreography holds against either deploy generation.
+    const delayRoute = async (route) => {
       await new Promise((r) => setTimeout(r, indexDelay))
       // The context may already be closing if the run failed while the delay
       // timer was pending — don't let that rejection mask the real error.
       await route.continue().catch(() => {})
-    })
+    }
+    await page.route('**/events-index.ndjson', delayRoute)
+    await page.route('**/events-index.json', delayRoute)
 
     const response = await page.goto(url, { waitUntil: 'commit', timeout: 120_000 })
     if (!response || !response.ok()) {
@@ -133,13 +139,13 @@ async function profileOnce(browser, { url, cpu, indexDelay, settle }) {
     // --- settle: wait out the swap render, then snapshot long tasks --------
     await page.waitForFunction(() =>
       performance.getEntriesByType('resource')
-        .some((r) => /events-index\.json/.test(r.name) && !/events-index-soon/.test(r.name)),
+        .some((r) => /events-index\.(nd)?json/.test(r.name) && !/events-index-soon/.test(r.name)),
     { timeout: 120_000 })
     await page.waitForTimeout(settle)
 
     const snapshot = await page.evaluate(() => {
       const idx = performance.getEntriesByType('resource')
-        .find((r) => /events-index\.json/.test(r.name) && !/events-index-soon/.test(r.name))
+        .find((r) => /events-index\.(nd)?json/.test(r.name) && !/events-index-soon/.test(r.name))
       return { tasks: window.__longtasks || [], indexEnd: idx ? idx.responseEnd : null }
     })
     const durations = snapshot.tasks.map((t) => t.dur)
