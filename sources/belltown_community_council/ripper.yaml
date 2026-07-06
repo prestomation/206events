@@ -6,6 +6,7 @@ url: "https://public-api.wordpress.com/rest/v1.1/sites/belltown-cc.org/posts?num
 friendlyLink: https://belltown-cc.org/meetings/
 tags: ["Community", "Belltown"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Seattle_%28WA%2C_USA%29%2C_Belltown_--_2022_--_1650.jpg"
+skipEventPhotos: true # events link to generic meetings page, no per-event images
 geo: null
 calendars:
   - name: all-events
