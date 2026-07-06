@@ -10,6 +10,34 @@ A phased plan to raise the production Lighthouse **Performance score
 5. Reduce unused CSS
 6. Reduce unused JavaScript
 
+## Implementation status
+
+Shipped (in the PR that introduced this plan):
+
+- **Phase 1a** — `manifest.json` / `events-index-soon.json` preloads in
+  `web/index.html`; single-fetch contract pinned by `web/e2e/preload.spec.js`.
+- **Phase 1b** — build-time plugin in `web/vite.config.js` preloads the three
+  first-screen font weights (Inter 400/600, Inter Tight 700). The weight audit
+  found all nine imported weights in active use, so none were dropped.
+- **Phase 1c** — `HealthDashboard` is `React.lazy` in `redesign/App206.jsx`
+  (its dead import/state in `App.jsx` deleted); `fuse.js` is dynamic-imported
+  in both `App.jsx` (`perFilterMatches`) and the `searchClient.js` inline
+  fallback, and removed from `manualChunks.vendor`. Eager JS dropped
+  ~117 → ~101 KB gzip; `fuse` (6.6 KB gz) and `HealthDashboard` (7.5 KB gz)
+  are now async chunks. `dompurify` stays eager — `EventDescription` renders
+  in first-screen views.
+- **Phase 3a** — resolved by deletion: the `App.jsx` day-header scroll handler
+  turned out to be dead legacy code (`currentDayHeader` was write-only), so it
+  was removed rather than refactored.
+- **Phase 4 (budget)** — `scripts/check-bundle-budget.mjs` gates eager JS
+  (130 KB gzip) and CSS (25 KB gzip) in `web-e2e.yml` after the e2e build.
+
+Open: Phase 0 baseline snapshot doc, Phase 2a dead legacy CSS removal,
+Phase 2b async CSS (only if 2a insufficient), Phase 3b DayScrubber refactor,
+Phase 3c chip-measurement batching (its ResizeObserver already gates
+recomputes, so the win is marginal), and the Phase 4 Lighthouse assertion
+ratchet (wait until production holds ≥ 0.8).
+
 ## How this relates to prior perf work
 
 [`web-performance-plan.md`](./web-performance-plan.md) attacked **post-load

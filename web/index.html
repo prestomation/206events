@@ -10,6 +10,19 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="llms-txt" href="/llms.txt" />
+    <!-- The first render needs manifest.json (sidebar/channels) and
+         events-index-soon.json (near-term event cards), but the app only
+         requests them after the JS bundle downloads and executes. Preloading
+         lets them download in parallel with the JS instead of after it,
+         flattening the critical request chain (docs/lighthouse-performance-plan.md
+         Phase 1a). `crossorigin` matches fetch()'s default same-origin
+         credentials mode so the browser reuses the preload instead of
+         fetching twice — web/e2e/preload.spec.js asserts single-fetch.
+         The full corpus (events-index.ndjson) is deliberately NOT preloaded:
+         it's deferred behind the soon-subset paint and would compete with
+         the critical path for bandwidth. -->
+    <link rel="preload" href="./manifest.json" as="fetch" crossorigin />
+    <link rel="preload" href="./events-index-soon.json" as="fetch" crossorigin />
     <title>%CITY_SITE_NAME%</title>
     <!-- Pre-paint boot screen: styled inline so it appears on first paint,
          before the JS bundle parses and the app's CSS is applied. React's

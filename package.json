@@ -21,6 +21,7 @@
     "web:build": "cd web && vite build && cd .. && node scripts/inject-sw-assets.mjs",
     "web:preview": "cd web && vite preview",
     "build": "npm run generate-calendars && npm run web:build",
+    "check-bundle-budget": "node scripts/check-bundle-budget.mjs",
     "check-missing-urls": "tsx scripts/check-missing-urls.ts",
     "check-discovery-api": "tsx scripts/check-discovery-api.ts",
     "generate-outofband": "tsx scripts/generate-outofband.ts",
