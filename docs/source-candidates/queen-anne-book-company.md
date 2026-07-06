@@ -1,12 +1,12 @@
 ---
 name: "Queen Anne Book Company"
-status: candidate
+status: added
 platform: Custom HTML (Drupal / IndieCommerce events view)
 url: https://qabookco.com/events
 tags: [Books, QueenAnne]
 firstSeen: 2026-07-04
-lastChecked: 2026-07-04
-pr:
+lastChecked: 2026-07-06
+pr: 865
 ---
 
 Independent bookstore at 1811 Queen Anne Ave N, Seattle, WA 98109, beside
@@ -33,3 +33,10 @@ Investigated 2026-07-04:
   checked) since the list page doesn't expose lat/lng, only a printed
   address which matches the store itself for in-store events.
 - Not currently covered elsewhere in `sources/` or `sources/external/`.
+
+Implemented 2026-07-06 (PR #865): custom HTML ripper at
+`sources/queen_anne_book_company/`. The events list page alone had every
+field needed (title, date, time, printed address) — no per-event detail-page
+fetch was required. Verified 4 upcoming events locally with
+`ONLY_SOURCE=queen-anne-book-company`. `geo: null` at the ripper level
+(most events are off-site community promotions, not just in-store).

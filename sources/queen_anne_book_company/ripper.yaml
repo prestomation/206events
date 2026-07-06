@@ -1,0 +1,21 @@
+name: queen-anne-book-company
+sourceRole: venue
+description: "Queen Anne Book Company"
+url: "https://qabookco.com/events"
+friendlyLink: https://qabookco.com/events
+tags: ["Books", "QueenAnne"]
+# Most events are in-store, but roughly as many are off-site community events
+# the shop merely promotes (a neighborhood fun run, a partner store's book
+# launch), each printing its own address. A fixed ripper-level geo would
+# apply to every event lacking explicit coordinates (see attachEventCoords in
+# lib/calendar_ripper.ts) — which would silently mislocate an off-site event
+# at the store's address the moment its venue isn't in KNOWN_VENUE_COORDS.
+# geo: null instead sends every event through per-event Nominatim geocoding
+# (which already checks KNOWN_VENUE_COORDS first), so in-store events still
+# resolve for free once cached and off-site events get their own coordinates
+# — or a visible GeocodeError instead of a silent wrong pin.
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Queen Anne Book Company"
+    timezone: America/Los_Angeles
