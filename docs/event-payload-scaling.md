@@ -3,9 +3,10 @@
 **Status: analysis + proposal.** Measurements are reproducible with
 `node scripts/bench-event-payload.mjs` (defaults to downloading the live
 production index). Numbers below are from production data on 2026-07-06:
-**12,521 events, 11.05 MB raw** — up from 9.59 MB / 11,220 events in the
-June pass ([`web-performance-2026-06.md`](./web-performance-2026-06.md)),
-i.e. ~15% growth in one month. The question this document answers: **how
+**12,521 events, 11,052 KB (10.8 MB) raw** — up from 9,369 KB / 11,220
+events in the June pass
+([`web-performance-2026-06.md`](./web-performance-2026-06.md)), i.e. ~18%
+byte growth (+12% events) in one month. The question this document answers: **how
 does the event payload vertically scale to "all events into the future",
 and is a non-JSON / streaming format the way to get there?**
 
@@ -40,9 +41,9 @@ Sizes for the same 12,521 events across candidate encodings
 | NDJSON (one event per line) | 11,052 KB | 2,507 KB | **861 KB** |
 | JSON minus `description` | 6,601 KB | 1,084 KB | 435 KB |
 | Columnar JSON (struct-of-arrays) | 9,900 KB | 1,811 KB | 886 KB |
-| MessagePack (rows)¹ | 10,347 KB | 2,645 KB | 897 KB |
-| CBOR (rows)¹ | 9,222 KB | 2,540 KB | 871 KB |
-| MessagePack columnar + dict-encoded¹ | 8,060 KB | 1,814 KB | 897 KB |
+| MessagePack (rows)¹ | 10,347 KB | 2,628 KB | 897 KB |
+| CBOR (rows)¹ | 9,222 KB | 2,529 KB | 871 KB |
+| MessagePack columnar + dict-encoded¹ | 8,061 KB | 1,810 KB | 896 KB |
 
 ¹ optional section of the bench script (`npm i --no-save @msgpack/msgpack cbor-x`).
 
@@ -54,8 +55,8 @@ Full-corpus decode time (median of 7):
 | NDJSON split + per-line parse | 29 ms |
 | `JSON.parse`, no description | 17 ms |
 | Columnar parse + rehydrate to row objects | 31 ms |
-| MessagePack decode¹ | 61 ms |
-| CBOR decode (cbor-x)¹ | 44 ms |
+| MessagePack decode¹ | 67 ms |
+| CBOR decode (cbor-x)¹ | 32 ms |
 
 Two structural reasons, worth recording so this doesn't get re-litigated:
 
@@ -77,7 +78,8 @@ serialization.
 
 ## 2. Streaming: NDJSON costs nothing and changes the scaling class
 
-NDJSON (newline-delimited JSON) compresses to the byte-identical size,
+NDJSON (newline-delimited JSON) compresses to the same size (identical
+at KB granularity — raw, it's 2 bytes smaller than the array form),
 parses with the same native `JSON.parse` per line (+6 ms total overhead),
 and — unlike a JSON array — is **incrementally parseable**: the client can
 consume `fetch().body` through a `TextDecoderStream`, split on newlines,
@@ -94,6 +96,10 @@ Sort the file by start date and the prefix property does the windowing:
 | first 14 days | 4,847 | 451 KB | 205 KB |
 | first 30 days | 6,878 | 587 KB | 272 KB |
 | whole file | 12,521 | 861 KB | 435 KB |
+
+(Prefix sizes are each window compressed independently — an approximation
+of the true prefix-of-one-stream cost, accurate to within a brotli block
+boundary, i.e. a few KB at these sizes.)
 
 Compare with today's two-phase load (`events-index-soon.json` 127 KB br +
 full 861 KB br = 988 KB total, with the soon bytes re-downloaded inside
@@ -121,6 +127,11 @@ hand-back `structuredClone` costs about the same again):
 | 25,042 | 21.6 MB | 1.6 MB | 52 ms | 39 ms |
 | 50,084 | 43.3 MB | 3.2 MB | 123 ms | 87 ms |
 | 100,168 | 86.6 MB | 6.4 MB | 257 ms | 182 ms |
+
+(The synthetic corpus perturbs only `summary` per copy, so descriptions
+repeat across copies; because the corpus far exceeds brotli's match
+window the compressed sizes still scale essentially linearly, but treat
+the brotli column as a lower bound for a genuinely diverse corpus.)
 
 At 100k events the whole-file path is a 6.4 MB download and ~1 s of
 mobile parse + ~1 s of clone-back — per visit. The streaming path at

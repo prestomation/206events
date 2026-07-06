@@ -16,8 +16,8 @@
  * Usage:
  *   node scripts/bench-event-payload.mjs [path-or-url]
  *
- * Default input is https://206.events/events-index.json (downloaded to a
- * temp file). Pass a local path to re-run offline on a saved copy.
+ * Default input is https://206.events/events-index.json (fetched into
+ * memory). Pass a local path to re-run offline on a saved copy.
  *
  * Optional binary-format comparisons (MessagePack / CBOR) run only when the
  * packages are installed (`npm i --no-save @msgpack/msgpack cbor-x`); they
@@ -38,6 +38,7 @@ if (/^https?:\/\//.test(arg)) {
 }
 const events = JSON.parse(rawText);
 if (!Array.isArray(events)) throw new Error("input is not an array of events");
+if (events.length === 0) throw new Error("input contains no events");
 
 // -- helpers ------------------------------------------------------------
 // Index dates are js-joda toString() output: `2026-07-06T17:00:00-07:00[America/Los_Angeles]`
@@ -90,6 +91,22 @@ const withDescRef = sorted.map((e) => {
 const descRefBuf = ndjson(withDescRef);
 const descDictBuf = Buffer.from(JSON.stringify(descDict));
 
+console.log(`\n== 0. FIELD BYTE SHARES (raw, incl. key + separator overhead) ==`);
+{
+  const fieldBytes = {};
+  let total = 0;
+  for (const e of events) {
+    for (const [k, v] of Object.entries(e)) {
+      const b = Buffer.byteLength(JSON.stringify(v ?? null)) + k.length + 4; // `"k":` + `,`
+      fieldBytes[k] = (fieldBytes[k] ?? 0) + b;
+      total += b;
+    }
+  }
+  for (const [k, b] of Object.entries(fieldBytes).sort((a, b) => b[1] - a[1])) {
+    console.log(k.padEnd(18), `${(b / 1048576).toFixed(2)} MB`.padStart(9), `${((100 * b) / total).toFixed(1)}%`.padStart(7));
+  }
+}
+
 console.log(`\n== 1. SIZES (${events.length} events) ==`);
 console.log("".padEnd(40), "      raw", "     gzip", " brotli-9");
 sizeRow("JSON array (current, date-sorted)", jsonBuf);
@@ -101,22 +118,43 @@ sizeRow("NDJSON w/ description ref (core)", descRefBuf);
 sizeRow(`Description dictionary (${descDict.length} unique)`, descDictBuf);
 
 // optional binary formats
+const skipOrRethrow = (name, err) => {
+  if (err?.code !== "ERR_MODULE_NOT_FOUND") throw err;
+  console.log(`(${name} skipped — package not installed)`);
+};
+let mp = null;
+let cbor = null;
 try {
   const { encode: mpEncode, decode: mpDecode } = await import("@msgpack/msgpack");
   const mpBuf = Buffer.from(mpEncode(sorted));
   sizeRow("MessagePack (rows)", mpBuf);
-  globalThis.__mp = { mpBuf, mpDecode };
-} catch {
-  console.log("(MessagePack skipped — @msgpack/msgpack not installed)");
+  // columnar + dictionary-encoded columns: a best-case stand-in for
+  // Arrow-style binary layouts without pulling in the Arrow toolchain
+  const dictEncode = (arr) => {
+    const dict = [...new Set(arr)];
+    if (dict.length > arr.length / 4) return null; // not repetitive enough
+    const idx = new Map(dict.map((v, i) => [v, i]));
+    return { dict, codes: arr.map((v) => idx.get(v)) };
+  };
+  const colsDict = Object.fromEntries(
+    keys.map((k) => {
+      const d = dictEncode(cols[k]);
+      return [k, d ? { type: "dict", ...d } : { type: "plain", values: cols[k] }];
+    }),
+  );
+  sizeRow("MessagePack (columnar + dict)", Buffer.from(mpEncode(colsDict)));
+  mp = { mpBuf, mpDecode };
+} catch (err) {
+  skipOrRethrow("MessagePack (@msgpack/msgpack)", err);
 }
 try {
   const { Encoder } = await import("cbor-x");
   const enc = new Encoder({ structuredClone: false });
   const cborBuf = Buffer.from(enc.encode(sorted));
   sizeRow("CBOR (rows)", cborBuf);
-  globalThis.__cbor = { cborBuf, enc };
-} catch {
-  console.log("(CBOR skipped — cbor-x not installed)");
+  cbor = { cborBuf, enc };
+} catch (err) {
+  skipOrRethrow("CBOR (cbor-x)", err);
 }
 
 console.log("\n== 2. FULL-CORPUS DECODE TIME (median of 7; mobile ~3-5x slower) ==");
@@ -141,11 +179,16 @@ timeRow("columnar parse + rehydrate to rows", () => {
   }
   return out;
 });
-if (globalThis.__mp) timeRow("MessagePack decode", () => globalThis.__mp.mpDecode(globalThis.__mp.mpBuf));
-if (globalThis.__cbor) timeRow("CBOR decode", () => globalThis.__cbor.enc.decode(globalThis.__cbor.cborBuf));
+if (mp) timeRow("MessagePack decode", () => mp.mpDecode(mp.mpBuf));
+if (cbor) timeRow("CBOR decode", () => cbor.enc.decode(cbor.cborBuf));
 
 console.log("\n== 3. STREAMING: compressed prefix bytes to cover first K days (date-sorted NDJSON) ==");
+// Each prefix is compressed independently — an approximation of the true
+// prefix-of-one-stream cost (real streams differ by up to a brotli block
+// boundary / flush), good to a few KB at these sizes.
 const now = Date.now();
+const wholeBr = br(ndjsonBuf);
+const wholeNoDescBr = br(ndjsonNoDescBuf);
 for (const days of [2, 7, 14, 30]) {
   const cutoff = now + days * 86400e3;
   let idx = sorted.findIndex((e) => toMs(e.date) > cutoff);
@@ -154,8 +197,8 @@ for (const days of [2, 7, 14, 30]) {
   const prefixNoDesc = br(ndjson(noDesc.slice(0, idx)));
   console.log(
     `first ${String(days).padStart(2)}d: ${String(idx).padStart(5)} events |` +
-      ` br prefix ${kb(prefix)} of ${kb(br(ndjsonBuf))} |` +
-      ` no-desc ${kb(prefixNoDesc)} of ${kb(br(ndjsonNoDescBuf))}`,
+      ` br prefix ${kb(prefix)} of ${kb(wholeBr)} |` +
+      ` no-desc ${kb(prefixNoDesc)} of ${kb(wholeNoDescBr)}`,
   );
 }
 
