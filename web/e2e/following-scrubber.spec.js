@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
 // The Following feed carries the same Google-Photos-style day scrubber as the
@@ -50,8 +50,7 @@ function makeEvents(nDays = DAYS) {
 const json = (body) => ({ status: 200, contentType: 'application/json', body: JSON.stringify(body) })
 
 async function routeEvents(page, events) {
-  await page.route('**/events-index-soon.json', (route) => route.fulfill(json(events)))
-  await page.route('**/events-index.json', (route) => route.fulfill(json(events)))
+  await overrideEventsIndex(page, events)
 }
 
 // Start signed-out with the feed calendar already favorited (client-side

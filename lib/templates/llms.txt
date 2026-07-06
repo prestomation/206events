@@ -44,6 +44,21 @@ the canonical machine-readable view of everything the build publishes.
   `events-index.json` covering only the next ~9 days, with the `description`
   field omitted. The web UI loads this first for fast first paint, then the
   full index in the background. Prefer `events-index.json` for complete data.
+- [events-index.ndjson](/events-index.ndjson): the same events as
+  `events-index.json` as newline-delimited JSON, sorted by start date
+  ascending, with `description` replaced by `d` — an index into
+  `event-descriptions.json`. The first line is a metadata header
+  (`{"format":"events-stream/1","generated":...}`), not an event — skip
+  any line carrying a `format` field. Designed for streaming consumers:
+  parse line by line as bytes arrive; the near-term events are at the top
+  of the file. Prefer `events-index.json` unless you specifically want
+  the streaming/dictionary form.
+- [event-descriptions.json](/event-descriptions.json):
+  `{ generated, descriptions }` — unique description strings referenced
+  by the `d` field in `events-index.ndjson`
+  (`descriptions[event.d]`). Check that `generated` matches the stream
+  header before joining the two files; a mismatch means you fetched
+  files from two different builds.
 - [build-errors.json](/build-errors.json): machine-readable error report
   from the most recent build (per-source parse failures, external feed
   fetch failures, zero-event calendars).

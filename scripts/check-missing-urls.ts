@@ -197,6 +197,8 @@ async function main() {
     "manifest.json",
     "events-index.json",
     "events-index-soon.json",
+    "events-index.ndjson",
+    "event-descriptions.json",
     "build-errors.json",
     "geo-cache.json",
     "sitemap.xml",

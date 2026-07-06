@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
 // The "Report a problem" button on the event and venue (channel) detail pages
@@ -39,9 +39,7 @@ const reportEvents = [
 
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
-  const body = JSON.stringify(reportEvents)
-  await page.route('**/events-index-soon.json', (r) => r.fulfill({ status: 200, contentType: 'application/json', body }))
-  await page.route('**/events-index.json', (r) => r.fulfill({ status: 200, contentType: 'application/json', body }))
+  await overrideEventsIndex(page, reportEvents)
   // Worker reachable but feedback route not configured -> 503 -> GitHub hand-off.
   await page.route('**/feedback', (r) =>
     r.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"Feedback is not configured"}' }))
@@ -113,6 +111,9 @@ test('venue page: Report a problem pre-fills the source + template message', asy
   await screenshotStable(page, 'e2e/screenshots/report-modal-from-venue.png')
 
   await dialog.getByRole('button', { name: 'Send' }).click()
+  // The 503 hand-off is async (POST → fallback → window.open → close); the
+  // dialog closing is the signal that window.open has already fired.
+  await expect(dialog).toBeHidden()
   const opened = await page.evaluate(() => window.__opened)
   expect(opened).toHaveLength(1)
   const url = new URL(opened[0])

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { mockManifest } from './fixtures.js'
 
 // Red/green regression test for event-list scroll restoration.
@@ -52,14 +52,9 @@ const pageErrorsByPage = new WeakMap()
 
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
-  // Override the events feed with a list long enough to scroll. Re-registering
-  // the route takes precedence over the default two-event mock.
-  await page.route('**/events-index.json', (route) =>
-    route.fulfill({
-      status: 200,
-      contentType: 'application/json',
-      body: JSON.stringify(makeManyEvents(60)),
-    }))
+  // Override the events corpus with a list long enough to scroll.
+  // Re-registering the routes takes precedence over the default two-event mock.
+  await overrideEventsIndex(page, makeManyEvents(60))
 
   const pageErrors = []
   pageErrorsByPage.set(page, pageErrors)

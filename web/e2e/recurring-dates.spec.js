@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { mockRecurringEvents } from './fixtures.js'
 import { screenshotStable } from './screenshot.js'
 
@@ -11,12 +11,9 @@ import { screenshotStable } from './screenshot.js'
 
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
-  // Override both events routes with the recurring fixtures (kept out of the
+  // Override the events corpus with the recurring fixtures (kept out of the
   // shared mockEvents so other specs' counts are unaffected). Later route wins.
-  await page.route('**/events-index-soon.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(mockRecurringEvents) }))
-  await page.route('**/events-index.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(mockRecurringEvents) }))
+  await overrideEventsIndex(page, mockRecurringEvents)
 
   const pageErrors = []
   page.on('pageerror', (err) => pageErrors.push(err))

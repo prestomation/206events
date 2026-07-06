@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
 // Exercises event navigation + outbound-link affordances across the three
@@ -65,9 +65,7 @@ const navIcs = [
 
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
-  const body = JSON.stringify(navEvents)
-  await page.route('**/events-index-soon.json', (r) => r.fulfill({ status: 200, contentType: 'application/json', body }))
-  await page.route('**/events-index.json', (r) => r.fulfill({ status: 200, contentType: 'application/json', body }))
+  await overrideEventsIndex(page, navEvents)
   await page.route('**/*.ics', (r) => r.fulfill({ status: 200, contentType: 'text/calendar', body: navIcs }))
 
   const pageErrors = []

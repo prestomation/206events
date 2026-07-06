@@ -79,6 +79,10 @@ import {
   type CostEventInput,
   buildEventsIndexSoon,
   EVENTS_INDEX_SOON_WINDOW_DAYS,
+  filterPastIndexEvents,
+  PAST_EVENT_GRACE_HOURS,
+  buildEventsIndexStream,
+  toNdjson,
 } from "./discovery.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
@@ -1516,6 +1520,26 @@ END:VCALENDAR`;
     if (cal.sourceRole) roleByIcsUrl.set(`external-${cal.name}.ics`, cal.sourceRole);
   }
 
+  // Per-event past filter. The `calendarsWithFutureEvents` gate above is
+  // per-calendar — a calendar with one future event ships its entire history
+  // (measured: 740 stale rows on 2026-07-06, see docs/event-payload-scaling.md
+  // §4). Drop events that ended >24h ago before dedup/serialization; the grace
+  // window matches buildEventsIndexSoon's lower bound so still-ongoing and
+  // just-ended events are kept. Mutates in place so every downstream reader
+  // (dedup, stats, gap queues) sees the filtered corpus.
+  {
+    const upcoming = filterPastIndexEvents(eventsIndex, new Date());
+    const dropped = eventsIndex.length - upcoming.length;
+    if (dropped > 0) {
+      console.log(`Events index: dropped ${dropped} event(s) that ended >${PAST_EVENT_GRACE_HOURS}h ago`);
+      // Refill with a loop, not push(...upcoming) — spreading into arguments
+      // caps at the engine's max argument count, which a corpus of "all events
+      // into the future" could plausibly exceed.
+      eventsIndex.length = 0;
+      for (const event of upcoming) eventsIndex.push(event);
+    }
+  }
+
   const dedupResult = findDuplicates(eventsIndex, { resolved: resolutionsFromCache(duplicateCache), roleByIcsUrl });
   applyDuplicateMarks(dedupResult.groups);
   const duplicateCardsMerged = dedupResult.groups.reduce((n, g) => n + g.suppressed.length, 0);
@@ -1550,6 +1574,23 @@ END:VCALENDAR`;
     `Events index (soon, ${EVENTS_INDEX_SOON_WINDOW_DAYS}d): ${eventsIndexSoon.length} events, ${eventsIndexSoonSizeKB} KB`,
   );
   await writeFile("output/events-index-soon.json", eventsIndexSoonJson);
+
+  // Streaming payload pair (docs/event-payload-scaling.md §5 step 2): a
+  // date-sorted NDJSON stream the web UI consumes incrementally (first-week
+  // paint from a small prefix), with descriptions extracted to a lazily
+  // fetched dictionary (`d` = index into event-descriptions.json). The shared
+  // `generated` stamp lets the client reject a mixed-generation pair. The full
+  // events-index.json above remains the canonical discovery resource — the
+  // favorites Worker and LLM consumers read it unchanged.
+  const stream = buildEventsIndexStream(eventsIndex, new Date().toISOString());
+  const streamNdjson = toNdjson([stream.header, ...stream.events]);
+  const descriptionsJson = JSON.stringify(stream.dictionary);
+  console.log(
+    `Events index (stream): ${stream.events.length} events, ${(Buffer.byteLength(streamNdjson, "utf8") / 1024).toFixed(1)} KB` +
+    ` + ${stream.dictionary.descriptions.length} descriptions, ${(Buffer.byteLength(descriptionsJson, "utf8") / 1024).toFixed(1)} KB`,
+  );
+  await writeFile("output/events-index.ndjson", streamNdjson);
+  await writeFile("output/event-descriptions.json", descriptionsJson);
 
   // URL-entity gate. HTML entities (`&amp;`, `&#38;`, …) in any URL field are
   // always a bug: `new URL()` accepts them verbatim, so they would ship as

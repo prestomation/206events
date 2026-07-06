@@ -64,4 +64,87 @@ describe('createSearchClient (main-thread fallback)', () => {
     expect(keys.size).toBe(0)
     client.destroy()
   })
+
+  it('streams NDJSON chunks, delivering batches and indexing the full corpus', async () => {
+    const client = createSearchClient()
+    const ndjson = EVENTS.map(e => JSON.stringify(e)).join('\n') + '\n'
+    // Split mid-line to prove remainder handling across chunk boundaries.
+    const cut = ndjson.indexOf('Movie') + 3
+    const chunks = [ndjson.slice(0, cut), ndjson.slice(cut)]
+    const batches = []
+    const stream = client.stream(batch => batches.push(...batch))
+    for (const c of chunks) await stream.push(new TextEncoder().encode(c).buffer)
+    const { count, meta } = await stream.end()
+    expect(count).toBe(2)
+    expect(meta).toBeNull() // no header line in this fixture
+    expect(batches.map(e => e.summary)).toEqual(['Jazz Night', 'Movie Premiere'])
+    const keys = await client.search('premiere')
+    expect(keys.has(eventKey(EVENTS[1]))).toBe(true)
+    client.destroy()
+  })
+
+  it('parses a final line without a trailing newline', async () => {
+    const client = createSearchClient()
+    const ndjson = EVENTS.map(e => JSON.stringify(e)).join('\n') // no trailing \n
+    const batches = []
+    const stream = client.stream(batch => batches.push(...batch))
+    await stream.push(new TextEncoder().encode(ndjson).buffer)
+    expect((await stream.end()).count).toBe(2)
+    expect(batches).toHaveLength(2)
+    client.destroy()
+  })
+
+  it('recognizes the metadata header line, keeps it out of batches, and returns it from end()', async () => {
+    const client = createSearchClient()
+    const header = { format: 'events-stream/1', generated: '2026-01-01T00:00:00.000Z' }
+    const ndjson = [header, ...EVENTS].map(e => JSON.stringify(e)).join('\n') + '\n'
+    const batches = []
+    const stream = client.stream(batch => batches.push(...batch))
+    await stream.push(new TextEncoder().encode(ndjson).buffer)
+    const { count, meta } = await stream.end()
+    expect(count).toBe(2)
+    expect(meta).toEqual(header)
+    expect(batches.map(e => e.summary)).toEqual(['Jazz Night', 'Movie Premiere'])
+    client.destroy()
+  })
+
+  it('resolves an empty stream to a zero-event corpus', async () => {
+    const client = createSearchClient()
+    const stream = client.stream(() => {})
+    expect((await stream.end()).count).toBe(0)
+    client.destroy()
+  })
+
+  it('applyDescriptions attaches dictionary texts by d-ref and makes them searchable', async () => {
+    const client = createSearchClient()
+    const streamed = [
+      { summary: 'Jazz Night', location: 'Neumos', date: '2026-07-01T19:00-07:00', d: 0 },
+      { summary: 'Movie Premiere', location: 'SIFF', date: '2026-07-02T20:00-07:00' },
+    ]
+    const ndjson = streamed.map(e => JSON.stringify(e)).join('\n') + '\n'
+    const stream = client.stream(() => {})
+    await stream.push(new TextEncoder().encode(ndjson).buffer)
+    await stream.end()
+    // Not searchable before the dictionary lands…
+    expect((await client.search('saxophone')).size).toBe(0)
+    await client.applyDescriptions(['A night of saxophone standards'])
+    // …searchable after.
+    const keys = await client.search('saxophone')
+    expect(keys.has(eventKey(streamed[0]))).toBe(true)
+    expect(keys.has(eventKey(streamed[1]))).toBe(false)
+    client.destroy()
+  })
+
+  it('does not mutate the caller-visible batch objects when applying descriptions', async () => {
+    const client = createSearchClient()
+    const streamed = [{ summary: 'Jazz Night', date: '2026-07-01T19:00-07:00', d: 0 }]
+    const ndjson = streamed.map(e => JSON.stringify(e)).join('\n') + '\n'
+    const received = []
+    const stream = client.stream(batch => received.push(...batch))
+    await stream.push(new TextEncoder().encode(ndjson).buffer)
+    await stream.end()
+    await client.applyDescriptions(['Some text'])
+    expect(received[0].description).toBeUndefined()
+    client.destroy()
+  })
 })

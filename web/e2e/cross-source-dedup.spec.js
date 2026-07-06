@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { mockDuplicateEvents } from './fixtures.js'
 import { screenshotStable } from './screenshot.js'
 
@@ -11,10 +11,7 @@ import { screenshotStable } from './screenshot.js'
 
 test.beforeEach(async ({ page }) => {
   await installDataMocks(page)
-  await page.route('**/events-index-soon.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(mockDuplicateEvents) }))
-  await page.route('**/events-index.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(mockDuplicateEvents) }))
+  await overrideEventsIndex(page, mockDuplicateEvents)
 
   const pageErrors = []
   page.on('pageerror', (err) => pageErrors.push(err))
@@ -84,8 +81,7 @@ test('the map plots the canonical pin once and drops the suppressed duplicate', 
       duplicateGroupId: 'g1', duplicateOf: 'g1',
     },
   ]
-  await page.route('**/events-index.json', (route) =>
-    route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(fixture) }))
+  await overrideEventsIndex(page, fixture)
 
   await page.goto('/')
   const map = page.locator('.events-map-container:visible').first()

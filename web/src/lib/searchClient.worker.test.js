@@ -113,4 +113,100 @@ describe('createSearchClient (worker path, injected fake worker)', () => {
     await expect(inflight).rejects.toThrow()
     client.destroy()
   })
+
+  it('streams NDJSON chunks through the real handler: batches, count, and search', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const ndjson = EVENTS.map(e => JSON.stringify(e)).join('\n') + '\n'
+    // Cut mid-line so the worker's remainder buffering is exercised.
+    const cut = ndjson.indexOf('Indie') + 2
+    const batches = []
+    const stream = client.stream(batch => batches.push(...batch))
+    await stream.push(new TextEncoder().encode(ndjson.slice(0, cut)).buffer)
+    await stream.push(new TextEncoder().encode(ndjson.slice(cut)).buffer)
+    const { count } = await stream.end()
+    expect(count).toBe(2)
+    expect(batches.map(e => e.summary)).toEqual(['Jazz Night', 'Movie Premiere'])
+    const keys = await client.search('jazz')
+    expect(keys.has(eventKey(EVENTS[0]))).toBe(true)
+    client.destroy()
+  })
+
+  it('splits multi-byte UTF-8 across chunks without corruption', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const ev = { summary: 'Fiesta de Verano — Ballard', date: '2026-07-03T18:00-07:00' }
+    const bytes = new TextEncoder().encode(JSON.stringify(ev) + '\n')
+    // Split inside the em-dash's 3-byte sequence.
+    const dashByte = bytes.findIndex(b => b === 0xe2)
+    const batches = []
+    const stream = client.stream(batch => batches.push(...batch))
+    await stream.push(bytes.slice(0, dashByte + 1).buffer)
+    await stream.push(bytes.slice(dashByte + 1).buffer)
+    await stream.end()
+    expect(batches[0].summary).toBe('Fiesta de Verano — Ballard')
+    client.destroy()
+  })
+
+  it('rejects end() when the stream contains malformed NDJSON', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const stream = client.stream(() => {})
+    await stream.push(new TextEncoder().encode('{broken\n').buffer)
+    await expect(stream.end()).rejects.toThrow()
+    client.destroy()
+  })
+
+  it('parses the header line through the real worker handler and echoes it in streamDone', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const header = { format: 'events-stream/1', generated: '2026-01-01T00:00:00.000Z' }
+    const ndjson = [header, ...EVENTS].map(e => JSON.stringify(e)).join('\n') + '\n'
+    const batches = []
+    const stream = client.stream(batch => batches.push(...batch))
+    await stream.push(new TextEncoder().encode(ndjson).buffer)
+    const { count, meta } = await stream.end()
+    expect(count).toBe(2)
+    expect(meta).toEqual(header)
+    expect(batches).toHaveLength(2)
+    client.destroy()
+  })
+
+  it('treats an empty stream (no chunks) as a zero-event corpus, not an error', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const stream = client.stream(() => {})
+    const { count } = await stream.end()
+    expect(count).toBe(0)
+    // The engine was rebuilt over the empty corpus — search still resolves.
+    expect((await client.search('anything')).size).toBe(0)
+    client.destroy()
+  })
+
+  it('stops pumping chunks after a mid-stream parse error (no garbage re-index)', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const stream = client.stream(() => {})
+    await stream.push(new TextEncoder().encode('{broken\n').buffer)
+    // Wait for the rejection to reach the client (marked handled internally).
+    await expect(stream.end()).rejects.toThrow()
+    const postedBefore = fake.posted.length
+    await stream.push(new TextEncoder().encode(JSON.stringify(EVENTS[0]) + '\n').buffer)
+    expect(fake.posted.length).toBe(postedBefore) // push() short-circuited
+    client.destroy()
+  })
+
+  it('descriptions message enriches the worker corpus for search', async () => {
+    const fake = makeFakeWorker()
+    const client = createSearchClient({ workerFactory: () => fake })
+    const streamed = [{ summary: 'Jazz Night', date: '2026-07-01T19:00-07:00', d: 0 }]
+    const stream = client.stream(() => {})
+    await stream.push(new TextEncoder().encode(JSON.stringify(streamed[0]) + '\n').buffer)
+    await stream.end()
+    expect((await client.search('saxophone')).size).toBe(0)
+    await client.applyDescriptions(['A night of saxophone standards'])
+    const keys = await client.search('saxophone')
+    expect(keys.has(eventKey(streamed[0]))).toBe(true)
+    client.destroy()
+  })
 })

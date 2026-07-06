@@ -63,6 +63,34 @@ function mockFetch(url) {
 
 const clickNav = (label) => fireEvent.click(screen.getAllByText(label)[0].closest('button'))
 
+// mockFetch variant where the full index is served as the streaming NDJSON +
+// description-dictionary pair (docs/event-payload-scaling.md). The ndjson
+// response carries a minimal ReadableStream-shaped `body` so App's stream
+// reader loop runs for real; events reference descriptions by `d`.
+const STREAM_GEN = '2026-01-01T00:00:00.000Z'
+function streamingMockFetch(url) {
+  const u = String(url)
+  if (u.includes('events-index.ndjson')) {
+    const header = { format: 'events-stream/1', generated: STREAM_GEN }
+    const streamEvents = mockEvents.map(({ description, ...rest }, i) => ({ ...rest, d: i }))
+    const bytes = new TextEncoder().encode([header, ...streamEvents].map(e => JSON.stringify(e)).join('\n') + '\n')
+    // Two chunks so the remainder/boundary path is exercised in-app too.
+    const chunks = [bytes.slice(0, Math.floor(bytes.length / 2)), bytes.slice(Math.floor(bytes.length / 2))]
+    return Promise.resolve({
+      ok: true,
+      body: {
+        getReader: () => ({
+          read: async () => (chunks.length > 0 ? { done: false, value: chunks.shift() } : { done: true }),
+        }),
+      },
+    })
+  }
+  if (u.includes('event-descriptions.json')) {
+    return Promise.resolve({ ok: true, json: async () => ({ generated: STREAM_GEN, descriptions: mockEvents.map(e => e.description) }) })
+  }
+  return mockFetch(url)
+}
+
 describe('App206 redesign', () => {
   beforeEach(() => {
     localStorage.clear()
@@ -495,5 +523,45 @@ describe('Multiple favorites lists (signed-in)', () => {
     await waitFor(() => expect(screen.getByText(/Added .* to Date Night/)).toBeInTheDocument())
     const calls = global.fetch.mock.calls.map(c => String(c[0]))
     expect(calls.some(u => u.includes('/lists/date-night/favorites/'))).toBe(true)
+  })
+})
+
+describe('Streaming events index (NDJSON + description dictionary)', () => {
+  beforeEach(() => {
+    localStorage.clear()
+    window.location.hash = ''
+    global.fetch = vi.fn(streamingMockFetch)
+  })
+
+  it('renders events from the streamed corpus without touching the monolithic index', async () => {
+    render(<App />)
+    await waitFor(() => expect(screen.getByText('Neumos')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getAllByText('Jazz Night').length).toBeGreaterThan(0))
+    const calls = global.fetch.mock.calls.map(c => String(c[0]))
+    expect(calls.some(u => u.includes('events-index.ndjson'))).toBe(true)
+    // The fallback monolithic fetch must not fire when the stream succeeds.
+    expect(calls.some(u => /events-index\.json/.test(u))).toBe(false)
+  })
+
+  it('attaches dictionary descriptions so the parity search path sees them', async () => {
+    render(<App />)
+    await waitFor(() => expect(screen.getAllByText('Jazz Night').length).toBeGreaterThan(0))
+    // The dictionary fetch happens after the stream completes.
+    await waitFor(() => {
+      const calls = global.fetch.mock.calls.map(c => String(c[0]))
+      expect(calls.some(u => u.includes('event-descriptions.json'))).toBe(true)
+    })
+  })
+
+  it('falls back to the monolithic index when the stream 404s', async () => {
+    global.fetch = vi.fn((url) => {
+      const u = String(url)
+      if (u.includes('events-index.ndjson')) return Promise.resolve({ ok: false, status: 404 })
+      return mockFetch(url)
+    })
+    render(<App />)
+    await waitFor(() => expect(screen.getAllByText('Jazz Night').length).toBeGreaterThan(0))
+    const calls = global.fetch.mock.calls.map(c => String(c[0]))
+    expect(calls.some(u => /events-index\.json/.test(u))).toBe(true)
   })
 })

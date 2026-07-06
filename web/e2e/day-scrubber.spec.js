@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
 // Google-Photos-style day scrubber for the Discover "Events" list. A handle
@@ -56,8 +56,7 @@ async function gotoEvents(page) {
 }
 
 async function routeEvents(page, events) {
-  await page.route('**/events-index-soon.json', (route) => route.fulfill(json(events)))
-  await page.route('**/events-index.json', (route) => route.fulfill(json(events)))
+  await overrideEventsIndex(page, events)
 }
 
 test('the scrubber handle is a date slider on the events list', async ({ page }) => {

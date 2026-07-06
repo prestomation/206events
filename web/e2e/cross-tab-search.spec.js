@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { installDataMocks } from './mock-routes.js'
+import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
 // Discover has two segmented tabs — Calendars (venues) and Events — and a
@@ -74,9 +74,7 @@ test('A (mirror): an empty Events tab offers a CTA to the matching Calendars', a
   const eventsOnlySiff = [
     { icsUrl: 'test-ripper-cal2.ics', summary: 'Movie Premiere', description: 'A film', location: 'SIFF', date: new Date(Date.now() + 3 * 864e5).toISOString() },
   ]
-  const json = (body) => ({ status: 200, contentType: 'application/json', body: JSON.stringify(body) })
-  await page.route('**/events-index-soon.json', (route) => route.fulfill(json(eventsOnlySiff)))
-  await page.route('**/events-index.json', (route) => route.fulfill(json(eventsOnlySiff)))
+  await overrideEventsIndex(page, eventsOnlySiff)
 
   await page.goto('/')
   await expect(page.getByText('Neumos')).toBeVisible()
