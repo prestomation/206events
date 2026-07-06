@@ -1,7 +1,9 @@
 # Following-Tab Performance for Logged-In Users — Improvement Plan
 
-**Status: proposed** (plan only; fixes land as follow-up PRs, one commit per
-fix, each named against the metric it must move).
+**Status: implemented** (same PR as this plan: the measurement pass plus
+Fixes 1–3, one commit each. Fix 4 — the desktop feed-map deferral — remains
+deliberately deferred: it's gated on what the new `followingOpen` trend shows
+once Fixes 1–3 are on `main`, per its "measure first" note.)
 
 Reported symptom: the site is performant in general, but for a **logged-in
 user with a populated feed** (reported at 33 followed calendars, 1 geo
