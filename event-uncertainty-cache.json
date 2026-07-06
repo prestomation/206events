@@ -38139,6 +38139,206 @@
       "resolvedAt": "2026-07-06",
       "source": "agent",
       "reason": "TicketWeb 404 \u2014 event no longer listed, no image retrievable"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46740": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-mat-pilates-x46740",
+      "partialFingerprint": "ujm8x6"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-yoga-x46738": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-yoga-x46738",
+      "partialFingerprint": "17e3vil"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-zumba-x46739": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-zumba-x46739",
+      "partialFingerprint": "ujm8x6"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47698": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47698",
+      "partialFingerprint": "i6e5hj"
+    },
+    "discover-slu:discover-slu-public-sail-2026-2-2-2-2": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/public-sail-2026-2-2-2-2/",
+      "partialFingerprint": "lb6mqn"
+    },
+    "discover-slu:discover-slu-toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/toy-boat-building-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2-2/",
+      "partialFingerprint": "1enz7jm"
+    },
+    "discover-slu:discover-slu-wooden-boat-storytime-2026-2-2-2-2-2": {
+      "fields": {
+        "duration": 2700
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/wooden-boat-storytime-2026-2-2-2-2-2/",
+      "partialFingerprint": "zzkwyo"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-07-07-qabc-reads-murderland-caroline-fraser": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://qabookco.com/event/2026-07-07/qabc-reads-murderland-caroline-fraser",
+      "partialFingerprint": "99d29598"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-07-11-queen-anne-running-o-bulls": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Page gives start time only (\"Time: 12:00pm\"), no end time or duration published",
+      "partialFingerprint": "8027b7b3"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-07-18-queen-anne-helpline-run-home": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Page gives start time only (\"10:00am\"), no end time or duration published",
+      "partialFingerprint": "75365f8d"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47324": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Page gives creation-phase hours only (July 1-8, 9am-6pm daily); no public viewing hours listed for the July 9-19 display period this occurrence falls in",
+      "partialFingerprint": "16fn71q"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46342": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Page lists \"Time: All Day\" \u2014 self-guided outdoor walk with no specific start/end clock time",
+      "partialFingerprint": "16fn71q"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47325": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Page gives creation-phase hours only (July 1-8, 9am-6pm daily); no public viewing hours listed for the July 9-19 display period this occurrence falls in",
+      "partialFingerprint": "cjj69b"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46343": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Page lists \"Time: All Day\" \u2014 self-guided outdoor walk with no specific start/end clock time",
+      "partialFingerprint": "cjj69b"
+    },
+    "discover-slu:discover-slu-steamship-sunday-2026-2-2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Page lists two daily sailings (board 10:30/depart 11:00/return 12:00 and board 12:30/depart 13:00/return 14:00); cannot determine which sailing this occurrence represents",
+      "partialFingerprint": "f0hunu"
+    },
+    "seatoday:cityspark-17578780": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "CitySpark/6amcity embed page renders event details via client-side JS; cost not present in static HTML",
+      "partialFingerprint": "gei35p"
+    },
+    "seatoday:cityspark-18125951": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "CitySpark/6amcity embed page renders event details via client-side JS; cost not present in static HTML",
+      "partialFingerprint": "1fspl90"
+    },
+    "seatoday:cityspark-18793700": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "CitySpark/6amcity embed page renders event details via client-side JS; cost not present in static HTML",
+      "partialFingerprint": "1rjvde7"
+    },
+    "seatoday:cityspark-19056670": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "CitySpark/6amcity embed page renders event details via client-side JS; cost not present in static HTML",
+      "partialFingerprint": "18fsi6u"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqiIh2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns HTTP 403 to automated fetches",
+      "partialFingerprint": "8qg4mg"
+    },
+    "sam:free-first-thursday-seattle-asian-art-museum-oct-1-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/free-first-thursday-seattle-asian-art-museum-oct-1-26"
+    },
+    "northwest-film-forum:sfcs-10-mariners-2026-09-13": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-mariners/"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-07-18-launch-party-jessixa-bagleys-jazzy-witch-friend-fiasco-pure-art-co": {
+      "fields": {
+        "cost": {
+          "min": 14.99
+        }
+      },
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "evidence": "https://qabookco.com/event/2026-07-18/launch-party-jessixa-bagleys-jazzy-witch-friend-fiasco-pure-art-co"
+    },
+    "native_action_network:6a3095650216836ccc106f56": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Source page says \"More information coming soon!\" \u2014 pricing not yet published"
+    },
+    "sam:usa-game-pop-up-party-jul-6-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-06",
+      "source": "agent",
+      "reason": "Source page returns HTTP 403 to automated fetches"
     }
   }
 }

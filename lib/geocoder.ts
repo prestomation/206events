@@ -476,6 +476,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'meadowbrook community center': { lat: 47.7133, lng: -122.2989 },
   'mercury @ machinewerks': { lat: 47.5983, lng: -122.3237 },
   'mount vernon downtown association': { lat: 48.4206767, lng: -122.337333 },
+  'old stove brewery ship canal': { lat: 47.6521302, lng: -122.3645639 },
   'museum of flight': { lat: 47.5186, lng: -122.2967 },
   'neumos': { lat: 47.6134, lng: -122.3203 },
   'neumos & barboza': { lat: 47.6134, lng: -122.3203 },

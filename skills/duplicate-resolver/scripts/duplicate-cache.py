@@ -35,7 +35,10 @@ CACHE_FILENAME = "event-duplicate-cache.json"
 
 
 def fetch_json(url):
-    with urllib.request.urlopen(url) as resp:
+    # Cloudflare 403s urllib's default User-Agent from cloud sandboxes; send
+    # a browser-like one so this works there too.
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; 206events-skill/1.0)"})
+    with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read())
 
 
@@ -57,7 +60,10 @@ def load_cache(repo_root):
 def save_cache(repo_root, cache):
     path = cache_path(repo_root)
     with open(path, "w") as f:
-        json.dump(cache, f, indent=2)
+        # ensure_ascii=False: the committed file stores literal UTF-8 (curly
+        # quotes, em-dashes in event titles) — escaping them would rewrite
+        # every existing entry and blow up the diff.
+        json.dump(cache, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
 
