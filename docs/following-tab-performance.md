@@ -105,6 +105,23 @@ anonymous localStorage path exercises the identical `perFilterMatches` /
 Baseline both metrics on production data at 4× throttle before landing any
 fix; every fix below names the metric that must move.
 
+**First CI measurement** (this PR's preview, production corpus, 4×
+throttle, with Fixes 1–3 already in): **`followingOpen` 384 ms** — under
+the ~500 ms target, which keeps Fix 4 deferred — and **`personalizedSettle`
+5155 ms** vs the same run's anonymous `totalBlock` of 1132 ms. The Fuse
+storm itself is gone (14 main-thread scans × several passes would dwarf
+this number), but ~4 s of personalization-scaled main-thread work remains
+through boot. The prime suspect is the rest of the derivation cascade:
+`eventAttributions` and `followingGroups` still key on `eventsIndex`
+*identity*, so every 250 ms progressive stream flush recomputes a
+full-index attribution pass plus feed filter + dedup + regroup over a
+thousands-of-events feed (35 favorites + a 5 km geo fence match a lot of
+the corpus), each cascading a shell-wide context re-render. Extending the
+Fix 2 checkpoint gating to those two memos is the natural Fix 5 —
+follow-up, measured against `personalizedSettle`, with the trade-off that
+the Following feed would fill at checkpoints rather than per-flush during
+the initial stream.
+
 ## Staged fixes
 
 Ordered by leverage-per-risk.
