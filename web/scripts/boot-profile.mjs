@@ -65,10 +65,11 @@ export function median(values) {
   return s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2
 }
 
-// The seeded personalization profile (docs/following-tab-performance.md):
-// sized to the report that motivated the metrics — 33 calendars, 14 saved
-// searches, 1 geo fence. Search terms are common Seattle-calendar words so
-// they produce real match sets against the production corpus.
+// The seeded personalization profile (docs/following-tab-performance.md).
+// Sized to the report that motivated the metrics (33 calendars, 14 saved
+// searches, 1 geo fence) — favorites rounded up to a stable 35. Search terms
+// are common Seattle-calendar words so they produce real match sets against
+// the production corpus.
 export const SEED_SEARCHES = [
   'jazz', 'trivia', 'farmers market', 'comedy', 'punk', 'film festival',
   'beer', 'art walk', 'poetry', 'karaoke', 'drag', 'vinyl', 'soccer', 'book club',

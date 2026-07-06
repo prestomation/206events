@@ -1121,17 +1121,32 @@ function App() {
     }
     let cancelled = false
     setSavedSearchesPending(true)
-    Promise.all(filters.map((filter) =>
+    const attempt = () => Promise.all(filters.map((filter) =>
       searchClient.search(filter).then((keys) => [filter, keys || new Set()]),
-    )).then((entries) => {
+    ))
+    attempt().catch((err) => {
+      // A worker death rejects the whole in-flight batch, but by then
+      // searchClient has already swapped in its main-thread fallback engine
+      // (rejectAll in lib/searchClient.js) — one retry self-heals instead of
+      // stranding matching until the next corpus checkpoint (which, after the
+      // descriptions pass, never comes).
+      if (cancelled) throw err
+      return attempt()
+    }).then((entries) => {
       // A superseded run (newer checkpoint / filter edit) must not clobber the
       // newer run's result — its own effect instance owns the state now.
       if (cancelled) return
-      startTransition(() => setPerFilterMatches(new Map(entries)))
-      setSavedSearchesPending(false)
+      // Matches and the pending flag commit in the SAME transition: clearing
+      // pending at urgent priority would drop the "matching…" hint frames
+      // before the matched rows land — exactly the silent-partial-feed state
+      // the hint exists to prevent.
+      startTransition(() => {
+        setPerFilterMatches(new Map(entries))
+        setSavedSearchesPending(false)
+      })
     }).catch((err) => {
       if (cancelled) return
-      // Worker/chunk failure: keep whatever matches we had rather than letting
+      // Retry also failed: keep whatever matches we had rather than letting
       // an unhandled rejection kill saved-filter attribution silently.
       console.warn('saved search filters could not be matched:', err)
       setSavedSearchesPending(false)
@@ -1515,6 +1530,7 @@ function App() {
       toggleFavorite={toggleFavorite}
       searchFilters={searchFilters}
       savedSearchesPending={savedSearchesPending}
+      savedSearchesMatched={perFilterMatches.size > 0}
       addSearchFilter={addSearchFilter}
       removeSearchFilter={removeSearchFilter}
       geoFilters={geoFilters}
