@@ -31,7 +31,10 @@ export const METRICS = [
   // Seeded-personalization pass (docs/following-tab-performance.md): a
   // representative logged-in profile (35 favorites / 14 saved searches /
   // 1 geo filter) written to localStorage before boot.
-  { key: 'personalizedSettle', label: 'Personalized boot blocking', unit: 'ms', lowerIsBetter: true, noise: 300 },
+  // Noise band calibrated from its first same-code run pair (5155 → 6451 ms
+  // across a docs-only push): the metric sums long tasks over a ~5 s window,
+  // so runner variance alone swings it by >1 s — a ±300 band false-flags.
+  { key: 'personalizedSettle', label: 'Personalized boot blocking', unit: 'ms', lowerIsBetter: true, noise: 1500 },
   { key: 'followingOpen', label: 'Following tab open (seeded)', unit: 'ms', lowerIsBetter: true, noise: 150 },
 ]
 

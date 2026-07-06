@@ -57,7 +57,7 @@ Reported metrics (all lower-is-better, medians over `--runs`, default 3):
 | `mapOpen` | Tap Map (post-settle, first open) → Leaflet container painted (ms) | map chunk load + Leaflet init + marker pipeline over the full corpus | ±200 ms |
 | `mapReopen` | Tap Map a second time (after leaving the tab) → Leaflet painted (ms) | the recurring per-visit cost: leaving the tab unmounts Leaflet, so every re-entry pays init + marker pipeline again, chunk already cached | ±200 ms |
 | `youOpen` | Tap You from Discover (post-settle) → You heading painted (ms) | full-view teardown/mount on tab switch + the shell-wide re-render every section change causes | ±150 ms |
-| `personalizedSettle` | Sum of long-task time through settle with **seeded personalization** (ms) | main-thread cost that only exists for a logged-in profile — the saved-search matching storm (docs/following-tab-performance.md) | ±300 ms |
+| `personalizedSettle` | Sum of long-task time through settle with **seeded personalization** (ms) | main-thread cost that only exists for a logged-in profile — the saved-search matching storm (docs/following-tab-performance.md) | ±1500 ms |
 | `followingOpen` | Tap Following from Discover (post-settle, **seeded**) → Following heading painted (ms) | entering the tab with a populated feed: feed render + (desktop-class) shell re-render | ±150 ms |
 
 "Settle" = 12 s after the full-index response (enough for the swap render and
