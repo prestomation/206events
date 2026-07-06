@@ -44,6 +44,14 @@ function createInlineClient() {
   const engineReady = import('./searchEngine.js').then((m) => {
     createEngine = m.createSearchEngine
     rebuild()
+  }).catch((err) => {
+    // Chunk-load failure (offline mid-session, stale deploy). Degrade to a
+    // stub whose search() resolves null — the documented "no result" value
+    // callers already handle — instead of leaving every method rejecting
+    // forever (and firing an unhandled rejection at client creation).
+    console.warn('search engine failed to load; search inactive:', err)
+    createEngine = () => ({ search: () => null })
+    rebuild()
   })
   return {
     isWorker: false,

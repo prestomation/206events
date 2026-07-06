@@ -38,6 +38,14 @@ Phase 3c chip-measurement batching (its ResizeObserver already gates
 recomputes, so the win is marginal), and the Phase 4 Lighthouse assertion
 ratchet (wait until production holds ≥ 0.8).
 
+One follow-up verification from code review: the e2e suite runs with service
+workers blocked, so the preload single-fetch contract is proven SW-less. On
+production **repeat** visits the SW intercepts the preloaded data URLs
+(stale-while-revalidate); check once in production DevTools that the preload
+is matched across SW interception and doesn't add a duplicate revalidation
+request. Cold loads — the window Lighthouse scores — are unaffected either
+way.
+
 ## How this relates to prior perf work
 
 [`web-performance-plan.md`](./web-performance-plan.md) attacked **post-load

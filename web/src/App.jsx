@@ -1099,6 +1099,11 @@ function App() {
         result.set(filter, matches)
       }
       setPerFilterMatches(result)
+    }).catch((err) => {
+      // Chunk-load failure (offline mid-session, stale deploy where the old
+      // hashed fuse chunk is gone): leave the matches empty rather than
+      // letting an unhandled rejection kill saved-filter attribution silently.
+      console.warn('fuse.js failed to load; saved search filters inactive:', err)
     })
     return () => { cancelled = true }
   }, [searchFilters, eventsIndex])

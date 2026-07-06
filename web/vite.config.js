@@ -23,6 +23,12 @@ function goatcounterSnippet(code) {
     </script>`
 }
 
+// Resolved base path for the font-preload hrefs, captured in configResolved
+// (a closure var because Vite calls hooks with a plugin context as `this`,
+// not the plugin object). '/' today; kept base-aware for template copies
+// that might deploy under a subpath.
+let fontPreloadBase = '/'
+
 export default defineConfig({
   plugins: [
     react(),
@@ -52,6 +58,9 @@ export default defineConfig({
       // with the critical path, so only these three are listed.
       // See docs/lighthouse-performance-plan.md Phase 1b.
       name: 'preload-first-screen-fonts',
+      configResolved(config) {
+        fontPreloadBase = config.base || '/'
+      },
       transformIndexHtml: {
         order: 'post',
         handler(_html, ctx) {
@@ -68,7 +77,7 @@ export default defineConfig({
             })
             .map((name) => ({
               tag: 'link',
-              attrs: { rel: 'preload', href: `/${name}`, as: 'font', type: 'font/woff2', crossorigin: true },
+              attrs: { rel: 'preload', href: `${fontPreloadBase}${name}`, as: 'font', type: 'font/woff2', crossorigin: true },
               injectTo: 'head',
             }))
         },
