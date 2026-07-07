@@ -238,9 +238,11 @@ Bicycle Club, Seward Park Audubon, and `events12`). Their upcoming events
 7-day badge window) with no setting at any layer feed the non-fatal
 `settingGaps` queue in `build-errors.json` — **venue-first**: events sharing
 a venue key collapse into one venue gap, so the resolver classifies places,
-not occurrences. Per-event gaps exist only for events with no venue key at
-all. External ICS events have no stable per-event id, so mixed externals are
-classified purely at the venue layer. The queue is plumbed through all five
+not occurrences. Per-event gaps exist for events with no venue key at all,
+and for events whose venue is marked `unresolvable` ("genuinely mixed place —
+classify per-event"), which demotes them from the venue queue. External ICS
+events have no stable per-event id, so mixed externals are classified purely
+at the venue layer. The queue is plumbed through all five
 reporting surfaces (Reporting Parity) and drained by
 `skills/setting-resolver/SKILL.md`, which reads OSM feature tags
 (`leisure=park` → outdoor, `building=*` → indoor) as primary evidence and can

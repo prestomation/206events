@@ -2178,6 +2178,10 @@ END:VCALENDAR`;
       venueUnresolvable: venueLookup.kind === 'unresolvable',
     };
   };
+  // Note: this iterates live-ripped calendars only — a `weatherSetting:
+  // "mixed"` source that later moves to `proxy: "outofband"` would need its
+  // gap inputs derived from the index rows instead (like the externals loop
+  // below). No mixed source is outofband today.
   for (const calendar of allCalendars) {
     if (calendar.parent?.weatherSetting !== 'mixed') continue;
     const icsUrl = `${calendar.parent.name}-${calendar.name}.ics`;
