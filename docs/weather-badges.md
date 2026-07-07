@@ -109,7 +109,11 @@ Route the request through the existing fetch cache (`withCache` /
   window. Including the UTC date (e.g. `&_day=2026-07-07`) in the request URL
   gives a fresh fetch on the first build of each day and cache hits for the
   rest — aligned with the daily cron. (Alternative: a per-call TTL override in
-  `withCache`; the URL bucket avoids touching cache infrastructure.)
+  `withCache`; the URL bucket avoids touching cache infrastructure.) One
+  nuance: PR-preview builds never *save* the cache, so if the first builds of
+  a UTC day are previews, each repeats the live fetch until a `main` build
+  saves the day's entry — still one request per build, trivially within
+  budget.
 
 Worst-case staleness is therefore ~24h + build interval. That is acceptable
 **only because** the badge displays its as-of time and the client suppresses
@@ -145,8 +149,8 @@ came from is invisible to it).
 ```jsonc
 // present only on badge-eligible events (outdoor + starts within 7 days)
 "weather": {
-  "hiF": 74,            // max temp over the event window, display units per city config
-  "loF": 61,            // min temp over the event window
+  "hi": 74,             // max temp over the event window (display units per city config — unit-neutral keys so °C template cities aren't shipping Celsius in a key named "F")
+  "lo": 61,             // min temp over the event window
   "pop": 30,            // max precipitation probability (%) over the window
   "code": 3,            // dominant WMO weather code over the window (icon lookup)
   "asOf": "2026-07-07T00:14:00Z",  // forecast fetch time
@@ -205,7 +209,7 @@ Open-Meteo will happily return numbers, but showing them would be exactly the
 
 Aggregate the hourly series from event start to `min(end, start + 6h)` (cap so
 an all-day festival doesn't average in overnight hours): `pop` = max hourly
-precipitation probability, `hiF`/`loF` = temp extremes, `code` = the
+precipitation probability, `hi`/`lo` = temp extremes, `code` = the
 worst-weather WMO code in the window (precipitation codes outrank cloud codes
 outrank clear — a picnic that's sunny at 2pm and thundery at 4pm badges as
 thunder). Pure function, heavily unit-tested against a fixture
@@ -218,7 +222,7 @@ as a static tier on the badge:
 
 | Lead time to event start | `conf` | Presentation |
 |---|---|---|
-| ≤ 48h | `high` | full badge (icon + temp + PoP when ≥ 20%) |
+| < 72h | `high` | full badge (icon + temp + PoP when ≥ 20%) |
 | 3–5 days | `medium` | full badge; popup notes "outlook — check closer to the date" |
 | 6–7 days | `low` | tempered badge (icon + temp only, PoP shown as wording: "rain possible"); popup states low confidence explicitly |
 
@@ -258,6 +262,11 @@ Two presentation options considered:
   the feature exists.
 - Badge only **notable** weather (PoP ≥ 40%, temp ≤ 40°F / ≥ 90°F, snow,
   strong wind) — less visual noise on dense list rows.
+
+(Note: this 40% *notability* threshold is a different knob from the 20%
+*display* threshold in the confidence-tier table — the latter decides when a
+PoP number is worth printing on a badge, the former whether weather is
+attention-worthy at all.)
 
 **Recommendation:** compact icon-only badge on list rows for all eligible
 events, full badge (icon + temp + PoP) on the event detail view. Revisit after
