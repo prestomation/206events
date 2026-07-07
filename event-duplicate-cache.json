@@ -6294,6 +6294,21 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-07",
       "note": "Different venues: Stoup Ballard (1108 NW 52nd St) vs Stoup Capitol Hill (1158 Broadway) - separate trivia events on the same night at different locations"
+    },
+    "external-seafair.ics Kent Cornucopia Days|2026-07-11T10:00:00Z[UTC]::seatoday-seatoday-all.ics Kent Cornucopia Days Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same festival street-fair component; seafair.org page confirms Kent Cornucopia Days includes a street fair on 7/11 in downtown Kent, seatoday's specific address is within the same festival footprint as seafair's general festival address."
+    },
+    "external-seafair.ics Kent Cornucopia Days|2026-07-11T10:00:00Z[UTC]::seatoday-seatoday-arts.ics Kent Cornucopia Days Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same festival street-fair component as external-seafair.ics; seatoday-seatoday-arts is a category sub-feed of the same seatoday event."
+    },
+    "external-seafair.ics Kent Cornucopia Days|2026-07-11T10:00:00Z[UTC]::seatoday-seatoday-community.ics Kent Cornucopia Days Street Fair|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same festival street-fair component as external-seafair.ics; seatoday-seatoday-community is a category sub-feed of the same seatoday event."
     }
   }
 }

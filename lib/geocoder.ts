@@ -693,6 +693,33 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   '1483 alaskan way pier 59, seattle, wa 98101': { lat: 47.6076, lng: -122.3432 },
   '1620 12th ave (12th ave arts building)': { lat: 47.6157, lng: -122.3167 },
   'b612 gallery: pioneer square, 1915 1st ave south': { lat: 47.5855, lng: -122.3345 },
+
+  // --- 2026-07-07 geo-resolver batch: "has street address" unresolvable entries ---
+  // Nominatim fails on the raw source strings (unit/suite suffixes, duplicated
+  // address text, trailing "and <second address>"); forward-geocoded the clean
+  // address via Nominatim and keyed on the shared prefix so messy suffixes
+  // still prefix-match.
+  '3131 western ave': { lat: 47.6183937, lng: -122.3573615 }, // Seattle, WA 98121
+  '601 union st': { lat: 47.6099437, lng: -122.3325277 }, // Seattle, WA 98101
+  '9zero climate innovation hub': { lat: 47.6074818, lng: -122.3348689 }, // 1215 4th Ave, Seattle
+  'tower 1201': { lat: 47.6071707, lng: -122.3360996 }, // 1201 3rd Ave, Seattle
+  '4316 sw othello st': { lat: 47.5384463, lng: -122.3882400 }, // Delridge, Seattle
+  '2050 s jackson st, seattle, wa 98144': { lat: 47.5993421, lng: -122.3055056 }, // Central District
+  '2446 nw market st.': { lat: 47.6688337, lng: -122.3896468 }, // Ballard
+  '12501 28th ave.': { lat: 47.7197568, lng: -122.2981467 }, // Lake City
+  '15835 ne 36th st': { lat: 47.6413003, lng: -122.1291602 }, // Microsoft Redmond East Campus
+  '5020 148th ave ne': { lat: 47.6528889, lng: -122.1422261 }, // Microsoft Redmond Woods
+  '411 108th ave ne, bellevue': { lat: 47.6141268, lng: -122.1966928 },
+  '18220 campus way ne, bothell': { lat: 47.7599575, lng: -122.1902704 }, // UW Bothell ARC
+  '3711 196th street sw, lynnwood': { lat: 47.8214542, lng: -122.2837643 }, // Lynnwood Event Center
+  'downtown port townsend, wa': { lat: 48.1179702, lng: -122.7695440 }, // city centroid
+  'hillman city business district': { lat: 47.5524351, lng: -122.2749152 },
+  'the square at u district station': { lat: 47.6604917, lng: -122.3141330 },
+  // Seattle City Hall — additional room/floor suffix variant of the existing
+  // 'council chambers, 600 4th ave., floor, seattle, wa' entry above. Exact
+  // match only (not a prefix) so it doesn't hijack unrelated "600 4th Ave,
+  // Seattle, WA 98104" addresses that should still geocode normally.
+  '600 4th ave, floor l2, rm 280': { lat: 47.6038904, lng: -122.3300986 },
 };
 
 /**
