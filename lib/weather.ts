@@ -20,6 +20,7 @@
 
 import type { FetchFn } from "./config/proxy-fetch.js";
 import { keyFor, getFetchCache, lookupAnyEntry } from "./fetch-cache.js";
+import { PAST_EVENT_GRACE_HOURS } from "./discovery.js";
 
 /** Channel tag that opts a source's events into weather badges. */
 export const OUTDOORS_TAG = "Outdoors";
@@ -245,7 +246,9 @@ function utcDate(ms: number): string {
 }
 
 export interface WeatherBadgeResult {
-  /** Badge-eligible events (outdoor channel, coords, within the window). */
+  /** Events selected for badging (outdoor channel, coords, within the
+   *  window). Excludes rows refused at the MAX_WEATHER_CELLS cap, which are
+   *  logged separately. */
   eligible: number;
   /** Events that actually received a `weather` field. */
   badged: number;
@@ -274,9 +277,9 @@ export async function applyWeatherBadges(
 ): Promise<WeatherBadgeResult | null> {
   try {
     const windowMs = WEATHER_WINDOW_DAYS * 24 * 3_600_000;
-    // Match the index's own past-event grace (PAST_EVENT_GRACE_HOURS): an
-    // event that ended within the last day is still displayed, so badge it.
-    const graceMs = 24 * 3_600_000;
+    // Match the index's own past-event grace: an event that ended within the
+    // last day is still displayed, so badge it.
+    const graceMs = PAST_EVENT_GRACE_HOURS * 3_600_000;
 
     const eligible: Array<{ row: WeatherIndexRow; cellKey: string; startMs: number; endMs: number }> = [];
     const cellKeys = new Set<string>();

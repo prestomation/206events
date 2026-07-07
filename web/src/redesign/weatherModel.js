@@ -51,7 +51,9 @@ export function weatherView(event, nowMs = Date.now()) {
   if (ageHours > WEATHER_HIDE_AFTER_HOURS) return null
 
   const { emoji, label } = codeIcon(w.code)
-  const conf = w.conf === 'medium' || w.conf === 'low' ? w.conf : 'high'
+  // Fail safe: an unrecognized tier renders as low, never with the full
+  // visual authority of a verified near-term forecast.
+  const conf = w.conf === 'high' || w.conf === 'medium' || w.conf === 'low' ? w.conf : 'low'
   const pop = typeof w.pop === 'number' ? w.pop : 0
   const showPop = pop >= POP_DISPLAY_THRESHOLD
 

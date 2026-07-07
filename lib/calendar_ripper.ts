@@ -1464,6 +1464,46 @@ END:VCALENDAR`;
     }
   }
 
+  // Weather badges for outdoor events (docs/weather-badges.md). One batched
+  // Open-Meteo request through the shared fetch cache stamps a compact
+  // `weather` field onto events from `Outdoors`-tagged channels starting
+  // within the badge window. Runs after the index is fully assembled (rippers
+  // + external + recurring + outofband) so every eligible row is covered, but
+  // MUST run before saveFetchCache below — the forecast's cache entry has to
+  // land in the persisted blob or the once-per-day throttle and the
+  // stale-serve fallback never engage. Never fails the build — badge absence
+  // is the designed degraded state.
+  {
+    const outdoorIcsUrls = new Set<string>();
+    for (const ripper of manifest.rippers) {
+      for (const cal of ripper.calendars) {
+        if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
+      }
+    }
+    for (const cal of manifest.recurringCalendars) {
+      if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
+    }
+    for (const cal of manifest.externalCalendars) {
+      if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
+    }
+    if (outdoorIcsUrls.size > 0) {
+      const weatherResult = await applyWeatherBadges(eventsIndex, {
+        isOutdoorChannel: icsUrl => outdoorIcsUrls.has(icsUrl),
+        fetchFn: getFetchForConfig({ proxy: false }),
+        nowMs: Date.now(),
+        temperatureUnit: CITY.weather.temperatureUnit,
+      });
+      if (weatherResult) {
+        console.log(
+          `Weather badges: ${weatherResult.badged}/${weatherResult.eligible} outdoor event(s) badged ` +
+          `across ${weatherResult.cells} forecast cell(s)`,
+        );
+      } else {
+        console.log("Weather badges: none applied (no eligible events or forecast unavailable)");
+      }
+    }
+  }
+
   // Save updated geo-cache
   await saveGeoCache(geoCache, 'geo-cache.json');
 
@@ -1551,43 +1591,6 @@ END:VCALENDAR`;
     `Cross-source dedup: ${dedupResult.groups.length} group(s) merging ${duplicateCardsMerged} duplicate(s); ` +
     `${dedupResult.candidates.length} candidate(s) pending review`,
   );
-
-  // Weather badges for outdoor events (docs/weather-badges.md). One batched
-  // Open-Meteo request through the shared fetch cache stamps a compact
-  // `weather` field onto events from `Outdoors`-tagged channels starting
-  // within the badge window. Runs after the index is fully assembled (rippers
-  // + external + recurring + outofband) so every eligible row is covered, and
-  // never fails the build — badge absence is the designed degraded state.
-  {
-    const outdoorIcsUrls = new Set<string>();
-    for (const ripper of manifest.rippers) {
-      for (const cal of ripper.calendars) {
-        if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
-      }
-    }
-    for (const cal of manifest.recurringCalendars) {
-      if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
-    }
-    for (const cal of manifest.externalCalendars) {
-      if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
-    }
-    if (outdoorIcsUrls.size > 0) {
-      const weatherResult = await applyWeatherBadges(eventsIndex, {
-        isOutdoorChannel: icsUrl => outdoorIcsUrls.has(icsUrl),
-        fetchFn: getFetchForConfig({ proxy: false }),
-        nowMs: Date.now(),
-        temperatureUnit: CITY.weather.temperatureUnit,
-      });
-      if (weatherResult) {
-        console.log(
-          `Weather badges: ${weatherResult.badged}/${weatherResult.eligible} outdoor event(s) badged ` +
-          `across ${weatherResult.cells} forecast cell(s)`,
-        );
-      } else {
-        console.log("Weather badges: none applied (no eligible events or forecast unavailable)");
-      }
-    }
-  }
 
   const eventsIndexJson = JSON.stringify(eventsIndex);
   const eventsIndexSizeKB = (Buffer.byteLength(eventsIndexJson, "utf8") / 1024).toFixed(1);

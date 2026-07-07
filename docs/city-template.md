@@ -106,7 +106,14 @@ this file is the template's primary UX surface.
 | `map.clampBounds` | Metro-extent box that rejects far-flung outliers from the default map fit | Metro/county extent |
 | `venueSanityBbox` | CI sanity check on venue coordinates (`scripts/check-discovery-api.ts`) | Generous regional box |
 | `neighborhoods` | `TAG_CATEGORIES['Neighborhoods']` in `lib/config/tags.ts` — drives the sidebar grouping and neighborhood filters | The city's neighborhood tag list (grows over time) |
+| `weather` | Display unit for weather badges on outdoor events (`lib/weather.ts`, `docs/weather-badges.md`); Open-Meteo serves either natively | `{ temperatureUnit: "fahrenheit" \| "celsius" }` |
 | `analytics` | GoatCounter snippet injection at web build time; `null` disables analytics entirely (the template default after init) | `{ goatcounterCode }` or `null` |
+
+> **Migration note (weather badges):** `weather` is a required key. An
+> existing template copy pulling in the weather-badges engine change must add
+> `weather: { temperatureUnit: "fahrenheit" }` (or `"celsius"`) to its
+> `city.config.ts` — the build fails schema validation with a readable error
+> until it does. Fresh `init-city` runs emit the field automatically.
 
 ## Phase 1: central config (implemented in this PR)
 

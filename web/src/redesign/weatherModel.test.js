@@ -54,6 +54,12 @@ describe('weatherView', () => {
     expect(dead).toBeNull()
   })
 
+  it('fails safe: an unrecognized confidence tier renders as low', () => {
+    const v = weatherView(event({ hi: 55, lo: 50, pop: 60, code: 61, asOf: freshAsOf(), conf: 'certain!!' }), NOW)
+    expect(v.conf).toBe('low')
+    expect(v.badgeText).toBe('55° · rain possible')
+  })
+
   it('maps notable WMO codes to distinct icons', () => {
     const iconFor = (code) => weatherView(event({ hi: 70, lo: 60, pop: 0, code, asOf: freshAsOf(), conf: 'high' }), NOW).emoji
     expect(iconFor(95)).toBe('⛈️')
