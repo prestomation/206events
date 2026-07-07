@@ -6239,6 +6239,61 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-06",
       "note": "Same title, same time, same URL (ischool.uw.edu/programs/informatics), both listed as Zoom — two UW feeds republishing the same info session."
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-07-13T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-07-13T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-07",
+      "note": "Different events at same venue: board game night (18:30, Queer Social Club) vs trivia night (19:30, Head in the Clouds)"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-07-13T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-13T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same Head in the Clouds trivia event at Stoup Ballard, same time and location, just different calendar feeds"
+    },
+    "seatoday-seatoday-all.ics Holistic Gardening Workshop|2026-07-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Holistic Gardening Workshop|2026-07-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same event in different seatoday sub-calendars (all + learning), identical URL and location"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-20T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-20T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same event in different seatoday sub-calendars (all + community), identical URL and location"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-20T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-20T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same event in different seatoday sub-calendars (all + sports), identical URL and location"
+    },
+    "seatoday-seatoday-all.ics Low Tide Beach Exploration|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Low Tide Beach Exploration|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same event in different seatoday sub-calendars (all + learning), identical URL and location"
+    },
+    "seatoday-seatoday-all.ics Low Tide Beach Exploration|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Low Tide Beach Exploration|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same event in different seatoday sub-calendars (all + sports), identical URL and location"
+    },
+    "seatoday-seatoday-all.ics Rise Up Academy 15th Annual Celebrity Golf Classic|2026-07-20T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Rise Up Academy 15th Annual Celebrity Golf Classic|2026-07-20T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same event in different seatoday sub-calendars (all + sports), identical URL and location"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-20T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-20T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same event in different seatoday sub-calendars (community + sports), identical URL and location"
+    },
+    "seatoday-seatoday-learning.ics Low Tide Beach Exploration|2026-07-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Low Tide Beach Exploration|2026-07-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-07",
+      "note": "Same event in different seatoday sub-calendars (learning + sports), identical URL and location"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-03-01T19:30:00-08:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-03-01T19:30:00-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-07",
+      "note": "Different venues: Stoup Ballard (1108 NW 52nd St) vs Stoup Capitol Hill (1158 Broadway) - separate trivia events on the same night at different locations"
     }
   }
 }
