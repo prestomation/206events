@@ -1,0 +1,13 @@
+name: disability-empowerment-center
+sourceRole: venue
+type: squarespace
+description: "Disability Empowerment Center"
+url: "https://www.disabilityempowerment.org/events"
+friendlyLink: https://www.disabilityempowerment.org/events
+tags: ["Community"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/61731823ce3986525a0e6806/18c3185c-9a24-4a78-b711-488add003db6/DisabilityEmpowermentCenter_Logo_FullColor.png"
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Disability Empowerment Center"
+    timezone: America/Los_Angeles
