@@ -1,11 +1,12 @@
 ---
 name: "Disability Empowerment Center"
-status: candidate
+status: added
+pr: 873
 platform: Squarespace
 url: https://www.disabilityempowerment.org/events
 tags: [Community]
 firstSeen: 2026-07-06
-lastChecked: 2026-07-06
+lastChecked: 2026-07-07
 ---
 
 Seattle-based nonprofit (formerly Northwest Center's Center for Independence)
@@ -31,3 +32,7 @@ Investigated 2026-07-06:
   per-event locations before implementing
 - 🔥 High confidence — built-in `squarespace` type, verified `itemCount > 0`
   via raw JSON
+
+Implemented 2026-07-07 in PR #873: `sources/disability_empowerment_center/ripper.yaml`,
+`sourceRole: venue`, `geo: null`. Verified 9 upcoming events, 0 parse errors via
+`ONLY_SOURCE=disability-empowerment-center npm run generate-calendars`.
