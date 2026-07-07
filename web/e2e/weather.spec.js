@@ -5,7 +5,8 @@ import { screenshotStable } from './screenshot.js'
 
 // Verifies the weather badge for outdoor events (docs/weather-badges.md):
 // compact glyph on list rows, full chip on the event detail hero, popup with
-// confidence/as-of/attribution receipts, low-confidence tempering ("rain
+// confidence/as-of receipts (attribution lives once on the You tab, asserted
+// in its own test), low-confidence tempering ("rain
 // possible" instead of a percentage), and the client-side staleness guard
 // (a forecast older than the hide threshold renders no badge at all). Also
 // captures committed screenshots (per AGENTS.md "UI Changes" rule).
