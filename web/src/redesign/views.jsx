@@ -731,6 +731,14 @@ export function YouView() {
           <span style={{ width: 16, height: 16 }}>{Ico.spark}</span>Site health
         </button>
       </div>
+
+      {/* Data credits. Weather attribution lives here once (Open-Meteo data is
+          CC-BY 4.0) instead of cluttering every badge popup; the link is a
+          user-initiated navigation, not an embed, so it's privacy-clean. */}
+      <p style={{ marginTop: 14, fontSize: 12.5, color: 'var(--ink-4)' }}>
+        Weather forecasts by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer"
+          style={{ color: 'inherit' }}>Open-Meteo</a>.
+      </p>
     </div>
   )
 }

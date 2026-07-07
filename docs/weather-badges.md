@@ -66,7 +66,7 @@ uncertainty system — never publish a guess that looks like a fact.
 
 | Option | Key? | Coverage | Horizon | Confidence signal | Notes |
 |---|---|---|---|---|---|
-| **Open-Meteo** (recommended) | none | global | hourly, up to 16 days | `precipitation_probability` per hour; separate **ensemble API** (multi-member spread) available later | Free for non-commercial use (10k calls/day — we need ~1/build). Single call, batched multi-location. Requires attribution (CC-BY 4.0 data) — add "Weather by Open-Meteo" to the badge popup. |
+| **Open-Meteo** (recommended) | none | global | hourly, up to 16 days | `precipitation_probability` per hour; separate **ensemble API** (multi-member spread) available later | Free for non-commercial use (10k calls/day — we need ~1/build). Single call, batched multi-location. Requires attribution (CC-BY 4.0 data) — a single "Weather forecasts by Open-Meteo" credit on the You tab (not in every badge popup, which would be noisy). |
 | NWS `api.weather.gov` | none (User-Agent header required) | US only | hourly, ~7 days | PoP per period | Authoritative US source, public domain (no attribution). Two-step dance per location (`/points` → `/gridpoints/{wfo}/{x},{y}/forecast/hourly`), one request per gridpoint, known flakiness, and **breaks the city template** for any non-US copy. |
 | OpenWeatherMap / Pirate Weather / Tomorrow.io | API key | global | varies | varies | Needs a repo secret + `.env.example` + workflow wiring for no benefit over the keyless options. Rejected. |
 
@@ -240,7 +240,7 @@ Two things make this honest rather than decorative:
 1. **PoP is already a probability** — always render it as "30% chance of
    rain", never "rain". The badge never asserts weather; it reports odds.
 2. **The popup carries the receipts**: as-of timestamp, lead time, confidence
-   tier, and provider attribution. Copy the `UncertaintyBadge` popup pattern
+   tier. Copy the `UncertaintyBadge` popup pattern
    (`web/src/redesign/atoms.jsx`) so the interaction is consistent with how
    the site already discloses uncertain start times.
 
@@ -323,7 +323,7 @@ proper non-fatal counter — and pay the full reporting-parity cost in that PR.
 4. **Web UI** — `WeatherBadge` atom modeled on `UncertaintyBadge` (compact
    mark on list rows, full chip + popup on detail); WMO-code → icon map
    (self-hosted glyphs/emoji — no third-party icon CDN, per privacy rules);
-   staleness guard; Open-Meteo attribution in the popup. Playwright spec in
+   staleness guard; a single Open-Meteo credit on the You tab. Playwright spec in
    `web/e2e/weather.spec.js` with mocked index fixtures covering each
    confidence tier + the staleness-suppression path, and committed screenshots
    embedded in the PR body.

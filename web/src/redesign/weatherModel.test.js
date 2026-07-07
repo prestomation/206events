@@ -25,8 +25,9 @@ describe('weatherView', () => {
     expect(v.emoji).toBe('☀️')
     expect(v.badgeText).toBe('74°')
     expect(v.conf).toBe('high')
-    expect(v.explanation).toContain('Open-Meteo')
     expect(v.explanation).toContain('61–74°')
+    // Attribution lives once on the You tab, not in every popup.
+    expect(v.explanation).not.toContain('Open-Meteo')
   })
 
   it('shows the precipitation percentage at/above the threshold', () => {

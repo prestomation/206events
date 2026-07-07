@@ -63,8 +63,9 @@ export function weatherView(event, nowMs = Date.now()) {
   let badgeText = tempText
   if (showPop) badgeText += conf === 'low' ? ' · rain possible' : ` · ${pop}% rain`
 
-  // Popup: the receipts — window summary, confidence note, as-of stamp,
-  // provider attribution (Open-Meteo data is CC-BY 4.0).
+  // Popup: the receipts — window summary, confidence note, as-of stamp.
+  // Provider attribution (Open-Meteo data is CC-BY 4.0) lives once on the
+  // You tab's credits line, not in every popup.
   const range = Math.round(w.lo) === Math.round(w.hi)
     ? `${Math.round(w.hi)}°`
     : `${Math.round(w.lo)}–${Math.round(w.hi)}°`
@@ -74,7 +75,6 @@ export function weatherView(event, nowMs = Date.now()) {
     weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit',
   })
   parts.push(`Forecast as of ${asOfText}${ageHours > WEATHER_WARN_AFTER_HOURS ? ' (may be outdated)' : ''}.`)
-  parts.push('Weather data by Open-Meteo.')
 
   return {
     emoji,

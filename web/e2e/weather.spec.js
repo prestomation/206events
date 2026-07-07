@@ -46,7 +46,7 @@ test('list rows show a compact weather glyph; stale forecasts show none', async 
   await screenshotStable(page, 'e2e/screenshots/weather-badge-list.png', { fullPage: true })
 })
 
-test('detail hero shows the full badge; popup carries confidence and attribution', async ({ page }) => {
+test('detail hero shows the full badge; popup carries confidence receipts', async ({ page }) => {
   await page.goto('/')
   await page.getByText('Events', { exact: true }).first().click()
 
@@ -57,15 +57,27 @@ test('detail hero shows the full badge; popup carries confidence and attribution
   await expect(badge).toBeVisible()
   await expect(badge.locator('.weather-badge-text')).toHaveText('55° · 70% rain')
 
-  // Popup receipts: conditions, medium-confidence note, as-of stamp, provider.
+  // Popup receipts: conditions, medium-confidence note, as-of stamp. The
+  // provider attribution deliberately does NOT ride every popup — it lives
+  // once on the You tab (asserted below).
   await badge.click()
   const tip = page.getByRole('tooltip')
   await expect(tip).toContainText('rain, 48–55°, 70% chance of precipitation')
   await expect(tip).toContainText('check closer to the date')
   await expect(tip).toContainText('Forecast as of')
-  await expect(tip).toContainText('Weather data by Open-Meteo')
+  await expect(tip).not.toContainText('Open-Meteo')
 
   await screenshotStable(page, 'e2e/screenshots/weather-badge-detail-popup.png', { fullPage: true })
+})
+
+test('Open-Meteo attribution lives on the You tab', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'You' }).click()
+  const credit = page.getByText(/Weather forecasts by/)
+  await expect(credit).toBeVisible()
+  await expect(credit.getByRole('link', { name: 'Open-Meteo' })).toHaveAttribute('href', 'https://open-meteo.com/')
+
+  await screenshotStable(page, 'e2e/screenshots/weather-attribution-you-tab.png', { fullPage: true })
 })
 
 test('low-confidence badge tempers the numbers: "rain possible", dashed styling', async ({ page }) => {
