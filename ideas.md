@@ -68,7 +68,7 @@ The geo filter already does radius-from-point. Ship preset filters for light rai
 
 ## Weather Badges for Outdoor Events
 
-Fetch the forecast *at build time* (server-side, so no visitor data goes to a third party — stays inside the privacy rules) and badge outdoor-tagged events in the next 7 days. Pairs well with the `Outdoors` tag queued above.
+Fetch the forecast *at build time* (server-side, so no visitor data goes to a third party — stays inside the privacy rules) and badge outdoor-tagged events in the next 7 days. Pairs well with the `Outdoors` tag queued above. Full design: `docs/weather-badges.md`.
 
 ## Personal Calendar Overlay (Client-Side Only)
 
