@@ -14,6 +14,7 @@ import {
   serializeRipperErrors,
   serializeRipperError,
   EventCost,
+  EventSetting,
   UncertaintyField,
   SourceRole,
   venueImageForCalendar,
@@ -34,6 +35,9 @@ import { loadGeoCache, saveGeoCache, resolveEventCoords, resetGeocodeStats, getG
 import {
   loadUncertaintyCache,
   saveUncertaintyCache,
+  lookupVenueSetting,
+  venueSettingKeyForOsm,
+  venueSettingKeyForLocation,
 } from "./event-uncertainty-cache.js";
 import {
   findDuplicates,
@@ -45,6 +49,7 @@ import {
   applyUncertaintyResolutions,
   applyImageBackfill,
   applyCostBackfill,
+  applySettingBackfill,
   stripUncertaintyNote,
   type UncertaintyMergeStats,
 } from "./uncertainty-merge.js";
@@ -67,7 +72,7 @@ import { loadYamlDir } from "./config/dir-loader.js";
 import { PendingProxyVerificationItem } from "./proxy-verification.js";
 import { LocalDate } from "@js-joda/core";
 import { detectTagDuplicates } from "./config/tags.js";
-import { applyWeatherBadges, OUTDOORS_TAG, type EventWeather } from "./weather.js";
+import { applyWeatherBadges, resolveEventSetting, OUTDOORS_TAG, type EventWeather, type WeatherBadgeResult } from "./weather.js";
 import { CITY } from "./config/city.js";
 import {
   buildIndexJson,
@@ -78,6 +83,8 @@ import {
   type PhotoEventInput,
   buildCostGaps,
   type CostEventInput,
+  buildSettingGaps,
+  type SettingEventInput,
   buildEventsIndexSoon,
   EVENTS_INDEX_SOON_WINDOW_DAYS,
   filterPastIndexEvents,
@@ -844,6 +851,13 @@ export const main = async () => {
       calendar.events = costBackfilled.events;
       for (const key of costBackfilled.touchedKeys) uncertaintyTouchedKeys.add(key);
 
+      // Overlay per-event setting backfill (setting-resolver writes
+      // outdoor/indoor/covered resolutions keyed source:eventId). The
+      // venue-level layer is applied later, at weather-badge time.
+      const settingBackfilled = applySettingBackfill(calendar.events, uncertaintyCache, config.config.name);
+      calendar.events = settingBackfilled.events;
+      for (const key of settingBackfilled.touchedKeys) uncertaintyTouchedKeys.add(key);
+
       // Decode HTML entities in event titles before serialization (ICS,
       // events-index.json, RSS, website all read this field). Idempotent and
       // limited to titles — see text-normalize.ts.
@@ -1251,6 +1265,10 @@ END:VCALENDAR`;
     osmId?: number;
     geocodeSource?: 'ripper' | 'cached' | 'none';
     uncertainty?: { fields: UncertaintyField[]; kind: 'pending' | 'unresolvable' };
+    // Per-event outdoor/indoor/covered classification (ripper-provided or
+    // cache-backfilled). Venue-level and tag-level layers are resolved at
+    // badge time and are NOT baked into this field — see resolveEventSetting.
+    setting?: EventSetting;
     // Forecast badge for outdoor events (set below by applyWeatherBadges,
     // never by a ripper) — see docs/weather-badges.md.
     weather?: EventWeather;
@@ -1304,6 +1322,7 @@ END:VCALENDAR`;
         ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
         ...(geocodeSource !== undefined ? { geocodeSource } : {}),
         ...(event.uncertainty ? { uncertainty: event.uncertainty } : {}),
+        ...(event.setting ? { setting: event.setting } : {}),
       });
     }
   }
@@ -1466,41 +1485,46 @@ END:VCALENDAR`;
 
   // Weather badges for outdoor events (docs/weather-badges.md). One batched
   // Open-Meteo request through the shared fetch cache stamps a compact
-  // `weather` field onto events from `Outdoors`-tagged channels starting
-  // within the badge window. Runs after the index is fully assembled (rippers
-  // + external + recurring + outofband) so every eligible row is covered, but
-  // MUST run before saveFetchCache below — the forecast's cache entry has to
-  // land in the persisted blob or the once-per-day throttle and the
-  // stale-serve fallback never engage. Never fails the build — badge absence
-  // is the designed degraded state.
+  // `weather` field onto events that resolve to `setting: outdoor` — via the
+  // per-event cache overlay, the venue-level `venue:*` cache layer, or the
+  // channel's `Outdoors` tag (resolveEventSetting precedence). Runs after the
+  // index is fully assembled (rippers + external + recurring + outofband) so
+  // every eligible row is covered, but MUST run before saveFetchCache below —
+  // the forecast's cache entry has to land in the persisted blob or the
+  // once-per-day throttle and the stale-serve fallback never engage. Never
+  // fails the build — badge absence is the designed degraded state.
+  const outdoorIcsUrls = new Set<string>();
+  for (const ripper of manifest.rippers) {
+    for (const cal of ripper.calendars) {
+      if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
+    }
+  }
+  for (const cal of manifest.recurringCalendars) {
+    if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
+  }
+  for (const cal of manifest.externalCalendars) {
+    if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
+  }
+  let weatherBadgeResult: WeatherBadgeResult | null = null;
   {
-    const outdoorIcsUrls = new Set<string>();
-    for (const ripper of manifest.rippers) {
-      for (const cal of ripper.calendars) {
-        if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
-      }
-    }
-    for (const cal of manifest.recurringCalendars) {
-      if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
-    }
-    for (const cal of manifest.externalCalendars) {
-      if (cal.tags.includes(OUTDOORS_TAG)) outdoorIcsUrls.add(cal.icsUrl);
-    }
-    if (outdoorIcsUrls.size > 0) {
-      const weatherResult = await applyWeatherBadges(eventsIndex, {
-        isOutdoorChannel: icsUrl => outdoorIcsUrls.has(icsUrl),
-        fetchFn: getFetchForConfig({ proxy: false }),
-        nowMs: Date.now(),
-        temperatureUnit: CITY.weather.temperatureUnit,
-      });
-      if (weatherResult) {
-        console.log(
-          `Weather badges: ${weatherResult.badged}/${weatherResult.eligible} outdoor event(s) badged ` +
-          `across ${weatherResult.cells} forecast cell(s)`,
-        );
-      } else {
-        console.log("Weather badges: none applied (no eligible events or forecast unavailable)");
-      }
+    const touchedVenueKeys: string[] = [];
+    const settingFor = (row: {
+      icsUrl: string; setting?: EventSetting; osmType?: string; osmId?: number; location?: string;
+    }) => resolveEventSetting(row, { cache: uncertaintyCache, outdoorIcsUrls, touchedVenueKeys });
+    weatherBadgeResult = await applyWeatherBadges(eventsIndex, {
+      settingFor,
+      fetchFn: getFetchForConfig({ proxy: false }),
+      nowMs: Date.now(),
+      temperatureUnit: CITY.weather.temperatureUnit,
+    });
+    for (const key of touchedVenueKeys) uncertaintyTouchedKeys.add(key);
+    if (weatherBadgeResult) {
+      console.log(
+        `Weather badges: ${weatherBadgeResult.badged}/${weatherBadgeResult.eligible} outdoor event(s) badged ` +
+        `across ${weatherBadgeResult.cells} forecast cell(s)`,
+      );
+    } else {
+      console.log("Weather badges: none applied (no eligible events or forecast unavailable)");
     }
   }
 
@@ -2120,6 +2144,103 @@ END:VCALENDAR`;
     ).length,
   };
 
+  // Setting gaps — the setting-resolver skill's work queue (weather badges
+  // v2, docs/weather-badges.md). Only sources declaring `weatherSetting:
+  // "mixed"` feed it: their upcoming events whose outdoor/indoor setting is
+  // unknown at every layer (per-event, venue, tag). Venue-first — events
+  // sharing a venue key collapse into one gap, resolved by a single
+  // venue-level cache entry that every source then inherits.
+  const settingEventInputs: SettingEventInput[] = [];
+  const settingInputFor = (opts: {
+    source: string; id?: string; icsUrl: string; summary: string; date: string;
+    url?: string; location?: string; osmType?: string; osmId?: number; setting?: EventSetting;
+  }): SettingEventInput => {
+    const resolved = resolveEventSetting(
+      { icsUrl: opts.icsUrl, setting: opts.setting, osmType: opts.osmType, osmId: opts.osmId, location: opts.location },
+      { cache: uncertaintyCache, outdoorIcsUrls },
+    );
+    const venueLookup = lookupVenueSetting(uncertaintyCache, {
+      osmType: opts.osmType, osmId: opts.osmId, location: opts.location,
+    });
+    const venueKey = opts.osmType && opts.osmId !== undefined
+      ? venueSettingKeyForOsm(opts.osmType, opts.osmId)
+      : opts.location ? venueSettingKeyForLocation(opts.location) : undefined;
+    return {
+      source: opts.source,
+      id: opts.id,
+      channel: opts.icsUrl,
+      summary: opts.summary,
+      date: opts.date,
+      url: opts.url,
+      location: opts.location,
+      setting: resolved,
+      venueKey,
+      venueUnresolvable: venueLookup.kind === 'unresolvable',
+    };
+  };
+  for (const calendar of allCalendars) {
+    if (calendar.parent?.weatherSetting !== 'mixed') continue;
+    const icsUrl = `${calendar.parent.name}-${calendar.name}.ics`;
+    if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+    for (const event of calendar.events) {
+      settingEventInputs.push(settingInputFor({
+        source: calendar.parent.name,
+        id: event.id,
+        icsUrl,
+        summary: event.summary,
+        date: zdtToIndexDate(event.date),
+        url: event.url,
+        location: event.location,
+        osmType: event.osmType,
+        osmId: event.osmId,
+        setting: event.setting,
+      }));
+    }
+  }
+  // External ICS events carry no stable per-event id, so mixed externals are
+  // classifiable only at the venue layer — their index rows (which have
+  // location/OSM identity) feed venue gaps.
+  {
+    const mixedExternalByIcsUrl = new Map<string, string>();
+    for (const cal of activeExternalCalendars) {
+      if (cal.weatherSetting === 'mixed') mixedExternalByIcsUrl.set(`external-${cal.name}.ics`, cal.name);
+    }
+    if (mixedExternalByIcsUrl.size > 0) {
+      for (const row of eventsIndex) {
+        const externalName = mixedExternalByIcsUrl.get(row.icsUrl);
+        if (!externalName) continue;
+        settingEventInputs.push(settingInputFor({
+          source: externalName,
+          icsUrl: row.icsUrl,
+          summary: row.summary,
+          date: row.date,
+          url: row.url,
+          location: row.location,
+          osmType: row.osmType,
+          osmId: row.osmId,
+          setting: row.setting,
+        }));
+      }
+    }
+  }
+  const settingGaps = buildSettingGaps({
+    events: settingEventInputs,
+    unresolvableKeys,
+    now: new Date(),
+  });
+  const settingStats = {
+    // Events that received a weather badge this build (settings resolved to
+    // outdoor AND inside the forecast window).
+    badgedEvents: weatherBadgeResult?.badged ?? 0,
+    // Index events with a known setting at any layer.
+    classifiedEvents: eventsIndex.filter(e =>
+      resolveEventSetting(e, { cache: uncertaintyCache, outdoorIcsUrls }) !== undefined,
+    ).length,
+    totalEvents: eventsIndex.length,
+    venueGaps: settingGaps.venueGaps.length,
+    eventGaps: settingGaps.eventGaps.length,
+  };
+
   // Flatten still-outstanding UncertaintyError entries from every
   // ripper's calendar into one list for the resolver skill to chew
   // through. Resolved/unresolvable entries have already been removed
@@ -2213,6 +2334,14 @@ END:VCALENDAR`;
     // surfaces. Non-fatal — not counted in totalErrors (like photoGaps).
     costStats,
     costGaps,
+    // Outdoor-setting coverage (weather badges v2): the setting-resolver
+    // skill reads `settingGaps` as its work queue (venue-first — one
+    // venue-level cache entry resolves every event at that place);
+    // `settingStats` summarizes classification/badge coverage for the
+    // reporting surfaces. Non-fatal — not counted in totalErrors (like
+    // photoGaps/costGaps). See docs/weather-badges.md.
+    settingStats,
+    settingGaps,
     // Cross-source de-duplication: `duplicateStats` summarizes how many
     // multi-source events were collapsed (HIGH) and how many candidate pairs
     // await review (MED). `duplicateCandidates` is the duplicate-resolver
@@ -2445,6 +2574,12 @@ END:VCALENDAR`;
       summaryLines.push("");
       summaryLines.push(`> 💲 **Cost coverage:** ${costStats.eventsWithCost} / ${costStats.totalEvents} events (${costPct}%), ${costStats.freeEvents} free, ${costStats.soldOutEvents} sold out` +
         (costGaps.length > 0 ? ` — ${costGaps.length} missing. Run the cost-resolver skill.` : " — ✅ fully covered."));
+    }
+    {
+      const settingGapCount = settingStats.venueGaps + settingStats.eventGaps;
+      summaryLines.push("");
+      summaryLines.push(`> 🌤️ **Weather badges:** ${settingStats.badgedEvents} event(s) badged, ${settingStats.classifiedEvents} / ${settingStats.totalEvents} events with a known setting` +
+        (settingGapCount > 0 ? ` — ${settingStats.venueGaps} venue(s) + ${settingStats.eventGaps} event(s) awaiting classification. Run the setting-resolver skill.` : " — no classification queue."));
     }
     {
       summaryLines.push("");

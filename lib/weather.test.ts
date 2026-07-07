@@ -11,6 +11,7 @@ import {
   confidenceForLead,
   parseForecastResponse,
   parseIndexInstant,
+  resolveEventSetting,
   EVENT_WINDOW_CAP_HOURS,
   MAX_WEATHER_CELLS,
   type HourlySeries,
@@ -184,7 +185,7 @@ describe("parseForecastResponse", () => {
 
 describe("applyWeatherBadges", () => {
   const NOW_MS = FIXTURE_START_MS; // 2026-07-07T00:00:00Z
-  const isOutdoorChannel = (icsUrl: string) => icsUrl.startsWith("recurring-");
+  const settingFor = (row: WeatherIndexRow) => (row.icsUrl.startsWith("recurring-") ? "outdoor" as const : undefined);
 
   const fixtureFetch = (calls?: string[]) => (async (url: string | URL) => {
     calls?.push(String(url));
@@ -243,7 +244,7 @@ describe("applyWeatherBadges", () => {
     const rows = makeRows();
     const calls: string[] = [];
     const result = await applyWeatherBadges(rows, {
-      isOutdoorChannel,
+      settingFor,
       fetchFn: fixtureFetch(calls),
       nowMs: NOW_MS,
       temperatureUnit: "fahrenheit",
@@ -270,7 +271,7 @@ describe("applyWeatherBadges", () => {
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     const rows = makeRows();
     const result = await applyWeatherBadges(rows, {
-      isOutdoorChannel,
+      settingFor,
       fetchFn: async () => { throw new Error("network down"); },
       nowMs: NOW_MS,
       temperatureUnit: "fahrenheit",
@@ -283,7 +284,7 @@ describe("applyWeatherBadges", () => {
   it("returns null on a non-2xx response and on malformed bodies", async () => {
     vi.spyOn(console, "warn").mockImplementation(() => {});
     const badStatus = await applyWeatherBadges(makeRows(), {
-      isOutdoorChannel,
+      settingFor,
       fetchFn: async () => new Response("rate limited", { status: 429 }),
       nowMs: NOW_MS,
       temperatureUnit: "fahrenheit",
@@ -291,7 +292,7 @@ describe("applyWeatherBadges", () => {
     expect(badStatus).toBeNull();
 
     const badBody = await applyWeatherBadges(makeRows(), {
-      isOutdoorChannel,
+      settingFor,
       fetchFn: async () => new Response("{}", { status: 200 }),
       nowMs: NOW_MS,
       temperatureUnit: "fahrenheit",
@@ -303,7 +304,7 @@ describe("applyWeatherBadges", () => {
     const calls: string[] = [];
     const result = await applyWeatherBadges(
       [{ icsUrl: "neumos-all.ics", date: "2026-07-08T19:00:00Z", lat: 47.6, lng: -122.35 }],
-      { isOutdoorChannel, fetchFn: fixtureFetch(calls), nowMs: NOW_MS, temperatureUnit: "fahrenheit" },
+      { settingFor, fetchFn: fixtureFetch(calls), nowMs: NOW_MS, temperatureUnit: "fahrenheit" },
     );
     expect(result).toBeNull();
     expect(calls).toHaveLength(0);
@@ -316,7 +317,7 @@ describe("applyWeatherBadges", () => {
     // fetchedAt (written at fetch time) becomes the badge's asOf.
     const { withCache } = await import("./config/proxy-fetch.js");
     const result = await applyWeatherBadges(rows, {
-      isOutdoorChannel,
+      settingFor,
       fetchFn: withCache(fixtureFetch()),
       nowMs: NOW_MS,
       temperatureUnit: "fahrenheit",
@@ -339,12 +340,79 @@ describe("applyWeatherBadges", () => {
     // body so the orchestrator bails after the cap logic (the cap is what's
     // under test, not the fetch).
     const result = await applyWeatherBadges(rows, {
-      isOutdoorChannel: () => true,
+      settingFor: () => "outdoor" as const,
       fetchFn: async () => new Response("[]", { status: 200 }),
       nowMs: NOW_MS,
       temperatureUnit: "fahrenheit",
     });
     expect(result).toBeNull();
     expect(warn).toHaveBeenCalledWith(expect.stringContaining("Cell cap"));
+  });
+});
+
+describe("resolveEventSetting", () => {
+  const entry = (setting: "outdoor" | "indoor" | "covered") => ({
+    fields: { setting }, resolvedAt: "2026-07-01", source: "agent" as const,
+  });
+  const cache = {
+    version: 1,
+    entries: {
+      "venue:osm:way:123": entry("outdoor"),
+      "venue:osm:node:99": entry("indoor"),
+      "venue:loc:volunteer park amphitheater, seattle": entry("outdoor"),
+      "venue:osm:way:777": { unresolvable: true, resolvedAt: "2026-07-01", source: "agent" as const },
+    },
+  };
+  const outdoorIcsUrls = new Set(["recurring-ballard-farmers-market.ics"]);
+
+  it("prefers the per-event setting over everything", () => {
+    const s = resolveEventSetting(
+      { icsUrl: "recurring-ballard-farmers-market.ics", setting: "indoor", osmType: "way", osmId: 123 },
+      { cache, outdoorIcsUrls },
+    );
+    expect(s).toBe("indoor"); // beats both the outdoor venue and the Outdoors tag
+  });
+
+  it("resolves via the venue OSM key, overriding the channel tag", () => {
+    const s = resolveEventSetting(
+      { icsUrl: "recurring-ballard-farmers-market.ics", osmType: "node", osmId: 99 },
+      { cache, outdoorIcsUrls },
+    );
+    expect(s).toBe("indoor"); // venue-level indoor beats the source Outdoors tag
+  });
+
+  it("falls back to the normalized-location venue key when there is no OSM id", () => {
+    const s = resolveEventSetting(
+      { icsUrl: "events12-seattle.ics", location: "Volunteer Park Amphitheater, Seattle" },
+      { cache, outdoorIcsUrls },
+    );
+    expect(s).toBe("outdoor");
+  });
+
+  it("falls back to the Outdoors tag, and to undefined for unknown channels", () => {
+    expect(resolveEventSetting(
+      { icsUrl: "recurring-ballard-farmers-market.ics", location: "somewhere new" },
+      { cache, outdoorIcsUrls },
+    )).toBe("outdoor");
+    expect(resolveEventSetting(
+      { icsUrl: "neumos-all.ics", location: "somewhere new" },
+      { cache, outdoorIcsUrls },
+    )).toBeUndefined();
+  });
+
+  it("lets an unresolvable venue fall through to the channel tag", () => {
+    expect(resolveEventSetting(
+      { icsUrl: "recurring-ballard-farmers-market.ics", osmType: "way", osmId: 777 },
+      { cache, outdoorIcsUrls },
+    )).toBe("outdoor");
+  });
+
+  it("reports touched venue keys for lastSeen stamping", () => {
+    const touched: string[] = [];
+    resolveEventSetting(
+      { icsUrl: "x.ics", osmType: "way", osmId: 123 },
+      { cache, outdoorIcsUrls, touchedVenueKeys: touched },
+    );
+    expect(touched).toEqual(["venue:osm:way:123"]);
   });
 });

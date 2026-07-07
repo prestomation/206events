@@ -1,16 +1,21 @@
 # Weather Badges for Outdoor Events — Design
 
-Status: **v1 implemented** (same PR as this design). Origin: `ideas.md` →
-"Weather Badges for Outdoor Events" (PR #870).
+Status: **v1 + v2 implemented** (same PR as this design). Origin: `ideas.md`
+→ "Weather Badges for Outdoor Events" (PR #870).
 
-Implementation map: `lib/weather.ts` (+ `lib/weather.test.ts`, fixture
-`lib/weather-sample-data.json`), the badge pass in `lib/calendar_ripper.ts`
-(after dedup, before index serialization), the curated `Outdoors` tag across
-~30 source YAMLs + `TAG_CATEGORIES`, `city.config.ts` →
-`weather.temperatureUnit`, and the UI in
+Implementation map — v1: `lib/weather.ts` (+ `lib/weather.test.ts`, fixture
+`lib/weather-sample-data.json`), the badge pass in `lib/calendar_ripper.ts`,
+the curated `Outdoors` tag across ~30 source YAMLs + `TAG_CATEGORIES`,
+`city.config.ts` → `weather.temperatureUnit`, and the UI in
 `web/src/redesign/weatherModel.js` / `WeatherBadge` in `atoms.jsx`
-(e2e: `web/e2e/weather.spec.js`). The v2 per-event `setting` overlay and the
-ensemble-confidence upgrade remain future work.
+(e2e: `web/e2e/weather.spec.js`). v2 (the `setting` system, "How eligibility
+scales" below): `EventSetting` + per-event `setting` overlay
+(`applySettingBackfill`), venue-level `venue:*` cache keys
+(`lookupVenueSetting`), the `resolveEventSetting` precedence chain,
+`weatherSetting: "mixed"` source scoping, the `settingGaps` queue
+(`buildSettingGaps` + all five reporting surfaces), and
+`skills/setting-resolver/SKILL.md`. Ensemble-spread confidence remains
+future work.
 
 ## Summary
 
@@ -188,22 +193,67 @@ today. Options, staged rather than exclusive:
   group). Badge eligibility = channel has `Outdoors` tag.
   - The tag rename/addition creates a **new** URL, not a removal — no
     `allowed-removals/` entry needed.
-- **(v2) Per-event `setting` via the established cache-overlay pattern.**
-  Mixed venues (a park's indoor classroom program; a brewery with a beer
-  garden) and aggregator sources need per-event resolution. This is exactly
-  the "pervasively missing field" flavor from AGENTS.md: extend the
-  event-uncertainty-cache with a `setting` field (`outdoor` / `indoor` /
-  `covered`), an overlay in `lib/uncertainty-merge.ts` that never overwrites a
-  ripper-provided value, a non-fatal gap queue, and a resolver skill — the
-  same triad as photos/costs. Per-event `setting: outdoor` adds badges on
-  aggregator events; `setting: indoor` *removes* the badge from an
-  Outdoors-tagged source's indoor event. This stage is also where the
-  "Per-Event Category Tags" idea (same `ideas.md` batch) would land — they
-  should share the classification pass if both get built.
+- **(v2 — implemented) The `setting` system**: per-event resolutions plus a
+  venue-keyed layer. See "How eligibility scales" below.
 - **(rejected) Keyword heuristics** ("outdoor", "hike", "market" in titles) —
   silently mislabels in both directions with no resolution path; contradicts
   the uncertainty-system design rule that unparsable data gets an explicit
   gap, not a guess.
+
+### How eligibility scales (v2: the `setting` system)
+
+Mixed sources (a park department's indoor classroom program; a zoo's dining
+events; aggregators like `events12`) need finer-than-source truth. v2 adds an
+`EventSetting` (`outdoor` / `indoor` / `covered`) resolved through a layered
+chain — `resolveEventSetting` in `lib/weather.ts` — with the most specific
+layer winning:
+
+1. **Per-event** — `setting` on the event: ripper-provided (when the source
+   states it), else backfilled from a `source:eventId` entry in the
+   event-uncertainty-cache (`applySettingBackfill`, the same overlay triad as
+   photos/costs). Handles the beer-garden show at an indoor brewery, or
+   *removing* the badge from an Outdoors-tagged source's rare indoor event.
+2. **Per-venue (the key optimization)** — a venue's indoor/outdoor nature is
+   a fact about the *place*, not any one calendar, so it is cached **once**
+   and inherited by every event from **any** source that lands there. Keys
+   live in the same cache under a `venue:` prefix: `venue:osm:<type>:<id>`
+   (preferred — events already carry OSM identity from geocoding, and OSM ids
+   are stable across sources and location-string spellings) with
+   `venue:loc:<normalized location>` as the fallback for never-geocoded
+   places (`lookupVenueSetting`). One resolution clears every current and
+   future event at that venue, across all calendars.
+3. **Channel tag** — the source-level `Outdoors` tag (v1): "everything from
+   this source is open-air."
+4. **Unknown** — no badge. Absence stays the safe default.
+
+Only `outdoor` badges; `covered` is recorded but unbadged for now (sheltered
+events don't want a rain badge, and conflating it with `indoor` would lose
+information).
+
+**Scoping and the work queue.** Sources declare `weatherSetting: "mixed"` in
+their YAML to opt their events into classification (currently the zoo, UW
+Botanic Gardens, Seattle Parks & Rec, Seattle Parks Foundation, Cascade
+Bicycle Club, Seward Park Audubon, and `events12`). Their upcoming events
+(≤ `SETTING_GAP_HORIZON_DAYS` = 14 days, so resolutions land ahead of the
+7-day badge window) with no setting at any layer feed the non-fatal
+`settingGaps` queue in `build-errors.json` — **venue-first**: events sharing
+a venue key collapse into one venue gap, so the resolver classifies places,
+not occurrences. Per-event gaps exist only for events with no venue key at
+all. External ICS events have no stable per-event id, so mixed externals are
+classified purely at the venue layer. The queue is plumbed through all five
+reporting surfaces (Reporting Parity) and drained by
+`skills/setting-resolver/SKILL.md`, which reads OSM feature tags
+(`leisure=park` → outdoor, `building=*` → indoor) as primary evidence and can
+promote a uniformly-outdoor source to the `Outdoors` tag when per-venue
+entries would be churn.
+
+**How it stays current**: resolutions are durable (a place's nature doesn't
+go stale, unlike the forecast, which refreshes every build); new events at
+resolved venues inherit instantly with no queue entry; `unresolvable`
+markings self-limit the queue; and the resolver's venue entries accumulate so
+the queue converges to only genuinely new places. This is also where the
+"Per-Event Category Tags" idea (same `ideas.md` batch) would land — the two
+should share a classification pass if both get built.
 
 ## Decision 5: Accuracy and confidence — what we show and when
 
@@ -337,9 +387,9 @@ proper non-fatal counter — and pay the full reporting-parity cost in that PR.
 
 | Phase | Contents |
 |---|---|
-| v1 | Curated `Outdoors` tag, one batched Open-Meteo fetch through the fetch cache, per-event `weather` on the index, lead-time confidence tiers, badge UI + e2e |
-| v2 | Per-event `setting` overlay (cache + gap queue + resolver skill) for mixed venues and aggregators; shared with per-event category classification if that idea proceeds |
-| Later, only if warranted | Standalone `weather.json` + weather-only refresh job (staleness); ensemble-spread confidence; notability-threshold tuning |
+| v1 (implemented) | Curated `Outdoors` tag, one batched Open-Meteo fetch through the fetch cache, per-event `weather` on the index, lead-time confidence tiers, badge UI + e2e |
+| v2 (implemented) | The `setting` system: per-event overlay + venue-keyed (`venue:osm:*` / `venue:loc:*`) cache layer, `weatherSetting: "mixed"` scoping, venue-first `settingGaps` queue across all five reporting surfaces, setting-resolver skill |
+| Later, only if warranted | Standalone `weather.json` + weather-only refresh job (staleness); ensemble-spread confidence; notability-threshold tuning; sharing the classification pass with per-event category tags |
 
 ## Open questions (for the human owner)
 

@@ -118,6 +118,11 @@ export const externalCalendarSchema = z.object({
     // Optional cost default applied to every event in this feed (ICS has no
     // standard price property, so external events are priced via this only).
     cost: costConfigSchema.optional(),
+    // "mixed": events are individually indoor or outdoor — their venues are
+    // classified via venue-level uncertainty-cache entries (external events
+    // carry no stable per-event id, so only the venue layer applies). See
+    // configSchema.weatherSetting and docs/weather-badges.md.
+    weatherSetting: z.enum(["mixed"]).optional(),
 });
 
 export const externalConfigSchema = z.array(externalCalendarSchema);
@@ -173,6 +178,13 @@ export const configSchema = z.object({
     // Only meaningful alongside a venue `imageUrl`; if per-event photos later
     // become harvestable, remove the flag and let the photo-resolver backfill.
     skipEventPhotos: z.boolean().default(false),
+    // "mixed" declares that this source's events are individually indoor OR
+    // outdoor (a zoo, a parks department, an aggregator), so unclassified
+    // near-term events with coordinates are queued in `settingGaps` for the
+    // setting-resolver skill. Sources that are uniformly open-air use the
+    // `Outdoors` tag instead; sources that are plainly indoor need neither.
+    // See docs/weather-badges.md.
+    weatherSetting: z.enum(["mixed"]).optional(),
 }).strict();
 
 
@@ -212,7 +224,15 @@ export type GeocodeError = ErrorBase & {
 // resolver script's CLI choices (skills/event-uncertainty-resolver).
 // When adding a new field, also teach `applyUncertaintyResolutions` how
 // to apply it to a RipperCalendarEvent.
-export type UncertaintyField = "startTime" | "duration" | "location" | "imageUrl" | "cost";
+export type UncertaintyField = "startTime" | "duration" | "location" | "imageUrl" | "cost" | "setting";
+
+// Whether an event takes place outdoors, indoors, or under cover (sheltered
+// but open-air). Drives weather-badge eligibility (docs/weather-badges.md):
+// only `outdoor` events are badged. Resolved per event or per venue via the
+// event-uncertainty-cache; `Outdoors`-tagged sources imply `outdoor` for all
+// their events unless a more specific resolution says otherwise.
+export const EVENT_SETTINGS = ["outdoor", "indoor", "covered"] as const;
+export type EventSetting = typeof EVENT_SETTINGS[number];
 
 // Signal from a ripper that it produced an event but isn't certain about
 // one or more of its fields. The infrastructure layer merges these against
@@ -247,6 +267,10 @@ export interface RipperCalendarEvent {
     url?: string;
     imageUrl?: string;  // URL to the event image (never image bytes)
     cost?: EventCost;   // Admission cost (USD face value); absent = unknown
+    // Outdoor/indoor/covered. Rippers may set it when the source states it;
+    // otherwise the uncertainty-cache overlay (per-event, then per-venue)
+    // fills it. Absent = unknown. See docs/weather-badges.md.
+    setting?: EventSetting;
     // Set by applyUncertaintyResolutions when one or more fields are
     // approximate (pending verification) or could not be verified
     // (unresolvable). Drives the web UI's inline uncertainty badge; the ICS /

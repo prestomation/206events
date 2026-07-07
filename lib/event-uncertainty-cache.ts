@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'fs/promises';
-import type { EventCost, UncertaintyField } from './config/schema.js';
+import type { EventCost, EventSetting, UncertaintyField } from './config/schema.js';
+import { normalizeLocationKey } from './geocoder.js';
 
 // Resolved values supplied by the event-uncertainty-resolver skill.
 // Field names and value shapes match the script CLI in
@@ -10,6 +11,7 @@ export interface UncertaintyResolutionFields {
     location?: string;
     imageUrl?: string;
     cost?: EventCost;          // { min, max? } USD face value, { paid: true }, or { soldOut: true }
+    setting?: EventSetting;    // outdoor / indoor / covered — weather-badge eligibility
 }
 
 export interface UncertaintyCacheEntry {
@@ -37,6 +39,73 @@ export interface UncertaintyCache {
 // id-generation logic — see AGENTS.md "Stable event IDs".
 export function uncertaintyCacheKey(source: string, eventId: string): string {
     return `${source}:${eventId}`;
+}
+
+// --- Venue-level setting entries (docs/weather-badges.md, v2) ---------------
+//
+// A venue's indoor/outdoor nature is a fact about the *place*, not about any
+// one event or calendar, so it is cached once per venue and inherited by
+// every event — from any source — that resolves to that venue. Entries live
+// in the SAME cache under a `venue:` key prefix (never a parallel cache):
+//
+//   venue:osm:<type>:<id>   — keyed by OpenStreetMap feature identity, the
+//                             cross-source join key events already carry
+//                             (osmType/osmId from geocoding). Preferred.
+//   venue:loc:<normalized>  — fallback for venues that never resolved to an
+//                             OSM feature, keyed by the same lowercased/
+//                             trimmed location string the geo-cache uses.
+//
+// The entry shape is unchanged (`fields.setting` or `unresolvable`), so the
+// resolver CLI, lastSeen stamping, and prune tooling all work as-is.
+
+export const VENUE_KEY_PREFIX = 'venue:';
+
+export function venueSettingKeyForOsm(osmType: string, osmId: number): string {
+    return `venue:osm:${osmType}:${osmId}`;
+}
+
+// Uses the geo-cache's own key normalization (normalizeLocationKey) so a
+// venue's setting entry and its geocode entry key off the same string —
+// whatever spelling variations the sources use.
+export function venueSettingKeyForLocation(location: string): string {
+    return `venue:loc:${normalizeLocationKey(location)}`;
+}
+
+export interface VenueSettingLookupInput {
+    osmType?: string;
+    osmId?: number;
+    location?: string;
+}
+
+export interface VenueSettingLookupResult {
+    kind: 'resolved' | 'unresolvable' | 'miss';
+    setting?: EventSetting;
+    /** The cache key that matched (for lastSeen stamping). */
+    key?: string;
+}
+
+// Resolve a venue-level setting for an event's place: OSM identity first
+// (stable across sources and location-string spellings), then the normalized
+// location string. An `unresolvable` venue entry is surfaced as such so gap
+// queues can self-limit.
+export function lookupVenueSetting(
+    cache: Readonly<UncertaintyCache>,
+    input: VenueSettingLookupInput,
+): VenueSettingLookupResult {
+    const keys: string[] = [];
+    if (input.osmType && input.osmId !== undefined) {
+        keys.push(venueSettingKeyForOsm(input.osmType, input.osmId));
+    }
+    if (input.location) {
+        keys.push(venueSettingKeyForLocation(input.location));
+    }
+    for (const key of keys) {
+        const entry = cache.entries[key];
+        if (!entry) continue;
+        if (entry.unresolvable) return { kind: 'unresolvable', key };
+        if (entry.fields?.setting) return { kind: 'resolved', setting: entry.fields.setting, key };
+    }
+    return { kind: 'miss' };
 }
 
 export async function loadUncertaintyCache(filePath: string): Promise<UncertaintyCache> {

@@ -260,6 +260,26 @@ genuinely not published).
 
 Same lifecycle as photos: not build failures, a self-limiting todo queue.
 
+### 5.7b. Outdoor-Setting Check (weather badges)
+
+Check `settingStats` and `settingGaps` in the build health output.
+
+**If nothing is queued:**
+```
+🌤️ Weather badges: B badged, C/M events with a known setting — no classification queue ✅
+```
+
+**If there are gaps:**
+Read `skills/setting-resolver/SKILL.md` and follow it to classify venues and
+events from `weatherSetting: "mixed"` sources as outdoor / indoor / covered.
+It works venue-first: one venue-level cache entry (`venue:osm:<type>:<id>` or
+`venue:loc:<normalized>`) resolves every upcoming event at that place across
+all sources; only events with no venue key fall back to per-event
+`source:eventId` resolutions.
+
+Same lifecycle as photos/costs: not build failures, a self-limiting todo queue
+(`unresolvable` markings and resolved venues drop out on the next build).
+
 ### 5.8. Cross-source Duplicate Check
 
 Check `duplicateStats` and `duplicateCandidates` in the build health output.

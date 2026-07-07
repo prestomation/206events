@@ -266,6 +266,9 @@ export function HealthDashboard({
   const photoVenueGaps = photoGaps.venueGaps || []
   const photoEventGaps = photoGaps.eventGaps || []
   const costGaps = buildErrors.costGaps || []
+  const settingGaps = buildErrors.settingGaps || { venueGaps: [], eventGaps: [] }
+  const settingVenueGaps = settingGaps.venueGaps || []
+  const settingEventGaps = settingGaps.eventGaps || []
   const osmGaps = buildErrors.osmGaps || []
   const duplicateCandidates = buildErrors.duplicateCandidates || []
   const urlEntityErrors = buildErrors.urlEntityErrors || []
@@ -288,6 +291,8 @@ export function HealthDashboard({
   const fPhotoVenue = photoVenueGaps.filter(v => matches(v.source, v.name, v.label))
   const fPhotoEvent = photoEventGaps.filter(e => matches(e.source, e.summary, e.date))
   const fCost = costGaps.filter(e => matches(e.source, e.summary, e.date))
+  const fSettingVenue = settingVenueGaps.filter(v => matches(v.venueKey, v.label, v.sampleSummary, ...(v.channels || [])))
+  const fSettingEvent = settingEventGaps.filter(e => matches(e.source, e.summary, e.date))
   const fOsm = osmGaps.filter(o => matches(o.source, o.name, o.label))
   const fDup = duplicateCandidates.filter(d => matches(d.key, ...(d.events || []).flatMap(e => [e.summary, e.location, e.icsUrl])))
   const fZero = zeroNames.filter(n => matches(n))
@@ -306,6 +311,7 @@ export function HealthDashboard({
     ? fSources.reduce((sum, s) => sum + s.events, 0)
     : (buildErrors.geoStats?.totalEvents ?? sources.reduce((sum, s) => sum + s.events, 0))
   const photoGapCount = fPhotoVenue.length + fPhotoEvent.length
+  const settingGapCount = fSettingVenue.length + fSettingEvent.length
 
   // Coverage-ratio stat cards (events-with-geo/photo/cost, cross-source merged)
   // are global ratios with no list behind them — a ratio over a filtered subset
@@ -319,6 +325,7 @@ export function HealthDashboard({
     { id: 'uncertain', label: 'Uncertain', count: fUncertain.length, tone: 'warning' },
     { id: 'photo', label: 'Photos', count: photoGapCount, tone: 'warning' },
     { id: 'cost', label: 'Costs', count: fCost.length, tone: 'warning' },
+    { id: 'setting', label: 'Outdoor', count: settingGapCount, tone: 'warning' },
     { id: 'duplicates', label: 'Duplicates', count: fDup.length, tone: 'warning' },
     { id: 'osm', label: 'OSM', count: fOsm.length, tone: 'warning' },
     { id: 'proxy', label: 'Proxy', count: fProxy.length, tone: 'warning' },
@@ -418,6 +425,12 @@ export function HealthDashboard({
         )}
         {fCost.length > 0 && (
           <HealthCard value={`💲 ${fCost.length.toLocaleString()}`} label="Missing Costs" tone="warning" tab="cost" onActivate={onTabChange} active={activeTab === 'cost'} />
+        )}
+        {showCoverage && buildErrors.settingStats && buildErrors.settingStats.badgedEvents > 0 && (
+          <HealthCard value={`🌤️ ${buildErrors.settingStats.badgedEvents.toLocaleString()}`} label="Weather Badged" tone="ok" />
+        )}
+        {settingGapCount > 0 && (
+          <HealthCard value={`🌤️ ${settingGapCount.toLocaleString()}`} label="Setting Gaps" tone="warning" tab="setting" onActivate={onTabChange} active={activeTab === 'setting'} />
         )}
         {showCoverage && buildErrors.duplicateStats && (buildErrors.duplicateStats.merged > 0 || buildErrors.duplicateStats.candidates > 0) && (
           <HealthCard value={`🔀 ${buildErrors.duplicateStats.merged.toLocaleString()}`} label="Cross-source Merged" tone="ok" />
@@ -633,6 +646,44 @@ export function HealthDashboard({
             </div>
           ) : (
             <p className="health-empty">✅ No cost gaps{emptyNote}</p>
+          )
+        )}
+
+        {activeTab === 'setting' && (
+          settingGapCount > 0 ? (
+            <>
+              <p className="health-subtitle">
+                Venues and events from mixed sources awaiting an outdoor/indoor
+                classification for weather badges. Non-fatal — resolve venue-first via
+                the setting-resolver skill (one venue entry covers every event there).
+              </p>
+              {fSettingVenue.length > 0 && (
+                <div className="health-section">
+                  <h2>🌤️ Venue Setting Gaps ({fSettingVenue.length})</h2>
+                  <div className="health-error-list">
+                    {fSettingVenue.slice(0, 100).map((v, i) => (
+                      <ErrorItem key={i} type={v.label || v.venueKey}
+                        reason={`${v.venueKey} · ${v.eventCount} upcoming event(s) · e.g. ${v.sampleSummary} — ${v.sampleDate}`}
+                        href={v.sampleUrl || undefined} />
+                    ))}
+                    {fSettingVenue.length > 100 && <p>…and {fSettingVenue.length - 100} more.</p>}
+                  </div>
+                </div>
+              )}
+              {fSettingEvent.length > 0 && (
+                <div className="health-section">
+                  <h2>🌤️ Event Setting Gaps ({fSettingEvent.length})</h2>
+                  <div className="health-error-list">
+                    {fSettingEvent.slice(0, 100).map((e, i) => (
+                      <ErrorItem key={i} type={e.source} reason={`${e.summary} — ${e.date}`} href={e.url || undefined} />
+                    ))}
+                    {fSettingEvent.length > 100 && <p>…and {fSettingEvent.length - 100} more.</p>}
+                  </div>
+                </div>
+              )}
+            </>
+          ) : (
+            <p className="health-empty">✅ No setting gaps{emptyNote}</p>
           )
         )}
 

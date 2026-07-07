@@ -225,3 +225,26 @@ Note the cache's `unresolvable` flag is **entry-global**: one entry per
 cost also stops photo backfill and acknowledges open uncertainties for it —
 the cost-resolver skill therefore prefers `{ paid: true }` (a real value)
 over `unresolvable` unless the event page is a dead end overall.
+
+## Setting backfill (overlay + a venue-level layer)
+
+`setting` (`outdoor`/`indoor`/`covered` — weather-badge eligibility, see
+`docs/weather-badges.md`) follows the same overlay pattern as images/costs,
+with one addition: a **venue-level key namespace** in the same cache.
+
+- `applySettingBackfill` in `lib/uncertainty-merge.ts` fills per-event
+  `setting` from `fields.setting` (written via `--setting`). It never
+  overwrites a ripper-provided setting and skips `unresolvable` entries.
+- **Venue-level entries** — a venue's indoor/outdoor nature is a fact about
+  the *place*, so it is cached once under `venue:osm:<type>:<id>` (preferred;
+  events carry OSM identity from geocoding) or `venue:loc:<normalized
+  location>` (the geo-cache's key normalization), and inherited by every
+  event from **any** source that resolves to that venue
+  (`lookupVenueSetting` in `lib/event-uncertainty-cache.ts`). Same entry
+  shape, same CLI, same lastSeen/prune tooling.
+- Badge-time precedence (`resolveEventSetting` in `lib/weather.ts`):
+  per-event → venue → channel `Outdoors` tag → unknown (no badge).
+- The work queue is the `settingGaps` section of `build-errors.json`
+  (venue-first: events sharing a venue key collapse into one gap), scoped to
+  sources declaring `weatherSetting: "mixed"` and drained by the
+  **setting-resolver skill** (`skills/setting-resolver/SKILL.md`).

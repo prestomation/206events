@@ -19,7 +19,9 @@
  */
 
 import type { FetchFn } from "./config/proxy-fetch.js";
+import type { EventSetting } from "./config/schema.js";
 import { keyFor, getFetchCache, lookupAnyEntry } from "./fetch-cache.js";
+import { lookupVenueSetting, type UncertaintyCache } from "./event-uncertainty-cache.js";
 import { PAST_EVENT_GRACE_HOURS } from "./discovery.js";
 
 /** Channel tag that opts a source's events into weather badges. */
@@ -72,7 +74,51 @@ export interface WeatherIndexRow {
   endDate?: string;
   lat?: number;
   lng?: number;
+  /** Per-event setting (ripper-provided or cache-backfilled upstream). */
+  setting?: EventSetting;
+  osmType?: string;
+  osmId?: number;
+  location?: string;
   weather?: EventWeather;
+}
+
+/**
+ * Resolve an event's setting with the full precedence chain
+ * (docs/weather-badges.md, v2):
+ *
+ *   1. per-event `setting` on the row — ripper-provided or applied from a
+ *      `source:eventId` cache entry by applySettingBackfill;
+ *   2. venue-level cache entry — `venue:osm:<type>:<id>` first, then
+ *      `venue:loc:<normalized location>` (a fact about the place, shared by
+ *      every source whose events land there);
+ *   3. the channel's `Outdoors` tag — a source-level "everything here is
+ *      open-air" declaration.
+ *
+ * Undefined = unknown → no badge. Venue keys that produce a hit are pushed
+ * into `touchedVenueKeys` (when provided) so the caller can stamp `lastSeen`.
+ */
+export function resolveEventSetting(
+  row: Pick<WeatherIndexRow, "icsUrl" | "setting" | "osmType" | "osmId" | "location">,
+  ctx: {
+    cache: Readonly<UncertaintyCache>;
+    outdoorIcsUrls: ReadonlySet<string>;
+    touchedVenueKeys?: string[];
+  },
+): EventSetting | undefined {
+  if (row.setting) return row.setting;
+  const venue = lookupVenueSetting(ctx.cache, {
+    osmType: row.osmType,
+    osmId: row.osmId,
+    location: row.location,
+  });
+  if (venue.kind === "resolved") {
+    if (venue.key && ctx.touchedVenueKeys) ctx.touchedVenueKeys.push(venue.key);
+    return venue.setting;
+  }
+  // An unresolvable venue still falls through to the channel tag: "we could
+  // not classify this place" must not strip a source-level Outdoors claim.
+  if (ctx.outdoorIcsUrls.has(row.icsUrl)) return "outdoor";
+  return undefined;
 }
 
 export type TemperatureUnit = "fahrenheit" | "celsius";
@@ -269,7 +315,10 @@ export interface WeatherBadgeResult {
 export async function applyWeatherBadges(
   rows: WeatherIndexRow[],
   opts: {
-    isOutdoorChannel: (icsUrl: string) => boolean;
+    /** Full setting resolution for a row (see resolveEventSetting). Only
+     *  rows resolving to "outdoor" are badged — indoor/covered/unknown all
+     *  stay badge-less. */
+    settingFor: (row: WeatherIndexRow) => EventSetting | undefined;
     fetchFn: FetchFn;
     nowMs: number;
     temperatureUnit: TemperatureUnit;
@@ -287,7 +336,7 @@ export async function applyWeatherBadges(
 
     for (const row of rows) {
       if (row.lat === undefined || row.lng === undefined) continue;
-      if (!opts.isOutdoorChannel(row.icsUrl)) continue;
+      if (opts.settingFor(row) !== "outdoor") continue;
       const startMs = parseIndexInstant(row.date);
       if (Number.isNaN(startMs)) continue;
       const endParsed = parseIndexInstant(row.endDate);

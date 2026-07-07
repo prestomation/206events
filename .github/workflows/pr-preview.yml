@@ -178,6 +178,18 @@ jobs:
                 (costGaps.length > 0 ? ` — ${costGaps.length.toLocaleString()} missing (run the cost-resolver skill)` : ' — ✅ Fully covered');
             }
 
+            // Outdoor-setting coverage (weather badges). Gaps are todos for
+            // the setting-resolver skill — informational, not a build-block.
+            const settingStats = buildErrors.settingStats;
+            const settingGaps = buildErrors.settingGaps || { venueGaps: [], eventGaps: [] };
+            let settingSection = '';
+            if (settingStats && settingStats.totalEvents > 0) {
+              const vGaps = settingGaps.venueGaps?.length || 0;
+              const eGaps = settingGaps.eventGaps?.length || 0;
+              settingSection = `\n\n**🌤️ Weather badges:** ${settingStats.badgedEvents.toLocaleString()} event(s) badged, ${settingStats.classifiedEvents.toLocaleString()} / ${settingStats.totalEvents.toLocaleString()} with a known setting` +
+                (vGaps + eGaps > 0 ? ` — ${vGaps} venue(s) + ${eGaps} event(s) awaiting classification (run the setting-resolver skill)` : ' — no classification queue');
+            }
+
             // Event-uncertainty stats. Outstanding entries are todos for
             // the event-uncertainty-resolver skill — informational, not
             // a build-block.
@@ -332,6 +344,7 @@ jobs:
               cacheSection,
               photoSection,
               costSection,
+              settingSection,
               uncertaintySection,
               duplicateSection,
               proxyVerificationSection,
