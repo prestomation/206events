@@ -1,3 +1,4 @@
+# verified: 2026-07-06 flagged (page states address "6605 13th Ave S" but existing geo/6505 matches Wikipedia coords and Nominatim; 6605 geocodes ~200m away — needs human check before changing)
 name: georgetown-steam-plant
 sourceRole: venue
 type: squarespace
