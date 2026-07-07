@@ -23,11 +23,6 @@ Two days in late August (annual) — South Lake Union — `https://206nightmarke
 ### Sakura-Con
 Three-four days in early April (annual) — 2026: April 2-5 — Seattle Convention Center — Tags: Community, Arts
 
-## New Tags Needed
-
-Several venues would benefit from new tags in `lib/config/tags.ts`:
-- **`Outdoors`** — for outdoor recreation organizations
-
 ## Dynamic Calendar Generation for Multi-Venue Sources
 
 Sources like DSA (Downtown Seattle Association) manage 17+ venues on a single Tribe Events API, but calendars are currently hardcoded per venue ID in `ripper.yaml`. When a new venue gets events, someone must manually add it.
@@ -65,10 +60,6 @@ Since builds regenerate everything, a diff step against the previous build (see 
 ## Transit-Aware Geo Presets
 
 The geo filter already does radius-from-point. Ship preset filters for light rail stations ("within a 10-minute walk of Capitol Hill Station") — pure static data, no new infra, and very Seattle-appropriate.
-
-## Weather Badges for Outdoor Events
-
-Fetch the forecast *at build time* (server-side, so no visitor data goes to a third party — stays inside the privacy rules) and badge outdoor-tagged events in the next 7 days. Pairs well with the `Outdoors` tag queued above.
 
 ## Personal Calendar Overlay (Client-Side Only)
 

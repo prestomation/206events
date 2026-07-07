@@ -151,6 +151,8 @@ def cmd_resolve(args):
             fields["location"] = args.location
         if args.image_url is not None:
             fields["imageUrl"] = args.image_url
+        if args.setting is not None:
+            fields["setting"] = args.setting
         # Cost: --cost-free / --cost-min [--cost-max] / --cost-paid-unknown /
         # --cost-sold-out are mutually exclusive ways to set the one `cost` field.
         cost_flags = sum([bool(args.cost_free), args.cost_min is not None, bool(args.cost_paid_unknown), bool(args.cost_sold_out)])
@@ -364,6 +366,9 @@ def main():
     p_res.add_argument("--duration", type=int, help="Duration in seconds")
     p_res.add_argument("--location", help="Location string")
     p_res.add_argument("--image-url", help="Image URL")
+    p_res.add_argument("--setting", choices=["outdoor", "indoor", "covered"],
+                       help="Outdoor/indoor/covered (weather-badge eligibility). "
+                            "Also valid on venue-level keys: venue:osm:<type>:<id> or venue:loc:<normalized location>")
     p_res.add_argument("--cost-min", type=float, help="Cheapest general-admission price in USD (face value, excluding fees); 0 = free")
     p_res.add_argument("--cost-max", type=float, help="Top of the price range in USD (only with --cost-min)")
     p_res.add_argument("--cost-free", action="store_true", help="Event is free (sugar for --cost-min 0)")

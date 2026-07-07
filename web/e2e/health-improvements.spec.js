@@ -35,6 +35,15 @@ const richBuildErrors = {
   },
   costStats: { eventsWithCost: 4, freeEvents: 2, totalEvents: 12, unresolvable: 0 },
   costGaps: [{ source: 'test-ripper', eventId: 'e2', summary: 'Priceless Show', date: '2026-03-22' }],
+  settingStats: { badgedEvents: 3, classifiedEvents: 5, totalEvents: 12, venueGaps: 1, eventGaps: 1 },
+  settingGaps: {
+    venueGaps: [{
+      venueKey: 'venue:osm:way:123456', label: 'City Hall Park, Pioneer Square',
+      channels: ['test-ripper-cal1.ics'], eventCount: 3,
+      sampleSummary: 'Lunchtime Concert', sampleDate: '2026-03-24', sampleUrl: 'https://example.test/concert',
+    }],
+    eventGaps: [{ source: 'test-ripper', eventId: 'e3', summary: 'Somewhere Show', date: '2026-03-25' }],
+  },
   osmGaps: [{ source: 'ripper', name: 'Neumos', label: 'Capitol Hill', lat: 47.61, lng: -122.32 }],
   duplicateCandidates: [{
     key: 'dup1', score: { title: 0.9, distanceM: 15, locText: 0.8 },
@@ -83,6 +92,16 @@ test('summary cards are clickable and open the matching detail panel', async ({ 
   await page.getByRole('button', { name: /Duplicate Candidates/ }).click()
   await expect(page.getByRole('heading', { name: /Duplicate Candidates/ })).toBeVisible()
   await expect(page.getByText(/Shared Gig/)).toBeVisible()
+
+  // The "Setting Gaps" card opens the outdoor-classification panel: venue
+  // gaps (venue-first, with the exact cache key) and per-event gaps.
+  await page.getByRole('button', { name: /Setting Gaps/ }).click()
+  await expect(page.getByText(/Venue Setting Gaps/)).toBeVisible()
+  await expect(page.getByText('City Hall Park, Pioneer Square')).toBeVisible()
+  await expect(page.getByText(/venue:osm:way:123456/)).toBeVisible()
+  await expect(page.getByText(/Event Setting Gaps/)).toBeVisible()
+  await expect(page.getByText('Somewhere Show — 2026-03-25')).toBeVisible()
+  await screenshotStable(page, 'e2e/screenshots/health-setting-panel.png', { fullPage: true })
 })
 
 test('the search box filters every list and count on the page', async ({ page }) => {

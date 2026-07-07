@@ -120,6 +120,9 @@ function applyResolution(
     if (fields.cost !== undefined) {
         updated.cost = fields.cost;
     }
+    if (fields.setting !== undefined) {
+        updated.setting = fields.setting;
+    }
     return updated;
 }
 
@@ -251,6 +254,48 @@ export function applyImageBackfill(
             applied++;
             touchedKeys.push(uncertaintyCacheKey(source, event.id));
             return { ...event, imageUrl: lookup.entry.fields.imageUrl };
+        }
+        return event;
+    });
+
+    return { events: updatedEvents, applied, touchedKeys };
+}
+
+export interface SettingBackfillResult {
+    events: RipperCalendarEvent[];
+    // Number of events that received a setting from the cache this build.
+    applied: number;
+    // Cache keys consulted that produced an applied setting. The caller
+    // stamps `lastSeen` on these so the prune-by-staleness path keeps them.
+    touchedKeys: string[];
+}
+
+// Pure overlay: fill in `setting` (outdoor/indoor/covered — weather-badge
+// eligibility) for events that don't already have one, from per-event
+// `source:eventId` cache entries. Like image/cost backfill, setting is
+// pervasively missing, so rippers do NOT emit an UncertaintyError per
+// unclassified event — the setting-resolver skill drains the `settingGaps`
+// queue instead. Events whose ripper already set a `setting` are left
+// untouched; `unresolvable` entries are skipped (the event stays unknown and
+// drops off the gap queue). Venue-level `venue:*` entries are a separate,
+// lower-precedence layer applied at badge time (lookupVenueSetting) — this
+// overlay is only the per-event layer. See docs/weather-badges.md.
+export function applySettingBackfill(
+    events: RipperCalendarEvent[],
+    cache: Readonly<UncertaintyCache>,
+    source: string,
+): SettingBackfillResult {
+    let applied = 0;
+    const touchedKeys: string[] = [];
+
+    const updatedEvents = events.map(event => {
+        if (event.setting) return event;    // ripper already classified it
+        if (!event.id) return event;        // can't key into the cache
+        const lookup = lookupUncertaintyCache(cache, source, event.id);
+        if (lookup.kind === 'resolved' && lookup.entry?.fields?.setting) {
+            applied++;
+            touchedKeys.push(uncertaintyCacheKey(source, event.id));
+            return { ...event, setting: lookup.entry.fields.setting };
         }
         return event;
     });

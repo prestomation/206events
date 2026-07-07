@@ -1,5 +1,6 @@
 geo: null
 name: seattle-parks-foundation
+weatherSetting: "mixed"
 sourceRole: aggregator
 friendlyname: The Seattle Parks Foundation
 description: Seattle Parks Foundation

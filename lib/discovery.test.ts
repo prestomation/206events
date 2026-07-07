@@ -16,6 +16,8 @@ import {
   buildPhotoGaps,
   photoGapsSchema,
   buildCostGaps,
+  buildSettingGaps,
+  type SettingEventInput,
   costGapsSchema,
   isOsmCheckedFresh,
   ManifestLike,
@@ -1391,5 +1393,105 @@ describe("buildCostGaps", () => {
     });
     expect(() => costGapsSchema.parse(gaps)).not.toThrow();
     expect(gaps.map(e => e.source)).toEqual(["alpha", "zeta"]);
+  });
+});
+
+// -----------------------------------------------------------------------------
+// buildSettingGaps — venues/events awaiting outdoor classification (weather v2)
+// -----------------------------------------------------------------------------
+
+describe("buildSettingGaps", () => {
+  const NOW = new Date("2026-07-07T00:00:00Z");
+  const input = (overrides: Partial<SettingEventInput> = {}): SettingEventInput => ({
+    source: "events12",
+    id: "evt-1",
+    channel: "events12-seattle.ics",
+    summary: "Duck parade",
+    date: "2026-07-10T10:00:00-07:00[America/Los_Angeles]",
+    ...overrides,
+  });
+
+  it("collapses events sharing a venue key into one venue gap", () => {
+    const gaps = buildSettingGaps({
+      events: [
+        input({ id: "a", venueKey: "venue:osm:way:123", location: "City Hall Park", url: "https://x.test/a" }),
+        input({ id: "b", venueKey: "venue:osm:way:123", channel: "seatoday-all.ics", date: "2026-07-12T10:00:00-07:00[America/Los_Angeles]" }),
+      ],
+      unresolvableKeys: new Set(),
+      now: NOW,
+    });
+    expect(gaps.venueGaps).toHaveLength(1);
+    expect(gaps.eventGaps).toHaveLength(0);
+    const v = gaps.venueGaps[0];
+    expect(v.venueKey).toBe("venue:osm:way:123");
+    expect(v.eventCount).toBe(2);
+    expect(v.channels).toEqual(["events12-seattle.ics", "seatoday-all.ics"]);
+    // Sample is the earliest event, and carries the label/url.
+    expect(v.sampleDate).toContain("2026-07-10");
+    expect(v.label).toBe("City Hall Park");
+    expect(v.sampleUrl).toBe("https://x.test/a");
+  });
+
+  it("queues keyless events per-event, and drops events with no key at all", () => {
+    const gaps = buildSettingGaps({
+      events: [
+        input({ id: "solo" }),                    // no venue key → event gap
+        input({ id: undefined }),                 // no key of any kind → dropped
+      ],
+      unresolvableKeys: new Set(),
+      now: NOW,
+    });
+    expect(gaps.venueGaps).toHaveLength(0);
+    expect(gaps.eventGaps).toHaveLength(1);
+    expect(gaps.eventGaps[0]).toMatchObject({ source: "events12", eventId: "solo" });
+  });
+
+  it("excludes classified, unresolvable, past, and beyond-horizon events", () => {
+    const gaps = buildSettingGaps({
+      events: [
+        input({ id: "done", setting: "outdoor", venueKey: "venue:osm:way:1" }),
+        input({ id: "event-dead" }),
+        input({ id: "past", date: "2026-07-01T10:00:00-07:00[America/Los_Angeles]", venueKey: "venue:osm:way:3" }),
+        input({ id: "far", date: "2026-09-01T10:00:00-07:00[America/Los_Angeles]", venueKey: "venue:osm:way:4" }),
+      ],
+      unresolvableKeys: new Set(["events12:event-dead"]),
+      now: NOW,
+    });
+    expect(gaps.venueGaps).toHaveLength(0);
+    expect(gaps.eventGaps).toHaveLength(0);
+  });
+
+  it("demotes events at an unresolvable venue to per-event gaps", () => {
+    // "Unresolvable venue" = a genuinely mixed place — the events still need
+    // classifying, just individually. Id-less events (externals) drop out.
+    const gaps = buildSettingGaps({
+      events: [
+        input({ id: "venue-mixed", venueKey: "venue:osm:way:2", venueUnresolvable: true }),
+        input({ id: undefined, venueKey: "venue:osm:way:2", venueUnresolvable: true }),
+      ],
+      unresolvableKeys: new Set(),
+      now: NOW,
+    });
+    expect(gaps.venueGaps).toHaveLength(0);
+    expect(gaps.eventGaps).toHaveLength(1);
+    expect(gaps.eventGaps[0].eventId).toBe("venue-mixed");
+  });
+
+  it("sorts deterministically", () => {
+    const gaps = buildSettingGaps({
+      events: [
+        input({ id: "b", venueKey: "venue:osm:way:9" }),
+        input({ id: "a", venueKey: "venue:loc:alpha park" }),
+        input({ id: "z" }),
+        input({ id: "y", source: "cascade_bicycle_club" }),
+      ],
+      unresolvableKeys: new Set(),
+      now: NOW,
+    });
+    expect(gaps.venueGaps.map(v => v.venueKey)).toEqual(["venue:loc:alpha park", "venue:osm:way:9"]);
+    expect(gaps.eventGaps.map(e => `${e.source}:${e.eventId}`)).toEqual([
+      "cascade_bicycle_club:y",
+      "events12:z",
+    ]);
   });
 });

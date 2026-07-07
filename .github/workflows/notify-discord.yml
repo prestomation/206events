@@ -118,6 +118,14 @@ jobs:
             if [ "$COST_GAPS" -gt 0 ] 2>/dev/null; then
               COST_LINE=" 💲 ${COST_GAPS} event(s) missing a cost — run cost-resolver."
             fi
+            # Pull the outdoor-setting gap count: venues + events awaiting an
+            # indoor/outdoor classification for weather badges.
+            SETTING_LINE=""
+            SETTING_GAPS=$(curl -s --fail "${SITE_URL}/build-errors.json" 2>/dev/null \
+              | jq -r '((.settingGaps.venueGaps // []) | length) + ((.settingGaps.eventGaps // []) | length)' 2>/dev/null || echo "0")
+            if [ "$SETTING_GAPS" -gt 0 ] 2>/dev/null; then
+              SETTING_LINE=" 🌤️ ${SETTING_GAPS} venue/event(s) awaiting outdoor classification — run setting-resolver."
+            fi
             # Pull the sold-out count (informational — not actionable).
             SOLDOUT_LINE=""
             SOLDOUT_COUNT=$(curl -s --fail "${SITE_URL}/build-errors.json" 2>/dev/null \
@@ -141,7 +149,7 @@ jobs:
             if [ "$DUP_CANDIDATES" -gt 0 ] 2>/dev/null; then
               DUP_LINE=" 🔀 ${DUP_CANDIDATES} duplicate candidate(s) — run duplicate-resolver."
             fi
-            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE}${PROXY_LINE}${PHOTO_LINE}${COST_LINE}${SOLDOUT_LINE}${STALE_LINE}${DUP_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
+            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE}${PROXY_LINE}${PHOTO_LINE}${COST_LINE}${SETTING_LINE}${SOLDOUT_LINE}${STALE_LINE}${DUP_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
             # For PR Preview success, include preview link and new source summary
             PREVIEW_LINE=""

@@ -918,6 +918,147 @@ export function buildCostGaps(opts: {
 }
 
 // -----------------------------------------------------------------------------
+// Setting gaps (the setting-resolver skill's work queue — weather badges v2)
+// -----------------------------------------------------------------------------
+
+// A venue awaiting an outdoor/indoor/covered classification. One entry covers
+// every upcoming event (from any source) at that place — the resolver writes
+// one venue-level cache entry (`venueKey`) and the whole group resolves.
+export const settingVenueGapSchema = z.object({
+  /** Uncertainty-cache key to resolve: `venue:osm:<type>:<id>` or `venue:loc:<normalized>`. */
+  venueKey: z.string(),
+  /** Human-readable place (the first event's location string). */
+  label: z.string().optional(),
+  /** Channels (icsUrls) with upcoming events at this venue. */
+  channels: z.array(z.string()),
+  /** How many upcoming events inherit the classification. */
+  eventCount: z.number(),
+  /** One representative event, for the resolver's investigation. */
+  sampleSummary: z.string(),
+  sampleDate: z.string(),
+  sampleUrl: z.string().optional(),
+});
+
+// An event with no venue key at all (no OSM feature, no location string) —
+// classifiable only per-event via its `source:eventId` cache key.
+export const settingEventGapSchema = z.object({
+  source: z.string(),
+  eventId: z.string(),
+  summary: z.string(),
+  date: z.string(),
+  url: z.string().optional(),
+});
+
+export const settingGapsSchema = z.object({
+  venueGaps: z.array(settingVenueGapSchema),
+  eventGaps: z.array(settingEventGapSchema),
+});
+
+export type SettingVenueGap = z.infer<typeof settingVenueGapSchema>;
+export type SettingEventGap = z.infer<typeof settingEventGapSchema>;
+export type SettingGaps = z.infer<typeof settingGapsSchema>;
+
+// One event from a `weatherSetting: "mixed"` source, projected to what the
+// setting gap report needs. `venueKey`/`venueUnresolvable` are precomputed by
+// the caller via lookupVenueSetting so this builder stays cache-agnostic.
+export interface SettingEventInput {
+  source: string;        // ripper/feed name (per-event cache-key prefix)
+  id?: string;           // stable event id (absent for external ICS events)
+  channel: string;       // icsUrl, for the venue gap's channels list
+  summary: string;
+  date: string;          // events-index date string
+  url?: string;
+  location?: string;
+  setting?: string;      // already resolved by any layer → not a gap
+  venueKey?: string;     // best venue cache key for this event's place
+  venueUnresolvable?: boolean; // venue entry exists but is marked unresolvable
+}
+
+/** Only events starting within this many days feed the setting queue — far
+ *  enough ahead of the 7-day badge window that resolutions land before the
+ *  badge would, small enough that the queue tracks real upcoming work. */
+export const SETTING_GAP_HORIZON_DAYS = 14;
+
+/**
+ * Build the setting-gap work queue for `weatherSetting: "mixed"` sources:
+ * upcoming events whose outdoor/indoor setting is unknown at every layer.
+ * Venue-first: events sharing a venue key collapse into ONE venue gap (the
+ * resolver classifies the place once); events with no venue key — or whose
+ * venue is marked `unresolvable` ("genuinely mixed place, classify
+ * per-event") — fall through to per-event gaps. Events whose own
+ * `source:eventId` entry is unresolvable are excluded so the queue
+ * self-limits — same lifecycle as the photo/cost queues.
+ *
+ * Pure and deterministic (stable sort) so the report diffs cleanly.
+ */
+export function buildSettingGaps(opts: {
+  events: SettingEventInput[];
+  unresolvableKeys: Set<string>;
+  now: Date;
+  horizonDays?: number;
+}): SettingGaps {
+  const { events, unresolvableKeys, now } = opts;
+  const horizonMs = (opts.horizonDays ?? SETTING_GAP_HORIZON_DAYS) * 24 * 60 * 60 * 1000;
+
+  const parseInstant = (s: string): number =>
+    new Date(String(s).replace(/\[.*\]$/, "")).getTime();
+
+  const byVenue = new Map<string, { events: SettingEventInput[]; channels: Set<string> }>();
+  const eventGaps: SettingEventGap[] = [];
+
+  for (const e of events) {
+    if (e.setting) continue;                 // already classified
+    const startMs = parseInstant(e.date);
+    if (Number.isNaN(startMs)) continue;
+    if (startMs < now.getTime() || startMs - now.getTime() > horizonMs) continue;
+    if (e.id && unresolvableKeys.has(`${e.source}:${e.id}`)) continue;
+
+    // A venue marked unresolvable means "this place hosts both indoor and
+    // outdoor events — classify per-event", so its events DEMOTE to the
+    // per-event queue (below) rather than dropping out entirely.
+    if (e.venueKey && !e.venueUnresolvable) {
+      let group = byVenue.get(e.venueKey);
+      if (!group) {
+        group = { events: [], channels: new Set() };
+        byVenue.set(e.venueKey, group);
+      }
+      group.events.push(e);
+      group.channels.add(e.channel);
+    } else if (e.id) {
+      eventGaps.push({
+        source: e.source,
+        eventId: e.id,
+        summary: e.summary,
+        date: e.date,
+        ...(e.url ? { url: e.url } : {}),
+      });
+    }
+    // No venue key and no id → nothing actionable to queue.
+  }
+
+  const venueGaps: SettingVenueGap[] = [...byVenue.entries()].map(([venueKey, group]) => {
+    const sorted = [...group.events].sort((a, b) => parseInstant(a.date) - parseInstant(b.date));
+    const sample = sorted[0];
+    return {
+      venueKey,
+      ...(sample.location ? { label: sample.location } : {}),
+      channels: [...group.channels].sort(),
+      eventCount: group.events.length,
+      sampleSummary: sample.summary,
+      sampleDate: sample.date,
+      ...(sample.url ? { sampleUrl: sample.url } : {}),
+    };
+  });
+
+  venueGaps.sort((a, b) => a.venueKey.localeCompare(b.venueKey));
+  eventGaps.sort((a, b) =>
+    a.source.localeCompare(b.source) || a.eventId.localeCompare(b.eventId),
+  );
+
+  return { venueGaps, eventGaps };
+}
+
+// -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
 

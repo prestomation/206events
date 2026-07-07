@@ -39,6 +39,7 @@ banner to ask consent for.
 | Fonts (Inter / Inter Tight / JetBrains Mono) | **Self-hosted** via `@fontsource`, bundled into the build — `web/src/index.css` | First-party; no third-party request | No |
 | Map tiles | OpenStreetMap — `web/src/components/EventsMap.jsx` | First-party request to OSM, no tracking cookies | No |
 | Map links (Google / OSM) | `web/src/lib/maplink.js` | User-initiated navigation, not an embed | No |
+| Weather badges | Forecast fetched **at build time** from Open-Meteo by the CI runner (`lib/weather.ts`); the browser only reads the pre-baked `weather` field in `events-index.json` — no visitor request ever reaches a weather provider | Server-side only; zero visitor data disclosed | No |
 | Advertising / marketing pixels | — | **None** | — |
 
 ## Why fonts are self-hosted

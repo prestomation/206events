@@ -7,7 +7,7 @@ import type {
     UncertaintyError,
 } from './config/schema.js';
 import type { UncertaintyCache } from './event-uncertainty-cache.js';
-import { applyUncertaintyResolutions, applyImageBackfill, applyCostBackfill, stripUncertaintyNote } from './uncertainty-merge.js';
+import { applyUncertaintyResolutions, applyImageBackfill, applyCostBackfill, applySettingBackfill, stripUncertaintyNote } from './uncertainty-merge.js';
 
 const TZ = ZoneId.of('America/Los_Angeles');
 
@@ -532,5 +532,69 @@ describe('applyCostBackfill', () => {
         const result = applyCostBackfill([ev()], cache, 'src');
         expect(result.events[0].cost).toBeUndefined();
         expect(result.applied).toBe(0);
+    });
+});
+
+describe('applySettingBackfill', () => {
+    const TZ3 = ZoneId.of('America/Los_Angeles');
+    function ev(overrides: Partial<RipperCalendarEvent> = {}): RipperCalendarEvent {
+        return {
+            id: 'evt-1',
+            ripped: new Date('2026-05-16T00:00:00Z'),
+            date: ZonedDateTime.of(2026, 2, 14, 12, 0, 0, 0, TZ3),
+            duration: Duration.ofHours(2),
+            summary: 'Some event',
+            ...overrides,
+        };
+    }
+    const cacheWith = (entries: UncertaintyCache['entries']): UncertaintyCache => ({ version: 1, entries });
+
+    it('fills in setting from a resolved per-event cache entry', () => {
+        const cache = cacheWith({
+            'src:evt-1': { fields: { setting: 'outdoor' }, resolvedAt: '2026-05-16', source: 'agent' },
+        });
+        const result = applySettingBackfill([ev()], cache, 'src');
+        expect(result.events[0].setting).toBe('outdoor');
+        expect(result.applied).toBe(1);
+        expect(result.touchedKeys).toEqual(['src:evt-1']);
+    });
+
+    it('never overwrites a ripper-provided setting', () => {
+        const cache = cacheWith({
+            'src:evt-1': { fields: { setting: 'indoor' }, resolvedAt: '2026-05-16', source: 'agent' },
+        });
+        const result = applySettingBackfill([ev({ setting: 'outdoor' })], cache, 'src');
+        expect(result.events[0].setting).toBe('outdoor');
+        expect(result.applied).toBe(0);
+    });
+
+    it('skips unresolvable entries and events without an id', () => {
+        const cache = cacheWith({
+            'src:evt-1': { unresolvable: true, resolvedAt: '2026-05-16', source: 'agent' },
+        });
+        expect(applySettingBackfill([ev()], cache, 'src').events[0].setting).toBeUndefined();
+        expect(applySettingBackfill([ev({ id: undefined })], cache, 'src').applied).toBe(0);
+    });
+});
+
+describe('applyUncertaintyResolutions setting field', () => {
+    const TZ4 = ZoneId.of('America/Los_Angeles');
+    it('applies a resolved setting through the standard resolution path', () => {
+        const event: RipperCalendarEvent = {
+            id: 'evt-9', ripped: new Date('2026-05-16T00:00:00Z'),
+            date: ZonedDateTime.of(2026, 2, 14, 12, 0, 0, 0, TZ4),
+            duration: Duration.ofHours(2), summary: 'Maybe outside',
+        };
+        const cache: UncertaintyCache = {
+            version: 1,
+            entries: { 'src:evt-9': { fields: { setting: 'covered' }, resolvedAt: '2026-05-16', source: 'agent' } },
+        };
+        const errors = [{
+            type: 'Uncertainty' as const, reason: 'setting unknown', source: 'src',
+            unknownFields: ['setting' as const], event,
+        }];
+        const result = applyUncertaintyResolutions([event], errors, cache, 'src');
+        expect(result.events[0].setting).toBe('covered');
+        expect(result.errors).toHaveLength(0);
     });
 });

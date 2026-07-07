@@ -9,6 +9,7 @@ geo:
   osmType: way
   osmChecked: 2026-04-28
 name: woodland-park-zoo
+weatherSetting: "mixed"
 sourceRole: venue
 proxy: browserbase
 friendlyname: Woodland Park Zoo
