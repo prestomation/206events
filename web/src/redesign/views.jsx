@@ -4,7 +4,7 @@
 import { useState, useMemo, useRef, useEffect, useLayoutEffect } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
-import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor, EventLinkIcon } from './atoms.jsx'
+import { ChannelAvatar, CatDot, DayList, ActiveFilters, LocationMapLink, BannerImage, EventThumb, UncertaintyBadge, uncertainFieldsFor, EventLinkIcon, WeatherBadge } from './atoms.jsx'
 import { ChannelCard } from './ChannelCard.jsx'
 import { FilterDropdown } from './shell.jsx'
 import { groupIndexEventsByDay, dayIndexForScrubber, parseIndexDate, rowFromIndexEvent, formatTimeRange, filterDiscoverChannels, filterDiscoverEvents, eventMatchesCost, costLabel, costClass, COST_FILTER_OPTIONS } from './viewModels.js'
@@ -1123,6 +1123,7 @@ export function EventDetail({ event }) {
           {row.time && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.clock}</span>{row.timeRange}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['startTime', 'duration'])} compact /></span>}
           {(event.location || channel?.hood) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.pin}</span>{event.location || channel.hood}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['location'])} compact /></span>}
           {costLabel(event.cost) && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 15, height: 15 }}>{Ico.spark}</span>{costLabel(event.cost)}<UncertaintyBadge event={event} fields={uncertainFieldsFor(event, ['cost'])} compact /></span>}
+          <WeatherBadge event={event} />
         </div>
       </div>
 

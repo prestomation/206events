@@ -117,6 +117,9 @@ export function deriveConfig(answers: CityAnswers): CityConfig {
         },
         venueSanityBbox,
         neighborhoods: answers.neighborhoods,
+        // Default to imperial; a metric-city operator flips this one field
+        // (weather badges display temperatures in this unit).
+        weather: { temperatureUnit: "fahrenheit" },
         analytics: answers.goatcounterCode ? { goatcounterCode: answers.goatcounterCode } : null,
     });
 }
@@ -207,6 +210,10 @@ const cityConfig = {
     neighborhoods: [
 ${hoods}
     ],
+    // Weather badges for outdoor events (docs/weather-badges.md). The badge
+    // temperatures are published in this display unit; the forecast provider
+    // (Open-Meteo) serves either natively.
+    weather: { temperatureUnit: ${q(cfg.weather.temperatureUnit)} } as { temperatureUnit: "fahrenheit" | "celsius" },
     // GoatCounter analytics. Set to null to disable analytics entirely
     // (no snippet is injected into index.html).
     analytics: ${analytics},

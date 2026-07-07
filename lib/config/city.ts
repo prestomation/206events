@@ -73,6 +73,7 @@ export const cityConfigSchema = z
             .refine(list => new Set(list).size === list.length, {
                 message: "neighborhoods must not contain duplicates",
             }),
+        weather: z.object({ temperatureUnit: z.enum(["fahrenheit", "celsius"]) }),
         analytics: z.object({ goatcounterCode: z.string().min(1) }).nullable(),
     })
     .superRefine((cfg, ctx) => {

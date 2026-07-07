@@ -1,7 +1,16 @@
 # Weather Badges for Outdoor Events — Design
 
-Status: **proposed** (design doc — no implementation yet). Origin: `ideas.md` →
+Status: **v1 implemented** (same PR as this design). Origin: `ideas.md` →
 "Weather Badges for Outdoor Events" (PR #870).
+
+Implementation map: `lib/weather.ts` (+ `lib/weather.test.ts`, fixture
+`lib/weather-sample-data.json`), the badge pass in `lib/calendar_ripper.ts`
+(after dedup, before index serialization), the curated `Outdoors` tag across
+~30 source YAMLs + `TAG_CATEGORIES`, `city.config.ts` →
+`weather.temperatureUnit`, and the UI in
+`web/src/redesign/weatherModel.js` / `WeatherBadge` in `atoms.jsx`
+(e2e: `web/e2e/weather.spec.js`). The v2 per-event `setting` overlay and the
+ensemble-confidence upgrade remain future work.
 
 ## Summary
 
@@ -321,8 +330,8 @@ proper non-fatal counter — and pay the full reporting-parity cost in that PR.
 5. **Docs** — update this doc's status; note the posture (build-time fetch, no
    visitor disclosure) in `docs/privacy-and-consent.md` in the same PR.
 
-Suggested split: PR 1 = pipeline + schema (steps 1–3, no UI); PR 2 = UI (step
-4). Both are feature work → **manual merge** per the auto-merge table.
+(v1 shipped steps 1–5 in one PR alongside this design. Feature work →
+**manual merge** per the auto-merge table.)
 
 ## Phasing
 

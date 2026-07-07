@@ -4171,6 +4171,57 @@ html, body, #root { height: 100%; }
   padding: 1px 6px;
   border-radius: 999px;
 }
+/* Weather badge for outdoor events (docs/weather-badges.md). Shares the
+   uncertain-badge popup machinery (.uncertain-pop/.uncertain-wrap); the chip
+   itself keeps sentence case (it shows data — "72° · 30% rain" — not a
+   status word). Confidence tempers the chrome: high/medium read as a normal
+   info chip, low is dashed-outline muted so a long-range guess never carries
+   the same visual authority as tomorrow's forecast. */
+.app206 .weather-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 5px;
+  padding: 1px 7px;
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.5;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  flex: 0 0 auto;
+  color: var(--ink-2, var(--ink));
+  background: var(--surface-2);
+}
+.app206 .weather-badge--low {
+  background: none;
+  border: 1px dashed var(--ink-3);
+  color: var(--ink-3);
+}
+.app206 .weather-badge-icon { font-size: 12px; line-height: 1; }
+/* Compact variant (dense rows): glyph only, no pill chrome. */
+.app206 .weather-badge--compact {
+  margin-left: 4px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 13px;
+}
+/* On the colored event-detail hero (same rationale as the uncertain badge):
+   translucent white chip so it reads on any channel color. */
+.app206 .a-hero .weather-badge {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.24);
+  border: none;
+}
+.app206 .a-hero .weather-badge--low {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px dashed rgba(255, 255, 255, 0.65);
+}
+
 /* Full-width caption row inside .a-activefilters (flex-wrap) explaining the
    strict cost filter, so a shrunken list doesn't read as a bug. */
 .app206 .a-fcaption { flex-basis: 100%; font-size: 12px; color: var(--ink-3); }

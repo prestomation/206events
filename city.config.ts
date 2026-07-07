@@ -123,6 +123,10 @@ const cityConfig = {
         "West Seattle",
         "White Center",
     ],
+    // Weather badges for outdoor events (docs/weather-badges.md). The badge
+    // temperatures are published in this display unit; the forecast provider
+    // (Open-Meteo) serves either natively.
+    weather: { temperatureUnit: "fahrenheit" } as { temperatureUnit: "fahrenheit" | "celsius" },
     // GoatCounter analytics. Set to null to disable analytics entirely
     // (no snippet is injected into index.html).
     analytics: { goatcounterCode: "seattle-calendars" } as { goatcounterCode: string } | null,

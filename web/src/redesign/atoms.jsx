@@ -5,6 +5,7 @@ import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { colorForTag } from './categories.js'
 import { rowFromIndexEvent, provFromAttributions, describeWindow, costLabel, costClass, COST_FILTER_OPTIONS } from './viewModels.js'
+import { weatherView } from './weatherModel.js'
 import { eventKey } from '../lib/eventKey.js'
 import { bestMapHref } from '../lib/maplink.js'
 import { formatTagLabel } from '../utils/format.js'
@@ -104,6 +105,58 @@ export function UncertaintyBadge({ event, fields, compact = false }) {
         <>
           <span className="uncertain-pop-backdrop" onClick={(e) => { e.stopPropagation(); setPos(null) }} />
           <span className="uncertain-pop" role="tooltip" style={{ top: pos.top, left: pos.left }}>{explanation}</span>
+        </>
+      )}
+    </span>
+  )
+}
+
+// Forecast badge for outdoor events (docs/weather-badges.md). Rendered only
+// when the build stamped a `weather` field on the event AND the forecast is
+// fresh enough to stand behind (weatherView applies the staleness guard).
+// Mirrors UncertaintyBadge's interaction: compact mode shows just the glyph
+// for dense list rows; clicking opens a fixed-position popup carrying the
+// receipts — conditions, confidence tier, as-of time, provider attribution.
+const WEATHER_POP_WIDTH = 250
+
+export function WeatherBadge({ event, compact = false }) {
+  const view = weatherView(event)
+  const btnRef = useRef(null)
+  const [pos, setPos] = useState(null)
+  useEffect(() => {
+    if (!pos) return undefined
+    const close = () => setPos(null)
+    const onKey = (e) => { if (e.key === 'Escape') close() }
+    window.addEventListener('keydown', onKey)
+    window.addEventListener('scroll', close, true)
+    window.addEventListener('resize', close)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('scroll', close, true)
+      window.removeEventListener('resize', close)
+    }
+  }, [pos])
+  if (!view) return null
+  const toggle = (e) => {
+    e.stopPropagation(); e.preventDefault()
+    if (pos) { setPos(null); return }
+    const r = btnRef.current && btnRef.current.getBoundingClientRect()
+    if (!r) return
+    const left = Math.max(8, Math.min(r.left, window.innerWidth - WEATHER_POP_WIDTH - 8))
+    setPos({ top: r.bottom + 6, left })
+  }
+  return (
+    <span className="uncertain-wrap">
+      <button ref={btnRef} type="button"
+        className={`weather-badge weather-badge--${view.conf}${compact ? ' weather-badge--compact' : ''}`}
+        onClick={toggle} title={view.explanation} aria-label={view.explanation} aria-expanded={!!pos}>
+        <span className="weather-badge-icon" aria-hidden="true">{view.emoji}</span>
+        {!compact && <span className="weather-badge-text">{view.badgeText}</span>}
+      </button>
+      {pos && (
+        <>
+          <span className="uncertain-pop-backdrop" onClick={(e) => { e.stopPropagation(); setPos(null) }} />
+          <span className="uncertain-pop" role="tooltip" style={{ top: pos.top, left: pos.left, width: WEATHER_POP_WIDTH }}>{view.explanation}</span>
         </>
       )}
     </span>
@@ -317,6 +370,7 @@ export function EventRow({ event, noDate = false, showChip = true, showLoc = fal
             </span>
           )}
           <span className="ev-title" style={{ flex: 1, minWidth: 0 }}>{event.summary}</span>
+          <WeatherBadge event={event} compact />
           {costLabel(event.cost) && (
             <span className={`ev-cost${costClass(event.cost)}`}>
               {costLabel(event.cost)}

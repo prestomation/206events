@@ -89,6 +89,39 @@ export const mockUncertainEvents = [
   },
 ]
 
+// Events carrying the build-stamped `weather` field (docs/weather-badges.md),
+// one per confidence tier plus a stale-forecast event that the client-side
+// staleness guard must suppress. Used only by weather.spec.js, which overrides
+// the events-index route so the shared specs' event counts are untouched.
+const weatherAsOf = new Date().toISOString()
+const staleAsOf = new Date(Date.now() - 72 * 3_600_000).toISOString()
+export const mockWeatherEvents = [
+  {
+    icsUrl: 'test-ripper-cal1.ics', summary: 'Sunny Market Day',
+    description: 'Open-air market.', location: 'Ballard Ave NW',
+    date: toJoda(future(1)), lat: 47.668, lng: -122.384,
+    weather: { hi: 74, lo: 61, pop: 5, code: 0, asOf: weatherAsOf, conf: 'high' },
+  },
+  {
+    icsUrl: 'test-ripper-cal1.ics', summary: 'Rainy Outdoor Movie',
+    description: 'Bring a tarp.', location: 'Marymoor Park',
+    date: toJoda(future(4)), lat: 47.663, lng: -122.121,
+    weather: { hi: 55, lo: 48, pop: 70, code: 61, asOf: weatherAsOf, conf: 'medium' },
+  },
+  {
+    icsUrl: 'test-ripper-cal1.ics', summary: 'Long Range Garden Walk',
+    description: 'A week out.', location: 'Seattle Japanese Garden',
+    date: toJoda(future(6)), lat: 47.629, lng: -122.297,
+    weather: { hi: 68, lo: 54, pop: 40, code: 3, asOf: weatherAsOf, conf: 'low' },
+  },
+  {
+    icsUrl: 'test-ripper-cal1.ics', summary: 'Stale Forecast Fair',
+    description: 'Forecast too old to trust.', location: 'City Hall Park',
+    date: toJoda(future(2)), lat: 47.602, lng: -122.330,
+    weather: { hi: 70, lo: 60, pop: 0, code: 0, asOf: staleAsOf, conf: 'high' },
+  },
+]
+
 // A recurring event that is NOT modeled as recurring: four identical-title
 // instances at one venue/source on different days (a weekly trivia night),
 // scraped as independent dated events. Plus two distractors that must NOT be

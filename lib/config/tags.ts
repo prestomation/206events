@@ -46,6 +46,11 @@ export const TAG_CATEGORIES = {
         'Museums',
         'Nightlife',
         'OpenMic',
+        // Unambiguously open-air sources only — this tag drives the weather
+        // badges on event cards (docs/weather-badges.md), so a wrongly-tagged
+        // indoor source gets misleading forecasts. Mixed venues wait for the
+        // per-event `setting` overlay (v2).
+        'Outdoors',
         'Pub Trivia',
         'Running',
         'Sports',
