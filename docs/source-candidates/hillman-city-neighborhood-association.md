@@ -3,7 +3,6 @@ name: Hillman City Neighborhood Association
 status: notviable
 platform: none found
 url: https://hcna.mailchimpsites.com
-tags: ["Hillman City"]
 firstSeen: 2026-07-08
 lastChecked: 2026-07-08
 pr:

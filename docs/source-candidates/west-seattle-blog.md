@@ -1,5 +1,5 @@
 ---
-name: West Seattle Blog Event Calendar
+name: West Seattle Blog
 status: candidate
 platform: ICS (All-in-One Event Calendar plugin)
 url: https://westseattleblog.com/events/
