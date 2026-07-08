@@ -1,10 +1,10 @@
-import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId } from "@js-joda/core";
-import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId, OffsetDateTime } from "@js-joda/core";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
 
-const VENUE_ADDRESS = "Pike Place Market, 85 Pike St, Seattle, WA 98101";
+const SOURCE_NAME = "pike-place-market";
 const TIMEZONE = ZoneId.of("America/Los_Angeles");
 
 // The Pike Place Market events calendar (Modern Events Calendar plugin) only
@@ -38,9 +38,23 @@ function sleep(ms: number): Promise<void> {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
+
 interface WpPostSummary {
     id: number;
     link: string;
+}
+
+interface PageResult {
+    posts: WpPostSummary[];
+    isLastPage: boolean;
 }
 
 export default class PikePlaceMarketRipper implements IRipper {
@@ -92,19 +106,52 @@ export default class PikePlaceMarketRipper implements IRipper {
         const all: WpPostSummary[] = [];
 
         for (let page = 1; page <= MAX_PAGES; page++) {
-            const url = `${REST_API_URL}?per_page=${PER_PAGE}&page=${page}&_fields=id,link&status=publish`;
-            const res = await this.fetchFn(url);
-            if (!res.ok) {
-                if (page === 1) {
-                    throw new Error(`WP REST API error: ${res.status} ${res.statusText}`);
-                }
-                break; // page beyond the last one (HTTP 400 rest_post_invalid_page_number)
-            }
-            const posts: WpPostSummary[] = await res.json();
+            const { posts, isLastPage } = await this.fetchPostsPage(page);
             all.push(...posts);
-            if (posts.length < PER_PAGE) break; // short page — no more to fetch
+            if (isLastPage) break;
         }
         return all;
+    }
+
+    /** Fetches one page of the post-listing endpoint, retrying transient errors. */
+    private async fetchPostsPage(page: number): Promise<PageResult> {
+        const url = `${REST_API_URL}?per_page=${PER_PAGE}&page=${page}&_fields=id,link&status=publish`;
+        let lastError: unknown = new Error("unknown error");
+
+        for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+            if (attempt > 0) {
+                await sleep(RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1));
+            }
+
+            try {
+                const res = await this.fetchFn(url);
+
+                // HTTP 400 (rest_post_invalid_page_number) beyond page 1 means we've
+                // walked past the last page — that's expected termination, not an error.
+                if (res.status === 400 && page > 1) {
+                    return { posts: [], isLastPage: true };
+                }
+
+                if (!res.ok) {
+                    if (res.status === 429 || res.status >= 500) {
+                        lastError = new TransientHttpError(res.status, `HTTP ${res.status} fetching page ${page}`);
+                        continue;
+                    }
+                    throw new Error(`WP REST API error (page ${page}): ${res.status} ${res.statusText}`);
+                }
+
+                const posts: WpPostSummary[] = await res.json();
+                return { posts, isLastPage: posts.length < PER_PAGE };
+            } catch (error) {
+                if (isTransient(error)) {
+                    lastError = error;
+                    continue;
+                }
+                throw error;
+            }
+        }
+
+        throw new Error(`WP REST API error (page ${page}) after ${MAX_RETRIES} retries: ${lastError}`);
     }
 
     /** Runs async operations over an array with bounded concurrency. */
@@ -219,21 +266,6 @@ export default class PikePlaceMarketRipper implements IRipper {
             }];
         }
 
-        let startDate: LocalDate;
-        try {
-            startDate = LocalDate.parse(startDateStr.split('T')[0]);
-        } catch (e) {
-            return [{
-                type: "ParseError" as const,
-                reason: `Could not parse date "${startDateStr}": ${e}`,
-                context: url,
-            }];
-        }
-
-        if (startDate.isBefore(today)) {
-            return [];
-        }
-
         const title = this.decodeHtmlEntities((eventData['name'] as string | undefined)?.trim() || '');
         if (!title) {
             return [{
@@ -248,22 +280,98 @@ export default class PikePlaceMarketRipper implements IRipper {
             return [];
         }
 
-        const timeEl = html.querySelector('div.mec-single-event-time abbr.mec-events-abbr');
-        const timeText = timeEl?.textContent?.trim() || '';
-        const parsedTime = this.parseTime(timeText);
-
         let eventDate: ZonedDateTime;
-        try {
-            eventDate = ZonedDateTime.of(
-                LocalDateTime.of(startDate.year(), startDate.monthValue(), startDate.dayOfMonth(), parsedTime.hour, parsedTime.minute),
-                TIMEZONE
-            );
-        } catch (e) {
-            return [{
-                type: "ParseError" as const,
-                reason: `Invalid datetime for event at ${url}: ${e}`,
-                context: startDateStr,
-            }];
+        let durationMinutes: number;
+        const unknownFields: UncertaintyField[] = [];
+        let uncertaintyReason = "";
+        let uncertaintyFingerprintInput = startDateStr;
+
+        const endDateStr = eventData['endDate'] as string | undefined;
+
+        if (startDateStr.includes('T')) {
+            // ISO datetime format, e.g. "2026-04-04T13:00:00-07:00"
+            try {
+                const startOdt = OffsetDateTime.parse(startDateStr);
+                eventDate = startOdt.atZoneSameInstant(TIMEZONE);
+            } catch (e) {
+                return [{
+                    type: "ParseError" as const,
+                    reason: `Could not parse ISO datetime "${startDateStr}": ${e}`,
+                    context: url,
+                }];
+            }
+
+            if (eventDate.toLocalDate().isBefore(today)) {
+                return [];
+            }
+
+            if (endDateStr && endDateStr.includes('T')) {
+                try {
+                    const endOdt = OffsetDateTime.parse(endDateStr);
+                    const endZdt = endOdt.atZoneSameInstant(TIMEZONE);
+                    const diff = Duration.between(eventDate, endZdt).toMinutes();
+                    if (diff > 0) {
+                        durationMinutes = diff;
+                    } else {
+                        durationMinutes = 120;
+                        unknownFields.push("duration");
+                        uncertaintyReason = `endDate is not after startDate ("${endDateStr}")`;
+                    }
+                } catch {
+                    durationMinutes = 120;
+                    unknownFields.push("duration");
+                    uncertaintyReason = `Could not parse endDate "${endDateStr}"`;
+                }
+            } else {
+                durationMinutes = 120;
+                unknownFields.push("duration");
+                uncertaintyReason = "schema.org Event did not include a parseable endDate";
+            }
+            uncertaintyFingerprintInput = `${startDateStr}|${endDateStr ?? ''}`;
+        } else {
+            // Date-only format, e.g. "2026-07-10" — MEC's canonical JSON-LD for
+            // this site never carries a time, so fall back to the rendered
+            // "8:00 am - 10:30 am" text next to the date.
+            let startDate: LocalDate;
+            try {
+                startDate = LocalDate.parse(startDateStr);
+            } catch (e) {
+                return [{
+                    type: "ParseError" as const,
+                    reason: `Could not parse date "${startDateStr}": ${e}`,
+                    context: url,
+                }];
+            }
+
+            if (startDate.isBefore(today)) {
+                return [];
+            }
+
+            const timeEl = html.querySelector('div.mec-single-event-time abbr.mec-events-abbr');
+            const timeText = timeEl?.textContent?.trim() || '';
+            const parsedTime = this.parseTime(timeText);
+
+            try {
+                eventDate = ZonedDateTime.of(
+                    LocalDateTime.of(startDate.year(), startDate.monthValue(), startDate.dayOfMonth(), parsedTime.hour, parsedTime.minute),
+                    TIMEZONE
+                );
+            } catch (e) {
+                return [{
+                    type: "ParseError" as const,
+                    reason: `Invalid datetime for event at ${url}: ${e}`,
+                    context: startDateStr,
+                }];
+            }
+            durationMinutes = parsedTime.durationMinutes;
+            if (parsedTime.startTimeGuessed) unknownFields.push("startTime");
+            if (parsedTime.durationGuessed) unknownFields.push("duration");
+            if (unknownFields.length > 0) {
+                uncertaintyReason = parsedTime.startTimeGuessed
+                    ? `MEC time text unrecognised: "${timeText}"`
+                    : `MEC time text had a start but no end: "${timeText}"`;
+            }
+            uncertaintyFingerprintInput = `${startDateStr}|${timeText}`;
         }
 
         const rawDesc = this.decodeHtmlEntities((eventData['description'] as string | undefined) || '');
@@ -280,7 +388,7 @@ export default class PikePlaceMarketRipper implements IRipper {
             id,
             ripped: new Date(),
             date: eventDate,
-            duration: Duration.ofMinutes(parsedTime.durationMinutes),
+            duration: Duration.ofMinutes(durationMinutes),
             summary: title,
             description,
             location,
@@ -289,7 +397,19 @@ export default class PikePlaceMarketRipper implements IRipper {
             cost,
         };
 
-        return [event];
+        const results: RipperEvent[] = [event];
+        if (unknownFields.length > 0) {
+            const uncertainty: UncertaintyError = {
+                type: "Uncertainty",
+                reason: uncertaintyReason || "Schema.org Event omitted one or more fields",
+                source: SOURCE_NAME,
+                unknownFields,
+                event,
+                partialFingerprint: simpleHash(uncertaintyFingerprintInput),
+            };
+            results.push(uncertainty);
+        }
+        return results;
     }
 
     private buildLocation(location: { name?: string; address?: string } | undefined): string {
@@ -298,13 +418,19 @@ export default class PikePlaceMarketRipper implements IRipper {
         return parts.join(", ");
     }
 
-    private extractCost(offers: { price?: string } | undefined): EventCost {
+    /**
+     * Extracts a cost from schema.org `offers.price` when it's a real positive
+     * number. Leaves cost undefined (unknown, not "free") when price is blank
+     * or unparseable, so the event surfaces in the costGaps queue instead of
+     * silently publishing a guess — see AGENTS.md "uncertainty is the default
+     * pattern for unparsable data".
+     */
+    private extractCost(offers: { price?: string } | undefined): EventCost | undefined {
         const priceStr = offers?.price?.trim();
-        if (priceStr) {
-            const price = parseFloat(priceStr);
-            if (!isNaN(price) && price > 0) return { min: price };
-        }
-        return { min: 0 };
+        if (!priceStr) return undefined;
+        const price = parseFloat(priceStr);
+        if (isNaN(price)) return undefined;
+        return { min: price };
     }
 
     /**
@@ -327,9 +453,10 @@ export default class PikePlaceMarketRipper implements IRipper {
 
     /**
      * Parse a time range like "8:00 am - 10:30 am" into start hour/minute and duration.
-     * Falls back to 7 pm / 2-hour duration when the format is unrecognised.
+     * Falls back to 7 pm / 2-hour duration when the format is unrecognised, flagging
+     * which parts were guessed so the caller can raise an UncertaintyError.
      */
-    public parseTime(timeText: string): { hour: number; minute: number; durationMinutes: number } {
+    public parseTime(timeText: string): { hour: number; minute: number; durationMinutes: number; startTimeGuessed: boolean; durationGuessed: boolean } {
         const rangeMatch = timeText.match(
             /^(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*[-–]\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i
         );
@@ -351,7 +478,7 @@ export default class PikePlaceMarketRipper implements IRipper {
             let durationMinutes = (endHour * 60 + endMin) - (startHour * 60 + startMin);
             if (durationMinutes < 0) durationMinutes += 24 * 60; // midnight-spanning events
             durationMinutes = Math.max(durationMinutes, 30);
-            return { hour: startHour, minute: startMin, durationMinutes };
+            return { hour: startHour, minute: startMin, durationMinutes, startTimeGuessed: false, durationGuessed: false };
         }
 
         const singleMatch = timeText.match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
@@ -361,10 +488,10 @@ export default class PikePlaceMarketRipper implements IRipper {
             const period = singleMatch[3].toLowerCase();
             if (period === 'pm' && hour !== 12) hour += 12;
             if (period === 'am' && hour === 12) hour = 0;
-            return { hour, minute, durationMinutes: 120 };
+            return { hour, minute, durationMinutes: 120, startTimeGuessed: false, durationGuessed: true };
         }
 
-        return { hour: 19, minute: 0, durationMinutes: 120 };
+        return { hour: 19, minute: 0, durationMinutes: 120, startTimeGuessed: true, durationGuessed: true };
     }
 
     public decodeHtmlEntities(text: string): string {

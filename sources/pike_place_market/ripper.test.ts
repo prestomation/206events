@@ -161,7 +161,7 @@ describe('PikePlaceMarketRipper', () => {
             expect(event.location).toBe('Folio, 93 Pike St');
         });
 
-        it('treats a missing/empty offers.price as free', () => {
+        it('leaves cost undefined (unknown, not free) when offers.price is missing/empty', () => {
             const ripper = new PikePlaceMarketRipper();
             const html = `<html><body>
                 <script type="application/ld+json">
@@ -177,6 +177,29 @@ describe('PikePlaceMarketRipper', () => {
                 </script>
                 </body></html>`;
             const events = ripper.parseEventPage(html, 'https://www.pikeplacemarket.org/events-calendar/free-tour/', BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            // Absent, not a guessed { min: 0 } — routes into the costGaps queue
+            // instead of silently publishing a "free" guess (AGENTS.md).
+            expect(event.cost).toBeUndefined();
+        });
+
+        it('treats an explicit offers.price of "0" as confirmed free', () => {
+            const ripper = new PikePlaceMarketRipper();
+            const html = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-06-15",
+                    "name": "Zero Price Event",
+                    "description": "Test.",
+                    "url": "https://www.pikeplacemarket.org/events-calendar/zero-price/",
+                    "offers": {"price": "0", "priceCurrency": "$"}
+                }
+                </script>
+                </body></html>`;
+            const events = ripper.parseEventPage(html, 'https://www.pikeplacemarket.org/events-calendar/zero-price/', BEFORE_EVENT);
 
             const event = events[0] as RipperCalendarEvent;
             expect(event.cost).toEqual({ min: 0 });
@@ -377,11 +400,71 @@ describe('PikePlaceMarketRipper', () => {
             expect(posts).toHaveLength(100);
         });
 
-        it('throws when the first page request fails', async () => {
+        it('throws when the first page request fails with a non-transient error', async () => {
             const ripper = new PikePlaceMarketRipper() as any;
-            ripper.fetchFn = vi.fn().mockResolvedValue({ ok: false, status: 500, statusText: 'Server Error' });
+            ripper.fetchFn = vi.fn().mockResolvedValue({ ok: false, status: 403, statusText: 'Forbidden' });
 
             await expect(ripper.fetchAllPostLinks()).rejects.toThrow('WP REST API error');
+        });
+
+        it('retries a transient error on a later page instead of silently truncating', async () => {
+            vi.useFakeTimers();
+            try {
+                const ripper = new PikePlaceMarketRipper() as any;
+                const fullPage = Array.from({ length: 100 }, (_, i) => ({
+                    id: i + 1,
+                    link: `https://www.pikeplacemarket.org/events-calendar/event-${i + 1}/`,
+                }));
+
+                let page2Calls = 0;
+                ripper.fetchFn = vi.fn().mockImplementation(async (url: string) => {
+                    if (url.includes('page=2')) {
+                        page2Calls++;
+                        if (page2Calls === 1) {
+                            return { ok: false, status: 503, statusText: 'Service Unavailable' };
+                        }
+                        return { ok: true, json: async () => [{ id: 101, link: 'https://www.pikeplacemarket.org/events-calendar/event-101/' }] };
+                    }
+                    return { ok: true, json: async () => fullPage };
+                });
+
+                const promise = ripper.fetchAllPostLinks();
+                await vi.runAllTimersAsync();
+                const posts = await promise;
+
+                expect(page2Calls).toBe(2);
+                expect(posts).toHaveLength(101);
+            } finally {
+                vi.useRealTimers();
+            }
+        });
+
+        it('throws (rather than silently truncating) when a later page exhausts retries', async () => {
+            vi.useFakeTimers();
+            try {
+                const ripper = new PikePlaceMarketRipper() as any;
+                const fullPage = Array.from({ length: 100 }, (_, i) => ({
+                    id: i + 1,
+                    link: `https://www.pikeplacemarket.org/events-calendar/event-${i + 1}/`,
+                }));
+
+                ripper.fetchFn = vi.fn().mockImplementation(async (url: string) => {
+                    if (url.includes('page=2')) {
+                        return { ok: false, status: 503, statusText: 'Service Unavailable' };
+                    }
+                    return { ok: true, json: async () => fullPage };
+                });
+
+                const promise = ripper.fetchAllPostLinks();
+                // Attach the rejection assertion before advancing fake timers so
+                // the rejection (which fires during runAllTimersAsync) is never
+                // briefly unhandled.
+                const assertion = expect(promise).rejects.toThrow('WP REST API error');
+                await vi.runAllTimersAsync();
+                await assertion;
+            } finally {
+                vi.useRealTimers();
+            }
         });
     });
 
@@ -425,8 +508,10 @@ describe('PikePlaceMarketRipper', () => {
             const events = await promise;
 
             expect(callCount).toBe(2);
-            expect(events).toHaveLength(1);
+            // No MEC time element in the fixture → event + a startTime UncertaintyError.
+            expect(events).toHaveLength(2);
             expect((events[0] as RipperCalendarEvent).summary).toBe('Retry Success Event');
+            expect((events[1] as RipperError).type).toBe('Uncertainty');
         });
 
         it('records ParseError after all retries exhausted', async () => {
