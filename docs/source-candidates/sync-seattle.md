@@ -6,7 +6,7 @@ url: https://www.eventbrite.com/o/sync-seattle-45161572473
 tags: [Community]
 firstSeen: 2026-07-04
 lastChecked: 2026-07-08
-pr:
+pr: 880
 ---
 
 Community organizer holding space for Black Seattle and allies — hosts a
