@@ -1,14 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-06-30": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-07-01": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1481,13 +1473,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-07-01": {
       "unresolvable": true,
       "reason": "Commercial tour \u2014 booking times vary by individual reservation",
@@ -2740,13 +2725,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-07-01": {
       "unresolvable": true,
@@ -4008,13 +3986,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-07-01": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -4924,14 +4895,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-07-01": {
       "unresolvable": true,
@@ -5917,14 +5880,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-07-01": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each game has a different start time",
@@ -6635,14 +6590,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
     "events12:winery-concerts-2026-07-01": {
@@ -7357,14 +7304,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
     "events12:concerts-at-the-locks-2026-07-01": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
@@ -7917,14 +7856,6 @@
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
-    "events12:bus-to-the-mountains-2026-06-30": {
-      "unresolvable": true,
-      "reason": "General transit service page \u2014 specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:bus-to-the-mountains-2026-07-01": {
       "unresolvable": true,
       "reason": "General transit service page \u2014 specific departure times vary by date and destination",
@@ -8412,13 +8343,6 @@
       "source": "agent",
       "evidence": "https://trailheaddirect.org/",
       "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-marymoor-park-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
     },
     "events12:concerts-at-marymoor-park-2026-07-01": {
       "unresolvable": true,
@@ -13594,14 +13518,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
     },
-    "events12:taste-of-pike-place-2026-06-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:taste-of-pike-place-2026-07-01": {
       "unresolvable": true,
       "resolvedAt": "2026-05-25",
@@ -16014,14 +15930,6 @@
       "source": "agent",
       "partialFingerprint": "138p15l"
     },
-    "19hz:19hz-2026/06/30-Electric Taco Tuesday": {
-      "unresolvable": true,
-      "reason": "End time not listed on ticketing page (Eventim)",
-      "resolvedAt": "2026-06-08",
-      "source": "agent",
-      "partialFingerprint": "z4xuiq",
-      "lastSeen": "2026-06-13"
-    },
     "19hz:19hz-2026/11/11-Sassy 009": {
       "unresolvable": true,
       "reason": "End time not listed on Eventbrite page",
@@ -16911,14 +16819,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:garden-walk-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:garden-walk-2026-07-01": {
       "unresolvable": true,
       "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
@@ -17117,14 +17017,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:zoo-concerts-2026-06-30": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:zoo-concerts-2026-07-01": {
@@ -17935,14 +17827,6 @@
       "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:classical-music-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Varying start times per location and date; check individual event listings on SCMS website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1wtiw6a-until2026-07-06-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:classical-music-2026-07-01": {
       "unresolvable": true,
       "reason": "Varying start times per location and date; check individual event listings on SCMS website",
@@ -17989,14 +17873,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "1wtiw6a-until2026-07-06-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:live-theater-2026-06-30": {
-      "unresolvable": true,
-      "reason": "Barefoot in the Park closes June 20 per Taproot website; events12 date range expansion includes post-closing dates",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "8mclbx-until2026-07-05-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:live-theater-2026-07-01": {
@@ -18346,12 +18222,6 @@
       "resolvedAt": "2026-06-13",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-marketplace-x47276"
-    },
-    "19hz:19hz-2026/06/30-c895 Summer Ferry Tour:": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "reason": "Source listing and event page do not publish end time for this event"
     },
     "19hz:19hz-2026/07/07-Reflect": {
       "unresolvable": true,
@@ -19613,16 +19483,6 @@
       "source": "agent",
       "evidence": "https://www.couthbuzzard.com/event-calendar"
     },
-    "events12:on-the-water-2026-06-30": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
-    },
     "events12:on-the-water-2026-07-01": {
       "fields": {
         "cost": {
@@ -20853,18 +20713,6 @@
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
     },
-    "19hz:19hz-2026/06/30-c895 Summer Ferry Tour": {
-      "fields": {
-        "cost": {
-          "paid": true
-        },
-        "imageUrl": "https://www.c895.org/wp-content/uploads/2026/05/WSDOT-Ferry-Tour-2-740x326.png"
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed | image: https://www.c895.org/2026/05/the-c895-summer-ferry-tour-is-sailing-your-way/",
-      "lastSeen": "2026-06-13"
-    },
     "19hz:19hz-2026/07/03-VTSS": {
       "fields": {
         "cost": {
@@ -20878,14 +20726,11 @@
     },
     "19hz:19hz-2026/07/03-What the FRICK? Pt. 2": {
       "fields": {
-        "cost": {
-          "paid": true
-        }
+        "imageUrl": "https://scontent-ord5-3.cdninstagram.com/v/t51.82787-15/686353079_17948278566153559_3550557884864846016_n.jpg"
       },
-      "resolvedAt": "2026-06-13",
+      "resolvedAt": "2026-07-08",
       "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed",
-      "lastSeen": "2026-06-13"
+      "evidence": "https://www.instagram.com/p/DX-g-9tic2F/"
     },
     "19hz:19hz-2026/07/04-Coco & Breezy": {
       "fields": {
@@ -21684,13 +21529,6 @@
       "resolvedAt": "2026-06-15",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-welcomes-bosnia-and-herzegovina"
-    },
-    "events12:movies-in-seattle-parks-2026-06-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Start time not posted on source page; movies start at dusk (varies by date)",
-      "lastSeen": "2026-06-21"
     },
     "events12:movies-in-seattle-parks-2026-07-01": {
       "unresolvable": true,
@@ -23904,12 +23742,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:baseball-in-tacoma-2026-06-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-07-01": {
       "unresolvable": true,
@@ -26504,12 +26336,6 @@
       "resolvedAt": "2026-06-26",
       "source": "agent",
       "evidence": "https://www.redmond.gov/Calendar.aspx?EID=3190"
-    },
-    "events12:world-cup-soccer-2026-06-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-26",
-      "source": "agent",
-      "reason": "No FIFA match scheduled at Lumen Field on this date; events12 range-expanded the June 26 Egypt vs. Iran listing"
     },
     "seatoday:cityspark-19022971": {
       "fields": {
@@ -37659,30 +37485,6 @@
       "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47697",
       "partialFingerprint": "1bw9212"
     },
-    "19hz:19hz-2026/06/30-DIE": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-06",
-      "source": "agent",
-      "reason": "no image accessible without login (Facebook/Instagram)"
-    },
-    "19hz:19hz-2026/06/30-DJs in a Dive Bar: 2 Year Anniversary": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-06",
-      "source": "agent",
-      "reason": "no image accessible without login (Facebook/Instagram)"
-    },
-    "19hz:19hz-2026/06/30-Flowshop: Open Jam": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-06",
-      "source": "agent",
-      "reason": "no image accessible without login (Facebook/Instagram)"
-    },
-    "19hz:19hz-2026/06/30-Modbang": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-06",
-      "source": "agent",
-      "reason": "no image accessible without login (Facebook/Instagram)"
-    },
     "19hz:19hz-2026/07/01-Bite Club": {
       "unresolvable": true,
       "resolvedAt": "2026-07-06",
@@ -38353,937 +38155,6 @@
       "evidence": "https://b-townblog.com/enjoy-vintage-cars-and-historic-hydroplanes-at-free-hydros-hot-rods-event-on-saturday-july-11/",
       "partialFingerprint": "1tkvfoz"
     },
-    "19hz:19hz-2026/06/24-Massive Pride 2026": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1tnb6dp"
-    },
-    "19hz:19hz-2026/06/25-Kremwerk Pride: Weekend Pass": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "geb93"
-    },
-    "19hz:19hz-2026/06/26-Cuff Pride Fest 2026: Aluna, Dan Slater, Horse Meat Disco, Jon Klaft, Paulo": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "3dtfw9"
-    },
-    "19hz:19hz-2026/06/27-Beyond Wonderland at the Gorge": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "8wug9u"
-    },
-    "events12:performance-art-2026-06-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1es0swj-until2026-06-06-tk"
-    },
-    "events12:performance-art-2026-06-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1es0swj-until2026-06-06-tk"
-    },
-    "events12:performance-art-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1es0swj-until2026-06-06-tk"
-    },
-    "events12:party-at-the-aquarium-2026-06-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "kgatjh-until2026-06-05-tu"
-    },
-    "events12:pinball-arcade-games-2026-06-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "ixhiqf-until2026-06-07-tk"
-    },
-    "events12:pinball-arcade-games-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "ixhiqf-until2026-06-07-tk"
-    },
-    "events12:pinball-arcade-games-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "ixhiqf-until2026-06-07-tk"
-    },
-    "events12:podcasts-live-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6gvh3x-until2026-06-06-tu"
-    },
-    "events12:musical-cabaret-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "pdyz3o-until2026-06-06-tk"
-    },
-    "events12:cocktail-walk-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "t9pe05-until2026-06-06-tu"
-    },
-    "events12:baseball-cards-collectibles-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1toexj2-until2026-06-06-tk"
-    },
-    "events12:small-town-festival-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1r9dw4g-until2026-06-06-tu"
-    },
-    "events12:duck-parade-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "nog13c-until2026-06-06-tk"
-    },
-    "events12:scottish-festival-up-north-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1yb1e1z-until2026-06-06-tu"
-    },
-    "events12:fishing-day-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "buzm5i-until2026-06-07-tu"
-    },
-    "events12:fishing-day-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "buzm5i-until2026-06-07-tu"
-    },
-    "events12:state-park-day-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1q5bayd-until2026-06-07-tu"
-    },
-    "events12:state-park-day-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1q5bayd-until2026-06-07-tu"
-    },
-    "events12:gig-harbor-festival-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "i6uar5-until2026-06-07-tu"
-    },
-    "events12:gig-harbor-festival-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "i6uar5-until2026-06-07-tu"
-    },
-    "events12:half-marathon-on-bainbridge-island-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "btos6c-until2026-06-07-tu"
-    },
-    "events12:ballet-finale-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "bhkn41-until2026-06-07-tk"
-    },
-    "events12:run-to-support-parks-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "14spilk-until2026-06-07-tu"
-    },
-    "events12:bird-festival-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1wa72zj-until2026-06-07-tu"
-    },
-    "events12:garden-festival-south-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "9i2fon-until2026-06-07-tk"
-    },
-    "events12:international-dance-festival-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
-    },
-    "events12:international-dance-festival-2026-06-08": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
-    },
-    "events12:international-dance-festival-2026-06-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
-    },
-    "events12:international-dance-festival-2026-06-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
-    },
-    "events12:international-dance-festival-2026-06-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
-    },
-    "events12:international-dance-festival-2026-06-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
-    },
-    "events12:international-dance-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
-    },
-    "events12:international-dance-festival-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1sggvhz-until2026-06-14-tk"
-    },
-    "events12:party-for-young-professionals-2026-06-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1qy81yr-until2026-06-10-tu"
-    },
-    "events12:new-plays-about-women-2026-06-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1be7z8q-until2026-06-14-tu"
-    },
-    "events12:new-plays-about-women-2026-06-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1be7z8q-until2026-06-14-tu"
-    },
-    "events12:new-plays-about-women-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1be7z8q-until2026-06-14-tu"
-    },
-    "events12:new-plays-about-women-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1be7z8q-until2026-06-14-tu"
-    },
-    "events12:pride-circus-trapeze-show-2026-06-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1meorjb-until2026-06-13-tk"
-    },
-    "events12:pride-circus-trapeze-show-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1meorjb-until2026-06-13-tk"
-    },
-    "events12:steampunk-festival-2026-06-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1vu8me-until2026-06-14-tu"
-    },
-    "events12:steampunk-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1vu8me-until2026-06-14-tu"
-    },
-    "events12:steampunk-festival-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1vu8me-until2026-06-14-tu"
-    },
-    "events12:beer-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "19fe9mw-until2026-06-13-tk"
-    },
-    "events12:dragon-boats-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "14jwvly-until2026-06-13-tu"
-    },
-    "events12:a-cappella-night-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1ijmzxt-until2026-06-13-tk"
-    },
-    "events12:fairy-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "19oh3er-until2026-06-14-tk"
-    },
-    "events12:fairy-festival-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "19oh3er-until2026-06-14-tk"
-    },
-    "events12:juneteenth-celebrations-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
-    },
-    "events12:juneteenth-celebrations-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
-    },
-    "events12:juneteenth-celebrations-2026-06-15": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
-    },
-    "events12:juneteenth-celebrations-2026-06-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
-    },
-    "events12:juneteenth-celebrations-2026-06-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
-    },
-    "events12:juneteenth-celebrations-2026-06-18": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
-    },
-    "events12:juneteenth-celebrations-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
-    },
-    "events12:juneteenth-celebrations-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1j8znsp-until2026-06-20-tu"
-    },
-    "events12:run-with-dogs-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "18jbsyk-until2026-06-14-tu"
-    },
-    "events12:national-park-day-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "t4pf5g-until2026-06-14-tu"
-    },
-    "events12:arts-party-2026-06-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "8qxg0m-until2026-06-17-tk"
-    },
-    "events12:yakima-music-festival-2026-06-18": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "128lpax-until2026-06-21-tu"
-    },
-    "events12:yakima-music-festival-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "128lpax-until2026-06-21-tu"
-    },
-    "events12:yakima-music-festival-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "128lpax-until2026-06-21-tu"
-    },
-    "events12:yakima-music-festival-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "128lpax-until2026-06-21-tu"
-    },
-    "events12:aquarium-party-2026-06-18": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "s7f90x-until2026-06-25-tk"
-    },
-    "events12:aquarium-party-2026-06-25": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "s7f90x-until2026-06-25-tk"
-    },
-    "events12:state-park-day-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1q5bayd-until2026-06-19-tu"
-    },
-    "events12:wine-walk-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "stistc-until2026-06-19-tu"
-    },
-    "events12:wine-train-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "150hefl-until2026-06-19-tu"
-    },
-    "events12:festival-on-the-columbia-river-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "c6xxdi-until2026-06-20-tu"
-    },
-    "events12:festival-on-the-columbia-river-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "c6xxdi-until2026-06-20-tu"
-    },
-    "events12:bluegrass-festival-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "x15h98-until2026-06-21-tk"
-    },
-    "events12:bluegrass-festival-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "x15h98-until2026-06-21-tk"
-    },
-    "events12:bluegrass-festival-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "x15h98-until2026-06-21-tk"
-    },
-    "events12:doggie-dash-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "l7minf-until2026-06-20-tu"
-    },
-    "events12:wine-at-the-zoo-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1fkzfh1-until2026-06-20-tk"
-    },
-    "events12:medieval-fair-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "k1fk3v-until2026-06-20-tk"
-    },
-    "events12:air-show-in-olympia-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1a72dk9-until2026-06-21-tk"
-    },
-    "events12:air-show-in-olympia-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1a72dk9-until2026-06-21-tk"
-    },
-    "events12:bus-to-the-mountains-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-24": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-25": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:bus-to-the-mountains-2026-06-29": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-24": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-25": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:concerts-at-the-locks-2026-06-29": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1kq007z-until2026-09-07-tu"
-    },
-    "events12:father-s-day-restaurants-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "k0diq0-until2026-06-21-tu"
-    },
-    "events12:zoo-brunch-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "zosrw4-until2026-06-21-tu"
-    },
-    "events12:free-museum-for-dads-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1ohvy4d-until2026-06-21-tk"
-    },
-    "events12:car-show-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1yxup61-until2026-06-21-tk"
-    },
-    "events12:short-plays-in-edmonds-2026-06-25": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1fdu7ba-until2026-06-27-tu"
-    },
-    "events12:short-plays-in-edmonds-2026-06-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1fdu7ba-until2026-06-27-tu"
-    },
-    "events12:short-plays-in-edmonds-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1fdu7ba-until2026-06-27-tu"
-    },
-    "events12:historical-dinner-party-2026-06-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "pw4wfi-until2026-06-26-tu"
-    },
-    "events12:wine-oysters-2026-06-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "mtcvai-until2026-06-27-tu"
-    },
-    "events12:wine-oysters-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "mtcvai-until2026-06-27-tu"
-    },
-    "events12:food-fair-2026-06-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "dt39ty-until2026-06-28-tu"
-    },
-    "events12:food-fair-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "dt39ty-until2026-06-28-tu"
-    },
-    "events12:food-fair-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "dt39ty-until2026-06-28-tu"
-    },
-    "events12:motorcycle-racing-2026-06-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1ca6ba5-until2026-06-28-tu"
-    },
-    "events12:motorcycle-racing-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1ca6ba5-until2026-06-28-tu"
-    },
-    "events12:motorcycle-racing-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1ca6ba5-until2026-06-28-tu"
-    },
-    "events12:pirate-fair-on-the-coast-2026-06-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1fykxx7-until2026-06-28-tu"
-    },
-    "events12:pirate-fair-on-the-coast-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1fykxx7-until2026-06-28-tu"
-    },
-    "events12:pirate-fair-on-the-coast-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1fykxx7-until2026-06-28-tu"
-    },
-    "events12:race-at-seward-park-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "14306u6-until2026-06-27-tu"
-    },
-    "events12:edmonds-wine-walk-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1rx8vq4-until2026-06-27-tk"
-    },
-    "events12:bremerton-festival-fireworks-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "k145lo-until2026-06-28-tu"
-    },
-    "events12:bremerton-festival-fireworks-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "k145lo-until2026-06-28-tu"
-    },
-    "events12:dance-music-festival-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6z58hs-until2026-06-28-tu"
-    },
-    "events12:dance-music-festival-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "6z58hs-until2026-06-28-tu"
-    },
-    "events12:pride-parade-festival-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "xfe7i1-until2026-06-28-tu"
-    },
-    "events12:chinese-acrobats-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "78taog-until2026-06-28-tk"
-    },
-    "events12:mead-tasting-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "bl3q6n-until2026-06-28-tu"
-    },
-    "events12:japanese-festival-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "3q3e93-until2026-06-28-tu"
-    },
-    "events12:logging-festival-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "1ixqss9-until2026-06-28-tu"
-    },
-    "events12:slug-festival-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; the live source page no longer lists this occurrence (verified events12.com and events-index.json both lack it) -- appears to be a stale/leftover scrape. Not investigating historical cost/time data for an event that already happened.",
-      "partialFingerprint": "zcroz1-until2026-06-28-tk"
-    },
     "the-fishbowl:6a4b34f7e8591e17aa3f4038": {
       "fields": {
         "cost": {
@@ -39293,12 +38164,6 @@
       "resolvedAt": "2026-07-07",
       "source": "agent",
       "evidence": "https://www.thefishbowlseattle.com/shop"
-    },
-    "19hz:19hz-2026/06/26-Bottom Forty Underground Pride: Weekend Pass": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
     },
     "19hz:19hz-2026/07/03-Fun Party: Mike Servito, DJ Having Sex": {
       "unresolvable": true,
@@ -39378,210 +38243,6 @@
       "source": "agent",
       "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
     },
-    "events12:anacortes-festival-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:bellevue-night-market-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:burien-festival-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:burien-festival-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:civil-war-battle-in-yakima-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:civil-war-battle-in-yakima-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:classical-music-2026-06-08": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:concert-in-volunteer-park-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:early-independence-day-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:eastside-dog-walk-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:eastside-vegan-festival-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:garden-festival-north-2026-06-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:garden-festival-north-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:garden-festival-north-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:gay-music-festival-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:gem-mineral-show-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:georgetown-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:international-festival-2026-06-18": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:kids-day-in-auburn-2026-06-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:maple-valley-festival-2026-06-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:maple-valley-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:maple-valley-festival-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:marysville-festival-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:marysville-festival-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:marysville-festival-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:mountain-climbing-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:natural-fiber-festival-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:nerd-festival-2026-06-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:parade-in-greenwood-2026-06-27": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:philippines-festival-2026-06-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:pike-place-night-market-2026-06-18": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:puyallup-festival-2026-06-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:puyallup-festival-2026-06-13": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:puyallup-festival-2026-06-14": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
     "events12:ride-a-mini-train-2026-07-04": {
       "unresolvable": true,
       "resolvedAt": "2026-07-07",
@@ -39595,66 +38256,6 @@
       "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
     },
     "events12:ride-a-mini-train-2026-07-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:scandinavian-festival-2026-06-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:seafood-festival-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:small-town-festival-2026-06-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:small-town-festival-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:small-town-festival-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:small-town-festival-south-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:small-town-festival-south-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:solstice-in-a-forest-2026-06-21": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:wooden-boats-2026-06-20": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:wooden-boats-2026-06-21": {
       "unresolvable": true,
       "resolvedAt": "2026-07-07",
       "source": "agent",
@@ -39815,353 +38416,6 @@
       "resolvedAt": "2026-07-07",
       "source": "agent"
     },
-    "venue:osm:node:2329620131": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/node/2329620131"
-    },
-    "venue:osm:node:2463139542": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/node/2463139542"
-    },
-    "venue:osm:node:3006174421": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/node/3006174421"
-    },
-    "venue:osm:node:3008886848": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.tacomaartsevents.org"
-    },
-    "venue:osm:node:419519156": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "http://seattle.greencitypartnerships.org/event/43836/"
-    },
-    "venue:osm:relation:17052605": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/relation/17052605"
-    },
-    "venue:osm:relation:5309030": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/relation/5309030"
-    },
-    "venue:osm:way:1000645329": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/1000645329"
-    },
-    "venue:osm:way:1063404056": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/1063404056"
-    },
-    "venue:osm:way:1131496653": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/1131496653"
-    },
-    "venue:osm:way:1463243929": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/1463243929"
-    },
-    "venue:osm:way:158721036": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/158721036"
-    },
-    "venue:osm:way:159118102": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/159118102"
-    },
-    "venue:osm:way:159261464": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/159261464"
-    },
-    "venue:osm:way:159483661": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/159483661"
-    },
-    "venue:osm:way:219686092": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/219686092"
-    },
-    "venue:osm:way:228014246": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/228014246"
-    },
-    "venue:osm:way:245210339": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/245210339"
-    },
-    "venue:osm:way:25788265": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/25788265"
-    },
-    "venue:osm:way:25793176": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/25793176"
-    },
-    "venue:osm:way:29897483": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/29897483"
-    },
-    "venue:osm:way:31658681": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/31658681"
-    },
-    "venue:osm:way:344320893": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/344320893"
-    },
-    "venue:osm:way:370478187": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/370478187"
-    },
-    "venue:osm:way:378090317": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:osm:way:412521866": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://botanicgardens.uw.edu/education/adults/professional-continuing-education/pa-pruning-series/"
-    },
-    "venue:osm:way:481289528": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/481289528"
-    },
-    "venue:osm:way:6425546": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/6425546"
-    },
-    "venue:osm:way:6489623": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:osm:way:6490996": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/6490996"
-    },
-    "venue:osm:way:996909492": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/996909492"
-    },
-    "venue:loc:great northern & cascade railway, 101 5th st n, skykomish, wa 98288": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "evidence": "https://www.gnandcr.org/"
-    },
-    "venue:loc:hing hay park": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:loc:freeway park": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:loc:washington park arboretum (lndmk-8)": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:loc:washington park arboretum": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:loc:westlake park": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:loc:39th ave sw &amp": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:loc:beacon ave s &amp": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:loc:green lake community center - gym": {
-      "fields": {
-        "setting": "indoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:loc:magnuson park building 30": {
-      "fields": {
-        "setting": "indoor"
-      },
-      "resolvedAt": "2026-07-07",
-      "source": "agent"
-    },
-    "venue:osm:way:53836271": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "mixed indoor/outdoor venue -- zoo has both indoor exhibit buildings and outdoor exhibits"
-    },
-    "venue:osm:way:34148647": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Green Lake Community Center is an indoor building, but this specific 'Outdoor Watch Party' event was apparently held outside on its grounds -- venue itself is mixed, classify per-event instead"
-    },
-    "venue:osm:way:228765000": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "brewery taproom -- has both an indoor taproom and outdoor space; event page doesn't specify which"
-    },
-    "venue:loc:amy yee tennis center, 2000 mlk jr way s., seattle, wa 98144": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "mixed venue: 6 outdoor courts (no lights, daylight only) plus an indoor facility; a 'late night' event here is likely indoor but venue is genuinely mixed"
-    },
-    "venue:loc:green lake community center": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "indoor community center building, but this event ('Outdoor Watch Party' setup/breakdown) may be staged outside on the grounds -- ambiguous"
-    },
     "cascade-bicycle-club:cascade-seattle-portland-2026": {
       "fields": {
         "setting": "outdoor"
@@ -40169,6 +38423,293 @@
       "resolvedAt": "2026-07-07",
       "source": "agent",
       "evidence": "https://cascade.org/rides-events/seattle-portland-2026"
+    },
+    "seatoday:cityspark-19254922": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/free-introductory-improv-class-issaquah/19254922/2026-07-19T00"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47699": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47699"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47700": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47700"
+    },
+    "seattle-center:the-worlds-quickest-theater-festival": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/the-worlds-quickest-theater-festival"
+    },
+    "seattle-center:the-worlds-quickest-theater-festival-x46866": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/the-worlds-quickest-theater-festival-x46866"
+    },
+    "seattle-center:lets-play-sea-26-global-marketplace-x47662": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-global-marketplace-x47662"
+    },
+    "seattle-center:blastfest-2026": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/blastfest-2026"
+    },
+    "seattle-center:lets-play-sea-26-armory-fan-experience-bronze-final": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/lets-play-sea-26-armory-fan-experience-bronze-final"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-loukes-x47326": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "All-day display; creation ran July 1-8. July 18 is public viewing with no specific open/close hours posted."
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46344": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "Outdoor sculpture walk listed as all-day; no specific open/close hours on the event page."
+    },
+    "seattle-makers:seattle-makers-158537": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/free-game-night-12/"
+    },
+    "seattle-makers:seattle-makers-158538": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/free-game-night-13/"
+    },
+    "seattle-makers:seattle-makers-158492": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-158494": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-158496": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-158498": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-158500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-158502": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-158504": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-158517": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-158514": {
+      "fields": {
+        "cost": {
+          "min": 85.0,
+          "max": 130.0
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/3d-printer-certification-283/"
+    },
+    "seattle-makers:seattle-makers-158519": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/3d-printer-certification-284/"
+    },
+    "seattle-makers:seattle-makers-158511": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-guided-studio-with-free-machine/"
+    },
+    "seattle-makers:seattle-makers-158522": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "19hz:19hz-2026/07/24-Deep Dish": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186618117%2F2801720828791%2F1%2Foriginal.20260610-184516%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D1880%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.5%26fp-y%3D0.5%26s%3Dd7716e370cb3f12d8354618c36a14191"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/deep-dish-tickets-1990818944053?aff=19hz"
+    },
+    "19hz:19hz-2026/07/23-Deck'd Out: Sassmouth, Nark, Haus Catz": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188316147%2F74927433109%2F1%2Foriginal.20260706-200958?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=fd96ed6ff80b0da29b222cd8df00be0e"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/deckd-out-6-sassmouth-chi-nark-bottom-forty-haus-catz-tickets-1989969744073"
+    },
+    "19hz:19hz-2026/07/24-ELIF": {
+      "fields": {
+        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187422906%2F1955181441163%2F1%2Foriginal.20260622-192601%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D1880%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.498%26fp-y%3D0.228%26s%3De1ea01a12b23de41a4842a67df43bd34"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/oasis-presents-elif-tickets-1992377879872?t=19hz"
+    },
+    "19hz:19hz-2026/07/18-Northern Cold, IN_DUAL, Thalestriss": {
+      "fields": {
+        "imageUrl": "https://therendezvous.boldtypetickets.com/imager/b/original/184651864/5b4d/EONS-events-03-flyer-4x5-v3-compressed.jpg"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://therendezvous.boldtypetickets.com/events/184538189/eons-label-presents-northern-cold-indual-and-thalestriss"
+    },
+    "19hz:19hz-2026/07/14-Listening Session: Daft Punk - Random Access Memories": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "No event page URL; listening session events have no ticket page or external image source."
+    },
+    "19hz:19hz-2026/07/16-Listening Session: Massive Attack - Mezzanine": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "No event page URL; listening session events have no ticket page or external image source."
+    },
+    "19hz:19hz-2026/07/23-Listening Session: Aphex Twin - Selected Ambient Works '85-'92": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "No event page URL; listening session events have no ticket page or external image source."
+    },
+    "19hz:19hz-2026/07/11-Somna, Kepik": {
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/eventservice/image/upload/q_auto,f_auto/v1782169115/saas/logos/image_1782169092508_u13ood6r0.webp"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://tickets.oraseattle.com/e/somna-kepik-at-ora-4/tickets"
+    },
+    "19hz:19hz-2026/07/17-k?d": {
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/eventservice/image/upload/q_auto,f_auto/v1776447068/saas/logos/image_1776447057375_0m6faoui4.webp"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://tickets.oraseattle.com/e/kd-presents-end-of-the-universe-north-america-tour/tickets"
     }
   }
 }
