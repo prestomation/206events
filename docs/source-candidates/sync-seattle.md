@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.eventbrite.com/o/sync-seattle-45161572473
 tags: [Community]
 firstSeen: 2026-07-04
-lastChecked: 2026-07-04
+lastChecked: 2026-07-08
 pr:
 ---
 
@@ -25,3 +25,8 @@ Investigated 2026-07-04:
   implementing — a monthly recurring community mixer is a legitimate,
   narrow but real source, not a one-off.
 - Not currently covered elsewhere in `sources/` or `sources/external/`.
+
+Implemented 2026-07-08: `sources/sync_seattle/ripper.yaml` (built-in
+`eventbrite` type, `geo: null`, `sourceRole: venue` — organizer hosts events
+at rotating locations, following the `tone-circle-seattle` pattern).
+Awaiting CI confirmation of event count before flipping to `added`.

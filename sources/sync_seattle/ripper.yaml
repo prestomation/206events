@@ -1,0 +1,18 @@
+# verified: 2026-07-08 via eventbrite organizer page (1 upcoming event: "Vibes After 5 - Summer Happy Hour Mixer", Jul 16 2026 at Sugar Hill; EVENTBRITE_TOKEN required in CI)
+name: sync-seattle
+sourceRole: venue
+type: eventbrite
+description: "Sync Seattle"
+url: "https://www.eventbrite.com/o/sync-seattle-45161572473"
+friendlyLink: https://syncseattle.com/
+tags: ["Community"]
+imageUrl: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F285615569%2F860356197983%2F1%2Foriginal.20220516-180536?w=2000&auto=format%2Ccompress&q=75&sharp=10&rect=50%2C0%2C300%2C300&s=1cb6bf4d27a5debeb3f4682564f4e325"
+geo: null
+calendars:
+  - name: sync-seattle
+    friendlyname: "Sync Seattle"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "45161572473"
+      defaultLocation: "Seattle, WA"
+      defaultDurationHours: 2
