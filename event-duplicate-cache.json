@@ -6309,6 +6309,141 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-07",
       "note": "Same festival street-fair component as external-seafair.ics; seatoday-seatoday-community is a category sub-feed of the same seatoday event."
+    },
+    "19hz-all-events.ics Caress, 2libras, Phantom Eyes|2026-07-23T19:00:00-07:00[America/Los_Angeles]::belltown_yacht_club-belltown-yacht-club.ics Caress, 2Libras, Phantom Eyes|2026-07-23T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same DICE show at Belltown Yacht Club; 19hz links to the same dice.fm event, minor capitalization variant"
+    },
+    "19hz-all-events.ics Jane Remover, Dazegxd|2026-10-07T20:00:00-07:00[America/Los_Angeles]::stg-stg-neptune.ics Jane Remover: Live Exhibit|2026-10-07T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same Ticketmaster event ID 0F006490C311B7A6 at the Neptune Theatre"
+    },
+    "19hz-all-events.ics Yheti, Toadface|2026-10-15T21:00:00-07:00[America/Los_Angeles]::substation-substation.ics Yheti & Toadface: Sleight of Sound Tour|2026-10-15T21:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same Eventbrite event ID (1992835386286) at Substation"
+    },
+    "NWMetalCalendar-NWMetal.ics Gorot, Sorcia, Bathypelagic|2026-09-23T19:00-07:00[America/Los_Angeles]::belltown_yacht_club-belltown-yacht-club.ics Ghorot, Sorcia, Bathypelagic|2026-09-23T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same show at Belltown Yacht Club, same date/time; 'Gorot' vs 'Ghorot' is a spelling variant"
+    },
+    "NWMetalCalendar-NWMetal.ics The Sword, Red Fang, Spoon Benders|2026-08-21T19:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics The Sword & Red Fang with Spoon Benders|2026-08-21T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same Showbox SoDo detail-page event (id 1415097), title punctuation variant"
+    },
+    "NWMetalCalendar-NWMetal.ics Uncle Acid & The Deadbeats, Messa|2026-09-26T19:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Uncle Acid & the Deadbeats with Messa|2026-09-26T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same Showbox detail-page event (id 1468132), title variant"
+    },
+    "NWMetalCalendar-NWMetal.ics Whitechapel, Netherwalker, The Acacia Strain, Chelsea Grin|2026-12-05T19:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Whitechapel with Netherwalker, The Acacia Strain, Chelsea Grin|2026-12-05T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same Showbox SoDo detail-page event (id 1479294), title variant"
+    },
+    "external-myballard.ics Ballard Bookworms Community Storytime|2026-07-12T10:30:00Z[UTC]::external-phinney-neighborhood-association.ics Ballard Bookworms Community Storytime|2026-07-12T10:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same recurring storytime at Ballard Locks, same date/time, cross-posted by MyBallard and Phinney Neighborhood Association"
+    },
+    "external-seattle-gov-city-wide.ics AuraZ Clothing RevivalZ|2026-07-25T12:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics AuraZ Clothing RevivalZ|2026-07-25T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Identical title/location/URL/date; both feeds are Trumba calendars off the same seattle.gov events system"
+    },
+    "external-seattle-gov-city-wide.ics Big Day of Play 2026|2026-08-15T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Big Day of Play: Rainier Playfield and Mt. Baker Rowing & Sailing Center|2026-08-15T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same date and identical address (3700 S Alaska St); city-wide's generic annual title and parks-recreation's location-specific title both describe the single 2026 Big Day of Play event at Rainier Playfield"
+    },
+    "external-seattle-gov-city-wide.ics Big Day of Play: Rainier Playfield and Mt. Baker Rowing & Sailing Center|2026-08-15T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Big Day of Play 2026|2026-08-15T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Mirror pair of the other Big Day of Play cross-title match; both feeds carry both title variants for the same single-location event"
+    },
+    "external-seattle-gov-city-wide.ics Disaster Relief Trials bicycle event|2026-07-25T09:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Disaster Relief Trials bicycle event|2026-07-25T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Identical title/location/URL/date across two seattle.gov Trumba feeds"
+    },
+    "external-seattle-gov-city-wide.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-11T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-11T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Identical title/location/date, recurring occurrence cross-posted in both seattle.gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-12T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-12T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Identical title/location/date, recurring occurrence cross-posted in both seattle.gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-18T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-18T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Identical title/location/date, recurring occurrence cross-posted in both seattle.gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-19T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-19T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Identical title/location/date, recurring occurrence cross-posted in both seattle.gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-08-14T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-08-14T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Identical title/location/URL/date across two seattle.gov Trumba feeds"
+    },
+    "external-seattle-gov-city-wide.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Identical title/location/URL/date across two seattle.gov Trumba feeds"
+    },
+    "external-seattle-gov-city-wide.ics What's Good: the Hillman City block party|2026-08-08T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same annual Hillman City block party (distinctive proper-noun event name), same day, same corridor; city-wide's listing is a lowercase/midnight-default variant of the same occurrence already matched in the exact-title pair"
+    },
+    "seatoday-seatoday-all.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same seatoday.6amcity.com event id 19343242; seatoday-all/arts/community/food/learning are category-filtered calendars off one shared seatoday ripper"
+    },
+    "seatoday-seatoday-all.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same seatoday.6amcity.com event id 19343242 surfaced in another category-filtered seatoday calendar"
+    },
+    "seatoday-seatoday-all.ics Meet Me at the Park|2026-07-21T06:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Meet Me at the Park|2026-07-21T06:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same seatoday.6amcity.com event id 18887385 across two category-filtered seatoday calendars"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same seatoday.6amcity.com event id 19111173 across two category-filtered seatoday calendars"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same seatoday.6amcity.com event id 19111173 across two category-filtered seatoday calendars"
+    },
+    "seatoday-seatoday-arts.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same seatoday.6amcity.com event id 19343242 surfaced in both arts and community filtered calendars"
+    },
+    "seatoday-seatoday-food.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same seatoday.6amcity.com event id 19111173 surfaced in both food and learning filtered calendars"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor & KEXP's Roadhouse Present: The Lostines x Kinsey Lee w/Sequoia|2026-07-19T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor & KEXP's Roadhouse Present: The Lostines x Kinsey Lee (album release) w/ Sequoia @ THE SUNSET TAVERN|2026-07-19T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-08",
+      "note": "Same show, same date/time, same artists; Tractor Tavern's own listing title explicitly says '@ THE SUNSET TAVERN', confirming this Roadhouse co-presentation is physically at Sunset Tavern"
     }
   }
 }
