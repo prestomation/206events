@@ -162,10 +162,19 @@ export default class VermillionGalleryRipper implements IRipper {
             };
         }
 
-        const eventDate = ZonedDateTime.of(
-            LocalDateTime.of(d.year, d.month, d.day, d.startHour, d.startMinute),
-            TIMEZONE
-        );
+        let eventDate: ZonedDateTime;
+        try {
+            eventDate = ZonedDateTime.of(
+                LocalDateTime.of(d.year, d.month, d.day, d.startHour, d.startMinute),
+                TIMEZONE
+            );
+        } catch (error) {
+            return {
+                type: 'ParseError',
+                reason: `Invalid date/time values: ${d.year}-${d.month}-${d.day} ${d.startHour}:${d.startMinute} (${error})`,
+                context: `${title} (${d.label})`,
+            };
+        }
 
         const description = runsThrough ? `${title}. ${runsThrough}.` : title;
         const dateSlug = `${d.year}${String(d.month).padStart(2, '0')}${String(d.day).padStart(2, '0')}`;

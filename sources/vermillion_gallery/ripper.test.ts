@@ -48,6 +48,15 @@ describe('VermillionGalleryRipper - parseDateTimeFromLine', () => {
         expect(ripper.parseDateTimeFromLine('Show runs through August 3, 2026')).toBeNull();
         expect(ripper.parseDateTimeFromLine('')).toBeNull();
     });
+
+    test('leaves an ambiguous start hour in AM when adding 12 would pass the end time', () => {
+        // "11-1pm" — treating 11 as PM (23:00) would fall after 1pm (13:00),
+        // so it must stay 11am rather than being pulled forward to PM.
+        const result = ripper.parseDateTimeFromLine('Opening Saturday, June 6, 2026 11-1pm');
+        expect(result).not.toBeNull();
+        expect(result!.startHour).toBe(11);
+        expect(result!.endHour).toBe(13);
+    });
 });
 
 describe('VermillionGalleryRipper - parseHomepageHtml', () => {
@@ -87,6 +96,23 @@ describe('VermillionGalleryRipper - parseHomepageHtml', () => {
 
     test('ignores html blocks with an h4 but no dated h3', () => {
         const html = `<div class="sqs-html-content"><h4>Coming Soon</h4><h3>Details to be announced</h3></div>`;
+        const events = ripper.parseHomepageHtml(html);
+        expect(events).toHaveLength(1);
+        expect(events[0]).toMatchObject({ type: 'ParseError' });
+    });
+
+    test('returns a ParseError instead of a negative-duration event when end precedes start', () => {
+        // Both times carry an explicit am/pm marker, so no AM/PM inference
+        // kicks in — 8pm is unambiguously after 5pm, giving duration <= 0.
+        const html = `<div class="sqs-html-content"><h4>Backwards Show</h4><h3>Opening Thursday, July 2, 2026 8pm-5pm</h3></div>`;
+        const events = ripper.parseHomepageHtml(html);
+        expect(events).toHaveLength(1);
+        expect(events[0]).toMatchObject({ type: 'ParseError' });
+    });
+
+    test('returns a ParseError instead of throwing on an invalid calendar date (e.g. Feb 30)', () => {
+        const html = `<div class="sqs-html-content"><h4>Typo Show</h4><h3>Opening Monday, February 30, 2026 5-8pm</h3></div>`;
+        expect(() => ripper.parseHomepageHtml(html)).not.toThrow();
         const events = ripper.parseHomepageHtml(html);
         expect(events).toHaveLength(1);
         expect(events[0]).toMatchObject({ type: 'ParseError' });
