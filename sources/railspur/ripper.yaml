@@ -2,6 +2,7 @@
 name: railspur
 sourceRole: venue
 type: eventbrite
+expectEmpty: true  # Small venue with intermittent art walk events; the July 2 2026 event has passed
 description: "RailSpur Seattle"
 url: "https://www.eventbrite.com/o/railspur-seattle-120887697562"
 friendlyLink: https://railspurseattle.com/
