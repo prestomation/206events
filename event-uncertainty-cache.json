@@ -39059,6 +39059,30 @@
       "resolvedAt": "2026-07-08",
       "source": "agent",
       "reason": "indoor community center building, but this event ('Outdoor Watch Party' setup/breakdown) may be staged outside on the grounds -- ambiguous"
+    },
+    "venue:osm:relation:18550612": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://en.wikipedia.org/wiki/T-Mobile_Park (retractable roof ballpark)"
+    },
+    "venue:osm:way:256406001": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/outdoor-asian-intro-to-badminton/"
+    },
+    "venue:osm:way:445281926": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://westseattleblog.com/2026/05/countdown-less-than-a-month-until-fifa-world-cup-games-here-see-whats-planned-in-west-seattle-and-south-park/"
     }
   }
 }
