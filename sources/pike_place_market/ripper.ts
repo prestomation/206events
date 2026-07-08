@@ -429,7 +429,7 @@ export default class PikePlaceMarketRipper implements IRipper {
         const priceStr = offers?.price?.trim();
         if (!priceStr) return undefined;
         const price = parseFloat(priceStr);
-        if (isNaN(price)) return undefined;
+        if (isNaN(price) || price < 0) return undefined;
         return { min: price };
     }
 

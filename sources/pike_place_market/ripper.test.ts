@@ -205,6 +205,27 @@ describe('PikePlaceMarketRipper', () => {
             expect(event.cost).toEqual({ min: 0 });
         });
 
+        it('leaves cost undefined for a malformed negative offers.price', () => {
+            const ripper = new PikePlaceMarketRipper();
+            const html = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-06-15",
+                    "name": "Negative Price Event",
+                    "description": "Test.",
+                    "url": "https://www.pikeplacemarket.org/events-calendar/negative-price/",
+                    "offers": {"price": "-5", "priceCurrency": "$"}
+                }
+                </script>
+                </body></html>`;
+            const events = ripper.parseEventPage(html, 'https://www.pikeplacemarket.org/events-calendar/negative-price/', BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.cost).toBeUndefined();
+        });
+
         it('decodes HTML-entity-escaped markup embedded in the JSON-LD description', () => {
             const ripper = new PikePlaceMarketRipper();
             const html = `<html><body>
