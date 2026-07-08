@@ -6,6 +6,14 @@ geo:
   osmId: 365611010
 name: historic-seattle
 sourceRole: venue
+proxy: outofband  # 2026-07-08: CI's direct fetch gets an HTTP 202 SiteGround JS
+# challenge page (meta-refresh to /.well-known/sgcaptcha/?...) instead of the
+# ICS body, which crashes the ICS parser and reports as 0 events. A residential
+# fetch (via the agent proxy) returns the real feed with 1 upcoming event, so
+# this is bot-detection, not a dead feed. Staged per docs/proxy-verification.md
+# — since a plain fetch from this box *also* hit the sgcaptcha challenge, the
+# out-of-band run should test outofband but be ready to skip straight to
+# browserbase if it hits the same JS challenge.
 friendlyname: Historic Seattle
 description: "Historic Seattle hosts lectures, building tours, and preservation events at landmark venues around the city."
 icsUrl: https://historicseattle.org/events/?ical=1
