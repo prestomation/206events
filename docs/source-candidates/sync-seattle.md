@@ -1,6 +1,6 @@
 ---
 name: "Sync Seattle"
-status: candidate
+status: added
 platform: Eventbrite
 url: https://www.eventbrite.com/o/sync-seattle-45161572473
 tags: [Community]
@@ -28,5 +28,6 @@ Investigated 2026-07-04:
 
 Implemented 2026-07-08: `sources/sync_seattle/ripper.yaml` (built-in
 `eventbrite` type, `geo: null`, `sourceRole: venue` — organizer hosts events
-at rotating locations, following the `tone-circle-seattle` pattern).
-Awaiting CI confirmation of event count before flipping to `added`.
+at rotating locations, following the `tone-circle-seattle` pattern). PR #880
+build confirmed 1 event ("Vibes After 5 - Summer Happy Hour Mixer",
+2026-07-16). Amazon Q review clean, no blocking issues.
