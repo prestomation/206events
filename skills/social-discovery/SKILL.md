@@ -1,18 +1,24 @@
 ---
-name: reddit-discovery
-description: Daily scan of r/SeattleEvents RSS feed for new event sources not already covered by 206.events. Fetches the feed, extracts external URLs, deduplicates against existing sources and candidates, and appends new finds to the discovery log and candidate files. Use when triggered by the daily cron or when asked to run Reddit source discovery.
+name: social-discovery
+description: Daily scan of social and community feeds (r/SeattleEvents, etc.) for new event sources not already covered by 206.events. Fetches RSS feeds, extracts external URLs, deduplicates against existing sources and candidates, and appends new finds to the discovery log and candidate files. Use when triggered by the daily cron or when asked to run social source discovery.
 ---
 
-# 206.events Reddit Source Discovery
+# 206.events Social Source Discovery
 
-Scan r/SeattleEvents for posts linking to event sources we don't already cover.
+Scan social and community platforms (currently r/SeattleEvents, extensible to
+other feeds) for posts linking to event sources we don't already cover.
 Runs daily from the out-of-band environment (VPS) where Reddit's RSS feed is
 accessible.
 
 ## When to run
 
 Triggered by a daily cron job, or manually when asked to find new event sources
-from Reddit.
+from social/community feeds.
+
+## Current Sources
+
+- **r/SeattleEvents** — `https://old.reddit.com/r/seattleevents/.rss` (Atom XML, 25 posts per fetch)
+- Future: other subreddits, Facebook groups, Nextdoor, Meetup feeds, etc.
 
 ## Steps
 
@@ -22,14 +28,14 @@ from Reddit.
 cd /root/.openclaw/workspace-calendar/repo && git pull origin main
 ```
 
-### 2. Fetch and Parse the RSS Feed
+### 2. Fetch and Parse Feeds
 
-Run the fetch script to get new posts from r/SeattleEvents:
+Run the fetch script to get new posts from all configured social sources:
 
 ```bash
-python3 skills/reddit-discovery/scripts/fetch_reddit.py \
+python3 skills/social-discovery/scripts/fetch_reddit.py \
   --repo /root/.openclaw/workspace-calendar/repo \
-  --state /root/.openclaw/workspace-calendar/repo/.reddit-discovery-state.json
+  --state /root/.openclaw/workspace-calendar/repo/.social-discovery-state.json
 ```
 
 The script:
@@ -37,7 +43,7 @@ The script:
 - Extracts external URLs from each post's HTML content
 - Classifies URLs by platform (Eventbrite, NeonCRM, TicketSpice, etc.)
 - Filters out social media links, content sites, and Reddit internals
-- Tracks seen post IDs in `.reddit-discovery-state.json` so only new posts are processed
+- Tracks seen post IDs in `.social-discovery-state.json` so only new posts are processed
 - Outputs JSON with `candidates` array
 
 **Rate limiting:** Reddit allows ~1-2 requests per IP before returning HTTP 429.
@@ -105,7 +111,7 @@ the name lowercased with non-alpha runs collapsed to `-`.
 Create or append to `docs/discovery-log/YYYY-MM-DD.md`:
 
 ```markdown
-## Reddit source discovery: r/SeattleEvents
+## Social source discovery: r/SeattleEvents
 
 - 💡 Candidate: <name> — <platform> — <URL> (via [Reddit post](<post_url>))
 - ❌ Skipped (one-off): <name> — single Eventbrite event
@@ -117,10 +123,10 @@ Create or append to `docs/discovery-log/YYYY-MM-DD.md`:
 
 ```bash
 cd /root/.openclaw/workspace-calendar/repo
-git checkout -b chore/reddit-discovery-YYYY-MM-DD
-git add docs/source-candidates/ docs/discovery-log/ .reddit-discovery-state.json
-git commit -m "Reddit source discovery: YYYY-MM-DD — N new candidates"
-git push origin chore/reddit-discovery-YYYY-MM-DD
+git checkout -b chore/social-discovery-YYYY-MM-DD
+git add docs/source-candidates/ docs/discovery-log/ .social-discovery-state.json
+git commit -m "Social source discovery: YYYY-MM-DD — N new candidates"
+git push origin chore/social-discovery-YYYY-MM-DD
 ```
 
 Then open a PR via `scripts/push_and_pr.sh` or `gh pr create`.
@@ -130,7 +136,7 @@ Then open a PR via `scripts/push_and_pr.sh` or `gh pr create`.
 Post a summary to the channel:
 
 ```
-🔍 Reddit Source Discovery (r/SeattleEvents)
+🔍 Social Source Discovery (r/SeattleEvents)
   Feed: 25 posts (N new since last run)
   💡 New candidates:
     1. <name> — <platform> — <URL>
@@ -141,16 +147,17 @@ Post a summary to the channel:
 
 If no new candidates were found:
 ```
-🔍 Reddit Source Discovery (r/SeattleEvents)
+🔍 Social Source Discovery (r/SeattleEvents)
   Feed: 25 posts (0 new since last run)
   No new candidates this run.
 ```
 
 ## Important Rules
 
-- **One request per run** — Reddit rate-limits aggressively. The script makes
-  exactly one HTTP request. Do not run it multiple times in quick succession.
-- **State file is git-tracked** — `.reddit-discovery-state.json` is committed
+- **One request per feed per run** — social platforms rate-limit aggressively.
+  The script makes exactly one HTTP request per feed. Do not run it multiple
+  times in quick succession.
+- **State file is git-tracked** — `.social-discovery-state.json` is committed
   so the next run knows which posts were already processed. Don't delete it.
 - **Skip one-off events** — A single Eventbrite event link is not a source. But
   check the organizer — if they have 5+ recurring events, the organizer is the
@@ -161,7 +168,7 @@ If no new candidates were found:
   not scrapable event sources.
 - **Check existing candidates first** — `ls docs/source-candidates/` before
   creating a new file. If a candidate already exists, just update `lastChecked`
-  and add a note about the Reddit sighting.
+  and add a note about the sighting.
 - **One PR per run** — bundle all candidate files and the discovery log entry
   into a single PR.
 - **Don't implement sources here** — this skill only discovers and documents

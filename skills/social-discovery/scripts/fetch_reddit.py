@@ -26,7 +26,7 @@ from datetime import datetime, timezone
 
 SUBREDDIT_RSS_URL = "https://old.reddit.com/r/seattleevents/.rss"
 USER_AGENT = "Mozilla/5.0 (compatible; calendar-ripper/1.0; +https://206.events)"
-STATE_FILE_DEFAULT = ".reddit-discovery-state.json"
+STATE_FILE_DEFAULT = ".social-discovery-state.json"
 
 # Domains to skip (reddit internals, image CDNs, social media that won't be event sources)
 SKIP_DOMAINS = {
