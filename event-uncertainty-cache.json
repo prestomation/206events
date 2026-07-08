@@ -20726,11 +20726,13 @@
     },
     "19hz:19hz-2026/07/03-What the FRICK? Pt. 2": {
       "fields": {
-        "imageUrl": "https://scontent-ord5-3.cdninstagram.com/v/t51.82787-15/686353079_17948278566153559_3550557884864846016_n.jpg"
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-08",
       "source": "agent",
-      "evidence": "https://www.instagram.com/p/DX-g-9tic2F/"
+      "evidence": "https://www.ra.co/events/2240218"
     },
     "19hz:19hz-2026/07/04-Coco & Breezy": {
       "fields": {
@@ -38710,6 +38712,353 @@
       "resolvedAt": "2026-07-08",
       "source": "agent",
       "evidence": "https://tickets.oraseattle.com/e/kd-presents-end-of-the-universe-north-america-tour/tickets"
+    },
+    "venue:osm:node:2329620131": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2329620131"
+    },
+    "venue:osm:node:2463139542": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2463139542"
+    },
+    "venue:osm:node:3006174421": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/3006174421"
+    },
+    "venue:osm:node:3008886848": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.tacomaartsevents.org"
+    },
+    "venue:osm:node:419519156": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43836/"
+    },
+    "venue:osm:relation:17052605": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation/17052605"
+    },
+    "venue:osm:relation:5309030": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation/5309030"
+    },
+    "venue:osm:way:1000645329": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/1000645329"
+    },
+    "venue:osm:way:1063404056": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/1063404056"
+    },
+    "venue:osm:way:1131496653": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/1131496653"
+    },
+    "venue:osm:way:1463243929": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/1463243929"
+    },
+    "venue:osm:way:158721036": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/158721036"
+    },
+    "venue:osm:way:159118102": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/159118102"
+    },
+    "venue:osm:way:159261464": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/159261464"
+    },
+    "venue:osm:way:159483661": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/159483661"
+    },
+    "venue:osm:way:219686092": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/219686092"
+    },
+    "venue:osm:way:228014246": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/228014246"
+    },
+    "venue:osm:way:245210339": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/245210339"
+    },
+    "venue:osm:way:25788265": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/25788265"
+    },
+    "venue:osm:way:25793176": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/25793176"
+    },
+    "venue:osm:way:29897483": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/29897483"
+    },
+    "venue:osm:way:31658681": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/31658681"
+    },
+    "venue:osm:way:344320893": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/344320893"
+    },
+    "venue:osm:way:370478187": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/370478187"
+    },
+    "venue:osm:way:378090317": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:osm:way:412521866": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://botanicgardens.uw.edu/education/adults/professional-continuing-education/pa-pruning-series/"
+    },
+    "venue:osm:way:481289528": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/481289528"
+    },
+    "venue:osm:way:6425546": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/6425546"
+    },
+    "venue:osm:way:6489623": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:osm:way:6490996": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/6490996"
+    },
+    "venue:osm:way:996909492": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/996909492"
+    },
+    "venue:loc:great northern & cascade railway, 101 5th st n, skykomish, wa 98288": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "evidence": "https://www.gnandcr.org/"
+    },
+    "venue:loc:hing hay park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:loc:freeway park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:loc:washington park arboretum (lndmk-8)": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:loc:washington park arboretum": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:loc:westlake park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:loc:39th ave sw &amp": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:loc:beacon ave s &amp": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:loc:green lake community center - gym": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:loc:magnuson park building 30": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-08",
+      "source": "agent"
+    },
+    "venue:osm:way:53836271": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "mixed indoor/outdoor venue -- zoo has both indoor exhibit buildings and outdoor exhibits"
+    },
+    "venue:osm:way:34148647": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "Green Lake Community Center is an indoor building, but this specific 'Outdoor Watch Party' event was apparently held outside on its grounds -- venue itself is mixed, classify per-event instead"
+    },
+    "venue:osm:way:228765000": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "brewery taproom -- has both an indoor taproom and outdoor space; event page doesn't specify which"
+    },
+    "venue:loc:amy yee tennis center, 2000 mlk jr way s., seattle, wa 98144": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "mixed venue: 6 outdoor courts (no lights, daylight only) plus an indoor facility; a 'late night' event here is likely indoor but venue is genuinely mixed"
+    },
+    "venue:loc:green lake community center": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-08",
+      "source": "agent",
+      "reason": "indoor community center building, but this event ('Outdoor Watch Party' setup/breakdown) may be staged outside on the grounds -- ambiguous"
     }
   }
 }
