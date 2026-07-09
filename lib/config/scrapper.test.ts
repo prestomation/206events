@@ -98,10 +98,38 @@ describe('JSONRipper', () => {
     });
 
     const calendars = await ripper.rip(config);
-    
+
     expect(calendars).toHaveLength(1);
     expect(calendars[0].name).toBe('json-calendar');
     expect(calendars[0].friendlyname).toBe('JSON Calendar');
     expect(calendars[0].events.length).toBeGreaterThan(0);
+  });
+
+  it('throws a diagnosable error when the response is not JSON', async () => {
+    const ripper = new TestJSONRipper();
+
+    const config: Ripper = {
+      name: 'json-ripper',
+      description: 'JSON Test Ripper',
+      config: {
+        url: 'https://api.example.com/events',
+        calendars: [{
+          name: 'json-calendar',
+          friendlyname: 'JSON Calendar',
+          timezone: ZoneRegion.of('America/New_York'),
+          tags: ['json'],
+          config: {}
+        }]
+      }
+    };
+
+    // A blocked/broken API returning a 200 HTML error page instead of JSON
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      headers: new Headers({ 'content-type': 'text/html; charset=utf-8' }),
+      text: () => Promise.resolve('<!DOCTYPE html><html><title>Error Page</title></html>')
+    });
+
+    await expect(ripper.rip(config)).rejects.toThrow(/Expected JSON but got content-type "text\/html/);
   });
 });
