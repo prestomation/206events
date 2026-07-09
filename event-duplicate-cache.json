@@ -6574,6 +6574,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-09",
       "note": "Same event at Seattle Center listed in both seattle-center and seattle-fwc26 calendars"
+    },
+    "events12-seattle-events.ics Hell’s Kitchen|2026-07-26T12:00:00-07:00[America/Los_Angeles]::stg-stg-paramount.ics Hell’s Kitchen (Touring)|2026-07-26T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same touring show at Paramount Theatre, events12 uses noon default"
     }
   }
 }
