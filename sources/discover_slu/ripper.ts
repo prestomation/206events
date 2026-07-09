@@ -28,7 +28,7 @@ const MONTH_MAP: Record<string, number> = {
  */
 function parseEventDayFull(heading: string): { year: number; month: number; day: number } | null {
     // "Weekday Month Day, Year" — e.g., "Thursday July 9, 2026"
-    const match = heading.match(/(\w+)\s+(\d{1,2}),\s*(\d{4})/);
+    const match = heading.match(/\w+\s+(\w+)\s+(\d{1,2}),\s*(\d{4})/);
     if (!match) return null;
     const month = MONTH_MAP[match[1].toLowerCase()];
     if (!month) return null;
