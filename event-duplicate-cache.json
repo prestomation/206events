@@ -6509,6 +6509,71 @@
       "decision": "confirmed",
       "note": "Same Hillman City Block Party — title case and time differ across feeds",
       "resolvedAt": "2026-07-09"
+    },
+    "reubens-brews-ballard.ics Lager Fest 2026: A Celebration of Crisp, Crushable Beer|2026-07-18T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Lager Fest 2026: A Celebration of Crisp, Crushable Beer|2026-07-18T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-07-15T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-07-15T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-07-22T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-07-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-07-29T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-07-29T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-08-05T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-08-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-08-12T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-08-12T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-08-19T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-08-19T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-08-26T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-08-26T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-09-02T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-09-02T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-09-09T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-09-09T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-09-16T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-09-16T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-09-23T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-09-23T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "seattle-center-seattle-center-events.ics Silent Reading Party at the Mural|2026-07-12T17:00:00-07:00[America/Los_Angeles]::seattle-fwc26-events.ics Silent Reading Party|2026-07-12T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event at Seattle Center listed in both seattle-center and seattle-fwc26 calendars"
     }
   }
 }
