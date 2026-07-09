@@ -17,138 +17,89 @@ const BASE_URL = "https://www.discoverslu.com";
 const AJAX_URL = "https://www.discoverslu.com/wp-admin/admin-ajax.php";
 
 const MONTH_MAP: Record<string, number> = {
-    january: 1, jan: 1, february: 2, feb: 2, march: 3, mar: 3, april: 4, apr: 4,
-    may: 5, june: 6, jun: 6, july: 7, jul: 7, august: 8, aug: 8,
-    september: 9, sep: 9, sept: 9, october: 10, oct: 10,
-    november: 11, nov: 11, december: 12, dec: 12,
+    january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
+    july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
+    jan: 1, feb: 2, mar: 3, apr: 4, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12,
 };
 
-const WEEKDAY_PATTERN = /^(sun|mon|tue|wed|thu|fri|sat)(day)?$/i;
-
 /**
- * Strips a leading recurrence prefix the site added ahead of the actual date,
- * e.g. "Every Sat, Jun 6 - Nov 21, ..." or "Weekly June 4 - October 29, ..."
- * or "Wed - Sat, June 3 - September 12, ...". Only strips day-of-week
- * prefixes (never month names) so it can't eat a genuine cross-month range.
+ * Parse the "event-day" heading like "Sunday July 9, 2026" to extract the specific date.
+ * Returns null if the heading cannot be parsed.
  */
-function stripRecurrencePrefix(text: string): string {
-    let t = text.replace(/^every\s+\w+,\s*/i, "");
-    t = t.replace(/^weekly\s+/i, "");
-
-    const dayRange = t.match(/^(\w+)\s*-\s*(\w+),\s*(.*)$/i);
-    if (dayRange && WEEKDAY_PATTERN.test(dayRange[1]) && WEEKDAY_PATTERN.test(dayRange[2])) {
-        t = dayRange[3];
-    }
-
-    return t;
+function parseEventDayFull(heading: string): { year: number; month: number; day: number } | null {
+    // "Weekday Month Day, Year" — e.g., "Thursday July 9, 2026"
+    const match = heading.match(/\w+\s+(\w+)\s+(\d{1,2}),\s*(\d{4})/);
+    if (!match) return null;
+    const month = MONTH_MAP[match[1].toLowerCase()];
+    if (!month) return null;
+    const day = parseInt(match[2]);
+    const year = parseInt(match[3]);
+    return { year, month, day };
 }
 
 /**
- * Collapses a trailing time *range* ("10 am - 3 pm", "5:30 - 7:30 pm") down
- * to just its start time, inheriting the am/pm marker from the end time when
- * the start time omits one (e.g. "5:30 - 7:30 pm" -> "5:30 pm").
+ * Extract the start time from the feature__meta--date field.
+ * The field now shows series ranges or time ranges rather than a single datetime.
+ * Handles:
+ *   "July 9, 5 - 9 pm"                           — time range, end has am/pm
+ *   "July 11, 9:30 - 11 am"                       — time range with minutes
+ *   "Every Sat, Jun 6 - Nov 21, 10 am - 3 pm"    — both endpoints explicit am/pm
+ *   "Every Mon, Feb 9 - Jul 20, 6:30 pm"          — single time at end
+ *   "June 12 - August 14"                         — no time → default 10 am (guessed)
+ *   "July 13-19"                                  — no time → default 10 am (guessed)
  */
-function collapseTimeRange(text: string): string {
-    const m = text.match(/^(.*?),\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\s*-\s*\d{1,2}(?::\d{2})?\s*(am|pm)$/i);
-    if (!m) return text;
-    const [, prefix, hour, minute, startAmpm, endAmpm] = m;
-    const ampm = startAmpm ?? endAmpm;
-    return `${prefix}, ${hour}:${minute ?? "00"} ${ampm}`;
-}
-
-/**
- * Parse a date string from the feature__tag / feature__meta--date element.
- * Handles several formats found on discoverslu.com:
- *   "March 15, 10:00 am"      — date with time
- *   "April 5"                  — date without time
- *   "April 24-25"              — same-month date range (uses first day)
- *   "May 9-10"                 — same-month date range (uses first day)
- *   "May 16-17, 12:30 pm"      — same-month date range with time (uses first day + time)
- *   "March 30 - April 3"       — cross-month date range (uses first day)
- *   "March 30 - April 3, 2026" — cross-month range with year (uses first day)
- *   "March 30 - April 3, 10:00 am" — cross-month range with time (uses first day + time)
- *   "July 16, 5:30 - 7:30 pm"  — date with a time range (uses start time)
- *   "Every Sat, Jun 6 - Nov 21, 10 am - 3 pm"       — recurring, day-of-week prefix (uses first occurrence)
- *   "Weekly June 4 - October 29, 10 am - 3 pm"      — recurring, "Weekly" prefix
- *   "Wed - Sat, June 3 - September 12, 12 - 5 pm"   — recurring, weekday-range prefix
- *   "August 20, 6 pm"          — date with an hour-only time (no minutes)
- */
-function parseFeatureTag(tagText: string): { month: number; day: number; hour: number; minute: number; timeGuessed: boolean } | null {
-    const text = collapseTimeRange(stripRecurrencePrefix(tagText.trim()));
-
-    // Format: "Month Day, H[:MM] am/pm" (minutes optional)
-    const withTime = text.match(/^(\w+)\s+(\d{1,2}),\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
-    if (withTime) {
-        const month = MONTH_MAP[withTime[1].toLowerCase()];
-        if (!month) return null;
-        const day = parseInt(withTime[2]);
-        let hour = parseInt(withTime[3]);
-        const minute = withTime[4] ? parseInt(withTime[4]) : 0;
-        const ampm = withTime[5].toLowerCase();
+export function extractTimeFromMeta(text: string): { hour: number; minute: number; timeGuessed: boolean } {
+    // "H:MM am/pm - ..." or "H am/pm - ..." (start has explicit am/pm)
+    const bothAmPm = text.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*-\s*\d{1,2}(?::\d{2})?\s*(am|pm)/i);
+    if (bothAmPm) {
+        let hour = parseInt(bothAmPm[1]);
+        const minute = bothAmPm[2] ? parseInt(bothAmPm[2]) : 0;
+        const ampm = bothAmPm[3].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
-        return { month, day, hour, minute, timeGuessed: false };
+        return { hour, minute, timeGuessed: false };
     }
 
-    // Format: "Month Day-Day, H[:MM] am/pm" (same-month range with time, use first day + time)
-    const rangeWithTime = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\d{1,2},\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
-    if (rangeWithTime) {
-        const month = MONTH_MAP[rangeWithTime[1].toLowerCase()];
-        if (!month) return null;
-        const day = parseInt(rangeWithTime[2]);
-        let hour = parseInt(rangeWithTime[3]);
-        const minute = rangeWithTime[4] ? parseInt(rangeWithTime[4]) : 0;
-        const ampm = rangeWithTime[5].toLowerCase();
+    // "H:MM - H am/pm" or "H - H am/pm" (only end has am/pm; infer start from end)
+    const rangeEndAmPm = text.match(/(\d{1,2})(?::(\d{2}))?\s*-\s*(\d{1,2})(?::\d{2})?\s*(am|pm)/i);
+    if (rangeEndAmPm) {
+        let hour = parseInt(rangeEndAmPm[1]);
+        const minute = rangeEndAmPm[2] ? parseInt(rangeEndAmPm[2]) : 0;
+        const endHour = parseInt(rangeEndAmPm[3]);
+        const endAmPm = rangeEndAmPm[4].toLowerCase();
+        if (endAmPm === "pm") {
+            if (hour === 12) {
+                // 12 pm = noon, correct as-is
+            } else if (hour > endHour) {
+                // e.g., "11 - 1 pm": start is 11am, not 11pm — don't add 12
+            } else {
+                hour += 12;
+            }
+        } else {
+            if (hour === 12) hour = 0; // 12 am = midnight
+        }
+        return { hour, minute, timeGuessed: false };
+    }
+
+    // Single time: "H:MM am/pm" anywhere in the string
+    const singleTime = text.match(/(\d{1,2}):(\d{2})\s*(am|pm)/i);
+    if (singleTime) {
+        let hour = parseInt(singleTime[1]);
+        const minute = parseInt(singleTime[2]);
+        const ampm = singleTime[3].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
-        return { month, day, hour, minute, timeGuessed: false };
+        return { hour, minute, timeGuessed: false };
     }
 
-    // Format: "Month Day - Month Day[, Year], H[:MM] am/pm" (cross-month range with time, use first day + time)
-    const crossMonthWithTime = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\w+\s+\d{1,2}(?:,\s*\d{4})?,\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
-    if (crossMonthWithTime) {
-        const month = MONTH_MAP[crossMonthWithTime[1].toLowerCase()];
-        if (!month) return null;
-        const day = parseInt(crossMonthWithTime[2]);
-        let hour = parseInt(crossMonthWithTime[3]);
-        const minute = crossMonthWithTime[4] ? parseInt(crossMonthWithTime[4]) : 0;
-        const ampm = crossMonthWithTime[5].toLowerCase();
-        if (ampm === "pm" && hour !== 12) hour += 12;
-        if (ampm === "am" && hour === 12) hour = 0;
-        return { month, day, hour, minute, timeGuessed: false };
-    }
-
-    // Format: "Month Day - Month Day[, Year]" (cross-month range, use first day)
-    const crossMonth = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\w+\s+\d{1,2}(?:,\s*\d{4})?$/i);
-    if (crossMonth) {
-        const month = MONTH_MAP[crossMonth[1].toLowerCase()];
-        if (!month) return null;
-        const day = parseInt(crossMonth[2]);
-        return { month, day, hour: 10, minute: 0, timeGuessed: true }; // default to 10 AM
-    }
-
-    // Format: "Month Day-Day[, Year]" (same-month range, use first day) or "Month Day" (no time)
-    const dateOnly = text.match(/^(\w+)\s+(\d{1,2})(?:\s*-\s*\d{1,2})?(?:,\s*\d{4})?$/i);
-    if (dateOnly) {
-        const month = MONTH_MAP[dateOnly[1].toLowerCase()];
-        if (!month) return null;
-        const day = parseInt(dateOnly[2]);
-        return { month, day, hour: 10, minute: 0, timeGuessed: true }; // default to 10 AM
-    }
-
-    return null;
+    return { hour: 10, minute: 0, timeGuessed: true };
 }
 
 /**
- * Parse the "event-day" heading like "Sunday March 15, 2026" to extract the year.
- */
-function parseEventDayYear(heading: string): number | null {
-    const match = heading.match(/(\d{4})/);
-    return match ? parseInt(match[1]) : null;
-}
-
-/**
- * Parse events from the HTML fragment used by both the initial page and AJAX responses.
+ * Parse events from the HTML fragment returned by the AJAX endpoint.
+ * Walks children in document order, tracking the specific event date from
+ * h2.event-day headings. The feature__meta--date field is used only for
+ * time extraction (it now shows series ranges, not individual dates).
  */
 export function parseEventsFromHtml(
     html: HTMLElement,
@@ -156,149 +107,139 @@ export function parseEventsFromHtml(
     defaultYear: number,
 ): RipperEvent[] {
     const events: RipperEvent[] = [];
+    let currentDate: { year: number; month: number; day: number } | null = null;
 
-    // Extract the year from day headings (e.g. "Sunday March 15, 2026").
-    // Use the last heading's year as the default for cards where we can't
-    // walk up to a specific heading.
-    let currentYear = defaultYear;
-    for (const heading of html.querySelectorAll("h2.event-day")) {
-        const year = parseEventDayYear(heading.textContent.trim());
-        if (year) currentYear = year;
-    }
+    for (const node of html.childNodes) {
+        const el = node as HTMLElement;
+        if (!el.querySelectorAll) continue; // skip text nodes
 
-    const eventCards = html.querySelectorAll(".feature.full");
+        // Day heading container: <div class="site-width"><h2 class="event-day">...</h2></div>
+        const heading = el.querySelector?.("h2.event-day");
+        if (heading) {
+            const parsed = parseEventDayFull(heading.textContent.trim());
+            if (parsed) currentDate = parsed;
+            continue;
+        }
 
-    for (const card of eventCards) {
-        try {
-            // Extract title and URL
-            const titleLink = card.querySelector("h3 a");
-            if (!titleLink) continue;
+        // Event card container: <div class="site-width"><div class="grid...">...</div></div>
+        const cards = el.querySelectorAll?.(".feature.full");
+        if (!cards || cards.length === 0) continue;
 
-            const title = titleLink.textContent.trim();
-            const href = titleLink.getAttribute("href") || "";
-            const eventUrl = href.startsWith("http") ? href : `${BASE_URL}${href}`;
+        const dateForCards = currentDate;
 
-            // Use the URL slug as a stable ID
-            const slug = href.includes("/events/")
-                ? href.replace(/.*\/events\//, "").replace(/\/$/, "")
-                : href.replace(/^.*\//, "").replace(/\/$/, "") || title.toLowerCase().replace(/\s+/g, "-");
-            const eventId = `discover-slu-${slug}`;
+        for (const card of cards) {
+            try {
+                const titleLink = card.querySelector("h3 a");
+                if (!titleLink) continue;
 
-            if (seenEvents.has(eventId)) continue;
-            seenEvents.add(eventId);
+                const title = titleLink.textContent.trim();
+                const href = titleLink.getAttribute("href") || "";
+                const eventUrl = href.startsWith("http") ? href : `${BASE_URL}${href}`;
 
-            // Extract date/time from the feature__tag span. discoverslu.com's
-            // markup was redesigned in July 2026: the old ".feature__tag" span
-            // became a ".feature__meta.feature__meta--date" div. Check both so
-            // this survives the transition (and any partial rollback).
-            const tagSpan = card.querySelector(".feature__tag") ?? card.querySelector(".feature__meta--date");
-            if (!tagSpan) {
-                events.push({
-                    type: "ParseError",
-                    reason: `No date tag found for "${title}"`,
-                    context: eventId,
-                });
-                continue;
-            }
+                const slug = href.includes("/events/")
+                    ? href.replace(/.*\/events\//, "").replace(/\/$/, "")
+                    : href.replace(/^.*\//, "").replace(/\/$/, "") || title.toLowerCase().replace(/\s+/g, "-");
+                const eventId = `discover-slu-${slug}`;
 
-            const tagText = tagSpan.textContent.trim();
-            const parsed = parseFeatureTag(tagText);
-            if (!parsed) {
-                events.push({
-                    type: "ParseError",
-                    reason: `Could not parse date from "${tagText}" for "${title}"`,
-                    context: eventId,
-                });
-                continue;
-            }
+                if (seenEvents.has(eventId)) continue;
+                seenEvents.add(eventId);
 
-            // Determine the year: walk up from the card to find the closest day heading
-            // Use the year from the nearest preceding h2.event-day
-            let year = currentYear;
-            const parentSiteWidth = card.closest(".site-width");
-            if (parentSiteWidth) {
-                const prevSibling = parentSiteWidth.previousElementSibling;
-                if (prevSibling) {
-                    const heading = prevSibling.querySelector?.("h2.event-day") ??
-                        (prevSibling.classList?.contains("site-width") ? prevSibling.querySelector("h2.event-day") : null);
-                    if (heading) {
-                        const headingYear = parseEventDayYear(heading.textContent.trim());
-                        if (headingYear) year = headingYear;
-                    }
+                const metaDateEl = card.querySelector(".feature__meta--date");
+                if (!metaDateEl && !dateForCards) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `No date tag found for "${title}"`,
+                        context: eventId,
+                    });
+                    continue;
                 }
-            }
-            // Fallback: if the month in the tag is earlier than the default year's
-            // current month, it might be next year (unlikely but handle edge case)
 
-            const eventDate = ZonedDateTime.of(
-                LocalDateTime.of(year, parsed.month, parsed.day, parsed.hour, parsed.minute),
-                ZoneId.of("America/Los_Angeles"),
-            );
+                const metaDateText = metaDateEl?.textContent.trim() ?? "";
+                const timeInfo = extractTimeFromMeta(metaDateText);
 
-            // Extract location — same old/new markup fallback as the date tag above.
-            const locationEl = card.querySelector(".feature__location") ?? card.querySelector(".feature__meta--location");
-            const locationText = locationEl?.textContent.trim().replace(/^@\s*/, "") || undefined;
-            const location = locationText ? `${locationText}, South Lake Union, Seattle, WA` : "South Lake Union, Seattle, WA";
+                let year: number;
+                let month: number;
+                let day: number;
 
-            // Extract description
-            const textDiv = card.querySelector(".text");
-            const descP = textDiv?.querySelectorAll("p");
-            let description: string | undefined;
-            if (descP) {
-                for (const p of descP) {
-                    if (!p.classList.contains("feature__location")) {
-                        const text = p.textContent.trim();
-                        if (text) {
-                            description = text;
-                            break;
+                if (dateForCards) {
+                    year = dateForCards.year;
+                    month = dateForCards.month;
+                    day = dateForCards.day;
+                } else {
+                    // Fallback when no preceding day heading: extract date from meta text
+                    const dateFallback = metaDateText.match(/^([A-Za-z]+)\s+(\d{1,2})/);
+                    if (dateFallback) {
+                        const m = MONTH_MAP[dateFallback[1].toLowerCase()];
+                        if (m) {
+                            month = m;
+                            day = parseInt(dateFallback[2]);
+                            year = defaultYear;
+                        } else {
+                            events.push({
+                                type: "ParseError",
+                                reason: `Could not parse date from "${metaDateText}" for "${title}"`,
+                                context: eventId,
+                            });
+                            continue;
                         }
+                    } else {
+                        events.push({
+                            type: "ParseError",
+                            reason: `Could not parse date from "${metaDateText}" for "${title}"`,
+                            context: eventId,
+                        });
+                        continue;
                     }
                 }
+
+                const eventDate = ZonedDateTime.of(
+                    LocalDateTime.of(year!, month!, day!, timeInfo.hour, timeInfo.minute),
+                    ZoneId.of("America/Los_Angeles"),
+                );
+
+                const locationEl = card.querySelector(".feature__meta--location");
+                const locationText = locationEl?.textContent.trim().replace(/^@\s*/, "") || undefined;
+                const location = locationText ? `${locationText}, South Lake Union, Seattle, WA` : "South Lake Union, Seattle, WA";
+
+                const imgEl = card.querySelector(".feature__image img");
+                const imgSrc = imgEl?.getAttribute("src");
+                const image = imgSrc ? (imgSrc.startsWith("http") ? imgSrc : `${BASE_URL}${imgSrc}`) : undefined;
+
+                const event: RipperCalendarEvent = {
+                    id: eventId,
+                    ripped: new Date(),
+                    date: eventDate,
+                    duration: Duration.ofHours(2),
+                    summary: title,
+                    location,
+                    url: eventUrl,
+                    imageUrl: image,
+                };
+
+                events.push(event);
+
+                const unknownFields: UncertaintyField[] = timeInfo.timeGuessed
+                    ? ["startTime", "duration"]
+                    : ["duration"];
+                const uncertainty: UncertaintyError = {
+                    type: "Uncertainty",
+                    reason: timeInfo.timeGuessed
+                        ? `Date tag had no time ("${metaDateText}")`
+                        : "Discover SLU listing has a start time but no end time",
+                    source: "discover_slu",
+                    unknownFields,
+                    event,
+                    partialFingerprint: simpleHash(metaDateText),
+                };
+                events.push(uncertainty);
+            } catch (error) {
+                const errorMessage = error instanceof Error ? error.message : String(error);
+                events.push({
+                    type: "ParseError",
+                    reason: `Failed to parse event: ${errorMessage}`,
+                    context: undefined,
+                });
             }
-
-            // Extract image
-            const imgEl = card.querySelector(".feature__image img");
-            const imgSrc = imgEl?.getAttribute("src");
-            const image = imgSrc ? (imgSrc.startsWith("http") ? imgSrc : `${BASE_URL}${imgSrc}`) : undefined;
-
-            const event: RipperCalendarEvent = {
-                id: eventId,
-                ripped: new Date(),
-                date: eventDate,
-                duration: Duration.ofHours(2),
-                summary: title,
-                description,
-                location,
-                url: eventUrl,
-                imageUrl: image,
-            };
-
-            events.push(event);
-
-            // Duration is always a 2h guess on Discover SLU; when the source
-            // also omits the start time we tack startTime onto the unknown
-            // fields.
-            const unknownFields: UncertaintyField[] = parsed.timeGuessed
-                ? ["startTime", "duration"]
-                : ["duration"];
-            const uncertainty: UncertaintyError = {
-                type: "Uncertainty",
-                reason: parsed.timeGuessed
-                    ? `Date tag had no time ("${tagText}")`
-                    : "Discover SLU listing has a start time but no end time",
-                source: "discover_slu",
-                unknownFields,
-                event,
-                partialFingerprint: simpleHash(tagText),
-            };
-            events.push(uncertainty);
-        } catch (error) {
-            const errorMessage = error instanceof Error ? error.message : String(error);
-            events.push({
-                type: "ParseError",
-                reason: `Failed to parse event: ${errorMessage}`,
-                context: undefined,
-            });
         }
     }
 
@@ -315,40 +256,14 @@ export default class DiscoverSLURipper implements IRipper {
 
         const allEvents: RipperEvent[] = [];
 
-        // Step 1: Fetch the initial calendar page (contains the first week of events)
-        const initialRes = await fetchFn(ripper.config.url.toString());
-        if (!initialRes.ok) {
-            throw Error(`Initial page returned HTTP ${initialRes.status}`);
-        }
-        const initialHtml = await initialRes.text();
-        const initialDoc = parse(initialHtml);
-
-        // Extract events from the initial page's calendar-events-container, if
-        // present. As of July 2026 the site redesign replaced this server-rendered
-        // container with a client-side Svelte app on the initial page load, so it
-        // may no longer exist. That's fine: the AJAX loop below already covers
-        // "today onward" on its very first call (see the comment there), so this
-        // was never the sole source of current-week coverage.
-        const container = initialDoc.querySelector("#calendar-events-container");
-        if (container) {
-            const events = parseEventsFromHtml(container, this.seenEvents, defaultYear);
-            allEvents.push(...events);
-        }
-
-        // Step 2: Fetch subsequent weeks via AJAX.
-        // The AJAX endpoint returns events for the 7-day window *ending* at
-        // start_date (direction=DESC looks backward from start_date), so
-        // requesting start_date = now + 7 days back-fills exactly [now, now+7)
-        // — i.e. this first call already covers the current week.
         const lookaheadDays = ripper.config.lookahead
             ? now.until(now.plus(ripper.config.lookahead), ChronoUnit.DAYS)
             : 30;
 
-        // Calculate how many AJAX calls we need (each returns ~1 week)
         const weeksNeeded = Math.ceil(lookaheadDays / 7);
-        let currentDate = now.plusDays(7); // First call's window covers [now, now+7)
+        let currentDate = now;
 
-        for (let i = 0; i < weeksNeeded - 1; i++) {
+        for (let i = 0; i < weeksNeeded; i++) {
             const dateStr = `${currentDate.year()}-${String(currentDate.monthValue()).padStart(2, "0")}-${String(currentDate.dayOfMonth()).padStart(2, "0")}`;
 
             try {
@@ -370,7 +285,6 @@ export default class DiscoverSLURipper implements IRipper {
                 const data = await res.json() as { status: string; start_date: string; events_html: string };
 
                 if (data.status !== "pass") {
-                    // No more events available
                     break;
                 }
 
@@ -378,7 +292,6 @@ export default class DiscoverSLURipper implements IRipper {
                 const events = parseEventsFromHtml(weekHtml, this.seenEvents, currentDate.year());
                 allEvents.push(...events);
 
-                // Use the returned start_date for the next request (it may skip ahead if no events)
                 const nextDate = new Date(data.start_date);
                 currentDate = LocalDateTime.of(
                     nextDate.getFullYear(),
