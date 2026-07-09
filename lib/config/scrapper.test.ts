@@ -93,7 +93,8 @@ describe('JSONRipper', () => {
     // Mock fetch to return JSON
     global.fetch = vi.fn().mockResolvedValue({
       ok: true,
-      json: () => Promise.resolve({ title: 'API Event', events: [] })
+      headers: new Headers({ 'content-type': 'application/json' }),
+      text: () => Promise.resolve(JSON.stringify({ title: 'API Event', events: [] }))
     });
 
     const calendars = await ripper.rip(config);

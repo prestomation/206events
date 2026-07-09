@@ -89,4 +89,39 @@ describe('UrbanFamilyBrewingRipper', () => {
         const result = ripper.parseEventCell(badCell);
         expect('type' in result).toBe(true);
     });
+
+    // Sugar Calendar renders all-day events without <time datetime> elements —
+    // the day-only start lives in `data-daydate`, flagged by `data-daydiv`.
+    const ALL_DAY_CELL_HTML = `
+        <div
+            data-eventurl="https://urbanfamilybrewing.com/events/bricks-and-minifigs/"
+            data-eventid="585"
+            data-calendarsinfo="{&quot;calendars&quot;:[{&quot;name&quot;:&quot;Urban Family Brewing Ballard&quot;}]}"
+            data-daydate="{&quot;start_date&quot;:{&quot;datetime&quot;:&quot;2026-07-23T00:00:00&quot;,&quot;value&quot;:&quot;July 23, 2026&quot;}}"
+            data-daydiv="[&quot;all_day&quot;]"
+        >
+            <div class="sugar-calendar-block__event-cell__time">All-day</div>
+            <div class="sugar-calendar-block__event-cell__title">Bricks and Minifigs</div>
+        </div>
+    `;
+
+    it('parses an all-day event cell (no <time> elements) as a 24h event', () => {
+        const cell = parse(ALL_DAY_CELL_HTML).querySelector('[data-eventurl]')!;
+        const result = ripper.parseEventCell(cell) as any;
+        expect('date' in result).toBe(true);
+        expect(result.summary).toBe('Bricks and Minifigs');
+        expect(result.date.toString()).toContain('2026-07-23T00:00');
+        expect(result.duration.toMinutes()).toBe(24 * 60);
+    });
+
+    it('returns a ParseError for a cell with neither <time> elements nor all-day markers', () => {
+        const cell = parse(
+            '<div data-eventurl="https://x.test/e" data-eventid="1"><div class="sugar-calendar-block__event-cell__title">No Time</div></div>'
+        ).querySelector('[data-eventurl]')!;
+        const result = ripper.parseEventCell(cell);
+        expect('type' in result).toBe(true);
+        if ('type' in result) {
+            expect(result.reason).toContain('Missing start/end datetime');
+        }
+    });
 });

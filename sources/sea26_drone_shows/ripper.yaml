@@ -1,3 +1,5 @@
+# The World Cup drone shows concluded after the Seattle-hosted matches; the source
+# page now shows retrospective copy instead of a schedule. Verified 2026-07-09.
 name: sea26-drone-shows
 sourceRole: venue
 description: "SEA 26 Drone Shows"
@@ -16,3 +18,4 @@ calendars:
   - name: drone-shows
     friendlyname: "SEA 26 Drone Shows"
     timezone: America/Los_Angeles
+    expectEmpty: true

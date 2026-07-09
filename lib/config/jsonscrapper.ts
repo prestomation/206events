@@ -31,7 +31,16 @@ export abstract class JSONRipper implements IRipper {
                 throw Error(`${res.status} ${res.statusText}`)
             }
 
-            const jsonData = await res.json();
+            const bodyText = await res.text();
+            let jsonData: any;
+            try {
+                jsonData = JSON.parse(bodyText);
+            } catch (parseError) {
+                const contentType = res.headers.get("content-type") ?? "unknown";
+                throw Error(
+                    `Expected JSON but got content-type "${contentType}" from ${url}: ${bodyText.substring(0, 200)}`
+                );
+            }
             
             for (const cal of ripper.config.calendars) {
                 const events = await this.parseEvents(jsonData, ZonedDateTime.of(day, cal.timezone), cal.config);
