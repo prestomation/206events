@@ -6309,6 +6309,276 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-07",
       "note": "Same festival street-fair component as external-seafair.ics; seatoday-seatoday-community is a category sub-feed of the same seatoday event."
+    },
+    "19hz-all-events.ics Caress, 2libras, Phantom Eyes|2026-07-23T19:00:00-07:00[America/Los_Angeles]::belltown_yacht_club-belltown-yacht-club.ics Caress, 2Libras, Phantom Eyes|2026-07-23T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same DICE show at Belltown Yacht Club, title match=1"
+    },
+    "19hz-all-events.ics Jane Remover, Dazegxd|2026-10-07T20:00:00-07:00[America/Los_Angeles]::stg-stg-neptune.ics Jane Remover: Live Exhibit|2026-10-07T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Ticketmaster event at Neptune Theatre, same TM URL"
+    },
+    "19hz-all-events.ics Yheti, Toadface|2026-10-15T21:00:00-07:00[America/Los_Angeles]::substation-substation.ics Yheti & Toadface: Sleight of Sound Tour|2026-10-15T21:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Eventbrite link, same Substation venue"
+    },
+    "NWMetalCalendar-NWMetal.ics Gorot, Sorcia, Bathypelagic|2026-09-23T19:00-07:00[America/Los_Angeles]::belltown_yacht_club-belltown-yacht-club.ics Ghorot, Sorcia, Bathypelagic|2026-09-23T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same show at BYC, Gorot/Ghorot is a typo, Sorcia+Bathypelagic match exactly"
+    },
+    "NWMetalCalendar-NWMetal.ics Six Feet Under, Kataklysm, Wormhole, Infernal Realm|2026-08-01T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Six Feet Under - Decades In The Grave Tour with Kataklysm, Wormhole, Infernal Realm|2026-08-01T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same show at El Corazon, same date/time, same lineup"
+    },
+    "NWMetalCalendar-NWMetal.ics The Sword, Red Fang, Spoon Benders|2026-08-21T19:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics The Sword & Red Fang with Spoon Benders|2026-08-21T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same show at Showbox SoDo, 1h time diff is doors vs show time"
+    },
+    "NWMetalCalendar-NWMetal.ics Uncle Acid & The Deadbeats, Messa|2026-09-26T19:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Uncle Acid & the Deadbeats with Messa|2026-09-26T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same show at The Showbox, 1h time diff is doors vs show time"
+    },
+    "NWMetalCalendar-NWMetal.ics Whitechapel, Netherwalker, The Acacia Strain, Chelsea Grin|2026-12-05T19:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Whitechapel with Netherwalker, The Acacia Strain, Chelsea Grin|2026-12-05T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same show at Showbox SoDo, same time, same lineup"
+    },
+    "events12-seattle-events.ics Chinatown parade|2026-07-19T12:00:00-07:00[America/Los_Angeles]::external-nw-asian-weekly.ics 2026 Chinatown Seafair Parade|2026-07-19T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event, 19:00 UTC = 12:00 PT, at Hing Hay Park / ID"
+    },
+    "events12-seattle-events.ics Chinatown parade|2026-07-19T12:00:00-07:00[America/Los_Angeles]::external-seafair.ics Seattle Chinatown Seafair Parade|2026-07-19T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same annual Chinatown Seafair Parade at 12pm PT, same address block"
+    },
+    "events12-seattle-events.ics Game expo|2026-07-17T12:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics GeekFest West - Game Expo|2026-07-17T13:00:00.694-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same GeekFest West at Lynnwood Event Center, events12 uses noon default"
+    },
+    "events12-seattle-events.ics Night market|2026-07-18T18:00:00-07:00[America/Los_Angeles]::recurring-columbia-city-night-market.ics Columbia City Night Market|2026-07-18T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event at Columbia City Night Market, same URL, same time"
+    },
+    "events12-seattle-events.ics Polish festival|2026-07-11T12:00:00-07:00[America/Los_Angeles]::seattle-center-festal-all-events.ics Polish Festival Seattle|2026-07-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Festal event at Seattle Center, events12 uses noon default"
+    },
+    "external-myballard.ics Ballard Bookworms Community Storytime|2026-07-12T10:30:00Z[UTC]::external-phinney-neighborhood-association.ics Ballard Bookworms Community Storytime|2026-07-12T10:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Exact same event at Ballard Locks, same time, cross-posted to two calendars"
+    },
+    "external-seattle-gov-city-wide.ics AuraZ Clothing RevivalZ|2026-07-25T12:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics AuraZ Clothing RevivalZ|2026-07-25T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted in Seattle gov city-wide and neighborhoods feeds"
+    },
+    "external-seattle-gov-city-wide.ics Big Day of Play 2026|2026-08-15T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Big Day of Play: Rainier Playfield and Mt. Baker Rowing & Sailing Center|2026-08-15T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Big Day of Play event at 3700 S Alaska St, cross-posted"
+    },
+    "external-seattle-gov-city-wide.ics Big Day of Play: Rainier Playfield and Mt. Baker Rowing & Sailing Center|2026-08-15T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Big Day of Play 2026|2026-08-15T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Big Day of Play event at 3700 S Alaska St, cross-posted (reversed pair)"
+    },
+    "external-seattle-gov-city-wide.ics Disaster Relief Trials bicycle event|2026-07-25T09:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Disaster Relief Trials bicycle event|2026-07-25T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted in two Seattle gov feeds, identical content"
+    },
+    "external-seattle-gov-city-wide.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-11T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-11T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Interbay P-Patch event cross-posted in two Seattle gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-12T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-12T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Interbay P-Patch event cross-posted in two Seattle gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-18T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-18T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Interbay P-Patch event cross-posted in two Seattle gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-19T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Lavender U-Pick & Sale at Interbay P-Patch|2026-07-19T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Interbay P-Patch event cross-posted in two Seattle gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-08-14T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-08-14T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same Amy Yee Tennis Center event cross-posted in two Seattle gov feeds"
+    },
+    "pike-place-market-events.ics Liz Longley presented by The Triple Door at The Rabbit Box|2026-10-16T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Liz Longley presented by The Triple Door|2026-10-16T19:30:00.257-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same show at The Rabbit Box, same time, two venue feeds for the same room"
+    },
+    "pike-place-market-events.ics Liz Longley presented by The Triple Door at The Rabbit Box|2026-10-16T19:30:00-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Liz Longley at The Rabbit Box|2026-10-16T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same show at Rabbit Box presented by Triple Door, same time, same address block"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-07-22T14:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-07-22T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same game night at The Missing Piece, seatoday has stale address"
+    },
+    "seatoday-seatoday-all.ics Blood Drive | Red Cross|2026-07-22T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Blood Drive | Red Cross|2026-07-22T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted to seatoday-all and seatoday-community feeds"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-07-20T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-07-20T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same crafting event at The Missing Piece, seatoday has stale address"
+    },
+    "seatoday-seatoday-all.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted to seatoday-all and seatoday-arts feeds"
+    },
+    "seatoday-seatoday-all.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted to seatoday-all and seatoday-community feeds"
+    },
+    "seatoday-seatoday-all.ics Meet Me at the Park|2026-07-21T06:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Meet Me at the Park|2026-07-21T06:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted to seatoday-all and seatoday-community feeds"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted to seatoday-all and seatoday-food feeds"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted to seatoday-all and seatoday-learning feeds"
+    },
+    "seatoday-seatoday-arts.ics Crafting and Creativity Night|2026-07-20T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-07-20T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same crafting event at The Missing Piece, seatoday-arts has stale address"
+    },
+    "seatoday-seatoday-arts.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Kent Cornucopia Days Street Fair|2026-07-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted to seatoday-arts and seatoday-community feeds"
+    },
+    "seatoday-seatoday-food.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Chamber Monthly Lunch & Learn|2026-07-21T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event cross-posted to seatoday-food and seatoday-learning feeds"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor & KEXP's Roadhouse Present: The Lostines x Kinsey Lee w/Sequoia|2026-07-19T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor & KEXP's Roadhouse Present: The Lostines x Kinsey Lee (album release) w/ Sequoia @ THE SUNSET TAVERN|2026-07-19T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same show at Sunset Tavern, Tractor listed it as they co-presented it there"
+    },
+    "events12-seattle-events.ics Hell’s Kitchen|2026-07-26T12:00:00-07:00[America/Los_Angeles]::stg-stg-paramount.ics Hell's Kitchen (Touring)|2026-07-26T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "note": "Same show (Hell's Kitchen touring musical) at Paramount — different sources/times",
+      "resolvedAt": "2026-07-09"
+    },
+    "external-seattle-gov-city-wide.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "note": "Same block party event listed in both city-wide and neighborhood feeds",
+      "resolvedAt": "2026-07-09"
+    },
+    "external-seattle-gov-city-wide.ics What's Good: the Hillman City block party|2026-08-08T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "note": "Same Hillman City Block Party — title case and time differ across feeds",
+      "resolvedAt": "2026-07-09"
+    },
+    "reubens-brews-ballard.ics Lager Fest 2026: A Celebration of Crisp, Crushable Beer|2026-07-18T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Lager Fest 2026: A Celebration of Crisp, Crushable Beer|2026-07-18T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-07-15T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-07-15T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-07-22T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-07-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-07-29T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-07-29T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-08-05T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-08-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-08-12T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-08-12T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-08-19T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-08-19T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-08-26T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-08-26T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-09-02T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-09-02T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-09-09T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-09-09T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-09-16T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-09-16T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "reubens-brews-ballard.ics Trivia Night with Head in the Clouds|2026-09-23T18:00:00-07:00[America/Los_Angeles]::reubens-brews-downtown.ics Trivia Night with Head in the Clouds|2026-09-23T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-09",
+      "note": "Separate events at different physical Reuben's Brews locations (Ballard Taproom vs Downtown Seattle)"
+    },
+    "seattle-center-seattle-center-events.ics Silent Reading Party at the Mural|2026-07-12T17:00:00-07:00[America/Los_Angeles]::seattle-fwc26-events.ics Silent Reading Party|2026-07-12T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event at Seattle Center listed in both seattle-center and seattle-fwc26 calendars"
+    },
+    "events12-seattle-events.ics Hell’s Kitchen|2026-07-26T12:00:00-07:00[America/Los_Angeles]::stg-stg-paramount.ics Hell’s Kitchen (Touring)|2026-07-26T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same touring show at Paramount Theatre, events12 uses noon default"
     }
   }
 }
