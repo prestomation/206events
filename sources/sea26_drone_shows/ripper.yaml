@@ -1,5 +1,6 @@
 name: sea26-drone-shows
 sourceRole: venue
+disabled: true  # SEA 26 World Cup drone show series has concluded per the source page itself ("Thank you to everyone who joined us... over six unforgettable nights"); it will not resume
 description: "SEA 26 Drone Shows"
 url: "https://www.visitseattle.org/sea26/drone-show/"
 friendlyLink: https://www.visitseattle.org/sea26/drone-show/
