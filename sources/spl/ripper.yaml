@@ -80,7 +80,6 @@ calendars:
   - name: international-district
     friendlyname: "SPL - International District/Chinatown Branch"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       branch: "International District/Chinatown Branch"
     tags: ["International District"]
