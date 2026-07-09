@@ -39371,6 +39371,7 @@
     },
     "events12:architectural-tour-2026-07-11": {
       "fields": {
+        "setting": "outdoor",
         "cost": {
           "min": 27.5
         }
@@ -39383,7 +39384,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39393,7 +39395,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39403,7 +39406,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39413,7 +39417,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39423,7 +39428,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39433,7 +39439,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39443,7 +39450,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39453,7 +39461,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39463,7 +39472,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39473,7 +39483,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39483,7 +39494,8 @@
       "fields": {
         "cost": {
           "min": 27.5
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -40104,6 +40116,722 @@
       "resolvedAt": "2026-07-09",
       "source": "agent",
       "reason": "eventim.us blocks crawlers (403); no accessible event image"
+    },
+    "venue:loc:39th ave sw &amp": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/use/events"
+    },
+    "venue:loc:beacon ave s &amp": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/use/events"
+    },
+    "venue:loc:bellevue downtown park, 10201 ne 4th st, bellevue, wa 98004": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/search?query=Bellevue+Downtown+Park"
+    },
+    "venue:loc:freeway park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/freeway-park"
+    },
+    "venue:loc:hing hay park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/hing-hay-park"
+    },
+    "venue:loc:hing hay park, 423 maynard ave s, seattle, wa 98104": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/hing-hay-park"
+    },
+    "venue:loc:seward park, 5900 lake washington blvd s, seattle, wa 98118": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/seward-park"
+    },
+    "venue:loc:seward park, 5900 lake washington blvd s, seattle, wa, united states": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/seward-park"
+    },
+    "venue:loc:washington park arboretum": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://botanicgardens.uw.edu/washington-park-arboretum"
+    },
+    "venue:loc:washington park arboretum (lndmk-8)": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://botanicgardens.uw.edu/washington-park-arboretum"
+    },
+    "venue:loc:great northern & cascade railway, 101 5th st n, skykomish, wa 98288": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.gnandcr.org/"
+    },
+    "venue:osm:relation:5309030": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation/5309030"
+    },
+    "venue:loc:green lake community center": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/34148647"
+    },
+    "venue:loc:green lake community center - gym": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/34148647"
+    },
+    "venue:osm:way:158721036": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/158721036"
+    },
+    "venue:osm:way:159118102": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/159118102"
+    },
+    "venue:osm:way:159261464": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/159261464"
+    },
+    "venue:osm:way:25788265": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/25788265"
+    },
+    "venue:osm:way:25793176": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/25793176"
+    },
+    "venue:osm:way:29897483": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/29897483"
+    },
+    "venue:osm:way:1131496653": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/1131496653"
+    },
+    "venue:osm:way:1463243929": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/1463243929"
+    },
+    "venue:osm:way:402208593": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/402208593"
+    },
+    "venue:osm:relation:17052605": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.mobilize.us/seward-park-audubon/event/981677/"
+    },
+    "venue:osm:node:2329620131": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://apps.ideal-logic.com/uwbg"
+    },
+    "venue:osm:node:3006174421": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44213/"
+    },
+    "venue:osm:node:3008886848": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattle.gov/parks/recreation/beautiful-game-series"
+    },
+    "venue:osm:node:419519156": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43836/"
+    },
+    "venue:osm:way:1063404056": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43185/"
+    },
+    "venue:osm:way:1073534371": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/tree-care-skill-share-and-volunteer-work-party-at-the-green-line/"
+    },
+    "venue:osm:way:245210339": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44121/"
+    },
+    "venue:osm:way:31658681": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44127/"
+    },
+    "venue:osm:way:344320893": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44202/"
+    },
+    "venue:osm:way:370478187": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44129/"
+    },
+    "venue:osm:way:6425546": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44107/"
+    },
+    "venue:osm:way:6489623": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattle.gov/parks/recreation/beautiful-game-series"
+    },
+    "venue:osm:way:6490996": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44088/"
+    },
+    "venue:osm:way:996909492": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/42999/"
+    },
+    "venue:osm:way:412521866": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://apps.ideal-logic.com/uwbg"
+    },
+    "venue:osm:way:520369342": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/fleet-week/"
+    },
+    "venue:osm:node:2463139542": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2463139542"
+    },
+    "venue:osm:way:159483661": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/159483661"
+    },
+    "venue:osm:way:228765000": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/228765000"
+    },
+    "venue:osm:way:34148647": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/34148647"
+    },
+    "venue:loc:amy yee tennis center, 2000 mlk jr way s., seattle, wa 98144": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Amy Yee Tennis Center has both indoor and outdoor courts — insufficient info to classify"
+    },
+    "venue:osm:way:1483113466": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "events12 location \"Tacoma\" geo-resolved to Tacoma Community College campus but events are at Foss Waterway Seaport museum; geocoding mismatch, cannot classify"
+    },
+    "events12:dance-in-the-park-2026-07-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-20": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-21": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:dance-in-the-park-2026-07-22": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
+    },
+    "events12:music-by-candlelight-2026-07-10": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-11": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-12": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-13": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-14": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-15": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-16": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-17": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-18": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-19": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-20": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-21": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:music-by-candlelight-2026-07-22": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://feverup.com/candlelight"
+    },
+    "events12:shakespeare-in-the-park-2026-07-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-20": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-21": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-22": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.unionartscenter.org/macbeth/"
+    },
+    "events12:tacoma-neighborhood-music-2026-07-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.tacomaporchfest.org"
+    },
+    "events12:tacoma-neighborhood-music-2026-07-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.tacomaporchfest.org"
+    },
+    "events12:wine-walk-2026-07-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://bothellkenmorechamber.org/event/duck-duck-pour-wine-beer-spirits-walk/"
     }
   }
 }
