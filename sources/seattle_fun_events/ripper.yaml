@@ -1,0 +1,21 @@
+# verified: 2026-07-09 via eventbrite web ui (2 upcoming events: Seattle HalloweenCon 2026 Oct 24, Seattle SantaCon 2026 Dec 5, both at Merchant's Cafe and Saloon; EVENTBRITE_TOKEN required in CI)
+name: seattle-fun-events
+sourceRole: venue
+type: eventbrite
+description: "Seattle Fun Events"
+url: "https://www.eventbrite.com/o/seattle-fun-events-11424790611"
+friendlyLink: https://www.eventbrite.com/o/seattle-fun-events-11424790611
+tags: ["Nightlife", "Pioneer Square"]
+geo:
+  lat: 47.6015479
+  lng: -122.3334283
+  label: "Merchant's Cafe and Saloon, 109 Yesler Way, Seattle, WA 98104"
+  osmChecked: 2026-07-09
+calendars:
+  - name: seattle-fun-events
+    friendlyname: "Seattle Fun Events"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "11424790611"
+      defaultLocation: "Merchant's Cafe and Saloon, 109 Yesler Way, Seattle, WA 98104"
+      defaultDurationHours: 4
