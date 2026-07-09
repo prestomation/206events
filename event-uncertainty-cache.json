@@ -39296,6 +39296,376 @@
       "resolvedAt": "2026-07-09",
       "source": "agent",
       "evidence": "Northwest Railway Museum at Snoqualmie Depot - Thomas the Tank Engine rides are outdoor heritage rail events"
+    },
+    "19hz:19hz-2026/07/07-Electric Taco Tuesday": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "eventim.us returned HTTP 403 Forbidden; page inaccessible, no image retrievable"
+    },
+    "19hz:19hz-2026/07/08-Habitat": {
+      "fields": {
+        "imageUrl": "https://cdn.evbuc.com/images/1187221565/25505141929/1/original.20260618-190554"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/1992161254941?aff=19hz"
+    },
+    "19hz:19hz-2026/07/09-UKG SEA: xoFleur": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "posh.vip is JavaScript-rendered; page content served without images, og:image not accessible via fetch"
+    },
+    "19hz:19hz-2026/07/09-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram account URL only; login required and no stable event image URL"
+    },
+    "19hz:19hz-2026/07/10-Crowd Operator": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "events.lineleap.com returned HTTP 403 Forbidden; page inaccessible, no image retrievable"
+    },
+    "19hz:19hz-2026/07/10-Soulectro": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram post URL only; login required and no stable image URL"
+    },
+    "19hz:19hz-2026/07/10-Techno Perreo": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "posh.vip is JavaScript-rendered; page content served without images, og:image not accessible via fetch"
+    },
+    "19hz:19hz-2026/07/11-ALTERLATINA World Cup Afters": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "tickets.lineleap.com returned HTTP 403 Forbidden; page inaccessible, no image retrievable"
+    },
+    "19hz:19hz-2026/07/11-Audiodrome: Stevie 303": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram account URL only; login required and no stable event image URL"
+    },
+    "19hz:19hz-2026/07/11-BREAK /// WATER": {
+      "fields": {
+        "imageUrl": "https://impactraves.org/wp-content/uploads/visual-portfolio-pro/instagram/88b664bcd7d516b2ab3eefc2c82d4f3a-3168x4096.jpeg"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://impactraves.org/events/break-water/"
+    },
+    "19hz:19hz-2026/07/11-Disco Brunch": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "events.lineleap.com returned HTTP 403 Forbidden; page inaccessible, no image retrievable"
+    },
+    "events12:architectural-tour-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-13": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-14": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-15": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-16": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-17": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-18": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-19": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-20": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-21": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-22": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-23": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-24": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-07-25": {
+      "fields": {
+        "cost": {
+          "min": 27.5
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:bicycle-to-portland-2026-07-11": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://cascade.org/rides-events/seattle-portland-2026"
+    },
+    "events12:bicycle-to-portland-2026-07-12": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://cascade.org/rides-events/seattle-portland-2026"
+    },
+    "events12:blue-angels-events-2026-07-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
+    },
+    "events12:blue-angels-events-2026-07-31": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
+    },
+    "events12:blue-angels-events-2026-08-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
+    },
+    "events12:blue-angels-events-2026-08-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
+    },
+    "events12:bluegrass-festival-2026-07-10": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://bluegrassfromtheforest.com/"
+    },
+    "events12:bluegrass-festival-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://bluegrassfromtheforest.com/"
+    },
+    "events12:bluegrass-festival-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://bluegrassfromtheforest.com/"
+    },
+    "events12:bluegrass-festival-2026-07-17": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.darringtonbluegrass.com"
+    },
+    "events12:bluegrass-festival-2026-07-18": {
+      "fields": {
+        "cost": {
+          "min": 60.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.darringtonbluegrass.com"
+    },
+    "events12:bluegrass-festival-2026-07-19": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.darringtonbluegrass.com"
+    },
+    "events12:bremerton-airshow-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://bremertonairshow.com/"
+    },
+    "events12:beer-cider-party-2026-07-25": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.mcmenamins.com/events/273854-8th-annual-summer-school-brewfest"
+    },
+    "events12:afrobeats-music-2026-07-18": {
+      "fields": {
+        "cost": {
+          "min": 70.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://blastmusicfest.com/"
     }
   }
 }
