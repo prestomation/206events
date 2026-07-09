@@ -39726,6 +39726,166 @@
       "resolvedAt": "2026-07-09",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/jacob-collier/"
+    },
+    "pike-place-market:ppm-market-to-table-tour-cooking-class-12pm": {
+      "fields": {
+        "cost": {
+          "min": 195.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/market-to-table-tour-cooking-class-12pm/"
+    },
+    "new-tech-seattle:new-tech-seattle-dpjgztykcdbmb": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/dpjgztykcdbmb/"
+    },
+    "pike-place-market:ppm-el-chito-tamales": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/el-chito-tamales/?occurrence=2026-07-09"
+    },
+    "new-tech-seattle:new-tech-seattle-dpjgztyjcpbnb": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/dpjgztyjcpbnb/"
+    },
+    "pike-place-market:ppm-folio-presents-relative-relatives-matthew-sturgis-in-conversation": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.folioseattle.org/event-details/relative-relatives-matthew-sturgis-in-conversation-with-richard-read"
+    },
+    "pike-place-market:ppm-market-to-table-tour-cooking-class-300pm": {
+      "fields": {
+        "cost": {
+          "min": 195.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/market-to-table-tour-cooking-class-300pm/"
+    },
+    "pike-place-market:ppm-folio-presents-hidden-layers-womens-undergarments-and-how-theyve-shaped-ladies-liberties": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/folio-presents-hidden-layers-womens-undergarments-and-how-theyve-shaped-ladies-liberties/"
+    },
+    "new-tech-seattle:new-tech-seattle-dpjgztyjcqblb": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/dpjgztyjcqblb/"
+    },
+    "pike-place-market:ppm-folio-presents-confronting-racism-imagining-a-more-peaceful-community": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.folioseattle.org/event-details/confronting-racism-imagining-a-more-peaceful-community"
+    },
+    "new-tech-seattle:new-tech-seattle-dpjgztykcfbmb": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/dpjgztykcfbmb/"
+    },
+    "pike-place-market:ppm-the-night-shift-after-hours-arts-music-series": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/the-night-shift-after-hours-arts-music-series/"
+    },
+    "pike-place-market:ppm-folio-presents-baroque-threads-a-journey-from-venice-to-persia": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.folioseattle.org/event-details/baroque-threads-a-journey-from-venice-to-persia"
+    },
+    "pike-place-market:ppm-live-match-day-at-the-market-final": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/live-match-day-at-the-market-final/"
+    },
+    "pike-place-market:ppm-el-mixteco": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/el-mixteco/?occurrence=2026-07-09"
+    },
+    "pike-place-market:ppm-folio-presents-oud-a-musical-history-with-stephen-ela": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.folioseattle.org/event-details/oud-a-musical-history-with-stephen-elaimy-and-jane-hall"
+    },
+    "pike-place-market:ppm-art-loose-seattle-urban-art-adventure": {
+      "fields": {
+        "cost": {
+          "min": 189.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/art-loose-seattle-urban-art-adventure/"
     }
   }
 }
