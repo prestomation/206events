@@ -6579,6 +6579,16 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-09",
       "note": "Same touring show at Paramount Theatre, events12 uses noon default"
+    },
+    "center-for-wooden-boats-center-for-wooden-boats.ics CWB 50th Anniversary Reunion|2026-08-22T17:00:00-07:00[America/Los_Angeles]::discover-slu-discover-slu.ics 50th Anniversary Reunion|2026-08-22T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event at the Center for Wooden Boats — CWB's own venue feed and discover-slu's SLU-neighborhood cross-listing"
+    },
+    "center-for-wooden-boats-center-for-wooden-boats.ics Dinner on the Docks with Sugartime Trio|2026-07-23T18:00:00-07:00[America/Los_Angeles]::discover-slu-discover-slu.ics Dinner on the Docks|2026-07-23T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-09",
+      "note": "Same event at the Center for Wooden Boats — discover-slu's title omits the performer (Sugartime Trio) that CWB's own listing includes"
     }
   }
 }
