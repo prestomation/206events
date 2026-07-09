@@ -19,11 +19,13 @@ Website is very simple — probably custom HTML or a simple CMS, not a
 structured event platform.
 
 Re-investigated 2026-07-09:
-- `www.georgetowngardenwalk.com` returns HTTP 200 headers but a 0-byte body
-  from this environment — no page content to inspect
-- Single self-guided annual walking tour, no calendar/feed even if the site
-  were reachable — one event per year with a loosely-anchored date ("second
-  Sunday of July" per the Reddit post, unconfirmed against a stable
-  multi-year pattern on the site itself)
-- Not worth a dedicated ripper or recurring-YAML entry; too thin to verify a
-  reliable annual pattern from an empty response
+- Single self-guided annual walking tour — one event per year, no
+  calendar/feed of any kind, regardless of whether the site is reachable
+- The Reddit post's "second Sunday of July" framing isn't confirmed against
+  a stable multi-year pattern on the site itself, so it isn't a safe basis
+  for a recurring-YAML entry either
+- (`www.georgetowngardenwalk.com` also returns a 0-byte body from this
+  environment at time of check, so even a one-off manual scrape isn't
+  currently possible — but the structural reason to skip this is the
+  single-annual-event shape, not the fetch failure)
+- Not worth a dedicated ripper or recurring-YAML entry
