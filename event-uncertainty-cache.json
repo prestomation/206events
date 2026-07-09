@@ -39666,6 +39666,16 @@
       "resolvedAt": "2026-07-09",
       "source": "agent",
       "evidence": "https://blastmusicfest.com/"
+    },
+    "burke-museum:burke-jackie-jainga-hyllseth-janice-jainga-lonergan-and-becca-zellerhoff-artist-studio": {
+      "fields": {
+        "cost": {
+          "min": 24.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/visit"
     }
   }
 }
