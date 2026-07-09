@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { parseEventsFromHtml } from './ripper.js';
+import { parseEventsFromHtml, extractTimeFromMeta } from './ripper.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -44,33 +44,35 @@ describe('Discover SLU Ripper', () => {
         expect(titles).toContain('History Café: Seattle Mystic');
     });
 
-    test('parses dates and times correctly', () => {
+    test('uses day heading for event date (not meta text)', () => {
         const html = loadSampleHtml();
         const seenEvents = new Set<string>();
         const events = parseEventsFromHtml(html, seenEvents, 2026);
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
+        // REI Run Club is under "Sunday March 15, 2026" heading; its meta says "Every Sun, Feb 1 - May 31"
+        // The date should come from the heading (March 15), not the series start (Feb 1)
         const reiRun = validEvents.find(e => e.summary.includes('REI Run'));
         expect(reiRun).toBeDefined();
         expect(reiRun!.date.year()).toBe(2026);
         expect(reiRun!.date.monthValue()).toBe(3);
         expect(reiRun!.date.dayOfMonth()).toBe(15);
-        expect(reiRun!.date.hour()).toBe(10);
+        expect(reiRun!.date.hour()).toBe(10); // "10 am - 12 pm" → 10
         expect(reiRun!.date.minute()).toBe(0);
 
         const trivia = validEvents.find(e => e.summary.includes('Trivia'));
         expect(trivia).toBeDefined();
-        expect(trivia!.date.dayOfMonth()).toBe(16);
-        expect(trivia!.date.hour()).toBe(18); // 6:30 PM
+        expect(trivia!.date.dayOfMonth()).toBe(16); // heading: Monday March 16
+        expect(trivia!.date.hour()).toBe(18); // "6:30 pm" → 18
         expect(trivia!.date.minute()).toBe(30);
 
         const guestChef = validEvents.find(e => e.summary.includes('FareStart'));
         expect(guestChef).toBeDefined();
         expect(guestChef!.date.dayOfMonth()).toBe(18);
-        expect(guestChef!.date.hour()).toBe(17); // 5:00 PM
+        expect(guestChef!.date.hour()).toBe(17); // "5 - 7 pm" → 17
     });
 
-    test('parses locations with venue name', () => {
+    test('parses locations from feature__meta--location', () => {
         const html = loadSampleHtml();
         const seenEvents = new Set<string>();
         const events = parseEventsFromHtml(html, seenEvents, 2026);
@@ -81,16 +83,6 @@ describe('Discover SLU Ripper', () => {
 
         const mohai = validEvents.find(e => e.summary.includes('History Café'));
         expect(mohai!.location).toBe('MOHAI, South Lake Union, Seattle, WA');
-    });
-
-    test('parses descriptions', () => {
-        const html = loadSampleHtml();
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        const reiRun = validEvents.find(e => e.summary.includes('REI Run'));
-        expect(reiRun!.description).toContain('run with friends');
     });
 
     test('parses event URLs correctly', () => {
@@ -116,7 +108,7 @@ describe('Discover SLU Ripper', () => {
         const reiRun = validEvents.find(e => e.summary.includes('REI Run'));
         expect(reiRun!.imageUrl).toContain('Run_Thumb');
 
-        // Events without images should have undefined image
+        // Events without images should have undefined imageUrl
         const historyCafe = validEvents.find(e => e.summary.includes('History Café'));
         expect(historyCafe!.imageUrl).toBeUndefined();
     });
@@ -163,7 +155,6 @@ describe('Discover SLU Ripper', () => {
 
         expect(allValid.length).toBe(8); // 6 from page + 2 from AJAX
 
-        // Verify no duplicate IDs
         const ids = allValid.map(e => e.id);
         expect(new Set(ids).size).toBe(ids.length);
     });
@@ -180,428 +171,55 @@ describe('Discover SLU Ripper', () => {
     });
 
     test('handles HTML with no events gracefully', () => {
-        const html = parse('<div id="calendar-events-container"></div>');
+        const html = parse('<div class="site-width"></div>');
         const seenEvents = new Set<string>();
         const events = parseEventsFromHtml(html, seenEvents, 2026);
-
         expect(events.length).toBe(0);
     });
 
-    test('parses date-only format without time (e.g. "April 5")', () => {
+    test('emits ParseError for card with no date source', () => {
         const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/easter-2026/">Easter Cruises</a></h3>
-                    <p class="feature__location">@ Waterways Cruises</p>
-                    <p>Celebrate Easter on the water with a special brunch cruise.</p>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/easter-2026/">
-                        <span class="feature__tag">April 5</span>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].summary).toBe('Easter Cruises');
-        expect(validEvents[0].date.monthValue()).toBe(4);
-        expect(validEvents[0].date.dayOfMonth()).toBe(5);
-        expect(validEvents[0].date.hour()).toBe(10); // default time
-    });
-
-    test('parses date range format (e.g. "April 24-25"), uses first day', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/terpsichore-2026/">Terpsichore's Landing 2026</a></h3>
-                    <p class="feature__location">@ MOHAI</p>
-                    <p>A two-day dance festival on the shores of Lake Union.</p>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/terpsichore-2026/">
-                        <span class="feature__tag">April 24-25</span>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].summary).toBe("Terpsichore's Landing 2026");
-        expect(validEvents[0].date.monthValue()).toBe(4);
-        expect(validEvents[0].date.dayOfMonth()).toBe(24);
-        expect(validEvents[0].date.hour()).toBe(10); // default time
-    });
-
-    test('parses another date range format (e.g. "May 9-10")', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/mothers-day-cruises/">Mother's Day Cruises</a></h3>
-                    <p class="feature__location">@ Waterways Cruises</p>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/mothers-day-cruises/">
-                        <span class="feature__tag">May 9-10</span>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].summary).toBe("Mother's Day Cruises");
-        expect(validEvents[0].date.monthValue()).toBe(5);
-        expect(validEvents[0].date.dayOfMonth()).toBe(9);
-    });
-
-    test('parses cross-month date range (e.g. "March 30 - April 3"), uses first day', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/egg-hunt/">The Market Hall Egg Hunt</a></h3>
-                    <p class="feature__location">@ Market Hall</p>
-                    <p>Annual egg hunt event.</p>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/egg-hunt/">
-                        <span class="feature__tag">March 30 - April 3</span>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].summary).toBe('The Market Hall Egg Hunt');
-        expect(validEvents[0].date.monthValue()).toBe(3);
-        expect(validEvents[0].date.dayOfMonth()).toBe(30);
-        expect(validEvents[0].date.hour()).toBe(10); // default time
-    });
-
-    test('parses cross-month date range with year (e.g. "March 30 - April 3, 2026")', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/spring-fest/">Spring Fest</a></h3>
-                    <p class="feature__location">@ SLU Park</p>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/spring-fest/">
-                        <span class="feature__tag">March 30 - April 3, 2026</span>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].summary).toBe('Spring Fest');
-        expect(validEvents[0].date.monthValue()).toBe(3);
-        expect(validEvents[0].date.dayOfMonth()).toBe(30);
-    });
-
-    test('parses same-month date range with year (e.g. "March 30-31, 2026")', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/weekend-market/">Weekend Market</a></h3>
-                    <p class="feature__location">@ SLU Saturday Market</p>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/weekend-market/">
-                        <span class="feature__tag">March 30-31, 2026</span>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].summary).toBe('Weekend Market');
-        expect(validEvents[0].date.monthValue()).toBe(3);
-        expect(validEvents[0].date.dayOfMonth()).toBe(30);
-    });
-
-    test('parses same-month date range with time (e.g. "May 16-17, 12:30 pm"), uses first day + time', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/khanomm-house-pop-up/">Khanomm House Pop-Up</a></h3>
-                    <p class="feature__location">@ SLU</p>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/khanomm-house-pop-up/">
-                        <span class="feature__tag">May 16-17, 12:30 pm</span>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].summary).toBe('Khanomm House Pop-Up');
-        expect(validEvents[0].date.monthValue()).toBe(5);
-        expect(validEvents[0].date.dayOfMonth()).toBe(16);
-        expect(validEvents[0].date.hour()).toBe(12);
-        expect(validEvents[0].date.minute()).toBe(30);
-    });
-
-    // discoverslu.com redesigned its markup in July 2026: ".feature__tag" and
-    // ".feature__location" became ".feature__meta.feature__meta--date" and
-    // ".feature__meta.feature__meta--location" divs, and the date text itself
-    // gained recurrence prefixes ("Every Sat, ...", "Weekly ...") and time
-    // *ranges* ("10 am - 3 pm") instead of a single time.
-    test('parses the new feature__meta--date/location markup (simple date+time)', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/best-of-gage-2026/">Best of Gage 2026</a></h3>
-                    <div class="feature__meta feature__meta--location">Gage Academy of Art</div>
-                    <p>Annual juried art exhibition.</p>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/best-of-gage-2026/">
-                        <div class="feature__meta feature__meta--date">July 21, 10:30 am</div>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].summary).toBe('Best of Gage 2026');
-        expect(validEvents[0].location).toBe('Gage Academy of Art, South Lake Union, Seattle, WA');
-        expect(validEvents[0].date.monthValue()).toBe(7);
-        expect(validEvents[0].date.dayOfMonth()).toBe(21);
-        expect(validEvents[0].date.hour()).toBe(10);
-        expect(validEvents[0].date.minute()).toBe(30);
-    });
-
-    test('parses "Every <Day>, Month Day - Month Day, H am - H pm" (recurring, cross-month, time range)', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/slu-farmers-market/">2026 South Lake Union Farmers Market</a></h3>
-                    <div class="feature__meta feature__meta--location">South Lake Union Park</div>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/slu-farmers-market/">
-                        <div class="feature__meta feature__meta--date">Every Sat, Jun 6 - Nov 21, 10 am - 3 pm</div>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].date.monthValue()).toBe(6);
-        expect(validEvents[0].date.dayOfMonth()).toBe(6);
-        expect(validEvents[0].date.hour()).toBe(10);
-        expect(validEvents[0].date.minute()).toBe(0);
-    });
-
-    test('parses "Weekly Month Day - Month Day, H am - H pm" (recurring, "Weekly" prefix)', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/tugboat-tuesdays/">Tugboat Tuesdays</a></h3>
-                    <div class="feature__meta feature__meta--location">MOHAI</div>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/tugboat-tuesdays/">
-                        <div class="feature__meta feature__meta--date">Weekly June 4 - October 29, 10 am - 3 pm</div>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].date.monthValue()).toBe(6);
-        expect(validEvents[0].date.dayOfMonth()).toBe(4);
-        expect(validEvents[0].date.hour()).toBe(10);
-    });
-
-    test('parses "<Day> - <Day>, Month Day - Month Day, H - H pm" (recurring, weekday-range prefix)', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/summer-in-slu/">Summer in SLU 2026</a></h3>
-                    <div class="feature__meta feature__meta--location">South Lake Union</div>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/summer-in-slu/">
-                        <div class="feature__meta feature__meta--date">Wed - Sat, June 3 - September 12, 12 - 5 pm</div>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].date.monthValue()).toBe(6);
-        expect(validEvents[0].date.dayOfMonth()).toBe(3);
-        expect(validEvents[0].date.hour()).toBe(12);
-    });
-
-    test('parses "Month Day, H:MM - H:MM pm" (single date, time range, start time inherits end am/pm)', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/summer-nights-terrace/">Summer Nights on the Terrace</a></h3>
-                    <div class="feature__meta feature__meta--location">MOHAI</div>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/summer-nights-terrace/">
-                        <div class="feature__meta feature__meta--date">July 16, 5:30 - 7:30 pm</div>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].date.monthValue()).toBe(7);
-        expect(validEvents[0].date.dayOfMonth()).toBe(16);
-        expect(validEvents[0].date.hour()).toBe(17);
-        expect(validEvents[0].date.minute()).toBe(30);
-    });
-
-    test('parses "Month Day, H am/pm" (hour-only time, no minutes)', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/happy-hour-4-good/">Happy Hour 4 Good</a></h3>
-                    <div class="feature__meta feature__meta--location">South Lake Union</div>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/happy-hour-4-good/">
-                        <div class="feature__meta feature__meta--date">August 20, 6 pm</div>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].date.monthValue()).toBe(8);
-        expect(validEvents[0].date.dayOfMonth()).toBe(20);
-        expect(validEvents[0].date.hour()).toBe(18);
-        expect(validEvents[0].date.minute()).toBe(0);
-    });
-
-    test('parses a time range spanning noon where the start time has its own differing am/pm marker', () => {
-        // Regression guard: collapseTimeRange must not blindly inherit the end
-        // marker when the start already carries its own (e.g. "11 am - 1 pm"
-        // must resolve to 11:00, not incorrectly inherit "pm" -> 23:00).
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/lunch-and-learn/">Lunch and Learn</a></h3>
-                    <div class="feature__meta feature__meta--location">MOHAI</div>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/lunch-and-learn/">
-                        <div class="feature__meta feature__meta--date">July 16, 11 am - 1 pm</div>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].date.hour()).toBe(11);
-        expect(validEvents[0].date.minute()).toBe(0);
-    });
-
-    test('parses an hour-only time range in a cross-month date range (e.g. "March 30 - April 3, 6 pm")', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text">
-                    <h3><a href="https://www.discoverslu.com/events/evening-fest/">Evening Fest</a></h3>
-                    <div class="feature__meta feature__meta--location">SLU Park</div>
-                </div>
-                <div class="feature__image">
-                    <a href="https://www.discoverslu.com/events/evening-fest/">
-                        <div class="feature__meta feature__meta--date">March 30 - April 3, 6 pm</div>
-                    </a>
-                </div>
-            </div>
-        `);
-        const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
-        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        expect(validEvents.length).toBe(1);
-        expect(validEvents[0].date.monthValue()).toBe(3);
-        expect(validEvents[0].date.dayOfMonth()).toBe(30);
-        expect(validEvents[0].date.hour()).toBe(18);
-        expect(validEvents[0].date.minute()).toBe(0);
-    });
-
-    test('does not strip a genuine cross-month range that happens to start with a month-like word', () => {
-        // Guards against stripRecurrencePrefix misfiring on non-weekday prefixes.
-        const parsedViaCard = (() => {
-            const html = parse(`
-                <div class="feature full">
-                    <div class="text"><h3><a href="/events/spring-fest-2/">Spring Fest 2026</a></h3></div>
-                    <div class="feature__image"><a href="/events/spring-fest-2/">
-                        <div class="feature__meta feature__meta--date">March 30 - April 3, 2026</div>
-                    </a></div>
-                </div>
-            `);
-            const seenEvents = new Set<string>();
-            return parseEventsFromHtml(html, seenEvents, 2026).filter(e => 'summary' in e) as RipperCalendarEvent[];
-        })();
-
-        expect(parsedViaCard.length).toBe(1);
-        expect(parsedViaCard[0].date.monthValue()).toBe(3);
-        expect(parsedViaCard[0].date.dayOfMonth()).toBe(30);
-    });
-
-    test('handles malformed event cards gracefully', () => {
-        const html = parse(`
-            <div class="feature full">
-                <div class="text"><h3><a href="/events/test/">Test Event</a></h3></div>
+            <div class="site-width">
+                <div class="grid"><div class="grid__item">
+                    <div class="feature full">
+                        <div class="text"><h3><a href="/events/test/">Test Event</a></h3></div>
+                    </div>
+                </div></div>
             </div>
         `);
         const seenEvents = new Set<string>();
         const events = parseEventsFromHtml(html, seenEvents, 2026);
 
-        // Should produce a parse error for missing date tag
         const errors = events.filter(e => 'type' in e) as RipperError[];
         expect(errors.length).toBe(1);
         expect(errors[0].type).toBe('ParseError');
+    });
+});
+
+describe('extractTimeFromMeta', () => {
+    test('parses "H am/pm - H am/pm" time range (both endpoints explicit)', () => {
+        expect(extractTimeFromMeta('Every Sat, Jun 6 - Nov 21, 10 am - 3 pm')).toMatchObject({ hour: 10, minute: 0, timeGuessed: false });
+        expect(extractTimeFromMeta('Every Sun, Jun 28 - Aug 9, 10 am - 12 pm')).toMatchObject({ hour: 10, minute: 0, timeGuessed: false });
+        expect(extractTimeFromMeta('Weekly June 4 - October 29, 10 am - 3 pm')).toMatchObject({ hour: 10, minute: 0, timeGuessed: false });
+    });
+
+    test('parses "H - H pm" time range (only end has am/pm)', () => {
+        expect(extractTimeFromMeta('July 9, 5 - 9 pm')).toMatchObject({ hour: 17, minute: 0, timeGuessed: false });
+        expect(extractTimeFromMeta('July 10, 12 - 1 pm')).toMatchObject({ hour: 12, minute: 0, timeGuessed: false }); // noon
+        expect(extractTimeFromMeta('March 18, 5 - 7 pm')).toMatchObject({ hour: 17, minute: 0, timeGuessed: false });
+    });
+
+    test('parses "H:MM - H am/pm" time range with minutes', () => {
+        expect(extractTimeFromMeta('July 11, 9:30 - 11 am')).toMatchObject({ hour: 9, minute: 30, timeGuessed: false });
+    });
+
+    test('parses "H:MM am/pm" single time', () => {
+        expect(extractTimeFromMeta('Every Mon, Feb 9 - Jul 20, 6:30 pm')).toMatchObject({ hour: 18, minute: 30, timeGuessed: false });
+    });
+
+    test('returns default 10 am when no time present', () => {
+        expect(extractTimeFromMeta('June 12 - August 14')).toMatchObject({ hour: 10, minute: 0, timeGuessed: true });
+        expect(extractTimeFromMeta('July 13-19')).toMatchObject({ hour: 10, minute: 0, timeGuessed: true });
+        expect(extractTimeFromMeta('June 1 - August 31')).toMatchObject({ hour: 10, minute: 0, timeGuessed: true });
     });
 });
