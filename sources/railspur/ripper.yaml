@@ -1,4 +1,5 @@
-# verified: 2026-06-30 via eventbrite web ui (1 upcoming event: RailSpur July Artwalk, July 2 2026)
+# verified: 2026-07-09 via Eventbrite organizer page __NEXT_DATA__ (upcomingEventsTotal: 0);
+# last known event (RailSpur July Artwalk, July 2 2026) has passed with no replacement posted yet.
 name: railspur
 sourceRole: venue
 type: eventbrite
@@ -21,6 +22,7 @@ calendars:
   - name: railspur
     friendlyname: "RailSpur Seattle"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       organizerId: "120887697562"
       defaultLocation: "419 Occidental Ave S, Seattle, WA 98104"

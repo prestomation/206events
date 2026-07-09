@@ -97,18 +97,27 @@ export default class UrbanFamilyBrewingRipper implements IRipper {
         const timeEls = cell.querySelectorAll('time[datetime]');
         const startIso = timeEls[0]?.getAttribute('datetime');
         const endIso = timeEls[1]?.getAttribute('datetime');
-        if (!startIso || !endIso) {
-            return { type: 'ParseError', reason: 'Missing start/end datetime', context: rawTitle };
-        }
 
         let startZdt: ZonedDateTime;
         let durationMinutes: number;
-        try {
-            startZdt = ZonedDateTime.of(LocalDateTime.parse(startIso), TIMEZONE);
-            const endZdt = ZonedDateTime.of(LocalDateTime.parse(endIso), TIMEZONE);
-            durationMinutes = Duration.between(startZdt, endZdt).toMinutes();
-        } catch (e) {
-            return { type: 'ParseError', reason: `Failed to parse datetime: ${e}`, context: rawTitle };
+        if (startIso && endIso) {
+            try {
+                startZdt = ZonedDateTime.of(LocalDateTime.parse(startIso), TIMEZONE);
+                const endZdt = ZonedDateTime.of(LocalDateTime.parse(endIso), TIMEZONE);
+                durationMinutes = Duration.between(startZdt, endZdt).toMinutes();
+            } catch (e) {
+                return { type: 'ParseError', reason: `Failed to parse datetime: ${e}`, context: rawTitle };
+            }
+        } else {
+            // Sugar Calendar renders all-day events without <time> elements — the
+            // day-only start lives in the `data-daydate` JSON attribute instead,
+            // flagged by `data-daydiv` containing "all_day".
+            const allDayStart = this.parseAllDayStart(cell);
+            if (!allDayStart) {
+                return { type: 'ParseError', reason: 'Missing start/end datetime', context: rawTitle };
+            }
+            startZdt = allDayStart;
+            durationMinutes = 24 * 60;
         }
         if (durationMinutes <= 0) {
             return { type: 'ParseError', reason: `Parsed duration <= 0 (${durationMinutes}min)`, context: rawTitle };
@@ -125,6 +134,29 @@ export default class UrbanFamilyBrewingRipper implements IRipper {
             location: LOCATION,
             url: eventUrl,
         };
+    }
+
+    // Public for testing — parses the day-only start datetime Sugar Calendar
+    // renders for all-day events (`data-daydiv` contains "all_day", no
+    // `<time datetime>` elements). Returns undefined if the cell isn't an
+    // all-day event or the attribute is malformed.
+    public parseAllDayStart(cell: HTMLElement): ZonedDateTime | undefined {
+        const dayDivRaw = cell.getAttribute('data-daydiv');
+        const dayDateRaw = cell.getAttribute('data-daydate');
+        if (!dayDivRaw || !dayDateRaw) return undefined;
+
+        try {
+            const dayDiv: unknown = JSON.parse(dayDivRaw);
+            if (!Array.isArray(dayDiv) || !dayDiv.includes('all_day')) return undefined;
+
+            const dayDate = JSON.parse(dayDateRaw);
+            const startIso = dayDate?.start_date?.datetime;
+            if (typeof startIso !== 'string') return undefined;
+
+            return ZonedDateTime.of(LocalDateTime.parse(startIso), TIMEZONE);
+        } catch {
+            return undefined;
+        }
     }
 
     // Public for testing — the food truck rotation is cross-listed on both the
