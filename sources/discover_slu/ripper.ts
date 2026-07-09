@@ -90,28 +90,28 @@ function parseFeatureTag(tagText: string): { month: number; day: number; hour: n
         return { month, day, hour, minute, timeGuessed: false };
     }
 
-    // Format: "Month Day-Day, H:MM am/pm" (same-month range with time, use first day + time)
-    const rangeWithTime = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\d{1,2},\s*(\d{1,2}):(\d{2})\s*(am|pm)$/i);
+    // Format: "Month Day-Day, H[:MM] am/pm" (same-month range with time, use first day + time)
+    const rangeWithTime = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\d{1,2},\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
     if (rangeWithTime) {
         const month = MONTH_MAP[rangeWithTime[1].toLowerCase()];
         if (!month) return null;
         const day = parseInt(rangeWithTime[2]);
         let hour = parseInt(rangeWithTime[3]);
-        const minute = parseInt(rangeWithTime[4]);
+        const minute = rangeWithTime[4] ? parseInt(rangeWithTime[4]) : 0;
         const ampm = rangeWithTime[5].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
         return { month, day, hour, minute, timeGuessed: false };
     }
 
-    // Format: "Month Day - Month Day[, Year], H:MM am/pm" (cross-month range with time, use first day + time)
-    const crossMonthWithTime = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\w+\s+\d{1,2}(?:,\s*\d{4})?,\s*(\d{1,2}):(\d{2})\s*(am|pm)$/i);
+    // Format: "Month Day - Month Day[, Year], H[:MM] am/pm" (cross-month range with time, use first day + time)
+    const crossMonthWithTime = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\w+\s+\d{1,2}(?:,\s*\d{4})?,\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
     if (crossMonthWithTime) {
         const month = MONTH_MAP[crossMonthWithTime[1].toLowerCase()];
         if (!month) return null;
         const day = parseInt(crossMonthWithTime[2]);
         let hour = parseInt(crossMonthWithTime[3]);
-        const minute = parseInt(crossMonthWithTime[4]);
+        const minute = crossMonthWithTime[4] ? parseInt(crossMonthWithTime[4]) : 0;
         const ampm = crossMonthWithTime[5].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
@@ -326,28 +326,29 @@ export default class DiscoverSLURipper implements IRipper {
         // Extract events from the initial page's calendar-events-container, if
         // present. As of July 2026 the site redesign replaced this server-rendered
         // container with a client-side Svelte app on the initial page load, so it
-        // may no longer exist — in that case the AJAX loop below (which now always
-        // starts at the current week, not the week after) covers the gap.
+        // may no longer exist. That's fine: the AJAX loop below already covers
+        // "today onward" on its very first call (see the comment there), so this
+        // was never the sole source of current-week coverage.
         const container = initialDoc.querySelector("#calendar-events-container");
         if (container) {
             const events = parseEventsFromHtml(container, this.seenEvents, defaultYear);
             allEvents.push(...events);
         }
 
-        // Step 2: Fetch every week via AJAX, starting with the current week.
-        // The AJAX endpoint returns events in weekly chunks. We call it with
-        // incrementing start dates to cover the lookahead period. Events already
-        // picked up from the initial page (if it had a container) are deduped via
-        // seenEvents, so covering the current week here too is harmless.
+        // Step 2: Fetch subsequent weeks via AJAX.
+        // The AJAX endpoint returns events for the 7-day window *ending* at
+        // start_date (direction=DESC looks backward from start_date), so
+        // requesting start_date = now + 7 days back-fills exactly [now, now+7)
+        // — i.e. this first call already covers the current week.
         const lookaheadDays = ripper.config.lookahead
             ? now.until(now.plus(ripper.config.lookahead), ChronoUnit.DAYS)
             : 30;
 
         // Calculate how many AJAX calls we need (each returns ~1 week)
         const weeksNeeded = Math.ceil(lookaheadDays / 7);
-        let currentDate = now;
+        let currentDate = now.plusDays(7); // First call's window covers [now, now+7)
 
-        for (let i = 0; i < weeksNeeded; i++) {
+        for (let i = 0; i < weeksNeeded - 1; i++) {
             const dateStr = `${currentDate.year()}-${String(currentDate.monthValue()).padStart(2, "0")}-${String(currentDate.dayOfMonth()).padStart(2, "0")}`;
 
             try {

@@ -519,6 +519,57 @@ describe('Discover SLU Ripper', () => {
         expect(validEvents[0].date.minute()).toBe(0);
     });
 
+    test('parses a time range spanning noon where the start time has its own differing am/pm marker', () => {
+        // Regression guard: collapseTimeRange must not blindly inherit the end
+        // marker when the start already carries its own (e.g. "11 am - 1 pm"
+        // must resolve to 11:00, not incorrectly inherit "pm" -> 23:00).
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/lunch-and-learn/">Lunch and Learn</a></h3>
+                    <div class="feature__meta feature__meta--location">MOHAI</div>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/lunch-and-learn/">
+                        <div class="feature__meta feature__meta--date">July 16, 11 am - 1 pm</div>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].date.hour()).toBe(11);
+        expect(validEvents[0].date.minute()).toBe(0);
+    });
+
+    test('parses an hour-only time range in a cross-month date range (e.g. "March 30 - April 3, 6 pm")', () => {
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/evening-fest/">Evening Fest</a></h3>
+                    <div class="feature__meta feature__meta--location">SLU Park</div>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/evening-fest/">
+                        <div class="feature__meta feature__meta--date">March 30 - April 3, 6 pm</div>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].date.monthValue()).toBe(3);
+        expect(validEvents[0].date.dayOfMonth()).toBe(30);
+        expect(validEvents[0].date.hour()).toBe(18);
+        expect(validEvents[0].date.minute()).toBe(0);
+    });
+
     test('does not strip a genuine cross-month range that happens to start with a month-like word', () => {
         // Guards against stripRecurrencePrefix misfiring on non-weekday prefixes.
         const parsedViaCard = (() => {
