@@ -39726,6 +39726,382 @@
       "resolvedAt": "2026-07-09",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/events/jacob-collier/"
+    },
+    "pike-place-market:ppm-live-match-day-at-the-market-final": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/live-match-day-at-the-market-final/"
+    },
+    "pike-place-market:ppm-folio-presents-hidden-layers-womens-undergarments-and-how-theyve-shaped-ladies-liberties": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/folio-presents-hidden-layers-womens-undergarments-and-how-theyve-shaped-ladies-liberties/"
+    },
+    "pike-place-market:ppm-the-night-shift-after-hours-arts-music-series": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/the-night-shift-after-hours-arts-music-series/"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/GUDZGNT2J32BNATOIBEZVYAA": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/GUDZGNT2J32BNATOIBEZVYAA"
+    },
+    "19hz:19hz-2026/07/13-Monday Moves": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram account, no stable event image"
+    },
+    "19hz:19hz-2026/07/30-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram-only source; no pricing info accessible"
+    },
+    "19hz:19hz-2026/09/13-SOUNDWAVS: Omnom": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/wrg-presents-soundwavs-w-omnom?t=19hz"
+    },
+    "19hz:19hz-2026/09/05-Audien": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.insomniac.com/events/audien-2026-09-05-seattle-wa/"
+    },
+    "19hz:19hz-2026/07/17-Bar/Car Ft: Pezzner + Onyx Ocean": {
+      "fields": {
+        "imageUrl": "https://images.ra.co/cfed026c18cd83391d7305d1511d674ed23afec1.jpg"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://ra.co/events/2481809"
+    },
+    "19hz:19hz-2026/07/17-Loft Party": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram post, no stable image URL"
+    },
+    "19hz:19hz-2026/08/08-EPROM": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/eprom-191226"
+    },
+    "new-tech-seattle:new-tech-seattle-dpjgztykcfbmb": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/dpjgztykcfbmb/"
+    },
+    "pike-place-market:ppm-folio-presents-oud-a-musical-history-with-stephen-ela": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.folioseattle.org/event-details/oud-a-musical-history-with-stephen-elaimy-and-jane-hall"
+    },
+    "19hz:19hz-2026/07/16-Unitive State": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram post, no stable image URL"
+    },
+    "19hz:19hz-2027/04/23-FKJ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.axs.com/events/1471581"
+    },
+    "19hz:19hz-2026/12/04-Lost in Dreams Seattle": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://insomniac.hive-pages.com/lidsea26"
+    },
+    "new-tech-seattle:new-tech-seattle-dpjgztykcdbmb": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/dpjgztykcdbmb/"
+    },
+    "19hz:19hz-2026/07/17-Disclosure Vs Fred Again.. Tribute": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "tixr.com is protected by DataDome CAPTCHA; no image obtainable"
+    },
+    "19hz:19hz-2026/10/09-Eli Brown": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.insomniac.com/events/eli-brown-2026-10-09-seattle-wa/"
+    },
+    "19hz:19hz-2026/07/12-Eastside Spin Jam": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Facebook event, login required"
+    },
+    "pike-place-market:ppm-market-to-table-tour-cooking-class-300pm": {
+      "fields": {
+        "cost": {
+          "min": 195.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/market-to-table-tour-cooking-class-300pm/"
+    },
+    "new-tech-seattle:new-tech-seattle-dpjgztyjcqblb": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/dpjgztyjcqblb/"
+    },
+    "19hz:19hz-2026/07/17-Lee Burridge": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "tixr.com is protected by DataDome CAPTCHA; no image obtainable"
+    },
+    "pike-place-market:ppm-el-chito-tamales": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/el-chito-tamales/?occurrence=2026-07-09"
+    },
+    "pike-place-market:ppm-market-to-table-tour-cooking-class-12pm": {
+      "fields": {
+        "cost": {
+          "min": 195.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/market-to-table-tour-cooking-class-12pm/"
+    },
+    "pike-place-market:ppm-folio-presents-relative-relatives-matthew-sturgis-in-conversation": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.folioseattle.org/event-details/relative-relatives-matthew-sturgis-in-conversation-with-richard-read"
+    },
+    "19hz:19hz-2026/07/17-CRUSH: Cam Girl, Gaszia": {
+      "fields": {
+        "imageUrl": "https://images.posh.vip/originals/6a42c44b37b3691360b6d2e1"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/crush-cam-girl-gaszia?t=19hz"
+    },
+    "19hz:19hz-2026/09/25-Krewella": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/krewella-182427"
+    },
+    "pike-place-market:ppm-folio-presents-confronting-racism-imagining-a-more-peaceful-community": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.folioseattle.org/event-details/confronting-racism-imagining-a-more-peaceful-community"
+    },
+    "19hz:19hz-2026/07/11-TURBO: Spacewalk": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "tickets.kremwerk.com is JavaScript-rendered with no accessible API; no image obtainable"
+    },
+    "19hz:19hz-2026/07/17-Omar": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "tixr.com is protected by DataDome CAPTCHA; no image obtainable"
+    },
+    "19hz:19hz-2026/07/23-Freakquencies: The Dare, Two Shell, Nick Leon": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.axs.com/events/1492076/freakquencies-tickets?cid=19hz"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_eSaDa4L": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/carin-leon-de-sonora-para-el-seattle-washington-10-08-2026/event/0F006203090A6C6B"
+    },
+    "19hz:19hz-2026/07/23-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram-only source; no pricing info accessible"
+    },
+    "pike-place-market:ppm-el-mixteco": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/el-mixteco/?occurrence=2026-07-09"
+    },
+    "19hz:19hz-2026/07/15-Habitat": {
+      "fields": {
+        "imageUrl": "https://cdn.evbuc.com/images/1187494479/25505141929/1/original.20260623-165509"
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/habitat-july-15-2026-tickets-1992436442033?aff=19hz"
+    },
+    "new-tech-seattle:new-tech-seattle-dpjgztyjcpbnb": {
+      "fields": {
+        "cost": {
+          "min": 21.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/dpjgztyjcpbnb/"
+    },
+    "19hz:19hz-2026/09/04-Basscon Seattle: Alyssa Jolee, Audiofreq, Code Black, Darren Styles, DJ Isaac": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://insomniac.hive-pages.com/basscon-sea26"
+    },
+    "19hz:19hz-2026/07/16-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "Instagram account, no stable event image"
+    },
+    "pike-place-market:ppm-art-loose-seattle-urban-art-adventure": {
+      "fields": {
+        "cost": {
+          "min": 189.0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/art-loose-seattle-urban-art-adventure/"
+    },
+    "19hz:19hz-2026/08/28-Classmatic": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/classmatic-191227"
+    },
+    "pike-place-market:ppm-folio-presents-baroque-threads-a-journey-from-venice-to-persia": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "evidence": "https://www.folioseattle.org/event-details/baroque-threads-a-journey-from-venice-to-persia"
+    },
+    "19hz:19hz-2026/07/14-Electric Taco Tuesday": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-09",
+      "source": "agent",
+      "reason": "eventim.us blocks crawlers (403); no accessible event image"
     }
   }
 }
