@@ -6365,11 +6365,6 @@
       "resolvedAt": "2026-07-09",
       "note": "Same GeekFest West at Lynnwood Event Center, events12 uses noon default"
     },
-    "events12-seattle-events.ics Hell's Kitchen|2026-07-26T12:00:00-07:00[America/Los_Angeles]::stg-stg-paramount.ics Hell's Kitchen (Touring)|2026-07-26T13:00:00-07:00[America/Los_Angeles]": {
-      "decision": "confirmed",
-      "resolvedAt": "2026-07-09",
-      "note": "Same touring show at Paramount Theatre, events12 uses noon default"
-    },
     "events12-seattle-events.ics Night market|2026-07-18T18:00:00-07:00[America/Los_Angeles]::recurring-columbia-city-night-market.ics Columbia City Night Market|2026-07-18T18:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-07-09",
@@ -6429,16 +6424,6 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-09",
       "note": "Same Amy Yee Tennis Center event cross-posted in two Seattle gov feeds"
-    },
-    "external-seattle-gov-city-wide.ics WHAT's GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics WHAT's GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
-      "decision": "confirmed",
-      "resolvedAt": "2026-07-09",
-      "note": "Same Hillman City block party cross-posted in two Seattle gov feeds"
-    },
-    "external-seattle-gov-city-wide.ics What's Good: the Hillman City block party|2026-08-08T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics WHAT's GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
-      "decision": "confirmed",
-      "resolvedAt": "2026-07-09",
-      "note": "Same Hillman City block party, two slightly different title capitalizations and times in the feeds"
     },
     "pike-place-market-events.ics Liz Longley presented by The Triple Door at The Rabbit Box|2026-10-16T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Liz Longley presented by The Triple Door|2026-10-16T19:30:00.257-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
@@ -6509,6 +6494,21 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-09",
       "note": "Same show at Sunset Tavern, Tractor listed it as they co-presented it there"
+    },
+    "events12-seattle-events.ics Hell’s Kitchen|2026-07-26T12:00:00-07:00[America/Los_Angeles]::stg-stg-paramount.ics Hell's Kitchen (Touring)|2026-07-26T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "note": "Same show (Hell's Kitchen touring musical) at Paramount — different sources/times",
+      "resolvedAt": "2026-07-09"
+    },
+    "external-seattle-gov-city-wide.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "note": "Same block party event listed in both city-wide and neighborhood feeds",
+      "resolvedAt": "2026-07-09"
+    },
+    "external-seattle-gov-city-wide.ics What's Good: the Hillman City block party|2026-08-08T00:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics WHAT’s GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "note": "Same Hillman City Block Party — title case and time differ across feeds",
+      "resolvedAt": "2026-07-09"
     }
   }
 }
