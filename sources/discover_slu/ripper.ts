@@ -17,12 +17,47 @@ const BASE_URL = "https://www.discoverslu.com";
 const AJAX_URL = "https://www.discoverslu.com/wp-admin/admin-ajax.php";
 
 const MONTH_MAP: Record<string, number> = {
-    january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
-    july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
+    january: 1, jan: 1, february: 2, feb: 2, march: 3, mar: 3, april: 4, apr: 4,
+    may: 5, june: 6, jun: 6, july: 7, jul: 7, august: 8, aug: 8,
+    september: 9, sep: 9, sept: 9, october: 10, oct: 10,
+    november: 11, nov: 11, december: 12, dec: 12,
 };
 
+const WEEKDAY_PATTERN = /^(sun|mon|tue|wed|thu|fri|sat)(day)?$/i;
+
 /**
- * Parse a date string from the feature__tag span.
+ * Strips a leading recurrence prefix the site added ahead of the actual date,
+ * e.g. "Every Sat, Jun 6 - Nov 21, ..." or "Weekly June 4 - October 29, ..."
+ * or "Wed - Sat, June 3 - September 12, ...". Only strips day-of-week
+ * prefixes (never month names) so it can't eat a genuine cross-month range.
+ */
+function stripRecurrencePrefix(text: string): string {
+    let t = text.replace(/^every\s+\w+,\s*/i, "");
+    t = t.replace(/^weekly\s+/i, "");
+
+    const dayRange = t.match(/^(\w+)\s*-\s*(\w+),\s*(.*)$/i);
+    if (dayRange && WEEKDAY_PATTERN.test(dayRange[1]) && WEEKDAY_PATTERN.test(dayRange[2])) {
+        t = dayRange[3];
+    }
+
+    return t;
+}
+
+/**
+ * Collapses a trailing time *range* ("10 am - 3 pm", "5:30 - 7:30 pm") down
+ * to just its start time, inheriting the am/pm marker from the end time when
+ * the start time omits one (e.g. "5:30 - 7:30 pm" -> "5:30 pm").
+ */
+function collapseTimeRange(text: string): string {
+    const m = text.match(/^(.*?),\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\s*-\s*\d{1,2}(?::\d{2})?\s*(am|pm)$/i);
+    if (!m) return text;
+    const [, prefix, hour, minute, startAmpm, endAmpm] = m;
+    const ampm = startAmpm ?? endAmpm;
+    return `${prefix}, ${hour}:${minute ?? "00"} ${ampm}`;
+}
+
+/**
+ * Parse a date string from the feature__tag / feature__meta--date element.
  * Handles several formats found on discoverslu.com:
  *   "March 15, 10:00 am"      — date with time
  *   "April 5"                  — date without time
@@ -31,18 +66,24 @@ const MONTH_MAP: Record<string, number> = {
  *   "May 16-17, 12:30 pm"      — same-month date range with time (uses first day + time)
  *   "March 30 - April 3"       — cross-month date range (uses first day)
  *   "March 30 - April 3, 2026" — cross-month range with year (uses first day)
+ *   "March 30 - April 3, 10:00 am" — cross-month range with time (uses first day + time)
+ *   "July 16, 5:30 - 7:30 pm"  — date with a time range (uses start time)
+ *   "Every Sat, Jun 6 - Nov 21, 10 am - 3 pm"       — recurring, day-of-week prefix (uses first occurrence)
+ *   "Weekly June 4 - October 29, 10 am - 3 pm"      — recurring, "Weekly" prefix
+ *   "Wed - Sat, June 3 - September 12, 12 - 5 pm"   — recurring, weekday-range prefix
+ *   "August 20, 6 pm"          — date with an hour-only time (no minutes)
  */
 function parseFeatureTag(tagText: string): { month: number; day: number; hour: number; minute: number; timeGuessed: boolean } | null {
-    const text = tagText.trim();
+    const text = collapseTimeRange(stripRecurrencePrefix(tagText.trim()));
 
-    // Format: "Month Day, H:MM am/pm"
-    const withTime = text.match(/^(\w+)\s+(\d{1,2}),\s*(\d{1,2}):(\d{2})\s*(am|pm)$/i);
+    // Format: "Month Day, H[:MM] am/pm" (minutes optional)
+    const withTime = text.match(/^(\w+)\s+(\d{1,2}),\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
     if (withTime) {
         const month = MONTH_MAP[withTime[1].toLowerCase()];
         if (!month) return null;
         const day = parseInt(withTime[2]);
         let hour = parseInt(withTime[3]);
-        const minute = parseInt(withTime[4]);
+        const minute = withTime[4] ? parseInt(withTime[4]) : 0;
         const ampm = withTime[5].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
@@ -58,6 +99,20 @@ function parseFeatureTag(tagText: string): { month: number; day: number; hour: n
         let hour = parseInt(rangeWithTime[3]);
         const minute = parseInt(rangeWithTime[4]);
         const ampm = rangeWithTime[5].toLowerCase();
+        if (ampm === "pm" && hour !== 12) hour += 12;
+        if (ampm === "am" && hour === 12) hour = 0;
+        return { month, day, hour, minute, timeGuessed: false };
+    }
+
+    // Format: "Month Day - Month Day[, Year], H:MM am/pm" (cross-month range with time, use first day + time)
+    const crossMonthWithTime = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\w+\s+\d{1,2}(?:,\s*\d{4})?,\s*(\d{1,2}):(\d{2})\s*(am|pm)$/i);
+    if (crossMonthWithTime) {
+        const month = MONTH_MAP[crossMonthWithTime[1].toLowerCase()];
+        if (!month) return null;
+        const day = parseInt(crossMonthWithTime[2]);
+        let hour = parseInt(crossMonthWithTime[3]);
+        const minute = parseInt(crossMonthWithTime[4]);
+        const ampm = crossMonthWithTime[5].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
         return { month, day, hour, minute, timeGuessed: false };
@@ -132,8 +187,11 @@ export function parseEventsFromHtml(
             if (seenEvents.has(eventId)) continue;
             seenEvents.add(eventId);
 
-            // Extract date/time from the feature__tag span
-            const tagSpan = card.querySelector(".feature__tag");
+            // Extract date/time from the feature__tag span. discoverslu.com's
+            // markup was redesigned in July 2026: the old ".feature__tag" span
+            // became a ".feature__meta.feature__meta--date" div. Check both so
+            // this survives the transition (and any partial rollback).
+            const tagSpan = card.querySelector(".feature__tag") ?? card.querySelector(".feature__meta--date");
             if (!tagSpan) {
                 events.push({
                     type: "ParseError",
@@ -177,8 +235,8 @@ export function parseEventsFromHtml(
                 ZoneId.of("America/Los_Angeles"),
             );
 
-            // Extract location
-            const locationEl = card.querySelector(".feature__location");
+            // Extract location — same old/new markup fallback as the date tag above.
+            const locationEl = card.querySelector(".feature__location") ?? card.querySelector(".feature__meta--location");
             const locationText = locationEl?.textContent.trim().replace(/^@\s*/, "") || undefined;
             const location = locationText ? `${locationText}, South Lake Union, Seattle, WA` : "South Lake Union, Seattle, WA";
 
@@ -265,25 +323,31 @@ export default class DiscoverSLURipper implements IRipper {
         const initialHtml = await initialRes.text();
         const initialDoc = parse(initialHtml);
 
-        // Extract events from the initial page's calendar-events-container
+        // Extract events from the initial page's calendar-events-container, if
+        // present. As of July 2026 the site redesign replaced this server-rendered
+        // container with a client-side Svelte app on the initial page load, so it
+        // may no longer exist — in that case the AJAX loop below (which now always
+        // starts at the current week, not the week after) covers the gap.
         const container = initialDoc.querySelector("#calendar-events-container");
         if (container) {
             const events = parseEventsFromHtml(container, this.seenEvents, defaultYear);
             allEvents.push(...events);
         }
 
-        // Step 2: Fetch subsequent weeks via AJAX
-        // The AJAX endpoint returns events in weekly chunks.
-        // We call it with incrementing start dates to cover the lookahead period.
+        // Step 2: Fetch every week via AJAX, starting with the current week.
+        // The AJAX endpoint returns events in weekly chunks. We call it with
+        // incrementing start dates to cover the lookahead period. Events already
+        // picked up from the initial page (if it had a container) are deduped via
+        // seenEvents, so covering the current week here too is harmless.
         const lookaheadDays = ripper.config.lookahead
             ? now.until(now.plus(ripper.config.lookahead), ChronoUnit.DAYS)
             : 30;
 
         // Calculate how many AJAX calls we need (each returns ~1 week)
         const weeksNeeded = Math.ceil(lookaheadDays / 7);
-        let currentDate = now.plusDays(7); // Start after the initial page's week
+        let currentDate = now;
 
-        for (let i = 0; i < weeksNeeded - 1; i++) {
+        for (let i = 0; i < weeksNeeded; i++) {
             const dateStr = `${currentDate.year()}-${String(currentDate.monthValue()).padStart(2, "0")}-${String(currentDate.dayOfMonth()).padStart(2, "0")}`;
 
             try {
