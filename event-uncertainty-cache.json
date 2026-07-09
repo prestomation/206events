@@ -39680,24 +39680,22 @@
     "stg:tm-vvG1HZ_GJXE5dP": {
       "fields": {
         "cost": {
-          "min": 39.0,
-          "max": 130.0
+          "paid": true
         }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
-      "evidence": "https://www.vividseats.com/water-for-elephants-tickets-seattle-paramount-theatre-seattle-10-6-2026--theater-arts-and-theater/production/6683479"
+      "evidence": "https://www.stgpresents.org/events/water-for-elephants/"
     },
     "stg:tm-vvG1HZ_GJXPDd-": {
       "fields": {
         "cost": {
-          "min": 39.0,
-          "max": 130.0
+          "paid": true
         }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
-      "evidence": "https://www.vividseats.com/water-for-elephants-tickets-seattle-paramount-theatre-seattle-10-7-2026--theater-arts-and-theater/production/6683481"
+      "evidence": "https://www.stgpresents.org/events/water-for-elephants/"
     },
     "stg:tm-vvG1HZ_5M89f3X": {
       "fields": {
