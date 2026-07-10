@@ -23,7 +23,8 @@
  * transport is just a carrier. Same `{version, entries}` shape as geo-cache.json.
  */
 
-import { readFile, writeFile } from "fs/promises";
+import { readFile } from "fs/promises";
+import { createWriteStream } from "fs";
 import { createHash } from "crypto";
 
 export interface FetchCacheEntry {
@@ -134,27 +135,33 @@ export async function loadFetchCache(filePath: string): Promise<FetchCache> {
 }
 
 /**
- * Maximum total raw content size to persist. Cold-start builds fetch every
- * source fresh; without a cap, the accumulated content can exceed V8's
- * string length limit and crash JSON.stringify. 200 MB covers ~100 typical
- * sources at 2 MB each with headroom for JSON overhead.
+ * Persists the cache as JSON, streamed entry-by-entry rather than built as one
+ * `JSON.stringify(cache)` string. Cold-start builds fetch every source fresh,
+ * and the accumulated content across ~300 sources can grow large enough to
+ * exceed the JS engine's max string length — building the whole cache as a
+ * single string throws `RangeError: Invalid string length` and crashes the
+ * build. There's no size cap here: entries age out via `pruneCache`
+ * (MAX_ENTRY_AGE_DAYS), and the cache is otherwise left to grow with the
+ * dataset rather than silently dropping content once a size threshold is
+ * crossed. Serializing (and writing) one entry at a time means the largest
+ * string ever held in memory is a single entry's, never the whole cache's, so
+ * the string-length ceiling is never in play regardless of total cache size.
  */
-export const MAX_CACHE_CONTENT_CHARS = 200 * 1024 * 1024;
-
 export async function saveFetchCache(cache: FetchCache, filePath: string): Promise<void> {
-  // Evict the oldest entries first when the total raw content exceeds the cap.
-  let totalChars = Object.values(cache.entries).reduce((sum, e) => sum + e.content.length, 0);
-  if (totalChars > MAX_CACHE_CONTENT_CHARS) {
-    const byAge = Object.entries(cache.entries).sort(([, a], [, b]) =>
-      a.fetchedAt < b.fetchedAt ? -1 : 1,
-    );
-    for (const [key, entry] of byAge) {
-      if (totalChars <= MAX_CACHE_CONTENT_CHARS) break;
-      totalChars -= entry.content.length;
-      delete cache.entries[key];
-    }
-  }
-  await writeFile(filePath, JSON.stringify(cache), "utf-8");
+  await new Promise<void>((resolve, reject) => {
+    const stream = createWriteStream(filePath, { encoding: "utf-8" });
+    stream.on("error", reject);
+    stream.on("finish", resolve);
+
+    stream.write(`{\n  "version": ${cache.version},\n  "entries": {`);
+    const keys = Object.keys(cache.entries);
+    keys.forEach((key, i) => {
+      const entryJson = JSON.stringify(cache.entries[key], null, 2).replace(/\n/g, "\n    ");
+      stream.write(`${i === 0 ? "" : ","}\n    ${JSON.stringify(key)}: ${entryJson}`);
+    });
+    stream.write(`${keys.length > 0 ? "\n  " : ""}}\n}\n`);
+    stream.end();
+  });
 }
 
 /** Drops entries older than `maxAgeMs` (default MAX_ENTRY_AGE_DAYS). Returns the
