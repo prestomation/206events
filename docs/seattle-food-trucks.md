@@ -23,7 +23,8 @@ the site's public JSON API and it works today:
 | Endpoint | Returns |
 |---|---|
 | `GET /api/pods` | All food-truck **locations** ("pods") with `location.neighborhood` |
-| `GET /api/locations/{id}` | Address / `filtered_address` / lat-lng for a pod |
+| `GET /api/locations/{id}` | Address / `filtered_address` / slug for a pod (**no** lat/lng) |
+| `GET /api/events/{event_id}` | Booking detail incl. `location.latitude`/`longitude` + `google_place_id` (verified live) |
 | `GET /api/events?page=N` | Dated booking **slots** (paginated; ~1,391 over the window) |
 | `GET /api/trucks?page=N` | All **trucks** (830), with cuisine, photo, socials, Yelp, website |
 | `GET /api/trucks/{slug}` | One truck's profile + a *count* of `future_bookings` |
@@ -71,8 +72,9 @@ hence Track B is R&D, not a refactor.
 ### Track A — Per-pod calendars (feasible now, ships first)
 
 Refactor `sources/seattle_food_trucks/` from a single-calendar aggregator into
-a **multi-calendar ripper**, one calendar per Seattle pod (the `spl` 26-branch
-source is the template).
+a **multi-calendar ripper**, one calendar per Seattle pod (the multi-branch
+`spl` source, ~25 calendars, is the structural template for emitting many
+calendars from one ripper).
 
 **Behavior changes:**
 
@@ -83,10 +85,18 @@ source is the template).
    from `location.neighborhood.name` mapped to our `city.config.ts` tag
    spelling (see §4). Pods with no neighborhood fall back to slug inference (as
    the ripper already does for suburbs) and get just `["FoodTruck"]`.
-3. **Per-pod `geo`.** `/api/locations/{id}` and `/api/events/{event_id}` both
-   carry `latitude`/`longitude` + address, so each pod calendar gets a real
-   `geo` and appears in `venues.json` as a venue. (Ripper-level `geo: null`,
-   per-calendar `geo` set — the `spl` pattern.)
+3. **Per-pod `geo`.** `/api/events/{event_id}` carries `location.latitude`/
+   `longitude` + `google_place_id` (verified live); `/api/locations/{id}` gives
+   only the address string. So the implementer has two paths: read lat/lng from
+   the per-event detail (the ripper doesn't fetch it today — its
+   `LocationDetails` interface and the committed fixture have no lat/lng, so
+   this is new work), or geocode the pod address through the existing geo-cache.
+   Either way each pod calendar gets a real `geo` and appears in `venues.json`.
+   Set ripper-level `geo: null` with a per-calendar `geo` per branch. **Caveat:**
+   per-calendar `geo` is schema-supported (`lib/config/schema.ts`, which names
+   SPL as the archetype) but `sources/spl` does not actually populate it today,
+   so there is no working in-repo example to copy — this is the first source to
+   exercise per-calendar `geo`.
 4. **Event summary keeps the pod framing** (`Food Trucks @ {pod}`) since we
    still can't name the truck. `cost: { min: 0 }` unchanged (pods are free to
    attend).
@@ -197,8 +207,10 @@ uncertainty philosophy forbids. So per-truck stays gated on a real source.
 1. **PR 1 (Track A):** multi-calendar per-pod refactor of
    `sources/seattle_food_trucks/`, `FoodTruck` tag, neighborhood mapping,
    per-pod geo, `expectEmpty` where needed, `allowed-removals/` for the retired
-   merged URL, updated tests + fixture. Auto-merge-eligible (calendar-source
-   change).
+   merged URL, updated tests + fixture. Nominally a calendar-source change, but
+   it's a substantial behavioral refactor that removes a published URL and
+   changes output shape — a reviewer may reasonably want eyes on it, so treat
+   auto-merge as borderline rather than automatic.
 2. **PR 2 (Track B):** the 830-truck roster doc + a written finding on whether
    StreetFoodFinder/Roaming Hunger/self-publishing trucks yield a usable
    schedule feed, plus 1–2 marquee per-truck sources if one proves out. The
