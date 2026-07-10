@@ -134,7 +134,7 @@ export async function loadFetchCache(filePath: string): Promise<FetchCache> {
 }
 
 export async function saveFetchCache(cache: FetchCache, filePath: string): Promise<void> {
-  await writeFile(filePath, JSON.stringify(cache, null, 2), "utf-8");
+  await writeFile(filePath, JSON.stringify(cache), "utf-8");
 }
 
 /** Drops entries older than `maxAgeMs` (default MAX_ENTRY_AGE_DAYS). Returns the
