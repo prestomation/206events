@@ -6,7 +6,7 @@ url: https://www.seattlemade.org/events/
 tags: [MakersMarket, Community]
 firstSeen: 2026-07-10
 lastChecked: 2026-07-10
-pr:
+pr: 906
 ---
 
 Nonprofit supporting Seattle-area makers and manufacturers. Publishes a
