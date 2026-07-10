@@ -41777,6 +41777,138 @@
       "resolvedAt": "2026-07-10",
       "source": "agent",
       "evidence": "https://reubensbrews.com/event/trivia-night-with-head-in-the-clouds-07-08-2026/"
+    },
+    "venue:osm:way:378090317": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/trail-repair-at-schmitz-preserve-park-in-west-seattle/ \u2014 Schmitz Preserve Park is an old-growth forest nature preserve/trail system in West Seattle"
+    },
+    "venue:loc:dune peninsula at point defiance park, 5361 yacht club rd, tacoma, wa 98407": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "https://dunepeninsula.com/calendar/ \u2014 waterfront park peninsula at Point Defiance, outdoor concert series"
+    },
+    "venue:osm:way:41842296": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "OSM way 41842296: building=yes, tourism=hotel \u2014 Hotel Andra"
+    },
+    "venue:osm:way:425957977": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "https://remlingerfarms.com/remlinger-summer-concerts/ \u2014 outdoor farm concert series at Remlinger Farms"
+    },
+    "venue:osm:way:69273374": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "OSM way 69273374: amenity=theatre, building=yes \u2014 Nordstrom Recital Hall inside Benaroya Hall"
+    },
+    "venue:loc:great northern & cascade railway, 101 5th st n, skykomish, wa 98288": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "https://www.gnandcr.org/ \u2014 outdoor miniature/mini-train ride"
+    },
+    "venue:osm:node:4346366056": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "OSM node 4346366056: tourism=museum \u2014 Museum of History and Industry building"
+    },
+    "venue:loc:hing hay park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "Well-known outdoor public park/plaza in Seattle's Chinatown-International District"
+    },
+    "venue:osm:way:935166000": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "OSM way 935166000: Cross Kirkland Corridor \u2014 outdoor multi-use rail-trail"
+    },
+    "venue:loc:northwest railway museum, snoqualmie depot, 38625 se king st, snoqualmie, wa 98065": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "https://trainmuseum.org/thomas/ \u2014 train rides operate outdoors along the museum's rail line"
+    },
+    "venue:loc:freeway park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "Well-known elevated outdoor urban park in downtown Seattle"
+    },
+    "venue:loc:meadow wood equestrian center, 18601 sky meadows ln, snohomish, wa 98290": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "https://washingtonfaire.com/ \u2014 Renaissance faire held outdoors on equestrian center fairgrounds"
+    },
+    "venue:osm:way:412521866": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "OSM way 412521866: amenity=university, building \u2014 Center for Urban Horticulture classroom building; 'Master Pruner Full Series (in-person)' is lecture-format instruction"
+    },
+    "venue:loc:bolstad beach approach, bolstad w, long beach, wa 98631": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "https://www.longbeachmerchants.com/sandsations \u2014 beach sand-sculpture event"
+    },
+    "venue:loc:heritage park, 5th ave sw, olympia, wa 98501": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "evidence": "https://www.lakefair.org/ \u2014 outdoor waterfront park, Olympia Lakefair festival"
+    },
+    "events12:concerts-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "reason": "events12 generic touring-concert listing with no fixed venue disclosed"
+    },
+    "events12:live-theater-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-10",
+      "source": "agent",
+      "reason": "events12 generic touring-theater listing, empty location field, no fixed venue disclosed"
     }
   }
 }
