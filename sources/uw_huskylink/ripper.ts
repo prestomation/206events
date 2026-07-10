@@ -2,6 +2,17 @@ import { JSONRipper } from "../../lib/config/jsonscrapper.js";
 import { Duration, Instant, OffsetDateTime, ZonedDateTime } from "@js-joda/core";
 import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
 
+// NOTE (2026-07-10): This ripper targets the Anthology Engage / CampusLabs
+// discovery API. UW HuskyLink has since migrated to the CampusGroups platform
+// (huskylink.washington.edu now 302s to washington.campusgroups.com), which
+// has a completely different API shape and gates RSO event data behind an
+// authenticated NetID/SSO session — no public JSON/ICS endpoint exposes it.
+// The source is disabled (`disabled: true` in ripper.yaml) rather than
+// deleted so this parsing logic is preserved in case Engage-style discovery
+// ever comes back, or a future authenticated-proxy approach can reach the
+// CampusGroups data. See docs/source-candidates/uw-huskylink.md for the
+// investigation notes.
+
 const IMAGE_BASE = "https://se-images.campuslabs.com/clink/images/";
 const EVENT_BASE = "https://huskylink.washington.edu/event/";
 const DEFAULT_DURATION_MIN = 60;
