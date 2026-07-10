@@ -3,7 +3,7 @@ name: "Queen Anne Historical Society"
 status: candidate
 platform: Squarespace
 url: https://www.qahistory.org/calendar
-tags: [Arts, Queen Anne]
+tags: [Arts, QueenAnne]
 firstSeen: 2026-07-10
 lastChecked: 2026-07-10
 ---
