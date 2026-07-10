@@ -6604,6 +6604,51 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-10",
       "note": "Identical event (same title, time, location Zoom, same URL) in two UW ICS feeds: uw-campus-events and uw-information-school"
+    },
+    "seatoday-seatoday-all.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
+    },
+    "seatoday-seatoday-all.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
+    },
+    "seatoday-seatoday-all.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
+    },
+    "seatoday-seatoday-food.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
+    },
+    "seatoday-seatoday-food.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
+    },
+    "seatoday-seatoday-learning.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 32nd Annual Peter Kirk Golf Classic, Presented by BelRed Heating, Cooling, Plumbing, and Electrical|2026-07-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-10",
+      "note": "Same seatoday ripper's own catch-all vs topic-specific calendar split (all/food/sports/learning/arts/community all derive from one CitySpark feed) — not a cross-source duplicate; merging would incorrectly collapse the ripper's intentional per-topic structure."
     }
   }
 }
