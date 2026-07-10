@@ -18,6 +18,7 @@ import {
     getFetchCacheStats,
     DEFAULT_TTL_HOURS,
     MAX_ENTRY_AGE_DAYS,
+    MAX_CACHE_CONTENT_CHARS,
     type FetchCacheEntry,
     type FetchCache,
 } from "./fetch-cache.js";
@@ -73,8 +74,28 @@ describe("fetch-cache load/save", () => {
         };
         await saveFetchCache(cache, path);
         expect(await loadFetchCache(path)).toEqual(cache);
-        // Pretty-printed for readable diffs, like the other caches.
-        expect(await readFile(path, "utf-8")).toContain("\n  ");
+        // Compact output (no indentation) to avoid RangeError on large caches.
+        expect(await readFile(path, "utf-8")).not.toContain("\n  ");
+    });
+
+    it("evicts oldest entries when total content exceeds the cap", async () => {
+        const path = await tmpFile();
+        // Build a cache that exceeds the cap by a known amount.
+        const chunkSize = Math.floor(MAX_CACHE_CONTENT_CHARS / 2) + 1024;
+        const cache: FetchCache = {
+            version: 1,
+            entries: {
+                older: { fetchedAt: "2026-06-01T00:00:00.000Z", status: 200, contentType: "text/html", content: "A".repeat(chunkSize) },
+                newer: { fetchedAt: "2026-06-02T00:00:00.000Z", status: 200, contentType: "text/html", content: "B".repeat(chunkSize) },
+            },
+        };
+        await saveFetchCache(cache, path);
+        const saved = await loadFetchCache(path);
+        // Total exceeds cap, so at least one entry was dropped.
+        expect(Object.keys(saved.entries).length).toBeLessThan(2);
+        // The NEWER entry must be kept (oldest evicted first).
+        expect(saved.entries["newer"]).toBeDefined();
+        expect(saved.entries["older"]).toBeUndefined();
     });
 });
 

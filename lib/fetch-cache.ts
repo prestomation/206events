@@ -133,8 +133,28 @@ export async function loadFetchCache(filePath: string): Promise<FetchCache> {
   }
 }
 
+/**
+ * Maximum total raw content size to persist. Cold-start builds fetch every
+ * source fresh; without a cap, the accumulated content can exceed V8's
+ * string length limit and crash JSON.stringify. 200 MB covers ~100 typical
+ * sources at 2 MB each with headroom for JSON overhead.
+ */
+export const MAX_CACHE_CONTENT_CHARS = 200 * 1024 * 1024;
+
 export async function saveFetchCache(cache: FetchCache, filePath: string): Promise<void> {
-  await writeFile(filePath, JSON.stringify(cache, null, 2), "utf-8");
+  // Evict the oldest entries first when the total raw content exceeds the cap.
+  let totalChars = Object.values(cache.entries).reduce((sum, e) => sum + e.content.length, 0);
+  if (totalChars > MAX_CACHE_CONTENT_CHARS) {
+    const byAge = Object.entries(cache.entries).sort(([, a], [, b]) =>
+      a.fetchedAt < b.fetchedAt ? -1 : 1,
+    );
+    for (const [key, entry] of byAge) {
+      if (totalChars <= MAX_CACHE_CONTENT_CHARS) break;
+      totalChars -= entry.content.length;
+      delete cache.entries[key];
+    }
+  }
+  await writeFile(filePath, JSON.stringify(cache), "utf-8");
 }
 
 /** Drops entries older than `maxAgeMs` (default MAX_ENTRY_AGE_DAYS). Returns the

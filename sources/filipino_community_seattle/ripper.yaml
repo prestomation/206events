@@ -20,6 +20,7 @@ calendars:
   - name: filipino-community-seattle
     friendlyname: "Filipino Community of Seattle"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       organizerId: "56553753403"
       defaultLocation: "5740 Martin Luther King Jr Way S, Seattle, WA 98118"
