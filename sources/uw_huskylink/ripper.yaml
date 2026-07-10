@@ -1,5 +1,6 @@
 name: uw-huskylink
 sourceRole: venue
+disabled: true # disabled: HuskyLink migrated from Engage/CampusLabs to CampusGroups (see docs/source-candidates/uw-huskylink.md). The old discovery API 302s to washington.campusgroups.com and returns an HTML error page, not JSON. CampusGroups' public JSON/ICS endpoints only expose 2 admin-posted, school-wide events with locations blanked out ("sign in to display") — RSO club events require an authenticated NetID/SSO session that a plain HTTP client can't reach. Re-enable only if a genuine public data path is found.
 description: "University of Washington — HuskyLink Student Organizations"
 url: "https://huskylink.washington.edu/api/discovery/event/search?endsAfter={yyyy-MM-dd}T00:00:00Z&orderByField=endsOn&orderByDirection=ascending&status=Approved&take=500"
 friendlyLink: https://huskylink.washington.edu/events

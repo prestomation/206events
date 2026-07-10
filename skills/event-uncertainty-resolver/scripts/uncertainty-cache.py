@@ -290,6 +290,14 @@ def cmd_prune(args):
         print(f"Loaded {len(names)} canonical source name(s) for orphan-prefix check.")
         for key in entries:
             prefix = key.split(":", 1)[0]
+            # "venue" is a pseudo-source used by the setting-resolver's
+            # venue-level keys (venue:osm:<type>:<id>, venue:loc:<location>) —
+            # not a ripper/external-calendar name, so it never appears in the
+            # canonical source-name set. Without this exemption every
+            # venue-level setting resolution looks like an orphan and this
+            # flag would delete the entire venue setting cache on each prune.
+            if prefix == "venue":
+                continue
             if prefix not in names and key not in to_remove:
                 to_remove[key] = "orphan_prefix"
 

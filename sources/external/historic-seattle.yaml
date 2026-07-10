@@ -10,6 +10,7 @@ friendlyname: Historic Seattle
 description: "Historic Seattle hosts lectures, building tours, and preservation events at landmark venues around the city."
 icsUrl: https://historicseattle.org/events/?ical=1
 infoUrl: https://historicseattle.org/events/
+proxy: outofband
 imageUrl: "https://historicseattle.org/wp-content/uploads/2016/04/HS_GiveBig-FB-header-cropped-NW.png"
 tags:
   - Arts
