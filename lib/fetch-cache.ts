@@ -23,7 +23,7 @@
  * transport is just a carrier. Same `{version, entries}` shape as geo-cache.json.
  */
 
-import { readFile } from "fs/promises";
+import { readFile, rename, unlink } from "fs/promises";
 import { createWriteStream } from "fs";
 import { createHash } from "crypto";
 
@@ -146,22 +146,52 @@ export async function loadFetchCache(filePath: string): Promise<FetchCache> {
  * crossed. Serializing (and writing) one entry at a time means the largest
  * string ever held in memory is a single entry's, never the whole cache's, so
  * the string-length ceiling is never in play regardless of total cache size.
+ *
+ * Written to a temp file and renamed into place only once fully written, so a
+ * write that fails or is interrupted mid-stream (OOM, timeout, cancellation —
+ * the CI workflow saves with `if: always()`) never leaves a truncated/corrupt
+ * `filePath` that `loadFetchCache` would silently treat as an empty cache on
+ * the next build. (`geo-cache.json`/`event-uncertainty-cache.json` stay on a
+ * plain `writeFile` — they're small, bounded caches with no large per-entry
+ * payloads, so they don't need the streaming or the same interrupted-write
+ * risk isn't there in practice.)
  */
 export async function saveFetchCache(cache: FetchCache, filePath: string): Promise<void> {
-  await new Promise<void>((resolve, reject) => {
-    const stream = createWriteStream(filePath, { encoding: "utf-8" });
-    stream.on("error", reject);
-    stream.on("finish", resolve);
+  const tmpPath = `${filePath}.tmp-${process.pid}`;
+  const stream = createWriteStream(tmpPath, { encoding: "utf-8" });
+  // 'close' fires once the underlying fd is fully released — after 'finish' on
+  // a clean end(), or after destroy() on an error. Waiting for it (rather than
+  // unlinking right after the promise below settles) avoids racing a temp file
+  // whose fs.open() was still in flight when destroy() was called.
+  const closed = new Promise<void>((res) => stream.once("close", res));
 
-    stream.write(`{\n  "version": ${cache.version},\n  "entries": {`);
-    const keys = Object.keys(cache.entries);
-    keys.forEach((key, i) => {
-      const entryJson = JSON.stringify(cache.entries[key], null, 2).replace(/\n/g, "\n    ");
-      stream.write(`${i === 0 ? "" : ","}\n    ${JSON.stringify(key)}: ${entryJson}`);
+  try {
+    await new Promise<void>((resolve, reject) => {
+      stream.on("error", reject);
+      stream.on("finish", resolve);
+
+      try {
+        stream.write(`{\n  "version": ${cache.version},\n  "entries": {`);
+        const keys = Object.keys(cache.entries);
+        keys.forEach((key, i) => {
+          const entryJson = JSON.stringify(cache.entries[key], null, 2).replace(/\n/g, "\n    ");
+          stream.write(`${i === 0 ? "" : ","}\n    ${JSON.stringify(key)}: ${entryJson}`);
+        });
+        stream.write(`${keys.length > 0 ? "\n  " : ""}}\n}\n`);
+        stream.end();
+      } catch (err) {
+        // Passing the error to destroy() emits it on the stream, which the
+        // "error" listener above turns into the rejection below.
+        stream.destroy(err instanceof Error ? err : new Error(String(err)));
+      }
     });
-    stream.write(`${keys.length > 0 ? "\n  " : ""}}\n}\n`);
-    stream.end();
-  });
+    await closed;
+    await rename(tmpPath, filePath);
+  } catch (err) {
+    await closed;
+    await unlink(tmpPath).catch(() => {});
+    throw err;
+  }
 }
 
 /** Drops entries older than `maxAgeMs` (default MAX_ENTRY_AGE_DAYS). Returns the

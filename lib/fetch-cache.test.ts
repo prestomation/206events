@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach } from "vitest";
-import { mkdtemp, writeFile, readFile, rm } from "fs/promises";
+import { mkdtemp, writeFile, readFile, readdir, rm } from "fs/promises";
 import { tmpdir } from "os";
-import { join } from "path";
+import { join, dirname } from "path";
 import {
     loadFetchCache,
     saveFetchCache,
@@ -77,6 +77,39 @@ describe("fetch-cache load/save", () => {
         // afford now that saving streams entries individually instead of
         // building one JSON.stringify(cache) string.
         expect(await readFile(path, "utf-8")).toContain("\n  ");
+    });
+
+    it("round-trips an empty cache", async () => {
+        const path = await tmpFile();
+        const cache: FetchCache = { version: 1, entries: {} };
+        await saveFetchCache(cache, path);
+        expect(await loadFetchCache(path)).toEqual(cache);
+    });
+
+    it("leaves the existing file untouched and cleans up the temp file if a save fails partway through", async () => {
+        const path = await tmpFile();
+        const goodCache: FetchCache = {
+            version: 1,
+            entries: { "https://example.com/good": entry("2026-06-01T00:00:00.000Z") },
+        };
+        await saveFetchCache(goodCache, path);
+
+        const badCache: FetchCache = {
+            version: 1,
+            entries: {
+                "https://example.com/a": entry("2026-06-02T00:00:00.000Z"),
+                // BigInt can't be JSON.stringify'd — forces a synchronous throw
+                // mid-write, simulating a save that fails partway through.
+                "https://example.com/bad": { ...entry("2026-06-03T00:00:00.000Z"), content: 1n as unknown as string },
+            },
+        };
+        await expect(saveFetchCache(badCache, path)).rejects.toThrow();
+
+        // The previously-saved good cache must survive a failed save untouched...
+        expect(await loadFetchCache(path)).toEqual(goodCache);
+        // ...and no stray temp file left behind in the directory.
+        const leftover = (await readdir(dirname(path))).filter((f) => f.includes(".tmp-"));
+        expect(leftover).toEqual([]);
     });
 
     it("round-trips a cache with multiple entries, including special characters in keys/content", async () => {
