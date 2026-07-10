@@ -57,13 +57,23 @@ So SeattleFoodTruck.com gives us **everything for per-pod calendars** and
 **nothing schedule-wise for per-truck calendars**. The 830-truck roster is
 public (great for a catalog), but a truck's *itinerary* is not.
 
+### But individual trucks often publish their own schedule
+
+The per-truck gap is filled from the *trucks*, not SFT: many self-publish a
+subscribable calendar. **Tat's Truck** (verified) embeds a public Google Calendar
+on `tatsdeli.com/tats-truck` with 623 dated, located events — a drop-in external
+ICS. Notably, Tat's schedule is **absent** from SFT's pod-events feed, which is
+the concrete proof that SFT can't be the sole truck source. So per-truck is
+feasible today for trucks with their own feed (Track B1); the aggregator route
+below is only for trucks without one.
+
 ### Truck-centric aggregators are gated
 
 StreetFoodFinder (`streetfoodfinder.com/c/wa/seattle`) and Roaming Hunger are
-organized by truck and would be the natural per-truck source, but both `403`
-from CI/residential IPs (bot protection) and neither is confirmed to expose a
-per-truck schedule feed. They are unproven and would require the proxy ladder —
-hence Track B is R&D, not a refactor.
+organized by truck and would be a fallback per-truck source for trucks that
+don't self-publish, but both `403` from CI/residential IPs (bot protection) and
+neither is confirmed to expose a per-truck schedule feed. They are unproven and
+would require the proxy ladder — hence Track B2 is R&D, not a refactor.
 
 ---
 
@@ -121,38 +131,103 @@ the standalone single `seattle-food-trucks.ics` is retired:
 neighborhood tagging, geo population, and that a multi-truck slot no longer
 collapses across pods. Scrub any embedded third-party keys from the fixture.
 
-### Track B — Per-truck schedules (R&D spike, separate PR)
+#### Keeping the pod list current — deterministic new-pod detection
 
-The deliverable of Track B is **a proven data path**, not calendars on day one.
+New pods get added to SeattleFoodTruck.com over time; we want to pick them up
+without a human periodically eyeballing the site. There are two ways to do it,
+and we should do the **first** (the second is a weaker fallback).
 
-1. **Build the truck catalog for free.** Page `/api/trucks` (830 trucks) into a
-   reference doc — `docs/source-candidates/seattle-food-trucks-roster.md`
-   (one doc, *not* 830 candidate files) capturing name, slug, cuisine,
-   website, socials. This is the "chew through all at once" list you wanted,
-   and it's the shortlist of trucks worth wiring up individually.
-2. **Find where a truck's itinerary lives.** Investigate, in order:
-   - StreetFoodFinder / Roaming Hunger per-truck pages — do they expose ICS or
-     JSON? Both need the proxy ladder (`requires-proxy-testing`); stage, don't
-     hand-pick a rung — let `skills/proxy-escalation` prove it.
-   - Marquee trucks that self-publish a schedule (e.g. *Where Ya At Matt* has a
-     public truck-schedule page). These can become individual sources under the
-     normal `source-discovery` flow.
-   - Instagram/Facebook-only trucks — high maintenance, likely out of scope.
-3. **Do NOT create 800 ICS files.** Per-truck calendars are added *selectively*
-   for trucks that (a) publish a machine-readable schedule and (b) are notable
-   enough to justify a calendar. Each such truck is a normal source addition
-   (`source-discovery` skill), tagged `["FoodTruck", ...]`.
-4. If a truck-schedule source proves out broadly, a follow-up design covers a
-   generalized per-truck ripper. Until then, per-truck is opportunistic.
+**Chosen: the ripper self-detects unconfigured pods and emits a gap error.**
+This is exactly the pattern `sources/seattle_showlists/ripper.ts` already uses
+for venues (`detectUnknownVenues()`, which emits
+`Unknown venue "X" not in VENUE_CONFIG — add it so events are routed to a
+calendar` as a non-fatal `ParseError`). We mirror it:
+
+- The ripper *already* fetches the full pod list (`GET /api/pods` — this **is**
+  the "list pods API"), so the check is nearly free.
+- Pods are curated in a `POD_CONFIG` map (or the `ripper.yaml` calendars list):
+  which pods get a calendar, their neighborhood tag, `geo`, and `expectEmpty`.
+  Curation is needed anyway because the API's neighborhood names don't map
+  cleanly to our tags (`Breweries`, `University Of Washington` — see §4).
+- For every Seattle-area pod returned by `/api/pods` that is **not** in
+  `POD_CONFIG`, emit a `ParseError`:
+  `Unknown pod "<name>" (neighborhood "<nb>", slug "<slug>") not configured — add a calendar entry`.
+  It lands in `output/build-errors.json` under the source's `sources[].errors`
+  (the same channel every reporting surface already reads — no new category, so
+  no Reporting-Parity plumbing needed) and is **non-fatal** (an unconfigured pod
+  doesn't fail the build; it just surfaces).
+- The **build-report skill** (or a small dedicated pod-resolver) drains it: the
+  LLM reads the error, decides the neighborhood tag, and opens a PR adding the
+  `POD_CONFIG` entry. Deterministic detection, human-reviewed addition, stable
+  URLs (a new calendar URL only appears once curated, never spontaneously).
+
+This is strictly better than scanning HTML: the signal is the authoritative API
+diff, and it rides the existing error-reporting pipeline.
+
+**Fallback (optional, not required if the above ships): a discovery-skill
+sweep.** `skills/source-discovery` could, on its rotating cadence, diff
+`/api/pods` against `POD_CONFIG` and file candidates. This only runs when
+discovery runs, does the same diff less deterministically, and duplicates the
+ripper's own knowledge — so it's redundant once the ripper self-detects. Keep it
+in the back pocket only if we decide *not* to curate pods in config.
+
+### Track B — Per-truck schedules (feasible via self-published feeds + R&D tail)
+
+Per-truck is **not** fully blocked — it splits into a feasible near-term path and
+a research tail. The key correction from the first draft: **SeattleFoodTruck.com
+is incomplete and cannot be the sole truck source.** Tat's Truck is the proof —
+it has an SFT *directory* page, but its actual schedule is **not** in the
+pod-keyed `/api/events` feed our ripper consumes; Tat's publishes its own Google
+Calendar instead. Relying on SFT alone silently misses trucks like it.
+
+**B1 — Import self-published truck feeds as external ICS (do this now).**
+Many trucks publish their own schedule as a subscribable calendar. These are the
+highest-quality per-truck data and drop straight into our external-ICS pipeline
+with zero custom code.
+
+- **Worked example — Tat's Truck (verified live):** the page
+  `tatsdeli.com/tats-truck` embeds a public Google Calendar,
+  id `2v113sqaad63bp65qs6j98gc4k@group.calendar.google.com`. Its public ICS —
+  `https://calendar.google.com/calendar/ical/2v113sqaad63bp65qs6j98gc4k%40group.calendar.google.com/public/basic.ics`
+  — returns HTTP 200 with `X-WR-CALNAME: Tat's Truck Schedule` and 623 VEVENTs
+  (real summaries + street addresses). It becomes
+  `sources/external/tats-truck.yaml`, `sourceRole: venue` (the truck is
+  first-party for itself), `geo: null` (it roams), tags `["FoodTruck", ...]`.
+  Notes for implementation: the feed carries historical events (back to 2017)
+  and some non-Seattle stops (e.g. Bellevue) — the external-ICS lookahead filter
+  handles the past; a truck's out-of-Seattle stops are arguably in-scope for
+  that truck's own subscribers, so keep them unless we decide otherwise.
+- **Finding these feeds** is a `source-discovery` sub-task: for notable trucks,
+  check their own site/Linktree/Squarespace for a Google Calendar embed or
+  "subscribe" link (grep the page for `calendar.google.com`, `webcal://`,
+  `.ics`). Each confirmed feed is one `sources/external/<truck>.yaml`. Marquee
+  trucks that publish an HTML-only schedule (e.g. *Where Ya At Matt*) can get a
+  small custom ripper instead.
+
+**B2 — Trucks without their own feed (research tail).**
+- **Build the truck catalog for free.** Page `/api/trucks` (830 trucks) into one
+  reference doc — `docs/source-candidates/seattle-food-trucks-roster.md` (one
+  doc, *not* 830 candidate files) capturing name, slug, cuisine, website,
+  socials. This is the "chew through all at once" list, and it's where we look
+  up a truck's website to hunt for a B1 feed.
+- **Aggregator investigation.** StreetFoodFinder / Roaming Hunger are
+  truck-centric but 403 CI/residential IPs and are unproven — do they expose a
+  per-truck ICS/JSON once past the block? Stage as `requires-proxy-testing`;
+  don't hand-pick a rung — let `skills/proxy-escalation` prove it.
+- **Do NOT create 800 ICS files or synthesize schedules.** Per-truck calendars
+  are added *selectively* for trucks with a real, machine-readable schedule.
+  Instagram/Facebook-only trucks are high-maintenance and out of scope for now.
 
 ---
 
-## 3. Why per-truck can't just fan out the pod data
+## 3. Why per-truck can't just fan out the SFT pod data
 
-Even though we have all pod bookings, we cannot invert them into per-truck
+Even though we have all SFT pod bookings, we cannot invert them into per-truck
 schedules: the booking slots don't say who's booked. Fabricating a truck→slot
 mapping would be a guess published as fact — exactly what the project's
-uncertainty philosophy forbids. So per-truck stays gated on a real source.
+uncertainty philosophy forbids. So per-truck schedules must come from a source
+that actually names the truck's stops — which is precisely what the
+self-published feeds in **Track B1** (e.g. Tat's Google Calendar) provide.
 
 ---
 
@@ -198,7 +273,8 @@ uncertainty philosophy forbids. So per-truck stays gated on a real source.
 - **`sourceRole`.** Pod calendars are `venue` (a fixed place). A cross-pod
   roundup would be `aggregator`, but per-pod calendars are venues.
 - **Proxy.** SeattleFoodTruck.com fetches fine from CI today (`proxy: false`);
-  keep it. StreetFoodFinder/Roaming Hunger need the ladder (Track B).
+  keep it. Google Calendar ICS feeds (Track B1, e.g. Tat's) fetch fine too.
+  StreetFoodFinder/Roaming Hunger need the ladder (Track B2).
 
 ---
 
@@ -206,22 +282,38 @@ uncertainty philosophy forbids. So per-truck stays gated on a real source.
 
 1. **PR 1 (Track A):** multi-calendar per-pod refactor of
    `sources/seattle_food_trucks/`, `FoodTruck` tag, neighborhood mapping,
-   per-pod geo, `expectEmpty` where needed, `allowed-removals/` for the retired
-   merged URL, updated tests + fixture. Nominally a calendar-source change, but
-   it's a substantial behavioral refactor that removes a published URL and
-   changes output shape — a reviewer may reasonably want eyes on it, so treat
-   auto-merge as borderline rather than automatic.
-2. **PR 2 (Track B):** the 830-truck roster doc + a written finding on whether
-   StreetFoodFinder/Roaming Hunger/self-publishing trucks yield a usable
-   schedule feed, plus 1–2 marquee per-truck sources if one proves out. The
-   roster doc is content; a new per-truck ripper follows `source-discovery`.
-3. This design doc merges first (requires manual review — it proposes a plan).
+   per-pod geo, `POD_CONFIG` + unconfigured-pod gap detection, `expectEmpty`
+   where needed, `allowed-removals/` for the retired merged URL, updated tests +
+   fixture. Nominally a calendar-source change, but it's a substantial
+   behavioral refactor that removes a published URL and changes output shape — a
+   reviewer may reasonably want eyes on it, so treat auto-merge as borderline
+   rather than automatic.
+2. **PR 2 (Track B1):** the first self-published truck feed —
+   `sources/external/tats-truck.yaml` (Tat's Google Calendar ICS, verified) —
+   added via the normal `source-discovery` flow, tagged `["FoodTruck", ...]`.
+   Auto-merge-eligible (external calendar source). Additional truck feeds follow
+   the same shape, one PR each.
+3. **PR 3 (Track B2):** the 830-truck roster doc
+   (`docs/source-candidates/seattle-food-trucks-roster.md`) + a written finding
+   on whether StreetFoodFinder/Roaming Hunger expose a usable per-truck feed past
+   the 403. The roster doc is content; any new per-truck ripper follows
+   `source-discovery`.
+4. This design doc merges first (requires manual review — it proposes a plan).
+
+Tracks A and B1 are independent and can proceed **in parallel** — the pod
+refactor and the Tat's feed touch disjoint files.
 
 ## 7. Open questions
 
-- Do any StreetFoodFinder/Roaming Hunger per-truck pages expose ICS/JSON once
-  past the 403? (Track B, first task.)
 - For "Breweries" and "University Of Washington" API neighborhoods, confirm the
   exact target tag spelling against `city.config.ts`.
+- Should the unconfigured-pod gap be drained by the general **build-report**
+  skill, or is it worth a dedicated `pod-resolver` skill? (Volume is low —
+  build-report is probably enough.)
+- Tat's feed includes non-Seattle (e.g. Bellevue) stops. Keep them on the
+  truck's own feed (subscribers follow the truck anywhere), or filter to
+  Seattle? Leaning keep.
+- Do any StreetFoodFinder/Roaming Hunger per-truck pages expose ICS/JSON once
+  past the 403? (Track B2.)
 - Should the retired `seattle-food-trucks.ics` 301-equivalent be surfaced in
   release notes for existing subscribers, pointing at `tag-foodtruck.ics`?
