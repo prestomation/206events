@@ -73,8 +73,8 @@ describe("fetch-cache load/save", () => {
         };
         await saveFetchCache(cache, path);
         expect(await loadFetchCache(path)).toEqual(cache);
-        // Pretty-printed for readable diffs, like the other caches.
-        expect(await readFile(path, "utf-8")).toContain("\n  ");
+        // Compact output (no indentation) to avoid RangeError on large caches.
+        expect(await readFile(path, "utf-8")).not.toContain("\n  ");
     });
 });
 
