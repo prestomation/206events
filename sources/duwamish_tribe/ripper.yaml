@@ -1,7 +1,8 @@
 name: duwamish_tribe
 sourceRole: venue
+expectEmpty: true
 description: "Duwamish Longhouse & Cultural Center"
-url: "https://www.duwamishtribe.org/events"
+url: "https://www.duwamishtribe.org/events-1"
 friendlyLink: https://www.duwamishtribe.org/events-1
 tags: ["Community", "Arts", "Parks", "West Seattle"]
 geo:
