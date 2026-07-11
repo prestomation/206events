@@ -1,4 +1,110 @@
 {
   "version": 1,
-  "entries": {}
+  "entries": {
+    "freeze.tag.events:Dan5jpZD3FQ": {
+      "isEvent": true,
+      "title": "Little Treat: Tasting & Treasure Tour",
+      "date": "2026-07-19",
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "startTime": "11:00",
+      "durationSeconds": 7200,
+      "location": "U-District, Seattle, WA",
+      "description": "A self-guided passport tour of surprise treats from small businesses across the U-District (Sweetpea's Cakes, Nook & Cranny Books, Fancy Plants, UrbEmSketches, and more). Exact start location sent by email.",
+      "permalink": "https://freezetag.ticketspice.com/little-treat",
+      "postFingerprint": "951a7ff595b6"
+    },
+    "freeze.tag.events:DajXPBwmr05": {
+      "isEvent": true,
+      "title": "One Shot Seattle: Fantasy Scavenger Hunt",
+      "date": "2026-07-18",
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "startTime": "10:00",
+      "durationSeconds": 23400,
+      "location": "Cal Anderson Park, 1635 11th Ave, Seattle, WA 98122",
+      "description": "An all-day fantasy-themed photo scavenger hunt. Teams of 2-6 (or solo, matched on-site) compete in challenges starting at Cal Anderson Park and spanning Seattle neighborhoods.",
+      "permalink": "https://freezetag.ticketspice.com/oneshotseattle",
+      "postFingerprint": "7b718769b679"
+    },
+    "freeze.tag.events:DaQkE67mmid": {
+      "isEvent": true,
+      "title": "Taskmaster Seattle Live",
+      "date": "2026-07-26",
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "startTime": "15:00",
+      "location": "Ilume, 5751 33rd Ave NE, Seattle, WA 98105",
+      "description": "A live Seattle spoof of the British comedy panel show \u2014 audience volunteers compete in silly challenges for the golden duck. Doors 2:30pm.",
+      "permalink": "https://freezetag.ticketspice.com/taskmaster-seattle",
+      "postFingerprint": "6946206ff971"
+    },
+    "freeze.tag.events:DadswRukraq": {
+      "isEvent": true,
+      "title": "Musical Theatre Trivia at Charlie's Queer Books",
+      "date": "2026-07-12",
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "location": "Charlie's Queer Books, 465 N 36th St, Seattle, WA 98103",
+      "description": "A dramatic afternoon of musical-theatre trivia hosted by Freeze Tag at Charlie's Queer Books. (Start time not stated in the post.)",
+      "permalink": "https://www.instagram.com/p/DadswRukraq/",
+      "postFingerprint": "e20f6bfc785c"
+    },
+    "freeze.tag.events:DaDw7fSCZ0M": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "July preview roundup teasing multiple events; no single date to place on a calendar.",
+      "postFingerprint": "6f30577a3d6e"
+    },
+    "freeze.tag.events:DaV9f4rSvzI": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Generic One Shot Seattle promo with no date in the post; the dated 7/18 event is recorded under DajXPBwmr05.",
+      "postFingerprint": "b91e0e727e01"
+    },
+    "freeze.tag.events:DYSwUSGEg9T": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Advertisement for private/custom bookable events; not a public dated event.",
+      "postFingerprint": "d83f4c9aac14"
+    },
+    "freeze.tag.events:DaliWs-S6Py": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Duplicate announcement of Taskmaster Seattle Live 7/26; recorded under DaQkE67mmid.",
+      "postFingerprint": "5c192f9a08d4"
+    },
+    "freeze.tag.events:DalOxLIsyUh": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Duplicate announcement of One Shot Seattle 7/18; recorded under DajXPBwmr05.",
+      "postFingerprint": "44fe44117e3a"
+    },
+    "freeze.tag.events:Daga1c9SZwP": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Generic \"July is fun\" promo reel with no specific event or date.",
+      "postFingerprint": "8b76b2b6be3f"
+    },
+    "freeze.tag.events:DagGzVFEh1n": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Duplicate announcement of Little Treat 7/19 U-District; recorded under Dan5jpZD3FQ.",
+      "postFingerprint": "545a5b90fc6e"
+    },
+    "freeze.tag.events:DaTQi-2GJxQ": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Recap of the past Little Treat Roosevelt tour; mentions next 7/19 tour recorded under Dan5jpZD3FQ.",
+      "postFingerprint": "2cad5a22c400"
+    }
+  }
 }
