@@ -1,4 +1,5 @@
 name: 19hz
+skipEventPhotos: true
 sourceRole: aggregator
 description: "19hz.info"
 url: "https://19hz.info/eventlisting_Seattle.php"

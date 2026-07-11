@@ -1,5 +1,6 @@
 name: events12
 weatherSetting: "mixed"
+skipEventPhotos: true
 sourceRole: aggregator
 description: "Events12 Seattle"
 url: "https://www.events12.com/seattle/"

@@ -1,4 +1,5 @@
 name: seattle-showlists
+skipEventPhotos: true
 sourceRole: aggregator
 description: "Showlists Seattle"
 url: "https://seattle.showlists.net"

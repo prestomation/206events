@@ -1,4 +1,5 @@
 name: seattle-center-festal
+skipEventPhotos: true
 sourceRole: venue
 description: "Seattle Center Festál"
 url: "https://www.seattlecenter.com/events/featured-events/festal"

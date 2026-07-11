@@ -1,4 +1,5 @@
 name: sound_transit
+skipEventPhotos: true
 sourceRole: venue
 description: "Sound Transit"
 url: "https://www.soundtransit.org/calendar_events_grouped.json"

@@ -1,4 +1,5 @@
 name: seattle-center
+skipEventPhotos: true
 sourceRole: aggregator
 friendlyname: "Seattle Center"
 description: "Seattle Center campus events including festivals, performances, and community gatherings across venues like the Armory, Climate Pledge Arena, and McCaw Hall"
