@@ -35,6 +35,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/source-from-event/SKILL.md`** — Default handler for any **event poster image** (or text request describing an event the user wants covered). Uses `event-lookup` to check coverage, then either reports it's covered, hands off a parse-gap fix to `build-report`, or hands off a new-source add to `source-discovery`
 - **`skills/city-setup/SKILL.md`** — One-time setup for a fresh copy of this template repo: runs `npm run init-city` (Seattle content strip + `city.config.ts` regeneration), tunes the derived geography, and walks the operator through secrets/services and first sources. Never run on the reference instance
 - **`skills/upstream-feature-sync/SKILL.md`** — For template copies only: discover engine features added to the upstream `prestomation/206events` repo that this copy lacks, describe each to the owner, and stage the chosen ones as per-feature draft PRs (`npm run feature-sync`). Tracks decisions in `feature-sync.json` so declined features aren't re-asked. Never run on the reference instance
+- **`skills/instagram-source/SKILL.md`** — Read the posts of `type: instagram` calendar sources (flyer image + caption, via vision) and record the events they describe into `instagram-cache.json`. The `instagram` ripper is a pure cache reader; this skill (run out-of-band — locally or via a scheduled Claude routine — and committed via PR) does all the Instagram fetching and image reading. See `docs/instagram-source.md`
 
 ## Adding New Calendar Sources
 
