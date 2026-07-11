@@ -6704,6 +6704,86 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-11",
       "note": "Same trivia brand at two different Stoup Brewing locations (Ballard vs Capitol Hill); separate events"
+    },
+    "19hz-all-events.ics Kai Wachi, Lil Texas|2026-10-10T19:00:00-07:00[America/Los_Angeles]::wamu-theater-wamu-theater.ics Kai Wachi|2026-10-10T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same Ticketmaster event (0F00649BC3CCE82E); 19hz lists support act Lil Texas, WaMu shows headliner only"
+    },
+    "NWMetalCalendar-NWMetal.ics Black Tusk, Hoaxed, Calm Collapse, Stricken|2026-08-09T19:00-07:00[America/Los_Angeles]::el-corazon-the-funhouse.ics Hoaxed with Calm Collapse, Stricken|2026-08-09T20:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same show at The Funhouse; NWMetalCalendar leads with headliner Black Tusk, el-corazon uses different billing focus; time diff is likely doors vs set"
+    },
+    "external-earshot-jazz.ics The Red Pants Collective|2026-07-10T20:00:00Z[UTC]::external-seattledances.ics Red Pants Collective Performance|2026-07-10T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same performance at Chapel Performance Space, Good Shepherd Center; earshot-jazz and seattledances both list it"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-07-17T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-07-17T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same weekly drag show at Unicorn, 1118 E Pike St; recurring entry is venue-first, queer-social-club is the aggregator listing"
+    },
+    "royal-room-all-events.ics The Joe Casalini Trio|2026-07-24T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Casalini Trio Happy Hour|2026-07-24T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same event at The Royal Room; royal-room uses full act name, seatoday uses event marketing name 'Happy Hour'"
+    },
+    "royal-room-all-events.ics The Joe Casalini Trio|2026-07-24T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Casalini Trio Happy Hour|2026-07-24T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same event at The Royal Room; seatoday-community sub-calendar same as seatoday-all listing"
+    },
+    "royal-room-all-events.ics The Joe Casalini Trio|2026-07-24T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Casalini Trio Happy Hour|2026-07-24T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same event at The Royal Room; seatoday-food sub-calendar same as seatoday-all listing"
+    },
+    "seatoday-seatoday-all.ics Bellevue Arts Fair Weekend|2026-07-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Bellevue Arts Fair Weekend|2026-07-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in all-events and arts sub-calendar; identical URL and title"
+    },
+    "seatoday-seatoday-all.ics Bellevue Arts Fair Weekend|2026-07-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bellevue Arts Fair Weekend|2026-07-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in all-events and community sub-calendar; identical URL and title"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in all-events and arts sub-calendar; identical URL and title"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in all-events and community sub-calendar; identical URL and title"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-24T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-24T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in all-events and community sub-calendar; identical URL and title"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-24T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-24T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in all-events and sports sub-calendar; identical URL and title"
+    },
+    "seatoday-seatoday-arts.ics Bellevue Arts Fair Weekend|2026-07-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bellevue Arts Fair Weekend|2026-07-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in arts and community sub-calendars; identical URL and title"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in arts and community sub-calendars; identical URL and title"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-24T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-24T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-11",
+      "note": "Same seatoday event in community and sports sub-calendars; identical URL and title"
     }
   }
 }

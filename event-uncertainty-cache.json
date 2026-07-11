@@ -42672,6 +42672,164 @@
       "resolvedAt": "2026-07-11",
       "source": "agent",
       "reason": "Facebook event page inaccessible without login; end time and cost not available"
+    },
+    "events12:chamber-music-2026-07-17": {
+      "fields": {
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-15": {
+      "fields": {
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-14": {
+      "fields": {
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-13": {
+      "fields": {
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-12": {
+      "fields": {
+        "startTime": "14:00",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-19": {
+      "fields": {
+        "startTime": "14:00",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-21": {
+      "fields": {
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-26": {
+      "fields": {
+        "startTime": "14:00",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-24": {
+      "fields": {
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-09": {
+      "fields": {
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
+    },
+    "events12:chamber-music-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
+    },
+    "events12:chamber-music-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
+    },
+    "events12:chamber-music-2026-07-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
+    },
+    "events12:chamber-music-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
+    },
+    "events12:chamber-music-2026-07-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
+    },
+    "events12:chamber-music-2026-07-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
+    },
+    "events12:chamber-music-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
+    },
+    "events12:chamber-music-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
     }
   }
 }
