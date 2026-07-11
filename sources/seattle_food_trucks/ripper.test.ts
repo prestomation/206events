@@ -1,8 +1,18 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import YAML from 'yaml';
 import SeattleFoodTruckRipper, { POD_CONFIG, Pod, SFTBooking } from './ripper.js';
 import { LocalDate, ZoneRegion, ChronoUnit, Duration } from '@js-joda/core';
 import '@js-joda/timezone';
 import sampleData from './sample-data.json';
+
+const yamlCalendarNames: string[] = (() => {
+    const here = dirname(fileURLToPath(import.meta.url));
+    const cfg = YAML.parse(readFileSync(join(here, 'ripper.yaml'), 'utf8'));
+    return cfg.calendars.map((c: any) => c.name);
+})();
 
 const timezone = ZoneRegion.of('America/Los_Angeles');
 const ripper = new SeattleFoodTruckRipper();
@@ -185,6 +195,23 @@ describe('POD_CONFIG', () => {
             .filter((r): r is { calendar: string } => 'calendar' in r)
             .map(r => r.calendar);
         expect(new Set(slugs).size).toBe(slugs.length);
+    });
+
+    it('every POD_CONFIG calendar slug is a declared calendar in ripper.yaml', () => {
+        const declared = new Set(yamlCalendarNames);
+        for (const route of Object.values(POD_CONFIG)) {
+            if ('calendar' in route) {
+                expect(declared.has(route.calendar), `${route.calendar} must be declared in ripper.yaml`).toBe(true);
+            }
+        }
+    });
+
+    it('ripper.yaml declares the merged anchor calendar plus one per routed pod', () => {
+        const routedSlugs = Object.values(POD_CONFIG)
+            .filter((r): r is { calendar: string } => 'calendar' in r)
+            .map(r => r.calendar);
+        expect(yamlCalendarNames).toContain('seattle-food-trucks');
+        expect(yamlCalendarNames.length).toBe(routedSlugs.length + 1); // +1 for the merged anchor
     });
 });
 

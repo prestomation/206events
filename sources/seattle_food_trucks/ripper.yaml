@@ -5,6 +5,9 @@ url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
 cost: free
+# Each event is a generic "Food Trucks @ <pod>" slot with no per-event image;
+# don't queue them in photoGaps (the venue imageUrl above is the intended photo).
+skipEventPhotos: true
 lookahead: "P30D"
 geo: null
 calendars:
@@ -122,6 +125,8 @@ calendars:
     friendlyname: "Food Trucks @ Expedia Group Campus"
     timezone: America/Los_Angeles
     expectEmpty: true
+    # Tagged Interbay by address (1111 Expedia Group Way W is Interbay); the SFT
+    # API classifies this pod under "Ballard", but the physical location is Interbay.
     tags: ["FoodTruck", "Interbay"]
     geo:
       lat: 47.62832

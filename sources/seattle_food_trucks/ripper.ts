@@ -57,6 +57,10 @@ export const POD_CONFIG: Record<string, { calendar: string } | { skip: string }>
     "Expedia Group Campus": { calendar: "expedia-group-campus" },
     "Bell Street Park": { calendar: "bell-street-park" },
     "Northedge": { calendar: "northedge" },
+    // The trailing backtick is INTENTIONAL — it's part of the pod's actual name
+    // in the SFT API (a typo on their side: `/api/pods` returns "Trupanion`").
+    // Keys must match `display_name` exactly, so do NOT "fix" this; removing the
+    // backtick would stop routing this pod and flag it as an unknown pod.
     "Trupanion`": { calendar: "trupanion" },
     "Kaiser Permanente : Northgate Medical Center": { calendar: "kaiser-permanente-northgate" },
     "The Polyclinic : Northgate Plaza": { calendar: "polyclinic-northgate" },

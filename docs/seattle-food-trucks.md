@@ -305,9 +305,11 @@ self-published feeds in **Track B1** (e.g. Tat's Google Calendar) provide.
 - **`venues.json` budget (100 KB).** ~25 pod venue entries is well within
   budget; re-check after the refactor. Truck catalog lives in a doc, not
   `venues.json`.
-- **Photos.** Pods rarely have a photo; trucks do (`featured_photo` on
-  `/api/trucks`). Track B truck sources can populate `imageUrl` from it. Pod
-  `photoGaps` drain through the normal photo-resolver flow.
+- **Photos.** A `Food Trucks @ <pod>` slot event has no per-event image, so the
+  ripper sets `skipEventPhotos: true` — those events are kept out of the
+  `photoGaps` queue (the ripper-level venue `imageUrl` is the intended photo for
+  every pod card). Trucks *do* have a photo (`featured_photo` on `/api/trucks`),
+  so Track B truck sources can populate `imageUrl` from it.
 - **Cost.** Pods are free to attend (`cost: { min: 0 }`); individual truck
   prices are per-item and out of scope.
 - **`sourceRole`.** Pod calendars are `venue` (a fixed place). A cross-pod
