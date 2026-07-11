@@ -87,12 +87,12 @@ Five branches. Pick exactly one per event.
 | **(a) Event found in `event_candidates` or `title_only_matches`** | Reply: *"This event is already covered by `<source.friendly>` (kind: `<source.kind>`, ics: `<icsUrl>`)."* No PR. **Stop.** |
 | **(b) Event missing AND a matching source has a ParseError near that date in `build-errors.json`** | The ripper is broken for items like this. Hand off to **`skills/build-report/SKILL.md`** to fix the parser. The fix is a separate PR. Do not also add a new source for the same venue. |
 | **(c) Venue covered, event missing, no parse error** | Reply: *"Covered by `<source>` — event has likely not surfaced upstream yet (too far ahead, or not yet posted)."* No PR. **Stop.** |
-| **(d) Venue not covered AND the venue is self-managed with its own events page** (Neumos, Burke Museum, a specific brewery, etc.) | Source to add = **the venue**. Go to step 3.5 to find the events page URL, then step 4. |
-| **(e) Venue not covered AND the venue is a shared/public space** (a park, plaza, civic center) | Source to add = **the promoter/organization named on the poster**, NOT the venue. Err on the side of adding (per project guidance). Go to step 3.5 to find the events page URL, then step 4. |
+| **(d) Venue not covered AND the venue is self-managed with its own events page** (Neumos, Burke Museum, a specific brewery, etc.) | Source to add = **the venue**. Go to step 3.5 (and 3.5a if no structured platform turns up) to find the events page or Instagram account, then step 5. |
+| **(e) Venue not covered AND the venue is a shared/public space** (a park, plaza, civic center) | Source to add = **the promoter/organization named on the poster**, NOT the venue. Err on the side of adding (per project guidance). Go to step 3.5 (and 3.5a if no structured platform turns up) to find the events page or Instagram account, then step 5. |
 
 If the poster is a true one-off (no recurring promoter and no
-self-managed venue calendar), reply *"no viable recurring source for
-this event"* and stop.
+self-managed venue calendar, and no active Instagram presence per
+step 3.5a), reply *"no viable recurring source for this event"* and stop.
 
 ### 3.5. Find the org's events page (branches d and e only)
 
@@ -119,20 +119,60 @@ From the search results, determine:
    implementation strategy — check `AGENTS.md` for built-in ripper types
    before writing a custom one.
 3. **Whether the org is a viable recurring source.** An org that posts
-   events via a structured platform (any of the above) is viable. An org
-   whose only web presence is a static brochure site or mailing list
-   (no machine-readable events) is **not viable** — reply accordingly
-   and stop.
+   events via a structured platform (any of the above) is viable. Before
+   concluding otherwise, always check Instagram (step 3.5a) — many small
+   or itinerant orgs (a speed-dating night, a trivia host, a scavenger-hunt
+   crew) have no ICS/API/self-hosted calendar at all and post exclusively
+   as Instagram flyers. Only an org with **no** structured platform *and*
+   no active Instagram presence is not viable — reply accordingly and stop.
 
 **If initial searches return nothing useful:** try alternative terms
 (`"<org name> site:eventbrite.com"`, `"<org name> tickets"`, the org's
 social media bio link), then check `docs/source-candidates/` for a prior
-investigation. If still nothing, conclude not viable and stop — do not
-guess at URLs.
+investigation. If still nothing, go to step 3.5a before concluding not
+viable — do not guess at URLs.
 
 Fetch the events page (`WebFetch`) to confirm it returns real event data
 before proceeding. If it returns a 503 or requires JS rendering, note
 the proxy rung needed (see `AGENTS.md` proxy ladder).
+
+### 3.5a. Instagram-only orgs (no ICS/API/self-hosted calendar found)
+
+Many posters name an org whose *only* public presence is an Instagram
+account (the handle is often printed directly on the poster, e.g. "Find
+more events @handle"). This is a first-class, viable source path — **do
+not fall through to "no viable recurring source" without checking it.**
+
+1. Confirm the account is real and active before doing anything else:
+   ```bash
+   curl -sS -H 'X-IG-App-ID: 936619743392459' -H 'Sec-Fetch-Site: same-origin' \
+     'https://i.instagram.com/api/v1/users/web_profile_info/?username=<handle>'
+   ```
+   A `200` with a `biography`, non-empty `edge_owner_to_timeline_media.edges`,
+   and `is_private: false` confirms it's a live, public, active account —
+   viable. A private account, a 404, or an empty/stale post list is not
+   viable (note it and move on; don't try to work around privacy).
+2. **This is a distinct implementation path from step 5 / source-discovery.**
+   Skip source-discovery's live-fetch-a-URL validation — there is no
+   ICS/API/HTML page to validate, only a stream of posts. Instead hand off
+   directly to **`skills/instagram-source/SKILL.md`**, which:
+   - adds `sources/<slug>/ripper.yaml` with `type: instagram` (see that
+     skill's "Adding another Instagram account" section for the exact
+     shape — `geo: null` for a multi-venue/itinerant org, a `{lat,lng}`
+     for a single fixed venue),
+   - reads recent posts' flyer images (vision, not caption-only) to seed
+     real events into `instagram-cache.json`,
+   - flips `disabled: true` off once real events are recorded,
+   - and opens the PR through the normal flow (draft → code review →
+     auto-merge per `AGENTS.md`).
+3. If you already have the poster's own flyer image and it corresponds to
+   one of the account's recent posts, that image can seed the first cache
+   entry directly — but still fetch the account's other recent posts so
+   the new source launches with more than one event.
+
+Only fall through to "no viable recurring source" (end of step 3) after
+**both** a structured-platform search (3.5) **and** an Instagram check
+(3.5a) have come back empty.
 
 ### 4. Check for parse gaps (branch b)
 
@@ -151,10 +191,13 @@ published.
 
 ### 5. Add a new source (branches d, e)
 
-Delegate the add-source path to **`skills/source-discovery/SKILL.md`**
-starting at its **Step 4 ("Quality gate each candidate")** — you have
-already done the discovery (steps 2–3.5); you have the candidate URL/venue in hand.
-That skill handles:
+Two implementation paths, depending on what step 3.5/3.5a found:
+
+**Structured platform found (ICS/API/self-hosted calendar/Eventbrite etc.)**
+— delegate to **`skills/source-discovery/SKILL.md`** starting at its
+**Step 4 ("Quality gate each candidate")** — you have already done the
+discovery (steps 2–3.5); you have the candidate URL/venue in hand. That
+skill handles:
 
 - Live fetch validation of the candidate URL
 - Writing `docs/source-candidates/<slug>.md` (record this came from a
@@ -169,6 +212,15 @@ That skill handles:
 identifies a Seattle band's website as the candidate source is still
 just a candidate — the URL needs to actually return event data before
 implementation.
+
+**Instagram-only org (no structured platform, per step 3.5a)** —
+delegate to **`skills/instagram-source/SKILL.md`** directly instead of
+source-discovery. Still write `docs/source-candidates/<slug>.md` noting
+this came from a poster lookup and that the implementation is
+`type: instagram`. Still push to a feature branch, open a draft PR, and
+run it through the same code-review → auto-merge flow — only the
+discovery/validation step differs (a confirmed active Instagram account
+stands in for a live-fetched URL).
 
 ### 6. Reply
 

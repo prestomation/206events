@@ -86,7 +86,18 @@ optional S3 store for setups that prefer it, but the default flow — and the on
 the build reads — is the committed file.)
 
 Entry shape (see `lib/instagram-cache.ts` for the authoritative type), keyed by
-`<username>:<postId>`:
+`<username>:<postId>`. `postId` is normally the real shortcode from the post's
+permalink — but a multi-event roundup post (one flyer/carousel announcing
+several distinct dated events, e.g. a "this month's events" graphic) can't be
+represented as a single cache entry with one `date`. For each event on the
+roundup that has no dedicated post of its own, use a synthetic id
+`<realShortcode>-<slugify(title)>` (dashes, lowercase, derived from the
+extracted title so it's reproducible if the post is re-read later) and record
+the roundup post itself as `isEvent: false` with a `reason` cross-referencing
+the synthetic ids it expanded into. An event that *does* get its own dedicated
+post later should be re-recorded under that real shortcode instead, with the
+synthetic entry pruned via `instagram-cache.py prune --orphan-usernames` or a
+manual `del`.
 
 ```json
 {

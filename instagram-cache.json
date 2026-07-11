@@ -106,6 +106,109 @@
       "source": "agent",
       "reason": "Recap of the past Little Treat Roosevelt tour; mentions next 7/19 tour recorded under Dan5jpZD3FQ.",
       "postFingerprint": "2cad5a22c400"
+    },
+    "mixmixsocials:DaoYEjtvox4": {
+      "isEvent": true,
+      "title": "Speed Friending for Cool Dog Moms",
+      "date": "2026-07-15",
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "startTime": "18:00",
+      "durationSeconds": 7200,
+      "location": "The Alley, 4509 California Ave SW, Seattle, WA 98116",
+      "description": "BIPOC-centered speed friending for women-aligned dog moms (30-36 y/o, +2 yrs either end OK). $20 door / $15 via bio link, plus cost of a drink.",
+      "permalink": "https://www.instagram.com/p/DaoYEjtvox4/",
+      "postFingerprint": "4e86d4bff6b1"
+    },
+    "mixmixsocials:DaLeJfJEV-D": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Duplicate announcement of the Cool Dog Moms speed-friending night at The Alley (July 15) \u2014 recorded once under post DaoYEjtvox4",
+      "permalink": "https://www.instagram.com/p/DaLeJfJEV-D/",
+      "postFingerprint": "010caadb8863"
+    },
+    "mixmixsocials:DaTFyjWjMpU": {
+      "isEvent": true,
+      "title": "Queer Speed Dating for Women's Sports Fans",
+      "date": "2026-07-23",
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "startTime": "18:00",
+      "location": "Pitch the Baby, 600 19th Ave E, Seattle, WA 98112",
+      "description": "BIPOC-centered speed dating night for WLW women's-sports fans (31-38 y/o) at Pitch the Baby, Seattle's first Latine-owned women's sports bar.",
+      "permalink": "https://www.instagram.com/p/DaTFyjWjMpU/",
+      "postFingerprint": "cef27a91d704"
+    },
+    "mixmixsocials:DaJSQTBlhfB-newish-to-seattle": {
+      "isEvent": true,
+      "title": "Speed Friending for Ppl New-ish to Seattle",
+      "date": "2026-07-27",
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "location": "Miero Coffee Bar, 665 S King St, Seattle, WA 98104",
+      "description": "BIPOC-centered speed friending for people new-ish to Seattle (friends, women, 25-30 y/o) at Miero Coffee Bar in the CID.",
+      "permalink": "https://www.instagram.com/p/DaJSQTBlhfB/",
+      "postFingerprint": "dcbbd818b3e5-newish"
+    },
+    "mixmixsocials:DaJSQTBlhfB-therapized": {
+      "isEvent": true,
+      "title": "Speed Dating: Therapized, Lolol",
+      "date": "2026-07-30",
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "location": "Navy Strength, 2505 2nd Ave Ste 102A, Seattle, WA 98121",
+      "description": "BIPOC-centered speed dating night for singles (men & women, 35-45 y/o) at Navy Strength in Belltown.",
+      "permalink": "https://www.instagram.com/p/DaJSQTBlhfB/",
+      "postFingerprint": "dcbbd818b3e5-therapized"
+    },
+    "mixmixsocials:DaJSQTBlhfB": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Multi-event 'July Events' roundup graphic covering 5 events; each event recorded individually (dog moms/sports fans have their own dedicated posts; new-ish-to-seattle and therapized have no dedicated post and are recorded under synthetic post ids DaJSQTBlhfB-newish-to-seattle / DaJSQTBlhfB-therapized; the July 8 Sugar Hill event, from its own post DZ-niSVCQbE, was already past by the time this account was onboarded and was recorded not-event instead)",
+      "permalink": "https://www.instagram.com/p/DaJSQTBlhfB/",
+      "postFingerprint": "dcbbd818b3e5"
+    },
+    "mixmixsocials:DZ-niSVCQbE": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Event already past (Jul 8) by the time this account was onboarded (Jul 11); lineage back to the poster that triggered this source addition is recorded in docs/source-candidates/mixmix-socials.md instead of as a dead-on-arrival calendar entry",
+      "permalink": "https://www.instagram.com/p/DZ-niSVCQbE/",
+      "postFingerprint": "c47d86577c3a"
+    },
+    "mixmixsocials:DamC2xGoD5z": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Promotional carousel ('3 reasons to try speed dating/friending'), no date or venue",
+      "permalink": "https://www.instagram.com/p/DamC2xGoD5z/",
+      "postFingerprint": "4ef6855a5f52"
+    },
+    "mixmixsocials:DZ_IvVejhrD": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Promotional video about postering the city with flyers, no specific event",
+      "permalink": "https://www.instagram.com/p/DZ_IvVejhrD/",
+      "postFingerprint": "96b0211e0ad6"
+    },
+    "mixmixsocials:DZ5oCsugjmG": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Explainer video on how the speed dating/friending format works, no specific event",
+      "permalink": "https://www.instagram.com/p/DZ5oCsugjmG/",
+      "postFingerprint": "c69d1ee7ec97"
+    },
+    "mixmixsocials:DYskFefETGH": {
+      "isEvent": false,
+      "readAt": "2026-07-11",
+      "source": "agent",
+      "reason": "General call-to-action promo ('our July events are live, see bio link'), no specific date/venue",
+      "permalink": "https://www.instagram.com/p/DYskFefETGH/",
+      "postFingerprint": "8b6f32eca0fa"
     }
   }
 }
