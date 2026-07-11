@@ -38453,23 +38453,19 @@
     },
     "events12:architectural-tour-2026-07-23": {
       "fields": {
-        "cost": {
-          "min": 27.5
-        }
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/"
+      "evidence": "https://www.events12.com"
     },
     "events12:architectural-tour-2026-07-24": {
       "fields": {
-        "cost": {
-          "min": 27.5
-        }
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/"
+      "evidence": "https://www.events12.com"
     },
     "events12:architectural-tour-2026-07-25": {
       "fields": {
@@ -42542,10 +42538,14 @@
       "reason": "End time not listed on source page"
     },
     "t-mobile-park:tm-vvG1HZ_eEqsbhL": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-07-11",
       "source": "agent",
-      "reason": "Ticketmaster page returned HTTP 403, unable to verify start time"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-10-09-2026/event/0F006429DDC586DF"
     },
     "mopop:mopop-the-icons-of-pop-culture-gala-2026-10-22": {
       "unresolvable": true,
@@ -42917,6 +42917,902 @@
       "resolvedAt": "2026-07-11",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-senorita/"
+    },
+    "SAF:183853690": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183853753/b7d8/Hidden_Spaces_fountain_-_Evan_Chakroff.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853690/hidden-spacespublic-places"
+    },
+    "SAF:183853748": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183853804/de84/SAF_StonetoSteel2024_alessandrabrescia-7.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853748/from-stone-to-steel-seattle-style-from-then-til-now"
+    },
+    "SAF:183853901": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183853952/2b2b/F5_and_skyline_-_credit_ZGF_Architects.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853901/seattle-skyline-history-context-culture"
+    },
+    "SAF:183853955": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183854041/4fd3/waterfront_seattle.png"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853955/the-city-the-sound-seattles-waterfront"
+    },
+    "SAF:183853995": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183854043/edd6/harvard_historical_photo_courtesy_of_Stuart_Silk_Architects.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853995/harvard-belmont-the-rich-life-on-capitol-hill"
+    },
+    "SAF:183854042": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183854111/46e2/SAF_ModernArtDeco2023_alessandrabrescia-6.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183854042/diamonds-gold-the-art-deco-skyscraper-northwest-style"
+    },
+    "SAF:184647643": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/184647703/e9f5/SAF_MtBakerTour_JustinJakubisn__4_of_16_.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/184647643/mt-baker-more-than-a-view"
+    },
+    "SAF:184647716": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/184647744/bb21/Evan_Chakroff_-_Madrona_4.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/184647716/madrona-streetcar-suburb-model-for-neighborhood-involvement"
+    },
+    "SAF:184647750": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/184647793/b1aa/Ballard_brick_building__front_view_-_Evan_Chakroff.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/184647750/ballard-landmark-district"
+    },
+    "SAF:184647795": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/184647832/fc8a/federal-avenue-seattle-20-of-27_EvanChakroff.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/184647795/federal-avenue-understated-elegance-on-the-park"
+    },
+    "SAF:184647835": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183854041/4fd3/waterfront_seattle.png"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/184647835/the-city-the-sound-seattles-waterfront"
+    },
+    "SAF:184647878": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/184647932/a8e2/SAF_QueenAnne_202409-16_Web.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/184647878/queen-anne-evolution-of-an-urban-neighborhood"
+    },
+    "SAF:185611601": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/185611674/56a3/Center_for_Wooden_Boats_-_credit_Olson_Kundig.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/185611601/south-lake-union-then-now"
+    },
+    "SAF:185611676": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/184647703/e9f5/SAF_MtBakerTour_JustinJakubisn__4_of_16_.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/184647643/mt-baker-more-than-a-view"
+    },
+    "SAF:185611713": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183853952/2b2b/F5_and_skyline_-_credit_ZGF_Architects.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853901/seattle-skyline-history-context-culture"
+    },
+    "SAF:185611742": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183854043/edd6/harvard_historical_photo_courtesy_of_Stuart_Silk_Architects.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853995/harvard-belmont-the-rich-life-on-capitol-hill"
+    },
+    "SAF:185611774": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183853753/b7d8/Hidden_Spaces_fountain_-_Evan_Chakroff.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853690/hidden-spacespublic-places"
+    },
+    "SAF:185611810": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183853804/de84/SAF_StonetoSteel2024_alessandrabrescia-7.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853748/from-stone-to-steel-seattle-style-from-then-til-now"
+    },
+    "SAF:185612056": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/184647793/b1aa/Ballard_brick_building__front_view_-_Evan_Chakroff.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/184647750/ballard-landmark-district"
+    },
+    "SAF:185612117": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/183854041/4fd3/waterfront_seattle.png"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/183853955/the-city-the-sound-seattles-waterfront"
+    },
+    "stg:tm-vvG1HZ_apsPbiR": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://206.events/build-errors.json"
+    },
+    "stg:tm-vvG1HZ_aUzo2Ap": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://206.events/build-errors.json"
+    },
+    "stg:tm-vvG1HZ_CNCLymf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://206.events/build-errors.json"
+    },
+    "stg:tm-vvG1HZ_GJXIhdc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://206.events/build-errors.json"
+    },
+    "stg:tm-vvG1HZ_GJXtlds": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://206.events/build-errors.json"
+    },
+    "stg:tm-vvG1HZ_uMIRTiE": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://206.events/build-errors.json"
+    },
+    "stg:tm-vvG1HZ_uUnKyl4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://206.events/build-errors.json"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_apipb8J": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/aespa-live-tour-synk-complxity-in-seattle-washington-10-09-2026/event/0F006495AC598426"
+    },
+    "rabbit_box:6a4e9ba34891ca1dfc6c164b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/butch-bastard-elizabeth-and-the-catapult-with-jon-titterington"
+    },
+    "burke-museum:burke-sacred-threads-honoring-tsimshian-ancestors-through-chilkat-and-ravens-tail-weaving-and": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/sacred-threads-honoring-tsimshian-ancestors-through-chilkat-and-ravens-tail-weaving-and"
+    },
+    "burke-museum:burke-weaving-future-fashion-show": {
+      "fields": {
+        "cost": {
+          "min": 55.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/weaving-future-fashion-show"
+    },
+    "burke-museum:burke-wednesday-evening-genome-seminar": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/wednesday-evening-genome-seminar"
+    },
+    "pike-place-market:ppm-produce-on-pike-weekly-farmers-market": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/produce-on-pike-weekly-farmers-market/"
+    },
+    "sol-yoga-seattle:6a4f2f91f1e6682bf3efa2c2": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/free-for-members-artist-inspired-class-7p3yp-txhxb-prs6m-ax4ek-3whk4-89zp6"
+    },
+    "seattle-makers:seattle-makers-158642": {
+      "fields": {
+        "cost": {
+          "min": 115.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-certification-31/"
+    },
+    "seattle-makers:seattle-makers-158506": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-10/"
+    },
+    "sam:friday-night-fun-aug-14-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/friday-night-fun-aug-14-26"
+    },
+    "sam:kond-member-picnic-aug-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/kond-member-picnic-aug-12-26"
+    },
+    "sam:premier-opening-celebration-for-the-kond-family-storytellers-in-clay-aug-11-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/premier-opening-celebration-for-the-kond-family-storytellers-in-clay-aug-11-26"
+    },
+    "sam:saturdays-at-sam-aug-1-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturdays-at-sam-aug-1-26"
+    },
+    "sam:saturdays-at-sam-dec-5-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturdays-at-sam-dec-5-26"
+    },
+    "sam:saturdays-at-sam-jan-2-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturdays-at-sam-jan-2-27"
+    },
+    "sam:saturdays-at-sam-nov-7-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturdays-at-sam-nov-7-26"
+    },
+    "sam:saturdays-at-sam-oct-3-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturdays-at-sam-oct-3-26"
+    },
+    "sam:saturdays-at-sam-sep-5-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturdays-at-sam-sep-5-26"
+    },
+    "fremont-brewing:6a4ea90b8163c438dc54e7ae": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/"
+    },
+    "fremont-brewing:6a4ea93cbc502670fdf7a69c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/"
+    },
+    "fremont-brewing:6a4ea9818163c438dc550e26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/"
+    },
+    "fremont-brewing:6a4ea9a9e7fa6172f529f749": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/"
+    },
+    "fremont-brewing:6a4eaa4f66f7b474a2ceefe3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/"
+    },
+    "fremont-brewing:6a4eaa7c14b5400fa4c52e00": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/"
+    },
+    "fremont-brewing:6a4eaac7dfb7666169272d68": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/"
+    },
+    "fremont-brewing:6a4ea6df7600114707a4734e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/razzberry-sour-beer-release"
+    },
+    "fremont-brewing:6a4ea2b393725d3f69fb9f6b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/fremont-x-smash-that-burger-brunch-special"
+    },
+    "fremont-brewing:6a4ea4439305510b7251e181": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/fremont-x-smash-that-burger-brunch-special"
+    },
+    "fremont-brewing:6a4ea48a59d609370c7367a5": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/fremont-x-smash-that-burger-brunch-special"
+    },
+    "fremont-brewing:6a4ea4f904968203cf797516": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/fremont-x-smash-that-burger-brunch-special"
+    },
+    "fremont-brewing:6a4ea5129305510b7252616d": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/fremont-ubg-events/modern-calligraphy-class"
+    },
+    "fremont-brewing-columbia-city:6a4eb5e607fc4f2d39b03f5f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/"
+    },
+    "fremont-brewing-columbia-city:6a4eb61e8e18775a6e192633": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/"
+    },
+    "fremont-brewing-columbia-city:6a4eb64d0f06835784e57ec1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/"
+    },
+    "fremont-brewing-columbia-city:6a4eba831675203978b6608c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/"
+    },
+    "fremont-brewing-columbia-city:6a4ebab50f06835784e7af53": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/"
+    },
+    "fremont-brewing-columbia-city:6a4ebae55167da57ba38294e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/"
+    },
+    "fremont-brewing-columbia-city:6a4ebb1df4cc1c681e4bdf2b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/"
+    },
+    "fremont-brewing-columbia-city:6a4ebc683b568d24532a577d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/bingo-night-1"
+    },
+    "fremont-brewing-columbia-city:6a4ebcc94950821dad978b1f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/bingo-night-1"
+    },
+    "fremont-brewing-columbia-city:6a4ebcf4d897f1182f788c58": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/bingo-night-1"
+    },
+    "fremont-brewing-columbia-city:6a4ebda459b5394db5204eb5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fremontbrewing.com/columbia-city-ubg-events/beat-walk"
+    },
+    "chophouse-row:671942ce5b44016f9c057661": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/stitch-and-poke-maker-meetup"
+    },
+    "chophouse-row:6952beba1c9f3340c5178926": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/tailwind-drag-race"
+    },
+    "urban-family-brewing:urban-family-brewing-583": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/events/beer-release-and-puppy-party/"
+    },
+    "urban-family-brewing:urban-family-brewing-585": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://urbanfamilybrewing.com/events/bricks-and-minifigs/"
+    },
+    "lucky-envelope:6a4c1a4376ed501fc6a5553f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.luckyenvelopebrewing.com/events/summer-pours"
+    },
+    "couth-buzzard:07fn2hd98r8maltjggdh3bl8ip": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.couthbuzzard.com/event-calendar"
+    },
+    "the-beer-junction:6a3b189c4d74c948dcb7a8d2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.thebeerjunction.com/upcoming-events/beer-junction-bike-club-wxej4-3y8be-5gmw7-fn9we"
+    },
+    "venue:loc:cedar river park, 1717 maple valley hwy, renton, wa 98057, renton, wa 98057": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/search?query=cedar+river+park+renton"
+    },
+    "venue:loc:seattle, lynnwood, burien, fall city": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "multiple locations across different cities \u2014 no single indoor/outdoor classification applies"
+    },
+    "venue:osm:node:6465643503": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/6465643503"
+    },
+    "venue:osm:relation:5838734": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation/5838734"
+    },
+    "venue:osm:way:231764919": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/231764919"
+    },
+    "venue:osm:way:31927902": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/31927902"
+    },
+    "venue:osm:way:655458169": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "unnamed building with no venue information in OSM tags"
+    },
+    "venue:osm:way:663057103": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "road/highway element rather than a venue \u2014 setting depends on the specific event"
+    },
+    "events12:annual-garage-sale-2026-07-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.events12.com"
+    },
+    "events12:dance-in-the-park-2026-07-23": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.events12.com"
+    },
+    "events12:dance-in-the-park-2026-07-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.events12.com"
+    },
+    "events12:neighborhood-street-fair-2026-07-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.events12.com"
+    },
+    "events12:scottish-festival-2026-07-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.events12.com"
+    },
+    "events12:king-county-fair-2026-07-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.enumclawexpo.com/p/king-county-fair"
+    },
+    "events12:king-county-fair-2026-07-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.enumclawexpo.com/p/king-county-fair"
+    },
+    "events12:king-county-fair-2026-07-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.enumclawexpo.com/p/king-county-fair"
+    },
+    "events12:king-county-fair-2026-07-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.enumclawexpo.com/p/king-county-fair"
+    },
+    "events12:phinney-beer-tasting-2026-07-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.phinneycenter.org/events/beer-taste-summer/"
+    },
+    "events12:music-by-candlelight-2026-07-23": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://fever.pxf.io/Kj6j5x"
+    },
+    "events12:music-by-candlelight-2026-07-24": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://fever.pxf.io/Kj6j5x"
+    },
+    "events12:tacoma-museum-night-2026-07-16": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.fosswaterwayseaport.org/education-pages/free-3rd-thursday"
+    },
+    "events12:live-theater-2026-07-24": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173"
+    },
+    "events12:concerts-2026-07-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "event URL is an image with no venue details to determine indoor/outdoor setting"
     }
   }
 }
