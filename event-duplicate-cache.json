@@ -6787,15 +6787,18 @@
     },
     "19hz-all-events.ics Aaron Hibell|2026-07-10T21:00:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Aaron Hibell with Kotier, Cosovo|2026-07-10T21:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
-      "resolvedAt": "2026-07-11"
+      "resolvedAt": "2026-07-11",
+      "note": "19hz aggregator vs Showbox venue listing — same show, same date/time; 19hz title omits openers"
     },
     "external-uw-campus-events.ics MSIM Information Session with Alumni Panel|2026-07-20T17:00:00Z[UTC]::external-uw-information-school.ics MSIM Information Session with Alumni Panel|2026-07-20T17:00:00Z[UTC]": {
       "decision": "confirmed",
-      "resolvedAt": "2026-07-11"
+      "resolvedAt": "2026-07-11",
+      "note": "Same UW iSchool event published in both the campus-wide and iSchool-specific calendars"
     },
     "royal-room-all-events.ics Urban Naturalist: Eric Wagner – Seabirds as Sentinels: Auklets, Puffins, Shearwaters, and the View|2026-07-23T18:00:00-07:00[America/Los_Angeles]::seward-park-audubon-all-events.ics Urban Naturalist | Eric Wagner - Seabirds as Sentinels: Auklets, Puffins, Shearwaters, and the View|2026-07-23T18:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
-      "resolvedAt": "2026-07-11"
+      "resolvedAt": "2026-07-11",
+      "note": "Seward Park Audubon talk hosted at Royal Room — same event in venue and org calendars"
     }
   }
 }
