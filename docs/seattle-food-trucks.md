@@ -57,6 +57,15 @@ So SeattleFoodTruck.com gives us **everything for per-pod calendars** and
 **nothing schedule-wise for per-truck calendars**. The 830-truck roster is
 public (great for a catalog), but a truck's *itinerary* is not.
 
+One more path was checked and closed: the user-facing pod **schedule page**
+(`/schedule/<pod-slug>`, HTML) embeds a `featured_trucks` roster — the trucks
+that *frequent* a pod (e.g. Westlake lists Big Dog's, Birrieria Pepe El Toro,
+Cathouse Pizza) — but that's a static affiliation, **not** a dated
+truck→date→pod booking. There is no public surface anywhere that says "truck X
+is at pod Y on date Z." (That page also inlines live third-party keys — Stripe
+`pk_live_…`, Google Maps, Facebook — so if any SFT HTML is ever saved as a
+fixture it must be scrubbed per the repo's credential rule.)
+
 ### But individual trucks often publish their own schedule
 
 The per-truck gap is filled from the *trucks*, not SFT: many self-publish a
@@ -156,10 +165,11 @@ calendar` as a non-fatal `ParseError`). We mirror it:
   (the same channel every reporting surface already reads — no new category, so
   no Reporting-Parity plumbing needed) and is **non-fatal** (an unconfigured pod
   doesn't fail the build; it just surfaces).
-- The **build-report skill** (or a small dedicated pod-resolver) drains it: the
-  LLM reads the error, decides the neighborhood tag, and opens a PR adding the
-  `POD_CONFIG` entry. Deterministic detection, human-reviewed addition, stable
-  URLs (a new calendar URL only appears once curated, never spontaneously).
+- The **build-report skill** drains it (decided — volume is low, no dedicated
+  pod-resolver skill needed): the LLM reads the error, decides the neighborhood
+  tag, and opens a PR adding the `POD_CONFIG` entry. Deterministic detection,
+  human-reviewed addition, stable URLs (a new calendar URL only appears once
+  curated, never spontaneously).
 
 This is strictly better than scanning HTML: the signal is the authoritative API
 diff, and it rides the existing error-reporting pipeline.
@@ -195,8 +205,9 @@ with zero custom code.
   first-party for itself), `geo: null` (it roams), tags `["FoodTruck", ...]`.
   Notes for implementation: the feed carries historical events (back to 2017)
   and some non-Seattle stops (e.g. Bellevue) — the external-ICS lookahead filter
-  handles the past; a truck's out-of-Seattle stops are arguably in-scope for
-  that truck's own subscribers, so keep them unless we decide otherwise.
+  handles the past. **Decision: do not geo-filter a truck's own feed** — you
+  subscribe to the truck and follow it wherever it goes, so its out-of-Seattle
+  stops stay in.
 - **Finding these feeds** is a `source-discovery` sub-task: for notable trucks,
   check their own site/Linktree/Squarespace for a Google Calendar embed or
   "subscribe" link (grep the page for `calendar.google.com`, `webcal://`,
@@ -307,12 +318,6 @@ refactor and the Tat's feed touch disjoint files.
 
 - For "Breweries" and "University Of Washington" API neighborhoods, confirm the
   exact target tag spelling against `city.config.ts`.
-- Should the unconfigured-pod gap be drained by the general **build-report**
-  skill, or is it worth a dedicated `pod-resolver` skill? (Volume is low —
-  build-report is probably enough.)
-- Tat's feed includes non-Seattle (e.g. Bellevue) stops. Keep them on the
-  truck's own feed (subscribers follow the truck anywhere), or filter to
-  Seattle? Leaning keep.
 - Do any StreetFoodFinder/Roaming Hunger per-truck pages expose ICS/JSON once
   past the 403? (Track B2.)
 - Should the retired `seattle-food-trucks.ics` 301-equivalent be surfaced in
