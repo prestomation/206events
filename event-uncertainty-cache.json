@@ -38147,7 +38147,10 @@
     },
     "events12:live-theater-2026-07-11": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38155,7 +38158,10 @@
     },
     "events12:live-theater-2026-07-12": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38163,7 +38169,10 @@
     },
     "events12:live-theater-2026-07-13": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38171,7 +38180,10 @@
     },
     "events12:live-theater-2026-07-14": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38179,7 +38191,10 @@
     },
     "events12:live-theater-2026-07-15": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38187,7 +38202,10 @@
     },
     "events12:live-theater-2026-07-16": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38195,7 +38213,10 @@
     },
     "events12:live-theater-2026-07-17": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38203,7 +38224,10 @@
     },
     "events12:live-theater-2026-07-18": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38211,7 +38235,10 @@
     },
     "events12:live-theater-2026-07-19": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38219,7 +38246,10 @@
     },
     "events12:live-theater-2026-07-20": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38227,7 +38257,10 @@
     },
     "events12:live-theater-2026-07-21": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38235,7 +38268,10 @@
     },
     "events12:live-theater-2026-07-22": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -38243,7 +38279,10 @@
     },
     "events12:party-at-the-zoo-2026-07-10": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39191,7 +39230,10 @@
     },
     "events12:music-by-candlelight-2026-07-11": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39199,7 +39241,10 @@
     },
     "events12:music-by-candlelight-2026-07-12": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39207,7 +39252,10 @@
     },
     "events12:music-by-candlelight-2026-07-13": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39215,7 +39263,10 @@
     },
     "events12:music-by-candlelight-2026-07-14": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39223,7 +39274,10 @@
     },
     "events12:music-by-candlelight-2026-07-15": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39231,7 +39285,10 @@
     },
     "events12:music-by-candlelight-2026-07-16": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39239,7 +39296,10 @@
     },
     "events12:music-by-candlelight-2026-07-17": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39247,7 +39307,10 @@
     },
     "events12:music-by-candlelight-2026-07-18": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39255,7 +39318,10 @@
     },
     "events12:music-by-candlelight-2026-07-19": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39263,7 +39329,10 @@
     },
     "events12:music-by-candlelight-2026-07-20": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39271,7 +39340,10 @@
     },
     "events12:music-by-candlelight-2026-07-21": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39279,7 +39351,10 @@
     },
     "events12:music-by-candlelight-2026-07-22": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -39457,7 +39532,10 @@
     },
     "events12:wine-walk-2026-07-18": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -43844,7 +43922,10 @@
     },
     "events12:music-by-candlelight-2026-07-23": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
@@ -43852,7 +43933,10 @@
     },
     "events12:music-by-candlelight-2026-07-24": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
@@ -43868,7 +43952,10 @@
     },
     "events12:live-theater-2026-07-24": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
@@ -44693,6 +44780,1126 @@
       "resolvedAt": "2026-07-11",
       "source": "agent",
       "evidence": "https://www.4daysofaloha.com/"
+    },
+    "events12:kirkland-wine-festival-2026-07-17": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:kirkland-wine-festival-2026-07-18": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:kirkland-wine-festival-2026-07-19": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-07-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-07-27": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-07-28": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-07-29": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-07-30": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-07-31": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-01": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-02": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-03": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-04": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-05": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-06": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-07": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-08": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-09": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-10": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-11": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-12": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-13": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-14": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:live-theater-2026-08-15": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:motown-music-on-a-rooftop-2026-07-15-1800": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:motown-music-on-a-rooftop-2026-07-15-2030": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:music-arts-festival-2026-07-17": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:music-arts-festival-2026-07-18": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:music-arts-festival-2026-07-19": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:music-by-candlelight-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:music-by-candlelight-2026-07-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:music-festival-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:music-in-the-great-outdoors-2026-07-18": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:party-on-a-ferry-boat-2026-07-12": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:party-on-a-ferry-boat-2026-07-19": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:pioneer-reenactment-2026-07-18": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:pioneer-reenactment-2026-07-19": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-18": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-19": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-20": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-21": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-22": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-23": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-24": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-27": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-28": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-29": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-30": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-07-31": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-01": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-02": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-03": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-04": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-05": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-06": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-07": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-08": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-09": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-10": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-11": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-12": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-13": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-14": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-15": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:renaissance-fair-2026-08-16": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:reptile-show-2026-07-11": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:reptile-show-2026-07-12": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:scottish-festival-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:scottish-festival-2026-07-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:seafair-run-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:seattle-art-fair-2026-07-24": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:seattle-art-fair-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:seattle-art-fair-2026-07-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:sing-along-to-1980s-new-wave-2026-07-16": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:swing-dance-2026-07-24": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:swing-dance-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:swing-dance-2026-07-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:thomas-train-ride-2026-07-17": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:thomas-train-ride-2026-07-24": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:triathlon-2026-07-19": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:vintage-car-show-2026-07-24": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:vintage-car-show-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:vintage-car-show-2026-07-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:vintage-cars-wine-2026-07-12": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:world-cup-soccer-2026-07-01": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:world-cup-soccer-2026-07-02": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:world-cup-soccer-2026-07-03": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-07-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-07-27": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-07-28": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-07-29": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-07-30": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-07-31": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-01": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-02": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-03": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-04": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-05": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-06": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-07": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-08": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-09": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-10": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-11": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-12": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-08-13": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
+    },
+    "events12:lunch-specials-in-chinatown-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      }
+    },
+    "events12:tacoma-color-run-2026-07-11": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://206.events",
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      }
+    },
+    "events12:watch-seahawks-practice-2026-07-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "cost-resolver",
+      "evidence": "https://www.seahawks.com/training-camp/",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      }
     }
   }
 }
