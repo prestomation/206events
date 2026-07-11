@@ -268,7 +268,6 @@ calendars:
   # --- West Seattle ---
   - name: skylark
     friendlyname: "Skylark"
-    expectEmpty: true
     geo:
       lat: 47.5507
       lng: -122.3525
