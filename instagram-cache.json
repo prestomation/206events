@@ -166,19 +166,15 @@
       "isEvent": false,
       "readAt": "2026-07-11",
       "source": "agent",
-      "reason": "Multi-event 'July Events' roundup graphic covering 5 events; each event recorded individually (dog moms/sports fans have their own dedicated posts; new-ish-to-seattle and therapized have no dedicated post and are recorded under synthetic post ids DaJSQTBlhfB-newish-to-seattle / DaJSQTBlhfB-therapized; the July 8 Sugar Hill event is recorded under its own post DZ-niSVCQbE)",
+      "reason": "Multi-event 'July Events' roundup graphic covering 5 events; each event recorded individually (dog moms/sports fans have their own dedicated posts; new-ish-to-seattle and therapized have no dedicated post and are recorded under synthetic post ids DaJSQTBlhfB-newish-to-seattle / DaJSQTBlhfB-therapized; the July 8 Sugar Hill event, from its own post DZ-niSVCQbE, was already past by the time this account was onboarded and was recorded not-event instead)",
       "permalink": "https://www.instagram.com/p/DaJSQTBlhfB/",
       "postFingerprint": "dcbbd818b3e5"
     },
     "mixmixsocials:DZ-niSVCQbE": {
-      "isEvent": true,
-      "title": "Speed Dating for PPL Who Always Need a Trip Booked",
-      "date": "2026-07-08",
+      "isEvent": false,
       "readAt": "2026-07-11",
       "source": "agent",
-      "startTime": "18:00",
-      "location": "Sugar Hill, 414 E Pine St, Seattle, WA 98122",
-      "description": "BIPOC-centered speed dating night for singles (men & women, 28-35 y/o) at Sugar Hill on Capitol Hill. Sold out.",
+      "reason": "Event already past (Jul 8) by the time this account was onboarded (Jul 11); lineage back to the poster that triggered this source addition is recorded in docs/source-candidates/mixmix-socials.md instead of as a dead-on-arrival calendar entry",
       "permalink": "https://www.instagram.com/p/DZ-niSVCQbE/",
       "postFingerprint": "c47d86577c3a"
     },

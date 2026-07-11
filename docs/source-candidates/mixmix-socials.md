@@ -32,10 +32,8 @@ Implemented as `sources/mixmix-socials/ripper.yaml`
 (`config.username: mixmixsocials`, `geo: null` — itinerant, multi-venue),
 seeded into `instagram-cache.json` via the `instagram-source` skill:
 
-- 3 events recorded from their own dedicated posts (Cool Dog Moms @ The
-  Alley 7/15, Women's Sports Fans @ Pitch the Baby 7/23, and the original
-  poster's PPL Who Love to Travel @ Sugar Hill 7/8 — already past, kept for
-  lineage back to the poster that triggered this lookup).
+- 2 events recorded from their own dedicated posts (Cool Dog Moms @ The
+  Alley 7/15, Women's Sports Fans @ Pitch the Baby 7/23).
 - 2 events (New-ish to Seattle @ Miero Coffee Bar 7/27, Therapized Lolol @
   Navy Strength 7/30) had no dedicated post, only an entry on the roundup
   carousel — recorded under synthetic post ids
@@ -44,9 +42,10 @@ seeded into `instagram-cache.json` via the `instagram-source` skill:
   with an `UncertaintyError` for `startTime`, to be resolved by the
   event-uncertainty-resolver once a dedicated post appears.
 - 1 duplicate announcement (`DaLeJfJEV-D`, an earlier flyer for the same
-  Cool Dog Moms event as `DaoYEjtvox4`) and 4 purely promotional posts
-  (explainer video, "3 reasons" carousel, flyering recap, general CTA)
-  marked `isEvent: false`.
+  Cool Dog Moms event as `DaoYEjtvox4`) and 5 purely promotional/past posts
+  (explainer video, "3 reasons" carousel, flyering recap, general CTA, and
+  the original poster's Sugar Hill event — `DZ-niSVCQbE`, already past by
+  the time this account was onboarded) marked `isEvent: false`.
 
 Refreshed on a schedule by re-running the `instagram-source` skill against
 `@mixmixsocials`; past events pruned with `instagram-cache.py prune`.

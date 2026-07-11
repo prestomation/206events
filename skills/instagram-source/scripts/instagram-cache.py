@@ -239,7 +239,8 @@ def main():
 
     w = sub.add_parser("write")
     w.add_argument("--username", required=True)
-    w.add_argument("--post-id", required=True, help="Instagram post shortcode (from the permalink)")
+    w.add_argument("--post-id", required=True, help="Instagram post shortcode (from the permalink), or "
+                   "'<shortcode>-<slug>' for one event out of a multi-event roundup post")
     w.add_argument("--title")
     w.add_argument("--date", help="Event date YYYY-MM-DD (local)")
     w.add_argument("--start-time", help="Local HH:MM or HH:MM:SS")

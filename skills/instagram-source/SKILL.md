@@ -143,6 +143,14 @@ python3 skills/instagram-source/scripts/instagram-cache.py write \
   --not-event --reason 'Recap photo of last week, no upcoming date'
 ```
 
+**Multi-event roundup posts** (one flyer/carousel naming several distinct
+dated events, e.g. "this month's lineup") can't be one cache entry — each
+`postId` maps to at most one `date`. For each event on the roundup that has
+no dedicated post of its own, write it under a synthetic id
+`<realShortcode>-<slugify(title)>`, then record the roundup post itself as
+`--not-event` with a `--reason` listing which synthetic ids it expanded into.
+See `docs/instagram-source.md` for the full convention.
+
 Write into the committed cache with **`--committed instagram-cache.json`** — this
 is the file the build reads, and committing it puts every change under review in
 the PR you open. (The script can also read/write an optional S3 store when run
