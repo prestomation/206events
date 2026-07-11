@@ -139,15 +139,28 @@ name the truck themselves — a worse duplicate helps no one.
    `sft-${ev.id}` is stable (upstream booking id) — retain it; do **not** key on
    array index or timestamp.
 
-**The merged view comes from the tag aggregator.** With every pod tagged
-`FoodTruck`, the build auto-produces `tag-foodtruck.ics` (and `.rss`) combining
-all pods — that *is* the citywide "all Seattle food trucks" feed, for free. So
-the standalone single `seattle-food-trucks.ics` is retired:
+**The merged view comes from the tag aggregator — and the merged calendar is
+kept as an anchor.** With every *pod* calendar tagged `FoodTruck`, the build
+auto-produces `tag-foodtruck.ics` (and `.rss`) combining all pods — that *is*
+the curated citywide "all Seattle food trucks" feed. The original single
+`seattle-food-trucks-seattle-food-trucks.ics` calendar is **not** retired,
+though; it's kept for two reasons discovered during implementation:
 
-- Removing that URL requires an `allowed-removals/seattle-food-trucks.ics` (and
-  any renamed calendar) entry — CI's `check-missing-urls` fails otherwise.
-  Delete the marker after the change deploys.
-- Note for subscribers: the closest replacement is `tag-foodtruck.ics`.
+- **The new-source 0-event gate is fatal and `expectEmpty` does not exempt it.**
+  Renaming/removing the one existing calendar makes the whole `seattle-food-trucks`
+  source register as "new" (none of its calendars match the deployed manifest),
+  and then *any* declared pod calendar that happens to be empty in the CI build
+  fails the build. Pods are empty most weeks. Keeping the original calendar name
+  means at least one calendar is always known-deployed, so the source is never
+  "new" and empty pods are non-fatal.
+- It preserves existing subscribers and needs **no `allowed-removals/` entry**.
+
+To avoid double-counting in tag feeds, the merged calendar is tagged only
+`Food` (its events land in `tag-food.ics`) while the per-pod calendars are
+tagged `FoodTruck` + neighborhood (their events land in `tag-foodtruck.ics` and
+the neighborhood aggregates). No single tag feed contains both, so nothing
+duplicates. Ripper-level `tags` is left unset so tags don't union into every
+calendar.
 
 **Tests:** update `sources/seattle_food_trucks/ripper.test.ts` against a saved
 `sample-data.json` (pods + events + a location) — assert per-pod bucketing,
@@ -233,7 +246,7 @@ with zero custom code.
 
 **B2 — Trucks without their own feed (research tail).**
 - **Build the truck catalog for free.** Page `/api/trucks` (830 trucks) into one
-  reference doc — `docs/source-candidates/seattle-food-trucks-roster.md` (one
+  reference doc — `docs/seattle-food-trucks-roster.md` (one
   doc, *not* 830 candidate files) capturing name, slug, cuisine, website,
   socials. This is the "chew through all at once" list, and it's where we look
   up a truck's website to hunt for a B1 feed.
@@ -305,36 +318,40 @@ self-published feeds in **Track B1** (e.g. Tat's Google Calendar) provide.
 
 ---
 
-## 6. Rollout
+## 6. What shipped (this PR)
 
-1. **PR 1 (Track A):** multi-calendar per-pod refactor of
-   `sources/seattle_food_trucks/`, `FoodTruck` tag, neighborhood mapping,
-   per-pod geo, `POD_CONFIG` + unconfigured-pod gap detection, `expectEmpty`
-   where needed, `allowed-removals/` for the retired merged URL, updated tests +
-   fixture. Nominally a calendar-source change, but it's a substantial
-   behavioral refactor that removes a published URL and changes output shape — a
-   reviewer may reasonably want eyes on it, so treat auto-merge as borderline
-   rather than automatic.
-2. **PR 2 (Track B1):** the first self-published truck feed —
-   `sources/external/tats-truck.yaml` (Tat's Google Calendar ICS, verified) —
-   added via the normal `source-discovery` flow, tagged `["FoodTruck", ...]`.
-   Auto-merge-eligible (external calendar source). Additional truck feeds follow
-   the same shape, one PR each.
-3. **PR 3 (Track B2):** the 830-truck roster doc
-   (`docs/source-candidates/seattle-food-trucks-roster.md`) + a written finding
-   on whether StreetFoodFinder/Roaming Hunger expose a usable per-truck feed past
-   the 403. The roster doc is content; any new per-truck ripper follows
-   `source-discovery`.
-4. This design doc merges first (requires manual review — it proposes a plan).
+All three tracks are implemented together in this PR:
 
-Tracks A and B1 are independent and can proceed **in parallel** — the pod
-refactor and the Tat's feed touch disjoint files.
+1. **Track A — per-pod refactor of `sources/seattle_food_trucks/`.** `ripper.ts`
+   now emits the merged calendar plus one calendar per declared pod, buckets
+   bookings by pod via `POD_CONFIG`, and emits a non-fatal `Unknown pod …`
+   `ParseError` for any Seattle pod absent from `POD_CONFIG`. `ripper.yaml`
+   declares the merged calendar (`tags: ["Food"]`) plus **18 public pods**
+   (each `tags: ["FoodTruck", "<Neighborhood>"]`, per-pod `geo`,
+   `expectEmpty: true`). **7 pods are skipped** in `POD_CONFIG`: 4 suburban
+   strays that slip the neighborhood filter (Black Raven Redmond/Woodinville,
+   Statsig, Sunset Corporate — all Bellevue/Eastside) and 3 Seattle breweries
+   (Broadview Tap House, Figurehead, Saleh's) deferred to dedicated rippers.
+   `FoodTruck` added to `lib/config/tags.ts`. No `allowed-removals/` (merged
+   calendar kept — see §Track A).
+2. **Track B1 — `sources/external/tats-truck.yaml`** (Tat's Google Calendar ICS,
+   verified 623 events), `sourceRole: venue`, `geo: null`, `tags: ["FoodTruck"]`.
+3. **Track B2 — `docs/seattle-food-trucks-roster.md`**, the 831-truck lookup
+   catalog pulled from `/api/trucks`. (Placed at `docs/` root, not
+   `docs/source-candidates/`, to avoid colliding with the one-candidate-per-file
+   schema there.) The StreetFoodFinder/Roaming Hunger aggregator investigation
+   remains a documented follow-up — both 403 CI/residential IPs and need the
+   proxy ladder.
+
+This is a substantial behavioral change to a calendar source (new calendars,
+new tag, new error path). Per the auto-merge rubric it's borderline — a reviewer
+may reasonably want eyes on it — so treat auto-merge as not-automatic.
 
 ## 7. Open questions
 
-- For "Breweries" and "University Of Washington" API neighborhoods, confirm the
-  exact target tag spelling against `city.config.ts`.
 - Do any StreetFoodFinder/Roaming Hunger per-truck pages expose ICS/JSON once
-  past the 403? (Track B2.)
-- Should the retired `seattle-food-trucks.ics` 301-equivalent be surfaced in
-  release notes for existing subscribers, pointing at `tag-foodtruck.ics`?
+  past the 403? (Track B2 follow-up.)
+- The merged `seattle-food-trucks` calendar still includes the few suburban
+  brewery/campus pods that pass the neighborhood filter (pre-existing behavior,
+  unchanged). Worth tightening its membership to the `POD_CONFIG` non-skip set
+  later, but out of scope here.
