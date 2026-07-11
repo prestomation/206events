@@ -94,12 +94,15 @@ function podMap(pods: Pod[]): Map<string, Pod> {
     return m;
 }
 
-// Minimal calendar configs mirroring ripper.yaml (only fields buildCalendars reads).
-const CALENDARS: any = [
-    { name: 'seattle-food-trucks', friendlyname: 'Seattle Food Trucks', timezone, tags: ['Food'] },
-    { name: 'westlake-park', friendlyname: 'Food Trucks @ Westlake Park', timezone, tags: ['FoodTruck', 'Downtown'] },
-    { name: 'starbucks-center', friendlyname: 'Food Trucks @ Starbucks Center', timezone, tags: ['FoodTruck', 'SoDo'] },
-];
+// Minimal ripper config mirroring ripper.yaml (only fields buildCalendars reads).
+const CONFIG: any = {
+    name: 'seattle-food-trucks',
+    calendars: [
+        { name: 'seattle-food-trucks', friendlyname: 'Seattle Food Trucks', timezone, tags: ['Food'] },
+        { name: 'westlake-park', friendlyname: 'Food Trucks @ Westlake Park', timezone, tags: ['FoodTruck', 'Downtown'] },
+        { name: 'starbucks-center', friendlyname: 'Food Trucks @ Starbucks Center', timezone, tags: ['FoodTruck', 'SoDo'] },
+    ],
+};
 
 // --- Seattle filtering ---
 
@@ -128,7 +131,7 @@ describe('SeattleFoodTruckRipper.buildCalendars', () => {
     ];
 
     it('merged calendar contains every pod slot; per-pod calendars are filtered', () => {
-        const cals = ripper.buildCalendars(CALENDARS, pods, bookings, podMap(pods), new Map(), timezone);
+        const cals = ripper.buildCalendars(CONFIG, pods, bookings, podMap(pods), new Map(), timezone);
         const merged = cals.find(c => c.name === 'seattle-food-trucks')!;
         const westlake = cals.find(c => c.name === 'westlake-park')!;
         const starbucks = cals.find(c => c.name === 'starbucks-center')!;
@@ -141,21 +144,31 @@ describe('SeattleFoodTruckRipper.buildCalendars', () => {
     });
 
     it('produces stable per-booking ids and free cost', () => {
-        const cals = ripper.buildCalendars(CALENDARS, pods, bookings, podMap(pods), new Map(), timezone);
+        const cals = ripper.buildCalendars(CONFIG, pods, bookings, podMap(pods), new Map(), timezone);
         const westlake = cals.find(c => c.name === 'westlake-park')!;
         expect(westlake.events[0].id).toBe('sft-1');
         expect(westlake.events[0].cost).toEqual({ min: 0 });
     });
 
     it('carries per-calendar tags through', () => {
-        const cals = ripper.buildCalendars(CALENDARS, pods, bookings, podMap(pods), new Map(), timezone);
+        const cals = ripper.buildCalendars(CONFIG, pods, bookings, podMap(pods), new Map(), timezone);
         expect(cals.find(c => c.name === 'seattle-food-trucks')!.tags).toEqual(['Food']);
         expect(cals.find(c => c.name === 'westlake-park')!.tags).toEqual(['FoodTruck', 'Downtown']);
     });
 
+    it('sets parent on every calendar (required for events-index URL reconstruction)', () => {
+        // Regression guard: without `parent`, events are written to ICS but the
+        // events-index builder computes the wrong ICS URL and drops them from
+        // the website (lib/calendar_ripper.ts events-index loop).
+        const cals = ripper.buildCalendars(CONFIG, pods, bookings, podMap(pods), new Map(), timezone);
+        for (const cal of cals) {
+            expect(cal.parent, `${cal.name} must carry parent`).toBe(CONFIG);
+        }
+    });
+
     it('attaches unknown-pod errors to the merged calendar only', () => {
         const withUnknown = [...pods, makePod('Brand New Pod', 'brand-new-pod', 77, 'Ballard')];
-        const cals = ripper.buildCalendars(CALENDARS, withUnknown, bookings, podMap(withUnknown), new Map(), timezone);
+        const cals = ripper.buildCalendars(CONFIG, withUnknown, bookings, podMap(withUnknown), new Map(), timezone);
         const merged = cals.find(c => c.name === 'seattle-food-trucks')!;
         const westlake = cals.find(c => c.name === 'westlake-park')!;
         expect(merged.errors.some(e => e.reason.includes('Brand New Pod'))).toBe(true);

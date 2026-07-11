@@ -156,7 +156,7 @@ export default class SeattleFoodTruckRipper implements IRipper {
         const bookings = await this.collectSeattleBookings(podByName);
 
         // 4. Build the merged + per-pod calendars from the bookings.
-        return this.buildCalendars(ripper.config.calendars, seattlePods, bookings, podByName, locationDetails, timezone);
+        return this.buildCalendars(ripper.config, seattlePods, bookings, podByName, locationDetails, timezone);
     }
 
     /** Whether a pod is in the Seattle service area (matches SEATTLE_NEIGHBORHOODS,
@@ -214,13 +214,14 @@ export default class SeattleFoodTruckRipper implements IRipper {
      *  and attach any unknown-pod detection errors to the merged calendar. Pure
      *  (no network) so it can be unit-tested against sample data. */
     public buildCalendars(
-        calendars: Ripper["config"]["calendars"],
+        config: Ripper["config"],
         seattlePods: Pod[],
         bookings: SFTBooking[],
         podByName: Map<string, Pod>,
         locationDetails: Map<number, LocationDetails>,
         timezone: any,
     ): RipperCalendar[] {
+        const calendars = config.calendars;
         // Group bookings by the calendar they belong to (via POD_CONFIG).
         const byCalendar = new Map<string, SFTBooking[]>();
         for (const ev of bookings) {
@@ -256,6 +257,12 @@ export default class SeattleFoodTruckRipper implements IRipper {
                 friendlyname: cal.friendlyname,
                 events,
                 errors,
+                // `parent` is REQUIRED downstream: the events-index builder
+                // reconstructs each calendar's ICS URL from `parent.name`
+                // (lib/calendar_ripper.ts) — without it, events are written to
+                // ICS but silently dropped from events-index.json (and the site).
+                // It also drives per-calendar geo/imageUrl lookup and venues.json.
+                parent: config,
                 tags: cal.tags || [],
             } as RipperCalendar;
         });
