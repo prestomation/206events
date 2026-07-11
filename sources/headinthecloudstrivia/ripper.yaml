@@ -1,0 +1,27 @@
+name: headinthecloudstrivia
+type: instagram
+# First-party host: publishes its own trivia nights across many bars (geo: null
+# at the ripper level, like spl — a multi-venue first-party source, not a republisher).
+sourceRole: venue
+description: "Head in the Clouds Trivia"
+url: "https://www.instagram.com/headinthecloudstrivia/"
+friendlyLink: https://www.instagram.com/headinthecloudstrivia/
+# Disabled reference wiring for the `instagram` ripper type. Head in the Clouds
+# trivia is already covered by the recurring weekly sources
+# (sources/recurring/hitc-trivia-*.yaml), so this source stays disabled — it's
+# kept only as the canonical example of how to wire a `type: instagram` source.
+# To stand up a real instagram source: seed instagram-cache.json via the
+# instagram-source skill (out of band / a Claude routine that commits via PR),
+# then remove `disabled`. A source with 0 events fails the build, so it must have
+# cache entries before being enabled. See docs/instagram-source.md.
+disabled: true
+# Mobile trivia host — runs at many bars, no single fixed location.
+geo: null
+tags: ["Trivia"]
+calendars:
+  - name: headinthecloudstrivia
+    friendlyname: "Head in the Clouds Trivia"
+    timezone: America/Los_Angeles
+    config:
+      username: headinthecloudstrivia
+      defaultDurationHours: 2

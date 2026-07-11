@@ -1,0 +1,22 @@
+name: freeze-tag-events
+type: instagram
+# First-party host: Freeze Tag runs its own experiential events (walking/tasting
+# tours, scavenger hunts, murder mysteries, trivia, bingo) at rotating venues
+# across Seattle. Like headinthecloudstrivia/spl, it's a multi-venue first-party
+# source (geo: null at the ripper level), not a republisher of others' events.
+sourceRole: venue
+description: "Freeze Tag Events"
+url: "https://www.instagram.com/freeze.tag.events/"
+friendlyLink: https://www.instagram.com/freeze.tag.events/
+# Itinerant organizer — events move around Seattle neighborhoods, no single
+# fixed location. Per-event addresses come from the cache (the flyer/caption or
+# the linked TicketSpice page).
+geo: null
+tags: ["Community"]
+calendars:
+  - name: freeze-tag-events
+    friendlyname: "Freeze Tag Events"
+    timezone: America/Los_Angeles
+    config:
+      username: freeze.tag.events
+      defaultDurationHours: 2
