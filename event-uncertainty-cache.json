@@ -15576,11 +15576,12 @@
       "partialFingerprint": "4kzq6f"
     },
     "discover-slu:discover-slu-guest-chef-night-lockwood": {
-      "unresolvable": true,
-      "reason": "No end time listed on page",
-      "resolvedAt": "2026-06-08",
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-07-11",
       "source": "agent",
-      "partialFingerprint": "127zmdb"
+      "evidence": "https://www.discoverslu.com/events/guest-chef-night-lockwood/"
     },
     "discover-slu:discover-slu-stir-up-the-paint-splash-lavender-2": {
       "fields": {
@@ -15906,11 +15907,12 @@
       "partialFingerprint": "1s8fqw4"
     },
     "discover-slu:discover-slu-shape-of-summer": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-11",
       "source": "agent",
-      "partialFingerprint": "768yii"
+      "evidence": "https://www.discoverslu.com/events/shape-of-summer/"
     },
     "discover-slu:discover-slu-stir-up-the-paint-pnw-sunset": {
       "unresolvable": true,
@@ -42402,6 +42404,274 @@
       "resolvedAt": "2026-07-11",
       "source": "agent",
       "evidence": "https://www.seattleparksfoundation.org/event/tree-care-skill-share-and-volunteer-work-party-at-the-green-line/"
+    },
+    "discover-slu:discover-slu-mosaic-mirrors": {
+      "fields": {
+        "startTime": "17:00"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/mosaic-mirrors/"
+    },
+    "discover-slu:discover-slu-a-midsummer-exhale-july-breathwork": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/a-midsummer-exhale-july-breathwork/"
+    },
+    "discover-slu:discover-slu-backpacking-basics": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/backpacking-basics/"
+    },
+    "discover-slu:discover-slu-frequency-reset": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/frequency-reset/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-sunset-reflections": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-sunset-reflections/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-space-needle-sunset": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-space-needle-sunset/"
+    },
+    "discover-slu:discover-slu-supper-fan-club-st": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/supper-fan-club-st/"
+    },
+    "discover-slu:discover-slu-guest-chef-night-stowell": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/guest-chef-night-stowell/"
+    },
+    "discover-slu:discover-slu-dont-tell-comedy-3-2-2-2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "End time not listed on source page; only start time (7:30pm) shown"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47701": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-a-festal-exhibit-x47701"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47702": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-a-festal-exhibit-x47702"
+    },
+    "seattle-center:joji-solaris-tour": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/joji-solaris-tour"
+    },
+    "seattle-center:x47328.xml": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "All-day installation artwork, no specific start time on page"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46346": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "All-day outdoor exhibit, listed as All Day on source page"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46347": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "All-day outdoor exhibit, listed as All Day on source page"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46348": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "All-day outdoor exhibit, listed as All Day on source page"
+    },
+    "seattle-center:seattle-storm-vs-minnesota": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "End time not listed on source page"
+    },
+    "seattle-center:seattle-storm-vs-minnesota-x46777": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "End time not listed on source page"
+    },
+    "seattle-center:seattle-storm-vs-minnesota-wednesday-july-22-2026": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "End time not listed on source page"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqsbhL": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Ticketmaster page returned HTTP 403, unable to verify start time"
+    },
+    "mopop:mopop-the-icons-of-pop-culture-gala-2026-10-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Start time for gala not posted on source page, only museum hours shown"
+    },
+    "19hz:19hz-2026/07/10-Can't Sleep (Extended Set)": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DaRgIRgK-Q0/"
+    },
+    "19hz:19hz-2026/07/24-House Rules": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DadfTGyqcac/"
+    },
+    "19hz:19hz-2026/07/19-Now That's What I Call Sandwich Vol. 1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://clubsandwichseattle.com/events/2026-07-19-now-thats-what-i-call-sandwich-vol-1"
+    },
+    "19hz:19hz-2026/08/15-Electric Feels": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.axs.com/events/1511352/electric-feels-indie-rock-electronic-dance-party-tickets"
+    },
+    "19hz:19hz-2026/09/26-Ivy Lab, Cesco, OAKK, Barisone": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/ivy-lab-tickets-1986014234036"
+    },
+    "19hz:19hz-2026/10/09-BASEMENT STASH": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/basement-stash-tickets-1981377782284"
+    },
+    "19hz:19hz-2026/07/12-RayBurger": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Tixr returned HTTP 403, end time not available"
+    },
+    "19hz:19hz-2026/08/08-Hi I'm Ghost, Wodd": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Eventim page returned HTTP 403, end time not available"
+    },
+    "19hz:19hz-2026/08/08-The Original Sapphic Soiree": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "No end time listed on Eventbrite page"
+    },
+    "19hz:19hz-2026/09/12-The Original Sapphic Soiree": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "No end time listed on Eventbrite page"
+    },
+    "19hz:19hz-2026/09/12-Lusine": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Tixr returned HTTP 403, end time not available"
+    },
+    "19hz:19hz-2026/10/02-The Juan Maclean B2B Matthew Dear": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Tixr returned HTTP 403, end time not available"
+    },
+    "19hz:19hz-2026/11/06-Soft Vein": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "No end time listed on opendate.io page"
+    },
+    "19hz:19hz-2026/11/14-The Original Sapphic Soiree": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "No end time listed on Eventbrite page"
+    },
+    "19hz:19hz-2026/12/12-The Original Sapphic Soiree": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "No end time listed on Eventbrite page"
+    },
+    "19hz:19hz-2026/08/22-Oops All Leos": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "Facebook event page inaccessible without login; end time and cost not available"
     }
   }
 }
