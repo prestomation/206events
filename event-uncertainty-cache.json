@@ -42830,6 +42830,93 @@
       "resolvedAt": "2026-07-11",
       "source": "agent",
       "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
+    },
+    "northwest-film-forum:boorman-the-devil-2026-09-05": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/boormanandthedevilposter-1200x1800.jpeg",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/boorman-the-devil/"
+    },
+    "northwest-film-forum:botanical-abstractions-16mm-2026-07-18": {
+      "fields": {
+        "cost": {
+          "min": 25.0,
+          "max": 75.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/botanical-abstractions-16mm/"
+    },
+    "northwest-film-forum:camp-2026-07-24": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/05/CAMP-ONE-SHEET-FilmBy-1200x1778.jpg",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/camp/"
+    },
+    "northwest-film-forum:exorcist-ii-heretic-2026-09-05": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/exorcistiiposter-1200x1765.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/exorcist-ii-heretic/"
+    },
+    "northwest-film-forum:mysterious-skin-4k-restoration-2026-08-23": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/mysteriousskinposter-1200x1778.jpg",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/mysterious-skin-4k-restoration/"
+    },
+    "northwest-film-forum:seattle-film-society-presents-locals-july-2026-2026-07-30": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/seattle-film-society-presents-locals-july-2026/"
+    },
+    "northwest-film-forum:the-flamingo-2026-08-05": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/theflamingoposter.jpg",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/the-flamingo/"
+    },
+    "northwest-film-forum:wtf-with-stuff-senorita-2026-08-19": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/senoritapostersmall-1200x1778.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-senorita/"
     }
   }
 }
