@@ -6,7 +6,7 @@ url: https://freezetag.ticketspice.com/
 tags: [Community]
 firstSeen: 2026-07-11
 lastChecked: 2026-07-11
-pr: 910
+pr:
 ---
 
 Surfaced from a poster lookup for "Little Treat Tasting & Treasure Tour"
