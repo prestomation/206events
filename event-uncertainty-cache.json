@@ -40665,8 +40665,7 @@
       "fields": {
         "cost": {
           "min": 0
-        },
-        "imageUrl": "https://www.pikeplacemarket.org/wp-content/uploads/2023/01/artisan_prepared_foods_program-pike_place_market.jpg"
+        }
       },
       "resolvedAt": "2026-07-10",
       "source": "agent",
@@ -49848,12 +49847,10 @@
       "source": "agent"
     },
     "pike-place-market:ppm-folio-presents-400-years-of-racism-book-discussions": {
-      "fields": {
-        "imageUrl": "https://www.pikeplacemarket.org/wp-content/uploads/2021/09/folio_the_seattle_athenaeum-pike_place_market-1.jpg"
-      },
+      "unresolvable": true,
+      "reason": "Event-specific image on pikeplacemarket.org returns HTTP 404; images.pikeplacemarket.org CDN is hotlink-protected (HTTP 403). No alternative image found for this recurring virtual Zoom book discussion.",
       "resolvedAt": "2026-07-11",
-      "source": "agent",
-      "evidence": "https://pikeplacemarket.org/event/folio-presents-400-years-of-racism-book-discussions/"
+      "source": "agent"
     },
     "greater-seattle-choral-consortium:gscc-2891-2026-11-22-1500": {
       "unresolvable": true,
@@ -49874,38 +49871,42 @@
       "source": "agent"
     },
     "greater-seattle-choral-consortium:gscc-2912-2026-12-05-2000": {
-      "unresolvable": true,
-      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "fields": {
+        "imageUrl": "https://www.seattlechoralcompany.org/wp-content/uploads/2026/06/Buon-Natale-placeholder-image-SCC-1024x538.jpg"
+      },
       "resolvedAt": "2026-07-11",
-      "source": "agent"
+      "source": "agent",
+      "evidence": "https://www.seattlechoralcompany.org/current-season/"
     },
     "greater-seattle-choral-consortium:gscc-2913-2027-03-13-2000": {
-      "unresolvable": true,
-      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "fields": {
+        "imageUrl": "https://www.seattlechoralcompany.org/wp-content/uploads/2026/06/vespeers-art.jpg"
+      },
       "resolvedAt": "2026-07-11",
-      "source": "agent"
+      "source": "agent",
+      "evidence": "https://www.seattlechoralcompany.org/current-season/"
     },
     "greater-seattle-choral-consortium:gscc-2916-2026-09-14-1830": {
       "unresolvable": true,
-      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "reason": "ECWC 'Meet the Chorus Night' open house has no event URL in GSCC data; emeraldcitywomenschorus.org is NXDOMAIN",
       "resolvedAt": "2026-07-11",
       "source": "agent"
     },
     "greater-seattle-choral-consortium:gscc-2921-2026-07-25-1300": {
       "unresolvable": true,
-      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "reason": "Level Up Vocal Ensemble 'Meet & Greet' event page only contains small unstable Google Sites-hosted logo PNGs, not performance photos",
       "resolvedAt": "2026-07-11",
       "source": "agent"
     },
     "greater-seattle-choral-consortium:gscc-2928-2026-08-08-1400": {
       "unresolvable": true,
-      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "reason": "Market Street Singers 'Choral Classics Singalong' has no event-specific image; cantareamantis.org is NXDOMAIN",
       "resolvedAt": "2026-07-11",
       "source": "agent"
     },
     "greater-seattle-choral-consortium:gscc-2929-2026-09-12-1000": {
       "unresolvable": true,
-      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "reason": "La Chorale Francophone de Seattle yard sale fundraiser has no event URL in GSCC data; yard sale events don't have event-specific photos",
       "resolvedAt": "2026-07-11",
       "source": "agent"
     }
