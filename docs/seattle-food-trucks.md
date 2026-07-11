@@ -139,12 +139,14 @@ name the truck themselves — a worse duplicate helps no one.
    `sft-${ev.id}` is stable (upstream booking id) — retain it; do **not** key on
    array index or timestamp.
 
-**The merged view comes from the tag aggregator — and the merged calendar is
-kept as an anchor.** With every *pod* calendar tagged `FoodTruck`, the build
-auto-produces `tag-foodtruck.ics` (and `.rss`) combining all pods — that *is*
-the curated citywide "all Seattle food trucks" feed. The original single
-`seattle-food-trucks-seattle-food-trucks.ics` calendar is **not** retired,
-though; it's kept for two reasons discovered during implementation:
+**The merged calendar is kept as a disjoint catch-all + anchor.** With every
+*pod* calendar tagged `FoodTruck`, the build auto-produces `tag-foodtruck.ics`
+(and `.rss`) combining all pods — that *is* the curated citywide public-pod
+feed. The original `seattle-food-trucks-seattle-food-trucks.ics` calendar is
+**kept but repurposed**: it now holds only the pods that DON'T have their own
+per-pod calendar (skipped breweries, suburban strays, and any newly-appeared
+pod), exactly like `seattle_showlists`' catch-all excludes venues that have a
+dedicated ripper. Two reasons it's kept:
 
 - **The new-source 0-event gate is fatal and `expectEmpty` does not exempt it.**
   Renaming/removing the one existing calendar makes the whole `seattle-food-trucks`
@@ -152,8 +154,26 @@ though; it's kept for two reasons discovered during implementation:
   and then *any* declared pod calendar that happens to be empty in the CI build
   fails the build. Pods are empty most weeks. Keeping the original calendar name
   means at least one calendar is always known-deployed, so the source is never
-  "new" and empty pods are non-fatal.
-- It preserves existing subscribers and needs **no `allowed-removals/` entry**.
+  "new" and empty pods are non-fatal. The catch-all reliably has events (active
+  breweries), so it's a robust anchor.
+- It preserves the URL (no `allowed-removals/` entry) and gives newly-appeared
+  pods a home until they're broken out.
+
+**Why disjoint matters — cross-source dedup.** The catch-all is disjoint from
+the per-pod calendars (no slot is in two calendars). If the merged calendar
+still held *all* pods, every pod slot would appear twice (merged + pod), and the
+cross-source dedup — which only skips same-`icsUrl` pairs, not same-*ripper* —
+would flag ~90 merged-vs-pod candidates and bloat `events-index.json`. Making it
+disjoint removes that entirely.
+
+A small residual remains: the dedup compares calendars from the *same* ripper,
+so genuinely-distinct **adjacent** pods with the generic `Food Trucks @ <pod>`
+title get flagged — Westlake Park (401 Pine) auto-merges into Westlake Center
+(400 Pine, ~50m, effectively the same block), and 1201 ↔ 1551 Eastlake (321m,
+different ZIPs) surface as MED candidates the duplicate-resolver rejects. Both
+are non-fatal. The clean systemic fix is to teach the dedup to skip
+same-*source* (same-ripper) pairs, since a source owns its own event uniqueness;
+that's a follow-up infra change, out of scope here.
 
 To avoid double-counting in tag feeds, the merged calendar is tagged only
 `Food` (its events land in `tag-food.ics`) while the per-pod calendars are

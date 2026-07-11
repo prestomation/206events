@@ -121,26 +121,45 @@ describe('SeattleFoodTruckRipper.isSeattlePod', () => {
 // --- Per-pod bucketing ---
 
 describe('SeattleFoodTruckRipper.buildCalendars', () => {
+    // Westlake Park + Starbucks Center are declared per-pod calendars; Saleh's is
+    // a POD_CONFIG skip; "Brand New Pod" is unconfigured. The last two should land
+    // in the catch-all merged calendar, the first two in their own calendars.
     const pods = [
         makePod('Westlake Park', 'westlake-park', 38, 'Downtown'),
         makePod('Starbucks Center', 'starbucks-center', 40, 'SoDo'),
+        makePod("Saleh's", 'salehs', 50, 'Breweries'),
+        makePod('Brand New Pod', 'brand-new-pod', 77, 'Ballard'),
     ];
     const bookings = [
         makeBooking(1, 'Westlake Park', 2),
         makeBooking(2, 'Starbucks Center', 3),
+        makeBooking(3, "Saleh's", 2),
+        makeBooking(4, 'Brand New Pod', 2),
     ];
 
-    it('merged calendar contains every pod slot; per-pod calendars are filtered', () => {
+    it('per-pod calendars hold only their own slots; catch-all holds pods without a calendar', () => {
         const cals = ripper.buildCalendars(CONFIG, pods, bookings, podMap(pods), new Map(), timezone);
         const merged = cals.find(c => c.name === 'seattle-food-trucks')!;
         const westlake = cals.find(c => c.name === 'westlake-park')!;
         const starbucks = cals.find(c => c.name === 'starbucks-center')!;
 
-        expect(merged.events).toHaveLength(2);
+        // Catch-all: the skip pod (Saleh's) + the unknown pod, NOT the declared pods.
+        expect(merged.events.map(e => e.summary).sort()).toEqual(
+            ['Food Trucks @ Brand New Pod', "Food Trucks @ Saleh's"],
+        );
         expect(westlake.events).toHaveLength(1);
         expect(westlake.events[0].summary).toBe('Food Trucks @ Westlake Park');
         expect(starbucks.events).toHaveLength(1);
         expect(starbucks.events[0].summary).toBe('Food Trucks @ Starbucks Center');
+    });
+
+    it('the merged calendar is disjoint from the per-pod calendars (no slot in two calendars)', () => {
+        const cals = ripper.buildCalendars(CONFIG, pods, bookings, podMap(pods), new Map(), timezone);
+        const merged = cals.find(c => c.name === 'seattle-food-trucks')!;
+        const perPodIds = new Set(
+            cals.filter(c => c.name !== 'seattle-food-trucks').flatMap(c => c.events.map(e => e.id)),
+        );
+        for (const e of merged.events) expect(perPodIds.has(e.id)).toBe(false);
     });
 
     it('produces stable per-booking ids and free cost', () => {
@@ -167,8 +186,7 @@ describe('SeattleFoodTruckRipper.buildCalendars', () => {
     });
 
     it('attaches unknown-pod errors to the merged calendar only', () => {
-        const withUnknown = [...pods, makePod('Brand New Pod', 'brand-new-pod', 77, 'Ballard')];
-        const cals = ripper.buildCalendars(CONFIG, withUnknown, bookings, podMap(withUnknown), new Map(), timezone);
+        const cals = ripper.buildCalendars(CONFIG, pods, bookings, podMap(pods), new Map(), timezone);
         const merged = cals.find(c => c.name === 'seattle-food-trucks')!;
         const westlake = cals.find(c => c.name === 'westlake-park')!;
         expect(merged.errors.some(e => e.reason.includes('Brand New Pod'))).toBe(true);

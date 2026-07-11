@@ -223,13 +223,22 @@ export default class SeattleFoodTruckRipper implements IRipper {
     ): RipperCalendar[] {
         const calendars = config.calendars;
         // Group bookings by the calendar they belong to (via POD_CONFIG).
+        // `mergedBookings` holds slots at pods WITHOUT their own per-pod calendar
+        // (skipped breweries, suburban strays, or not-yet-configured pods). The
+        // merged calendar is therefore DISJOINT from the per-pod calendars — no
+        // event appears in two calendars, so the cross-source dedup never sees a
+        // food-truck slot twice (mirrors seattle_showlists' catch-all, which
+        // excludes venues that have their own calendar).
         const byCalendar = new Map<string, SFTBooking[]>();
+        const mergedBookings: SFTBooking[] = [];
         for (const ev of bookings) {
             const route = POD_CONFIG[ev.display_name];
             if (route && 'calendar' in route) {
                 const list = byCalendar.get(route.calendar) ?? [];
                 list.push(ev);
                 byCalendar.set(route.calendar, list);
+            } else {
+                mergedBookings.push(ev);   // skip/unknown pod → catch-all
             }
         }
 
@@ -237,7 +246,7 @@ export default class SeattleFoodTruckRipper implements IRipper {
 
         return calendars.map(cal => {
             const forThisCalendar = cal.name === MERGED_CALENDAR
-                ? bookings                                   // merged = every Seattle pod slot
+                ? mergedBookings                             // catch-all = pods without their own calendar
                 : (byCalendar.get(cal.name) ?? []);          // per-pod = just this pod's slots
 
             const events: RipperCalendarEvent[] = [];

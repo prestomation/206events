@@ -11,9 +11,13 @@ skipEventPhotos: true
 lookahead: "P30D"
 geo: null
 calendars:
-  # Merged city-wide feed. Kept as the source anchor (see MERGED_CALENDAR in
-  # ripper.ts) and tagged only "Food" so its events don't double up in the
-  # per-pod "FoodTruck" tag aggregate.
+  # Catch-all feed for Seattle food-truck pods that DON'T have their own per-pod
+  # calendar below (skipped breweries pending dedicated rippers, plus any newly
+  # appeared pod). Disjoint from the per-pod calendars, so no slot is ever in two
+  # calendars (keeps the cross-source dedup from seeing food trucks twice — see
+  # buildCalendars in ripper.ts). Also the source anchor (its already-deployed
+  # URL keeps the source from registering as "new"). Tagged only "Food" so its
+  # events don't double up in the per-pod "FoodTruck" tag aggregate.
   - name: seattle-food-trucks
     friendlyname: "Seattle Food Trucks"
     timezone: America/Los_Angeles
