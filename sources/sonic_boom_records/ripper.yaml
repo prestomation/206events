@@ -1,6 +1,7 @@
 name: sonic-boom-records
 sourceRole: venue
 type: squarespace
+expectEmpty: true
 description: "Sonic Boom Records"
 url: "https://www.sonicboomrecords.com/instores"
 friendlyLink: https://www.sonicboomrecords.com/instores
