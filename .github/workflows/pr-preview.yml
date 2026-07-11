@@ -397,8 +397,13 @@ jobs:
           script: |
             const patterns = [
               /^web\//,
-              /^scripts\/(lighthouse-report|boot-profile|boot-profile-report)\.mjs$/,
-              /^\.github\/workflows\/(pr-preview|web-lighthouse-baseline|web-boot-profile-baseline)\.yml$/,
+              // inject-sw-assets.mjs runs as the last step of `npm run web:build`
+              // (see package.json) and mutates the deployed bundle directly.
+              /^scripts\/(lighthouse-report|boot-profile-report|inject-sw-assets)\.mjs$/,
+              // build-calendars.yml is included because it's the reusable
+              // workflow whose "Build web interface" step (`npm run web:build`)
+              // produces the artifact deploy-preview publishes.
+              /^\.github\/workflows\/(pr-preview|web-lighthouse-baseline|web-boot-profile-baseline|build-calendars)\.yml$/,
             ];
             const files = await github.paginate(github.rest.pulls.listFiles, {
               owner: context.repo.owner,
