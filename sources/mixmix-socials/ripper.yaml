@@ -1,0 +1,21 @@
+name: mixmix-socials
+type: instagram
+# First-party host: MixMix Socials runs its own BIPOC-centered speed dating
+# and speed friending nights at rotating BIPOC-owned bars/cafes across
+# Seattle. Like freeze-tag-events/headinthecloudstrivia, it's a multi-venue
+# first-party source (geo: null at the ripper level), not a republisher.
+sourceRole: venue
+description: "MixMix Socials"
+url: "https://www.instagram.com/mixmixsocials/"
+friendlyLink: https://mixmix.start.page/
+# Itinerant organizer — events move around Seattle neighborhoods (Capitol
+# Hill, West Seattle, CID, Belltown, ...), no single fixed location.
+geo: null
+tags: ["Community"]
+calendars:
+  - name: mixmix-socials
+    friendlyname: "MixMix Socials"
+    timezone: America/Los_Angeles
+    config:
+      username: mixmixsocials
+      defaultDurationHours: 2
