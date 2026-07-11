@@ -567,6 +567,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'workhorse coworking, 123 2nd avenue south, #suite 230, edmonds, wa': { lat: 47.8107897, lng: -122.3809867 },
   // Seatoday intersection: Nominatim can't parse "Ave. North" suffix — bus stop node confirms coords
   'west crockett street and queen anne ave. north, seattle, wa': { lat: 47.6368215, lng: -122.3570590 },
+  // Queen Anne Running of the Bulls route start — Nominatim doesn't resolve the
+  // "&" intersection format; bus stop node confirms coords
+  'queen anne ave n & boston st, seattle, wa 98109': { lat: 47.6383162, lng: -122.3564600 },
   // Farmers market intersection addresses — Nominatim doesn't resolve "between X & Y" format
   'ballard ave nw between 20th ave nw & 22nd ave nw, seattle': { lat: 47.6663, lng: -122.3849 },
   'e barbara bailey way between broadway & 10th ave e, seattle': { lat: 47.6210, lng: -122.3214 },

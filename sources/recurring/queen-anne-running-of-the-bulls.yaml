@@ -1,0 +1,30 @@
+geo:
+  lat: 47.6383162
+  lng: -122.3564600
+  label: "Queen Anne Ave N & Boston St, Seattle, WA 98109"
+name: queen-anne-running-of-the-bulls
+sourceRole: venue
+friendlyname: Queen Anne Running of the Bulls
+description: Whimsical annual footrace down Queen Anne Avenue N in the style of
+  Pamplona's Running of the Bulls. Runners dressed in white with a red scarf and
+  sash are "chased" by bulls built from decorated shopping carts, from the Queen
+  Anne Ave N business district down to Kerry Park. Organized by the Comstock
+  Commission, "a division of the Queen Anne Mafia."
+timezone: America/Los_Angeles
+location: Queen Anne Ave N & Boston St, Seattle, WA 98109
+url: https://everout.com/seattle/events/queen-anne-running-of-the-bulls/e81328/
+tags:
+  - Running
+  - Community
+  - QueenAnne
+  - Outdoors
+cost: free
+# Annual footrace on the 2nd Saturday of July, noon start.
+# Confirmed editions: 2nd annual (Sat Jul 9, an early year), 2025 15th annual
+# (Sat Jul 12), 2026 16th annual (Sat Jul 11) — all 2nd Saturdays. No official
+# org site to re-verify against each year; check the EverOut listing above.
+schedules:
+  - schedule: "2nd Saturday"
+    start_time: "12:00"
+    duration: PT2H
+    months: [7]
