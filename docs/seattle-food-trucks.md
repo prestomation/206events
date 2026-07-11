@@ -95,11 +95,25 @@ a **multi-calendar ripper**, one calendar per Seattle pod (the multi-branch
 `spl` source, ~25 calendars, is the structural template for emitting many
 calendars from one ripper).
 
+**SFT's role — the location layer for public pods (decided).** Because SFT can't
+name the truck at a slot (see §3), its per-pod calendar answers one specific,
+still-valuable question: *"there will be food trucks at this location at these
+times."* That's most useful for **managed public/corporate pods with no other
+feed** — Westlake Center, McGraw Square, South Lake Union, Starbucks Center,
+Expedia, T-Mobile campus, etc. Truck-*following* comes from the self-published
+truck feeds in Track B1; the two layers are complementary. Consequently SFT is
+scoped to those public pods and **skips pods already covered by dedicated
+rippers** (breweries like Cairn, and the "Breweries" bucket), which frequently
+name the truck themselves — a worse duplicate helps no one.
+
 **Behavior changes:**
 
-1. **One `RipperCalendar` per pod.** Build the pod list from `/api/pods` (Seattle
-   filter unchanged), then bucket booking slots by pod. Each pod → its own
-   calendar `name`/`friendlyname`, its own `.ics`.
+1. **One `RipperCalendar` per public pod.** Build the pod list from `/api/pods`
+   (Seattle filter unchanged), then bucket booking slots by pod. Each pod → its
+   own calendar `name`/`friendlyname`, its own `.ics`. Pods marked
+   `skip: true` in `POD_CONFIG` (those covered by a dedicated ripper) produce no
+   calendar — the exact `skip` pattern `seattle_showlists` uses for venues with
+   their own rippers.
 2. **Tags per pod:** `["FoodTruck", "<Neighborhood>"]`. The neighborhood comes
    from `location.neighborhood.name` mapped to our `city.config.ts` tag
    spelling (see §4). Pods with no neighborhood fall back to slug inference (as
@@ -155,9 +169,11 @@ calendar` as a non-fatal `ParseError`). We mirror it:
 - The ripper *already* fetches the full pod list (`GET /api/pods` — this **is**
   the "list pods API"), so the check is nearly free.
 - Pods are curated in a `POD_CONFIG` map (or the `ripper.yaml` calendars list):
-  which pods get a calendar, their neighborhood tag, `geo`, and `expectEmpty`.
-  Curation is needed anyway because the API's neighborhood names don't map
-  cleanly to our tags (`Breweries`, `University Of Washington` — see §4).
+  which pods get a calendar, their neighborhood tag, `geo`, `expectEmpty`, and a
+  `skip` flag for pods covered by a dedicated ripper. Curation is needed anyway
+  because the API's neighborhood names don't map cleanly to our tags
+  (`Breweries`, `University Of Washington` — see §4) and because we only surface
+  public pods, not brewery-duplicate ones.
 - For every Seattle-area pod returned by `/api/pods` that is **not** in
   `POD_CONFIG`, emit a `ParseError`:
   `Unknown pod "<name>" (neighborhood "<nb>", slug "<slug>") not configured — add a calendar entry`.
