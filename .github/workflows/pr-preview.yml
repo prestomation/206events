@@ -376,19 +376,59 @@ jobs:
               });
             }
 
+  # Detects whether this PR touches the web app or the perf-measurement
+  # harness itself. Lighthouse/boot-profile below are expensive (Chromium
+  # install + multiple runs) and only meaningful when the built bundle could
+  # have changed — most PRs here are calendar-source-only and never touch
+  # web/. Uses the GitHub API (no checkout) so it's fast and adds no new
+  # third-party action.
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      web: ${{ steps.filter.outputs.web }}
+    steps:
+      - name: Check for web app changes
+        id: filter
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const patterns = [
+              /^web\//,
+              // inject-sw-assets.mjs runs as the last step of `npm run web:build`
+              // (see package.json) and mutates the deployed bundle directly.
+              /^scripts\/(lighthouse-report|boot-profile-report|inject-sw-assets)\.mjs$/,
+              // build-calendars.yml is included because it's the reusable
+              // workflow whose "Build web interface" step (`npm run web:build`)
+              // produces the artifact deploy-preview publishes.
+              /^\.github\/workflows\/(pr-preview|web-lighthouse-baseline|web-boot-profile-baseline|build-calendars)\.yml$/,
+            ];
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              per_page: 100,
+            });
+            const changed = files.some(f => patterns.some(p => p.test(f.filename)));
+            core.setOutput('web', changed ? 'true' : 'false');
+            core.notice(`web app changed: ${changed} (${files.length} file(s) in PR)`);
+
   # Lighthouse (lab) performance audit against the deployed preview — real CDN,
   # Brotli, and real data, which a data-mocked local `vite preview` can't give.
   # Informational: warn-only assertions, median of runs to damp runner noise
   # (see web/lighthouserc.json). Skipped when there's no preview URL (e.g.
-  # template copies without Cloudflare Pages secrets), so it never blocks them.
+  # template copies without Cloudflare Pages secrets) or the PR doesn't touch
+  # the web app (see the `changes` job above), so it never blocks them.
   # Posts/updates a single PR comment with the scores, the delta vs the previous
   # push on this PR (stored in the comment), and the delta vs the main baseline
   # (restored from the cache that web-lighthouse-baseline.yml saves on main).
   # See docs/web-performance-plan.md and docs/web-performance-measurement-impl.md.
   lighthouse:
     runs-on: ubuntu-latest
-    needs: deploy-preview
-    if: needs.deploy-preview.outputs.deployment-url != ''
+    needs: [deploy-preview, changes]
+    if: needs.deploy-preview.outputs.deployment-url != '' && needs.changes.outputs.web == 'true'
     permissions:
       contents: read
       pull-requests: write
@@ -481,14 +521,15 @@ jobs:
   # main-thread long tasks and tap responsiveness while the full events index
   # lands — the window Lighthouse's initial-load audit can't see (it never taps
   # mid-swap; its lab INP is null). Same posture as the lighthouse job above:
-  # informational/warn-only, skipped without a preview URL, one upserted PR
+  # informational/warn-only, skipped without a preview URL or when the PR
+  # doesn't touch the web app (see the `changes` job above), one upserted PR
   # comment trending vs the previous push (embedded in the comment) and vs the
   # main baseline (Actions cache, saved by web-boot-profile-baseline.yml).
   # See docs/web-boot-profiling-ci.md.
   boot-profile:
     runs-on: ubuntu-latest
-    needs: deploy-preview
-    if: needs.deploy-preview.outputs.deployment-url != ''
+    needs: [deploy-preview, changes]
+    if: needs.deploy-preview.outputs.deployment-url != '' && needs.changes.outputs.web == 'true'
     permissions:
       contents: read
       pull-requests: write

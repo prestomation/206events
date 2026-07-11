@@ -250,10 +250,14 @@ URL** (so template copies and failed deploys don't fail this job):
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.pull_request.head.sha }}
 ```
 
-Trigger note: `pr-preview.yml` already runs on every PR. Lighthouse only matters
-for `web/**` changes, but since it's `needs: deploy-preview` it piggybacks on the
-preview that's built anyway; if that's too heavy, gate the job with a
-`paths`-filtered separate workflow instead (mirror `web-e2e.yml`'s `paths`).
+Trigger note: `pr-preview.yml` runs on every PR (the calendar preview build and
+comment are useful for source-only PRs too), so the `lighthouse` and
+`boot-profile` jobs can't be gated with a top-level `paths` filter without also
+skipping those. Instead a lightweight `changes` job (GitHub API `pulls.listFiles`,
+no checkout) computes whether the PR touches `web/**` or the perf-measurement
+harness itself, and `lighthouse`/`boot-profile` add `needs.changes.outputs.web
+== 'true'` to their `if:` alongside the existing `deployment-url != ''` check —
+so PRs that only touch calendar sources skip both expensive jobs.
 
 ### B.3 Config — `web/lighthouserc.json`
 
