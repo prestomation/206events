@@ -1,5 +1,21 @@
 # AI Agent Guidelines
 
+## Queue Draining — Work Until Empty
+
+**When asked to drain any queue (uncertainty, photo, cost, setting, duplicate, geo), work through the entire queue in one session.** Do not stop mid-queue because the conversation is getting long. Context compaction keeps the session alive indefinitely — the context window summarizes automatically and work continues uninterrupted.
+
+**Only stop when:**
+- Every item in the queue has been resolved, marked unresolvable, or batched into a PR
+- An item is genuinely blocked (e.g. requires a proxy, page is auth-gated, JS-rendered with no fallback) — mark it unresolvable or note it, then move on to the next item
+- The queue itself is empty
+
+**Do not stop because:**
+- The conversation is long (compaction handles it)
+- Many items remain (keep going)
+- A batch is "good enough" (drain the whole queue, not just the easy part)
+
+Commit and push progress incrementally (every ~50–100 resolutions) so work is not lost if the session does end. Then continue draining the rest of the queue in the same session.
+
 ## Skills
 
 Agent skills live in `skills/` in this repo. These define the operational procedures for maintaining 206.events:
