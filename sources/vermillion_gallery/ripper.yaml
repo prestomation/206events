@@ -1,0 +1,19 @@
+name: vermillion-gallery
+sourceRole: venue
+description: "Vermillion Art Gallery"
+url: "https://www.vermillionseattle.com/"
+friendlyLink: https://www.vermillionseattle.com/
+imageUrl: "https://static1.squarespace.com/static/66551c76eb0de87f6583fd53/t/6655266f45747e6cd5f6ac30/1716856431841/VERMILLION_GB_LARGE.jpg?format=1500w"
+tags: ["Art", "Capitol Hill"]
+cost: free
+geo:
+  lat: 47.6143
+  lng: -122.3193
+  label: "Vermillion, 1508 11th Ave, Seattle, WA 98122"
+  osmChecked: 2026-05-09
+  osmType: node
+  osmId: 2158761201
+calendars:
+  - name: exhibitions
+    friendlyname: "Vermillion Art Gallery"
+    timezone: America/Los_Angeles
