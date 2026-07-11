@@ -1,0 +1,17 @@
+name: rainier-beach-community-club
+sourceRole: venue
+description: "Rainier Beach Community Club"
+url: "https://rainierbeachcommunityclub.org/events/"
+friendlyLink: https://rainierbeachcommunityclub.org/events/
+tags: ["Community", "Rainier Beach"]
+geo:
+  lat: 47.5153384
+  lng: -122.2573183
+  label: "Rainier Beach Community Club, 6038 S Pilgrim St, Seattle, WA 98118"
+  osmType: way
+  osmId: 237151003
+  osmChecked: "2026-07-11"
+calendars:
+  - name: rainier-beach-community-club
+    friendlyname: "Rainier Beach Community Club"
+    timezone: America/Los_Angeles

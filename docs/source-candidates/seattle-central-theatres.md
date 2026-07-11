@@ -5,7 +5,7 @@ platform: Custom (Drupal 10)
 url: https://theatres.seattlecentral.edu/event-calendar
 tags: [Theatre]
 firstSeen: 2026-07-03
-lastChecked: 2026-07-03
+lastChecked: 2026-07-11
 pr:
 ---
 
@@ -25,3 +25,13 @@ Investigated 2026-07-03:
   calendar, or discovery of an underlying Drupal Views AJAX/JSON endpoint (not found yet).
   Left as `investigating` rather than `notviable` since the venue calendar clearly exists;
   needs a browser-based network-tab inspection to find the real data endpoint.
+
+Re-checked 2026-07-11: the calendar widget is actually Trumba (`$Trumba.addSpud({webName:
+"seattletheatres_calendar", ...})`), not 25Live — the `25livepub.collegenet.com/scripts/spuds.js`
+script tag is Trumba's own spud loader (hosted on that domain), a red herring, not a 25Live
+integration. Trumba normally exposes a direct ICS export at `trumba.com/calendars/<webName>.ics`,
+but `https://www.trumba.com/calendars/seattletheatres_calendar.ics` returns HTTP 410 Gone (other
+path variants 404), meaning either the webName is stale or the calendar was unpublished from
+Trumba's export feature. Still `investigating` — would need a browser session to inspect the
+live Trumba widget's actual XHR calls (the `s.aspx` loader endpoint) to find the correct feed
+identifier, which isn't visible from a plain HTML fetch.
