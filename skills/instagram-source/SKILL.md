@@ -61,6 +61,12 @@ returns data:
   Posts live under `.data.user.edge_owner_to_timeline_media.edges[].node`
   (`shortcode`, `id`, `taken_at_timestamp`, `display_url`, and
   `edge_media_to_caption.edges[0].node.text`).
+  **Carousels (`__typename: "GraphSidecar"`) have more than one image** —
+  `display_url` is only the *first* slide. Pull **every** child image URL from
+  `node.edge_sidecar_to_children.edges[].node.display_url` and read all of them
+  (step 3), because a later slide often carries the date/time/venue that the
+  first slide and the caption omit. A multi-event "this week" roundup is the
+  classic case: the times sit on the flyer, not in the caption.
 - **`WebFetch`** the profile or a post permalink (fallback — works from
   residential IP / out of band; returns a JS shell with only OG meta tags, no
   post data; will 429 from CI and the web sandbox).
@@ -88,17 +94,29 @@ unchanged (same fingerprint). Re-read it if the post was edited.
 
 For each new/changed post:
 
-1. **Read the flyer image** (`Read` the downloaded image — vision) **and** the
-   caption together.
+1. **Read the flyer image(s) — this step is mandatory, not optional.**
+   Download and `Read` (vision) **every** image on the post — the `display_url`
+   *and* all `edge_sidecar_to_children` slides for a carousel — and read them
+   **before** you decide any field. The flyer is the **authoritative** source
+   for start time and venue; the caption usually omits them (e.g. a caption that
+   says only "join us for a dramatic afternoon on the 12th" while the flyer reads
+   "3pm at Charlie's Queer Books"). **Never record an event from the caption
+   alone** — if you haven't looked at the image, you have not read the post.
+   Where a per-event ticketing page exists (Eventbrite, TicketSpice, etc.),
+   cross-check it too; it's often the most precise, but it does **not** replace
+   reading the flyer, and many posts have no such page.
 2. Decide: **is this a real, dated event** in the Seattle area? Recaps, memes,
    "we're hiring", generic promos → **not an event**.
-3. If it is an event, extract:
+3. If it is an event, extract (reading the flyer for each, not just the caption):
    - `title` — the event name
    - `date` — `YYYY-MM-DD` (resolve relative dates like "this Friday" against
      the post timestamp)
-   - `startTime` — local `HH:MM` (omit if genuinely not stated — do **not**
-     guess; the ripper will flag it and the uncertainty resolver can fill it)
-   - `location` — the venue address as you'd want it in a calendar app
+   - `startTime` — local `HH:MM`. **Check the flyer specifically** — the time is
+     almost always printed there even when the caption skips it. Omit only if
+     it's genuinely absent from *both* the image and the caption — do **not**
+     guess; the ripper will flag it and the uncertainty resolver can fill it.
+   - `location` — the venue address as you'd want it in a calendar app (also
+     usually on the flyer)
    - optionally `durationSeconds`, `description`, `imageUrl`
 
 **Never guess.** Omit a field you can't read; the ripper surfaces it as an
