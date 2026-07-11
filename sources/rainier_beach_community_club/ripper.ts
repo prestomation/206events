@@ -141,7 +141,13 @@ export default class RainierBeachCommunityClubRipper implements IRipper {
             return [{ type: "ParseError", reason: "No entry-content found on events page", context: EVENTS_URL }];
         }
 
-        const headings = content.querySelectorAll('h2.wp-block-heading');
+        // Only direct children of entry-content are real event headings — the
+        // page also has same-styled <h2> callouts nested inside event blocks
+        // (e.g. Wine Tasting's "$15 at door; $10 pre-paid online" price line),
+        // which a recursive querySelectorAll would wrongly treat as events.
+        const headings = content.childNodes.filter(
+            (n): n is HTMLElement => n instanceof HTMLElement && n.tagName === 'H2' && n.classList.contains('wp-block-heading')
+        );
         const results: RipperEvent[] = [];
         for (const h2 of headings) {
             results.push(...this.parseEventBlock(h2, today));
@@ -188,8 +194,11 @@ export default class RainierBeachCommunityClubRipper implements IRipper {
         if (!dateMatch) {
             // No concrete date on the page yet (e.g. "2026 date TBD", a
             // recurring pattern with no specific instance, or a seasonal
-            // break) — nothing to publish until the site lists a real date.
-            return [{ type: "ParseError", reason: `No concrete date found for "${title}"`, context: url }];
+            // break). This isn't a parse failure — the page was read
+            // correctly, it just doesn't have an instance to publish yet —
+            // so skip silently, the same way past/cancelled events are
+            // dropped below rather than reported as errors.
+            return [];
         }
 
         const monthName = dateMatch[1].toLowerCase();
@@ -237,7 +246,7 @@ export default class RainierBeachCommunityClubRipper implements IRipper {
             .filter(Boolean)
             .join(' ') || undefined;
 
-        const slugMatch = url.match(/\/([^/]+)\/?$/);
+        const slugMatch = hrefRaw ? url.match(/\/([^/]+)\/?$/) : null;
         const slug = slugMatch ? slugify(slugMatch[1]) : slugify(title);
         const id = `rbcc-${slug}-${localDate.toString()}`;
 

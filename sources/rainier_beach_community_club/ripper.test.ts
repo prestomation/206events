@@ -38,17 +38,39 @@ describe('RainierBeachCommunityClubRipper', () => {
             ].sort());
         });
 
-        it('reports a ParseError for events with no concrete date instead of dropping them silently', () => {
+        it('silently skips events with no concrete date rather than reporting a ParseError', () => {
             const ripper = new RainierBeachCommunityClubRipper();
             const events = ripper.parseEventsPage(loadSampleHtml(), TODAY);
+            const dated = events.filter(e => 'date' in e) as RipperCalendarEvent[];
             const errors = events.filter(e => 'type' in e && e.type === 'ParseError') as RipperError[];
 
             // Jazz Jam (general recurring blurb, no specific instance), One Seattle
             // Day of Service, Game Night, Homespun Tales Story Hour, and Neighborhood
             // Garage Sale are all listed with "TBD"/"TBA" placeholders, not real dates.
-            expect(errors.length).toBeGreaterThanOrEqual(5);
-            expect(errors.some(e => e.reason.includes('Jazz Jam'))).toBe(true);
-            expect(errors.some(e => e.reason.includes('Homespun Tales Story Hour'))).toBe(true);
+            // This isn't a parse failure — the page was read correctly, there's just
+            // nothing to publish yet — so it must not surface as a ParseError (which
+            // would permanently fail the build's new-source zero-parse-error gate).
+            const summaries = dated.map(e => e.summary);
+            expect(summaries).not.toContain('Jazz Jam');
+            expect(summaries).not.toContain('One Seattle Day of Service');
+            expect(summaries).not.toContain('Game Night');
+            expect(summaries).not.toContain('Homespun Tales Story Hour');
+            expect(summaries).not.toContain('Neighborhood Garage Sale');
+            expect(errors).toHaveLength(0);
+        });
+
+        it('does not mistake a same-styled, non-event <h2> nested inside an event block for its own event', () => {
+            // Wine Tasting's block contains a nested "$15 at door; $10 pre-paid
+            // online" <h2 class="wp-block-heading has-normal-font-size"> three
+            // levels deep (wp-block-media-text > wp-block-columns > wp-block-column).
+            // Only direct children of entry-content are real event headings.
+            const ripper = new RainierBeachCommunityClubRipper();
+            const events = ripper.parseEventsPage(loadSampleHtml(), TODAY);
+            const summaries = events.filter(e => 'date' in e).map(e => (e as RipperCalendarEvent).summary);
+            const errors = events.filter(e => 'type' in e && e.type === 'ParseError') as RipperError[];
+
+            expect(summaries).not.toContain('$15 at door; $10 pre-paid online');
+            expect(errors.some(e => e.reason.includes('$15 at door'))).toBe(false);
         });
 
         it('silently drops events whose listed date has already passed', () => {
