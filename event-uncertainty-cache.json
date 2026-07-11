@@ -1,14 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-07-03": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-07-04": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1457,13 +1449,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-07-04": {
       "unresolvable": true,
       "reason": "Commercial tour \u2014 booking times vary by individual reservation",
@@ -2695,13 +2680,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-07-04": {
       "unresolvable": true,
@@ -3942,13 +3920,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-07-04": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -4837,14 +4808,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-07-04": {
       "unresolvable": true,
@@ -5806,14 +5769,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-07-04": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each game has a different start time",
@@ -6500,14 +6455,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
     "events12:winery-concerts-2026-07-04": {
@@ -7198,14 +7145,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
     "events12:concerts-at-the-locks-2026-07-04": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
@@ -7734,14 +7673,6 @@
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
-    "events12:bus-to-the-mountains-2026-07-03": {
-      "unresolvable": true,
-      "reason": "General transit service page \u2014 specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:bus-to-the-mountains-2026-07-04": {
       "unresolvable": true,
       "reason": "General transit service page \u2014 specific departure times vary by date and destination",
@@ -8206,13 +8137,6 @@
       "evidence": "https://trailheaddirect.org/",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-marymoor-park-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
-    },
     "events12:concerts-at-marymoor-park-2026-07-04": {
       "unresolvable": true,
       "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
@@ -8618,30 +8542,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.marymoorlive.com/shows/"
-    },
-    "19hz:19hz-2026/07/03-APOG": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "mbdrpp",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/07/03-Bigfoot Campout 2026": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "mbdrpp",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/07/03-Nero": {
-      "unresolvable": true,
-      "reason": "19hz listing has a start time but no end time",
-      "resolvedAt": "2026-05-18",
-      "source": "agent",
-      "partialFingerprint": "16apkhv",
-      "lastSeen": "2026-06-13"
     },
     "19hz:19hz-2026/07/10-Ill.Gates, sfam": {
       "unresolvable": true,
@@ -13364,14 +13264,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
     },
-    "events12:taste-of-pike-place-2026-07-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:taste-of-pike-place-2026-07-04": {
       "unresolvable": true,
       "resolvedAt": "2026-05-25",
@@ -16650,14 +16542,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:garden-walk-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:garden-walk-2026-07-04": {
       "unresolvable": true,
       "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
@@ -16832,14 +16716,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:zoo-concerts-2026-07-03": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:zoo-concerts-2026-07-04": {
@@ -17626,14 +17502,6 @@
       "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:classical-music-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Varying start times per location and date; check individual event listings on SCMS website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1wtiw6a-until2026-07-06-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:classical-music-2026-07-04": {
       "unresolvable": true,
       "reason": "Varying start times per location and date; check individual event listings on SCMS website",
@@ -17656,14 +17524,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "1wtiw6a-until2026-07-06-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:live-theater-2026-07-03": {
-      "unresolvable": true,
-      "reason": "Barefoot in the Park closes June 20 per Taproot website; events12 date range expansion includes post-closing dates",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "8mclbx-until2026-07-05-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:live-theater-2026-07-04": {
@@ -19242,16 +19102,6 @@
       "source": "agent",
       "evidence": "https://www.couthbuzzard.com/event-calendar"
     },
-    "events12:on-the-water-2026-07-03": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
-    },
     "events12:on-the-water-2026-07-04": {
       "fields": {
         "cost": {
@@ -20452,27 +20302,6 @@
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
     },
-    "19hz:19hz-2026/07/03-VTSS": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/07/03-What the FRICK? Pt. 2": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-08",
-      "source": "agent",
-      "evidence": "https://www.ra.co/events/2240218"
-    },
     "19hz:19hz-2026/07/04-Coco & Breezy": {
       "fields": {
         "cost": {
@@ -21270,13 +21099,6 @@
       "resolvedAt": "2026-06-15",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-welcomes-bosnia-and-herzegovina"
-    },
-    "events12:movies-in-seattle-parks-2026-07-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Start time not posted on source page; movies start at dusk (varies by date)",
-      "lastSeen": "2026-06-21"
     },
     "events12:movies-in-seattle-parks-2026-07-04": {
       "unresolvable": true,
@@ -23467,12 +23289,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:baseball-in-tacoma-2026-07-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-07-04": {
       "unresolvable": true,
@@ -25685,16 +25501,6 @@
       "resolvedAt": "2026-06-25",
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/renton-s-hometown-4th-of/19183530/2026-07-04T00"
-    },
-    "events12:world-cup-soccer-2026-07-03": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-25",
-      "source": "agent",
-      "evidence": "https://www.seattlefwc26.org/destination/matches"
     },
     "events12:world-cup-soccer-2026-07-04": {
       "fields": {
@@ -28115,50 +27921,6 @@
       "source": "agent",
       "evidence": "https://www.seattlecreativesocial.com/events/thirity-two \u2014 Ticketed event (JS SPA, pricing not in raw HTML)"
     },
-    "19hz:19hz-2026/07/03-AR/CO": {
-      "fields": {
-        "imageUrl": "https://images.posh.vip/originals/6a283c1d13454f23d2dc0327"
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://posh.vip/e/wrg-presents-arco?t=19hz"
-    },
-    "19hz:19hz-2026/07/03-Colours Global": {
-      "fields": {
-        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186791309%2F1979013042743%2F1%2Foriginal.20260612-210049?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=453cd4c47241a0c3ffffcad741b7a20e"
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/colours-global-july-3rd-tickets-1991799826900?aff=19hz"
-    },
-    "19hz:19hz-2026/07/03-Sof Of July: Npxpb, N4T3 B2B Corse, Type-O B2B No_Contvct, Silent J B2B Stephanie": {
-      "fields": {
-        "imageUrl": "https://images.posh.vip/originals/6a0cf43ac60af479dec412c9"
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://posh.vip/e/vroom-vroom-presents-collective-launch-party-sof-of-july"
-    },
-    "19hz:19hz-2026/07/03-Yaeji": {
-      "fields": {
-        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187218976%2F2993203586663%2F1%2Foriginal.20260618-183211?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=2b843849d12afc261bc36f11c62f7447"
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/yaeji-at-substation-seattle-tickets-1989678761737?aff=19hz"
-    },
-    "19hz:19hz-2026/07/03-Rabba's House: Mike Dunn": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "Shopify product listing has no og:image or product photo (confirmed via page source)"
-    },
-    "19hz:19hz-2026/07/03-BOTCASH": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "Ticket page (tickets.oraseattle.com) only has generic venue/brand logos, no event-specific poster"
-    },
     "seatoday:cityspark-19239593": {
       "fields": {
         "cost": {
@@ -28377,15 +28139,6 @@
       "source": "agent",
       "reason": "insomniac.com returns HTTP 403 to automated fetches"
     },
-    "events12:early-fireworks-2026-07-03": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 16200
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://newcastlewa.gov/event/fireworks-on-the-lake/ (park opens 6:00pm, fireworks 10:00-10:30pm, event concludes 10:30pm)"
-    },
     "events12:fourth-of-july-seattle-2026-07-04": {
       "fields": {
         "startTime": "15:00",
@@ -28424,12 +28177,6 @@
       "resolvedAt": "2026-07-02",
       "source": "agent",
       "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/ (All Day Fun Pass $40; Fiddle Fanatic All-Access Pass $50)"
-    },
-    "events12:art-walks-2026-07-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "Seattle.gov art-walks page lists only cadence (e.g. \"Second Thursdays\") per neighborhood, not specific start/end times; directs visitors to individual walk organizers"
     },
     "events12:art-walks-2026-07-04": {
       "unresolvable": true,
@@ -28520,12 +28267,6 @@
       "resolvedAt": "2026-07-02",
       "source": "agent",
       "reason": "Seattle.gov art-walks page lists only cadence (e.g. \"Second Thursdays\") per neighborhood, not specific start/end times; directs visitors to individual walk organizers"
-    },
-    "events12:national-park-day-2026-07-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "NPS fee-free-days page states fee waiver applies but does not specify whether normal operating hours apply uniformly; no single time given"
     },
     "events12:national-park-day-2026-07-04": {
       "unresolvable": true,
@@ -37112,12 +36853,6 @@
       "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47697",
       "partialFingerprint": "1bw9212"
     },
-    "19hz:19hz-2026/07/03-Otoconia Ft. B.Lakepeterson & Onyx Ocean | House Music Social": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-06",
-      "source": "agent",
-      "reason": "no image accessible without login (Facebook/Instagram)"
-    },
     "19hz:19hz-2026/07/04-House Blend": {
       "unresolvable": true,
       "resolvedAt": "2026-07-06",
@@ -37779,24 +37514,6 @@
       "resolvedAt": "2026-07-07",
       "source": "agent",
       "evidence": "https://www.thefishbowlseattle.com/shop"
-    },
-    "19hz:19hz-2026/07/03-Fun Party: Mike Servito, DJ Having Sex": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/03-Obsidian: Monkey Safari": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/03-Wub Mama": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
     },
     "19hz:19hz-2026/07/04-4th of July Rave": {
       "unresolvable": true,
@@ -41909,6 +41626,782 @@
       "resolvedAt": "2026-07-10",
       "source": "agent",
       "reason": "events12 generic touring-theater listing, empty location field, no fixed venue disclosed"
+    },
+    "venue:loc:39th ave sw &amp": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43235/"
+    },
+    "venue:loc:7005 126th st nw, tulalip, wa 98271": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.thehootfestival.com/"
+    },
+    "venue:loc:beacon ave s &amp": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44049/"
+    },
+    "venue:loc:bremerton national airport, 8850 sw state hwy 3, bremerton, wa 98312": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bremertonairshow.com/"
+    },
+    "venue:loc:carrie blake park, 202 n blake ave, sequim, wa sequim": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.lavenderfestival.com"
+    },
+    "venue:loc:chambers creek regional park, 6320 grandview dr w, university place, wa 98467": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.piercecountywa.gov/7653/Chase-the-Rainbow-Run"
+    },
+    "venue:loc:cheney stadium, 2502 s tyler st, tacoma, wa 98405": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattleallstarclassic.com"
+    },
+    "venue:loc:darrington bluegrass music park, 42501 state rte 530 ne, darrington, wa 98241": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.darringtonbluegrass.com"
+    },
+    "venue:loc:e north bend way & main ave s, north bend, wa 98045": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.northbenddowntown.org/block-party"
+    },
+    "venue:loc:esther short park, 605 esther st, vancouver, wa 98660": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.4daysofaloha.com/"
+    },
+    "venue:loc:railroad community park, 7971 railroad ave, snoqualmie, wa 98065": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://snoqualmievalleyrotary.org/2025/02/18/sipfest-2025/"
+    },
+    "venue:loc:sehmel homestead park, 10123 78th ave nw, gig harbor, wa 98332": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://peninsulaartleague.org/2025-summer-art-festival-2/"
+    },
+    "venue:loc:shelton south mason soccer park, 2102 e johns prairie rd, shelton, wa 98584": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bluegrassfromtheforest.com/"
+    },
+    "venue:loc:starlight meadows, 16324 51st ave se, bothell, wa 98012": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.redfellowfoundation.org/musicfestival"
+    },
+    "venue:loc:washington park arboretum": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://apps.ideal-logic.com/uwbg"
+    },
+    "venue:loc:washington park arboretum (lndmk-8)": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://apps.ideal-logic.com/uwbg"
+    },
+    "venue:loc:waypoint park, 1145 granary ave, bellingham, wa 98225": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://nwtuneup.com/"
+    },
+    "venue:loc:green lake community center": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks"
+    },
+    "venue:loc:green lake community center - gym": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks"
+    },
+    "venue:loc:henry m. jackson high school, 1508 136th st se, mill creek, wa 98012": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://millcreekfestival.com"
+    },
+    "venue:loc:lynnwood event center, 3711 196th st sw, lynnwood, wa 98036": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.geekfest.com/"
+    },
+    "venue:loc:seattle aquarium, 1483 alaskan way pier 59, seattle, wa 98101": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleaquarium.org/events/after-hours-pride-celebration/"
+    },
+    "venue:loc:seattle center armory, 305 harrison st, seattle, wa 98109": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/festal/polish-festival-seattle"
+    },
+    "venue:loc:the moore theatre, 1932 2nd ave, seattle, wa 98101": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/"
+    },
+    "venue:loc:the paramount theatre, 911 pine st, seattle, wa 98101": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/events/hells-kitchen/"
+    },
+    "venue:loc:multiple locations": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "multiple locations cannot be classified as a single indoor/outdoor setting"
+    },
+    "venue:loc:seattle (multiple locations)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "multiple locations cannot be classified as a single indoor/outdoor setting"
+    },
+    "venue:loc:amy yee tennis center, 2000 mlk jr way s., seattle, wa 98144": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "mixed indoor/outdoor tennis facility with both court types"
+    },
+    "venue:loc:enumclaw expo center, 45224 284th ave se, enumclaw, wa 98022": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "mixed indoor/outdoor expo/fairgrounds complex"
+    },
+    "venue:loc:washington state fair events center, 110 9th ave sw, puyallup, wa 98371": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.pacnwrs.com/"
+    },
+    "venue:loc:edmonds bookshop, 111 5th ave s, edmonds, wa 98020": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://porchfestedmonds.com"
+    },
+    "venue:osm:node:1766895957": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://central-cinema.com/"
+    },
+    "venue:osm:node:2138396704": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://fever.pxf.io/m4ZJMa"
+    },
+    "venue:osm:node:2329620131": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://apps.ideal-logic.com/uwbg"
+    },
+    "venue:osm:node:2374041660": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlebetsuin.org/2026-bon-odori/"
+    },
+    "venue:osm:node:2429600872": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.peacepeloton.com/night-market"
+    },
+    "venue:osm:node:2463139542": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks"
+    },
+    "venue:osm:node:2494550791": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/locations/fisher-pavilion"
+    },
+    "venue:osm:node:3006174421": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44213/"
+    },
+    "venue:osm:node:3008886848": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattle.gov/parks/recreation/beautiful-game-series"
+    },
+    "venue:osm:node:3093300452": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.klahayadays.com/"
+    },
+    "venue:osm:node:3298141561": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.aboutlastnightstorytelling.com/"
+    },
+    "venue:osm:node:4018980055": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.discoverburien.org/calendar/2025/olde-burien-block-party"
+    },
+    "venue:osm:node:4059324889": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://westseattlesummerfest.com/"
+    },
+    "venue:osm:node:419519156": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43836/"
+    },
+    "venue:osm:node:4853787338": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.breweryrunningseries.com/"
+    },
+    "venue:osm:relation:17052605": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.mobilize.us/seward-park-audubon/event/981677/"
+    },
+    "venue:osm:relation:18550612": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.mlb.com/mariners/ballpark"
+    },
+    "venue:osm:relation:5309030": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks"
+    },
+    "venue:osm:relation:5636648": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://cascade.org/rides-events/seattle-portland-2026"
+    },
+    "venue:osm:way:1131496653": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/volunteer-park-2nd-saturday-work-party-6/"
+    },
+    "venue:osm:way:1448327657": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.parkstacoma.gov/event/brigade/"
+    },
+    "venue:osm:way:1451219368": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.childrensbusinessfair.org/10079"
+    },
+    "venue:osm:way:1455875253": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seafoodfest.org"
+    },
+    "venue:osm:way:1463243929": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events"
+    },
+    "venue:osm:way:158721036": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattle.gov/parks"
+    },
+    "venue:osm:way:159118102": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/"
+    },
+    "venue:osm:way:159261464": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bit.ly/BeautifulGamesVolunteer"
+    },
+    "venue:osm:way:159483661": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43515/"
+    },
+    "venue:osm:way:159915631": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://unitedindians.org/event/2026-indian-days-powwow/"
+    },
+    "venue:osm:way:161317413": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "community center hosting both indoor events and outdoor garage sales - mixed setting"
+    },
+    "venue:osm:way:219470095": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "vague location (Seattle area) - cannot classify setting"
+    },
+    "venue:osm:way:219686092": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44110/"
+    },
+    "venue:osm:way:228014246": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/pop-up-concert-in-the-park-the-new-triumph-at-seward-park-amphitheater/"
+    },
+    "venue:osm:way:228721661": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "El Centro building is indoor but hosts outdoor street fairs - mixed setting"
+    },
+    "venue:osm:way:228765000": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/cosmic-taproom-metier-brewing-x-sirius-astronomy/"
+    },
+    "venue:osm:way:231664564": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/board-of-parks-and-recreation-commissioners"
+    },
+    "venue:osm:way:245210339": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44121/"
+    },
+    "venue:osm:way:256406001": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/outdoor-asian-intro-to-badminton/"
+    },
+    "venue:osm:way:25788265": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattle.gov/parks"
+    },
+    "venue:osm:way:25793176": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattle.gov/parks"
+    },
+    "venue:osm:way:29897483": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bit.ly/BeautifulGamesVolunteer"
+    },
+    "venue:osm:way:31658681": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44127/"
+    },
+    "venue:osm:way:31864779": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://timbermusicfest.com/"
+    },
+    "venue:osm:way:34148647": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattle.gov/parks/recreation/beautiful-game-series"
+    },
+    "venue:osm:way:344320893": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44202/"
+    },
+    "venue:osm:way:370478187": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44129/"
+    },
+    "venue:osm:way:40880246": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://kirklanduncorked.com/"
+    },
+    "venue:osm:way:428082477": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/powellbarnettpark/"
+    },
+    "venue:osm:way:445281926": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/south-park-united-world-cup-final-watch-party/"
+    },
+    "venue:osm:way:451928777": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.avants.com/events/2026/7-12/avants-classics-on-the-green-chateau-ste-michelle"
+    },
+    "venue:osm:way:50275549": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://alkiartfair.org/"
+    },
+    "venue:osm:way:50898115": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "vague location (Tacoma city) - cannot classify setting"
+    },
+    "venue:osm:way:51805191": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.celebratewallingfordwa.org"
+    },
+    "venue:osm:way:520369342": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/fleet-week/"
+    },
+    "venue:osm:way:53836271": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://zoo.org/"
+    },
+    "venue:osm:way:560113720": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattlecidcelebration.com/"
+    },
+    "venue:osm:way:6396530": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://kcdays.com"
+    },
+    "venue:osm:way:6425546": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44107/"
+    },
+    "venue:osm:way:6452853": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://brodienation.com/"
+    },
+    "venue:osm:way:6462927": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://events.carnationfarms.org/event/feast-in-the-field/"
+    },
+    "venue:osm:way:6489623": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattle.gov/parks/recreation/beautiful-game-series"
+    },
+    "venue:osm:way:6490996": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44088/"
+    },
+    "venue:osm:way:671131269": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.thisisvashon.com/strawberry-festival"
+    },
+    "venue:osm:way:996909492": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/42999/"
+    },
+    "venue:osm:way:1062989100": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.mercerisland.gov/parksrec/page/summer-celebration-2026"
+    },
+    "venue:osm:way:1063404056": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43185/"
+    },
+    "venue:osm:way:1066281597": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/event/west-seattle-grand-parade/"
+    },
+    "venue:osm:way:1073534371": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/tree-care-skill-share-and-volunteer-work-party-at-the-green-line/"
     }
   }
 }
