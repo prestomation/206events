@@ -1,4 +1,5 @@
 name: a-stir
+skipEventPhotos: true
 sourceRole: venue
 type: spothopper
 description: "a/stir"

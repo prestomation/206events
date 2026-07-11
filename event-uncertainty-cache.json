@@ -11562,21 +11562,23 @@
     "mopop:mopop-exploring-lego-stop-motion-2026-07-20": {
       "fields": {
         "startTime": "09:00",
-        "duration": 25200
+        "duration": 25200,
+        "imageUrl": "https://cdn.prod.website-files.com/660b0c9bcd7ca28941eef70b/678ed5fa89d42f6ed96ce279_spring-break-camp-limitless-minecraft-modding.jpg"
       },
       "resolvedAt": "2026-05-18",
       "source": "agent",
-      "evidence": "https://discoveropenworld.com/mopop/",
+      "evidence": "https://www.mopop.org/education/camps/",
       "partialFingerprint": "1jgpvdo"
     },
     "mopop:mopop-exploring-fantasy-game-development-2026-07-20": {
       "fields": {
         "startTime": "09:00",
-        "duration": 25200
+        "duration": 25200,
+        "imageUrl": "https://cdn.prod.website-files.com/660b0c9bcd7ca28941eef70b/66c3dc795c20340c811ca89f_creating_fantasy_camp_mopop%20(1).avif"
       },
       "resolvedAt": "2026-05-18",
       "source": "agent",
-      "evidence": "https://discoveropenworld.com/mopop/",
+      "evidence": "https://www.mopop.org/education/camps/",
       "partialFingerprint": "1jgpvdo"
     },
     "mopop:mopop-the-art-of-drag-camp-2026-07-27": {
@@ -27661,14 +27663,11 @@
     },
     "seattle-folklore-society:seattle-folklore-society-abbey-arts-presents-scottish-songstress-iona-fyfe-at-fremont-abbey-july-29th-with-co-sponsors-sfs-2026-07-29": {
       "fields": {
-        "location": "Fremont Abbey, 4272 Fremont Ave N, Seattle, WA 98103",
-        "cost": {
-          "paid": true
-        }
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/05/Iona-12-Euan-Anderson-copy-2-scaled-e1780201188432.jpg"
       },
-      "resolvedAt": "2026-07-05",
+      "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://www.seafolklore.org/events/abbey-arts-presents-scottish-songstress-iona-fyfe-at-fremont-abbey-july-29th-with-co-sponsors-sfs/"
+      "evidence": "https://seafolklore.org/events/"
     },
     "seattle-folklore-society:seattle-folklore-society-scottish-fish-2-2026-09-19": {
       "unresolvable": true,
@@ -27896,23 +27895,19 @@
     },
     "seattle-folklore-society:seattle-folklore-society-hayden-stern-band-album-release-opening-set-by-vienna-scheyer-2026-09-26": {
       "fields": {
-        "cost": {
-          "min": 26
-        }
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/06/fullbandphoto2-scaled.jpg"
       },
-      "resolvedAt": "2026-06-30",
+      "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://www.seafolklore.org/events/hayden-stern-band-album-release-opening-set-by-vienna-scheyer/ \u2014 General advance $26, at door $28; member/student/senior $24"
+      "evidence": "https://seafolklore.org/events/"
     },
     "seattle-folklore-society:seattle-folklore-society-katie-mcnally-neil-pearlman-in-concert-2026-11-07": {
       "fields": {
-        "cost": {
-          "min": 26
-        }
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/06/KatieNeil-6328LB-scaled-1.jpg"
       },
-      "resolvedAt": "2026-06-30",
+      "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://www.seafolklore.org/events/katie-mcnally-neil-pearlman-in-concert/ \u2014 General advance $26, at door $28; tickets on sale Sept 7"
+      "evidence": "https://seafolklore.org/events/"
     },
     "seattle-creative-social:6a4356bbaa375e1a5e247b5e": {
       "fields": {
@@ -36148,7 +36143,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c48db894eddeca43abfade1/1553192335421-AQIFQOIA6D1HN9KHMM4S/Photo+of+a+public+sail+in+the+steam-launch%2C+Puffin"
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
@@ -36158,7 +36154,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c48db894eddeca43abfade1/1553192335421-AQIFQOIA6D1HN9KHMM4S/Photo+of+a+public+sail+in+the+steam-launch%2C+Puffin"
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
@@ -36168,7 +36165,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c48db894eddeca43abfade1/1553192335421-AQIFQOIA6D1HN9KHMM4S/Photo+of+a+public+sail+in+the+steam-launch%2C+Puffin"
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
@@ -36178,7 +36176,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c48db894eddeca43abfade1/3d32be35-8938-4c46-a3ed-f00e7c44d79b/2022_CWB_NormBlanchard_Regatta-003.jpg"
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
@@ -36188,7 +36187,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c48db894eddeca43abfade1/3ffb0c44-4b10-4536-b587-c567231856f7/Dinner+%26+Sugartime+Banner.png"
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
@@ -37353,7 +37353,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/historyseattlemarinersposter-1200x1800.png"
       },
       "resolvedAt": "2026-07-06",
       "source": "agent",
@@ -37784,7 +37785,8 @@
     },
     "cascade-bicycle-club:cascade-seattle-portland-2026": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/medium/s3/images/2026-01/STP2026%20FINAL.png?itok=meI2HczD"
       },
       "resolvedAt": "2026-07-07",
       "source": "agent",
@@ -40663,7 +40665,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.pikeplacemarket.org/wp-content/uploads/2023/01/artisan_prepared_foods_program-pike_place_market.jpg"
       },
       "resolvedAt": "2026-07-10",
       "source": "agent",
@@ -40733,7 +40736,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/barbaraforeverposter-1200x1778.jpg"
       },
       "resolvedAt": "2026-07-10",
       "source": "agent",
@@ -40743,7 +40747,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2023/01/films_neptune-frost_poster.jpg"
       },
       "resolvedAt": "2026-07-10",
       "source": "agent",
@@ -44201,7 +44206,8 @@
       "fields": {
         "cost": {
           "min": 15
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/remakeposterSMALL-1200x1800.jpg"
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
@@ -49483,6 +49489,425 @@
         "duration": 25200
       },
       "evidence": "https://westseattlesummerfest.com/"
+    },
+    "futurewise:https://futurewise.org/ccc-public-comment-and-rally/": {
+      "fields": {
+        "imageUrl": "https://futurewise.org/wp-content/uploads/2026/06/Public-Comment.png"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://futurewise.org/ccc-public-comment-and-rally/"
+    },
+    "north-end-makers:1991158042305": {
+      "unresolvable": true,
+      "reason": "Generic game night on Eventbrite \u2014 no event photo",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "north-end-makers:1991158043308": {
+      "unresolvable": true,
+      "reason": "Generic game night on Eventbrite \u2014 no event photo",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "north-end-makers:1991158044311": {
+      "unresolvable": true,
+      "reason": "Generic game night on Eventbrite \u2014 no event photo",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "north-end-makers:1991158045314": {
+      "unresolvable": true,
+      "reason": "Generic game night on Eventbrite \u2014 no event photo",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "reubens-brews:reubens-gratituesday-pflag-07-14-2026": {
+      "fields": {
+        "imageUrl": "https://reubensbrews.com/wp-content/uploads/2026/07/GratiTuesday-Poster-Template-Instagram-Post-45-2.png"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://reubensbrews.com/event/gratituesday-pflag-07-14-2026/"
+    },
+    "seattle-pride:seattle-pride-glmas-44th-annual-conference-on-lgbtq-health": {
+      "fields": {
+        "imageUrl": "https://glma.org/photos/AC26_Regular_Registration_SLIDER_06022026103436.PNG"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.glma.org/glmas_44th_annual_conference.php"
+    },
+    "tcc:tcc-11791": {
+      "unresolvable": true,
+      "reason": "Advocacy workshop \u2014 no event photo",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "west_seattle_junction_fc:west-seattle-junction-fc-2026-07-12": {
+      "unresolvable": true,
+      "reason": "Soccer match on schedule page \u2014 no event-specific photo",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "west_seattle_junction_fc:west-seattle-junction-fc-2027-07-10": {
+      "unresolvable": true,
+      "reason": "Soccer match on schedule page \u2014 no event-specific photo",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "events12:eastside-movies-in-parks-2026-08-19": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "events12:eastside-movies-in-parks-2026-08-20": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "events12:eastside-movies-in-parks-2026-08-21": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "events12:eastside-movies-in-parks-2026-08-22": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "events12:eastside-movies-in-parks-2026-08-23": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "events12:eastside-movies-in-parks-2026-08-24": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "events12:eastside-movies-in-parks-2026-08-25": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "events12:eastside-movies-in-parks-2026-08-26": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "events12:eastside-movies-in-parks-2026-08-27": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies",
+      "fields": {
+        "startTime": "19:00",
+        "duration": 14400
+      }
+    },
+    "cascade-bicycle-club:cascade-kitsap-color-classic-2026": {
+      "resolvedAt": "2026-07-11",
+      "source": "https://cascade.org/rides-events/kitsap-color-classic-2026",
+      "evidence": "https://cascade.org/rides-events/kitsap-color-classic-2026",
+      "fields": {
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/medium/s3/images/2026-01/428482_CascadeBicycleClub_KitsapColorClassic26.png?itok=RGpcEBI4"
+      }
+    },
+    "cascade-bicycle-club:cascade-lake-chelan-tour-2026": {
+      "resolvedAt": "2026-07-11",
+      "source": "https://cascade.org/rides-events/lake-chelan-tour-2026",
+      "evidence": "https://cascade.org/rides-events/lake-chelan-tour-2026",
+      "fields": {
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-11/Lake%20Chelan%20wave.jpg?itok=zFCwDf8H"
+      }
+    },
+    "cascade-bicycle-club:cascade-lake-union-family-ride-2026": {
+      "resolvedAt": "2026-07-11",
+      "source": "https://cascade.org/rides-events/lake-union-family-ride-2026",
+      "evidence": "https://cascade.org/rides-events/lake-union-family-ride-2026",
+      "fields": {
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2026-06/LUFR%202026%20banner%20image.png?itok=V908ZdNp"
+      }
+    },
+    "cascade-bicycle-club:cascade-rsvp-2026": {
+      "resolvedAt": "2026-07-11",
+      "source": "https://cascade.org/rides-events/rsvp-2026",
+      "evidence": "https://cascade.org/rides-events/rsvp-2026",
+      "fields": {
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/54751197180_adc1459f74_k.jpg?itok=n9XXuqlh"
+      }
+    },
+    "cascade-bicycle-club:cascade-san-juan-islands-tour-2026": {
+      "resolvedAt": "2026-07-11",
+      "source": "https://cascade.org/rides-events/san-juan-islands-tour-2026",
+      "evidence": "https://cascade.org/rides-events/san-juan-islands-tour-2026",
+      "fields": {
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/45955966211_2001e13280_k.jpg?itok=GldFab8Q"
+      }
+    },
+    "cascade-bicycle-club:cascade-seattle-portland-2027-2027": {
+      "resolvedAt": "2026-07-11",
+      "source": "https://cascade.org/rides-events/seattle-portland-2027-2027",
+      "evidence": "https://cascade.org/rides-events/seattle-portland-2027-2027",
+      "fields": {
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2026-06/54662513360_e93a4002a5_o.jpg?itok=f3PJUAYl"
+      }
+    },
+    "renton-civic-theatre:renton-civic-theatre-noises-off": {
+      "unresolvable": true,
+      "reason": "Show page is Next.js JS-rendered; no og:image in static HTML; only generic site assets accessible without JS",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "renton-civic-theatre:renton-civic-theatre-noises-off-694d76266e4b9f6b45b15643": {
+      "unresolvable": true,
+      "reason": "Show page is Next.js JS-rendered; no og:image in static HTML; only generic site assets accessible without JS",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "renton-civic-theatre:renton-civic-theatre-scrooge": {
+      "unresolvable": true,
+      "reason": "Show page is Next.js JS-rendered; no og:image in static HTML; only generic site assets accessible without JS",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "renton-civic-theatre:renton-civic-theatre-scrooge-694d7f94ad86f0fe60683560": {
+      "unresolvable": true,
+      "reason": "Show page is Next.js JS-rendered; no og:image in static HTML; only generic site assets accessible without JS",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "center-for-wooden-boats:50th-anniversary-reunion-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "cwb.org/50th page renders only site logo without JS; no event photo accessible"
+    },
+    "dogwoodplaypark:2df231da-66c5-426f-a9c7-05ae943d493c": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/fi-collar-foam-party-save-the-date",
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_c412597894d941ba9206af21de68e1ed~mv2.jpg"
+      }
+    },
+    "dogwoodplaypark:4ed271a0-ccff-49bf-95f0-4bd8663e779d": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/small-dog-meet-up-52",
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_e2b62ee714544238980a130167017f0c~mv2.jpg"
+      }
+    },
+    "dogwoodplaypark:5d1843bd-806b-4491-a65e-805d4dd55991": {
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/doodle-romp-57",
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_b308b76c042b4cdca855393a5fb10a58~mv2.jpg"
+      }
+    },
+    "dogwoodplaypark:a6be48de-2f81-4d0a-91ba-92a3ab9c20a3": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "No event-specific image on the Wix page; only site-wide background/icons"
+    },
+    "cardfestnw:cardfestnw-cardfest-northwest-bellevue-july-11-2026-07112026": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "ontreasure.com is JS-rendered; no images or meta tags in static HTML"
+    },
+    "cardfestnw:cardfestnw-cardfest-northwest-bellevue-july-2526-2026-07252026": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "ontreasure.com is JS-rendered; no images or meta tags in static HTML"
+    },
+    "cardfestnw:cardfestnw-cardfest-northwest-everett-july-18-2026-07182026": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "ontreasure.com is JS-rendered; no images or meta tags in static HTML"
+    },
+    "cardfestnw:cardfestnw-cardfest-northwest-lynnwood-july-12-2026-07122026": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "reason": "ontreasure.com is JS-rendered; no images or meta tags in static HTML"
+    },
+    "renegade-craft-fair:renegade-craft-fair-seattle-2026-10-10": {
+      "fields": {
+        "imageUrl": "https://www.renegadecraft.com/wp-content/uploads/2026/02/augbury-sea-scaled.avif"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.renegadecraft.com/en-us/seattle-fall-2026"
+    },
+    "renegade-craft-fair:renegade-craft-fair-seattle-2026-10-11": {
+      "fields": {
+        "imageUrl": "https://www.renegadecraft.com/wp-content/uploads/2026/02/augbury-sea-scaled.avif"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://www.renegadecraft.com/en-us/seattle-fall-2026"
+    },
+    "lid-i5:lidi5-e801252": {
+      "fields": {
+        "imageUrl": "https://lidi5.org/wp-content/uploads/2023/05/2023-walk-and-bike-tours-banner_large-01.png"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://lidi5.org/tours/"
+    },
+    "lid-i5:lidi5-e801261": {
+      "fields": {
+        "imageUrl": "https://lidi5.org/wp-content/uploads/2023/05/2023-walk-and-bike-tours-banner_large-01.png"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://lidi5.org/tours/"
+    },
+    "vashon-center-for-the-arts:vashon-94001ABHSVSCRRNGDRPBKKCTMBTMNVSKS": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/7/8/6/c/1/786c13f22ddd6e485f3d753257eec5d6.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/"
+    },
+    "SAF:185901775": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.strangertickets.com/imager/b/original/185955415/5ab4/kominka_wood_ends.png"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/185901775/preserving-japans-architectural-heritage"
+    },
+    "cidbia:cidbia-640": {
+      "unresolvable": true,
+      "reason": "Event URLs return raw ICS data, not HTML with images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "cidbia:cidbia-817": {
+      "unresolvable": true,
+      "reason": "Event URLs return raw ICS data, not HTML with images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "cidbia:cidbia-833": {
+      "unresolvable": true,
+      "reason": "Event URLs return raw ICS data, not HTML with images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "cidbia:cidbia-834": {
+      "unresolvable": true,
+      "reason": "Event URLs return raw ICS data, not HTML with images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "cidbia:cidbia-835": {
+      "unresolvable": true,
+      "reason": "Event URLs return raw ICS data, not HTML with images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "pike-place-market:ppm-folio-presents-400-years-of-racism-book-discussions": {
+      "fields": {
+        "imageUrl": "https://www.pikeplacemarket.org/wp-content/uploads/2021/09/folio_the_seattle_athenaeum-pike_place_market-1.jpg"
+      },
+      "resolvedAt": "2026-07-11",
+      "source": "agent",
+      "evidence": "https://pikeplacemarket.org/event/folio-presents-400-years-of-racism-book-discussions/"
+    },
+    "greater-seattle-choral-consortium:gscc-2891-2026-11-22-1500": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "greater-seattle-choral-consortium:gscc-2892-2027-03-07-1500": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "greater-seattle-choral-consortium:gscc-2893-2027-06-06-1500": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "greater-seattle-choral-consortium:gscc-2912-2026-12-05-2000": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "greater-seattle-choral-consortium:gscc-2913-2027-03-13-2000": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "greater-seattle-choral-consortium:gscc-2916-2026-09-14-1830": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "greater-seattle-choral-consortium:gscc-2921-2026-07-25-1300": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "greater-seattle-choral-consortium:gscc-2928-2026-08-08-1400": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
+    },
+    "greater-seattle-choral-consortium:gscc-2929-2026-09-12-1000": {
+      "unresolvable": true,
+      "reason": "Calendar is JS-rendered; individual event pages show only logos/loading images",
+      "resolvedAt": "2026-07-11",
+      "source": "agent"
     }
   }
 }

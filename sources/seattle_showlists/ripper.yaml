@@ -269,6 +269,7 @@ calendars:
   # --- West Seattle ---
   - name: skylark
     friendlyname: "Skylark"
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/525a1569e4b0daa056d0c8a9/1384287003167-CQ53G91LYDTJUKW0KVBI/IMG_5984.jpg"
     geo:
       lat: 47.5507
       lng: -122.3525

@@ -1,4 +1,5 @@
 name: visit-seattle
+skipEventPhotos: true
 sourceRole: aggregator
 description: "Visit Seattle"
 url: "https://visitseattle.org/events/feed/"
