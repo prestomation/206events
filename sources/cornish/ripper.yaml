@@ -4,6 +4,10 @@ description: "Cornish College of the Arts"
 url: "https://events.seattleu.edu/api/2/events"
 friendlyLink: https://events.seattleu.edu/group/cornish-college-of-the-arts
 tags: ["Arts", "Music", "Theatre", "Belltown"]
+# Verified 2026-07-12: live API and events.seattleu.edu group page both show
+# 0 upcoming events for the next 365 days ("Cornish College of the Arts has
+# no upcoming events") — intermittent programming, not a broken feed.
+expectEmpty: true
 geo: null
 calendars:
   - name: all-events
