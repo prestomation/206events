@@ -3,7 +3,7 @@ import { ZonedDateTime, ZoneId } from "@js-joda/core";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { extractHumanitixLinks, extractDachaEvents, parseDachaEvents, DachaEventPage } from "./ripper.js";
+import { extractHumanitixLinks, extractNavMenuUrls, extractDachaEvents, parseDachaEvents, DachaEventPage } from "./ripper.js";
 import '@js-joda/timezone';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -46,6 +46,41 @@ describe("DachaTheatreRipper", () => {
             `;
             const links = extractHumanitixLinks(html);
             expect(links).toHaveLength(2);
+        });
+    });
+
+    describe("extractNavMenuUrls", () => {
+        const baseUrl = "https://www.dachatheatre.com/";
+
+        it("extracts .html nav-menu urls resolved against the base URL", () => {
+            const html = `<script>
+                function initFlyouts(){
+                    initPublishedFlyoutMenus(
+                        [{"id":"1","title":"Home","url":"index.html","target":"","nav_menu":false,"nonclickable":false},
+                         {"id":"2","title":"Dice: AYLI","url":"dice.html","target":"","nav_menu":false,"nonclickable":false}]
+                    );
+                }
+            </script>`;
+            const urls = extractNavMenuUrls(html, baseUrl);
+            expect(urls).toContain("https://www.dachatheatre.com/index.html");
+            expect(urls).toContain("https://www.dachatheatre.com/dice.html");
+        });
+
+        it("skips entries without a .html url", () => {
+            const html = `initPublishedFlyoutMenus([{"id":"1","title":"External","url":"https://example.com/","target":"","nav_menu":false,"nonclickable":false}])`;
+            const urls = extractNavMenuUrls(html, baseUrl);
+            expect(urls).toHaveLength(0);
+        });
+
+        it("deduplicates repeated urls", () => {
+            const html = `initPublishedFlyoutMenus([{"id":"1","title":"Home","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"2","title":"Home Again","url":"index.html","target":"","nav_menu":false,"nonclickable":false}])`;
+            const urls = extractNavMenuUrls(html, baseUrl);
+            expect(urls).toHaveLength(1);
+        });
+
+        it("returns empty array when no flyout menu blob is present", () => {
+            const urls = extractNavMenuUrls("<html><body>no menu here</body></html>", baseUrl);
+            expect(urls).toHaveLength(0);
         });
     });
 

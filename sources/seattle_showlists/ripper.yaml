@@ -5,6 +5,9 @@ url: "https://seattle.showlists.net"
 friendlyLink: "https://seattle.showlists.net"
 tags: ["Music"]
 geo: null
+# Verified 2026-07-12: source JSON only has date/title/id/venueName fields —
+# no image field exists to harvest for any event.
+skipEventPhotos: true
 calendars:
   # --- Pioneer Square ---
   - name: europa

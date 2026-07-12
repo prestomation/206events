@@ -5,6 +5,10 @@ url: "https://visitseattle.org/events/feed/"
 friendlyLink: "https://visitseattle.org/events/"
 geo: null
 tags: ["Community"]
+# Verified 2026-07-12: checked 2 distinct event pages (Bob Schneider, NCAA
+# basketball) — both return the same generic fallback og:image
+# (uploads.visitseattle.org/.../VS_base.jpg), not a real per-event photo.
+skipEventPhotos: true
 calendars:
   - name: visit-seattle
     friendlyname: "Visit Seattle Events"
