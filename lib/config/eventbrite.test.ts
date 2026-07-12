@@ -220,6 +220,34 @@ describe.skipIf(!HAVE_SAMPLES)('EventbriteRipper', () => {
             const events = await ripper.fetchAllEvents('org-1', 'a-fake-but-long-enough-token', fetchFn as any);
             expect(events).toEqual([]);
         });
+
+        it('follows pagination across both the organizer and series endpoints', async () => {
+            const ripper = new EventbriteRipper();
+            const seriesParent = { id: 'series-3', is_series_parent: true, name: { text: 'Paginated Series' } };
+            const occA = { id: 'occ-a', is_series_parent: false, series_id: 'series-3' };
+            const occB = { id: 'occ-b', is_series_parent: false, series_id: 'series-3' };
+            const plainEvent = { id: 'plain-2', is_series_parent: false };
+
+            const fetchFn = async (url: string | URL) => {
+                const u = url.toString();
+                if (u.includes('/organizers/') && u.includes('page=1')) {
+                    return jsonResponse({ events: [seriesParent], pagination: { has_more_items: true } });
+                }
+                if (u.includes('/organizers/') && u.includes('page=2')) {
+                    return jsonResponse({ events: [plainEvent], pagination: { has_more_items: false } });
+                }
+                if (u.includes('/series/series-3/events/') && u.includes('page=1')) {
+                    return jsonResponse({ events: [occA], pagination: { has_more_items: true } });
+                }
+                if (u.includes('/series/series-3/events/') && u.includes('page=2')) {
+                    return jsonResponse({ events: [occB], pagination: { has_more_items: false } });
+                }
+                throw new Error(`Unexpected URL: ${url}`);
+            };
+
+            const events = await ripper.fetchAllEvents('org-1', 'a-fake-but-long-enough-token', fetchFn as any);
+            expect(events.map(e => e.id).sort()).toEqual(['occ-a', 'occ-b', 'plain-2']);
+        });
     });
 
     describe('error handling', () => {

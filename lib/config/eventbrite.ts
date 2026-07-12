@@ -115,10 +115,14 @@ export class EventbriteRipper implements IRipper {
                 token,
                 fetchFn,
             );
-        } catch {
+        } catch (error) {
             // A single series failing to expand shouldn't fail the whole
             // organizer fetch — just drop it, same as if it were never
-            // returned by the organizer endpoint.
+            // returned by the organizer endpoint. Still log it: silently
+            // swallowing every failure here would hide a systemic issue
+            // (auth/scope, endpoint deprecation) behind an unexplained
+            // drop in event counts.
+            console.warn(`[eventbrite] failed to expand series ${seriesId}: ${error}`);
             return [];
         }
     }
