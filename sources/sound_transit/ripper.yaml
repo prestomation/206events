@@ -5,6 +5,9 @@ url: "https://www.soundtransit.org/calendar_events_grouped.json"
 friendlyLink: "https://www.soundtransit.org/get-to-know-us/news-events/calendar"
 geo: null
 tags: ["Community", "Transit"]
+# Verified 2026-07-12: board-meeting and game-day service-notice pages carry
+# no images at all (0 <img> tags, no og:image) — nothing to harvest.
+skipEventPhotos: true
 calendars:
   - name: sound-transit
     friendlyname: "Sound Transit Events"

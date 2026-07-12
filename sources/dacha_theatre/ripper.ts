@@ -49,6 +49,46 @@ export function extractHumanitixLinks(html: string): string[] {
     return links;
 }
 
+// Extract internal nav-menu page URLs (e.g. "dice.html") from the Weebly
+// `initPublishedFlyoutMenus([...])` blob embedded in the homepage. The site
+// no longer links directly to Humanitix from the homepage — the current
+// show's page (linked from the nav menu) does instead — so this lets the
+// ripper follow one level of indirection to a small, current set of pages
+// instead of crawling every historical show page on the site.
+export function extractNavMenuUrls(html: string, baseUrl: string): string[] {
+    const seen = new Set<string>();
+    const urls: string[] = [];
+    const callRegex = /initPublishedFlyoutMenus\(\s*(\[)/g;
+    let callMatch: RegExpExecArray | null;
+    while ((callMatch = callRegex.exec(html)) !== null) {
+        const start = callMatch.index + callMatch[0].length - 1;
+        let depth = 0;
+        let end = -1;
+        for (let i = start; i < html.length; i++) {
+            if (html[i] === '[') depth++;
+            else if (html[i] === ']') {
+                depth--;
+                if (depth === 0) { end = i; break; }
+            }
+        }
+        if (end === -1) continue;
+        try {
+            const items: { url?: string }[] = JSON.parse(html.slice(start, end + 1));
+            for (const item of items) {
+                if (!item.url || !item.url.endsWith(".html")) continue;
+                const resolved = new URL(item.url, baseUrl).toString();
+                if (!seen.has(resolved)) {
+                    seen.add(resolved);
+                    urls.push(resolved);
+                }
+            }
+        } catch {
+            // Malformed/unexpected blob shape - skip it.
+        }
+    }
+    return urls;
+}
+
 // Extract event page data from a Humanitix per-production HTML page.
 export function extractDachaEvents(html: string, url: string): { page?: DachaEventPage; parseError?: RipperError } {
     // Extract title from first <h1>
@@ -265,15 +305,36 @@ export default class DachaTheatreRipper implements IRipper {
         if (!homeRes.ok) throw new Error(`Dacha Theatre homepage returned HTTP ${homeRes.status}`);
 
         const homeHtml = await homeRes.text();
-        const humanitixUrls = extractHumanitixLinks(homeHtml);
+        let humanitixUrls = extractHumanitixLinks(homeHtml);
 
         const allEvents: RipperCalendarEvent[] = [];
         const allErrors: RipperError[] = [];
 
+        // Homepage sometimes only links to the current show's own page (via
+        // the nav menu) rather than embedding a direct Humanitix link. Follow
+        // that one level of indirection before giving up.
+        if (humanitixUrls.length === 0) {
+            const navUrls = extractNavMenuUrls(homeHtml, ripper.config.url.toString());
+            const seen = new Set<string>();
+            for (const navUrl of navUrls) {
+                const navRes = await fetchFn(navUrl, {
+                    headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" },
+                });
+                if (!navRes.ok) continue;
+                const navHtml = await navRes.text();
+                for (const link of extractHumanitixLinks(navHtml)) {
+                    if (!seen.has(link)) {
+                        seen.add(link);
+                        humanitixUrls.push(link);
+                    }
+                }
+            }
+        }
+
         if (humanitixUrls.length === 0) {
             allErrors.push({
                 type: "ParseError",
-                reason: "No Humanitix event links found on Dacha homepage",
+                reason: "No Humanitix event links found on Dacha homepage or its nav-menu pages",
                 context: "dacha-theatre",
             });
         }

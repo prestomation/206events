@@ -80,6 +80,7 @@ calendars:
   - name: international-district
     friendlyname: "SPL - International District/Chinatown Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true # Small branch; upcoming events are frequently cancelled leaving 0 valid events
     config:
       branch: "International District/Chinatown Branch"
     tags: ["International District"]
@@ -140,6 +141,7 @@ calendars:
   - name: west-seattle
     friendlyname: "SPL - West Seattle Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true # Small branch; may have no events in a given 6-week window
     config:
       branch: "West Seattle Branch"
     tags: ["West Seattle"]

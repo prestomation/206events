@@ -696,6 +696,19 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Approximate downtown-Kent block; source intersection (2nd & Harrison) isn't indexed
   'kent, 2nd & harrison streets, kent, wa, 98032, united states': { lat: 47.3775, lng: -122.2349 },
   'occidental ave. s (between s. jackson st and s. main st.)': { lat: 47.6005, lng: -122.3331 }, // Occidental Park
+
+  // --- 2026-07-12 geo-resolver batch: more "venue name only" unresolvable entries ---
+  // Addresses verified via Nominatim forward-geocode of the venue's own name/address.
+  'gorge amphitheater': { lat: 47.0801, lng: -119.9947 }, // spelling variant of 'gorge amphitheatre'
+  'dr. blanche lavizzo park amphitheater': { lat: 47.6004282, lng: -122.3043195 },
+  'elisabeth c. miller library (emlb)': { lat: 47.6580467, lng: -122.2906731 },
+  'green lake aqua theatre': { lat: 47.6715091, lng: -122.3425131 },
+  'old stove - ship canal': { lat: 47.6521302, lng: -122.3645639 }, // matches 'old stove brewery ship canal'
+  'rainier vista (across the bridge from uw station)': { lat: 47.6528417, lng: -122.3071288 },
+  'uw tower building t (uwtt)': { lat: 47.6607450, lng: -122.3146673 },
+  'william h. gates hall (law)': { lat: 47.6591829, lng: -122.3108801 },
+  'bainbridge island ferry terminal, ferry dock, bainbridge island, wa': { lat: 47.6231022, lng: -122.5119696 },
+  'lynwood light rail': { lat: 47.8155698, lng: -122.2948846 }, // source spelling of "Lynnwood City Center Station"
   // Mt Baker Light Rail Station — source describes meeting "just off Rainier Ave S & S Forest St, by the Mt Baker Light Rail Station"
   'we meet on the nw corner of the art space building, just off rainier ave. s. & s. forest st., by the mt. baker light rail station.': { lat: 47.5767, lng: -122.2978 },
   'seattle aquarium, 1483 alaskan way pier 59, seattle, wa 98101': { lat: 47.6076, lng: -122.3432 },

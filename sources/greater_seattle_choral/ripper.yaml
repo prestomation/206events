@@ -5,6 +5,11 @@ friendlyLink: https://seattlesings.org/calendar/
 sourceRole: aggregator
 geo: null
 tags: ["Music", "Arts"]
+# Verified 2026-07-12: member-org pages carry no per-event image (checked
+# seattlebachchoir.org — no og:image, 2 nav-icon <img>s only — and
+# seattlechoralcompany.org, where multiple distinct concerts all link to one
+# shared /current-season/ page with a single reused og:image).
+skipEventPhotos: true
 calendars:
   - name: seattle-events
     friendlyname: "Greater Seattle Choral Consortium"

@@ -7024,6 +7024,26 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-12",
       "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "events12-seattle-events.ics Bite of Seattle|2026-07-25T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-25T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date (162m location text-match distance is a venue-name-vs-address artifact, same physical venue)"
+    },
+    "events12-seattle-events.ics Bite of Seattle|2026-07-26T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-26T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date"
+    },
+    "recurring-bite-of-seattle.ics Bite of Seattle|2026-07-25T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-25T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date"
+    },
+    "recurring-bite-of-seattle.ics Bite of Seattle|2026-07-26T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-26T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date"
     }
   }
 }

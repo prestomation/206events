@@ -5,6 +5,9 @@ url: "https://19hz.info/eventlisting_Seattle.php"
 friendlyLink: https://19hz.info/eventlisting_Seattle.php
 tags: ["Music"]
 geo: null
+# Verified 2026-07-12: the listing page is plain text with no per-event images
+# (only 1 <img> on the whole page, a site logo). Nothing to harvest.
+skipEventPhotos: true
 calendars:
   - name: all-events
     friendlyname: "19hz.info Electronic Music Events"

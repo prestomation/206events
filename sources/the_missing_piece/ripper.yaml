@@ -12,6 +12,10 @@ geo:
   osmType: node
   osmId: 441028241
 imageUrl: "https://www.themissingpiecegames.com/wp-content/uploads/2020/03/TMP_LogoTag_LoResRGB.png"
+# Verified 2026-07-12: recurring game-night listings (Mah Jongg, D&D, Party
+# Games, Cooperative Game Night) carry no event.image / og:image on their
+# Tribe Events pages — nothing to harvest per event.
+skipEventPhotos: true
 calendars:
   - name: the-missing-piece
     friendlyname: "The Missing Piece"

@@ -5,6 +5,8 @@ url: "https://www.seattlechinatownid.com/local-events"
 friendlyLink: https://www.seattlechinatownid.com/local-events
 tags: ["Community", "International District"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/64/International_District_station_with_Link_trains_passing_%282010%29.jpg"
+# Verified 2026-07-12: checked 3 distinct event pages — 0 <img> tags on any.
+skipEventPhotos: true
 geo: null
 calendars:
   - name: cidbia-events
