@@ -7044,6 +7044,56 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-12",
       "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date"
+    },
+    "events12-seattle-events.ics Bite of Seattle|2026-07-25T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date. Re-confirmed under seattle-center's new resolved start time (11:00) after the earlier 00:00 placeholder-keyed confirmation was orphaned by that uncertainty resolution."
+    },
+    "events12-seattle-events.ics Bite of Seattle|2026-07-26T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date. Re-confirmed under seattle-center's new resolved start time (11:00)."
+    },
+    "recurring-bite-of-seattle.ics Bite of Seattle|2026-07-25T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date. Re-confirmed under seattle-center's new resolved start time (11:00)."
+    },
+    "recurring-bite-of-seattle.ics Bite of Seattle|2026-07-26T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, 305 Harrison St, same date. Re-confirmed under seattle-center's new resolved start time (11:00)."
+    },
+    "external-seattle-gov-arts.ics Cultural Investments Committee (CIC)|2026-08-20T14:00:00Z[UTC]::external-seattle-gov-city-wide.ics Cultural Investments Committee (CIC)|2026-08-20T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same commission meeting; city-wide feed mirrors the Arts department feed verbatim (identical title/date)"
+    },
+    "external-seattle-gov-arts.ics Public Art Advisory Committee (PAAC)|2026-08-25T09:00:00Z[UTC]::external-seattle-gov-city-wide.ics Public Art Advisory Committee (PAAC)|2026-08-25T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same committee meeting; city-wide feed mirrors the Arts department feed verbatim"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Draft Review Session|2026-08-20T12:30:00Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Draft Review Session|2026-08-20T12:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Identical title/date/URL (seattle.gov/arts smART Ventures grant page) across both feeds"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Information Session|2026-08-20T11:30:00Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Information Session|2026-08-20T11:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Identical title/date/URL (seattle.gov/arts smART Ventures grant page) across both feeds"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-08-20T19:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-08-20T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Identical title/date/URL (instagram.com/battleroyaleballard) across both feeds; city-wide mirrors Neighborhoods dept feed"
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-08-21T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-08-21T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Identical title/date/URL (amyyee10usfoundation.org) across both feeds; city-wide mirrors Parks & Recreation dept feed"
     }
   }
 }

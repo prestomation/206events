@@ -49673,6 +49673,78 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "evidence": "https://www.cwb.org/50th (image found on event page)"
+    },
+    "events12:classical-music-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:classical-music-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:classical-music-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:classical-music-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:early-fireworks-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:early-fireworks-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:national-park-day-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:national-park-day-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:parades-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:fourth-of-july-seattle-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:fireworks-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
+    },
+    "events12:fourth-of-july-tacoma-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event date already passed (today is 2026-07-12); events12 does not filter past-dated listings from its source page, so resolving a start time now would be moot"
     }
   }
 }
