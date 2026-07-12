@@ -6799,6 +6799,231 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-11",
       "note": "Seward Park Audubon talk hosted at Royal Room — same event in venue and org calendars"
+    },
+    "events12-seattle-events.ics Bite of Seattle|2026-07-24T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-24T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, two feeds (events12 and seattle-center); different times reflect events12 having 11am open vs seattle-center using midnight placeholder"
+    },
+    "recurring-bite-of-seattle.ics Bite of Seattle|2026-07-24T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-24T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Bite of Seattle festival at Seattle Center, two feeds (recurring and seattle-center)"
+    },
+    "freeze-tag-events-freeze-tag-events.ics One Shot Seattle: Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same event at Cal Anderson Park; freeze-tag has full name 'One Shot Seattle: Fantasy Scavenger Hunt', seatoday has shortened title"
+    },
+    "freeze-tag-events-freeze-tag-events.ics One Shot Seattle: Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same event at Cal Anderson Park; seatoday-community sub-feed"
+    },
+    "freeze-tag-events-freeze-tag-events.ics One Shot Seattle: Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same event at Cal Anderson Park; seatoday-sports sub-feed"
+    },
+    "royal-room-all-events.ics Urban Naturalist: Eric Wagner – Seabirds as Sentinels: Auklets, Puffins, Shearwaters, and the View|2026-07-23T18:00:00-07:00[America/Los_Angeles]::seward-park-audubon-all-events.ics Urban Naturalist | Eric Wagner - Seabirds as Sentinels|2026-07-23T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same Eric Wagner lecture at The Royal Room, 5000 Rainier Ave S; both feeds list 6pm same night; title variants of the same event"
+    },
+    "seatoday-seatoday-all.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs community sub-feed"
+    },
+    "seatoday-seatoday-all.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs learning sub-feed"
+    },
+    "seatoday-seatoday-all.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs sports sub-feed"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-25T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-25T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs community sub-feed"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-25T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-25T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs sports sub-feed"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-25T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-25T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in community vs sports sub-feed"
+    },
+    "seatoday-seatoday-all.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs arts sub-feed"
+    },
+    "seatoday-seatoday-all.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs learning sub-feed"
+    },
+    "seatoday-seatoday-all.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs sports sub-feed"
+    },
+    "seatoday-seatoday-all.ics WoodmenLife Senior Day 2026 - Seattle, WA|2026-07-25T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics WoodmenLife Senior Day 2026 - Seattle, WA|2026-07-25T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in all vs community sub-feed"
+    },
+    "seatoday-seatoday-arts.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in arts vs learning sub-feed"
+    },
+    "seatoday-seatoday-arts.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in arts vs sports sub-feed"
+    },
+    "seatoday-seatoday-community.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in community vs learning sub-feed"
+    },
+    "seatoday-seatoday-community.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in community vs sports sub-feed"
+    },
+    "seatoday-seatoday-learning.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Community Walking Audit - Sat., July 25, 2026 - NEW Time|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in learning vs sports sub-feed"
+    },
+    "seatoday-seatoday-learning.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Painting with Natural Pigments|2026-07-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-12",
+      "note": "Same seatoday event in learning vs sports sub-feed"
+    },
+    "external-tats-truck.ics LAKE CITY MAKERS MARKET |2026-07-16T22:00:00Z[UTC]::recurring-lake-city-farmers-market.ics Lake City Farmers Market|2026-07-16T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different events: Lake City Farmers Market (produce/food) vs LAKE CITY MAKERS MARKET (crafts/makers)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-13T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-14T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-15T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-15T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-16T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-17T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-20T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-20T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-21T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-21T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-22T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-23T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-24T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-27T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-29T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-30T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-30T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-07-31T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-07-31T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-03T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-03T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-04T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-05T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-05T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-06T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-07T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-07T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-10T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-11T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-12",
+      "note": "Different physical locations: 1201 Eastlake and 1551 Eastlake are 321m apart (different streets)"
     }
   }
 }

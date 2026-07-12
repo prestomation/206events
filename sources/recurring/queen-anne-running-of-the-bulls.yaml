@@ -1,7 +1,10 @@
 geo:
   lat: 47.6383162
-  lng: -122.3564600
+  lng: -122.35646
   label: "Queen Anne Ave N & Boston St, Seattle, WA 98109"
+  osmType: node
+  osmId: 2666623811
+  osmChecked: 2026-07-12
 name: queen-anne-running-of-the-bulls
 sourceRole: venue
 friendlyname: Queen Anne Running of the Bulls
