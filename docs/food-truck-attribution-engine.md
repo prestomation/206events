@@ -143,13 +143,27 @@ SFT API):**
 | Kaosamai | `kaosamaithai` |
 | Napkin Friends | `napkinfriends` |
 
-**Onboarding (per truck, out-of-band):** run the `instagram-source` skill for
-the handle → it reads feed posts (vision), writes dated/located entries to
-`instagram-cache.json`, and adds a `type: instagram` source
-(`username: <handle>`, `tags: ["FoodTruck"]`, `geo: null`) in the same PR. Once
-live, those stops flow into the attribution engine like any feed. Caveats from
-`docs/food-truck-attribution.md` §2b apply (Stories inaccessible; daily-cadence
-trucks are labor-intensive; refresh is only as fresh as the last run).
+**Onboarding (per truck):** run the `instagram-source` skill for the handle → it
+reads feed posts (vision), writes dated/located entries to `instagram-cache.json`,
+and adds a `type: instagram` source (`username: <handle>`, `tags: ["FoodTruck"]`,
+`geo: null`) in the same PR **only if the feed has ≥1 live upcoming event**. Once
+live, those stops flow into the attribution engine like any feed.
+
+**Empirical result (2026-07 — bulk IG is PARKED).** All 6 curated marquee trucks
+above turned out **dormant on their IG feed** (latest posts 6 months–5 years old;
+Marination's handle dead), so per the live-events-only policy **none were seeded**.
+A 120-truck recency sweep from this environment returned **0 successful fetches** —
+Instagram rate-limits after a handful of requests per IP and then temporarily
+blocks, so bulk discovery isn't practical from here. Where truck schedules
+actually live is often **Stories** (need an auth cookie — inaccessible) or not on
+the feed at all. **Conclusion:** Instagram feed is a low-yield, rate-limited
+channel; don't invest in bulk harvesting. Add IG sources **opportunistically** —
+only a specific truck confirmed to post dated schedules on its *feed*, one at a
+time, via the `instagram-source` procedure in
+`skills/instagram-source/SKILL.md`. A paid cookieless scraper API (ScrapeCreators
+/ Apify) would bypass the rate limit for a real sweep, but the 6/6-dormant sample
+makes the yield doubtful. Wiring `instagram-source` into the queue-drainer routine
+is deferred until there are active IG sources to refresh.
 
 ## 7. Rollout after sign-off
 
