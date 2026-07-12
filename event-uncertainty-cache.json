@@ -45629,7 +45629,8 @@
     "events12:bellevue-art-fair-2026-07-25": {
       "fields": {
         "startTime": "10:00",
-        "duration": 32400
+        "duration": 32400,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
@@ -49158,6 +49159,148 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:no-alcohol-event-2026-07-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.zeffy.com/en-US/ticketing/annual-gala-4566 - Discover Burien sidewalk event exploring local restaurants/cafes/retailers with live sidewalk entertainment"
+    },
+    "events12:world-cup-soccer-2026-07-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches - FIFA World Cup 2026 matches, ticketed"
+    },
+    "events12:world-cup-soccer-2026-07-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches - FIFA World Cup 2026 matches, ticketed"
+    },
+    "events12:world-cup-soccer-2026-07-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches - FIFA World Cup 2026 matches, ticketed"
+    },
+    "events12:world-cup-soccer-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches - FIFA World Cup 2026 matches, ticketed"
+    },
+    "events12:traditional-music-2026-07-04": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/ - day pass 0, all-access 0"
+    },
+    "events12:fireworks-party-2026-07-04": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 19800,
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration - 0 general public adult, 5pm-fireworks finale ~10:30pm"
+    },
+    "events12:classical-music-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time (raw: July 1-6 2026)"
+    },
+    "events12:classical-music-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time (raw: July 1-6 2026)"
+    },
+    "events12:classical-music-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time (raw: July 1-6 2026)"
+    },
+    "events12:classical-music-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time (raw: July 1-6 2026)"
+    },
+    "events12:early-fireworks-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time"
+    },
+    "events12:early-fireworks-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time"
+    },
+    "events12:national-park-day-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; national park free entrance day, varies by park"
+    },
+    "events12:national-park-day-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; national park free entrance day, varies by park"
+    },
+    "events12:parades-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time"
+    },
+    "events12:fourth-of-july-seattle-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time"
+    },
+    "events12:fireworks-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time"
+    },
+    "events12:fourth-of-july-tacoma-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "event date has passed; unable to verify historical start time"
     }
   }
 }
