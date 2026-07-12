@@ -660,6 +660,12 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // the 'international district branch' entry in SPL_BRANCH_COORDS.
   'international district/chinatown branch, study room': { lat: 47.5979, lng: -122.3238 },
 
+  // Intersection (no street number) that Nominatim's structured geocoder
+  // can't resolve directly — derived from the bounded 6th Ave S segment
+  // between S King St and S Weller St in the CID (OSM way 260316654),
+  // whose south endpoint (47.5975244) is the Weller St intersection.
+  '6th ave s & s weller st, seattle, wa 98104': { lat: 47.5975, lng: -122.3264 },
+
   // --- 2026-07-05 geo-resolver batch: more "venue name only" / address-format unresolvable entries ---
   // Addresses verified against each venue's own site/official listing, then
   // forward-geocoded via Nominatim (never reverse-geocoded street numbers).

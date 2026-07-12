@@ -1,0 +1,20 @@
+name: uwajimaya
+type: instagram
+# First-party host: Uwajimaya (Asian grocery & gift market) runs community
+# events like the annual Summer Festival street fair outside its flagship
+# Seattle CID store. Multi-location chain (Seattle/Bellevue/Renton/Beaverton),
+# so geo: null at the ripper level, like freeze-tag-events/mixmix-socials —
+# per-event location comes from the cache (flyer/caption).
+sourceRole: venue
+description: "Uwajimaya"
+url: "https://www.instagram.com/uwajimaya/"
+friendlyLink: https://www.instagram.com/uwajimaya/
+geo: null
+tags: ["Community", "International District", "Food"]
+calendars:
+  - name: uwajimaya
+    friendlyname: "Uwajimaya"
+    timezone: America/Los_Angeles
+    config:
+      username: uwajimaya
+      defaultDurationHours: 3

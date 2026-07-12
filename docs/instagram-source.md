@@ -99,6 +99,14 @@ post later should be re-recorded under that real shortcode instead, with the
 synthetic entry pruned via `instagram-cache.py prune --orphan-usernames` or a
 manual `del`.
 
+A single post spanning **multiple consecutive dates with one identical
+title** (e.g. a two-day festival: "Uwajimaya Summer Festival" on both July
+18 and July 19) is a variant of the same problem — `slugify(title)` alone
+would collide across the days. Suffix the slug with the date-scoped
+disambiguator instead: `<realShortcode>-day-1`, `<realShortcode>-day-2`, etc.
+(in chronological order). The roundup post's `isEvent: false` entry cross-
+references all of them, same as any other expansion.
+
 ```json
 {
   "isEvent": true,
