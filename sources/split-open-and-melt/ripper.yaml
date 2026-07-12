@@ -1,0 +1,14 @@
+name: split-open-and-melt
+type: squarespace
+description: "Split Open and Melt"
+url: "https://melt-co.com/events-2-1"
+friendlyLink: "https://melt-co.com/events-2-1"
+sourceRole: venue
+cost: free
+geo: null
+tags: ["FoodTruck"]
+calendars:
+  - name: split-open-and-melt
+    friendlyname: "Split Open and Melt"
+    timezone: America/Los_Angeles
+    tags: ["FoodTruck"]

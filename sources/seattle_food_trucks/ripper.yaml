@@ -3,14 +3,190 @@ sourceRole: venue
 description: "Seattle Food Trucks"
 url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"
-tags: ["Food"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
-skipEventPhotos: true  # events link to location schedule pages, no per-event images
 cost: free
+# Each event is a generic "Food Trucks @ <pod>" slot with no per-event image;
+# don't queue them in photoGaps (the venue imageUrl above is the intended photo).
+skipEventPhotos: true
 lookahead: "P30D"
 geo: null
 calendars:
+  # Catch-all feed for Seattle food-truck pods that DON'T have their own per-pod
+  # calendar below (skipped breweries pending dedicated rippers, plus any newly
+  # appeared pod). Disjoint from the per-pod calendars, so no slot is ever in two
+  # calendars (keeps the cross-source dedup from seeing food trucks twice — see
+  # buildCalendars in ripper.ts). Also the source anchor (its already-deployed
+  # URL keeps the source from registering as "new"). Tagged only "Food" so its
+  # events don't double up in the per-pod "FoodTruck" tag aggregate.
   - name: seattle-food-trucks
     friendlyname: "Seattle Food Trucks"
     timezone: America/Los_Angeles
     tags: ["Food"]
+  # Per-pod calendars: one public pod each, tagged ["FoodTruck", "<Neighborhood>"],
+  # with a fixed geo so the pod appears in venues.json. expectEmpty: true because
+  # a pod legitimately has no bookings in a given week (the merged calendar above
+  # is the health sentinel for the source).
+  - name: westlake-center
+    friendlyname: "Food Trucks @ Westlake Center"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Downtown"]
+    geo:
+      lat: 47.61142
+      lng: -122.3375
+      label: "400 Pine St, Seattle, WA 98101"
+  - name: westlake-park
+    friendlyname: "Food Trucks @ Westlake Park"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Downtown"]
+    geo:
+      lat: 47.61183
+      lng: -122.33699
+      label: "401 Pine St, Seattle, WA 98101"
+  - name: mcgraw-square
+    friendlyname: "Food Trucks @ McGraw Square"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Downtown"]
+    geo:
+      lat: 47.61299
+      lng: -122.33759
+      label: "1801 Westlake Ave, Seattle, WA 98109"
+  - name: 1200-fifth
+    friendlyname: "Food Trucks @ 1200 Fifth"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Downtown"]
+    geo:
+      lat: 47.6087
+      lng: -122.33351
+      label: "505 University St, Seattle, WA 98101"
+  - name: starbucks-center
+    friendlyname: "Food Trucks @ Starbucks Center"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "SoDo"]
+    geo:
+      lat: 47.58024
+      lng: -122.33562
+      label: "2401 Utah Ave S, Seattle, WA 98134"
+  - name: dexter-yard
+    friendlyname: "Food Trucks @ Dexter Yard"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "South Lake Union"]
+    geo:
+      lat: 47.62553
+      lng: -122.34222
+      label: "700 Dexter Ave N, Seattle, WA 98109"
+  - name: fox-13-seattle
+    friendlyname: "Food Trucks @ FOX 13 Seattle"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "South Lake Union"]
+    geo:
+      lat: 47.63545
+      lng: -122.34093
+      label: "1813 Westlake Ave N, Seattle, WA 98109"
+  - name: fred-hutch-cancer-center
+    friendlyname: "Food Trucks @ Fred Hutch Cancer Center"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "South Lake Union"]
+    geo:
+      lat: 47.62775
+      lng: -122.33067
+      label: "1100 Fairview Ave N, Seattle, WA 98109"
+  - name: west-lake-union-center
+    friendlyname: "Food Trucks @ West Lake Union Center"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "South Lake Union"]
+    geo:
+      lat: 47.63248
+      lng: -122.34124
+      label: "1505 Westlake Ave N, Seattle, WA 98109"
+  - name: 1201-eastlake
+    friendlyname: "Food Trucks @ 1201 Eastlake"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Eastlake"]
+    geo:
+      lat: 47.63082
+      lng: -122.32794
+      label: "1201 Eastlake Ave E, Seattle, WA 98109"
+  - name: 1551-eastlake
+    friendlyname: "Food Trucks @ 1551 Eastlake"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Eastlake"]
+    geo:
+      lat: 47.63348
+      lng: -122.32628
+      label: "1551 Eastlake Ave E, Seattle, WA 98102"
+  - name: expedia-group-campus
+    friendlyname: "Food Trucks @ Expedia Group Campus"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    # Tagged Interbay by address (1111 Expedia Group Way W is Interbay); the SFT
+    # API classifies this pod under "Ballard", but the physical location is Interbay.
+    tags: ["FoodTruck", "Interbay"]
+    geo:
+      lat: 47.62832
+      lng: -122.37486
+      label: "1111 Expedia Group Way W, Seattle, WA 98119"
+  - name: bell-street-park
+    friendlyname: "Food Trucks @ Bell Street Park"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Belltown"]
+    geo:
+      lat: 47.61467
+      lng: -122.345
+      label: "298 Bell St, Seattle, WA 98121"
+  - name: northedge
+    friendlyname: "Food Trucks @ Northedge"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Fremont"]
+    geo:
+      lat: 47.64821
+      lng: -122.33856
+      label: "1604 N 34th St, Seattle, WA 98103"
+  - name: trupanion
+    friendlyname: "Food Trucks @ Trupanion"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Georgetown"]
+    geo:
+      lat: 47.54702
+      lng: -122.32871
+      label: "6100 4th Ave S, Seattle, WA 98108"
+  - name: kaiser-permanente-northgate
+    friendlyname: "Food Trucks @ Kaiser Permanente - Northgate"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Northgate"]
+    geo:
+      lat: 47.70091
+      lng: -122.3237
+      label: "9800 4th Ave NE, Seattle, WA 98115"
+  - name: polyclinic-northgate
+    friendlyname: "Food Trucks @ The Polyclinic - Northgate Plaza"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Northgate"]
+    geo:
+      lat: 47.69926
+      lng: -122.32576
+      label: "9709 3rd Ave NE, Seattle, WA 98115"
+  - name: occidental-park
+    friendlyname: "Food Trucks @ Occidental Park"
+    timezone: America/Los_Angeles
+    expectEmpty: true
+    tags: ["FoodTruck", "Pioneer Square"]
+    geo:
+      lat: 47.60078
+      lng: -122.33371
+      label: "117 S Washington St, Seattle, WA 98104"

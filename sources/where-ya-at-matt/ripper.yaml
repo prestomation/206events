@@ -1,0 +1,14 @@
+name: where-ya-at-matt
+type: squarespace
+description: "Where Ya At Matt"
+url: "https://www.whereyaatmatt.com/truckschedule"
+friendlyLink: "https://www.whereyaatmatt.com/truckschedule"
+sourceRole: venue
+cost: free
+geo: null
+tags: ["FoodTruck"]
+calendars:
+  - name: where-ya-at-matt
+    friendlyname: "Where Ya At Matt"
+    timezone: America/Los_Angeles
+    tags: ["FoodTruck"]

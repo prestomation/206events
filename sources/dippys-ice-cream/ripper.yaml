@@ -1,0 +1,14 @@
+name: dippys-ice-cream
+type: squarespace
+description: "Dippy's Delicious Ice Cream"
+url: "https://www.dippysicecream.com/calendar"
+friendlyLink: "https://www.dippysicecream.com/calendar"
+sourceRole: venue
+cost: free
+geo: null
+tags: ["FoodTruck"]
+calendars:
+  - name: dippys-ice-cream
+    friendlyname: "Dippy's Delicious Ice Cream"
+    timezone: America/Los_Angeles
+    tags: ["FoodTruck"]

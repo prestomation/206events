@@ -138,6 +138,12 @@ every reporting channel. Non-events and unread posts simply aren't emitted.
 
 ## Adding an account
 
+**Only add an account that already has live events.** Read its feed first (run
+the `instagram-source` skill); if it has no upcoming events, don't add it — an
+empty feed is zero signal it will post in the future (and a 0-event source fails
+the build). When it does have events, add the source **enabled** and seed those
+events in the same PR:
+
 1. Add `sources/<slug>/ripper.yaml` (name the source after the org, not the
    platform — `instagram` is an implementation detail already captured by `type`):
    ```yaml
@@ -146,7 +152,6 @@ every reporting channel. Non-events and unread posts simply aren't emitted.
    description: "<Account Name>"
    url: "https://www.instagram.com/<handle>/"
    friendlyLink: https://www.instagram.com/<handle>/
-   disabled: true            # until the cache has real events (0-event sources fail the build)
    geo: null                 # or {lat,lng,label} for a single-venue account
    tags: ["..."]
    calendars:
@@ -158,8 +163,9 @@ every reporting channel. Non-events and unread posts simply aren't emitted.
          defaultDurationHours: 2     # optional
          defaultLocation: "..."      # optional fallback address
    ```
-2. Run the `instagram-source` skill to seed real events, then flip
-   `disabled: true` off in the same PR.
+2. Seed the feed's real events into `instagram-cache.json` in the same PR.
+   (`disabled: true` is only for an already-added source that has gone
+   temporarily quiet, never a way to park a speculative empty source.)
 
 `geo` follows the usual rule: a single-venue account is a venue (`{lat,lng}`),
 a mobile/multi-venue account (like a trivia host) is `geo: null` and is excluded
