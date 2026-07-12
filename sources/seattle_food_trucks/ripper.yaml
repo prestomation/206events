@@ -3,7 +3,8 @@ sourceRole: venue
 description: "Seattle Food Trucks"
 url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_\
+  food_truck_Seattle_Washington.JPG"
 cost: free
 # Each event is a generic "Food Trucks @ <pod>" slot with no per-event image;
 # don't queue them in photoGaps (the venue imageUrl above is the intended photo).
@@ -35,6 +36,8 @@ calendars:
       lat: 47.61142
       lng: -122.3375
       label: "400 Pine St, Seattle, WA 98101"
+      osmType: way
+      osmId: 36869314
   - name: westlake-park
     friendlyname: "Food Trucks @ Westlake Park"
     timezone: America/Los_Angeles
@@ -44,6 +47,7 @@ calendars:
       lat: 47.61183
       lng: -122.33699
       label: "401 Pine St, Seattle, WA 98101"
+      osmChecked: 2026-07-12
   - name: mcgraw-square
     friendlyname: "Food Trucks @ McGraw Square"
     timezone: America/Los_Angeles
@@ -53,6 +57,8 @@ calendars:
       lat: 47.61299
       lng: -122.33759
       label: "1801 Westlake Ave, Seattle, WA 98109"
+      osmType: way
+      osmId: 428248114
   - name: 1200-fifth
     friendlyname: "Food Trucks @ 1200 Fifth"
     timezone: America/Los_Angeles
@@ -62,6 +68,8 @@ calendars:
       lat: 47.6087
       lng: -122.33351
       label: "505 University St, Seattle, WA 98101"
+      osmType: way
+      osmId: 240852322
   - name: starbucks-center
     friendlyname: "Food Trucks @ Starbucks Center"
     timezone: America/Los_Angeles
@@ -71,6 +79,8 @@ calendars:
       lat: 47.58024
       lng: -122.33562
       label: "2401 Utah Ave S, Seattle, WA 98134"
+      osmType: way
+      osmId: 103052725
   - name: dexter-yard
     friendlyname: "Food Trucks @ Dexter Yard"
     timezone: America/Los_Angeles
@@ -80,6 +90,8 @@ calendars:
       lat: 47.62553
       lng: -122.34222
       label: "700 Dexter Ave N, Seattle, WA 98109"
+      osmType: way
+      osmId: 396290405
   - name: fox-13-seattle
     friendlyname: "Food Trucks @ FOX 13 Seattle"
     timezone: America/Los_Angeles
@@ -89,6 +101,8 @@ calendars:
       lat: 47.63545
       lng: -122.34093
       label: "1813 Westlake Ave N, Seattle, WA 98109"
+      osmType: way
+      osmId: 223782743
   - name: fred-hutch-cancer-center
     friendlyname: "Food Trucks @ Fred Hutch Cancer Center"
     timezone: America/Los_Angeles
@@ -98,6 +112,7 @@ calendars:
       lat: 47.62775
       lng: -122.33067
       label: "1100 Fairview Ave N, Seattle, WA 98109"
+      osmChecked: 2026-07-12
   - name: west-lake-union-center
     friendlyname: "Food Trucks @ West Lake Union Center"
     timezone: America/Los_Angeles
@@ -107,6 +122,8 @@ calendars:
       lat: 47.63248
       lng: -122.34124
       label: "1505 Westlake Ave N, Seattle, WA 98109"
+      osmType: node
+      osmId: 2326560138
   - name: 1201-eastlake
     friendlyname: "Food Trucks @ 1201 Eastlake"
     timezone: America/Los_Angeles
@@ -116,6 +133,8 @@ calendars:
       lat: 47.63082
       lng: -122.32794
       label: "1201 Eastlake Ave E, Seattle, WA 98109"
+      osmType: way
+      osmId: 418153348
   - name: 1551-eastlake
     friendlyname: "Food Trucks @ 1551 Eastlake"
     timezone: America/Los_Angeles
@@ -125,6 +144,8 @@ calendars:
       lat: 47.63348
       lng: -122.32628
       label: "1551 Eastlake Ave E, Seattle, WA 98102"
+      osmType: way
+      osmId: 217604421
   - name: expedia-group-campus
     friendlyname: "Food Trucks @ Expedia Group Campus"
     timezone: America/Los_Angeles
@@ -136,6 +157,8 @@ calendars:
       lat: 47.62832
       lng: -122.37486
       label: "1111 Expedia Group Way W, Seattle, WA 98119"
+      osmType: way
+      osmId: 221921032
   - name: bell-street-park
     friendlyname: "Food Trucks @ Bell Street Park"
     timezone: America/Los_Angeles
@@ -145,6 +168,8 @@ calendars:
       lat: 47.61467
       lng: -122.345
       label: "298 Bell St, Seattle, WA 98121"
+      osmType: way
+      osmId: 533145514
   - name: northedge
     friendlyname: "Food Trucks @ Northedge"
     timezone: America/Los_Angeles
@@ -154,6 +179,8 @@ calendars:
       lat: 47.64821
       lng: -122.33856
       label: "1604 N 34th St, Seattle, WA 98103"
+      osmType: node
+      osmId: 1271614013
   - name: trupanion
     friendlyname: "Food Trucks @ Trupanion"
     timezone: America/Los_Angeles
@@ -163,6 +190,7 @@ calendars:
       lat: 47.54702
       lng: -122.32871
       label: "6100 4th Ave S, Seattle, WA 98108"
+      osmChecked: 2026-07-12
   - name: kaiser-permanente-northgate
     friendlyname: "Food Trucks @ Kaiser Permanente - Northgate"
     timezone: America/Los_Angeles
@@ -172,6 +200,8 @@ calendars:
       lat: 47.70091
       lng: -122.3237
       label: "9800 4th Ave NE, Seattle, WA 98115"
+      osmType: node
+      osmId: 2463978133
   - name: polyclinic-northgate
     friendlyname: "Food Trucks @ The Polyclinic - Northgate Plaza"
     timezone: America/Los_Angeles
@@ -181,6 +211,8 @@ calendars:
       lat: 47.69926
       lng: -122.32576
       label: "9709 3rd Ave NE, Seattle, WA 98115"
+      osmType: node
+      osmId: 13300830067
   - name: occidental-park
     friendlyname: "Food Trucks @ Occidental Park"
     timezone: America/Los_Angeles
@@ -190,3 +222,5 @@ calendars:
       lat: 47.60078
       lng: -122.33371
       label: "117 S Washington St, Seattle, WA 98104"
+      osmType: way
+      osmId: 452330585

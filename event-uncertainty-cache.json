@@ -49301,6 +49301,16 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "event date has passed; unable to verify historical start time"
+    },
+    "events12:world-cup-final-game-2026-07-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.mcmenamins.com/events/277958-fifa-world-cup-final - Free, all ages welcome"
     }
   }
 }
