@@ -5,7 +5,7 @@ platform: Unknown
 url: http://www.georgetowngardenwalk.com
 tags: [Community, Georgetown]
 firstSeen: 2026-07-08
-lastChecked: 2026-07-09
+lastChecked: 2026-07-12
 ---
 
 Discovered via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1uk06b5/the_29th_annual_georgetown_garden_walk_is_july/
