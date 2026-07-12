@@ -15485,11 +15485,12 @@
       "partialFingerprint": "1bzfwxr"
     },
     "discover-slu:discover-slu-stir-up-the-paint-vacation-getaway": {
-      "unresolvable": true,
-      "reason": "No end time listed on page",
-      "resolvedAt": "2026-06-08",
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
       "source": "agent",
-      "partialFingerprint": "4kzq6f"
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-vacation-getaway/"
     },
     "discover-slu:discover-slu-guest-chef-night-lockwood": {
       "fields": {
@@ -15515,25 +15516,28 @@
       "partialFingerprint": "15xusl2"
     },
     "discover-slu:discover-slu-democracy": {
-      "unresolvable": true,
-      "reason": "No end time listed on page",
-      "resolvedAt": "2026-06-08",
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
       "source": "agent",
-      "partialFingerprint": "1sbs80w"
+      "evidence": "https://www.discoverslu.com/events/democracy/"
     },
     "discover-slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "No end time listed on page",
-      "resolvedAt": "2026-06-08",
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-07-12",
       "source": "agent",
-      "partialFingerprint": "16l1y06"
+      "evidence": "https://www.discoverslu.com/events/photo-essentials-1-2026-2-2-2-2-2-2-2/"
     },
     "discover-slu:discover-slu-photo-essentials-2-2026-2-2": {
-      "unresolvable": true,
-      "reason": "No end time listed on page",
-      "resolvedAt": "2026-06-08",
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-07-12",
       "source": "agent",
-      "partialFingerprint": "1g1lqp8"
+      "evidence": "https://www.discoverslu.com/events/photo-essentials-2-2026-2-2/"
     },
     "discover-slu:discover-slu-video-fundamentals-1-2026-2-2-2-2": {
       "unresolvable": true,
@@ -45624,11 +45628,12 @@
     },
     "events12:bellevue-art-fair-2026-07-25": {
       "fields": {
-        "setting": "outdoor"
+        "startTime": "10:00",
+        "duration": 32400
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://www.bellevueartsfair.com - Bellevue Arts Museum Artsfair is an outdoor street festival"
+      "evidence": "https://www.bellevueartsfair.com/about"
     },
     "events12:dance-in-the-park-2026-07-25": {
       "fields": {
@@ -45646,11 +45651,13 @@
     },
     "events12:shakespeare-in-the-park-2026-07-25": {
       "fields": {
+        "startTime": "19:00",
+        "duration": 7200,
         "setting": "outdoor"
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://greenstage.org/shakespeare-in-the-park/ - Shakespeare in the Park is explicitly outdoor"
+      "evidence": "https://greenstage.org/schedule/"
     },
     "rainier-beach-community-club:rbcc-arts-and-crafts-market-2026-12-05": {
       "fields": {
@@ -46084,6 +46091,3073 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events - sailing event; embed page not fetchable to confirm price"
+    },
+    "19hz:19hz-2026/07/06-Autonomous Mutant Festival": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event already past, cannot verify start time or duration"
+    },
+    "19hz:19hz-2026/07/11-Simmer": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event already past, cannot verify duration"
+    },
+    "19hz:19hz-2026/07/11-R&Bass": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event already past, cannot verify duration"
+    },
+    "19hz:19hz-2026/07/11-Paul Cowling": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event already past, cannot verify duration"
+    },
+    "discover-slu:discover-slu-flow-in-the-park-2026": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/flow-in-the-park-2026/"
+    },
+    "discover-slu:discover-slu-paint-a-pickleball-paddle": {
+      "fields": {
+        "startTime": "17:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/paint-a-pickleball-paddle/"
+    },
+    "discover-slu:discover-slu-cwb-summer-racing-series-2026": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/cwb-summer-racing-series-2026/"
+    },
+    "discover-slu:discover-slu-femme-jazz-summer-camp-performance": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/femme-jazz-summer-camp-performance/"
+    },
+    "discover-slu:discover-slu-van-gogh-monet": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/van-gogh-monet/"
+    },
+    "discover-slu:discover-slu-summer-connections-camp-performance": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/summer-connections-camp-performance/"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-yoga-x46741": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-yoga-x46741"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-zumba-x46742": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-zumba-x46742"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46743": {
+      "fields": {
+        "duration": 3000
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-mat-pilates-x46743"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47703": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47703"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47319": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47320": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47321": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47323": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47324": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47325": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47326": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47327": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:lets-play-sea26-visual-arts-at-seattle-center-sand-sculpture-installation-by-jamie-louks-x47328": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation, no specific hours listed on event page"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46349": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture walk, no specific hours listed on event page"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46350": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture walk, no specific hours listed on event page"
+    },
+    "seattle-center:bite-of-seattle-x47503": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Seattle Center lists as all-day; official site returned 403, hours not verifiable"
+    },
+    "discover-slu:discover-slu-slu-then-now-2026": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/slu-then-now-2026/"
+    },
+    "discover-slu:discover-slu-south-lake-union-block-party-2026": {
+      "fields": {
+        "duration": 39600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/south-lake-union-block-party-2026/"
+    },
+    "discover-slu:discover-slu-2026-seattle-design-festival-block-party-2": {
+      "fields": {
+        "duration": 32400
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/2026-seattle-design-festival-block-party-2/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-impressionist-sunset": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-impressionist-sunset/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-boating-at-sunset": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-boating-at-sunset/"
+    },
+    "discover-slu:discover-slu-cider-summit-seattle-2026": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/cider-summit-seattle-2026/"
+    },
+    "discover-slu:discover-slu-drawing-jam": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/drawing-jam/"
+    },
+    "discover-slu:discover-slu-video-fundamentals-1-2026-2-2-2-2-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/video-fundamentals-1-2026-2-2-2-2-2/"
+    },
+    "discover-slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/photo-essentials-1-2026-2-2-2-2-2-2-2-2/"
+    },
+    "events12:mercer-island-festival-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event already past, cannot verify"
+    },
+    "events12:taste-of-snoqualmie-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event already past, cannot verify"
+    },
+    "events12:hippie-music-festival-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source site (brodienation.com) returned HTTP 503, cannot verify hours"
+    },
+    "events12:ballard-seafood-festival-2026-07-12": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seafoodfest.org"
+    },
+    "events12:west-seattle-festival-2026-07-12": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://westseattlesummerfest.com/"
+    },
+    "events12:kent-family-festival-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Hours not listed on kcdays.com, event guide PDF required"
+    },
+    "events12:mill-creek-fair-2026-07-12": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://millcreekfestival.com"
+    },
+    "events12:shakespeare-in-the-park-2026-07-26": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-27": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-28": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-29": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-30": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-07-31": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-01": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-02": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-03": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-04": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-05": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-06": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-07": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-08": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-09": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-10": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-11": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-12": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-13": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-14": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-15": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:shakespeare-in-the-park-2026-08-16": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/schedule/"
+    },
+    "events12:concerts-2026-07-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-07-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-07-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-07-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-07-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:concerts-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source URL is an image file (events12.com/img/), not an event page"
+    },
+    "events12:eastside-movies-in-parks-2026-07-14": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-15": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-16": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-17": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-18": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-19": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-20": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-21": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-22": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-23": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-24": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-25": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-26": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-27": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-28": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-29": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-30": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-07-31": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-01": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-02": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-03": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-04": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-05": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-06": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-07": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-08": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-09": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-10": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-11": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-12": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-13": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-14": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-15": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-16": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-17": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-18": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-19": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-20": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-21": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-22": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-23": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-24": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-25": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-26": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:eastside-movies-in-parks-2026-08-27": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
+    },
+    "events12:movies-at-seattle-center-2026-07-24": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-07-25": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-07-26": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-07-27": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-07-28": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-07-29": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-07-30": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-07-31": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-01": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-02": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-03": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-04": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-05": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-06": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-07": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-08": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-09": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-10": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-11": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-12": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-13": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-14": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-15": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-16": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-17": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-18": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-19": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-20": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:movies-at-seattle-center-2026-08-21": {
+      "fields": {
+        "startTime": "21:00"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
+    },
+    "events12:dance-in-the-park-2026-07-26": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-07-27": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-07-28": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-07-29": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-07-30": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-07-31": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-01": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-02": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-03": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-04": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-05": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-06": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-07": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-08": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-09": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-10": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-11": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-12": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-13": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-14": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-15": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-16": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-17": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-18": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-19": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-20": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-21": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-22": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-23": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-24": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-25": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-26": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-27": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-28": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-29": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:dance-in-the-park-2026-08-30": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/events"
+    },
+    "events12:indian-powwow-2026-07-17": {
+      "fields": {
+        "startTime": "16:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.unitedindians.org/events/united-indians-of-all-tribes-powwow-2026/"
+    },
+    "events12:indian-powwow-2026-07-18": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 43200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.unitedindians.org/events/united-indians-of-all-tribes-powwow-2026/"
+    },
+    "events12:indian-powwow-2026-07-19": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.unitedindians.org/events/united-indians-of-all-tribes-powwow-2026/"
+    },
+    "events12:alki-point-art-fair-2026-07-17": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.alkiartfair.org/"
+    },
+    "events12:alki-point-art-fair-2026-07-18": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.alkiartfair.org/"
+    },
+    "events12:alki-point-art-fair-2026-07-19": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.alkiartfair.org/"
+    },
+    "events12:japanese-festival-2026-07-18": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlebetsuin.org/bon-odori/"
+    },
+    "events12:japanese-festival-2026-07-19": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattlebetsuin.org/bon-odori/"
+    },
+    "events12:olympia-summer-festival-2026-07-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:olympia-summer-festival-2026-07-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:olympia-summer-festival-2026-07-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:olympia-summer-festival-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:olympia-summer-festival-2026-07-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:lavender-festival-2026-07-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:lavender-festival-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:lavender-festival-2026-07-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:vashon-strawberry-festival-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:vashon-strawberry-festival-2026-07-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Festival schedule page does not list specific event hours"
+    },
+    "events12:concerts-on-a-farm-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:concerts-on-a-farm-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
+    },
+    "events12:sand-castles-2026-07-15": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.longbeachmerchants.com/sandsations"
+    },
+    "events12:sand-castles-2026-07-16": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.longbeachmerchants.com/sandsations"
+    },
+    "events12:sand-castles-2026-07-17": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.longbeachmerchants.com/sandsations"
+    },
+    "events12:sand-castles-2026-07-18": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.longbeachmerchants.com/sandsations"
+    },
+    "events12:sand-castles-2026-07-19": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.longbeachmerchants.com/sandsations"
+    },
+    "events12:snohomish-festival-2026-07-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "klahayadays.com does not list specific hours; schedule posted annually in March"
+    },
+    "events12:snohomish-festival-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "klahayadays.com does not list specific hours; schedule posted annually in March"
+    },
+    "events12:small-town-festival-2026-07-18": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.northbenddowntown.org/block-party"
+    },
+    "events12:gig-harbor-art-fair-2026-07-18": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://peninsulaartleague.org/2025-summer-art-festival-2/"
+    },
+    "events12:gig-harbor-art-fair-2026-07-19": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://peninsulaartleague.org/2025-summer-art-festival-2/"
+    },
+    "events12:outdoor-plays-2026-07-25": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 43200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/sotf/"
+    },
+    "events12:outdoor-plays-2026-07-26": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 39600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/sotf/"
+    },
+    "events12:welcome-ships-sailors-2026-07-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "seafair.org/fleet-week/ states times TBA and directs to signup for notifications"
+    },
+    "events12:welcome-ships-sailors-2026-07-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "seafair.org/fleet-week/ states times TBA and directs to signup for notifications"
+    },
+    "events12:welcome-ships-sailors-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "seafair.org/fleet-week/ states times TBA and directs to signup for notifications"
+    },
+    "events12:welcome-ships-sailors-2026-07-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "seafair.org/fleet-week/ states times TBA and directs to signup for notifications"
+    },
+    "events12:new-musical-2026-07-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "stgpresents.org lists 'Various showtimes' for Hell's Kitchen; no specific times available without ticket lookup"
+    },
+    "events12:new-musical-2026-07-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "stgpresents.org lists 'Various showtimes' for Hell's Kitchen; no specific times available without ticket lookup"
+    },
+    "events12:new-musical-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "stgpresents.org lists 'Various showtimes' for Hell's Kitchen; no specific times available without ticket lookup"
+    },
+    "events12:new-musical-2026-07-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "stgpresents.org lists 'Various showtimes' for Hell's Kitchen; no specific times available without ticket lookup"
+    },
+    "events12:new-musical-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "stgpresents.org lists 'Various showtimes' for Hell's Kitchen; no specific times available without ticket lookup"
+    },
+    "events12:new-musical-2026-07-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "stgpresents.org lists 'Various showtimes' for Hell's Kitchen; no specific times available without ticket lookup"
+    },
+    "events12:redmond-derby-days-2026-07-24": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 39600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.redmond.gov/1244/Schedule"
+    },
+    "events12:redmond-derby-days-2026-07-25": {
+      "fields": {
+        "startTime": "08:00",
+        "duration": 50400
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.redmond.gov/1244/Schedule"
+    },
+    "events12:bellevue-art-fair-2026-07-26": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.bellevueartsfair.com/about"
+    },
+    "events12:renton-river-days-2026-07-24": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.rentonwa.gov/Government/Departments-and-Offices/Parks-and-Recreation/Events/Renton-River-Days"
+    },
+    "events12:renton-river-days-2026-07-25": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.rentonwa.gov/Government/Departments-and-Offices/Parks-and-Recreation/Events/Renton-River-Days"
+    },
+    "events12:renton-river-days-2026-07-26": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.rentonwa.gov/Government/Departments-and-Offices/Parks-and-Recreation/Events/Renton-River-Days"
+    },
+    "events12:magnolia-summer-festival-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "magnoliasummerfest.org schedule page shows images, not text; hours not extractable"
+    },
+    "events12:magnolia-summer-festival-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "magnoliasummerfest.org schedule page shows images, not text; hours not extractable"
+    },
+    "events12:magnolia-summer-festival-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "magnoliasummerfest.org schedule page shows images, not text; hours not extractable"
+    },
+    "events12:seafair-hydroplanes-air-show-2026-07-31": {
+      "fields": {
+        "startTime": "08:30",
+        "duration": 34200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/seafair-weekend-festival/"
+    },
+    "events12:seafair-hydroplanes-air-show-2026-08-01": {
+      "fields": {
+        "startTime": "08:45",
+        "duration": 33300
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/seafair-weekend-festival/"
+    },
+    "events12:seafair-hydroplanes-air-show-2026-08-02": {
+      "fields": {
+        "startTime": "08:45",
+        "duration": 29700
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/seafair-weekend-festival/"
+    },
+    "events12:redmond-art-fair-2026-07-31": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.valaeastside.org/redmondartsfestival"
+    },
+    "events12:redmond-art-fair-2026-08-01": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.valaeastside.org/redmondartsfestival"
+    },
+    "events12:redmond-art-fair-2026-08-02": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.valaeastside.org/redmondartsfestival"
+    },
+    "events12:anacortes-art-festival-2026-07-31": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.anacortesartsfestival.com/visitors"
+    },
+    "events12:anacortes-art-festival-2026-08-01": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.anacortesartsfestival.com/visitors"
+    },
+    "events12:anacortes-art-festival-2026-08-02": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.anacortesartsfestival.com/visitors"
+    },
+    "events12:tacoma-concerts-2026-07-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-09-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-10-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-10-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-10-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-10-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-10-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-10-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-10-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
+    },
+    "events12:tacoma-concerts-2026-10-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
     }
   }
 }
