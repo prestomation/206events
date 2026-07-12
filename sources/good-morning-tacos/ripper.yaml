@@ -1,0 +1,14 @@
+name: good-morning-tacos
+type: squarespace
+description: "Good Morning Tacos"
+url: "https://goodmorningtacos.com/events"
+friendlyLink: "https://goodmorningtacos.com/events"
+sourceRole: venue
+cost: free
+geo: null
+tags: ["FoodTruck"]
+calendars:
+  - name: good-morning-tacos
+    friendlyname: "Good Morning Tacos"
+    timezone: America/Los_Angeles
+    tags: ["FoodTruck"]
