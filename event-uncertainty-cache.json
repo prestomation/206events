@@ -1,14 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-07-04": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-07-05": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1449,13 +1441,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-07-05": {
       "unresolvable": true,
       "reason": "Commercial tour \u2014 booking times vary by individual reservation",
@@ -2680,13 +2665,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Commercial tour \u2014 booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-07-05": {
       "unresolvable": true,
@@ -3920,13 +3898,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-07-05": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each home game has a different start time",
@@ -4808,14 +4779,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour \u2014 booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-07-05": {
       "unresolvable": true,
@@ -5769,14 +5732,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Season schedule page \u2014 each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-07-05": {
       "unresolvable": true,
       "reason": "Season schedule page \u2014 each game has a different start time",
@@ -6455,14 +6410,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
     "events12:winery-concerts-2026-07-05": {
@@ -7145,14 +7092,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
     "events12:concerts-at-the-locks-2026-07-05": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule \u2014 times vary by concert date and cannot be parsed",
@@ -7673,14 +7612,6 @@
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
-    "events12:bus-to-the-mountains-2026-07-04": {
-      "unresolvable": true,
-      "reason": "General transit service page \u2014 specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:bus-to-the-mountains-2026-07-05": {
       "unresolvable": true,
       "reason": "General transit service page \u2014 specific departure times vary by date and destination",
@@ -8136,13 +8067,6 @@
       "source": "agent",
       "evidence": "https://trailheaddirect.org/",
       "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-marymoor-park-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
     },
     "events12:concerts-at-marymoor-park-2026-07-05": {
       "unresolvable": true,
@@ -13264,14 +13188,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
     },
-    "events12:taste-of-pike-place-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:taste-of-pike-place-2026-07-05": {
       "unresolvable": true,
       "resolvedAt": "2026-05-25",
@@ -16544,14 +16460,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:garden-walk-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:garden-walk-2026-07-05": {
       "unresolvable": true,
       "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
@@ -16718,14 +16626,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:zoo-concerts-2026-07-04": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:zoo-concerts-2026-07-05": {
@@ -17504,14 +17404,6 @@
       "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
-    "events12:classical-music-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Varying start times per location and date; check individual event listings on SCMS website",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "1wtiw6a-until2026-07-06-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:classical-music-2026-07-05": {
       "unresolvable": true,
       "reason": "Varying start times per location and date; check individual event listings on SCMS website",
@@ -17526,14 +17418,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "1wtiw6a-until2026-07-06-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:live-theater-2026-07-04": {
-      "unresolvable": true,
-      "reason": "Barefoot in the Park closes June 20 per Taproot website; events12 date range expansion includes post-closing dates",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "8mclbx-until2026-07-05-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:live-theater-2026-07-05": {
@@ -19104,16 +18988,6 @@
       "source": "agent",
       "evidence": "https://www.couthbuzzard.com/event-calendar"
     },
-    "events12:on-the-water-2026-07-04": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
-    },
     "events12:on-the-water-2026-07-05": {
       "fields": {
         "cost": {
@@ -20304,28 +20178,6 @@
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
     },
-    "19hz:19hz-2026/07/04-Coco & Breezy": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed",
-      "lastSeen": "2026-06-13"
-    },
-    "19hz:19hz-2026/07/04-Disco Dom, Robin S": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "Ticketed nightclub/EDM event on Eventbrite/Tixr/Insomniac/posh.vip/ra.co \u2014 ticketed but price not confirmed",
-      "lastSeen": "2026-06-13"
-    },
     "19hz:19hz-2026/07/10-Mandragora": {
       "fields": {
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1184529328%2F2993203586663%2F1%2Foriginal.20260513-183548?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=0401857c1cb4d7272e5f53b6b15975f3",
@@ -21101,13 +20953,6 @@
       "resolvedAt": "2026-06-15",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-welcomes-bosnia-and-herzegovina"
-    },
-    "events12:movies-in-seattle-parks-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Start time not posted on source page; movies start at dusk (varies by date)",
-      "lastSeen": "2026-06-21"
     },
     "events12:movies-in-seattle-parks-2026-07-05": {
       "unresolvable": true,
@@ -22128,12 +21973,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "reason": "Source is an Instagram post or social link that does not list ticket price"
-    },
-    "19hz:19hz-2026/07/04-Freedom to Roam": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "Source is an Instagram post that does not list ticket price or end time"
     },
     "19hz:19hz-2026/09/10-ATRIP b2b DJ Boring": {
       "unresolvable": true,
@@ -23291,12 +23130,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:baseball-in-tacoma-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-07-05": {
       "unresolvable": true,
@@ -25504,16 +25337,6 @@
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/renton-s-hometown-4th-of/19183530/2026-07-04T00"
     },
-    "events12:world-cup-soccer-2026-07-04": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-25",
-      "source": "agent",
-      "evidence": "https://www.seattlefwc26.org/destination/matches"
-    },
     "events12:world-cup-soccer-2026-07-05": {
       "fields": {
         "cost": {
@@ -25564,17 +25387,6 @@
       "source": "agent",
       "reason": "Ticketmaster/TicketWeb API does not expose event duration; 2-hour default applied",
       "partialFingerprint": "qem2u4"
-    },
-    "mopop:mopop-the-brunch-bundle-at-mopop-2026-07-04": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 18000,
-        "imageUrl": "https://cdn.prod.website-files.com/66a00e48c726b5c85469ae46/6a3d4f29460da95779f07daf_BRUPPK26_Web%20Hero_1200x600_2026.06.17.jpg"
-      },
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "evidence": "https://www.mopop.org/events/the-brunch-bundle-at-mopop",
-      "partialFingerprint": "vd8blu"
     },
     "mopop:mopop-sound-off-2027-applications-2026-07-07": {
       "unresolvable": true,
@@ -28051,12 +27863,6 @@
       "source": "agent",
       "reason": "SeattleU event page loads but does not state a registration fee or price for this info session"
     },
-    "19hz:2026/07/04-4th of July": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "Instagram post gives times (8PM-1AM) and dress code but no ticket price/cover charge"
-    },
     "19hz:2026/07/09-Continuum: DJ Vodka Twist": {
       "unresolvable": true,
       "resolvedAt": "2026-07-02",
@@ -28140,51 +27946,6 @@
       "resolvedAt": "2026-07-02",
       "source": "agent",
       "reason": "insomniac.com returns HTTP 403 to automated fetches"
-    },
-    "events12:fourth-of-july-seattle-2026-07-04": {
-      "fields": {
-        "startTime": "15:00",
-        "duration": 28800
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://www.seafair.org/4th-of-july/ (\"Event Hours: 3 PM to 11 PM\")"
-    },
-    "events12:fireworks-2026-07-04": {
-      "fields": {
-        "startTime": "22:00",
-        "duration": 1200
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://www.arlingtonwa.gov/July4 (fireworks at Quake Park at 10:00 p.m., \"approximately a 20 minute show\")"
-    },
-    "events12:fireworks-party-2026-07-04": {
-      "fields": {
-        "cost": {
-          "min": 50
-        }
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration (General Public Adults: $50; member discount ignored per pricing rubric)"
-    },
-    "events12:traditional-music-2026-07-04": {
-      "fields": {
-        "cost": {
-          "min": 40,
-          "max": 50
-        }
-      },
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/ (All Day Fun Pass $40; Fiddle Fanatic All-Access Pass $50)"
-    },
-    "events12:art-walks-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "Seattle.gov art-walks page lists only cadence (e.g. \"Second Thursdays\") per neighborhood, not specific start/end times; directs visitors to individual walk organizers"
     },
     "events12:art-walks-2026-07-05": {
       "unresolvable": true,
@@ -28270,41 +28031,11 @@
       "source": "agent",
       "reason": "Seattle.gov art-walks page lists only cadence (e.g. \"Second Thursdays\") per neighborhood, not specific start/end times; directs visitors to individual walk organizers"
     },
-    "events12:national-park-day-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "NPS fee-free-days page states fee waiver applies but does not specify whether normal operating hours apply uniformly; no single time given"
-    },
     "events12:national-park-day-2026-07-05": {
       "unresolvable": true,
       "resolvedAt": "2026-07-02",
       "source": "agent",
       "reason": "NPS fee-free-days page states fee waiver applies but does not specify whether normal operating hours apply uniformly; no single time given"
-    },
-    "events12:fireworks-cruise-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "Argosy Cruises page lists three different cruise options (Celebration Cruise 21+ and All Ages 8pm-12am; Fireworks Viewing Cruise 8pm-11pm) with no listed price for any \u2014 ambiguous which applies and cost is unavailable"
-    },
-    "events12:parades-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "arlingtonwa.gov/July4 states the Grand Parade starts at 5pm but gives no end time/duration, and does not state an admission cost (implied free but not explicit)"
-    },
-    "events12:fireworks-party-in-seattle-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "Skyview Observatory tickets page states only \"Last Entry at 10PM\" with no start time, duration, or price shown"
-    },
-    "events12:fourth-of-july-tacoma-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "parkstacoma.gov returns HTTP 403 to automated fetches"
     },
     "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46737": {
       "fields": {
@@ -28852,13 +28583,6 @@
       "resolvedAt": "2026-07-02",
       "source": "agent",
       "evidence": "https://www.newtechnorthwest.com/"
-    },
-    "19hz:19hz-2026/07/04-4th of July": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-02",
-      "source": "agent",
-      "reason": "Instagram post mentions 21+ age restriction but no price; cannot confirm free or ticketed",
-      "partialFingerprint": "12a4"
     },
     "19hz:19hz-2026/07/09-Continuum: DJ Vodka Twist": {
       "unresolvable": true,
@@ -33796,16 +33520,6 @@
       "source": "agent",
       "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
     },
-    "sea-monster-lounge:sea-monster-lounge-buena-vibra-2026-07-04-19-00-2026-07-04": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-05",
-      "source": "agent",
-      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
-    },
     "sea-monster-lounge:sea-monster-lounge-buena-vibra-2026-07-25-19-00-2026-07-25": {
       "fields": {
         "cost": {
@@ -34287,16 +34001,6 @@
       "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
     },
     "sea-monster-lounge:sea-monster-lounge-ron-weinstein-trio-2026-08-09-21-00-2026-08-09": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-05",
-      "source": "agent",
-      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
-    },
-    "sea-monster-lounge:sea-monster-lounge-sea-monster-p-funk-tribute-4th-of-july-celebration-show-2026-07-04": {
       "fields": {
         "cost": {
           "paid": true
@@ -36855,12 +36559,6 @@
       "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47697",
       "partialFingerprint": "1bw9212"
     },
-    "19hz:19hz-2026/07/04-House Blend": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-06",
-      "source": "agent",
-      "reason": "no image accessible without login (Facebook/Instagram)"
-    },
     "19hz:19hz-2026/07/05-Eastside Spin Jam": {
       "unresolvable": true,
       "resolvedAt": "2026-07-06",
@@ -37517,54 +37215,6 @@
       "source": "agent",
       "evidence": "https://www.thefishbowlseattle.com/shop"
     },
-    "19hz:19hz-2026/07/04-4th of July Rave": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/04-4X4 On The 4th": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/04-Anunnakis": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/04-Anzo, Nayiram": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/04-Club CTRL": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/04-July 4th BBQ Rooftop Party: Derrick Carter": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/04-Neon Funeral": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "19hz:19hz-2026/07/04-Seattle Paddle Rave": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
     "19hz:19hz-2026/07/05-Sea Sound: Pan-Pot": {
       "unresolvable": true,
       "resolvedAt": "2026-07-07",
@@ -37572,12 +37222,6 @@
       "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
     },
     "dogwoodplaypark:257e1489-cb74-4b11-87fb-ad67f6274d75": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-07",
-      "source": "agent",
-      "reason": "Event date already passed as of 2026-07-07 investigation; not backfilling a photo for an event that already happened."
-    },
-    "events12:ride-a-mini-train-2026-07-04": {
       "unresolvable": true,
       "resolvedAt": "2026-07-07",
       "source": "agent",
@@ -38514,13 +38158,14 @@
     },
     "events12:architectural-tour-2026-07-25": {
       "fields": {
+        "setting": "outdoor",
         "cost": {
           "min": 27.5
         }
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/"
+      "evidence": "https://seattlearchitecture.org/tours/ - architectural walking tours are outdoor"
     },
     "events12:bicycle-to-portland-2026-07-11": {
       "fields": {
@@ -44623,13 +44268,14 @@
     },
     "events12:drag-racing-2026-07-25": {
       "fields": {
+        "setting": "outdoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://pacificraceways.com/nhra/"
+      "evidence": "https://pacificraceways.com/nhra/ - Pacific Raceways drag strip is outdoor motorsports venue"
     },
     "events12:drag-racing-2026-07-26": {
       "fields": {
@@ -44812,14 +44458,15 @@
       }
     },
     "events12:live-theater-2026-07-25": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
       "fields": {
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
-      }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - The Little Theatre is an indoor theater"
     },
     "events12:live-theater-2026-07-26": {
       "resolvedAt": "2026-07-11",
@@ -45082,14 +44729,15 @@
       }
     },
     "events12:music-by-candlelight-2026-07-25": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
       "fields": {
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
-      }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Candlelight concert series (Fever) always held in indoor venues"
     },
     "events12:music-by-candlelight-2026-07-26": {
       "resolvedAt": "2026-07-11",
@@ -45482,14 +45130,15 @@
       }
     },
     "events12:scottish-festival-2026-07-25": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
       "fields": {
+        "setting": "outdoor",
         "cost": {
           "paid": true
         }
-      }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.sshga.org/the-games/ - Scottish Highland Games are outdoor festivals"
     },
     "events12:scottish-festival-2026-07-26": {
       "resolvedAt": "2026-07-11",
@@ -45642,36 +45291,6 @@
       }
     },
     "events12:vintage-cars-wine-2026-07-12": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      }
-    },
-    "events12:world-cup-soccer-2026-07-01": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      }
-    },
-    "events12:world-cup-soccer-2026-07-02": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      }
-    },
-    "events12:world-cup-soccer-2026-07-03": {
       "resolvedAt": "2026-07-11",
       "source": "cost-resolver",
       "evidence": "https://206.events",
@@ -45900,6 +45519,571 @@
           "min": 15.0
         }
       }
+    },
+    "venue:loc:harvey airfield, 9900 airport way, snohomish, wa 98296": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Harvey Airfield is an open-air airport/airfield; balloon glow events are outdoor"
+    },
+    "venue:loc:volunteer park, 1247 15th ave e, seattle, wa 98112": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Volunteer Park is an open-air public park in Capitol Hill"
+    },
+    "venue:osm:node:11220865640": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Magnuson Park Amphitheater is an open-air outdoor performance venue in the park"
+    },
+    "venue:osm:node:2350331323": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Emerald City Trapeze is an indoor trapeze facility (amenity=trapeze_school in OSM)"
+    },
+    "venue:osm:node:6341617638": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Community org gala event; insufficient info to determine indoor/outdoor setting without fetching event page"
+    },
+    "venue:osm:way:1167665366": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Alaskan Way waterfront street; Seafair Torchlight Parade is an outdoor parade on the waterfront"
+    },
+    "venue:osm:way:122722038": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Downtown Park in Redmond is an open-air public park; Children's Business Fair is an outdoor market event"
+    },
+    "venue:osm:way:236354771": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "McMenamins Anderson School annual Summer School Brewfest is held outdoors on the grounds of the converted school complex"
+    },
+    "venue:osm:way:238141848": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Cass Turnbull Garden at 1125 Harvard Ave E is an outdoor memorial garden; garden work parties are outdoor events"
+    },
+    "venue:osm:way:57391649": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Pier 62 is an open-air waterfront public space (leisure=park, man_made=pier in OSM); Seafair run is outdoor"
+    },
+    "venue:osm:way:68303178": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Building 30 (Hangar 30) at Magnuson Park is a large historic naval hangar building (building=yes, historic=naval in OSM); covered but with large open doors for events"
+    },
+    "venue:osm:way:68648885": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Seahawks training camp is at outdoor practice fields near The Landing in Renton; fans watch from outdoor bleachers"
+    },
+    "venue:osm:way:8111822": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "Gas Works Park is an open-air public park in Wallingford on Lake Union; outdoor music festivals and events"
+    },
+    "events12:bellevue-art-fair-2026-07-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.bellevueartsfair.com - Bellevue Arts Museum Artsfair is an outdoor street festival"
+    },
+    "events12:dance-in-the-park-2026-07-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/ - 'Dance in the Park' is explicitly outdoors"
+    },
+    "events12:concerts-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Event URL is an image file, not a venue page; can't determine indoor/outdoor"
+    },
+    "events12:shakespeare-in-the-park-2026-07-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/ - Shakespeare in the Park is explicitly outdoor"
+    },
+    "rainier-beach-community-club:rbcc-arts-and-crafts-market-2026-12-05": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/events/arts-and-crafts-market/ - community market event is free"
+    },
+    "rainier-beach-community-club:rbcc-fall-plant-seed-swap-2026-10-17": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/events/fall-plant-seed-swap/ - community swap event is free"
+    },
+    "rainier-beach-community-club:rbcc-harvest-social-2026-11-27": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/events/harvest-social - community social event is free"
+    },
+    "rainier-beach-community-club:rbcc-ice-cream-social-and-jazz-jam-2026-08-16": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/ice-cream-social-and-jazz-jam/ - community social event is free"
+    },
+    "rainier-beach-community-club:rbcc-meaningful-movies-2026-09-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/events/meaningful-movies - free film screening"
+    },
+    "rainier-beach-community-club:rbcc-wine-tasting-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org - 0 pre-paid online / 5 at door"
+    },
+    "seattle-astronomical-society:seattle-astronomical-society-lakewood-playground-star-party-2026-07-18-20-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.seattleastro.org/events-1/lakewood-playground-star-party-2 - astronomical society public star parties are traditionally free community events"
+    },
+    "events12:live-theater-2026-08-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "events12:live-theater-2026-08-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+    },
+    "three-dollar-bill-cinema:6a5296035bf69209561aead2": {
+      "fields": {
+        "cost": {
+          "min": 7.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-transexual-menace/ - NWFF member , student/senior 0, general 5"
+    },
+    "three-dollar-bill-cinema:6a52971aa907a40b889168bf": {
+      "fields": {
+        "cost": {
+          "min": 7.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/beacon-of-flesh/ - NWFF member , student/senior 0, general 5"
+    },
+    "uwajimaya:uwajimaya-DalGy4PkxBA-day-1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DalGy4PkxBA/ - Uwajimaya Summer Festival is free family-friendly event"
+    },
+    "uwajimaya:uwajimaya-DalGy4PkxBA-day-2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DalGy4PkxBA/ - Uwajimaya Summer Festival is free family-friendly event"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-07-16-queen-anne-day-market": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://qabookco.com/event/2026-07-16/queen-anne-day-market - free community market (you pay for food/drinks consumed)"
+    },
+    "stg:tm-vvG1HZ_GJXcl7A": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com - Seattle Theatre Group ticketed show; price data not available in feed"
+    },
+    "stg:tm-vvG1HZ_GK6mcWI": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com - Seattle Theatre Group ticketed show; price data not available in feed"
+    },
+    "freeze-tag-events:freeze.tag.events-DadswRukraq": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DadswRukraq/ - Musical Theatre Trivia; ticketed event, price not visible from Instagram"
+    },
+    "freeze-tag-events:freeze.tag.events-DajXPBwmr05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://freezetag.ticketspice.com/oneshotseattle - tiered pricing event; price not visible without interaction"
+    },
+    "freeze-tag-events:freeze.tag.events-Dan5jpZD3FQ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://freezetag.ticketspice.com/little-treat - ticketed event; price not visible without interaction"
+    },
+    "freeze-tag-events:freeze.tag.events-DaQkE67mmid": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://freezetag.ticketspice.com/taskmaster-seattle - ticketed event; price not visible without interaction"
+    },
+    "mixmix-socials:mixmixsocials-DaJSQTBlhfB-newish-to-seattle": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DaJSQTBlhfB/ - speed friending social event; pricing not visible from Instagram"
+    },
+    "mixmix-socials:mixmixsocials-DaJSQTBlhfB-therapized": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DaJSQTBlhfB/ - speed dating social event; pricing not visible from Instagram"
+    },
+    "mixmix-socials:mixmixsocials-DaoYEjtvox4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DaoYEjtvox4/ - speed friending event; pricing not visible from Instagram"
+    },
+    "mixmix-socials:mixmixsocials-DaTFyjWjMpU": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DaTFyjWjMpU/ - queer speed dating event; pricing not visible from Instagram"
+    },
+    "seatoday:cityspark-19056672": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events - Restoration/volunteer park event, free community activity"
+    },
+    "seatoday:cityspark-19249031": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events - City Chat community discussion event, free"
+    },
+    "seatoday:cityspark-19306882": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events - Hero Play Day community children's event, free"
+    },
+    "seatoday:cityspark-18995740": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events - workshop event; embed page not fetchable to confirm price"
+    },
+    "seatoday:cityspark-19187149": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events - workshop with instructor; embed page not fetchable to confirm price"
+    },
+    "seatoday:cityspark-19399282": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-12",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events - sailing event; embed page not fetchable to confirm price"
     }
   }
 }
