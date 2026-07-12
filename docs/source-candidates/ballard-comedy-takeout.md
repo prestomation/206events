@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.eventbrite.com/e/ballard-comedy-takeout-weekly-open-mic-on-thursdays-tickets-1988969007844
 tags: [Comedy, Ballard]
 firstSeen: 2026-07-02
-lastChecked: 2026-07-03
+lastChecked: 2026-07-12
 pr:
 ---
 
@@ -53,3 +53,26 @@ shared ripper code, since the public mirror can't reproduce the bug.
 Reverted the source addition rather than merge with 0 events. Revisit
 either by testing the series-expansion fix with real token access, or by
 re-checking after the org posts a non-recurring one-off event.
+
+Fixed 2026-07-12: confirmed the diagnosis by reading Eventbrite's public
+API reference — the organizer events list returns series parents
+(`is_series_parent: true`) with no concrete date, and the actual dated
+occurrences live behind a separate `GET /series/{event_series_id}/events/`
+endpoint ("List Events by Series", paginated, same shape as the organizer
+list). Patched `EventbriteRipper.fetchAllEvents` (`lib/config/eventbrite.ts`)
+to detect `is_series_parent` events from the organizer response and expand
+each one via that endpoint before handing raw events to `parseEvents` — a
+series that fails to expand is dropped rather than failing the whole
+organizer fetch. Added unit coverage in `lib/config/eventbrite.test.ts`
+(mocked `fetchFn`) for: expanding a series parent into its occurrences,
+leaving non-series events untouched, and gracefully dropping a series that
+fails to expand. This is a shared-ripper fix, so it benefits every
+Eventbrite source using repeating events, not just this one.
+
+Re-added `sources/ballard_comedy_takeout/ripper.yaml` (built-in
+`eventbrite` type, `organizerId: 121332375671`, geo confirmed via
+Nominatim — OSM node 2136834138, "Ballard Mandarin", 5500 8th Ave NW,
+Seattle, WA 98107). Could not verify event count locally (no
+`EVENTBRITE_TOKEN` in this environment) — verifying via the CI build,
+which has the real token already provisioned for other Eventbrite
+sources (e.g. `actualize-air`).

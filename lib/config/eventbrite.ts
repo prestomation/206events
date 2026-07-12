@@ -84,11 +84,51 @@ export class EventbriteRipper implements IRipper {
     }
 
     public async fetchAllEvents(organizerId: string, token: string, fetchFn: FetchFn = fetch): Promise<any[]> {
+        const events = await this.fetchPaginated(
+            `https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/?status=live&expand=venue,ticket_availability`,
+            token,
+            fetchFn,
+        );
+
+        // The organizer events list returns each repeating event ("series")
+        // as a single parent object with no concrete start/end time — the
+        // actual dated occurrences live behind a separate endpoint. Expand
+        // each series parent into its occurrences so parseEvents sees
+        // concrete dates instead of tripping the "no start time" ParseError.
+        const expanded: any[] = [];
+        for (const event of events) {
+            if (event?.is_series_parent) {
+                const occurrences = await this.fetchSeriesOccurrences(event.id, token, fetchFn);
+                expanded.push(...occurrences);
+            } else {
+                expanded.push(event);
+            }
+        }
+
+        return expanded;
+    }
+
+    private async fetchSeriesOccurrences(seriesId: string, token: string, fetchFn: FetchFn): Promise<any[]> {
+        try {
+            return await this.fetchPaginated(
+                `https://www.eventbriteapi.com/v3/series/${seriesId}/events/?status=live&expand=venue,ticket_availability`,
+                token,
+                fetchFn,
+            );
+        } catch {
+            // A single series failing to expand shouldn't fail the whole
+            // organizer fetch — just drop it, same as if it were never
+            // returned by the organizer endpoint.
+            return [];
+        }
+    }
+
+    private async fetchPaginated(baseUrl: string, token: string, fetchFn: FetchFn): Promise<any[]> {
         const events: any[] = [];
         let page = 1;
 
         while (page <= MAX_PAGES) {
-            const url = `https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/?status=live&expand=venue,ticket_availability&page=${page}`;
+            const url = `${baseUrl}&page=${page}`;
 
             const res = await fetchFn(url, {
                 headers: { 'Authorization': `Bearer ${token}` }

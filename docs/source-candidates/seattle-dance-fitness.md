@@ -1,11 +1,11 @@
 ---
 name: "Seattle Dance Fitness (SDF)"
-status: candidate
+status: notviable
 platform: Custom HTML (Wix Events widget)
 url: https://www.seattledancefitness.com/events
 tags: [Dance, Fitness]
 firstSeen: 2026-07-11
-lastChecked: 2026-07-11
+lastChecked: 2026-07-12
 pr:
 ---
 
@@ -33,3 +33,13 @@ Investigated 2026-07-11:
 - Low event volume (2 upcoming at time of check) but consistent, parseable
   structure. 🔴 Low-confidence tier (custom scraper) — good candidate for
   a future implementation cycle.
+
+Re-checked 2026-07-12 while implementing: confirmed 2 live upcoming
+occurrences (Broadway to Seattle — Jul 24, THUNDERSTRUCK! — Aug 8), so the
+scraper design above holds. However, the studio's physical address (from
+`/studio`, embedded in the page's `businessLocation*` JSON and a Google
+Maps link) is **1501 N 200th St, Warehouse A, Shoreline, WA 98133** — the
+"SDF Studio" that both events take place at is in **Shoreline**, not
+Seattle proper. Per the source-discovery quality gate ("Venues entirely
+outside Seattle... are not appropriate"), this disqualifies the source
+despite the "Seattle" branding in its name. Not implementing.

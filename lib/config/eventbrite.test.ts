@@ -170,6 +170,58 @@ describe.skipIf(!HAVE_SAMPLES)('EventbriteRipper', () => {
         });
     });
 
+    describe('series expansion (fetchAllEvents)', () => {
+        function jsonResponse(body: any): Response {
+            return { ok: true, status: 200, statusText: 'OK', json: async () => body } as Response;
+        }
+
+        it('expands a series parent into its dated occurrences', async () => {
+            const ripper = new EventbriteRipper();
+            const seriesParent = { id: 'series-1', is_series_parent: true, name: { text: 'Weekly Open Mic (series)' } };
+            const occurrence1 = { id: 'occ-1', is_series_parent: false, series_id: 'series-1', name: { text: 'Weekly Open Mic' }, start: { local: '2026-07-02T20:30:00', timezone: 'America/Los_Angeles' } };
+            const occurrence2 = { id: 'occ-2', is_series_parent: false, series_id: 'series-1', name: { text: 'Weekly Open Mic' }, start: { local: '2026-07-09T20:30:00', timezone: 'America/Los_Angeles' } };
+
+            const calls: string[] = [];
+            const fetchFn = async (url: string | URL) => {
+                calls.push(url.toString());
+                if (url.toString().includes('/organizers/')) {
+                    return jsonResponse({ events: [seriesParent], pagination: { has_more_items: false } });
+                }
+                if (url.toString().includes('/series/series-1/events/')) {
+                    return jsonResponse({ events: [occurrence1, occurrence2], pagination: { has_more_items: false } });
+                }
+                throw new Error(`Unexpected URL: ${url}`);
+            };
+
+            const events = await ripper.fetchAllEvents('org-1', 'a-fake-but-long-enough-token', fetchFn as any);
+            expect(events.map(e => e.id)).toEqual(['occ-1', 'occ-2']);
+            expect(calls.some(c => c.includes('/series/series-1/events/'))).toBe(true);
+        });
+
+        it('leaves non-series events untouched', async () => {
+            const ripper = new EventbriteRipper();
+            const plainEvent = { id: 'plain-1', is_series_parent: false, name: { text: 'One-off Show' } };
+            const fetchFn = async () => jsonResponse({ events: [plainEvent], pagination: { has_more_items: false } });
+
+            const events = await ripper.fetchAllEvents('org-1', 'a-fake-but-long-enough-token', fetchFn as any);
+            expect(events).toEqual([plainEvent]);
+        });
+
+        it('drops a series that fails to expand instead of failing the whole fetch', async () => {
+            const ripper = new EventbriteRipper();
+            const seriesParent = { id: 'series-2', is_series_parent: true, name: { text: 'Broken Series' } };
+            const fetchFn = async (url: string | URL) => {
+                if (url.toString().includes('/organizers/')) {
+                    return jsonResponse({ events: [seriesParent], pagination: { has_more_items: false } });
+                }
+                return { ok: false, status: 404, statusText: 'Not Found', json: async () => ({}) } as Response;
+            };
+
+            const events = await ripper.fetchAllEvents('org-1', 'a-fake-but-long-enough-token', fetchFn as any);
+            expect(events).toEqual([]);
+        });
+    });
+
     describe('error handling', () => {
         it('returns ParseError for event with no name', () => {
             const ripper = new EventbriteRipper();
