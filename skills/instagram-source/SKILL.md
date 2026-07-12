@@ -162,12 +162,19 @@ durable `imageUrl` — it'll become a broken image on the site. Omit it (the eve
 still publishes; it just counts as a non-fatal photo gap), or use the
 photo-resolver flow to attach a stable image.
 
-### 5. Enable a newly-seeded source
+### 5. Only add sources that already have live events
 
-A `type: instagram` source ships `disabled: true` until its cache has at least
-one real event (a new source with 0 events fails the build). Once you've recorded
-real events for it, flip `disabled: true` → remove it (or `false`) in the
-source's `ripper.yaml` **in the same PR** that adds the cache entries.
+**Never add a `type: instagram` source speculatively.** An account with no live
+(upcoming) events in its feed gives zero confidence it will post events in the
+future — and a new 0-event source fails the build anyway. So the order is:
+**read the feed first, and only add the source if it currently has ≥1 upcoming
+event**, seeding those events into the committed cache in the **same PR** and
+leaving the source enabled. If the feed has no upcoming events, don't add the
+source — re-check it another time.
+
+(`disabled: true` remains only as a safety valve for an *already-added* source
+that has gone temporarily quiet — never a way to park a speculative empty
+source.)
 
 ### 6. Prune
 
@@ -190,11 +197,15 @@ whole file.
 
 ## Adding another Instagram account
 
-1. Add `sources/<slug>/ripper.yaml` with `type: instagram`, `disabled: true`,
-   `geo` (a `{lat,lng}` for a single-venue account, else `null`), tags, and
-   `config.username`. Name the source after the org, not the platform —
-   `instagram` is an implementation detail already captured by `type`.
-2. Run this skill to seed real events, then enable the source (step 5).
+1. **Read the account's feed first** (steps 1–3). Only proceed if it currently
+   has ≥1 live upcoming event — an empty feed is no signal it will post later,
+   so don't add it (see step 5).
+2. Add `sources/<slug>/ripper.yaml` with `type: instagram`, `geo` (a `{lat,lng}`
+   for a single-venue account, else `null`), tags, and `config.username`. Name
+   the source after the org, not the platform — `instagram` is an implementation
+   detail already captured by `type`. Leave it enabled; you're adding it because
+   it already has events.
+3. Seed those events into the committed cache (step 4) in the same PR.
 
 ## Key references
 

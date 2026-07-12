@@ -123,9 +123,13 @@ coverage** (how many pod slots got a truck name). A draining skill
 Instagram can't be fetched from CI (blocked IPs); the `instagram-source` skill
 runs out-of-band (residential IP) and commits `instagram-cache.json` entries +
 the source together. So the deliverable *here* is the curated list + onboarding,
-not live events. Adding a `type: instagram` source with an empty cache would
-trip the new-source 0-event gate, so each is onboarded **only in the same PR
-that populates its cache** from an out-of-band skill run.
+not live events. **Policy: only add a truck whose IG feed currently has ≥1 live
+upcoming event** — an empty feed is zero signal it will post later (and a
+0-event source fails the build). So each truck below is added **enabled, seeded
+with its live events, in one PR** from an out-of-band skill run — never parked
+as a speculative empty/disabled source. Some of the six may not qualify at
+onboarding time (no upcoming posts); those are simply skipped and re-checked
+later.
 
 **Curated marquee IG-only trucks (no machine-readable feed; handles verified via
 SFT API):**
