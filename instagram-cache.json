@@ -209,6 +209,116 @@
       "reason": "General call-to-action promo ('our July events are live, see bio link'), no specific date/venue",
       "permalink": "https://www.instagram.com/p/DYskFefETGH/",
       "postFingerprint": "8b6f32eca0fa"
+    },
+    "uwajimaya:DalGy4PkxBA-day-1": {
+      "isEvent": true,
+      "title": "Uwajimaya Summer Festival",
+      "date": "2026-07-18",
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "startTime": "11:00",
+      "durationSeconds": 21600,
+      "location": "Uwajimaya, 600 5th Ave S, Seattle, WA 98104",
+      "description": "FREE, family-friendly celebration on 6th Ave S & S Weller St, just north of Seattle Uwajimaya, with street foods, children's games, and live entertainment including taiko drumming and lion dance performances. Day 1 of 2.",
+      "permalink": "https://www.instagram.com/p/DalGy4PkxBA/",
+      "postFingerprint": "57f1fdd3f2a5"
+    },
+    "uwajimaya:DalGy4PkxBA-day-2": {
+      "isEvent": true,
+      "title": "Uwajimaya Summer Festival",
+      "date": "2026-07-19",
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "startTime": "11:00",
+      "durationSeconds": 21600,
+      "location": "Uwajimaya, 600 5th Ave S, Seattle, WA 98104",
+      "description": "FREE, family-friendly celebration on 6th Ave S & S Weller St, just north of Seattle Uwajimaya, with street foods, children's games, and live entertainment including taiko drumming and lion dance performances. Day 2 of 2.",
+      "permalink": "https://www.instagram.com/p/DalGy4PkxBA/",
+      "postFingerprint": "57f1fdd3f2a5"
+    },
+    "uwajimaya:DalGy4PkxBA": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Multi-day festival roundup post (July 18-19, 2026); expanded into synthetic ids DalGy4PkxBA-day-1 and DalGy4PkxBA-day-2",
+      "postFingerprint": "57f1fdd3f2a5"
+    },
+    "uwajimaya:DaRM14MB1B-": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Korean drinks product promo, not a dated event",
+      "postFingerprint": "03e334f2a092"
+    },
+    "uwajimaya:Daq8xl9FNr9": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Recipe/ingredient promo, not a dated event",
+      "postFingerprint": "f5a69ffcb747"
+    },
+    "uwajimaya:DaMA29RPU9O": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Ice cream product feature (Renton store), not a dated event",
+      "postFingerprint": "6a098f662523"
+    },
+    "uwajimaya:DaTuHyPzxfD": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "FIFA World Cup 26 partnership promo, no dated event",
+      "postFingerprint": "8b8bb63a3259"
+    },
+    "uwajimaya:DaMUb03HXUX": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "World Cup / store location promo, not a dated event",
+      "postFingerprint": "14d12514cf5d"
+    },
+    "uwajimaya:DaazX7LDTIh": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Contest results announcement, not a dated event",
+      "postFingerprint": "cac5f50f29e1"
+    },
+    "uwajimaya:DaOu_axBNq2": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Sockeye salmon seasonal product promo, not a dated event",
+      "postFingerprint": "ac64874bc38b"
+    },
+    "uwajimaya:DaQgxWCCShd": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "4th of July product sale promo carousel, not a dated event",
+      "postFingerprint": "793a1d7fe9eb"
+    },
+    "uwajimaya:DaWbnWnPnxr": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Shave ice recipe promo, not a dated event",
+      "postFingerprint": "1068e0015059"
+    },
+    "uwajimaya:DaT1nosvcxS": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "4th of July grilling product promo, not a dated event",
+      "postFingerprint": "dbe33e68bab8"
+    },
+    "uwajimaya:DaiduedGim1": {
+      "isEvent": false,
+      "readAt": "2026-07-12",
+      "source": "agent",
+      "reason": "Okonomiyaki Week product promo carousel, not a dated event",
+      "postFingerprint": "ebb2dca3ea59"
     }
   }
 }
