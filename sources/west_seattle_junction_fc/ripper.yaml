@@ -15,3 +15,4 @@ calendars:
   - name: home-games
     friendlyname: "West Seattle Junction FC — Home Games"
     timezone: America/Los_Angeles
+    expectEmpty: true
