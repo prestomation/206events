@@ -5,6 +5,7 @@ url: "https://www.rentoncivictheatre.org/api/shows?limit=50"
 friendlyLink: https://www.rentoncivictheatre.org/shows
 tags: ["Theatre", "Renton"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Renton_Theater_%28Renton%2C_Washington%29.jpg"
+skipEventPhotos: true
 geo:
   lat: 47.4794
   lng: -122.2102

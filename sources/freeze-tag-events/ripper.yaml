@@ -12,6 +12,10 @@ friendlyLink: https://www.instagram.com/freeze.tag.events/
 # fixed location. Per-event addresses come from the cache (the flyer/caption or
 # the linked TicketSpice page).
 geo: null
+imageUrl: "https://cdn.uploads.webconnex.com/185869/long%20%281%29.png"
+# Event pages are on TicketSpice (often require JS) and Instagram (image access blocked).
+# No per-event photo is harvestable; venue logo serves all events.
+skipEventPhotos: true
 tags: ["Community"]
 calendars:
   - name: freeze-tag-events

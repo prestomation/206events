@@ -7094,6 +7094,76 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-12",
       "note": "Identical title/date/URL (amyyee10usfoundation.org) across both feeds; city-wide mirrors Parks & Recreation dept feed"
+    },
+    "19hz-all-events.ics Deck'd Out: Sassmouth, Nark, Haus Catz|2026-07-23T19:00:00-07:00[America/Los_Angeles]::shameless-nw-shameless-nw.ics Deck'd Out  #6  Sassmouth (CHI), Nark, Anvilo & Haüs Catz|2026-07-23T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Monkey Loft on 2026-07-23, same Eventbrite listing (eventbrite.com/e/1989969744073), title variants only"
+    },
+    "events12-seattle-events.ics Craft show|2026-07-26T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Urban Craft Uprising Summer Show|2026-07-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same Urban Craft Uprising Summer Show at Magnuson Park Hangar 30 on 2026-07-26"
+    },
+    "events12-seattle-events.ics Craft show|2026-07-26T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Urban Craft Uprising Summer Show|2026-07-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same Urban Craft Uprising Summer Show at Magnuson Park Hangar 30 on 2026-07-26"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Henry Art Gallery, same seatoday source across all/arts sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Henry Art Gallery, same seatoday source across all/community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-26T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-26T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Bluetree Farm, same seatoday source across all/community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-26T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-26T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Bluetree Farm, same seatoday source across all/sports sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Paws in the Park|2026-07-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Paws in the Park|2026-07-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Lynndale Dog Park Edmonds, same seatoday source across all/arts sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Paws in the Park|2026-07-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Paws in the Park|2026-07-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Lynndale Dog Park Edmonds, same seatoday source across all/community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Renton Pride @ Renton River Days [80s Theme]|2026-07-26T09:45:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Renton Pride @ Renton River Days [80s Theme]|2026-07-26T09:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Renton, same seatoday source across all/community sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Henry Art Gallery, same seatoday source across arts/community sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Paws in the Park|2026-07-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Paws in the Park|2026-07-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Lynndale Dog Park Edmonds, same seatoday source across arts/community sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-26T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-26T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-13",
+      "note": "Same event at Bluetree Farm, same seatoday source across community/sports sub-calendars"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-12T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-12T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-13",
+      "note": "Different food truck locations: 1201 vs 1551 Eastlake Ave, 321m apart — not the same event"
     }
   }
 }

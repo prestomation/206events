@@ -11,6 +11,10 @@ friendlyLink: https://mixmix.start.page/
 # Itinerant organizer — events move around Seattle neighborhoods (Capitol
 # Hill, West Seattle, CID, Belltown, ...), no single fixed location.
 geo: null
+imageUrl: "https://buffer-start-page-uploads.s3.amazonaws.com/69a0ce1ac4dc6f310c9f4ce2/uploads/1773275253423/739af819-27ef-4dd6-bac0-b22143947d51.png"
+# Event pages are on Instagram (image access blocked). No per-event photo
+# is harvestable; venue logo serves all events.
+skipEventPhotos: true
 tags: ["Community"]
 calendars:
   - name: mixmix-socials
