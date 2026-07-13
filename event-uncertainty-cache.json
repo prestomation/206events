@@ -25413,13 +25413,14 @@
       "fields": {
         "startTime": "13:00",
         "duration": 18000,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg",
         "cost": {
           "min": 0
         }
       },
-      "resolvedAt": "2026-06-26",
+      "resolvedAt": "2026-07-13",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47685"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-%E2%80%93-a-festal-exhibit-x47685"
     },
     "seattle-center:artists-at-the-center-shelby-natasha": {
       "fields": {
@@ -27572,7 +27573,7 @@
       "fields": {
         "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/06/fullbandphoto2-825x510.jpg",
         "cost": {
-          "min": 26.0
+          "min": 26
         }
       },
       "resolvedAt": "2026-07-13",
@@ -27583,7 +27584,7 @@
       "fields": {
         "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/06/KatieNeil-6328LB-scaled-1-825x510.jpg",
         "cost": {
-          "min": 26.0
+          "min": 26
         }
       },
       "resolvedAt": "2026-07-13",
@@ -39071,20 +39072,26 @@
       "evidence": "https://www.unionartscenter.org/macbeth/"
     },
     "events12:tacoma-neighborhood-music-2026-07-18": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 0
+        }
       },
-      "evidence": "https://www.tacomaporchfest.org"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.tacomaporchfest.org/"
     },
     "events12:tacoma-neighborhood-music-2026-07-19": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 0
+        }
       },
-      "evidence": "https://www.tacomaporchfest.org"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.tacomaporchfest.org/"
     },
     "events12:wine-walk-2026-07-18": {
       "fields": {
@@ -43509,14 +43516,14 @@
       "evidence": "https://www.enumclawexpo.com/p/king-county-fair"
     },
     "events12:phinney-beer-tasting-2026-07-18": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "paid": true
+          "min": 40
         }
       },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
       "evidence": "https://www.phinneycenter.org/events/beer-taste-summer/"
     },
     "events12:music-by-candlelight-2026-07-23": {
@@ -43542,11 +43549,14 @@
       "evidence": "https://fever.pxf.io/Kj6j5x"
     },
     "events12:tacoma-museum-night-2026-07-16": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "min": 0
+        }
       },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
       "evidence": "https://www.fosswaterwayseaport.org/education-pages/free-3rd-thursday"
     },
     "events12:live-theater-2026-07-24": {
@@ -44266,14 +44276,14 @@
       "evidence": "https://events.carnationfarms.org/event/feast-in-the-field/"
     },
     "events12:films-made-in-2-days-2026-07-27": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
         "cost": {
-          "paid": true
+          "min": 20
         }
       },
-      "evidence": "https://www.48hourfilm.com/seattle/48hfp"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.siff.net/cinema/in-theaters/seattle-48-hour-film-project-premiere-screenings-2025"
     },
     "events12:forest-music-festival-2026-07-23": {
       "fields": {
@@ -44309,34 +44319,37 @@
       "evidence": "https://timbermusicfest.com/"
     },
     "events12:game-expo-2026-07-17": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://cdn.evbuc.com/images/1186339745/3004561895134/1/original.20260607-135241",
         "cost": {
-          "paid": true
+          "min": 35
         }
       },
-      "evidence": "https://www.geekfest.com/"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/geekfest-west-game-expo-2026-july-17-19th-tickets-1991308881469"
     },
     "events12:game-expo-2026-07-18": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://cdn.evbuc.com/images/1186339745/3004561895134/1/original.20260607-135241",
         "cost": {
-          "paid": true
+          "min": 35
         }
       },
-      "evidence": "https://www.geekfest.com/"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/geekfest-west-game-expo-2026-july-17-19th-tickets-1991308881469"
     },
     "events12:game-expo-2026-07-19": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://cdn.evbuc.com/images/1186339745/3004561895134/1/original.20260607-135241",
         "cost": {
-          "paid": true
+          "min": 35
         }
       },
-      "evidence": "https://www.geekfest.com/"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/geekfest-west-game-expo-2026-july-17-19th-tickets-1991308881469"
     },
     "events12:gay-aquarium-party-2026-07-17": {
       "fields": {
@@ -44701,34 +44714,34 @@
       }
     },
     "events12:music-arts-festival-2026-07-17": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
         "cost": {
-          "paid": true
+          "min": 150
         }
       },
-      "evidence": "https://206.events"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.thehootfestival.com/tickets"
     },
     "events12:music-arts-festival-2026-07-18": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
         "cost": {
-          "paid": true
+          "min": 150
         }
       },
-      "evidence": "https://206.events"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.thehootfestival.com/tickets"
     },
     "events12:music-arts-festival-2026-07-19": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
         "cost": {
-          "paid": true
+          "min": 150
         }
       },
-      "evidence": "https://206.events"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.thehootfestival.com/tickets"
     },
     "events12:music-by-candlelight-2026-07-25": {
       "fields": {
@@ -44753,14 +44766,15 @@
       "evidence": "https://feverup.com/en/seattle/candlelight"
     },
     "events12:music-festival-2026-07-25": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://www.jambase.com/wp-content/uploads/2025/05/day-trip-festival-seattle.png",
         "cost": {
           "paid": true
         }
       },
-      "evidence": "https://206.events"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.jambase.com/festival/day-trip-festival-seattle-2026"
     },
     "events12:music-in-the-great-outdoors-2026-07-18": {
       "fields": {
@@ -45261,14 +45275,14 @@
       }
     },
     "events12:triathlon-2026-07-19": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
         "cost": {
-          "paid": true
+          "min": 115
         }
       },
-      "evidence": "https://seafairtriathlon.com/"
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://seafairtriathlon.com/registration/"
     },
     "events12:vintage-car-show-2026-07-24": {
       "fields": {
@@ -49289,7 +49303,11 @@
     },
     "events12:no-alcohol-event-2026-07-25": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/hxn9dbuhd/image/upload/f_auto,c_limit,w_1200,q_auto/v1781060006/organizations/e/3/5/5/e355df42-9c71-401d-8a14-b3663bd1b44a/90b87c15-a138-42c1-b172-e5c1f07328c7.png"
+        "imageUrl": "https://res.cloudinary.com/hxn9dbuhd/image/upload/f_auto,c_limit,w_1200,q_auto/v1781060006/organizations/e/3/5/5/e355df42-9c71-401d-8a14-b3663bd1b44a/90b87c15-a138-42c1-b172-e5c1f07328c7.png",
+        "setting": "outdoor",
+        "cost": {
+          "min": 25
+        }
       },
       "resolvedAt": "2026-07-13",
       "source": "agent",
@@ -49297,7 +49315,11 @@
     },
     "events12:world-cup-final-game-2026-07-19": {
       "fields": {
-        "imageUrl": "https://cdn.mcmenamins.com/system/uploads/MadborgAssets/soccer-artwork.jpg"
+        "imageUrl": "https://cdn.mcmenamins.com/system/uploads/MadborgAssets/soccer-artwork.jpg",
+        "setting": "indoor",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-07-13",
       "source": "agent",
@@ -49722,7 +49744,7 @@
     "new-tech-seattle:new-tech-seattle-315658560": {
       "fields": {
         "cost": {
-          "min": 21.0
+          "min": 21
         }
       },
       "resolvedAt": "2026-07-13",
@@ -49732,7 +49754,7 @@
     "new-tech-seattle:new-tech-seattle-315658561": {
       "fields": {
         "cost": {
-          "min": 21.0
+          "min": 21
         }
       },
       "resolvedAt": "2026-07-13",
@@ -49826,7 +49848,7 @@
     "seatoday:cityspark-19403584": {
       "fields": {
         "cost": {
-          "min": 995.0
+          "min": 995
         }
       },
       "resolvedAt": "2026-07-13",
@@ -49836,7 +49858,7 @@
     "seatoday:cityspark-19403101": {
       "fields": {
         "cost": {
-          "min": 625.0
+          "min": 625
         }
       },
       "resolvedAt": "2026-07-13",
@@ -49939,7 +49961,10 @@
     },
     "events12:world-cup-soccer-2026-07-05": {
       "fields": {
-        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-13",
       "source": "agent",
@@ -49976,6 +50001,260 @@
       "resolvedAt": "2026-07-13",
       "source": "agent",
       "evidence": "https://vashoncenterforthearts.org/events/"
+    },
+    "events12:world-cup-soccer-2026-07-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:fireworks-party-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration"
+    },
+    "events12:parades-2026-07-04": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.arlingtonwa.gov/July4"
+    },
+    "events12:traditional-music-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/"
+    },
+    "events12:bremerton-music-festival-2026-07-31": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 16200,
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/69e8e73c51eced723d51897e/aa9be781-5dad-4aff-8b7b-5d9a7a29c2bb/Kitsap+Blues+Mermaid+Large.png?format=1500w",
+        "cost": {
+          "min": 60
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.kitsapblues.com/"
+    },
+    "events12:bremerton-music-festival-2026-08-01": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 45000,
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/69e8e73c51eced723d51897e/aa9be781-5dad-4aff-8b7b-5d9a7a29c2bb/Kitsap+Blues+Mermaid+Large.png?format=1500w",
+        "cost": {
+          "min": 60
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.kitsapblues.com/"
+    },
+    "events12:bremerton-music-festival-2026-08-02": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 41400,
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/69e8e73c51eced723d51897e/aa9be781-5dad-4aff-8b7b-5d9a7a29c2bb/Kitsap+Blues+Mermaid+Large.png?format=1500w",
+        "cost": {
+          "min": 60
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.kitsapblues.com/"
+    },
+    "lumen-field:tm-vvG1HZ_uE4R-wE": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/"
+    },
+    "seatoday:cityspark-19406159": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/keep-bellevue-beautiful-crossroads-cleanup/19406159/2026-07-25T00"
+    },
+    "seatoday:cityspark-19406108": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/youth-summer-camps/19406108/2026-07-13T00"
+    },
+    "events12:early-fireworks-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "Past event; image no longer available"
+    },
+    "events12:early-fireworks-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "Past event; image no longer available"
+    },
+    "events12:fireworks-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "Past event; image no longer available"
+    },
+    "events12:fourth-of-july-tacoma-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "Past event; image no longer available"
+    },
+    "events12:national-park-day-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "Past event; image no longer available"
+    },
+    "events12:national-park-day-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "Past event; image no longer available"
+    },
+    "events12:national-park-day-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "Past event; image no longer available"
+    },
+    "seatoday:cityspark-19406153": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/puzzle-together-joy-together/19406153/2026-07-23T00"
+    },
+    "seatoday:cityspark-19406155": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/bellevue-demonstration-garden-workshop/19406155/2026-07-25T00"
+    },
+    "seattle-center:seattle-storm-vs-indiana": {
+      "fields": {
+        "duration": 7200,
+        "imageUrl": "https://cdn.wnba.com/sites/1611661328/2026/05/HeaderLookUp.jpg"
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-indiana"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47706": {
+      "fields": {
+        "startTime": "13:00",
+        "duration": 18000,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-%E2%80%93-a-festal-exhibit-x47706"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46353": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation; no specific start time or ticketed hours"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46354": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation; no specific start time or ticketed hours"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46355": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture installation; no specific start time or ticketed hours"
+    },
+    "seatoday:cityspark-19406109": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "reason": "No venue or event named 'Museum & Livery' found in Bellevue/Eastside area after exhaustive search"
+    },
+    "seatoday:cityspark-19406112": {
+      "fields": {
+        "cost": {
+          "min": 625
+        }
+      },
+      "resolvedAt": "2026-07-13",
+      "source": "agent",
+      "evidence": "https://www.cwb.org/safe-powerboat-handling"
     }
   }
 }

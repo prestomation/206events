@@ -5,6 +5,7 @@ friendlyname: The Beacon Cinema
 description: Independent arthouse cinema in Columbia City showing curated films, repertory screenings, and special events
 icsUrl: https://seattle-movies.innocence.com/thebeacon.ics
 infoUrl: https://thebeacon.film/
+expectEmpty: true
 tags:
   - Movies
   - Community
