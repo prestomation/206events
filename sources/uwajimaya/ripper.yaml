@@ -10,6 +10,9 @@ description: "Uwajimaya"
 url: "https://www.instagram.com/uwajimaya/"
 friendlyLink: https://www.instagram.com/uwajimaya/
 geo: null
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/11/Uwajimaya_in_Seattle.jpg"
+# Events come from Instagram; per-event media not harvestable via WebFetch.
+skipEventPhotos: true
 tags: ["Community", "International District", "Food"]
 calendars:
   - name: uwajimaya

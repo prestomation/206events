@@ -7,6 +7,7 @@ url: "https://www.eventbrite.com/o/north-end-makers-32678506429"
 friendlyLink: https://northendmakers.org/
 tags: ["Community", "Northgate"]
 imageUrl: "https://northendmakers.org/images/cardlogo.png"
+skipEventPhotos: true
 geo:
   lat: 47.7182668
   lng: -122.3129509

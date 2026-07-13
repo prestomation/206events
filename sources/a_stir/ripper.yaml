@@ -13,6 +13,8 @@ geo:
   osmType: node
   osmId: 2158750790
 imageUrl: "https://static.spotapps.co/website_images/ab_websites/156212_website_v2/social_share.jpg"
+# SpotHopper events (National Day celebrations) have no per-event page or dedicated image.
+skipEventPhotos: true
 calendars:
   - name: all-events
     friendlyname: "a/stir"
