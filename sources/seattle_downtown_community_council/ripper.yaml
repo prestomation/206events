@@ -1,0 +1,20 @@
+name: seattle-downtown-community-council
+type: eventbrite
+# Volunteer-powered residents coalition working on downtown Seattle livability.
+# Events (walking tours, meetings, community gatherings) happen at rotating
+# downtown locations, not one fixed venue — geo: null at the ripper level,
+# like freeze-tag-events/mixmix-socials.
+sourceRole: venue
+geo: null
+description: "Seattle Downtown Community Council"
+url: "https://www.eventbrite.com/o/seattle-downtown-community-council-dcc-102942974681"
+friendlyLink: https://www.seattledcc.org/
+tags: ["Community", "Downtown"]
+calendars:
+  - name: seattle-downtown-community-council
+    friendlyname: "Seattle Downtown Community Council"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "102942974681"
+      defaultLocation: "Downtown Seattle, WA"
+      defaultDurationHours: 2
