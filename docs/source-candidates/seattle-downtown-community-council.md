@@ -1,12 +1,12 @@
 ---
 name: "Seattle Downtown Community Council (DCC)"
-status: candidate
+status: added
 platform: Eventbrite
 url: https://www.eventbrite.com/o/seattle-downtown-community-council-dcc-102942974681
 tags: [Community, Downtown]
 firstSeen: 2026-07-11
 lastChecked: 2026-07-13
-pr:
+pr: 933
 ---
 
 Volunteer-powered residents coalition working on downtown Seattle
@@ -34,3 +34,6 @@ the freeze-tag-events/mixmix-socials pattern. Tags: `Community`,
 config schema (0 events locally, expected — `EVENTBRITE_TOKEN` isn't
 available in this environment); events to be confirmed via CI, which has
 the token provisioned for other Eventbrite sources.
+
+Confirmed via PR #933 CI build: 1 event ("Hike The Hood with the We
+Deliver Care Safety Team", Westlake Center). Amazon Q review clean.
