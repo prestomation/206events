@@ -1,11 +1,12 @@
 ---
 name: West Seattle Blog
-status: candidate
+status: added
+pr: pending
 platform: ICS (All-in-One Event Calendar plugin)
 url: https://westseattleblog.com/events/
 tags: ["West Seattle", "Community"]
 firstSeen: 2026-07-08
-lastChecked: 2026-07-08
+lastChecked: 2026-07-15
 pr:
 ---
 

@@ -1,0 +1,10 @@
+geo: null
+name: west-seattle-blog
+sourceRole: aggregator
+friendlyname: West Seattle Blog
+description: Community event calendar from West Seattle Blog, covering events across West Seattle including trivia nights, markets, walking tours, festivals, watch parties, and community meetings.
+icsUrl: https://westseattleblog.com/?plugin=all-in-one-event-calendar&controller=ai1ec_exporter_controller&action=export_events&no_html=true
+infoUrl: https://westseattleblog.com/events/
+tags:
+  - West Seattle
+  - Community
