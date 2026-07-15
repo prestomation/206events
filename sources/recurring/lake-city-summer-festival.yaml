@@ -1,0 +1,27 @@
+# verified: 2026-07-15 ok (2026=Aug 1, 2025=Aug 2, both 1st Saturday of August)
+imageUrl: "https://lakecitysummerfest.com/wp-content/uploads/2024/06/cropped-dsc_0008.jpg"
+geo:
+  lat: 47.7244
+  lng: -122.3057
+  label: "NE 125th St between 25th Ave NE and Lake City Way NE, Seattle, WA 98125"
+  osmChecked: "2026-07-15"
+name: lake-city-summer-festival
+sourceRole: venue
+friendlyname: Lake City Summer Festival & Parade
+description: Annual free community festival and parade in Lake City with live
+  bands, live art, a car show, free petting zoo, art & craft vendors, family fun
+  zone, multi-cultural food trucks, and three evening parades (Kids' Parade,
+  Dog Parade, Grand Parade).
+timezone: America/Los_Angeles
+location: NE 125th St, Lake City, Seattle, WA 98125
+url: https://lakecitysummerfest.com/
+tags:
+  - Community
+  - Lake City
+# 1st Saturday of August (2026=Aug 1, 2025=Aug 2). Verify dates at lakecitysummerfest.com each year.
+cost: free
+schedules:
+  - schedule: "1st Saturday"
+    start_time: "10:30"
+    duration: PT10H30M
+    months: [8]
