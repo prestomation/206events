@@ -1,12 +1,12 @@
 ---
 name: West Seattle Blog
-status: candidate
+status: added
 platform: ICS (All-in-One Event Calendar plugin)
 url: https://westseattleblog.com/events/
 tags: ["West Seattle", "Community"]
 firstSeen: 2026-07-08
-lastChecked: 2026-07-08
-pr:
+lastChecked: 2026-07-15
+pr: 943
 ---
 
 West Seattle Blog's community event calendar — a long-running neighborhood
@@ -45,3 +45,10 @@ Implementation notes for whoever picks this up:
   individually (e.g. Corner Pocket's Sunday trivia appears as its own event
   on this feed) — that's expected and handled by the existing cross-source
   dedup system, not a reason to skip this source.
+
+Implemented 2026-07-15 in PR #943: `sources/external/west-seattle-blog.yaml`,
+`geo: null`, `sourceRole: aggregator`, tags `["West Seattle", "Community"]`.
+Local build (`ONLY_SOURCE=west-seattle-blog`) confirmed 4735 raw events,
+1662 future occurrences after recurrence expansion, no fatal errors. 102
+non-fatal geocode errors from free-text venue locations — expected for an
+aggregator, to be drained by `skills/geo-resolver/SKILL.md` over time.
