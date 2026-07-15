@@ -131,6 +131,15 @@ git push origin chore/social-discovery-YYYY-MM-DD
 
 Then open a PR via `scripts/push_and_pr.sh` or `gh pr create`.
 
+**Enable auto-merge immediately after the PR is opened:**
+
+```bash
+gh pr merge --auto --squash
+```
+
+This tells GitHub to automatically squash-merge the PR once all required checks
+pass. The PR will merge itself when CI goes green — no manual intervention needed.
+
 ### 8. Report
 
 Post a summary to the channel:
@@ -171,6 +180,10 @@ If no new candidates were found:
   and add a note about the sighting.
 - **One PR per run** — bundle all candidate files and the discovery log entry
   into a single PR.
+- **Auto-merge after opening PR** — always run `gh pr merge --auto --squash`
+  right after creating the PR. These are docs-only changes (discovery logs,
+  candidate files, state file) with no code modifications, so auto-merge is safe.
+  The PR will merge itself when CI passes.
 - **Don't implement sources here** — this skill only discovers and documents
   candidates. Implementation is handled by the source-discovery skill
   (`skills/source-discovery/SKILL.md`), which picks up candidates and builds
