@@ -8,7 +8,8 @@ sourceRole: venue
 friendlyname: On the Block Creative Marketplace
 description: Monthly outdoor vendor market on Capitol Hill's Pike/Pine corridor
   featuring local art, vintage, streetwear, live music, and a 3v3 basketball
-  bracket. Free and all ages. Every second Saturday, June through September.
+  bracket. Free and all ages. Second Saturday, June through September (third
+  Saturday in August).
 timezone: America/Los_Angeles
 location: 11th Ave between E Pike St and E Pine St, Capitol Hill, Seattle, WA 98122
 url: https://www.ontheblockseattle.org/
@@ -21,4 +22,8 @@ schedules:
   - schedule: "2nd Saturday"
     start_time: "12:00"
     duration: PT6H
-    months: [6, 7, 8, 9]
+    months: [6, 7, 9]
+  - schedule: "3rd Saturday"
+    start_time: "12:00"
+    duration: PT6H
+    months: [8]

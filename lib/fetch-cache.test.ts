@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach } from "vitest";
-import { mkdtemp, writeFile, readFile, rm } from "fs/promises";
+import { mkdtemp, writeFile, readFile, readdir, rm } from "fs/promises";
 import { tmpdir } from "os";
-import { join } from "path";
+import { join, dirname } from "path";
 import {
     loadFetchCache,
     saveFetchCache,
@@ -18,7 +18,6 @@ import {
     getFetchCacheStats,
     DEFAULT_TTL_HOURS,
     MAX_ENTRY_AGE_DAYS,
-    MAX_CACHE_CONTENT_CHARS,
     type FetchCacheEntry,
     type FetchCache,
 } from "./fetch-cache.js";
@@ -74,29 +73,83 @@ describe("fetch-cache load/save", () => {
         };
         await saveFetchCache(cache, path);
         expect(await loadFetchCache(path)).toEqual(cache);
-        // Compact output (no indentation) to avoid RangeError on large caches.
-        expect(await readFile(path, "utf-8")).not.toContain("\n  ");
+        // Pretty-printed for readable diffs, like the other caches — safe to
+        // afford now that saving streams entries individually instead of
+        // building one JSON.stringify(cache) string.
+        expect(await readFile(path, "utf-8")).toContain("\n  ");
     });
 
-    it("evicts oldest entries when total content exceeds the cap", async () => {
+    it("round-trips an empty cache", async () => {
         const path = await tmpFile();
-        // Build a cache that exceeds the cap by a known amount.
-        const chunkSize = Math.floor(MAX_CACHE_CONTENT_CHARS / 2) + 1024;
+        const cache: FetchCache = { version: 1, entries: {} };
+        await saveFetchCache(cache, path);
+        expect(await loadFetchCache(path)).toEqual(cache);
+    });
+
+    it("leaves the existing file untouched and cleans up the temp file if a save fails partway through", async () => {
+        const path = await tmpFile();
+        const goodCache: FetchCache = {
+            version: 1,
+            entries: { "https://example.com/good": entry("2026-06-01T00:00:00.000Z") },
+        };
+        await saveFetchCache(goodCache, path);
+
+        const badCache: FetchCache = {
+            version: 1,
+            entries: {
+                "https://example.com/a": entry("2026-06-02T00:00:00.000Z"),
+                // BigInt can't be JSON.stringify'd — forces a synchronous throw
+                // mid-write, simulating a save that fails partway through.
+                "https://example.com/bad": { ...entry("2026-06-03T00:00:00.000Z"), content: 1n as unknown as string },
+            },
+        };
+        await expect(saveFetchCache(badCache, path)).rejects.toThrow();
+
+        // The previously-saved good cache must survive a failed save untouched...
+        expect(await loadFetchCache(path)).toEqual(goodCache);
+        // ...and no stray temp file left behind in the directory.
+        const leftover = (await readdir(dirname(path))).filter((f) => f.includes(".tmp-"));
+        expect(leftover).toEqual([]);
+    });
+
+    it("round-trips a cache with multiple entries, including special characters in keys/content", async () => {
+        const path = await tmpFile();
         const cache: FetchCache = {
             version: 1,
             entries: {
-                older: { fetchedAt: "2026-06-01T00:00:00.000Z", status: 200, contentType: "text/html", content: "A".repeat(chunkSize) },
-                newer: { fetchedAt: "2026-06-02T00:00:00.000Z", status: 200, contentType: "text/html", content: "B".repeat(chunkSize) },
+                "https://example.com/a": { ...entry("2026-06-01T00:00:00.000Z"), content: "line1\nline2\t\"quoted\"" },
+                "https://example.com/b?q=1&r=2": { ...entry("2026-06-02T00:00:00.000Z"), content: "" },
+                "https://example.com/c": { ...entry("2026-06-03T00:00:00.000Z"), content: "unicode: café 日本語" },
             },
         };
         await saveFetchCache(cache, path);
-        const saved = await loadFetchCache(path);
-        // Total exceeds cap, so at least one entry was dropped.
-        expect(Object.keys(saved.entries).length).toBeLessThan(2);
-        // The NEWER entry must be kept (oldest evicted first).
-        expect(saved.entries["newer"]).toBeDefined();
-        expect(saved.entries["older"]).toBeUndefined();
+        expect(await loadFetchCache(path)).toEqual(cache);
     });
+
+    it("saves a cache with many sizable entries by streaming, never building one giant JSON string, and keeps everything (no size cap)", async () => {
+        // Regression test for RangeError: Invalid string length — the old
+        // implementation built the whole cache as one `JSON.stringify(cache)`
+        // string before writing it, which crashes once the combined content
+        // across all entries gets large enough. This proves the streaming
+        // writer round-trips many multi-MB entries correctly, and that it
+        // keeps every entry rather than evicting under a size cap — the cache
+        // is expected to grow with the dataset. Sized for a fast test run
+        // rather than the real ~500MB-1GB V8 ceiling, but exercises the same
+        // per-entry streaming path that avoids ever holding the whole cache
+        // as one string.
+        const path = await tmpFile();
+        const bigContent = "x".repeat(1_000_000); // 1 MB
+        const entries: Record<string, FetchCacheEntry> = {};
+        for (let i = 0; i < 20; i++) {
+            entries[`https://example.com/big-${i}`] = { ...entry("2026-06-01T00:00:00.000Z"), content: bigContent };
+        }
+        const cache: FetchCache = { version: 1, entries };
+
+        await saveFetchCache(cache, path);
+        const loaded = await loadFetchCache(path);
+        expect(Object.keys(loaded.entries).length).toBe(20);
+        expect(loaded.entries["https://example.com/big-0"].content.length).toBe(1_000_000);
+    }, 15000);
 });
 
 describe("isFresh / getCacheTtlMs", () => {

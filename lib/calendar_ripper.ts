@@ -1541,6 +1541,9 @@ END:VCALENDAR`;
   if (prunedCount > 0) {
     console.log(`Pruned ${prunedCount} stale fetch-cache entr(ies) older than the max age`);
   }
+  const fetchCacheEntries = Object.values(fetchCacheToSave.entries);
+  const fetchCacheContentBytes = fetchCacheEntries.reduce((sum, e) => sum + e.content.length, 0);
+  console.log(`Fetch cache: ${fetchCacheEntries.length} entr(ies), ${(fetchCacheContentBytes / 1e6).toFixed(1)} MB of cached content`);
   await saveFetchCache(fetchCacheToSave, 'fetch-cache.json');
 
   // Stamp lastSeen on every cache entry consulted by this build. The
