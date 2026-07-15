@@ -1,7 +1,8 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { EventCost, RipperCalendarEvent, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
+import { EventCost, Ripper, RipperCalendar, RipperCalendarEvent, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { HTMLElement } from 'node-html-parser';
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 
 import '@js-joda/timezone';
 
@@ -117,9 +118,85 @@ export function parsePriceCell(raw: string): EventCost | undefined {
     return undefined;
 }
 
+/**
+ * Given the links column cell and an optional event URL, returns the first
+ * Instagram post or reel URL found, or null if none. Instagram profile links
+ * (no /p/ or /reel/ segment) are ignored.
+ */
+export function extractInstagramPostUrl(
+    linksCell: HTMLElement | null,
+    eventUrl: string | undefined,
+): string | null {
+    const instagramPattern = /instagram\.com\/(p|reel)\//;
+    if (linksCell) {
+        for (const a of linksCell.querySelectorAll('a')) {
+            const href = a.getAttribute('href') ?? '';
+            if (instagramPattern.test(href)) return href;
+        }
+    }
+    if (eventUrl && instagramPattern.test(eventUrl)) return eventUrl;
+    return null;
+}
+
+/**
+ * Attempts to retrieve the og:image URL from an Instagram post by fetching its
+ * embed endpoint — served without JS and more reliably accessible than the main
+ * post page. Returns null on any failure (blocked fetch, missing og:image,
+ * network error) so the caller can skip gracefully.
+ */
+export async function fetchInstagramOgImage(
+    fetchFn: FetchFn,
+    postUrl: string,
+): Promise<string | null> {
+    const base = postUrl.replace(/\/+$/, '');
+    const embedUrl = `${base}/embed/`;
+    try {
+        const res = await fetchFn(embedUrl, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            },
+        });
+        if (!res.ok) return null;
+        const html = await res.text();
+        const m =
+            html.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/i) ??
+            html.match(/<meta[^>]+content="([^"]+)"[^>]+property="og:image"/i);
+        if (!m) return null;
+        return m[1].replace(/&amp;/g, '&');
+    } catch {
+        return null;
+    }
+}
+
 export default class Hz19Ripper extends HTMLRipper {
     private seenEvents = new Set<string>();
     private readonly timezone = ZoneId.of('America/Los_Angeles');
+    // Populated during parseEvents; consumed in the rip() post-processing pass.
+    private instagramLinks = new Map<string, string>();
+
+    public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        this.instagramLinks.clear();
+        const calendars = await super.rip(ripper);
+
+        // Best-effort: try to fetch og:image from Instagram post/reel embeds.
+        // Instagram frequently blocks headless fetches from CI; any failure is
+        // silently skipped so the build never fails on a missing image.
+        if (this.instagramLinks.size > 0) {
+            const igFetch = getFetchForConfig({ proxy: false });
+            const allEvents = calendars.flatMap(c => c.events);
+            await Promise.all(
+                allEvents
+                    .filter(e => !e.imageUrl && e.id && this.instagramLinks.has(e.id))
+                    .map(async event => {
+                        const igUrl = this.instagramLinks.get(event.id!);
+                        const imageUrl = await fetchInstagramOgImage(igFetch, igUrl!);
+                        if (imageUrl) event.imageUrl = imageUrl;
+                    }),
+            );
+        }
+
+        return calendars;
+    }
 
     public async parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
         const events: RipperEvent[] = [];
@@ -153,6 +230,11 @@ export default class Hz19Ripper extends HTMLRipper {
             const eventId = `19hz-${dateStr}-${title}`;
             if (this.seenEvents.has(eventId)) continue;
             this.seenEvents.add(eventId);
+
+            // Record any Instagram post/reel link for image backfill in rip().
+            // Prefer the links column (cells[5]); fall back to the event URL itself.
+            const igUrl = extractInstagramPostUrl(cells[5], eventUrl);
+            if (igUrl) this.instagramLinks.set(eventId, igUrl);
 
             // Parse time from cells[0]
             const timeText = cells[0]?.text ?? '';
