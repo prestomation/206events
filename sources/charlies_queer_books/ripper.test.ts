@@ -64,6 +64,28 @@ describe('CharliesQueerBooksRipper - parseRow', () => {
         expect('type' in result && result.type === 'ParseError').toBe(true);
     });
 
+    test('returns a ParseError for an out-of-range month/day', () => {
+        const result = ripper.parseRow({
+            id: 998,
+            title: 'Impossible Date Event',
+            date: '20261332',
+        } as any);
+        expect('type' in result && result.type === 'ParseError').toBe(true);
+    });
+
+    test('publishes the raw location_text for an unrecognized off-site location', () => {
+        const result = ripper.parseRow({
+            id: 997,
+            title: 'Pop-up at a New Venue',
+            date: '20260801',
+            location_text: 'Some Other Bookstore',
+        } as any);
+        if (!('date' in result)) throw new Error('expected event');
+        expect(result.location).toBe('Some Other Bookstore');
+        expect(result.lat).toBeUndefined();
+        expect(result.geocodeSource).toBeUndefined();
+    });
+
     test('defaults to a 1-hour duration when end_time is missing', () => {
         const result = ripper.parseRow({
             id: 1000,
@@ -84,6 +106,46 @@ describe('CharliesQueerBooksRipper - parseRow', () => {
         if (!('date' in result)) throw new Error('expected event');
         expect(result.date.hour()).toBe(0);
         expect(result.date.minute()).toBe(0);
+    });
+});
+
+describe('CharliesQueerBooksRipper - getSessionId / fetchEvents', () => {
+    const ripper = new CharliesQueerBooksRipper() as any;
+
+    function mockFetch(status: number, body: unknown) {
+        return async () => ({
+            ok: status >= 200 && status < 300,
+            status,
+            json: async () => body,
+        }) as Response;
+    }
+
+    test('getSessionId returns the session_id from a successful response', async () => {
+        const sessionId = await ripper.getSessionId(mockFetch(200, { session_id: 'abc123' }));
+        expect(sessionId).toBe('abc123');
+    });
+
+    test('getSessionId throws on a non-2xx HTTP response', async () => {
+        await expect(ripper.getSessionId(mockFetch(500, {}))).rejects.toThrow('HTTP 500');
+    });
+
+    test('getSessionId throws when the response body carries an error field', async () => {
+        await expect(ripper.getSessionId(mockFetch(200, { error: 'invalid store_id' })))
+            .rejects.toThrow('invalid store_id');
+    });
+
+    test('getSessionId throws when session_id is missing', async () => {
+        await expect(ripper.getSessionId(mockFetch(200, {}))).rejects.toThrow('missing session_id');
+    });
+
+    test('fetchEvents returns rows from a successful response', async () => {
+        const rows = await ripper.fetchEvents(mockFetch(200, { rows: [{ id: 1 }] }), 'session123');
+        expect(rows).toEqual([{ id: 1 }]);
+    });
+
+    test('fetchEvents throws when the response body carries an error field', async () => {
+        await expect(ripper.fetchEvents(mockFetch(200, { error: 'invalid session' }), 'bad-session'))
+            .rejects.toThrow('invalid session');
     });
 });
 

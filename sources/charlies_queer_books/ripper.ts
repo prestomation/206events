@@ -43,14 +43,16 @@ interface BookManagerEventRow {
     location_text?: string;
 }
 
-// Off-site locations seen in the live feed, mapped to a full address (for
-// display) and, where known, coordinates. Events not listed here (i.e. the
-// normal in-store case) use the venue's own LOCATION/geo. An off-site event
-// with no coordinate match here still gets the venue's coords via the
-// ripper-level `geo` fallback in attachEventCoords — a minor known
-// imprecision the same as other venue rippers with occasional off-site
-// events (see sources/book_larder/ripper.ts).
-const OFFSITE_LOCATIONS: Record<string, { location: string; lat?: number; lng?: number }> = {
+// The normal case: `location_text` is "Charlie's" (in-store).
+const IN_STORE_LOCATION_TEXT = "charlie's";
+
+// Known off-site locations seen in the live feed, mapped to a full address
+// and coordinates. An off-site event NOT listed here still publishes its
+// real (uncoordinated) `location_text` rather than falling back to the
+// store's address — mirroring sources/book_larder/ripper.ts, which always
+// shows the true off-site location and only degrades the lat/lng lookup
+// gracefully when the venue isn't recognized.
+const OFFSITE_LOCATIONS: Record<string, { location: string; lat: number; lng: number }> = {
     "ballard branch - seattle public library": {
         location: "Ballard Branch, Seattle Public Library, 5614 22nd Ave NW, Seattle, WA 98107",
         lat: 47.6671, lng: -122.3836,
@@ -59,15 +61,16 @@ const OFFSITE_LOCATIONS: Record<string, { location: string; lat?: number; lng?: 
         location: "Town Hall Seattle, 1119 8th Ave, Seattle, WA 98101",
         lat: 47.6090, lng: -122.3299,
     },
-    "virtual": { location: "Virtual" },
 };
 
 interface BookManagerEventListResponse {
     rows: BookManagerEventRow[];
+    error?: string;
 }
 
 interface BookManagerSessionResponse {
     session_id?: string;
+    error?: string;
 }
 
 export default class CharliesQueerBooksRipper implements IRipper {
@@ -97,7 +100,13 @@ export default class CharliesQueerBooksRipper implements IRipper {
     }
 
     private async getSessionId(fetchFn: FetchFn): Promise<string> {
-        const body = new URLSearchParams({ store_id: STORE_ID, uuid: CLIENT_UUID }).toString();
+        // `today` is otherwise unused by session/get, but including it in the
+        // body makes the fetch-cache key change daily (see keyFor in
+        // lib/fetch-cache.ts) instead of the default 7-day TTL — this session
+        // token likely doesn't live that long, so a session minted on day 1
+        // shouldn't still be replayed into a live event/v2/list call on day 6.
+        const today = ZonedDateTime.now(TIMEZONE).format(DATE_FMT);
+        const body = new URLSearchParams({ store_id: STORE_ID, uuid: CLIENT_UUID, today }).toString();
         const res = await fetchFn(`${API_BASE}/session/get?_cb=${WEBSTORE_NAME}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': USER_AGENT },
@@ -105,6 +114,7 @@ export default class CharliesQueerBooksRipper implements IRipper {
         });
         if (!res.ok) throw new Error(`BookManager session/get returned HTTP ${res.status}`);
         const data: BookManagerSessionResponse = await res.json();
+        if (data.error) throw new Error(`BookManager session/get returned error: ${data.error}`);
         if (!data.session_id) throw new Error('BookManager session/get response missing session_id');
         return data.session_id;
     }
@@ -127,6 +137,7 @@ export default class CharliesQueerBooksRipper implements IRipper {
         });
         if (!res.ok) throw new Error(`BookManager event/v2/list returned HTTP ${res.status}`);
         const data: BookManagerEventListResponse = await res.json();
+        if (data.error) throw new Error(`BookManager event/v2/list returned error: ${data.error}`);
         return data.rows ?? [];
     }
 
@@ -139,9 +150,17 @@ export default class CharliesQueerBooksRipper implements IRipper {
         const year = parseInt(dateMatch[1], 10);
         const month = parseInt(dateMatch[2], 10);
         const day = parseInt(dateMatch[3], 10);
+        if (month < 1 || month > 12 || day < 1 || day > 31) {
+            return { type: 'ParseError', reason: `Invalid date values: "${row.date}"`, context: row.title };
+        }
 
         const start = this.parseTime(row.start_time) ?? [0, 0];
-        const startDate = ZonedDateTime.of(LocalDateTime.of(year, month, day, start[0], start[1]), TIMEZONE);
+        let startDate: ZonedDateTime;
+        try {
+            startDate = ZonedDateTime.of(LocalDateTime.of(year, month, day, start[0], start[1]), TIMEZONE);
+        } catch (err) {
+            return { type: 'ParseError', reason: `Invalid date "${row.date}": ${err}`, context: row.title };
+        }
 
         let duration = Duration.ofHours(1);
         const end = this.parseTime(row.end_time);
@@ -151,7 +170,18 @@ export default class CharliesQueerBooksRipper implements IRipper {
             if (endMinutes > startMinutes) duration = Duration.ofMinutes(endMinutes - startMinutes);
         }
 
-        const offsite = row.location_text ? OFFSITE_LOCATIONS[row.location_text.toLowerCase().trim()] : undefined;
+        // In-store (the common case) uses the venue's own address. An
+        // off-site location either resolves to a known full address+coords
+        // (OFFSITE_LOCATIONS) or, if unrecognized, publishes its raw
+        // location_text as-is rather than mislabeling it as the store.
+        const locationKey = row.location_text?.toLowerCase().trim();
+        let location = LOCATION;
+        let coords: { lat: number; lng: number } | undefined;
+        if (locationKey && locationKey !== IN_STORE_LOCATION_TEXT) {
+            const known = OFFSITE_LOCATIONS[locationKey];
+            location = known?.location ?? row.location_text!;
+            coords = known;
+        }
 
         const event: RipperCalendarEvent = {
             id: `charlies-queer-books-${row.id}`,
@@ -160,14 +190,14 @@ export default class CharliesQueerBooksRipper implements IRipper {
             duration,
             summary: row.title,
             description: row.description ? this.stripHtml(row.description) : undefined,
-            location: offsite?.location ?? LOCATION,
+            location,
             url: `https://charliesqueerbooks.com/events/${row.id}`,
             imageUrl: row.image_url || undefined,
         };
 
-        if (offsite?.lat !== undefined && offsite?.lng !== undefined) {
-            event.lat = offsite.lat;
-            event.lng = offsite.lng;
+        if (coords) {
+            event.lat = coords.lat;
+            event.lng = coords.lng;
             event.geocodeSource = 'ripper';
         }
 

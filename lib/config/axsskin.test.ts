@@ -130,7 +130,29 @@ describe('AXSSkinRipper shared module', () => {
 
         it('paginates through AJAX endpoint until empty response', async () => {
             const __dirname = dirname(fileURLToPath(import.meta.url));
-            const ajaxJson = readFileSync(join(__dirname, 'sample-data-axs-ajax.json'), 'utf-8');
+            const rawAjaxJson = readFileSync(join(__dirname, 'sample-data-axs-ajax.json'), 'utf-8');
+            // The fixture's two events carry hardcoded dates. rip() drops events more than
+            // 6 hours in the past, so a fixture date fixed in the source tree eventually
+            // lands in the past and this test starts failing for reasons unrelated to
+            // pagination. Rewrite both event dates (in the decoded HTML) to always be
+            // ~1 month ahead of "now" before use.
+            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const futureDateParts = (daysFromNow: number) => {
+                const d = new Date(Date.now() + daysFromNow * 24 * 60 * 60 * 1000);
+                return { month: monthNames[d.getMonth()], day: d.getDate(), year: d.getFullYear() };
+            };
+            const withFutureDate = (block: string, daysFromNow: number) => {
+                const { month, day, year } = futureDateParts(daysFromNow);
+                return block
+                    .replace(/aria-label="[A-Za-z]{3} \d{1,2} \d{4}"/, `aria-label="${month} ${day} ${year}"`)
+                    .replace(
+                        /<span class="m-date__month">[A-Za-z]{3} <\/span><span class="m-date__day">\d{1,2}<\/span>/,
+                        `<span class="m-date__month">${month} </span><span class="m-date__day">${day}</span>`,
+                    );
+            };
+            const decodedHtml = JSON.parse(rawAjaxJson) as string;
+            const eventTwoMarker = '<div class="eventItem entry alt  clearfix">';
+            const splitIdx = decodedHtml.indexOf(eventTwoMarker);
 
             class TestRipper extends AXSSkinRipper {
                 protected venueId = 'test';
@@ -140,7 +162,8 @@ describe('AXSSkinRipper shared module', () => {
 
             // Page 1: 2 events (< 12 per page, so only one fetch needed in this test)
             // But to test pagination loop, simulate: page1 = 12 items, page2 = 2 items
-            const page1Html = JSON.parse(ajaxJson) as string;
+            const page1Html = withFutureDate(decodedHtml.slice(0, splitIdx), 30)
+                + withFutureDate(decodedHtml.slice(splitIdx), 35);
             // Create a full 12-item page by repeating events with different IDs
             const items = Array.from({ length: 12 }, (_, i) =>
                 page1Html.replace(/55555/g, `${70000 + i}`).replace(/66666/g, `${80000 + i}`)
@@ -148,7 +171,7 @@ describe('AXSSkinRipper shared module', () => {
                     .replace(/AJAX Event Two/g, `Event ${i}b`)
             ).join('');
             const page1Response = JSON.stringify(items);
-            const page2Response = ajaxJson; // 2 items — less than perPage, terminates
+            const page2Response = JSON.stringify(page1Html); // 2 items — less than perPage, terminates
 
             let fetchCallCount = 0;
             const mockFetch = vi.fn(async (url: string) => {
