@@ -15023,12 +15023,13 @@
     },
     "discover-slu:discover-slu-smallish-seattle": {
       "fields": {
-        "duration": 7200
+        "duration": "PT2H",
+        "startTime": "17:00"
       },
-      "resolvedAt": "2026-05-30",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "partialFingerprint": "1m6c4lr",
-      "evidence": "https://www.discoverslu.com/events/smallish-seattle/"
+      "evidence": "https://www.discoverslu.com/events/smallish-seattle/ \u2014 \"Opening Reception: 5-7pm\""
     },
     "discover-slu:discover-slu-work-of-fiction": {
       "fields": {
@@ -15751,11 +15752,12 @@
       "evidence": "https://www.discoverslu.com/events/shape-of-summer/"
     },
     "discover-slu:discover-slu-stir-up-the-paint-pnw-sunset": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "partialFingerprint": "n0j2lb"
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-pnw-sunset/ \u2014 \"7 - 9 pm\""
     },
     "discover-slu:discover-slu-tugboat-tuesdays-2026-2-2-2-2": {
       "unresolvable": true,
@@ -15765,11 +15767,12 @@
       "partialFingerprint": "193xlal"
     },
     "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2-2-2": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "duration": "PT3H"
+      },
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "partialFingerprint": "47a6i8"
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2-2-2/ \u2014 \"12 - 3 pm\""
     },
     "lumen-field:tm-vvG1HZ_GpDomA0": {
       "unresolvable": true,
@@ -25287,11 +25290,11 @@
     },
     "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2-2-2-2": {
       "fields": {
-        "duration": 10800
+        "duration": "PT3H"
       },
-      "resolvedAt": "2026-06-25",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2-2-2-2/",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2-2-2-2/ \u2014 \"12 - 3 pm\"",
       "partialFingerprint": "1r1zwu5"
     },
     "discover-slu:discover-slu-dont-tell-comedy-3-2": {
@@ -50338,7 +50341,7 @@
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.kenyonhall.org/events/kh-openmic-sept26"
+      "evidence": "https://www.kenyonhall.org/events/kh-openmic-sept26 \u2014 \"ALL ENTRY - FREE\" sponsored by 4Culture"
     },
     "new-tech-seattle:new-tech-seattle-dpjgztykckbrb": {
       "fields": {
@@ -50576,7 +50579,10 @@
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com"
+      "evidence": "Ticketmaster blocked (401); tour times unavailable",
+      "unresolvable": [
+        "startTime"
+      ]
     },
     "t-mobile-park:tm-vvG1HZ_eEqSzhn": {
       "fields": {
@@ -50586,7 +50592,10 @@
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com"
+      "evidence": "Ticketmaster blocked (401); tour times unavailable",
+      "unresolvable": [
+        "startTime"
+      ]
     },
     "t-mobile-park:tm-vvG1HZ_eEqUFhm": {
       "fields": {
@@ -50596,7 +50605,10 @@
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com"
+      "evidence": "Ticketmaster blocked (401); tour times unavailable",
+      "unresolvable": [
+        "startTime"
+      ]
     },
     "climate-pledge-arena:tm-vvG1HZ_F1SXXOW": {
       "fields": {
@@ -51866,11 +51878,12 @@
     },
     "seattle-center:freak-the-mighty-preview-performance-x47841": {
       "fields": {
-        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Resident%20Orgs/Seattle%20Repertory%20Theatre/2026/Freak-the-Mighty-07-30-26-to-09-06-26/Freak-The-Mighty-2026-Hero-1800x820.jpg"
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Resident%20Orgs/Seattle%20Repertory%20Theatre/2026/Freak-the-Mighty-07-30-26-to-09-06-26/Freak-The-Mighty-2026-Hero-1800x820.jpg",
+        "duration": "PT2H30M"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-preview-performance-x47841"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-preview-performance-x47841 \u2014 starts 7:30pm, end ~10pm from calendar export"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46356": {
       "fields": {
@@ -51878,7 +51891,11 @@
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46356"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46356 \u2014 listed as \"All Day\" with no specific hours",
+      "unresolvable": [
+        "startTime",
+        "duration"
+      ]
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46357": {
       "fields": {
@@ -51886,61 +51903,75 @@
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46357"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46357 \u2014 listed as \"All Day\" with no specific hours",
+      "unresolvable": [
+        "startTime",
+        "duration"
+      ]
     },
     "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46746": {
       "fields": {
-        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg",
+        "duration": "PT1H"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-mat-pilates-x46746"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-mat-pilates-x46746 \u2014 \"Wednesday evenings 6:45-7:45pm\""
     },
     "seattle-center:summer-fitness-workout-wednesdays-yoga-x46744": {
       "fields": {
-        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg",
+        "duration": "PT1H"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-yoga-x46744"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-yoga-x46744 \u2014 \"Wednesday evenings 5:30-6:30pm\""
     },
     "seattle-center:summer-fitness-workout-wednesdays-zumba-x46745": {
       "fields": {
-        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg",
+        "duration": "PT1H"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-zumba-x46745"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-zumba-x46745 \u2014 \"Wednesday evenings 6:45-7:45pm\""
     },
     "seattle-center:the-jury-experience-\u2013-the-killer-ai-x47973": {
       "unresolvable": true,
       "reason": "No event image on source page (empty placeholder)",
       "resolvedAt": "2026-07-16",
-      "source": "agent"
+      "source": "agent",
+      "fields": {
+        "duration": "PT1H15M"
+      },
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/the-jury-experience-\u2013-the-killer-ai-x47973 \u2014 page shows end time 7:15pm; ~75-min experience"
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47707": {
       "fields": {
-        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg",
+        "duration": "PT5H"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47707"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47707 \u2014 exhibition runs 1pm-6pm"
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47708": {
       "fields": {
-        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg",
+        "duration": "PT5H"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47708"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47708 \u2014 exhibition runs 1pm-6pm"
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47709": {
       "fields": {
-        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg",
+        "duration": "PT5H"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47709"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47709 \u2014 exhibition runs 1pm-6pm"
     },
     "events12:sing-along-1980s-new-wave-2026-07-16": {
       "fields": {
@@ -51971,6 +52002,292 @@
       "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.makinglocal.com/nightbites-bothell"
+    },
+    "discover-slu:discover-slu-creamy-cone-cafe-summer-pop-up": {
+      "fields": {
+        "duration": "PT3H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/creamy-cone-cafe-summer-pop-up/ \u2014 \"11:30 am - 2:30 pm\""
+    },
+    "discover-slu:discover-slu-silence-is-golden-2": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/silence-is-golden-2/ \u2014 \"Opening Reception: July 11, 3-5pm\""
+    },
+    "discover-slu:discover-slu-silence-is-golden-2-2": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/silence-is-golden-2-2/ \u2014 opening reception 3-5pm"
+    },
+    "discover-slu:discover-slu-silence-is-golden-2-2-2": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/silence-is-golden-2-2-2/ \u2014 opening reception 3-5pm"
+    },
+    "discover-slu:discover-slu-silence-is-golden-2-2-2-2": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/silence-is-golden-2-2-2-2/ \u2014 opening reception 3-5pm"
+    },
+    "discover-slu:discover-slu-silence-is-golden-2-2-2-2-2": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/silence-is-golden-2-2-2-2-2/ \u2014 opening reception 3-5pm"
+    },
+    "discover-slu:discover-slu-farestart-social-hour": {
+      "fields": {
+        "duration": "PT3H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/farestart-social-hour/ \u2014 \"3 - 6 pm\""
+    },
+    "discover-slu:discover-slu-trailside-bike-repair-workshop-2-2": {
+      "fields": {
+        "startTime": "18:00"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/trailside-bike-repair-workshop-2-2/ \u2014 \"6 pm\" only, no end time",
+      "unresolvable": [
+        "duration"
+      ]
+    },
+    "discover-slu:discover-slu-run-dye-run": {
+      "fields": {
+        "duration": "PT2H30M"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/run-dye-run/ \u2014 \"9:30 am - 12 pm\""
+    },
+    "discover-slu:discover-slu-printmaking-tote-bags": {
+      "fields": {},
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/printmaking-tote-bags/ \u2014 \"10:30 am\" only, no end time listed",
+      "unresolvable": [
+        "duration"
+      ]
+    },
+    "discover-slu:discover-slu-seattle-art-fair-artist-panel": {
+      "fields": {
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/seattle-art-fair-artist-panel/ \u2014 \"4 - 6 pm\""
+    },
+    "discover-slu:discover-slu-flat-tire-repair-2": {
+      "fields": {
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/flat-tire-repair-2/ \u2014 \"6 - 8 pm\""
+    },
+    "discover-slu:discover-slu-running-basics": {
+      "fields": {
+        "duration": "PT1H30M"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/running-basics/ \u2014 \"6 - 7:30 pm\""
+    },
+    "discover-slu:discover-slu-jam-session-dettloff-2": {
+      "fields": {
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/jam-session-dettloff-2/ \u2014 \"11:30 am - 1:30 pm\""
+    },
+    "discover-slu:discover-slu-schools-out-for-summer": {
+      "fields": {
+        "duration": "PT4H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/schools-out-for-summer/ \u2014 \"6 - 10 pm\""
+    },
+    "discover-slu:discover-slu-slucc-national-night-out": {
+      "fields": {
+        "duration": "PT1H30M"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/slucc-national-night-out/ \u2014 \"5:30 - 7 pm\""
+    },
+    "discover-slu:discover-slu-chantey-sing-2026-2-2-2-2-2": {
+      "fields": {
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/chantey-sing-2026-2-2-2-2-2/ \u2014 \"7 - 9 pm\""
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": "PT3H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2-2-2-2-2/ \u2014 \"12 - 3 pm\""
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": "PT3H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2-2-2-2-2-2/ \u2014 \"12 - 3 pm\""
+    },
+    "discover-slu:discover-slu-history-cafe-preserving-lgbtq-history": {
+      "fields": {
+        "duration": "PT1H30M"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/history-cafe-preserving-lgbtq-history/ \u2014 \"6:30 - 8 pm\""
+    },
+    "events12:classical-music-2026-07-01": {
+      "fields": {
+        "startTime": "12:30",
+        "duration": "PT1H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck/ \u2014 Jul 1: 12:30 Liberty Park (first of 2 shows that day)"
+    },
+    "events12:classical-music-2026-07-02": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": "PT1H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck/ \u2014 Jul 2: 12:00 Westlake Park (first of 2 shows that day)"
+    },
+    "events12:classical-music-2026-07-03": {
+      "fields": {},
+      "unresolvable": [
+        "startTime",
+        "duration"
+      ],
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck/ \u2014 Jul 3 not listed on concert truck schedule; may be data from different source"
+    },
+    "events12:classical-music-2026-07-04": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": "PT1H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck/ \u2014 Jul 4: 12:00 Columbia Park (American Favorites show)"
+    },
+    "events12:classical-music-2026-07-05": {
+      "fields": {
+        "startTime": "13:00",
+        "duration": "PT1H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck/ \u2014 Jul 5: 13:00 Seattle Center (first of 2 shows that day)"
+    },
+    "events12:fourth-of-july-seattle-2026-07-04": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": "PT8H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/4th-of-july/ \u2014 gates open 3pm, fireworks ~10:15pm, guests depart ~11pm"
+    },
+    "museum_of_flight:mof-blue-angels-week-2026-07-28": {
+      "fields": {
+        "duration": "PT5H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/6054/blue-angels-week \u2014 museum open 10am-5pm; Blue Angels Week starts 12pm, ends at museum close 5pm"
+    },
+    "museum_of_flight:mof-blue-angels-week-2026-07-30": {
+      "fields": {
+        "duration": "PT5H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/6054/blue-angels-week \u2014 museum open 10am-5pm; Blue Angels Week starts 12pm, ends at museum close 5pm"
+    },
+    "museum_of_flight:mof-blue-angels-week-2026-07-31": {
+      "fields": {
+        "duration": "PT5H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/6054/blue-angels-week \u2014 museum open 10am-5pm; Blue Angels Week starts 12pm, ends at museum close 5pm"
+    },
+    "waterfront-park:waterfront-park-6886-202608010900": {
+      "fields": {},
+      "unresolvable": [
+        "duration"
+      ],
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://waterfrontparkseattle.org/blog/event/rise-above-3-on-3-basketball-tournament/?date=202608010900 \u2014 9:00 AM start confirmed, no end time listed"
+    },
+    "waterfront-park:waterfront-park-6886-202608020900": {
+      "fields": {},
+      "unresolvable": [
+        "duration"
+      ],
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://waterfrontparkseattle.org/blog/event/rise-above-3-on-3-basketball-tournament/?date=202608020900 \u2014 9:00 AM start confirmed, no end time listed"
+    },
+    "seattle-arts-lectures:sal-october-2026-2-1if7yin": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": "PT2H"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://lectures.org/event/wits-back-to-school-luncheon-2026/ \u2014 11:00 check-in, 12:00 lunch/program, 13:00 end"
+    },
+    "seattle-arts-lectures:sal-march-2027-2-1439tjh": {
+      "fields": {
+        "startTime": "19:30"
+      },
+      "unresolvable": [
+        "duration"
+      ],
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://lectures.org/event/mona-chalabi/ \u2014 7:30 PM confirmed, no end time listed"
     }
   },
   "events12:chamber-music-2026-07-17": {
