@@ -3,7 +3,7 @@ name: "Flight Club Seattle (Darts USA)"
 status: notviable
 platform: Custom
 url: https://www.flightclubdartsusa.com/seattle
-tags: []
+tags: ["South Lake Union"]
 firstSeen: 2026-07-16
 lastChecked: 2026-07-16
 ---

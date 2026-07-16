@@ -3,7 +3,7 @@ name: "Raygun Lounge"
 status: notviable
 platform: WordPress
 url: https://www.raygunlounge.com/calendar/
-tags: []
+tags: ["Capitol Hill"]
 firstSeen: 2026-07-16
 lastChecked: 2026-07-16
 ---
