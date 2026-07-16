@@ -50106,14 +50106,10 @@
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/keep-bellevue-beautiful-crossroads-cleanup/19406159/2026-07-25T00"
     },
     "seatoday:cityspark-19406108": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/youth-summer-camps/19406108/2026-07-13T00"
+      "unresolvable": true,
+      "reason": "CitySpark API returns null for all image fields on this event",
+      "resolvedAt": "2026-07-16",
+      "source": "agent"
     },
     "events12:early-fireworks-2026-07-02": {
       "unresolvable": true,
@@ -50158,14 +50154,10 @@
       "reason": "Past event; image no longer available"
     },
     "seatoday:cityspark-19406153": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/puzzle-together-joy-together/19406153/2026-07-23T00"
+      "unresolvable": true,
+      "reason": "CitySpark event not retrievable via API or embed; no image available",
+      "resolvedAt": "2026-07-16",
+      "source": "agent"
     },
     "seatoday:cityspark-19406155": {
       "fields": {
@@ -51690,7 +51682,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51700,7 +51693,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51710,7 +51704,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51720,7 +51715,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51730,7 +51726,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51740,7 +51737,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51750,7 +51748,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51760,7 +51759,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51770,7 +51770,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51780,7 +51781,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51790,7 +51792,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51800,7 +51803,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51810,7 +51814,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51820,7 +51825,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51830,7 +51836,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51840,7 +51847,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51923,6 +51931,26 @@
       "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47709"
+    },
+    "events12:sing-along-1980s-new-wave-2026-07-16": {
+      "fields": {
+        "cost": {
+          "min": 17.0
+        }
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://central-cinema.com/movie/80s-sing-along-new-wave-edition"
+    },
+    "events12:fantasy-scavenger-hunt-2026-07-18": {
+      "fields": {
+        "cost": {
+          "min": 16.0
+        }
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://freezetag.ticketspice.com/oneshotseattle"
     }
   },
   "events12:chamber-music-2026-07-17": {
