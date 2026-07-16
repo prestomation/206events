@@ -603,6 +603,12 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Green River College Kent Campus — suite/room suffix prevents Nominatim from resolving
   'green river college - kent campus, 417 ramsay way, suite 112, room 282/283, kent, wa': { lat: 47.3845, lng: -122.2352 },
 
+  // --- 2026-07-16 geo-resolver batch: "Nominatim returned no results" entries ---
+  // Laterus Winery (Maltby/Snohomish) — Nominatim fails on the raw "#Suite b 6"
+  // suffix. Forward-geocoded the clean street address (9206 200th St SE,
+  // Snohomish, WA); returned house-number match confirmed correct (9206).
+  'laterus winery': { lat: 47.8156043, lng: -122.1076431, osmType: 'way', osmId: 6123058 },
+
   // --- 2026-07-02 geo-resolver batch: "venue name only" unresolvable entries ---
   // Addresses verified against each venue's own site/official listing, then
   // forward-geocoded via Nominatim (never reverse-geocoded street numbers).
@@ -742,7 +748,45 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // match only (not a prefix) so it doesn't hijack unrelated "600 4th Ave,
   // Seattle, WA 98104" addresses that should still geocode normally.
   '600 4th ave, floor l2, rm 280': { lat: 47.6038904, lng: -122.3300986 },
+
+  // --- 2026-07-16 geo-resolver batch: hybrid "Online or in-person at <venue>"
+  // fallbacks. Only reached via extractTrailingAtLocation()'s known-venue-only
+  // probe (see resolveEventCoords) — never geocoded live, since a stripped
+  // fragment missing its street/city qualifier can silently Nominatim-match
+  // the wrong nearby address (confirmed: "9131 California SW, West Seattle"
+  // without "Ave"/"Seattle, WA" mismatches to an unrelated business 800m away).
+  // Coords below are forward-geocoded from the full, verified source address.
+  'seattle city hall': { lat: 47.6038904, lng: -122.3300986, osmType: 'way', osmId: 111557287 },
+  // West Seattle Blog: "Online or at Fauntleroy Schoolhouse @ 9131 California SW, West Seattle"
+  '9131 california sw': { lat: 47.5217017, lng: -122.3878878, osmType: 'node', osmId: 8377320043 },
+  // West Seattle Blog: "Online or in-person @ 6115 SW Hinds, West Seattle"
+  '6115 sw hinds': { lat: 47.5737709, lng: -122.4116683, osmType: 'node', osmId: 2416651609 },
 };
+
+/**
+ * If a vague/hybrid location string ("Online or in-person at X", "Virtual or @ Y")
+ * names a real physical fallback location after a trailing "at "/"@ " marker,
+ * extract just that trailing portion (the last such marker in the string wins,
+ * so a named venue followed by its own "@ address" resolves to the address).
+ *
+ * The result is intended ONLY as a probe key for lookupKnownVenue() — a curated,
+ * human-verified table — and must never be sent to Nominatim directly. A
+ * fragment stripped of its originating context (missing "Ave", city qualifier,
+ * etc.) can silently geocode to the wrong nearby address; see the batch note
+ * above KNOWN_VENUE_COORDS for a confirmed example.
+ *
+ * Returns null if no "at "/"@ " marker is found.
+ */
+export function extractTrailingAtLocation(location: string): string | null {
+  const lower = location.toLowerCase();
+  const atSignIdx = location.lastIndexOf('@');
+  const atWordIdx = lower.lastIndexOf(' at ');
+  if (atSignIdx === -1 && atWordIdx === -1) return null;
+
+  const start = atSignIdx > atWordIdx ? atSignIdx + 1 : atWordIdx + 4;
+  const candidate = location.slice(start).trim().replace(/\s+/g, ' ');
+  return candidate.length > 0 ? candidate : null;
+}
 
 /**
  * Look up a well-known Seattle venue by normalized (lowercased, trimmed) location string.
@@ -991,7 +1035,9 @@ export interface ResolveEventCoordsResult {
  * the returned cache and persisting it to disk.
  *
  * Resolution order:
- * 0. Check for vague locations (TBA, Offsite, etc.) - mark as unresolvable
+ * 0. Check for vague locations (TBA, Offsite, etc.) - probe KNOWN_VENUE_COORDS
+ *    for a hybrid remote/in-person fallback venue (see extractTrailingAtLocation)
+ *    before giving up and marking unresolvable
  * 1. Google Maps URL extraction (before normalization)
  * 2. normalizeLocation()
  * 3. Cache lookup
@@ -1014,6 +1060,36 @@ export async function resolveEventCoords(
 
   // Step 0: Check for vague/unresolvable locations (Offsite, TBA, etc.)
   if (isVagueLocation(location)) {
+    // Some vague-prefixed strings are hybrid remote/in-person events that name
+    // a real physical fallback ("Online or in-person at Seattle City Hall").
+    // Probe a curated, human-verified table ONLY (never Nominatim — see
+    // extractTrailingAtLocation's docstring for why a stripped fragment can't
+    // be geocoded live) so these resolve without risking a bad auto-match.
+    const preNormalized = normalizeLocation(location);
+    const trailingCandidate = extractTrailingAtLocation(preNormalized);
+    const hybridVenueCoords =
+      lookupKnownVenue(preNormalized) ?? (trailingCandidate !== null ? lookupKnownVenue(trailingCandidate) : null);
+
+    if (hybridVenueCoords !== null) {
+      geocodeStats.knownVenueHits++;
+      const key = normalizeLocationKey(location);
+      const knownEntry: GeoCacheEntry = {
+        lat: hybridVenueCoords.lat,
+        lng: hybridVenueCoords.lng,
+        ...(hybridVenueCoords.osmId !== undefined && hybridVenueCoords.osmType !== undefined
+          ? { osmId: hybridVenueCoords.osmId, osmType: hybridVenueCoords.osmType }
+          : {}),
+        geocodedAt: new Date().toISOString().slice(0, 10),
+        source: 'nominatim',
+        firstSeen: new Date().toISOString().slice(0, 10),
+      };
+      return {
+        coords: hybridVenueCoords,
+        geocodeSource: 'ripper',
+        cache: { ...cache, entries: { ...cache.entries, [key]: knownEntry } },
+      };
+    }
+
     const key = normalizeLocationKey(location);
     const newEntry: GeoCacheEntry = {
       unresolvable: true,
