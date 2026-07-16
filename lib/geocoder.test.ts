@@ -4,6 +4,7 @@ import {
   normalizeLocationKey,
   extractAddressFromVenuePrefix,
   extractFromGoogleMapsUrl,
+  extractTrailingAtLocation,
   stripSuiteFloorSuffixes,
   lookupNeighborhoodCentroid,
   lookupSPLBranchCoords,
@@ -834,6 +835,93 @@ describe.skipIf(!HAS_VENUE_DATA)('lookupKnownVenue', () => {
   it('does not prefix-match when next char is not a separator', () => {
     // "neumos" should not match "neumos & barboza" prefix for a string like "neumosbakery"
     expect(lookupKnownVenue('neumosbakery')).toBeNull();
+  });
+});
+
+describe('extractTrailingAtLocation', () => {
+  it('extracts everything after " at "', () => {
+    expect(extractTrailingAtLocation('Online or in-person at Seattle City Hall')).toBe('Seattle City Hall');
+  });
+
+  it('extracts everything after "@"', () => {
+    expect(extractTrailingAtLocation('Online or in-person @ 6115 SW Hinds, West Seattle')).toBe(
+      '6115 SW Hinds, West Seattle',
+    );
+  });
+
+  it('prefers the LAST marker when both "at" and "@" appear', () => {
+    // The named venue is followed by its own "@ address" — the address should win.
+    expect(
+      extractTrailingAtLocation('Online or at Fauntleroy Schoolhouse @ 9131 California SW, West Seattle'),
+    ).toBe('9131 California SW, West Seattle');
+  });
+
+  it('returns null when no "at"/"@" marker is present', () => {
+    expect(extractTrailingAtLocation('Zoom')).toBeNull();
+    expect(extractTrailingAtLocation('Virtual, WA, United States')).toBeNull();
+    expect(extractTrailingAtLocation('Multiple Locations')).toBeNull();
+  });
+
+  it('returns null for an empty trailing fragment', () => {
+    expect(extractTrailingAtLocation('Meeting @')).toBeNull();
+  });
+});
+
+describe.skipIf(!HAS_VENUE_DATA)('resolveEventCoords - hybrid vague locations with a known fallback venue', () => {
+  let cache: GeoCache;
+
+  beforeEach(() => {
+    cache = { version: 1, entries: {} };
+    mockFetch.mockReset();
+  });
+
+  it('resolves "Virtual or In-Person at Seattle City Hall" via KNOWN_VENUE_COORDS without calling Nominatim', async () => {
+    const result = await resolveEventCoords(cache, 'Virtual or In-Person at Seattle City Hall', 'test-source');
+    expect(result.coords).toEqual({ lat: 47.6038904, lng: -122.3300986, osmType: 'way', osmId: 111557287 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.error).toBeUndefined();
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it('resolves a Seattle City Hall room/floor variant via prefix match', async () => {
+    const result = await resolveEventCoords(
+      cache,
+      'Online or in-person at Seattle City Hall, Room 370, 600 4th Ave, Seattle, WA 98104.',
+      'test-source',
+    );
+    expect(result.coords).toEqual({ lat: 47.6038904, lng: -122.3300986, osmType: 'way', osmId: 111557287 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it('resolves an embedded street address after "@" via the trailing-candidate probe', async () => {
+    const result = await resolveEventCoords(
+      cache,
+      'Online or in-person @ 6115 SW Hinds, West Seattle',
+      'test-source',
+    );
+    expect(result.coords).toEqual({ lat: 47.5737709, lng: -122.4116683, osmType: 'node', osmId: 2416651609 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it('still marks a pure vague location (no embedded fallback venue) unresolvable without calling Nominatim', async () => {
+    const result = await resolveEventCoords(cache, 'Zoom', 'test-source');
+    expect(result.coords).toBeNull();
+    expect(result.error?.reason).toBe('Vague/unresolvable location');
+    expect(mockFetch).not.toHaveBeenCalled();
+    expect(result.cache.entries['zoom'].unresolvable).toBe(true);
+  });
+
+  it('still marks a vague location with an unrecognized embedded address unresolvable (never geocodes the fragment live)', async () => {
+    const result = await resolveEventCoords(
+      cache,
+      'Online or in-person at 123 Somewhere Nobody Has Verified St',
+      'test-source',
+    );
+    expect(result.coords).toBeNull();
+    expect(result.error?.reason).toBe('Vague/unresolvable location');
+    expect(mockFetch).not.toHaveBeenCalled();
   });
 });
 
