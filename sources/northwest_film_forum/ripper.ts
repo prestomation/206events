@@ -167,6 +167,64 @@ export function extractDateOnlyStartDates(html: string): LocalDate[] {
     return dates;
 }
 
+const DAY_ABBREV_ALTERNATION = "Mon|Tue|Wed|Thu|Fri|Sat|Sun";
+const MONTH_ABBREVS = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+/**
+ * Extracts every concrete calendar date from a multi-date "pass" page's
+ * schedule block, e.g.:
+ *   "Sun Aug 23: All Day" / "Fri Aug 28: All Day" / "Sat Aug 29: All Day"
+ * used by /events/ pages selling a single pass valid across several
+ * (often non-consecutive) screening dates — as opposed to
+ * /education/workshops/ camp pages, whose consecutive CourseInstance
+ * dates are handled by extractDateOnlyStartDates. The source publishes
+ * no year here, so each month/day is resolved against `referenceDate`
+ * (defaults to "now" in the site's timezone): the nearest occurrence on
+ * or after referenceDate, rolling into referenceDate's year + 1 if that
+ * month/day already passed this year. Public for testing.
+ */
+export function extractAllDayDateList(html: string, referenceDate: LocalDate = LocalDate.now(TIMEZONE)): LocalDate[] {
+    const re = new RegExp(`(?:${DAY_ABBREV_ALTERNATION})\\s+([A-Za-z]{3})\\s+(\\d{1,2}):\\s*All Day`, "g");
+    const parsed: { monthIdx: number; day: number }[] = [];
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(html)) !== null) {
+        const monthIdx = MONTH_ABBREVS.indexOf(m[1]);
+        if (monthIdx === -1) continue;
+        parsed.push({ monthIdx, day: Number(m[2]) });
+    }
+
+    const resolve = (year: number, p: { monthIdx: number; day: number }): LocalDate | null => {
+        try {
+            return LocalDate.of(year, p.monthIdx + 1, p.day);
+        } catch {
+            return null;
+        }
+    };
+
+    const thisYear = parsed
+        .map(p => resolve(referenceDate.year(), p))
+        .filter((d): d is LocalDate => d !== null);
+
+    // The page lists every date for one pass in a single static block, so a
+    // page can still be discoverable (some listed dates still upcoming) even
+    // after its earliest dates have already elapsed — e.g. a build on Aug 25
+    // parsing "Aug 23, Aug 28, Aug 29, Aug 30". Rolling a stale date forward
+    // to next year would publish it with the wrong year; the correct read is
+    // that it already happened, so drop it instead of rolling it. Only when
+    // EVERY listed date has elapsed do we treat the whole block as next
+    // year's pass (the single-date-in-the-past case this ripper started with).
+    if (thisYear.length > 0 && thisYear.every(d => d.isBefore(referenceDate))) {
+        return parsed
+            .map(p => resolve(referenceDate.year() + 1, p))
+            .filter((d): d is LocalDate => d !== null);
+    }
+
+    return thisYear.filter(d => !d.isBefore(referenceDate));
+}
+
 /**
  * Extracts the ticket/registration URL from the nearest schema.org
  * `itemprop="offers"` block. A missing or empty offers URL is the
@@ -224,11 +282,22 @@ export function extractDuration(html: string): Duration {
  *     time/duration and `uncertainty` flags them for the
  *     event-uncertainty-resolver skill, per docs/event-uncertainty.md —
  *     never silently guessed as fact.
+ *   - `[event, uncertainty, event, uncertainty, ...]` — a multi-date
+ *     "pass" page (buy one pass, attend on any of several listed
+ *     calendar dates — e.g. "Sun Aug 23: All Day"). One placeholder
+ *     all-day event plus one uncertainty is synthesized per listed date,
+ *     each with its own stable id, since there is no single showtime to
+ *     collapse them into.
  *   - `[error]` — a ticketed/registerable page whose date genuinely could
  *     not be extracted by any strategy; a real gap worth surfacing.
  * Never returns null and never drops a real event without a trace.
+ *
+ * `referenceDate` is only consulted by the multi-date "pass" fallback
+ * (to resolve the year of a "Mon Aug 23" style date with no year
+ * printed on the page) and defaults to "now" in the site's timezone;
+ * tests pass an explicit value for determinism.
  */
-export function parseDetailPage(html: string, url: string): (RipperCalendarEvent | RipperError)[] {
+export function parseDetailPage(html: string, url: string, referenceDate: LocalDate = LocalDate.now(TIMEZONE)): (RipperCalendarEvent | RipperError)[] {
     const slug = slugFromUrl(url);
     if (!slug) {
         return [{ type: "ParseError", reason: "Could not extract a URL slug", context: url }];
@@ -281,6 +350,33 @@ export function parseDetailPage(html: string, url: string): (RipperCalendarEvent
             event,
         };
         return [event, uncertainty];
+    }
+
+    const allDayDates = extractAllDayDateList(html, referenceDate);
+    if (allDayDates.length > 0) {
+        const results: (RipperCalendarEvent | RipperError)[] = [];
+        for (const d of allDayDates) {
+            const date = d.atTime(DEFAULT_UNKNOWN_TIME_HOUR, DEFAULT_UNKNOWN_TIME_MINUTE).atZone(TIMEZONE);
+            const event: RipperCalendarEvent = {
+                id: `${slug}-${d.toString()}`,
+                ripped: new Date(),
+                date,
+                duration: Duration.ofHours(24),
+                summary: title,
+                location: location ?? undefined,
+                url,
+            };
+            const unknownFields: UncertaintyField[] = ["startTime", "duration"];
+            const uncertainty: UncertaintyError = {
+                type: "Uncertainty",
+                reason: `NWFF multi-date pass page lists ${d.toString()} as a valid screening date but gives no time of day — one pass covers any of several listed dates, not a single showtime`,
+                source: "northwest-film-forum",
+                unknownFields,
+                event,
+            };
+            results.push(event, uncertainty);
+        }
+        return results;
     }
 
     if (!offersUrl) {
@@ -342,7 +438,7 @@ export default class NorthwestFilmForumRipper implements IRipper {
                 continue;
             }
 
-            for (const result of parseDetailPage(html, url)) {
+            for (const result of parseDetailPage(html, url, now.toLocalDate())) {
                 if ("date" in result) {
                     if (result.date.isBefore(now)) continue;
                     events.push(result);

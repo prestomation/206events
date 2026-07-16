@@ -9,12 +9,14 @@ import {
     extractCleanStartDate,
     extractFreeTextDateTime,
     extractDateOnlyStartDates,
+    extractAllDayDateList,
     extractOffersUrl,
     extractLocation,
     extractDuration,
     parseDetailPage,
 } from "./ripper.js";
 import { RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
+import { LocalDate } from "@js-joda/core";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -26,6 +28,8 @@ const FILM_URL = "https://nwfilmforum.org/films/free-forum-stop-making-sense/";
 const EVENT_URL = "https://nwfilmforum.org/events/squeakyfest-seattle/";
 const CLOSURE_URL = "https://nwfilmforum.org/events/nwff-summer-break-2026/";
 const WORKSHOP_URL = "https://nwfilmforum.org/education/workshops/camp2-2026/";
+const ARAKI_PASS_URL = "https://nwfilmforum.org/events/two-angels-in-the-night-a-gregg-araki-double-feature/";
+const PAZUZU_PASS_URL = "https://nwfilmforum.org/events/pazuzus-wings-exorcist-ii-double-feature/";
 
 describe("extractDetailUrls", () => {
     it("extracts unique nwfilmforum.org detail-page URLs from a day fragment", () => {
@@ -177,6 +181,56 @@ describe("extractDateOnlyStartDates", () => {
     });
 });
 
+describe("extractAllDayDateList", () => {
+    it("extracts every 'Weekday Mon DD: All Day' date from a multi-date pass page, resolving the year against referenceDate", () => {
+        const dates = extractAllDayDateList(readSample("sample-data-pass-araki.html"), LocalDate.of(2026, 7, 16));
+        expect(dates.map(d => d.toString())).toEqual([
+            "2026-08-23", "2026-08-28", "2026-08-29", "2026-08-30",
+        ]);
+    });
+
+    it("extracts a shorter list from the pazuzu pass page", () => {
+        const dates = extractAllDayDateList(readSample("sample-data-pass-pazuzu.html"), LocalDate.of(2026, 7, 16));
+        expect(dates.map(d => d.toString())).toEqual(["2026-09-05", "2026-09-06"]);
+    });
+
+    it("rolls into referenceDate's year + 1 when the month/day has already passed this year", () => {
+        const html = "<div>Mon Jan 05: All Day</div>";
+        // Reference date is late in the year, so "Jan 5" must mean next year.
+        const dates = extractAllDayDateList(html, LocalDate.of(2026, 12, 1));
+        expect(dates.map(d => d.toString())).toEqual(["2027-01-05"]);
+    });
+
+    it("uses referenceDate's own year when the month/day is still upcoming this year", () => {
+        const html = "<div>Sat Aug 29: All Day</div>";
+        const dates = extractAllDayDateList(html, LocalDate.of(2026, 7, 16));
+        expect(dates.map(d => d.toString())).toEqual(["2026-08-29"]);
+    });
+
+    it("drops already-elapsed dates instead of rolling them into next year when the list has a mix of past and future dates", () => {
+        // Same block as the Araki fixture, but referenceDate now falls after
+        // the first listed date (Aug 23) and before the rest — this is the
+        // state of the world on a later build of the same still-live pass page.
+        const html = "<div>Sun Aug 23: All Day</div><div>Fri Aug 28: All Day</div>" +
+            "<div>Sat Aug 29: All Day</div><div>Sun Aug 30: All Day</div>";
+        const dates = extractAllDayDateList(html, LocalDate.of(2026, 8, 25));
+        expect(dates.map(d => d.toString())).toEqual(["2026-08-28", "2026-08-29", "2026-08-30"]);
+    });
+
+    it("rolls the whole list into next year only when every listed date has elapsed", () => {
+        const html = "<div>Sun Aug 23: All Day</div><div>Fri Aug 28: All Day</div>";
+        const dates = extractAllDayDateList(html, LocalDate.of(2026, 12, 1));
+        expect(dates.map(d => d.toString())).toEqual(["2027-08-23", "2027-08-28"]);
+    });
+
+    it("returns an empty array for pages with no all-day date list", () => {
+        expect(extractAllDayDateList(readSample("sample-data-film.html"), LocalDate.of(2026, 7, 16))).toEqual([]);
+        expect(extractAllDayDateList(readSample("sample-data-event.html"), LocalDate.of(2026, 7, 16))).toEqual([]);
+        expect(extractAllDayDateList(readSample("sample-data-closure.html"), LocalDate.of(2026, 7, 16))).toEqual([]);
+        expect(extractAllDayDateList(readSample("sample-data-workshop.html"), LocalDate.of(2026, 7, 16))).toEqual([]);
+    });
+});
+
 describe("extractOffersUrl", () => {
     it("extracts the ticket/registration URL from a /films/ page", () => {
         expect(extractOffersUrl(readSample("sample-data-film.html")))
@@ -280,6 +334,54 @@ describe("parseDetailPage", () => {
         expect(uncertainty.source).toBe("northwest-film-forum");
         expect(uncertainty.unknownFields).toEqual(["startTime", "duration"]);
         expect(uncertainty.event.id).toBe(event.id);
+    });
+
+    it("returns one [event, uncertainty] pair per listed date for a multi-date pass page (Araki double feature)", () => {
+        const results = parseDetailPage(readSample("sample-data-pass-araki.html"), ARAKI_PASS_URL, LocalDate.of(2026, 7, 16));
+        expect(results.length).toBe(8); // 4 dates x [event, uncertainty]
+
+        const expectedDates = ["2026-08-23", "2026-08-28", "2026-08-29", "2026-08-30"];
+        const events = results.filter((r): r is RipperCalendarEvent => "date" in r);
+        const uncertainties = results.filter((r): r is UncertaintyError => "type" in r && r.type === "Uncertainty");
+        expect(events.length).toBe(4);
+        expect(uncertainties.length).toBe(4);
+
+        expect(events.map(e => e.date.toLocalDate().toString())).toEqual(expectedDates);
+        // Every id is distinct and derived from the slug + that specific date.
+        const ids = events.map(e => e.id);
+        expect(new Set(ids).size).toBe(4);
+        expect(ids).toEqual(expectedDates.map(d => `two-angels-in-the-night-a-gregg-araki-double-feature-${d}`));
+
+        for (const event of events) {
+            expect(event.summary).toBe("Two Angels In The Night: A Gregg Araki Double Feature");
+            expect(event.date.hour()).toBe(12); // placeholder — real time unknown, this is a multi-date pass
+            expect(event.duration.toHours()).toBe(24);
+            expect(event.location).toBe("Northwest Film Forum, 1515 12th Ave, Seattle WA 98122");
+        }
+        for (const uncertainty of uncertainties) {
+            expect(uncertainty.source).toBe("northwest-film-forum");
+            expect(uncertainty.unknownFields).toEqual(["startTime", "duration"]);
+        }
+        // Each uncertainty is paired with the event immediately preceding it and shares its id.
+        for (let i = 0; i < results.length; i += 2) {
+            const event = results[i] as RipperCalendarEvent;
+            const uncertainty = results[i + 1] as UncertaintyError;
+            expect(uncertainty.event.id).toBe(event.id);
+        }
+    });
+
+    it("returns one [event, uncertainty] pair per listed date for the pazuzu pass page (2 dates)", () => {
+        const results = parseDetailPage(readSample("sample-data-pass-pazuzu.html"), PAZUZU_PASS_URL, LocalDate.of(2026, 7, 16));
+        expect(results.length).toBe(4); // 2 dates x [event, uncertainty]
+        const events = results.filter((r): r is RipperCalendarEvent => "date" in r);
+        expect(events.map(e => e.date.toLocalDate().toString())).toEqual(["2026-09-05", "2026-09-06"]);
+        expect(events.map(e => e.id)).toEqual([
+            "pazuzus-wings-exorcist-ii-double-feature-2026-09-05",
+            "pazuzus-wings-exorcist-ii-double-feature-2026-09-06",
+        ]);
+        for (const event of events) {
+            expect(event.summary).toBe("Pazuzu's Wings: An Exorcist II Double Feature");
+        }
     });
 
     it("returns an empty array (not a crash) for a page with no title", () => {
