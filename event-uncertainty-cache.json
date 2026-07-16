@@ -37804,15 +37804,10 @@
       "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
     "events12:party-at-the-zoo-2026-07-10": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "paid": true
-        }
-      },
-      "evidence": "Woodland Park Zoo Jungle Party is held outdoors in the zoo grounds"
+      "unresolvable": true,
+      "reason": "zoo.org returns 403 for automated requests; no image accessible",
+      "resolvedAt": "2026-07-16",
+      "source": "agent"
     },
     "19hz:19hz-2026/07/07-Electric Taco Tuesday": {
       "unresolvable": true,
@@ -39076,22 +39071,24 @@
         "setting": "outdoor",
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.tacomaporchfest.org/hero_v2.webp"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.tacomaporchfest.org/"
+      "evidence": "https://www.tacomaporchfest.org"
     },
     "events12:tacoma-neighborhood-music-2026-07-19": {
       "fields": {
         "setting": "outdoor",
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.tacomaporchfest.org/hero_v2.webp"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.tacomaporchfest.org/"
+      "evidence": "https://www.tacomaporchfest.org"
     },
     "events12:wine-walk-2026-07-18": {
       "fields": {
@@ -43505,9 +43502,10 @@
         "setting": "outdoor",
         "cost": {
           "min": 40
-        }
+        },
+        "imageUrl": "https://media.phinneycenter.org/wp-content/uploads/2023/11/05092313/RPP04526.jpeg"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.phinneycenter.org/events/beer-taste-summer/"
     },
@@ -43538,9 +43536,10 @@
         "setting": "indoor",
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/60db882f5ca11779656536d1/6201ac5d5f2c142304f1ae20_pexels-ann-antonova-5986729.jpg"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.fosswaterwayseaport.org/education-pages/free-3rd-thursday"
     },
@@ -44348,12 +44347,13 @@
       "evidence": "https://www.seattleaquarium.org/events/after-hours-pride-celebration/"
     },
     "events12:gourmet-cooking-class-2026-07-25": {
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/14207DSC00293.jpeg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600"
       },
       "evidence": "https://www.hotstovesociety.com/store/events/"
     },
@@ -45514,12 +45514,13 @@
       "evidence": "https://www.seahawks.com/training-camp/"
     },
     "events12:lunch-specials-in-chinatown-2026-07-25": {
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.seattlechinatownid.com/images/uploads/experiences_hero/_resized/3.jpg"
       },
       "evidence": "https://www.seattlechinatownid.com/experiences/food-walk-series"
     },
@@ -50038,9 +50039,10 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://centrum.org/wp-content/uploads/2024/03/RhiannonGiddens_2016-embed-scaled.jpg"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/"
     },
