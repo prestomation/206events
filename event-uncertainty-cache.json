@@ -45524,14 +45524,10 @@
       "evidence": "https://www.seattlechinatownid.com/experiences/food-walk-series"
     },
     "events12:tacoma-color-run-2026-07-11": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "evidence": "https://www.piercecountywa.gov/7653/Chase-the-Rainbow-Run"
+      "unresolvable": true,
+      "reason": "Pierce County site blocked by Cloudflare; no image available",
+      "resolvedAt": "2026-07-16",
+      "source": "agent"
     },
     "events12:watch-seahawks-practice-2026-07-25": {
       "fields": {
@@ -49976,9 +49972,10 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlefwc26.org/destination/matches"
     },
@@ -49986,9 +49983,10 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlefwc26.org/destination/matches"
     },
@@ -49996,9 +49994,10 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlefwc26.org/destination/matches"
     },
@@ -50006,9 +50005,10 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlefwc26.org/destination/matches"
     },
@@ -50016,9 +50016,10 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/641a6eabb435eb4d37a4ebf5/1775507840426-F8TP9Y2VMXYNAVBPGGGI/Gracelend+4th+of+July+2026+SQ.png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration"
     },
@@ -50026,9 +50027,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.arlingtonwa.gov/ImageRepository/Document?documentId=15117"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.arlingtonwa.gov/July4"
     },
@@ -50359,7 +50361,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://cdn.sanity.io/images/kf9r1eb7/production/8220cdd309e7d363495ee4163e848c4f3445d454-1867x2800.jpg"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -50421,7 +50424,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/membersonlyaug26-poster.png"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -50431,7 +50435,8 @@
       "fields": {
         "cost": {
           "min": 25.0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/caligarisleepbombposter-1200x1553.png"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -50441,7 +50446,8 @@
       "fields": {
         "cost": {
           "min": 15.0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeopleposter.jpg"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -50451,7 +50457,8 @@
       "fields": {
         "cost": {
           "min": 15.0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/welcometothedollhouseposter.jpg"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51836,6 +51843,84 @@
       "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/all-in-tickets-1991593799667"
+    },
+    "seattle-center:freak-the-mighty-preview-performance-x47841": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Resident%20Orgs/Seattle%20Repertory%20Theatre/2026/Freak-the-Mighty-07-30-26-to-09-06-26/Freak-The-Mighty-2026-Hero-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-preview-performance-x47841"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46356": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/2025/SculptureWalk-25-Hero2-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46356"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46357": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/2025/SculptureWalk-25-Hero2-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46357"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46746": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-mat-pilates-x46746"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-yoga-x46744": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-yoga-x46744"
+    },
+    "seattle-center:summer-fitness-workout-wednesdays-zumba-x46745": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/summer-fitness-workout-wednesdays-zumba-x46745"
+    },
+    "seattle-center:the-jury-experience-\u2013-the-killer-ai-x47973": {
+      "unresolvable": true,
+      "reason": "No event image on source page (empty placeholder)",
+      "resolvedAt": "2026-07-16",
+      "source": "agent"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47707": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47707"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47708": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47708"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47709": {
+      "fields": {
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47709"
     }
   },
   "events12:chamber-music-2026-07-17": {
