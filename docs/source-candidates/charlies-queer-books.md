@@ -1,11 +1,12 @@
 ---
 name: "Charlie's Queer Books"
-status: investigating
+status: added
 platform: BookManager (custom POS/CMS, React SPA)
 url: https://charliesqueerbooks.com/events
 tags: [Books, Fremont]
 firstSeen: 2026-07-10
-lastChecked: 2026-07-10
+lastChecked: 2026-07-16
+pr:
 ---
 
 Seattle's first dedicated queer bookstore in ~20 years, opened 2023 in
@@ -29,8 +30,25 @@ Investigated 2026-07-10:
   separate `sitesettings`/init call this investigation didn't trace down.
 - No ICS/RSS feed found on the site.
 
-Not implementable yet — needs the correct `store_id` (probably discoverable
-via a site-init API call or by inspecting live network traffic with a
-browser) before the `event/getList` endpoint can be called directly. Worth
-prioritizing on a future cycle: real, actively-used event calendar at a
-genuinely new Seattle venue, just needs one more piece of reverse-engineering.
+Resolved 2026-07-16: found the missing piece. The React bundle calls
+`store/getSettings` (`POST https://api.bookmanager.com/customer/store/getSettings`,
+body `webstore_name=9932925`) before anything else, which returns
+`store_info.id` — the real numeric `store_id` (`1188985`) needed by the
+event endpoints. With that in hand, `session/get` (body `store_id` + a
+client-generated `uuid`) mints a session token, and `event/v2/list` (this
+store has `using_events_v2: true`, so `event/getList` alone 404s/empties —
+must use the v2 endpoint) returns real dated events: 17 upcoming across
+book clubs, author events, workshops, and a maker's fair, spanning
+2026-07-16 through 2026-10-17. All three calls are unauthenticated/public
+(no login, no API key — `session_id`/`uuid` are client-generated tracking
+values, not credentials).
+
+A few events are hosted off-site (`location_text`: "Ballard Branch - Seattle
+Public Library", "Town Hall Seattle") or "Virtual" rather than in-store;
+the ripper maps known off-site locations to their real address/coords and
+leaves "Virtual" events at "Virtual" (no coordinate override — same minor
+imprecision as `book_larder`'s off-site handling elsewhere in the repo).
+
+Implemented as a custom JSON ripper, `sources/charlies_queer_books/`.
+Verified via `ONLY_SOURCE=charlies-queer-books npm run generate-calendars`:
+17 events, 0 errors.

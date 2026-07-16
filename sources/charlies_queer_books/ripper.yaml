@@ -1,0 +1,16 @@
+name: charlies-queer-books
+sourceRole: venue
+description: "Charlie's Queer Books"
+url: "https://charliesqueerbooks.com/events"
+friendlyLink: https://charliesqueerbooks.com/events
+tags: ["Books", "Fremont"]
+geo:
+  lat: 47.6517179
+  lng: -122.3528563
+  label: "Charlie's Queer Books, 465 N 36th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 1248842374
+calendars:
+  - name: all-events
+    friendlyname: "Charlie's Queer Books"
+    timezone: America/Los_Angeles
