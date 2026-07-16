@@ -7369,6 +7369,16 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-16",
       "note": "Same show at The Sunset Tavern; tractor-tavern calendar explicitly says 'AT The Sunset'"
+    },
+    "external-myballard.ics Town & Country Market’s Root Beer Fundraiser|2026-07-18T12:00:00Z[UTC]::external-visit-ballard.ics Town & Country Market’s Root Beer Fundraiser|2026-07-18T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same event at 1400 NW 56th St from two Ballard feeds"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-16",
+      "note": "Different addresses: 1201 vs 1551 Eastlake Ave E"
     }
   }
 }
