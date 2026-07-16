@@ -207,6 +207,22 @@ describe("extractAllDayDateList", () => {
         expect(dates.map(d => d.toString())).toEqual(["2026-08-29"]);
     });
 
+    it("drops already-elapsed dates instead of rolling them into next year when the list has a mix of past and future dates", () => {
+        // Same block as the Araki fixture, but referenceDate now falls after
+        // the first listed date (Aug 23) and before the rest — this is the
+        // state of the world on a later build of the same still-live pass page.
+        const html = "<div>Sun Aug 23: All Day</div><div>Fri Aug 28: All Day</div>" +
+            "<div>Sat Aug 29: All Day</div><div>Sun Aug 30: All Day</div>";
+        const dates = extractAllDayDateList(html, LocalDate.of(2026, 8, 25));
+        expect(dates.map(d => d.toString())).toEqual(["2026-08-28", "2026-08-29", "2026-08-30"]);
+    });
+
+    it("rolls the whole list into next year only when every listed date has elapsed", () => {
+        const html = "<div>Sun Aug 23: All Day</div><div>Fri Aug 28: All Day</div>";
+        const dates = extractAllDayDateList(html, LocalDate.of(2026, 12, 1));
+        expect(dates.map(d => d.toString())).toEqual(["2027-08-23", "2027-08-28"]);
+    });
+
     it("returns an empty array for pages with no all-day date list", () => {
         expect(extractAllDayDateList(readSample("sample-data-film.html"), LocalDate.of(2026, 7, 16))).toEqual([]);
         expect(extractAllDayDateList(readSample("sample-data-event.html"), LocalDate.of(2026, 7, 16))).toEqual([]);

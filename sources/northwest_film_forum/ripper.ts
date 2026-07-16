@@ -188,29 +188,41 @@ const MONTH_ABBREVS = [
  */
 export function extractAllDayDateList(html: string, referenceDate: LocalDate = LocalDate.now(TIMEZONE)): LocalDate[] {
     const re = new RegExp(`(?:${DAY_ABBREV_ALTERNATION})\\s+([A-Za-z]{3})\\s+(\\d{1,2}):\\s*All Day`, "g");
-    const dates: LocalDate[] = [];
+    const parsed: { monthIdx: number; day: number }[] = [];
     let m: RegExpExecArray | null;
     while ((m = re.exec(html)) !== null) {
         const monthIdx = MONTH_ABBREVS.indexOf(m[1]);
         if (monthIdx === -1) continue;
-        const day = Number(m[2]);
-
-        let date: LocalDate;
-        try {
-            date = LocalDate.of(referenceDate.year(), monthIdx + 1, day);
-        } catch {
-            continue;
-        }
-        if (date.isBefore(referenceDate)) {
-            try {
-                date = LocalDate.of(referenceDate.year() + 1, monthIdx + 1, day);
-            } catch {
-                continue;
-            }
-        }
-        dates.push(date);
+        parsed.push({ monthIdx, day: Number(m[2]) });
     }
-    return dates;
+
+    const resolve = (year: number, p: { monthIdx: number; day: number }): LocalDate | null => {
+        try {
+            return LocalDate.of(year, p.monthIdx + 1, p.day);
+        } catch {
+            return null;
+        }
+    };
+
+    const thisYear = parsed
+        .map(p => resolve(referenceDate.year(), p))
+        .filter((d): d is LocalDate => d !== null);
+
+    // The page lists every date for one pass in a single static block, so a
+    // page can still be discoverable (some listed dates still upcoming) even
+    // after its earliest dates have already elapsed — e.g. a build on Aug 25
+    // parsing "Aug 23, Aug 28, Aug 29, Aug 30". Rolling a stale date forward
+    // to next year would publish it with the wrong year; the correct read is
+    // that it already happened, so drop it instead of rolling it. Only when
+    // EVERY listed date has elapsed do we treat the whole block as next
+    // year's pass (the single-date-in-the-past case this ripper started with).
+    if (thisYear.length > 0 && thisYear.every(d => d.isBefore(referenceDate))) {
+        return parsed
+            .map(p => resolve(referenceDate.year() + 1, p))
+            .filter((d): d is LocalDate => d !== null);
+    }
+
+    return thisYear.filter(d => !d.isBefore(referenceDate));
 }
 
 /**
