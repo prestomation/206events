@@ -42402,11 +42402,12 @@
     "events12:chamber-music-2026-07-17": {
       "fields": {
         "startTime": "19:30",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
     },
@@ -42457,44 +42458,48 @@
     "events12:chamber-music-2026-07-19": {
       "fields": {
         "startTime": "14:00",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
     },
     "events12:chamber-music-2026-07-21": {
       "fields": {
         "startTime": "19:30",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
     },
     "events12:chamber-music-2026-07-26": {
       "fields": {
         "startTime": "14:00",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
     },
     "events12:chamber-music-2026-07-24": {
       "fields": {
         "startTime": "19:30",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
     },
@@ -44476,33 +44481,36 @@
     "events12:live-theater-2026-07-27": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
     "events12:live-theater-2026-07-28": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
     "events12:live-theater-2026-07-29": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
@@ -46478,27 +46486,30 @@
     "events12:shakespeare-in-the-park-2026-07-27": {
       "fields": {
         "startTime": "19:00",
-        "duration": 7200
+        "duration": 7200,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://greenstage.org/schedule/"
     },
     "events12:shakespeare-in-the-park-2026-07-28": {
       "fields": {
         "startTime": "19:00",
-        "duration": 7200
+        "duration": 7200,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://greenstage.org/schedule/"
     },
     "events12:shakespeare-in-the-park-2026-07-29": {
       "fields": {
         "startTime": "19:00",
-        "duration": 7200
+        "duration": 7200,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://greenstage.org/schedule/"
     },
@@ -47607,27 +47618,30 @@
     "events12:dance-in-the-park-2026-07-27": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/events"
     },
     "events12:dance-in-the-park-2026-07-28": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/events"
     },
     "events12:dance-in-the-park-2026-07-29": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/events"
     },
@@ -50255,6 +50269,94 @@
       "resolvedAt": "2026-07-13",
       "source": "agent",
       "evidence": "https://www.cwb.org/safe-powerboat-handling"
+    },
+    "venue:loc:thistle st sw &amp": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/thistle-street-gs-restoration-event-10/"
+    },
+    "venue:loc:volunteer park amphitheater, 1139-1157 volunteer park rd, seattle, wa, 98102, united states": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.volunteerparktrust.org/events"
+    },
+    "venue:osm:node:2461755878": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2461755878"
+    },
+    "venue:osm:relation:907023": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/lake-union-park"
+    },
+    "venue:osm:way:166910704": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.citypass.com/articles/seattle/need-to-know-argosy-harbor-cruises"
+    },
+    "venue:osm:way:231761619": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/231761619"
+    },
+    "venue:osm:way:337831268": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/337831268"
+    },
+    "venue:osm:way:392858022": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/392858022"
+    },
+    "venue:osm:way:6495335": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/beer-sheva-park"
+    },
+    "venue:osm:way:77966334": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/board-of-parks-and-recreation-commissioners"
+    },
+    "venue:osm:way:816616072": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/cal-anderson-park"
     }
   }
 }
