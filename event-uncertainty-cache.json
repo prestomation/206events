@@ -38023,24 +38023,26 @@
       "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-2026-07-24": {
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "fields": {
         "cost": {
           "min": 27.5
         },
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/2026/04/260418-UW-Modern-SAF-Tour-1-of-47.jpg"
       },
       "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-2026-07-25": {
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "fields": {
         "cost": {
           "min": 27.5
         },
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/2026/04/260418-UW-Modern-SAF-Tour-1-of-47.jpg"
       },
       "evidence": "https://seattlearchitecture.org/tours/"
     },
@@ -38111,32 +38113,35 @@
       "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
     },
     "events12:bluegrass-festival-2026-07-10": {
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "fields": {
         "cost": {
           "min": 20
-        }
+        },
+        "imageUrl": "https://bluegrassfromtheforest.com/wp-content/uploads/2026_BGFTF-fb-poster.jpg"
       },
       "evidence": "https://bluegrassfromtheforest.com/"
     },
     "events12:bluegrass-festival-2026-07-11": {
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "fields": {
         "cost": {
           "min": 20
-        }
+        },
+        "imageUrl": "https://bluegrassfromtheforest.com/wp-content/uploads/2026_BGFTF-fb-poster.jpg"
       },
       "evidence": "https://bluegrassfromtheforest.com/"
     },
     "events12:bluegrass-festival-2026-07-12": {
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
       "fields": {
         "cost": {
           "min": 20
-        }
+        },
+        "imageUrl": "https://bluegrassfromtheforest.com/wp-content/uploads/2026_BGFTF-fb-poster.jpg"
       },
       "evidence": "https://bluegrassfromtheforest.com/"
     },
@@ -44263,11 +44268,12 @@
       "fields": {
         "cost": {
           "min": 20
-        }
+        },
+        "imageUrl": "https://www.48hourfilm.com/images/og-image-default.png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.siff.net/cinema/in-theaters/seattle-48-hour-film-project-premiere-screenings-2025"
+      "evidence": "https://www.48hourfilm.com/seattle/48hfp"
     },
     "events12:forest-music-festival-2026-07-23": {
       "fields": {
@@ -44693,31 +44699,34 @@
       "fields": {
         "cost": {
           "min": 150
-        }
+        },
+        "imageUrl": "https://www.thehootfestival.com/sitepad-data/uploads/2026/07/Red-and-Yellow-Minimalistic-Bold-Music-Upcoming-Events-Instagram-Post-Instagram-Post-45.png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.thehootfestival.com/tickets"
+      "evidence": "https://www.thehootfestival.com/"
     },
     "events12:music-arts-festival-2026-07-18": {
       "fields": {
         "cost": {
           "min": 150
-        }
+        },
+        "imageUrl": "https://www.thehootfestival.com/sitepad-data/uploads/2026/07/Red-and-Yellow-Minimalistic-Bold-Music-Upcoming-Events-Instagram-Post-Instagram-Post-45.png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.thehootfestival.com/tickets"
+      "evidence": "https://www.thehootfestival.com/"
     },
     "events12:music-arts-festival-2026-07-19": {
       "fields": {
         "cost": {
           "min": 150
-        }
+        },
+        "imageUrl": "https://www.thehootfestival.com/sitepad-data/uploads/2026/07/Red-and-Yellow-Minimalistic-Bold-Music-Upcoming-Events-Instagram-Post-Instagram-Post-45.png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://www.thehootfestival.com/tickets"
+      "evidence": "https://www.thehootfestival.com/"
     },
     "events12:music-by-candlelight-2026-07-25": {
       "fields": {
@@ -45254,11 +45263,12 @@
       "fields": {
         "cost": {
           "min": 115
-        }
+        },
+        "imageUrl": "https://seafairtriathlon.com/wp/wp-content/themes/seafairtriathlon/img/og_image.png"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-16",
       "source": "agent",
-      "evidence": "https://seafairtriathlon.com/registration/"
+      "evidence": "https://seafairtriathlon.com/"
     },
     "events12:vintage-car-show-2026-07-24": {
       "fields": {
@@ -51936,7 +51946,8 @@
       "fields": {
         "cost": {
           "min": 17.0
-        }
+        },
+        "imageUrl": "https://indy-systems.imgix.net/79n4lmtem4r880bm97zterso4ce6?fit=crop&w=1000&h=500&fm=jpeg&auto=format"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
@@ -51946,11 +51957,20 @@
       "fields": {
         "cost": {
           "min": 16.0
-        }
+        },
+        "imageUrl": "https://cdn.uploads.webconnex.com/185869/long%20%281%29.png?1760045413088"
       },
       "resolvedAt": "2026-07-16",
       "source": "agent",
       "evidence": "https://freezetag.ticketspice.com/oneshotseattle"
+    },
+    "events12:bothell-night-market-2026-07-31": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/6387adff09b4ce49ecd0b641/1781793053377-EKXQCEQQLBE634BLCTXL/unsplash-image-ovIm49mnCuI.jpg"
+      },
+      "resolvedAt": "2026-07-16",
+      "source": "agent",
+      "evidence": "https://www.makinglocal.com/nightbites-bothell"
     }
   },
   "events12:chamber-music-2026-07-17": {
