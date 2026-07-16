@@ -7164,6 +7164,236 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-13",
       "note": "Different food truck locations: 1201 vs 1551 Eastlake Ave, 321m apart — not the same event"
+    },
+    "charlies-queer-books-all-events.ics Silent Book Club|2026-07-16T18:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Silent Book Club|2026-07-16T18:00:00.123-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Charlie's Queer Books' own Silent Book Club, same time/venue; queer-social-club republishes it"
+    },
+    "charlies-queer-books-all-events.ics Summer Maker's Fair|2026-07-18T12:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Summer Maker's Fair|2026-07-18T12:00:00.399-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Charlie's Queer Books' own Summer Maker's Fair, same time/venue; queer-social-club republishes it"
+    },
+    "events12-seattle-events.ics Fantasy scavenger hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::freeze-tag-events-freeze-tag-events.ics One Shot Seattle: Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Identical freezetag.ticketspice.com URL on both sides - same ticketed event"
+    },
+    "events12-seattle-events.ics Fantasy scavenger hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Cal Anderson Park scavenger hunt, same time; events12 and SEAtoday both aggregate the Freeze Tag Events listing"
+    },
+    "events12-seattle-events.ics Fantasy scavenger hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Cal Anderson Park scavenger hunt, same time; events12 and SEAtoday-community both aggregate the Freeze Tag Events listing"
+    },
+    "events12-seattle-events.ics Fantasy scavenger hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Cal Anderson Park scavenger hunt, same time; events12 and SEAtoday-sports both aggregate the Freeze Tag Events listing"
+    },
+    "events12-seattle-events.ics Taste of Seattle|2026-07-25T12:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-16",
+      "note": "Different events: 'Taste of Seattle' is a Viator-booked Pike Place Market food tour at noon; 'Bite of Seattle' is the unrelated Seattle Center festival at 11am. Different operators, different times, only generic food-tour title overlap"
+    },
+    "events12-seattle-events.ics Taste of Seattle|2026-07-26T12:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-16",
+      "note": "Same as prior day's pair - different events (Viator Pike Place tour vs Seattle Center's Bite of Seattle festival)"
+    },
+    "external-cp-coffee.ics The Classic Novels (and Movies) Book Club of West Seattle|2026-07-26T14:30:00Z[UTC]::external-west-seattle-blog.ics West Seattle Classic Novels (and Movies) Book Club, July 2026|2026-07-26T14:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "C&P Coffee's own book club (2:30pm listing, UID 10785) vs West Seattle Blog's republish, same day/time/venue"
+    },
+    "external-cp-coffee.ics The Classic Novels (and Movies) Book Club of West Seattle|2026-07-26T15:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Classic Novels (and Movies) Book Club, July 2026|2026-07-26T14:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "C&P Coffee's own ICS feed carries a duplicate legacy VEVENT for the same July 26 book club (UID 8097, stale 2022 recurring-series master reading 3:00-4:30 vs the current UID 10785 listing at 2:30-4:00); both represent the same real-world meeting that West Seattle Blog republished at 2:30. Confirming merges all three copies of the one occurrence. Note: C&P's own feed having two VEVENTs for one date is a separate same-source data-quality issue worth a ripper-level look"
+    },
+    "external-myballard.ics Town & Country Market’s Root Beer Fundraiser|2026-07-18T12:00:00Z[UTC]::external-visit-ballard.ics Town & Country Market’s Root Beer Fundraiser|2026-07-18T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Identical title/time/venue (Town & Country Market Ballard) republished by two Ballard neighborhood aggregators"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-08-27T15:00:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-08-27T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Seattle.gov event (Creative Advantage Office Hours, Online) across two overlapping city category sub-feeds (arts vs city-wide) - same publisher's own overlapping feeds, the documented safest-merge pattern"
+    },
+    "external-seattle-gov-city-wide.ics Beer Cup! PNA's Summer Beer Taste|2026-07-18T16:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Beer Cup! PNA's Summer Beer Taste|2026-07-18T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Seattle.gov event (PNA Summer Beer Taste) across city-wide vs neighborhoods sub-feeds"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-08-27T19:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-08-27T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Seattle.gov event (Comedy Battle Royale - Ballard) across city-wide vs neighborhoods sub-feeds"
+    },
+    "external-seattle-gov-city-wide.ics Public Engagement Session: Westcrest Park - South Restroom Replacement and South Play Area Location Restoration|2026-08-08T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Public Engagement Session: Westcrest Park - South Restroom Replacement and South Play Area Location Restoration|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Seattle.gov event (Westcrest Park engagement session) across city-wide vs parks-recreation sub-feeds"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Renters' Commission Special meeting|2026-07-20T16:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Seattle Renters' Commission Special meeting|2026-07-20T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Seattle.gov event (Renters' Commission meeting) across city-wide vs neighborhoods sub-feeds"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Youth Commission (SYC) Meeting|2026-08-29T09:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Seattle Youth Commission (SYC) Meeting|2026-08-29T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Seattle.gov event (Youth Commission meeting) across city-wide vs neighborhoods sub-feeds"
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-08-28T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-08-28T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Seattle.gov event (Teen Late Night Tennis) across city-wide vs parks-recreation sub-feeds"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-07-20T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-07-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-16",
+      "note": "Different events at the same venue on the same night: Trivia (7:30pm, HITC recurring) vs 'Board Gayme Night' (6:30pm, queer-social-club) - different program, different hour"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-07-20T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Head in the Clouds trivia night at Stoup Ballard, same time; the venue's own calendar and the HITC recurring source both list it"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-07-26T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-07-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same recurring American Mah Jongg night at The Missing Piece (verified real address 4707 California Ave SW); SEAtoday carries a stale address (9456 35th Ave SW) for the same business/event"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-07-29T14:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-07-29T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same as above, different date - The Missing Piece's Mah Jongg night, SEAtoday's address is stale"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-07-27T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-07-27T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Crafting and Creativity Night at The Missing Piece; SEAtoday's address is stale for the same business"
+    },
+    "seatoday-seatoday-all.ics Growth Alliance Northwest Happy Hour|2026-07-28T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Growth Alliance Northwest Happy Hour|2026-07-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Growth Alliance NW Happy Hour) duplicated across its own all vs food sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Growth Alliance Northwest Happy Hour|2026-07-28T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Growth Alliance Northwest Happy Hour|2026-07-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Growth Alliance NW Happy Hour) duplicated across its own all vs learning sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-27T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-27T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Lavender U-Pick Experience) duplicated across its own all vs community sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Lavender U-Pick Experience|2026-07-27T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-27T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Lavender U-Pick Experience) duplicated across its own all vs sports sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Meet Me at the Park|2026-07-28T06:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Meet Me at the Park|2026-07-28T06:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Meet Me at the Park) duplicated across its own all vs community sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Town Center Committee|2026-07-28T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mill Creek Town Center Committee|2026-07-28T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Mill Creek Town Center Committee) duplicated across its own all vs community sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Town Center Committee|2026-07-28T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Town Center Committee|2026-07-28T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Mill Creek Town Center Committee) duplicated across its own all vs learning sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Screen Printing Open Session|2026-07-28T16:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-07-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Screen Printing Open Session at 305 Harrison St (verified as the Seattle Center Armory, home of both the closed Book-It Repertory Theatre and The Vera Project); SEAtoday's venue name field is stale, address and time match Vera Project exactly"
+    },
+    "seatoday-seatoday-all.ics Summer Sounds - Concert & Market|2026-07-29T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Sounds - Concert & Market|2026-07-29T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Summer Sounds - Concert & Market, Lynnwood) duplicated across its own all vs arts sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Summer Sounds - Concert & Market|2026-07-29T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Summer Sounds - Concert & Market|2026-07-29T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Summer Sounds - Concert & Market, Lynnwood) duplicated across its own all vs sports sub-feeds"
+    },
+    "seatoday-seatoday-arts.ics Crafting and Creativity Night|2026-07-27T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-07-27T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Crafting and Creativity Night at The Missing Piece; SEAtoday-arts carries the stale address"
+    },
+    "seatoday-seatoday-arts.ics Screen Printing Open Session|2026-07-28T16:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-07-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Screen Printing Open Session at Vera Project (305 Harrison St); SEAtoday-arts carries the stale 'Book-It Repertory Theatre' venue name"
+    },
+    "seatoday-seatoday-arts.ics Summer Sounds - Concert & Market|2026-07-29T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Summer Sounds - Concert & Market|2026-07-29T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Summer Sounds - Concert & Market) duplicated across its own arts vs sports sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Lavender U-Pick Experience|2026-07-27T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lavender U-Pick Experience|2026-07-27T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Lavender U-Pick Experience) duplicated across its own sports vs community sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Mill Creek Town Center Committee|2026-07-28T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Town Center Committee|2026-07-28T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Mill Creek Town Center Committee) duplicated across its own learning vs community sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Screen Printing Open Session|2026-07-28T16:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-07-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Screen Printing Open Session at Vera Project; SEAtoday-community carries the stale venue name"
+    },
+    "seatoday-seatoday-food.ics Growth Alliance Northwest Happy Hour|2026-07-28T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Growth Alliance Northwest Happy Hour|2026-07-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same SEAtoday event (Growth Alliance NW Happy Hour) duplicated across its own food vs learning sub-feeds"
+    },
+    "seatoday-seatoday-learning.ics Screen Printing Open Session|2026-07-28T16:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-07-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Same Screen Printing Open Session at Vera Project; SEAtoday-learning carries the stale venue name"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-16",
+      "note": "Different food-truck pods (1201 Eastlake Ave vs 1551 Eastlake Ave, ~320m apart) - generic 'Food Trucks @ <pod>' naming coincidentally matches on title but these are distinct scheduled locations"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-16",
+      "note": "Same as above for the following date - different pods, not the same booking"
+    },
+    "spl-columbia.ics Family Story Time|2026-07-23T10:30:00-07:00[America/Los_Angeles]::spl-west-seattle.ics Preschool Story Time|2026-07-23T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-16",
+      "note": "Different SPL branches (Columbia vs West Seattle, ~7km apart) running their own weekly children's programs under different names (Family Story Time vs Preschool Story Time) - coincidental same weekday/time, not the same occurrence"
+    },
+    "stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2027-03-15T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Trivia at Stoup Capitol Hill with Head in the Clouds|2027-03-15T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-16",
+      "note": "Documented false-positive case in docs/cross-source-event-dedup.md: same HITC trivia franchise, but Stoup Ballard and Stoup Capitol Hill are different venues ~5mi apart - a geocoding artifact, not the same event"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Deltaphonic w/ DJ SELECTOR JOEL RICCI|2026-07-26T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Deltaphonic w/ DJ SELECTOR JOEL RICCI AT The Sunset|2026-07-26T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-16",
+      "note": "Tractor Tavern's own listing explicitly reads 'AT The Sunset' - same show, same date/time, hosted at Sunset Tavern's room; Sunset Tavern's own calendar lists it under its own venue address"
     }
   }
 }
