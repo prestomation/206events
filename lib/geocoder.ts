@@ -602,6 +602,8 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'caffe ladro, 8403 main street, edmonds, wa': { lat: 47.8079939, lng: -122.3475204 },
   // Green River College Kent Campus — suite/room suffix prevents Nominatim from resolving
   'green river college - kent campus, 417 ramsay way, suite 112, room 282/283, kent, wa': { lat: 47.3845, lng: -122.2352 },
+
+  // --- 2026-07-16 geo-resolver batch: "Nominatim returned no results" entries ---
   // Laterus Winery (Maltby/Snohomish) — Nominatim fails on the raw "#Suite b 6"
   // suffix. Forward-geocoded the clean street address (9206 200th St SE,
   // Snohomish, WA); returned house-number match confirmed correct (9206).

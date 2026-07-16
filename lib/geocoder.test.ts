@@ -849,11 +849,16 @@ describe('extractTrailingAtLocation', () => {
     );
   });
 
-  it('prefers the LAST marker when both "at" and "@" appear', () => {
+  it('prefers the LAST marker when both "at" and "@" appear ("@" later)', () => {
     // The named venue is followed by its own "@ address" — the address should win.
     expect(
       extractTrailingAtLocation('Online or at Fauntleroy Schoolhouse @ 9131 California SW, West Seattle'),
     ).toBe('9131 California SW, West Seattle');
+  });
+
+  it('prefers the LAST marker when both "at" and "@" appear (" at " later)', () => {
+    // A trailing "at" after an earlier "@" should still win.
+    expect(extractTrailingAtLocation('Event @ Venue at 123 Main St')).toBe('123 Main St');
   });
 
   it('returns null when no "at"/"@" marker is present', () => {
