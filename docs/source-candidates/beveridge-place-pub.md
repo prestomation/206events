@@ -1,12 +1,12 @@
 ---
 name: "Beveridge Place Pub"
-status: candidate
+status: added
 platform: "Recurring (hand-coded weekly schedule)"
 url: https://beveridgeplacepub.com/events/
 tags: [Trivia, "Pub Trivia", "West Seattle"]
 firstSeen: 2026-07-17
 lastChecked: 2026-07-17
-pr:
+pr: pending
 ---
 
 West Seattle beer bar at 6413 California Ave SW, Seattle, WA 98136. Hosts
@@ -26,3 +26,7 @@ Investigated 2026-07-17:
 
 **Verdict**: Viable as a low-volume `sources/recurring/` entry (Quiz Night
 only). Queued for a future implementation cycle.
+
+Implemented 2026-07-17: `sources/recurring/beveridge-place-pub.yaml`, single
+`every Wednesday` schedule entry (20:00, PT2H), geo confirmed via Nominatim
+(OSM way 231235683, matches the venue name and address exactly).
