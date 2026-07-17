@@ -1,12 +1,12 @@
 ---
 name: "Lake City Summer Festival & Parade"
 status: added
-pr: pending
+pr: 941
 platform: Recurring (annual, single day)
 url: https://lakecitysummerfest.com/
 tags: [Community, "Lake City"]
 firstSeen: 2026-07-13
-lastChecked: 2026-07-15
+lastChecked: 2026-07-17
 ---
 
 Annual free community festival and parade in the Lake City neighborhood

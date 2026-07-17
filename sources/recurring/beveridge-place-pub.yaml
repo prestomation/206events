@@ -1,0 +1,24 @@
+# verified: 2026-07-17 ok
+imageUrl: "https://beveridgeplacepub.com/wp-content/uploads/2021/06/1504642957.78-2048x768.jpg"
+geo:
+  lat: 47.5454269
+  lng: -122.3874998
+  label: "6413 California Ave SW, Seattle, WA 98136"
+  osmType: way
+  osmId: 231235683
+name: beveridge-place-pub
+sourceRole: venue
+friendlyname: Beveridge Place Pub
+description: West Seattle beer bar hosting weekly pub quiz night, hosted by Jerry.
+timezone: America/Los_Angeles
+location: 6413 California Ave SW, Seattle, WA 98136
+url: https://beveridgeplacepub.com/events/
+tags:
+  - Trivia
+  - Pub Trivia
+  - West Seattle
+cost: free
+schedules:
+  - schedule: every Wednesday
+    start_time: "20:00"
+    duration: PT2H
