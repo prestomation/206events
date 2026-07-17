@@ -3,7 +3,7 @@ name: "Fast Fashion Brewing (The Masonry)"
 status: notviable
 platform: none (Facebook only)
 url: https://www.fastfashionbeer.net/
-tags: [Beer, "Queen Anne"]
+tags: [Beer, QueenAnne]
 firstSeen: 2026-07-17
 lastChecked: 2026-07-17
 ---
