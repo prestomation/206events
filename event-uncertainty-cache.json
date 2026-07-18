@@ -50341,12 +50341,10 @@
       "evidence": "https://www.seattleparksfoundation.org/event/volunteer-park-trusts-5th-annual-summer-series-at-the-amphitheater-clinton-fearon-and-the-boogie-brown-band/"
     },
     "venue:osm:node:150972457": {
-      "fields": {
-        "setting": "outdoor"
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
+      "reason": "OSM node is place=neighbourhood (broad South Seattle centroid, not a specific venue); classifying this key outdoor would incorrectly badge unrelated future indoor events geocoded to the same neighbourhood centroid. Demotes to per-event gap on next build (sample events are the outdoor Seafair/Blue Angels air show)."
     },
     "venue:osm:way:392858022": {
       "fields": {
@@ -50394,7 +50392,7 @@
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.tripadvisor.com/ShowUserReviews-g58702-d3906976-r450506702-Redmond_Town_Center-Redmond_Washington.html"
+      "evidence": "https://en.wikipedia.org/wiki/Redmond_Town_Center"
     },
     "venue:osm:way:608498957": {
       "fields": {
