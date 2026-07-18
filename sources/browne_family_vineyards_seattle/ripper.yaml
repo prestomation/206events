@@ -1,0 +1,11 @@
+name: browne-family-vineyards-seattle
+sourceRole: venue
+description: "Browne Family Vineyards - Seattle"
+url: "https://www.brownefamilyvineyards.com/events"
+friendlyLink: https://www.brownefamilyvineyards.com/events
+tags: ["Food", "Pub Trivia"]
+geo: null
+calendars:
+  - name: browne-family-vineyards-seattle
+    friendlyname: "Browne Family Vineyards - Seattle"
+    timezone: America/Los_Angeles
