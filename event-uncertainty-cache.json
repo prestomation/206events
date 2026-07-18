@@ -36972,7 +36972,10 @@
     "events12:blue-angels-events-2026-07-30": {
       "fields": {
         "imageUrl": "https://www.seafair.org/wp-content/uploads/2024/12/image-35.png",
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -36981,7 +36984,10 @@
     "events12:blue-angels-events-2026-07-31": {
       "fields": {
         "imageUrl": "https://www.seafair.org/wp-content/uploads/2024/12/image-35.png",
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -42323,7 +42329,10 @@
     "events12:phinney-beer-tasting-2026-07-18": {
       "fields": {
         "imageUrl": "https://media.phinneycenter.org/wp-content/uploads/2023/11/05092313/RPP04526.jpeg",
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 50
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -48699,7 +48708,10 @@
     "events12:bremerton-music-festival-2026-07-31": {
       "fields": {
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/69e8e73c51eced723d51897e/aa9be781-5dad-4aff-8b7b-5d9a7a29c2bb/Kitsap+Blues+Mermaid+Large.png",
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49873,7 +49885,8 @@
     },
     "seattle-center:lets-play-sea-26-armory-fan-experience-france-vs-england": {
       "fields": {
-        "duration": 9000
+        "duration": 9000,
+        "imageUrl": "https://www.seattlecenter.com/Images/Events/Productions/Lets%20Play%20SEA%2026/LPSea26-v6_1920x1080.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49882,7 +49895,8 @@
     },
     "seattle-center:lets-play-sea-26-armory-fan-experience-spain-vs-argentina": {
       "fields": {
-        "duration": 9000
+        "duration": 9000,
+        "imageUrl": "https://www.seattlecenter.com/Images/Events/Productions/Lets%20Play%20SEA%2026/LPSea26-v6_1920x1080.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49891,7 +49905,8 @@
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47707": {
       "fields": {
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2026/01/FESTAL26_Hero_1800x820-v1wElements.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49900,7 +49915,8 @@
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47708": {
       "fields": {
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2026/01/FESTAL26_Hero_1800x820-v1wElements.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49909,7 +49925,8 @@
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47709": {
       "fields": {
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2026/01/FESTAL26_Hero_1800x820-v1wElements.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49918,7 +49935,8 @@
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47710": {
       "fields": {
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2026/01/FESTAL26_Hero_1800x820-v1wElements.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49927,7 +49945,8 @@
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-\u2013-a-festal-exhibit-x47711": {
       "fields": {
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2026/01/FESTAL26_Hero_1800x820-v1wElements.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50028,7 +50047,8 @@
     },
     "seattle-center:the-jury-experience-\u2013-the-killer-ai-x47973": {
       "fields": {
-        "duration": 4500
+        "duration": 4500,
+        "imageUrl": "https://www.thejuryexperience.com/_astro/hero-poster_jury_safecn_Z1vFsBM.webp"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50037,7 +50057,8 @@
     },
     "seattle-center:the-jury-experience-\u2013-the-killer-ai": {
       "fields": {
-        "duration": 2700
+        "duration": 2700,
+        "imageUrl": "https://www.thejuryexperience.com/_astro/hero-poster_jury_safecn_Z1vFsBM.webp"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50046,7 +50067,8 @@
     },
     "seattle-center:movies-at-the-mural-the-princess-bride": {
       "fields": {
-        "duration": 7200
+        "duration": 7200,
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/db/Princess_bride.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50056,7 +50078,8 @@
     "seattle-center:brownies-and-lemonade": {
       "fields": {
         "startTime": "14:00",
-        "duration": 28800
+        "duration": 28800,
+        "imageUrl": "https://static-label.frontgatetickets.com/label/3494/img/header.png"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50065,7 +50088,8 @@
     },
     "seattle-center:a-day-in-punjab": {
       "fields": {
-        "duration": 21600
+        "duration": 21600,
+        "imageUrl": "https://dvncorestorageprod.blob.core.windows.net/files/ProjectApplication/100537/Updates/ADIP_24x36_20260622181948227.png"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50074,7 +50098,8 @@
     },
     "seattle-center:megan-moroney-the-cloud-9-tour": {
       "fields": {
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/3/3a/Cloud9TourPoster.webp"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50885,7 +50910,10 @@
     },
     "northwest-film-forum:members-mystery-preview-august-2026-2026-08-19": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/membersonlyaug26-poster.png"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/membersonlyaug26-poster.png",
+        "cost": {
+          "min": 7
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50893,7 +50921,10 @@
     },
     "northwest-film-forum:once-upon-time-seattle-2026-09-11": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/onceuponatimeinseattleposter-1200x1800.png"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/onceuponatimeinseattleposter-1200x1800.png",
+        "cost": {
+          "min": 15
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50901,7 +50932,10 @@
     },
     "northwest-film-forum:welcome-to-the-dollhouse-2026-08-26": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/welcometothedollhouseposter.jpg"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/welcometothedollhouseposter.jpg",
+        "cost": {
+          "min": 15
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50909,7 +50943,10 @@
     },
     "northwest-film-forum:three-bewildered-people-in-the-night-2026-08-21": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeopleposter.jpg"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeopleposter.jpg",
+        "cost": {
+          "min": 15
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -51713,6 +51750,26 @@
       "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/3d-printer-certification-285/"
+    },
+    "new-tech-seattle:new-tech-seattle-jptjztykcjblb": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.newtechseattle.com/events"
+    },
+    "new-tech-seattle:new-tech-seattle-jptjztykckbrb": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.newtechseattle.com/events"
     }
   }
 }
