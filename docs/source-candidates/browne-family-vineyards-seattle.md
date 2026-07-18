@@ -1,6 +1,7 @@
 ---
 name: "Browne Family Vineyards - Seattle"
-status: candidate
+status: added
+pr: 969
 platform: Squarespace (multi-city collection, requires location filter)
 url: https://www.brownefamilyvineyards.com/events
 tags: [Food, "Pub Trivia"]
