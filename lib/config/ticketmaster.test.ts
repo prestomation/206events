@@ -121,28 +121,76 @@ describe('TicketmasterRipper sold-out detection', () => {
 });
 
 describe('TicketmasterRipper duration / start-time uncertainty', () => {
-    it('emits no uncertainty when start time is known via localDate+localTime', () => {
+    it('emits no uncertainty when start time and price are both known', () => {
+        const results = parseRaw(makeEvent({
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' } },
+            priceRanges: [{ type: 'standard', currency: 'USD', min: 25, max: 75 }],
+        }));
+        const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty');
+        expect(uncertainties).toHaveLength(0);
+    });
+
+    it('emits no uncertainty when start time is known via dateTime and price is known', () => {
+        const results = parseRaw(makeEvent({
+            dates: { start: { dateTime: '2026-03-10T19:00:00Z' } },
+            priceRanges: [{ type: 'standard', currency: 'USD', min: 25, max: 75 }],
+        }));
+        const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty');
+        expect(uncertainties).toHaveLength(0);
+    });
+
+    it('emits exactly one UncertaintyError with unknownFields=[startTime] for date-only listings with a known price', () => {
+        const results = parseRaw(makeEvent({
+            dates: { start: { localDate: '2026-03-10' } },
+            priceRanges: [{ type: 'standard', currency: 'USD', min: 25, max: 75 }],
+        }));
+        const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty') as UncertaintyError[];
+        expect(uncertainties).toHaveLength(1);
+        expect(uncertainties[0].unknownFields).toEqual(['startTime']);
+    });
+});
+
+describe('TicketmasterRipper cost uncertainty', () => {
+    it('emits an UncertaintyError with unknownFields=[cost] when priceRanges is absent and start time is known', () => {
         const results = parseRaw(makeEvent({
             dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' } },
         }));
-        const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty');
-        expect(uncertainties).toHaveLength(0);
+        const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty') as UncertaintyError[];
+        expect(uncertainties).toHaveLength(1);
+        expect(uncertainties[0].unknownFields).toEqual(['cost']);
     });
 
-    it('emits no uncertainty when start time is known via dateTime', () => {
+    it('does not emit a cost uncertainty for a sold-out event (terminal state)', () => {
         const results = parseRaw(makeEvent({
-            dates: { start: { dateTime: '2026-03-10T19:00:00Z' } },
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' }, status: { code: 'offsale' } },
+            sales: { public: { startDateTime: '2026-01-01T18:00:00Z' } },
         }));
         const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty');
         expect(uncertainties).toHaveLength(0);
     });
 
-    it('emits exactly one UncertaintyError with unknownFields=[startTime] for date-only listings', () => {
+    it('combines startTime and cost into one UncertaintyError when both are unknown', () => {
         const results = parseRaw(makeEvent({
             dates: { start: { localDate: '2026-03-10' } },
         }));
         const uncertainties = results.filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty') as UncertaintyError[];
         expect(uncertainties).toHaveLength(1);
-        expect(uncertainties[0].unknownFields).toEqual(['startTime']);
+        expect(uncertainties[0].unknownFields).toEqual(['startTime', 'cost']);
+    });
+
+    it('fingerprint changes when priceRanges data changes, invalidating a stale cache entry', () => {
+        const [withoutPrice] = parseRaw(makeEvent({
+            id: 'tm-fp-test',
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' } },
+        })).filter(r => 'type' in r && (r as UncertaintyError).type === 'Uncertainty') as UncertaintyError[];
+        expect(withoutPrice.partialFingerprint).toBeDefined();
+        // Once a price appears, cost is no longer uncertain — confirms the
+        // fingerprint's underlying data (priceRanges) drove the outcome.
+        const withPrice = parseOne(makeEvent({
+            id: 'tm-fp-test',
+            dates: { start: { localDate: '2026-03-10', localTime: '19:00:00' } },
+            priceRanges: [{ type: 'standard', currency: 'USD', min: 10 }],
+        }));
+        expect(withPrice.cost).toEqual({ min: 10 });
     });
 });

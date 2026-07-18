@@ -109,6 +109,68 @@ describe('CharliesQueerBooksRipper - parseRow', () => {
     });
 });
 
+describe('CharliesQueerBooksRipper - parseCost', () => {
+    const ripper = new CharliesQueerBooksRipper();
+
+    test('parses a single explicit price ("Tickets for this event are $35.")', () => {
+        const cost = ripper.parseCost({} as any, 'Tickets for this event are $35. Purchase your ticket here!');
+        expect(cost).toEqual({ min: 35 });
+    });
+
+    test('parses a price range ("$45 – $55")', () => {
+        const cost = ripper.parseCost({} as any, 'GET TICKETS HERE! $45 – $55 (Includes Book)');
+        expect(cost).toEqual({ min: 45, max: 55 });
+    });
+
+    test('detects an explicit "FREE with RSVP" mention', () => {
+        const cost = ripper.parseCost({} as any, 'This screening is presented by TJA. It is FREE with RSVP.');
+        expect(cost).toEqual({ min: 0 });
+    });
+
+    test('does not false-positive on incidental "free" prose (e.g. "her free time")', () => {
+        const cost = ripper.parseCost({ attendance: 'unrestricted' } as any, 'She spends her free time playing video games. Get tickets here!');
+        expect(cost).toBeUndefined();
+    });
+
+    test('flags a BookManager purchase flow with no visible price as paid-unknown', () => {
+        const cost = ripper.parseCost({ attendance: 'purchase', tickets: ['A1'] } as any, 'Come share your stories!');
+        expect(cost).toEqual({ paid: true });
+    });
+
+    test('returns undefined for an RSVP-only listing with no price signal', () => {
+        const cost = ripper.parseCost({ attendance: 'request' } as any, 'RSVP here! Dive into compelling stories.');
+        expect(cost).toBeUndefined();
+    });
+
+    test('returns undefined when description is missing', () => {
+        const cost = ripper.parseCost({ attendance: 'unrestricted' } as any, undefined);
+        expect(cost).toBeUndefined();
+    });
+});
+
+describe('CharliesQueerBooksRipper - buildCostUncertainty', () => {
+    const ripper = new CharliesQueerBooksRipper() as any;
+
+    test('builds an Uncertainty error carrying the event and a stable fingerprint', () => {
+        const row = { id: 1, title: 'Free RSVP Event', attendance: 'request', tickets: [] };
+        const event = { id: 'charlies-queer-books-1', summary: 'Free RSVP Event', description: 'RSVP here! Come hang out.' } as any;
+        const uncertainty = ripper.buildCostUncertainty(row, event);
+        expect(uncertainty.type).toBe('Uncertainty');
+        expect(uncertainty.source).toBe('charlies-queer-books');
+        expect(uncertainty.unknownFields).toEqual(['cost']);
+        expect(uncertainty.event).toBe(event);
+        expect(typeof uncertainty.partialFingerprint).toBe('string');
+    });
+
+    test('fingerprint changes when the underlying row data changes', () => {
+        const eventA = { description: 'RSVP here!' } as any;
+        const eventB = { description: 'RSVP here! Now $10.' } as any;
+        const fpA = ripper.buildCostUncertainty({ attendance: 'request', tickets: [] }, eventA).partialFingerprint;
+        const fpB = ripper.buildCostUncertainty({ attendance: 'request', tickets: [] }, eventB).partialFingerprint;
+        expect(fpA).not.toBe(fpB);
+    });
+});
+
 describe('CharliesQueerBooksRipper - getSessionId / fetchEvents', () => {
     const ripper = new CharliesQueerBooksRipper() as any;
 
