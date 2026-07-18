@@ -50742,74 +50742,46 @@
       "evidence": "https://www.ticketmaster.com/seattle-sounders-fc-vs-cf-montreal-seattle-washington-10-17-2026/event/0F006383C475846F"
     },
     "seattle-makers:seattle-makers-159272": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-10/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159274": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-11/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159276": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-12/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159278": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-13/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159280": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-14/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159409": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/%e2%9a%a1electronics-guided-studio-11/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159433": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-12/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159586": {
       "fields": {
@@ -50862,24 +50834,16 @@
       "evidence": "https://seattlemakers.org/events/cosplay-meetup-45/"
     },
     "seattle-makers:seattle-makers-159600": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-89/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159602": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-90/"
+      "reason": "Members-only Guided Studio session (requires paid membership + tool certification per the page's own \"Whom it's for\" text); the $0.00 shown is the at-cost member drop-in price, not a general-admission rate \u2014 no public admission tier exists, so the pricing rubric's \"cheapest general-admission adult\" price doesn't apply here"
     },
     "seattle-makers:seattle-makers-159286": {
       "fields": {
