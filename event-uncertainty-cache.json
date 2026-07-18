@@ -36971,23 +36971,17 @@
     },
     "events12:blue-angels-events-2026-07-30": {
       "fields": {
-        "imageUrl": "https://www.seafair.org/wp-content/uploads/2024/12/Dixin_2024_Seafair_Weekend_5131-1024x683.jpg",
-        "cost": {
-          "min": 0
-        }
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
     },
     "events12:blue-angels-events-2026-07-31": {
       "fields": {
-        "imageUrl": "https://www.seafair.org/wp-content/uploads/2024/12/Dixin_2024_Seafair_Weekend_5131-1024x683.jpg",
-        "cost": {
-          "min": 0
-        }
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
     },
@@ -37851,69 +37845,51 @@
     },
     "events12:shakespeare-in-the-park-2026-07-17": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/macbeth/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-18": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/macbeth/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-19": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/macbeth/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-20": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/macbeth/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-21": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/macbeth/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-22": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-09",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/macbeth/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:tacoma-neighborhood-music-2026-07-18": {
       "fields": {
@@ -42339,12 +42315,9 @@
     },
     "events12:phinney-beer-tasting-2026-07-18": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 40
-        }
+        "imageUrl": "https://media.phinneycenter.org/wp-content/uploads/2023/11/05092313/RPP04526.jpeg"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://www.phinneycenter.org/events/beer-taste-summer/"
     },
@@ -42371,15 +42344,10 @@
       "evidence": "https://fever.pxf.io/Kj6j5x"
     },
     "events12:tacoma-museum-night-2026-07-16": {
-      "fields": {
-        "setting": "indoor",
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-07-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.fosswaterwayseaport.org/education-pages/free-3rd-thursday"
+      "reason": "Event date has passed"
     },
     "events12:live-theater-2026-07-24": {
       "fields": {
@@ -42424,23 +42392,17 @@
     },
     "events12:shakespeare-in-the-park-2026-07-23": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-24": {
       "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-11",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
@@ -43533,34 +43495,22 @@
       }
     },
     "events12:music-arts-festival-2026-07-17": {
-      "fields": {
-        "cost": {
-          "min": 150
-        }
-      },
-      "resolvedAt": "2026-07-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.thehootfestival.com/tickets"
+      "reason": "Site only has lineup graphics, no event photography"
     },
     "events12:music-arts-festival-2026-07-18": {
-      "fields": {
-        "cost": {
-          "min": 150
-        }
-      },
-      "resolvedAt": "2026-07-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.thehootfestival.com/tickets"
+      "reason": "Site only has lineup graphics, no event photography"
     },
     "events12:music-arts-festival-2026-07-19": {
-      "fields": {
-        "cost": {
-          "min": 150
-        }
-      },
-      "resolvedAt": "2026-07-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.thehootfestival.com/tickets"
+      "reason": "Site only has lineup graphics, no event photography"
     },
     "events12:music-by-candlelight-2026-07-25": {
       "fields": {
@@ -44357,24 +44307,16 @@
       "evidence": "https://www.seahawks.com/training-camp/"
     },
     "events12:lunch-specials-in-chinatown-2026-07-25": {
-      "resolvedAt": "2026-07-11",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "evidence": "https://www.seattlechinatownid.com/experiences/food-walk-series"
+      "reason": "Source site returns HTTP 403, no image accessible"
     },
     "events12:tacoma-color-run-2026-07-11": {
-      "resolvedAt": "2026-07-11",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "evidence": "https://www.piercecountywa.gov/7653/Chase-the-Rainbow-Run"
+      "reason": "Event date has passed"
     },
     "events12:watch-seahawks-practice-2026-07-25": {
       "fields": {
@@ -44516,13 +44458,11 @@
     },
     "events12:shakespeare-in-the-park-2026-07-25": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200,
-        "setting": "outdoor"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "rainier-beach-community-club:rbcc-arts-and-crafts-market-2026-12-05": {
       "fields": {
@@ -45279,197 +45219,171 @@
     },
     "events12:shakespeare-in-the-park-2026-07-26": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200,
-        "setting": "outdoor"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-27": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200,
-        "setting": "outdoor"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-28": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200,
-        "setting": "outdoor"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-29": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200,
-        "setting": "outdoor"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-30": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200,
-        "setting": "outdoor"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-31": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-01": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-02": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-03": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-04": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-05": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-06": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-07": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-08": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-09": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-10": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-11": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-12": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-13": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-14": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-15": {
       "fields": {
-        "startTime": "19:00",
-        "duration": 7200
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-16": {
       "fields": {
@@ -48767,14 +48681,9 @@
     },
     "events12:bremerton-music-festival-2026-07-31": {
       "fields": {
-        "startTime": "18:00",
-        "duration": 16200,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/69e8e73c51eced723d51897e/aa9be781-5dad-4aff-8b7b-5d9a7a29c2bb/Kitsap+Blues+Mermaid+Large.png?format=1500w",
-        "cost": {
-          "min": 60
-        }
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://www.kitsapblues.com/"
     },
@@ -48825,24 +48734,16 @@
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/keep-bellevue-beautiful-crossroads-cleanup/19406159/2026-07-25T00"
     },
     "seatoday:cityspark-19406108": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/youth-summer-camps/19406108/2026-07-13T00"
+      "reason": "6amcity.com embed page is JS-rendered, no image accessible"
     },
     "seatoday:cityspark-19406153": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-07-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/puzzle-together-joy-together/19406153/2026-07-23T00"
+      "reason": "6amcity.com embed page is JS-rendered, no image accessible"
     },
     "seatoday:cityspark-19406155": {
       "fields": {
@@ -50294,19 +50195,13 @@
     },
     "cannonball-arts:cannonball-arts-LTBL-tour": {
       "fields": {
-        "imageUrl": "https://cdn.sanity.io/images/kf9r1eb7/production/8220cdd309e7d363495ee4163e848c4f3445d454-1867x2800.jpg?rect=0,910,1867,980&w=1200&h=630&q=80&fit=crop&auto=format"
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://cannonballarts.com/events/LTBL-tour"
-    },
-    "events12:bluegrass-festival-2026-07-10": {
-      "fields": {
-        "imageUrl": "https://web.archive.org/web/20250330062930if_/https://bluegrassfromtheforest.com/wp-content/uploads/WBA-Gazette_ad.jpg"
-      },
-      "resolvedAt": "2026-07-18",
-      "source": "agent",
-      "evidence": "https://bluegrassfromtheforest.com/"
     },
     "events12:bothell-night-market-2026-07-31": {
       "fields": {
@@ -50315,14 +50210,6 @@
       "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://www.makinglocal.com/nightbites-bothell"
-    },
-    "events12:fireworks-party-2026-07-04": {
-      "fields": {
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/641a6eabb435eb4d37a4ebf5/1775507840426-F8TP9Y2VMXYNAVBPGGGI/Gracelend+4th+of+July+2026+SQ.png"
-      },
-      "resolvedAt": "2026-07-18",
-      "source": "agent",
-      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration"
     },
     "venue:osm:way:166910704": {
       "fields": {
@@ -50467,6 +50354,801 @@
       "resolvedAt": "2026-07-18",
       "source": "agent",
       "reason": "pub with both indoor dining and patio seating; mixed use, resolve per-event"
+    },
+    "events12:classical-music-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed; start time/cost no longer determinable"
+    },
+    "events12:classical-music-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed; start time/cost no longer determinable"
+    },
+    "events12:classical-music-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed; start time/cost no longer determinable"
+    },
+    "events12:classical-music-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed; start time/cost no longer determinable"
+    },
+    "events12:classical-music-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed; start time/cost no longer determinable"
+    },
+    "events12:classical-music-2026-07-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed; start time/cost no longer determinable"
+    },
+    "events12:world-cup-soccer-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:world-cup-soccer-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:world-cup-soccer-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:world-cup-soccer-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:world-cup-soccer-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:world-cup-soccer-2026-07-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:early-fireworks-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:early-fireworks-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:national-park-day-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:national-park-day-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:national-park-day-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:parades-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:fourth-of-july-seattle-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed; start time/cost no longer determinable"
+    },
+    "events12:fireworks-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:fourth-of-july-tacoma-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:traditional-music-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:hippie-music-festival-2026-07-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:hippie-music-festival-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:dance-performance-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:party-at-the-zoo-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:bellingham-mountain-biking-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+    },
+    "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+    },
+    "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+    },
+    "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+    },
+    "northwest-film-forum:pazuzus-wings-exorcist-ii-double-feature-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+    },
+    "northwest-film-forum:pazuzus-wings-exorcist-ii-double-feature-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+    },
+    "seatoday:cityspark-19434506": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/gsba-blood-drive/19434506/2026-07-21T00"
+    },
+    "chophouse-row:6a57dddac4c3d21655caf584": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a57de207129c368fe2970a7": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a57de5f6848213b8231f201": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a57de9da9333269cbf65f75": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a57dece4df26e6bb32b415d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a57deef48ebb7198c9143aa": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a57df434474d5764f6a60d9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "chophouse-row:6a57df766848213b823276a2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_F1SXXOW": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3O1BF1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3Oan6g": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OCnFi": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OGBFr": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZbMEehMj0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZbSlq8gOt": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "new-tech-seattle:new-tech-seattle-jptjztykccbqb": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/"
+    },
+    "new-tech-seattle:new-tech-seattle-jptjztykcdbmb": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/"
+    },
+    "new-tech-seattle:new-tech-seattle-jptjztykcfbmb": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/"
+    },
+    "new-tech-seattle:new-tech-seattle-jptjztykcgbrb": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/"
+    },
+    "new-tech-seattle:new-tech-seattle-jptjztykchbpb": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/"
+    },
+    "events12:kent-family-festival-2026-07-10": {
+      "fields": {
+        "imageUrl": "https://kcdays.com/wp-content/uploads/2026/06/Parade-2025-A.jpg"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://kcdays.com"
+    },
+    "stg:tm-vvG1HZ_1f6e_nP": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_5MMfj-S": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_66lKDrg": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_aLqz3J-": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_C5oPDx0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_CLIo1yA": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_CM3BrGQ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_CMrHXTN": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_detyF-c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_eLR9bRH": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_FnRhnED": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_G3N1BLo": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_G3NanrD": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_GmgF1eT": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_kEKA5Dn": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_u1Ynh1l": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZbzkwiJMJ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "crocodile:tm-Z7r9jZ1A70KZY": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "crocodile:tm-Z7r9jZ1A7P8pv": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "lumen-field:tm-vvG1HZbz27qboR": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "events12:bluegrass-festival-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "events12:fireworks-party-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "reason": "Event date has passed"
+    },
+    "wing-luke:6a569a4f29a64128c077d144": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.wingluke.org/eventscalendar/2026-book-talk-ohana-style-with-sheldon-simeon-4bbzy"
+    },
+    "naam:6a52b7de474078775728e9cb": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/youth-arts-crafts-workshop-presented-by-m-curry-designs"
+    },
+    "ballard-brewed:6a552bfc97739e1c3fc24ab2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/watch-semi-finals-with-us-a89bm-3r8n4"
+    },
+    "rendezvous:6a56f42686f97b302e57fd2c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://rendezvous.squarespace.com/events/jewelbox-comedy-series-fdwss-7hley-g8gj2"
+    },
+    "sea-monster-lounge:sea-monster-lounge-arne-livingston-trio-2026-07-31": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://seamonsterlounge.com"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/SBU5E523FEVEK2VERDO7HW4N": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/SBU5E523FEVEK2VERDO7HW4N"
+    },
+    "northwest-film-forum:members-mystery-preview-august-2026-2026-08-19": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/membersonlyaug26-poster.png"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/members-mystery-preview-august-2026/"
+    },
+    "northwest-film-forum:once-upon-time-seattle-2026-09-11": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/onceuponatimeinseattleposter-1200x1800.png"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/once-upon-time-seattle/"
+    },
+    "northwest-film-forum:welcome-to-the-dollhouse-2026-08-26": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/welcometothedollhouseposter.jpg"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/welcome-to-the-dollhouse/"
+    },
+    "northwest-film-forum:three-bewildered-people-in-the-night-2026-08-21": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeopleposter.jpg"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/three-bewildered-people-in-the-night/"
+    },
+    "northwest-film-forum:sleepbomb-presents-the-cabinet-of-dr-caligari-2026-09-02": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/caligarisleepbombposter-1200x1553.png",
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/sleepbomb-presents-the-cabinet-of-dr-caligari/"
+    },
+    "rabbit_box:6a56c8a0eaca744682254cab": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/rebellious-jukebox-with-dj-king-blind-dj-teenage-rampage"
+    },
+    "rabbit_box:6a56d03d5dc13569b964481d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/rebellious-jukebox-with-dj-king-blind-dj-teenage-rampage"
+    },
+    "rabbit_box:6a569b693bf2bf365d57a3be": {
+      "fields": {
+        "cost": {
+          "min": 12.0,
+          "max": 17.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/asher-deaver-kate-dinsmoreparticular-ferns"
+    },
+    "rabbit_box:6a56fa51d7e9f9790ff73643": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/myveronica-with-thedaybeforewemet-cement-creek-and-engine-3"
+    },
+    "rabbit_box:6a584d87f279d73f2f147d19": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/life-isnt-the-laura-show"
+    },
+    "rabbit_box:6a586221088d1a55eba28708": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/song-of-sunset-underground"
     }
   }
 }
