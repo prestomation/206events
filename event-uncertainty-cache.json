@@ -49955,7 +49955,8 @@
     },
     "seattle-center:summer-fitness-workout-wednesdays-yoga-x46744": {
       "fields": {
-        "duration": 3600
+        "duration": 3600,
+        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2026/06/WorkoutWednesday.png"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49964,7 +49965,8 @@
     },
     "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46746": {
       "fields": {
-        "duration": 3600
+        "duration": 3600,
+        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2026/06/WorkoutWednesday.png"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -49973,7 +49975,8 @@
     },
     "seattle-center:summer-fitness-workout-wednesdays-zumba-x46745": {
       "fields": {
-        "duration": 3600
+        "duration": 3600,
+        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2026/06/WorkoutWednesday.png"
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
@@ -50601,7 +50604,7 @@
     "new-tech-seattle:new-tech-seattle-jptjztykccbqb": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-07-18",
@@ -50611,7 +50614,7 @@
     "new-tech-seattle:new-tech-seattle-jptjztykcdbmb": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-07-18",
@@ -50621,7 +50624,7 @@
     "new-tech-seattle:new-tech-seattle-jptjztykcfbmb": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-07-18",
@@ -50631,7 +50634,7 @@
     "new-tech-seattle:new-tech-seattle-jptjztykcgbrb": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-07-18",
@@ -50641,7 +50644,7 @@
     "new-tech-seattle:new-tech-seattle-jptjztykchbpb": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-07-18",
@@ -50956,8 +50959,8 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/caligarisleepbombposter-1200x1553.png",
         "cost": {
-          "min": 20.0,
-          "max": 25.0
+          "min": 20,
+          "max": 25
         }
       },
       "resolvedAt": "2026-07-18",
@@ -50987,8 +50990,8 @@
     "rabbit_box:6a569b693bf2bf365d57a3be": {
       "fields": {
         "cost": {
-          "min": 12.0,
-          "max": 17.0
+          "min": 12,
+          "max": 17
         }
       },
       "resolvedAt": "2026-07-18",
@@ -50998,8 +51001,8 @@
     "rabbit_box:6a56fa51d7e9f9790ff73643": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51009,8 +51012,8 @@
     "rabbit_box:6a584d87f279d73f2f147d19": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51020,7 +51023,7 @@
     "rabbit_box:6a586221088d1a55eba28708": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51120,8 +51123,8 @@
     "queer-social-club:6a567ec27705b8711bab46a1": {
       "fields": {
         "cost": {
-          "min": 7.0,
-          "max": 12.0
+          "min": 7,
+          "max": 12
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51131,7 +51134,7 @@
     "queer-social-club:6a567f94dc1c9b6de76120ba": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51141,7 +51144,7 @@
     "queer-social-club:6a5688494eddc87984987af9": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51151,7 +51154,7 @@
     "queer-social-club:6a5689265277be7e366d2ddd": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51161,8 +51164,8 @@
     "queer-social-club:6a568afe9bedb975c2c0e5ec": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 30.0
+          "min": 20,
+          "max": 30
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51612,8 +51615,8 @@
     "seattle-makers:seattle-makers-159286": {
       "fields": {
         "cost": {
-          "min": 395.0,
-          "max": 495.0
+          "min": 395,
+          "max": 495
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51623,8 +51626,8 @@
     "seattle-makers:seattle-makers-159290": {
       "fields": {
         "cost": {
-          "min": 395.0,
-          "max": 495.0
+          "min": 395,
+          "max": 495
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51634,8 +51637,8 @@
     "seattle-makers:seattle-makers-159294": {
       "fields": {
         "cost": {
-          "min": 395.0,
-          "max": 495.0
+          "min": 395,
+          "max": 495
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51645,8 +51648,8 @@
     "seattle-makers:seattle-makers-159412": {
       "fields": {
         "cost": {
-          "min": 300.0,
-          "max": 375.0
+          "min": 300,
+          "max": 375
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51656,8 +51659,8 @@
     "seattle-makers:seattle-makers-159416": {
       "fields": {
         "cost": {
-          "min": 300.0,
-          "max": 375.0
+          "min": 300,
+          "max": 375
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51667,8 +51670,8 @@
     "seattle-makers:seattle-makers-159423": {
       "fields": {
         "cost": {
-          "min": 95.0,
-          "max": 125.0
+          "min": 95,
+          "max": 125
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51678,8 +51681,8 @@
     "seattle-makers:seattle-makers-159594": {
       "fields": {
         "cost": {
-          "min": 95.0,
-          "max": 125.0
+          "min": 95,
+          "max": 125
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51689,8 +51692,8 @@
     "seattle-makers:seattle-makers-159426": {
       "fields": {
         "cost": {
-          "min": 45.0,
-          "max": 55.0
+          "min": 45,
+          "max": 55
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51700,8 +51703,8 @@
     "seattle-makers:seattle-makers-159597": {
       "fields": {
         "cost": {
-          "min": 45.0,
-          "max": 55.0
+          "min": 45,
+          "max": 55
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51711,7 +51714,7 @@
     "seattle-makers:seattle-makers-159431": {
       "fields": {
         "cost": {
-          "min": 60.0
+          "min": 60
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51721,8 +51724,8 @@
     "seattle-makers:seattle-makers-159435": {
       "fields": {
         "cost": {
-          "min": 85.0,
-          "max": 115.0
+          "min": 85,
+          "max": 115
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51732,8 +51735,8 @@
     "seattle-makers:seattle-makers-159438": {
       "fields": {
         "cost": {
-          "min": 30.0,
-          "max": 55.0
+          "min": 30,
+          "max": 55
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51743,8 +51746,8 @@
     "seattle-makers:seattle-makers-159604": {
       "fields": {
         "cost": {
-          "min": 85.0,
-          "max": 130.0
+          "min": 85,
+          "max": 130
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51754,7 +51757,7 @@
     "new-tech-seattle:new-tech-seattle-jptjztykcjblb": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-07-18",
@@ -51764,7 +51767,7 @@
     "new-tech-seattle:new-tech-seattle-jptjztykckbrb": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-07-18",
