@@ -9,7 +9,7 @@ import { SquarespaceEvent, SquarespaceRipper } from "../../lib/config/squarespac
  * pattern for off-site partner venues like Tulio Ristorante).
  */
 export function filterSeattleEvents(events: SquarespaceEvent[]): SquarespaceEvent[] {
-    return events.filter(e => e.location?.addressLine2?.trim().startsWith("Seattle"));
+    return events.filter(e => e.location?.addressLine2?.trim().toLowerCase().startsWith("seattle"));
 }
 
 export default class BrowneFamilyVineyardsSeattleRipper extends SquarespaceRipper {

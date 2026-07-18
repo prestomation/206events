@@ -41,4 +41,12 @@ describe('filterSeattleEvents', () => {
     it('drops events with no location', () => {
         expect(filterSeattleEvents([makeEvent({ id: '1' })])).toEqual([]);
     });
+
+    it('matches case-insensitively', () => {
+        const events = [
+            makeEvent({ id: '1', location: { addressLine2: 'seattle, WA, 98104' } }),
+            makeEvent({ id: '2', location: { addressLine2: 'SEATTLE, WA, 98104' } }),
+        ];
+        expect(filterSeattleEvents(events)).toEqual(events);
+    });
 });
