@@ -7164,6 +7164,156 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-13",
       "note": "Different food truck locations: 1201 vs 1551 Eastlake Ave, 321m apart — not the same event"
+    },
+    "19hz-all-events.ics Buzz Kull, Kontravoid|2026-10-09T20:00:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Buzz Kull, Kontravoid with Spike Hellis, Normal Bias, Total Chroma|2026-10-09T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same El Corazon show; identical shows URL on both sides, 19hz title is a lineup-abbreviated version"
+    },
+    "charlies-queer-books-all-events.ics Summer Maker's Fair|2026-07-18T12:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Summer Maker's Fair|2026-07-18T12:00:00.399-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Summer Maker's Fair at Charlie's Queer Books; identical title and street address text (distance score is a bad geocode on one side)"
+    },
+    "events12-seattle-events.ics Fantasy scavenger hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::freeze-tag-events-freeze-tag-events.ics One Shot Seattle: Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same freeze-tag ticketspice URL, location, and time; events12 aggregates the freeze-tag listing"
+    },
+    "events12-seattle-events.ics Fantasy scavenger hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same 6amcity event id as events12's Fantasy Scavenger Hunt (seatoday-all)"
+    },
+    "events12-seattle-events.ics Fantasy scavenger hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same 6amcity event id as events12's Fantasy Scavenger Hunt (seatoday-community)"
+    },
+    "events12-seattle-events.ics Fantasy scavenger hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fantasy Scavenger Hunt|2026-07-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same 6amcity event id as events12's Fantasy Scavenger Hunt (seatoday-sports)"
+    },
+    "events12-seattle-events.ics Taste of Seattle|2026-07-25T12:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-18",
+      "note": "Different events: Viator Pike Place Market chef-guided food tour vs Seattle Center's Bite of Seattle festival; different venues (2.3km apart)"
+    },
+    "events12-seattle-events.ics Taste of Seattle|2026-07-26T12:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bite of Seattle|2026-07-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-18",
+      "note": "Same as the Jul 25 pair, different date instance: Viator tour vs Bite of Seattle festival are not the same event"
+    },
+    "external-cp-coffee.ics The Classic Novels (and Movies) Book Club of West Seattle|2026-07-26T14:30:00Z[UTC]::external-west-seattle-blog.ics West Seattle Classic Novels (and Movies) Book Club, July 2026|2026-07-26T14:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same West Seattle book club meeting at C&P Coffee, exact time match with west-seattle-blog's listing"
+    },
+    "external-cp-coffee.ics The Classic Novels (and Movies) Book Club of West Seattle|2026-07-26T15:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Classic Novels (and Movies) Book Club, July 2026|2026-07-26T14:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same West Seattle book club meeting; cp-coffee's own feed produced a second listing 30min off from a dated event-page URL, but it's the same real occurrence at the same venue/date as west-seattle-blog"
+    },
+    "external-go-latin-dance-seattle.ics eSOeS - Salsa/Bachata at Aria Ballroom every Sunday|2026-07-26T19:00:00Z[UTC]::external-seattle-dance-info.ics Sunday Salsa/Bachata Party|2026-07-26T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same recurring Sunday salsa/bachata night at Aria Ballroom, identical time; two different dance-scene aggregators name it differently"
+    },
+    "external-myballard.ics Town & Country Market’s Root Beer Fundraiser|2026-07-18T12:00:00Z[UTC]::external-visit-ballard.ics Town & Country Market’s Root Beer Fundraiser|2026-07-18T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Town & Country Market Root Beer Fundraiser; identical title and address, two Ballard blogs both covering it"
+    },
+    "external-seattle-gov-arts.ics Cultural Investments Committee (CIC)|2026-07-28T12:30:00Z[UTC]::external-seattle-gov-city-wide.ics Cultural Investments Committee (CIC)|2026-07-28T12:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Cultural Investments Committee meeting cross-posted to seattle.gov arts + city-wide feeds"
+    },
+    "external-seattle-gov-arts.ics Cultural Investments Committee (CIC)|2026-08-25T12:30:00Z[UTC]::external-seattle-gov-city-wide.ics Cultural Investments Committee (CIC)|2026-08-25T12:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Cultural Investments Committee meeting, Aug 25 occurrence, cross-posted to seattle.gov arts + city-wide feeds"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-08-27T15:00:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-08-27T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Creative Advantage Office Hours cross-posted to seattle.gov arts + city-wide feeds"
+    },
+    "external-seattle-gov-city-wide.ics Beer Cup! PNA's Summer Beer Taste|2026-07-18T16:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Beer Cup! PNA's Summer Beer Taste|2026-07-18T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same PNA Summer Beer Taste cross-posted to seattle.gov city-wide + neighborhoods feeds; identical URL"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-08-27T19:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-08-27T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Comedy Battle Royale - Ballard cross-posted to seattle.gov city-wide + neighborhoods feeds; identical URL"
+    },
+    "external-seattle-gov-city-wide.ics Public Engagement Session: Westcrest Park - South Restroom Replacement and South Play Area Location Restoration|2026-08-08T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Public Engagement Session: Westcrest Park - South Restroom Replacement and South Play Area Location Restoration|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Westcrest Park public engagement session cross-posted to seattle.gov city-wide + parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Renters' Commission Special meeting|2026-07-20T16:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Seattle Renters' Commission Special meeting|2026-07-20T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Seattle Renters' Commission special meeting cross-posted to seattle.gov city-wide + neighborhoods feeds"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Youth Commission (SYC) Meeting|2026-08-29T09:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Seattle Youth Commission (SYC) Meeting|2026-08-29T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Seattle Youth Commission meeting cross-posted to seattle.gov city-wide + neighborhoods feeds"
+    },
+    "external-seattle-gov-city-wide.ics Teen Late Night Tennis|2026-08-28T18:45:00Z[UTC]::external-seattle-gov-parks-recreation.ics Teen Late Night Tennis|2026-08-28T18:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Teen Late Night Tennis event cross-posted to seattle.gov city-wide + parks-recreation feeds; identical URL"
+    },
+    "external-seattle-university.ics Feast Fest|2026-07-30T22:00:00Z[UTC]::seatoday-seatoday-all.ics Feast Fest|2026-07-30T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Feast Fest at Seattle University; same 6amcity event id, same start time (22:00Z = 15:00 PDT)"
+    },
+    "external-seattle-university.ics Feast Fest|2026-07-30T22:00:00Z[UTC]::seatoday-seatoday-community.ics Feast Fest|2026-07-30T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Feast Fest at Seattle University; seatoday-community duplicate of the same 6amcity listing"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-07-20T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-07-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-18",
+      "note": "Different events at the same brewery on the same day: board game night (18:30) vs Head in the Clouds trivia (19:30) — different activities, different start times"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-07-24T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-07-24T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Lashes Cabaret drag show at Unicorn, identical date/time"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-07-20T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Head in the Clouds trivia night at Stoup Brewing Ballard, identical date/time"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-07-26T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-07-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same American Mah Jongg at The Missing Piece game cafe; venue's real address is 4707 California Ave SW (confirmed via themissingpiecegames.com/Yelp) — seatoday's 9456 35th Ave SW is a stale/wrong address on their side, not a different venue"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-07-27T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-07-27T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Crafting and Creativity Night at The Missing Piece; same address-discrepancy reasoning as the Mah Jongg pair"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-30T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-30T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Eric-Paul Riege exhibit opening at Henry Art Gallery; same 6amcity event id (seatoday-arts)"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-30T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-07-30T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-18",
+      "note": "Same Eric-Paul Riege exhibit opening at Henry Art Gallery; same 6amcity event id (seatoday-community)"
     }
   }
 }
