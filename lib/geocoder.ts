@@ -742,6 +742,100 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // match only (not a prefix) so it doesn't hijack unrelated "600 4th Ave,
   // Seattle, WA 98104" addresses that should still geocode normally.
   '600 4th ave, floor l2, rm 280': { lat: 47.6038904, lng: -122.3300986 },
+
+  // --- 2026-07-18 geo-resolver batch: away-game stadiums, "west seattle" suffix
+  // failures, and out-of-viewbox addresses. Nominatim's structured parser doesn't
+  // recognize "West Seattle" as a place name (it's a neighborhood, not a city),
+  // so many "<address>, West Seattle" strings failed even though "<address>,
+  // Seattle, WA" resolves cleanly; several others sit outside the Seattle-metro
+  // bounded viewbox (Snohomish/Skagit/Pierce county addresses) and never reached
+  // Nominatim with a result. All coords forward-geocoded via Nominatim from the
+  // verified address/venue name (never reverse-geocoded).
+  //
+  // Reign FC / Sounders FC away-game stadiums (sources/external/reign-fc.yaml,
+  // sounders-fc feed) — full season schedules include road games at other clubs'
+  // home stadiums.
+  'boston stadium': { lat: 42.090888, lng: -71.264173 }, // Gillette Stadium, Foxborough MA — Sounders feed labels it "Boston Stadium"
+  'cpkc stadium, kansas city, missouri, usa': { lat: 39.11938, lng: -94.56659 },
+  'dignity health sports park': { lat: 33.86229, lng: -118.26291 }, // Carson, CA
+  'lynn family stadium, louisville, kentucky, usa': { lat: 38.25933, lng: -85.73255 },
+  'subaru park, seaport drive, chester, pennsylvania, usa': { lat: 39.83291, lng: -75.37847 },
+  'toyota stadium': { lat: 33.15422, lng: -96.83537 }, // Frisco, TX
+  'tql stadium': { lat: 39.11118, lng: -84.52223 }, // Cincinnati, OH
+  'q2 stadium': { lat: 30.38531, lng: -97.71923 }, // Austin, TX — prefix (cache key carries full street address)
+
+  // Seattle-area venues verified by name/address (source page or events-index
+  // sample data cross-checked against Nominatim).
+  'antipode art gallery': { lat: 47.59994, lng: -122.33389 }, // 103 S Main St, Pioneer Square
+  'cal anderson park': { lat: 47.61704, lng: -122.31917 }, // prefix — covers "(event home base)" and other suffix variants
+  'carr park': { lat: 47.64946, lng: -122.33907 }, // Fremont
+  'the bayside cafe': { lat: 47.978817, lng: -122.213938 }, // 2913 W Marine View Dr, Everett — 19hz covers PNW-wide shows
+  'the dock sports bar & grill': { lat: 47.648888, lng: -122.343790 }, // 1102 N 34th St, Fremont
+  'the mortuary': { lat: 47.55155, lng: -122.31939 }, // Georgetown Ballroom — historic mortuary chapel building
+  'westcrest park': { lat: 47.52256, lng: -122.34281 },
+  'lincoln park': { lat: 47.53158, lng: -122.39650 }, // West Seattle waterfront park
+  'webster st. greenspace across from home depot': { lat: 47.534890, lng: -122.362081 }, // Webster Street Detention Pond, Delridge
+  'sinegal center': { lat: 47.610652, lng: -122.317137 }, // 901 12th Ave — Seattle University Sinegal Center for Science & Innovation
+  'sound break': { lat: 47.599255, lng: -122.326893 }, // 115B S Jackson St — verified from event's own address line (normalizeLocation drops it after a newline split)
+  'arete (in pro ski)': { lat: 47.495970, lng: -121.785339 }, // 112 W 2nd St, North Bend
+  '9th ave gallery': { lat: 47.616966, lng: -122.335994 }, // 2014 9th Ave — Cornish/Seattle University; coords from source's own event JSON
+  'mcmenamins spanish ballroom @ elks temple': { lat: 47.6120, lng: -122.3321 }, // alias of 'spanish ballroom at mcmenamins elks temple' (19hz uses reversed word order)
+  'hillman city corridor along rainier ave s': { lat: 47.5524351, lng: -122.2749152 }, // alias of 'hillman city business district' centroid
+  'good society @ california sw & sw lander, west seattle': { lat: 47.579210, lng: -122.386507 },
+  'california avenue sw between lander and edmunds': { lat: 47.579210, lng: -122.386507 }, // same West Seattle Junction corner
+  'keybank plaza @ sw corner of california sw and sw alaska, west seattle': { lat: 47.561072, lng: -122.387034 },
+  'starts on hiawatha field, heads south on california': { lat: 47.578247, lng: -122.384950 }, // Hiawatha Playfield, West Seattle
+  'meet near admiral junction': { lat: 47.5814821, lng: -122.38643 }, // California Ave SW & SW Admiral Way
+  'sweatbox yoga, seattle, wa': { lat: 47.613592, lng: -122.3196399 }, // 1417 10th Ave, First Hill
+  'uptown / lower queen anne neighborhood, seattle': { lat: 47.6374, lng: -122.3569 }, // Queen Anne centroid alias — doesn't match lookupNeighborhoodCentroid's fixed phrasing
+  'west hill upper woodland': { lat: 47.6695906, lng: -122.3436697 }, // Woodland Park general area (approximate — no distinct OSM feature for this sub-area)
+
+  // Out-of-viewbox or "West Seattle"-suffix addresses (see batch note above).
+  '1 galaxy way, monroe, wa, 98272': { lat: 47.86586, lng: -121.97623 },
+  '105 cedar avenue, snohomish, wa, 98290': { lat: 47.91112, lng: -122.09181 },
+  '1100 sw cloverdale, west seattle': { lat: 47.52713, lng: -122.34935 },
+  "1108 nw 52'nd st seattle 98107": { lat: 47.66661, lng: -122.37119 }, // Stoup Brewing Ballard
+  '11921 old snohomish monroe rd. snohomish wa, 98290': { lat: 47.88940, lng: -122.07367 },
+  '120 republican st seattle wa': { lat: 47.62350, lng: -122.35445 }, // prefix — cache key has trailing "3rd floor..." RSVP text
+  '13400 ne bel red rd': { lat: 47.62278, lng: -122.16156 }, // prefix, Bellevue
+  '14428 167th avenue southeast, monroe, washington, 98272': { lat: 47.85891, lng: -122.00753 },
+  '14964 fryelands boulevard, monroe, wa, 98272': { lat: 47.86393, lng: -122.00880 },
+  '1514 3rd street, marysville, wa, 98270': { lat: 48.05073, lng: -122.17619 },
+  '16th sw & sw holden, west seattle': { lat: 47.53352, lng: -122.35493 },
+  '17925 59th avenue northeast, arlington, wa, 98223': { lat: 48.15876, lng: -122.15000 },
+  '17925 59th avenue northeast, arlington, washington, 98223': { lat: 48.15876, lng: -122.15000 },
+  '1806 main street, lake stevens, wa, 98258': { lat: 48.01401, lng: -122.06550 },
+  '2 sessions each night @ 5200 35th sw, west seattle': { lat: 47.55561, lng: -122.37511 },
+  '200 north olympic avenue, arlington, wa, 98223': { lat: 48.19488, lng: -122.12642 },
+  '2010 grade road, lake stevens, wa, 98258': { lat: 48.01653, lng: -122.06358 },
+  '2010 grade road, lake stevens, washington, 98258': { lat: 48.01653, lng: -122.06358 },
+  '2502 s tyler st, tacoma, wa 98405, us': { lat: 47.23831, lng: -122.49760 }, // Cheney Stadium
+  '312 alder st, raymond, wa 98577, usa': { lat: 46.68355, lng: -123.73245 },
+  '35th sw and sw barton, west seattle': { lat: 47.52130, lng: -122.37664 },
+  '4000 lancaster dr ne, salem, or 97305, usa': { lat: 44.97728, lng: -122.97825 },
+  '402 north granite avenue, granite falls, wa, 98252': { lat: 48.08569, lng: -121.96955 },
+  '4200 sw admiral way, west seattlel': { lat: 47.58154, lng: -122.38534 }, // source spelling ("seattlel")
+  '42501 state route 530 northeast, darrington, wa, 98241': { lat: 48.25721, lng: -121.61304 },
+  '4306 132nd street southeast, mill creek, wa, 98012': { lat: 47.87777, lng: -122.17433 },
+  '4517 california sw, upstairs, west seattle': { lat: 47.56241, lng: -122.38702 }, // Rush Hour, Alaska Junction
+  '4547 california sw (alley side), west seattle': { lat: 47.56154, lng: -122.38717 }, // Revelry Room, Alaska Junction
+  '4547 california sw (alley), west seattle': { lat: 47.56154, lng: -122.38717 },
+  '4547 california sw, alley side, west seattle': { lat: 47.56154, lng: -122.38717 },
+  '47th sw & sw fontanelle, west seattle': { lat: 47.58465, lng: -122.39180 },
+  '47th/fontanelle': { lat: 47.58465, lng: -122.39180 },
+  '501 delta avenue, marysville, wa, 98270': { lat: 48.05331, lng: -122.17905 },
+  '5010 14th ave nw seattle, wa 98107, 5010 14th ave nw, seattle, 98107': { lat: 47.66541, lng: -122.37323 }, // Reuben's Brews Taproom
+  '505 o avenue, anacortes, wa, 98221': { lat: 48.51797, lng: -122.61381 },
+  '515 dayton street, edmonds, wa, 98020': { lat: 47.80989, lng: -122.37682 },
+  '61st sw and alki sw, west seattle': { lat: 47.57894, lng: -122.41099 },
+  '7 seas brewery and taproom, 2101 jefferson ave, tacoma, wa, 98402, us': { lat: 47.24257, lng: -122.43900 },
+  '738 rainier street, snohomish, wa, 98290': { lat: 47.91207, lng: -122.09030 },
+  '7789 highland park way, west seattle': { lat: 47.53211, lng: -122.34710 },
+  '9th sw & sw henderson, west seattle': { lat: 47.52314, lng: -122.34685 },
+  'apcc, 4851 s tacoma way, tacoma, wa, 98409': { lat: 47.21211, lng: -122.48299 }, // Asia Pacific Cultural Center
+  'pier 59, 1483 alaskan way, pier 59, seattle, wa': { lat: 47.6076, lng: -122.3432 }, // alias of the existing Seattle Aquarium / Pier 59 entry
+  's 3rd st & shattuck ave, renton, wa': { lat: 47.479665, lng: -122.212875 },
+  'south 5th street & east edison avenue, s 5th st & e edison ave, sunnyside, wa 98944, usa': { lat: 46.32348, lng: -120.01439 },
 };
 
 /**
