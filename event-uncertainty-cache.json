@@ -36924,25 +36924,27 @@
       "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-2026-07-24": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "setting": "outdoor",
         "cost": {
           "min": 27.5
-        },
-        "setting": "outdoor"
+        }
       },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
       "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-2026-07-25": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "setting": "outdoor",
         "cost": {
           "min": 27.5
-        },
-        "setting": "outdoor"
+        }
       },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
       "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:bicycle-to-portland-2026-07-11": {
@@ -37012,23 +37014,25 @@
       "evidence": "https://www.seafair.org/seafair-weekend-festival/air-show/"
     },
     "events12:bluegrass-festival-2026-07-11": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://web.archive.org/web/20250330062930if_/https://bluegrassfromtheforest.com/wp-content/uploads/WBA-Gazette_ad.jpg",
         "cost": {
           "min": 20
         }
       },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
       "evidence": "https://bluegrassfromtheforest.com/"
     },
     "events12:bluegrass-festival-2026-07-12": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://web.archive.org/web/20250330062930if_/https://bluegrassfromtheforest.com/wp-content/uploads/WBA-Gazette_ad.jpg",
         "cost": {
           "min": 20
         }
       },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
       "evidence": "https://bluegrassfromtheforest.com/"
     },
     "events12:bluegrass-festival-2026-07-17": {
@@ -43080,11 +43084,12 @@
     },
     "events12:films-made-in-2-days-2026-07-27": {
       "fields": {
+        "imageUrl": "https://48hourfilm.com/images/og-image-default.png",
         "cost": {
           "min": 20
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://www.siff.net/cinema/in-theaters/seattle-48-hour-film-project-premiere-screenings-2025"
     },
@@ -43166,13 +43171,14 @@
       "evidence": "https://www.seattleaquarium.org/events/after-hours-pride-celebration/"
     },
     "events12:gourmet-cooking-class-2026-07-25": {
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
       "fields": {
+        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/14207DSC00293.jpeg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600",
         "cost": {
           "paid": true
         }
       },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
       "evidence": "https://www.hotstovesociety.com/store/events/"
     },
     "events12:hawaii-festival-near-portland-2026-07-23": {
@@ -48885,7 +48891,7 @@
     "events12:beatles-music-on-a-rooftop-2026-07-29-1800": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-07-18",
@@ -48896,7 +48902,7 @@
     "events12:beatles-music-on-a-rooftop-2026-07-29-2030": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-07-18",
@@ -50266,6 +50272,38 @@
       "source": "agent",
       "reason": "Ticketmaster event page returns HTTP 403 (blocked).",
       "partialFingerprint": "q9311v"
+    },
+    "cannonball-arts:cannonball-arts-LTBL-tour": {
+      "fields": {
+        "imageUrl": "https://cdn.sanity.io/images/kf9r1eb7/production/8220cdd309e7d363495ee4163e848c4f3445d454-1867x2800.jpg?rect=0,910,1867,980&w=1200&h=630&q=80&fit=crop&auto=format"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://cannonballarts.com/events/LTBL-tour"
+    },
+    "events12:bluegrass-festival-2026-07-10": {
+      "fields": {
+        "imageUrl": "https://web.archive.org/web/20250330062930if_/https://bluegrassfromtheforest.com/wp-content/uploads/WBA-Gazette_ad.jpg"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://bluegrassfromtheforest.com/"
+    },
+    "events12:bothell-night-market-2026-07-31": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/6387adff09b4ce49ecd0b641/847fcc97-6861-4e74-9d0a-097785282102/IMG_1619.jpg"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.makinglocal.com/nightbites-bothell"
+    },
+    "events12:fireworks-party-2026-07-04": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/641a6eabb435eb4d37a4ebf5/1775507840426-F8TP9Y2VMXYNAVBPGGGI/Gracelend+4th+of+July+2026+SQ.png"
+      },
+      "resolvedAt": "2026-07-18",
+      "source": "agent",
+      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration"
     }
   }
 }

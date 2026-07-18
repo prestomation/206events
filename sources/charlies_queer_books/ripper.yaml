@@ -10,6 +10,11 @@ geo:
   label: "Charlie's Queer Books, 465 N 36th St, Seattle, WA 98103"
   osmType: node
   osmId: 1248842374
+imageUrl: "https://cdn1.bookmanager.com/i/9932925/charlies_primary_script_purple.png?mtime=1704682692"
+# Verified 8 distinct event pages (2026-07-18): each only carries the
+# venue's own logo/favicon as og:image, no per-event artwork (book cover,
+# author photo, etc). Retire event-photo backfill for this source.
+skipEventPhotos: true
 calendars:
   - name: all-events
     friendlyname: "Charlie's Queer Books"
