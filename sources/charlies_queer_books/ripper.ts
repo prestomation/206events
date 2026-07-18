@@ -1,8 +1,18 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime, DateTimeFormatter } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
+
+// Simple deterministic string hash for uncertainty fingerprints (same
+// formula used by other rippers, e.g. lib/config/eventbrite.ts).
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 // Charlie's Queer Books runs its event calendar through BookManager (a
 // third-party bookstore POS/CMS whose storefront is a client-rendered React
@@ -41,6 +51,11 @@ interface BookManagerEventRow {
     // Most events are in-store ("Charlie's"); a few are hosted off-site
     // (e.g. "Town Hall Seattle") or "Virtual" — see OFFSITE_LOCATIONS.
     location_text?: string;
+    // "purchase" when the event is sold through BookManager's own checkout
+    // (a non-empty `tickets` array); "request"/"unrestricted" are free
+    // RSVP-only flows with no payment step. Used by parseCost below.
+    attendance?: string;
+    tickets?: string[];
 }
 
 // The normal case: `location_text` is "Charlie's" (in-store).
@@ -85,8 +100,14 @@ export default class CharliesQueerBooksRipper implements IRipper {
 
         for (const row of rows) {
             const result = this.parseRow(row);
-            if ('date' in result) events.push(result);
-            else errors.push(result);
+            if ('date' in result) {
+                events.push(result);
+                if (result.cost === undefined) {
+                    errors.push(this.buildCostUncertainty(row, result));
+                }
+            } else {
+                errors.push(result);
+            }
         }
 
         return [{
@@ -183,16 +204,20 @@ export default class CharliesQueerBooksRipper implements IRipper {
             coords = known;
         }
 
+        const description = row.description ? this.stripHtml(row.description) : undefined;
+        const cost = this.parseCost(row, description);
+
         const event: RipperCalendarEvent = {
             id: `charlies-queer-books-${row.id}`,
             ripped: new Date(),
             date: startDate,
             duration,
             summary: row.title,
-            description: row.description ? this.stripHtml(row.description) : undefined,
+            description,
             location,
             url: `https://charliesqueerbooks.com/events/${row.id}`,
             imageUrl: row.image_url || undefined,
+            ...(cost ? { cost } : {}),
         };
 
         if (coords) {
@@ -202,6 +227,51 @@ export default class CharliesQueerBooksRipper implements IRipper {
         }
 
         return event;
+    }
+
+    // Public for testing. BookManager event descriptions occasionally state
+    // the price directly ("Tickets for this event are $35.", "$45 – $55
+    // (Includes Book)") or explicitly say the event is free ("It is FREE
+    // with RSVP."). When neither appears, `attendance === "purchase"` (a
+    // non-empty `tickets` array, BookManager's own checkout) confirms the
+    // event is ticketed with the price posted elsewhere (e.g. an external
+    // ticketing link) — "paid, amount unknown". Anything else (an RSVP-only
+    // "request"/"unrestricted" flow with no price text) is left undetermined
+    // here; buildCostUncertainty flags it so the cost-resolver can confirm.
+    parseCost(row: BookManagerEventRow, description?: string): EventCost | undefined {
+        const text = description ?? '';
+        const rangeMatch = text.match(/\$([\d,]+(?:\.\d+)?)\s*[-–—]\s*\$?([\d,]+(?:\.\d+)?)/);
+        if (rangeMatch) {
+            const min = parseFloat(rangeMatch[1].replace(/,/g, ''));
+            const max = parseFloat(rangeMatch[2].replace(/,/g, ''));
+            return max > min ? { min, max } : { min };
+        }
+        const singleMatch = text.match(/\$([\d,]+(?:\.\d+)?)/);
+        if (singleMatch) {
+            return { min: parseFloat(singleMatch[1].replace(/,/g, '')) };
+        }
+        // Deliberately narrow phrases, not a bare /free/ match — the latter
+        // false-positives on incidental prose like "her free time".
+        if (/\bfree (with rsvp|admission|entry|to attend)\b|\badmission is free\b|\bit is free\b|\bit's free\b/i.test(text)) {
+            return { min: 0 };
+        }
+        if (row.attendance === 'purchase') {
+            return { paid: true };
+        }
+        return undefined;
+    }
+
+    private buildCostUncertainty(row: BookManagerEventRow, event: RipperCalendarEvent): UncertaintyError {
+        const unknownFields: UncertaintyField[] = ["cost"];
+        const fingerprint = simpleHash(`${row.attendance ?? ''}|${(row.tickets ?? []).join(',')}|${event.description ?? ''}`);
+        return {
+            type: "Uncertainty",
+            reason: "Charlie's Queer Books listing did not include cost information",
+            source: "charlies-queer-books",
+            unknownFields,
+            event,
+            partialFingerprint: fingerprint,
+        };
     }
 
     private parseTime(time?: string): [number, number] | null {

@@ -204,22 +204,56 @@ export class TicketmasterRipper implements IRipper {
                 // placeholder above and do NOT flag it as uncertain (it can
                 // never be resolved). Start time is only occasionally missing
                 // (date-only listings), so that case gets an UncertaintyError.
-                if (startTimeUnknown) {
-                    const unknownFields: UncertaintyField[] = ["startTime"];
+                //
+                // Cost is similarly only occasionally missing: `priceRanges`
+                // is absent when tickets haven't gone on sale yet or the API
+                // just doesn't carry pricing for that event. A sold-out event
+                // is a terminal state (see above) and never flagged uncertain
+                // — there's nothing left to resolve once tickets are gone.
+                const costUnknown = cost === undefined;
+                const startAndCostUnknown = startTimeUnknown && costUnknown;
+                if (startAndCostUnknown) {
+                    // Both fields missing: one combined entry, fingerprinted
+                    // over both the date and price inputs so either one
+                    // reappearing on a later fetch invalidates the cache.
+                    const start = event.dates?.start ?? {};
+                    const fingerprint = simpleHash(
+                        `${start.localDate ?? ''}|${start.localTime ?? ''}|${start.dateTime ?? ''}|${JSON.stringify(event.priceRanges ?? [])}`
+                    );
+                    events.push({
+                        type: "Uncertainty",
+                        reason: "Ticketmaster listing has date only (no start time) and no price range",
+                        source,
+                        calendar: calendarName,
+                        unknownFields: ["startTime", "cost"],
+                        event: calEvent,
+                        partialFingerprint: fingerprint,
+                    });
+                } else if (startTimeUnknown) {
                     const start = event.dates?.start ?? {};
                     const fingerprint = simpleHash(
                         `${start.localDate ?? ''}|${start.localTime ?? ''}|${start.dateTime ?? ''}`
                     );
-                    const uncertainty: UncertaintyError = {
+                    events.push({
                         type: "Uncertainty",
                         reason: "Ticketmaster listing has date only (no start time); using 19:30 placeholder",
                         source,
                         calendar: calendarName,
-                        unknownFields,
+                        unknownFields: ["startTime"],
                         event: calEvent,
                         partialFingerprint: fingerprint,
-                    };
-                    events.push(uncertainty);
+                    });
+                } else if (costUnknown) {
+                    const fingerprint = simpleHash(JSON.stringify(event.priceRanges ?? []));
+                    events.push({
+                        type: "Uncertainty",
+                        reason: "Ticketmaster listing has no price range for this event",
+                        source,
+                        calendar: calendarName,
+                        unknownFields: ["cost"],
+                        event: calEvent,
+                        partialFingerprint: fingerprint,
+                    });
                 }
             } catch (error) {
                 events.push({
