@@ -10,3 +10,4 @@ calendars:
   - name: all-events
     friendlyname: "Seattle Creative Social"
     timezone: America/Los_Angeles
+    expectEmpty: true # small community org with intermittent programming; upcoming list is currently empty

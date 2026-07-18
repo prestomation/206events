@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
+import "@js-joda/timezone";
 import {
     extractDetailUrls,
     slugFromUrl,
@@ -9,6 +11,7 @@ import {
     extractCleanStartDate,
     extractFreeTextDateTime,
     extractDateOnlyStartDates,
+    extractAllDayDates,
     extractOffersUrl,
     extractLocation,
     extractDuration,
@@ -26,6 +29,8 @@ const FILM_URL = "https://nwfilmforum.org/films/free-forum-stop-making-sense/";
 const EVENT_URL = "https://nwfilmforum.org/events/squeakyfest-seattle/";
 const CLOSURE_URL = "https://nwfilmforum.org/events/nwff-summer-break-2026/";
 const WORKSHOP_URL = "https://nwfilmforum.org/education/workshops/camp2-2026/";
+const MULTIDATE_URL = "https://nwfilmforum.org/events/two-angels-in-the-night-a-gregg-araki-double-feature/";
+const FIXED_NOW = ZonedDateTime.of(2026, 7, 18, 10, 0, 0, 0, ZoneId.of("America/Los_Angeles"));
 
 describe("extractDetailUrls", () => {
     it("extracts unique nwfilmforum.org detail-page URLs from a day fragment", () => {
@@ -177,6 +182,49 @@ describe("extractDateOnlyStartDates", () => {
     });
 });
 
+describe("extractAllDayDates", () => {
+    it("extracts every non-contiguous date from a multi-date pass listing", () => {
+        const results = extractAllDayDates(readSample("sample-data-multidate-pass.html"), MULTIDATE_URL, FIXED_NOW);
+        expect(results.map(d => (d instanceof LocalDate ? d.toString() : d))).toEqual([
+            "2026-08-23", "2026-08-28", "2026-08-29", "2026-08-30",
+        ]);
+    });
+
+    it("rolls over to next year when the month/day has already passed relative to now", () => {
+        const lateNow = ZonedDateTime.of(2026, 12, 15, 10, 0, 0, 0, ZoneId.of("America/Los_Angeles"));
+        const results = extractAllDayDates(readSample("sample-data-multidate-pass.html"), MULTIDATE_URL, lateNow);
+        expect(results.map(d => (d instanceof LocalDate ? d.toString() : d))).toEqual([
+            "2027-08-23", "2027-08-28", "2027-08-29", "2027-08-30",
+        ]);
+    });
+
+    it("returns an empty array for a page with no All Day listing", () => {
+        expect(extractAllDayDates(readSample("sample-data-film.html"), FILM_URL, FIXED_NOW)).toEqual([]);
+    });
+
+    it("deduplicates a repeated All Day line instead of double-counting it", () => {
+        const html = `
+            <div class="col-1">Sun Aug 23: All Day</div>
+            <div class="col-1">Sun Aug 23: All Day</div>
+            <div class="col-1">Fri Aug 28: All Day</div>
+        `;
+        const results = extractAllDayDates(html, MULTIDATE_URL, FIXED_NOW);
+        expect(results.map(d => (d instanceof LocalDate ? d.toString() : d))).toEqual([
+            "2026-08-23", "2026-08-28",
+        ]);
+    });
+
+    it("returns a ParseError for an invalid calendar date (e.g. Feb 30) instead of silently dropping it", () => {
+        const html = `<div class="col-1">Mon Feb 30: All Day</div>`;
+        const results = extractAllDayDates(html, MULTIDATE_URL, FIXED_NOW);
+        expect(results.length).toBe(1);
+        expect(results[0] instanceof LocalDate).toBe(false);
+        const error = results[0] as RipperError;
+        expect(error.type).toBe("ParseError");
+        expect(error.context).toBe(MULTIDATE_URL);
+    });
+});
+
 describe("extractOffersUrl", () => {
     it("extracts the ticket/registration URL from a /films/ page", () => {
         expect(extractOffersUrl(readSample("sample-data-film.html")))
@@ -280,6 +328,28 @@ describe("parseDetailPage", () => {
         expect(uncertainty.source).toBe("northwest-film-forum");
         expect(uncertainty.unknownFields).toEqual(["startTime", "duration"]);
         expect(uncertainty.event.id).toBe(event.id);
+    });
+
+    it("returns one [event, uncertainty] pair per date for a multi-date pass with non-contiguous 'All Day' dates", () => {
+        const results = parseDetailPage(readSample("sample-data-multidate-pass.html"), MULTIDATE_URL, FIXED_NOW);
+        expect(results.length).toBe(8); // 4 dates × [event, uncertainty]
+
+        const expectedDates = ["2026-08-23", "2026-08-28", "2026-08-29", "2026-08-30"];
+        for (let i = 0; i < expectedDates.length; i++) {
+            const event = results[i * 2] as RipperCalendarEvent;
+            expect("date" in event).toBe(true);
+            expect(event.id).toBe(`two-angels-in-the-night-a-gregg-araki-double-feature-${expectedDates[i]}`);
+            expect(event.summary).toBe("Two Angels In The Night: A Gregg Araki Double Feature");
+            expect(event.date.toLocalDate().toString()).toBe(expectedDates[i]);
+            expect(event.date.hour()).toBe(12); // placeholder — real time unknown
+            expect(event.location).toBe("Northwest Film Forum, 1515 12th Ave, Seattle WA 98122");
+
+            const uncertainty = results[i * 2 + 1] as UncertaintyError;
+            expect(uncertainty.type).toBe("Uncertainty");
+            expect(uncertainty.source).toBe("northwest-film-forum");
+            expect(uncertainty.unknownFields).toEqual(["startTime", "duration"]);
+            expect(uncertainty.event.id).toBe(event.id);
+        }
     });
 
     it("returns an empty array (not a crash) for a page with no title", () => {

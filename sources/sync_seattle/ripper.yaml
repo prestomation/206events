@@ -12,6 +12,7 @@ calendars:
   - name: sync-seattle
     friendlyname: "Sync Seattle"
     timezone: America/Los_Angeles
+    expectEmpty: true # small org with intermittent programming; may have no upcoming events between meetups
     config:
       organizerId: "45161572473"
       defaultLocation: "Seattle, WA"

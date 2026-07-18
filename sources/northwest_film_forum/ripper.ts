@@ -167,6 +167,73 @@ export function extractDateOnlyStartDates(html: string): LocalDate[] {
     return dates;
 }
 
+// Pick the year for a (month, day) pair: use the soonest occurrence whose
+// date is not before today. Returns null when the (month, day) is not a
+// real calendar date in either year (e.g. Feb 30).
+function inferYear(month: number, day: number, now: ZonedDateTime): number | null {
+    try {
+        const today = now.toLocalDate();
+        const thisYear = LocalDate.of(now.year(), month, day);
+        return thisYear.isBefore(today) ? now.year() + 1 : now.year();
+    } catch {
+        return null;
+    }
+}
+
+const ABBR_MONTHS: Record<string, number> = {
+    Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6,
+    Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12,
+};
+
+/**
+ * Extracts every date from a "multi-date pass" listing, e.g. a double
+ * feature where one ticket admits to any of several screenings:
+ *   "Sun Aug 23: All Day", "Fri Aug 28: All Day", "Sat Aug 29: All Day"
+ * Used on /events/ pages whose `itemprop="startDate"` is the broken "T"
+ * placeholder and which have no single free-text date/time block (the
+ * dates are typically non-contiguous, unlike the workshop camp case).
+ * The listing carries no year, so it's inferred relative to `now`.
+ * Deduplicates repeated matches (the schema.org Event block on these pages
+ * is nested, so a naive scan could otherwise double-count a line) and
+ * returns dates in the order they first appear. An invalid (month, day)
+ * (e.g. "Feb 30") is surfaced as a ParseError rather than silently
+ * dropped. Public for testing.
+ */
+export function extractAllDayDates(html: string, url: string, now: ZonedDateTime): (LocalDate | RipperError)[] {
+    const re = /(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+([A-Z][a-z]{2})\s+(\d{1,2}):\s*All Day/g;
+    const results: (LocalDate | RipperError)[] = [];
+    const seen = new Set<string>();
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(html)) !== null) {
+        const month = ABBR_MONTHS[m[1]];
+        if (!month) continue;
+        const day = Number(m[2]);
+        const key = `${month}-${day}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+
+        const year = inferYear(month, day, now);
+        if (year === null) {
+            results.push({
+                type: "ParseError",
+                reason: `Invalid calendar date in "All Day" listing: month=${month}, day=${day}`,
+                context: url,
+            });
+            continue;
+        }
+        try {
+            results.push(LocalDate.of(year, month, day));
+        } catch {
+            results.push({
+                type: "ParseError",
+                reason: `Invalid calendar date in "All Day" listing: month=${month}, day=${day}`,
+                context: url,
+            });
+        }
+    }
+    return results;
+}
+
 /**
  * Extracts the ticket/registration URL from the nearest schema.org
  * `itemprop="offers"` block. A missing or empty offers URL is the
@@ -224,11 +291,20 @@ export function extractDuration(html: string): Duration {
  *     time/duration and `uncertainty` flags them for the
  *     event-uncertainty-resolver skill, per docs/event-uncertainty.md —
  *     never silently guessed as fact.
+ *   - `[event, uncertainty, event, uncertainty, ...]` — a multi-date pass
+ *     (e.g. a double feature screening on several non-contiguous days)
+ *     whose dates come from an "All Day" listing rather than schema.org
+ *     metadata. One event per listed date, each paired with an
+ *     UncertaintyError since no time of day is published.
  *   - `[error]` — a ticketed/registerable page whose date genuinely could
  *     not be extracted by any strategy; a real gap worth surfacing.
  * Never returns null and never drops a real event without a trace.
  */
-export function parseDetailPage(html: string, url: string): (RipperCalendarEvent | RipperError)[] {
+export function parseDetailPage(
+    html: string,
+    url: string,
+    now: ZonedDateTime = ZonedDateTime.now(TIMEZONE),
+): (RipperCalendarEvent | RipperError)[] {
     const slug = slugFromUrl(url);
     if (!slug) {
         return [{ type: "ParseError", reason: "Could not extract a URL slug", context: url }];
@@ -281,6 +357,36 @@ export function parseDetailPage(html: string, url: string): (RipperCalendarEvent
             event,
         };
         return [event, uncertainty];
+    }
+
+    const allDayResults = extractAllDayDates(html, url, now);
+    if (allDayResults.length > 0) {
+        const results: (RipperCalendarEvent | RipperError)[] = [];
+        for (const d of allDayResults) {
+            if (!(d instanceof LocalDate)) {
+                results.push(d);
+                continue;
+            }
+            const date = d.atTime(DEFAULT_UNKNOWN_TIME_HOUR, DEFAULT_UNKNOWN_TIME_MINUTE).atZone(TIMEZONE);
+            const event: RipperCalendarEvent = {
+                id: `${slug}-${d.toString()}`,
+                ripped: new Date(),
+                date,
+                duration: DEFAULT_DURATION,
+                summary: title,
+                location: location ?? undefined,
+                url,
+            };
+            const uncertainty: UncertaintyError = {
+                type: "Uncertainty",
+                reason: `NWFF multi-date pass lists ${d.toString()} as "All Day" with no specific showtime or duration published`,
+                source: "northwest-film-forum",
+                unknownFields: ["startTime", "duration"],
+                event,
+            };
+            results.push(event, uncertainty);
+        }
+        return results;
     }
 
     if (!offersUrl) {
@@ -342,7 +448,7 @@ export default class NorthwestFilmForumRipper implements IRipper {
                 continue;
             }
 
-            for (const result of parseDetailPage(html, url)) {
+            for (const result of parseDetailPage(html, url, now)) {
                 if ("date" in result) {
                     if (result.date.isBefore(now)) continue;
                     events.push(result);
