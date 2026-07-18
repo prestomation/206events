@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { ZonedDateTime, ZoneId } from "@js-joda/core";
+import { LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
 import "@js-joda/timezone";
 import {
     extractDetailUrls,
@@ -184,22 +184,44 @@ describe("extractDateOnlyStartDates", () => {
 
 describe("extractAllDayDates", () => {
     it("extracts every non-contiguous date from a multi-date pass listing", () => {
-        const dates = extractAllDayDates(readSample("sample-data-multidate-pass.html"), FIXED_NOW);
-        expect(dates.map(d => d.toString())).toEqual([
+        const results = extractAllDayDates(readSample("sample-data-multidate-pass.html"), MULTIDATE_URL, FIXED_NOW);
+        expect(results.map(d => (d instanceof LocalDate ? d.toString() : d))).toEqual([
             "2026-08-23", "2026-08-28", "2026-08-29", "2026-08-30",
         ]);
     });
 
     it("rolls over to next year when the month/day has already passed relative to now", () => {
         const lateNow = ZonedDateTime.of(2026, 12, 15, 10, 0, 0, 0, ZoneId.of("America/Los_Angeles"));
-        const dates = extractAllDayDates(readSample("sample-data-multidate-pass.html"), lateNow);
-        expect(dates.map(d => d.toString())).toEqual([
+        const results = extractAllDayDates(readSample("sample-data-multidate-pass.html"), MULTIDATE_URL, lateNow);
+        expect(results.map(d => (d instanceof LocalDate ? d.toString() : d))).toEqual([
             "2027-08-23", "2027-08-28", "2027-08-29", "2027-08-30",
         ]);
     });
 
     it("returns an empty array for a page with no All Day listing", () => {
-        expect(extractAllDayDates(readSample("sample-data-film.html"), FIXED_NOW)).toEqual([]);
+        expect(extractAllDayDates(readSample("sample-data-film.html"), FILM_URL, FIXED_NOW)).toEqual([]);
+    });
+
+    it("deduplicates a repeated All Day line instead of double-counting it", () => {
+        const html = `
+            <div class="col-1">Sun Aug 23: All Day</div>
+            <div class="col-1">Sun Aug 23: All Day</div>
+            <div class="col-1">Fri Aug 28: All Day</div>
+        `;
+        const results = extractAllDayDates(html, MULTIDATE_URL, FIXED_NOW);
+        expect(results.map(d => (d instanceof LocalDate ? d.toString() : d))).toEqual([
+            "2026-08-23", "2026-08-28",
+        ]);
+    });
+
+    it("returns a ParseError for an invalid calendar date (e.g. Feb 30) instead of silently dropping it", () => {
+        const html = `<div class="col-1">Mon Feb 30: All Day</div>`;
+        const results = extractAllDayDates(html, MULTIDATE_URL, FIXED_NOW);
+        expect(results.length).toBe(1);
+        expect(results[0] instanceof LocalDate).toBe(false);
+        const error = results[0] as RipperError;
+        expect(error.type).toBe("ParseError");
+        expect(error.context).toBe(MULTIDATE_URL);
     });
 });
 
@@ -325,7 +347,7 @@ describe("parseDetailPage", () => {
             const uncertainty = results[i * 2 + 1] as UncertaintyError;
             expect(uncertainty.type).toBe("Uncertainty");
             expect(uncertainty.source).toBe("northwest-film-forum");
-            expect(uncertainty.unknownFields).toEqual(["startTime"]);
+            expect(uncertainty.unknownFields).toEqual(["startTime", "duration"]);
             expect(uncertainty.event.id).toBe(event.id);
         }
     });

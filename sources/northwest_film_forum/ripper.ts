@@ -192,26 +192,46 @@ const ABBR_MONTHS: Record<string, number> = {
  * Used on /events/ pages whose `itemprop="startDate"` is the broken "T"
  * placeholder and which have no single free-text date/time block (the
  * dates are typically non-contiguous, unlike the workshop camp case).
- * The listing carries no year, so it's inferred relative to `now`. Public
- * for testing.
+ * The listing carries no year, so it's inferred relative to `now`.
+ * Deduplicates repeated matches (the schema.org Event block on these pages
+ * is nested, so a naive scan could otherwise double-count a line) and
+ * returns dates in the order they first appear. An invalid (month, day)
+ * (e.g. "Feb 30") is surfaced as a ParseError rather than silently
+ * dropped. Public for testing.
  */
-export function extractAllDayDates(html: string, now: ZonedDateTime): LocalDate[] {
+export function extractAllDayDates(html: string, url: string, now: ZonedDateTime): (LocalDate | RipperError)[] {
     const re = /(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+([A-Z][a-z]{2})\s+(\d{1,2}):\s*All Day/g;
-    const dates: LocalDate[] = [];
+    const results: (LocalDate | RipperError)[] = [];
+    const seen = new Set<string>();
     let m: RegExpExecArray | null;
     while ((m = re.exec(html)) !== null) {
         const month = ABBR_MONTHS[m[1]];
         if (!month) continue;
         const day = Number(m[2]);
+        const key = `${month}-${day}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+
         const year = inferYear(month, day, now);
-        if (year === null) continue;
-        try {
-            dates.push(LocalDate.of(year, month, day));
-        } catch {
+        if (year === null) {
+            results.push({
+                type: "ParseError",
+                reason: `Invalid calendar date in "All Day" listing: month=${month}, day=${day}`,
+                context: url,
+            });
             continue;
         }
+        try {
+            results.push(LocalDate.of(year, month, day));
+        } catch {
+            results.push({
+                type: "ParseError",
+                reason: `Invalid calendar date in "All Day" listing: month=${month}, day=${day}`,
+                context: url,
+            });
+        }
     }
-    return dates;
+    return results;
 }
 
 /**
@@ -339,10 +359,14 @@ export function parseDetailPage(
         return [event, uncertainty];
     }
 
-    const allDayDates = extractAllDayDates(html, now);
-    if (allDayDates.length > 0) {
+    const allDayResults = extractAllDayDates(html, url, now);
+    if (allDayResults.length > 0) {
         const results: (RipperCalendarEvent | RipperError)[] = [];
-        for (const d of allDayDates) {
+        for (const d of allDayResults) {
+            if (!(d instanceof LocalDate)) {
+                results.push(d);
+                continue;
+            }
             const date = d.atTime(DEFAULT_UNKNOWN_TIME_HOUR, DEFAULT_UNKNOWN_TIME_MINUTE).atZone(TIMEZONE);
             const event: RipperCalendarEvent = {
                 id: `${slug}-${d.toString()}`,
@@ -355,9 +379,9 @@ export function parseDetailPage(
             };
             const uncertainty: UncertaintyError = {
                 type: "Uncertainty",
-                reason: `NWFF multi-date pass lists ${d.toString()} as "All Day" with no specific showtime published`,
+                reason: `NWFF multi-date pass lists ${d.toString()} as "All Day" with no specific showtime or duration published`,
                 source: "northwest-film-forum",
-                unknownFields: ["startTime"],
+                unknownFields: ["startTime", "duration"],
                 event,
             };
             results.push(event, uncertainty);
