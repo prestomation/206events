@@ -7439,6 +7439,76 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-18",
       "note": "Same Deltaphonic show at The Sunset Tavern; Tractor Tavern co-presents and lists it in their calendar"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Benson Boone: Wanted Man Tour|2026-08-04T20:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Benson Boone|2026-08-04T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same Benson Boone concert at Climate Pledge Arena, listed by both the venue feed and Seattle Center events feed"
+    },
+    "seatoday-seatoday-all.ics Environmental Education Professional Development|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Environmental Education Professional Development|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same event appearing in both the seatoday all-events feed and community category feed"
+    },
+    "seatoday-seatoday-all.ics Environmental Education Professional Development|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Environmental Education Professional Development|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same event appearing in both seatoday all-events and learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same art exhibition appearing in both seatoday all-events and arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same art exhibition appearing in both seatoday all-events and community category feeds"
+    },
+    "seatoday-seatoday-all.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same volunteer event in both seatoday all-events and community category feeds"
+    },
+    "seatoday-seatoday-all.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same volunteer event in both seatoday all-events and learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same volunteer event in both seatoday all-events and sports category feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same art exhibition in both seatoday arts and community category feeds"
+    },
+    "seatoday-seatoday-community.ics Environmental Education Professional Development|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Environmental Education Professional Development|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same event in seatoday community and learning category feeds"
+    },
+    "seatoday-seatoday-community.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same volunteer event in seatoday community and learning category feeds"
+    },
+    "seatoday-seatoday-community.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same volunteer event in seatoday community and sports category feeds"
+    },
+    "seatoday-seatoday-learning.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-19",
+      "note": "Same volunteer event in seatoday learning and sports category feeds"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-18T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-19",
+      "note": "Different food truck locations (1201 vs 1551 Eastlake Ave E, 321m apart) — distinct events at separate sites"
     }
   }
 }
