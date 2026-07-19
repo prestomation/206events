@@ -51234,7 +51234,8 @@
     },
     "seattle-center:lionel-ritchie-and-ewf": {
       "fields": {
-        "duration": 14400
+        "duration": 14400,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Climate%20Pledge%20Arena/2026/Lionel-Richie-08-03-26/Lionel-Richie-2026-Hero-1800x820.jpg"
       },
       "resolvedAt": "2026-07-19",
       "source": "agent",
@@ -51242,7 +51243,8 @@
     },
     "seattle-center:freak-the-mighty-preview-performance-x47844": {
       "fields": {
-        "duration": 9000
+        "duration": 9000,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Resident%20Orgs/Seattle%20Repertory%20Theatre/2026/Freak-the-Mighty-07-30-26-to-09-06-26/Freak-The-Mighty-2026-Hero-1800x820.jpg"
       },
       "resolvedAt": "2026-07-19",
       "source": "agent",
@@ -51250,7 +51252,8 @@
     },
     "seattle-center:benson-boone-x47173": {
       "fields": {
-        "duration": 12600
+        "duration": 12600,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Climate%20Pledge%20Arena/2026/Benson-Boone-08-04-26/Benson-Boone-2026-Hero-1800x820.jpg"
       },
       "resolvedAt": "2026-07-19",
       "source": "agent",
