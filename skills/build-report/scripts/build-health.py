@@ -26,13 +26,7 @@ def main():
     config_errors = d.get("configErrors", [])
     ext_failures = d.get("externalCalendarFailures", [])
     zero_event = d.get("zeroEventCalendars", [])
-    expected_empty = d.get("expectedEmptyCalendars", [])
-    event_counts_raw = d.get("eventCounts", [])
-    # eventCounts may be a list of {name, events, ...} objects or a plain dict
-    if isinstance(event_counts_raw, list):
-        event_counts = {e["name"]: e["events"] for e in event_counts_raw if "name" in e}
-    else:
-        event_counts = event_counts_raw
+    unexpected_non_empty = d.get("unexpectedNonEmptyCalendars", [])
     geo_stats = d.get("geoStats", {})
     geo_errors = d.get("geocodeErrors", [])
     photo_stats = d.get("photoStats", {})
@@ -63,11 +57,12 @@ def main():
             print(f"  {z}")
         print()
 
-    # expectedEmpty cross-check
-    for cal in expected_empty:
-        count = event_counts.get(cal, 0)
-        if count > 0:
-            print(f"⚠️  {cal} is marked expectEmpty but has {count} events — consider removing the expectEmpty flag")
+    # expectedEmpty cross-check — calendars flagged expectEmpty that are
+    # consistently non-empty now (server-computed in unexpectedNonEmptyCalendars;
+    # expectedEmptyCalendars only lists calendars that WERE empty this build, so
+    # it can never overlap with a non-zero eventCounts lookup)
+    for entry in unexpected_non_empty:
+        print(f"⚠️  {entry['name']} is marked expectEmpty but has {entry['events']} events — consider removing the expectEmpty flag")
 
     # Geo stats
     total_events = geo_stats.get("totalEvents", 0)
