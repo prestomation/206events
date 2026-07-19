@@ -51389,6 +51389,340 @@
       "resolvedAt": "2026-07-19",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/node/2138228922"
+    },
+    "events12:classical-music-2026-07-04": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck/",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-05": {
+      "fields": {
+        "startTime": "13:00",
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/concert-truck/",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:world-cup-soccer-2026-07-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
+    },
+    "events12:world-cup-soccer-2026-07-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
+    },
+    "events12:world-cup-soccer-2026-07-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
+    },
+    "events12:world-cup-soccer-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
+    },
+    "events12:world-cup-soccer-2026-07-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
+    },
+    "events12:world-cup-soccer-2026-07-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
+    },
+    "events12:early-fireworks-2026-07-02": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 16200
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://newcastlewa.gov/event/fireworks-on-the-lake/",
+      "partialFingerprint": "7rn3vz-until2026-07-03-tu"
+    },
+    "events12:fourth-of-july-seattle-2026-07-04": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/4th-of-july/",
+      "partialFingerprint": "1hmlsxj-until2026-07-04-tu"
+    },
+    "events12:fireworks-2026-07-04": {
+      "fields": {
+        "startTime": "22:00",
+        "duration": 1200
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.arlingtonwa.gov/July4",
+      "partialFingerprint": "srt7n0-until2026-07-04-tu"
+    },
+    "events12:fireworks-party-2026-07-04": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 21600,
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration",
+      "partialFingerprint": "2n1sc2-until2026-07-04-tu"
+    },
+    "events12:traditional-music-2026-07-04": {
+      "fields": {
+        "cost": {
+          "min": 40.0,
+          "max": 50.0
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/",
+      "partialFingerprint": "8lwbbg-until2026-07-04-tk"
+    },
+    "events12:mercer-island-festival-2026-07-11": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 45000
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://www.mercerisland.gov/parksrec/page/summer-celebration-2026",
+      "partialFingerprint": "s751rt-until2026-07-11-tu"
+    },
+    "events12:celebrity-softball-game-2026-07-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://seattleallstarclassic.com",
+      "partialFingerprint": "8ihywc-until2026-07-11-tk"
+    },
+    "events12:bicycle-to-portland-2026-07-11": {
+      "fields": {
+        "startTime": "05:00",
+        "duration": 136800,
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://cascade.org/rides-events/seattle-portland-2026",
+      "partialFingerprint": "1b6lrgw-until2026-07-12-tu"
+    },
+    "events12:bremerton-airshow-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 40.0
+        }
+      },
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "evidence": "https://bremertonairshow.com/tickets/",
+      "partialFingerprint": "18v42gl-until2026-07-12-tk"
+    },
+    "events12:classical-music-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "Concert Truck makes multiple stops per day at different times/locations (e.g. 12:30pm & 6pm); no single citywide start time applies.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "Concert Truck makes multiple stops per day at different times/locations (e.g. 12pm & 6pm); no single citywide start time applies.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "Concert Truck schedule on seattlechambermusic.org lists no stop for July 3.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "Concert Truck makes multiple stops per day at different times/locations (e.g. 12:30pm & 6pm); no single citywide start time applies.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:early-fireworks-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "newcastlewa.gov lists this as a single-day event on July 2, 2026; no separate July 3 show found.",
+      "partialFingerprint": "7rn3vz-until2026-07-03-tu"
+    },
+    "events12:national-park-day-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "NPS free-entrance-day designation follows each park unit normal operating hours; nps.gov does not publish a single nationwide start time or duration.",
+      "partialFingerprint": "t4pf5g-until2026-07-05-tu"
+    },
+    "events12:national-park-day-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "NPS free-entrance-day designation follows each park unit normal operating hours; nps.gov does not publish a single nationwide start time or duration.",
+      "partialFingerprint": "t4pf5g-until2026-07-05-tu"
+    },
+    "events12:national-park-day-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "NPS free-entrance-day designation follows each park unit normal operating hours; nps.gov does not publish a single nationwide start time or duration.",
+      "partialFingerprint": "t4pf5g-until2026-07-05-tu"
+    },
+    "events12:parades-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "arlingtonwa.gov/July4 gives the parade start time (5pm) but no parade duration or admission cost; cannot resolve all missing fields without guessing.",
+      "partialFingerprint": "eenqj6-until2026-07-04-tu"
+    },
+    "events12:fourth-of-july-tacoma-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "parkstacoma.gov/event/summerblast/ returns HTTP 403 to automated fetches.",
+      "partialFingerprint": "fw2wpq-until2026-07-04-tu"
+    },
+    "events12:hippie-music-festival-2026-07-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "brodienation.com gives approximate per-day start windows but no clear end time/duration for this day of the multi-day festival.",
+      "partialFingerprint": "16cupcm-until2026-07-12-tu"
+    },
+    "events12:hippie-music-festival-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "brodienation.com gives approximate per-day start windows but no clear end time/duration for this day of the multi-day festival.",
+      "partialFingerprint": "16cupcm-until2026-07-12-tu"
+    },
+    "events12:hippie-music-festival-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "brodienation.com gives approximate per-day start windows but no clear end time/duration for this day of the multi-day festival.",
+      "partialFingerprint": "16cupcm-until2026-07-12-tu"
+    },
+    "events12:dance-performance-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "stgpresents.org/events/dance-this-2026/ is JS-rendered; no ticket price text retrievable via fetch.",
+      "partialFingerprint": "14jd6w3-until2026-07-10-tk"
+    },
+    "events12:party-at-the-zoo-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "zoo.org/jungleparty/ returns HTTP 503 Service Unavailable.",
+      "partialFingerprint": "1ozm0d4-until2026-07-10-tu"
+    },
+    "events12:bluegrass-festival-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "bluegrassfromtheforest.com is JS-rendered; no schedule or price text retrievable via fetch.",
+      "partialFingerprint": "x15h98-until2026-07-12-tu"
+    },
+    "events12:bluegrass-festival-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "bluegrassfromtheforest.com is JS-rendered; no schedule or price text retrievable via fetch.",
+      "partialFingerprint": "x15h98-until2026-07-12-tu"
+    },
+    "events12:bellingham-mountain-biking-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "nwtuneup.com describes festival attractions but publishes no daily schedule or ticket price.",
+      "partialFingerprint": "1qa8r5y-until2026-07-12-tu"
+    },
+    "events12:bellingham-mountain-biking-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "nwtuneup.com describes festival attractions but publishes no daily schedule or ticket price.",
+      "partialFingerprint": "1qa8r5y-until2026-07-12-tu"
+    },
+    "events12:taste-of-snoqualmie-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "snoqualmievalleyrotary.org page found is for SipFest 2025; 2026 pricing not yet published.",
+      "partialFingerprint": "l0d686-until2026-07-11-tk"
+    },
+    "events12:tacoma-color-run-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-19",
+      "source": "agent",
+      "reason": "piercecountywa.gov/7653/Chase-the-Rainbow-Run returns HTTP 403 to automated fetches.",
+      "partialFingerprint": "10mvawr-until2026-07-11-tu"
     }
   }
 }
