@@ -6,7 +6,7 @@ url: https://www.magnusonparkgallery.org/events/
 tags: [Arts]
 firstSeen: 2026-07-19
 lastChecked: 2026-07-19
-pr:
+pr: 977
 ---
 
 Building 30, Magnuson Park (7448 63rd Avenue NE, Seattle, WA 98115) —
