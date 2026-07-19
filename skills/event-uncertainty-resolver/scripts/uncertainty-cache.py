@@ -72,7 +72,7 @@ def load_cache(repo_root):
 def save_cache(cache, repo_root):
     path = cache_path(repo_root)
     with open(path, "w") as f:
-        json.dump(cache, f, indent=2)
+        json.dump(cache, f, indent=2, ensure_ascii=False)
         f.write("\n")
 
 
