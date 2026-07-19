@@ -110,6 +110,7 @@ const cityConfig = {
         "Ravenna",
         "Redmond",
         "Renton",
+        "Sand Point",
         "Seward Park",
         "Shoreline",
         "SoDo",

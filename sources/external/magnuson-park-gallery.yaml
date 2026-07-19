@@ -1,0 +1,13 @@
+name: magnuson-park-gallery
+sourceRole: venue
+friendlyname: Magnuson Park Gallery
+description: Studio/gallery space in Building 30 at Magnuson Park, run by Sand Point Arts and Cultural Exchange (SPACE) and home to 30+ resident artists.
+icsUrl: https://www.magnusonparkgallery.org/events/?ical=1
+infoUrl: https://www.magnusonparkgallery.org/events/
+geo:
+  lat: 47.6828235
+  lng: -122.2615444
+  label: "Magnuson Park Gallery, 7448 63rd Avenue NE, Seattle, WA 98115"
+tags:
+  - Arts
+  - Sand Point
