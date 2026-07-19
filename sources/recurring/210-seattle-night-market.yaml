@@ -6,8 +6,8 @@ geo:
   lat: 47.5999196
   lng: -122.3331203
   label: "210 Seattle Night Market, 301 Occidental Ave S, Seattle, WA 98104"
-  osmChecked: "2026-05-17"
-  # Nominatim returned "Beneath The Streets" (shop/gift) at 0m — different named business at same address, not the Night Market itself
+  osmType: node
+  osmId: 10744045864
 name: 210-seattle-night-market
 sourceRole: venue
 friendlyname: 210 Seattle Night Market

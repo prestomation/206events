@@ -45896,7 +45896,8 @@
     "events12:dance-in-the-park-2026-08-01": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
