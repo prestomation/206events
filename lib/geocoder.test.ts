@@ -835,6 +835,27 @@ describe.skipIf(!HAS_VENUE_DATA)('lookupKnownVenue', () => {
     // "neumos" should not match "neumos & barboza" prefix for a string like "neumosbakery"
     expect(lookupKnownVenue('neumosbakery')).toBeNull();
   });
+
+  // 2026-07-19 geo-resolver batch additions
+  it('matches "majnoon"', () => {
+    const result = lookupKnownVenue('majnoon');
+    expect(result).toEqual({ lat: 47.620266, lng: -122.357118 });
+  });
+
+  it('matches "fog room rooftop lounge"', () => {
+    const result = lookupKnownVenue('fog room rooftop lounge');
+    expect(result).toEqual({ lat: 47.611137, lng: -122.339974 });
+  });
+
+  it('matches both source misspellings of Rhein Haus', () => {
+    expect(lookupKnownVenue('rein haus')).toEqual({ lat: 47.610924, lng: -122.316570 });
+    expect(lookupKnownVenue('reinhaus')).toEqual({ lat: 47.610924, lng: -122.316570 });
+  });
+
+  it('matches the Delridge Way SW & SW Orchard St garden-center intersection', () => {
+    const result = lookupKnownVenue('In the Garden Center @ Delridge Way SW & SW Orchard, West Seattle');
+    expect(result).toEqual({ lat: 47.537946, lng: -122.361104 });
+  });
 });
 
 describe.skipIf(!HAS_UW_DATA || !HAS_VENUE_DATA)('resolveEventCoords - UW building and known venue', () => {

@@ -836,6 +836,30 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'pier 59, 1483 alaskan way, pier 59, seattle, wa': { lat: 47.6076, lng: -122.3432 }, // alias of the existing Seattle Aquarium / Pier 59 entry
   's 3rd st & shattuck ave, renton, wa': { lat: 47.479665, lng: -122.212875 },
   'south 5th street & east edison avenue, s 5th st & e edison ave, sunnyside, wa 98944, usa': { lat: 46.32348, lng: -120.01439 },
+
+  // --- 2026-07-19 geo-resolver batch: "has street address" / "venue name only"
+  // unresolvable entries. Addresses verified against each venue's own site/
+  // listing or confirmed via forward-geocode (Nominatim, or the US Census
+  // Bureau TIGER geocoder for two rural Snohomish County addresses Nominatim
+  // has no address point for); intersections confirmed via an Overpass query
+  // for a shared node between the two named ways. Never reverse-geocoded.
+  '27031 36th avenue northwest, stanwood, wa, 98292': { lat: 48.241124, lng: -122.280798 }, // Our Legacy Fields Lavender Farm (US Census TIGER geocode)
+  '7005 126th st nw, tulalip, wa 98271': { lat: 48.109840, lng: -122.326772 }, // The HOOT Music and Arts Festival grounds (US Census TIGER geocode)
+  '25th sw & sw juneau, west seattle': { lat: 47.550120, lng: -122.364365 }, // Overpass-confirmed intersection node
+  '8th ave nw and nw 43rd st': { lat: 47.659108, lng: -122.366144 }, // Overpass-confirmed intersection node (Ballard/Loyal Heights border)
+  'in the garden center @ delridge way sw & sw orchard, west seattle': { lat: 47.537946, lng: -122.361104 }, // Delridge Way SW & SW Orchard St traffic signal (Overpass-confirmed)
+  'caffe destino': { lat: 45.548400, lng: -122.651967 }, // Portland, OR — no Seattle-area Caffe Destino exists
+  'centennial park - northernmost beach access': { lat: 47.626656, lng: -122.375607 }, // Seattle waterfront Centennial Park (Port of Seattle), north of Myrtle Edwards Park — park centroid, approximate
+  'cooper room new york society library': { lat: 40.776330, lng: -73.961477 }, // 53 E 79th St, New York, NY
+  'disability empowerment center': { lat: 47.605966, lng: -122.313780 }, // 1401 E Jefferson St, Seattle
+  'enumclaw farmers market, numclaw farmers market (located next to enumclaw library), wa, united states': { lat: 47.203588, lng: -121.987534 }, // Enumclaw Library, 1700 1st St — market sets up next door
+  'fog room rooftop lounge': { lat: 47.611137, lng: -122.339974 }, // 1610 2nd Ave, 16th Floor, Seattle (The Charter Hotel)
+  'fremont (rsvp for details)': { lat: 47.6512, lng: -122.3501 }, // Fremont neighborhood centroid (matches SEATTLE_NEIGHBORHOOD_CENTROIDS.fremont)
+  'green lake pickleball courts': { lat: 47.680263, lng: -122.328508 }, // adjacent to Green Lake Community Center, 7201 E Green Lake Dr N
+  'majnoon': { lat: 47.620266, lng: -122.357118 }, // 215 Queen Anne Ave N Suite 105, Seattle
+  'olde town issaquah, front street, issaquah, wa': { lat: 47.531020, lng: -122.035424 }, // Issaquah Depot Museum — Olde Town Issaquah historic-core anchor
+  'rein haus': { lat: 47.610924, lng: -122.316570 }, // source misspelling of Rhein Haus Seattle, 912 12th Ave
+  'reinhaus': { lat: 47.610924, lng: -122.316570 }, // source misspelling of Rhein Haus Seattle, 912 12th Ave
 };
 
 /**
