@@ -10,6 +10,14 @@ const TIMEZONE = ZoneId.of("America/Los_Angeles");
 // Used when the "Time:" field gives only a start time with no end ("6:00pm"),
 // which the list page does for most in-store talks/book-club meetings.
 const DEFAULT_DURATION_MINUTES = 60;
+// The events listing shows one calendar month at a time (Previous/Next Month
+// nav to /events/YYYY/MM). Fetching only the default (current-month) page
+// means the ripper can silently produce 0 events for the back half of any
+// month whose last posted signing already passed — e.g. the store's last
+// July event lands on the 19th, so from the 20th on, the current-month page
+// has zero remaining cards even though August/September already have events
+// posted. Fetch the current month plus a few months ahead and merge.
+const MONTHS_AHEAD = 3;
 
 export interface ParsedEventCard {
     href: string;
@@ -24,16 +32,36 @@ export default class QueenAnneBookCompanyRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
         const calConfig = ripper.config.calendars[0];
-
-        const res = await fetchFn(ripper.config.url.toString(), {
-            headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" },
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-
-        const html = parse(await res.text());
-        const cards = this.parseEventCards(html);
-
         const now = ZonedDateTime.now(TIMEZONE);
+
+        const cards: ParsedEventCard[] = [];
+        const seenHrefs = new Set<string>();
+        for (let i = 0; i < MONTHS_AHEAD; i++) {
+            // Month 0 uses the configured base URL (in case it ever changes);
+            // later months use the site's own /events/YYYY/MM pagination.
+            const monthDate = now.toLocalDate().plusMonths(i);
+            const url = i === 0
+                ? ripper.config.url.toString()
+                : `${BASE_URL}/events/${monthDate.year()}/${String(monthDate.monthValue()).padStart(2, "0")}`;
+
+            const res = await fetchFn(url, {
+                headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" },
+            });
+            if (!res.ok) {
+                // The current month must succeed; a later month failing to
+                // load (e.g. transient error) shouldn't fail the whole ripper.
+                if (i === 0) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+                continue;
+            }
+
+            const html = parse(await res.text());
+            for (const card of this.parseEventCards(html)) {
+                if (seenHrefs.has(card.href)) continue;
+                seenHrefs.add(card.href);
+                cards.push(card);
+            }
+        }
+
         const events: RipperCalendarEvent[] = [];
         const errors: RipperError[] = [];
 

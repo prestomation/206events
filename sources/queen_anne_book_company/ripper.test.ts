@@ -1,19 +1,120 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { parse } from 'node-html-parser';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import QueenAnneBookCompanyRipper from './ripper.js';
 import { RipperCalendarEvent, UncertaintyError } from '../../lib/config/schema.js';
+import { ZonedDateTime, ZoneId } from '@js-joda/core';
 import '@js-joda/timezone';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const TIMEZONE = ZoneId.of('America/Los_Angeles');
 
 function loadSampleHtml(): string {
     return fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
 }
 
+function makeRipper(overrides: Record<string, any> = {}) {
+    return {
+        config: {
+            name: 'queen-anne-book-company',
+            url: new URL('https://qabookco.com/events'),
+            tags: ['Books', 'QueenAnne'],
+            geo: null,
+            disabled: false,
+            proxy: false,
+            calendars: [{
+                name: 'all-events',
+                friendlyname: 'Queen Anne Book Company',
+                timezone: TIMEZONE,
+            }],
+            ...overrides,
+        },
+    } as any;
+}
+
+// A minimal card matching the markup parseEventCards() expects, with a
+// malformed href so parseCard() always yields a single ParseError — lets
+// pagination/merge/dedup tests avoid depending on the real wall-clock date.
+function cardHtml(hrefSlug: string, title: string): string {
+    return `
+        <article class="event-list">
+            <h3 class="event-list__title"><a href="${hrefSlug}">${title}</a></h3>
+            <div class="event-list__details--item"><span class="event-list__details--label">Date: </span>1/1/2099</div>
+            <div class="event-list__details--item"><span class="event-list__details--label">Time: </span>6:00pm</div>
+        </article>`;
+}
+
 describe('QueenAnneBookCompanyRipper', () => {
+    describe('rip()', () => {
+        it('paginates across months and merges cards, skipping a failed later month', async () => {
+            const ripper = new QueenAnneBookCompanyRipper();
+            const now = ZonedDateTime.now(TIMEZONE);
+            const month1 = now.toLocalDate().plusMonths(1);
+            const month2 = now.toLocalDate().plusMonths(2);
+            const expectedUrls = [
+                'https://qabookco.com/events',
+                `https://qabookco.com/events/${month1.year()}/${String(month1.monthValue()).padStart(2, '0')}`,
+                `https://qabookco.com/events/${month2.year()}/${String(month2.monthValue()).padStart(2, '0')}`,
+            ];
+
+            const calledUrls: string[] = [];
+            const mockFetch = vi.fn().mockImplementation((url: string) => {
+                calledUrls.push(url);
+                if (url === expectedUrls[0]) {
+                    return Promise.resolve({ ok: true, text: () => Promise.resolve(cardHtml('/events/bad-format-1', 'Month 0 Event')) });
+                }
+                if (url === expectedUrls[1]) {
+                    return Promise.resolve({ ok: true, text: () => Promise.resolve(cardHtml('/events/bad-format-2', 'Month 1 Event')) });
+                }
+                // Month 2 fails — should be skipped, not thrown.
+                return Promise.resolve({ ok: false, status: 500, statusText: 'Internal Server Error' });
+            });
+            vi.stubGlobal('fetch', mockFetch);
+
+            const result = await ripper.rip(makeRipper());
+
+            expect(calledUrls).toEqual(expectedUrls);
+            expect(result).toHaveLength(1);
+            // Both malformed-href cards surface as ParseErrors — proof both
+            // months' cards were parsed and merged, and the month-2 failure
+            // didn't abort the whole rip.
+            expect(result[0].errors).toHaveLength(2);
+            expect(result[0].errors.map(e => (e as any).context)).toEqual(
+                expect.arrayContaining(['Month 0 Event', 'Month 1 Event'])
+            );
+
+            vi.unstubAllGlobals();
+        });
+
+        it('dedupes a card that appears on more than one month page by href', async () => {
+            const ripper = new QueenAnneBookCompanyRipper();
+            const mockFetch = vi.fn().mockResolvedValue({
+                ok: true,
+                text: () => Promise.resolve(cardHtml('/events/bad-format-dup', 'Duplicate Event')),
+            });
+            vi.stubGlobal('fetch', mockFetch);
+
+            const result = await ripper.rip(makeRipper());
+
+            // Same href on every month page — only counted once.
+            expect(result[0].errors).toHaveLength(1);
+
+            vi.unstubAllGlobals();
+        });
+
+        it('throws when the current-month page itself fails', async () => {
+            const ripper = new QueenAnneBookCompanyRipper();
+            vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 403, statusText: 'Forbidden' }));
+
+            await expect(ripper.rip(makeRipper())).rejects.toThrow('HTTP 403');
+
+            vi.unstubAllGlobals();
+        });
+    });
+
+
     describe('parseEventCards', () => {
         it('extracts all four sample events', () => {
             const ripper = new QueenAnneBookCompanyRipper();
