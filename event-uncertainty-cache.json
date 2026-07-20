@@ -51109,6 +51109,267 @@
       "resolvedAt": "2026-07-20",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/node/690994406"
+    },
+    "events12:bellingham-mountain-biking-2026-07-10": {
+      "fields": {
+        "cost": {
+          "min": 75.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://nwtuneup.com/"
+    },
+    "events12:bellingham-mountain-biking-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 75.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://nwtuneup.com/"
+    },
+    "events12:bellingham-mountain-biking-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 75.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://nwtuneup.com/"
+    },
+    "events12:bicycle-to-portland-2026-07-11": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://cascade.org/rides-events/seattle-portland-2026"
+    },
+    "events12:bicycle-to-portland-2026-07-12": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://cascade.org/rides-events/seattle-portland-2026"
+    },
+    "events12:bluegrass-festival-2026-07-10": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://bluegrassfromtheforest.com/tickets/"
+    },
+    "events12:bluegrass-festival-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://bluegrassfromtheforest.com/tickets/"
+    },
+    "events12:bluegrass-festival-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://bluegrassfromtheforest.com/tickets/"
+    },
+    "events12:bremerton-airshow-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://bremertonairshow.com/tickets/"
+    },
+    "events12:bremerton-airshow-2026-07-12": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://bremertonairshow.com/tickets/"
+    },
+    "events12:celebrity-softball-game-2026-07-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://seattleallstarclassic.com"
+    },
+    "events12:dance-performance-2026-07-10": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/events/dance-this-2026/"
+    },
+    "events12:fireworks-party-2026-07-04": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration"
+    },
+    "events12:parades-2026-07-04": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.arlingtonwa.gov/July4"
+    },
+    "events12:party-at-the-zoo-2026-07-10": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://zoo.org/jungleparty/"
+    },
+    "events12:reptile-show-2026-07-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.pacnwrs.com/"
+    },
+    "events12:tacoma-color-run-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.piercecountywa.gov/7653/Chase-the-Rainbow-Run"
+    },
+    "events12:taste-of-snoqualmie-2026-07-11": {
+      "fields": {
+        "cost": {
+          "min": 45.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://snoqualmievalleyrotary.org/2026/04/01/sipfest-2026/"
+    },
+    "events12:traditional-music-2026-07-04": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/"
+    },
+    "events12:vintage-cars-wine-2026-07-12": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/583c9490be659429d110c269/48bf80fd-b2b5-4a63-b3a4-617a4c3d6d59/avants_2026_4x5_1000.jpg",
+        "cost": {
+          "min": 100.0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.avants.com/events/2026/7-12/avants-classics-on-the-green-chateau-ste-michelle"
+    },
+    "events12:world-cup-soccer-2026-07-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
+    },
+    "events12:world-cup-soccer-2026-07-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.seattlefwc26.org/destination/matches"
     }
   }
 }
