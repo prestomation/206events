@@ -878,10 +878,13 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // own event listing gives the performance location as Wedgwood Presbyterian
   // Church, 8008 35th Ave NE, Seattle, WA 98115 (across from the NEST office).
   'wedgwood nest': { lat: 47.6868949, lng: -122.2901821 },
-  // Liberty Park — another Concert Truck stop (seattlechambermusic.org/concert-truck),
-  // grouped with other South King County stops (Gene Coulon/Renton, Federal Way).
-  // Renton's Liberty Park is the best geographic fit for the tour's route.
-  'liberty park': { lat: 47.4825959, lng: -122.2003165 }, // Liberty Park, Renton, WA
+  // Liberty Park — Seattle Chamber Music Society "Concert Truck" stop. Confirmed
+  // (not inferred) as Renton's Liberty Park, 1101 Bronson Way N: visitrenton.com's
+  // event listing and the Renton Reporter both name the July 1 Concert Truck show
+  // as "Liberty Park" in Renton Parks. Bare key matches the source's own naming
+  // convention for this event (see 'ashwood playfield', 'freeway park', etc. above,
+  // also Concert Truck stops keyed without a city qualifier).
+  'liberty park': { lat: 47.4825527, lng: -122.2019157 }, // Liberty Park Community Building, Renton, WA
   // SW Graham St & Lanham Pl SW intersection (High Point, Delridge/West Seattle) —
   // Nominatim has no direct intersection result; midpoint derived from the two
   // streets' nearest OSM way segments to each other.
