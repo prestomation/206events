@@ -74,8 +74,8 @@ calendars:
       lng: -122.3403
       # Re-checked 2026-07-20: DSA's own page describes First & Pike as "nestled
       # on Pike Street between First and Second avenues" (a street plaza, not a
-      # building). Nearest Nominatim candidates are "Corner Market" (~30m, a
-      # named building at Post Alley — a different spot inside the market) and
-      # no plain plaza/street-segment feature close enough to be confident.
-      # Ambiguous (Tier E) — not applying an id.
+      # building). The nearest Nominatim candidate (reverse-geocode of the
+      # declared coords, ~30m) is "Corner Market" — a named building at Post
+      # Alley, a different spot inside the market, not the street plaza itself.
+      # Tier D — clearly a different feature — not applying an id.
       osmChecked: 2026-07-20
