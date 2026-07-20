@@ -7509,6 +7509,31 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-19",
       "note": "Different food truck locations (1201 vs 1551 Eastlake Ave E, 321m apart) — distinct events at separate sites"
+    },
+    "19hz-all-events.ics Slow Magic|2026-10-02T18:00:00-07:00[America/Los_Angeles]::barboza-barboza.ics Slow Magic with Metsa + YellowTael|2026-10-02T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-20",
+      "note": "Same show at Barboza on same date/time; 19hz listing omits support acts but it is the same event"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-20",
+      "note": "Same event in seatoday-all and seatoday-arts sub-feeds; identical title, location, and time"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-20",
+      "note": "Same event in seatoday-all and seatoday-community sub-feeds; identical title, location, and time"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-20",
+      "note": "Same event in seatoday-arts and seatoday-community sub-feeds; identical title, location, and time"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-19T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-19T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-20",
+      "note": "Different food truck stops at different addresses (1201 vs 1551 Eastlake Ave E); not the same event"
     }
   }
 }
