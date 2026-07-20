@@ -860,6 +860,32 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'olde town issaquah, front street, issaquah, wa': { lat: 47.531020, lng: -122.035424 }, // Issaquah Depot Museum — Olde Town Issaquah historic-core anchor
   'rein haus': { lat: 47.610924, lng: -122.316570 }, // source misspelling of Rhein Haus Seattle, 912 12th Ave
   'reinhaus': { lat: 47.610924, lng: -122.316570 }, // source misspelling of Rhein Haus Seattle, 912 12th Ave
+
+  // --- 2026-07-20 geo-resolver batch: "venue name only" / intersection unresolvable
+  // entries. Verified against each venue's own listing or the referring source's own
+  // page, then forward-geocoded via Nominatim. Never reverse-geocoded.
+  //
+  // Actualize AiR (Pioneer Square) referenced by bare name from other sources (e.g.
+  // 19hz); coords match sources/actualize_air/ripper.yaml's own verified geo/OSM id.
+  'actualize air': { lat: 47.6013737, lng: -122.3292697, osmType: 'node', osmId: 2351711880 },
+  // LTD Bar & Grill's parking lot (Fremont Fridays); alias of the existing 'ltd bar & grill' entry.
+  'ltd lot': { lat: 47.652156, lng: -122.355222 },
+  // On the Hiyu — floating event venue (retired ferry M/V Hiyu). Boarding address
+  // widely cited across event-listing sites (Yelp, Eventective, The Bash): 1515
+  // Fairview Ave E, Seattle (Lake Union Drydock Co. dock, South Lake Union).
+  'on the hiyu': { lat: 47.6329437, lng: -122.3273738 },
+  // Wedgwood NEST — Seattle Chamber Music Society "Concert Truck" stop; the NEST's
+  // own event listing gives the performance location as Wedgwood Presbyterian
+  // Church, 8008 35th Ave NE, Seattle, WA 98115 (across from the NEST office).
+  'wedgwood nest': { lat: 47.6868949, lng: -122.2901821 },
+  // Liberty Park — another Concert Truck stop (seattlechambermusic.org/concert-truck),
+  // grouped with other South King County stops (Gene Coulon/Renton, Federal Way).
+  // Renton's Liberty Park is the best geographic fit for the tour's route.
+  'liberty park': { lat: 47.4825959, lng: -122.2003165 }, // Liberty Park, Renton, WA
+  // SW Graham St & Lanham Pl SW intersection (High Point, Delridge/West Seattle) —
+  // Nominatim has no direct intersection result; midpoint derived from the two
+  // streets' nearest OSM way segments to each other.
+  'sw graham & lanham sw, west seattle': { lat: 47.5466, lng: -122.3743 },
 };
 
 /**
