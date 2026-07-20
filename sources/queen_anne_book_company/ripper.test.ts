@@ -88,6 +88,43 @@ describe('QueenAnneBookCompanyRipper', () => {
             vi.unstubAllGlobals();
         });
 
+        it('includes a well-formed event served only on a later month page', async () => {
+            // Regression test for the bug this PR fixes: a real, parseable
+            // event card that only appears on a future month's page (not the
+            // current-month default page) must land in `events`, not just
+            // prove pagination happened via ParseErrors.
+            const ripper = new QueenAnneBookCompanyRipper();
+            const now = ZonedDateTime.now(TIMEZONE);
+            const month1 = now.toLocalDate().plusMonths(1);
+            const month1Url = `https://qabookco.com/events/${month1.year()}/${String(month1.monthValue()).padStart(2, '0')}`;
+
+            const mockFetch = vi.fn().mockImplementation((url: string) => {
+                if (url === month1Url) {
+                    return Promise.resolve({
+                        ok: true,
+                        text: () => Promise.resolve(cardHtml('/event/2099-01-01/future-event', 'Future Event')),
+                    });
+                }
+                // Current month and month 2 have no cards — mirrors the real
+                // "current month exhausted" scenario this PR fixes.
+                return Promise.resolve({ ok: true, text: () => Promise.resolve('') });
+            });
+            vi.stubGlobal('fetch', mockFetch);
+
+            const result = await ripper.rip(makeRipper());
+
+            // cardHtml()'s fixed "6:00pm" single time yields a confident
+            // start but a guessed duration, so this event is real but still
+            // paired with an Uncertainty entry — not a ParseError.
+            expect(result[0].events).toHaveLength(1);
+            expect(result[0].events[0].id).toBe('queen-anne-book-company-2099-01-01-future-event');
+            expect(result[0].events[0].summary).toBe('Future Event');
+            expect(result[0].errors).toHaveLength(1);
+            expect(result[0].errors[0].type).toBe('Uncertainty');
+
+            vi.unstubAllGlobals();
+        });
+
         it('dedupes a card that appears on more than one month page by href', async () => {
             const ripper = new QueenAnneBookCompanyRipper();
             const mockFetch = vi.fn().mockResolvedValue({
