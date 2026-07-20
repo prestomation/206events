@@ -30,7 +30,6 @@ calendars:
   - name: westlake-center
     friendlyname: "Food Trucks @ Westlake Center"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Downtown"]
     geo:
       lat: 47.61142
@@ -41,7 +40,6 @@ calendars:
   - name: westlake-park
     friendlyname: "Food Trucks @ Westlake Park"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Downtown"]
     geo:
       lat: 47.61183
@@ -51,7 +49,6 @@ calendars:
   - name: mcgraw-square
     friendlyname: "Food Trucks @ McGraw Square"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Downtown"]
     geo:
       lat: 47.61299
@@ -73,7 +70,6 @@ calendars:
   - name: starbucks-center
     friendlyname: "Food Trucks @ Starbucks Center"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "SoDo"]
     geo:
       lat: 47.58024
@@ -84,7 +80,6 @@ calendars:
   - name: dexter-yard
     friendlyname: "Food Trucks @ Dexter Yard"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "South Lake Union"]
     geo:
       lat: 47.62553
@@ -116,7 +111,6 @@ calendars:
   - name: west-lake-union-center
     friendlyname: "Food Trucks @ West Lake Union Center"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "South Lake Union"]
     geo:
       lat: 47.63248
@@ -127,7 +121,6 @@ calendars:
   - name: 1201-eastlake
     friendlyname: "Food Trucks @ 1201 Eastlake"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Eastlake"]
     geo:
       lat: 47.63082
@@ -138,7 +131,6 @@ calendars:
   - name: 1551-eastlake
     friendlyname: "Food Trucks @ 1551 Eastlake"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Eastlake"]
     geo:
       lat: 47.63348
@@ -149,7 +141,6 @@ calendars:
   - name: expedia-group-campus
     friendlyname: "Food Trucks @ Expedia Group Campus"
     timezone: America/Los_Angeles
-    expectEmpty: true
     # Tagged Interbay by address (1111 Expedia Group Way W is Interbay); the SFT
     # API classifies this pod under "Ballard", but the physical location is Interbay.
     tags: ["FoodTruck", "Interbay"]
@@ -162,7 +153,6 @@ calendars:
   - name: bell-street-park
     friendlyname: "Food Trucks @ Bell Street Park"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Belltown"]
     geo:
       lat: 47.61467
@@ -184,7 +174,6 @@ calendars:
   - name: trupanion
     friendlyname: "Food Trucks @ Trupanion"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Georgetown"]
     geo:
       lat: 47.54702
@@ -194,7 +183,6 @@ calendars:
   - name: kaiser-permanente-northgate
     friendlyname: "Food Trucks @ Kaiser Permanente - Northgate"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Northgate"]
     geo:
       lat: 47.70091
@@ -205,7 +193,6 @@ calendars:
   - name: polyclinic-northgate
     friendlyname: "Food Trucks @ The Polyclinic - Northgate Plaza"
     timezone: America/Los_Angeles
-    expectEmpty: true
     tags: ["FoodTruck", "Northgate"]
     geo:
       lat: 47.69926
