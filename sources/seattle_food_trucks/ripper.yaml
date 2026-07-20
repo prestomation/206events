@@ -24,9 +24,12 @@ calendars:
     timezone: America/Los_Angeles
     tags: ["Food"]
   # Per-pod calendars: one public pod each, tagged ["FoodTruck", "<Neighborhood>"],
-  # with a fixed geo so the pod appears in venues.json. expectEmpty: true because
-  # a pod legitimately has no bookings in a given week (the merged calendar above
-  # is the health sentinel for the source).
+  # with a fixed geo so the pod appears in venues.json. Most pods below book
+  # consistently enough that they don't carry expectEmpty; a handful of lower-
+  # volume pods (single-employer corporate campuses, etc.) still set
+  # expectEmpty: true because they legitimately have no bookings in a given
+  # week. The merged calendar above is the health sentinel for the source
+  # either way.
   - name: westlake-center
     friendlyname: "Food Trucks @ Westlake Center"
     timezone: America/Los_Angeles
