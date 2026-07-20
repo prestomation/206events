@@ -45491,9 +45491,10 @@
     "events12:dance-in-the-park-2026-08-02": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-20",
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/events"
     },
@@ -50972,7 +50973,8 @@
     },
     "seattle-center:summer-fitness-workout-wednesdays-yoga-x46747": {
       "fields": {
-        "duration": 3600
+        "duration": 3600,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -50981,7 +50983,8 @@
     },
     "seattle-center:summer-fitness-workout-wednesdays-zumba-x46748": {
       "fields": {
-        "duration": 3600
+        "duration": 3600,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -50990,7 +50993,8 @@
     },
     "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46749": {
       "fields": {
-        "duration": 3600
+        "duration": 3600,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Fitness/2022/Summer-Fitness-2022-Hero-1800x820.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51019,7 +51023,8 @@
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47712": {
       "fields": {
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51028,7 +51033,8 @@
     },
     "seattle-center:traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47713": {
       "fields": {
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://www.seattlecenter.com/assets/Images/Explore/Arts/Art%20Installations/Traditions/LetsPlay-26-TraditionsExhibit-HeroNew-1800x820.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51076,7 +51082,8 @@
         "cost": {
           "min": 150.0,
           "max": 300.0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/ICS_Cyanotype_Workshop_-FlyerA.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51114,7 +51121,8 @@
       "fields": {
         "cost": {
           "min": 75.0
-        }
+        },
+        "imageUrl": "https://nwtuneup.com/sites/default/files/2024-06/FR_TuneUp_Banner.png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51125,7 +51133,8 @@
       "fields": {
         "cost": {
           "min": 75.0
-        }
+        },
+        "imageUrl": "https://nwtuneup.com/sites/default/files/2024-06/FR_TuneUp_Banner.png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51136,7 +51145,8 @@
       "fields": {
         "cost": {
           "min": 75.0
-        }
+        },
+        "imageUrl": "https://nwtuneup.com/sites/default/files/2024-06/FR_TuneUp_Banner.png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51149,7 +51159,8 @@
           "soldOut": true
         },
         "startTime": "05:00",
-        "duration": 136800
+        "duration": 136800,
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-11/STP%20vibes%202.jpg?h=b95cca23&itok=X5HbTq7_"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51160,7 +51171,8 @@
       "fields": {
         "cost": {
           "soldOut": true
-        }
+        },
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-11/STP%20vibes%202.jpg?h=b95cca23&itok=X5HbTq7_"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51170,7 +51182,8 @@
       "fields": {
         "cost": {
           "min": 20.0
-        }
+        },
+        "imageUrl": "https://bluegrassfromtheforest.com/wp-content/uploads/2026_BGFTF-fb-poster-819x1024.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51182,7 +51195,8 @@
         "cost": {
           "min": 20.0,
           "max": 35.0
-        }
+        },
+        "imageUrl": "https://bluegrassfromtheforest.com/wp-content/uploads/2026_BGFTF-fb-poster-819x1024.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51193,7 +51207,8 @@
       "fields": {
         "cost": {
           "min": 20.0
-        }
+        },
+        "imageUrl": "https://bluegrassfromtheforest.com/wp-content/uploads/2026_BGFTF-fb-poster-819x1024.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51205,7 +51220,8 @@
         "cost": {
           "min": 20.0,
           "max": 40.0
-        }
+        },
+        "imageUrl": "https://bremertonairshow.com/wp-content/uploads/2026/03/brem-2026-mid-header-03062026.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51217,7 +51233,8 @@
         "cost": {
           "min": 20.0,
           "max": 40.0
-        }
+        },
+        "imageUrl": "https://bremertonairshow.com/wp-content/uploads/2026/03/brem-2026-mid-header-03062026.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51228,7 +51245,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://seattleallstarclassic.com/wp-content/uploads/2026/06/SASC-2026-Landscape-Graphic.png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51252,7 +51270,8 @@
           "min": 50.0
         },
         "startTime": "17:00",
-        "duration": 21600
+        "duration": 21600,
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/641a6eabb435eb4d37a4ebf5/1775507840426-F8TP9Y2VMXYNAVBPGGGI/Gracelend+4th+of+July+2026+SQ.png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51264,7 +51283,8 @@
         "cost": {
           "min": 0
         },
-        "startTime": "17:00"
+        "startTime": "17:00",
+        "imageUrl": "https://www.arlingtonwa.gov/ImageRepository/Document?documentId=15117"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51286,7 +51306,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/6806a38b9e06805bb9673765/ef7cf87f-3925-4fe7-982b-1603d4c8e673/488826983_1084986460339019_1900228220627255216_n.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51309,7 +51330,8 @@
       "fields": {
         "cost": {
           "min": 45.0
-        }
+        },
+        "imageUrl": "https://i0.wp.com/snoqualmievalleyrotary.org/wp-content/uploads/2025/02/Wineries-Image-v2.jpg?resize=1024%2C576&ssl=1"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51343,7 +51365,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51354,7 +51377,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51365,7 +51389,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51376,7 +51401,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51387,7 +51413,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51398,7 +51425,8 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://cdn.prod.website-files.com/66c60fb42f2b388110e985ff/67990c6db09f514725ac037a_677c599ed19a4122596420dd_fwc2026_hcl_sea_rgbt_pat_m%201%20(1).png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51450,7 +51478,8 @@
     "events12:early-fireworks-2026-07-02": {
       "fields": {
         "startTime": "18:00",
-        "duration": 16200
+        "duration": 16200,
+        "imageUrl": "https://newcastlewa.gov/wp-content/uploads/2026/03/Fourth2019-26-of-33.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51460,7 +51489,8 @@
     "events12:early-fireworks-2026-07-03": {
       "fields": {
         "startTime": "18:00",
-        "duration": 16200
+        "duration": 16200,
+        "imageUrl": "https://newcastlewa.gov/wp-content/uploads/2026/03/Fourth2019-26-of-33.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51504,7 +51534,8 @@
         "duration": 1200,
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.arlingtonwa.gov/ImageRepository/Document?documentId=15117"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51524,7 +51555,8 @@
     "events12:hippie-music-festival-2026-07-09": {
       "fields": {
         "startTime": "18:00",
-        "duration": 21600
+        "duration": 21600,
+        "imageUrl": "https://brodienation.com/img/2026/2026%20BN_flyer_final2_5-29-26.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51534,7 +51566,8 @@
     "events12:hippie-music-festival-2026-07-10": {
       "fields": {
         "startTime": "11:00",
-        "duration": 46800
+        "duration": 46800,
+        "imageUrl": "https://brodienation.com/img/2026/2026%20BN_flyer_final2_5-29-26.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51544,7 +51577,8 @@
     "events12:hippie-music-festival-2026-07-11": {
       "fields": {
         "startTime": "11:00",
-        "duration": 46800
+        "duration": 46800,
+        "imageUrl": "https://brodienation.com/img/2026/2026%20BN_flyer_final2_5-29-26.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51554,7 +51588,8 @@
     "events12:hippie-music-festival-2026-07-12": {
       "fields": {
         "startTime": "11:25",
-        "duration": 23700
+        "duration": 23700,
+        "imageUrl": "https://brodienation.com/img/2026/2026%20BN_flyer_final2_5-29-26.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51564,7 +51599,8 @@
     "events12:mercer-island-festival-2026-07-11": {
       "fields": {
         "startTime": "10:00",
-        "duration": 45000
+        "duration": 45000,
+        "imageUrl": "https://www.mercerisland.gov/sites/default/files/imageattachments/parksrec/page/32599/2026_summer_celebration_banner_96_in_x_48_in.jpg"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
@@ -51573,12 +51609,73 @@
     },
     "events12:soccer-2026-07-12": {
       "fields": {
-        "startTime": "13:00"
+        "startTime": "13:00",
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/65823d9021b93e044e237270/a6d6ca5f-9994-4d56-b016-4ef95beb3a32/Homepage+Feature+CTA+%281350x850%29.png"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
       "evidence": "https://www.reignfc.com/schedule",
       "partialFingerprint": "151l47d-until2026-11-01-tu"
+    },
+    "events12:kent-family-festival-2026-07-10": {
+      "fields": {
+        "imageUrl": "https://kcdays.com/wp-content/uploads/photo-gallery/SH109923.jpg"
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://kcdays.com"
+    },
+    "events12:kent-family-festival-2026-07-11": {
+      "fields": {
+        "imageUrl": "https://kcdays.com/wp-content/uploads/photo-gallery/SH109923.jpg"
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://kcdays.com"
+    },
+    "events12:kent-family-festival-2026-07-12": {
+      "fields": {
+        "imageUrl": "https://kcdays.com/wp-content/uploads/photo-gallery/SH109923.jpg"
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://kcdays.com"
+    },
+    "events12:neighborhood-music-festival-2026-07-12": {
+      "fields": {
+        "imageUrl": "https://i0.wp.com/porchfestedmonds.com/wp-content/uploads/2026/06/porchfest_fb_eventimage.png?resize=1040%2C496&ssl=1"
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://porchfestedmonds.com"
+    },
+    "events12:polish-festival-2026-07-11": {
+      "fields": {
+        "imageUrl": "https://seattlecenter.com/assets/Images/Events/Productions/Festal/Polish/Hero/Polish-Dancers-2022-Hero-1800x820.jpg"
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://seattlecenter.com/events/featured-events/festal/polish-festival-seattle"
+    },
+    "events12:wallingford-family-parade-2026-07-11": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/c6dbbf_eb6e57f6c9ca4f5cadf2d34efb7a2401~mv2.png/v1/fill/w_979,h_624,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/Wford%20WebHeading%20Cornet%2063.png"
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.celebratewallingfordwa.org"
+    },
+    "events12:mill-creek-fair-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "only headshots/sponsor logos found on millcreekfestival.com, no unique event photo"
+    },
+    "events12:mill-creek-fair-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "only headshots/sponsor logos found on millcreekfestival.com, no unique event photo"
     }
   }
 }
