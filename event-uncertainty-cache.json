@@ -51118,7 +51118,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://nwtuneup.com/"
+      "evidence": "https://www.portofbellingham.com/m/newsflash/home/detail/374",
+      "partialFingerprint": "1qa8r5y-until2026-07-12-tu"
     },
     "events12:bellingham-mountain-biking-2026-07-11": {
       "fields": {
@@ -51128,7 +51129,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://nwtuneup.com/"
+      "evidence": "https://www.portofbellingham.com/m/newsflash/home/detail/374",
+      "partialFingerprint": "1qa8r5y-until2026-07-12-tu"
     },
     "events12:bellingham-mountain-biking-2026-07-12": {
       "fields": {
@@ -51138,17 +51140,21 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://nwtuneup.com/"
+      "evidence": "https://www.portofbellingham.com/m/newsflash/home/detail/374",
+      "partialFingerprint": "1qa8r5y-until2026-07-12-tu"
     },
     "events12:bicycle-to-portland-2026-07-11": {
       "fields": {
         "cost": {
           "soldOut": true
-        }
+        },
+        "startTime": "05:00",
+        "duration": 136800
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://cascade.org/rides-events/seattle-portland-2026"
+      "evidence": "https://cascade.org/rides-events/seattle-portland-2026",
+      "partialFingerprint": "1b6lrgw-until2026-07-12-tu"
     },
     "events12:bicycle-to-portland-2026-07-12": {
       "fields": {
@@ -51168,17 +51174,20 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://bluegrassfromtheforest.com/tickets/"
+      "evidence": "https://bluegrassfromtheforest.com/tickets/",
+      "partialFingerprint": "x15h98-until2026-07-12-tu"
     },
     "events12:bluegrass-festival-2026-07-11": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20.0,
+          "max": 35.0
         }
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://bluegrassfromtheforest.com/tickets/"
+      "evidence": "https://bluegrassfromtheforest.com/tickets/",
+      "partialFingerprint": "x15h98-until2026-07-12-tu"
     },
     "events12:bluegrass-festival-2026-07-12": {
       "fields": {
@@ -51188,27 +51197,32 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://bluegrassfromtheforest.com/tickets/"
+      "evidence": "https://bluegrassfromtheforest.com/tickets/",
+      "partialFingerprint": "x15h98-until2026-07-12-tu"
     },
     "events12:bremerton-airshow-2026-07-11": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20.0,
+          "max": 40.0
         }
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://bremertonairshow.com/tickets/"
+      "evidence": "https://bremertonairshow.com/tickets/",
+      "partialFingerprint": "18v42gl-until2026-07-12-tk"
     },
     "events12:bremerton-airshow-2026-07-12": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20.0,
+          "max": 40.0
         }
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://bremertonairshow.com/tickets/"
+      "evidence": "https://bremertonairshow.com/tickets/",
+      "partialFingerprint": "18v42gl-until2026-07-12-tk"
     },
     "events12:celebrity-softball-game-2026-07-11": {
       "fields": {
@@ -51223,32 +51237,39 @@
     "events12:dance-performance-2026-07-10": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5.0,
+          "max": 18.0
         }
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.stgpresents.org/events/dance-this-2026/"
+      "evidence": "https://www.stgpresents.org/events/dance-this-2026/",
+      "partialFingerprint": "14jd6w3-until2026-07-10-tk"
     },
     "events12:fireworks-party-2026-07-04": {
       "fields": {
         "cost": {
           "min": 50.0
-        }
+        },
+        "startTime": "17:00",
+        "duration": 21600
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration"
+      "evidence": "https://www.swedishclubnw.org/program-calendar/july-4th-celebration",
+      "partialFingerprint": "2n1sc2-until2026-07-04-tu"
     },
     "events12:parades-2026-07-04": {
       "fields": {
         "cost": {
-          "min": 0.0
-        }
+          "min": 0
+        },
+        "startTime": "17:00"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.arlingtonwa.gov/July4"
+      "evidence": "https://www.arlingtonwa.gov/July4",
+      "partialFingerprint": "eenqj6-until2026-07-04-tu"
     },
     "events12:party-at-the-zoo-2026-07-10": {
       "fields": {
@@ -51258,7 +51279,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://zoo.org/jungleparty/"
+      "evidence": "https://zoo.org/jungleparty/",
+      "partialFingerprint": "1ozm0d4-until2026-07-10-tu"
     },
     "events12:reptile-show-2026-07-12": {
       "fields": {
@@ -51273,12 +51295,15 @@
     "events12:tacoma-color-run-2026-07-11": {
       "fields": {
         "cost": {
-          "min": 35.0
-        }
+          "min": 35.0,
+          "max": 40.0
+        },
+        "startTime": "09:30"
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.piercecountywa.gov/7653/Chase-the-Rainbow-Run"
+      "evidence": "https://www.piercecountywa.gov/7653/Chase-the-Rainbow-Run",
+      "partialFingerprint": "10mvawr-until2026-07-11-tu"
     },
     "events12:taste-of-snoqualmie-2026-07-11": {
       "fields": {
@@ -51288,7 +51313,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://snoqualmievalleyrotary.org/2026/04/01/sipfest-2026/"
+      "evidence": "https://www.tickettomato.com/event/10020/sipfest-snoqualmie",
+      "partialFingerprint": "l0d686-until2026-07-11-tk"
     },
     "events12:traditional-music-2026-07-04": {
       "fields": {
@@ -51298,7 +51324,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/"
+      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/",
+      "partialFingerprint": "8lwbbg-until2026-07-04-tk"
     },
     "events12:vintage-cars-wine-2026-07-12": {
       "fields": {
@@ -51309,7 +51336,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.avants.com/events/2026/7-12/avants-classics-on-the-green-chateau-ste-michelle"
+      "evidence": "https://www.avants.com/events/2026/7-12/avants-classics-on-the-green-chateau-ste-michelle",
+      "partialFingerprint": "m1pun9-until2026-07-12-tk"
     },
     "events12:world-cup-soccer-2026-07-01": {
       "fields": {
@@ -51319,7 +51347,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.seattlefwc26.org/destination/matches"
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
     },
     "events12:world-cup-soccer-2026-07-02": {
       "fields": {
@@ -51329,7 +51358,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.seattlefwc26.org/destination/matches"
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
     },
     "events12:world-cup-soccer-2026-07-03": {
       "fields": {
@@ -51339,7 +51369,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.seattlefwc26.org/destination/matches"
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
     },
     "events12:world-cup-soccer-2026-07-04": {
       "fields": {
@@ -51349,7 +51380,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.seattlefwc26.org/destination/matches"
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
     },
     "events12:world-cup-soccer-2026-07-05": {
       "fields": {
@@ -51359,7 +51391,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.seattlefwc26.org/destination/matches"
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
     },
     "events12:world-cup-soccer-2026-07-06": {
       "fields": {
@@ -51369,7 +51402,183 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://www.seattlefwc26.org/destination/matches"
+      "evidence": "https://www.seattlefwc26.org/destination/matches",
+      "partialFingerprint": "118t4ah-until2026-07-06-tk"
+    },
+    "events12:classical-music-2026-07-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Concert Truck tour lists multiple distinct performance times/locations per day (e.g. July 1: 12:30pm Liberty Park & 6:00pm Seattle Chinese Garden); no single canonical start time for the merged daily listing.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Concert Truck tour lists multiple distinct performance times/locations per day (e.g. July 1: 12:30pm Liberty Park & 6:00pm Seattle Chinese Garden); no single canonical start time for the merged daily listing.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Concert Truck tour lists multiple distinct performance times/locations per day (e.g. July 1: 12:30pm Liberty Park & 6:00pm Seattle Chinese Garden); no single canonical start time for the merged daily listing.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Concert Truck tour lists multiple distinct performance times/locations per day (e.g. July 1: 12:30pm Liberty Park & 6:00pm Seattle Chinese Garden); no single canonical start time for the merged daily listing.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Concert Truck tour lists multiple distinct performance times/locations per day (e.g. July 1: 12:30pm Liberty Park & 6:00pm Seattle Chinese Garden); no single canonical start time for the merged daily listing.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:classical-music-2026-07-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Concert Truck tour lists multiple distinct performance times/locations per day (e.g. July 1: 12:30pm Liberty Park & 6:00pm Seattle Chinese Garden); no single canonical start time for the merged daily listing.",
+      "partialFingerprint": "1wtiw6a-until2026-07-06-tu"
+    },
+    "events12:early-fireworks-2026-07-02": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 16200
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://newcastlewa.gov/event/fireworks-on-the-lake/",
+      "partialFingerprint": "7rn3vz-until2026-07-03-tu"
+    },
+    "events12:early-fireworks-2026-07-03": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 16200
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://newcastlewa.gov/event/fireworks-on-the-lake/",
+      "partialFingerprint": "7rn3vz-until2026-07-03-tu"
+    },
+    "events12:national-park-day-2026-07-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Free entrance applies during each park's normal operating hours, which vary by park; NPS page lists only the qualifying dates, not a start time.",
+      "partialFingerprint": "t4pf5g-until2026-07-05-tu"
+    },
+    "events12:national-park-day-2026-07-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Free entrance applies during each park's normal operating hours, which vary by park; NPS page lists only the qualifying dates, not a start time.",
+      "partialFingerprint": "t4pf5g-until2026-07-05-tu"
+    },
+    "events12:national-park-day-2026-07-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "reason": "Free entrance applies during each park's normal operating hours, which vary by park; NPS page lists only the qualifying dates, not a start time.",
+      "partialFingerprint": "t4pf5g-until2026-07-05-tu"
+    },
+    "events12:fourth-of-july-seattle-2026-07-04": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": 27900
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.seafair.org/4th-of-july/",
+      "partialFingerprint": "1hmlsxj-until2026-07-04-tu"
+    },
+    "events12:fireworks-2026-07-04": {
+      "fields": {
+        "startTime": "22:00",
+        "duration": 1200,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.arlingtonwa.gov/July4",
+      "partialFingerprint": "srt7n0-until2026-07-04-tu"
+    },
+    "events12:fourth-of-july-tacoma-2026-07-04": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 37800
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.southsoundtalk.com/2026/06/08/2026-fireworks-and-4th-of-july-celebrations-near-tacoma/",
+      "partialFingerprint": "fw2wpq-until2026-07-04-tu"
+    },
+    "events12:hippie-music-festival-2026-07-09": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://brodienation.com/",
+      "partialFingerprint": "16cupcm-until2026-07-12-tu"
+    },
+    "events12:hippie-music-festival-2026-07-10": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 46800
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://brodienation.com/",
+      "partialFingerprint": "16cupcm-until2026-07-12-tu"
+    },
+    "events12:hippie-music-festival-2026-07-11": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 46800
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://brodienation.com/",
+      "partialFingerprint": "16cupcm-until2026-07-12-tu"
+    },
+    "events12:hippie-music-festival-2026-07-12": {
+      "fields": {
+        "startTime": "11:25",
+        "duration": 23700
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://brodienation.com/",
+      "partialFingerprint": "16cupcm-until2026-07-12-tu"
+    },
+    "events12:mercer-island-festival-2026-07-11": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 45000
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.mi-reporter.com/2026/06/17/mi-summer-celebration-set-for-july-11/",
+      "partialFingerprint": "s751rt-until2026-07-11-tu"
+    },
+    "events12:soccer-2026-07-12": {
+      "fields": {
+        "startTime": "13:00"
+      },
+      "resolvedAt": "2026-07-20",
+      "source": "agent",
+      "evidence": "https://www.reignfc.com/schedule",
+      "partialFingerprint": "151l47d-until2026-11-01-tu"
     }
   }
 }
