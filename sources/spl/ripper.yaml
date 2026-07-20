@@ -141,7 +141,6 @@ calendars:
   - name: west-seattle
     friendlyname: "SPL - West Seattle Branch"
     timezone: America/Los_Angeles
-    expectEmpty: true # Small branch; may have no events in a given 6-week window
     config:
       branch: "West Seattle Branch"
     tags: ["West Seattle"]
