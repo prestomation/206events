@@ -51243,7 +51243,7 @@
     "events12:parades-2026-07-04": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-07-20",
