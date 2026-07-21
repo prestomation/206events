@@ -1,4 +1,6 @@
-# verified: 2026-07-21 ok — Tribe Events ICS, ~20 events, proper times/locations
+# 2026-07-21: ICS feed works from residential IP but CI gets 0 events (likely WAF challenge page)
+# Escalating to outofband proxy per the escalation ladder
+proxy: outofband
 geo:
   lat: 47.6261
   lng: -122.3371
