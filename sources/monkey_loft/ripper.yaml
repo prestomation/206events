@@ -1,0 +1,22 @@
+name: monkey-loft
+sourceRole: venue
+type: eventbrite
+proxy: "outofband"
+description: "Monkey Loft — industrial-chic DJ venue and rooftop lounge in SoDo"
+url: "https://www.eventbrite.com/o/habitat-seattle-97916574461"
+friendlyLink: https://www.eventbrite.com/o/habitat-seattle-97916574461
+tags: ["Music", "Nightlife", "SoDo"]
+geo:
+  lat: 47.5772
+  lng: -122.3345
+  label: "Monkey Loft, 2915 1st Ave S, Seattle, WA 98134"
+  osmType: node
+  osmId: 2350317084
+calendars:
+  - name: monkey-loft
+    friendlyname: "Monkey Loft"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "97916574461"
+      defaultLocation: "2915 1st Ave S, Seattle, WA 98134"
+      defaultDurationHours: 5

@@ -1,0 +1,22 @@
+name: vue-lounge
+sourceRole: venue
+type: eventbrite
+proxy: "outofband"
+description: "VUE Lounge — chic nightclub in downtown Seattle featuring K-pop, dancehall, reggaeton, and afrobeats nights"
+url: "https://www.eventbrite.com/o/vue-seattle-23204404721"
+friendlyLink: https://www.vueseattle.com
+tags: ["Music", "Nightlife", "Downtown"]
+geo:
+  lat: 47.6147
+  lng: -122.3464
+  label: "VUE Lounge, 2324 2nd Ave, Seattle, WA 98121"
+  osmType: node
+  osmId: 2327659395
+calendars:
+  - name: vue-lounge
+    friendlyname: "VUE Lounge"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "23204404721"
+      defaultLocation: "2324 2nd Ave, Seattle, WA 98121"
+      defaultDurationHours: 4
