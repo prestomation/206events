@@ -1,0 +1,19 @@
+name: space-city
+sourceRole: venue
+type: eventbrite
+description: "Space.City — art, architecture, and urbanism lectures"
+url: "https://www.spacecityseattle.org/"
+friendlyLink: https://www.spacecityseattle.org/
+imageUrl: "https://www.spacecityseattle.org/img/space-city-logo.png"
+geo:
+  lat: 47.6066621
+  lng: -122.3321837
+  label: "Seattle Public Library - Central Library, 1000 4th Ave, Seattle, WA 98104"
+calendars:
+  - name: space-city
+    friendlyname: "Space.City"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "56608312663"
+      defaultLocation: "1000 4th Ave, Seattle, WA 98104"
+      defaultDurationHours: 3
