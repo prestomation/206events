@@ -1,6 +1,7 @@
 ---
 name: VICE Seattle
-status: candidate
+status: added
+pr: 993
 platform: Booketing (UrVenue)
 url: https://booketing.com/microsite/vicesea/events/2786/1495647/vice-seattle
 tags: [Music, Nightlife, Capitol Hill]
