@@ -1,0 +1,16 @@
+name: roam-bar
+sourceRole: venue
+description: "Roam Bar — Ballard craft cocktail bar hosting weekly live music, DJ nights, and community events"
+url: "https://roambarseattle.com/seattle-ballard-roam-events"
+friendlyLink: https://roambarseattle.com
+tags: ["Music", "Ballard"]
+geo:
+  lat: 47.6644602
+  lng: -122.3813084
+  label: "Roam, 5105 Ballard Ave NW, Seattle, WA 98107"
+  osmType: node
+  osmId: 2138389826
+calendars:
+  - name: roam-bar
+    friendlyname: "Roam Bar"
+    timezone: America/Los_Angeles

@@ -1,0 +1,16 @@
+name: brick-park-psq
+sourceRole: venue
+description: "Brick Park PSQ — Pioneer Square outdoor venue hosting summer concert series, soccer viewing parties, and community events"
+url: "https://www.brickparkpsq.com/"
+friendlyLink: https://www.brickparkpsq.com
+tags: ["Music", "Pioneer Square"]
+geo:
+  lat: 47.5996491
+  lng: -122.3326901
+  label: "Brick Park PSQ, 310 Occidental Ave S, Seattle, WA 98104"
+  osmType: node
+  osmId: 2351712325
+calendars:
+  - name: brick-park-psq
+    friendlyname: "Brick Park PSQ"
+    timezone: America/Los_Angeles
