@@ -1,0 +1,18 @@
+# 2026-07-21: ICS feed works from residential IP but CI gets 0 events (likely WAF challenge page)
+# Escalating to outofband proxy per the escalation ladder
+proxy: outofband
+geo:
+  lat: 47.6261
+  lng: -122.3371
+  label: "On the Hiyu, 860 Terry Ave N, Seattle, WA 98109"
+  osmType: relation
+  osmId: 907023
+name: on-the-hiyu
+sourceRole: venue
+friendlyname: On the Hiyu
+description: On the Hiyu — a refurbished ferry boat turned floating event venue that sails Lake Union, Lake Washington, and Puget Sound for ticketed music events, boat parties, and private charters.
+icsUrl: https://onthehiyu.com/events/?post_type=tribe_events&ical=1&eventDisplay=list
+infoUrl: https://onthehiyu.com/events/
+tags:
+  - Music
+  - South Lake Union
