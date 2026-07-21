@@ -1,0 +1,17 @@
+name: vice-seattle
+sourceRole: venue
+description: "VICE Seattle nightclub events on Capitol Hill"
+url: "https://booketing.com/microsite/vicesea/events/2786/1495647/vice-seattle"
+friendlyLink: https://www.viceseattle.com
+tags: ["Music", "Nightlife", "Capitol Hill"]
+geo:
+  lat: 47.6147343
+  lng: -122.3284395
+  label: "VICE Seattle, 1532 Minor Ave, Seattle, WA 98101"
+  osmType: node
+  osmId: 2158768604
+calendars:
+  - name: all-events
+    friendlyname: "VICE Seattle"
+    timezone: America/Los_Angeles
+lookahead: P90D
