@@ -9,10 +9,12 @@ geo:
   lat: 47.6066621
   lng: -122.3321837
   label: "Seattle Public Library - Central Library, 1000 4th Ave, Seattle, WA 98104"
+tags: ["Art", "Downtown"]
 calendars:
   - name: space-city
     friendlyname: "Space.City"
     timezone: America/Los_Angeles
+    tags: ["Art", "Downtown"]
     config:
       organizerId: "56608312663"
       defaultLocation: "1000 4th Ave, Seattle, WA 98104"
