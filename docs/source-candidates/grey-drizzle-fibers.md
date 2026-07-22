@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.greydrizzlefibers.com/events
 tags: [Community]
 firstSeen: 2026-07-19
-lastChecked: 2026-07-19
+lastChecked: 2026-07-22
 ---
 
 Fiber arts business (yarn, knitting/spinning classes and retreats) based
@@ -26,3 +26,6 @@ Investigated 2026-07-19:
   elsewhere is a weaker fit than a genuine Seattle-area organizer)
 - Re-evaluate if more Seattle-located events appear on the calendar,
   tipping the balance toward "primarily Seattle"
+
+Re-checked 2026-07-22: still 2 upcoming events, same Seattle/North Bend
+split as before. No change.

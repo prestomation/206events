@@ -94,3 +94,8 @@ are covered by unit tests). Status reset to `investigating` — a future
 discovery cycle should re-check whether the organizer starts a new
 season; if so, the pipeline is now proven correct and adding it back
 should just work.
+
+Re-checked 2026-07-22: both the authenticated-mirror check
+(eventbrite.com/o/ballard-mandarin-121332375671) and the public API
+mirror (GET .../organizers/121332375671/events/?status=live) still
+return 0 upcoming events. Still dormant.
