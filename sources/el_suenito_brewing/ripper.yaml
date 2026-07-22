@@ -1,0 +1,15 @@
+name: el-suenito-brewing
+friendlyname: "El Sueñito Brewing"
+sourceRole: venue
+description: "El Sueñito Brewing (Fremont)"
+url: "https://www.elsuenitobrewing.com/events"
+friendlyLink: https://www.elsuenitobrewing.com/events
+tags: ["Beer", "Fremont"]
+geo:
+  lat: 47.6530822
+  lng: -122.357477
+  label: "El Sueñito & Frelard Tamales, 106 N 36th St Suite 100, Seattle, WA 98103"
+calendars:
+  - name: el-suenito-brewing
+    friendlyname: "El Sueñito Brewing"
+    timezone: America/Los_Angeles

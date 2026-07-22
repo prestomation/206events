@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.qahistory.org/calendar
 tags: [Arts, QueenAnne]
 firstSeen: 2026-07-10
-lastChecked: 2026-07-10
+lastChecked: 2026-07-22
 ---
 
 Neighborhood historical society running walking tours, architecture talks,
@@ -26,3 +26,5 @@ Investigated 2026-07-10:
 Re-check later in the year (their prior season ran spring through fall) —
 if `?format=json` shows `data.upcoming` populated with a future `startDate`,
 this is a straightforward Squarespace source to implement.
+
+Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcoming array empty, or Eventbrite organizer `upcomingEvents` empty). No change.

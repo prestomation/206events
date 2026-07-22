@@ -2,7 +2,7 @@
 name: "Seattle Street Food Festival"
 status: candidate
 firstSeen: 2026-06-07
-lastChecked: 2026-06-07
+lastChecked: 2026-07-22
 tags: [Food, SouthLakeUnion, Community]
 ---
 **Seattle Street Food Festival** — `https://206nightmarkets.com/street-food` — Seattle's largest independent street food festival, filling five city blocks of South Lake Union with 70+ food trucks, restaurants, and pop-ups plus live music.
@@ -15,3 +15,11 @@ Investigated 2026-06-07:
 - Recurring YAML feasibility: 2026 dates (Aug 22–23) are the 4th Saturday–Sunday of August; historical year-to-year pattern unclear — rove.me listed "June 2025" but other sources say late August. Verify dates before implementing as recurring.
 
 Next steps: Confirm the date pattern across 2023–2025 before implementing as recurring YAML.
+
+Re-checked 2026-07-22: Eventbrite organizer (`6916683221`) still shows
+0 upcoming events. `206nightmarkets.com/street-food?format=json`
+resolves to `collection.typeName: "page"` with `itemCount: 0` — a static
+landing page, not a real Squarespace events collection. The dedicated
+`seastreetfoodfest.com` domain doesn't resolve to a Squarespace JSON
+endpoint either (`?format=json` returns plain HTML). No structured data
+source found yet; still not implementable this cycle.

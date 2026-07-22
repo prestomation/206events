@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.phinneybooks.com/upcoming-events/
 tags: [Books, Greenwood]
 firstSeen: 2026-07-04
-lastChecked: 2026-07-04
+lastChecked: 2026-07-22
 pr:
 ---
 
@@ -22,3 +22,5 @@ Investigated 2026-07-04:
   "200 + 0 events" rule, do not implement yet; keep as `candidate` and
   re-check next cycle to see if new events get posted.
 - Not currently covered elsewhere in `sources/` or `sources/external/`.
+
+Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcoming array empty, or Eventbrite organizer `upcomingEvents` empty). No change.

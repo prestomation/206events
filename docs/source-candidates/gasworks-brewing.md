@@ -2,7 +2,7 @@
 name: "Gasworks Brewing"
 status: notviable
 firstSeen: 2026-05-14
-lastChecked: 2026-06-04
+lastChecked: 2026-07-22
 ---
 **Gasworks Brewing** — `https://www.gasworksbrewing.com/` — 2441 N Northlake Way, Wallingford/Lake Union — Tags: Beer
 
@@ -18,3 +18,10 @@ Investigated 2026-05-14:
 Not viable as a Squarespace source without a proper events collection URL. Could potentially work as a recurring calendar for the weekly trivia/DJ events once the events page structure is confirmed.
 
 Re-checked 2026-06-04: `/events` still 404. No Squarespace events collection found. Marking notviable until site adds a proper events collection.
+
+Re-checked 2026-07-22: `/events` still 404. Homepage no longer lists the
+weekly trivia/DJ-night bullet section from the original investigation
+(no "trivia"/"DJ"/"karaoke"/"bingo" text found anywhere in the fetched
+homepage HTML) — the SoDo location (opened ~May 2026) is mentioned, but
+no recurring schedule is published anywhere machine-readable. Still not
+viable.
