@@ -136,6 +136,42 @@ describe('ElSuenitoBrewingRipper', () => {
         expect(calEvents[0].duration.toHours()).toBe(2);
     });
 
+    it('emits a ParseError instead of crashing on a malformed start date', async () => {
+        const ripper = new ElSuenitoBrewingRipper();
+        const html = warmupHtml([{
+            id: 'bad-start-date',
+            title: 'Bad Start Date Event',
+            location: seattleLocation,
+            scheduling: { config: { startDate: 'not-a-date' } },
+        }]);
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const errors = events.filter(e => 'type' in e) as RipperError[];
+        const calEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(calEvents).toHaveLength(0);
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
+    });
+
+    it('keeps the event with the default duration when the end date is malformed', async () => {
+        const ripper = new ElSuenitoBrewingRipper();
+        const html = warmupHtml([{
+            id: 'bad-end-date',
+            title: 'Bad End Date Event',
+            location: seattleLocation,
+            scheduling: { config: { startDate: '2026-08-02T00:00:00.000Z', endDate: 'not-a-date' } },
+        }]);
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const errors = events.filter(e => 'type' in e) as RipperError[];
+
+        expect(errors).toHaveLength(0);
+        expect(calEvents).toHaveLength(1);
+        expect(calEvents[0].duration.toHours()).toBe(2);
+    });
+
     it('defaults to a 2 hour duration when endDate is missing', async () => {
         const ripper = new ElSuenitoBrewingRipper();
         const html = warmupHtml([{

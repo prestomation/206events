@@ -104,15 +104,26 @@ export default class ElSuenitoBrewingRipper extends HTMLRipper {
                 continue;
             }
 
-            const startDate = ZonedDateTime.parse(startDateRaw).withZoneSameInstant(TIMEZONE);
+            let startDate: ZonedDateTime;
+            try {
+                startDate = ZonedDateTime.parse(startDateRaw).withZoneSameInstant(TIMEZONE);
+            } catch (error) {
+                results.push({ type: "ParseError", reason: `Invalid start date "${startDateRaw}" for event "${title}": ${error}`, context: wixEvent.id });
+                continue;
+            }
 
             let duration = Duration.ofHours(2);
             const endDateRaw = wixEvent.scheduling?.config?.endDate;
             if (endDateRaw) {
-                const endDate = ZonedDateTime.parse(endDateRaw).withZoneSameInstant(TIMEZONE);
-                const seconds = startDate.until(endDate, ChronoUnit.SECONDS);
-                if (seconds > 0) {
-                    duration = Duration.ofSeconds(seconds);
+                try {
+                    const endDate = ZonedDateTime.parse(endDateRaw).withZoneSameInstant(TIMEZONE);
+                    const seconds = startDate.until(endDate, ChronoUnit.SECONDS);
+                    if (seconds > 0) {
+                        duration = Duration.ofSeconds(seconds);
+                    }
+                } catch {
+                    // Invalid end date: keep the default 2 hour duration rather
+                    // than dropping an otherwise-valid event.
                 }
             }
 
