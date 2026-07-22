@@ -20,3 +20,12 @@ out HTML fragments still rendering). No reliable way to distinguish current
 listings from years-old leftovers without manual verification against the
 venue's Instagram/Facebook. Not viable as a scraped source in its current
 state — no structured data and unclear freshness.
+
+**Reconciliation note:** `docs/discovery-log/2026-06-25.md` previously
+recorded "Shorty's Pinball (Belltown): Domain dead (ENOTFOUND); closed
+permanently." That finding was based on a guessed domain that doesn't
+resolve (e.g. `shortyspinball.com`), not the venue's actual domain
+`shortydog.com`, which resolves fine (`curl` confirms 200 on both the
+root and `/calendar.html`) and shows no sign of being down. The venue was
+never actually closed — the June finding was a domain-guessing error, not
+a real closure. Recorded here as `notviable` (not `dead`) for that reason.
