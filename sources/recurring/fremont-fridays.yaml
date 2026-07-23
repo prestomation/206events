@@ -21,7 +21,19 @@ tags:
   - Community
 cost: free
 schedules:
+  # Season runs the 4th Friday of June through the 2nd Friday of September
+  # (12 weeks). Ordinal-day schedules approximate that window precisely
+  # instead of an "every Friday" + months:[6,7,8,9] restriction, which would
+  # add phantom occurrences on the non-season Fridays of June and September.
+  - schedule: 4th Friday
+    start_time: "17:00"
+    duration: PT8H
+    months: [6]
   - schedule: every Friday
     start_time: "17:00"
     duration: PT8H
-    months: [6, 7, 8, 9]
+    months: [7, 8]
+  - schedule: 1st and 2nd Friday
+    start_time: "17:00"
+    duration: PT8H
+    months: [9]
