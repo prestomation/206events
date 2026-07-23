@@ -315,7 +315,7 @@ describe("parseDetailPage", () => {
 
         expect("date" in results[0]).toBe(true);
         const event = results[0] as RipperCalendarEvent;
-        expect(event.id).toBe("camp2-2026-2026-07-27");
+        expect(event.id).toBe("camp2-2026-2026-07-31"); // keyed off endDate — stays stable as startDate creeps forward
         expect(event.summary).toContain("Summer Camp 2");
         expect(event.date.toLocalDate().toString()).toBe("2026-07-27");
         expect(event.date.hour()).toBe(12); // placeholder — real time unknown

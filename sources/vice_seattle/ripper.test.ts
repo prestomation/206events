@@ -18,7 +18,7 @@ const SAMPLE_HTML = `
              data-folder="https://venueeventartist.com/imateq/event/512/1495647/40941972092"
              data-file="40996189350.jpeg">
             <div class="uv-flyerbg uv-rat-Square" style="background-image: url(https://venueeventartist.com/imateq/event/512/1495647/40941972092/300SC0/40996189350.jpeg);"></div>
-            <div class="uv-event-title">WHITE RABBIT GROUP FRIDAYS</div>
+            <div class="uv-cellover"><div class="uv-celloverinner"><div class="ddate">Fri, Jul 24</div><div class="name">WHITE RABBIT GROUP FRIDAYS</div></div></div>
           </a>
         </div>
       </td>
@@ -30,13 +30,21 @@ const SAMPLE_HTML = `
              data-folder="https://venueeventartist.com/imateq/event/512/1495647/2341611"
              data-file="401049107428.jpeg">
             <div class="uv-flyerbg uv-rat-Square" style="background-image: url(https://venueeventartist.com/imateq/event/512/1495647/2341611/300SC0/401049107428.jpeg);"></div>
-            <div class="uv-event-title">SHAKE SATURDAYS</div>
+            <div class="uv-cellover"><div class="uv-celloverinner"><div class="ddate">Sat, Jul 25</div><div class="name">SHAKE SATURDAYS</div></div></div>
           </a>
         </div>
       </td>
       <td class=" uvtddate-2026-07-26 uvsingleevent">
         <div class="datelabel">Jul 26</div>
         <div class="cellcont">Book</div>
+      </td>
+      <td class=" uvtddate-2026-07-27 uvsingleevent">
+        <div class="datelabel">Jul 27</div>
+        <div class="cellcont">
+          <a href="/microsite/vicesea/event/2786/1495647/?eventcode=EVE149564700020260727"
+             class="datelink uvev-sdate-260727 uvev-eco-ECZ0"
+             target="_self"><span>Book</span></a>
+        </div>
       </td>
       <td class=" uvtddate-2026-07-28 uvsingleevent">
         <div class="datelabel">Jul 28</div>
@@ -46,7 +54,7 @@ const SAMPLE_HTML = `
              data-folder="https://venueeventartist.com/imateq/event/512/1495647/401002647473"
              data-file="401002647610.jpeg">
             <div class="uv-flyerbg uv-rat-Square" style="background-image: url(https://venueeventartist.com/imateq/event/512/1495647/401002647473/300SC0/401002647610.jpeg);"></div>
-            <div class="uv-event-title">Two Dollar Tuesdays - DJ's + cash Beer Pong Tournament</div>
+            <div class="uv-cellover"><div class="uv-celloverinner"><div class="ddate">Tue, Jul 28</div><div class="name">Two Dollar Tuesdays - DJ's + cash Beer Pong Tournament</div></div></div>
           </a>
         </div>
       </td>
@@ -75,6 +83,20 @@ describe("ViceSeattleRipper", () => {
         expect(titles).toContain("WHITE RABBIT GROUP FRIDAYS");
         expect(titles).toContain("SHAKE SATURDAYS");
         expect(titles).toContain("Two Dollar Tuesdays - DJ's + cash Beer Pong Tournament");
+    });
+
+    it("should not glue the sibling '.ddate' date label onto the title", () => {
+        // Regression: the `.uv-event-title` class is gone from current
+        // markup — the title lives in `.uv-cellover .uv-celloverinner .name`
+        // next to a sibling `.ddate` div. Falling through to raw
+        // link.textContent concatenates both, e.g. "Fri, Jul 24WHITE RABBIT...".
+        const ripper = new ViceSeattleRipper();
+        const html = parse(SAMPLE_HTML);
+        const events = (ripper as any).parseAllEvents(html) as any[];
+
+        for (const event of events) {
+            expect(event.summary).not.toMatch(/^\w{3}, \w{3} \d+/);
+        }
     });
 
     it("should extract correct event IDs from eventcode", () => {
@@ -155,6 +177,19 @@ describe("ViceSeattleRipper", () => {
         // The "Book" cell for Jul 26 should not produce an event
         const hasJul26 = events.some(e => e.date?.toString()?.includes("2026-07-26"));
         expect(hasJul26).toBe(false);
+    });
+
+    it("should skip datelink-only cells (no flyer yet, just a \"Book\" CTA)", () => {
+        const ripper = new ViceSeattleRipper();
+        const html = parse(SAMPLE_HTML);
+        const events = (ripper as any).parseAllEvents(html) as any[];
+
+        // The Jul 27 cell has a real <a> link but no flyer/title yet — the
+        // venue hasn't published details for it. It must not surface as an
+        // event titled "Book".
+        const hasJul27 = events.some(e => e.date?.toString()?.includes("2026-07-27"));
+        expect(hasJul27).toBe(false);
+        expect(events.some(e => e.summary === "Book")).toBe(false);
     });
 
     it("should deduplicate events by eventcode", () => {

@@ -7699,6 +7699,11 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-23",
       "note": "Different locations: 1201 Eastlake vs 1551 Eastlake — separate food truck stops"
+    },
+    "gallery-mack-all-events.ics Seattle Art Fair|2026-07-23T16:00:00.847-07:00[America/Los_Angeles]::recurring-seattle-art-fair.ics Seattle Art Fair|2026-07-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same festival, same venue (Lumen Field Event Center) and start time; Gallery Mack's listing is its own exhibitor page for the citywide Seattle Art Fair covered by the recurring entry"
     }
   }
 }

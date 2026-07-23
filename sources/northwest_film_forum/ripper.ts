@@ -339,8 +339,13 @@ export function parseDetailPage(
         const endDate = dateOnlyDates.reduce((max, d) => (d.isAfter(max) ? d : max), dateOnlyDates[0]);
         const spanDays = Duration.between(startDate.atStartOfDay(), endDate.atStartOfDay()).toDays() + 1;
         const date = startDate.atTime(DEFAULT_UNKNOWN_TIME_HOUR, DEFAULT_UNKNOWN_TIME_MINUTE).atZone(TIMEZONE);
+        // Keyed off endDate, not startDate: the page only lists CourseInstance
+        // blocks for days that haven't happened yet, so startDate creeps
+        // forward as the camp runs and would churn the id daily (breaking the
+        // uncertainty cache — see AGENTS.md "Stable Event IDs"). endDate stays
+        // fixed until the whole camp is over.
         const event: RipperCalendarEvent = {
-            id: `${slug}-${startDate.toString()}`,
+            id: `${slug}-${endDate.toString()}`,
             ripped: new Date(),
             date,
             duration: Duration.ofDays(spanDays),

@@ -92,10 +92,14 @@ export default class ViceSeattleRipper extends HTMLRipper {
             const month = parseInt(dateParts[2]);
             const day = parseInt(dateParts[3]);
 
-            // Find the event link
-            const link = cell.querySelector('a.flyer') || cell.querySelector('a[href*="/event/"]');
+            // Find the event link. Only `a.flyer` cells carry real event
+            // details (title, image) — cells further out only render a
+            // generic `a.datelink` wrapping a "Book" CTA with no title or
+            // image yet. Skip those rather than publish "Book" as the
+            // summary; the same eventcode reappears with real details once
+            // the date enters the venue's flyer window.
+            const link = cell.querySelector('a.flyer');
             if (!link) {
-                // Cells with just "Book" text and no event link — skip silently
                 continue;
             }
 
@@ -122,9 +126,13 @@ export default class ViceSeattleRipper extends HTMLRipper {
             const slugMatch = href.match(/\/event\/\d+\/\d+\/([^/?]+)/);
             const slug = slugMatch?.[1] || '';
 
-            // Extract title from the link's text content
-            // The title is in a div with class 'uv-event-title' or in the link text
-            const titleEl = link.querySelector('.uv-event-title');
+            // Extract title from the link's text content. Current markup
+            // nests the real title in `.uv-cellover .uv-celloverinner .name`,
+            // alongside a sibling `.ddate` ("Thu, Jul 23") — `.uv-event-title`
+            // is legacy and no longer present, and falling straight through
+            // to `link.textContent` concatenates the date label onto the
+            // front of every title (e.g. "Thu, Jul 23EDM music...").
+            const titleEl = link.querySelector('.name') ?? link.querySelector('.uv-event-title');
             let title = '';
             if (titleEl) {
                 title = titleEl.textContent?.trim() || '';
