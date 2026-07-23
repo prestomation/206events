@@ -10,6 +10,7 @@ geo:
   label: "Roam, 5105 Ballard Ave NW, Seattle, WA 98107"
   osmType: node
   osmId: 2138389826
+imageUrl: "https://static.spotapps.co/website_images/ab_websites/363792_website_v1/logo_new_2.png"
 calendars:
   - name: roam-bar
     friendlyname: "Roam Bar"
