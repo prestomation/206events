@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.cuffcomplex.com/events
 tags: [Nightlife, "Capitol Hill"]
 firstSeen: 2026-07-22
-lastChecked: 2026-07-22
+lastChecked: 2026-07-23
 ---
 
 Long-running Capitol Hill gay nightclub/leather bar at 1533 13th Ave —
@@ -23,3 +23,6 @@ Investigated 2026-07-22:
 - Per the "200 + 0 events" rule, do not implement yet
 - 🔥 High confidence for next cycle — real, actively-maintained
   Squarespace events collection; just needs `upcoming` to repopulate
+
+Re-checked 2026-07-23: still `upcoming: []` (0 events), no change since
+yesterday. Keep monitoring.
