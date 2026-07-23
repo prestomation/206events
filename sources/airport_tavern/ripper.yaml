@@ -12,6 +12,7 @@ geo:
   label: "Airport Tavern, 5811 Airport Way S, Seattle, WA 98108"
   osmType: node
   osmId: 2396891232
+imageUrl: "https://airporttavern.com/wp-content/uploads/2025/03/IMG_2581-scaled.webp"
 calendars:
   - name: airport-tavern
     friendlyname: "Airport Tavern"

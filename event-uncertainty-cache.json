@@ -37205,15 +37205,10 @@
       "evidence": "https://www.tacomaporchfest.org/"
     },
     "events12:tacoma-neighborhood-music-2026-07-19": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-07-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://www.tacomaporchfest.org/"
+      "reason": "Past event - tacomaporchfest.org returns 403 for automated access"
     },
     "events12:wine-walk-2026-07-18": {
       "fields": {
@@ -42536,33 +42531,36 @@
     "events12:live-theater-2026-08-03": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
       "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
     "events12:live-theater-2026-08-04": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
       "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
     "events12:live-theater-2026-08-05": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
       "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
@@ -44377,25 +44375,28 @@
     },
     "events12:shakespeare-in-the-park-2026-08-03": {
       "fields": {
-        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
       "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-04": {
       "fields": {
-        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
       "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-08-05": {
       "fields": {
-        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
       "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
@@ -45501,29 +45502,32 @@
     "events12:dance-in-the-park-2026-08-03": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-04": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-05": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-06": {
       "fields": {
@@ -47440,11 +47444,12 @@
     },
     "cascade-bicycle-club:cascade-san-juan-islands-tour-2026": {
       "fields": {
-        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/45955966211_2001e13280_k.jpg?h=e840e50f&itok=GldFab8Q"
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/45955966211_2001e13280_k.jpg?h=e840e50f&itok=GldFab8Q",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://cascade.org/rides-events/san-juan-islands-tour-2026 (image found on event page)"
+      "evidence": "https://cascade.org/rides-events/san-juan-islands-tour-2026"
     },
     "cascade-bicycle-club:cascade-seattle-portland-2027-2027": {
       "fields": {
@@ -51292,15 +51297,10 @@
       "partialFingerprint": "eenqj6-until2026-07-04-tu"
     },
     "events12:party-at-the-zoo-2026-07-10": {
-      "fields": {
-        "cost": {
-          "soldOut": true
-        }
-      },
-      "resolvedAt": "2026-07-20",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://zoo.org/jungleparty/",
-      "partialFingerprint": "1ozm0d4-until2026-07-10-tu"
+      "reason": "Past event - zoo.org returns 503; image not retrievable"
     },
     "events12:reptile-show-2026-07-12": {
       "fields": {
@@ -51314,17 +51314,10 @@
       "evidence": "https://www.pacnwrs.com/"
     },
     "events12:tacoma-color-run-2026-07-11": {
-      "fields": {
-        "cost": {
-          "min": 35.0,
-          "max": 40.0
-        },
-        "startTime": "09:30"
-      },
-      "resolvedAt": "2026-07-20",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://www.piercecountywa.gov/7653/Chase-the-Rainbow-Run",
-      "partialFingerprint": "10mvawr-until2026-07-11-tu"
+      "reason": "Past event - Pierce County parks site returns 403 for automated access"
     },
     "events12:taste-of-snoqualmie-2026-07-11": {
       "fields": {
@@ -51340,14 +51333,12 @@
     },
     "events12:traditional-music-2026-07-04": {
       "fields": {
-        "cost": {
-          "min": 40.0
-        }
+        "startTime": "11:00",
+        "duration": 28800
       },
-      "resolvedAt": "2026-07-20",
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/",
-      "partialFingerprint": "8lwbbg-until2026-07-04-tk"
+      "evidence": "https://centrum.org/event/fiddle-tunes-at-50-festival/ - Centrum Fiddle Tunes all-day festival, approximately 11am-7pm"
     },
     "events12:vintage-cars-wine-2026-07-12": {
       "fields": {
@@ -51543,14 +51534,10 @@
       "partialFingerprint": "srt7n0-until2026-07-04-tu"
     },
     "events12:fourth-of-july-tacoma-2026-07-04": {
-      "fields": {
-        "startTime": "12:00",
-        "duration": 37800
-      },
-      "resolvedAt": "2026-07-20",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://www.southsoundtalk.com/2026/06/08/2026-fireworks-and-4th-of-july-celebrations-near-tacoma/",
-      "partialFingerprint": "fw2wpq-until2026-07-04-tu"
+      "reason": "Past event - city fireworks show image not accessible from public sites"
     },
     "events12:hippie-music-festival-2026-07-09": {
       "fields": {
@@ -51676,6 +51663,1272 @@
       "resolvedAt": "2026-07-20",
       "source": "agent",
       "reason": "only headshots/sponsor logos found on millcreekfestival.com, no unique event photo"
+    },
+    "events12:basketball-2026-07-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-07-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-07-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "events12:basketball-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
+    },
+    "discover-slu:discover-slu-bike-chains-derailleurs-workshop": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/bike-chains-derailleurs-workshop/"
+    },
+    "discover-slu:discover-slu-cycling-basics": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/cycling-basics/"
+    },
+    "discover-slu:discover-slu-trail-running-basics": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/trail-running-basics/"
+    },
+    "discover-slu:discover-slu-seafair-bbq": {
+      "fields": {
+        "startTime": "12:00"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46364": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture exhibit accessible during park hours, no fixed start/end time"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46365": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "All-day outdoor sculpture exhibit accessible during park hours, no fixed start/end time"
+    },
+    "seattle-center:camp-kexp": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/camp-kexp"
+    },
+    "seattle-center:tibet-fest": {
+      "fields": {
+        "duration": 25200
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/tibet-fest"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47714": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47714"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47715": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47714"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqDFja": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Mariners Ballpark Tour - ticketed event"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqHbj8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Mariners Ballpark Tour - ticketed event"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEqyzj7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Mariners Ballpark Tour - ticketed event"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-09-08-qabc-reads-silence-choir-mohamed-mbouga-sarr": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://qabookco.com/event/2026-09-08/qabc-reads-silence-choir-mohamed-mbouga-sarr - free drop-in book discussion"
+    },
+    "events12:movies-in-tacoma-2026-07-24": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.piercecountywa.gov/3328/Movies-In-the-Park - typical outdoor movie 2 hrs"
+    },
+    "events12:movies-in-tacoma-2026-07-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "Only Friday dates are confirmed for this venue; Saturday July 25 listing not documented in available sources"
+    },
+    "events12:films-made-in-2-days-2026-07-28": {
+      "fields": {
+        "startTime": "18:30",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.48hourfilm.com/seattle/48hfp - 48HFP screening nights start ~6:30 PM"
+    },
+    "events12:films-made-in-2-days-2026-07-29": {
+      "fields": {
+        "startTime": "18:30",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.48hourfilm.com/seattle/48hfp - 48HFP screening nights start ~6:30 PM"
+    },
+    "events12:films-made-in-2-days-2026-07-30": {
+      "fields": {
+        "startTime": "20:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.48hourfilm.com/seattle/48hfp - Best-of screening typically 8 PM"
+    },
+    "brick-park-psq:brickpark-2027-6-20-dj-diesel": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://partiful.com/e/CopalXXE4PBfbHvIDydV"
+    },
+    "brick-park-psq:brickpark-2027-7-5-rnb-and-ribs": {
+      "fields": {
+        "startTime": "15:00"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/rb-and-ribs-seattle-tickets-1990972920601"
+    },
+    "brick-park-psq:brickpark-2027-7-8-seattle-jazz-fellowship": {
+      "fields": {
+        "startTime": "19:30"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://seattlejazzfellowship.org/events"
+    },
+    "brick-park-psq:brickpark-2027-7-9-the-residency": {
+      "fields": {
+        "startTime": "12:00"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://artbeat.seattle.gov/2026/05/15/free-art-and-culture-events-all-summer/"
+    },
+    "brick-park-psq:brickpark-2027-7-15-seattle-jazz-fellowship": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://seattlejazzfellowship.org/events"
+    },
+    "brick-park-psq:brickpark-2026-8-15-rupaul": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.brickparkpsq.com/ - outdoor summer concert default 7pm"
+    },
+    "brick-park-psq:brickpark-2026-9-26-bunt-": {
+      "fields": {
+        "startTime": "19:00"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.axs.com/events/1430977/bunt-tickets"
+    },
+    "brick-park-psq:brickpark-2027-6-12-hometeam-x-u-s-soccer-federation-capsule-collection-viewing-party": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.brickparkpsq.com/ - Brick Park outdoor events consistently start at 7pm (confirmed by multiple events with Partiful/Tixr evidence)"
+    },
+    "brick-park-psq:brickpark-2027-6-19-grmnt-radio-natural-wine-party": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.brickparkpsq.com/ - Brick Park outdoor events consistently start at 7pm (confirmed by multiple events with Partiful/Tixr evidence)"
+    },
+    "brick-park-psq:brickpark-2027-7-12-dj-jazzy-jeff-four-color-zack": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.brickparkpsq.com/ - Brick Park outdoor events consistently start at 7pm (confirmed by multiple events with Partiful/Tixr evidence)"
+    },
+    "brick-park-psq:brickpark-2026-7-17-friday-night-hip-hop": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "No confirmed start time found on Brick Park website, Eventbrite, or ticketing platforms"
+    },
+    "seatoday:cityspark-14962916": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "Cancelled event - no photo needed"
+    },
+    "seatoday:cityspark-19306135": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/happy-hour-at-20-corners/19306135/2026-08-03T00"
+    },
+    "venue:osm:node:2374041913": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2374041913"
+    },
+    "venue:osm:node:2375676989": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node:2375676989"
+    },
+    "venue:osm:node:2396801849": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node:2396801849"
+    },
+    "venue:osm:node:2429578924": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node:2429578924"
+    },
+    "venue:osm:relation:356548236": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation:356548236"
+    },
+    "venue:osm:relation:4759129": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation:4759129"
+    },
+    "venue:osm:relation:5481893": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation:5481893"
+    },
+    "venue:osm:way:13721473": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:13721473"
+    },
+    "venue:osm:way:138385057": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:138385057"
+    },
+    "venue:osm:way:158232034": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:158232034"
+    },
+    "venue:osm:way:158266283": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:158266283"
+    },
+    "venue:osm:way:174692555": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:174692555"
+    },
+    "venue:osm:way:231281902": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:231281902"
+    },
+    "venue:osm:way:237158962": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:237158962"
+    },
+    "venue:osm:way:31068124": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:31068124"
+    },
+    "venue:osm:way:31647268": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:31647268"
+    },
+    "venue:osm:way:333930518": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:333930518"
+    },
+    "venue:osm:way:228399151": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/228399151"
+    },
+    "venue:osm:way:228399154": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/228399154"
+    },
+    "venue:osm:way:26007965": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/26007965"
+    },
+    "venue:osm:way:25123756": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/25123756"
+    },
+    "venue:osm:node:13458644701": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/13458644701"
+    },
+    "venue:osm:node:13847064497": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/13847064497"
+    },
+    "venue:osm:way:6469565": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:6469565"
+    },
+    "venue:osm:way:795846219": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:795846219"
+    },
+    "venue:osm:way:389579346": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:389579346"
+    },
+    "venue:osm:way:51870592": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:51870592"
+    },
+    "venue:osm:way:6364626": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:6364626"
+    },
+    "venue:osm:way:648876335": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:648876335"
+    },
+    "venue:osm:way:648876369": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:648876369"
+    },
+    "venue:osm:way:68303176": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:68303176"
+    },
+    "venue:osm:way:753224844": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:753224844"
+    },
+    "venue:osm:way:999725706": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:999725706"
+    },
+    "venue:osm:way:50321784": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:50321784"
+    },
+    "venue:osm:way:6359125": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:6359125"
+    },
+    "venue:osm:way:6463022": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:6463022"
+    },
+    "venue:osm:way:37058770": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/37058770"
+    },
+    "venue:osm:way:54356423": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/54356423"
+    },
+    "venue:loc:benefit park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/benefit-playfield"
+    },
+    "venue:loc:goose and gander farm, 9317 w snoqualmie valley rd ne, carnation, wa 98014": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://svpa.us/taste-of-the-valley-2026/"
+    },
+    "venue:loc:lake city farmers market": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://lcfm.org"
+    },
+    "venue:loc:tacoma parks": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.cityoftacoma.org/government/city_departments/parks_recreation_and_community_services"
+    },
+    "venue:loc:yesler sha": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/26007965"
+    },
+    "venue:loc:lake city court community room &amp": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/lake-city-park"
+    },
+    "venue:loc:please refer to the below link for address information.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "reason": "No specific location listed in event data"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3O2BFD": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OoQaG": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "stg:tm-vvG1HZ_234H9OU": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "stg:tm-vvG1HZ_5MxsI2q": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "stg:tm-vvG1HZ_ahliv1G": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "stg:tm-vvG1HZ_CMbfrJn": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "stg:tm-vvG1HZ_G6ymL6l": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "stg:tm-vvG1HZ_G9aS2h3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "stg:tm-vvG1HZ_u6faGVM": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "wamu-theater:tm-vvG1HZ_ahVjxry": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "wamu-theater:tm-vvG1HZ_knDpajm": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event"
+    },
+    "crocodile:tm-Z7r9jZ1A7PIfa": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Ticketmaster dynamic pricing event at The Crocodile"
+    },
+    "el-suenito-brewing:el-suenito-brewing-20336444-7772-4027-bd43-8cb08ac8e2c1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/karaoke-with-kj-squawks-3 - no price listed, free brewery event"
+    },
+    "el-suenito-brewing:el-suenito-brewing-67589278-7322-49f6-add1-43928c3c7795": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/queer-book-club-2026-07-22-19-00 - no price listed, free community event"
+    },
+    "el-suenito-brewing:el-suenito-brewing-7e75ac87-0f52-4c2e-9d8d-7c485b13bbd6": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/july-seattle-suenito-drag-brunch - $25 individual ticket"
+    },
+    "el-suenito-brewing:el-suenito-brewing-9252915d-7258-46ef-85d1-949a93c5a4fc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/august-1st-drag-bingo-with-isabella-l-richards - no price listed, drag show typically ticketed"
+    },
+    "el-suenito-brewing:el-suenito-brewing-b8b17304-ba7b-4ef6-af8c-4f4b11b0882a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/blood-drive - free blood drive event"
+    },
+    "pono-ranch:6a23becceacc412d230de023": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/dj-logic-and-friends - no price listed, live music event"
+    },
+    "pono-ranch:6a23c6c028b33a5934624370": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/drunken-hearts-with-special-guest-rev-from-lil-smokies - ticketed via LineLeap"
+    },
+    "pono-ranch:6a3ed9f556c02d3c3b902316": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/lost-and-found-nw-presents-kvolx-seattle-debut - ticketed via LineLeap"
+    },
+    "pono-ranch:6a55a2676882db3d5e6f2444": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/college-radio-teenage-jesus-vicious-kitty - ticketed via LineLeap"
+    },
+    "events12:party-at-the-farm-2026-07-25": {
+      "fields": {
+        "imageUrl": "https://svpa.us/wp-content/uploads/2026/04/fb_1920x1005-2026-taste.png"
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://svpa.us/taste-of-the-valley-2026/"
+    },
+    "seatoday:cityspark-17751611": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Riftbound TCG Nexus Nights are store events priced $5-10; standard entry point is $5"
+    },
+    "seatoday:cityspark-17845529": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Seattle summer camp event - ticketed, specific price unavailable"
+    },
+    "seatoday:cityspark-17845530": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Summer camp event - ticketed, specific price unavailable"
+    },
+    "seatoday:cityspark-17845581": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "Summer dance camp - ticketed, specific price unavailable"
+    },
+    "seatoday:cityspark-18912244": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.rentonwa.gov/Government/Departments-and-Offices/Parks-and-Recreation/Events/Recreation-Events-Calendar/Family-Fun-Tee-Off-for-Fun-this-Summer - Renton Parks free community event"
+    },
+    "seatoday:cityspark-19112177": {
+      "fields": {
+        "cost": {
+          "min": 799.0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://discoveropenworld.com/workshops/exploring-scifi-game-development/ - Open World by DigiPen, $799-$899 per session"
+    },
+    "seatoday:cityspark-19300160": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.visitissaquahwa.com/event/issaquah-drink-n-draw-at-formula-brewing-4-2/2026-05-04/ - free drop-in art event by Eastside Sketch Society"
+    },
+    "seatoday:cityspark-19406116": {
+      "fields": {
+        "cost": {
+          "min": 995.0
+        }
+      },
+      "resolvedAt": "2026-07-23",
+      "source": "agent",
+      "evidence": "https://www.cwb.org/chesapeake-light-craft-boatbuilding-classes - CLC Wherry boatbuilding class, $995 member tuition (+ kit separately)"
     }
   }
 }

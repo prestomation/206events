@@ -7534,6 +7534,171 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-20",
       "note": "Different food truck stops at different addresses (1201 vs 1551 Eastlake Ave E); not the same event"
+    },
+    "19hz-all-events.ics BUNT.|2026-09-26T19:00:00-07:00[America/Los_Angeles]::brick-park-psq-brick-park-psq.ics BUNT.|2026-09-26T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same BUNT. show at Brick Park PSQ in Pioneer Square — 19hz and venue feed both listing it"
+    },
+    "external-seattle-gov-city-wide.ics Dance & Movement|2026-07-23T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dance & Movement|2026-07-23T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds (city-wide and parks-recreation)"
+    },
+    "external-seattle-gov-city-wide.ics Dance & Movement|2026-07-30T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dance & Movement|2026-07-30T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Dance & Movement|2026-08-06T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dance & Movement|2026-08-06T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Dance & Movement|2026-08-13T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dance & Movement|2026-08-13T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-07-22T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-07-22T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-07-29T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-07-29T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-08-05T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-08-05T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-08-12T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-08-12T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-08-19T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-08-19T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Messy Art|2026-07-22T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Messy Art|2026-07-22T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Messy Art|2026-07-29T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Messy Art|2026-07-29T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Messy Art|2026-08-05T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Messy Art|2026-08-05T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Messy Art|2026-08-12T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Messy Art|2026-08-12T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Messy Art|2026-08-19T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Messy Art|2026-08-19T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sk8 Skool|2026-07-22T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Sk8 Skool|2026-07-22T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sk8 Skool|2026-07-29T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Sk8 Skool|2026-07-29T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sk8 Skool|2026-08-05T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Sk8 Skool|2026-08-05T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sk8 Skool|2026-08-12T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Sk8 Skool|2026-08-12T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sports, Games, Art|2026-07-23T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Sports, Games, Art|2026-07-23T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sports, Games, Art|2026-07-30T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Sports, Games, Art|2026-07-30T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sports, Games, Art|2026-08-06T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Sports, Games, Art|2026-08-06T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sports, Games, Art|2026-08-13T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Sports, Games, Art|2026-08-13T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Identical event in two Seattle.gov calendar feeds"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-10-22T15:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-10-22T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same Zoom event in two UW feeds (campus-events and information-school), same URL"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-07-27T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-07-27T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same trivia event at Stoup Ballard (1108 NW 52nd St), same time 19:30 — recurring feed and venue feed both listing it"
+    },
+    "seatoday-seatoday-all.ics Business Impact NW Drop Ins|2026-08-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Business Impact NW Drop Ins|2026-08-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same event in two seatoday calendars (all and learning)"
+    },
+    "seatoday-seatoday-all.ics CLC Wherry Class|2026-08-03T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLC Wherry Class|2026-08-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same event in two seatoday calendars (all and learning)"
+    },
+    "seatoday-seatoday-all.ics CLC Wherry Class|2026-08-04T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLC Wherry Class|2026-08-04T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same event in two seatoday calendars"
+    },
+    "seatoday-seatoday-all.ics CLC Wherry Class|2026-08-05T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLC Wherry Class|2026-08-05T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same event in two seatoday calendars"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: The Wildwoods w/ guests|2026-10-22T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: The Wildwoods w/ guests AT The Sunset|2026-10-22T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-23",
+      "note": "Same show (The Wildwoods) at Sunset Tavern — Tractor is the promoter, Sunset is the venue; tractor title says 'AT The Sunset'"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-07-27T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-07-27T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-23",
+      "note": "Different events: Board Gayme Night (board games, 18:30, Queer Social Club) vs Trivia Night (19:30, Head in the Clouds) — same venue same evening but distinct programming"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-20T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-20T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-23",
+      "note": "Different locations: 1201 Eastlake Ave E vs 1551 Eastlake Ave E (321m apart) — two separate food truck stops on the same street"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-21T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-21T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-23",
+      "note": "Different locations: 1201 Eastlake vs 1551 Eastlake — separate food truck stops"
     }
   }
 }

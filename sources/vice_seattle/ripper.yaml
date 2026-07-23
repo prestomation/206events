@@ -10,6 +10,7 @@ geo:
   label: "VICE Seattle, 1532 Minor Ave, Seattle, WA 98101"
   osmType: node
   osmId: 2158768604
+imageUrl: "https://images.squarespace-cdn.com/content/v1/6610e2c91dd55627ffe43efa/c0184f05-d1a4-4191-8178-98a8176ff222/01.jpeg"
 calendars:
   - name: all-events
     friendlyname: "VICE Seattle"
