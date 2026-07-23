@@ -1,11 +1,9 @@
-# verified: 2026-07-13 ok (expectEmpty confirmed - group page: "Cornish College of the Arts has no upcoming events")
 name: cornish
 sourceRole: venue
 description: "Cornish College of the Arts"
 url: "https://events.seattleu.edu/api/2/events"
 friendlyLink: https://events.seattleu.edu/group/cornish-college-of-the-arts
 tags: ["Arts", "Music", "Theatre", "Belltown"]
-expectEmpty: true
 geo: null
 calendars:
   - name: all-events

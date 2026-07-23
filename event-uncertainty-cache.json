@@ -42530,7 +42530,11 @@
     },
     "events12:live-theater-2026-08-03": {
       "fields": {
-        "setting": "indoor"
+        "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-23",
       "source": "agent",
@@ -42538,7 +42542,11 @@
     },
     "events12:live-theater-2026-08-04": {
       "fields": {
-        "setting": "indoor"
+        "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-23",
       "source": "agent",
@@ -42546,7 +42554,11 @@
     },
     "events12:live-theater-2026-08-05": {
       "fields": {
-        "setting": "indoor"
+        "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-07-23",
       "source": "agent",
@@ -44363,6 +44375,7 @@
     },
     "events12:shakespeare-in-the-park-2026-08-03": {
       "fields": {
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
         "setting": "outdoor"
       },
       "resolvedAt": "2026-07-23",
@@ -44371,6 +44384,7 @@
     },
     "events12:shakespeare-in-the-park-2026-08-04": {
       "fields": {
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
         "setting": "outdoor"
       },
       "resolvedAt": "2026-07-23",
@@ -44379,6 +44393,7 @@
     },
     "events12:shakespeare-in-the-park-2026-08-05": {
       "fields": {
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
         "setting": "outdoor"
       },
       "resolvedAt": "2026-07-23",
@@ -45486,6 +45501,8 @@
     },
     "events12:dance-in-the-park-2026-08-03": {
       "fields": {
+        "startTime": "18:00",
+        "duration": 10800,
         "setting": "outdoor"
       },
       "resolvedAt": "2026-07-23",
@@ -45494,6 +45511,8 @@
     },
     "events12:dance-in-the-park-2026-08-04": {
       "fields": {
+        "startTime": "18:00",
+        "duration": 10800,
         "setting": "outdoor"
       },
       "resolvedAt": "2026-07-23",
@@ -45502,6 +45521,8 @@
     },
     "events12:dance-in-the-park-2026-08-05": {
       "fields": {
+        "startTime": "18:00",
+        "duration": 10800,
         "setting": "outdoor"
       },
       "resolvedAt": "2026-07-23",
@@ -47423,6 +47444,7 @@
     },
     "cascade-bicycle-club:cascade-san-juan-islands-tour-2026": {
       "fields": {
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/45955966211_2001e13280_k.jpg?h=e840e50f&itok=GldFab8Q",
         "setting": "outdoor"
       },
       "resolvedAt": "2026-07-23",
@@ -52015,10 +52037,12 @@
       "evidence": "https://www.discoverslu.com/events/trail-running-basics/"
     },
     "discover-slu:discover-slu-seafair-bbq": {
-      "unresolvable": true,
+      "fields": {
+        "startTime": "12:00"
+      },
       "resolvedAt": "2026-07-23",
       "source": "agent",
-      "reason": "Start time confirmed as noon; no end time published on the event page"
+      "evidence": "https://www.discoverslu.com/events/"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46364": {
       "unresolvable": true,
