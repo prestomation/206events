@@ -1,0 +1,39 @@
+geo:
+  lat: 47.6521561
+  lng: -122.3552217
+  label: "LTD Bar & Grill, 309 N 36th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2144365454
+name: fremont-fridays
+sourceRole: venue
+friendlyname: Fremont Fridays
+description: Free weekly summer music and arts series in Fremont, run by the
+  501(c)(3) nonprofit Music for Everybody. Headquartered at LTD Bar & Grill
+  (21+) with food & drink specials, live acts, DJs, and a silent disco;
+  additional pop-up stages appear at other Fremont businesses throughout the
+  neighborhood.
+timezone: America/Los_Angeles
+location: LTD Bar & Grill, 309 N 36th St, Seattle, WA 98103
+url: https://www.fremontfridaysseattle.com/calendar
+tags:
+  - Music
+  - Fremont
+  - Community
+cost: free
+schedules:
+  # Season runs the 4th Friday of June through the 2nd Friday of September
+  # (12 weeks). Ordinal-day schedules approximate that window precisely
+  # instead of an "every Friday" + months:[6,7,8,9] restriction, which would
+  # add phantom occurrences on the non-season Fridays of June and September.
+  - schedule: 4th Friday
+    start_time: "17:00"
+    duration: PT8H
+    months: [6]
+  - schedule: every Friday
+    start_time: "17:00"
+    duration: PT8H
+    months: [7, 8]
+  - schedule: 1st and 2nd Friday
+    start_time: "17:00"
+    duration: PT8H
+    months: [9]

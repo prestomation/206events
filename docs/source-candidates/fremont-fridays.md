@@ -1,11 +1,12 @@
 ---
 name: "Fremont Fridays"
-status: candidate
+status: added
+pr: 999
 platform: Wix
 url: https://www.fremontfridaysseattle.com/calendar
 tags: [Music, Fremont, Community]
 firstSeen: 2026-07-22
-lastChecked: 2026-07-22
+lastChecked: 2026-07-23
 ---
 
 Independent weekly music and arts series in Fremont, organized as a
@@ -30,3 +31,12 @@ anchored to LTD Bar & Grill as the primary venue (similar pattern to
 `georgetown-trailer-park-mall.yaml`), rather than scraping the JS-rendered
 calendar for per-week lineups. Would need to confirm exact 2026 season
 end date and typical event duration before implementing.
+
+Implemented 2026-07-23 (PR #999): confirmed 2026 season is June 26 –
+September 11 via EverOut listings and web search (5pm–close, 21+, free).
+Added as `sources/recurring/fremont-fridays.yaml`, `every Friday`
+restricted to `months: [6,7,8,9]` (the recurring schema has no exact
+date-range support, so the season boundary is approximated to whole
+months — same convention used by other seasonal recurring sources).
+Geo/OSM id for LTD Bar & Grill resolved via Nominatim
+(`node/2144365454`).
