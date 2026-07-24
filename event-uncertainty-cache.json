@@ -41490,12 +41490,13 @@
     },
     "events12:live-theater-2026-08-06": {
       "fields": {
+        "setting": "indoor",
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-24",
       "source": "agent",
       "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
@@ -43285,11 +43286,12 @@
     },
     "events12:shakespeare-in-the-park-2026-08-06": {
       "fields": {
+        "setting": "outdoor",
         "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
       },
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-07-24",
       "source": "agent",
-      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
+      "evidence": "https://www.unionartscenter.org/macbeth/"
     },
     "events12:shakespeare-in-the-park-2026-08-07": {
       "fields": {
@@ -44387,12 +44389,13 @@
     },
     "events12:dance-in-the-park-2026-08-06": {
       "fields": {
+        "setting": "outdoor",
         "startTime": "18:00",
         "duration": 10800
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-24",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-07": {
       "fields": {
@@ -51426,6 +51429,294 @@
       "resolvedAt": "2026-07-24",
       "source": "agent",
       "reason": "NWFF workshop page has no accessible event image"
+    },
+    "venue:osm:way:50275579": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/50275579"
+    },
+    "stg:tm-vvG1HZ_2hRgzxf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_aw9TIh9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_Gl_ZHSX": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_u5oyCdM": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_ul9tuc_": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_Gkt8bhJ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "seattle-public-theater:6a61515eeb1eaa32557be115": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/birds-of-play"
+    },
+    "seattle-public-theater:6a6151ef0df4315f6a217c45": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/birds-of-play-9zhc4"
+    },
+    "seattle-public-theater:6a6151f11c17b46d227cf92e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/birds-of-play-xkldn"
+    },
+    "seattle-public-theater:6a615288cbcc300a39736204": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/night-night-roger-roger"
+    },
+    "seattle-public-theater:6a61536a2b5b407a3a79def4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/night-night-roger-roger-e5kf6"
+    },
+    "seattle-public-theater:6a61536bb5d6073a6a8043cc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/night-night-roger-roger-9f32d"
+    },
+    "seattle-public-theater:6a61536f508cd630bbaf94b0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/night-night-roger-roger-b79d4"
+    },
+    "seattle-public-theater:6a61537054c89e4ba35d8791": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/night-night-roger-roger-p3wxn"
+    },
+    "seattle-public-theater:6a61537311a99d09adcb8d0e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/night-night-roger-roger-napzl"
+    },
+    "seattle-public-theater:6a6153758a61851ce03e57b5": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/night-night-roger-roger-fxapl"
+    },
+    "seattle-public-theater:6a629590b3f2266e51672503": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview"
+    },
+    "seattle-public-theater:6a629600d41d26793b9e7d71": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273"
+    },
+    "seattle-public-theater:6a62962e0f20c2072fdb6962": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-ez9n4"
+    },
+    "seattle-public-theater:6a629631e998f348a5a9c61c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-ltfe5"
+    },
+    "seattle-public-theater:6a6296336580a178e7b5f0e9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-eay6h"
+    },
+    "seattle-public-theater:6a6296356580a178e7b5f680": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-ksxzy"
+    },
+    "seattle-public-theater:6a6296373432ce5e92fb26f0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-kdrmz"
+    },
+    "seattle-public-theater:6a62963bd2e08236393b4dee": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-xssdc"
+    },
+    "seattle-public-theater:6a62963d040ace347376c122": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-4sjsk"
+    },
+    "seattle-public-theater:6a62963f81a9c65596a4f604": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-7b352"
+    },
+    "seattle-public-theater:6a629643d9babe084f8e243b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-7gsbb"
+    },
+    "seattle-public-theater:6a629829803a2c51501ead1f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-7gsbb-chlct"
     }
   }
 }
