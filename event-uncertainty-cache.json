@@ -42110,7 +42110,7 @@
       "fields": {
         "imageUrl": "https://seafairtriathlon.com/wp/wp-content/themes/seafairtriathlon/img/og_image.png",
         "cost": {
-          "min": 115.0
+          "min": 115
         }
       },
       "resolvedAt": "2026-07-19",
@@ -46580,7 +46580,7 @@
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/69e8e73c51eced723d51897e/aa9be781-5dad-4aff-8b7b-5d9a7a29c2bb/Kitsap+Blues+Mermaid+Large.png?format=1500w",
         "setting": "outdoor",
         "cost": {
-          "min": 60.0
+          "min": 60
         }
       },
       "resolvedAt": "2026-07-20",
@@ -49705,7 +49705,7 @@
     "browne-family-vineyards-seattle:6a22f39b2fcb495c9081ae8e": {
       "fields": {
         "cost": {
-          "min": 45.0
+          "min": 45
         }
       },
       "resolvedAt": "2026-07-19",
@@ -49867,7 +49867,7 @@
     "seatoday:cityspark-19440626": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-07-20",
@@ -49889,8 +49889,8 @@
     "northwest-film-forum:cyanotype-workshop-suns-excrusion-interbay-cinema-society-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 150.0,
-          "max": 300.0
+          "min": 150,
+          "max": 300
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/ICS_Cyanotype_Workshop_-FlyerA.jpg"
       },
@@ -51038,7 +51038,7 @@
     "el-suenito-brewing:el-suenito-brewing-7e75ac87-0f52-4c2e-9d8d-7c485b13bbd6": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-07-23",
@@ -51116,7 +51116,7 @@
     "seatoday:cityspark-17751611": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-07-23",
@@ -51166,7 +51166,7 @@
     "seatoday:cityspark-19112177": {
       "fields": {
         "cost": {
-          "min": 799.0
+          "min": 799
         }
       },
       "resolvedAt": "2026-07-23",
@@ -51186,7 +51186,7 @@
     "seatoday:cityspark-19406116": {
       "fields": {
         "cost": {
-          "min": 995.0
+          "min": 995
         }
       },
       "resolvedAt": "2026-07-23",
@@ -51229,7 +51229,7 @@
         "duration": 18000,
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/04/2-2.png",
         "cost": {
-          "min": 375.0
+          "min": 375
         }
       },
       "resolvedAt": "2026-07-23",
@@ -51242,7 +51242,7 @@
         "duration": 18000,
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/04/3-2.png",
         "cost": {
-          "min": 375.0
+          "min": 375
         }
       },
       "resolvedAt": "2026-07-24",
@@ -51253,7 +51253,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/03/equinoxflowerposter.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-07-24",
@@ -51720,347 +51720,66 @@
       "source": "agent",
       "evidence": "https://www.seattlepublictheater.org/calendar-2/jurassic-parking-lot-preview-s5273-7gsbb-chlct"
     },
-    "events12:classical-music-2026-07-01": {
-      "unresolvable": true,
+    "seattle-center:seattle-center-sculpture-walk-2026-x46367": {
+      "fields": {
+        "startTime": "00:00",
+        "duration": 86400
+      },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46367 (listed as All Day — self-guided outdoor sculpture walk with no fixed hours)"
     },
-    "events12:classical-music-2026-07-02": {
-      "unresolvable": true,
+    "seattle-center:seattle-storm-vs-chicago": {
+      "fields": {
+        "duration": 16200
+      },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-chicago (calendar export eventEndTime=22:30:00, matching precedent for other Storm games on this page pattern)"
     },
-    "events12:classical-music-2026-07-03": {
-      "unresolvable": true,
+    "charlies-queer-books:charlies-queer-books-992020260816": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
+      "evidence": "https://charliesqueerbooks.com/events (recurring Romance Book Club series — same event id 9920 resolved free on 2026-07-19 and every prior occurrence)"
     },
-    "events12:classical-music-2026-07-04": {
-      "unresolvable": true,
+    "charlies-queer-books:charlies-queer-books-992120260816": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
+      "evidence": "https://charliesqueerbooks.com/events (recurring Literary Fiction Book Club series — same event id 9921 resolved free on 2026-07-19 and every prior occurrence)"
     },
-    "events12:classical-music-2026-07-05": {
-      "unresolvable": true,
+    "SAF:185612534": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.strangertickets.com/imager/b/original/185612563/5f51/SAF_QueenAnne_202409-16_Web.jpg"
+      },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/185612534/queen-anne-evolution-of-an-urban-neighborhood"
     },
-    "events12:classical-music-2026-07-06": {
-      "unresolvable": true,
+    "SAF:185612604": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.strangertickets.com/imager/b/original/185612645/899c/SAF_ModernArtDeco2023_alessandrabrescia-6.jpg"
+      },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/185612604/diamonds-gold-the-art-deco-skyscraper-northwest-style"
     },
-    "events12:world-cup-soccer-2026-07-01": {
-      "unresolvable": true,
+    "SAF:185612628": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.strangertickets.com/imager/b/original/185612694/186b/harvard_historical_photo_courtesy_of_Stuart_Silk_Architects.jpg"
+      },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:world-cup-soccer-2026-07-02": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:world-cup-soccer-2026-07-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:world-cup-soccer-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:world-cup-soccer-2026-07-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:world-cup-soccer-2026-07-06": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:early-fireworks-2026-07-02": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:early-fireworks-2026-07-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:national-park-day-2026-07-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:national-park-day-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:national-park-day-2026-07-05": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:parades-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:fourth-of-july-seattle-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:fourth-of-july-tacoma-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:fireworks-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:fireworks-party-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:traditional-music-2026-07-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:hippie-music-festival-2026-07-09": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:hippie-music-festival-2026-07-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:hippie-music-festival-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:hippie-music-festival-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bellingham-mountain-biking-2026-07-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bellingham-mountain-biking-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bellingham-mountain-biking-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bluegrass-festival-2026-07-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bluegrass-festival-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bluegrass-festival-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:dance-performance-2026-07-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:party-at-the-zoo-2026-07-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:mercer-island-festival-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:taste-of-snoqualmie-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:celebrity-softball-game-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:tacoma-color-run-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bicycle-to-portland-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bicycle-to-portland-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bremerton-airshow-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:bremerton-airshow-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:vintage-cars-wine-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:reptile-show-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:olympia-summer-festival-2026-07-15": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:kent-family-festival-2026-07-10": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:kent-family-festival-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:kent-family-festival-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:mill-creek-fair-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:mill-creek-fair-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:wallingford-family-parade-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:polish-festival-2026-07-11": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:neighborhood-music-festival-2026-07-12": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:olympia-summer-festival-2026-07-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:sing-along-1980s-new-wave-2026-07-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
-    },
-    "events12:king-county-fair-2026-07-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "reason": "Event occurred in the past; no resolution needed"
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/185612628/harvard-belmont-the-rich-life-on-capitol-hill"
     }
   }
 }

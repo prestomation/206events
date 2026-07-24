@@ -648,6 +648,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'washington park arboretum': { lat: 47.639935, lng: -122.294347 },
   'westlake park': { lat: 47.610900, lng: -122.336900 },
   'youngstown cultural arts center theater': { lat: 47.563585, lng: -122.363035 },
+  'lake city farmers market': { lat: 47.720208, lng: -122.298752 }, // Albert Davis Park, NE 125th St & 28th Ave NE
+  'burien farmers market': { lat: 47.467057, lng: -122.340214 }, // Burien Town Square Park, 480 SW 152nd St
+  'railspur seattle': { lat: 47.598549, lng: -122.333262 }, // 419 Occidental Ave S, Pioneer Square
+  'skinner theater at raisbeck performance hall': { lat: 47.617856, lng: -122.334826 }, // Cornish College, 2015 Boren Ave
   'bainbridge performing arts center': { lat: 47.626104, lng: -122.518500 },
   'bainbridge arts and crafts': { lat: 47.624713, lng: -122.520378 },
   'darrington bluegrass music park': { lat: 48.257213, lng: -121.613039 },
