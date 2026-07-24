@@ -51240,21 +51240,23 @@
       "fields": {
         "startTime": "10:00",
         "duration": 18000,
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/04/2-2.png",
         "cost": {
           "min": 375.0
         }
       },
-      "resolvedAt": "2026-07-23",
+      "resolvedAt": "2026-07-24",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
     },
     "northwest-film-forum:equinox-flower-2026-09-30": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/03/equinoxflowerposter.jpg",
         "cost": {
           "min": 15.0
         }
       },
-      "resolvedAt": "2026-07-23",
+      "resolvedAt": "2026-07-24",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/films/equinox-flower/"
     },
@@ -51989,6 +51991,72 @@
       "reason": "Event occurred in the past; no resolution needed"
     },
     "events12:olympia-summer-festival-2026-07-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:kent-family-festival-2026-07-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:kent-family-festival-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:kent-family-festival-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:mill-creek-fair-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:mill-creek-fair-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:wallingford-family-parade-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:polish-festival-2026-07-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:neighborhood-music-festival-2026-07-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:olympia-summer-festival-2026-07-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:sing-along-1980s-new-wave-2026-07-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-24",
+      "source": "agent",
+      "reason": "Event occurred in the past; no resolution needed"
+    },
+    "events12:king-county-fair-2026-07-16": {
       "unresolvable": true,
       "resolvedAt": "2026-07-24",
       "source": "agent",
