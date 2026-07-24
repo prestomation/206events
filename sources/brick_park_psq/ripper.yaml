@@ -11,6 +11,7 @@ geo:
   osmType: node
   osmId: 2351712325
 imageUrl: "https://images.squarespace-cdn.com/content/v1/67e2d5b8130d67346a3bc8a4/8cab0811-7677-4016-b191-9a33b4f71615/BrickPark_GorgonCity-Drone.jpg"
+skipEventPhotos: true
 calendars:
   - name: brick-park-psq
     friendlyname: "Brick Park PSQ"

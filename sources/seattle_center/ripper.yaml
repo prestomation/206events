@@ -6,6 +6,7 @@ url: "https://www.seattlecenter.com/events/event-calendar"
 friendlyLink: https://www.seattlecenter.com/events
 tags: ["Events", "QueenAnne"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Seattle_-_International_Fountain_%26_Space_Needle.jpg"
+skipEventPhotos: true
 geo: null
 calendars:
   - name: seattle-center-events
