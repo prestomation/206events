@@ -1,0 +1,22 @@
+name: dark-room-comedy
+sourceRole: venue
+type: eventbrite
+description: "Dark Room Comedy Showcase"
+url: "https://www.eventbrite.com/o/120645169668"
+friendlyLink: https://www.eventbrite.com/o/120645169668
+tags: ["Comedy", "Lake City"]
+geo:
+  lat: 47.6906035
+  lng: -122.3072850
+  label: "The Growler Guys, 8500 Lake City Way NE, Seattle, WA 98115"
+  osmChecked: "2026-07-24"
+  osmType: way
+  osmId: 348780585
+calendars:
+  - name: dark-room-comedy
+    friendlyname: "Dark Room Comedy Showcase"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "120645169668"
+      defaultLocation: "8500 Lake City Way NE, Seattle, WA 98115"
+      defaultDurationHours: 2
