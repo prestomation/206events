@@ -1,6 +1,7 @@
 # 2026-07-21: ICS feed works from residential IP but CI gets 0 events (likely WAF challenge page)
-# Escalating to outofband proxy per the escalation ladder
-proxy: outofband
+# 2026-07-21: Escalated to outofband proxy
+# 2026-07-24: outofband failing (3x HTTP 403), escalating to browserbase
+proxy: browserbase
 geo:
   lat: 47.6261
   lng: -122.3371
