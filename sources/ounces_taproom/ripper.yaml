@@ -1,6 +1,7 @@
 name: ounces_taproom
 sourceRole: venue
 type: squarespace
+expectEmpty: true
 description: "Ounces Taproom & Beer Garden"
 url: "https://www.ounceswestseattle.com/events"
 friendlyLink: https://www.ounceswestseattle.com/events

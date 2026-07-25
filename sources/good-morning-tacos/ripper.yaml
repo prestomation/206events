@@ -1,5 +1,6 @@
 name: good-morning-tacos
 type: squarespace
+expectEmpty: true
 description: "Good Morning Tacos"
 url: "https://goodmorningtacos.com/events"
 friendlyLink: "https://goodmorningtacos.com/events"
