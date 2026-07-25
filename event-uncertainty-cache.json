@@ -51404,11 +51404,13 @@
     },
     "rainier-beach-community-club:rbcc-meaningful-movies-2026-09-19": {
       "fields": {
-        "imageUrl": "https://i0.wp.com/rainierbeachcommunityclub.org/wp-content/uploads/2026/07/DT-FINAL-PNG-POSTER-6.13.25-no-cut-marks-27x40in.pdf.png"
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "evidence": "https://rainierbeachcommunityclub.org/events/meaningful-movies/"
+      "evidence": "https://rainierbeachcommunityclub.org/events/meaningful-movies"
     },
     "unbound-symphony:unbound-symphony-met-tract-plaza-2026-07-22": {
       "fields": {
@@ -51509,10 +51511,14 @@
       "reason": "price not shown on event page"
     },
     "sea-monster-lounge:sea-monster-lounge-coldnote-vol-2-2026-08-07": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "reason": "price not shown on event page"
+      "evidence": "https://www.seamonsterlounge.com"
     },
     "seattle-makers:seattle-makers-118348": {
       "unresolvable": true,
@@ -51639,6 +51645,160 @@
       "resolvedAt": "2026-07-25",
       "source": "agent",
       "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "queer-social-club:6a60107007d43f6a030dafc7": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/capitol-hill-free-day"
+    },
+    "queer-social-club:6a601190b29fb14f91286ee9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/gems-beach-party-gender-equity-movement"
+    },
+    "queer-social-club:6a6012d80f4c7e21f471db05": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lgbtq-prisoner-letter-writing-1"
+    },
+    "queer-social-club:6a60123b7e46f368d8d41c4b": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/jimothy-rave"
+    },
+    "rabbit_box:6a5ebbc392d3ea7a4d7661ba": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a5fbd8d313a793fb3ba5888": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a62b86acda7010306ca7f32": {
+      "fields": {
+        "cost": {
+          "min": 15.0,
+          "max": 20.0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a610bad4ba5c5143e2429da": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a613626c331543e64b35cf3": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a61541257ca5644bb828ea0": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://therabbitboxseattle.com/events"
+    },
+    "rabbit_box:6a613b4c72d99d4e721e70aa": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "no event found at venue or ticketing sites for this date"
+    },
+    "rabbit_box:6a614eb4b0e48b18e1302b77": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "no event found at venue or ticketing sites for this date"
+    },
+    "lucky-envelope:6a5eb2cb08da826eb936b3ec": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://breweryrunningseries.com"
+    },
+    "native_action_network:6a5e823f05edd035928a8b0f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://nativeactionnetwork.org"
+    },
+    "queer-power-alliance:6a5fdf18f8e023777c144427": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://queerpoweralliance.org"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3O3naf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://climatepledgearena.com"
     }
   }
 }
