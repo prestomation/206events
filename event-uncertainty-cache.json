@@ -51396,11 +51396,15 @@
     },
     "northwest-film-forum:cabaret-charlies-queer-books-2026-08-14": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/cabaretposter.png"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/cabaretposter.png",
+        "cost": {
+          "min": 10.0,
+          "max": 25.0
+        }
       },
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/event/cabaret-charlies-queer-books/"
+      "evidence": "https://nwfilmforum.org/films/cabaret-charlies-queer-books/"
     },
     "rainier-beach-community-club:rbcc-meaningful-movies-2026-09-19": {
       "fields": {
@@ -51799,6 +51803,42 @@
       "resolvedAt": "2026-07-25",
       "source": "agent",
       "evidence": "https://climatepledgearena.com"
+    },
+    "west-seattle-nursery:6a5e974979de873b8f29f870": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "no pricing information on event page; likely free in-store event but not explicitly stated"
+    },
+    "stg:tm-vvG1HZ_ul9nqcx": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/dinosaur-jr-with-special-guest-stef-seattle-washington-10-24-2026/event/0F0064DAD7A9DB62"
+    },
+    "wamu-theater:tm-vvG1HZ_F5_8AeN": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/2026-monsta-x-world-tour-the-seattle-washington-10-24-2026/event/0F006482D94050A3"
+    },
+    "wamu-theater:tm-vvG1HZ_ahwEw8C": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-monsta-x-seattle-washington-10-24-2026/event/0F006496F29F240E"
     }
   }
 }
