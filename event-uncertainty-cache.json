@@ -51839,6 +51839,50 @@
       "resolvedAt": "2026-07-25",
       "source": "agent",
       "evidence": "https://www.wamutheater.com/amplified-access"
+    },
+    "venue:loc:center for urban horticulture complex (cuh)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "Mixed venue: CUH hosts both indoor lectures/classes (NHS Hall) and outdoor field/garden programs (Union Bay Natural Area gardens) — can't classify the whole complex from a single field-ID class registration page (JS-rendered, no clear indoor/outdoor statement)."
+    },
+    "venue:loc:westcrest park, off the south parking lot": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks"
+    },
+    "venue:osm:node:3008817778": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44392/"
+    },
+    "venue:osm:node:6815726700": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://engageseattleparks.com/marra-desimone-park-improvements"
+    },
+    "venue:osm:way:1000645329": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44321/"
+    },
+    "venue:osm:way:53588546": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "Community center is a mixed indoor/outdoor venue: hosts regular indoor classes plus the outdoor annual 'Tasty Tunes' community event; the queued events are Parks staff outreach booths at that outdoor festival, not indoor programming — verified via https://engageseattleparks.com/loyal-heights-community-center-renovation"
     }
   }
 }
