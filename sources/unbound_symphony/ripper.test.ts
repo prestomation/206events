@@ -90,6 +90,35 @@ describe('parseSummerPopupPage', () => {
         expect(results.length).toBe(1);
         expect(results[0]).toHaveProperty('type', 'ParseError');
     });
+
+    it('returns a ParseError when the location paragraph has no address line', () => {
+        const html = parse(`<html><body><div class="sqs-html-content">
+            <p class="sqsrte-large">Location<br>Somewhere vague</p>
+            <p class="sqsrte-large">Dates<br>July 29</p>
+        </div></body></html>`);
+        const results = parseSummerPopupPage(html, url);
+
+        expect(results.length).toBe(1);
+        expect(results[0]).toHaveProperty('type', 'ParseError');
+    });
+
+    it('flags an unparseable time range as uncertain instead of guessing a negative duration', () => {
+        const html = parse(`<html><body><div class="sqs-html-content">
+            <p class="sqsrte-large">Location<br>1200 Fifth, Upper Plaza<br>Address: 1200 5th Avenue, Seattle 98101</p>
+            <p class="sqsrte-large">Dates<br>July 29</p>
+            <p class="sqsrte-large">Time<br>2:00-1:00 PM</p>
+        </div></body></html>`);
+        const results = parseSummerPopupPage(html, url);
+        const events = results.filter(isEvent);
+        const uncertainty = results.find(e => 'type' in e && e.type === 'Uncertainty');
+
+        expect(events.length).toBe(1);
+        expect(events[0].duration.toMinutes()).toBeGreaterThan(0);
+        expect(uncertainty).toBeDefined();
+        if (uncertainty && 'unknownFields' in uncertainty) {
+            expect(uncertainty.unknownFields).toContain('startTime');
+        }
+    });
 });
 
 describe('parseSummerFestivalPage', () => {
@@ -127,6 +156,17 @@ describe('parseSummerFestivalPage', () => {
 
     it('returns a ParseError when the heading blocks are missing', () => {
         const html = parse('<html><body><div class="sqs-html-content"></div></body></html>');
+        const results = parseSummerFestivalPage(html, url);
+
+        expect(results.length).toBe(1);
+        expect(results[0]).toHaveProperty('type', 'ParseError');
+    });
+
+    it('returns a ParseError for a malformed date range where the end day precedes the start day', () => {
+        const html = parse(`<html><body><div class="sqs-html-content">
+            <h2>3rd Unbound Symphony Summer Festival is scheduled for<br>July 10-5, 2028</h2>
+            <h2>Highline Performing Arts Center<br>Burien, WA</h2>
+        </div></body></html>`);
         const results = parseSummerFestivalPage(html, url);
 
         expect(results.length).toBe(1);

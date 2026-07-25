@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyField } from "../../lib/config/schema.js";
+import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import '@js-joda/timezone';
 
@@ -63,7 +64,8 @@ function parseTimeRange(text: string): { hour: number; minute: number; durationM
     const endHour = to24(endHStr);
     const startMinute = parseInt(startMStr, 10);
     const endMinute = parseInt(endMStr, 10);
-    const durationMinutes = Math.max((endHour * 60 + endMinute) - (startHour * 60 + startMinute), 15);
+    const durationMinutes = (endHour * 60 + endMinute) - (startHour * 60 + startMinute);
+    if (durationMinutes <= 0) return null;
     return { hour: startHour, minute: startMinute, durationMinutes };
 }
 
@@ -72,7 +74,10 @@ function parseTimeRange(text: string): { hour: number; minute: number; durationM
 // ("📍 Location", "📅 Dates", "🕛 Time") shared across every date, plus one
 // paragraph per date with the performers/program for that date.
 export function parseSummerPopupPage(html: HTMLElement, url: string): RipperEvent[] {
-    const paragraphs = html.querySelectorAll("p.sqsrte-large");
+    // Scope to <main> — Squarespace reuses "p.sqsrte-large" in footer/nav
+    // text blocks outside the page's actual content.
+    const contentRoot = html.querySelector("main") ?? html;
+    const paragraphs = contentRoot.querySelectorAll("p.sqsrte-large");
 
     const locationPara = paragraphs.find(p => /\bLocation\b/i.test((p.text.split("\n")[0] || "")));
     const datesPara = paragraphs.find(p => /\bDates\b/i.test((p.text.split("\n")[0] || "")));
@@ -86,13 +91,21 @@ export function parseSummerPopupPage(html: HTMLElement, url: string): RipperEven
         }];
     }
 
-    // The location paragraph has a descriptive line ("1200 Fifth, Upper
-    // Plaza (outside the iconic IBM Building)") followed by a street
+    // The location paragraph has a label line, a descriptive line ("1200
+    // Fifth, Upper Plaza (outside the iconic IBM Building)"), and a street
     // address line. Geocoding the descriptive text alongside the address
     // confuses Nominatim, so use only the cleaned street address for
     // `location` and fold the descriptive line into the venue note instead.
-    const [, venueDescriptor, addressLine] = locationPara.text.split("\n");
-    const location = (addressLine || venueDescriptor || "")
+    const locationParts = locationPara.text.split("\n");
+    if (locationParts.length < 3) {
+        return [{
+            type: "ParseError",
+            reason: `Location paragraph missing expected venue descriptor/address lines: "${locationPara.text}"`,
+            context: url,
+        }];
+    }
+    const [, venueDescriptor, addressLine] = locationParts;
+    const location = addressLine
         .replace(/^Address:\s*/i, "")
         .replace(/Seattle\s+(\d{5})/i, "Seattle, WA $1");
 
@@ -177,7 +190,10 @@ export function parseSummerPopupPage(html: HTMLElement, url: string): RipperEven
 // multi-day Summer Orchestra Festival. The page has no ICS/API, just two
 // heading blocks: one with the date range, one with the venue.
 export function parseSummerFestivalPage(html: HTMLElement, url: string): RipperEvent[] {
-    const headings = html.querySelectorAll("h2");
+    // Scope to <main> — a bare "h2" query would also match unrelated
+    // headings in the site header/footer.
+    const contentRoot = html.querySelector("main") ?? html;
+    const headings = contentRoot.querySelectorAll("h2");
     const scheduleHeading = headings.find(h => /is scheduled for/i.test(h.text));
     const venueHeading = headings.find(h => h !== scheduleHeading && h.text.trim().length > 0);
 
@@ -214,6 +230,14 @@ export function parseSummerFestivalPage(html: HTMLElement, url: string): RipperE
     const endDay = parseInt(endDayStr, 10);
     const year = parseInt(yearStr, 10);
 
+    if (endDay < startDay) {
+        return [{
+            type: "ParseError",
+            reason: `Invalid festival date range: end day ${endDay} precedes start day ${startDay}`,
+            context: url,
+        }];
+    }
+
     const location = venueHeading.text.split("\n").map(l => l.trim()).filter(Boolean).join(", ");
 
     let date: ZonedDateTime;
@@ -229,7 +253,7 @@ export function parseSummerFestivalPage(html: HTMLElement, url: string): RipperE
         }];
     }
 
-    const durationDays = Math.max(endDay - startDay + 1, 1);
+    const durationDays = endDay - startDay + 1;
     const id = `unbound-symphony-summer-festival-${date.toLocalDate().toString()}`;
     const event: RipperCalendarEvent = {
         id,
@@ -263,11 +287,12 @@ export default class UnboundSymphonyRipper implements IRipper {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
         }
 
+        const fetchFn = getFetchForConfig(ripper.config);
         const allEvents: RipperEvent[] = [];
         for (const page of EVENT_PAGES) {
             const url = `${BASE_URL}${page.path}`;
             try {
-                const res = await fetch(url, {
+                const res = await fetchFn(url, {
                     headers: { "User-Agent": "Mozilla/5.0 (compatible; CalendarRipper/1.0)" },
                 });
                 if (!res.ok) {
