@@ -280,6 +280,12 @@ describe('NationalNordicMuseumRipper', () => {
             expect(ripper.parseDate('Aug 16, 2026')).toEqual({ year: 2026, month: 8, day: 16 });
         });
 
+        it('parses four-letter "Sept" abbreviation', () => {
+            const ripper = new NationalNordicMuseumRipper();
+            expect(ripper.parseDate('Sept 3, 2026')).toEqual({ year: 2026, month: 9, day: 3 });
+            expect(ripper.parseDate('Sept 24, 2026')).toEqual({ year: 2026, month: 9, day: 24 });
+        });
+
         it('parses start of date range', () => {
             const ripper = new NationalNordicMuseumRipper();
             const result = ripper.parseDate('July 13-17, 2026');

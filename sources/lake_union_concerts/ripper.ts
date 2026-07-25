@@ -6,7 +6,10 @@ import '@js-joda/timezone';
 const TICKETS_URL = 'https://www.lakeunionconcerts.com/tickets';
 const PAST_EVENT_REASON = 'Event is in the past';
 const USER_AGENT_TICKETS = 'Mozilla/5.0 (compatible; 206events/1.0)';
-const USER_AGENT_POSH = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+// posh.vip's bot-detection blocks any UA claiming to be a browser (containing
+// "Mozilla") without a matching TLS/JS fingerprint, but passes plain bot UAs
+// (e.g. Googlebot, curl) straight through — so identify honestly instead.
+const USER_AGENT_POSH = '206events/1.0 (+https://206.events)';
 
 interface PoshEventJsonLd {
     '@context': string;

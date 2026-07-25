@@ -22,7 +22,7 @@ const MONTHS: Record<string, number> = {
     "September": 9, "October": 10, "November": 11, "December": 12,
     "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4,
     "Jun": 6, "Jul": 7, "Aug": 8,
-    "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
+    "Sep": 9, "Sept": 9, "Oct": 10, "Nov": 11, "Dec": 12,
 };
 
 export interface ParsedEventCard {
