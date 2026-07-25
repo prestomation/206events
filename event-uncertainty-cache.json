@@ -51433,6 +51433,212 @@
       "resolvedAt": "2026-07-25",
       "source": "agent",
       "evidence": "https://www.unboundsymphony.org/events"
+    },
+    "sea-monster-lounge:sea-monster-lounge-cephalopod-4-2026-07-28": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/events/cephalopod-vol-4"
+    },
+    "sea-monster-lounge:sea-monster-lounge-the-exactly-different-jazz-consortium-2026-08-04": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/events/the-exactly-different-jazz-consortium"
+    },
+    "sea-monster-lounge:sea-monster-lounge-pa-gozar-2026-08-01-19-00-2026-08-01": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/events/pa-gozar"
+    },
+    "sea-monster-lounge:sea-monster-lounge-kiki-valera-y-su-son-cubano-2026-08-08-19-00-2026-08-08": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/events/kiki-valera-y-su-son-cubano"
+    },
+    "sea-monster-lounge:sea-monster-lounge-son-los-que-son-2026-08-15-19-00-2026-08-15": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/events/son-los-que-son"
+    },
+    "sea-monster-lounge:sea-monster-lounge-colin-pulkrabek-quartet-3-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page"
+    },
+    "sea-monster-lounge:sea-monster-lounge-danny-godinez-company-2026-07-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page"
+    },
+    "sea-monster-lounge:sea-monster-lounge-weinstein-wednesday-2026-08-05-22-00-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page"
+    },
+    "sea-monster-lounge:sea-monster-lounge-comfort-food-2026-08-13-22-00-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page"
+    },
+    "sea-monster-lounge:sea-monster-lounge-coldnote-vol-2-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page"
+    },
+    "seattle-makers:seattle-makers-118348": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160065": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160068": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160070": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160072": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160091": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160094": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160327": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160329": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160330": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160338": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160363": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160370": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160378": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160386": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160387": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160388": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160393": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160402": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160406": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
+    },
+    "seattle-makers:seattle-makers-160409": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-25",
+      "source": "agent",
+      "reason": "price not shown on event page (hidden behind cart system)"
     }
   }
 }
