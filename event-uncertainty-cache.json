@@ -51515,14 +51515,10 @@
       "reason": "price not shown on event page"
     },
     "sea-monster-lounge:sea-monster-lounge-coldnote-vol-2-2026-08-07": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "evidence": "https://www.seamonsterlounge.com"
+      "reason": "price not shown on event page"
     },
     "seattle-makers:seattle-makers-118348": {
       "unresolvable": true,
