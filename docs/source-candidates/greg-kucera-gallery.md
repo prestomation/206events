@@ -6,7 +6,7 @@ url: https://gregkucera.com/events
 tags: [Arts, "Pioneer Square"]
 firstSeen: 2026-07-16
 lastChecked: 2026-07-25
-pr: PENDING
+pr: 1014
 ---
 
 Contemporary art gallery in Pioneer Square. Hosts First Thursday events,
