@@ -1,11 +1,12 @@
 ---
 name: "Greg Kucera Gallery"
-status: candidate
+status: added
 platform: Squarespace
 url: https://gregkucera.com/events
 tags: [Arts, "Pioneer Square"]
 firstSeen: 2026-07-16
-lastChecked: 2026-07-22
+lastChecked: 2026-07-25
+pr: PENDING
 ---
 
 Contemporary art gallery in Pioneer Square. Hosts First Thursday events,
@@ -22,3 +23,12 @@ Investigated 2026-07-16:
   cycle to see if new First Thursday / artist-talk events get posted
 
 Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcoming array empty, or Eventbrite organizer `upcomingEvents` empty). No change.
+
+Re-checked 2026-07-25: `/events?format=json` now shows 1 upcoming event —
+"First Thursday: Deborah Butterfield" (Aug 7, 2026, sculpture reception,
+2hr duration via the item's own `startDate`/`endDate`). Clears the
+Squarespace quality gate. Implemented as `sources/greg_kucera_gallery/`
+(built-in `squarespace` ripper type), venue address/coords taken from the
+site's own embedded location payload (212 3rd Avenue South, Seattle, WA
+98104; 47.6004219, -122.329892). Confirmed 1 event, 0 errors via
+`ONLY_SOURCE=greg-kucera-gallery npm run generate-calendars`.
