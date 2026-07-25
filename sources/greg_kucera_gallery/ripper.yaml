@@ -1,0 +1,16 @@
+name: greg-kucera-gallery
+sourceRole: venue
+type: squarespace
+description: "Greg Kucera Gallery"
+url: "https://gregkucera.com/events"
+friendlyLink: https://gregkucera.com/
+cost: free
+tags: ["Arts", "Pioneer Square"]
+geo:
+  lat: 47.6004219
+  lng: -122.329892
+  label: "Greg Kucera Gallery, 212 3rd Avenue South, Seattle, WA 98104"
+calendars:
+  - name: greg-kucera-gallery
+    friendlyname: "Greg Kucera Gallery"
+    timezone: America/Los_Angeles
