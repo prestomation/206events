@@ -51398,7 +51398,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/cabaretposter.png",
         "cost": {
-          "min": 10.0,
+          "min": 15.0,
           "max": 25.0
         }
       },
@@ -51797,18 +51797,22 @@
     "climate-pledge-arena:tm-vvG1HZ_G3O3naf": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 65.5
         }
       },
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "evidence": "https://climatepledgearena.com"
+      "evidence": "https://www.nhl.com/kraken/news/seattle-kraken-announce-new-2026-27-ticketing-options"
     },
     "west-seattle-nursery:6a5e974979de873b8f29f870": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "reason": "no pricing information on event page; likely free in-store event but not explicitly stated"
+      "evidence": "https://www.westseattlenursery.com/events-classes"
     },
     "stg:tm-vvG1HZ_ul9nqcx": {
       "fields": {
@@ -51833,12 +51837,12 @@
     "wamu-theater:tm-vvG1HZ_ahwEw8C": {
       "fields": {
         "cost": {
-          "min": 0
+          "paid": true
         }
       },
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-monsta-x-seattle-washington-10-24-2026/event/0F006496F29F240E"
+      "evidence": "https://www.wamutheater.com/amplified-access"
     }
   }
 }
