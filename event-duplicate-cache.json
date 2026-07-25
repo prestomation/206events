@@ -7729,6 +7729,91 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-24",
       "note": "Same seatoday event in seatoday-arts and seatoday-community sub-calendars; identical URL/title/location"
+    },
+    "19hz-all-events.ics Infected Mushroom|2026-07-25T21:00:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Infected Mushroom (Live) with Lukenstein, Obsydian|2026-07-25T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same show at The Showbox, same time, 19hz lists without openers"
+    },
+    "NWMetalCalendar-NWMetal.ics The Sword, Red Fang, Spoon Benders|2026-08-21T19:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics The Sword & Red Fang with Spoon Benders|2026-08-21T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same show at Showbox SoDo, NWMetalCalendar lists comma-separated vs & connector"
+    },
+    "black-tan-hall-all-events.ics Hillman City Block Party|2026-08-08T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics WHAT's GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same Hillman City block party, city-wide calendar uses all-day UTC time"
+    },
+    "black-tan-hall-all-events.ics Hillman City Block Party|2026-08-08T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics What's Good: the Hillman City block party|2026-08-08T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same Hillman City block party event, title case variant, city calendar all-day"
+    },
+    "black-tan-hall-all-events.ics Hillman City Block Party|2026-08-08T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-neighborhoods.ics WHAT's GOOD: The Hillman City Block Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same Hillman City block party, neighborhoods calendar"
+    },
+    "external-uw-campus-events.ics Wildfire in the West: Learning from the Past, Navigating the Future|2026-09-01T12:00:00Z[UTC]::external-uw-sustainability.ics Wildfire in the West: Learning from the Past, Navigating the Future|2026-09-01T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Identical title, date, location, and Zoom URL in two UW calendars"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-07-31T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-07-31T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same recurring drag show at Unicorn, 1118 E Pike, same time"
+    },
+    "rabbit_box-all-events.ics The Triple Door presents Griffin House at The Rabbit Box|2026-10-24T19:30:00.771-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Griffin House at The Rabbit Box|2026-10-24T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same show at The Rabbit Box, same time, rabbit_box adds Triple Door presenter prefix"
+    },
+    "seatoday-seatoday-all.ics CLC Wherry Class|2026-08-07T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLC Wherry Class|2026-08-07T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same event appearing in seatoday all-events and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same event in seatoday all-events and arts sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same event in seatoday all-events and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics PAWA Paints Edmonds - 2026|2026-08-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics PAWA Paints Edmonds - 2026|2026-08-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same event in seatoday all-events and arts sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-25",
+      "note": "Same event in seatoday arts and community sub-calendars"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-24T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-25",
+      "note": "Two different food truck stops on the same day at different Eastlake locations — 1201 and 1551 are 321m apart"
+    },
+    "spl-delridge.ics Baby Story Time|2026-07-24T11:00:00-07:00[America/Los_Angeles]::spl-magnolia.ics Firefighter Story Time|2026-07-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-25",
+      "note": "Different events (Baby Story Time vs Firefighter Story Time) at different branches 10km apart"
+    },
+    "spl-delridge.ics Baby Story Time|2026-07-31T11:00:00-07:00[America/Los_Angeles]::spl-lake-city.ics Firefighter Story Time|2026-07-31T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-25",
+      "note": "Different events (Baby Story Time vs Firefighter Story Time) at different branches 19km apart"
+    },
+    "stoup-brewing-ballard.ics Help us Support Dine Out For Life|2026-08-13T17:00:00-07:00[America/Los_Angeles]::stoup-brewing-capitol-hill.ics Help us support Dine Out For Life|2026-08-13T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-25",
+      "note": "Two separate events at two different Stoup Brewing locations (Ballard vs Capitol Hill) — different URLs and physical venues"
     }
   }
 }
