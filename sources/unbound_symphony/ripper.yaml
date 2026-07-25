@@ -1,0 +1,11 @@
+name: unbound-symphony
+sourceRole: venue
+description: "Unbound Symphony"
+url: "https://www.unboundsymphony.org/"
+friendlyLink: "https://www.unboundsymphony.org/"
+tags: ["Music"]
+geo: null
+calendars:
+  - name: unbound-symphony
+    friendlyname: "Unbound Symphony"
+    timezone: America/Los_Angeles

@@ -1,0 +1,135 @@
+import { describe, it, expect } from 'vitest';
+import { parse } from 'node-html-parser';
+import { parseSummerPopupPage, parseSummerFestivalPage } from './ripper.js';
+import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
+import '@js-joda/timezone';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+function loadSample(name: string): string {
+    return fs.readFileSync(path.join(__dirname, name), 'utf8');
+}
+
+function isEvent(e: RipperCalendarEvent | RipperError): e is RipperCalendarEvent {
+    return 'date' in e;
+}
+
+describe('parseSummerPopupPage', () => {
+    const url = 'https://www.unboundsymphony.org/summer-popup';
+
+    it('extracts one event per listed date', () => {
+        const html = parse(loadSample('sample-summer-popup.html'));
+        const results = parseSummerPopupPage(html, url);
+        const events = results.filter(isEvent);
+
+        expect(events.length).toBe(3);
+    });
+
+    it('parses the shared location for every event', () => {
+        const html = parse(loadSample('sample-summer-popup.html'));
+        const events = parseSummerPopupPage(html, url).filter(isEvent);
+
+        for (const event of events) {
+            expect(event.location).toContain('1200 5th Avenue');
+            expect(event.location).toContain('Seattle, WA 98101');
+        }
+    });
+
+    it('parses the shared time range into a 60 minute duration at noon', () => {
+        const html = parse(loadSample('sample-summer-popup.html'));
+        const events = parseSummerPopupPage(html, url).filter(isEvent);
+
+        for (const event of events) {
+            expect(event.date.hour()).toBe(12);
+            expect(event.date.minute()).toBe(0);
+            expect(event.duration.toMinutes()).toBe(60);
+        }
+    });
+
+    it('does not emit a time UncertaintyError when the time block parses cleanly', () => {
+        const html = parse(loadSample('sample-summer-popup.html'));
+        const results = parseSummerPopupPage(html, url);
+        const uncertainties = results.filter(e => 'type' in e && e.type === 'Uncertainty');
+
+        expect(uncertainties.length).toBe(0);
+    });
+
+    it('attaches the per-date program note as the description', () => {
+        const html = parse(loadSample('sample-summer-popup.html'));
+        const events = parseSummerPopupPage(html, url).filter(isEvent);
+
+        const julyTwentyNinth = events.find(e => e.date.monthValue() === 7 && e.date.dayOfMonth() === 29);
+        expect(julyTwentyNinth?.description).toContain('Dr. Rachel Reyes');
+    });
+
+    it('marks the event free', () => {
+        const html = parse(loadSample('sample-summer-popup.html'));
+        const events = parseSummerPopupPage(html, url).filter(isEvent);
+
+        for (const event of events) {
+            expect(event.cost).toEqual({ min: 0 });
+        }
+    });
+
+    it('produces stable ids derived from the date', () => {
+        const html = parse(loadSample('sample-summer-popup.html'));
+        const events = parseSummerPopupPage(html, url).filter(isEvent);
+
+        for (const event of events) {
+            expect(event.id).toMatch(/^unbound-symphony-met-tract-plaza-\d{4}-\d{2}-\d{2}$/);
+        }
+    });
+
+    it('returns a ParseError when the Location/Dates blocks are missing', () => {
+        const html = parse('<html><body><div class="sqs-html-content"><p class="sqsrte-large">Nothing here</p></div></body></html>');
+        const results = parseSummerPopupPage(html, url);
+
+        expect(results.length).toBe(1);
+        expect(results[0]).toHaveProperty('type', 'ParseError');
+    });
+});
+
+describe('parseSummerFestivalPage', () => {
+    const url = 'https://www.unboundsymphony.org/summer-festival';
+
+    it('extracts a single multi-day event', () => {
+        const html = parse(loadSample('sample-summer-festival.html'));
+        const results = parseSummerFestivalPage(html, url);
+        const events = results.filter(isEvent);
+
+        expect(events.length).toBe(1);
+        expect(events[0].date.year()).toBe(2027);
+        expect(events[0].date.monthValue()).toBe(7);
+        expect(events[0].date.dayOfMonth()).toBe(7);
+        expect(events[0].duration.toDays()).toBe(4);
+    });
+
+    it('parses the venue from the second heading', () => {
+        const html = parse(loadSample('sample-summer-festival.html'));
+        const events = parseSummerFestivalPage(html, url).filter(isEvent);
+
+        expect(events[0].location).toBe('Highline Performing Arts Center, Burien, WA');
+    });
+
+    it('flags the daily start time as uncertain', () => {
+        const html = parse(loadSample('sample-summer-festival.html'));
+        const results = parseSummerFestivalPage(html, url);
+        const uncertainty = results.find(e => 'type' in e && e.type === 'Uncertainty');
+
+        expect(uncertainty).toBeDefined();
+        if (uncertainty && 'unknownFields' in uncertainty) {
+            expect(uncertainty.unknownFields).toContain('startTime');
+        }
+    });
+
+    it('returns a ParseError when the heading blocks are missing', () => {
+        const html = parse('<html><body><div class="sqs-html-content"></div></body></html>');
+        const results = parseSummerFestivalPage(html, url);
+
+        expect(results.length).toBe(1);
+        expect(results[0]).toHaveProperty('type', 'ParseError');
+    });
+});
