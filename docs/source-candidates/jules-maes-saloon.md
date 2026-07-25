@@ -3,7 +3,7 @@ name: "Jules Maes Saloon"
 status: candidate
 platform: Recurring (weekly trivia)
 url: https://kingtrivia.com/venues/jules-maes-saloon/
-tags: [Nightlife, "Pub Trivia", Georgetown]
+tags: [Trivia, "Pub Trivia", Georgetown]
 firstSeen: 2026-07-25
 lastChecked: 2026-07-25
 ---

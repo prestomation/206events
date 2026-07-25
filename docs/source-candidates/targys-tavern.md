@@ -3,7 +3,7 @@ name: "Targy's Tavern"
 status: candidate
 platform: Recurring (weekly trivia + bingo)
 url: https://triviascout.com/bar/targys-tavern-seattle
-tags: [Nightlife, "Pub Trivia", "Queen Anne"]
+tags: [Trivia, "Pub Trivia", "Queen Anne"]
 firstSeen: 2026-07-25
 lastChecked: 2026-07-25
 ---

@@ -18,6 +18,17 @@ Weekly farmers market run by Friends of Madison Park.
   other neighborhood farmers markets already in `sources/recurring/`.
 - Not covered by any existing `sources/recurring/*-farmers-market.yaml`
   entry or by `docs/source-candidates/seattle-farmers-markets.md`.
+- **Checked for overlap with `sources/friends_of_madison_park/` (the
+  same parent org, `status: added`, PR #676, Squarespace type):** fetched
+  `https://www.friendsofmadisonpark.com/allevents?format=json` directly
+  and confirmed its 21 upcoming items are one-off community events
+  (book clubs, "Music in the Park", "Madison Park Garage Sale",
+  "Madison Park Artisan Market", "Madison Valley Little Courtyard
+  Market", etc.) — no "Madison Park Farmers Market" entry among them.
+  The farmers market is promoted on a separate static page
+  (`/farmers-market`) outside that Squarespace events collection, so
+  implementing this as its own recurring entry would not double-cover
+  anything already surfaced by the existing ripper.
 
 Sources:
 - https://www.friendsofmadisonpark.com/farmers-market
