@@ -904,7 +904,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Roosevelt/Green Lake — Nominatim resolves 845 NE 66th St to zip 98115; the
   // source's "98155" (a Lake Forest Park zip, ~9 miles north) is a source typo.
   '845 ne 66th st, seattle wa 98155, 845 ne 66th st, seattle, 98115, united states': { lat: 47.6764130, lng: -122.3177778 },
-  'ne 106th street, next to victory heights park': { lat: 47.7056999, lng: -122.3077256 }, // Victory Heights Playground, Maple Leaf
+  'ne 106th street, next to victory heights park': { lat: 47.7056999, lng: -122.3077256 }, // Victory Heights Playground (Nominatim files it under Maple Leaf)
   'dr. blanche lavizzo park amphitheatre, central district, seattle, wa': { lat: 47.6004282, lng: -122.3043195 },
   'benefit park': { lat: 47.5193576, lng: -122.2847300 }, // Benefit Playground, 9320 38th Ave S, Rainier Beach
   // "Downtown Issaquah" fireworks show — the display and lakeside festivities are
@@ -918,7 +918,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'los angeles, ca': { lat: 34.0536909, lng: -118.2427660 }, // away-game city label
   'new york, ny': { lat: 40.7127281, lng: -74.0060152 }, // away-game city label
   'wenatchee, wa': { lat: 47.4234599, lng: -120.3103490 },
-  'bainbridge island': { lat: 47.6515096, lng: -122.5246791 }, // island town centroid (Winslow), ferry-linked events
+  'bainbridge island': { lat: 47.6515096, lng: -122.5246791 }, // Nominatim's island-wide centroid (a few km north of downtown Winslow); ferry-linked events
 };
 
 /**
