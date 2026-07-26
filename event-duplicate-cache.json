@@ -7814,6 +7814,51 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-25",
       "note": "Two separate events at two different Stoup Brewing locations (Ballard vs Capitol Hill) — different URLs and physical venues"
+    },
+    "fremont-abbey-fremont-abbey.ics Wellness Journey Mini Retreat @ FREMONT ABBEY|2026-08-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Wellness Journey Mini Retreat (Audra Sanderhoff)|2026-08-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-26",
+      "note": "Same event at Fremont Abbey Arts Center at 09:00; seatoday aggregates the humanitix listing"
+    },
+    "seatoday-seatoday-all.ics CLC Wherry Class|2026-08-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLC Wherry Class|2026-08-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-26",
+      "note": "Same event repeated across seatoday category feeds (all vs learning) — identical title, time, URL"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-26",
+      "note": "Same event repeated across seatoday category feeds (all vs arts) — identical title, time, URL, location"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-26",
+      "note": "Same event repeated across seatoday category feeds (all vs community) — identical title, time, URL, location"
+    },
+    "seatoday-seatoday-all.ics WHAT's GOOD: the Hillman City block party|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seattle-showlists-black-and-tan-hall.ics Hillman City Block Party|2026-08-08T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-26",
+      "note": "Times differ by 10h (10am street festival vs 8pm music show at Black & Tan Hall); distinct events even if same day"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-26",
+      "note": "Same event repeated across seatoday category feeds (arts vs community) — identical title, time, URL, location"
+    },
+    "seatoday-seatoday-arts.ics WHAT's GOOD: the Hillman City block party|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seattle-showlists-black-and-tan-hall.ics Hillman City Block Party|2026-08-08T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-26",
+      "note": "Times differ by 10h (10am street festival vs 8pm music show at Black & Tan Hall); distinct events even if same day"
+    },
+    "seatoday-seatoday-community.ics WHAT's GOOD: the Hillman City block party|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seattle-showlists-black-and-tan-hall.ics Hillman City Block Party|2026-08-08T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-26",
+      "note": "Times differ by 10h (10am street festival vs 8pm music show at Black & Tan Hall); distinct events even if same day"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-25T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-26",
+      "note": "Different food truck stops: 1201 Eastlake vs 1551 Eastlake, 321m apart — separate schedules for separate locations"
     }
   }
 }

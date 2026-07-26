@@ -11,6 +11,7 @@ geo:
   osmType: node
   osmId: 2136793139
 imageUrl: "https://reubensbrews.com/wp-content/uploads/2026/01/240516_Taproom5866-scaled.jpg"
+skipEventPhotos: true
 calendars:
   - name: ballard
     friendlyname: "Reuben's Brews - Ballard"
