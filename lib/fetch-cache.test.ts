@@ -65,6 +65,41 @@ describe("fetch-cache load/save", () => {
         expect(await loadFetchCache(path)).toEqual(emptyFetchCache());
     });
 
+    it("returns an empty cache when the entries key is absent (valid version, no entries object at all)", async () => {
+        // Distinct from "entries: {}" (a legitimate empty cache, no warning) —
+        // this is a shape the streaming reader can't just infer from "zero
+        // entries emitted" alone, since both cases produce an empty `entries`
+        // object. Regression test for a gap the streaming rewrite introduced:
+        // the old typeof-based check caught this, the naive streaming version
+        // silently returned {version: 7, entries: {}} with no warning.
+        const path = await tmpFile();
+        await writeFile(path, JSON.stringify({ version: 7 }));
+        expect(await loadFetchCache(path)).toEqual(emptyFetchCache());
+    });
+
+    it("returns an empty cache when entries content is malformed JSON past a valid version header", async () => {
+        // A valid header with broken content past it is a realistic corruption
+        // shape (e.g. a build killed mid-saveFetchCache leaves a valid opening
+        // but a truncated/broken entries blob) — unlike the "corrupt JSON"
+        // case above, this exercises the streaming *pipeline's* own parse
+        // error handling, not the header version-read.
+        const path = await tmpFile();
+        await writeFile(path, '{\n  "version": 1,\n  "entries": { "a": not-json-here');
+        expect(await loadFetchCache(path)).toEqual(emptyFetchCache());
+    });
+
+    it("propagates a real fs error instead of silently returning an empty cache", async () => {
+        // A directory path (EISDIR) reliably reproduces a genuine fs-layer
+        // failure regardless of user/permissions (unlike chmod-based
+        // permission tests, which no-op when tests run as root). Fs errors
+        // must propagate rather than being swallowed the way a malformed-JSON
+        // parse error is — matching the old readFile-based implementation's
+        // "rethrow anything past ENOENT/SyntaxError" contract.
+        const dir = await mkdtemp(join(tmpdir(), "fetchcache-isdir-"));
+        dirs.push(dir);
+        await expect(loadFetchCache(dir)).rejects.toMatchObject({ code: "EISDIR" });
+    });
+
     it("round-trips a populated cache", async () => {
         const path = await tmpFile();
         const cache = {
@@ -164,16 +199,17 @@ describe("fetch-cache load/save", () => {
         const path = await tmpFile();
         const bigContent = "x".repeat(1_000_000); // 1 MB
         const entries: Record<string, FetchCacheEntry> = {};
-        for (let i = 0; i < 20; i++) {
+        const ENTRY_COUNT = 100; // ~100MB total — meaningfully closer to production scale than a token-sized fixture, while still a few seconds in CI
+        for (let i = 0; i < ENTRY_COUNT; i++) {
             entries[`https://example.com/big-${i}`] = { ...entry("2026-06-01T00:00:00.000Z"), content: bigContent };
         }
         const cache: FetchCache = { version: 1, entries };
 
         await saveFetchCache(cache, path);
         const loaded = await loadFetchCache(path);
-        expect(Object.keys(loaded.entries).length).toBe(20);
+        expect(Object.keys(loaded.entries).length).toBe(ENTRY_COUNT);
         expect(loaded.entries["https://example.com/big-0"].content.length).toBe(1_000_000);
-    }, 15000);
+    }, 30000);
 });
 
 describe("isFresh / getCacheTtlMs", () => {

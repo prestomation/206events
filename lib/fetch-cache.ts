@@ -159,11 +159,19 @@ export async function loadFetchCache(filePath: string): Promise<FetchCache> {
   }
 
   const entries: Record<string, FetchCacheEntry> = {};
+  // Tracks whether the picked "entries" subtree ever produced a token, so we
+  // can tell "entries key present but empty" (a legitimate cache state — no
+  // warning) apart from "entries key absent entirely" (unexpected shape,
+  // same as the old typeof-based check). Both otherwise leave `entries` as
+  // `{}`, so entry count alone can't distinguish them.
+  let sawEntriesKey = false;
+  const entriesPick = pick.asStream({ filter: "entries" });
+  entriesPick.on("data", () => { sawEntriesKey = true; });
   try {
     await pipeline(
       createReadStream(filePath),
       parser.asStream(),
-      pick.asStream({ filter: "entries" }),
+      entriesPick,
       streamObject.asStream(),
       async function (source: AsyncIterable<{ key: string; value: FetchCacheEntry }>) {
         for await (const { key, value } of source) {
@@ -171,8 +179,22 @@ export async function loadFetchCache(filePath: string): Promise<FetchCache> {
         }
       },
     );
-  } catch (err) {
+  } catch (err: any) {
+    // Errors with a `.code` (ENOENT, EACCES, EIO, …) are fs/system failures,
+    // not malformed content — rethrow them like the old readFile-based
+    // implementation did for anything past ENOENT/SyntaxError. stream-json's
+    // own parse-failure errors never carry a `.code`, so this reliably
+    // isolates "the JSON itself is broken" (empty cache) from "something
+    // went wrong reading the file" (propagate).
+    if (err?.code) {
+      throw err;
+    }
     console.warn(`fetch-cache.json is not valid JSON, starting with empty cache: ${err instanceof Error ? err.message : String(err)}`);
+    return emptyFetchCache();
+  }
+
+  if (!sawEntriesKey) {
+    console.warn("fetch-cache.json has unexpected shape, starting with empty cache");
     return emptyFetchCache();
   }
 
