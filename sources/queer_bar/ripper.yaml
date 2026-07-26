@@ -1,10 +1,13 @@
-# verified: 2026-07-06 ok
+# verified: 2026-07-26 — /events-one now 404s; site's nav no longer links to
+# an events page and /calendar is an empty static page (not a Squarespace
+# events collection), so this always returns 0 events. Kept as expectEmpty
+# rather than disabled since the venue itself is still active.
 name: queer-bar
 sourceRole: venue
 expectEmpty: true
 description: "Queer/Bar"
-url: "https://www.thequeerbar.com/events-one"
-friendlyLink: https://www.thequeerbar.com/events-one
+url: "https://thequeerbar.com/calendar"
+friendlyLink: https://thequeerbar.com/
 tags: ["Nightlife", "Capitol Hill"]
 geo:
   lat: 47.6147799

@@ -10,132 +10,84 @@ function loadSampleData(): string {
     return fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
 }
 
-describe('CardfestNWRipper - parseEventBlocks', () => {
+describe('CardfestNWRipper - extractJsonLdEvents', () => {
     const ripper = new CardfestNWRipper();
 
-    test('extracts two event blocks from sample data', () => {
+    test('extracts only Event nodes from the @graph, skipping Organization', () => {
         const html = loadSampleData();
-        const blocks = ripper.parseEventBlocks(html);
-        expect(blocks).toHaveLength(2);
+        const events = ripper.extractJsonLdEvents(html);
+        expect(events).toHaveLength(3);
+        expect(events.every(e => e['@type'] === 'Event')).toBe(true);
     });
 
-    test('parses Emerald City Cardfest block correctly', () => {
-        const html = loadSampleData();
-        const blocks = ripper.parseEventBlocks(html);
-        const block = blocks[0];
-        expect(block.slug).toBe('emerald-city-cardfest-seattle-06062026');
-        expect(block.dateText).toBe('June 6-7');
-        expect(block.timeText).toBe('12pm-5pm (10am VIP Entry)');
-        expect(block.building).toBe('Seattle Center Exhibition Hall');
-        expect(block.address).toBe('301 Mercer St Seattle, WA 98109');
+    test('returns empty array when no JSON-LD is present', () => {
+        expect(ripper.extractJsonLdEvents('<html><body>no events here</body></html>')).toEqual([]);
     });
 
-    test('parses Gold Star Card Show block correctly', () => {
-        const html = loadSampleData();
-        const blocks = ripper.parseEventBlocks(html);
-        const block = blocks[1];
-        expect(block.slug).toBe('gold-star-card-show-06132026');
-        expect(block.dateText).toBe('June 13');
-        expect(block.timeText).toBe('11am-4pm (10am VIP Entry)');
-        expect(block.building).toBe('Everett Community College Walt Price Student Fitness Center');
-        expect(block.address).toBe('2206 Tower St, Everett, WA 98201');
-    });
-});
-
-describe('CardfestNWRipper - titleFromSlug', () => {
-    const ripper = new CardfestNWRipper();
-
-    test('strips date and title-cases slug words', () => {
-        expect(ripper.titleFromSlug('emerald-city-cardfest-seattle-06062026'))
-            .toBe('Emerald City Cardfest Seattle');
-        expect(ripper.titleFromSlug('gold-star-card-show-06132026'))
-            .toBe('Gold Star Card Show');
+    test('skips malformed JSON-LD blocks without throwing', () => {
+        const html = '<script type="application/ld+json">{not valid json</script>';
+        expect(ripper.extractJsonLdEvents(html)).toEqual([]);
     });
 });
 
 describe('CardfestNWRipper - parseEvent', () => {
     const ripper = new CardfestNWRipper();
 
-    test('parses Emerald City Cardfest event correctly', () => {
-        const block = {
-            slug: 'emerald-city-cardfest-seattle-06062026',
-            dateText: 'June 6-7',
-            timeText: '12pm-5pm (10am VIP Entry)',
-            building: 'Seattle Center Exhibition Hall',
-            address: '301 Mercer St Seattle, WA 98109',
-        };
-        const result = ripper.parseEvent(block, 'Emerald City Cardfest - Seattle');
+    test('parses the Everett event with a full street address', () => {
+        const html = loadSampleData();
+        const [everett] = ripper.extractJsonLdEvents(html);
+        const result = ripper.parseEvent(everett);
         expect('date' in result).toBe(true);
         if (!('date' in result)) return;
-        expect(result.id).toBe('cardfestnw-emerald-city-cardfest-seattle-06062026');
-        expect(result.summary).toBe('Emerald City Cardfest - Seattle');
+        expect(result.id).toBe('cardfestnw-cardfest-nw-everett-collectibles-show-2026-07-18');
+        expect(result.summary).toBe('Cardfest NW — Everett Collectibles Show');
         expect(result.date.year()).toBe(2026);
-        expect(result.date.monthValue()).toBe(6);
-        expect(result.date.dayOfMonth()).toBe(6);
-        expect(result.date.hour()).toBe(12);
-        expect(result.duration.toMinutes()).toBe(300); // 12pm-5pm = 5 hours
-        expect(result.location).toBe('Seattle Center Exhibition Hall, 301 Mercer St Seattle, WA 98109');
-        expect(result.url).toBe('https://www.ontreasure.com/events/emerald-city-cardfest-seattle-06062026');
+        expect(result.date.monthValue()).toBe(7);
+        expect(result.date.dayOfMonth()).toBe(18);
+        expect(result.date.hour()).toBe(10); // placeholder time — source publishes no time
+        expect(result.duration.toHours()).toBe(4);
+        expect(result.location).toBe('Edward D. Hansen Conference Center, 2000 Hewitt Ave, Everett, WA');
+        expect(result.url).toBe('https://www.ontreasure.com/events/cardfest-northwest-everett-july-18-2026-07182026/tickets');
+        expect(result.imageUrl).toBe('https://framerusercontent.com/images/4H8ASD0dnmOJrclzfFWlXROtyY.png');
+        expect(result.cost).toEqual({ paid: true });
     });
 
-    test('parses Gold Star Card Show event correctly', () => {
-        const block = {
-            slug: 'gold-star-card-show-06132026',
-            dateText: 'June 13',
-            timeText: '11am-4pm (10am VIP Entry)',
-            building: 'Everett Community College Walt Price Student Fitness Center',
-            address: '2206 Tower St, Everett, WA 98201',
-        };
-        const result = ripper.parseEvent(block, 'Gold Star Card Show');
+    test('parses the Lynnwood event which has no image field', () => {
+        const html = loadSampleData();
+        const events = ripper.extractJsonLdEvents(html);
+        const lynnwood = events.find(e => e.name?.includes('Lynnwood'))!;
+        const result = ripper.parseEvent(lynnwood);
         expect('date' in result).toBe(true);
         if (!('date' in result)) return;
-        expect(result.date.year()).toBe(2026);
-        expect(result.date.monthValue()).toBe(6);
-        expect(result.date.dayOfMonth()).toBe(13);
-        expect(result.date.hour()).toBe(11);
-        expect(result.duration.toMinutes()).toBe(300); // 11am-4pm = 5 hours
+        expect(result.imageUrl).toBeUndefined();
+        expect(result.location).toBe('Lynnwood Convention Center, 3711 196th St SW, Lynnwood, WA');
     });
 
-    test('returns ParseError for slug without date suffix', () => {
-        const block = {
-            slug: 'no-date-here',
-            dateText: 'June 13',
-            timeText: '11am-4pm',
-            building: 'Some Venue',
-            address: '123 Main St',
-        };
-        const result = ripper.parseEvent(block, 'Test Event');
+    test('returns ParseError when name is missing', () => {
+        const result = ripper.parseEvent({ '@type': 'Event', startDate: '2026-07-18' });
         expect('type' in result).toBe(true);
         if (!('type' in result)) return;
         expect(result.type).toBe('ParseError');
     });
 
-    test('returns ParseError for unparseable time', () => {
-        const block = {
-            slug: 'some-event-06132026',
-            dateText: 'June 13',
-            timeText: 'noon until evening',
-            building: 'Some Venue',
-            address: '123 Main St',
-        };
-        const result = ripper.parseEvent(block, 'Test Event');
+    test('returns ParseError when startDate is missing', () => {
+        const result = ripper.parseEvent({ '@type': 'Event', name: 'Some Show' });
         expect('type' in result).toBe(true);
         if (!('type' in result)) return;
         expect(result.type).toBe('ParseError');
     });
 
-    test('handles midnight-crossing times correctly', () => {
-        const block = {
-            slug: 'late-event-06132026',
-            dateText: 'June 13',
-            timeText: '11pm-2am',
-            building: 'Some Venue',
-            address: '123 Main St, Seattle, WA 98101',
-        };
-        const result = ripper.parseEvent(block, 'Late Night Event');
+    test('returns ParseError for an unparseable startDate', () => {
+        const result = ripper.parseEvent({ '@type': 'Event', name: 'Some Show', startDate: 'not-a-date' });
+        expect('type' in result).toBe(true);
+        if (!('type' in result)) return;
+        expect(result.type).toBe('ParseError');
+    });
+
+    test('falls back gracefully when location is entirely absent', () => {
+        const result = ripper.parseEvent({ '@type': 'Event', name: 'Mystery Show', startDate: '2026-09-01' });
         expect('date' in result).toBe(true);
         if (!('date' in result)) return;
-        expect(result.date.hour()).toBe(23);
-        expect(result.duration.toMinutes()).toBe(180); // 11pm to 2am = 3 hours
+        expect(result.location).toBeUndefined();
     });
 });

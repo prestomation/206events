@@ -240,6 +240,7 @@ calendars:
   - name: darrells-tavern
     friendlyname: "Darrell's Tavern"
     imageUrl: "https://live.staticflickr.com/1846/30402194198_345a7aab16_b.jpg"
+    expectEmpty: true # small bar with intermittent listings on the showlist aggregator
     geo:
       lat: 47.7353
       lng: -122.345
