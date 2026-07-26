@@ -1,0 +1,15 @@
+name: u-district-partnership
+description: "U District Partnership"
+url: "https://udistrictseattle.com/about/events"
+friendlyLink: "https://udistrictseattle.com/about/events"
+sourceRole: venue
+weatherSetting: "mixed"
+geo:
+  lat: 47.6614
+  lng: -122.3121
+  label: "University District, Seattle, WA"
+tags: ["University District", "Community"]
+calendars:
+  - name: u-district-partnership
+    friendlyname: "U District Partnership Events"
+    timezone: America/Los_Angeles
