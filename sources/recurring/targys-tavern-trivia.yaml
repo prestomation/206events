@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6378861
+  lng: -122.3651630
+  label: "Targy's Tavern, 600 W Crockett St, Seattle, WA 98119"
+  osmType: node
+  osmId: 2291867144
+name: targys-tavern-trivia
+sourceRole: venue
+friendlyname: Trivia Night at Targy's Tavern
+description: Free weekly pub trivia at Targy's Tavern, a historic dive bar (est. 1937) in Queen Anne. Teams of 6, prizes for winners.
+timezone: America/Los_Angeles
+location: "600 W Crockett St, Seattle, WA 98119"
+url: https://targysseattle.com/
+tags:
+  - Trivia
+  - "Pub Trivia"
+  - QueenAnne
+cost: free
+schedules:
+  - schedule: every Wednesday
+    start_time: "19:30"
+    duration: PT2H

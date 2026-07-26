@@ -1,24 +1,31 @@
 ---
 name: "Targy's Tavern"
-status: candidate
+status: added
+pr: 1021
 platform: Recurring (weekly trivia + bingo)
 url: https://triviascout.com/bar/targys-tavern-seattle
-tags: [Trivia, "Pub Trivia", "Queen Anne"]
+tags: [Trivia, "Pub Trivia", QueenAnne, Nightlife, Bingo]
 firstSeen: 2026-07-25
-lastChecked: 2026-07-25
+lastChecked: 2026-07-26
 ---
 
 Dive bar at 600 W Crockett St, Queen Anne, Seattle, WA 98119.
 
 - Trivia — every Wednesday, 7:30pm (hosted by "April", free, teams of 6)
 - Bingo — every Tuesday, 8pm
-- No ICS/API — fits two entries in `sources/recurring/targys-tavern.yaml`
-  (one file, two `schedules:` — or two separately-named schedule
-  entries, per the multi-schedule-in-one-file convention), same pattern
-  as `unicorn-seattle-*` / `hitc-trivia-*`.
+- No ICS/API — implemented as two files,
+  `sources/recurring/targys-tavern-trivia.yaml` and
+  `sources/recurring/targys-tavern-bingo.yaml` (distinct
+  names/descriptions/tags per event, same split as
+  `unicorn-seattle-trivia` / `unicorn-seattle-drag-bingo`).
 - Not already covered — checked `sources/`, `sources/external/`,
   `sources/recurring/`, and `docs/source-candidates/` for "targy"; no
   match.
+- Verified 2026-07-26 via `trivianearme.net`'s schema.org JSON-LD
+  (independent of the original triviascout.com discovery source):
+  `"Trivia Wednesdays at 7:30pm hosted by April. Free to play, teams of
+  6, prizes. Also hosts Bingo Tuesdays at 8pm."` Geocoded via Nominatim
+  to the OSM pub node (lat 47.6378861, lng -122.3651630).
 
 Sources:
 - https://triviascout.com/bar/targys-tavern-seattle
