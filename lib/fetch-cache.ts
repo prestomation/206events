@@ -23,9 +23,13 @@
  * transport is just a carrier. Same `{version, entries}` shape as geo-cache.json.
  */
 
-import { readFile, rename, unlink } from "fs/promises";
-import { createWriteStream } from "fs";
+import { rename, unlink } from "fs/promises";
+import { createReadStream, createWriteStream } from "fs";
+import { pipeline } from "stream/promises";
 import { createHash } from "crypto";
+import parser from "stream-json/parser.js";
+import pick from "stream-json/filters/pick.js";
+import streamObject from "stream-json/streamers/stream-object.js";
 
 export interface FetchCacheEntry {
   /** ISO timestamp of the last successful live fetch. */
@@ -107,31 +111,72 @@ export function emptyFetchCache(): FetchCache {
   return { version: 1, entries: {} };
 }
 
+/** How many leading bytes to read to find the `"version"` field. The writer
+ *  always emits it as the first ~30 bytes (`{\n  "version": N,\n  "entries":
+ *  {`), so this is a generous margin, not a tight fit to the current format. */
+const VERSION_HEAD_BYTES = 4096;
+
+/** Reads just the leading bytes of the cache file and pulls out `version` —
+ *  never touches the (potentially huge) `entries` blob. Returns `null` if no
+ *  `"version": <number>` is found in the head (unexpected/foreign content). */
+async function readCacheVersion(filePath: string): Promise<number | null> {
+  const head = await new Promise<string>((resolve, reject) => {
+    const stream = createReadStream(filePath, { start: 0, end: VERSION_HEAD_BYTES - 1, encoding: "utf-8" });
+    let data = "";
+    stream.on("data", (chunk) => { data += chunk; });
+    stream.on("end", () => resolve(data));
+    stream.on("error", reject);
+  });
+  const match = head.match(/"version"\s*:\s*(\d+)/);
+  return match ? Number(match[1]) : null;
+}
+
+/**
+ * Loads the cache via a streaming JSON parser rather than reading the whole
+ * file into one string. A cold-start build fetches every source fresh, and
+ * the accumulated content across ~300 sources can grow large enough to
+ * exceed the JS engine's max string length (V8's ceiling is roughly
+ * 512MB-1GB depending on build) — `readFile(path, "utf-8")` +
+ * `JSON.parse()` throws `RangeError: Invalid string length` on a cache that
+ * size and crashes the whole build. `saveFetchCache` already writes
+ * entry-by-entry for the same reason (see its docstring); this mirrors that
+ * on the read side with `stream-json`, pulling `entries` out one property at
+ * a time so no single string ever holds more than one entry's content.
+ */
 export async function loadFetchCache(filePath: string): Promise<FetchCache> {
+  let version: number | null;
   try {
-    const raw = await readFile(filePath, "utf-8");
-    const parsed = JSON.parse(raw);
-    if (
-      typeof parsed === "object" &&
-      parsed !== null &&
-      typeof parsed.version === "number" &&
-      typeof parsed.entries === "object" &&
-      parsed.entries !== null
-    ) {
-      return parsed as FetchCache;
-    }
-    console.warn("fetch-cache.json has unexpected shape, starting with empty cache");
-    return emptyFetchCache();
+    version = await readCacheVersion(filePath);
   } catch (err: any) {
     if (err?.code === "ENOENT") {
       return emptyFetchCache();
     }
-    if (err instanceof SyntaxError) {
-      console.warn(`fetch-cache.json is not valid JSON, starting with empty cache: ${err.message}`);
-      return emptyFetchCache();
-    }
     throw err;
   }
+  if (version === null) {
+    console.warn("fetch-cache.json has unexpected shape, starting with empty cache");
+    return emptyFetchCache();
+  }
+
+  const entries: Record<string, FetchCacheEntry> = {};
+  try {
+    await pipeline(
+      createReadStream(filePath),
+      parser.asStream(),
+      pick.asStream({ filter: "entries" }),
+      streamObject.asStream(),
+      async function (source: AsyncIterable<{ key: string; value: FetchCacheEntry }>) {
+        for await (const { key, value } of source) {
+          entries[key] = value;
+        }
+      },
+    );
+  } catch (err) {
+    console.warn(`fetch-cache.json is not valid JSON, starting with empty cache: ${err instanceof Error ? err.message : String(err)}`);
+    return emptyFetchCache();
+  }
+
+  return { version, entries };
 }
 
 /**

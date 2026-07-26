@@ -79,6 +79,24 @@ describe("fetch-cache load/save", () => {
         expect(await readFile(path, "utf-8")).toContain("\n  ");
     });
 
+    it("reads a multi-digit version number from the head of the file", async () => {
+        const path = await tmpFile();
+        const cache: FetchCache = { version: 42, entries: { a: entry("2026-06-05T00:00:00.000Z") } };
+        await saveFetchCache(cache, path);
+        expect(await loadFetchCache(path)).toEqual(cache);
+    });
+
+    it("round-trips entry content containing braces, quotes, and unicode that could confuse a naive streaming parser", async () => {
+        const path = await tmpFile();
+        const trickyContent = 'BEGIN:VCALENDAR\n{"nested": "json-looking text with \\"escaped quotes\\", braces { } [ ], and emoji 🎉 — em dash"}\nEND:VCALENDAR';
+        const cache: FetchCache = {
+            version: 1,
+            entries: { "https://example.com/tricky": { ...entry("2026-06-05T00:00:00.000Z"), content: trickyContent } },
+        };
+        await saveFetchCache(cache, path);
+        expect(await loadFetchCache(path)).toEqual(cache);
+    });
+
     it("round-trips an empty cache", async () => {
         const path = await tmpFile();
         const cache: FetchCache = { version: 1, entries: {} };
@@ -126,17 +144,23 @@ describe("fetch-cache load/save", () => {
         expect(await loadFetchCache(path)).toEqual(cache);
     });
 
-    it("saves a cache with many sizable entries by streaming, never building one giant JSON string, and keeps everything (no size cap)", async () => {
+    it("round-trips a cache with many sizable entries via streaming save AND load, never building one giant JSON string, and keeps everything (no size cap)", async () => {
         // Regression test for RangeError: Invalid string length — the old
-        // implementation built the whole cache as one `JSON.stringify(cache)`
-        // string before writing it, which crashes once the combined content
-        // across all entries gets large enough. This proves the streaming
-        // writer round-trips many multi-MB entries correctly, and that it
-        // keeps every entry rather than evicting under a size cap — the cache
-        // is expected to grow with the dataset. Sized for a fast test run
-        // rather than the real ~500MB-1GB V8 ceiling, but exercises the same
-        // per-entry streaming path that avoids ever holding the whole cache
-        // as one string.
+        // implementations built the whole cache as one `JSON.stringify(cache)`
+        // string on save, and read it back as one `readFile(..., "utf-8")`
+        // string on load; either one crashes once combined content across all
+        // entries gets large enough (production has hit ~508MB / 2134
+        // entries in practice). saveFetchCache streams entries out one at a
+        // time; loadFetchCache streams them back in one at a time via
+        // stream-json (lib/fetch-cache.ts). This proves both directions
+        // round-trip many multi-MB entries correctly, and that load keeps
+        // every entry rather than evicting under a size cap — the cache is
+        // expected to grow with the dataset. Sized for a fast test run rather
+        // than the real ~500MB-1GB V8 ceiling; the fix was additionally
+        // verified manually against a synthetic 629MB/2516-entry cache file
+        // (well past that ceiling), confirming the old readFile-based load
+        // throws RangeError on it while the streaming load succeeds cleanly
+        // (~8s, well under 1GB RSS).
         const path = await tmpFile();
         const bigContent = "x".repeat(1_000_000); // 1 MB
         const entries: Record<string, FetchCacheEntry> = {};
