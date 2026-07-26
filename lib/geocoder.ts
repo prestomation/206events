@@ -893,6 +893,32 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Nominatim has no direct intersection result; midpoint derived from the two
   // streets' nearest OSM way segments to each other.
   'sw graham & lanham sw, west seattle': { lat: 47.5466, lng: -122.3743 },
+
+  // --- 2026-07-26 geo-resolver batch: "has street address" / "venue name only"
+  // unresolvable entries. Addresses/venues verified via the venue's own site or a
+  // reliable listing, then forward-geocoded via Nominatim; the one intersection was
+  // confirmed via an Overpass shared-node query. Never reverse-geocoded.
+  '2615 sw barton, west seattle': { lat: 47.5207039, lng: -122.3670332 }, // Westwood Village, West Seattle
+  '8600 9thsw,west seattle': { lat: 47.5262872, lng: -122.3464458 }, // 8600 9th Ave SW, Highland Park, West Seattle
+  '34th sw & sw webster, west seattle': { lat: 47.5355604, lng: -122.3752531 }, // Overpass-confirmed intersection node (Genesee Hill, West Seattle)
+  // Roosevelt/Green Lake — Nominatim resolves 845 NE 66th St to zip 98115; the
+  // source's "98155" (a Lake Forest Park zip, ~9 miles north) is a source typo.
+  '845 ne 66th st, seattle wa 98155, 845 ne 66th st, seattle, 98115, united states': { lat: 47.6764130, lng: -122.3177778 },
+  'ne 106th street, next to victory heights park': { lat: 47.7056999, lng: -122.3077256 }, // Victory Heights Playground, Maple Leaf
+  'dr. blanche lavizzo park amphitheatre, central district, seattle, wa': { lat: 47.6004282, lng: -122.3043195 },
+  'benefit park': { lat: 47.5193576, lng: -122.2847300 }, // Benefit Playground, 9320 38th Ave S, Rainier Beach
+  // "Downtown Issaquah" fireworks show — the display and lakeside festivities are
+  // actually held at Vasa Park Resort on Lake Sammamish's west shore in Bellevue
+  // (per Down Home 4th of July event listings); "Bellevue, WA" in the source string
+  // matches the real venue, not Issaquah.
+  'downtown issaquah, fireworks show, bellevue, wa': { lat: 47.5772097, lng: -122.1137809 },
+  'gillette stadium': { lat: 42.0908879, lng: -71.2641731 }, // Foxborough, MA — alias of the existing 'boston stadium' entry (Sounders/Reign away-game feeds)
+  'snapdragon stadium': { lat: 32.7842418, lng: -117.1223904 }, // San Diego, CA — Sounders/Reign away-game feed
+  'chicago, il': { lat: 41.8755616, lng: -87.6244212 }, // away-game city label
+  'los angeles, ca': { lat: 34.0536909, lng: -118.2427660 }, // away-game city label
+  'new york, ny': { lat: 40.7127281, lng: -74.0060152 }, // away-game city label
+  'wenatchee, wa': { lat: 47.4234599, lng: -120.3103490 },
+  'bainbridge island': { lat: 47.6515096, lng: -122.5246791 }, // island town centroid (Winslow), ferry-linked events
 };
 
 /**
