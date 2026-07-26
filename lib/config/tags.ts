@@ -30,6 +30,7 @@ export const TAG_CATEGORIES = {
         'Arts',
         'Artwalk',
         'Beer',
+        'Bingo',
         'Books',
         'Comedy',
         'Cycling',

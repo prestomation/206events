@@ -4,7 +4,7 @@ status: added
 pr: 1021
 platform: Recurring (weekly trivia + bingo)
 url: https://triviascout.com/bar/targys-tavern-seattle
-tags: [Trivia, "Pub Trivia", QueenAnne, Nightlife]
+tags: [Trivia, "Pub Trivia", QueenAnne, Nightlife, Bingo]
 firstSeen: 2026-07-25
 lastChecked: 2026-07-26
 ---
