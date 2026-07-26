@@ -1,16 +1,47 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
-import { Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
-import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
+import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
+import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 const TIMEZONE = ZoneId.of('America/Los_Angeles');
 
-export interface EventBlock {
-    slug: string;
-    dateText: string;
-    timeText: string;
-    building: string;
-    address: string;
+// cardfestnw.com (rebuilt on Framer) publishes its schedule as schema.org
+// JSON-LD embedded in the homepage — but the JSON-LD `startDate` is
+// date-only (e.g. "2026-07-18") and the linked ticket pages don't carry a
+// time either, so every event here gets a placeholder time paired with an
+// UncertaintyError for the event-uncertainty-resolver skill to fill in.
+// See docs/event-uncertainty.md.
+const DEFAULT_UNKNOWN_TIME_HOUR = 10;
+const DEFAULT_UNKNOWN_TIME_MINUTE = 0;
+const DEFAULT_UNKNOWN_DURATION = Duration.ofHours(4);
+
+interface JsonLdEvent {
+    "@type": string;
+    name?: string;
+    startDate?: string;
+    url?: string;
+    image?: string;
+    location?: {
+        name?: string;
+        address?: {
+            streetAddress?: string;
+            addressLocality?: string;
+            addressRegion?: string;
+        };
+    };
+}
+
+function slugify(s: string): string {
+    return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+// Cheap deterministic hash; we only need stability, not crypto strength.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
 }
 
 export default class CardfestNWRipper implements IRipper {
@@ -24,20 +55,30 @@ export default class CardfestNWRipper implements IRipper {
         if (!res.ok) throw new Error(`cardfestnw.com returned ${res.status}`);
 
         const html = await res.text();
-        const blocks = this.parseEventBlocks(html);
+        const jsonLdEvents = this.extractJsonLdEvents(html);
 
         const now = ZonedDateTime.now(TIMEZONE);
         const events: RipperCalendarEvent[] = [];
         const errors: RipperError[] = [];
 
-        for (const block of blocks) {
-            const title = await this.fetchEventTitle(block.slug, fetchFn);
-            const result = this.parseEvent(block, title);
-            if ('date' in result) {
-                if (!result.date.isBefore(now)) events.push(result);
-            } else {
+        for (const jle of jsonLdEvents) {
+            const result = this.parseEvent(jle);
+            if ('type' in result) {
                 errors.push(result);
+                continue;
             }
+            if (result.date.isBefore(now)) continue;
+
+            events.push(result);
+            errors.push({
+                type: "Uncertainty",
+                reason: `cardfestnw does not publish a start time (raw startDate: "${jle.startDate}")`,
+                source: "cardfestnw",
+                calendar: calConfig.name,
+                unknownFields: ["startTime", "duration"],
+                event: result,
+                partialFingerprint: simpleHash(`${jle.startDate}|${jle.url ?? ''}`),
+            } satisfies UncertaintyError);
         }
 
         return [{
@@ -51,129 +92,68 @@ export default class CardfestNWRipper implements IRipper {
     }
 
     // Public for testing
-    parseEventBlocks(html: string): EventBlock[] {
-        const blocks: EventBlock[] = [];
-
-        // Event sections are delimited by '>Date<' labels; slice between them
-        const datePositions: number[] = [];
-        const dateLabelRe = />Date</g;
-        let m;
-        while ((m = dateLabelRe.exec(html)) !== null) {
-            datePositions.push(m.index);
+    extractJsonLdEvents(html: string): JsonLdEvent[] {
+        const scriptRegex = /<script type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+        const events: JsonLdEvent[] = [];
+        let match: RegExpExecArray | null;
+        while ((match = scriptRegex.exec(html)) !== null) {
+            try {
+                const data = JSON.parse(match[1]);
+                const graph = Array.isArray(data?.["@graph"]) ? data["@graph"] : [data];
+                for (const node of graph) {
+                    if (node && typeof node === "object" && node["@type"] === "Event") {
+                        events.push(node as JsonLdEvent);
+                    }
+                }
+            } catch { /* skip malformed JSON-LD blocks */ }
         }
-
-        for (let i = 0; i < datePositions.length; i++) {
-            const start = datePositions[i];
-            const end = i + 1 < datePositions.length ? datePositions[i + 1] : html.length;
-            const chunk = html.substring(start, end);
-
-            const dateText = this.extractTitleAfterLabel(chunk, 'Date');
-            const timeText = this.extractTitleAfterLabel(chunk, 'Time');
-            const building = this.extractTitleAfterLabel(chunk, 'Building');
-            const address = this.extractTitleAfterLabel(chunk, 'Address');
-
-            const slugMatch = chunk.match(/ontreasure\.com\/events\/([^/\s"&]+)\/tickets/);
-            const slug = slugMatch ? slugMatch[1] : null;
-
-            if (!dateText || !timeText || !building || !address || !slug) continue;
-
-            blocks.push({ slug, dateText, timeText, building, address });
-        }
-
-        return blocks;
-    }
-
-    private extractTitleAfterLabel(html: string, label: string): string | null {
-        const pos = html.indexOf(`>${label}<`);
-        if (pos < 0) return null;
-        const after = html.substring(pos, pos + 500);
-        const match = after.match(/title="([^"]+)"/);
-        return match ? match[1] : null;
-    }
-
-    private async fetchEventTitle(slug: string, fetchFn: FetchFn): Promise<string> {
-        const url = `https://www.ontreasure.com/events/${slug}`;
-        try {
-            const res = await fetchFn(url, {
-                headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' }
-            });
-            if (res.ok) {
-                const html = await res.text();
-                const m = html.match(/<title>([^|<]+?)\s*(?:\|\s*Treasure)?<\/title>/);
-                if (m) return m[1].trim();
-            }
-        } catch {
-            // Fall through to slug-derived title
-        }
-        return this.titleFromSlug(slug);
-    }
-
-    titleFromSlug(slug: string): string {
-        // Slugs end with MMDDYYYY date, e.g. "emerald-city-cardfest-seattle-06062026"
-        const withoutDate = slug.replace(/-\d{8}$/, '');
-        return withoutDate.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        return events;
     }
 
     // Public for testing
-    parseEvent(block: EventBlock, title: string): RipperCalendarEvent | RipperError {
-        // Parse date from slug suffix: MMDDYYYY
-        const dateMatch = block.slug.match(/(\d{2})(\d{2})(\d{4})$/);
+    parseEvent(jle: JsonLdEvent): RipperEvent {
+        if (!jle.name || !jle.startDate) {
+            return {
+                type: 'ParseError',
+                reason: 'Event JSON-LD missing name or startDate',
+                context: JSON.stringify(jle).slice(0, 200),
+            };
+        }
+
+        const dateMatch = jle.startDate.match(/^(\d{4})-(\d{2})-(\d{2})/);
         if (!dateMatch) {
             return {
                 type: 'ParseError',
-                reason: `Could not parse date from slug: ${block.slug}`,
-                context: block.slug,
+                reason: `Could not parse startDate: ${jle.startDate}`,
+                context: jle.name,
             };
         }
-        const month = parseInt(dateMatch[1], 10);
-        const day = parseInt(dateMatch[2], 10);
-        const year = parseInt(dateMatch[3], 10);
-
-        // Parse time range from timeText, e.g. "12pm-5pm (10am VIP Entry)"
-        const timeMatch = block.timeText.match(/^(\d{1,2})(am|pm)-(\d{1,2})(am|pm)/i);
-        if (!timeMatch) {
-            return {
-                type: 'ParseError',
-                reason: `Could not parse time from: ${block.timeText}`,
-                context: block.slug,
-            };
-        }
-
-        let startHour = parseInt(timeMatch[1], 10);
-        const startAmPm = timeMatch[2].toLowerCase();
-        let endHour = parseInt(timeMatch[3], 10);
-        const endAmPm = timeMatch[4].toLowerCase();
-
-        if (startAmPm === 'pm' && startHour !== 12) startHour += 12;
-        else if (startAmPm === 'am' && startHour === 12) startHour = 0;
-
-        if (endAmPm === 'pm' && endHour !== 12) endHour += 12;
-        else if (endAmPm === 'am' && endHour === 12) endHour = 0;
-
-        const durationMinutes = endHour > startHour
-            ? (endHour - startHour) * 60
-            : (24 - startHour + endHour) * 60;
-        if (durationMinutes <= 0) {
-            return {
-                type: 'ParseError',
-                reason: `Computed non-positive duration from: ${block.timeText}`,
-                context: block.slug,
-            };
-        }
+        const [, yearStr, monthStr, dayStr] = dateMatch;
 
         const eventDate = ZonedDateTime.of(
-            LocalDateTime.of(year, month, day, startHour, 0),
+            LocalDateTime.of(
+                parseInt(yearStr, 10),
+                parseInt(monthStr, 10),
+                parseInt(dayStr, 10),
+                DEFAULT_UNKNOWN_TIME_HOUR,
+                DEFAULT_UNKNOWN_TIME_MINUTE,
+            ),
             TIMEZONE
         );
 
+        const addr = jle.location?.address;
+        const cityState = [addr?.addressLocality, addr?.addressRegion].filter(Boolean).join(', ');
+        const location = [jle.location?.name, addr?.streetAddress, cityState].filter(Boolean).join(', ') || undefined;
+
         return {
-            id: `cardfestnw-${block.slug}`,
+            id: `cardfestnw-${slugify(jle.name)}-${jle.startDate}`,
             ripped: new Date(),
             date: eventDate,
-            duration: Duration.ofMinutes(durationMinutes),
-            summary: title,
-            location: `${block.building}, ${block.address}`,
-            url: `https://www.ontreasure.com/events/${block.slug}`,
+            duration: DEFAULT_UNKNOWN_DURATION,
+            summary: jle.name,
+            location,
+            url: jle.url,
+            imageUrl: jle.image,
             cost: { paid: true },
         };
     }
