@@ -1,0 +1,20 @@
+geo:
+  lat: 47.6378861
+  lng: -122.3651630
+  label: "Targy's Tavern, 600 W Crockett St, Seattle, WA 98119"
+  osmType: node
+  osmId: 2291867144
+name: targys-tavern-bingo
+sourceRole: venue
+friendlyname: Bingo Night at Targy's Tavern
+description: Weekly bingo night at Targy's Tavern, a historic dive bar (est. 1937) in Queen Anne.
+timezone: America/Los_Angeles
+location: "600 W Crockett St, Seattle, WA 98119"
+url: https://targysseattle.com/
+tags:
+  - Nightlife
+  - "Queen Anne"
+schedules:
+  - schedule: every Tuesday
+    start_time: "20:00"
+    duration: PT2H
