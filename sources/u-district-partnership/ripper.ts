@@ -73,16 +73,20 @@ export default class UDistrictPartnershipRipper extends HTMLRipper {
                 continue;
             }
 
-            const description = extractDescription(contentDiv!, dateText);
+            const description = extractDescription(contentDiv!);
             const url = extractUrl(contentDiv!);
             const imageUrl = card.querySelector('.feature-thumb img')?.getAttribute('src')?.trim() || undefined;
 
-            const dayCount = range.end.toEpochDay() - range.start.toEpochDay() + 1;
+            // Span from the placeholder noon start on day one through the
+            // placeholder length on the last day (e.g. a 2-day range noon
+            // day 1 -> 6pm day 2), rather than a full extra day tacked on
+            // past the announced end date.
+            const spanDays = range.end.toEpochDay() - range.start.toEpochDay();
             const eventDate = ZonedDateTime.of(
                 range.start.year(), range.start.monthValue(), range.start.dayOfMonth(),
                 DEFAULT_UNKNOWN_TIME_HOUR, DEFAULT_UNKNOWN_TIME_MINUTE, 0, 0, date.zone(),
             );
-            const duration = dayCount > 1 ? Duration.ofDays(dayCount) : DEFAULT_SINGLE_DAY_DURATION;
+            const duration = Duration.ofDays(spanDays).plus(DEFAULT_SINGLE_DAY_DURATION);
 
             const eventId = generateEventId(title, range.start);
             if (this.seenEvents.has(eventId)) continue;
@@ -118,16 +122,20 @@ export default class UDistrictPartnershipRipper extends HTMLRipper {
 }
 
 // Pull the plain-text description paragraphs from a card's `.content` div,
-// excluding the date paragraph (`dateText`) and the "Learn More" button.
-function extractDescription(contentDiv: HTMLElement, dateText: string): string {
+// excluding the paragraph that holds the date `<strong>` (identified
+// structurally, not by comparing text, so a future date line with
+// surrounding text like "Date: <strong>...</strong>" still gets excluded)
+// and the "Learn More" button.
+function extractDescription(contentDiv: HTMLElement): string {
     const paragraphs = contentDiv.querySelectorAll('p')
+        .filter(p => !p.querySelector('strong') && !p.querySelector('a.button'))
         .map(p => p.text.trim())
-        .filter(text => text && text !== dateText && !/^Learn More$/i.test(text));
+        .filter(text => text.length > 0);
     return paragraphs.join('\n\n');
 }
 
 // The "Learn More" button links to the event's own subpage on
-// udistrictseattle.com; fall back to the card's feature-website link.
+// udistrictseattle.com.
 function extractUrl(contentDiv: HTMLElement): string | undefined {
     const button = contentDiv.querySelector('a.button');
     const href = button?.getAttribute('href')?.trim();

@@ -1,12 +1,12 @@
 ---
 name: U District Partnership
-status: candidate
+status: added
 platform: Custom HTML
 url: https://udistrictseattle.com/about/events
 tags: [University District, Community]
 firstSeen: 2026-07-26
 lastChecked: 2026-07-26
-pr:
+pr: 1025
 ---
 
 Discovered via a poster lookup (`skills/source-from-event`): a photographed
