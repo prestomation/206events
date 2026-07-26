@@ -65,6 +65,41 @@ describe("fetch-cache load/save", () => {
         expect(await loadFetchCache(path)).toEqual(emptyFetchCache());
     });
 
+    it("returns an empty cache when the entries key is absent (valid version, no entries object at all)", async () => {
+        // Distinct from "entries: {}" (a legitimate empty cache, no warning) —
+        // this is a shape the streaming reader can't just infer from "zero
+        // entries emitted" alone, since both cases produce an empty `entries`
+        // object. Regression test for a gap the streaming rewrite introduced:
+        // the old typeof-based check caught this, the naive streaming version
+        // silently returned {version: 7, entries: {}} with no warning.
+        const path = await tmpFile();
+        await writeFile(path, JSON.stringify({ version: 7 }));
+        expect(await loadFetchCache(path)).toEqual(emptyFetchCache());
+    });
+
+    it("returns an empty cache when entries content is malformed JSON past a valid version header", async () => {
+        // A valid header with broken content past it is a realistic corruption
+        // shape (e.g. a build killed mid-saveFetchCache leaves a valid opening
+        // but a truncated/broken entries blob) — unlike the "corrupt JSON"
+        // case above, this exercises the streaming *pipeline's* own parse
+        // error handling, not the header version-read.
+        const path = await tmpFile();
+        await writeFile(path, '{\n  "version": 1,\n  "entries": { "a": not-json-here');
+        expect(await loadFetchCache(path)).toEqual(emptyFetchCache());
+    });
+
+    it("propagates a real fs error instead of silently returning an empty cache", async () => {
+        // A directory path (EISDIR) reliably reproduces a genuine fs-layer
+        // failure regardless of user/permissions (unlike chmod-based
+        // permission tests, which no-op when tests run as root). Fs errors
+        // must propagate rather than being swallowed the way a malformed-JSON
+        // parse error is — matching the old readFile-based implementation's
+        // "rethrow anything past ENOENT/SyntaxError" contract.
+        const dir = await mkdtemp(join(tmpdir(), "fetchcache-isdir-"));
+        dirs.push(dir);
+        await expect(loadFetchCache(dir)).rejects.toMatchObject({ code: "EISDIR" });
+    });
+
     it("round-trips a populated cache", async () => {
         const path = await tmpFile();
         const cache = {
@@ -77,6 +112,24 @@ describe("fetch-cache load/save", () => {
         // afford now that saving streams entries individually instead of
         // building one JSON.stringify(cache) string.
         expect(await readFile(path, "utf-8")).toContain("\n  ");
+    });
+
+    it("reads a multi-digit version number from the head of the file", async () => {
+        const path = await tmpFile();
+        const cache: FetchCache = { version: 42, entries: { a: entry("2026-06-05T00:00:00.000Z") } };
+        await saveFetchCache(cache, path);
+        expect(await loadFetchCache(path)).toEqual(cache);
+    });
+
+    it("round-trips entry content containing braces, quotes, and unicode that could confuse a naive streaming parser", async () => {
+        const path = await tmpFile();
+        const trickyContent = 'BEGIN:VCALENDAR\n{"nested": "json-looking text with \\"escaped quotes\\", braces { } [ ], and emoji 🎉 — em dash"}\nEND:VCALENDAR';
+        const cache: FetchCache = {
+            version: 1,
+            entries: { "https://example.com/tricky": { ...entry("2026-06-05T00:00:00.000Z"), content: trickyContent } },
+        };
+        await saveFetchCache(cache, path);
+        expect(await loadFetchCache(path)).toEqual(cache);
     });
 
     it("round-trips an empty cache", async () => {
@@ -126,30 +179,37 @@ describe("fetch-cache load/save", () => {
         expect(await loadFetchCache(path)).toEqual(cache);
     });
 
-    it("saves a cache with many sizable entries by streaming, never building one giant JSON string, and keeps everything (no size cap)", async () => {
+    it("round-trips a cache with many sizable entries via streaming save AND load, never building one giant JSON string, and keeps everything (no size cap)", async () => {
         // Regression test for RangeError: Invalid string length — the old
-        // implementation built the whole cache as one `JSON.stringify(cache)`
-        // string before writing it, which crashes once the combined content
-        // across all entries gets large enough. This proves the streaming
-        // writer round-trips many multi-MB entries correctly, and that it
-        // keeps every entry rather than evicting under a size cap — the cache
-        // is expected to grow with the dataset. Sized for a fast test run
-        // rather than the real ~500MB-1GB V8 ceiling, but exercises the same
-        // per-entry streaming path that avoids ever holding the whole cache
-        // as one string.
+        // implementations built the whole cache as one `JSON.stringify(cache)`
+        // string on save, and read it back as one `readFile(..., "utf-8")`
+        // string on load; either one crashes once combined content across all
+        // entries gets large enough (production has hit ~508MB / 2134
+        // entries in practice). saveFetchCache streams entries out one at a
+        // time; loadFetchCache streams them back in one at a time via
+        // stream-json (lib/fetch-cache.ts). This proves both directions
+        // round-trip many multi-MB entries correctly, and that load keeps
+        // every entry rather than evicting under a size cap — the cache is
+        // expected to grow with the dataset. Sized for a fast test run rather
+        // than the real ~500MB-1GB V8 ceiling; the fix was additionally
+        // verified manually against a synthetic 629MB/2516-entry cache file
+        // (well past that ceiling), confirming the old readFile-based load
+        // throws RangeError on it while the streaming load succeeds cleanly
+        // (~8s, well under 1GB RSS).
         const path = await tmpFile();
         const bigContent = "x".repeat(1_000_000); // 1 MB
         const entries: Record<string, FetchCacheEntry> = {};
-        for (let i = 0; i < 20; i++) {
+        const ENTRY_COUNT = 100; // ~100MB total — meaningfully closer to production scale than a token-sized fixture, while still a few seconds in CI
+        for (let i = 0; i < ENTRY_COUNT; i++) {
             entries[`https://example.com/big-${i}`] = { ...entry("2026-06-01T00:00:00.000Z"), content: bigContent };
         }
         const cache: FetchCache = { version: 1, entries };
 
         await saveFetchCache(cache, path);
         const loaded = await loadFetchCache(path);
-        expect(Object.keys(loaded.entries).length).toBe(20);
+        expect(Object.keys(loaded.entries).length).toBe(ENTRY_COUNT);
         expect(loaded.entries["https://example.com/big-0"].content.length).toBe(1_000_000);
-    }, 15000);
+    }, 30000);
 });
 
 describe("isFresh / getCacheTtlMs", () => {

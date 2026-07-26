@@ -68,6 +68,48 @@ large value for a long local iteration session, or `0` to force every entry
 stale). Entries older than `MAX_ENTRY_AGE_DAYS` (30) are pruned on save so
 removed sources and changed URLs don't accumulate in the persisted blob.
 
+## Loading at scale: streaming JSON, no size cap
+
+The cache **has no total-size or per-entry size cap** — it's allowed to grow
+with the dataset (source count × their per-URL payload sizes), bounded only by
+`MAX_ENTRY_AGE_DAYS`. In production this has reached **~508MB across 2,134
+entries**, and both save and load have to handle content at that scale without
+ever building the whole cache as a single in-memory string:
+
+- `saveFetchCache` streams the file out **entry-by-entry** (a hand-written
+  writer, not `JSON.stringify(cache)`).
+- `loadFetchCache` streams it back in the same way, via `stream-json`
+  (`parser` → `pick({filter: "entries"})` → `streamObject()`, piped with
+  Node's `stream/promises` `pipeline` so an error on *any* stage of the
+  pipeline is caught — a plain `.pipe()` chain only surfaces errors from the
+  final stream). The `version` field is read separately from just the first
+  4KB of the file (`readCacheVersion`), since it's a scalar that always
+  appears in the fixed-shape header the writer emits — no need to stream the
+  whole file just to find one number.
+
+**Why this matters:** V8 enforces a hard ceiling on a single JS string
+(roughly 512MB-1GB depending on the Node build) — a plain
+`readFile(path, "utf-8")` + `JSON.parse()` throws
+`RangeError: Invalid string length` once the file crosses that line, and
+crashes the whole build (this happened in production — see the "2026-07-26
+incident" below). The streaming reader never materializes more than one
+entry's content as a string at a time, so there's no ceiling to hit regardless
+of how large the total cache grows. `lib/fetch-cache.test.ts` has a regression
+test for both directions (`"round-trips a cache with many sizable entries via
+streaming save AND load…"`); the fix was additionally verified manually
+against a synthetic 629MB/2,516-entry file — the old `readFile`-based load
+throws on it, the streaming load doesn't.
+
+**2026-07-26 incident:** a main-branch build grew the cache to 508.3MB/2,134
+entries, crossing V8's string-length ceiling. Every subsequent build —
+including unrelated PRs — restored that same cache via
+`restore-keys: fetch-cache-v1-` and crashed on load before `pruneCache` (which
+only runs *after* a successful load) ever got a chance to shrink it, so the
+cache couldn't self-heal. Fixed by switching `loadFetchCache` to the streaming
+implementation described above, rather than capping/evicting cache content —
+the size itself isn't a problem, only the old read path's inability to handle
+it was.
+
 ## Working on a single source: `ONLY_SOURCE`
 
 `ONLY_SOURCE=<name>` (comma-separated for several) restricts the build to the
