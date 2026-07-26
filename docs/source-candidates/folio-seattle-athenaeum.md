@@ -3,7 +3,7 @@ name: "Folio: The Seattle Athenaeum"
 status: notviable
 platform: Wix (events-viewer widget)
 url: https://www.folioseattle.org/programs
-tags: [Community, "Pike Place Market"]
+tags: [Community, "Pike Place"]
 firstSeen: 2026-07-26
 lastChecked: 2026-07-26
 ---
