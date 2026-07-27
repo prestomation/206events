@@ -7,6 +7,7 @@ import {
     applyDuplicateMarks,
     resolutionsFromCache,
     pairKey,
+    titleOnlySignal,
     DedupEvent,
 } from "./cross-source-dedup.js";
 
@@ -131,6 +132,78 @@ describe("strong same-venue/same-instant signal", () => {
         expect(groups).toHaveLength(1);
         expect(groups[0].suppressed).toHaveLength(1);
         expect(candidates).toHaveLength(0);
+    });
+});
+
+describe("title-only signal (no geo corroboration on either side)", () => {
+    // Real prod case: Seafair's aggregator feed describes the Lake City Summer
+    // Festival's location as a landmark blurb ("along Lake City Way NE, and at
+    // Albert Davis Park") that never geocoded (geocodeSource: 'none' in prod),
+    // while the venue's own recurring source has a clean street address. Before
+    // titleOnlySignal, distanceM was null and locText (~0.27) sat well below
+    // medLocText, so tierFor returned null — the pair was invisible to both the
+    // HIGH merge and the MED review queue.
+    const venueFeed = ev({ icsUrl: "recurring-lake-city-summer-festival.ics", summary: "Lake City Summer Festival & Parade", location: "NE 125th St, Lake City, Seattle, WA 98125", lat: 47.7195, lng: -122.3174 });
+    const aggregatorFeed = ev({ icsUrl: "external-seafair.ics", summary: "Lake City Summer Festival and Parade", location: "Lake City, 125th NE and along Lake City Way NE, and at Albert Davis Park" });
+
+    it("has no distance to compare and weak location text — the pre-fix gap", () => {
+        const s = scorePair(venueFeed, aggregatorFeed);
+        expect(s.distanceM).toBeNull();
+        expect(s.locText).toBeLessThan(0.5);
+        expect(s.title).toBeGreaterThanOrEqual(0.65);
+    });
+
+    it("surfaces as a MED candidate via titleOnlySignal", () => {
+        const s = scorePair(venueFeed, aggregatorFeed);
+        expect(titleOnlySignal(s)).toBe(true);
+        expect(tierFor(s)).toBe("med");
+    });
+
+    it("never promotes to HIGH — no geo evidence means no auto-merge", () => {
+        const { groups, candidates } = findDuplicates([venueFeed, aggregatorFeed]);
+        expect(groups).toHaveLength(0);
+        expect(candidates).toHaveLength(1);
+    });
+
+    it("does NOT fire for a generic shared phrase between genuinely different events", () => {
+        // Real prod near-miss: two distinct park programs that happen to share
+        // "in the Park" wording. Both lack coords, but title similarity (~0.5)
+        // sits below titleOnlyFloor — this must stay null, not MED, or the
+        // duplicate-candidate queue would flood with a false pair every
+        // occurrence of either recurring program.
+        const a = ev({ icsUrl: "events12-seattle-events.ics", summary: "Shakespeare in the park" });
+        const b = ev({ icsUrl: "friends-of-madison-park-all-events.ics", summary: "Music in the Park" });
+        const s = scorePair(a, b);
+        expect(s.distanceM).toBeNull();
+        expect(s.title).toBeLessThan(0.65);
+        expect(tierFor(s)).toBeNull();
+    });
+
+    it("does not fire when time ranges don't overlap, even with a near-identical title", () => {
+        const a = ev({ icsUrl: "a.ics", summary: "Coffee Klatch", date: `${day}T09:00-07:00[America/Los_Angeles]`, endDate: `${day}T10:00-07:00[America/Los_Angeles]` });
+        const b = ev({ icsUrl: "b.ics", summary: "Coffee Klatch", date: `${day}T18:00-07:00[America/Los_Angeles]`, endDate: `${day}T19:00-07:00[America/Los_Angeles]` });
+        expect(tierFor(scorePair(a, b))).toBeNull();
+    });
+
+    it("stays null when a ZIP contradiction is present (veto still applies)", () => {
+        const a = ev({ icsUrl: "a.ics", summary: "Trivia Hosted by Geeks Who Drink", location: "Chuck's Hop Shop, Central District, Seattle, WA 98122" });
+        const b = ev({ icsUrl: "b.ics", summary: "Trivia Hosted by Geeks Who Drink", location: "Chuck's Hop Shop, Seward Park, Seattle, WA 98118" });
+        const s = scorePair(a, b);
+        expect(s.contradicted).toBe(true);
+        expect(tierFor(s)).toBeNull();
+    });
+
+    it("does NOT veto a ZIP mismatch when both sides share a street number (likely a typo)", () => {
+        // Real prod bug: sources/showbox_presents/ripper.yaml's Neumos calendar
+        // disagreed with itself — geo.label said "925 E Pike St ... 98122",
+        // config.address said "925 E Pike St ... 98103" — same osmId, same
+        // street number, wrong ZIP on one side. The blanket veto used to drop
+        // this pair from the queue entirely; it should still surface as MED.
+        const a = ev({ icsUrl: "neumos-neumos.ics", summary: "Faouzia", location: "Neumos, 925 E Pike St, Seattle, WA 98122", lat: 47.6138, lng: -122.3196, osmType: "node", osmId: 1194791180 });
+        const b = ev({ icsUrl: "showbox-presents-neumos.ics", summary: "Faouzia", location: "Neumos, 925 E Pike St, Seattle, WA 98103", lat: 47.6138, lng: -122.3198, osmType: "node", osmId: 1194791180 });
+        const s = scorePair(a, b);
+        expect(s.contradicted).toBe(false);
+        expect(tierFor(s)).toBe("high"); // osmSame + shared street number outweighs the bogus ZIP
     });
 });
 

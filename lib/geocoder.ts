@@ -912,6 +912,14 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // (per Down Home 4th of July event listings); "Bellevue, WA" in the source string
   // matches the real venue, not Issaquah.
   'downtown issaquah, fireworks show, bellevue, wa': { lat: 47.5772097, lng: -122.1137809 },
+  // Seafair's descriptive (non-geocodable) location string for the Lake City
+  // Summer Festival & Parade. Pinned to the same OSM-verified coords as the
+  // recurring-lake-city-summer-festival venue source so cross-source-dedup's
+  // distance check catches this as the same annual event instead of missing
+  // it entirely (Nominatim can't resolve this string, and the location-text
+  // Jaccard fallback is too low — "along Lake City Way NE, and at Albert
+  // Davis Park" vs "NE 125th St, Lake City, Seattle, WA 98125").
+  'lake city, 125th ne and along lake city way ne, and at albert davis park': { lat: 47.7195105, lng: -122.3173709 },
   'gillette stadium': { lat: 42.0908879, lng: -71.2641731 }, // Foxborough, MA — alias of the existing 'boston stadium' entry (Sounders/Reign away-game feeds)
   'snapdragon stadium': { lat: 32.7842418, lng: -117.1223904 }, // San Diego, CA — Sounders/Reign away-game feed
   'chicago, il': { lat: 41.8755616, lng: -87.6244212 }, // away-game city label
