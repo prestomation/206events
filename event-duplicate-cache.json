@@ -7859,6 +7859,41 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-26",
       "note": "Different food truck stops: 1201 Eastlake vs 1551 Eastlake, 321m apart — separate schedules for separate locations"
+    },
+    "19hz-all-events.ics Sorry for Party Rocking|2026-08-14T21:00:00-07:00[America/Los_Angeles]::chop-suey-all-events.ics Sorry For Party Rocking (2010 – 2015 Pop & EDM Bangers All Night Long)|2026-08-14T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-27",
+      "note": "Same event at Chop Suey — 19hz aggregator vs venue calendar, title variant adds descriptive subtitle"
+    },
+    "barboza-barboza.ics Yana with Special Guests|2026-10-24T18:00:00-07:00[America/Los_Angeles]::neumos-neumos.ics Freak Slug with Special Guests|2026-10-24T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-27",
+      "note": "Different headliners (Yana vs Freak Slug), different venues (Barboza vs Neumos, separate rooms at 925 E Pike), different start times (18:00 vs 20:00)"
+    },
+    "discover-slu-discover-slu.ics 2026 Cider Summit Seattle|2026-09-11T15:00:00-07:00[America/Los_Angeles]::recurring-cider-summit-seattle.ics Cider Summit Seattle|2026-09-11T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-27",
+      "note": "Same Cider Summit event — recurring YAML vs discover-slu aggregator, \"2026\" year prefix is the only title difference, same SLU Discovery Center location"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólę́|2026-08-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólę́|2026-08-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-27",
+      "note": "Same exhibition at Henry Art Gallery appearing in seatoday \"all\" and \"arts\" sub-calendars — intra-source calendar split"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólę́|2026-08-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólę́|2026-08-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-27",
+      "note": "Same exhibition at Henry Art Gallery appearing in seatoday \"all\" and \"community\" sub-calendars — intra-source calendar split"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólę́|2026-08-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólę́|2026-08-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-27",
+      "note": "Same exhibition at Henry Art Gallery appearing in seatoday \"arts\" and \"community\" sub-calendars — intra-source calendar split"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-26T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-27",
+      "note": "Different food truck gatherings at two separate locations along Eastlake Ave (1201 vs 1551, 321m apart) — same date but distinct events"
     }
   }
 }
