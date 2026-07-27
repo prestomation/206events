@@ -6,7 +6,7 @@ url: https://www.cidersummitnw.com/seattle1
 tags: [Beer, Community, "South Lake Union"]
 firstSeen: 2026-06-11
 lastChecked: 2026-07-27
-pr:
+pr: 1028
 ---
 **Cider Summit Seattle** — `https://www.cidersummitnw.com/seattle1` — Annual cider festival at South Lake Union Discovery Center Lawn.
 
