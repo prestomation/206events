@@ -1,3 +1,4 @@
+# verified: 2026-07-27 drift-fixed (start_time 18:00→17:00, duration PT4H→PT3H)
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/89/SR_522_%28Lake_C\
   ity_Way%29_in_Lake_City%2C_Seattle_-_01.jpg"
 geo:
@@ -18,5 +19,5 @@ tags:
 cost: free
 schedules:
   - schedule: 3rd Thursday
-    start_time: 18:00
-    duration: PT4H
+    start_time: "17:00"
+    duration: PT3H

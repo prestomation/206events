@@ -1,3 +1,4 @@
+# verified: 2026-07-27 flagged (page describes a one-time-only fall/winter Saturday market for 2026 via a former-Mayor's-office proposal, not a permanent schedule change — schema has no way to bound a schedules[] entry to a single year, so adding it as a recurring months:[10,11,12] entry would wrongly repeat every future year; needs a human decision)
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Juarez-Market-1_\
   %2841903681375%29.jpg"
 geo:
@@ -20,6 +21,6 @@ tags:
 cost: free
 schedules:
   - schedule: every Thursday
-    start_time: 15:00
+    start_time: "15:00"
     duration: PT4H
     seasonal: summer
