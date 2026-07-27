@@ -1,0 +1,31 @@
+# verified: 2026-07-27 ok
+geo:
+  lat: 47.6188761
+  lng: -122.3388594
+  label: "South Lake Union Discovery Center, 101 Westlake Ave N, Seattle, WA 98109"
+  osmType: way
+  osmId: 231664565
+name: cider-summit-seattle
+sourceRole: venue
+friendlyname: Cider Summit Seattle
+description: Annual cider festival at the South Lake Union Discovery Center Lawn featuring 100+ selections from 40+ leading cider, mead, and fruit spirit producers, plus food vendors and a dog lounge.
+timezone: America/Los_Angeles
+location: South Lake Union Discovery Center, 101 Westlake Ave N, Seattle, WA 98109
+url: https://www.cidersummitnw.com/seattle1
+tags:
+  - Beer
+  - Community
+  - "South Lake Union"
+cost: 35
+# Approximates the 2nd Friday-Saturday of September. Matches 2025 (Sep 12-13) and
+# 2026 (Sep 11-12). In 2024 it fell on the 1st weekend (Sep 6-7); verify at
+# cidersummitnw.com/seattle1 each year.
+schedules:
+  - schedule: "2nd Friday"
+    start_time: "15:00"
+    duration: PT5H
+    months: [9]
+  - schedule: "2nd Saturday"
+    start_time: "12:00"
+    duration: PT5H
+    months: [9]
