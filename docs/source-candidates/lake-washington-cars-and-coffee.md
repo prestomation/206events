@@ -9,10 +9,10 @@ lastChecked: 2026-07-27
 pr: TBD
 ---
 
-Weekly car meet at Madrona Park (853 Lake Washington Blvd), founded in 2017 by
-Zach Hoffner and Peter Kamb. Meets every Sunday 10am–12pm, all makes and models
-welcome — Instagram/Facebook describe a mix leaning European and Japanese
-(Porsches, BMWs, clean JDM builds).
+Weekly car meet at Madrona Park (853 Lake Washington Blvd), founded in 2017.
+Meets every Sunday 10am–12pm, all makes and models welcome — Instagram/Facebook
+describe a mix leaning European and Japanese (Porsches, BMWs, clean JDM
+builds).
 
 No website, ICS feed, or API — organized purely via Instagram
 (`@lakewashingtoncarsandcoffee`) and Facebook. Confirmed as an active, stable
