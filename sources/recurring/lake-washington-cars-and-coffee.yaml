@@ -1,0 +1,19 @@
+geo:
+  lat: 47.610378
+  lng: -122.283661
+  label: "Madrona Park, 853 Lake Washington Blvd, Seattle, WA 98122"
+name: lake-washington-cars-and-coffee
+sourceRole: venue
+friendlyname: Lake Washington Cars & Coffee
+description: Weekly car meet at Madrona Park overlooking Lake Washington, founded
+  in 2017. Casual coffee-fueled gathering welcoming all makes and models, with a
+  mix leaning European and Japanese.
+timezone: America/Los_Angeles
+location: "Madrona Park, 853 Lake Washington Blvd, Seattle, WA 98122"
+url: https://www.instagram.com/lakewashingtoncarsandcoffee/
+tags: ["Cars", "Madrona"]
+cost: free
+schedules:
+  - schedule: every Sunday
+    start_time: "10:00"
+    duration: PT2H
