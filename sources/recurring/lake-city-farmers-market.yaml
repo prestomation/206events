@@ -1,3 +1,4 @@
+# verified: 2026-07-27 drift-fixed (added Saturday Oct-Dec schedule)
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Juarez-Market-1_\
   %2841903681375%29.jpg"
 geo:
@@ -20,6 +21,10 @@ tags:
 cost: free
 schedules:
   - schedule: every Thursday
-    start_time: 15:00
+    start_time: "15:00"
     duration: PT4H
     seasonal: summer
+  - schedule: every Saturday
+    start_time: "10:00"
+    duration: PT4H
+    months: [10, 11, 12]

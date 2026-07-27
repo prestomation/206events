@@ -1,3 +1,4 @@
+# verified: 2026-07-27 drift-fixed (start_time 21:00→20:00, duration PT2H→PT3H)
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Hopvine_bar_Seattle.JPG"
 geo:
   lat: 47.6233694
@@ -19,5 +20,5 @@ tags:
 cost: free
 schedules:
   - schedule: every Wednesday
-    start_time: 21:00
-    duration: PT2H
+    start_time: "20:00"
+    duration: PT3H
