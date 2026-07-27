@@ -164,6 +164,35 @@ describe('UDistrictPartnershipRipper', () => {
         expect((events[0] as any).reason).toContain('Early July 2027');
     });
 
+    it('reports a ParseError for an abbreviated month the date parser does not handle, rather than silently skipping it', async () => {
+        // Regression test: containsMonthName must recognize abbreviations
+        // ("Aug.", "Sept") even though parseDateRange's own regexes only
+        // match full month names — otherwise an abbreviated date the parser
+        // can't handle would be indistinguishable from a genuinely
+        // unannounced "Spring 2027"-style placeholder and get silently
+        // skipped instead of surfaced as a gap to fix.
+        const ripper = new UDistrictPartnershipRipper();
+        const sampleHtml = `
+            <section class="features view-grid">
+                <div class="feature column">
+                    <div class="feature-text content">
+                        <h3>Abbreviated Date Festival</h3>
+                        <div class="content">
+                            <p><strong>Aug. 1, 2027</strong></p>
+                            <p>Abbreviated month format not yet handled.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+
+        expect(events).toHaveLength(1);
+        expect(events[0]).toMatchObject({ type: 'ParseError', context: 'Abbreviated Date Festival' });
+        expect((events[0] as any).reason).toContain('Aug. 1, 2027');
+    });
+
     it('reports a ParseError for a card with no title', async () => {
         const ripper = new UDistrictPartnershipRipper();
         const sampleHtml = `

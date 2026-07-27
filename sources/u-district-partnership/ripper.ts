@@ -166,8 +166,14 @@ const monthMap: { [key: string]: number } = {
 // Whether the date text names a specific month — the signal used to tell
 // "the source published a date we failed to parse" (ParseError) apart from
 // "the source hasn't set a specific date yet" (e.g. "Spring 2027": a season,
-// not a month — skip silently, see the call site).
-const monthNamePattern = new RegExp(`\\b(${Object.keys(monthMap).join('|')})\\b`);
+// not a month — skip silently, see the call site). Deliberately broader than
+// parseDateRange's own patterns (full names, case-insensitive, plus common
+// abbreviations like "Sept"/"Aug.") — this only has to recognize "the source
+// is attempting to name a month", not successfully parse it, so a date in a
+// format parseDateRange doesn't yet handle (e.g. "Aug. 1, 2027") still
+// surfaces as a ParseError instead of being mistaken for an unannounced date.
+const monthAbbreviations = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sep', 'Sept', 'Oct', 'Nov', 'Dec'];
+const monthNamePattern = new RegExp(`\\b(${[...Object.keys(monthMap), ...monthAbbreviations].join('|')})\\.?\\b`, 'i');
 function containsMonthName(text: string): boolean {
     return monthNamePattern.test(text);
 }
