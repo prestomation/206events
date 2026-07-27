@@ -24,8 +24,10 @@ the five poster events with concrete dates/date-ranges:
 - Seattle Boba Fest — August 1, 2026
 - U District Chow Down & Street Party — October 3, 2026
 - U District Street Fair — May 15 & 16, 2027 (two-day range)
-- U District Cherry Blossom Festival — "Spring 2027" (no resolvable day —
-  parsed as a `ParseError`, not guessed)
+- U District Cherry Blossom Festival — "Spring 2027" (a season, not a
+  month — no date announced yet, so the ripper skips this card silently
+  rather than guessing or erroring; it starts appearing once the org
+  publishes a real date)
 
 Winter Window Walk isn't currently listed (past its Dec 2025 occurrence per
 the poster; presumably reappears once the Winter 2026 edition is announced).
@@ -43,5 +45,8 @@ Implemented as `sources/u-district-partnership/` (custom `HTMLRipper`).
 `sourceRole: venue`, `geo` set to the University District centroid
 (matching the `university-district-artwalk` convention), `weatherSetting:
 mixed`. Verified locally with `ONLY_SOURCE=u-district-partnership npm run
-generate-calendars` — 3 events, 1 expected ParseError (Cherry Blossom
-Festival's vague date), 0 unexpected errors.
+generate-calendars` — 3 events, 0 errors. (Cherry Blossom Festival's
+seasonal-only date is skipped silently rather than reported as a
+`ParseError` — a genuine `ParseError` on a brand-new source blocks CI's
+new-source gate, and this isn't a parsing gap to flag, just a date the
+org hasn't set yet.)

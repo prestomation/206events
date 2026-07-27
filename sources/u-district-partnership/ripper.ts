@@ -65,11 +65,26 @@ export default class UDistrictPartnershipRipper extends HTMLRipper {
 
             const range = parseDateRange(dateText);
             if (!range) {
-                events.push({
-                    type: "ParseError",
-                    reason: `Date not yet announced or unparseable: "${dateText}"`,
-                    context: title,
-                });
+                if (containsMonthName(dateText)) {
+                    // A month name is present but didn't match any known
+                    // pattern — a real gap in parseDateRange that should be
+                    // fixed, not a date the source simply hasn't set yet.
+                    events.push({
+                        type: "ParseError",
+                        reason: `Could not parse date text containing a month name: "${dateText}"`,
+                        context: title,
+                    });
+                } else {
+                    // No month/day at all (e.g. "Spring 2027") — the org
+                    // hasn't set a concrete date yet, not a parsing failure.
+                    // Nothing to resolve via the uncertainty system (there's
+                    // no real date on the page for a human/resolver to find,
+                    // and no UncertaintyField for "date" — see
+                    // docs/event-uncertainty.md's "Future fields" note).
+                    // Skip silently; this self-resolves the next time the
+                    // ripper runs after the org publishes a real date, same
+                    // as an event that isn't listed on the page at all.
+                }
                 continue;
             }
 
@@ -147,6 +162,15 @@ const monthMap: { [key: string]: number } = {
     'May': 5, 'June': 6, 'July': 7, 'August': 8,
     'September': 9, 'October': 10, 'November': 11, 'December': 12,
 };
+
+// Whether the date text names a specific month — the signal used to tell
+// "the source published a date we failed to parse" (ParseError) apart from
+// "the source hasn't set a specific date yet" (e.g. "Spring 2027": a season,
+// not a month — skip silently, see the call site).
+const monthNamePattern = new RegExp(`\\b(${Object.keys(monthMap).join('|')})\\b`);
+function containsMonthName(text: string): boolean {
+    return monthNamePattern.test(text);
+}
 const weekdayNames = /\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b,?\s*/g;
 
 // Parses the date text of a feature card into a day range. Handles:

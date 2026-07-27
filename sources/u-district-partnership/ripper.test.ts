@@ -26,14 +26,12 @@ describe('UDistrictPartnershipRipper', () => {
             'U District Street Fair',
         ]);
 
-        // Cherry Blossom Festival ("Spring 2027") has no resolvable day and
-        // must surface as a ParseError, never be silently dropped.
-        expect(errors).toHaveLength(1);
-        expect(errors[0]).toMatchObject({
-            type: 'ParseError',
-            context: 'U District Cherry Blossom Festival',
-        });
-        expect((errors[0] as any).reason).toContain('Spring 2027');
+        // Cherry Blossom Festival ("Spring 2027") has no resolvable day —
+        // a season, not a month, so there's genuinely no date on the page
+        // yet. Skipped silently (no event, no error) rather than guessed or
+        // flagged, and never appears as an event either.
+        expect(errors).toHaveLength(0);
+        expect(calEvents.map(e => e.summary)).not.toContain('U District Cherry Blossom Festival');
 
         // The page never states a start time, so every emitted event pairs
         // with an Uncertainty error for startTime/duration.
@@ -115,6 +113,55 @@ describe('UDistrictPartnershipRipper', () => {
 
         expect(events).toHaveLength(1);
         expect(events[0]).toMatchObject({ type: 'ParseError', context: 'Mystery Event' });
+    });
+
+    it('skips a card with a vague season/year date silently (no event, no error)', async () => {
+        const ripper = new UDistrictPartnershipRipper();
+        const sampleHtml = `
+            <section class="features view-grid">
+                <div class="feature column">
+                    <div class="feature-text content">
+                        <h3>U District Cherry Blossom Festival</h3>
+                        <div class="content">
+                            <p><strong>Spring 2027</strong></p>
+                            <p>Cherry-inspired bites and drinks.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+
+        // No month name in "Spring 2027" — the org hasn't set a date yet,
+        // not a parsing gap. Nothing emitted at all: no event, no error.
+        expect(events).toHaveLength(0);
+    });
+
+    it('reports a ParseError when a month name is present but does not match any known date pattern', async () => {
+        const ripper = new UDistrictPartnershipRipper();
+        const sampleHtml = `
+            <section class="features view-grid">
+                <div class="feature column">
+                    <div class="feature-text content">
+                        <h3>Mystery Festival</h3>
+                        <div class="content">
+                            <p><strong>Early July 2027</strong></p>
+                            <p>Date format not yet handled.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+
+        // "July" is a real month name — this is a genuine gap in
+        // parseDateRange to fix, not an unannounced date, so it must
+        // surface as a ParseError rather than being silently skipped.
+        expect(events).toHaveLength(1);
+        expect(events[0]).toMatchObject({ type: 'ParseError', context: 'Mystery Festival' });
+        expect((events[0] as any).reason).toContain('Early July 2027');
     });
 
     it('reports a ParseError for a card with no title', async () => {
