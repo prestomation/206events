@@ -6,7 +6,7 @@ url: https://kingtrivia.com/venues/jules-maes-saloon/
 tags: [Trivia, "Pub Trivia", Georgetown]
 firstSeen: 2026-07-25
 lastChecked: 2026-07-27
-pr: TBD
+pr: 1032
 ---
 
 Seattle's oldest bar (est. 1888), Georgetown neighborhood, 5919 Airport
