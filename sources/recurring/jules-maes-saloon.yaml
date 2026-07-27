@@ -1,0 +1,21 @@
+geo:
+  lat: 47.5496126
+  lng: -122.3175540
+  label: "5919 Airport Way S, Seattle, WA 98108"
+  osmType: node
+  osmId: 2396891247
+name: jules-maes-saloon
+sourceRole: venue
+friendlyname: King Trivia at Jules Maes Saloon
+description: Weekly pub trivia at Seattle's oldest bar (est. 1888) in Georgetown.
+timezone: America/Los_Angeles
+location: "5919 Airport Way S, Seattle, WA 98108"
+url: https://kingtrivia.com/venues/jules-maes-saloon/
+tags:
+  - Trivia
+  - "Pub Trivia"
+  - Georgetown
+schedules:
+  - schedule: every Tuesday
+    start_time: "19:00"
+    duration: PT2H
