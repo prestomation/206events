@@ -89,7 +89,7 @@ describe('Showbox Presents Ripper', () => {
 
         const events = await ripper.parseEvents(html, testDate, {
             venue: 'Neumos',
-            address: '925 E Pike St, Seattle, WA 98103'
+            address: '925 E Pike St, Seattle, WA 98122'
         });
 
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
@@ -100,7 +100,7 @@ describe('Showbox Presents Ripper', () => {
         expect(richBrian.summary).toBe('Rich Brian');
         expect(richBrian.date.dayOfMonth()).toBe(14);
         expect(richBrian.date.hour()).toBe(20);
-        expect(richBrian.location).toBe('Neumos, 925 E Pike St, Seattle, WA 98103');
+        expect(richBrian.location).toBe('Neumos, 925 E Pike St, Seattle, WA 98122');
         expect(richBrian.description).toContain('WHERE IS MY HEAD? 2026 WORLD TOUR');
         // No support acts, so summary should just be the artist name
         expect(richBrian.summary).not.toContain('with');

@@ -73,16 +73,32 @@ Stoup Cap Hill "Trivia ... with Head in the Clouds"  @ 1158 Broadway (Capitol Hi
 Title agrees, coords agree, times overlap — but the **location strings flatly
 disagree** (different street number, different neighborhood). So the location
 text is an independent signal: when two strings carry contradictory street
-numbers or known-neighborhood tokens, the pair is vetoed out of the HIGH tier
-(downgraded to a candidate) even if coords match.
+numbers or known-neighborhood tokens, the pair is vetoed — originally only out
+of the HIGH tier (downgraded to a candidate); as of the fix below, out of MED
+too, since a bare `medTitle`+`locText` match can clear the MED bar on shared
+venue-name words alone even when the ZIPs contradict.
+
+**Exception — a shared street number beats a bogus ZIP.** A second real prod
+case showed the veto is too blunt on its own: `sources/showbox_presents/ripper.yaml`
+disagreed with itself for its Neumos calendar — `geo.label` said `"925 E Pike
+St ... 98122"`, `config.address` said `"925 E Pike St ... 98103"` (a data-entry
+typo, fixed in the same change). Same `osmId`, same street number, wrong ZIP on
+one side. The blanket veto dropped every Neumos/Showbox event pair out of the
+duplicate queue *entirely*, not just out of HIGH. `locationContradiction` now
+checks for a shared street number (any 1–4 digit standalone token, which can
+never be a substring of a 5-digit ZIP) before vetoing: if both sides name the
+same street number, the ZIP disagreement is far more likely a copy-paste typo
+than a different venue, and the veto is skipped. The Stoup case still vetoes
+correctly — its street numbers (1108 vs 1158) disagree too.
 
 ## Confidence tiers
 
 | Tier | Gate (starting point — tune against the probe) | Action |
 |---|---|---|
 | **HIGH** | title ≥ 0.6 · time-overlap · (OSM-same **or** ≤ 75 m) · **not** location-contradicted | Auto-merge: collapse + attribute |
-| **MED** | title ≥ 0.5 · overlap-or-touching · (OSM-same **or** ≤ 500 m **or** loc-text ≥ 0.5), incl. coordless | Duplicate-candidate queue → resolver |
+| **MED** | title ≥ 0.5 · overlap-or-touching · (OSM-same **or** ≤ 500 m **or** loc-text ≥ 0.5), incl. coordless · **not** location-contradicted | Duplicate-candidate queue → resolver |
 | **MED (strong signal)** | OSM-same · **same start instant** · title ≥ 0.3 · **not** location-contradicted | Duplicate-candidate queue → resolver |
+| **MED (title-only signal)** | **no coords on either side** (`distanceM` null) · title ≥ 0.65 · time-overlap · **not** location-contradicted | Duplicate-candidate queue → resolver |
 | **LOW** | below the above | Ignore |
 
 Campus-scale matches (Seattle Center, 90–170 m) intentionally land in **MED**,
@@ -109,6 +125,45 @@ seatings of a double feature (e.g. a 5 PM and an 8:30 PM show) stay distinct,
 and only the copies that genuinely share a start collapse. The minimal title
 floor keeps unrelated same-slot listings apart (e.g. two different programs in
 two rooms of one library branch that share an OSM node).
+
+### The title-only signal (no geo corroboration on either side)
+
+`near()`/`locText` both require at least a location string to compare; when
+one event never geocoded (`distanceM` is `null` — either a blank/missing
+`location` field, common for city-government-style feeds, or a landmark
+description that both fails Nominatim and shares little vocabulary with a
+venue's clean street address), neither can fire **no matter how the
+radii/thresholds are tuned**. Before this signal, such a pair was invisible to
+*both* the HIGH merge and the MED review queue — not a lower-confidence match,
+no match at all.
+
+Real prod case: Seafair's aggregator feed describes the Lake City Summer
+Festival's location as `"Lake City, 125th NE and along Lake City Way NE, and
+at Albert Davis Park"` — a landmark blurb that never geocoded — while the
+venue's own recurring source (`sources/recurring/lake-city-summer-festival.yaml`)
+has a clean, OSM-verified street address. Title Jaccard is 0.83 (`"Lake City
+Summer Festival & Parade"` vs `"...and Parade"`), same day, but `distanceM` is
+`null` and `locText` (~0.27) sits well below `medLocText` — every existing tier
+returned `null`.
+
+A quantified sweep of the 2026-07-27 prod snapshot found **~99 distinct
+cross-source duplicate relationships** (276 individual date occurrences,
+mostly recurring weekly/monthly pairs) hitting this exact gap — city
+government calendars republishing each other's events with no location field,
+neighborhood blogs paraphrasing a venue's own listing, and more Seafair-style
+landmark descriptions. It is not a one-off; it is the dominant failure mode
+for cross-source dedup missing a genuine duplicate.
+
+`titleOnlySignal` closes it: when neither side has a usable distance and the
+title match is unusually high (`titleOnlyFloor`, default 0.65 — well above
+`medTitle`'s 0.5, since this carries *no* geo corroboration at all), the pair
+still surfaces as a **MED** candidate. It is **never** auto-merged. The floor
+was calibrated against the real prod distribution: exact-title dupes cluster
+at 1.0/0.83/0.80/0.67, while generic shared phrases between genuinely
+different events ("Shakespeare in the Park" vs "Music in the Park", "Trivia
+Hosted by Geeks Who Drink" at two different branches) cluster at 0.5–0.60. A
+0.65 floor cleanly separates the two without chasing the long tail into false
+positives — see `lib/cross-source-dedup.test.ts` for both boundary cases.
 
 ### Auto-merge behavior — collapse + attribute
 
@@ -162,6 +217,28 @@ fixture):
   venue-direct vs `seattle-showlists-*` (Royal Room, Nectar).
 - The Stoup false positive above is in the raw HIGH set **before** the veto;
   it's the motivating test case for the contradiction guard.
+
+### Follow-up sweep (2026-07-27 snapshot, ~13,900 events) — `titleOnlySignal` + veto fixes
+
+Re-run against a later prod snapshot to size the no-geo-corroboration gap and
+validate the fix before merging:
+
+- **HIGH groups: 882 → 884.** The two new merges are the Neumos/Showbox `Faouzia`
+  and `Brian Fallon & The Painkillers` pairs, previously blocked from HIGH by
+  the bogus-ZIP veto (see the street-number exception above) — same `osmId`,
+  same address, wrong ZIP on one side.
+- **MED candidates: 252 → 395** (+155 net; 12 removed, 167 added).
+- The **12 removed** are exactly the pairs the extended contradiction veto is
+  meant to catch — genuinely different branches of the same chain sharing an
+  identical title (`Reuben's Brews Ballard` vs `Downtown`, `Stoup Brewing
+  Ballard` vs `Capitol Hill`) that the old MED path let through on `locText`
+  alone (shared brand-name words) without checking for a ZIP contradiction.
+- Of the added candidates, **276 come from `titleOnlySignal`** (~99 distinct
+  duplicate relationships once recurring occurrences are collapsed) — city
+  government calendars with blank location fields, neighborhood blogs
+  paraphrasing a venue's own text, and more Seafair-style landmark
+  descriptions. None inspected read as a false positive at the calibrated
+  0.65 floor.
 
 ## Reporting parity
 

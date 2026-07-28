@@ -63,6 +63,15 @@ export interface DedupTuning {
     // e.g. two rooms of one library branch). Still human-reviewed, never
     // auto-merged.
     strongSignalTitleFloor: number;
+    // The mirror image of strongSignalTitleFloor: when NEITHER event has
+    // coordinates (haversineM returns null — at least one side never
+    // geocoded, often because its location string is blank or a
+    // Nominatim-hostile landmark description) and the location-text fallback
+    // therefore has nothing to compare, an unusually high title match on the
+    // same day is still worth a human look. Set well above highTitle/medTitle
+    // since this signal carries no geo corroboration at all — see
+    // strongSameEventSignal's counterpart, titleOnlySignal.
+    titleOnlyFloor: number;
 }
 
 // Defaults calibrated against the 2026-06-17 prod snapshot — see
@@ -75,6 +84,7 @@ export const DEFAULT_TUNING: DedupTuning = {
     medRadiusM: 500,
     medLocText: 0.5,
     strongSignalTitleFloor: 0.3,
+    titleOnlyFloor: 0.65,
 };
 
 // A stable identity for an events-index entry (matches web/src/lib/eventKey.js).
@@ -146,14 +156,35 @@ function zips(s: string | undefined): Set<string> {
     return out;
 }
 
+// 1-4 digit standalone numbers (street numbers) present in a location
+// string. \b...\b can't land inside a 5-digit run (every internal digit-digit
+// transition is word-to-word, not a boundary), so this never picks up part
+// of a ZIP.
+function streetNumbers(s: string | undefined): Set<string> {
+    const out = new Set<string>();
+    for (const m of (s ?? '').matchAll(/\b(\d{1,4})\b/g)) out.add(m[1]);
+    return out;
+}
+
 // Hard veto: both locations name a ZIP and they share none. Catches geocoding
 // bugs where two genuinely different venues cache to identical coords/osmId
-// (e.g. Stoup Ballard 98107 vs Stoup Capitol Hill 98122). High precision —
+// (e.g. Stoup Ballard 1108 NW 52nd St/98107 vs Stoup Capitol Hill 1158
+// Broadway/98122 — different streets AND different ZIPs). High precision —
 // only fires when both strings actually carry a ZIP.
+//
+// Exception: if both strings also share a specific street number, that's a
+// much stronger "same address" signal than the ZIP, and the ZIP mismatch is
+// far more likely a source data-entry typo than evidence of a different
+// venue — a real prod case: two fields in the same showbox_presents
+// ripper.yaml for Neumos disagreed on the ZIP (label: 98122, config.address:
+// 98103) while agreeing on "925 E Pike St". That used to veto the pair out
+// of the duplicate queue entirely instead of just blocking auto-merge.
 export function locationContradiction(a: DedupEvent, b: DedupEvent): boolean {
     const za = zips(a.location), zb = zips(b.location);
     if (za.size === 0 || zb.size === 0) return false;
     for (const z of za) if (zb.has(z)) return false;
+    const sa = streetNumbers(a.location), sb = streetNumbers(b.location);
+    for (const n of sa) if (sb.has(n)) return false;
     return true;
 }
 
@@ -180,6 +211,20 @@ export function strongSameEventSignal(s: PairScore, tuning: DedupTuning = DEFAUL
     return !s.contradicted && s.osmSame && s.sameStartInstant && s.title >= tuning.strongSignalTitleFloor;
 }
 
+// The counterpart to strongSameEventSignal: no geo corroboration exists on
+// either side (distanceM is null whenever at least one event never
+// geocoded), so near()/locText can never fire for this pair no matter how
+// the radii/thresholds are tuned. An unusually high title match on the same
+// day is the only signal left — many aggregator feeds (city government
+// calendars, neighborhood blogs) either omit the location field entirely or
+// phrase it as a landmark description that both fails Nominatim and shares
+// little vocabulary with a venue's clean street address (see the Lake City
+// Summer Festival case in docs/cross-source-event-dedup.md). Still MED —
+// never auto-merged without any geo evidence.
+export function titleOnlySignal(s: PairScore, tuning: DedupTuning = DEFAULT_TUNING): boolean {
+    return !s.contradicted && s.distanceM == null && s.title >= tuning.titleOnlyFloor;
+}
+
 export function tierFor(s: PairScore, tuning: DedupTuning = DEFAULT_TUNING): Tier {
     const near = (r: number) => s.osmSame || (s.distanceM != null && s.distanceM <= r);
     if (!s.contradicted &&
@@ -188,7 +233,12 @@ export function tierFor(s: PairScore, tuning: DedupTuning = DEFAULT_TUNING): Tie
         near(tuning.highRadiusM)) {
         return 'high';
     }
-    if (s.title >= tuning.medTitle &&
+    // ZIP contradiction vetoes MED here too: two venues that share name words
+    // (inflating locText) but carry conflicting ZIPs are a hard "different
+    // place" signal, not a human-review candidate — e.g. two branches of the
+    // same bar chain (see the Chuck's Hop Shop veto test).
+    if (!s.contradicted &&
+        s.title >= tuning.medTitle &&
         s.timeOverlap !== false &&
         (near(tuning.medRadiusM) || s.locText >= tuning.medLocText)) {
         return 'med';
@@ -197,6 +247,11 @@ export function tierFor(s: PairScore, tuning: DedupTuning = DEFAULT_TUNING): Tie
     // title similarity is below medTitle (a venue feed and the host org's feed
     // often word the same show very differently). MED, never auto-merged.
     if (strongSameEventSignal(s, tuning)) {
+        return 'med';
+    }
+    // No geo signal on either side to corroborate OR contradict — fall back to
+    // an unusually high title match alone. MED, never auto-merged.
+    if (s.timeOverlap !== false && titleOnlySignal(s, tuning)) {
         return 'med';
     }
     return null;
