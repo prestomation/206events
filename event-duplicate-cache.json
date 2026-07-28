@@ -7909,6 +7909,51 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-27",
       "note": "seatoday cross-tag pair - same event in multiple tag feeds"
+    },
+    "external-seattle-gov-arts.ics SmART Ventures Draft Review Session|2026-08-06T12:30:00Z[UTC]::external-seattle-gov-city-wide.ics SmART Ventures Draft Review Session|2026-08-06T12:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Identical title, UTC timestamp, location (Virtual), and URL — seattle.gov arts feed re-syndicated into city-wide feed, same pattern as the calibrated seattle-gov-* safest-merge cluster"
+    },
+    "external-seattle-gov-arts.ics SmART Ventures Information Session|2026-08-06T11:30:00Z[UTC]::external-seattle-gov-city-wide.ics SmART Ventures Information Session|2026-08-06T11:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Identical title, UTC timestamp, location (Virtual), and URL — seattle.gov arts feed re-syndicated into city-wide feed, same pattern as the calibrated seattle-gov-* safest-merge cluster"
+    },
+    "external-seattle-gov-city-wide.ics Blackberry Banishment at Beaver Pond Natural Area|2026-08-09T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Blackberry Banishment at Beaver Pond Natural Area|2026-08-09T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Identical title, UTC timestamp, location, and URL — seattle-gov city-wide/parks-recreation sub-feed overlap, calibrated safest-merge pattern"
+    },
+    "external-seattle-gov-city-wide.ics Fight Blackberries in Thistle Street Greenspace!|2026-08-15T14:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fight Blackberries in Thistle Street Greenspace!|2026-08-15T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Identical title, UTC timestamp, location, and URL — seattle-gov city-wide/parks-recreation sub-feed overlap, calibrated safest-merge pattern"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-08-03T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-03T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same venue address (1108 NW 52nd St, Ballard, dist=2m), same start instant — Head in the Clouds trivia night recorded by both the recurring calendar and Stoup's own venue listing. Not the Stoup Ballard/Cap Hill contradiction case from the docs (both entries say Ballard, matching addresses)."
+    },
+    "seatoday-seatoday-all.ics Par 4 the Pool Charity Golf Tournament|2026-08-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Par 4 the Pool Charity Golf Tournament|2026-08-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Identical title, time, location, and URL — seatoday's own overlapping topic sub-feeds (all/community/sports), the calibrated safest-merge pattern for this publisher"
+    },
+    "seatoday-seatoday-all.ics Par 4 the Pool Charity Golf Tournament|2026-08-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Par 4 the Pool Charity Golf Tournament|2026-08-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Identical title, time, location, and URL — seatoday's own overlapping topic sub-feeds (all/community/sports), the calibrated safest-merge pattern for this publisher"
+    },
+    "seatoday-seatoday-community.ics Par 4 the Pool Charity Golf Tournament|2026-08-10T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Par 4 the Pool Charity Golf Tournament|2026-08-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Identical title, time, location, and URL — seatoday's own overlapping topic sub-feeds (all/community/sports), the calibrated safest-merge pattern for this publisher"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-27T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-28",
+      "note": "Different street addresses (1201 vs 1551 Eastlake Ave E), ~321m apart — two distinct food truck pod locations that happen to share the same daily schedule slot, not the same occurrence"
     }
   }
 }
