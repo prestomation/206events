@@ -504,6 +504,13 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // off-site event carrying "The Triple Door, ..." (e.g. a Book Larder author
   // event held there) resolves to the same place as the venue's own feed.
   'the triple door': { lat: 47.6082, lng: -122.3387, osmType: 'node', osmId: 2404249354 },
+  // Formerly "The Blue Heron Golf Course" — Nominatim has no record of it under
+  // either name or its street address. Address confirmed via toltgolf.com footer
+  // ("1810 West Snoqualmie River Road NE, Carnation, WA 98014"); coords are the
+  // OSM way centroid for leisure=golf_course "The Blue Heron Golf Course"
+  // (way/236359013, https://www.openstreetmap.org/way/236359013), confirmed by
+  // Overpass query — nearby building/parking footprints cluster within ~150m.
+  'tolt golf club': { lat: 47.6258051, lng: -121.925401 },
   'twilight cafe & bar': { lat: 45.5886, lng: -122.7319 },
   'vue lounge': { lat: 47.6134, lng: -122.3203 },
   'volunteer park amphitheater': { lat: 47.6372, lng: -122.3150 },
