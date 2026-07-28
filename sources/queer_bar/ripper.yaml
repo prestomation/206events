@@ -3,8 +3,8 @@ name: queer-bar
 sourceRole: venue
 expectEmpty: true
 description: "Queer/Bar"
-url: "https://www.thequeerbar.com/events-one"
-friendlyLink: https://www.thequeerbar.com/events-one
+url: "https://thequeerbar.com/calendar"
+friendlyLink: https://thequeerbar.com/calendar
 tags: ["Nightlife", "Capitol Hill"]
 geo:
   lat: 47.6147799
