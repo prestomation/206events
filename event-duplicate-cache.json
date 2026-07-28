@@ -8714,6 +8714,21 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-28",
       "note": "Different events: spl-lake-city is an in-person meeting at Lake City Branch (5:30pm), spl-online is a virtual session (6:00pm). Different format, different times, different URLs."
+    },
+    "seatoday-seatoday-all.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour, seatoday-all (6amcity aggregator) and waterfront-park (venue source); title score=1"
+    },
+    "seatoday-seatoday-community.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour, seatoday-community (6amcity aggregator) and waterfront-park (venue source); title score=1"
+    },
+    "seatoday-seatoday-sports.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour, seatoday-sports (6amcity aggregator) and waterfront-park (venue source); title score=1"
     }
   }
 }
