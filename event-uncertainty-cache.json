@@ -40253,13 +40253,14 @@
     "events12:live-theater-2026-08-10": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-28",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://app.arts-people.com/index.php?preseason=spt (Seattle Public Theater, indoor Bathhouse Theater — matches setting on 9 prior dates in the same series)"
     },
     "events12:live-theater-2026-08-11": {
       "fields": {
@@ -41929,11 +41930,12 @@
     },
     "events12:shakespeare-in-the-park-2026-08-10": {
       "fields": {
-        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-07-28",
       "source": "agent",
-      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/ (GreenStage's touring outdoor park series — matches setting on prior/subsequent dates in the same series)"
     },
     "events12:shakespeare-in-the-park-2026-08-11": {
       "fields": {
