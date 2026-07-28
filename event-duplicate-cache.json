@@ -7954,6 +7954,766 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-28",
       "note": "Different street addresses (1201 vs 1551 Eastlake Ave E), ~321m apart — two distinct food truck pod locations that happen to share the same daily schedule slot, not the same occurrence"
+    },
+    "SAF-SAF.ics South Lake Union: Then & Now|2026-08-01T10:00:00-07:00[America/Los_Angeles]::discover-slu-discover-slu.ics South Lake Union: Then & Now|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, cross-listed in SAF (strangertickets) and discover-slu"
+    },
+    "cornish-all-events.ics Summer@Cornish - Music and Film Showcase|2026-07-31T13:00:00-07:00::external-seattle-university.ics Summer@Cornish - Music and Film Showcase|2026-07-31T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, same URL (events.seattleu.edu), cross-listed in cornish and seattle-university feeds"
+    },
+    "events12-seattle-events.ics Shakespeare in the park|2026-08-15T12:00:00-07:00[America/Los_Angeles]::external-wallyhood.ics Shakespeare in the Park: The Tempest|2026-08-15T20:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-28",
+      "note": "Different productions: events12 links to Macbeth (unionartscenter.org) at 'multiple locations', wallyhood links to The Tempest at Wallingford Playfield. Different plays, different venues."
+    },
+    "dippys-ice-cream-dippys-ice-cream.ics Magnolia Flea|2026-08-08T10:00:00.227-07:00[America/Los_Angeles]::recurring-magnolia-flea-market.ics Magnolia Flea Market|2026-08-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event (Magnolia Flea Market). Dippys Ice Cream is at same 4257 24th Ave W location, title=0.667 just abbreviated name."
+    },
+    "external-good-society-beer.ics West Seattle Art Walk|2026-08-13T17:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Art Walk|2026-08-13T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, cross-listed in good-society-beer and west-seattle-blog"
+    },
+    "external-good-society-beer.ics Westies Run Club|2026-07-30T18:00:00Z[UTC]::external-west-seattle-blog.ics Westies Run Club|2026-07-30T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly run club event, title=1, cross-listed in good-society-beer and west-seattle-blog"
+    },
+    "external-good-society-beer.ics Westies Run Club|2026-08-06T18:00:00Z[UTC]::external-west-seattle-blog.ics Westies Run Club|2026-08-06T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly run club event, title=1, cross-listed in good-society-beer and west-seattle-blog"
+    },
+    "external-good-society-beer.ics Westies Run Club|2026-08-13T18:00:00Z[UTC]::external-west-seattle-blog.ics Westies Run Club|2026-08-13T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly run club event, title=1, cross-listed in good-society-beer and west-seattle-blog"
+    },
+    "external-seattle-gov-arts.ics Community Office Hours with Director Amy Nguyen|2026-07-31T10:00:00Z[UTC]::external-seattle-gov-city-wide.ics Community Office Hours with Director Amy Nguyen|2026-07-31T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, cross-listed in seattle-gov-arts and seattle-gov-city-wide"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-07-31T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-07-31T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same Parks event, title=1, cross-listed in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-08-07T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-08-07T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same Parks event, title=1, cross-listed in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-08-14T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-08-14T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same Parks event, title=1, cross-listed in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-08-21T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-08-21T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same Parks event, title=1, cross-listed in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-08-01T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-08-01T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same Parks event, title=1, cross-listed in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-08-08T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-08-08T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same Parks event, title=1, cross-listed in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-08-15T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-08-15T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same Parks event, title=1, cross-listed in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-08-22T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-08-22T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same Parks event, title=1, cross-listed in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Dragonfly Pavilion Restoration Event|2026-08-04T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Dragonfly Pavilion Restoration Event|2026-08-04T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, same greencitypartnerships.org event, cross-listed"
+    },
+    "external-seattle-gov-city-wide.ics EC Hughes Restoration Event|2026-08-15T09:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics EC Hughes Restoration Event|2026-08-15T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, identical URL (greencitypartnerships.org/event/44323)"
+    },
+    "external-seattle-gov-city-wide.ics Green Lake Shoreline Planting Prep|2026-08-08T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Green Lake Shoreline Planting Prep|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, identical URL (greencitypartnerships.org/event/44391)"
+    },
+    "external-seattle-gov-city-wide.ics Habitat Restoration and Bird Walk on Lake Washington Blvd|2026-08-08T08:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Habitat Restoration and Bird Walk on Lake Washington Blvd|2026-08-08T08:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, identical URL (greencitypartnerships.org/event/44178)"
+    },
+    "external-seattle-gov-city-wide.ics Lizard Haven Restoration Maintenance|2026-07-30T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Discovery Park: Lizard Haven Restoration Maintenance|2026-07-30T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=0.667 due to 'Discovery Park:' prefix in SPF title, same greencitypartnerships.org event"
+    },
+    "external-seattle-gov-city-wide.ics Mapes Creek Land and Culture Tending|2026-08-02T12:00:00Z[UTC]::external-seattle-parks-foundation.ics Mapes Creek Land and Culture Tending|2026-08-02T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, cross-listed in city-wide and seattle-parks-foundation"
+    },
+    "external-seattle-gov-city-wide.ics Peppi's Watering and Weeding|2026-08-02T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Peppi's Playground Watering and Weeding|2026-08-02T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=0.833, 'Playground' added in SPF title, same greencitypartnerships.org event"
+    },
+    "external-seattle-gov-city-wide.ics Restore 29th Ave Pocket Forest|2026-08-18T09:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Restore 29th Ave Pocket Forest|2026-08-18T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, identical URL (greencitypartnerships.org/event/44324)"
+    },
+    "external-seattle-gov-city-wide.ics Ryan's Ridge wood chip spreading|2026-08-06T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Discovery Park: Ryan's Ridge wood chip spreading|2026-08-06T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=0.75 due to 'Discovery Park:' prefix in SPF title, same greencitypartnerships.org event"
+    },
+    "external-seattle-gov-city-wide.ics Thistle Street GS Restoration Event|2026-07-28T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Thistle Street GS Restoration Event|2026-07-28T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, cross-listed in city-wide and seattle-parks-foundation"
+    },
+    "external-seattle-gov-city-wide.ics cleaning and mulching|2026-07-27T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics cleaning and mulching|2026-07-27T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, identical URL (greencitypartnerships.org/event/44411)"
+    },
+    "external-seattle-gov-parks-recreation.ics Dragonfly Pavilion Restoration Event|2026-08-04T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Dragonfly Pavilion Restoration Event|2026-08-04T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, same greencitypartnerships.org event, cross-listed"
+    },
+    "external-seattle-gov-parks-recreation.ics Lizard Haven Restoration Maintenance|2026-07-30T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Discovery Park: Lizard Haven Restoration Maintenance|2026-07-30T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=0.667 due to 'Discovery Park:' prefix in SPF title, same greencitypartnerships.org event"
+    },
+    "external-seattle-gov-parks-recreation.ics Mapes Creek Land and Culture Tending|2026-08-02T12:00:00Z[UTC]::external-seattle-parks-foundation.ics Mapes Creek Land and Culture Tending|2026-08-02T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, cross-listed in parks-recreation and seattle-parks-foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Peppi's Watering and Weeding|2026-08-02T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Peppi's Playground Watering and Weeding|2026-08-02T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=0.833, 'Playground' added in SPF title, same greencitypartnerships.org event"
+    },
+    "external-seattle-gov-parks-recreation.ics Ryan's Ridge wood chip spreading|2026-08-06T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Discovery Park: Ryan's Ridge wood chip spreading|2026-08-06T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=0.75 due to 'Discovery Park:' prefix in SPF title, same greencitypartnerships.org event"
+    },
+    "external-seattle-gov-parks-recreation.ics Thistle Street GS Restoration Event|2026-07-28T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Thistle Street GS Restoration Event|2026-07-28T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, cross-listed in parks-recreation and seattle-parks-foundation"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-07-29T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-07-29T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog (minor venue name discrepancy between sources)"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-08-05T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-08-05T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-08-12T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-08-12T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-08-19T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-08-19T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-08-26T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-08-26T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-09-02T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-09-02T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-09-09T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-09-09T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-09-16T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-09-16T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-09-23T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-09-23T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-09-30T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-09-30T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-10-07T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-10-07T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-10-14T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-10-14T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-10-21T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-10-21T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same weekly meetup, title=1, cross-listed in the-urbanist and west-seattle-blog"
+    },
+    "external-uw-campus-events.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-college-of-arts-sciences.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-campus-events.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-libraries-seattle.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-campus-events.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-law.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-campus-events.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-music.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-college-of-arts-sciences.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-libraries-seattle.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-college-of-arts-sciences.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-law.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-college-of-arts-sciences.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-music.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-libraries-seattle.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-law.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-libraries-seattle.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-music.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-school-of-law.ics Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-music.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same UW academic calendar holiday, same URL, cross-listed in multiple UW feeds"
+    },
+    "external-uw-campus-events.ics Zoom Information Session - School of Art + Art History + Design|2026-08-24T15:00:00Z[UTC]::external-uw-college-of-arts-sciences.ics Zoom Information Session – School of Art + Art History + Design|2026-08-24T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event (em dash vs hyphen in title), cross-listed in UW campus-events and college-of-arts-sciences"
+    },
+    "external-uw-campus-events.ics Zoom Information Session - School of Art + Art History + Design|2026-08-24T15:00:00Z[UTC]::external-uw-school-of-art.ics Zoom Information Session – School of Art + Art History + Design|2026-08-24T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event (em dash vs hyphen in title), cross-listed in UW campus-events and school-of-art"
+    },
+    "external-uw-college-of-arts-sciences.ics Zoom Information Session – School of Art + Art History + Design|2026-08-24T15:00:00Z[UTC]::external-uw-school-of-art.ics Zoom Information Session – School of Art + Art History + Design|2026-08-24T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, cross-listed in UW college-of-arts-sciences and school-of-art"
+    },
+    "seatoday-seatoday-all.ics AMBASSADOR COMMITTEE MEETING|2026-08-05T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics AMBASSADOR COMMITTEE MEETING|2026-08-05T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds (same 6amcity embed URL)"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-29T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-30T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-30T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-31T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-31T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-04T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-05T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-05T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-29T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-30T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-30T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-31T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-31T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-04T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-05T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-05T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Bike Works - Free Bike Repair|2026-08-05T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bike Works - Free Bike Repair|2026-08-05T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Bike Works - Free Bike Repair|2026-08-05T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bike Works - Free Bike Repair|2026-08-05T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Bird ID Walk | Luther Burbank Park|2026-07-30T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bird ID Walk | Luther Burbank Park|2026-07-30T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Bird ID Walk | Luther Burbank Park|2026-07-30T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bird ID Walk | Luther Burbank Park|2026-07-30T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics DIY Garden Workshop|2026-07-28T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics DIY Garden Workshop|2026-07-28T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics DIY Garden Workshop|2026-07-29T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics DIY Garden Workshop|2026-07-29T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics DIY Garden Workshop|2026-07-30T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics DIY Garden Workshop|2026-07-30T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Design Review Board Regular Meeting|2026-08-03T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Design Review Board Regular Meeting|2026-08-03T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Happy Hour at 20 Corners|2026-08-03T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Happy Hour at 20 Corners|2026-08-03T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-food category feeds"
+    },
+    "seatoday-seatoday-all.ics Happy Hour at 20 Corners|2026-08-04T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Happy Hour at 20 Corners|2026-08-04T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-food category feeds"
+    },
+    "seatoday-seatoday-all.ics Happy Hour at 20 Corners|2026-08-06T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Happy Hour at 20 Corners|2026-08-06T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-food category feeds"
+    },
+    "seatoday-seatoday-all.ics Harborstone Credit Union Lynnwood Grand Opening Celebration|2026-08-05T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Harborstone Credit Union Lynnwood Grand Opening Celebration|2026-08-05T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Harborstone Credit Union Lynnwood Grand Opening Celebration|2026-08-05T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Harborstone Credit Union Lynnwood Grand Opening Celebration|2026-08-05T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Hoops on the Pier|2026-07-31T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Hoops on the Pier|2026-07-31T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Hoops on the Pier|2026-07-31T09:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Hoops on the Pier|2026-07-31T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, seatoday (6amcity aggregator) and waterfront-park (venue source)"
+    },
+    "seatoday-seatoday-all.ics Lunchtime Concert Series - Eric Haines|2026-07-28T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Lunchtime Concert Series - Eric Haines|2026-07-28T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Mindfulness Meditation Workshop|2026-08-02T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mindfulness Meditation Workshop|2026-08-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Mini Golf Family Fun - Family Fun Extravaganza|2026-08-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mini Golf Family Fun - Family Fun Extravaganza|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Mini Golf Family Fun - Family Fun Extravaganza|2026-08-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mini Golf Family Fun - Family Fun Extravaganza|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Pirates and Mermaids Summer Camp|2026-08-04T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pirates and Mermaids Summer Camp|2026-08-04T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-08-10T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-08-10T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-08-10T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-08-10T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Gallagher Hill Open Space|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Gallagher Hill Open Space|2026-08-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Gallagher Hill Open Space|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Gallagher Hill Open Space|2026-08-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Rise Above 3-on-3 Basketball Tournament|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Rise Above 3-on-3 Basketball Tournament|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Rise Above 3-on-3 Basketball Tournament|2026-08-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Rise Above 3-on-3 Basketball Tournament|2026-08-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Rise Above 3-on-3 Basketball Tournament|2026-08-01T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Rise Above 3‑on‑3 Basketball Tournament|2026-08-01T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1 (hyphen vs non-breaking hyphen), seatoday (6amcity aggregator) and waterfront-park (venue source), 1h time difference between sources"
+    },
+    "seatoday-seatoday-all.ics Rise Above 3-on-3 Basketball Tournament|2026-08-02T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Rise Above 3‑on‑3 Basketball Tournament|2026-08-02T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1 (hyphen vs non-breaking hyphen), seatoday (6amcity aggregator) and waterfront-park (venue source), 1h time difference between sources"
+    },
+    "seatoday-seatoday-all.ics SPRING AWAKENING|2026-07-31T14:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics SPRING AWAKENING|2026-07-31T14:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, seatoday (6amcity aggregator) and waterfront-park (venue source)"
+    },
+    "seatoday-seatoday-all.ics Summer Dance Camp - Hip Hop Til You Drop|2026-08-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Dance Camp - Hip Hop Til You Drop|2026-08-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Sunday Talks|2026-08-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sunday Talks|2026-08-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Sunday Talks|2026-08-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sunday Talks|2026-08-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics UW Day at the Mariners|2026-08-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics UW Day at the Mariners|2026-08-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Unicorn Games & Dragon Digs|2026-08-04T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Unicorn Games & Dragon Digs|2026-08-04T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Unicorn Games & Dragon Digs|2026-08-04T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Unicorn Games & Dragon Digs|2026-08-04T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-all.ics Woodinville Market Fair: Summer Celebration|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Woodinville Market Fair: Summer Celebration|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-all.ics Woodinville Market Fair: Summer Celebration|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Woodinville Market Fair: Summer Celebration|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-all and seatoday-food category feeds"
+    },
+    "seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-29T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-30T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-30T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-31T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-07-31T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-04T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-05T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-05T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-arts.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Always-and-continuing: Art by Anna Macrae and Flora Ramirez-Bustamante|2026-08-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-arts.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-community category feeds"
+    },
+    "seatoday-seatoday-arts.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-arts and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Made in Bellevue Series|2026-07-29T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Bike Works - Free Bike Repair|2026-08-05T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bike Works - Free Bike Repair|2026-08-05T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Bird ID Walk | Luther Burbank Park|2026-07-30T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bird ID Walk | Luther Burbank Park|2026-07-30T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Harborstone Credit Union Lynnwood Grand Opening Celebration|2026-08-05T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Harborstone Credit Union Lynnwood Grand Opening Celebration|2026-08-05T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-community.ics Mini Golf Family Fun - Family Fun Extravaganza|2026-08-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mini Golf Family Fun - Family Fun Extravaganza|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-learning category feeds"
+    },
+    "seatoday-seatoday-community.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-learning.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Purdy Sand Spit Low Tide Tour|2026-07-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-learning and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-08-10T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-08-10T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Gallagher Hill Open Space|2026-08-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Gallagher Hill Open Space|2026-08-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-community.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, seatoday-community (6amcity aggregator) and waterfront-park (venue source)"
+    },
+    "seatoday-seatoday-community.ics Woodinville Market Fair: Summer Celebration|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Woodinville Market Fair: Summer Celebration|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-community and seatoday-food category feeds"
+    },
+    "seatoday-seatoday-learning.ics Unicorn Games & Dragon Digs|2026-08-04T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Unicorn Games & Dragon Digs|2026-08-04T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event in seatoday-learning and seatoday-sports category feeds"
+    },
+    "seatoday-seatoday-sports.ics Hoops on the Pier|2026-07-31T09:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Hoops on the Pier|2026-07-31T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, seatoday-sports (6amcity aggregator) and waterfront-park (venue source)"
+    },
+    "seatoday-seatoday-sports.ics Rise Above 3-on-3 Basketball Tournament|2026-08-01T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Rise Above 3‑on‑3 Basketball Tournament|2026-08-01T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, seatoday-sports (6amcity aggregator) and waterfront-park (venue source)"
+    },
+    "seatoday-seatoday-sports.ics Rise Above 3-on-3 Basketball Tournament|2026-08-02T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Rise Above 3‑on‑3 Basketball Tournament|2026-08-02T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, title=1, seatoday-sports (6amcity aggregator) and waterfront-park (venue source)"
+    },
+    "seatoday-seatoday-sports.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same event, seatoday-sports (6amcity aggregator) and waterfront-park (venue source)"
+    },
+    "spl-lake-city.ics English Conversation Circle|2026-07-28T17:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual English Conversation Circle|2026-07-28T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-28",
+      "note": "Different events: spl-lake-city is an in-person meeting at Lake City Branch (5:30pm), spl-online is a virtual session (6:00pm). Different format, different times, different URLs."
     }
   }
 }
