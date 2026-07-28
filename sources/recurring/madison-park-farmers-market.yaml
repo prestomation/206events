@@ -1,0 +1,28 @@
+geo:
+  lat: 47.634
+  lng: -122.2819
+  label: "E Madison St & 42nd Ave E, Seattle, WA 98112"
+  # Nominatim's only match at this intersection is a bus stop node (no
+  # venue-class OSM feature exists for a street market); coords are from
+  # the market operator's own JSON-LD instead.
+  osmChecked: "2026-07-28"
+name: madison-park-farmers-market
+sourceRole: venue
+friendlyname: Madison Park Farmers Market
+description: Seasonal Saturday morning farmers market on 42nd Ave E in Madison
+  Park, run by the Seattle Farmers Market Association. Local produce, eggs,
+  honey, flowers, and prepared foods a block from the lake. Runs May through
+  October.
+timezone: America/Los_Angeles
+location: "E Madison St & 42nd Ave E, Seattle, WA 98112"
+url: https://seafarmersmarket.com/markets/madison-park-farmers-market
+tags:
+  - Outdoors
+  - FarmersMarket
+  - Madison Park
+cost: free
+schedules:
+  - schedule: every Saturday
+    start_time: "10:00"
+    duration: PT4H
+    months: [5, 6, 7, 8, 9, 10]

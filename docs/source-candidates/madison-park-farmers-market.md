@@ -1,11 +1,12 @@
 ---
 name: "Madison Park Farmers Market"
-status: candidate
+status: added
 platform: Recurring (seasonal weekly)
-url: https://www.friendsofmadisonpark.com/farmers-market
+url: https://seafarmersmarket.com/markets/madison-park-farmers-market
 tags: [FarmersMarket, "Madison Park"]
 firstSeen: 2026-07-25
-lastChecked: 2026-07-25
+lastChecked: 2026-07-28
+pr: 1046
 ---
 
 Weekly farmers market run by Friends of Madison Park.
@@ -33,3 +34,17 @@ Weekly farmers market run by Friends of Madison Park.
 Sources:
 - https://www.friendsofmadisonpark.com/farmers-market
 - https://everout.com/seattle/events/madison-park-farmers-market/e210511/
+
+Implemented 2026-07-28: the `friendsofmadisonpark.com/farmers-market` FAQ
+turned out to be stale (still shows the 2025 season dates and says "2026: To
+be determined"), so the 2026 season was instead confirmed via the operator's
+own site — the market is run by the **Seattle Farmers Market Association**
+(same org as `sources/recurring/ballard-farmers-market.yaml` and
+`central-district-farmers-market.yaml`), which publishes it at
+`seafarmersmarket.com/markets/madison-park-farmers-market` with structured
+JSON-LD (`openingHours: "Sa 10:00-14:00"`, `description: "...second season
+for 2026..."`) confirming Saturdays 10am–2pm, seasonal May–October. Added as
+`sources/recurring/madison-park-farmers-market.yaml` (every Saturday, 10:00,
+PT4H, `months: [5,6,7,8,9,10]`; geo from the page's JSON-LD coordinates).
+Verified locally via `ONLY_SOURCE=madison-park-farmers-market npm run
+generate-calendars` — 1 event, 0 errors, outdoor weather badge applied.
