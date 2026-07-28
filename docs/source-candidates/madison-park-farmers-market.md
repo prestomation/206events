@@ -6,7 +6,7 @@ url: https://seafarmersmarket.com/markets/madison-park-farmers-market
 tags: [FarmersMarket, "Madison Park"]
 firstSeen: 2026-07-25
 lastChecked: 2026-07-28
-pr:
+pr: 1046
 ---
 
 Weekly farmers market run by Friends of Madison Park.

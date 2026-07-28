@@ -2,6 +2,9 @@ geo:
   lat: 47.634
   lng: -122.2819
   label: "E Madison St & 42nd Ave E, Seattle, WA 98112"
+  # Nominatim's only match at this intersection is a bus stop node (no
+  # venue-class OSM feature exists for a street market); coords are from
+  # the market operator's own JSON-LD instead.
   osmChecked: "2026-07-28"
 name: madison-park-farmers-market
 sourceRole: venue
