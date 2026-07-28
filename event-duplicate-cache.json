@@ -8729,6 +8729,36 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-28",
       "note": "Same walking tour, seatoday-sports (6amcity aggregator) and waterfront-park (venue source); title score=1"
+    },
+    "seatoday-seatoday-all.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour; seatoday title uses ASCII apostrophe, waterfront title uses curly apostrophe (seatoday-all aggregator vs waterfront-park venue source)"
+    },
+    "seatoday-seatoday-all.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour; seatoday title uses curly apostrophe, waterfront title uses ASCII apostrophe (seatoday-all aggregator vs waterfront-park venue source)"
+    },
+    "seatoday-seatoday-community.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour; seatoday title uses ASCII apostrophe, waterfront title uses curly apostrophe (seatoday-community aggregator vs waterfront-park venue source)"
+    },
+    "seatoday-seatoday-community.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour; seatoday title uses curly apostrophe, waterfront title uses ASCII apostrophe (seatoday-community aggregator vs waterfront-park venue source)"
+    },
+    "seatoday-seatoday-sports.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour; seatoday title uses ASCII apostrophe, waterfront title uses curly apostrophe (seatoday-sports aggregator vs waterfront-park venue source)"
+    },
+    "seatoday-seatoday-sports.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-08-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-28",
+      "note": "Same walking tour; seatoday title uses curly apostrophe, waterfront title uses ASCII apostrophe (seatoday-sports aggregator vs waterfront-park venue source)"
     }
   }
 }
