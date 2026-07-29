@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { readFileSync } from 'fs';
 import { parse } from 'node-html-parser';
 import { ZonedDateTime } from '@js-joda/core';
 import { ZoneId } from '@js-joda/core';
 import '@js-joda/timezone';
 import Events12Ripper from './ripper.js';
+import { Ripper } from '../../lib/config/schema.js';
 
 describe('Events12Ripper', () => {
     const timezone = ZoneId.of('America/Los_Angeles');
@@ -438,5 +439,62 @@ describe('Events12Ripper', () => {
         for (const e of calEvents) {
             expect(e.cost).toBeUndefined();
         }
+    });
+
+    describe('rip() drops stale occurrences', () => {
+        afterEach(() => {
+            vi.restoreAllMocks();
+            vi.unstubAllGlobals();
+        });
+
+        // events12.com's own "current month" page has been observed serving
+        // weeks-stale content instead of rolling forward as it claims to.
+        // parseEvents() has no "now" concept (its other tests deliberately use
+        // dates before the fixed testDate above), so this filtering lives in
+        // rip() against the real wall-clock instant. Year 2020/2099 keep this
+        // test from aging out.
+        it('filters past occurrences (and their paired Uncertainty errors) but keeps future ones', async () => {
+            const html = `
+                <article id="stale1">
+                    <h3>Stale Listing</h3>
+                    <p class="date">July 1 - 6, 2020</p>
+                    <p class="event">Long past <a href="https://example.com/stale">details</a></p>
+                </article>
+                <article id="fresh1">
+                    <h3>Fresh Listing</h3>
+                    <p class="date">July 1 - 6, 2099 <span class="nobreak">(7 p.m.)</span></p>
+                    <p class="event">Still upcoming <a href="https://example.com/fresh">details</a></p>
+                </article>
+            `;
+            vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+                ok: true,
+                status: 200,
+                statusText: 'OK',
+                text: () => Promise.resolve(html),
+            }));
+
+            const ripper: Ripper = {
+                config: {
+                    name: 'events12',
+                    url: 'https://www.events12.com/seattle/',
+                    proxy: false,
+                    calendars: [
+                        { name: 'seattle-events', friendlyname: 'Events12 Seattle', timezone },
+                    ],
+                } as any,
+            } as Ripper;
+
+            const calendars = await new Events12Ripper().rip(ripper);
+            const cal = calendars.find(c => c.name === 'seattle-events')!;
+
+            expect(cal.events.some(e => e.summary === 'Stale Listing')).toBe(false);
+            expect(cal.events.some(e => e.summary === 'Fresh Listing')).toBe(true);
+
+            // The stale listing's paired cost-Uncertainty error must not survive
+            // either — otherwise it churns the uncertainty queue for an event
+            // nobody will ever see.
+            const uncertainty = cal.errors.filter((e: any) => e.type === 'Uncertainty');
+            expect(uncertainty.some((e: any) => e.event.summary === 'Stale Listing')).toBe(false);
+        });
     });
 });
