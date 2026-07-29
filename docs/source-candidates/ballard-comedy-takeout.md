@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.eventbrite.com/e/ballard-comedy-takeout-weekly-open-mic-on-thursdays-tickets-1988969007844
 tags: [Comedy, Ballard]
 firstSeen: 2026-07-02
-lastChecked: 2026-07-12
+lastChecked: 2026-07-29
 pr:
 ---
 
@@ -99,3 +99,7 @@ Re-checked 2026-07-22: both the authenticated-mirror check
 (eventbrite.com/o/ballard-mandarin-121332375671) and the public API
 mirror (GET .../organizers/121332375671/events/?status=live) still
 return 0 upcoming events. Still dormant.
+
+Re-checked 2026-07-29: public API mirror
+(GET eventbrite.com/api/v3/organizers/121332375671/events/?status=live)
+still returns `object_count: 0`. Still dormant.
