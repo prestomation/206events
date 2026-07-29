@@ -8823,7 +8823,7 @@
     "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-10-28T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-10-28T18:00:00Z[UTC]": {
       "decision": "confirmed",
       "resolvedAt": "2026-07-29",
-      "note": "Same recurring weekly meetup; the group moved from Elliott Bay Brewing to Great American Diner & Bar and the-urbanist's feed carries the older venue"
+      "note": "Same recurring weekly meetup (meetup.com/west-seattle-urbanism); the group is currently at Great American Diner & Bar per the-urbanist's feed, while west-seattle-blog's feed has a stale LOCATION field (Elliott Bay Brewing) despite its own description text correctly naming Great American Diner & Bar — a venue-name discrepancy between sources, not two different events"
     },
     "seatoday-seatoday-all.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
