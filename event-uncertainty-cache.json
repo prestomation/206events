@@ -51937,6 +51937,16 @@
       "resolvedAt": "2026-07-29",
       "source": "agent",
       "reason": "urbanfamilybrewing.com/events/drink-and-draw-meetup/ is Cloudflare-blocked to automated fetch; no direct evidence of admission cost was actually read, only an inference from typical brewery-meetup format, which is not solid enough evidence per the \"never guess\" rule"
+    },
+    "lumen-field:tm-vvG1HZ_bz2cbytf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-29",
+      "source": "agent",
+      "evidence": "Seattle Sounders FC vs Houston Dynamo at Lumen Field — ticketed MLS game; Ticketmaster blocks automated fetches, price not confirmed"
     }
   }
 }
