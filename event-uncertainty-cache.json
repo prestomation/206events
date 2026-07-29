@@ -39799,11 +39799,12 @@
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-29",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://app.arts-people.com/index.php?preseason=spt | setting: https://app.arts-people.com/index.php?preseason=spt — this is Seattle Public Theater, which performs at the historic Bathhouse Theater, an indoor 159-seat theater building in Green Lake Park (teentix.org/venues/seattle-public-theater/, everout.com/seattle/locations/bathhouse-theater/l27396/)"
     },
     "events12:live-theater-2026-08-12": {
       "fields": {
@@ -41451,11 +41452,12 @@
     },
     "events12:shakespeare-in-the-park-2026-08-11": {
       "fields": {
-        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg"
+        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-07-29",
       "source": "agent",
-      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
+      "evidence": "https://greenstage.org/shakespeare-in-the-park/ | setting: https://www.unionartscenter.org/macbeth/ — explicitly \"FREE Shakespeare in the Park\", instructs attendees to \"Pack a picnic, grab a blanket\"; touring venues are parks/beaches/amphitheaters across Puget Sound"
     },
     "events12:shakespeare-in-the-park-2026-08-12": {
       "fields": {
@@ -42522,11 +42524,12 @@
     "events12:dance-in-the-park-2026-08-11": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-29",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/events | setting: https://www.danceforjoy.biz/dancingtildusk/ — \"Dancing til Dusk\" series held at named outdoor parks (Westlake Park, Freeway Park, Volunteer Park, Golden Gardens, etc.), page has a \"Rain Hotline\" and lists a past instance \"CANCELLED DUE TO THUNDERSTORM\""
     },
     "events12:dance-in-the-park-2026-08-12": {
       "fields": {
@@ -51872,12 +51875,12 @@
     "seattle-creates:6a61ccd9b5d6073a6aa5cd21": {
       "fields": {
         "cost": {
-          "min": 0
+          "paid": true
         }
       },
       "resolvedAt": "2026-07-29",
       "source": "agent",
-      "evidence": "https://www.seattlecreates.org/events/spin-career-pathways-djs — \"sliding scale (FREE for students)\" community workshop during West Seattle Art Walk, no stated price floor"
+      "evidence": "https://www.seattlecreates.org/events/spin-career-pathways-djs — \"sliding scale (FREE for students)\" community workshop; general-admission price floor is not stated anywhere on the page, only the student discount tier, so per the rubric this anchors on an unconfirmed general-admission price, not free"
     },
     "stg:tm-vvG1HZ_2NEIbl2": {
       "fields": {
@@ -51930,14 +51933,10 @@
       "evidence": "Jim Gaffigan: Everything is Wonderful! at STG Paramount Theatre — ticketmaster.com and stgpresents.org/events/jim-gaffigan/ both blocked to automated fetch; secondary/resale sources show a wide range (~$65-166) with no confirmed face-value floor"
     },
     "urban-family-brewing:urban-family-brewing-587": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-29",
       "source": "agent",
-      "evidence": "urbanfamilybrewing.com/events/drink-and-draw-meetup/ — standard brewery \"drink and draw\" social meetup format (no cover charge, attendees pay only for their own drinks); page itself is Cloudflare-blocked to direct fetch but this is the universal format for this event type"
+      "reason": "urbanfamilybrewing.com/events/drink-and-draw-meetup/ is Cloudflare-blocked to automated fetch; no direct evidence of admission cost was actually read, only an inference from typical brewery-meetup format, which is not solid enough evidence per the \"never guess\" rule"
     }
   }
 }
