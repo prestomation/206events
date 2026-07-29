@@ -6,7 +6,7 @@ url: https://www.eventbrite.com/o/tech-seattle-68154040953
 tags: ["Tech", "South Lake Union"]
 firstSeen: 2026-07-29
 lastChecked: 2026-07-29
-pr:
+pr: 1054
 ---
 
 Recurring Seattle tech networking mixer series organized by "tech Seattle"
