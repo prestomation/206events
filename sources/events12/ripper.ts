@@ -1,7 +1,7 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { HTMLElement, parse } from 'node-html-parser';
 import { ZonedDateTime, Duration, ZoneId, LocalDate } from "@js-joda/core";
-import { EventCost, RipperEvent, RipperCalendarEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
+import { EventCost, Ripper, RipperCalendar, RipperEvent, RipperCalendarEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 
 // events12.com rarely lists explicit start times. When a time isn't
 // known we still emit an event so it shows up on the calendar (using
@@ -32,6 +32,28 @@ interface ParsedDates {
 export default class Events12Ripper extends HTMLRipper {
     private seenEvents = new Set<string>();
     private rawHtml = '';
+
+    // events12.com's own "current month" listing pages have been observed
+    // serving weeks-stale content (e.g. still showing "July 1-6" listings
+    // when fetched in late July) rather than rolling forward as the site's
+    // own copy claims. parseEvents() has no "now" concept — its unit tests
+    // deliberately construct occurrences before an arbitrary fixed testDate
+    // to exercise date-range expansion — so filtering belongs here, in the
+    // production rip() path, using the real wall-clock instant rather than
+    // whatever day parseEvents was invoked for.
+    public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const calendars = await super.rip(ripper);
+        const now = ZonedDateTime.now();
+
+        return calendars.map(cal => {
+            const events = cal.events.filter(e => !e.date.isBefore(now));
+            const keptIds = new Set(events.map(e => e.id));
+            const errors = cal.errors.filter(err =>
+                err.type !== "Uncertainty" || keptIds.has(err.event.id),
+            );
+            return { ...cal, events, errors };
+        });
+    }
 
     protected preprocessHtml(html: string): string {
         // Store raw HTML so parseEvents can extract articles via regex.
