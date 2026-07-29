@@ -8759,6 +8759,171 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-28",
       "note": "Same walking tour; seatoday title uses curly apostrophe, waterfront title uses ASCII apostrophe (seatoday-sports aggregator vs waterfront-park venue source)"
+    },
+    "cornish-all-events.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00::seatoday-seatoday-all.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "cornish-all-events.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00::seatoday-seatoday-arts.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "cornish-all-events.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00::seatoday-seatoday-community.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "external-seattle-gov-arts.ics Solo Magic | Keeper of Sadness|2026-08-01T20:00:00Z[UTC]::external-seattledances.ics Jade Solomon Curtis: Keeper of Sadness|2026-08-01T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same performance: Jade Solomon Curtis is the founder of Solo Magic; \"Keeper of Sadness\" runs at Union Station Aug 1-2 (solomagic.org/keeper-of-sadness)"
+    },
+    "external-seattle-gov-arts.ics Solo Magic | Keeper of Sadness|2026-08-02T20:00:00Z[UTC]::external-seattledances.ics Jade Solomon Curtis: Keeper of Sadness|2026-08-02T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same performance: Jade Solomon Curtis is the founder of Solo Magic; \"Keeper of Sadness\" runs at Union Station Aug 1-2 (solomagic.org/keeper-of-sadness)"
+    },
+    "external-seattle-gov-city-wide.ics Solo Magic | Keeper of Sadness|2026-08-01T20:00:00Z[UTC]::external-seattledances.ics Jade Solomon Curtis: Keeper of Sadness|2026-08-01T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same performance: Jade Solomon Curtis is the founder of Solo Magic; \"Keeper of Sadness\" runs at Union Station Aug 1-2 (solomagic.org/keeper-of-sadness)"
+    },
+    "external-seattle-gov-city-wide.ics Solo Magic | Keeper of Sadness|2026-08-02T20:00:00Z[UTC]::external-seattledances.ics Jade Solomon Curtis: Keeper of Sadness|2026-08-02T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same performance: Jade Solomon Curtis is the founder of Solo Magic; \"Keeper of Sadness\" runs at Union Station Aug 1-2 (solomagic.org/keeper-of-sadness)"
+    },
+    "external-seattle-university.ics MA in Psychology Virtual Information Session with Dr. LeBeau|2026-08-05T19:30:00Z[UTC]::seatoday-seatoday-all.ics MA in Psychology Virtual Information Session with Dr. LeBeau|2026-08-05T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Seattle University virtual info session republished via seatoday/CitySpark and SeattleU's own events calendar"
+    },
+    "external-seattle-university.ics MA in Psychology Virtual Information Session with Dr. LeBeau|2026-08-05T19:30:00Z[UTC]::seatoday-seatoday-community.ics MA in Psychology Virtual Information Session with Dr. LeBeau|2026-08-05T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Seattle University virtual info session republished via seatoday/CitySpark and SeattleU's own events calendar"
+    },
+    "external-seattle-university.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T21:00:00Z[UTC]::seatoday-seatoday-all.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "external-seattle-university.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T21:00:00Z[UTC]::seatoday-seatoday-arts.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "external-seattle-university.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T21:00:00Z[UTC]::seatoday-seatoday-community.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-10-28T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-10-28T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same recurring weekly meetup (meetup.com/west-seattle-urbanism); the group is currently at Great American Diner & Bar per the-urbanist's feed, while west-seattle-blog's feed has a stale LOCATION field (Elliott Bay Brewing) despite its own description text correctly naming Great American Diner & Bar — a venue-name discrepancy between sources, not two different events"
+    },
+    "seatoday-seatoday-all.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-all.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-all.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-all.ics Exceptional Connections August Networking Luncheon|2026-08-11T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Exceptional Connections August Networking Luncheon|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-all.ics Exceptional Connections August Networking Luncheon|2026-08-11T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Exceptional Connections August Networking Luncheon|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-all.ics MA in Psychology Virtual Information Session with Dr. LeBeau|2026-08-05T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics MA in Psychology Virtual Information Session with Dr. LeBeau|2026-08-05T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Seattle University virtual info session republished via seatoday/CitySpark and SeattleU's own events calendar"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-all.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "seatoday-seatoday-all.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "seatoday-seatoday-arts.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same Cornish College summer showcase event republished across cornish's own feed, Seattle University's calendar, and seatoday/CitySpark"
+    },
+    "seatoday-seatoday-community.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-community.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-community.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-community.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-food.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Chit, Chat, Chew - MI Seniors Rising Community Lunch|2026-08-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-food.ics Exceptional Connections August Networking Luncheon|2026-08-11T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Exceptional Connections August Networking Luncheon|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seatoday-seatoday-food.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-29",
+      "note": "Same seatoday/CitySpark event surfaced in multiple seatoday tag-calendars (all/community/food/learning/arts) — identical underlying listing"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-28T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-29",
+      "note": "Different Seattle Food Truck schedule stops (1201 vs 1551 Eastlake Ave) — different physical addresses, same day/time coincidence, not the same event"
     }
   }
 }
