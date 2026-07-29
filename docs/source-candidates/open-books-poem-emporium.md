@@ -4,7 +4,7 @@ status: candidate
 platform: Shopify (static content page, not a product feed)
 url: https://open-books-a-poem-emporium.myshopify.com/pages/events-calendar
 tags: [Books, "Pioneer Square"]
-firstSeen: 2026-07-29
+firstSeen: 2026-06-10
 lastChecked: 2026-07-29
 ---
 
@@ -28,3 +28,13 @@ formats "5/2" vs "May 2", not all entries have times/locations). Viable in
 principle (real, dated, recurring, Seattle-focused events) but the parsing
 is the hard part of this one, not the fetch. Worth a custom-ripper attempt
 in a future cycle; not attempted this run.
+
+Previously logged **not viable** twice before this per-file candidate
+system existed: `docs/discovery-log/2026-06-10.md` ("Shopify static page,
+no structured data, rate-limited") and `docs/discovery-log/2026-06-14.md`
+("events listed as static pages, not products"). Re-opening as `candidate`
+here is a deliberate reassessment, not an oversight — the site returns a
+normal 200 (no rate-limiting observed this check) and, while still not a
+built-in ripper type, a custom scraper over the one `body_html` field is a
+concrete, buildable path that the earlier "not viable" verdicts didn't
+spell out.

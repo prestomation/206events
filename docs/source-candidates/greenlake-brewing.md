@@ -2,7 +2,7 @@
 name: "Greenlake Brewing"
 status: investigating
 platform: unknown
-url:
+url: https://hoodline.com/2026/03/brews-with-a-view-greenlake-brewing-taps-in-at-green-lake-on-april-7/
 tags: [Beer, "Green Lake"]
 firstSeen: 2026-07-29
 lastChecked: 2026-07-29
