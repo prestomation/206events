@@ -505,6 +505,8 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // event held there) resolves to the same place as the venue's own feed.
   'the triple door': { lat: 47.6082, lng: -122.3387, osmType: 'node', osmId: 2404249354 },
   'twilight cafe & bar': { lat: 45.5886, lng: -122.7319 },
+  // Bellingham, WA bookstore — appears bare (no city) in seattle-city-of-lit events
+  'village books': { lat: 48.7207451, lng: -122.5036387, osmType: 'node', osmId: 255801451 },
   'vue lounge': { lat: 47.6134, lng: -122.3203 },
   'volunteer park amphitheater': { lat: 47.6372, lng: -122.3150 },
   'wallingford community senior center': { lat: 47.6639, lng: -122.3312 },
