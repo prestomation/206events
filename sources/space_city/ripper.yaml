@@ -1,6 +1,7 @@
 name: space-city
 sourceRole: venue
 type: eventbrite
+expectEmpty: true # Lecture series organizer; often has 0 upcoming events between series
 description: "Space.City — art, architecture, and urbanism lectures"
 url: "https://www.spacecityseattle.org/"
 friendlyLink: https://www.spacecityseattle.org/
