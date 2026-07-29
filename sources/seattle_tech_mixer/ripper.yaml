@@ -1,0 +1,21 @@
+name: seattle-tech-mixer
+sourceRole: venue
+type: eventbrite
+description: "Seattle Tech Mixer"
+url: "https://www.eventbrite.com/o/tech-seattle-68154040953"
+friendlyLink: https://www.eventbrite.com/o/tech-seattle-68154040953
+tags: ["Tech", "South Lake Union"]
+geo:
+  lat: 47.6255812
+  lng: -122.3366232
+  label: "Tapster, 1011 Valley Street, Seattle, WA 98109"
+  osmType: node
+  osmId: 9009011574
+calendars:
+  - name: seattle-tech-mixer
+    friendlyname: "Seattle Tech Mixer"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "68154040953"
+      defaultLocation: "1011 Valley Street, Seattle, WA 98109"
+      defaultDurationHours: 3
