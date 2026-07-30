@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6520035
+  lng: -122.3549055
+  label: "Add-a-Ball, 315 N 36th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2565919678
+name: add-a-ball-amusements
+sourceRole: venue
+friendlyname: Add-a-Ball Amusements
+description: Pinball arcade in Fremont hosting a weekly Round Robin tournament.
+timezone: America/Los_Angeles
+location: "315 N 36th St, Seattle, WA 98103"
+url: https://add-a-ball.com/events/
+tags:
+  - Gaming
+  - Fremont
+cost: 5
+schedules:
+  - schedule: every Wednesday
+    start_time: "20:00"
+    duration: PT2H
