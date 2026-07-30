@@ -962,6 +962,8 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'chambers creek regional park': { lat: 47.2057007, lng: -122.5750529 }, // 6320 Grandview Dr W, University Place, WA — prefix covers address suffix
   'cornish college of the arts': { lat: 47.6180773, lng: -122.3362287 }, // 1000 Lenora St, Belltown, Seattle — prefix covers ", seattle, wa" suffix
   'drumheller fountain (uw campus)': { lat: 47.6538087, lng: -122.3078047 }, // Rainier Vista NE, UW Central Campus
+  'hugo house': { lat: 47.6161894, lng: -122.3179930 }, // 1634 11th Ave, Capitol Hill, Seattle — prefix covers full address with duplicate suffix
+  'lynndale park': { lat: 47.8282564, lng: -122.3333282 }, // 18927 72nd Ave W, Lynnwood — prefix covers "amphitheater" suffix
 };
 
 /**
