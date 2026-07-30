@@ -2,6 +2,8 @@ geo:
   lat: 47.610378
   lng: -122.283661
   label: "Madrona Park, 853 Lake Washington Blvd, Seattle, WA 98122"
+  osmType: relation
+  osmId: 537269
 name: lake-washington-cars-and-coffee
 sourceRole: venue
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Madrona_Park_-_1.jpg"

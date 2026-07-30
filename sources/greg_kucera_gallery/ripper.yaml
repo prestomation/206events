@@ -11,6 +11,8 @@ geo:
   lat: 47.6004219
   lng: -122.329892
   label: "Greg Kucera Gallery, 212 3rd Avenue South, Seattle, WA 98104"
+  osmType: node
+  osmId: 2351712117
 calendars:
   - name: greg-kucera-gallery
     friendlyname: "Greg Kucera Gallery"
