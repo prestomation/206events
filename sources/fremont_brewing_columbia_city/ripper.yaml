@@ -17,3 +17,8 @@ calendars:
   - name: all-events
     friendlyname: "Fremont Brewing - Columbia City"
     timezone: America/Los_Angeles
+    # 2026-07-30: 0 upcoming events despite a steady weekly Bingo Night history
+    # (last one the evening before this check) — a legitimate posting gap, not
+    # a broken parser. See sources/fremont_brewing (main location) for the
+    # sibling venue.
+    expectEmpty: true

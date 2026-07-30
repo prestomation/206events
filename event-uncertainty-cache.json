@@ -39583,14 +39583,14 @@
     "events12:live-theater-2026-08-12": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-07-30",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://taproottheatre.org/2026/joseph-and-the-amazing-technicolor-dreamcoat/"
     },
     "events12:live-theater-2026-08-13": {
       "fields": {
@@ -41233,7 +41233,7 @@
         "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
         "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-07-30",
       "source": "agent",
       "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
@@ -42298,9 +42298,9 @@
         "duration": 10800,
         "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-30",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-13": {
       "fields": {
@@ -52807,10 +52807,10 @@
     "events12:music-by-candlelight-2026-08-01": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52819,10 +52819,10 @@
     "events12:music-by-candlelight-2026-08-02": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52831,10 +52831,10 @@
     "events12:music-by-candlelight-2026-08-03": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52843,10 +52843,10 @@
     "events12:music-by-candlelight-2026-08-04": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52855,10 +52855,10 @@
     "events12:music-by-candlelight-2026-08-05": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52867,10 +52867,10 @@
     "events12:music-by-candlelight-2026-08-06": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52879,10 +52879,10 @@
     "events12:music-by-candlelight-2026-08-07": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52891,10 +52891,10 @@
     "events12:music-by-candlelight-2026-08-08": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52903,10 +52903,10 @@
     "events12:music-by-candlelight-2026-08-09": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52915,10 +52915,10 @@
     "events12:music-by-candlelight-2026-08-10": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52927,10 +52927,10 @@
     "events12:music-by-candlelight-2026-08-11": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -52939,10 +52939,10 @@
     "events12:music-by-candlelight-2026-08-12": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
-        },
-        "setting": "indoor"
+        }
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -53638,6 +53638,16 @@
       "source": "agent",
       "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
     },
+    "seatoday:cityspark-19505321": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.lynnwoodwa.gov/Community/Events-Calendar/Seattle-Kokon-Taiko-Drummers"
+    },
     "seatoday:cityspark-19505322": {
       "fields": {
         "cost": {
@@ -53648,12 +53658,6 @@
       "resolvedAt": "2026-07-30",
       "source": "agent",
       "evidence": "https://www.simpletix.com/e/fencon-expo-august-9-2026-tickets-275827"
-    },
-    "seatoday:cityspark-19505321": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "6amcity source page is JS-rendered; organizer website (seattlekokonaikotaiko.com) does not resolve"
     },
     "venue:osm:node:690994439": {
       "fields": {
@@ -53669,15 +53673,13 @@
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
-      "evidence": "https://www.seattle.gov/parks/find/parks/othello-park"
+      "evidence": "https://www.seattle.gov/parks/parks/othello-park"
     },
     "venue:osm:way:50321776": {
-      "fields": {
-        "setting": "indoor"
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-30",
       "source": "agent",
-      "evidence": "https://www.seattle.gov/parks/find/centers/ballard-community-center"
+      "reason": "Mixed indoor/outdoor venue — Tuesdays in Ballard is held outdoors on the grounds (games/food, per Seattle's Child listing), but the same center also hosts indoor programming (e.g. Indoor Tot Gym); demotes to per-event gaps"
     }
   }
 }
