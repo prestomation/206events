@@ -28,3 +28,22 @@ with a single `every Wednesday` 20:00 PT2H schedule entry, `cost: 5`, and
 `tags: [Gaming, Fremont]`. Address confirmed via Nominatim — exact OSM POI
 match (`node/2565919678`, `leisure=amusement_arcade`, name "Add-a-Ball") at
 47.6520035, -122.3549055.
+
+**Existing coverage check (code review, 2026-07-30):** `sources/seattle_showlists`
+already carries a non-`skip` calendar entry for this venue (`name: add-a-ball`,
+same OSM node `2565919678`), pulling **28 real touring-band shows** from the
+showlists aggregator feed at time of check — zero overlap with the hand-coded
+weekly Round Robin tournament (verified by diffing `SUMMARY` values in both
+generated `.ics` outputs; showlists titles are band lineups like "Zookraught,
+The Snares, Acapulco Lips", never the tournament). This is genuinely
+complementary coverage, not a duplicate: the venue's own site has no
+scrapable per-show feed (prose-only), so this recurring entry adds the one
+thing showlists can't — the tournament's fixed schedule — while showlists
+keeps surfacing the touring acts. Per AGENTS.md's "prefer venue sites over
+showlists" rule, `skip: true` is for when a dedicated ripper **replaces**
+showlists' coverage of a venue; that doesn't apply here since neither source
+substitutes for the other, so the showlists `add-a-ball` entry is intentionally
+left as-is. The two sources' venue entries do carry the same address, so
+`venues.json` will show two cards for this location (a known, accepted
+tradeoff of `venues.json` not deduping across sources by geo) until a
+cross-source venue-merge feature exists.
