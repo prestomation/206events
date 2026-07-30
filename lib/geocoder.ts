@@ -461,6 +461,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'gould gallery': { lat: 47.6092, lng: -122.3321 },
   'green lake community center': { lat: 47.6803, lng: -122.3285 },
   'hazard factory': { lat: 47.6138, lng: -122.3204 },
+  // Nominatim chokes on the doubled "Seattle, WA, 98122" suffix in the raw
+  // feed string (external-seattle-indies) — key matches the location as
+  // reported verbatim by the source.
+  'hugo house, 1634 11th ave, seattle, wa 98122, seattle, wa, 98122, us': { lat: 47.6161894, lng: -122.3179930, osmType: 'node', osmId: 9657301875 },
   'husky ballpark': { lat: 47.6515, lng: -122.3011 },
   'husky softball stadium': { lat: 47.6555, lng: -122.3009 },
   'husky soccer stadium': { lat: 47.6499, lng: -122.2637 },
@@ -468,6 +472,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'j. rinehart gallery': { lat: 47.5994, lng: -122.3305 },
   'j rinehart gallery': { lat: 47.5994, lng: -122.3305 },
   'kangaroo & kiwi': { lat: 47.6689, lng: -122.3834 },
+  // Nominatim fails on the venue-name-prefixed query (seatoday); the bare
+  // street address resolves fine.
+  'lynndale park amphitheater, 18927 72nd ave w, lynnwood, wa': { lat: 47.8267291, lng: -122.3302588, osmType: 'way', osmId: 6123476 },
   'seattle central college': { lat: 47.6163, lng: -122.3219 },
   'kremwerk': { lat: 47.6202, lng: -122.3374 },
   'kremwerk-timbre room-cherry complex': { lat: 47.6202, lng: -122.3374 },
