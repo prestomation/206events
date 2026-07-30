@@ -4,6 +4,10 @@ friendlyname: Magnuson Park Gallery
 description: Studio/gallery space in Building 30 at Magnuson Park, run by Sand Point Arts and Cultural Exchange (SPACE) and home to 30+ resident artists.
 icsUrl: https://www.magnusonparkgallery.org/events/?ical=1
 infoUrl: https://www.magnusonparkgallery.org/events/
+# Open Studio events run biannually — the only near-term listing can easily
+# fall outside the 3-month aggregate window even though the raw ICS feed
+# (unfiltered) still carries it, leaving multi-month gaps in the near-term view.
+expectEmpty: true
 geo:
   lat: 47.6828235
   lng: -122.2615444

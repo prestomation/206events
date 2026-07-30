@@ -214,3 +214,11 @@ calendars:
       label: "117 S Washington St, Seattle, WA 98104"
       osmType: way
       osmId: 452330585
+  - name: market-at-the-marquee
+    friendlyname: "Food Trucks @ Market at the Marquee"
+    timezone: America/Los_Angeles
+    tags: ["FoodTruck", "Downtown"]
+    geo:
+      lat: 47.6138731
+      lng: -122.3319342
+      label: "1600 9th Ave, Seattle, WA 98101"

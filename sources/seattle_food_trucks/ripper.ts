@@ -65,6 +65,7 @@ export const POD_CONFIG: Record<string, { calendar: string } | { skip: string }>
     "Kaiser Permanente : Northgate Medical Center": { calendar: "kaiser-permanente-northgate" },
     "The Polyclinic : Northgate Plaza": { calendar: "polyclinic-northgate" },
     "Occidental Park": { calendar: "occidental-park" },
+    "Market at the Marquee": { calendar: "market-at-the-marquee" },
     // Known pods deliberately without their own calendar (no gap error):
     "Black Raven Brewing Company : Redmond": { skip: "Redmond — outside Seattle" },
     "Black Raven Brewing Company : Woodinville": { skip: "Woodinville — outside Seattle" },
