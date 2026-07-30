@@ -5,7 +5,7 @@ platform: AttendTickets
 url: https://seattle.attendtickets.com/free
 tags: [Music, Community]
 firstSeen: 2026-07-08
-lastChecked: 2026-07-15
+lastChecked: 2026-07-30
 ---
 
 Discovered via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1uls31r/posted_every_week_free_and_paywhatyouchoose_shows/
@@ -36,3 +36,8 @@ Sighted again 2026-07-15 via r/SeattleEvents post: https://old.reddit.com/r/Seat
 Post title: "Free shows around Seattle, week of July 13"
 Post date: 2026-07-14
 Status remains notviable — same weekly snapshot, no new structured data.
+
+Sighted again 2026-07-30 via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1va47t8/5_free_performing_arts_events_across_seattle/
+Post title: "5 free performing arts events across Seattle"
+Post date: 2026-07-29
+Status remains notviable — same weekly snapshot pattern, no new structured data.
