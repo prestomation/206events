@@ -53638,6 +53638,16 @@
       "source": "agent",
       "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
     },
+    "seatoday:cityspark-19505321": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.lynnwoodwa.gov/Community/Events-Calendar/Seattle-Kokon-Taiko-Drummers"
+    },
     "seatoday:cityspark-19505322": {
       "fields": {
         "cost": {
@@ -53648,12 +53658,6 @@
       "resolvedAt": "2026-07-30",
       "source": "agent",
       "evidence": "https://www.simpletix.com/e/fencon-expo-august-9-2026-tickets-275827"
-    },
-    "seatoday:cityspark-19505321": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "6amcity source page is JS-rendered; organizer website (seattlekokonaikotaiko.com) does not resolve"
     },
     "venue:osm:node:690994439": {
       "fields": {
@@ -53672,12 +53676,10 @@
       "evidence": "https://www.seattle.gov/parks/find/parks/othello-park"
     },
     "venue:osm:way:50321776": {
-      "fields": {
-        "setting": "indoor"
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-07-30",
       "source": "agent",
-      "evidence": "https://www.seattle.gov/parks/find/centers/ballard-community-center"
+      "reason": "Mixed indoor/outdoor venue — Tuesdays in Ballard is held outdoors on the grounds (games/food, per Seattle's Child listing), but the same center also hosts indoor programming (e.g. Indoor Tot Gym); demotes to per-event gaps"
     }
   }
 }
