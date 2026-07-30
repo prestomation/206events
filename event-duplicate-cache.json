@@ -9084,6 +9084,106 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-30",
       "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "cornish-all-events.ics Summer@Cornish - Music and Film Showcase|2026-07-31T13:00:00-07:00::external-seattle-university.ics Summer@Cornish - Theater and Dance Showcase|2026-07-31T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-30",
+      "note": "Different events: Music/Film Showcase vs Theater/Dance Showcase are distinct Summer@Cornish performances"
+    },
+    "cornish-all-events.ics Summer@Cornish - Music and Film Showcase|2026-07-31T13:00:00-07:00::seatoday-seatoday-all.ics Summer@Cornish - Theater and Dance Showcase|2026-07-31T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-30",
+      "note": "Different events: Music/Film Showcase vs Theater/Dance Showcase are distinct Summer@Cornish performances"
+    },
+    "cornish-all-events.ics Summer@Cornish - Music and Film Showcase|2026-07-31T13:00:00-07:00::seatoday-seatoday-arts.ics Summer@Cornish - Theater and Dance Showcase|2026-07-31T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-30",
+      "note": "Different events: Music/Film Showcase vs Theater/Dance Showcase are distinct Summer@Cornish performances"
+    },
+    "cornish-all-events.ics Summer@Cornish - Music and Film Showcase|2026-07-31T13:00:00-07:00::seatoday-seatoday-community.ics Summer@Cornish - Theater and Dance Showcase|2026-07-31T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-30",
+      "note": "Different events: Music/Film Showcase vs Theater/Dance Showcase are distinct Summer@Cornish performances"
+    },
+    "cornish-all-events.ics Summer@Cornish - Music and Film Showcase|2026-07-31T13:00:00-07:00::seatoday-seatoday-learning.ics Summer@Cornish - Theater and Dance Showcase|2026-07-31T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-30",
+      "note": "Different events: Music/Film Showcase vs Theater/Dance Showcase are distinct Summer@Cornish performances"
+    },
+    "cornish-all-events.ics Summer@Cornish - Music and Film Showcase|2026-07-31T13:00:00-07:00::external-seattle-university.ics Summer@Cornish - Theater and Dance Showcase|2026-07-31T20:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-07-30",
+      "note": "Different events: Music/Film Showcase vs Theater/Dance Showcase are distinct Summer@Cornish performances"
+    },
+    "external-good-society-beer.ics Westies Run Club|2026-08-20T18:00:00Z[UTC]::external-west-seattle-blog.ics Westies Run Club|2026-08-20T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same weekly run club at Good Society (2701 California Ave SW), listed by both the venue and WSB"
+    },
+    "external-good-society-beer.ics Westies Run Club|2026-08-27T18:00:00Z[UTC]::external-west-seattle-blog.ics Westies Run Club|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same weekly run club at Good Society (2701 California Ave SW), listed by both the venue and WSB"
+    },
+    "external-seattle-gov-city-wide.ics Blackberry Banishment at Beaver Pond Natural Area|2026-08-09T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Blackberry Banishment at Beaver Pond Natural Area|2026-08-09T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both city-wide parks feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-city-wide.ics EC Hughes Restoration Event|2026-08-15T09:30:00Z[UTC]::external-seattle-parks-foundation.ics EC Hughes Restoration Event|2026-08-15T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both city-wide parks feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-city-wide.ics Green Lake Shoreline Planting Prep|2026-08-08T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Green Lake Shoreline Planting Prep|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both city-wide parks feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-city-wide.ics Habitat Restoration and Bird Walk on Lake Washington Blvd|2026-08-08T08:30:00Z[UTC]::external-seattle-parks-foundation.ics Habitat Restoration and Bird Walk on Lake Washington Blvd|2026-08-08T08:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both city-wide parks feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-city-wide.ics Orchard Street Ravine Work Party|2026-08-08T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Orchard Street Ravine Work Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both city-wide parks feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Blackberry Banishment at Beaver Pond Natural Area|2026-08-09T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Blackberry Banishment at Beaver Pond Natural Area|2026-08-09T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both parks-recreation feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics EC Hughes Restoration Event|2026-08-15T09:30:00Z[UTC]::external-seattle-parks-foundation.ics EC Hughes Restoration Event|2026-08-15T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both parks-recreation feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Green Lake Shoreline Planting Prep|2026-08-08T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Green Lake Shoreline Planting Prep|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both parks-recreation feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Habitat Restoration and Bird Walk on Lake Washington Blvd|2026-08-08T08:30:00Z[UTC]::external-seattle-parks-foundation.ics Habitat Restoration and Bird Walk on Lake Washington Blvd|2026-08-08T08:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both parks-recreation feed and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Orchard Street Ravine Work Party|2026-08-08T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Orchard Street Ravine Work Party|2026-08-08T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle Parks volunteer restoration event listed by both parks-recreation feed and Seattle Parks Foundation"
+    },
+    "seatoday-seatoday-all.ics FenCon Expo|2026-08-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics FenCon Expo|2026-08-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event (cityspark ID 19505322) appearing in two seatoday calendar feeds (all + learning)"
+    },
+    "seatoday-seatoday-all.ics Seattle Kokon Taiko Drummers|2026-08-08T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Seattle Kokon Taiko Drummers|2026-08-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event (cityspark ID 19505321) appearing in two seatoday calendar feeds (all + arts)"
     }
   }
 }

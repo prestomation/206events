@@ -53563,6 +53563,50 @@
       "resolvedAt": "2026-07-30",
       "source": "agent",
       "evidence": "https://siff.net/cinema/siff-film-center"
+    },
+    "northwest-film-forum:camp2-2026-2026-07-28": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
+    },
+    "northwest-film-forum:camp2-2026-2026-07-29": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
+    },
+    "northwest-film-forum:camp2-2026-2026-07-30": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
+    },
+    "seatoday:cityspark-19505322": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.simpletix.com/e/fencon-expo-august-9-2026-tickets-275827"
+    },
+    "seatoday:cityspark-19505321": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "6amcity source page is JS-rendered; organizer website (seattlekokonaikotaiko.com) does not resolve"
     }
   }
 }
