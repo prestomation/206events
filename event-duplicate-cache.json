@@ -8924,6 +8924,166 @@
       "decision": "rejected",
       "resolvedAt": "2026-07-29",
       "note": "Different Seattle Food Truck schedule stops (1201 vs 1551 Eastlake Ave) — different physical addresses, same day/time coincidence, not the same event"
+    },
+    "cornish-all-events.ics Summer@Cornish - Music and Film Showcase|2026-07-31T13:00:00-07:00::discover-slu-discover-slu.ics Summer@Cornish: Music & Film Showcase|2026-07-31T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Cornish/SLU Summer event in multiple feeds"
+    },
+    "cornish-all-events.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00::discover-slu-discover-slu.ics Summer@Cornish: Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Cornish/SLU Summer event in multiple feeds"
+    },
+    "discover-slu-discover-slu.ics Summer@Cornish: Music & Film Showcase|2026-07-31T13:00:00-07:00[America/Los_Angeles]::external-seattle-university.ics Summer@Cornish - Music and Film Showcase|2026-07-31T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event confirmed across sources"
+    },
+    "discover-slu-discover-slu.ics Summer@Cornish: Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event confirmed across sources"
+    },
+    "discover-slu-discover-slu.ics Summer@Cornish: Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event confirmed across sources"
+    },
+    "discover-slu-discover-slu.ics Summer@Cornish: Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer@Cornish - Visual Art Exhibition|2026-07-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event confirmed across sources"
+    },
+    "external-seattle-university.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T19:00:00Z[UTC]::seatoday-seatoday-all.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle University event in seatoday and the university ICS feed"
+    },
+    "external-seattle-university.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T19:00:00Z[UTC]::seatoday-seatoday-community.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle University event in seatoday and the university ICS feed"
+    },
+    "external-seattle-university.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T19:00:00Z[UTC]::seatoday-seatoday-learning.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same Seattle University event in seatoday and the university ICS feed"
+    },
+    "seatoday-seatoday-all.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics PAWA Paints Historic downtown Bremerton Waterfront  2026|2026-08-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics PAWA Paints Historic downtown Bremerton Waterfront  2026|2026-08-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics PAWA Paints Historic downtown Bremerton Waterfront  2026|2026-08-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics PAWA Paints Historic downtown Bremerton Waterfront  2026|2026-08-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics RIBBON CUTTING - Bellevue Rare Coins|2026-08-12T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics RIBBON CUTTING - Bellevue Rare Coins|2026-08-12T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Native Plant Nursery|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Native Plant Nursery|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Native Plant Nursery|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Native Plant Nursery|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Webinar: Google Business Profile Optimization|2026-08-12T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Webinar: Google Business Profile Optimization|2026-08-12T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics PAWA Paints Historic downtown Bremerton Waterfront  2026|2026-08-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics PAWA Paints Historic downtown Bremerton Waterfront  2026|2026-08-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Clinical Mental Health Counseling Programs Information Session|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Finding Your Voice in Community Workshop|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Made in Bellevue Series|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Native Plant Nursery|2026-08-12T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Native Plant Nursery|2026-08-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-30",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
     }
   }
 }
