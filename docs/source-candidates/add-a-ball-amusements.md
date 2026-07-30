@@ -1,6 +1,7 @@
 ---
 name: "Add-a-Ball Amusements"
 status: added
+pr: 1061
 platform: "Recurring (static page prose, no dated feed)"
 url: https://add-a-ball.com/events/
 tags: ["Gaming", "Fremont"]
