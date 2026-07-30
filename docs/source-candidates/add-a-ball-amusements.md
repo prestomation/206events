@@ -1,15 +1,14 @@
 ---
 name: "Add-a-Ball Amusements"
-status: candidate
+status: added
 platform: "Recurring (static page prose, no dated feed)"
 url: https://add-a-ball.com/events/
-tags: ["Fremont"]
+tags: ["Gaming", "Fremont"]
 firstSeen: 2026-07-29
-lastChecked: 2026-07-29
+lastChecked: 2026-07-30
 ---
 
-Pinball arcade in Fremont (315 N 36th St, Seattle, WA 98103 — address
-needs confirmation via Nominatim at implementation time).
+Pinball arcade in Fremont (315 N 36th St, Seattle, WA 98103).
 
 Investigated 2026-07-29:
 - `/events/` returns HTTP 200, static WordPress page (not JS-rendered, no
@@ -23,6 +22,8 @@ Investigated 2026-07-29:
 - Not implemented this cycle (one-source-per-cycle rule; Seattle Tech
   Mixer picked instead as the higher-confidence built-in-type source)
 
-Next steps: confirm exact address/geocode via Nominatim and add as
-`sources/recurring/add-a-ball-amusements.yaml` with a single `every
-Wednesday` schedule entry.
+Implemented 2026-07-30: added `sources/recurring/add-a-ball-amusements.yaml`
+with a single `every Wednesday` 20:00 PT2H schedule entry, `cost: 5`, and
+`tags: [Gaming, Fremont]`. Address confirmed via Nominatim — exact OSM POI
+match (`node/2565919678`, `leisure=amusement_arcade`, name "Add-a-Ball") at
+47.6520035, -122.3549055.
