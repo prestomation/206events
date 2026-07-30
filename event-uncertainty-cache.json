@@ -1,14 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-07-22": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-07-23": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1305,13 +1297,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-07-23": {
       "unresolvable": true,
       "reason": "Commercial tour — booking times vary by individual reservation",
@@ -2410,13 +2395,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-07-23": {
       "unresolvable": true,
@@ -3524,13 +3502,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-07-23": {
       "unresolvable": true,
       "reason": "Season schedule page — each home game has a different start time",
@@ -4286,14 +4257,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour — booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-07-23": {
       "unresolvable": true,
@@ -5103,14 +5066,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-07-23": {
       "unresolvable": true,
       "reason": "Season schedule page — each game has a different start time",
@@ -5645,14 +5600,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
     "events12:winery-concerts-2026-07-23": {
@@ -6191,14 +6138,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
     "events12:concerts-at-the-locks-2026-07-23": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
@@ -6575,14 +6514,6 @@
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
-    "events12:bus-to-the-mountains-2026-07-22": {
-      "unresolvable": true,
-      "reason": "General transit service page — specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:bus-to-the-mountains-2026-07-23": {
       "unresolvable": true,
       "reason": "General transit service page — specific departure times vary by date and destination",
@@ -6894,13 +6825,6 @@
       "source": "agent",
       "evidence": "https://trailheaddirect.org/",
       "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-marymoor-park-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
     },
     "events12:concerts-at-marymoor-park-2026-07-23": {
       "unresolvable": true,
@@ -11796,14 +11720,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
     },
-    "events12:taste-of-pike-place-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:taste-of-pike-place-2026-07-23": {
       "unresolvable": true,
       "resolvedAt": "2026-05-25",
@@ -14910,14 +14826,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:garden-walk-2026-07-22": {
-      "unresolvable": true,
-      "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:garden-walk-2026-07-23": {
       "unresolvable": true,
       "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
@@ -14940,14 +14848,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:zoo-concerts-2026-07-22": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:zoo-concerts-2026-07-23": {
@@ -17096,16 +16996,6 @@
       "source": "agent",
       "evidence": "https://www.couthbuzzard.com/event-calendar"
     },
-    "events12:on-the-water-2026-07-22": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
-    },
     "events12:on-the-water-2026-07-23": {
       "fields": {
         "cost": {
@@ -18836,13 +18726,6 @@
       "resolvedAt": "2026-06-15",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-welcomes-bosnia-and-herzegovina"
-    },
-    "events12:movies-in-seattle-parks-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Start time not posted on source page; movies start at dusk (varies by date)",
-      "lastSeen": "2026-06-21"
     },
     "events12:movies-in-seattle-parks-2026-07-23": {
       "unresolvable": true,
@@ -20866,12 +20749,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:baseball-in-tacoma-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-07-23": {
       "unresolvable": true,
@@ -26667,17 +26544,6 @@
       "resolvedAt": "2026-07-04",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/films/drunken-noodles/"
-    },
-    "northwest-film-forum:squeakyfest-seattle-2026-07-22": {
-      "fields": {
-        "cost": {
-          "min": 15
-        },
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/squeakyfest26-1600.png"
-      },
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "evidence": "https://nwfilmforum.org/events/squeakyfest-seattle/"
     },
     "northwest-film-forum:love-lies-bleeding-2026-07-28": {
       "fields": {
@@ -34229,35 +34095,6 @@
       "source": "agent",
       "reason": "No event page URL; listening session events have no ticket page or external image source."
     },
-    "events12:concerts-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
-      "reason": "events12 concerts category aggregate"
-    },
-    "events12:live-theater-2026-07-22": {
-      "fields": {
-        "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
-        "setting": "indoor",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
-    },
-    "events12:architectural-tour-2026-07-22": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
-      "fields": {
-        "cost": {
-          "min": 27.5
-        },
-        "setting": "outdoor"
-      },
-      "evidence": "https://seattlearchitecture.org/tours/"
-    },
     "events12:architectural-tour-2026-07-23": {
       "resolvedAt": "2026-07-09",
       "source": "agent",
@@ -34715,34 +34552,6 @@
       "resolvedAt": "2026-07-09",
       "source": "agent",
       "evidence": "https://www.folioseattle.org/event-details/baroque-threads-a-journey-from-venice-to-persia"
-    },
-    "events12:dance-in-the-park-2026-07-22": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
-    },
-    "events12:music-by-candlelight-2026-07-22": {
-      "fields": {
-        "setting": "indoor",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
-      "evidence": "https://feverup.com/candlelight"
-    },
-    "events12:shakespeare-in-the-park-2026-07-22": {
-      "fields": {
-        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-18",
-      "source": "agent",
-      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "19hz:19hz-2026/07/23-Caress, 2libras, Phantom Eyes": {
       "unresolvable": true,
@@ -35238,16 +35047,6 @@
       "source": "agent",
       "evidence": "https://www.seamonsterlounge.com"
     },
-    "sea-monster-lounge:sea-monster-lounge-colin-higgins-3-2026-07-22": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "evidence": "https://www.seamonsterlounge.com"
-    },
     "sea-monster-lounge:sea-monster-lounge-danny-godinez-band-2-2026-07-29": {
       "fields": {
         "cost": {
@@ -35259,16 +35058,6 @@
       "evidence": "https://www.seamonsterlounge.com"
     },
     "sea-monster-lounge:sea-monster-lounge-suffering-yuckheads-2026-07-29-19-30-2026-07-29": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "evidence": "https://www.seamonsterlounge.com"
-    },
-    "sea-monster-lounge:sea-monster-lounge-sunny-the-soul-factory-2026-07-22": {
       "fields": {
         "cost": {
           "paid": true
@@ -36000,15 +35789,6 @@
       "resolvedAt": "2026-07-10",
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/minions-monsters/19387252/2026-07-13T00"
-    },
-    "19hz:19hz-2026/07/22-Habitat": {
-      "fields": {
-        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187494873%2F25505141929%2F1%2Foriginal.20260623-165917"
-      },
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/habitat-july-22-2026-tickets-1992436800104",
-      "lastSeen": "2026-07-12"
     },
     "19hz:19hz-2026/07/25-Be My Guest [Day Party]": {
       "fields": {
@@ -37955,12 +37735,6 @@
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
     },
-    "events12:chamber-music-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
-      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
-    },
     "events12:chamber-music-2026-07-23": {
       "unresolvable": true,
       "resolvedAt": "2026-07-11",
@@ -39883,16 +39657,6 @@
       "source": "agent",
       "evidence": "https://www.jambase.com/festival/day-trip-festival-seattle-2026"
     },
-    "events12:renaissance-fair-2026-07-22": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      }
-    },
     "events12:renaissance-fair-2026-07-23": {
       "resolvedAt": "2026-07-11",
       "source": "cost-resolver",
@@ -40866,13 +40630,17 @@
     },
     "events12:live-theater-2026-08-30": {
       "fields": {
+        "startTime": "19:30",
+        "duration": 7200,
+        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "paid": true
+          "min": 35.0,
+          "max": 74.0
         }
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-07-30",
       "source": "agent",
-      "evidence": "https://tlt.ludus.com/show_page.php?show_id=200478173 - ticketed theater show; site returned 403, price unavailable"
+      "evidence": "https://www.taproottheatre.org/"
     },
     "three-dollar-bill-cinema:6a5296035bf69209561aead2": {
       "fields": {
@@ -41763,15 +41531,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "Source URL is an image file (events12.com/img/), not an event page"
-    },
-    "events12:eastside-movies-in-parks-2026-07-22": {
-      "fields": {
-        "imageUrl": "https://bellevuewa.gov/sites/default/files/styles/header_image/public/media/header_image/2021-07/movies-in-the-park-banner.jpg?h=680c2ec9&itok=S3Q2wKzG",
-        "startTime": "19:00"
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
     },
     "events12:eastside-movies-in-parks-2026-07-23": {
       "fields": {
@@ -42702,12 +42461,6 @@
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/events"
     },
-    "events12:concerts-on-a-farm-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
-    },
     "events12:concerts-on-a-farm-2026-07-23": {
       "unresolvable": true,
       "resolvedAt": "2026-07-12",
@@ -43114,12 +42867,6 @@
       "source": "agent",
       "evidence": "https://greenstage.org/sotf/"
     },
-    "events12:welcome-ships-sailors-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "seafair.org/fleet-week/ states times TBA and directs to signup for notifications"
-    },
     "events12:welcome-ships-sailors-2026-07-23": {
       "unresolvable": true,
       "resolvedAt": "2026-07-12",
@@ -43131,12 +42878,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "seafair.org/fleet-week/ states times TBA and directs to signup for notifications"
-    },
-    "events12:new-musical-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "stgpresents.org lists 'Various showtimes' for Hell's Kitchen; no specific times available without ticket lookup"
     },
     "events12:new-musical-2026-07-23": {
       "unresolvable": true,
@@ -43304,12 +43045,6 @@
       "resolvedAt": "2026-07-13",
       "source": "agent",
       "evidence": "https://www.anacortesartsfestival.com/visitors"
-    },
-    "events12:tacoma-concerts-2026-07-22": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
     },
     "events12:tacoma-concerts-2026-07-23": {
       "unresolvable": true,
@@ -49650,14 +49385,6 @@
       "source": "agent",
       "evidence": "https://rainierbeachcommunityclub.org/events/meaningful-movies"
     },
-    "unbound-symphony:unbound-symphony-met-tract-plaza-2026-07-22": {
-      "fields": {
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/6976eaa7f8a1bd69e807b595/db9d8b20-db81-4c32-8571-7da90d765961/Met+Tract+Summer+Sounds+Flyer.jpg"
-      },
-      "resolvedAt": "2026-07-25",
-      "source": "agent",
-      "evidence": "https://www.unboundsymphony.org/events"
-    },
     "unbound-symphony:unbound-symphony-met-tract-plaza-2026-07-29": {
       "fields": {
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/6976eaa7f8a1bd69e807b595/db9d8b20-db81-4c32-8571-7da90d765961/Met+Tract+Summer+Sounds+Flyer.jpg"
@@ -51159,14 +50886,10 @@
       "reason": "Instagram page — cannot fetch programmatically; price not determinable (source only shows \"21+\")"
     },
     "seatoday:cityspark-19034505": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-07-27",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
       "source": "agent",
-      "evidence": "http://seattle.greencitypartnerships.org/event/44425/"
+      "reason": "6amcity.com SPA routing, no image accessible"
     },
     "seatoday:cityspark-19476176": {
       "fields": {
@@ -51180,14 +50903,10 @@
       "evidence": "https://www.medina-wa.gov"
     },
     "seatoday:cityspark-19047924": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-27",
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
       "source": "agent",
-      "evidence": "https://gopokes.formstack.com/forms/mariners26"
+      "reason": "6amcity.com SPA routing, no image accessible"
     },
     "seatoday:cityspark-19296232": {
       "fields": {
@@ -51947,6 +51666,1903 @@
       "resolvedAt": "2026-07-29",
       "source": "agent",
       "evidence": "Seattle Sounders FC vs Houston Dynamo at Lumen Field — ticketed MLS game; Ticketmaster blocks automated fetches, price not confirmed"
+    },
+    "discover-slu:discover-slu-free-bon-bon": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/free-bon-bon"
+    },
+    "discover-slu:discover-slu-summercornish-music-film": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/summercornish-music-film"
+    },
+    "discover-slu:discover-slu-summercornish-theater-dance": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/summercornish-theater-dance"
+    },
+    "discover-slu:discover-slu-summercornish-visual-art-exhibition": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/summercornish-visual-art-exhibition"
+    },
+    "discover-slu:discover-slu-jimothy": {
+      "fields": {
+        "startTime": "17:00"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/jimothy"
+    },
+    "discover-slu:discover-slu-beginners-camping-workshop-2-2-2-2": {
+      "fields": {
+        "startTime": "18:00"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/beginners-camping-workshop"
+    },
+    "discover-slu:discover-slu-backpacking-basics-2": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/backpacking-basics"
+    },
+    "discover-slu:discover-slu-a-midsummer-exhale-july-breathwork-2": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/midsummer-exhale-breathwork"
+    },
+    "discover-slu:discover-slu-flat-tire-repair-2-2-2-2": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/flat-tire-repair"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-summer-cottage": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/stir-up-the-paint-summer-cottage"
+    },
+    "discover-slu:discover-slu-flat-tire-repair-2-2-2": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/flat-tire-repair"
+    },
+    "discover-slu:discover-slu-meet-the-curator-reframing-seattles-se-asian-histories": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/meet-the-curator-reframing-seattles-se-asian-histories"
+    },
+    "discover-slu:discover-slu-dining-in-the-dark-2": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/dining-in-the-dark"
+    },
+    "discover-slu:discover-slu-kids-at-the-co-op-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/kids-at-the-co-op"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-mystic-waterfall": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/stir-up-the-paint-mystic-waterfall"
+    },
+    "discover-slu:discover-slu-glazers-anniv-sale": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "no specific daily hours listed on page"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-fall-sunset": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/stir-up-the-paint-fall-sunset"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-fall-cardinals": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/stir-up-the-paint-fall-cardinals"
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://discoverslu.com/events/made-in-slu"
+    },
+    "seattle-center:ali-wong-live-x47219": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/ali-wong-live"
+    },
+    "seattle-center:freak-the-mighty-open-captioning": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/freak-the-mighty-open-captioning"
+    },
+    "t-mobile-park:tm-vvG1HZ_eEreIjn": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "Ticketmaster returned HTTP 403, start time unavailable"
+    },
+    "events12:live-theater-2026-08-31": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 7200,
+        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
+        "cost": {
+          "min": 35.0,
+          "max": 74.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.taproottheatre.org/"
+    },
+    "events12:live-theater-2026-09-01": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 7200,
+        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
+        "cost": {
+          "min": 35.0,
+          "max": 74.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.taproottheatre.org/"
+    },
+    "events12:live-theater-2026-09-02": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 7200,
+        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
+        "cost": {
+          "min": 35.0,
+          "max": 74.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.taproottheatre.org/"
+    },
+    "events12:live-theater-2026-09-03": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 7200,
+        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
+        "cost": {
+          "min": 35.0,
+          "max": 74.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.taproottheatre.org/"
+    },
+    "events12:live-theater-2026-09-04": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 7200,
+        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
+        "cost": {
+          "min": 35.0,
+          "max": 74.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.taproottheatre.org/"
+    },
+    "events12:live-theater-2026-09-05": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 7200,
+        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
+        "cost": {
+          "min": 35.0,
+          "max": 74.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.taproottheatre.org/"
+    },
+    "events12:live-theater-2026-09-06": {
+      "fields": {
+        "startTime": "19:30",
+        "duration": 7200,
+        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
+        "cost": {
+          "min": 35.0,
+          "max": 74.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.taproottheatre.org/"
+    },
+    "events12:edmonds-wine-walk-2026-08-01": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/534bf97fe4b0bb0f73fd3cba/1565032170683-HD543IQGI8VOZ4S1SIQZ/2019winewalkAWEsquare.jpg",
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.artwalkedmonds.com/wine-walks"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:party-on-a-ferry-boat-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
+    },
+    "events12:underground-tour-2026-07-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-07-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:underground-tour-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "viator.com returned HTTP 403, event details unavailable"
+    },
+    "events12:architectural-tour-2026-08-01": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-02": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-03": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-04": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-05": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-06": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-07": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-08": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-09": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-10": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-11": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-12": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-13": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-14": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-15": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-16": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-17": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-18": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-19": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-20": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-21": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-22": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-23": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-24": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-25": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-26": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-27": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-28": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:architectural-tour-2026-08-29": {
+      "fields": {
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/"
+    },
+    "events12:music-by-candlelight-2026-08-01": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-02": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-03": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-04": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-05": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-06": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-07": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-08": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-09": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-10": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-11": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-12": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-13": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-14": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-15": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-16": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-17": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-18": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-19": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-20": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-21": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-22": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-23": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-24": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-25": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-26": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-27": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:music-by-candlelight-2026-08-28": {
+      "fields": {
+        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "events12:gourmet-cooking-class-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:gourmet-cooking-class-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
+    },
+    "events12:tacoma-salmon-bake-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "event page returned empty content, no image available"
+    },
+    "events12:tacoma-salmon-bake-2026-08-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "event page returned empty content, no image available"
+    },
+    "events12:fiber-crafting-festival-2026-08-01": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 25200,
+        "imageUrl": "https://flockfiberfestival.com/cdn/shop/files/flock_2024_square3.jpg?v=1729438194&width=800",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://flockfiberfestival.com/pages/about"
+    },
+    "events12:fiber-crafting-festival-2026-08-02": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 21600,
+        "imageUrl": "https://flockfiberfestival.com/cdn/shop/files/flock_2024_square3.jpg?v=1729438194&width=800",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://flockfiberfestival.com/pages/about"
+    },
+    "events12:african-festival-parade-2026-08-01": {
+      "fields": {
+        "imageUrl": "https://umojafestnw.com/wp-content/uploads/2026/07/1920.webp"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://umojafestnw.com/"
+    },
+    "events12:african-festival-parade-2026-08-02": {
+      "fields": {
+        "imageUrl": "https://umojafestnw.com/wp-content/uploads/2026/07/1920.webp"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://umojafestnw.com/"
+    },
+    "events12:blues-on-the-peninsula-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "ticketsearch.com JS-heavy, no image accessible"
+    },
+    "events12:music-festival-near-mt-rainier-2026-08-01": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/884b32_7646c56c52ae48ba98334177837b66ad~mv2.jpg"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.rainiermusicfestival.com/"
+    },
+    "seatoday:cityspark-17665198": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/"
+    },
+    "seatoday:cityspark-19406156": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/"
+    },
+    "seatoday:cityspark-19480656": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/"
+    },
+    "seatoday:cityspark-19498060": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/"
+    },
+    "seatoday:cityspark-19499857": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/"
+    },
+    "events12:art-show-in-a-garden-2026-08-01": {
+      "fields": {
+        "imageUrl": "https://www.ballardppatch.org/uploads/1/2/5/9/125937047/aitg-2026-50th-8-5x11_orig.jpg"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.ballardppatch.org/art-in-the-garden-2026.html"
+    },
+    "events12:goblin-market-2026-08-01": {
+      "fields": {
+        "imageUrl": "https://www.goblinguild.org/web/image/4137-41dbd8ee/GGB%208-1-26%20Flyer.webp"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.goblinguild.org/bazaar"
+    },
+    "events12:lake-city-festival-parade-2026-08-01": {
+      "fields": {
+        "imageUrl": "https://i0.wp.com/lakecitysummerfest.com/wp-content/uploads/2026/02/KidAndSaxophonePlayer-e1772752690238.jpg"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://lakecitysummerfest.com"
+    },
+    "unbound-symphony:unbound-symphony-met-tract-plaza-2027-07-22": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/6976eaa7f8a1bd69e807b595/db9d8b20-db81-4c32-8571-7da90d765961/Met+Tract+Summer+Sounds+Flyer.jpg"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.unboundsymphony.org/summer-popup"
+    },
+    "events12:local-short-films-2026-08-01-1430": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "no stable direct image URL available on festival page"
+    },
+    "events12:local-short-films-2026-08-01-1830": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "no stable direct image URL available on festival page"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_u_UAdG3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/beabadoobee-the-powerlines-tour-seattle-washington-10-29-2026/event/0F0064D676143312"
+    },
+    "el-suenito-brewing:el-suenito-brewing-331afa3e-a76b-4dd9-b495-2ca141c110fb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/queer-book-club-2026-07-29-19-00"
+    },
+    "seattle-film-society:6a697e73452db4342a331f4e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.seattlefilmsociety.com/calendar/"
+    },
+    "seattle-film-society:6a697f00fbd9056cf0e0e081": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.seattlefilmsociety.com/calendar/"
+    },
+    "seattle-film-society:6a697f51a549fe2ecf03af31": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.seattlefilmsociety.com/calendar/"
+    },
+    "stg:tm-vvG1HZ_ClrPCjn": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/an-evening-with-eric-idle-idle-seattle-washington-10-29-2026/event/0F0064EADE94E72A"
+    },
+    "wamu-theater:tm-vvG1HZ_Gn_NI7f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://on.fgtix.com/trk/YXGQ"
+    },
+    "venue:loc:ashford county park, 29801 wa-706, ashford, wa 98304": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/search?query=Ashford+County+Park"
+    },
+    "venue:loc:edmonds historical museum, 118 5th ave n, edmonds, wa 98020": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.historicedmonds.org/"
+    },
+    "venue:loc:fort worden state park, 200 battery way, port townsend, wa 98368": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "mixed indoor/outdoor venue (state park with historic buildings and outdoor parade grounds)"
+    },
+    "venue:loc:lake city branch: the seattle public library, 12501 28th ave ne, seattle, wa 98125": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.spl.org/hours-and-locations/lake-city"
+    },
+    "venue:loc:magnuson park building 30": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/centers/sand-point-magnuson-park"
+    },
+    "venue:loc:park ridge community church, 3805 maltby rd, bothell, wa 98012": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/search?query=Park+Ridge+Community+Church+Bothell+WA"
+    },
+    "venue:osm:node:3006173065": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/3006173065"
+    },
+    "venue:osm:relation:237385": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "reason": "OSM relation 237385 is the entire city of Seattle, not a specific venue"
+    },
+    "venue:osm:way:1302801907": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.seattleconventioncenter.com/summit"
+    },
+    "venue:osm:way:177045738": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/177045738"
+    },
+    "venue:osm:way:995947419": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-07-30",
+      "source": "agent",
+      "evidence": "https://siff.net/cinema/siff-film-center"
     }
   }
 }

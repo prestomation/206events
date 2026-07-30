@@ -929,6 +929,39 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'new york, ny': { lat: 40.7127281, lng: -74.0060152 }, // away-game city label
   'wenatchee, wa': { lat: 47.4234599, lng: -120.3103490 },
   'bainbridge island': { lat: 47.6515096, lng: -122.5246791 }, // Nominatim's island-wide centroid (a few km north of downtown Winslow); ferry-linked events
+
+  // --- 2026-07-30 geo-resolver batch: "has street address" / "venue name only"
+  // unresolvable entries. All coords forward-geocoded via Nominatim from verified
+  // addresses. Prefix keys cover suite/floor/unit/city suffixes. Never reverse-geocoded.
+  'amy yee tennis center': { lat: 47.5849223, lng: -122.2972754 }, // 2000 MLK Jr Way S, Seattle — prefix covers "2000 mlk jr way s, seattle, wa" address suffix variants
+  'alki artsq @ 6030 california sw, west seattle': { lat: 47.5475441, lng: -122.3869788 }, // arts space, Alaska Junction
+  'alki beach promenade & bathhouse @ 2701 alki avenue sw, west seattle': { lat: 47.5796904, lng: -122.4096327 }, // Alki Bathhouse, 2701 Alki Ave SW
+  'alki kayak tours @ 1660 harbor avenue sw, west seattle': { lat: 47.5894296, lng: -122.3805678 }, // 1660 Harbor Ave SW, West Seattle
+  'alki kayak tours @ 1660 harbor sw, west seatle': { lat: 47.5894296, lng: -122.3805678 }, // source misspelling of above (missing "avenue" + "seattle")
+  'alki statue of liberty': { lat: 47.5789408, lng: -122.4109885 }, // 61st Ave SW & Alki Ave SW — prefix covers "@" and "plaza" variants
+  'alki ucc @ 6115 sw hinds, west seattle': { lat: 47.5737709, lng: -122.4116683 }, // Alki United Church of Christ
+  'asbery athletic field': { lat: 48.0523930, lng: -122.1732610 }, // 449 Alder Ave, Marysville, WA — prefix covers full address
+  'asia pacific cultural center, 3513 portland ave e, tacoma, wa': { lat: 47.2298509, lng: -122.4074252 }, // APCC Tacoma, main building
+  'asia pacific cultural center, 4851 s tacoma way, tacoma, wa': { lat: 47.2121094, lng: -122.4829947 }, // APCC Tacoma, second location
+  'aslan brewing co, fremont': { lat: 47.6518966, lng: -122.3541151 }, // 401 N 36th St, Seattle — prefix covers suite/city suffix
+  'aslan brewing tangletown': { lat: 47.6688260, lng: -122.3323554 }, // 253 N 56th St, Seattle — prefix covers unit suffix
+  'ball field 3 @ 8011 fauntleroy way sw, west seattle': { lat: 47.5311632, lng: -122.3931989 }, // Fauntleroy Park playfields
+  'ballard beer box': { lat: 47.6688337, lng: -122.3896468 }, // 2446 NW Market St, Seattle — prefix covers address/city suffix
+  'barley pop! brewing': { lat: 47.9244355, lng: -122.0967319 }, // 1208 10th St, Snohomish, WA — prefix covers suite suffix
+  'beacon food forest': { lat: 47.5674923, lng: -122.3133592 }, // 15th Ave S & S Dakota St, Seattle — prefix covers address/state suffix
+  'bellevue arts museum': { lat: 47.6147893, lng: -122.2015344 }, // 510 Bellevue Way NE — prefix covers the source "510 belllevue way ne" (3-l typo)
+  'big howe playfields': { lat: 47.6364871, lng: -122.3730551 }, // Howe Park, Queen Anne — prefix covers ", seattle, wa" suffix
+  'blaine marine park': { lat: 48.9952612, lng: -122.7592388 }, // Semiahmoo, Blaine, WA — prefix covers address/zip suffix
+  'bloedel hall': { lat: 47.6319325, lng: -122.3213601 }, // St Mark's Cathedral, 1245 10th Ave E, Seattle — prefix covers full address suffix
+  'bremerton boardwalk': { lat: 47.5640832, lng: -122.6237632 }, // 243 2nd St, Bremerton — prefix covers address suffix
+  'bremerton ferry terminal': { lat: 47.5634695, lng: -122.6255545 }, // 10 Washington Ave, Bremerton — prefix covers "(local ferries)" suffix
+  'cap sante marina': { lat: 48.5137316, lng: -122.6095888 }, // 1019 Q Ave, Anacortes — prefix covers address suffix
+  'capital hill branch library': { lat: 47.6229165, lng: -122.3223263 }, // 425 Harvard Ave E, Seattle — prefix covers "meeting room" suffix
+  'capitol hill library': { lat: 47.6229165, lng: -122.3223263 }, // alternate spelling of above — prefix covers "meeting room, 425 harvard ave e" suffix
+  'carkeek park': { lat: 47.7096629, lng: -122.3728927 }, // 950 NW Carkeek Park Rd, Seattle — prefix covers "picnic area" and other suffixes
+  'chambers creek regional park': { lat: 47.2057007, lng: -122.5750529 }, // 6320 Grandview Dr W, University Place, WA — prefix covers address suffix
+  'cornish college of the arts': { lat: 47.6180773, lng: -122.3362287 }, // 1000 Lenora St, Belltown, Seattle — prefix covers ", seattle, wa" suffix
+  'drumheller fountain (uw campus)': { lat: 47.6538087, lng: -122.3078047 }, // Rainier Vista NE, UW Central Campus
 };
 
 /**
