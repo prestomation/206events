@@ -9184,6 +9184,81 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-30",
       "note": "Same event (cityspark ID 19505321) appearing in two seatoday calendar feeds (all + arts)"
+    },
+    "external-seattle-university.ics Farewell Reception for Anne Moran|2026-08-13T22:30:00Z[UTC]::seatoday-seatoday-all.ics Farewell Reception for Anne Moran|2026-08-13T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same Seattle University farewell reception, different campus building names in the two sources (CitySpark vs SU own calendar)"
+    },
+    "external-seattle-university.ics Farewell Reception for Anne Moran|2026-08-13T22:30:00Z[UTC]::seatoday-seatoday-food.ics Farewell Reception for Anne Moran|2026-08-13T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same Seattle University farewell reception, different campus building names in the two sources (CitySpark vs SU own calendar)"
+    },
+    "queer-power-alliance-all-events.ics Alki Beach Pride|2026-08-15T12:00:00.991-07:00[America/Los_Angeles]::seattle-pride-all-events.ics ALKI BEACH PRIDE|2026-08-15T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same Alki Beach Pride event, two independent sources (Seattle Pride and Queer Power Alliance both list it)"
+    },
+    "queer-social-club-all-events.ics Alki Beach Pride|2026-08-15T12:00:00.708-07:00[America/Los_Angeles]::seattle-pride-all-events.ics ALKI BEACH PRIDE|2026-08-15T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same Alki Beach Pride event, two sources (Seattle Pride and Queer Social Club both list it)"
+    },
+    "seatoday-seatoday-all.ics BONNIE & CLYDE|2026-08-13T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics BONNIE & CLYDE|2026-08-13T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-all and seatoday-arts feeds (CitySpark multi-category)"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-all and seatoday-arts feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-all and seatoday-community feeds"
+    },
+    "seatoday-seatoday-all.ics Red Cross Blood Drive|2026-08-13T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Red Cross Blood Drive|2026-08-13T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-all and seatoday-arts feeds"
+    },
+    "seatoday-seatoday-all.ics Red Cross Blood Drive|2026-08-13T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red Cross Blood Drive|2026-08-13T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-all and seatoday-community feeds"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Native Plant Nursery|2026-08-13T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Native Plant Nursery|2026-08-13T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-all and seatoday-community feeds"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Native Plant Nursery|2026-08-13T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Native Plant Nursery|2026-08-13T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-all and seatoday-sports feeds"
+    },
+    "seatoday-seatoday-all.ics Seeds of Restoration: Western WA Native Seed Collection and Propagation|2026-08-13T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seeds of Restoration: Western WA Native Seed Collection and Propagation|2026-08-13T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-all and seatoday-learning feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-arts and seatoday-community feeds"
+    },
+    "seatoday-seatoday-arts.ics Red Cross Blood Drive|2026-08-13T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red Cross Blood Drive|2026-08-13T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-arts and seatoday-community feeds"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Native Plant Nursery|2026-08-13T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Native Plant Nursery|2026-08-13T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-07-31",
+      "note": "Same seatoday event appearing in both seatoday-community and seatoday-sports feeds"
     }
   }
 }
