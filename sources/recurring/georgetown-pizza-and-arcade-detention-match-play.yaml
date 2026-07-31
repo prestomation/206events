@@ -1,0 +1,22 @@
+geo:
+  lat: 47.5529619
+  lng: -122.3208225
+  label: "Georgetown Pizza & Arcade, 5513 Airport Way S, Seattle, WA 98108"
+  osmType: node
+  osmId: 2396888057
+imageUrl: "https://images.squarespace-cdn.com/content/v1/63a2952e4ad871458fd6af54/aae3a58a-2473-46ab-9a00-ae22d649ba49/Logo+Banner+Image.jpg?format=1500w"
+name: georgetown-pizza-and-arcade-detention-match-play
+sourceRole: venue
+friendlyname: Last Sunday Detention Match Play at Georgetown Pizza & Arcade
+description: Monthly IFPA-ranked pinball match play tournament at Georgetown Pizza & Arcade, held the last Sunday of the month. All ages welcome. $5 entry.
+timezone: America/Los_Angeles
+location: "5513 Airport Way S, Seattle, WA 98108"
+url: https://www.gpaseattle.com/play
+tags:
+  - Gaming
+  - Georgetown
+cost: 5
+schedules:
+  - schedule: last Sunday
+    start_time: "16:00"
+    duration: PT3H
