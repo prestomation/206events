@@ -1,14 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-07-23": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-07-24": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1297,13 +1289,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-07-24": {
       "unresolvable": true,
       "reason": "Commercial tour — booking times vary by individual reservation",
@@ -2395,13 +2380,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-07-24": {
       "unresolvable": true,
@@ -3502,13 +3480,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-07-24": {
       "unresolvable": true,
       "reason": "Season schedule page — each home game has a different start time",
@@ -4257,14 +4228,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour — booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-07-24": {
       "unresolvable": true,
@@ -5066,14 +5029,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-07-24": {
       "unresolvable": true,
       "reason": "Season schedule page — each game has a different start time",
@@ -5600,14 +5555,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
     "events12:winery-concerts-2026-07-24": {
@@ -6138,14 +6085,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
     "events12:concerts-at-the-locks-2026-07-24": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
@@ -6514,14 +6453,6 @@
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
-    "events12:bus-to-the-mountains-2026-07-23": {
-      "unresolvable": true,
-      "reason": "General transit service page — specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:bus-to-the-mountains-2026-07-24": {
       "unresolvable": true,
       "reason": "General transit service page — specific departure times vary by date and destination",
@@ -6825,13 +6756,6 @@
       "source": "agent",
       "evidence": "https://trailheaddirect.org/",
       "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-marymoor-park-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
     },
     "events12:concerts-at-marymoor-park-2026-07-24": {
       "unresolvable": true,
@@ -11720,14 +11644,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
     },
-    "events12:taste-of-pike-place-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:taste-of-pike-place-2026-07-24": {
       "unresolvable": true,
       "resolvedAt": "2026-05-25",
@@ -14826,14 +14742,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:garden-walk-2026-07-23": {
-      "unresolvable": true,
-      "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:garden-walk-2026-07-24": {
       "unresolvable": true,
       "reason": "Events12 appears to have expanded a limited-run event to a 6-week range; specific daily hours unclear",
@@ -14848,14 +14756,6 @@
       "resolvedAt": "2026-06-11",
       "source": "agent",
       "partialFingerprint": "51vnas-until2026-07-25-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:zoo-concerts-2026-07-23": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
     },
     "events12:zoo-concerts-2026-07-24": {
@@ -16996,16 +16896,6 @@
       "source": "agent",
       "evidence": "https://www.couthbuzzard.com/event-calendar"
     },
-    "events12:on-the-water-2026-07-23": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
-    },
     "events12:on-the-water-2026-07-24": {
       "fields": {
         "cost": {
@@ -18726,13 +18616,6 @@
       "resolvedAt": "2026-06-15",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-welcomes-bosnia-and-herzegovina"
-    },
-    "events12:movies-in-seattle-parks-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Start time not posted on source page; movies start at dusk (varies by date)",
-      "lastSeen": "2026-06-21"
     },
     "events12:movies-in-seattle-parks-2026-07-24": {
       "unresolvable": true,
@@ -20749,12 +20632,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:baseball-in-tacoma-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-07-24": {
       "unresolvable": true,
@@ -26499,7 +26376,8 @@
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/animation-domination-the-last-unicorn/"
+      "evidence": "https://nwfilmforum.org/films/animation-domination-the-last-unicorn/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:animation-domination-the-wolf-house-2026-08-16": {
       "fields": {
@@ -26510,7 +26388,8 @@
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/animation-domination-the-wolf-house/"
+      "evidence": "https://nwfilmforum.org/films/animation-domination-the-wolf-house/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:beacon-of-flesh-2026-07-29": {
       "fields": {
@@ -26543,7 +26422,8 @@
       },
       "resolvedAt": "2026-07-04",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/drunken-noodles/"
+      "evidence": "https://nwfilmforum.org/films/drunken-noodles/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:love-lies-bleeding-2026-07-28": {
       "fields": {
@@ -26565,7 +26445,8 @@
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/education/workshops/indie-v-industry-fireside-chat-joey-goldie/"
+      "evidence": "https://nwfilmforum.org/education/workshops/indie-v-industry-fireside-chat-joey-goldie/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:work-progress-screening-like-father-like-daughter-2026-08-04": {
       "fields": {
@@ -26576,7 +26457,8 @@
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/education/workshops/work-progress-screening-like-father-like-daughter/"
+      "evidence": "https://nwfilmforum.org/education/workshops/work-progress-screening-like-father-like-daughter/",
+      "lastSeen": "2026-07-31"
     },
     "chophouse-row:67103733cfc2481c77f6224a": {
       "fields": {
@@ -30721,16 +30603,6 @@
       "source": "agent",
       "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
     },
-    "sea-monster-lounge:sea-monster-lounge-jerry-joseph-the-jackmormons-2-2026-07-23": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-05",
-      "source": "agent",
-      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
-    },
     "sea-monster-lounge:sea-monster-lounge-la-luz-2026-07-27-22-00-2026-07-27": {
       "fields": {
         "cost": {
@@ -30892,16 +30764,6 @@
       "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
     },
     "sea-monster-lounge:sea-monster-lounge-shady-bottom-2026-08-14-20-00-2026-08-14": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-05",
-      "source": "agent",
-      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
-    },
-    "sea-monster-lounge:sea-monster-lounge-tarik-friends-2026-07-23-19-30-2026-07-23": {
       "fields": {
         "cost": {
           "paid": true
@@ -32321,7 +32183,8 @@
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:the-end-of-summer-2026-09-11": {
       "fields": {
@@ -32332,7 +32195,8 @@
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:truth-to-fiction-baby-doe-2026-09-03": {
       "fields": {
@@ -32343,7 +32207,8 @@
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:truth-to-fiction-shermans-march-4k-restoration-2026-08-06": {
       "fields": {
@@ -32354,7 +32219,8 @@
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:unstreamable-shot-andy-warhol-2026-07-24": {
       "fields": {
@@ -32376,7 +32242,8 @@
       },
       "resolvedAt": "2026-07-05",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/"
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-rrr/",
+      "lastSeen": "2026-07-31"
     },
     "stg:tm-vvG1HZ_6mMUBx-": {
       "fields": {
@@ -32641,17 +32508,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "evidence": "https://www.cwb.org/wood-regatta"
-    },
-    "center-for-wooden-boats:dinner-on-the-docks-sugartime-trio-2026-07-23": {
-      "fields": {
-        "cost": {
-          "paid": true
-        },
-        "imageUrl": "http://static1.squarespace.com/static/5c48db894eddeca43abfade1/t/659730baa0b95460bd342f03/1736897620089/RAD02665.jpg?format=1500w"
-      },
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "evidence": "https://www.cwb.org/dinneronthedocksw/sugartime"
     },
     "west-seattle-nursery:69deb35d46e0a85c592021d6": {
       "fields": {
@@ -33417,12 +33273,6 @@
       "source": "agent",
       "reason": "HTTP 403 from ticketing platform (tixr.com/ra.co/axs.com) — image not accessible from automated fetch"
     },
-    "19hz:19hz-2026/07/23-Soundgarden Tribute: Outshined": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-06",
-      "source": "agent",
-      "reason": "TicketWeb 404 — event no longer listed, no image retrievable"
-    },
     "seattle-center:summer-fitness-workout-wednesdays-mat-pilates-x46740": {
       "fields": {
         "duration": 3600,
@@ -33578,7 +33428,8 @@
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/sfcs-10-mariners/"
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-mariners/",
+      "lastSeen": "2026-07-31"
     },
     "native_action_network:6a3095650216836ccc106f56": {
       "unresolvable": true,
@@ -34071,15 +33922,6 @@
       "evidence": "https://www.eventbrite.com/e/deep-dish-tickets-1990818944053?aff=19hz",
       "lastSeen": "2026-07-12"
     },
-    "19hz:19hz-2026/07/23-Deck'd Out: Sassmouth, Nark, Haus Catz": {
-      "fields": {
-        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188316147%2F74927433109%2F1%2Foriginal.20260706-200958?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=fd96ed6ff80b0da29b222cd8df00be0e"
-      },
-      "resolvedAt": "2026-07-08",
-      "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/deckd-out-6-sassmouth-chi-nark-bottom-forty-haus-catz-tickets-1989969744073",
-      "lastSeen": "2026-07-12"
-    },
     "19hz:19hz-2026/07/24-ELIF": {
       "fields": {
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187422906%2F1955181441163%2F1%2Foriginal.20260622-192601%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D1880%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.498%26fp-y%3D0.228%26s%3De1ea01a12b23de41a4842a67df43bd34"
@@ -34088,23 +33930,6 @@
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/oasis-presents-elif-tickets-1992377879872?t=19hz",
       "lastSeen": "2026-07-12"
-    },
-    "19hz:19hz-2026/07/23-Listening Session: Aphex Twin - Selected Ambient Works '85-'92": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-08",
-      "source": "agent",
-      "reason": "No event page URL; listening session events have no ticket page or external image source."
-    },
-    "events12:architectural-tour-2026-07-23": {
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
-      "fields": {
-        "cost": {
-          "min": 27.5
-        },
-        "setting": "outdoor"
-      },
-      "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-2026-07-24": {
       "fields": {
@@ -34463,17 +34288,6 @@
       "source": "agent",
       "evidence": "https://www.folioseattle.org/event-details/confronting-racism-imagining-a-more-peaceful-community"
     },
-    "19hz:19hz-2026/07/23-Freakquencies: The Dare, Two Shell, Nick Leon": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
-      "evidence": "https://www.axs.com/events/1492076/freakquencies-tickets?cid=19hz",
-      "lastSeen": "2026-07-12"
-    },
     "climate-pledge-arena:tm-vvG1HZ_eSaDa4L": {
       "fields": {
         "cost": {
@@ -34483,13 +34297,6 @@
       "resolvedAt": "2026-07-09",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/carin-leon-de-sonora-para-el-seattle-washington-10-08-2026/event/0F006203090A6C6B"
-    },
-    "19hz:19hz-2026/07/23-Westworld": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-09",
-      "source": "agent",
-      "reason": "Instagram-only source; no pricing info accessible",
-      "lastSeen": "2026-07-12"
     },
     "pike-place-market:ppm-el-mixteco": {
       "fields": {
@@ -34552,13 +34359,6 @@
       "resolvedAt": "2026-07-09",
       "source": "agent",
       "evidence": "https://www.folioseattle.org/event-details/baroque-threads-a-journey-from-venice-to-persia"
-    },
-    "19hz:19hz-2026/07/23-Caress, 2libras, Phantom Eyes": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "reason": "Ticketing page (Tixr/DICE/Ticketmaster) blocked; end time not published on event page",
-      "lastSeen": "2026-07-12"
     },
     "19hz:19hz-2026/07/25-COMPOUND": {
       "unresolvable": true,
@@ -35627,7 +35427,8 @@
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/barbara-forever/"
+      "evidence": "https://nwfilmforum.org/films/barbara-forever/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:wtf-with-stuff-neptune-frost-2026-09-16": {
       "fields": {
@@ -35638,7 +35439,8 @@
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-neptune-frost/"
+      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-neptune-frost/",
+      "lastSeen": "2026-07-31"
     },
     "seatoday:cityspark-19122205": {
       "fields": {
@@ -36659,18 +36461,6 @@
       "resolvedAt": "2026-07-10",
       "source": "agent",
       "evidence": "https://www.lakefair.org/ — outdoor waterfront park, Olympia Lakefair festival"
-    },
-    "events12:concerts-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "reason": "events12 generic touring-concert listing with no fixed venue disclosed"
-    },
-    "events12:live-theater-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "reason": "events12 generic touring-theater listing, empty location field, no fixed venue disclosed"
     },
     "venue:loc:39th ave sw &amp": {
       "fields": {
@@ -37735,12 +37525,6 @@
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/concert_series/2026-summer-festival/"
     },
-    "events12:chamber-music-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
-      "reason": "no concert scheduled on this date per seattlechambermusic.org official summer festival schedule"
-    },
     "events12:chamber-music-2026-07-25": {
       "unresolvable": true,
       "resolvedAt": "2026-07-11",
@@ -37756,7 +37540,8 @@
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/boorman-the-devil/"
+      "evidence": "https://nwfilmforum.org/films/boorman-the-devil/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:camp-2026-07-24": {
       "fields": {
@@ -37778,7 +37563,8 @@
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/exorcist-ii-heretic/"
+      "evidence": "https://nwfilmforum.org/films/exorcist-ii-heretic/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:mysterious-skin-4k-restoration-2026-08-23": {
       "fields": {
@@ -37789,7 +37575,8 @@
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/mysterious-skin-4k-restoration/"
+      "evidence": "https://nwfilmforum.org/films/mysterious-skin-4k-restoration/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:seattle-film-society-presents-locals-july-2026-2026-07-30": {
       "fields": {
@@ -37811,7 +37598,8 @@
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/the-flamingo/"
+      "evidence": "https://nwfilmforum.org/films/the-flamingo/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:wtf-with-stuff-senorita-2026-08-19": {
       "fields": {
@@ -37822,7 +37610,8 @@
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-senorita/"
+      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-senorita/",
+      "lastSeen": "2026-07-31"
     },
     "SAF:183853690": {
       "fields": {
@@ -38602,14 +38391,6 @@
       "source": "agent",
       "reason": "road/highway element rather than a venue — setting depends on the specific event"
     },
-    "events12:dance-in-the-park-2026-07-23": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
-      "evidence": "https://www.events12.com"
-    },
     "events12:dance-in-the-park-2026-07-24": {
       "fields": {
         "setting": "outdoor"
@@ -38628,17 +38409,6 @@
       "resolvedAt": "2026-07-11",
       "source": "agent",
       "evidence": "https://www.events12.com"
-    },
-    "events12:music-by-candlelight-2026-07-23": {
-      "fields": {
-        "setting": "indoor",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-11",
-      "source": "agent",
-      "evidence": "https://fever.pxf.io/Kj6j5x"
     },
     "events12:music-by-candlelight-2026-07-24": {
       "fields": {
@@ -38691,15 +38461,6 @@
       "resolvedAt": "2026-07-13",
       "source": "agent",
       "evidence": "https://pacificraceways.com/nhra/"
-    },
-    "events12:shakespeare-in-the-park-2026-07-23": {
-      "fields": {
-        "imageUrl": "https://greenstage.org/wp-content/uploads/2026/06/53947912473_9995aa8a78_c.jpg",
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-07-18",
-      "source": "agent",
-      "evidence": "https://greenstage.org/shakespeare-in-the-park/"
     },
     "events12:shakespeare-in-the-park-2026-07-24": {
       "fields": {
@@ -38849,7 +38610,8 @@
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/remake/"
+      "evidence": "https://nwfilmforum.org/films/remake/",
+      "lastSeen": "2026-07-31"
     },
     "couth-buzzard:_68p3ch24752jab9o70r38b9k85346b9o89242b9h6h338ghp6ko3ee9n8c": {
       "fields": {
@@ -39276,17 +39038,6 @@
       "source": "agent",
       "evidence": "https://www.siff.net/cinema/in-theaters/seattle-48-hour-film-project-premiere-screenings-2025"
     },
-    "events12:forest-music-festival-2026-07-23": {
-      "fields": {
-        "imageUrl": "https://timbermusicfest.com/wp-content/uploads/Timber2026_1080x1350_GIF.gif",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://timbermusicfest.com/"
-    },
     "events12:forest-music-festival-2026-07-24": {
       "fields": {
         "imageUrl": "https://timbermusicfest.com/wp-content/uploads/Timber2026_1080x1350_GIF.gif",
@@ -39319,17 +39070,6 @@
       "resolvedAt": "2026-07-18",
       "source": "agent",
       "evidence": "https://www.hotstovesociety.com/store/events/"
-    },
-    "events12:hawaii-festival-near-portland-2026-07-23": {
-      "fields": {
-        "imageUrl": "https://static.wixstatic.com/media/c2095e_b208dccbe7b4478899bd19f29cedb75f~mv2.jpg",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://www.4daysofaloha.com/"
     },
     "events12:hawaii-festival-near-portland-2026-07-24": {
       "fields": {
@@ -39658,16 +39398,6 @@
       "resolvedAt": "2026-07-13",
       "source": "agent",
       "evidence": "https://www.jambase.com/festival/day-trip-festival-seattle-2026"
-    },
-    "events12:renaissance-fair-2026-07-23": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      }
     },
     "events12:renaissance-fair-2026-07-24": {
       "resolvedAt": "2026-07-11",
@@ -40636,8 +40366,8 @@
         "duration": 7200,
         "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "min": 35.0,
-          "max": 74.0
+          "min": 35,
+          "max": 74
         }
       },
       "resolvedAt": "2026-07-30",
@@ -41535,15 +41265,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "Source URL is an image file (events12.com/img/), not an event page"
-    },
-    "events12:eastside-movies-in-parks-2026-07-23": {
-      "fields": {
-        "imageUrl": "https://bellevuewa.gov/sites/default/files/styles/header_image/public/media/header_image/2021-07/movies-in-the-park-banner.jpg?h=680c2ec9&itok=S3Q2wKzG",
-        "startTime": "19:00"
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
     },
     "events12:eastside-movies-in-parks-2026-07-24": {
       "fields": {
@@ -42467,12 +42188,6 @@
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/events"
     },
-    "events12:concerts-on-a-farm-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
-    },
     "events12:concerts-on-a-farm-2026-07-24": {
       "unresolvable": true,
       "resolvedAt": "2026-07-12",
@@ -42873,23 +42588,11 @@
       "source": "agent",
       "evidence": "https://greenstage.org/sotf/"
     },
-    "events12:welcome-ships-sailors-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "seafair.org/fleet-week/ states times TBA and directs to signup for notifications"
-    },
     "events12:welcome-ships-sailors-2026-07-24": {
       "unresolvable": true,
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "seafair.org/fleet-week/ states times TBA and directs to signup for notifications"
-    },
-    "events12:new-musical-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "stgpresents.org lists 'Various showtimes' for Hell's Kitchen; no specific times available without ticket lookup"
     },
     "events12:new-musical-2026-07-24": {
       "unresolvable": true,
@@ -43051,12 +42754,6 @@
       "resolvedAt": "2026-07-13",
       "source": "agent",
       "evidence": "https://www.anacortesartsfestival.com/visitors"
-    },
-    "events12:tacoma-concerts-2026-07-23": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
     },
     "events12:tacoma-concerts-2026-07-24": {
       "unresolvable": true,
@@ -45748,37 +45445,43 @@
       "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-28": {
       "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-29": {
       "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-30": {
       "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:pazuzus-wings-exorcist-ii-double-feature-2026-09-05": {
       "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:pazuzus-wings-exorcist-ii-double-feature-2026-09-06": {
       "unresolvable": true,
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible",
+      "lastSeen": "2026-07-31"
     },
     "seatoday:cityspark-19434506": {
       "fields": {
@@ -46259,7 +45962,8 @@
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/members-mystery-preview-august-2026/"
+      "evidence": "https://nwfilmforum.org/films/members-mystery-preview-august-2026/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:once-upon-time-seattle-2026-09-11": {
       "fields": {
@@ -46270,7 +45974,8 @@
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/once-upon-time-seattle/"
+      "evidence": "https://nwfilmforum.org/films/once-upon-time-seattle/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:welcome-to-the-dollhouse-2026-08-26": {
       "fields": {
@@ -46281,7 +45986,8 @@
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/welcome-to-the-dollhouse/"
+      "evidence": "https://nwfilmforum.org/films/welcome-to-the-dollhouse/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:three-bewildered-people-in-the-night-2026-08-21": {
       "fields": {
@@ -46292,7 +45998,8 @@
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/three-bewildered-people-in-the-night/"
+      "evidence": "https://nwfilmforum.org/films/three-bewildered-people-in-the-night/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:sleepbomb-presents-the-cabinet-of-dr-caligari-2026-09-02": {
       "fields": {
@@ -46304,7 +46011,8 @@
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/sleepbomb-presents-the-cabinet-of-dr-caligari/"
+      "evidence": "https://nwfilmforum.org/films/sleepbomb-presents-the-cabinet-of-dr-caligari/",
+      "lastSeen": "2026-07-31"
     },
     "rabbit_box:6a56c8a0eaca744682254cab": {
       "fields": {
@@ -46682,16 +46390,6 @@
       "evidence": "https://charliesqueerbooks.com/events"
     },
     "charlies-queer-books:charlies-queer-books-5713320260731": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-07-18",
-      "source": "agent",
-      "evidence": "https://charliesqueerbooks.com/events"
-    },
-    "charlies-queer-books:charlies-queer-books-5737220260723": {
       "fields": {
         "cost": {
           "paid": true
@@ -47358,7 +47056,8 @@
       },
       "resolvedAt": "2026-07-20",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/education/workshops/cyanotype-workshop-suns-excrusion-interbay-cinema-society/"
+      "evidence": "https://nwfilmforum.org/education/workshops/cyanotype-workshop-suns-excrusion-interbay-cinema-society/",
+      "lastSeen": "2026-07-31"
     },
     "stg:tm-vvG1HZ_7K4mFqr": {
       "fields": {
@@ -48710,7 +48409,8 @@
       },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
+      "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/",
+      "lastSeen": "2026-07-31"
     },
     "northwest-film-forum:equinox-flower-2026-09-30": {
       "fields": {
@@ -48721,7 +48421,8 @@
       },
       "resolvedAt": "2026-07-24",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/equinox-flower/"
+      "evidence": "https://nwfilmforum.org/films/equinox-flower/",
+      "lastSeen": "2026-07-31"
     },
     "seattle-center:freak-the-mighty-x47847": {
       "fields": {
@@ -49361,7 +49062,7 @@
     "seatoday:cityspark-17923217": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-07-25",
@@ -49372,13 +49073,14 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/cabaretposter.png",
         "cost": {
-          "min": 15.0,
-          "max": 25.0
+          "min": 15,
+          "max": 25
         }
       },
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/cabaret-charlies-queer-books/"
+      "evidence": "https://nwfilmforum.org/films/cabaret-charlies-queer-books/",
+      "lastSeen": "2026-07-31"
     },
     "rainier-beach-community-club:rbcc-meaningful-movies-2026-09-19": {
       "fields": {
@@ -49430,7 +49132,7 @@
     "sea-monster-lounge:sea-monster-lounge-pa-gozar-2026-08-01-19-00-2026-08-01": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-07-25",
@@ -49440,7 +49142,7 @@
     "sea-monster-lounge:sea-monster-lounge-kiki-valera-y-su-son-cubano-2026-08-08-19-00-2026-08-08": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-07-25",
@@ -49450,7 +49152,7 @@
     "sea-monster-lounge:sea-monster-lounge-son-los-que-son-2026-08-15-19-00-2026-08-15": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-07-25",
@@ -49646,7 +49348,7 @@
     "queer-social-club:6a60123b7e46f368d8d41c4b": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-07-25",
@@ -49666,7 +49368,7 @@
     "rabbit_box:6a5fbd8d313a793fb3ba5888": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-07-25",
@@ -49676,8 +49378,8 @@
     "rabbit_box:6a62b86acda7010306ca7f32": {
       "fields": {
         "cost": {
-          "min": 15.0,
-          "max": 20.0
+          "min": 15,
+          "max": 20
         }
       },
       "resolvedAt": "2026-07-25",
@@ -49697,7 +49399,7 @@
     "rabbit_box:6a613626c331543e64b35cf3": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-07-25",
@@ -49707,8 +49409,8 @@
     "rabbit_box:6a61541257ca5644bb828ea0": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 25.0
+          "min": 20,
+          "max": 25
         }
       },
       "resolvedAt": "2026-07-25",
@@ -50943,7 +50645,7 @@
     "burke-museum:burke-reclaiming-our-roots-cultural-reflections-incarcerated-artists": {
       "fields": {
         "cost": {
-          "min": 24.0
+          "min": 24
         }
       },
       "resolvedAt": "2026-07-27",
@@ -50953,7 +50655,7 @@
     "burke-museum:burke-reclaiming-our-roots-cultural-reflections-incarcerated-artists-0": {
       "fields": {
         "cost": {
-          "min": 24.0
+          "min": 24
         }
       },
       "resolvedAt": "2026-07-27",
@@ -50963,7 +50665,7 @@
     "burke-museum:burke-reclaiming-our-roots-cultural-reflections-incarcerated-artists-1": {
       "fields": {
         "cost": {
-          "min": 24.0
+          "min": 24
         }
       },
       "resolvedAt": "2026-07-27",
@@ -50973,7 +50675,7 @@
     "burke-museum:burke-reclaiming-our-roots-cultural-reflections-incarcerated-artists-2": {
       "fields": {
         "cost": {
-          "min": 24.0
+          "min": 24
         }
       },
       "resolvedAt": "2026-07-27",
@@ -51560,7 +51262,7 @@
     "seatoday:cityspark-19490073": {
       "fields": {
         "cost": {
-          "min": 29.0
+          "min": 29
         }
       },
       "resolvedAt": "2026-07-29",
@@ -51852,8 +51554,8 @@
         "duration": 7200,
         "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "min": 35.0,
-          "max": 74.0
+          "min": 35,
+          "max": 74
         }
       },
       "resolvedAt": "2026-07-30",
@@ -51866,8 +51568,8 @@
         "duration": 7200,
         "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "min": 35.0,
-          "max": 74.0
+          "min": 35,
+          "max": 74
         }
       },
       "resolvedAt": "2026-07-30",
@@ -51880,8 +51582,8 @@
         "duration": 7200,
         "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "min": 35.0,
-          "max": 74.0
+          "min": 35,
+          "max": 74
         }
       },
       "resolvedAt": "2026-07-30",
@@ -51894,8 +51596,8 @@
         "duration": 7200,
         "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "min": 35.0,
-          "max": 74.0
+          "min": 35,
+          "max": 74
         }
       },
       "resolvedAt": "2026-07-30",
@@ -51908,8 +51610,8 @@
         "duration": 7200,
         "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "min": 35.0,
-          "max": 74.0
+          "min": 35,
+          "max": 74
         }
       },
       "resolvedAt": "2026-07-30",
@@ -51922,8 +51624,8 @@
         "duration": 7200,
         "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "min": 35.0,
-          "max": 74.0
+          "min": 35,
+          "max": 74
         }
       },
       "resolvedAt": "2026-07-30",
@@ -51936,8 +51638,8 @@
         "duration": 7200,
         "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
         "cost": {
-          "min": 35.0,
-          "max": 74.0
+          "min": 35,
+          "max": 74
         }
       },
       "resolvedAt": "2026-07-30",
@@ -51948,7 +51650,7 @@
       "fields": {
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/534bf97fe4b0bb0f73fd3cba/1565032170683-HD543IQGI8VOZ4S1SIQZ/2019winewalkAWEsquare.jpg",
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-07-30",
@@ -53655,8 +53357,8 @@
     "seatoday:cityspark-19505322": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-07-30",
@@ -54187,6 +53889,29 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/x46781.xml",
       "partialFingerprint": "1lhez0g"
+    },
+    "seattle-center:freak-the-mighty-x47855": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-07-31",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty — \"Approximately 2 hours and 30 minutes including one 20-minute intermission.\" (Seattle Rep, the producing venue; start time 7:30pm per seattlecenter.com listing)"
+    },
+    "seattle-center:seattle-tattoo-expo-x44326": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-07-31",
+      "source": "agent",
+      "evidence": "https://www.seattletattooexpo.com/schedule/ — Saturday Aug 15 (Day 2): \"12pm Doors Open\" through 9pm (Best of Show)"
+    },
+    "seattle-center:movies-at-the-mural-coco": {
+      "unresolvable": true,
+      "resolvedAt": "2026-07-31",
+      "source": "agent",
+      "reason": "seattlecenter.com lists only start time (9pm) and the feature runtime (Coco, 1h45m); short films precede the feature and the total program length/end time is not stated anywhere on the listing or in Seattle Center press materials."
     }
   }
 }
