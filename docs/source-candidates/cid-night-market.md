@@ -3,7 +3,7 @@ name: "CID Night Market"
 status: investigating
 platform: Custom
 url: https://www.seattlechinatownid.com/experiences/c-id-night-market
-tags: [Community, "Chinatown-International District"]
+tags: [Community, "International District"]
 firstSeen: 2026-07-31
 lastChecked: 2026-07-31
 ---
