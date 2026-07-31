@@ -6,7 +6,7 @@ url: https://www.gpaseattle.com/play
 tags: ["Georgetown", "Gaming"]
 firstSeen: 2026-07-29
 lastChecked: 2026-07-31
-pr: TBD
+pr: 1065
 ---
 
 Pizza/pinball arcade in Georgetown (5513 Airport Way S, Seattle, WA 98108).
