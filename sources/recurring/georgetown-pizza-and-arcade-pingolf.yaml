@@ -1,0 +1,22 @@
+geo:
+  lat: 47.5529619
+  lng: -122.3208225
+  label: "Georgetown Pizza & Arcade, 5513 Airport Way S, Seattle, WA 98108"
+  osmType: node
+  osmId: 2396888057
+imageUrl: "https://images.squarespace-cdn.com/content/v1/63a2952e4ad871458fd6af54/aae3a58a-2473-46ab-9a00-ae22d649ba49/Logo+Banner+Image.jpg?format=1500w"
+name: georgetown-pizza-and-arcade-pingolf
+sourceRole: venue
+friendlyname: Pingolf Pinball Tournament at Georgetown Pizza & Arcade
+description: Monthly IFPA-ranked pinball tournament at Georgetown Pizza & Arcade — 9 holes of qualifying, with top qualifiers moving to finals. $10 entry.
+timezone: America/Los_Angeles
+location: "5513 Airport Way S, Seattle, WA 98108"
+url: https://www.gpaseattle.com/play
+tags:
+  - Gaming
+  - Georgetown
+cost: 10
+schedules:
+  - schedule: 2nd Sunday
+    start_time: "16:00"
+    duration: PT3H
