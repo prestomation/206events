@@ -222,3 +222,5 @@ calendars:
       lat: 47.6138731
       lng: -122.3319342
       label: "1600 9th Ave, Seattle, WA 98101"
+      osmType: way
+      osmId: 891389327
