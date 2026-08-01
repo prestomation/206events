@@ -244,7 +244,11 @@ export async function fetchExternalCalendar(url: string): Promise<RipperCalendar
       throw new Error(`Failed to fetch calendar: ${response.status} ${response.statusText}`);
     }
     const icsData = await response.text();
-    return parseExternalCalendarEvents(icsData);
+    // Match the live-ripper lookahead window (see createAggregateCalendars
+    // below and calendar_ripper.ts) rather than the 3-month default, so
+    // sparsely-programmed sources (e.g. a venue that posts one event per
+    // quarter) aren't silently dropped from tag aggregates and events-index.
+    return parseExternalCalendarEvents(icsData, { windowMonths: 14 });
   } catch (error) {
     console.error(`Error fetching external calendar ${url}:`, error);
     return [];
@@ -313,7 +317,11 @@ export async function createAggregateCalendars(
           } else {
             const cachedIcs = prefetchedIcsData?.get(tec.calendar.icsUrl);
             if (cachedIcs) {
-              externalEvents = parseExternalCalendarEvents(cachedIcs);
+              // Match the live-ripper lookahead window — the 3-month default
+              // silently drops sparsely-programmed sources (e.g. a venue that
+              // posts one event per quarter) from tag aggregates even though
+              // their own external-<name>.ics page (unfiltered) still has them.
+              externalEvents = parseExternalCalendarEvents(cachedIcs, { windowMonths: 14 });
             } else {
               console.log(`Fetching external calendar: ${tec.calendar.friendlyname}`);
               externalEvents = await fetchExternalCalendar(tec.calendar.icsUrl);

@@ -16,6 +16,12 @@ geo:
   osmType: way
   osmId: 36869313
 calendars:
+  # 2026-08-01: MallMaverick API currently returns only "ongoing forever"
+  # store specials (Snail Mail Sunday, Daily Happy Hours — end_date: null),
+  # which the ripper intentionally filters (see ripper.ts comment). No
+  # dated event (art market, gallery exhibit) is posted right now; the mall
+  # hosts those intermittently (roughly monthly at best), not continuously.
   - name: all-events
     friendlyname: "Pacific Place"
     timezone: America/Los_Angeles
+    expectEmpty: true

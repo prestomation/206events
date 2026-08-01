@@ -1337,7 +1337,12 @@ END:VCALENDAR`;
     const cachedIcs = externalIcsCache.get(calendar.icsUrl);
     if (cachedIcs) {
       try {
-        const externalEvents = parseExternalCalendarEvents(cachedIcs);
+        // Use a wide window (14 months) to match live-ripper behavior and the
+        // outofband re-parse below — the 3-month default silently drops
+        // sparsely-programmed sources (e.g. a venue that posts one event per
+        // quarter) from events-index.json even though their own
+        // external-<name>.ics page (unfiltered) still has them.
+        const externalEvents = parseExternalCalendarEvents(cachedIcs, { windowMonths: 14 });
         for (const event of externalEvents) {
           const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
           geoCache = result.cache;
