@@ -64,6 +64,7 @@ import {
   createAggregateCalendars,
   collectAllTags,
   parseExternalCalendarEvents,
+  EXTERNAL_CALENDAR_WINDOW_MONTHS,
   TaggedCalendar,
   TaggedExternalCalendar,
 } from "./tag_aggregator.js";
@@ -1337,12 +1338,7 @@ END:VCALENDAR`;
     const cachedIcs = externalIcsCache.get(calendar.icsUrl);
     if (cachedIcs) {
       try {
-        // Use a wide window (14 months) to match live-ripper behavior and the
-        // outofband re-parse below — the 3-month default silently drops
-        // sparsely-programmed sources (e.g. a venue that posts one event per
-        // quarter) from events-index.json even though their own
-        // external-<name>.ics page (unfiltered) still has them.
-        const externalEvents = parseExternalCalendarEvents(cachedIcs, { windowMonths: 14 });
+        const externalEvents = parseExternalCalendarEvents(cachedIcs, { windowMonths: EXTERNAL_CALENDAR_WINDOW_MONTHS });
         for (const event of externalEvents) {
           const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
           geoCache = result.cache;
@@ -1463,9 +1459,9 @@ END:VCALENDAR`;
           if (!calendarsWithFutureEvents.has(icsUrl)) continue;
           try {
             const icsContent = await readFile(join("output", icsUrl), "utf-8");
-            // Use a wide window (14 months) to match live-ripper behavior —
-            // some outofband shows (e.g. Seattle Rep, ECCC) are booked far ahead.
-            const events = parseExternalCalendarEvents(icsContent, { windowMonths: 14 });
+            // Some outofband shows (e.g. Seattle Rep, ECCC) are booked far
+            // ahead — use the same wide window as the live-ripper paths above.
+            const events = parseExternalCalendarEvents(icsContent, { windowMonths: EXTERNAL_CALENDAR_WINDOW_MONTHS });
             for (const event of events) {
               eventsIndex.push({
                 icsUrl,
