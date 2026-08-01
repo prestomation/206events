@@ -218,6 +218,31 @@ describe('UrbanCraftUprisingRipper', () => {
             expect(aboutLinks).toHaveLength(0);
         });
 
+        it('should filter out seasonal landing/vendor pages regardless of year', () => {
+            const html = parseHtml(`
+                <div class="entry-content"><div class="wpb-content-wrapper">
+                    <a href="https://urbancraftuprising.com/eleventh-hour-makers-market/">
+                        <img alt="Eleventh Hour Makers Market" title="Eleventh Hour Makers Market" />
+                    </a>
+                    <a href="https://urbancraftuprising.com/summer-2026/">
+                        <img alt="Summer 2026" title="Summer 2026" />
+                    </a>
+                    <a href="https://urbancraftuprising.com/winter-2027-vendors/">
+                        <img alt="Winter 2027 Vendors" title="Winter 2027 Vendors" />
+                    </a>
+                    <a href="https://urbancraftuprising.com/edmonds-spring-fest/">
+                        <img alt="Edmonds Spring Fest" title="Edmonds Spring Fest" />
+                    </a>
+                </div></div>
+            `);
+            const links = (ripper as any).extractEventLinks(html);
+
+            expect(links.some((l: string) => l.includes('summer-2026'))).toBe(false);
+            expect(links.some((l: string) => l.includes('winter-2027-vendors'))).toBe(false);
+            // A real event slug that merely contains a season word must not be swept up
+            expect(links.some((l: string) => l.includes('edmonds-spring-fest'))).toBe(true);
+        });
+
         it('should return empty array for pages with no event links', () => {
             const html = parseHtml('<html><body><p>No events here</p></body></html>');
             const links = (ripper as any).extractEventLinks(html);

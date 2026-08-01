@@ -100,20 +100,6 @@ export default class CenterForWoodenBoatsRipper implements IRipper {
         }
 
         try {
-            const html = await this.fetchPage(`${BASE_URL}/dinneronthedocksw/sugartime`);
-            allEvents.push(this.parseDetailsPageEvent(html, {
-                idPrefix: "dinner-on-the-docks-sugartime-trio",
-                summary: "Dinner on the Docks with Sugartime Trio",
-                description: "A 21+ waterfront gathering celebrating CWB's 50th Anniversary season — Mediterranean buffet by Ravishing Radish Catering, drinks, and live music by Sugartime Trio. Advance reservations required.",
-                url: `${BASE_URL}/dinneronthedocksw/sugartime`,
-                defaultLocation: VENUE_ADDRESS,
-                context: "dinner-on-the-docks",
-            }));
-        } catch (error) {
-            allEvents.push({ type: "ParseError", reason: `Failed to fetch Dinner on the Docks page: ${error}`, context: "dinner-on-the-docks" });
-        }
-
-        try {
             const html = await this.fetchPage(`${BASE_URL}/wood-regatta`);
             allEvents.push(this.parseWoodRegatta(html));
         } catch (error) {
