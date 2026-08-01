@@ -115,9 +115,21 @@ describe('parseEventDate', () => {
         expect(result?.durationConfident).toBe(false);
     });
 
-    test('returns null when no year appears near the date', () => {
-        const result = parseEventDate('The event kicks off with a 48-hour photo weekend on June 13-14th, where people around the globe make photographs on the same weekend.', FAR_PAST_NOW);
-        expect(result).toBeNull();
+    test('defaults to the current year when no year appears near the date', () => {
+        const now = ZonedDateTime.of(LocalDateTime.of(2026, 1, 1, 0, 0), TIMEZONE);
+        const result = parseEventDate('The event kicks off with a 48-hour photo weekend on June 13-14th, where people around the globe make photographs on the same weekend.', now);
+        expect(result?.month).toBe(6);
+        expect(result?.day).toBe(13);
+        expect(result?.year).toBe(2026);
+    });
+
+    test('does not pick up an unrelated year mentioned elsewhere in the body when none is near the date', () => {
+        // Real-world case: "Friday, January 16th" with no year nearby, but the
+        // body later references an unrelated "1990 Crossings exhibition" —
+        // that must not be mistaken for the event's year.
+        const now = ZonedDateTime.of(LocalDateTime.of(2026, 1, 1, 0, 0), TIMEZONE);
+        const result = parseEventDate('Artist Talk: Susan Meiselas Friday, January 16th; talk will begin at 6pm. She discusses her 1990 Crossings exhibition.', now);
+        expect(result?.year).toBe(2026);
     });
 
     test('returns null when no date at all is present', () => {
@@ -164,6 +176,13 @@ describe('extractCandidateDates', () => {
 
     test('handles a single date with no list', () => {
         expect(extractCandidateDates('October 2')).toEqual([{ month: 10, day: 2 }]);
+    });
+
+    test('matches a day number immediately followed by an ordinal suffix', () => {
+        // "24th" has no word boundary between the digit and the letter — a
+        // regression test for the crash this caused when the day number was
+        // followed directly by an ordinal suffix with no separating space.
+        expect(extractCandidateDates('January 24th ,')).toEqual([{ month: 1, day: 24 }]);
     });
 });
 
@@ -238,8 +257,26 @@ describe('parseEventPost', () => {
         expect(uncertainty!.unknownFields).toEqual(['startTime', 'duration']);
     });
 
-    test('returns a ParseError when no date is found', () => {
-        const post = findPost(81672); // Chase The Light Photo Weekend — date has no year nearby
+    test('drops a real post with no year nearby once its current-year-assumed date is in the past', () => {
+        // Chase The Light Photo Weekend — no year anywhere near "June 13-14th".
+        // Real production behavior: with "now" around when this ripper
+        // actually runs, the current-year default lands the event in the
+        // past, and it's dropped like any other past event rather than
+        // becoming a ParseError.
+        const post = findPost(81672);
+        const now = ZonedDateTime.of(LocalDateTime.of(2026, 8, 1, 0, 0), TIMEZONE);
+        const results = parseEventPost(post, now);
+
+        expect(results).toHaveLength(0);
+    });
+
+    test('returns a ParseError when no month/day date pattern is found at all', () => {
+        const post = {
+            id: 999999,
+            link: 'https://pcnw.org/events/mystery-event/',
+            title: { rendered: 'Mystery Event' },
+            content: { rendered: '<p>Join us for an evening of community and creativity.</p>' },
+        };
         const results = parseEventPost(post, FAR_PAST_NOW);
 
         expect(results).toHaveLength(1);
@@ -260,6 +297,17 @@ describe('parseEventPost', () => {
 
         const results = parseEventPost(post, now);
         expect(results).toHaveLength(0);
+    });
+
+    test('parses a date whose day is immediately followed by an ordinal suffix ("24th")', () => {
+        const post = findPost(78874); // PCNW Member's Portfolio Walk — "January 24th , 2026"
+        const results = parseEventPost(post, FAR_PAST_NOW);
+
+        const event = eventOf(results);
+        expect(event).toBeDefined();
+        expect(event!.date.monthValue()).toBe(1);
+        expect(event!.date.dayOfMonth()).toBe(24);
+        expect(event!.date.year()).toBe(2026);
     });
 
     test('extracts the featured media URL as imageUrl when present', () => {

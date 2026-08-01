@@ -65,7 +65,10 @@ export function stripHtml(html: string): string {
 // Public for testing
 export function extractCandidateDates(dateClause: string): { month: number; day: number }[] {
     const monthNames = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
-    const tokenRe = new RegExp(`(?:(${monthNames})\\s+)?(\\d{1,2})\\b`, 'gi');
+    // (?<!\d)/(?!\d) rather than \b on the trailing side: a day number is
+    // often immediately followed by an ordinal suffix ("24th") with no word
+    // boundary between the digit and the letter, which \b would miss.
+    const tokenRe = new RegExp(`(?:(${monthNames})\\s+)?(?<!\\d)(\\d{1,2})(?!\\d)`, 'gi');
     const candidates: { month: number; day: number }[] = [];
     let currentMonth: number | null = null;
     let match: RegExpExecArray | null;
@@ -97,28 +100,57 @@ export function parseEventDate(text: string, now: ZonedDateTime): ParsedDate | n
     // distance from the first month/day we matched.
     const yearWindow = afterDate.slice(0, 60);
     const yearMatch = yearWindow.match(/\b(20\d{2})\b/);
-    if (!yearMatch || yearMatch.index === undefined) return null;
-    const year = parseInt(yearMatch[1], 10);
 
-    // The full date clause, from the first month name through (but not
-    // including) the year — every (month, day) pair a multi-session
-    // listing names lives in here.
-    const dateClause = dateMatch[0] + afterDate.slice(0, yearMatch.index);
-    const candidates = extractCandidateDates(dateClause);
-    // Prefer the earliest session that hasn't happened yet, so a workshop
-    // already partway through its series still publishes its next
-    // occurrence instead of disappearing once the first listed date passes.
-    // Falls back to the last (most recent) candidate when every session is
-    // already in the past — it will be dropped by the isBefore(now) check
-    // in parseEventPost either way.
-    const nowDate = now.toLocalDate();
-    const sorted = [...candidates].sort((a, b) => a.month - b.month || a.day - b.day);
-    const chosen = sorted.find(c => !LocalDateTime.of(year, c.month, c.day, 23, 59).toLocalDate().isBefore(nowDate))
-        ?? sorted[sorted.length - 1];
-    const month = chosen.month;
-    const day = chosen.day;
+    let month: number;
+    let day: number;
+    let year: number;
+    let timeSearchStart: number;
 
-    const timeWindow = afterDate.slice(yearMatch.index + yearMatch[0].length, yearMatch.index + yearMatch[0].length + 300);
+    if (yearMatch && yearMatch.index !== undefined) {
+        year = parseInt(yearMatch[1], 10);
+
+        // The full date clause, from the first month name through (but not
+        // including) the year — every (month, day) pair a multi-session
+        // listing names lives in here.
+        const dateClause = dateMatch[0] + afterDate.slice(0, yearMatch.index);
+        // dateClause always starts with dateMatch[0] itself, so this should
+        // never come back empty, but fall back to the originally matched
+        // (month, day) rather than crash if some clause shape ever defeats
+        // the scan.
+        const candidates = extractCandidateDates(dateClause);
+        if (candidates.length === 0) candidates.push({ month: monthIdx + 1, day: parseInt(dateMatch[2], 10) });
+        // Prefer the earliest session that hasn't happened yet, so a workshop
+        // already partway through its series still publishes its next
+        // occurrence instead of disappearing once the first listed date
+        // passes. Falls back to the last (most recent) candidate when every
+        // session is already in the past — it will be dropped by the
+        // isBefore(now) check in parseEventPost either way.
+        const nowDate = now.toLocalDate();
+        const sorted = [...candidates].sort((a, b) => a.month - b.month || a.day - b.day);
+        const chosen = sorted.find(c => !LocalDateTime.of(year, c.month, c.day, 23, 59).toLocalDate().isBefore(nowDate))
+            ?? sorted[sorted.length - 1];
+        month = chosen.month;
+        day = chosen.day;
+        timeSearchStart = yearMatch.index + yearMatch[0].length;
+    } else {
+        // No year stated anywhere near the date — PCNW's older posts about a
+        // now-past artist talk/reception/annual-program description often
+        // omit it entirely (the date reads as "this year" implicitly), and
+        // the only "20XX" nearby is frequently an unrelated year (a past
+        // exhibition's opening year, a tax-policy effective date, a photo
+        // credit). Assume the current year rather than erroring: if that
+        // lands in the past — the overwhelmingly common case for these — the
+        // isBefore(now) check in parseEventPost drops it silently, exactly
+        // like any other past event. Skip the multi-session candidate scan
+        // here too, since without a year to bound it the clause has no clean
+        // end and would swallow unrelated time-of-day digits.
+        month = monthIdx + 1;
+        day = parseInt(dateMatch[2], 10);
+        year = now.year();
+        timeSearchStart = 0;
+    }
+
+    const timeWindow = afterDate.slice(timeSearchStart, timeSearchStart + 300);
 
     const rangeRe = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\s*[-‐‑‒–—]\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i;
     const rangeMatch = timeWindow.match(rangeRe);
