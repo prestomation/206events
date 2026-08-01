@@ -41598,11 +41598,12 @@
     "events12:dance-in-the-park-2026-08-14": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-15": {
       "fields": {
@@ -53785,6 +53786,7 @@
     },
     "northwest-film-forum:bottoms-2026-08-25": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/bottoms-poster-scaled-1200x1778.jpeg",
         "cost": {
           "min": 12.0
         }
@@ -54402,6 +54404,12 @@
       "resolvedAt": "2026-08-01",
       "source": "agent",
       "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-2jn25"
+    },
+    "vashon-center-for-the-arts:vashon-29801AKHGBCBQNDCCBHCDGNPLGJBDMJSD": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "reason": "no image in Spektrix API for First Friday Gallery Opening (imageUrl field absent)"
     }
   }
 }
