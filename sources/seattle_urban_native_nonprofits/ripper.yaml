@@ -11,7 +11,6 @@ geo: null
 # 2026-07-24: confirmed via ?format=json — `upcoming` is genuinely empty (0
 # items) while `past` has 103 entries with none in the future. The org's
 # calendar goes quiet between posting batches; not a ripper bug.
-expectEmpty: true
 calendars:
   - name: seattle-urban-native-nonprofits
     friendlyname: "Seattle Urban Native Nonprofits"
