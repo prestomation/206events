@@ -41598,11 +41598,12 @@
     "events12:dance-in-the-park-2026-08-14": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-15": {
       "fields": {
@@ -53676,7 +53677,7 @@
     "rabbit_box:6a6693f7e6090c443019fe25": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53686,7 +53687,7 @@
     "rabbit_box:6a681f58eeaff4752631531d": {
       "fields": {
         "cost": {
-          "min": 18.0
+          "min": 18
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53696,7 +53697,7 @@
     "rabbit_box:6a6b91257144e46a486c585a": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53706,7 +53707,7 @@
     "rabbit_box:6a6c101a5ac1f46ff7beffd8": {
       "fields": {
         "cost": {
-          "min": 18.0
+          "min": 18
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53785,8 +53786,9 @@
     },
     "northwest-film-forum:bottoms-2026-08-25": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/bottoms-poster-scaled-1200x1778.jpeg",
         "cost": {
-          "min": 12.0
+          "min": 12
         }
       },
       "resolvedAt": "2026-08-01",
@@ -54402,6 +54404,12 @@
       "resolvedAt": "2026-08-01",
       "source": "agent",
       "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-2jn25"
+    },
+    "vashon-center-for-the-arts:vashon-29801AKHGBCBQNDCCBHCDGNPLGJBDMJSD": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "reason": "no image in Spektrix API for First Friday Gallery Opening (imageUrl field absent)"
     }
   }
 }
