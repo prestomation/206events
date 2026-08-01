@@ -283,6 +283,38 @@ END:VCALENDAR`;
       expect(allCalendar!.events.length).toBeGreaterThanOrEqual(2);
     });
 
+    it('excludes external events more than 3 months out (pins the default — do not widen this call site again without re-checking site-wide event volume, see PR #1081/#1082)', async () => {
+      const taggedExternalCalendars: TaggedExternalCalendar[] = [
+        { calendar: sampleExternalCalendar1, tags: ['Arts'] }
+      ];
+
+      const farFuture = new Date();
+      farFuture.setMonth(farFuture.getMonth() + 4); // outside the 3-month default
+      const dtStart = farFuture.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const icsData = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+UID:far-future-external-1
+SUMMARY:Quarterly Open Studio
+DTSTART:${dtStart}
+DTEND:${dtStart}
+END:VEVENT
+END:VCALENDAR`;
+
+      const prefetchedIcsData = new Map<string, string>();
+      prefetchedIcsData.set(sampleExternalCalendar1.icsUrl, icsData);
+
+      const aggregateCalendars = await createAggregateCalendars(
+        [],
+        taggedExternalCalendars,
+        prefetchedIcsData
+      );
+
+      const tagCalendar = aggregateCalendars.find(c => c.name === 'tag-arts');
+      expect(tagCalendar).toBeDefined();
+      expect(tagCalendar!.events).toHaveLength(0);
+    });
+
     it('should sort events by date', async () => {
       // Arrange
       const laterEvent = {
