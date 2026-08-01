@@ -54410,6 +54410,264 @@
       "resolvedAt": "2026-08-01",
       "source": "agent",
       "reason": "no image in Spektrix API for First Friday Gallery Opening (imageUrl field absent)"
+    },
+    "seatoday:cityspark-19523065": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.spl.org - SPL events are always free per site text"
+    },
+    "seatoday:cityspark-19523069": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.spl.org - SPL events are always free per site text"
+    },
+    "seatoday:cityspark-19323500": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.spl.org - SPL events are always free per site text"
+    },
+    "seatoday:cityspark-19414329": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.spl.org - SPL events are always free per site text"
+    },
+    "seatoday:cityspark-19523070": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.spl.org - SPL events are always free per site text"
+    },
+    "seatoday:cityspark-19523281": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.spl.org - SPL events are always free per site text"
+    },
+    "seatoday:cityspark-18611489": {
+      "fields": {
+        "cost": {
+          "min": 16.0,
+          "max": 18.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattlechildrensmuseum.org visit page, general admission price"
+    },
+    "seatoday:cityspark-18611490": {
+      "fields": {
+        "cost": {
+          "min": 16.0,
+          "max": 18.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattlechildrensmuseum.org visit page, general admission price"
+    },
+    "seatoday:cityspark-19523284": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523285": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523283": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523295": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523294": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523296": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523297": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523298": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523302": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523304": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523303": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523286": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+    },
+    "seatoday:cityspark-19523078": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattle.gov/parks - Seattle Parks public engagement/community meeting, no admission charged for civic input sessions"
+    },
+    "seatoday:cityspark-19523282": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "Event titled 'Free fun, food and entertainment: Tuesdays at Ballard Community Center' - Seattle Parks summer community program, ActiveNet listing"
+    },
+    "seatoday:cityspark-19523241": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "The Vera Project CL 101 workshop - ticketed class, exact current price not confirmable on official site (theveraproject.org/classes); third-party listings show a fee-inclusive price that is not reliable as face value"
+    },
+    "seatoday:cityspark-19523146": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "reason": "millcreekchamber.com blocks automated access with a Cloudflare JS challenge (403); no pricing found via Eventbrite, AllEvents, Facebook, or LinkedIn secondary listings for this chamber networking event"
+    },
+    "seatoday:cityspark-19523116": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "Summer Sundays at Legacy Square is a free community series hosted by Renton Downtown Partnership, City of Renton, and Rep for Renton (rentonwa.gov, visitrenton.com)"
+    },
+    "seatoday:cityspark-19523107": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "Bothell Parks & Recreation Youth Summer Entertainment series (bothellwa.gov/2183/Youth-Summer-Entertainment) is explicitly described as free, family-friendly, every Wednesday in August at Park at Bothell Landing Amphitheater; matches this event's date/venue/sponsor exactly"
     }
   }
 }
