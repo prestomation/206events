@@ -53672,6 +53672,736 @@
       "source": "agent",
       "evidence": "https://lectures.org/event/kiese-laymon/",
       "partialFingerprint": "ax67nr"
+    },
+    "rabbit_box:6a6693f7e6090c443019fe25": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/rabbit-shot-comedy"
+    },
+    "rabbit_box:6a681f58eeaff4752631531d": {
+      "fields": {
+        "cost": {
+          "min": 18.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-bad-things-with-mister-ink"
+    },
+    "rabbit_box:6a6b91257144e46a486c585a": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/richard-b-simon-reading-from-his-new-novel-the-dolphin-ambassadors-daughter"
+    },
+    "rabbit_box:6a6c101a5ac1f46ff7beffd8": {
+      "fields": {
+        "cost": {
+          "min": 18.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/darren-loucas-barton-carroll-braly-sangster"
+    },
+    "pike-place-market:ppm-25th-anniversary-of-the-seattle-squid": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/25th-anniversary-of-the-seattle-squid/"
+    },
+    "pike-place-market:ppm-folio-presents-folio-member-happy-hour": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/folio-presents-folio-member-happy-hour/"
+    },
+    "pike-place-market:ppm-folio-presents-dizzier-than-gillespie-sibyl-james-in-conversation-with-edward-harkness": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/folio-presents-dizzier-than-gillespie-sibyl-james-in-conversation-with-edward-harkness/"
+    },
+    "pike-place-market:ppm-folio-presents-shaping-democracy-lessons-from-civil-rights-pioneers": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/folio-presents-shaping-democracy-lessons-from-civil-rights-pioneers/"
+    },
+    "native_action_network:6a67c070f0eb5e4f84704ba0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://nativeactionnetwork.org/events/native-youth-political-empowerment-summit"
+    },
+    "sea-monster-lounge:sea-monster-lounge-forro-night-foleada-rosalynn-de-roos-dj-tomas-2026-08-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.seamonsterlounge.com/buy-tickets-in-advance"
+    },
+    "sol-yoga-seattle:69f3941cf52d10329573155e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/sol-sound-bath-95aty-2zzxj-k9jry-n3rgs-5m8"
+    },
+    "northwest-film-forum:bottoms-2026-08-25": {
+      "fields": {
+        "cost": {
+          "min": 12.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/bottoms/"
+    },
+    "seattle-makers:seattle-makers-161257": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-161261": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-161262": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-161266": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-161269": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-161272": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "queer-social-club:6a67b19228d51550cc8bad04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/subq-ii-queer-trans-brazilian-jiu-jitsu-weekend"
+    },
+    "queer-social-club:6a67b58f2ee1614b9ca6a8ee": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/subq-ii-queer-trans-brazilian-jiu-jitsu-weekend-yf6g6"
+    },
+    "queer-social-club:6a67bc0421d2a02a6e1d499f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-seattle-bouldering-project-university"
+    },
+    "queer-social-club:6a67bd68e273191bd4f86449": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-vertical-world-north"
+    },
+    "queer-social-club:6a67bef3afc4ea79f3561202": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-edgeworks-bellevue"
+    },
+    "queer-social-club:6a67c00f29f394319d1edff1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-edgeworks-seattle-1"
+    },
+    "queer-social-club:6a67c19bf0eb5e4f8470c20a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-edgeworks-tacoma"
+    },
+    "queer-social-club:6a67c28e7aba494627d242b0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-momentum-sodo"
+    },
+    "queer-social-club:6a67c2fa09faee5a92aeb41f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-edgeworks-bel-red"
+    },
+    "queer-social-club:6a67c3e0e3d6dd56a3864fcf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-seattle-bouldering-project-poplar"
+    },
+    "queer-social-club:6a67c46eb9b0ac015c5c5868": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-vertical-world-seattle"
+    },
+    "queer-social-club:6a67c4f43003923a90971c40": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-seattle-bouldering-project-fremont"
+    },
+    "queer-social-club:6a67c71d9c7af564808af0cb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-uplift-shoreline"
+    },
+    "queer-social-club:6a67c9cf4bb0d915309fec5a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-climb-night-climb-nora-federal-way"
+    },
+    "queer-social-club:6a67ca5e9e684b417877f2fc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/art-in-the-park-soos-creek-botanical-garden"
+    },
+    "queer-social-club:6a67ccae24b93a7c0b9d74e9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/stride-with-pride-mount-pilchuck-hike"
+    },
+    "queer-social-club:6a67cd9b47e15306555fd6fd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/stride-with-pride-dirty-harrys-peak-hike"
+    },
+    "queer-social-club:6a67dad2bbca1c0c8bde04c6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/survivor-outwig-outslay-outdrag-drag-competition-every-sunday"
+    },
+    "queer-social-club:6a67dc1c88376d4797bd4932": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/survivor-outwig-outslay-outdrag-drag-competition-every-sunday-p82yf"
+    },
+    "queer-social-club:6a67dc329856c30296210a98": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/survivor-outwig-outslay-outdrag-drag-competition-every-sunday-8ajxb"
+    },
+    "queer-social-club:6a67dc458a09ed789638ba50": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/survivor-outwig-outslay-outdrag-drag-competition-every-sunday-r2w72"
+    },
+    "queer-social-club:6a67dc5abc28ff24998ccd14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/survivor-outwig-outslay-outdrag-drag-competition-every-sunday-rmnrd"
+    },
+    "queer-social-club:6a67dc6fcb07270f6e8561ef": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/survivor-outwig-outslay-outdrag-drag-competition-every-sunday-za556"
+    },
+    "queer-social-club:6a67dc81fdbbf442a58a1a87": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/survivor-outwig-outslay-outdrag-drag-competition-every-sunday-dtnj8"
+    },
+    "queer-social-club:6a67dc934bb0d91530a77799": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/survivor-outwig-outslay-outdrag-drag-competition-every-sunday-kyftw"
+    },
+    "queer-social-club:6a67e0e29e684b417880dcbb": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/drag-bingo"
+    },
+    "queer-social-club:6a67e815d4b35f0500761260": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/punks-in-drag-for-trans-rights-show"
+    },
+    "queer-social-club:6a67e8fec8c945040e5e01d6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/summer-lovin-pride-skate-"
+    },
+    "queer-social-club:6a67e9cfe78b137d36dbcbd7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/practical-magic-skate-"
+    },
+    "queer-social-club:6a67eb22b6ac8c42cc29b57b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queerbeach-"
+    },
+    "queer-social-club:6a67edc8f707240ce245ee95": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ruby-mimosa-presents-burleskaraoke"
+    },
+    "queer-social-club:6a67eef320f0f442577db88f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/infama-hot-topic-themed-sapphic-party"
+    },
+    "queer-social-club:6a67f04633fce4459aa2f226": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/dance-4-u-slayyyter-x-charli-xcx-night"
+    },
+    "queer-social-club:6a67f3e2c66ca820a219481e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/black-affair-kiki-ball"
+    },
+    "queer-social-club:6a68f4df5396fc1ad3dfd084": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd"
+    },
+    "queer-social-club:6a68f57dceaa921e9c1b239f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-c232b"
+    },
+    "queer-social-club:6a68f595974f5d1c7c2f9002": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-gam6x"
+    },
+    "queer-social-club:6a68f5a75396fc1ad3e03574": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-wfgg5"
+    },
+    "queer-social-club:6a68f5c2f1bec12cd5d46d71": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-ay53e"
+    },
+    "queer-social-club:6a6902ebc6f3834e539b9510": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/wtf-with-stuff-wednesday-trans-film-seorita"
+    },
+    "queer-social-club:6a6a56900df4ff03fe243a20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/l-word-rave"
+    },
+    "queer-social-club:6a6a59e17c832b29e4fa10d2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lashes-cabaret-a-free-drag-show-j28bj-8c8r5-7bjc4-srbwl-czsxb"
+    },
+    "queer-social-club:6a6a5a09ec6cd21bd4c87318": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lashes-cabaret-a-free-drag-show-j28bj-8c8r5-7bjc4-srbwl-95pd4"
+    },
+    "queer-social-club:6a6a5a253aed5407b12dc3c9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lashes-cabaret-a-free-drag-show-j28bj-8c8r5-7bjc4-srbwl-nhknt"
+    },
+    "queer-social-club:6a6a5a4a0786ee7c3bac41bc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lashes-cabaret-a-free-drag-show-j28bj-8c8r5-7bjc4-srbwl-ta2gx"
+    },
+    "queer-social-club:6a6a5a9cbd19c358b5ae928c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/dream-girls-drag-brunch-krwrz-2t8ts-tkml8-6tyrx-lhm6e"
+    },
+    "queer-social-club:6a6a5ac130ff89764a4652d8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/dream-girls-drag-brunch-krwrz-2t8ts-tkml8-6tyrx-pe8jw"
+    },
+    "queer-social-club:6a6a5af8f9eaa3398b646c67": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/dream-girls-drag-brunch-krwrz-2t8ts-tkml8-6tyrx-dcyxn"
+    },
+    "queer-social-club:6a6a5b139907ba723c0b575b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/dream-girls-drag-brunch-krwrz-2t8ts-tkml8-6tyrx-z6f5m"
+    },
+    "queer-social-club:6a6a5b2e6fa70c46977c75a8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/dream-girls-drag-brunch-krwrz-2t8ts-tkml8-6tyrx-ts7xg"
+    },
+    "queer-social-club:6a6a8485f16d816c3e2613cc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/bacon-strip-presents-little-shop-of-whorers-a-celebration-of-musicals"
+    },
+    "queer-social-club:6a6a861a59409223485aac78": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/bacon-strip-summer-trailer-park-show"
+    },
+    "queer-social-club:6a6a8d16b2122a395d4bdfe1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night"
+    },
+    "queer-social-club:6a6a8e70bdcefa771af170a1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe"
+    },
+    "queer-social-club:6a6a8e93df48237f730f56b3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-2jn25"
     }
   }
 }

@@ -201,6 +201,49 @@ describe('SquarespaceRipper', () => {
             expect(event.description).toBeUndefined();
         });
 
+        test('sets cost to free when tag is "Free + No Cover"', () => {
+            const sqEvent: SquarespaceEvent = {
+                id: 'free1',
+                title: 'Free Community Walk',
+                startDate: 1771106400000,
+                tags: ['Free + No Cover', 'Outdoor'],
+            };
+            const event = ripper.testMapEvent(sqEvent, timezone, baseUrl) as RipperCalendarEvent;
+            expect(event.cost).toEqual({ min: 0 });
+        });
+
+        test('sets cost to free when tag contains "notalof" (NOTAFLOF)', () => {
+            const sqEvent: SquarespaceEvent = {
+                id: 'notalof1',
+                title: 'Sliding Scale Workshop',
+                startDate: 1771106400000,
+                tags: ['Sliding Scale +/or NOTALOF', 'All Ages'],
+            };
+            const event = ripper.testMapEvent(sqEvent, timezone, baseUrl) as RipperCalendarEvent;
+            expect(event.cost).toEqual({ min: 0 });
+        });
+
+        test('leaves cost undefined when no cost-related tags present', () => {
+            const sqEvent: SquarespaceEvent = {
+                id: 'nocost1',
+                title: 'Ticketed Show',
+                startDate: 1771106400000,
+                tags: ['Music', '21+'],
+            };
+            const event = ripper.testMapEvent(sqEvent, timezone, baseUrl) as RipperCalendarEvent;
+            expect(event.cost).toBeUndefined();
+        });
+
+        test('leaves cost undefined when tags array is absent', () => {
+            const sqEvent: SquarespaceEvent = {
+                id: 'notags1',
+                title: 'Untagged Event',
+                startDate: 1771106400000,
+            };
+            const event = ripper.testMapEvent(sqEvent, timezone, baseUrl) as RipperCalendarEvent;
+            expect(event.cost).toBeUndefined();
+        });
+
         test('builds full event URL from relative fullUrl', () => {
             const sqEvent: SquarespaceEvent = {
                 id: 'url1',
