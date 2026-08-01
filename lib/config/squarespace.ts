@@ -1,5 +1,5 @@
 import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
@@ -49,6 +49,19 @@ interface SquarespaceResponse {
 }
 
 const MAX_PAGES = 10;
+
+// Squarespace event tags that unambiguously signal free admission.
+// "Sliding Scale +/or NOTALOF" triggers the NOTAFLOF rule → free.
+const FREE_TAG_FRAGMENTS = ['free + no cover', 'free admission', 'notalof', 'notaflof'];
+
+function extractCostFromTags(tags: string[] | undefined): EventCost | undefined {
+    if (!tags) return undefined;
+    const lower = tags.map(t => t.toLowerCase());
+    if (lower.some(t => FREE_TAG_FRAGMENTS.some(f => t.includes(f)))) {
+        return { min: 0 };
+    }
+    return undefined;
+}
 
 /**
  * Base ripper for Squarespace-powered event pages.
@@ -216,6 +229,8 @@ export class SquarespaceRipper implements IRipper {
             description = this.stripHtml(description).trim();
         }
 
+        const cost = extractCostFromTags(sqEvent.tags);
+
         return {
             id: sqEvent.id,
             ripped: new Date(),
@@ -225,7 +240,8 @@ export class SquarespaceRipper implements IRipper {
             description,
             location,
             url: eventUrl,
-            imageUrl: sqEvent.assetUrl || undefined
+            imageUrl: sqEvent.assetUrl || undefined,
+            ...(cost !== undefined ? { cost } : {}),
         };
     }
 
