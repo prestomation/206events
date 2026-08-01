@@ -1,0 +1,16 @@
+name: pcnw
+sourceRole: venue
+description: "Photographic Center Northwest"
+url: "https://pcnw.org/wp-json/wp/v2/ajde_events"
+friendlyLink: https://pcnw.org/calendar/
+tags: ["Arts", "First Hill"]
+geo:
+  lat: 47.6105684
+  lng: -122.3163932
+  label: "Photographic Center Northwest, 900 12th Ave, Seattle, WA 98122"
+  osmType: way
+  osmId: 228857007
+calendars:
+  - name: pcnw
+    friendlyname: "Photographic Center Northwest"
+    timezone: America/Los_Angeles
