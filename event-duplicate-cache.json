@@ -9414,6 +9414,96 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-01",
       "note": "Different locations: 1201 Eastlake Ave N vs 1551 Eastlake Ave N — two separate food truck events at different buildings"
+    },
+    "19hz-all-events.ics The Original Sapphic Soiree|2026-08-08T21:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics SAPPHIC SOIREE|2026-08-08T21:00:00.564-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same recurring queer event (Sapphic Soiree), 0m apart, minor title casing difference"
+    },
+    "charlies-queer-books-all-events.ics Sci-Fi/Fantasy Book Club|2026-08-02T13:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Sci-Fi/Fantasy Book Club|2026-08-02T13:00:00.608-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-01",
+      "note": "~15 miles apart; Charlie's Queer Books hosts its own club at the store, Queer Social Club hosts a separate instance elsewhere"
+    },
+    "external-uw-campus-events.ics Find the Right Fit: Foster MBA Programs for Working Professionals|2026-09-17T17:00:00Z[UTC]::external-uw-foster-school-of-business.ics Find the Right Fit: Foster MBA Programs for Working Professionals|2026-09-17T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Exact title, UW campus-wide and Foster School calendars both syndicate the same event"
+    },
+    "external-uw-campus-events.ics Find the Right Fit: Foster MBA Programs for Working Professionals|2026-10-15T12:00:00Z[UTC]::external-uw-foster-school-of-business.ics Find the Right Fit: Foster MBA Programs for Working Professionals|2026-10-15T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Exact title, UW campus-wide and Foster School calendars both syndicate the same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-08-19T16:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-08-19T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Exact title, UW campus-wide and iSchool calendars cross-syndicating the same event"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-09-29T16:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-09-29T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Exact title, UW campus-wide and iSchool calendars cross-syndicating the same event"
+    },
+    "lumen-field-lumen-field.ics Seattle Seahawks vs. San Francisco 49ers|2026-10-11T13:25:00-07:00[America/Los_Angeles]::sound_transit-sound-transit.ics Seahawks vs. San Francisco|2026-10-11T13:25:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same game listed by venue source and Sound Transit; abbreviated team name is Sound Transit's display convention"
+    },
+    "nectar-lounge-nectar-lounge.ics FLOR DE TOLOACHE with Monamor|2026-10-14T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-nectar-lounge.ics FLOR DE TOLOACHE with Special Guests|2026-10-14T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same headliner (Flor de Toloache), showlists source uses 'Special Guests' placeholder before opener announced, 1h time diff likely from showlists using show-start vs doors"
+    },
+    "pike-place-market-events.ics Liz Longley presented by The Triple Door at The Rabbit Box|2026-10-16T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Liz Longley and Anna May presented by The Triple Door|2026-10-16T19:30:00.257-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same show (Liz Longley / The Triple Door at Rabbit Box), 148m geocoding variance, support act Anna May omitted in Pike Place market listing"
+    },
+    "queer-social-club-all-events.ics 21+ LGBTQIA+ Pride Skate Night|2026-08-05T20:30:00.857-07:00[America/Los_Angeles]::recurring-southgate-roller-rink-pride-skate-night.ics LGBTQIA+ Pride Skate Night (21+) at Southgate Roller Rink|2026-08-05T20:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same pride skate night at Southgate Roller Rink, 11m apart, title formatting difference only"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-08-03T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-08-03T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-01",
+      "note": "Same venue (Stoup Capitol Hill) but different events: queer board game night vs. trivia night hosted by different organizer; 0m distance is expected for co-located events"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-08-07T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-08-07T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same Lashes Cabaret show at Unicorn, 0m apart, title formatting difference only"
+    },
+    "queer-social-club-all-events.ics Queer Figure Drawing|2026-08-02T14:00:00.181-07:00[America/Los_Angeles]::seattle-pride-all-events.ics Queer Figure Drawing|2026-08-02T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same community event listed by two LGBTQ+ Seattle calendars"
+    },
+    "queer-social-club-all-events.ics Queer Figure Drawing|2026-08-16T14:00:00.181-07:00[America/Los_Angeles]::seattle-pride-all-events.ics Queer Figure Drawing|2026-08-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same community event listed by two LGBTQ+ Seattle calendars"
+    },
+    "queer-social-club-all-events.ics Rat City Art Walk Takeover|2026-08-20T17:00:00.385-07:00[America/Los_Angeles]::recurring-rat-city-artwalk.ics Rat City Art Walk|2026-08-20T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-01",
+      "note": "'Takeover' denotes a distinct queer-community programming block within the broader artwalk; different organizer, different programming, not the same event"
+    },
+    "seattle-showlists-skylark.ics Cam Elise, Radon Radar, Tobi Kunkel|2026-08-08T20:00:00-07:00[America/Los_Angeles]::skylark_cafe-all-events.ics Cam Elise, Radon Radar, Tobi Kunkel|2026-08-08T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Exact performer lineup, two sources for same Skylark Café show; 2274m geocoding discrepancy and 2h time difference (doors vs show time) are known cross-source variations"
+    },
+    "spl-douglass-truth.ics Family Story Time|2026-08-05T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-08-05T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-01",
+      "note": "Two different SPL branches (Douglass-Truth in Central District, Greenwood in NW Seattle) ~6.5 miles apart; same program name but separate physical events"
+    },
+    "spl-lake-city.ics English Conversation Circle|2026-08-04T17:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual English Conversation Circle|2026-08-04T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-01",
+      "note": "In-person at Lake City branch vs explicitly virtual; different modality and likely different facilitator/session"
     }
   }
 }
