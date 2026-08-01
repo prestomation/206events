@@ -18,9 +18,12 @@ const EXCLUDED_SLUGS = [
     'makers', 'apply', 'sponsors', 'contact', 'about',
     'blog', 'greenhouse-program', 'derby-days-vendors',
     'eleventh-hour-vendors', 'port-townsend-handmade-market-vendors',
-    'winter-2025-vendors', 'summer-2025-vendors',
-    'winter-2025', 'summer-2025'
 ];
+
+// Seasonal landing/vendor pages (e.g. "summer-2026", "winter-2025-vendors")
+// are not event pages themselves — match by pattern instead of hardcoding a
+// year, so a new season page doesn't need a code change every year.
+const SEASON_PAGE_PATTERN = /^(spring|summer|fall|winter)-\d{4}(-vendors)?$/i;
 
 // Known location patterns from the site
 const LOCATION_PATTERNS: Array<{ pattern: RegExp; name: string }> = [
@@ -116,6 +119,7 @@ export default class UrbanCraftUprisingRipper extends HTMLRipper {
 
             // Skip excluded pages
             if (EXCLUDED_SLUGS.some(excluded => slug.includes(excluded.toLowerCase()))) continue;
+            if (SEASON_PAGE_PATTERN.test(slug)) continue;
 
             // Skip the events listing page itself, homepage, and other non-event pages
             if (url === 'https://urbancraftuprising.com/events/' ||
