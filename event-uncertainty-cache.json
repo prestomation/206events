@@ -54810,6 +54810,67 @@
       "resolvedAt": "2026-08-01",
       "source": "agent",
       "evidence": "brownefamilyvineyards.com event page: 'Advance tickets: $35 | Door: $45 (if available)'"
+    },
+    "pcnw:pcnw-95357": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "reason": "PCNW event page lists only a start time (\"October 2, 2026 | Friday 6pm\"); no end time or duration is given anywhere on the page (only unrelated gallery operating hours are listed).",
+      "partialFingerprint": "1vhx190"
+    },
+    "pcnw:pcnw-95351": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "reason": "PCNW event page lists only a start time (\"Sunday, September 19, 2026 at 3pm\"); no end time or duration is given anywhere on the page (only unrelated gallery operating hours are listed).",
+      "partialFingerprint": "1u4xagp"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46372": {
+      "fields": {
+        "startTime": "06:00",
+        "duration": 64740
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46372 (Add-to-Calendar link: eventStartDate=2026-08-15, eventStartTime=06:00:00, eventEndTime=23:59:00)",
+      "partialFingerprint": "a3xjmq"
+    },
+    "seattle-center:traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47720": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/traditions-connecting-threads-of-shared-humanity-–-a-festal-exhibit-x47720 (page text \"Open ... 1pm-6pm\"; Add-to-Calendar link eventStartTime=13:00:00, eventEndTime=18:00:00)",
+      "partialFingerprint": "1t20397"
+    },
+    "seattle-center:freak-the-mighty-x47856": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47856 (Add-to-Calendar link: eventStartTime=14:00:00, eventEndTime=17:00:00)",
+      "partialFingerprint": "z5w2gs"
+    },
+    "seattle-center:freak-the-mighty-x47857": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47857 (Add-to-Calendar link: eventStartTime=19:30:00, eventEndTime=22:00:00)",
+      "partialFingerprint": "rmv5w"
+    },
+    "seattle-center:seattle-tattoo-expo-x44327": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 28800
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-tattoo-expo-x44327 (Add-to-Calendar link: eventStartDate=2026-08-16, eventStartTime=12:00:00, eventEndTime=20:00:00)",
+      "partialFingerprint": "1f8xktf"
     }
   }
 }
