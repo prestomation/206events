@@ -65,6 +65,17 @@ function extractImageUrl(vevent: any): string | undefined {
 }
 
 /**
+ * Lookahead window (in months) used to match live-ripper behavior when
+ * re-parsing an external ICS feed for tag aggregates, events-index, and the
+ * outofband re-parse fallback. The 3-month `parseExternalCalendarEvents`
+ * default is too narrow for sparsely-programmed sources (e.g. a venue that
+ * posts one event per quarter, or a show booked many months out) — those
+ * events silently vanish from the derived outputs even though they still
+ * appear on the source's own unfiltered external-<name>.ics page.
+ */
+export const EXTERNAL_CALENDAR_WINDOW_MONTHS = 14;
+
+/**
  * Parses external calendar ICS data into events, expanding RRULE recurrences.
  * Filters events to only include those within the specified time range.
  *
@@ -244,7 +255,7 @@ export async function fetchExternalCalendar(url: string): Promise<RipperCalendar
       throw new Error(`Failed to fetch calendar: ${response.status} ${response.statusText}`);
     }
     const icsData = await response.text();
-    return parseExternalCalendarEvents(icsData);
+    return parseExternalCalendarEvents(icsData, { windowMonths: EXTERNAL_CALENDAR_WINDOW_MONTHS });
   } catch (error) {
     console.error(`Error fetching external calendar ${url}:`, error);
     return [];
@@ -313,7 +324,7 @@ export async function createAggregateCalendars(
           } else {
             const cachedIcs = prefetchedIcsData?.get(tec.calendar.icsUrl);
             if (cachedIcs) {
-              externalEvents = parseExternalCalendarEvents(cachedIcs);
+              externalEvents = parseExternalCalendarEvents(cachedIcs, { windowMonths: EXTERNAL_CALENDAR_WINDOW_MONTHS });
             } else {
               console.log(`Fetching external calendar: ${tec.calendar.friendlyname}`);
               externalEvents = await fetchExternalCalendar(tec.calendar.icsUrl);

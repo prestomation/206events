@@ -58,6 +58,10 @@ calendars:
   - name: fremont
     friendlyname: "SPL - Fremont Branch"
     timezone: America/Los_Angeles
+    # 2026-08-01: confirmed via live Trumba API (P6W lookahead) — the branch's
+    # only 2 upcoming listings ("Write at the Fremont Branch", "Family Story
+    # Time") are both canceled:true and correctly filtered by the ripper.
+    expectEmpty: true
     config:
       branch: "Fremont Branch"
     tags: ["Fremont"]

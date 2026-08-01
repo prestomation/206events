@@ -283,6 +283,44 @@ END:VCALENDAR`;
       expect(allCalendar!.events.length).toBeGreaterThanOrEqual(2);
     });
 
+    it('includes external events more than 3 months out (matches live-ripper lookahead, not the 3-month parseExternalCalendarEvents default)', async () => {
+      // Regression test: a sparsely-programmed external calendar (e.g. one
+      // event per quarter) was silently dropped from tag aggregates because
+      // createAggregateCalendars called parseExternalCalendarEvents without
+      // widening its default 3-month window, even though the source's own
+      // external-<name>.ics page (unfiltered) still had the event.
+      const taggedExternalCalendars: TaggedExternalCalendar[] = [
+        { calendar: sampleExternalCalendar1, tags: ['Arts'] }
+      ];
+
+      const farFuture = new Date();
+      farFuture.setMonth(farFuture.getMonth() + 4); // outside 3mo, inside 14mo
+      const dtStart = farFuture.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const icsData = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+UID:far-future-external-1
+SUMMARY:Quarterly Open Studio
+DTSTART:${dtStart}
+DTEND:${dtStart}
+END:VEVENT
+END:VCALENDAR`;
+
+      const prefetchedIcsData = new Map<string, string>();
+      prefetchedIcsData.set(sampleExternalCalendar1.icsUrl, icsData);
+
+      const aggregateCalendars = await createAggregateCalendars(
+        [],
+        taggedExternalCalendars,
+        prefetchedIcsData
+      );
+
+      const tagCalendar = aggregateCalendars.find(c => c.name === 'tag-arts');
+      expect(tagCalendar).toBeDefined();
+      expect(tagCalendar!.events).toHaveLength(1);
+      expect(tagCalendar!.events[0].summary).toBe('Quarterly Open Studio');
+    });
+
     it('should sort events by date', async () => {
       // Arrange
       const laterEvent = {
