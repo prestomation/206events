@@ -989,6 +989,13 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   '7 days coffee': { lat: 49.276166, lng: -123.115703 }, // 920 Beatty St, Vancouver, BC
   // Denver Summit FC (NWSL) home stadium — OL Reign away-game feed
   'centennial stadium': { lat: 39.5836794, lng: -104.8287457 }, // 13740 E Fremont Ave, Centennial, CO 80112
+  // Seattle Housing Authority's Yesler Terrace office/community space — same address as the
+  // existing 'yesler terrace housing development, hinoki building' entry above (917 E Yesler
+  // Way). Some source events carry only the bare "Yesler SHA" name with no address line.
+  'yesler sha': { lat: 47.6013443, lng: -122.3203002 },
+  // West Seattle Blog "Da Grind Races at Alki Beach" — relative direction from the existing
+  // 'alki beach bathhouse' entry; approximate but close enough for this event's purposes.
+  'east of the bathhouse': { lat: 47.579690, lng: -122.409633 },
 };
 
 /**
