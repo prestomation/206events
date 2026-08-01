@@ -964,6 +964,38 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'drumheller fountain (uw campus)': { lat: 47.6538087, lng: -122.3078047 }, // Rainier Vista NE, UW Central Campus
   'hugo house': { lat: 47.6161894, lng: -122.3179930 }, // 1634 11th Ave, Capitol Hill, Seattle — prefix covers full address with duplicate suffix
   'lynndale park': { lat: 47.8282564, lng: -122.3333282 }, // 18927 72nd Ave W, Lynnwood — prefix covers "amphitheater" suffix
+
+  // --- 2026-08-01 geo-resolver batch: "has street address" / "venue name only"
+  // unresolvable entries. Addresses verified against each venue's own site/
+  // listing or the referring event page, then forward-geocoded via Nominatim
+  // (US Census TIGER geocoder for one address Nominatim had no result for).
+  // Never reverse-geocoded.
+  '303 s. jackson street': { lat: 47.5983, lng: -122.3303 }, // ARTS at King Street Station — "S." abbreviation variant of the existing '303 south jackson street' prefix key
+  '8th sw & sw barton, west seattle': { lat: 47.5205799, lng: -122.3453499 }, // Westcrest Park south parking-lot entrance (westseattleblog.com event: "stationed off the south parking lot entrance at 8th Ave SW & SW Barton St")
+  'behind 4528 california sw, west seattle': { lat: 47.5620185, lng: -122.3865574 }, // 4528 California Ave SW, West Seattle Junction
+  'bar-s playfields': { lat: 47.5758785, lng: -122.4149145 }, // Bar-S Playground, 6425 SW Admiral Way, Seattle 98116
+  // Wyncote NW Forum room at Town Hall Seattle — alias of the existing 'the wyncote nw forum' entry
+  'seattle town hall - forum': { lat: 47.6087, lng: -122.3295 },
+  'sleight of hand cellars sodo': { lat: 47.5679515, lng: -122.3349070 }, // 3861 1st Ave S (Unit G), Seattle — shared SoDo tasting-room building (resolves to "Waters Winery Tasting Room" at the same address)
+  'tampopo farm': { lat: 48.116025, lng: -123.156532 }, // 2800 Woodcock Rd, Sequim, WA — US Census TIGER geocode (Nominatim had no result)
+  'uw bothell mobius hall': { lat: 47.7608677, lng: -122.1922103 }, // Mobius Hall, Cascadia College Bldg CC3, 18345 Campus Way NE, Bothell — shared UW Bothell/Cascadia campus building
+  // Same UW Tower complex (4333 Brooklyn Ave NE) as the existing 'uw tower building t (uwtt)' entry — Building O is a different letter-coded building in the same property cluster
+  'uw tower building o (uwto)': { lat: 47.6607450, lng: -122.3146673 },
+  'wec shop': { lat: 47.6271962, lng: -122.3359006 }, // Bill Garden Boat Shop, Wagner Education Center, Center for Wooden Boats, 1010 Valley St, Seattle 98109
+  'yesler terrace housing development, hinoki building': { lat: 47.6013443, lng: -122.3203002 }, // 917 E Yesler Way, Seattle (Yesler Terrace Community Center address)
+  // Vancouver, BC coffee shop referenced as a rest stop by a WA rides source; address
+  // comes from the event's own second location line (normalizeLocation drops it after
+  // the newline split, same pattern as the existing 'sound break' entry)
+  '7 days coffee': { lat: 49.276166, lng: -123.115703 }, // 920 Beatty St, Vancouver, BC
+  // Denver Summit FC (NWSL) home stadium — OL Reign away-game feed
+  'centennial stadium': { lat: 39.5836794, lng: -104.8287457 }, // 13740 E Fremont Ave, Centennial, CO 80112
+  // Seattle Housing Authority's Yesler Terrace office/community space — same address as the
+  // existing 'yesler terrace housing development, hinoki building' entry above (917 E Yesler
+  // Way). Some source events carry only the bare "Yesler SHA" name with no address line.
+  'yesler sha': { lat: 47.6013443, lng: -122.3203002 },
+  // West Seattle Blog "Da Grind Races at Alki Beach" — relative direction from the existing
+  // 'alki beach bathhouse' entry; approximate but close enough for this event's purposes.
+  'east of the bathhouse': { lat: 47.579690, lng: -122.409633 },
 };
 
 /**
