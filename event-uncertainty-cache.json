@@ -54668,6 +54668,148 @@
       "resolvedAt": "2026-08-01",
       "source": "agent",
       "evidence": "Bothell Parks & Recreation Youth Summer Entertainment series (bothellwa.gov/2183/Youth-Summer-Entertainment) is explicitly described as free, family-friendly, every Wednesday in August at Park at Bothell Landing Amphitheater; matches this event's date/venue/sponsor exactly"
+    },
+    "pcnw:pcnw-84982": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "PCNW gallery exhibitions are free per pcnw.org/gallery ('PCNW's Gallery hosts free quarterly exhibitions and public programs')"
+    },
+    "pcnw:pcnw-86549": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "pcnw.org/photo-zine-and-book-fair - no ticket/entry fee posted, held in PCNW's gallery space which has free admission per pcnw.org/gallery"
+    },
+    "pcnw:pcnw-95096": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "pcnw.org - Fall Session Starts is a registration-kickoff announcement pointing to individual class/workshop registration pages with varying prices; no single price posted"
+    },
+    "pcnw:pcnw-95346": {
+      "fields": {
+        "cost": {
+          "min": 100.0,
+          "max": 250.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "pcnw.ejoinme.org/pcnw2026 ticketing page: Art & Wine Pairing Ticket $100, Individual Ticket (Early Bird) $250"
+    },
+    "charlies-queer-books:charlies-queer-books-6006920260814": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "Event description via BookManager API: 'General Admission - $15, $25 with Book' at Northwest Film Forum (nwfilmforum.org/films/cabaret-charlies-queer-books)"
+    },
+    "charlies-queer-books:charlies-queer-books-6007020260815": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "Event description via BookManager API: 'General Admission - $15, $25 with Book' at Northwest Film Forum (nwfilmforum.org/films/cabaret-charlies-queer-books)"
+    },
+    "charlies-queer-books:charlies-queer-books-6007320260816": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "Event description via BookManager API: 'General Admission - $15, $25 with Book' at Northwest Film Forum (nwfilmforum.org/films/cabaret-charlies-queer-books)"
+    },
+    "northwest-film-forum:an-autumn-afternoon-2026-10-09": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "nwfilmforum.org film page: '$15 General Admission / $10 Student/Child/Senior / $7 NWFF Member'"
+    },
+    "northwest-film-forum:drunken-noodles-2026-08-01": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "nwfilmforum.org film page: '$15 General Admission / $10 Student/Child/Senior / $7 NWFF Member'"
+    },
+    "seattle-makers:seattle-makers-154066": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattlemakers.org event page: 'Tours are free and open to everyone', Buy today - $0.00"
+    },
+    "seattle-makers:seattle-makers-160389": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattlemakers.org event page: 'Buy today - $0.00' for new member orientation"
+    },
+    "seattle-makers:seattle-makers-160407": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "seattlemakers.org event page: 'Our workshops and trainings on Meetup are free and open to all skill levels', no cover charge, $0.00"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-10-06-qabc-reads-buffalo-hunter-hunter-stephen-graham-jones": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "qabookco.com event page describes it as a free drop-in monthly book discussion; no admission fee mentioned, only an optional 20% book purchase discount"
+    },
+    "browne-family-vineyards-seattle:6a6c528cedc22013d5f81f12": {
+      "fields": {
+        "cost": {
+          "min": 35.0,
+          "max": 45.0
+        }
+      },
+      "resolvedAt": "2026-08-01",
+      "source": "agent",
+      "evidence": "brownefamilyvineyards.com event page: 'Advance tickets: $35 | Door: $45 (if available)'"
     }
   }
 }
