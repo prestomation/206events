@@ -65,13 +65,19 @@ function extractImageUrl(vevent: any): string | undefined {
 }
 
 /**
- * Lookahead window (in months) used to match live-ripper behavior when
- * re-parsing an external ICS feed for tag aggregates, events-index, and the
- * outofband re-parse fallback. The 3-month `parseExternalCalendarEvents`
- * default is too narrow for sparsely-programmed sources (e.g. a venue that
- * posts one event per quarter, or a show booked many months out) — those
- * events silently vanish from the derived outputs even though they still
- * appear on the source's own unfiltered external-<name>.ics page.
+ * Lookahead window (in months) used only by the outofband ICS re-parse
+ * fallback in lib/calendar_ripper.ts, to match live-ripper behavior for
+ * shows booked far ahead (e.g. Seattle Rep, ECCC). Deliberately NOT used
+ * as the default for tag aggregates / events-index re-parsing of ordinary
+ * external calendars: widening those paths to 14 months was tried and
+ * reverted (see PR #1081 follow-up) — it applies to every external
+ * calendar, not just sparsely-programmed ones, and RRULE expansion over a
+ * 4.7x wider window inflated the total site event count by ~56% (14.3k ->
+ * 22.3k events), doubled geocode errors, flooded the duplicate-candidate
+ * queue with repeated recurring-event near-matches, and caused the build
+ * to intermittently hit the Node heap limit. A real fix for
+ * sparsely-programmed sources needs a narrower, opt-in mechanism (e.g. a
+ * per-source YAML flag) rather than a blanket default change.
  */
 export const EXTERNAL_CALENDAR_WINDOW_MONTHS = 14;
 
@@ -255,7 +261,7 @@ export async function fetchExternalCalendar(url: string): Promise<RipperCalendar
       throw new Error(`Failed to fetch calendar: ${response.status} ${response.statusText}`);
     }
     const icsData = await response.text();
-    return parseExternalCalendarEvents(icsData, { windowMonths: EXTERNAL_CALENDAR_WINDOW_MONTHS });
+    return parseExternalCalendarEvents(icsData);
   } catch (error) {
     console.error(`Error fetching external calendar ${url}:`, error);
     return [];
@@ -324,7 +330,7 @@ export async function createAggregateCalendars(
           } else {
             const cachedIcs = prefetchedIcsData?.get(tec.calendar.icsUrl);
             if (cachedIcs) {
-              externalEvents = parseExternalCalendarEvents(cachedIcs, { windowMonths: EXTERNAL_CALENDAR_WINDOW_MONTHS });
+              externalEvents = parseExternalCalendarEvents(cachedIcs);
             } else {
               console.log(`Fetching external calendar: ${tec.calendar.friendlyname}`);
               externalEvents = await fetchExternalCalendar(tec.calendar.icsUrl);

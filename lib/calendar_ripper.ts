@@ -1338,7 +1338,7 @@ END:VCALENDAR`;
     const cachedIcs = externalIcsCache.get(calendar.icsUrl);
     if (cachedIcs) {
       try {
-        const externalEvents = parseExternalCalendarEvents(cachedIcs, { windowMonths: EXTERNAL_CALENDAR_WINDOW_MONTHS });
+        const externalEvents = parseExternalCalendarEvents(cachedIcs);
         for (const event of externalEvents) {
           const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
           geoCache = result.cache;
