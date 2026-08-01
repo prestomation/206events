@@ -47874,7 +47874,11 @@
     "northwest-film-forum:camp2-2026-2026-07-31": {
       "fields": {
         "startTime": "10:00",
-        "duration": 18000
+        "duration": 18000,
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/04/3-2.png",
+        "cost": {
+          "min": 375
+        }
       },
       "resolvedAt": "2026-08-01",
       "source": "agent",
