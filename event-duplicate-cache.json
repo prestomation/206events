@@ -9504,6 +9504,306 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-01",
       "note": "In-person at Lake City branch vs explicitly virtual; different modality and likely different facilitator/session"
+    },
+    "browne-family-vineyards-seattle-browne-family-vineyards-seattle.ics Sips in the Square|2026-08-22T13:00:00.282-07:00[America/Los_Angeles]::external-populus-seattle.ics Sips in the Square After Party|2026-08-22T16:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-01",
+      "note": "Verified via Populus Seattle's own event page: 'Sips in the Square After Party' is an explicitly distinct follow-on event (rooftop afterparty at Firn, 4-10:30pm) that occurs after the main Sips in the Square wine walk ends, not the same gathering."
+    },
+    "browne-family-vineyards-seattle-browne-family-vineyards-seattle.ics Sips in the Square|2026-08-22T13:00:00.282-07:00[America/Los_Angeles]::seattle-pride-all-events.ics Pioneer Square's Sips in the Square|2026-08-22T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Verified via Browne Family Vineyards and Seattle Pride event pages: both describe the identical Pioneer Square 'Sips in the Square' wine walk on 2026-08-22, 1-4pm, check-in at Grand Central Hall, $35/$45 tickets — same real-world event from a participating winery and an aggregator."
+    },
+    "seatoday-seatoday-all.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-08-02T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-08-02T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "The Missing Piece Games has a single West Seattle location (verified via their site); same title 'American Mah Jongg' and exact date/time. seatoday's address differs but is the same recurring program at the same business."
+    },
+    "seatoday-seatoday-all.ics August Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics August Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics August Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics August Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-08-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-08-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics CL 101: Intro to Concert Lighting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics CL 101: Intro to Concert Lighting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "CL 101: Intro to Concert Lighting is Vera Project's own recurring class (confirmed via web search); seatoday lists the same building address (305 Harrison St, Seattle Center Armory) with a slightly different tenant label (Book-It Repertory Theatre), same exact date/time."
+    },
+    "seatoday-seatoday-all.ics English Conversation Circle|2026-08-07T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics English Conversation Circle|2026-08-07T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics English Conversation Circle|2026-08-07T12:30:00-07:00[America/Los_Angeles]::spl-high-point.ics English Conversation Circle|2026-08-07T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-all.ics GSBA Capitol Hill Monthly Safety Call|2026-08-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics GSBA Capitol Hill Monthly Safety Call|2026-08-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics GSBA Capitol Hill Monthly Safety Call|2026-08-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics GSBA Capitol Hill Monthly Safety Call|2026-08-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::spl-central-library.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-08-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-08-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-03T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-03T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-03T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-03T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English|2026-08-03T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English|2026-08-03T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English|2026-08-03T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English|2026-08-03T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-all.ics Virtual Workshop - Hiring with Confidence: Employees, Contractors, and Compliance Basics|2026-08-03T14:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Workshop - Hiring with Confidence: Employees, Contractors, and Compliance Basics|2026-08-03T14:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-arts.ics CL 101: Intro to Concert Lighting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics CL 101: Intro to Concert Lighting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "CL 101: Intro to Concert Lighting is Vera Project's own recurring class (confirmed via web search); seatoday lists the same building address (305 Harrison St, Seattle Center Armory) with a slightly different tenant label (Book-It Repertory Theatre), same exact date/time."
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::spl-central-library.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-arts.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-03T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-03T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-arts.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-arts.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-community.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-community.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-community.ics GSBA Capitol Hill Monthly Safety Call|2026-08-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics GSBA Capitol Hill Monthly Safety Call|2026-08-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::spl-central-library.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-community.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-community.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English|2026-08-03T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English|2026-08-03T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-food.ics August Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics August Coffee Connections|2026-08-11T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
+    },
+    "seatoday-seatoday-learning.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Accessible Voting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-learning.ics CL 101: Intro to Concert Lighting|2026-08-01T10:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics CL 101: Intro to Concert Lighting|2026-08-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "CL 101: Intro to Concert Lighting is Vera Project's own recurring class (confirmed via web search); seatoday lists the same building address (305 Harrison St, Seattle Center Armory) with a slightly different tenant label (Book-It Repertory Theatre), same exact date/time."
+    },
+    "seatoday-seatoday-learning.ics English Conversation Circle|2026-08-07T12:30:00-07:00[America/Los_Angeles]::spl-high-point.ics English Conversation Circle|2026-08-07T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]::spl-central-library.ics La Hora de Cuentos Familiares|2026-08-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-learning.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-learning.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Summer Quest: Indigenous Story Telling & Crafts|2026-08-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "6amcity/seatoday listing matches a specific SPL branch program: identical title and exact date/time, single matching branch (verified pattern: Accessible Voting/Central Library, Preschool Story Time/South Park, English Conversation Circle/High Point, La Hora de Cuentos Familiares/Central Library, Summer Quest Indigenous/Greenwood)."
+    },
+    "seatoday-seatoday-learning.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Summer Quest: Plants and Animals in a Nature Journal|2026-08-04T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same seatoday/6amcity event republished into multiple category calendars (identical source URL)."
     }
   }
 }
