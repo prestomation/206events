@@ -55,6 +55,10 @@ describe('stripHtml', () => {
     test('collapses whitespace', () => {
         expect(stripHtml('<p>Line one</p>\n\n<p>Line   two</p>')).toBe('Line one Line two');
     });
+
+    test('cleans up a malformed closing tag missing its "<" (real source data)', () => {
+        expect(stripHtml('<strong>$116/strong></strong>')).toBe('$116');
+    });
 });
 
 describe('parseEventDate', () => {
@@ -159,30 +163,81 @@ describe('parseEventDate', () => {
         expect(result?.month).toBe(10);
         expect(result?.day).toBe(11);
     });
+
+    test('picks the real next weekly session mid-series, not the last one', () => {
+        // Regression test: a four-week Wednesday workshop "October 7 – 28,
+        // 2026" with "now" between the 1st and 2nd sessions must publish the
+        // 2nd session (Oct 14), not jump straight to the 4th (Oct 28).
+        const now = ZonedDateTime.of(LocalDateTime.of(2026, 10, 15, 0, 0), TIMEZONE);
+        const result = parseEventDate('October 7 – 28, 2026 | Wednesday 6-9pm $365', now);
+        expect(result?.month).toBe(10);
+        expect(result?.day).toBe(21);
+    });
 });
 
 describe('extractCandidateDates', () => {
     test('carries the month forward onto bare day numbers in a comma list', () => {
-        expect(extractCandidateDates('November 2, 9, 16 & 30')).toEqual([
+        expect(extractCandidateDates('November 2, 9, 16 & 30', 2026)).toEqual([
             { month: 11, day: 2 }, { month: 11, day: 9 }, { month: 11, day: 16 }, { month: 11, day: 30 },
         ]);
     });
 
     test('switches month when a new month name appears mid-list', () => {
-        expect(extractCandidateDates('September 27, October 4 & 11')).toEqual([
+        expect(extractCandidateDates('September 27, October 4 & 11', 2026)).toEqual([
             { month: 9, day: 27 }, { month: 10, day: 4 }, { month: 10, day: 11 },
         ]);
     });
 
     test('handles a single date with no list', () => {
-        expect(extractCandidateDates('October 2')).toEqual([{ month: 10, day: 2 }]);
+        expect(extractCandidateDates('October 2', 2026)).toEqual([{ month: 10, day: 2 }]);
     });
 
     test('matches a day number immediately followed by an ordinal suffix', () => {
         // "24th" has no word boundary between the digit and the letter — a
         // regression test for the crash this caused when the day number was
         // followed directly by an ordinal suffix with no separating space.
-        expect(extractCandidateDates('January 24th ,')).toEqual([{ month: 1, day: 24 }]);
+        expect(extractCandidateDates('January 24th ,', 2026)).toEqual([{ month: 1, day: 24 }]);
+    });
+
+    test('treats a short same-month range as a single continuous multi-day event', () => {
+        expect(extractCandidateDates('October 10 – 11', 2026)).toEqual([
+            { month: 10, day: 10 }, { month: 10, day: 11 },
+        ]);
+    });
+
+    test('treats a short cross-month range as a single continuous multi-day event', () => {
+        expect(extractCandidateDates('October 31 – November 1', 2026)).toEqual([
+            { month: 10, day: 31 }, { month: 11, day: 1 },
+        ]);
+    });
+
+    test('expands a long same-month range into weekly candidates', () => {
+        // Real fixture case: "October 7 – 28, 2026 | Wednesday 6-9pm" — an
+        // explicit four-week workshop. Every listed Wednesday must be a
+        // candidate, not just the two endpoints, so a partway-through-series
+        // "now" picks the real next session instead of jumping to the last one.
+        expect(extractCandidateDates('October 7 – 28', 2026)).toEqual([
+            { month: 10, day: 7 }, { month: 10, day: 14 }, { month: 10, day: 21 }, { month: 10, day: 28 },
+        ]);
+    });
+
+    test('expands a long cross-month range into weekly candidates with correct month rollover', () => {
+        // Real fixture case: "July 7 – August 4, 2026 | Tuesdays 6-9pm" — a
+        // six-week workshop crossing a month boundary.
+        expect(extractCandidateDates('July 7 – August 4', 2026)).toEqual([
+            { month: 7, day: 7 }, { month: 7, day: 14 }, { month: 7, day: 21 }, { month: 7, day: 28 }, { month: 8, day: 4 },
+        ]);
+    });
+
+    test('always includes the literal end date even when it does not land on a 7-day boundary', () => {
+        // Real fixture case: "May 16 – 27, 2026 | Saturday ... & Sunday ..." —
+        // a twice-weekly series where day 27 isn't reached by stepping 7 days
+        // from day 16 (16, 23, 30 overshoots). The explicitly stated end date
+        // must still be a selectable candidate.
+        const candidates = extractCandidateDates('May 16 – 27', 2026);
+        expect(candidates).toContainEqual({ month: 5, day: 16 });
+        expect(candidates).toContainEqual({ month: 5, day: 23 });
+        expect(candidates).toContainEqual({ month: 5, day: 27 });
     });
 });
 
@@ -308,6 +363,17 @@ describe('parseEventPost', () => {
         expect(event!.date.monthValue()).toBe(1);
         expect(event!.date.dayOfMonth()).toBe(24);
         expect(event!.date.year()).toBe(2026);
+    });
+
+    test('picks the real next weekly session for a real multi-week workshop fixture, not the last one', () => {
+        const post = findPost(95070); // Studio Fashion Photography & Retouching — "October 7 – 28, 2026 | Wednesday"
+        const now = ZonedDateTime.of(LocalDateTime.of(2026, 10, 15, 0, 0), TIMEZONE);
+        const results = parseEventPost(post, now);
+
+        const event = eventOf(results);
+        expect(event).toBeDefined();
+        expect(event!.date.monthValue()).toBe(10);
+        expect(event!.date.dayOfMonth()).toBe(21);
     });
 
     test('extracts the featured media URL as imageUrl when present', () => {

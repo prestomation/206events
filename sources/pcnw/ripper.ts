@@ -1,4 +1,4 @@
-import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
+import { ChronoUnit, Duration, LocalDate, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
@@ -54,16 +54,79 @@ interface ParsedDate {
 
 // Public for testing
 export function stripHtml(html: string): string {
-    return decode(html.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+    return decode(html
+        .replace(/<[^>]+>/g, ' ')
+        // A handful of source posts have malformed markup missing the "<"
+        // before a closing tag (e.g. "$116/strong>"), which the tag-strip
+        // above can't catch since it isn't a well-formed tag. Clean up the
+        // leftover fragment rather than publish it verbatim in the description.
+        .replace(/\/(?:strong|em|b|i|p|span|a)>/g, ''))
+        .replace(/\s+/g, ' ').trim();
+}
+
+function monthIndexOf(name: string): number {
+    return MONTHS.findIndex(m => m === name.toLowerCase());
+}
+
+const DASH_RE = /[-‐‑‒–—]/;
+
+// A "Day – Day" / "Month Day – Month Day" range is either a single
+// continuous multi-day event (a 1-3 day weekend workshop — "October 10 –
+// 11") or shorthand for a weekly-cadence multi-week class ("October 7 – 28 |
+// Wednesday 6-9pm", a four-week series). Both use identical punctuation; the
+// only reliable signal is the span: a real continuous event never runs more
+// than about a week, so a longer span is expanded into one candidate per
+// week (proper calendar-date arithmetic, so month/year boundaries — "July 7
+// – August 4" — carry correctly) rather than treated as two far-apart
+// endpoints with everything in between silently skipped.
+function extractRangeCandidates(dateClause: string, year: number): { month: number; day: number }[] {
+    const monthNames = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
+    const rangeRe = new RegExp(
+        `(?:(${monthNames})\\s+)?(?<!\\d)(\\d{1,2})(?!\\d)\\s*(?:${DASH_RE.source})\\s*(?:(${monthNames})\\s+)?(?<!\\d)(\\d{1,2})(?!\\d)`,
+        'i'
+    );
+    const m = dateClause.match(rangeRe);
+    if (!m) return [];
+
+    const startMonth = m[1] ? monthIndexOf(m[1]) + 1 : null;
+    const startDay = parseInt(m[2], 10);
+    const endMonth = m[3] ? monthIndexOf(m[3]) + 1 : startMonth;
+    const endDay = parseInt(m[4], 10);
+    if (!startMonth || !endMonth) return [];
+
+    let start: LocalDate;
+    let end: LocalDate;
+    try {
+        start = LocalDate.of(year, startMonth, startDay);
+        end = LocalDate.of(year, endMonth, endDay);
+    } catch {
+        return [];
+    }
+    if (end.isBefore(start)) return [];
+
+    const toCandidate = (d: LocalDate) => ({ month: d.monthValue(), day: d.dayOfMonth() });
+
+    if (start.until(end, ChronoUnit.DAYS) <= 7) {
+        return [toCandidate(start), toCandidate(end)];
+    }
+
+    const candidates: { month: number; day: number }[] = [];
+    let d = start;
+    while (!d.isAfter(end)) {
+        candidates.push(toCandidate(d));
+        d = d.plusDays(7);
+    }
+    if (candidates[candidates.length - 1].month !== end.monthValue() || candidates[candidates.length - 1].day !== end.dayOfMonth()) {
+        candidates.push(toCandidate(end));
+    }
+    return candidates;
 }
 
 // Multi-session workshops list every session in the date clause (e.g.
-// "November 2, 9, 16 & 30, 2026" or "September 27, October 4 & 11, 2026"; a
-// weekend workshop's "October 10 – 11, 2026" range is treated the same way,
-// as two candidate days). Extracts every (month, day) pair in the clause,
-// carrying the most recently seen month name forward onto bare day numbers.
-// Public for testing
-export function extractCandidateDates(dateClause: string): { month: number; day: number }[] {
+// "November 2, 9, 16 & 30, 2026" or "September 27, October 4 & 11, 2026").
+// Extracts every (month, day) pair in the clause, carrying the most
+// recently seen month name forward onto bare day numbers.
+function extractListCandidates(dateClause: string): { month: number; day: number }[] {
     const monthNames = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
     // (?<!\d)/(?!\d) rather than \b on the trailing side: a day number is
     // often immediately followed by an ordinal suffix ("24th") with no word
@@ -74,7 +137,7 @@ export function extractCandidateDates(dateClause: string): { month: number; day:
     let match: RegExpExecArray | null;
     while ((match = tokenRe.exec(dateClause)) !== null) {
         if (match[1]) {
-            const idx = MONTHS.findIndex(m => m === match![1].toLowerCase());
+            const idx = monthIndexOf(match[1]);
             if (idx !== -1) currentMonth = idx + 1;
         }
         if (currentMonth !== null) {
@@ -82,6 +145,16 @@ export function extractCandidateDates(dateClause: string): { month: number; day:
         }
     }
     return candidates;
+}
+
+// Public for testing. `year` is only needed for the dash-range branch, where
+// expanding a multi-week series requires real calendar-date arithmetic.
+export function extractCandidateDates(dateClause: string, year: number): { month: number; day: number }[] {
+    if (DASH_RE.test(dateClause)) {
+        const rangeCandidates = extractRangeCandidates(dateClause, year);
+        if (rangeCandidates.length > 0) return rangeCandidates;
+    }
+    return extractListCandidates(dateClause);
 }
 
 // Public for testing
@@ -117,8 +190,20 @@ export function parseEventDate(text: string, now: ZonedDateTime): ParsedDate | n
         // never come back empty, but fall back to the originally matched
         // (month, day) rather than crash if some clause shape ever defeats
         // the scan.
-        const candidates = extractCandidateDates(dateClause);
+        const candidates = extractCandidateDates(dateClause, year);
         if (candidates.length === 0) candidates.push({ month: monthIdx + 1, day: parseInt(dateMatch[2], 10) });
+        // Pair each candidate with its real LocalDate, dropping any that
+        // aren't calendar-valid (e.g. a stray digit token misread as day 31
+        // of a 30-day month) instead of letting LocalDate.of throw.
+        const dated = candidates
+            .map(c => {
+                try {
+                    return { c, date: LocalDate.of(year, c.month, c.day) };
+                } catch {
+                    return null;
+                }
+            })
+            .filter((x): x is { c: { month: number; day: number }; date: LocalDate } => x !== null);
         // Prefer the earliest session that hasn't happened yet, so a workshop
         // already partway through its series still publishes its next
         // occurrence instead of disappearing once the first listed date
@@ -126,11 +211,19 @@ export function parseEventDate(text: string, now: ZonedDateTime): ParsedDate | n
         // session is already in the past — it will be dropped by the
         // isBefore(now) check in parseEventPost either way.
         const nowDate = now.toLocalDate();
-        const sorted = [...candidates].sort((a, b) => a.month - b.month || a.day - b.day);
-        const chosen = sorted.find(c => !LocalDateTime.of(year, c.month, c.day, 23, 59).toLocalDate().isBefore(nowDate))
-            ?? sorted[sorted.length - 1];
-        month = chosen.month;
-        day = chosen.day;
+        const sorted = [...dated].sort((a, b) => a.date.compareTo(b.date));
+        const chosen = sorted.find(x => !x.date.isBefore(nowDate)) ?? sorted[sorted.length - 1];
+        if (!chosen) {
+            // Every candidate was calendar-invalid — fall back to the
+            // originally matched (month, day) rather than error out; it'll
+            // very likely fail LocalDateTime.of below too, surfacing as the
+            // usual ParseError instead of a crash.
+            month = monthIdx + 1;
+            day = parseInt(dateMatch[2], 10);
+        } else {
+            month = chosen.c.month;
+            day = chosen.c.day;
+        }
         timeSearchStart = yearMatch.index + yearMatch[0].length;
     } else {
         // No year stated anywhere near the date — PCNW's older posts about a
