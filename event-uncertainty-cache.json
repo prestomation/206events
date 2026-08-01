@@ -53677,7 +53677,7 @@
     "rabbit_box:6a6693f7e6090c443019fe25": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53687,7 +53687,7 @@
     "rabbit_box:6a681f58eeaff4752631531d": {
       "fields": {
         "cost": {
-          "min": 18.0
+          "min": 18
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53697,7 +53697,7 @@
     "rabbit_box:6a6b91257144e46a486c585a": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53707,7 +53707,7 @@
     "rabbit_box:6a6c101a5ac1f46ff7beffd8": {
       "fields": {
         "cost": {
-          "min": 18.0
+          "min": 18
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53788,7 +53788,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/bottoms-poster-scaled-1200x1778.jpeg",
         "cost": {
-          "min": 12.0
+          "min": 12
         }
       },
       "resolvedAt": "2026-08-01",
