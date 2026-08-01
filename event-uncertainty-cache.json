@@ -47880,7 +47880,7 @@
           "min": 375
         }
       },
-      "resolvedAt": "2026-07-24",
+      "resolvedAt": "2026-08-01",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
     },
@@ -53608,72 +53608,70 @@
       "source": "agent",
       "evidence": "https://theveraproject.org/screenprint/open-sessions/"
     },
-    "mopop:michael-jackson-the-fashion-legacy-member-preview-2026-08-21": {
+    "mopop:mopop-michael-jackson-the-fashion-legacy-member-preview-2026-08-21": {
       "fields": {
         "startTime": "10:00",
         "duration": 21600
       },
       "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://www.mopop.org/events/michael-jackson-fashion-legacy-member-preview"
+      "evidence": "https://www.mopop.org/events/michael-jackson-fashion-legacy-member-preview",
+      "partialFingerprint": "oubkya"
     },
-    "mopop:icons-of-pop-culture-gala-salt-n-pepa-performance-2026-10-22": {
+    "mopop:mopop-icons-of-pop-culture-gala-salt-n-pepa-performance-2026-10-22": {
       "fields": {
         "startTime": "20:30",
         "duration": 10800
       },
       "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://www.mopop.org/events/salt-n-pepa-performance"
+      "evidence": "https://www.mopop.org/events/salt-n-pepa-performance",
+      "partialFingerprint": "3hcvme"
     },
-    "museum_of_flight:member-planetarium-2026-09-05-1100": {
+    "museum_of_flight:mof-member-planetarium-2026-09-05-1100": {
       "fields": {
         "duration": 3600
       },
       "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8528/member-planetarium"
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8528/member-planetarium",
+      "partialFingerprint": "1309jbs"
     },
-    "museum_of_flight:member-planetarium-2026-09-05-1300": {
+    "museum_of_flight:mof-member-planetarium-2026-09-05-1300": {
       "fields": {
         "duration": 3600
       },
       "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8528/member-planetarium"
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8528/member-planetarium",
+      "partialFingerprint": "1309jbs"
     },
-    "national-nordic-museum:sea-nordic-film-festival-2026-09-15": {
+    "national-nordic-museum:nordic-museum-seattle-nordic-film-festival": {
       "fields": {
         "startTime": "18:00"
       },
       "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://nordicmuseum.org/events/seattle-nordic-film-festival"
+      "evidence": "https://nordicmuseum.org/events/seattle-nordic-film-festival",
+      "partialFingerprint": "0"
     },
-    "northwest-film-forum:art-of-animation-summer-camp-2-ages-14-18-2026-07-31": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 18000
-      },
-      "resolvedAt": "2026-08-01",
-      "source": "agent",
-      "evidence": "https://nwfilmforum.org/education/workshops/camp2-2026/"
-    },
-    "seattle-arts-lectures:ed-yong-2027-04-14": {
+    "seattle-arts-lectures:sal-april-2027-14-1u7jn00": {
       "fields": {
         "startTime": "19:30"
       },
       "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://lectures.org/event/ed-yong/"
+      "evidence": "https://lectures.org/event/ed-yong/",
+      "partialFingerprint": "r08ea1"
     },
-    "seattle-arts-lectures:kiese-laymon-2027-05-07": {
+    "seattle-arts-lectures:sal-may-2027-7-un26rz": {
       "fields": {
         "startTime": "19:30"
       },
       "resolvedAt": "2026-08-01",
       "source": "agent",
-      "evidence": "https://lectures.org/event/kiese-laymon/"
+      "evidence": "https://lectures.org/event/kiese-laymon/",
+      "partialFingerprint": "ax67nr"
     }
   }
 }
