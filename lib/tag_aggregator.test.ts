@@ -283,18 +283,13 @@ END:VCALENDAR`;
       expect(allCalendar!.events.length).toBeGreaterThanOrEqual(2);
     });
 
-    it('includes external events more than 3 months out (matches live-ripper lookahead, not the 3-month parseExternalCalendarEvents default)', async () => {
-      // Regression test: a sparsely-programmed external calendar (e.g. one
-      // event per quarter) was silently dropped from tag aggregates because
-      // createAggregateCalendars called parseExternalCalendarEvents without
-      // widening its default 3-month window, even though the source's own
-      // external-<name>.ics page (unfiltered) still had the event.
+    it('excludes external events more than 3 months out (pins the default — do not widen this call site again without re-checking site-wide event volume, see PR #1081/#1082)', async () => {
       const taggedExternalCalendars: TaggedExternalCalendar[] = [
         { calendar: sampleExternalCalendar1, tags: ['Arts'] }
       ];
 
       const farFuture = new Date();
-      farFuture.setMonth(farFuture.getMonth() + 4); // outside 3mo, inside 14mo
+      farFuture.setMonth(farFuture.getMonth() + 4); // outside the 3-month default
       const dtStart = farFuture.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
 
       const icsData = `BEGIN:VCALENDAR
@@ -317,8 +312,7 @@ END:VCALENDAR`;
 
       const tagCalendar = aggregateCalendars.find(c => c.name === 'tag-arts');
       expect(tagCalendar).toBeDefined();
-      expect(tagCalendar!.events).toHaveLength(1);
-      expect(tagCalendar!.events[0].summary).toBe('Quarterly Open Studio');
+      expect(tagCalendar!.events).toHaveLength(0);
     });
 
     it('should sort events by date', async () => {
