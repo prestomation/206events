@@ -232,7 +232,17 @@ export default class PCNWRipper implements IRipper {
                 break;
             }
 
-            const posts: PCNWEventPost[] = await res.json();
+            let posts: PCNWEventPost[];
+            try {
+                posts = await res.json();
+            } catch (err) {
+                errors.push({
+                    type: 'ParseError',
+                    reason: `PCNW events API page ${page} returned invalid JSON: ${err}`,
+                    context: url,
+                });
+                break;
+            }
             if (posts.length === 0) break;
 
             for (const post of posts) {

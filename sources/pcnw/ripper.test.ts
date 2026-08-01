@@ -285,6 +285,22 @@ describe('PCNWRipper.rip', () => {
         expect(result[0].errors.some(e => 'reason' in e && /page 2/.test(String((e as any).reason)))).toBe(true);
     });
 
+    test('stops paginating and records an error when a page returns invalid JSON', async () => {
+        const page1 = loadSampleData();
+        const mockFetch = vi.fn().mockImplementation((url: string) => {
+            if (url.includes('&page=1&')) {
+                return Promise.resolve({ ok: true, json: () => Promise.resolve(page1) });
+            }
+            return Promise.resolve({ ok: true, json: () => Promise.reject(new SyntaxError('Unexpected token')) });
+        });
+        vi.stubGlobal('fetch', mockFetch);
+
+        const ripper = new PCNWRipper();
+        const result = await ripper.rip(makeRipper());
+
+        expect(result[0].errors.some(e => 'reason' in e && /page 2 returned invalid JSON/.test(String((e as any).reason)))).toBe(true);
+    });
+
     test('dedupes a post id that appears on more than one page', async () => {
         const page1 = loadSampleData().slice(0, 5);
         const mockFetch = vi.fn().mockResolvedValue({ ok: true, json: () => Promise.resolve(page1) });
