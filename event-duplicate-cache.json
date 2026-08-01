@@ -9264,6 +9264,156 @@
       "decision": "confirmed",
       "resolvedAt": "2026-07-31",
       "note": "Same show: Tractor Tavern presents Joe's Truck Stop physically AT Conor Byrne Pub (title says so explicitly); same date, same performers (Jon/John Pontrello + Kat Bula name-spelling variant), venues 71m apart in Ballard."
+    },
+    "discover-slu-discover-slu.ics 2026 Cider Summit Seattle|2026-09-12T15:00:00-07:00[America/Los_Angeles]::recurring-cider-summit-seattle.ics Cider Summit Seattle|2026-09-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same 2026 Cider Summit Seattle event at SLU Discovery Center, two sources different listed times"
+    },
+    "seatoday-seatoday-all.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event appearing in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same WABA Korea Expo event at Pier 62 Waterfront Park, seatoday aggregator and waterfront-park venue source"
+    },
+    "seatoday-seatoday-all.ics Big Truck Day|2026-08-14T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Big Truck Day|2026-08-14T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Family Dance Party - Family Fun Extravaganza|2026-08-14T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Family Dance Party - Family Fun Extravaganza|2026-08-14T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Family Dance Party - Family Fun Extravaganza|2026-08-14T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-nightlife.ics Family Dance Party - Family Fun Extravaganza|2026-08-14T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics ISSAQUAH COMMONS TO HOST 'PENCILS & PANTS' BACK-TO-SCHOOL SUPPLY DRIVE|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics ISSAQUAH COMMONS TO HOST 'PENCILS & PANTS' BACK-TO-SCHOOL SUPPLY DRIVE|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Screen Printing Open Session|2026-08-14T14:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-08-14T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same Screen Printing Open Session at The Vera Project, 305m apart"
+    },
+    "seatoday-seatoday-arts.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same WABA Korea Expo event, seatoday and waterfront-park venue source"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Screen Printing Open Session|2026-08-14T14:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-08-14T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same Screen Printing Open Session at The Vera Project"
+    },
+    "seatoday-seatoday-community.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same WABA Korea Expo event, seatoday and waterfront-park venue source"
+    },
+    "seatoday-seatoday-community.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Family Dance Party - Family Fun Extravaganza|2026-08-14T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-nightlife.ics Family Dance Party - Family Fun Extravaganza|2026-08-14T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Screen Printing Open Session|2026-08-14T14:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-08-14T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same Screen Printing Open Session at The Vera Project"
+    },
+    "seatoday-seatoday-learning.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics 2026 WABA Korea Expo & Festival|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same WABA Korea Expo event, seatoday and waterfront-park venue source"
+    },
+    "seatoday-seatoday-learning.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Emergency Well Water Training|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same event in multiple seatoday sub-calendars"
+    },
+    "seatoday-seatoday-learning.ics Screen Printing Open Session|2026-08-14T14:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-08-14T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-01",
+      "note": "Same Screen Printing Open Session at The Vera Project"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-08-31T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-08-31T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-01",
+      "note": "Different locations: 1201 Eastlake Ave N vs 1551 Eastlake Ave N — two separate food truck events at different buildings"
     }
   }
 }
