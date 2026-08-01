@@ -3,7 +3,7 @@ name: "Photographic Center Northwest"
 status: added
 platform: WordPress (EventON plugin, ajde_events custom post type)
 url: https://pcnw.org/wp-json/wp/v2/ajde_events
-pr:
+pr: 1076
 firstSeen: 2026-08-01
 lastChecked: 2026-08-01
 tags: [Arts, "First Hill"]

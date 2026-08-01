@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { ZonedDateTime, ZoneId, LocalDateTime } from '@js-joda/core';
 import '@js-joda/timezone';
-import PCNWRipper, { stripHtml, parseEventDate, parseCost, parseEventPost } from './ripper.js';
+import PCNWRipper, { stripHtml, parseEventDate, parseCost, parseEventPost, extractCandidateDates } from './ripper.js';
 import { RipperCalendarEvent, UncertaintyError } from '../../lib/config/schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -59,7 +59,7 @@ describe('stripHtml', () => {
 
 describe('parseEventDate', () => {
     test('parses a single date with a single time (no range)', () => {
-        const result = parseEventDate('Curated Photography & Wine Pairing October 2, 2026 | Friday 6pm $100');
+        const result = parseEventDate('Curated Photography & Wine Pairing October 2, 2026 | Friday 6pm $100', FAR_PAST_NOW);
         expect(result).toEqual({
             month: 10, day: 2, year: 2026,
             hour: 18, minute: 0,
@@ -69,7 +69,7 @@ describe('parseEventDate', () => {
     });
 
     test('parses "on <date> at <time>" phrasing', () => {
-        const result = parseEventDate('Sunday, September 19, 2026 at 3pm Free w/ RSVP');
+        const result = parseEventDate('Sunday, September 19, 2026 at 3pm Free w/ RSVP', FAR_PAST_NOW);
         expect(result?.month).toBe(9);
         expect(result?.day).toBe(19);
         expect(result?.year).toBe(2026);
@@ -79,7 +79,7 @@ describe('parseEventDate', () => {
     });
 
     test('parses a same-month time range with an implicit start meridiem', () => {
-        const result = parseEventDate('October 10 – 11, 2026 | Saturday & Sunday 12:30-5:30pm $425');
+        const result = parseEventDate('October 10 – 11, 2026 | Saturday & Sunday 12:30-5:30pm $425', FAR_PAST_NOW);
         expect(result?.month).toBe(10);
         expect(result?.day).toBe(10);
         expect(result?.hour).toBe(12);
@@ -89,8 +89,8 @@ describe('parseEventDate', () => {
         expect(result?.durationConfident).toBe(true);
     });
 
-    test('parses a cross-month comma-and-ampersand date list, taking the first date', () => {
-        const result = parseEventDate('September 27, October 4 & 11, 2026 | Sunday 12:30-4:30pm $355');
+    test('parses a cross-month comma-and-ampersand date list, taking the first date when it is still upcoming', () => {
+        const result = parseEventDate('September 27, October 4 & 11, 2026 | Sunday 12:30-4:30pm $355', FAR_PAST_NOW);
         expect(result?.month).toBe(9);
         expect(result?.day).toBe(27);
         expect(result?.year).toBe(2026);
@@ -101,14 +101,14 @@ describe('parseEventDate', () => {
     });
 
     test('infers PM for a start hour before a PM end with no explicit meridiem', () => {
-        const result = parseEventDate('September 28, October 5 & 12, 2026 | Monday 5-9pm (9/28) & 6-9pm (10/5 & 12) $330');
+        const result = parseEventDate('September 28, October 5 & 12, 2026 | Monday 5-9pm (9/28) & 6-9pm (10/5 & 12) $330', FAR_PAST_NOW);
         expect(result?.hour).toBe(17);
         expect(result?.endHour).toBe(21);
         expect(result?.durationConfident).toBe(true);
     });
 
     test('returns date with placeholder time when no time is found nearby', () => {
-        const result = parseEventDate('Fall Classes and Workshops kick-off on September 23, 2026 — register today! Fall Photography Classes Fall Photography Workshops');
+        const result = parseEventDate('Fall Classes and Workshops kick-off on September 23, 2026 — register today! Fall Photography Classes Fall Photography Workshops', FAR_PAST_NOW);
         expect(result?.month).toBe(9);
         expect(result?.day).toBe(23);
         expect(result?.timeConfident).toBe(false);
@@ -116,12 +116,54 @@ describe('parseEventDate', () => {
     });
 
     test('returns null when no year appears near the date', () => {
-        const result = parseEventDate('The event kicks off with a 48-hour photo weekend on June 13-14th, where people around the globe make photographs on the same weekend.');
+        const result = parseEventDate('The event kicks off with a 48-hour photo weekend on June 13-14th, where people around the globe make photographs on the same weekend.', FAR_PAST_NOW);
         expect(result).toBeNull();
     });
 
     test('returns null when no date at all is present', () => {
-        expect(parseEventDate('Join us for an evening of community and creativity.')).toBeNull();
+        expect(parseEventDate('Join us for an evening of community and creativity.', FAR_PAST_NOW)).toBeNull();
+    });
+
+    test('skips to the next upcoming session once earlier listed dates have passed', () => {
+        // "now" is between the Nov 2 and Nov 9 sessions — the first two are
+        // already past, so the Nov 9 session should be chosen instead of the
+        // whole event silently disappearing.
+        const now = ZonedDateTime.of(LocalDateTime.of(2026, 11, 5, 0, 0), TIMEZONE);
+        const result = parseEventDate('Memory & Healing: Photographic Archives & Community Documentation November 2, 9, 16 & 30, 2026 | Monday 6-9pm $365', now);
+        expect(result?.month).toBe(11);
+        expect(result?.day).toBe(9);
+    });
+
+    test('falls back to the last session when every listed date has already passed', () => {
+        const now = ZonedDateTime.of(LocalDateTime.of(2027, 1, 1, 0, 0), TIMEZONE);
+        const result = parseEventDate('Memory & Healing: Photographic Archives & Community Documentation November 2, 9, 16 & 30, 2026 | Monday 6-9pm $365', now);
+        expect(result?.month).toBe(11);
+        expect(result?.day).toBe(30);
+    });
+
+    test('picks the second day of a weekend range once the first day has passed', () => {
+        const now = ZonedDateTime.of(LocalDateTime.of(2026, 10, 11, 0, 0), TIMEZONE);
+        const result = parseEventDate('October 10 – 11, 2026 | Saturday & Sunday 12:30-5:30pm $425', now);
+        expect(result?.month).toBe(10);
+        expect(result?.day).toBe(11);
+    });
+});
+
+describe('extractCandidateDates', () => {
+    test('carries the month forward onto bare day numbers in a comma list', () => {
+        expect(extractCandidateDates('November 2, 9, 16 & 30')).toEqual([
+            { month: 11, day: 2 }, { month: 11, day: 9 }, { month: 11, day: 16 }, { month: 11, day: 30 },
+        ]);
+    });
+
+    test('switches month when a new month name appears mid-list', () => {
+        expect(extractCandidateDates('September 27, October 4 & 11')).toEqual([
+            { month: 9, day: 27 }, { month: 10, day: 4 }, { month: 10, day: 11 },
+        ]);
+    });
+
+    test('handles a single date with no list', () => {
+        expect(extractCandidateDates('October 2')).toEqual([{ month: 10, day: 2 }]);
     });
 });
 
@@ -132,6 +174,10 @@ describe('parseCost', () => {
 
     test('extracts a decimal dollar amount', () => {
         expect(parseCost('Tickets are $12.50 at the door')).toEqual({ min: 12.5 });
+    });
+
+    test('extracts a thousands-separated dollar amount', () => {
+        expect(parseCost('Tables start at $1,200 for the benefit auction')).toEqual({ min: 1200 });
     });
 
     test('treats "free" as a zero-cost event', () => {

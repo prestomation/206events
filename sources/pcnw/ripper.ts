@@ -57,8 +57,32 @@ export function stripHtml(html: string): string {
     return decode(html.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
 }
 
+// Multi-session workshops list every session in the date clause (e.g.
+// "November 2, 9, 16 & 30, 2026" or "September 27, October 4 & 11, 2026"; a
+// weekend workshop's "October 10 – 11, 2026" range is treated the same way,
+// as two candidate days). Extracts every (month, day) pair in the clause,
+// carrying the most recently seen month name forward onto bare day numbers.
 // Public for testing
-export function parseEventDate(text: string): ParsedDate | null {
+export function extractCandidateDates(dateClause: string): { month: number; day: number }[] {
+    const monthNames = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
+    const tokenRe = new RegExp(`(?:(${monthNames})\\s+)?(\\d{1,2})\\b`, 'gi');
+    const candidates: { month: number; day: number }[] = [];
+    let currentMonth: number | null = null;
+    let match: RegExpExecArray | null;
+    while ((match = tokenRe.exec(dateClause)) !== null) {
+        if (match[1]) {
+            const idx = MONTHS.findIndex(m => m === match![1].toLowerCase());
+            if (idx !== -1) currentMonth = idx + 1;
+        }
+        if (currentMonth !== null) {
+            candidates.push({ month: currentMonth, day: parseInt(match[2], 10) });
+        }
+    }
+    return candidates;
+}
+
+// Public for testing
+export function parseEventDate(text: string, now: ZonedDateTime): ParsedDate | null {
     const monthNames = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
     const dateRe = new RegExp(`(${monthNames})\\s+(\\d{1,2})`, 'i');
     const dateMatch = text.match(dateRe);
@@ -66,8 +90,6 @@ export function parseEventDate(text: string): ParsedDate | null {
 
     const monthIdx = MONTHS.findIndex(m => m === dateMatch[1].toLowerCase());
     if (monthIdx === -1) return null;
-    const month = monthIdx + 1;
-    const day = parseInt(dateMatch[2], 10);
 
     const afterDate = text.slice(dateMatch.index + dateMatch[0].length);
     // The year always terminates the date clause (a single date, a
@@ -77,6 +99,24 @@ export function parseEventDate(text: string): ParsedDate | null {
     const yearMatch = yearWindow.match(/\b(20\d{2})\b/);
     if (!yearMatch || yearMatch.index === undefined) return null;
     const year = parseInt(yearMatch[1], 10);
+
+    // The full date clause, from the first month name through (but not
+    // including) the year — every (month, day) pair a multi-session
+    // listing names lives in here.
+    const dateClause = dateMatch[0] + afterDate.slice(0, yearMatch.index);
+    const candidates = extractCandidateDates(dateClause);
+    // Prefer the earliest session that hasn't happened yet, so a workshop
+    // already partway through its series still publishes its next
+    // occurrence instead of disappearing once the first listed date passes.
+    // Falls back to the last (most recent) candidate when every session is
+    // already in the past — it will be dropped by the isBefore(now) check
+    // in parseEventPost either way.
+    const nowDate = now.toLocalDate();
+    const sorted = [...candidates].sort((a, b) => a.month - b.month || a.day - b.day);
+    const chosen = sorted.find(c => !LocalDateTime.of(year, c.month, c.day, 23, 59).toLocalDate().isBefore(nowDate))
+        ?? sorted[sorted.length - 1];
+    const month = chosen.month;
+    const day = chosen.day;
 
     const timeWindow = afterDate.slice(yearMatch.index + yearMatch[0].length, yearMatch.index + yearMatch[0].length + 300);
 
@@ -124,8 +164,8 @@ export function parseEventDate(text: string): ParsedDate | null {
 
 // Public for testing
 export function parseCost(text: string): EventCost | undefined {
-    const dollarMatch = text.match(/\$(\d+(?:\.\d{2})?)/);
-    if (dollarMatch) return { min: parseFloat(dollarMatch[1]) };
+    const dollarMatch = text.match(/\$(\d{1,3}(?:,\d{3})*(?:\.\d{2})?)/);
+    if (dollarMatch) return { min: parseFloat(dollarMatch[1].replace(/,/g, '')) };
     if (/\bfree\b/i.test(text)) return { min: 0 };
     return undefined;
 }
@@ -142,7 +182,7 @@ function simpleHash(s: string): string {
 // Public for testing
 export function parseEventPost(post: PCNWEventPost, now: ZonedDateTime): RipperEvent[] {
     const plainText = stripHtml(post.content.rendered);
-    const parsed = parseEventDate(plainText);
+    const parsed = parseEventDate(plainText, now);
 
     if (!parsed) {
         return [{
