@@ -3,8 +3,8 @@ name: "Press Then Press Cider Events"
 status: added
 firstSeen: 2026-08-02
 lastChecked: 2026-08-02
-tags: [Beer, Northgate]
-pr: TBD
+tags: [Beer]
+pr: 1086
 ---
 
 Seattle cider shop (`pressthenpress.com`) publishing a "Cider Events"
@@ -26,6 +26,10 @@ returns a valid `VCALENDAR` with 3 events:
 Added as `sources/external/press-then-press-cider.yaml` (ICS feed,
 `sourceRole: aggregator` since it republishes Vashon/Cider Summit
 alongside its own event, `geo: null` since it spans multiple venues).
+Tagged `Beer` only — no neighborhood tag, since tags apply to the whole
+feed and only the shop's own pop-up is actually in Northgate (Vashon
+Island and South Lake Union are not); follows the `seafair.yaml`
+precedent for multi-location aggregators.
 `ONLY_SOURCE=press-then-press-cider npm run generate-calendars` confirmed
 3 events, 0 errors after adding a `KNOWN_VENUE_COORDS` entry for
 "watershed pub & kitchen" (Nominatim didn't resolve the raw ICS address
