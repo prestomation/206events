@@ -1,0 +1,14 @@
+name: queen-anne-historical-society
+sourceRole: venue
+type: squarespace
+description: "Queen Anne Historical Society"
+url: "https://www.qahistory.org/calendar"
+friendlyLink: https://www.qahistory.org/calendar
+tags: ["Arts", "QueenAnne"]
+# Walking tours, talks, and preservation events happen at rotating
+# locations around the neighborhood rather than a single fixed venue.
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Queen Anne Historical Society"
+    timezone: America/Los_Angeles
