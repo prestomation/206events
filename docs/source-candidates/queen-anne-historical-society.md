@@ -6,7 +6,7 @@ url: https://www.qahistory.org/calendar
 tags: [Arts, QueenAnne]
 firstSeen: 2026-07-10
 lastChecked: 2026-08-02
-pr: pending
+pr: 1087
 ---
 
 Neighborhood historical society running walking tours, architecture talks,
