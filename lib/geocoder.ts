@@ -982,6 +982,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Same UW Tower complex (4333 Brooklyn Ave NE) as the existing 'uw tower building t (uwtt)' entry — Building O is a different letter-coded building in the same property cluster
   'uw tower building o (uwto)': { lat: 47.6607450, lng: -122.3146673 },
   'wec shop': { lat: 47.6271962, lng: -122.3359006 }, // Bill Garden Boat Shop, Wagner Education Center, Center for Wooden Boats, 1010 Valley St, Seattle 98109
+  'watershed pub & kitchen': { lat: 47.701918, lng: -122.325565 }, // 10104 Third Ave NE, Seattle (Northgate) — from the source ICS feed's own X-APPLE-STRUCTURED-LOCATION geo
   'yesler terrace housing development, hinoki building': { lat: 47.6013443, lng: -122.3203002 }, // 917 E Yesler Way, Seattle (Yesler Terrace Community Center address)
   // Vancouver, BC coffee shop referenced as a rest stop by a WA rides source; address
   // comes from the event's own second location line (normalizeLocation drops it after
