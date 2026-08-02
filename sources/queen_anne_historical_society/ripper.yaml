@@ -1,6 +1,7 @@
 name: queen-anne-historical-society
 sourceRole: venue
 type: squarespace
+expectEmpty: true
 description: "Queen Anne Historical Society"
 url: "https://www.qahistory.org/calendar"
 friendlyLink: https://www.qahistory.org/calendar
