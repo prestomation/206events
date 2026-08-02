@@ -1,11 +1,12 @@
 ---
 name: "Queen Anne Historical Society"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.qahistory.org/calendar
 tags: [Arts, QueenAnne]
 firstSeen: 2026-07-10
-lastChecked: 2026-07-22
+lastChecked: 2026-08-02
+pr: 1087
 ---
 
 Neighborhood historical society running walking tours, architecture talks,
@@ -28,3 +29,12 @@ if `?format=json` shows `data.upcoming` populated with a future `startDate`,
 this is a straightforward Squarespace source to implement.
 
 Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcoming array empty, or Eventbrite organizer `upcomingEvents` empty). No change.
+
+Re-checked 2026-08-02: `?format=json` now returns 1 upcoming event —
+"Mount Pleasant Cemetery Walking Tours" (Aug 22, 2026, Mount Pleasant
+Cemetery, 700 West Raye Street, Seattle). Clears the gate. Implemented as
+`sources/queen_anne_historical_society/ripper.yaml` using the built-in
+`squarespace` ripper type (`geo: null` — events rotate across
+neighborhood locations rather than one fixed venue). Verified via
+`ONLY_SOURCE=queen-anne-historical-society npm run generate-calendars`:
+1 live event, 0 errors.
