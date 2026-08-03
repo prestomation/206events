@@ -24,9 +24,41 @@ describe('Burke Museum Ripper', () => {
         const events = await ripper.parseEvents(html, testDate, {});
 
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-        // 11 total cards, minus "Fossil Finders" (monthly, vague)
+        // 13 total cards, minus "Fossil Finders" (monthly, vague) and
+        // "Reclaiming Our Roots" (postponed, no date)
         // "Free First Thursday" is synthesized into 2 concrete events (Mar 5, Apr 2 — Feb 5 is before test date)
-        expect(validEvents.length).toBe(11);
+        expect(validEvents.length).toBe(12);
+    });
+
+    test('parses a date with no weekday prefix ("Month Day, Year")', async () => {
+        const ripper = new BurkeMuseumRipper();
+        const html = loadSampleHtml();
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const errors = events.filter(e => 'type' in e && e.type === 'ParseError');
+
+        const authorTalk = validEvents.find(e => e.summary.includes('Range of Fire and Ice'));
+        expect(authorTalk).toBeDefined();
+        expect(authorTalk!.date.year()).toBe(2026);
+        expect(authorTalk!.date.monthValue()).toBe(9);
+        expect(authorTalk!.date.dayOfMonth()).toBe(16);
+        expect(authorTalk!.date.hour()).toBe(18); // 6:30 p.m.
+        expect(authorTalk!.date.minute()).toBe(30);
+        expect(errors.some(e => 'reason' in e && e.reason.includes('Range of Fire and Ice'))).toBe(false);
+    });
+
+    test('skips postponed events with no rescheduled date', async () => {
+        const ripper = new BurkeMuseumRipper();
+        const html = loadSampleHtml();
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const errors = events.filter(e => 'type' in e && e.type === 'ParseError');
+
+        const postponed = validEvents.find(e => e.summary.includes('Reclaiming Our Roots'));
+        expect(postponed).toBeUndefined();
+        expect(errors.some(e => 'reason' in e && e.reason.includes('Reclaiming Our Roots'))).toBe(false);
     });
 
     test('parses event with specific date and time range', async () => {

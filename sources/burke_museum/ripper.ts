@@ -81,13 +81,28 @@ function parseTimeRange(timeStr: string): { start: { hour: number; minute: numbe
  * Parse a date string like "Monday, February 23, 2026" into year, month, day.
  */
 function parseDate(dateStr: string): { year: number; month: number; day: number } | null {
+    const trimmed = dateStr.trim();
+
     // "DayOfWeek, Month Day, Year"
-    const match = dateStr.trim().match(/(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday),?\s+(\w+)\s+(\d{1,2}),?\s+(\d{4})/i);
-    if (match) {
-        const month = MONTHS[match[1].toLowerCase()];
+    const withWeekday = trimmed.match(/(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday),?\s+(\w+)\s+(\d{1,2}),?\s+(\d{4})/i);
+    if (withWeekday) {
+        const month = MONTHS[withWeekday[1].toLowerCase()];
         if (!month) return null;
-        return { year: parseInt(match[3]), month, day: parseInt(match[2]) };
+        return { year: parseInt(withWeekday[3]), month, day: parseInt(withWeekday[2]) };
     }
+
+    // "Month Day, Year" with no weekday prefix (seen on single-date listings,
+    // e.g. "September 16, 2026\n6:30 p.m."). Anchored so it doesn't swallow
+    // the leading "Daily"/"Weekly" word on recurring-range listings, which
+    // are handled by the dash-range fallback in parseEvents instead.
+    const noWeekday = trimmed.match(/^(\w+)\s+(\d{1,2}),?\s+(\d{4})/i);
+    if (noWeekday) {
+        const month = MONTHS[noWeekday[1].toLowerCase()];
+        if (month) {
+            return { year: parseInt(noWeekday[3]), month, day: parseInt(noWeekday[2]) };
+        }
+    }
+
     return null;
 }
 
@@ -129,8 +144,10 @@ export default class BurkeMuseumRipper extends HTMLRipper {
 
                 const dateTimeText = dateTimeField.textContent.trim();
 
-                // Skip events with vague/recurring dates we can't parse
-                if (/monthly event|see each.*listing/i.test(dateTimeText)) {
+                // Skip events with vague/recurring dates we can't parse, and
+                // postponed events with no rescheduled date yet — neither has
+                // an actionable date, so a ParseError would just be noise.
+                if (/monthly event|see each.*listing|event is postponed/i.test(dateTimeText)) {
                     continue;
                 }
 
