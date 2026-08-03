@@ -5,7 +5,7 @@ platform: Wix
 url: https://www.rollaroundseatown.com/events
 tags: []
 firstSeen: 2026-07-30
-lastChecked: 2026-07-30
+lastChecked: 2026-08-03
 ---
 
 Seattle roller-skating community group. Runs two recurring events:
