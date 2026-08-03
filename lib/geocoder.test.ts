@@ -856,6 +856,31 @@ describe.skipIf(!HAS_VENUE_DATA)('lookupKnownVenue', () => {
     const result = lookupKnownVenue('In the Garden Center @ Delridge Way SW & SW Orchard, West Seattle');
     expect(result).toEqual({ lat: 47.537946, lng: -122.361104 });
   });
+
+  it('matches "McCaw Hall" with a trailing address the source appends', () => {
+    const result = lookupKnownVenue('McCaw Hall, Seattle Center, 321 Mercer St., Seattle, WA, 98109, United States');
+    expect(result).toEqual({ lat: 47.6239771, lng: -122.3503885 });
+  });
+
+  it('matches "Tapster South Lake Union" despite a duplicated address suffix', () => {
+    const result = lookupKnownVenue('Tapster South Lake Union, 1011 Valley St. Seattle, WA 98109, 1011 Valley St, Seattle, 98109');
+    expect(result).toEqual({ lat: 47.6255812, lng: -122.3366232 });
+  });
+
+  it('matches "Cerium Networks" despite the source mislabeling its Tukwila address as Seattle', () => {
+    const result = lookupKnownVenue('Cerium Networks, 14240 Interurban Ave S #170, Seattle, 98168, United States');
+    expect(result).toEqual({ lat: 47.4761948, lng: -122.2570857 });
+  });
+
+  it('matches "Raging River trailhead" once normalizeLocation drops the address line', () => {
+    const normalized = normalizeLocation('Raging River trailhead\n37580 WInery Rd, Snoqualmie, WA');
+    expect(lookupKnownVenue(normalized)).toEqual({ lat: 47.5108010, lng: -121.8468359 });
+  });
+
+  it('matches "Rainier Vista (south of Drumheller Fountain)"', () => {
+    const result = lookupKnownVenue('Rainier Vista (south of Drumheller Fountain)');
+    expect(result).toEqual({ lat: 47.6538087, lng: -122.3078047 });
+  });
 });
 
 describe.skipIf(!HAS_UW_DATA || !HAS_VENUE_DATA)('resolveEventCoords - UW building and known venue', () => {
