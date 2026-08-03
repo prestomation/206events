@@ -997,6 +997,18 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // West Seattle Blog "Da Grind Races at Alki Beach" — relative direction from the existing
   // 'alki beach bathhouse' entry; approximate but close enough for this event's purposes.
   'east of the bathhouse': { lat: 47.579690, lng: -122.409633 },
+
+  // --- 2026-08-03 geo-resolver batch: "Nominatim returned no results" entries
+  // from the current build's geocodeErrors. Addresses forward-geocoded via
+  // Nominatim after cleaning up suite/duplicate-address noise; never
+  // reverse-geocoded.
+  'mccaw hall': { lat: 47.6239771, lng: -122.3503885 }, // 321 Mercer St, Seattle — Nominatim failed on the raw "321 Mercer St., ... United States" string with trailing period/country noise
+  'tapster south lake union': { lat: 47.6255812, lng: -122.3366232 }, // 1011 Valley St, Seattle — source location string duplicates the address, confusing Nominatim
+  'cerium networks': { lat: 47.4761948, lng: -122.2570857 }, // 14240 Interurban Ave S, Tukwila, WA 98168 — source labels the city "Seattle" but the address is in Tukwila
+  // normalizeLocation drops the address after the newline split, same pattern as 'sound break' / '7 days coffee'
+  'raging river trailhead': { lat: 47.5108010, lng: -121.8468359 }, // 37580 Winery Rd, Snoqualmie, WA
+  // Same landmark as the existing 'drumheller fountain (uw campus)' entry, different wording from the source (everyday-rides-seattle)
+  'rainier vista (south of drumheller fountain)': { lat: 47.6538087, lng: -122.3078047 },
 };
 
 /**
