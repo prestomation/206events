@@ -1,0 +1,25 @@
+# verified: 2026-08-03 ok (2026=Sep 26, 2025=Sep 27, both 4th Saturday of September; 2024 was the 3rd Saturday, Sep 21 — verify at seattlechinatownid.com each year)
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Seattle_-_Night_Market%2C_September_2015_-_43.jpg"
+geo:
+  lat: 47.598935
+  lng: -122.325178
+  label: "Hing Hay Park, 423 Maynard Ave S, Seattle, WA 98104"
+name: cid-night-market
+sourceRole: venue
+friendlyname: CID Night Market
+description: Annual free street festival in Seattle's Historic Chinatown-International
+  District, with local street vendors, food trucks, and cultural performances
+  (lion dance, taiko, martial arts demonstrations) centered on Hing Hay Park.
+timezone: America/Los_Angeles
+location: Hing Hay Park, 423 Maynard Ave S, Seattle, WA 98104
+url: https://www.seattlechinatownid.com/experiences/c-id-night-market
+tags:
+  - Community
+  - Food
+  - International District
+cost: free
+schedules:
+  - schedule: "4th Saturday"
+    start_time: "13:00"
+    duration: PT8H
+    months: [9]
