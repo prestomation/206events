@@ -39044,13 +39044,14 @@
     "events12:live-theater-2026-08-16": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-08-03",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://app.arts-people.com/index.php?preseason=spt; setting per https://taproottheatre.org/2026/joseph-and-the-amazing-technicolor-dreamcoat/ (indoor Jewell Mainstage Theatre)"
     },
     "events12:live-theater-2026-08-17": {
       "fields": {
@@ -39824,11 +39825,12 @@
     "events12:shakespeare-in-the-park-2026-08-16": {
       "fields": {
         "startTime": "19:00",
-        "duration": 7200
+        "duration": 7200,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-03",
       "source": "agent",
-      "evidence": "https://greenstage.org/schedule/"
+      "evidence": "https://greenstage.org/schedule/; setting per https://theatrepugetsound.org/event/wooden-o-macbeth/2026-08-16/ — Aug 16 performance at Luther Burbank Park, Mercer Island (outdoor touring production)"
     },
     "events12:concerts-2026-07-27": {
       "unresolvable": true,
@@ -40806,20 +40808,22 @@
     "events12:dance-in-the-park-2026-08-15": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-03",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/events; setting per https://www.danceforjoy.biz/dancingtildusk/ (outdoor Seattle parks)"
     },
     "events12:dance-in-the-park-2026-08-16": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-03",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/events; setting per https://www.danceforjoy.biz/dancingtildusk/ (outdoor Seattle parks)"
     },
     "events12:dance-in-the-park-2026-08-17": {
       "fields": {
@@ -51198,13 +51202,14 @@
     "events12:music-by-candlelight-2026-08-16": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-30",
+      "resolvedAt": "2026-08-03",
       "source": "agent",
-      "evidence": "https://feverup.com/en/seattle/candlelight"
+      "evidence": "https://feverup.com/en/seattle/candlelight (Fever Candlelight series — indoor venues: Arctic Club Hotel, National Nordic Museum, Langston Hughes PAI, SPL Central Library, Town Hall Seattle)"
     },
     "events12:music-by-candlelight-2026-08-17": {
       "fields": {
@@ -54329,6 +54334,14 @@
       "resolvedAt": "2026-08-03",
       "source": "agent",
       "reason": "No pricing/ticket link found on the event page or in web search for this monthly taproom live-music night"
+    },
+    "venue:osm:way:26398092": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-03",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/26398092 (leisure=park)"
     }
   }
 }
