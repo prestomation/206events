@@ -128,6 +128,12 @@ jobs:
     - name: Generate calendars
       id: generate-calendars
       env:
+        # The event corpus (~14k events across 300+ sources) has grown to the
+        # point where a full build can exceed Node's default old-space ceiling
+        # (~4GB) during the events-index/ICS-write phase, crashing with
+        # "JavaScript heap out of memory" (see PR #1089). ubuntu-latest
+        # standard runners have 16GB RAM, so raise the ceiling well below that.
+        NODE_OPTIONS: "--max-old-space-size=8192"
         FETCH_PROACTIVE_REFRESH: ${{ inputs.proactive-refresh }}
         TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
         EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
