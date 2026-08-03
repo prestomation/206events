@@ -1,5 +1,6 @@
 name: bandit-improv
 sourceRole: venue
+expectEmpty: true
 description: "Bandit Improv Comedy Theater"
 url: "https://www.bandittheater.org/tickets"
 friendlyLink: https://www.bandittheater.org

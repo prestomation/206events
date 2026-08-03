@@ -1,5 +1,6 @@
 name: base-experimental-arts
 sourceRole: venue
+expectEmpty: true
 type: squarespace
 description: "Base: Experimental Arts + Space"
 url: "https://thisisbase.org/events"

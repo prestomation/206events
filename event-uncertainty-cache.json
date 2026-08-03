@@ -53515,8 +53515,8 @@
     "seatoday:cityspark-18611489": {
       "fields": {
         "cost": {
-          "min": 16.0,
-          "max": 18.0
+          "min": 16,
+          "max": 18
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53526,8 +53526,8 @@
     "seatoday:cityspark-18611490": {
       "fields": {
         "cost": {
-          "min": 16.0,
-          "max": 18.0
+          "min": 16,
+          "max": 18
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53535,14 +53535,10 @@
       "evidence": "seattlechildrensmuseum.org visit page, general admission price"
     },
     "seatoday:cityspark-19523284": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-01",
+      "unresolvable": true,
+      "resolvedAt": "2026-08-03",
       "source": "agent",
-      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+      "reason": "CitySpark API returns no image for this parks rec program; hash URL is JS-rendered, unfetchable"
     },
     "seatoday:cityspark-19523285": {
       "fields": {
@@ -53635,14 +53631,10 @@
       "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
     },
     "seatoday:cityspark-19523303": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-01",
+      "unresolvable": true,
+      "resolvedAt": "2026-08-03",
       "source": "agent",
-      "evidence": "seattle.gov/parks Rec'N the Streets mobile recreation program, free community programming"
+      "reason": "CitySpark API returns no image for this parks rec program; hash URL is JS-rendered, unfetchable"
     },
     "seatoday:cityspark-19523286": {
       "fields": {
@@ -53743,8 +53735,8 @@
     "pcnw:pcnw-95346": {
       "fields": {
         "cost": {
-          "min": 100.0,
-          "max": 250.0
+          "min": 100,
+          "max": 250
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53754,7 +53746,7 @@
     "charlies-queer-books:charlies-queer-books-6006920260814": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53764,7 +53756,7 @@
     "charlies-queer-books:charlies-queer-books-6007020260815": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53774,7 +53766,7 @@
     "charlies-queer-books:charlies-queer-books-6007320260816": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53785,7 +53777,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/03/anautumnafternoonposter-1200x1681.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-02",
@@ -53795,7 +53787,7 @@
     "northwest-film-forum:drunken-noodles-2026-08-01": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-01",
@@ -53845,8 +53837,8 @@
     "browne-family-vineyards-seattle:6a6c528cedc22013d5f81f12": {
       "fields": {
         "cost": {
-          "min": 35.0,
-          "max": 45.0
+          "min": 35,
+          "max": 45
         }
       },
       "resolvedAt": "2026-08-01",
@@ -54185,7 +54177,7 @@
     "seatoday:cityspark-19539367": {
       "fields": {
         "cost": {
-          "min": 89.0
+          "min": 89
         }
       },
       "resolvedAt": "2026-08-03",
@@ -54207,7 +54199,7 @@
     "seatoday:cityspark-19266006": {
       "fields": {
         "cost": {
-          "min": 138.0
+          "min": 138
         }
       },
       "resolvedAt": "2026-08-03",
@@ -54229,7 +54221,7 @@
     "seatoday:cityspark-19132322": {
       "fields": {
         "cost": {
-          "min": 7.0
+          "min": 7
         }
       },
       "resolvedAt": "2026-08-03",
@@ -54290,7 +54282,7 @@
     "queen-anne-historical-society:6a5fe38a0bc5a1619556d26b": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-03",
@@ -54306,7 +54298,7 @@
     "ballard-brewed:6a6d4ba0627f4d176e9b5e04": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-08-03",
@@ -54316,7 +54308,7 @@
     "ballard-brewed:6a6d5113d1547868ef1e839b": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-08-03",
