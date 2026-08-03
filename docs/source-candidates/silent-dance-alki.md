@@ -1,11 +1,11 @@
 ---
 name: "Silent Dance Alki West Seattle"
-status: investigating
+status: notviable
 platform: GoDaddy Website Builder
 url: https://silentdance.org/
 tags: [Music, "West Seattle"]
 firstSeen: 2026-07-24
-lastChecked: 2026-07-24
+lastChecked: 2026-08-03
 ---
 Community silent-disco/dance gathering held at least once a month at
 Alki Beach, West Seattle. Distinct from the "Silent Disco NW / Secret
@@ -27,3 +27,13 @@ Investigated 2026-07-24:
 message to the organizer) to find real dates before this can move past
 `investigating`. Low confidence given the platform and irregular
 cadence.
+
+Re-checked 2026-08-03: plain-text extraction of the fetched HTML is
+literally "Silent Dance Alki West Seattle Coming Soon Coming Soon Coming
+Soon Coming Soon" — no schedule data, no dates, nothing to scrape.
+Confirmed headless-browser rendering is not viable from this environment
+either (Chromium via Playwright cannot reach any host through this
+session's proxy — reproduced with a control fetch of `example.com`, so
+it's an environment limitation, not specific to this site). Marking
+`notviable`; revisit only if the organizer publishes a real calendar page
+or ICS feed.
