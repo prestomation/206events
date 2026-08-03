@@ -54334,6 +54334,16 @@
       "resolvedAt": "2026-08-03",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/way/26398092 (leisure=park)"
+    },
+    "burke-museum:burke-author-talk-range-fire-and-ice": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-08-03",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/author-talk-range-fire-and-ice (General admission 0, Burke members free)"
     }
   }
 }
