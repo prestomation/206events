@@ -1,11 +1,12 @@
 ---
 name: "Fremont Chamber of Commerce"
-status: candidate
+status: added
 platform: GrowthZone
 url: https://business.fremont.com/calendar
 tags: [Community, Fremont]
 firstSeen: 2026-07-23
-lastChecked: 2026-07-23
+lastChecked: 2026-08-04
+pr: 1099
 ---
 
 Fremont neighborhood business association calendar — found while
@@ -38,3 +39,20 @@ Investigated 2026-07-23:
 Lower priority than built-in-type candidates given the custom-scrape
 requirement and mixed public/chamber content — keep as `candidate` for a
 future cycle rather than implementing immediately.
+
+Implemented 2026-08-04 (PR #1099): custom `IRipper` at
+`sources/fremont_chamber_of_commerce/`. Discovers event slugs from the
+listing page's `schema.org/Event` cards, then fetches each event's
+per-event GrowthZone ICS export (`/calendar/ICal/<slug>.ics`) for
+authoritative date/time/location — sidesteps the earlier "no ICS/RSS
+export" finding, which only checked for a bulk calendar-wide feed (none
+exists) and missed the per-event ICS download link surfaced by the
+"Add to Calendar" button on each event's detail page. `sourceRole:
+aggregator`, `geo: null`, `weatherSetting: "mixed"`. Events with a blank
+ICS `LOCATION` (e.g. an outdoor walk) get a neighborhood-level
+placeholder plus an `UncertaintyError`, so the mixed public/chamber
+content concern didn't need parse-time filtering — all 3 confirmed
+upcoming events at implementation time were genuinely public (a health &
+wellness networking meetup, twice, and a fundraiser walk), not
+internal-chamber-only. Verified: 3 events, 0 parse errors, 1
+non-fatal Uncertainty.
