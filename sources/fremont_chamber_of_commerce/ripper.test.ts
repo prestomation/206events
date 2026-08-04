@@ -147,6 +147,62 @@ describe("parseEventIcs", () => {
         const event = results[0] as RipperCalendarEvent;
         expect(event.duration.toMinutes()).toBe(60);
     });
+
+    test("accepts a floating (no-TZID) DTSTART as wall-clock local time", () => {
+        const ics = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "BEGIN:VEVENT",
+            "DTSTART:20260825T173000",
+            "SUMMARY:Floating Time Event",
+            "LOCATION:Some Place",
+            "UID:e.floating",
+            "END:VEVENT",
+            "END:VCALENDAR",
+        ].join("\n");
+        const results = parseEventIcs(ics, "floating-event");
+        expect(results).toHaveLength(1);
+        const event = results[0] as RipperCalendarEvent;
+        expect(event.date.hour()).toBe(17);
+        expect(event.date.zone().toString()).toBe("America/Los_Angeles");
+    });
+
+    test("returns a ParseError when DTSTART is a UTC (Z-suffixed) timestamp rather than the expected zone", () => {
+        const ics = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "BEGIN:VEVENT",
+            "DTSTART:20260825T173000Z",
+            "SUMMARY:UTC Event",
+            "LOCATION:Some Place",
+            "UID:e.utc",
+            "END:VEVENT",
+            "END:VCALENDAR",
+        ].join("\n");
+        const results = parseEventIcs(ics, "utc-event");
+        expect(results).toHaveLength(1);
+        expect(results[0].type).toBe("ParseError");
+        expect((results[0] as { reason: string }).reason).toContain("unexpected timezone");
+    });
+
+    test("returns a ParseError when DTEND is in an unexpected timezone", () => {
+        const ics = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "BEGIN:VEVENT",
+            "DTSTART;TZID=America/Los_Angeles:20260825T173000",
+            "DTEND:20260825T183000Z",
+            "SUMMARY:Mixed Timezone Event",
+            "LOCATION:Some Place",
+            "UID:e.mixed-tz",
+            "END:VEVENT",
+            "END:VCALENDAR",
+        ].join("\n");
+        const results = parseEventIcs(ics, "mixed-tz-event");
+        expect(results).toHaveLength(1);
+        expect(results[0].type).toBe("ParseError");
+        expect((results[0] as { reason: string }).reason).toContain("DTEND");
+    });
 });
 
 describe("FremontChamberOfCommerceRipper.rip", () => {

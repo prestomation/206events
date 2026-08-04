@@ -63,6 +63,19 @@ function icalTimeToLocalDateTime(t: any): LocalDateTime {
     return LocalDateTime.of(t.year, t.month, t.day, t.hour, t.minute, t.second ?? 0);
 }
 
+// icalTimeToLocalDateTime trusts that a DTSTART/DTEND's wall-clock fields
+// are already in TIMEZONE — true for every sample seen from this
+// single-org, single-timezone GrowthZone feed (TZID=America/Los_Angeles),
+// or a "floating" value with no TZID at all (ICAL.Time#timezone is then
+// undefined). Reject anything else (a `Z`-suffixed UTC timestamp, or an
+// explicit different TZID) rather than silently misapplying the wrong
+// offset — a wrong instant published as fact is exactly what the
+// uncertainty system exists to prevent. Public for testing.
+function hasExpectedTimezone(t: any): boolean {
+    const tzid: string | undefined = t.timezone;
+    return tzid === undefined || tzid === TIMEZONE.toString();
+}
+
 // Cheap deterministic hash; we only need stability, not crypto strength.
 function simpleHash(s: string): string {
     let h = 0;
@@ -111,6 +124,13 @@ export function parseEventIcs(icsText: string, slug: string): RipperEvent[] {
     if (!icalEvent.startDate) {
         return [{ type: "ParseError", reason: "ICS VEVENT missing DTSTART", context: slug }];
     }
+    if (!hasExpectedTimezone(icalEvent.startDate)) {
+        return [{
+            type: "ParseError",
+            reason: `DTSTART for "${summary}" has unexpected timezone "${icalEvent.startDate.timezone}" (expected ${TIMEZONE.toString()} or floating)`,
+            context: slug,
+        }];
+    }
     const startLdt = icalTimeToLocalDateTime(icalEvent.startDate);
     let date: ZonedDateTime;
     try {
@@ -120,6 +140,13 @@ export function parseEventIcs(icsText: string, slug: string): RipperEvent[] {
     }
 
     let duration = DEFAULT_DURATION;
+    if (icalEvent.endDate && !hasExpectedTimezone(icalEvent.endDate)) {
+        return [{
+            type: "ParseError",
+            reason: `DTEND for "${summary}" has unexpected timezone "${icalEvent.endDate.timezone}" (expected ${TIMEZONE.toString()} or floating)`,
+            context: slug,
+        }];
+    }
     if (icalEvent.endDate) {
         const endLdt = icalTimeToLocalDateTime(icalEvent.endDate);
         const between = Duration.between(startLdt, endLdt);
