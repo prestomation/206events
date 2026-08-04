@@ -21,3 +21,15 @@ Re-investigated 2026-05-18:
 Implemented 2026-05-19:
 - Added `sources/kremwerk/ripper.yaml` using `type: dice`, `venueName: "Kremwerk Complex"`
 - OSM node 10121400584, geo: 47.6168989, -122.3311153
+
+Re-investigated 2026-08-04 (build-report: kremwerk-kremwerk went to 0 events):
+- The DICE API (`filter[venues][]=Kremwerk+Complex`) now returns 0 events —
+  the venue appears to have migrated ticketing off DICE to a separate
+  authenticated ticketing SPA (`tickets.kremwerk.com`), which exposes no
+  public data API.
+- However, `www.kremwerk.com/upcoming?format=json` now returns a live
+  Squarespace Events Collection (24 upcoming events) — contradicting the
+  2026-05-08 finding above (`itemCount: 0`); the venue evidently added a
+  native Squarespace events page since then.
+- Switched `sources/kremwerk/ripper.yaml` to `type: squarespace` pointed at
+  `https://www.kremwerk.com/upcoming`. Verified: 24 events, 0 errors.
