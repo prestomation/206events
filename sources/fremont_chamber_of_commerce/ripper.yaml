@@ -1,0 +1,12 @@
+name: fremont-chamber-of-commerce
+description: "Fremont Chamber of Commerce"
+url: "https://business.fremont.com/calendar"
+friendlyLink: "https://business.fremont.com/calendar"
+sourceRole: aggregator
+weatherSetting: "mixed"
+geo: null
+tags: ["Community", "Fremont"]
+calendars:
+  - name: fremont-chamber-of-commerce
+    friendlyname: "Fremont Chamber of Commerce"
+    timezone: America/Los_Angeles

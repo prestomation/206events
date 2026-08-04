@@ -1,0 +1,38 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ChamberMaster//Event Calendar 2.0//EN
+METHOD:PUBLISH
+X-PUBLISHED-TTL:P1H
+REFRESH-INTERVAL:P1H
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+DTSTART:20070101T000000
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:Pacific Daylight Time
+END:DAYLIGHT
+BEGIN:STANDARD
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+DTSTART:20070101T000000
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:Pacific Standard Time
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260919T093000
+DTEND;TZID=America/Los_Angeles:20260919T140000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+SUMMARY:APDA NW Optimism Walk
+DESCRIPTION:The American Parkinson's Disease Association is one of the largest grassroot non-profits. Every year the NW Chapter hosts a local Optimism Walk. The Optimism Walk is a family-friendly fundraising event that offers a short walk and an important opportunity for friends\, families\, and individuals coping with Parkinson's to take their passion and turn it into a positive experience. It includes the brief walk at Ship Canal Trail\, a ceremony celebrating our community members\, food and drinks\, and more!
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE html><html><head><title></title></head><body aria-disabled="false"><p>The American Parkinson&#39\;s Disease Association is one of the largest grassroot non-profits. Every year the NW Chapter hosts a local Optimism Walk. The Optimism Walk is a family-friendly fundraising event that offers a short walk and an important opportunity for friends\, families\, and individuals coping with Parkinson&#39\;s to take their passion and turn it into a positive experience. It includes the brief walk at Ship Canal Trail\, a ceremony celebrating our community members\, food and drinks\, and more!</p></body></html>
+LOCATION:
+UID:e.4565.1586430
+SEQUENCE:3
+DTSTAMP:20260804T162407Z
+URL:https://business.fremont.com/events/Details/apda-nw-optimism-walk-1867802?sourceTypeId=Hub
+END:VEVENT
+END:VCALENDAR
