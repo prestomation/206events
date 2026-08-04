@@ -10104,6 +10104,16 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-04",
       "note": "Different food truck locations: 1201 Eastlake vs 1551 Eastlake (321m apart); these are separate scheduled stops"
+    },
+    "external-seattle-gov-city-wide.ics Unwavering Hope Artists’ Reception|2026-08-27T17:00:00Z[UTC]::external-shunpike.ics ACES 2026 Summer Series | Unwavering Hope Exhibition (Artist Reception)|2026-08-27T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same artist reception for the Unwavering Hope exhibition at Columbia City Gallery, same date/time, two feeds (city-wide bulletin + Shunpike)"
+    },
+    "external-seattle-gov-city-wide.ics “Teaching of the Tree People” Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics “Teaching of the Tree People” Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Identical title and identical source URL (greencitypartnerships.org/event/44369) on both the city-wide and parks-recreation feeds — same event cross-posted"
     }
   }
 }

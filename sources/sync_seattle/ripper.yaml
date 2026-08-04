@@ -1,6 +1,10 @@
 # verified: 2026-07-08 via eventbrite organizer page (1 upcoming event: "Vibes After 5 - Summer Happy Hour Mixer", Jul 16 2026 at Sugar Hill; EVENTBRITE_TOKEN required in CI)
+# 2026-08-04: that event has passed and no new upcoming events are listed on
+# the Eventbrite organizer page. Small org running monthly-ish "Vibes After
+# Five" mixers — intermittent, not broken. See skills/build-report/SKILL.md.
 name: sync-seattle
 sourceRole: venue
+expectEmpty: true
 type: eventbrite
 description: "Sync Seattle"
 url: "https://www.eventbrite.com/o/sync-seattle-45161572473"
