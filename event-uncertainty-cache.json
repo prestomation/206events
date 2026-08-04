@@ -40586,11 +40586,12 @@
     "events12:dance-in-the-park-2026-08-17": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-04",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-18": {
       "fields": {
@@ -54081,7 +54082,7 @@
     "burke-museum:burke-author-talk-range-fire-and-ice": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-03",
@@ -54217,6 +54218,66 @@
       "resolvedAt": "2026-08-04",
       "source": "agent",
       "reason": "Seattle Center Sculpture Walk is listed as All Day on source page; no specific start/end time"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/W65UEM474AOF4MGMTNWLHFBI": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-04",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/W65UEM474AOF4MGMTNWLHFBI"
+    },
+    "chophouse-row:6a68e0383c3b0304f49c0cf8": {
+      "fields": {
+        "cost": {
+          "min": 162
+        }
+      },
+      "resolvedAt": "2026-08-04",
+      "source": "agent",
+      "evidence": "https://www.laspiga.com/store/event/ferragosto-in-campania/"
+    },
+    "stg:tm-vvG1HZ_2Df0XmO": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-04",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/epik-high-north-america-30-seattle-washington-10-25-2026/event/0F0064FED493EBA0 (Ticketmaster blocks automated fetch, HTTP 403)"
+    },
+    "stg:tm-vvG1HZ_2MPNmKv": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-04",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/anthony-jeselnik-wrath-of-man-seattle-washington-09-11-2026/event/0F0064FDE58EE4C1 (Ticketmaster blocks automated fetch, HTTP 403)"
+    },
+    "stg:tm-vvG1HZ_2T3eZsP": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-04",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/epik-high-hq-upgrade-seattle-washington-10-25-2026/event/0F0064FFD2080C65 (Ticketmaster blocks automated fetch, HTTP 403)"
+    },
+    "stg:tm-vvG1HZ_CJwcydW": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-04",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/oh-mary-touring-seattle-washington-11-03-2026/event/0F0064E9B2B790FD (Ticketmaster blocks automated fetch, HTTP 403)"
     }
   }
 }

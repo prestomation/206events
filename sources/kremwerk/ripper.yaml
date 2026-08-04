@@ -1,8 +1,8 @@
 name: kremwerk
 sourceRole: venue
-type: dice
+type: squarespace
 description: "Kremwerk + Timbre Room + Cherry Complex"
-url: "https://events-api.dice.fm/v1/events?filter[venues][]=Kremwerk+Complex"
+url: "https://www.kremwerk.com/upcoming"
 friendlyLink: https://www.kremwerk.com/
 tags: ["Music", "Nightlife", "Downtown"]
 imageUrl: "https://images.squarespace-cdn.com/content/v1/572bb259c2ea515568dea9fe/1733963121258-H9S5WXB9ZV8M65ZSK9GZ/Cherry+Seattle+-+Kremwerk+Nightclub.png"
@@ -16,7 +16,3 @@ calendars:
   - name: kremwerk
     friendlyname: "Kremwerk + Timbre Room + Cherry Complex"
     timezone: America/Los_Angeles
-    config:
-      venueName: "Kremwerk Complex"
-      defaultLocation: "1809 Minor Ave, Seattle, WA 98101"
-      defaultDurationHours: 3
