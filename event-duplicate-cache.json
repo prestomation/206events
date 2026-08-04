@@ -10004,6 +10004,106 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-03",
       "note": "Two distinct food-truck lots 321m apart (1201 vs 1551 Eastlake Ave), same vendor site but different physical locations/schedules"
+    },
+    "crocodile-crocodile-main.ics Fink|2026-08-17T20:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Fink|2026-08-17T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same Fink show at The Crocodile; address '1st Ave' vs 'First Ave' variant"
+    },
+    "crocodile-crocodile-main.ics Fink|2026-08-17T20:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Fink|2026-08-17T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same Fink show at The Crocodile; listed in arts sub-calendar of seatoday"
+    },
+    "external-go-latin-dance-seattle.ics eSOeS - Salsa/Bachata at Aria Ballroom every Sunday|2026-08-09T19:00:00Z[UTC]::external-seattle-dance-info.ics Sunday Salsa/Bachata Party|2026-08-09T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same Sunday salsa/bachata party at Aria Ballroom; title variants by different listing sites"
+    },
+    "external-mohai.ics SS Virginia V America 250 Tour: The Mosquito Fleet|2026-08-26T19:00:00Z[UTC]::external-seattle-gov-city-wide.ics SS Virginia V America 250 Tour: The Mosquito Fleet|2026-08-26T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same MOHAI boat tour event; city calendar references mohai.org as well"
+    },
+    "external-nw-asian-weekly.ics CID Night Market|2026-09-26T13:00:00Z[UTC]::recurring-cid-night-market.ics CID Night Market|2026-09-26T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same CID Night Market at/near Hing Hay Park; two different listing sources"
+    },
+    "external-seattle-gov-arts.ics Community Office Hours with Director Amy Nguyen|2026-08-21T10:00:00Z[UTC]::external-seattle-gov-city-wide.ics Community Office Hours with Director Amy Nguyen|2026-08-21T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event listed in both city arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics [Virtual] KSS Exhibitions Information Session|2026-08-26T16:00:00Z[UTC]::external-seattle-gov-city-wide.ics [Virtual] KSS Exhibitions Information Session|2026-08-26T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same virtual event in two city calendars"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-08-28T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-08-28T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event in two city calendars (city-wide and parks)"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-08-29T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-08-29T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event in two city calendars"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-08-26T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-08-26T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event at Lake City Court; identical title and location in two city calendars"
+    },
+    "external-seattle-gov-city-wide.ics Kingfisher Natural Area Restoration- Forest Bathing and Work Party|2026-08-29T09:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Kingfisher Natural Area Restoration- Forest Bathing and Work Party|2026-08-29T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event with identical URL in two city calendars"
+    },
+    "external-seattle-gov-city-wide.ics Unwavering Hope Artists' Reception|2026-08-27T17:00:00Z[UTC]::external-shunpike.ics ACES 2026 Summer Series | Unwavering Hope Exhibition (Artist Reception)|2026-08-27T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same artist reception at Columbia City Gallery; Shunpike uses longer ACES prefix in title"
+    },
+    "external-seattle-gov-city-wide.ics \"Teaching of the Tree People\" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics \"Teaching of the Tree People\" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same film screening with identical URL in two city calendars"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-08-10T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-08-10T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-04",
+      "note": "Different events at the same venue: Board Game Night (18:30) vs Head in the Clouds Trivia (19:30); one hour apart, different organizers"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-08-10T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-10T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same trivia event at Stoup Ballard; recurring entry vs venue's own calendar, 'with Head in the Clouds' title variant"
+    },
+    "seatoday-seatoday-all.ics Design Review Board Regular Meeting|2026-08-17T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Design Review Board Regular Meeting|2026-08-17T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event cross-posted to both the 'all' and 'community' seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics ISSAQUAH COMMONS WELCOMES UNIQLO WITH THREE-DAY GRAND OPENING CELEBRATION|2026-08-14T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ISSAQUAH COMMONS WELCOMES UNIQLO WITH THREE-DAY GRAND OPENING CELEBRATION|2026-08-14T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event in both seatoday sub-calendars; identical location"
+    },
+    "seatoday-seatoday-all.ics ISSAQUAH COMMONS WELCOMES UNIQLO WITH THREE-DAY GRAND OPENING CELEBRATION|2026-08-15T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ISSAQUAH COMMONS WELCOMES UNIQLO WITH THREE-DAY GRAND OPENING CELEBRATION|2026-08-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event in both seatoday sub-calendars; day 2 of grand opening"
+    },
+    "seatoday-seatoday-all.ics ISSAQUAH COMMONS WELCOMES UNIQLO WITH THREE-DAY GRAND OPENING CELEBRATION|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ISSAQUAH COMMONS WELCOMES UNIQLO WITH THREE-DAY GRAND OPENING CELEBRATION|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-04",
+      "note": "Same event in both seatoday sub-calendars; day 3 of grand opening"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-03T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-03T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-04",
+      "note": "Different food truck locations: 1201 Eastlake vs 1551 Eastlake (321m apart); these are separate scheduled stops"
     }
   }
 }
