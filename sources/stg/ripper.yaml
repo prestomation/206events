@@ -14,9 +14,10 @@ calendars:
     tags: ["Downtown"]
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Seattle_%28WA%2C_USA%29%2C_Paramount_Theatre_--_2022_--_1472.jpg"
     geo:
-      lat: 47.6133
-      lng: -122.3327
+      lat: 47.613245
+      lng: -122.331356
       label: "Paramount Theatre, 911 Pine St, Seattle, WA 98101"
+      osmChecked: 2026-08-04
       osmType: way
       osmId: 115042486
     config:
