@@ -1,12 +1,12 @@
 ---
 name: "West Seattle Junction Harvest Fest"
-status: added
+status: candidate
 platform: none (static page — recurring-YAML candidate)
 url: https://wsjunction.org/harvest-fest/
 tags: [Community, "West Seattle"]
 firstSeen: 2026-08-04
 lastChecked: 2026-08-05
-pr: TBD
+pr: 1104
 ---
 
 Annual family-friendly street festival in The Junction — costume parade,

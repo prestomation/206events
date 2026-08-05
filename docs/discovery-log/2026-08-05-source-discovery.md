@@ -81,7 +81,7 @@ header on both the ICS URL and the events page — a JS-challenge pattern,
 noted on the candidate file for future proxy-ladder staging; deprioritized
 this cycle since it can't be verified live from here.
 
-**✅ Added: West Seattle Junction Harvest Fest — `sources/recurring/west-seattle-harvest-fest.yaml` — PR pending.**
+**✅ Added: West Seattle Junction Harvest Fest — `sources/recurring/west-seattle-harvest-fest.yaml` — PR #1104.**
 Promoted the `candidate` (`docs/source-candidates/west-seattle-harvest-fest.md`)
 with a verified 3-year no-drift recurring pattern (last Sunday in October,
 11am–2pm) to a recurring-YAML entry. Anchored `geo` at California Ave SW &
