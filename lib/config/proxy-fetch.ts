@@ -128,8 +128,43 @@ export function getFetchForConfig(config: { proxy?: ProxyType }): FetchFn {
     return withCache(directFetch);
 }
 
+/**
+ * Browserbase's account plan caps concurrent Fetch API requests at 5 — exceeding
+ * it returns HTTP 429 ("You've exceeded your max concurrent fetch requests
+ * limit"). The build's general-purpose concurrency (CONCURRENCY in
+ * calendar_ripper.ts) is unaware of which sources are browserbase-proxied, so
+ * without a dedicated limiter here, multiple browserbase sources routinely land
+ * in-flight at once and 429 each other. This module-level semaphore caps actual
+ * concurrent calls to the Browserbase API, independent of however many rippers
+ * try to call it at once. Kept below the account limit (not equal to it) to
+ * leave headroom for other concurrent Browserbase usage (e.g. the out-of-band
+ * job) hitting the same account.
+ */
+const BROWSERBASE_CONCURRENCY_LIMIT = 4;
+let activeBrowserbaseRequests = 0;
+const browserbaseWaitQueue: Array<() => void> = [];
+
+async function acquireBrowserbaseSlot(): Promise<void> {
+    if (activeBrowserbaseRequests < BROWSERBASE_CONCURRENCY_LIMIT) {
+        activeBrowserbaseRequests++;
+        return;
+    }
+    await new Promise<void>((resolve) => browserbaseWaitQueue.push(resolve));
+}
+
+function releaseBrowserbaseSlot(): void {
+    const next = browserbaseWaitQueue.shift();
+    if (next) {
+        // Hand the slot directly to the next waiter; activeBrowserbaseRequests
+        // stays the same since one request's slot becomes another's.
+        next();
+    } else {
+        activeBrowserbaseRequests--;
+    }
+}
+
 /** Performs a single live Browserbase API fetch. Throws if the key is unset
- *  or the API call fails. */
+ *  or the API call fails. Concurrency-limited — see BROWSERBASE_CONCURRENCY_LIMIT. */
 async function browserbaseLiveFetch(
     urlStr: string,
 ): Promise<{ statusCode: number; content: string; contentType: string }> {
@@ -137,25 +172,30 @@ async function browserbaseLiveFetch(
     if (!apiKey) {
         throw new Error("BROWSERBASE_API_KEY not set — required for browserbase proxy");
     }
-    const response = await fetch("https://api.browserbase.com/v1/fetch", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-BB-API-Key": apiKey,
-        },
-        body: JSON.stringify({
-            url: urlStr,
-            allowRedirects: true,
-        }),
-    });
-    if (!response.ok) {
-        const body = await response.text().catch(() => "");
-        throw new Error(`Browserbase fetch failed: HTTP ${response.status} — ${body.slice(0, 200)}`);
-    }
+    await acquireBrowserbaseSlot();
     try {
-        return await response.json() as { statusCode: number; content: string; contentType: string };
-    } catch {
-        throw new Error(`Browserbase API returned invalid JSON (HTTP ${response.status})`);
+        const response = await fetch("https://api.browserbase.com/v1/fetch", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-BB-API-Key": apiKey,
+            },
+            body: JSON.stringify({
+                url: urlStr,
+                allowRedirects: true,
+            }),
+        });
+        if (!response.ok) {
+            const body = await response.text().catch(() => "");
+            throw new Error(`Browserbase fetch failed: HTTP ${response.status} — ${body.slice(0, 200)}`);
+        }
+        try {
+            return await response.json() as { statusCode: number; content: string; contentType: string };
+        } catch {
+            throw new Error(`Browserbase API returned invalid JSON (HTTP ${response.status})`);
+        }
+    } finally {
+        releaseBrowserbaseSlot();
     }
 }
 
