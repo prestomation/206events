@@ -68,3 +68,23 @@ confirmed working with events > 0, or custom-scrape target confirmed
 reachable with live data and no filtering ambiguity) — Saltstone
 Ceramics is the most promising lead but needs custom title-parsing work
 next cycle.
+
+## Source discovery: implement highest-confidence backlog candidate
+
+Reviewed all `status: candidate` files for a source ready to implement.
+Most Squarespace/Eventbrite candidates (`poquitos-seattle`,
+`clean-greens-farm-market`, `urban-community-councils-of-seattle`,
+`seattle-cityclub`, `ncnw-seattle-section`, `the-residency-seattle`) remain
+at 0 upcoming events — no change. `sodo-bia`'s previously-working ICS feed
+(`sodoseattle.org`) now returns HTTP 202 with an `sg-captcha: challenge`
+header on both the ICS URL and the events page — a JS-challenge pattern,
+noted on the candidate file for future proxy-ladder staging; deprioritized
+this cycle since it can't be verified live from here.
+
+**✅ Added: West Seattle Junction Harvest Fest — `sources/recurring/west-seattle-harvest-fest.yaml` — PR pending.**
+Promoted the `candidate` (`docs/source-candidates/west-seattle-harvest-fest.md`)
+with a verified 3-year no-drift recurring pattern (last Sunday in October,
+11am–2pm) to a recurring-YAML entry. Anchored `geo` at California Ave SW &
+SW Alaska St (same coordinates as `west-seattle-farmers-market.yaml`) since
+the festival is described as centered on that "All-Ways" intersection.
+`ONLY_SOURCE` build confirmed 1 event (Sun Oct 25, 2026, 11:00 AM Pacific).

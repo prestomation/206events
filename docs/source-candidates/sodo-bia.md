@@ -44,3 +44,14 @@ Investigated 2026-08-04:
   feed's events likely occur at the BIA office (SODO). Recommend
   resolving address via the site's Contact page before implementing, or
   using `geo: null` if events don't consistently list one location.
+
+Re-checked 2026-08-05: both `sodoseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list`
+and the plain `/events/` page now return HTTP 202 with an `sg-captcha:
+challenge` response header (SiteGround JS challenge) and an empty body,
+even with a browser-style UA/Accept headers — this is the JS-challenge
+pattern the proxy docs call out as needing the `browserbase` rung, not
+`outofband`. Deprioritized this cycle in favor of the higher-confidence,
+no-fetch-risk West Seattle Junction Harvest Fest candidate (recurring
+YAML, PR pending). Re-check with a plain fetch next cycle before staging
+for proxy testing — the block may be intermittent (it returned clean 200s
+with 19 VEVENTs on 2026-08-04).
