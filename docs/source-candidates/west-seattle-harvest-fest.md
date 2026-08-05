@@ -5,7 +5,8 @@ platform: none (static page — recurring-YAML candidate)
 url: https://wsjunction.org/harvest-fest/
 tags: [Community, "West Seattle"]
 firstSeen: 2026-08-04
-lastChecked: 2026-08-04
+lastChecked: 2026-08-05
+pr: 1104
 ---
 
 Annual family-friendly street festival in The Junction — costume parade,
@@ -36,3 +37,10 @@ pattern already confirmed for Summer Fest):
   Junction Plaza Park or California Ave SW/Alaska St, is appropriate).
 - Not yet implemented — flagging for next discovery cycle to add as a
   recurring source.
+
+Implemented 2026-08-05: added `sources/recurring/west-seattle-harvest-fest.yaml`
+anchored at California Ave SW & SW Alaska St (the same "All-Ways" intersection
+geo already used by `sources/recurring/west-seattle-farmers-market.yaml`,
+47.5612096, -122.3871937), `schedule: "last Sunday"`, `months: [10]`,
+`start_time: "11:00"`, `duration: PT3H`, `cost: free`. `ONLY_SOURCE` build
+confirmed 1 event generated (Sun Oct 25, 2026, 11:00 AM Pacific).

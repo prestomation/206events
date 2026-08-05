@@ -1,0 +1,25 @@
+imageUrl: "https://wsjunction.org/wp-content/uploads/2026/05/q3sfgW8.png"
+geo:
+  lat: 47.5612096
+  lng: -122.3871937
+  label: "California Ave SW & SW Alaska St, Seattle"
+  osmChecked: "2026-08-05"
+name: west-seattle-harvest-fest
+sourceRole: venue
+friendlyname: West Seattle Junction Harvest Fest
+description: Annual free family-friendly street festival in the West Seattle
+  Junction, with a costume parade, live music, a pie-eating contest, and a
+  chili cook-off centered on the California Ave SW / SW Alaska St
+  intersection.
+timezone: America/Los_Angeles
+location: California Ave SW & SW Alaska St, Seattle
+url: https://wsjunction.org/harvest-fest/
+tags:
+  - Community
+  - West Seattle
+cost: free
+schedules:
+  - schedule: "last Sunday"
+    start_time: "11:00"
+    duration: PT3H
+    months: [10]
