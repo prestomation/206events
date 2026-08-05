@@ -1009,6 +1009,29 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'raging river trailhead': { lat: 47.5108010, lng: -121.8468359 }, // 37580 Winery Rd, Snoqualmie, WA
   // Same landmark as the existing 'drumheller fountain (uw campus)' entry, different wording from the source (everyday-rides-seattle)
   'rainier vista (south of drumheller fountain)': { lat: 47.6538087, lng: -122.3078047 },
+
+  // --- 2026-08-05 geo-resolver batch: "venue name only" / "has street address"
+  // unresolvable entries. Addresses verified against each venue's own site/listing
+  // (or Wikipedia for building coordinates), then forward-geocoded via Nominatim
+  // where a direct Nominatim result existed. Never reverse-geocoded.
+  //
+  // Seattle University's own campus events site (events.seattleu.edu, the source
+  // for the seattle-university external calendar) confirms both SU buildings below;
+  // Nominatim doesn't index individual SU buildings (see existing 'redhawk center'
+  // etc. note above), so coordinates come from Wikipedia's building articles instead.
+  'administration building, first-floor north wing': { lat: 47.61111, lng: -122.31972 }, // Seattle University Administration Building, 901 12th Ave
+  'bannan 244 (e) - wyckoff auditorium': { lat: 47.609583, lng: -122.318472 }, // Wyckoff Auditorium, Bannan Center for Science & Engineering, Seattle University
+  // BC Place Stadium, 777 Pacific Blvd, Vancouver, BC — PNW-wide concert venue (19hz etc.)
+  'bc place': { lat: 49.2766905, lng: -123.1120062, osmType: 'way', osmId: 24705904 },
+  // Center for Wooden Boats' boathouse includes a 2nd-floor library/classroom space;
+  // alias of the existing 'cwb boathouse' entry.
+  'boathouse library, seattle, wa': { lat: 47.6259, lng: -122.3392 },
+  // Junction Plaza Park, West Seattle Junction (4545 42nd Ave SW) — Nominatim-confirmed
+  'junction plaza park and vicinity': { lat: 47.5612659, lng: -122.3858488, osmType: 'way', osmId: 56176621 },
+  // Downtown Park, 16101 Redmond Way, Redmond, WA — Nominatim-confirmed
+  'redmond downtown park, redmond, wa': { lat: 47.6742876, lng: -122.1247736, osmType: 'way', osmId: 238108677 },
+  // Truncated variant (missing "um") of the existing 'seattle town hall - forum' entry
+  'seattle town hall - form': { lat: 47.6087, lng: -122.3295 },
 };
 
 /**
