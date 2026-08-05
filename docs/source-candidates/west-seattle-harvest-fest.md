@@ -1,6 +1,6 @@
 ---
 name: "West Seattle Junction Harvest Fest"
-status: candidate
+status: added
 platform: none (static page — recurring-YAML candidate)
 url: https://wsjunction.org/harvest-fest/
 tags: [Community, "West Seattle"]
