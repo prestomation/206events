@@ -10114,6 +10114,156 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-04",
       "note": "Identical title and identical source URL (greencitypartnerships.org/event/44369) on both the city-wide and parks-recreation feeds — same event cross-posted"
+    },
+    "downtown-seattle-association-occidental-square.ics Saba – Downtown Summer Sounds|2026-08-06T17:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Saba – Downtown Summer Sounds|2026-08-06T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same downtownseattle.org event (Saba - Downtown Summer Sounds) at Occidental Square, republished by two downtown-area aggregators; 1hr start-time discrepancy is a data-quality quirk, not a different event."
+    },
+    "external-seattle-city-of-lit.ics  Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T18:30:00Z[UTC]::seatoday-seatoday-all.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Central Library 'Low Vision Book Group' session (SPL eventid 204515815) republished by City of Lit (tockify) and seatoday-all; identical time once timezone-normalized."
+    },
+    "external-seattle-city-of-lit.ics  Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T18:30:00Z[UTC]::seatoday-seatoday-arts.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Central Library 'Low Vision Book Group' session, City of Lit vs seatoday-arts tag copy."
+    },
+    "external-seattle-city-of-lit.ics  Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T18:30:00Z[UTC]::seatoday-seatoday-food.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Central Library 'Low Vision Book Group' session, City of Lit vs seatoday-food tag copy."
+    },
+    "external-seattle-city-of-lit.ics  Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T18:30:00Z[UTC]::seatoday-seatoday-learning.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Central Library 'Low Vision Book Group' session, City of Lit vs seatoday-learning tag copy."
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-08-18T19:00:00Z[UTC]::seatoday-seatoday-all.ics Online Master's in Cybersecurity Leadership Information Session|2026-08-18T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Seattle University info session (identical title/time), Seattle U calendar vs seatoday-all tag copy."
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-08-18T19:00:00Z[UTC]::seatoday-seatoday-community.ics Online Master's in Cybersecurity Leadership Information Session|2026-08-18T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Seattle University info session, Seattle U calendar vs seatoday-community tag copy."
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-08-18T19:00:00Z[UTC]::seatoday-seatoday-learning.ics Online Master's in Cybersecurity Leadership Information Session|2026-08-18T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Seattle University info session, Seattle U calendar vs seatoday-learning tag copy."
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-11-04T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-11-04T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same recurring 'West Seattle Urbanism' weekly meetup (Wed 6-8pm); West Seattle Blog's own event page notes the meetup uses both 'Great American Diner & Bar' and 'Elliott Bay Brewing' venue names - same organizing group's weekly meetup, not two distinct events."
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-11-05T16:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-11-05T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Identical UW Informatics info session (same ischool.uw.edu URL, same time, Zoom), listed on both UW campus-events and iSchool calendars."
+    },
+    "seatoday-seatoday-all.ics Aventura de Verano: Grabado estilo boombox de los años 90|2026-08-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Aventura de Verano: Grabado estilo boombox de los años 90|2026-08-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Aventura de Verano) appears in both the 'all' and 'arts' tag-filtered calendars of the same seatoday source."
+    },
+    "seatoday-seatoday-all.ics Aventura de Verano: Grabado estilo boombox de los años 90|2026-08-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Aventura de Verano: Grabado estilo boombox de los años 90|2026-08-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Aventura de Verano), 'all' vs 'community' tag copy."
+    },
+    "seatoday-seatoday-all.ics Aventura de Verano: Grabado estilo boombox de los años 90|2026-08-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Aventura de Verano: Grabado estilo boombox de los años 90|2026-08-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Aventura de Verano), 'all' vs 'learning' tag copy."
+    },
+    "seatoday-seatoday-all.ics Aventura de Verano: Grabado estilo boombox de los años 90|2026-08-09T11:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Aventura de Verano: Grabado estilo boombox de los años 90|2026-08-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same event (Aventura de Verano boombox event) at SPL Northgate branch, same exact time; seatoday republishes the SPL library event."
+    },
+    "seatoday-seatoday-all.ics Celebrators Cruise|2026-08-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Celebrators Cruise|2026-08-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Celebrators Cruise), 'all' vs 'community' tag copy."
+    },
+    "seatoday-seatoday-all.ics Coffee & Conversations|2026-08-10T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Coffee & Conversations|2026-08-10T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Coffee & Conversations), 'all' vs 'arts' tag copy."
+    },
+    "seatoday-seatoday-all.ics Coffee & Conversations|2026-08-10T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Coffee & Conversations|2026-08-10T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Coffee & Conversations), 'all' vs 'community' tag copy."
+    },
+    "seatoday-seatoday-all.ics Coffee & Conversations|2026-08-10T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Coffee & Conversations|2026-08-10T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Coffee & Conversations), 'all' vs 'food' tag copy."
+    },
+    "seatoday-seatoday-all.ics Finance & Audit Committee|2026-08-18T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Finance & Audit Committee|2026-08-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Finance & Audit Committee), 'all' vs 'community' tag copy."
+    },
+    "seatoday-seatoday-all.ics Finance & Audit Committee|2026-08-18T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Finance & Audit Committee|2026-08-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Finance & Audit Committee), 'all' vs 'learning' tag copy."
+    },
+    "seatoday-seatoday-all.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Firefighter Story Time), 'all' vs 'arts' tag copy."
+    },
+    "seatoday-seatoday-all.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Firefighter Story Time), 'all' vs 'community' tag copy."
+    },
+    "seatoday-seatoday-all.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Firefighter Story Time), 'all' vs 'learning' tag copy."
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same Low Vision Book Group event, 'all' vs 'arts' tag copy."
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same Low Vision Book Group event, 'all' vs 'food' tag copy."
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same Low Vision Book Group event, 'all' vs 'learning' tag copy."
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Central Library 'Low Vision Book Group' session (SPL eventid 204515815), seatoday-all vs SPL authors-books tag calendar."
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Low Vision Book Group: \"Before the Coffee Gets Cold\"|2026-08-11T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Same Central Library 'Low Vision Book Group' session (SPL eventid 204515815), seatoday-all vs SPL central-library branch calendar."
+    },
+    "seatoday-seatoday-all.ics Mill Creek Chamber Monthly Lunch & Learn|2026-08-18T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Mill Creek Chamber Monthly Lunch & Learn|2026-08-18T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Mill Creek Chamber Monthly Lunch & Learn), 'all' vs 'food' tag copy."
+    },
+    "seatoday-seatoday-all.ics Mill Creek Chamber Monthly Lunch & Learn|2026-08-18T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Chamber Monthly Lunch & Learn|2026-08-18T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-05",
+      "note": "Intra-seatoday duplicate: same 6amcity event (Mill Creek Chamber Monthly Lunch & Learn), 'all' vs 'learning' tag copy."
     }
   }
 }
