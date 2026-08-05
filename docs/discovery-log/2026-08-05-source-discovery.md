@@ -29,23 +29,26 @@ very thoroughly mined:
   Pottery Northwest, The Clay Corner, Gasworks Brewing, Salsa Con Todo,
   Go Latin Dance Seattle, Baila District — all already `added` sources
   or existing tracked candidate files, no status change
-- 💡 Candidate: **Saltstone Ceramics** (Wallingford ceramics studio) —
-  Shopify `/products.json` confirmed live (200, 50 products), but the
-  catalog mixes dated multi-week class series (schedule embedded in the
-  title text) with plain retail merchandise. Needs a custom JSON scraper
-  to filter class-tagged products and parse the day/time/date-range out
-  of titles — no built-in `shopify` ripper type exists in this repo yet.
-  See `docs/source-candidates/saltstone-ceramics.md`.
+- 💡 Candidate (reopened): **Saltstone Ceramics** (Wallingford ceramics
+  studio) — previously `❌ Not Viable` on 2026-07-01 ("no discrete
+  dated-event data"), reopened after a closer look at the raw
+  `/products.json` payload rather than the storefront UI: it's live
+  (200, 50 products), and the catalog mixes dated multi-week class
+  series (schedule embedded in the title text) with plain retail
+  merchandise. Needs a custom JSON scraper to filter class-tagged
+  products and parse the day/time/date-range out of titles — no
+  built-in `shopify` ripper type exists in this repo yet. See
+  `docs/source-candidates/saltstone-ceramics.md`.
 - 💡 Candidate: **Nudibranch Coffee** (Capitol Hill, Seattle's first Thai
   coffee shop, opened Feb 2026) — confirmed Squarespace `/events`
   collection responds 200, but `upcoming`/`items` are both empty at time
   of check despite press coverage describing it as having a "sometimes
   event and performance space." Re-check next cycle once events are
   posted.
-- 🔍 Investigating: **Seatown Pottery** (3 Seattle locations — Green
-  Lake, Capitol Hill, Madison Park) — Webflow marketing site, booking
-  handled by third-party SaaS `24hrpottery.com`; haven't yet checked
-  whether that platform exposes a public event-listing API.
+- 💡 Candidate: **Seatown Pottery** (3 Seattle locations — Green Lake,
+  Capitol Hill, Madison Park) — Webflow marketing site, booking handled
+  by third-party SaaS `24hrpottery.com`; haven't yet checked whether
+  that platform exposes a public event-listing API.
 - 🔴 Blocked: **Potterings** (West Seattle/Alki hand-building studio) —
   plain `curl` with a UA header returns a bare HTTP 403 from this
   environment; per the "fails locally too" rule, not staged for proxy

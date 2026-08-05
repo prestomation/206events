@@ -1,6 +1,6 @@
 ---
 name: "Seatown Pottery"
-status: investigating
+status: candidate
 platform: Webflow + 24hrpottery.com booking SaaS
 url: https://www.seatownpottery.com/
 tags: [Arts]

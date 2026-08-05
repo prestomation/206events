@@ -9,6 +9,13 @@ lastChecked: 2026-08-05
 pr:
 ---
 
+Previously logged `❌ Not Viable` on 2026-07-01 ("Shopify booking
+storefront, no discrete dated-event data") — re-evaluated this cycle
+with a closer look at the raw `/products.json` payload rather than the
+storefront UI, and the schedule data does exist, just embedded in
+product titles rather than a structured field. Reopening as a
+candidate on that basis.
+
 Ceramics studio in Wallingford. `/products.json` returns HTTP 200 with
 50 products (confirmed via `curl`). The catalog is a mix of:
 
