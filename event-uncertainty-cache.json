@@ -54172,6 +54172,18 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46377",
       "partialFingerprint": "e99ku4"
+    },
+    "fremont-chamber-of-commerce:fremont-health-and-wellness-meet-up-1870771": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "reason": "No event-specific image on source page — og:image and event modal image are both the generic Fremont Chamber of Commerce logo, no per-event photo field. Checked: https://business.fremont.com/calendar/Details/fremont-health-and-wellness-meet-up-1870771"
+    },
+    "fremont-chamber-of-commerce:fremont-health-and-wellness-meet-up-1870819": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "reason": "No event-specific image on source page — og:image and event modal image are both the generic Fremont Chamber of Commerce logo, no per-event photo field. Checked: https://business.fremont.com/calendar/Details/fremont-health-and-wellness-meet-up-1870819"
     }
   }
 }
