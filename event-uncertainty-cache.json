@@ -38683,13 +38683,14 @@
     "events12:live-theater-2026-08-18": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-08-05",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://app.arts-people.com/index.php?preseason=spt; setting per https://taproottheatre.org/2026/joseph-and-the-amazing-technicolor-dreamcoat/ (indoor Jewell Mainstage Theatre)"
     },
     "events12:live-theater-2026-08-19": {
       "fields": {
@@ -40368,11 +40369,12 @@
     "events12:dance-in-the-park-2026-08-18": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-05",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/events; setting per https://www.danceforjoy.biz/dancingtildusk/ (outdoor Seattle parks)"
     },
     "events12:dance-in-the-park-2026-08-19": {
       "fields": {
@@ -50694,13 +50696,14 @@
     "events12:music-by-candlelight-2026-08-18": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-30",
+      "resolvedAt": "2026-08-05",
       "source": "agent",
-      "evidence": "https://feverup.com/en/seattle/candlelight"
+      "evidence": "https://feverup.com/en/seattle/candlelight (Fever Candlelight series — indoor venues: Arctic Club Hotel, National Nordic Museum, Langston Hughes PAI, SPL Central Library, Town Hall Seattle)"
     },
     "events12:music-by-candlelight-2026-08-19": {
       "fields": {
