@@ -54002,11 +54002,14 @@
     },
     "fremont-chamber-of-commerce:apda-nw-optimism-walk-1867802": {
       "fields": {
-        "location": "Ship Canal Trail, 130 Nickerson St, Seattle, WA 98109"
+        "location": "Ship Canal Trail, 130 Nickerson St, Seattle, WA 98109",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-08-05",
       "source": "agent",
-      "evidence": "https://secure.qgiv.com/event/1136159/",
+      "evidence": "https://business.fremont.com/calendar/Details/apda-nw-optimism-walk-1867802",
       "partialFingerprint": "1i786b"
     },
     "climate-pledge-arena:tm-vvG1HZ_2S4Wc0y": {
@@ -54184,6 +54187,209 @@
       "resolvedAt": "2026-08-05",
       "source": "agent",
       "reason": "No event-specific image on source page — og:image and event modal image are both the generic Fremont Chamber of Commerce logo, no per-event photo field. Checked: https://business.fremont.com/calendar/Details/fremont-health-and-wellness-meet-up-1870819"
+    },
+    "charlies-queer-books:charlies-queer-books-6013220260829": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/6013220260829"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3O4QaR": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-calgary-flames-seattle-washington-11-04-2026/event/0F0064C4A055A26F"
+    },
+    "el-suenito-brewing:el-suenito-brewing-4c92b9da-6111-47e8-9858-59ad06289696": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/queer-book-club-2026-08-05-19-00"
+    },
+    "el-suenito-brewing:el-suenito-brewing-6b6ba895-402a-4880-97b7-efb0d9abf059": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/august-seattle-suenito-drag-brunch"
+    },
+    "stg:tm-vvG1HZ_2wyU1Wc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/introducing-the-aces-with-special-guest-seattle-washington-11-03-2026/event/0F0064FCB9D8AF6D"
+    },
+    "stg:tm-vvG1HZ_8Cs6ncz": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/big-star-quintet-seattle-washington-11-04-2026/event/0F006503B11EAB78"
+    },
+    "stg:tm-vvG1HZ_CJwRa7u": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/events/oh-mary/"
+    },
+    "kremwerk:6a040a940dbd2a70f2891282": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/07/safeword"
+    },
+    "kremwerk:6a252f8855f0b80a8ae8b116": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 13.0
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/14/freakshow"
+    },
+    "kremwerk:6a334aa39492595b0b234576": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/25-27/kremfest-2026-weekend-pass"
+    },
+    "kremwerk:6a3c293c6973bd33ef36c8b0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/14/11/club-ctrl-with-ctrlmp3-dj-swisha"
+    },
+    "kremwerk:6a49637db6d8242ae658730c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/15/dj-wifi-all-night"
+    },
+    "kremwerk:6a4d8bc66c280037c4a1be74": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/07/club-v-presents-big-vee-vi"
+    },
+    "kremwerk:6a550c5492a5d806b932c810": {
+      "fields": {
+        "cost": {
+          "min": 15.0,
+          "max": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/07/space-age-futuristic-drag-cabaret"
+    },
+    "kremwerk:6a56d4b83504e33bb8e661af": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/21/bodycode"
+    },
+    "kremwerk:6a57cbcd56697b6b976cffff": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/06/joosed"
+    },
+    "kremwerk:6a57d217f22cb748e9089537": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/05/dark-complex-sin"
+    },
+    "kremwerk:6a582797b93011493ace141b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/14/11/club-ctrl-with-ctrlmp3-dj-swisha-l8lnl"
+    },
+    "kremwerk:6a596806a055ab72837fabe9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/07/sts-mate-mind-present-the-portland-connection"
+    },
+    "kremwerk:6a596e85285dd55cce4ea0f2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-05",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/15/hyeonje-open-to-close"
     }
   }
 }
