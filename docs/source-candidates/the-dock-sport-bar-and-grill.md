@@ -12,6 +12,9 @@ pr:
 Fremont sports bar with recurring weekly trivia (Thu) and karaoke
 (Thu/Fri/Sat). Not part of the existing HeadInTheCloudsTrivia network
 (`sources/headinthecloudstrivia`) already covered elsewhere in the repo.
+(The Dock appears once as an event *location* string in
+`sources/events12/sample-data.html` — a one-off third-party event, not
+a source for The Dock's own calendar — so no real overlap.)
 
 Built on the SpotApps/SpotHopper restaurant platform — a plain `curl`
 fetch confirms server-rendered event markup (`event-time`,
