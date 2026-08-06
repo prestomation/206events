@@ -1,0 +1,18 @@
+name: cuff-complex
+sourceRole: venue
+type: squarespace
+description: "The Cuff Complex"
+url: "https://www.cuffcomplex.com/events"
+friendlyLink: https://www.cuffcomplex.com/
+tags: ["Nightlife", "Capitol Hill"]
+geo:
+  lat: 47.6149435
+  lng: -122.3161591
+  label: "The Cuff Complex, 1533 13th Ave, Seattle, WA 98122"
+  osmType: way
+  osmId: 206623630
+imageUrl: "http://static1.squarespace.com/static/5e20e2d664c7bd7ddc4c2fb2/t/689f9089eacf523dedf4430e/1755287689680/Cuff_WhiteLogo.png?format=1500w"
+calendars:
+  - name: cuff-complex-events
+    friendlyname: "The Cuff Complex"
+    timezone: America/Los_Angeles
