@@ -9,4 +9,4 @@ No new candidates this run.
 
 ## Source discovery: implementing highest-confidence candidate
 
-- ✅ Added: The Cuff Complex — Squarespace — `upcoming` array repopulated with 3 future events (Thursday Night Lights Drag Show, Batthouse Disco, Hump Day Karaoke) since it was last checked 2026-07-23; confirmed via `?format=json` and geocoded to a known OSM node (`way/206623630`).
+- ✅ Added: The Cuff Complex — Squarespace — `upcoming` array repopulated with 3 future events (Thursday Night Lights Drag Show, Batthouse Disco, Hump Day Karaoke) since it was last checked 2026-07-23; confirmed via `?format=json` and geocoded to a known OSM way (`way/206623630`).
