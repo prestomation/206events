@@ -1,11 +1,12 @@
 ---
 name: "The Cuff Complex"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.cuffcomplex.com/events
 tags: [Nightlife, "Capitol Hill"]
 firstSeen: 2026-07-22
-lastChecked: 2026-07-23
+lastChecked: 2026-08-06
+pr: 1114
 ---
 
 Long-running Capitol Hill gay nightclub/leather bar at 1533 13th Ave —
@@ -26,3 +27,11 @@ Investigated 2026-07-22:
 
 Re-checked 2026-07-23: still `upcoming: []` (0 events), no change since
 yesterday. Keep monitoring.
+
+Re-checked 2026-08-06: `upcoming` now has 3 future-dated events (Thursday
+Night Lights Drag Show 8/7, Batthouse Disco 8/8, Hump Day Karaoke 8/13),
+all with `startDate`/`endDate` populated and a consistent venue address
+(1533 13th Avenue, Seattle, WA 98122). Implemented as
+`sources/cuff_complex/ripper.yaml` using the built-in `squarespace` type,
+geocoded to OSM `way/206623630` (47.6149435, -122.3161591). Verified 3
+events / 0 errors via `ONLY_SOURCE=cuff-complex npm run generate-calendars`.
