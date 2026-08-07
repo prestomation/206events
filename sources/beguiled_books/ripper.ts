@@ -14,10 +14,30 @@ function simpleHash(s: string): string {
     return (h >>> 0).toString(36);
 }
 
-const VENUE_ADDRESS = "Beguiled Books, 109 1st Ave S, Seattle, WA 98104";
+const VENUE_STREET = "109 1st Ave S";
+const VENUE_ADDRESS = `Beguiled Books, ${VENUE_STREET}, Seattle, WA 98104`;
 const TIMEZONE = ZoneId.of("America/Los_Angeles");
 const LISTING_URL = "https://www.beguiledbooks.com/events";
 const DETAIL_URL_PREFIX = "https://www.beguiledbooks.com/event-details/";
+
+/**
+ * Extract a usable image URL from a schema.org Event `image` value, which may be
+ * a string, an array of strings/ImageObjects, or a single ImageObject. Returns
+ * an absolute http(s) URL or undefined.
+ */
+function extractImageUrl(image: unknown): string | undefined {
+    const first = Array.isArray(image) ? image[0] : image;
+    if (!first) return undefined;
+    let url: string | undefined;
+    if (typeof first === 'string') {
+        url = first;
+    } else if (typeof first === 'object' && typeof (first as any).url === 'string') {
+        url = (first as any).url;
+    }
+    url = url?.trim();
+    if (!url || !/^https?:\/\//i.test(url)) return undefined;
+    return url;
+}
 
 /**
  * Beguiled Books runs on Wix's native events widget, which server-renders a
@@ -215,6 +235,14 @@ export default class BeguiledBooksRipper implements IRipper {
         }
         const id = slugMatch[1];
 
+        // Every event checked so far is at the store itself, but a future
+        // off-site author appearance would have a different JSON-LD address —
+        // trust it over our hardcoded venue address when it clearly diverges.
+        const jsonAddress = (eventData['location']?.['address'] as string | undefined)?.trim();
+        const location = jsonAddress && !jsonAddress.includes(VENUE_STREET) ? jsonAddress : VENUE_ADDRESS;
+
+        const imageUrl = extractImageUrl(eventData['image']);
+
         const event: RipperCalendarEvent = {
             id,
             ripped: new Date(),
@@ -222,8 +250,9 @@ export default class BeguiledBooksRipper implements IRipper {
             duration: Duration.ofMinutes(durationMinutes),
             summary,
             description,
-            location: VENUE_ADDRESS,
+            location,
             url,
+            imageUrl,
         };
 
         const results: RipperEvent[] = [event];

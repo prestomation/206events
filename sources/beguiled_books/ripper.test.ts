@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import BeguiledBooksRipper from './ripper.js';
 import { RipperCalendarEvent, RipperError, UncertaintyError } from '../../lib/config/schema.js';
 import { LocalDate } from '@js-joda/core';
@@ -163,6 +163,82 @@ describe('BeguiledBooksRipper', () => {
 
             expect(events).toHaveLength(1);
             expect((events[0] as RipperError).type).toBe('ParseError');
+        });
+
+        it('uses the store address when JSON-LD location matches the venue street', () => {
+            const ripper = new BeguiledBooksRipper();
+            const html = loadSample('sample-event.html');
+            const events = ripper.parseEventPage(html, 'https://www.beguiledbooks.com/event-details/bookstore-romance-day', BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.location).toBe('Beguiled Books, 109 1st Ave S, Seattle, WA 98104');
+        });
+
+        it('trusts a JSON-LD address that diverges from the store (off-site event)', () => {
+            const ripper = new BeguiledBooksRipper();
+            const html = `<html><head><script type="application/ld+json">
+                {"@context":"https://schema.org","@type":"Event","name":"Off-site Reading","startDate":"2026-08-20T18:00:00-07:00","endDate":"2026-08-20T20:00:00-07:00","location":{"@type":"Place","name":"Town Hall Seattle","address":"1119 8th Ave, Seattle, WA 98101, USA"}}
+                </script></head></html>`;
+            const events = ripper.parseEventPage(html, 'https://www.beguiledbooks.com/event-details/off-site-reading', BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.location).toBe('1119 8th Ave, Seattle, WA 98101, USA');
+        });
+
+        it('extracts imageUrl from a schema.org Event image string', () => {
+            const ripper = new BeguiledBooksRipper();
+            const html = `<html><head><script type="application/ld+json">
+                {"@context":"https://schema.org","@type":"Event","name":"Image Event","startDate":"2026-08-20T18:00:00-07:00","endDate":"2026-08-20T20:00:00-07:00","image":"https://static.wixstatic.com/media/example.jpg"}
+                </script></head></html>`;
+            const events = ripper.parseEventPage(html, 'https://www.beguiledbooks.com/event-details/image-event', BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.imageUrl).toBe('https://static.wixstatic.com/media/example.jpg');
+        });
+
+        it('leaves imageUrl undefined when JSON-LD has no image', () => {
+            const ripper = new BeguiledBooksRipper();
+            const html = loadSample('sample-event.html');
+            const events = ripper.parseEventPage(html, 'https://www.beguiledbooks.com/event-details/bookstore-romance-day', BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.imageUrl).toBeUndefined();
+        });
+    });
+
+    describe('fetchAndParseEvent', () => {
+        it('returns a ParseError for a non-ok HTTP response', async () => {
+            const ripper = new BeguiledBooksRipper() as any;
+            ripper.fetchFn = vi.fn().mockResolvedValue({ ok: false, status: 404, statusText: 'Not Found' });
+
+            const events = await ripper.fetchAndParseEvent('https://www.beguiledbooks.com/event-details/missing', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            expect((events[0] as RipperError).type).toBe('ParseError');
+            expect((events[0] as RipperError).reason).toContain('404');
+        });
+
+        it('returns a ParseError when the fetch throws', async () => {
+            const ripper = new BeguiledBooksRipper() as any;
+            ripper.fetchFn = vi.fn().mockRejectedValue(new TypeError('fetch failed'));
+
+            const events = await ripper.fetchAndParseEvent('https://www.beguiledbooks.com/event-details/network-error', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            expect((events[0] as RipperError).type).toBe('ParseError');
+            expect((events[0] as RipperError).reason).toContain('fetch failed');
+        });
+
+        it('parses successfully on a valid response', async () => {
+            const ripper = new BeguiledBooksRipper() as any;
+            const html = loadSample('sample-event.html');
+            ripper.fetchFn = vi.fn().mockResolvedValue({ ok: true, text: async () => html });
+
+            const events = await ripper.fetchAndParseEvent('https://www.beguiledbooks.com/event-details/bookstore-romance-day', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            expect('date' in events[0]).toBe(true);
+            expect((events[0] as RipperCalendarEvent).summary).toBe('Bookstore Romance Day!');
         });
     });
 });
