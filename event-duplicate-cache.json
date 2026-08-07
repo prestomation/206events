@@ -10734,6 +10734,16 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-07",
       "note": "Same sporting event at same venue, same time — sports team feed vs events12 aggregator"
+    },
+    "nectar-lounge-nectar-lounge.ics WOLVES OF GLENDALE with Special Guests|2026-10-11T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-nectar-lounge.ics WOLVES OF GLENDALE with Cor64|2026-10-11T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-07",
+      "note": "Same concert at Nectar Lounge on Oct 11; opening act named differently (Cor64 = special guest); 1-hour offset typical doors vs show time"
+    },
+    "queer-social-club-all-events.ics Rat City Art Walk Takeover|2026-08-20T17:00:00.385-07:00[America/Los_Angeles]::seattle-showlists-tims-tavern.ics Rat City Art Walk|2026-08-20T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-07",
+      "note": "Different times (5pm neighborhood walk vs 8pm Tim's Tavern set) and different venues; neighborhood walk and venue's participation are distinct events"
     }
   }
 }

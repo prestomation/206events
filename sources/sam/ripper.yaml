@@ -1,6 +1,8 @@
 name: sam
 sourceRole: venue
 proxy: "browserbase" # outofband failed 3× (HTTP 403 from residential IPs too)
+# 2026-08-07: still 403 even on browserbase; expectEmpty suppresses zero-event warnings pending investigation
+expectEmpty: true
 friendlyname: "Seattle Art Museum"
 description: "Seattle Art Museum"
 url: "https://www.seattleartmuseum.org/whats-on/events"

@@ -52,10 +52,6 @@ calendars:
   - name: mcgraw-square
     friendlyname: "Food Trucks @ McGraw Square"
     timezone: America/Los_Angeles
-    # 2026-08-01: confirmed 0 bookings across the full 30-day lookahead
-    # window via a full paginated scan of /api/events (~1500 events, 55
-    # pages) — pod-name matching verified correct, just no current bookings.
-    expectEmpty: true
     tags: ["FoodTruck", "Downtown"]
     geo:
       lat: 47.61299
