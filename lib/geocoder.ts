@@ -1032,6 +1032,17 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'redmond downtown park, redmond, wa': { lat: 47.6742876, lng: -122.1247736, osmType: 'way', osmId: 238108677 },
   // Truncated variant (missing "um") of the existing 'seattle town hall - forum' entry
   'seattle town hall - form': { lat: 47.6087, lng: -122.3295 },
+
+  // --- 2026-08-07 geo-resolver batch: "has street address" unresolvable
+  // entries whose addresses forward-geocode cleanly via Nominatim. Never
+  // reverse-geocoded — coordinates come straight from Nominatim's match on
+  // the cleaned address.
+  //
+  // (The other 3 candidates from this batch — Tower 1201, 3131 Western Ave,
+  // and the "5200 35th SW" location — are already covered by shorter
+  // prefix-matching keys added in earlier batches; lookupKnownVenue's
+  // startsWith match already resolves them, so no new entry was needed.)
+  'pier 62 seattle waterfront': { lat: 47.6085444, lng: -122.3448627, osmType: 'way', osmId: 57391649 },
 };
 
 /**
