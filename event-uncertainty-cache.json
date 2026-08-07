@@ -38308,7 +38308,8 @@
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-07-13",
       "source": "agent",
@@ -38319,7 +38320,8 @@
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-07-13",
       "source": "agent",
@@ -39904,7 +39906,8 @@
     "events12:dance-in-the-park-2026-08-19": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
@@ -39913,7 +39916,8 @@
     "events12:dance-in-the-park-2026-08-20": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
@@ -50122,7 +50126,8 @@
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -50133,7 +50138,8 @@
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -53922,6 +53928,370 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "reason": "CitySpark embed page is a client-rendered SPA; other Peter and the Wolf childrens concerts in the region are ticketed (e.g. $5-15) but could not confirm pricing for this specific listing/venue with confidence"
+    },
+    "venue:loc:embassy suites, 20610 44th ave w, lynnwood, wa 98036": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Indoor hotel event space"
+    },
+    "venue:loc:si view park, 400 se orchard dr, north bend, wa 98045": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Public park"
+    },
+    "venue:loc:fort steilacoom park, 8714 87th ave sw, lakewood, wa 98498": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Public park"
+    },
+    "venue:loc:omak stampede rodeo, ferry st, omak, wa 98841": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor rodeo grounds"
+    },
+    "venue:loc:gorge amphitheatre, 754 silica rd nw, george, wa 98848": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Well-known outdoor amphitheater venue"
+    },
+    "venue:loc:coupeville recreation hall, 901 nw alexander st, coupeville, wa 98239": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Indoor recreation hall building"
+    },
+    "venue:loc:schack art center, 2921 hoyt ave, everett, wa 98201": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Indoor art gallery/center"
+    },
+    "venue:loc:fossilera, 16722 146th st se suite 190 , monroe, wa 98272": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Retail storefront (Suite 190) selling fossils/minerals"
+    },
+    "venue:loc:morton loggers’ jubilee arena, 451 knittles way, morton, wa 98356": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor logging-show arena grounds"
+    },
+    "venue:loc:evergreen speedway, 14405 179th ave se, monroe, wa 98272": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor racing speedway"
+    },
+    "venue:loc:10530 airport way, snohomish, wa 98296": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Street block party"
+    },
+    "venue:loc:lincoln park, 8011 fauntleroy wy sw, seattle, wa, 98136, united states": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Public park (Seattle)"
+    },
+    "venue:loc:all state parks": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Generic outdoor state parks"
+    },
+    "venue:loc:museum of glass, 1801 dock st, tacoma, wa 98402": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "reason": "Genuinely mixed indoor/outdoor venue — the museum building is indoor, but Glass Fest and similar events run outdoor plaza activities alongside indoor programming; a single venue-wide classification would be wrong for one side or the other"
+    },
+    "venue:loc:suncadia resort, 3600 suncadia trail, cle elum, wa 98922": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "reason": "Large resort with both indoor and outdoor event spaces; could not verify this specific wine-tasting event setting (event page is a JS-rendered widget)"
+    },
+    "events12:art-walks-2026-08-07": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-08": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:art-walks-2026-08-20": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:neighborhood-street-fair-2026-08-08": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor street fair"
+    },
+    "events12:phinney-art-walk-2026-08-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:phinney-art-walk-2026-08-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Self-guided neighborhood gallery walk on public streets"
+    },
+    "events12:sunflower-farms-2026-08-07": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-08": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
+    },
+    "events12:sunflower-farms-2026-08-20": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "Outdoor sunflower field visits"
     }
   }
 }
