@@ -57,6 +57,7 @@ calendars:
   # --- Capitol Hill ---
   - name: vermillion
     friendlyname: "Vermillion"
+    imageUrl: "https://images.squarespace-cdn.com/content/v1/66551c76eb0de87f6583fd53/9b5f7ceb-83d8-4e23-8b14-153ba1780e9d/VERMILLION_GB_LARGE.jpg?format=1500w"
     geo:
       lat: 47.6143
       lng: -122.3193
