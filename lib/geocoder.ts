@@ -1034,15 +1034,15 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'seattle town hall - form': { lat: 47.6087, lng: -122.3295 },
 
   // --- 2026-08-07 geo-resolver batch: "has street address" unresolvable
-  // entries whose addresses forward-geocode cleanly via Nominatim; the
-  // source strings just carry extra noise (unit/floor suffixes, a leading
-  // schedule fragment) that trips up the generic geocoding path. Never
+  // entries whose addresses forward-geocode cleanly via Nominatim. Never
   // reverse-geocoded — coordinates come straight from Nominatim's match on
   // the cleaned address.
+  //
+  // (The other 3 candidates from this batch — Tower 1201, 3131 Western Ave,
+  // and the "5200 35th SW" location — are already covered by shorter
+  // prefix-matching keys added in earlier batches; lookupKnownVenue's
+  // startsWith match already resolves them, so no new entry was needed.)
   'pier 62 seattle waterfront': { lat: 47.6085444, lng: -122.3448627, osmType: 'way', osmId: 57391649 },
-  'tower 1201, 1201 3rd avenue 4th floor, seattle, wa': { lat: 47.6071707, lng: -122.3360996, osmType: 'way', osmId: 140436171 },
-  '3131 western ave unit 421 seattle, wa 98121': { lat: 47.6183937, lng: -122.3573615 },
-  '2 sessions each night @ 5200 35th sw, west seattle': { lat: 47.5556085, lng: -122.3751077, osmType: 'way', osmId: 435217612 },
 };
 
 /**
