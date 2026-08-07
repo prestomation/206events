@@ -1,0 +1,17 @@
+name: beguiled-books
+sourceRole: venue
+description: "Beguiled Books"
+url: "https://www.beguiledbooks.com/events"
+friendlyLink: https://www.beguiledbooks.com
+tags: ["Books", "Pioneer Square"]
+geo:
+  lat: 47.6013882
+  lng: -122.3343939
+  label: "Beguiled Books, 109 1st Ave S, Seattle, WA 98104"
+  osmType: node
+  osmId: 2351695471
+  osmChecked: 2026-08-07
+calendars:
+  - name: events
+    friendlyname: "Beguiled Books"
+    timezone: America/Los_Angeles
