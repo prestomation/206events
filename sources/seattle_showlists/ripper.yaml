@@ -57,7 +57,6 @@ calendars:
   # --- Capitol Hill ---
   - name: vermillion
     friendlyname: "Vermillion"
-    expectEmpty: true
     geo:
       lat: 47.6143
       lng: -122.3193
