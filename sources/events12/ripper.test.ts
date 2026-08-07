@@ -511,6 +511,50 @@ describe('Events12Ripper', () => {
             expect(uncertainty.some((e: any) => e.unknownFields?.includes('startTime'))).toBe(false);
         });
 
+        it('flags startTime uncertainty (not cost) for a row with a known date but unparseable time', async () => {
+            const sampleHtml = `
+                <article id="118511c" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">Watch the Mariners.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    <tr><td>Sept. 27<td>TBD<td><td>Los Angeles Angels
+                    </table>
+                    <a class="b2" href="https://tickets.example.com/x" rel="sponsored">tickets</a>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            const uncertainty = events.filter((e: any) => e.type === 'Uncertainty') as any[];
+
+            expect(calEvents.length).toBe(1);
+            expect(calEvents[0].date.hour()).toBe(12); // placeholder — real time unknown
+
+            expect(uncertainty.length).toBe(1);
+            expect(uncertainty[0].unknownFields).toEqual(['startTime', 'duration']);
+            expect(uncertainty[0].reason).toContain('did not include a start time');
+            expect(uncertainty[0].reason).not.toContain('cost');
+        });
+
+        it('returns zero occurrences (not a fallback to daily expansion) for a schedule table with only a header row', async () => {
+            const sampleHtml = `
+                <article id="emptyschedule" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">Season hasn't been announced yet.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    </table>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            expect(events.filter(e => 'date' in e).length).toBe(0);
+            expect(events.filter((e: any) => e.type === 'ParseError').length).toBe(0);
+        });
+
         it('parses a 3-column concert schedule table (no home/away marker)', async () => {
             const sampleHtml = `
                 <article id="103560" class="qc q0">
@@ -563,6 +607,30 @@ describe('Events12Ripper', () => {
                 expect(e.date.hour()).toBe(18);
                 expect(e.date.minute()).toBe(40);
             }
+        });
+
+        it('gives same-day doubleheader rows distinct ids via a time-based slot suffix', async () => {
+            const sampleHtml = `
+                <article id="doubleheader" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">Watch the Mariners.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    <tr><td>Aug. 6<td>12:10 PM<td><td>Detroit Tigers
+                    <tr><td>Aug. 6<td>6:40 PM<td><td>Chicago Cubs
+                    </table>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            expect(calEvents.length).toBe(2);
+            const ids = calEvents.map(e => e.id).sort();
+            expect(ids).toEqual([
+                'baseball-vs-chicago-cubs-2026-08-06-1840',
+                'baseball-vs-detroit-tigers-2026-08-06-1210',
+            ]);
         });
 
         it('rolls the year over when a row crosses from December into January', async () => {

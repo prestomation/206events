@@ -232,7 +232,7 @@ export default class Events12Ripper extends HTMLRipper {
                         if (costUnknown) unknownFields.push("cost");
                         events.push({
                             type: "Uncertainty",
-                            reason: parsed.timeUnknown
+                            reason: timeUnknown
                                 ? `events12 listing did not include a start time (raw: "${dateText}")`
                                 : "events12 listing did not include cost information",
                             source: "events12",
@@ -470,16 +470,21 @@ export default class Events12Ripper extends HTMLRipper {
     // on the parsed tree returns garbage for these tables. The raw text
     // still has clean `<tr ...>` boundaries to split on.
     private parseScheduleTable(articleHtml: string, headerYear: number): { occurrences: ScheduleRow[]; isSportsShape: boolean } | null {
-        const tableRegex = /<table\s+class="table1"[^>]*>([\s\S]*?)<\/table>/gi;
+        const tableRegex = /<table[^>]*\bclass="table1"[^>]*>([\s\S]*?)<\/table>/gi;
         let tableMatch: RegExpExecArray | null;
         while ((tableMatch = tableRegex.exec(articleHtml)) !== null) {
             // Each row's cell content runs from one <tr> up to the next <tr>
             // (or end of table) — reliable even with no closing </tr>.
             const rowSegments = tableMatch[1].split(/<tr[^>]*>/i).slice(1);
-            if (rowSegments.length < 2) continue;
+            if (rowSegments.length === 0) continue;
 
             const headerCells = this.extractCells(rowSegments[0]);
             if (headerCells.length === 0 || headerCells[0].toLowerCase() !== 'date') continue;
+            // A "Date"-shaped table with only a header row (no data, no
+            // footer) legitimately has zero occurrences — still return
+            // (not `continue`), so the caller doesn't fall back to the
+            // buggy header-date-range expansion this whole path exists to
+            // avoid.
 
             const occurrences: ScheduleRow[] = [];
             let isSportsShape = false;
@@ -555,6 +560,17 @@ export default class Events12Ripper extends HTMLRipper {
         title: string,
         timezone: ZoneId,
     ): ParsedDates {
+        // Same-day counts, so a rare same-day doubleheader (two rows dated
+        // the same day at different times — a title-only id would collide
+        // and the second showing would be silently dropped by the
+        // seenEvents dedup guard) gets a slot suffix, matching the generic
+        // date-range path's multi-slot-per-day convention.
+        const dateCounts = new Map<string, number>();
+        for (const row of schedule.occurrences) {
+            const key = row.date.toString();
+            dateCounts.set(key, (dateCounts.get(key) ?? 0) + 1);
+        }
+
         const occurrences = schedule.occurrences.map(row => {
             const t = row.time ?? {
                 hour: DEFAULT_UNKNOWN_TIME_HOUR,
@@ -563,7 +579,9 @@ export default class Events12Ripper extends HTMLRipper {
             };
             const d = ZonedDateTime.of(row.date.year(), row.date.monthValue(), row.date.dayOfMonth(), t.hour, t.minute, 0, 0, timezone);
             const rowTitle = schedule.isSportsShape ? `${title} vs. ${row.label}` : `${title}: ${row.label}`;
-            return { date: d, duration: t.duration, slot: null, title: rowTitle, timeUnknown: row.time === null };
+            const needsSlot = (dateCounts.get(row.date.toString()) ?? 0) > 1;
+            const slot = needsSlot ? `${String(t.hour).padStart(2, '0')}${String(t.minute).padStart(2, '0')}` : null;
+            return { date: d, duration: t.duration, slot, title: rowTitle, timeUnknown: row.time === null };
         });
         return { occurrences, timeUnknown: false, dayCount: occurrences.length };
     }
