@@ -1,3 +1,6 @@
+# 2026-08-07: ICS endpoint returns empty (0 bytes); site uses All-in-One Event Calendar plugin
+# but the export URL is no longer functional. No working alternative ICS URL found.
+# Tribe Events and standard WordPress ?ical=1 URLs also return HTML. Non-fatal failure.
 geo: null
 name: west-seattle-blog
 sourceRole: aggregator

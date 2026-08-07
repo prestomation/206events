@@ -42053,6 +42053,7 @@
     },
     "events12:interactive-show-2026-08-14": {
       "fields": {
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503",
         "cost": {
           "paid": true
         }
@@ -42063,6 +42064,7 @@
     },
     "events12:interactive-show-2026-08-15": {
       "fields": {
+        "imageUrl": "https://cdn.evbuc.com/images/1188799667/3004902641780/1/original.20260714-010503",
         "cost": {
           "paid": true
         }
@@ -54189,131 +54191,179 @@
     },
     "events12:phinney-art-walk-2026-08-14": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Self-guided neighborhood gallery walk on public streets"
+      "evidence": "https://www.phinneycenter.org/events/art-walk/"
     },
     "events12:phinney-art-walk-2026-08-15": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Self-guided neighborhood gallery walk on public streets"
+      "evidence": "https://www.phinneycenter.org/events/art-walk/"
     },
     "events12:sunflower-farms-2026-08-07": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-08": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-09": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-10": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-11": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-12": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-13": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-14": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-15": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-16": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-17": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-18": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-19": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-20": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 17.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "Outdoor sunflower field visits"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "venue:osm:node:12070944295": {
       "fields": {
@@ -54572,7 +54622,10 @@
     "events12:music-by-candlelight-arctic-club-hotel-2026-08-14": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "min": 57.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -54581,7 +54634,10 @@
     "events12:music-by-candlelight-arctic-club-hotel-2026-08-16": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "min": 43.0
+        }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -54622,6 +54678,7 @@
       "fields": {
         "startTime": "10:00",
         "duration": 43200,
+        "imageUrl": "https://img1.wsimg.com/isteam/ip/17bba213-4a51-465d-ba15-0356cdb7f885/Re_Evolution%20-%20Poster%20Main%202026.jpg",
         "cost": {
           "paid": true
         }
@@ -54634,6 +54691,7 @@
       "fields": {
         "startTime": "10:00",
         "duration": 43200,
+        "imageUrl": "https://img1.wsimg.com/isteam/ip/17bba213-4a51-465d-ba15-0356cdb7f885/Re_Evolution%20-%20Poster%20Main%202026.jpg",
         "cost": {
           "paid": true
         }
@@ -54646,6 +54704,7 @@
       "fields": {
         "startTime": "10:00",
         "duration": 43200,
+        "imageUrl": "https://img1.wsimg.com/isteam/ip/17bba213-4a51-465d-ba15-0356cdb7f885/Re_Evolution%20-%20Poster%20Main%202026.jpg",
         "cost": {
           "paid": true
         }
@@ -55947,31 +56006,34 @@
       "fields": {
         "startTime": "15:00",
         "duration": 32400,
-        "imageUrl": "https://littlebigfest.org/cdn/shop/files/FINAL_MANDALA_2026_3151d6ce-9618-4747-86b4-0092a1e963e0.jpg?v=1779768691"
+        "imageUrl": "https://littlebigfest.org/cdn/shop/files/FINAL_MANDALA_2026_3151d6ce-9618-4747-86b4-0092a1e963e0.jpg?v=1779768691",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "https://littlebigfest.org/"
+      "evidence": "https://littlebigfest.org/pages/schedule"
     },
     "events12:music-festival-whidbey-island-2026-08-15": {
       "fields": {
         "startTime": "10:00",
         "duration": 50400,
-        "imageUrl": "https://littlebigfest.org/cdn/shop/files/FINAL_MANDALA_2026_3151d6ce-9618-4747-86b4-0092a1e963e0.jpg?v=1779768691"
+        "imageUrl": "https://littlebigfest.org/cdn/shop/files/FINAL_MANDALA_2026_3151d6ce-9618-4747-86b4-0092a1e963e0.jpg?v=1779768691",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "https://littlebigfest.org/"
+      "evidence": "https://littlebigfest.org/pages/schedule"
     },
     "events12:music-festival-whidbey-island-2026-08-16": {
       "fields": {
         "startTime": "10:00",
         "duration": 50400,
-        "imageUrl": "https://littlebigfest.org/cdn/shop/files/FINAL_MANDALA_2026_3151d6ce-9618-4747-86b4-0092a1e963e0.jpg?v=1779768691"
+        "imageUrl": "https://littlebigfest.org/cdn/shop/files/FINAL_MANDALA_2026_3151d6ce-9618-4747-86b4-0092a1e963e0.jpg?v=1779768691",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "https://littlebigfest.org/"
+      "evidence": "https://littlebigfest.org/pages/schedule"
     },
     "events12:music-in-the-forest-2026-08-14": {
       "unresolvable": true,
@@ -56943,12 +57005,12 @@
         "startTime": "10:00",
         "duration": 25200,
         "cost": {
-          "paid": true
+          "min": 29.0
         }
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8495/electric-aircraft-expo"
+      "evidence": "https://www.museumofflight.org/plan-your-visit"
     },
     "events12:hawaiian-luau-2026-08-29": {
       "fields": {
@@ -57391,6 +57453,24 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "evidence": "https://www.sumnermainstreet.com/events/sip-sumner-urban-cowboy/"
+    },
+    "venue:osm:node:2327741493": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "https://www.basecampstudios.com/"
+    },
+    "seattle-pride:seattle-pride-rainbow-elder-play-connect-6": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-07",
+      "source": "agent",
+      "evidence": "https://seattlepride.org/events/rainbow-elder-play-connect-6"
     }
   }
 }
