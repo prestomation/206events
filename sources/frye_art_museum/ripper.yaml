@@ -15,3 +15,4 @@ calendars:
   - name: frye-art-museum
     friendlyname: "Frye Art Museum"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Small museum with intermittent programming; calendar often has no upcoming events

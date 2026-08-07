@@ -1,5 +1,6 @@
 # verified: 2026-05-18 ok
 geo: null
+expectEmpty: true  # Earshot Jazz is a fall festival; off-season in summer
 name: earshot-jazz
 sourceRole: venue
 friendlyname: Earshot Jazz
