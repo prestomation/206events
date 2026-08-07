@@ -3,7 +3,7 @@ name: "Momentum Indoor Climbing - SODO"
 status: notviable
 platform: WordPress (JS-rendered events widget)
 url: https://momentumclimbing.com/sodoevents/
-tags: [Sports, SODO]
+tags: [Sports, SoDo]
 firstSeen: 2026-08-07
 lastChecked: 2026-08-07
 ---

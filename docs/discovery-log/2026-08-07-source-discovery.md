@@ -20,9 +20,12 @@ already-covered ground (farmers markets, food trucks, board game cafes,
 GeekWire, Hugo House, Seattle Uncorked, WWPN, Columbia City Night Market,
 Kenyon Hall, Edgeworks/Uplift/Bouldering Project/The Spot climbing gyms,
 seattle.gov calendars, RailSpur, Flight Club Darts) — a sign the candidate
-backlog here is well-mined. Three genuinely new leads:
+backlog here is well-mined. One genuinely new lead, plus two climbing gyms
+(Vertical World, Momentum SODO) that prior discovery logs (2026-07-01,
+2026-07-02) had flagged in free-text but never given a formal candidate
+file — backfilled here:
 
-- 💡 Candidate: Innervisions Posters & Framing (Open Mic Night) — Eventbrite (`organizerId: 49577348033`, org "Seattle Records") — monthly First Friday open mic, U District — https://www.eventbrite.com/o/seattle-records-49577348033 — 0 live events at time of check; re-verify closer to a First Friday
+- 💡 Candidate: Innervisions Posters & Framing (Open Mic Night) — Eventbrite (`organizerId: 49577348033`, org "Seattle Records") — monthly First Friday open mic, University District — https://www.eventbrite.com/o/seattle-records-49577348033 — 0 live events at time of check; re-verify closer to a First Friday
 - ❌ Not Viable: Vertical World (Seattle climbing gym) — the only linked calendar feed (Rock Gym Pro public iCal) returns `Invalid guid`, not a calendar
 - ❌ Not Viable: Momentum Indoor Climbing - SODO — events list is JS-rendered client-side, no static HTML or JSON feed
 - 🔍 Investigated, already covered: Vertical World-adjacent climbing gym sweep otherwise reconfirmed existing `notviable`/`blocked`/`candidate` files for Edgeworks, Uplift, Bouldering Project, The Spot — no changes needed

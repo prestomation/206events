@@ -3,7 +3,7 @@ name: "Innervisions Posters & Framing (Open Mic Night)"
 status: candidate
 platform: Eventbrite
 url: https://www.eventbrite.com/o/seattle-records-49577348033
-tags: [Music, U District]
+tags: [Music, University District]
 firstSeen: 2026-08-07
 lastChecked: 2026-08-07
 ---
