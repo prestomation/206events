@@ -30,3 +30,8 @@ file — backfilled here:
 - ❌ Not Viable: Momentum Indoor Climbing - SODO — events list is JS-rendered client-side, no static HTML or JSON feed
 - 🔍 Investigated, already covered: Vertical World-adjacent climbing gym sweep otherwise reconfirmed existing `notviable`/`blocked`/`candidate` files for Edgeworks, Uplift, Bouldering Project, The Spot — no changes needed
 - 🔍 Investigated, already covered: farmers markets (all 15+ neighborhood markets already have `sources/recurring/*.yaml`), food trucks (`seattle_food_trucks`), Bite of Seattle, Seattle Street Food Festival, board game cafes (Mox, Blue Highway Games, The Missing Piece, Meeples, Raygun Lounge, PlaytestNW), Columbia City Night Market, Kenyon Hall, seattle.gov calendars (city-wide + arts), RailSpur, Flight Club Darts, GeekWire, Hugo House, Seattle Uncorked, Western Washington Poets Network — all already `added`/`candidate` in `docs/source-candidates/`
+
+## Source implementation: Beguiled Books
+
+- ✅ Added: Beguiled Books — Custom HTML (Wix, per-event JSON-LD) — 8 events — PR #1127
+- Picked from the existing `docs/source-candidates/beguiled-books.md` candidate (🔴 Low confidence — custom scraper, no built-in Wix ripper type). Higher-confidence candidates (SODO BIA's Tribe Events ICS feed) are currently blocked by a SiteGround JS challenge and not implementable without the `browserbase` proxy rung; other 💡 candidates checked this cycle had 0 upcoming events at time of check, so per the "don't implement at 0 events" rule they were left as-is.
