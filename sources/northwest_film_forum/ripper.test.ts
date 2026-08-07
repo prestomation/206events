@@ -12,6 +12,7 @@ import {
     extractFreeTextDateTime,
     extractDateOnlyStartDates,
     extractAllDayDates,
+    extractDatedTimeList,
     extractOffersUrl,
     extractLocation,
     extractDuration,
@@ -30,6 +31,7 @@ const EVENT_URL = "https://nwfilmforum.org/events/squeakyfest-seattle/";
 const CLOSURE_URL = "https://nwfilmforum.org/events/nwff-summer-break-2026/";
 const WORKSHOP_URL = "https://nwfilmforum.org/education/workshops/camp2-2026/";
 const MULTIDATE_URL = "https://nwfilmforum.org/events/two-angels-in-the-night-a-gregg-araki-double-feature/";
+const RECURRING_URL = "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/";
 const FIXED_NOW = ZonedDateTime.of(2026, 7, 18, 10, 0, 0, 0, ZoneId.of("America/Los_Angeles"));
 
 describe("extractDetailUrls", () => {
@@ -225,6 +227,33 @@ describe("extractAllDayDates", () => {
     });
 });
 
+describe("extractDatedTimeList", () => {
+    it("extracts every date+time from a recurring listing's <time datetime> elements", () => {
+        const results = extractDatedTimeList(readSample("sample-data-recurring-times.html"));
+        expect(results.map(dt => dt.toString())).toEqual([
+            "2026-09-09T19:00", "2026-09-16T19:00", "2026-09-23T19:00", "2026-09-30T19:00",
+            "2026-10-14T19:00", "2026-10-21T19:00", "2026-10-28T19:00",
+            "2026-11-11T19:00", "2026-11-18T19:00", "2026-11-25T19:00",
+            "2026-12-09T19:00",
+        ]);
+    });
+
+    it("returns an empty array for a page with no <time datetime> elements", () => {
+        expect(extractDatedTimeList(readSample("sample-data-closure.html"))).toEqual([]);
+    });
+
+    it("deduplicates a repeated timestamp instead of double-counting it", () => {
+        const html = `
+            <time datetime="2026-09-09 19:00:00">7.00pm PDT</time>
+            <time datetime="2026-09-09 19:00:00">7.00pm PDT</time>
+            <time datetime="2026-09-16 19:00:00">7.00pm PDT</time>
+        `;
+        expect(extractDatedTimeList(html).map(dt => dt.toString())).toEqual([
+            "2026-09-09T19:00", "2026-09-16T19:00",
+        ]);
+    });
+});
+
 describe("extractOffersUrl", () => {
     it("extracts the ticket/registration URL from a /films/ page", () => {
         expect(extractOffersUrl(readSample("sample-data-film.html")))
@@ -350,6 +379,24 @@ describe("parseDetailPage", () => {
             expect(uncertainty.unknownFields).toEqual(["startTime", "duration"]);
             expect(uncertainty.event.id).toBe(event.id);
         }
+    });
+
+    it("returns one event per date for a recurring listing with explicit <time datetime> timestamps", () => {
+        const results = parseDetailPage(readSample("sample-data-recurring-times.html"), RECURRING_URL);
+        expect(results.length).toBe(11);
+        for (const result of results) {
+            expect("date" in result).toBe(true);
+        }
+        const first = results[0] as RipperCalendarEvent;
+        expect(first.id).toBe("seattle-film-societys-film-discussion-group-2026-09-09");
+        expect(first.summary).toBe("Seattle Film Society's Film Discussion Group");
+        expect(first.date.toLocalDate().toString()).toBe("2026-09-09");
+        expect(first.date.hour()).toBe(19);
+        expect(first.date.minute()).toBe(0);
+        expect(first.location).toBe("Northwest Film Forum, 1515 12th Ave, Seattle WA 98122");
+
+        const last = results[results.length - 1] as RipperCalendarEvent;
+        expect(last.date.toLocalDate().toString()).toBe("2026-12-09");
     });
 
     it("returns an empty array (not a crash) for a page with no title", () => {
