@@ -235,6 +235,33 @@ export function extractAllDayDates(html: string, url: string, now: ZonedDateTime
 }
 
 /**
+ * Extracts every explicit `<time datetime="YYYY-MM-DD HH:MM:SS">` timestamp
+ * from a multi-date recurring listing, e.g. a monthly discussion group:
+ *   "Wed Sep 09: <time datetime="2026-09-09 19:00:00">7.00pm PDT</time>"
+ * Unlike extractAllDayDates, each occurrence already carries a real time of
+ * day, so the resulting events need no UncertaintyError. Deduplicates
+ * repeated timestamps and returns them in the order they first appear.
+ * Public for testing.
+ */
+export function extractDatedTimeList(html: string): LocalDateTime[] {
+    const re = /<time datetime="(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2})">/g;
+    const results: LocalDateTime[] = [];
+    const seen = new Set<string>();
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(html)) !== null) {
+        const key = `${m[1]}T${m[2]}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        try {
+            results.push(LocalDateTime.parse(key));
+        } catch {
+            continue;
+        }
+    }
+    return results;
+}
+
+/**
  * Extracts the ticket/registration URL from the nearest schema.org
  * `itemprop="offers"` block. A missing or empty offers URL is the
  * generic signal this site uses for informational, non-attendable pages
@@ -296,6 +323,10 @@ export function extractDuration(html: string): Duration {
  *     whose dates come from an "All Day" listing rather than schema.org
  *     metadata. One event per listed date, each paired with an
  *     UncertaintyError since no time of day is published.
+ *   - `[event, event, ...]` — a recurring listing (e.g. a monthly
+ *     discussion group) whose dates *and* times come from explicit
+ *     `<time datetime="...">` elements. No UncertaintyError needed since
+ *     the time of day is known for each occurrence.
  *   - `[error]` — a ticketed/registerable page whose date genuinely could
  *     not be extracted by any strategy; a real gap worth surfacing.
  * Never returns null and never drops a real event without a trace.
@@ -362,6 +393,22 @@ export function parseDetailPage(
             event,
         };
         return [event, uncertainty];
+    }
+
+    const datedTimes = extractDatedTimeList(html);
+    if (datedTimes.length > 0) {
+        return datedTimes.map((dt): RipperCalendarEvent => {
+            const date = dt.atZone(TIMEZONE);
+            return {
+                id: `${slug}-${dt.toLocalDate().toString()}`,
+                ripped: new Date(),
+                date,
+                duration: extractDuration(html),
+                summary: title,
+                location: location ?? undefined,
+                url,
+            };
+        });
     }
 
     const allDayResults = extractAllDayDates(html, url, now);
