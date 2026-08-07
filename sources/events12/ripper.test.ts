@@ -441,6 +441,268 @@ describe('Events12Ripper', () => {
         }
     });
 
+    describe('parseScheduleTable via parseEvents (season-schedule tables)', () => {
+        // node-html-parser silently drops every <tr> in this markup and
+        // mis-splits the last <td> of a row when it parses the *whole*
+        // document tree, but preprocessHtml + the per-article regex extraction
+        // (which the ripper always uses in production) sidesteps that — the
+        // table is parsed via regex against the raw article text, not the
+        // DOM. Route these tests through preprocessHtml like the "should
+        // parse events from sample HTML data" test above so they exercise
+        // the same path production uses; parsing sampleHtml directly with
+        // parse() would silently fall back to the broken DOM-based path.
+        function parseViaPreprocess(sampleHtml: string) {
+            const ripper: any = new Events12Ripper();
+            const processedHtml = ripper.preprocessHtml(sampleHtml);
+            const html = parse(processedHtml);
+            return ripper.parseEvents(html, testDate, {}) as Promise<any[]>;
+        }
+
+        it('parses a 4-column sports schedule table into one home game per row, skipping away games', async () => {
+            const sampleHtml = `
+                <article id="118511" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">
+                    Watch the Mariners play at T-Mobile Park.
+                    <table class="table1">
+                    <tr>
+                       <td>Date
+                       <td colspan="2"><span class="zt"></span>
+                       <td><span class="zg"></span><a class="zr" onclick="tables(7)"></a>
+
+                    <tr><td>Aug. 6<td>1:10 PM<td><td>Detroit Tigers
+                    <tr class="za"><td>Aug. 13<td>10:35 AM<td>@<td>New York Yankees
+                    <tr><td>Aug. 21<td>7:10 PM<td><td>Chicago Cubs
+
+                    <tr>
+                       <td colspan="3"><a class="zd" onclick="tables(8)"></a>
+                       <td><a class="zy" onclick="tables(9)"></a>
+                    </table>
+                    <p>
+                    <a class="b1" href="https://www.google.com/maps/search/?api=1&query=T-Mobile%20Park">map</a>
+                    <a class="b2" href="https://stubhub.example.com/x" rel="sponsored">tickets</a>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            const errors = events.filter(e => 'type' in e);
+
+            // 3 home games; the away game against the Yankees is dropped.
+            expect(calEvents.length).toBe(2);
+            expect(errors.some((e: any) => e.type === 'ParseError')).toBe(false);
+
+            const tigers = calEvents.find(e => e.summary === 'Baseball vs. Detroit Tigers')!;
+            expect(tigers).toBeDefined();
+            expect(tigers.date.toLocalDate().toString()).toBe('2026-08-06');
+            expect(tigers.date.hour()).toBe(13);
+            expect(tigers.date.minute()).toBe(10);
+            expect(tigers.id).toBe('baseball-vs-detroit-tigers-2026-08-06');
+
+            const cubs = calEvents.find(e => e.summary === 'Baseball vs. Chicago Cubs')!;
+            expect(cubs.date.toLocalDate().toString()).toBe('2026-08-21');
+            expect(cubs.date.hour()).toBe(19);
+
+            expect(calEvents.some(e => (e.summary as string).includes('Yankees'))).toBe(false);
+
+            // Known real times — no startTime/duration Uncertainty for these.
+            const uncertainty = errors.filter((e: any) => e.type === 'Uncertainty');
+            expect(uncertainty.some((e: any) => e.unknownFields?.includes('startTime'))).toBe(false);
+        });
+
+        it('flags startTime uncertainty (not cost) for a row with a known date but unparseable time', async () => {
+            const sampleHtml = `
+                <article id="118511c" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">Watch the Mariners.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    <tr><td>Sept. 27<td>TBD<td><td>Los Angeles Angels
+                    </table>
+                    <a class="b2" href="https://tickets.example.com/x" rel="sponsored">tickets</a>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            const uncertainty = events.filter((e: any) => e.type === 'Uncertainty') as any[];
+
+            expect(calEvents.length).toBe(1);
+            expect(calEvents[0].date.hour()).toBe(12); // placeholder — real time unknown
+
+            expect(uncertainty.length).toBe(1);
+            expect(uncertainty[0].unknownFields).toEqual(['startTime', 'duration']);
+            expect(uncertainty[0].reason).toContain('did not include a start time');
+            expect(uncertainty[0].reason).not.toContain('cost');
+        });
+
+        it('returns zero occurrences (not a fallback to daily expansion) for a schedule table with only a header row', async () => {
+            const sampleHtml = `
+                <article id="emptyschedule" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">Season hasn't been announced yet.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    </table>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            expect(events.filter(e => 'date' in e).length).toBe(0);
+            expect(events.filter((e: any) => e.type === 'ParseError').length).toBe(0);
+        });
+
+        it('parses a 3-column concert schedule table (no home/away marker)', async () => {
+            const sampleHtml = `
+                <article id="103560" class="qc q0">
+                    <h3>Zoo concerts</h3>
+                    <p class="date">August 6 - Oct. 9, 2026
+                    <p class="miles">Phinney Ridge (4.1 miles N)
+                    <p class="event">
+                    ZooTunes at Woodland Park Zoo.
+                    <table class="table1">
+                    <tr><td>Date<td>Time<td>Artist<a class="zr" onclick="tables(7)"></a>
+                    <tr><td>Aug. 6<td>6:00 PM<td>Suki Waterhouse
+                    <tr><td>Aug. 9<td>5:45 PM<td>Mountain Goats
+                    </table>
+                    <p>
+                    <a class="b1" href="https://www.google.com/maps/search/?api=1&query=Woodland%20Park%20Zoo">map</a>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            expect(calEvents.length).toBe(2);
+
+            const suki = calEvents.find(e => e.summary === 'Zoo concerts: Suki Waterhouse')!;
+            expect(suki).toBeDefined();
+            expect(suki.date.toLocalDate().toString()).toBe('2026-08-06');
+            expect(suki.date.hour()).toBe(18);
+
+            const goats = calEvents.find(e => e.summary === 'Zoo concerts: Mountain Goats')!;
+            expect(goats.date.toLocalDate().toString()).toBe('2026-08-09');
+        });
+
+        it('expands a same-month multi-day row (e.g. "Aug. 11 - 12") into one event per day', async () => {
+            const sampleHtml = `
+                <article id="118511b" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">Watch the Mariners.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    <tr><td>Aug. 24 - 25<td>6:40 PM<td><td>Philadelphia Phillies
+                    </table>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            expect(calEvents.length).toBe(2);
+            expect(calEvents.map(e => e.date.toLocalDate().toString()).sort()).toEqual(['2026-08-24', '2026-08-25']);
+            for (const e of calEvents) {
+                expect(e.summary).toBe('Baseball vs. Philadelphia Phillies');
+                expect(e.date.hour()).toBe(18);
+                expect(e.date.minute()).toBe(40);
+            }
+        });
+
+        it('gives same-day doubleheader rows distinct ids via a time-based slot suffix', async () => {
+            const sampleHtml = `
+                <article id="doubleheader" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">Watch the Mariners.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    <tr><td>Aug. 6<td>12:10 PM<td><td>Detroit Tigers
+                    <tr><td>Aug. 6<td>6:40 PM<td><td>Chicago Cubs
+                    </table>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            expect(calEvents.length).toBe(2);
+            const ids = calEvents.map(e => e.id).sort();
+            expect(ids).toEqual([
+                'baseball-vs-chicago-cubs-2026-08-06-1840',
+                'baseball-vs-detroit-tigers-2026-08-06-1210',
+            ]);
+        });
+
+        it('rolls the year over when a row crosses from December into January', async () => {
+            const sampleHtml = `
+                <article id="118515" class="qc q12">
+                    <h3>Football</h3>
+                    <p class="date">August 15 - Dec. 25, 2026
+                    <p class="miles">Pioneer Square (1.3 miles S)
+                    <p class="event">Watch the Seahawks.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    <tr><td>Dec. 25<td>5:15 PM<td><td>Los Angeles Rams
+                    <tr class="za2"><td>Jan. 3<td>10:00 AM<td>@<td>Carolina Panthers
+                    <tr class="za2"><td>TBD<td>TBD<td>@<td>Los Angeles Rams
+                    </table>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+
+            // Jan. 3 is an away game (dropped) and TBD has no confirmed date
+            // (dropped) — only the Dec. 25 home game survives, but critically
+            // it must not have been miscounted into the next year.
+            expect(calEvents.length).toBe(1);
+            expect(calEvents[0].date.toLocalDate().toString()).toBe('2026-12-25');
+        });
+
+        it('emits nothing (and no ParseError) when every remaining row is an away game', async () => {
+            const sampleHtml = `
+                <article id="allaway" class="qc q12">
+                    <h3>Baseball</h3>
+                    <p class="date">August 6 - Sept. 27, 2026
+                    <p class="miles">SoDo (1.6 miles S)
+                    <p class="event">Watch the Mariners.
+                    <table class="table1">
+                    <tr><td>Date<td colspan="2"><span></span><td><span></span>
+                    <tr class="za"><td>Aug. 13<td>10:35 AM<td>@<td>New York Yankees
+                    <tr class="za"><td>Aug. 14<td>5:10 PM<td>@<td>Houston Astros
+                    </table>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            expect(events.filter(e => 'date' in e).length).toBe(0);
+            expect(events.filter((e: any) => e.type === 'ParseError').length).toBe(0);
+        });
+
+        it('leaves the multi-venue "Location / Next concert" table1 shape to the generic date-range path', async () => {
+            // Same table1 class, but the header's first column is "Location"
+            // (one row per *different* venue's next show), not "Date" — must
+            // not be mistaken for a single-venue schedule.
+            const sampleHtml = `
+                <article id="120202" class="qm q7">
+                    <h3>Concerts</h3>
+                    <p class="date">August 6 - Sept. 7, 2026
+                    <p class="miles">
+                    <p class="event">
+                    <table class="table1">
+                    <tr class="zh"><td>Location<td colspan="2">Next concert
+                    <tr class="zh"><td><a href="https://example.com">Ballard Locks</a><td>Aug. 8<td>2:00 PM
+                    <tr class="zh"><td><a href="https://example.com">Columbia City</a><td>Aug. 9<td>4:00 PM
+                    </table>
+                </article>
+            `;
+            const events = await parseViaPreprocess(sampleHtml);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            // Falls back to expanding the header's "August 6 - Sept. 7, 2026"
+            // range — unchanged pre-existing behavior for this shape.
+            expect(calEvents.length).toBeGreaterThan(1);
+            expect(calEvents.every(e => e.summary === 'Concerts')).toBe(true);
+        });
+    });
+
     describe('rip() drops stale occurrences', () => {
         afterEach(() => {
             vi.restoreAllMocks();
