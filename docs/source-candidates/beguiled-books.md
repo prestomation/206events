@@ -6,7 +6,7 @@ url: https://www.beguiledbooks.com/events
 tags: [Books, Pioneer Square]
 firstSeen: 2026-08-06
 lastChecked: 2026-08-07
-pr: TBD
+pr: 1127
 ---
 
 Seattle's newest independent bookstore (opened a physical location fall
