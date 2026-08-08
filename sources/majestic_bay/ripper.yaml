@@ -19,4 +19,3 @@ calendars:
   - name: main
     friendlyname: "Majestic Bay Theatres"
     timezone: America/Los_Angeles
-    expectEmpty: true  # 2026-08-07: Veezi API returns 403 from CI runner IPs; pending proxy-escalation PR
