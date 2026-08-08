@@ -39657,7 +39657,8 @@
     "events12:dance-in-the-park-2026-08-21": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
@@ -56364,7 +56365,8 @@
         "cost": {
           "min": 7.0
         },
-        "imageUrl": "https://wastategarlicfest.com/media/images/2026_Website_Cover_7.original.png"
+        "imageUrl": "https://wastategarlicfest.com/media/images/2026_Website_Cover_7.original.png",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -56633,7 +56635,8 @@
       "fields": {
         "startTime": "18:00",
         "duration": 10800,
-        "imageUrl": "https://www.seattle.gov/images//images/Departments/Arts/Staff/oac.png"
+        "imageUrl": "https://www.seattle.gov/images//images/Departments/Arts/Staff/oac.png",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -57421,6 +57424,13 @@
       "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://seattlearchitecture.strangertickets.com/events/186529045/diamonds-gold-the-art-deco-skyscraper-northwest-style"
+    },
+    "museum_of_flight:mof-blue-angels-week-2026-07-31": {
+      "unresolvable": true,
+      "reason": "Blue Angels Week has passed; duration not parseable from source page",
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/6054/blue-angels-week"
     }
   }
 }
