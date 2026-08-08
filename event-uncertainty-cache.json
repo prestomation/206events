@@ -54192,23 +54192,25 @@
     },
     "events12:phinney-art-walk-2026-08-14": {
       "fields": {
+        "imageUrl": "https://media.phinneycenter.org/wp-content/uploads/2026/07/07090253/ArtWalk26.jpg",
         "setting": "outdoor",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://www.phinneycenter.org/events/art-walk/"
     },
     "events12:phinney-art-walk-2026-08-15": {
       "fields": {
+        "imageUrl": "https://media.phinneycenter.org/wp-content/uploads/2026/07/07090253/ArtWalk26.jpg",
         "setting": "outdoor",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://www.phinneycenter.org/events/art-walk/"
     },
@@ -55915,11 +55917,12 @@
       "fields": {
         "startTime": "14:00",
         "duration": 25200,
+        "imageUrl": "https://www.seattletattooexpo.com/wp-content/uploads/2023/03/screenshot.png",
         "cost": {
           "min": 32.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://www.seattletattooexpo.com/"
     },
@@ -55927,11 +55930,12 @@
       "fields": {
         "startTime": "12:00",
         "duration": 32400,
+        "imageUrl": "https://www.seattletattooexpo.com/wp-content/uploads/2023/03/screenshot.png",
         "cost": {
           "min": 32.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://www.seattletattooexpo.com/"
     },
@@ -55939,11 +55943,12 @@
       "fields": {
         "startTime": "12:00",
         "duration": 25200,
+        "imageUrl": "https://www.seattletattooexpo.com/wp-content/uploads/2023/03/screenshot.png",
         "cost": {
           "min": 32.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://www.seattletattooexpo.com/"
     },
@@ -56264,11 +56269,12 @@
     },
     "events12:party-at-museum-of-flight-2026-08-15": {
       "fields": {
+        "imageUrl": "https://www.museumofflight.org/user_area/content_media/raw/SkyLounge_Web_WebsiteHeader_1920x960.png",
         "cost": {
           "min": 110.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8486/sky-lounge-1970"
     },
@@ -56564,111 +56570,122 @@
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-09-09": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-09-16": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-09-23": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-09-30": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-10-14": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-10-21": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-10-28": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-11-11": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-11-18": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-11-25": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
     "northwest-film-forum:seattle-film-societys-film-discussion-group-2026-12-09": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sfs_filmdiscussion1600.png",
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/"
     },
@@ -57006,13 +57023,14 @@
       "fields": {
         "startTime": "10:00",
         "duration": 25200,
+        "imageUrl": "https://www.museumofflight.org/user_area/content_media/raw/ElectricExpo_WebsiteHeader_1920x960.png",
         "cost": {
           "min": 29.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
-      "evidence": "https://www.museumofflight.org/plan-your-visit"
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8495/electric-aircraft-expo"
     },
     "events12:hawaiian-luau-2026-08-29": {
       "fields": {
@@ -57479,6 +57497,74 @@
       "resolvedAt": "2026-08-08",
       "source": "agent",
       "reason": "Southwest Washington Fairgrounds is a mixed indoor/outdoor event facility: 100,000+ sq ft of multi-use buildings/exhibit halls plus 2 outdoor stages, barns, and grandstands (southwestwashingtonfairgrounds.org/about-us). Same rationale applied to Kitsap County and Whidbey Island fairgrounds — resolve per-event."
+    },
+    "beguiled-books:bookstore-romance-day": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/e82e5d_8db105081b304db283fcc8633bd64878~mv2.png"
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.beguiledbooks.com/"
+    },
+    "beguiled-books:starlight-soiree-acotar-6-release": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/e82e5d_6388d47e0c4f490abe284b468572a917~mv2.png"
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.beguiledbooks.com/"
+    },
+    "northwest-film-forum:truth-to-fiction-the-history-of-concrete-2026-10-01": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/historyofconcrete1600-1.png"
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/truth-to-fiction-the-history-of-concrete/"
+    },
+    "tcc:tcc-12482": {
+      "fields": {
+        "imageUrl": "https://transportationchoices.org/wp-content/uploads/2026/07/Tuxes-2026_Website-Banner-1920x1005-1-scaled.png"
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://transportationchoices.org/join-us-for-tuxes-trains-2026-history-starts-here/"
+    },
+    "beguiled-books:author-popup-orin-steele": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+    },
+    "beguiled-books:author-popup-r-k-devon": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+    },
+    "beguiled-books:avatar-the-last-airbender-trivia-night-hosted-by-freeze-tag-events": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+    },
+    "beguiled-books:the-deputy-the-devil-by-kirsten-bohling-book-release-party": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+    },
+    "beguiled-books:wench-release-party-erynne-rivers-in-conversation-with-rachel-griffin": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+    },
+    "beguiled-books:wicked-endeavors-by-kamilah-cole-book-release-event": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
     }
   }
 }
