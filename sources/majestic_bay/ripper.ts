@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDateTime, ZoneOffset } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 interface VeeziEvent {
@@ -20,13 +21,16 @@ interface VeeziEvent {
  * Extracts JSON-LD structured data embedded in the Veezi sessions page.
  */
 export default class MajesticBayRipper implements IRipper {
+    private fetchFn: FetchFn = fetch;
+
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        this.fetchFn = getFetchForConfig(ripper.config);
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
         }
 
-        const res = await fetch(ripper.config.url.toString());
+        const res = await this.fetchFn(ripper.config.url.toString());
         if (!res.ok) {
             throw Error(`${res.status} ${res.statusText}`);
         }
