@@ -10744,6 +10744,86 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-07",
       "note": "Different times (5pm neighborhood walk vs 8pm Tim's Tavern set) and different venues; neighborhood walk and venue's participation are distinct events"
+    },
+    "discover-slu-discover-slu.ics 2026 South Lake Union Block Party|2026-08-14T11:00:00-07:00[America/Los_Angeles]::events12-seattle-events.ics South Lake Union Block Party|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Same annual SLU street block party, same date/time; discoverslu.com is the organizer, events12 republishes it. Address differs (Discovery Center vs 101 Westlake) because it's a multi-block outdoor event."
+    },
+    "discover-slu-discover-slu.ics 2026 South Lake Union Block Party|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics South Lake Union Block Party|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Same annual SLU street block party, same date/time; seatoday (6amcity) republishes it with a different anchor address within the same multi-block event footprint."
+    },
+    "discover-slu-discover-slu.ics 2026 South Lake Union Block Party|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics South Lake Union Block Party|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Same event as above, just seatoday's community-category feed copy of the same 6amcity listing."
+    },
+    "discover-slu-discover-slu.ics 2026 South Lake Union Block Party|2026-08-14T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics South Lake Union Block Party|2026-08-14T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Same event as above, just seatoday's sports-category feed copy of the same 6amcity listing."
+    },
+    "events12-seattle-events.ics Football vs. Arizona Cardinals|2026-11-08T13:25:00-08:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Seahawks vs. Arizona Cardinals|2026-11-08T13:25:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Same NFL game: Seahawks vs Cardinals at Lumen Field, identical kickoff time, 6m apart in geocoding. events12 uses a generic 'Football vs.' title, lumen-field's own listing has the full team name."
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-08-14T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-08-14T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Same weekly Lashes Cabaret drag show at Unicorn, same date/time/venue (0m apart); queer-social-club republishes the recurring venue listing with promo-style title."
+    },
+    "seatoday-seatoday-all.ics BOARD OF DIRECTORS MEETING|2026-08-21T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BOARD OF DIRECTORS MEETING|2026-08-21T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Identical 6amcity event (same source URL/event id 17685260), just cross-listed under seatoday's 'all' and 'community' category calendars."
+    },
+    "seatoday-seatoday-all.ics BOARD OF DIRECTORS MEETING|2026-08-21T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics BOARD OF DIRECTORS MEETING|2026-08-21T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Identical 6amcity event (same source URL/event id 17685260), cross-listed under seatoday's 'all' and 'learning' category calendars."
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-08-21T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-08-21T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Identical 6amcity event (same source URL/event id 19523302), cross-listed under seatoday's 'all' and 'sports' category calendars."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-21T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-21T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Identical 6amcity event (same source URL/event id 18307676, Henry Art Gallery), cross-listed under seatoday's 'all' and 'arts' category calendars."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-21T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-21T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Identical 6amcity event (same source URL/event id 18307676, Henry Art Gallery), cross-listed under seatoday's 'all' and 'community' category calendars."
+    },
+    "seatoday-seatoday-all.ics Ethereal Beauty Loc Course|2026-08-21T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Ethereal Beauty Loc Course|2026-08-21T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Identical 6amcity event (same source URL/event id 17845564), cross-listed under seatoday's 'all' and 'learning' category calendars."
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-21T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-21T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Identical 6amcity event (same source URL/event id 18307676, Henry Art Gallery), cross-listed under seatoday's 'arts' and 'community' category calendars."
+    },
+    "seatoday-seatoday-community.ics BOARD OF DIRECTORS MEETING|2026-08-21T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics BOARD OF DIRECTORS MEETING|2026-08-21T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Identical 6amcity event (same source URL/event id 17685260), cross-listed under seatoday's 'community' and 'learning' category calendars."
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-04T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-08",
+      "note": "Two genuinely different Seattle Food Truck pod locations (1201 Eastlake Ave E vs 1551 Eastlake Ave E, 321m apart, separate schedule pages). Titles/dates coincide because both are generic weekly 'Food Trucks @ <address>' recurring events, not the same occurrence."
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Izaak Opatz w/ Serafima & The Shakedowns|2026-10-14T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Izaak Opatz w/ Serafima & The Shakedowns AT The Sunset|2026-10-14T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-08",
+      "note": "Same show: Tractor Tavern's listing explicitly says 'AT The Sunset' — Tractor is presenting this Izaak Opatz show at The Sunset Tavern's room, same date/time. Both venues' calendars list it since Tractor is the promoter."
     }
   }
 }
