@@ -57500,23 +57500,32 @@
     },
     "beguiled-books:bookstore-romance-day": {
       "fields": {
-        "imageUrl": "https://static.wixstatic.com/media/e82e5d_8db105081b304db283fcc8633bd64878~mv2.png"
+        "imageUrl": "https://static.wixstatic.com/media/e82e5d_8db105081b304db283fcc8633bd64878~mv2.png",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-08-08",
       "source": "agent",
-      "evidence": "https://www.beguiledbooks.com/"
+      "evidence": "https://www.beguiledbooks.com/event-details/bookstore-romance-day (cost); https://www.beguiledbooks.com/ (imageUrl)"
     },
     "beguiled-books:starlight-soiree-acotar-6-release": {
       "fields": {
-        "imageUrl": "https://static.wixstatic.com/media/e82e5d_6388d47e0c4f490abe284b468572a917~mv2.png"
+        "imageUrl": "https://static.wixstatic.com/media/e82e5d_6388d47e0c4f490abe284b468572a917~mv2.png",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-08-08",
       "source": "agent",
-      "evidence": "https://www.beguiledbooks.com/"
+      "evidence": "https://www.beguiledbooks.com/event-details/starlight-soiree-acotar-6-release (cost); https://www.beguiledbooks.com/ (imageUrl)"
     },
     "northwest-film-forum:truth-to-fiction-the-history-of-concrete-2026-10-01": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/historyofconcrete1600-1.png"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/historyofconcrete1600-1.png",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-08-08",
       "source": "agent",
@@ -57531,40 +57540,210 @@
       "evidence": "https://transportationchoices.org/join-us-for-tuxes-trains-2026-history-starts-here/"
     },
     "beguiled-books:author-popup-orin-steele": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
       "resolvedAt": "2026-08-08",
       "source": "agent",
-      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+      "evidence": "https://www.beguiledbooks.com/event-details/author-popup-orin-steele"
     },
     "beguiled-books:author-popup-r-k-devon": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-08-08",
       "source": "agent",
-      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+      "evidence": "https://www.beguiledbooks.com/event-details/author-popup-r-k-devon"
     },
     "beguiled-books:avatar-the-last-airbender-trivia-night-hosted-by-freeze-tag-events": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-08-08",
       "source": "agent",
-      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+      "evidence": "https://freezetag.ticketspice.com/trivia-nights-with-freeze-tag"
     },
     "beguiled-books:the-deputy-the-devil-by-kirsten-bohling-book-release-party": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-08-08",
       "source": "agent",
-      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+      "evidence": "https://www.beguiledbooks.com/event-details/the-deputy-the-devil-by-kirsten-bohling-book-release-party"
     },
     "beguiled-books:wench-release-party-erynne-rivers-in-conversation-with-rachel-griffin": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-08-08",
       "source": "agent",
-      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+      "evidence": "https://www.beguiledbooks.com/event-details/wench-release-party-erynne-rivers-in-conversation-with-rachel-griffin"
     },
     "beguiled-books:wicked-endeavors-by-kamilah-cole-book-release-event": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.beguiledbooks.com/event-details/wicked-endeavors-by-kamilah-cole-book-release-event"
+    },
+    "lumen-field:tm-vvG1HZ_F5JOM30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-seahawks-vs-arizona-cardinals-seattle-washington-11-08-2026/event/0F006482E68374A4"
+    },
+    "seattle_universal_math_museum:6a686353eeaff47526427c9f": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://seattlemathmuseum.org/events/april-volunteer-night-63c67-ln5lk-e7nf7"
+    },
+    "stg:tm-vvG1HZ_CJwVa7m": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/oh-mary-touring-seattle-washington-11-07-2026/event/0F0064E9B2D0912E"
+    },
+    "wamu-theater:tm-vvG1HZ_ClaXjQ2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/sammy-virji-north-america-tour-2026-seattle-washington-11-07-2026/event/0F0064EAC9F9C68F"
+    },
+    "seattle_universal_math_museum:6a68634d36f7c70d6f25c49c": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://seattlemathmuseum.org/events/april-volunteer-night-63c67-ln5lk-et8s2-wf3x2"
+    },
+    "stg:tm-vvG1HZ_CJwg_7z": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/oh-mary-touring-seattle-washington-11-08-2026/event/0F0064E9B2D59138"
+    },
+    "seatoday:cityspark-19468421": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.seattlesouthsidechamber.com/events/details/des-moines-district-walk-7798"
+    },
+    "seatoday:cityspark-19585331": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://unitedindians.org/event/daybreak-stars-forest-garden-land-community-tending-days/2026-08-06/"
+    },
+    "seatoday:cityspark-17845564": {
       "unresolvable": true,
       "resolvedAt": "2026-08-08",
       "source": "agent",
-      "reason": "No image in schema.org Event JSON-LD or on event detail page; site (Wix) only posts marketing graphics for select flagship events on the homepage, and this event isn't one of them"
+      "reason": "No pricing published; CitySpark record shows Free=false, IsTicketed=false, no price. Only external link is a Facebook event page (auth-gated, no pricing visible)."
+    },
+    "crocodile:tm-Z7r9jZ1AAZ_u4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1AAZ_u4"
+    },
+    "stg:tm-vvG1HZ_62NlHQh": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/outlander-in-concert-seattle-washington-11-07-2026/event/0F006473E3AFC69B"
+    },
+    "wamu-theater:tm-vvG1HZ_CBzz5uf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-sammy-virji-seattle-washington-11-07-2026/event/0F0064EEB8E0B354"
+    },
+    "the-beer-junction:6a3b18b35a97705817a5d6aa": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.thebeerjunction.com/upcoming-events/beer-junction-bike-club-wxej4-3y8be-5gmw7-fn9we-d5jtm"
+    },
+    "lumen-field:tm-vvG1HZbz2dnI8a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-sounders-fc-vs-los-angeles-seattle-washington-11-07-2026/event/0F006383C3AA8409"
+    },
+    "stg:tm-vvG1HZ_Cn956Zp": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/grief-sucks-a-one-man-show-seattle-washington-11-07-2026/event/0F0064EA972C7016"
     }
   }
 }
