@@ -38330,13 +38330,14 @@
     "events12:live-theater-2026-08-21": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty (Freak the Mighty, Jul 30 - Sep 6 2026, Bagley Wright Theater — indoor mainstage)"
     },
     "events12:live-theater-2026-08-22": {
       "fields": {
@@ -54816,13 +54817,14 @@
       "fields": {
         "startTime": "08:30",
         "duration": 27000,
+        "setting": "outdoor",
         "cost": {
-          "min": 17
+          "min": 17.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-08",
       "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival (open-air u-pick sunflower field festival; matches setting resolved on all other 2026 sunflower-farms dates)"
     },
     "events12:sunflower-farms-2026-08-22": {
       "fields": {
@@ -57471,6 +57473,12 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "evidence": "https://seattlepride.org/events/rainbow-elder-play-connect-6"
+    },
+    "venue:loc:southwest washington fairgrounds, 1909 s gold st, centralia, wa 98531": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "reason": "Southwest Washington Fairgrounds is a mixed indoor/outdoor event facility: 100,000+ sq ft of multi-use buildings/exhibit halls plus 2 outdoor stages, barns, and grandstands (southwestwashingtonfairgrounds.org/about-us). Same rationale applied to Kitsap County and Whidbey Island fairgrounds — resolve per-event."
     }
   }
 }
