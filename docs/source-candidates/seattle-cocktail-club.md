@@ -6,7 +6,7 @@ url: https://www.seattlecocktailclub.com/event
 tags: [Nightlife, Community]
 firstSeen: 2026-08-06
 lastChecked: 2026-08-08
-pr: TBD
+pr: 1139
 ---
 
 Monthly happy hours / mixers at rotating Seattle bars (Mini Bar, Majnoon,
