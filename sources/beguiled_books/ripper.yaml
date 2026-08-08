@@ -1,5 +1,6 @@
 name: beguiled-books
 sourceRole: venue
+skipEventPhotos: true # event pages carry only the venue logo, no per-event images
 description: "Beguiled Books"
 url: "https://www.beguiledbooks.com/events"
 friendlyLink: https://www.beguiledbooks.com

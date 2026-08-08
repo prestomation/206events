@@ -53025,15 +53025,10 @@
       "partialFingerprint": "8qhcdf"
     },
     "seatoday:cityspark-19562938": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
       "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/aventura-de-verano-grabado-estilo-boombox-de-los-a-os-90/19562938/2026-08-09T00",
-      "partialFingerprint": "vsuwzr"
+      "reason": "No accessible event image (JS-rendered embed)"
     },
     "seatoday:cityspark-19562939": {
       "fields": {
@@ -54251,15 +54246,10 @@
       "evidence": "https://www.fosswaterwayseaport.org/education-pages/free-3rd-thursday"
     },
     "events12:wine-tasting-eastern-wa-2026-08-08": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-07",
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
       "source": "agent",
-      "evidence": "https://suncadia.com/experiences/events-experiences/#!/e/wine-in-the-pines-2026-b2908792"
+      "reason": "No accessible event image (JS-rendered page)"
     },
     "events12:music-festival-in-the-forest-2026-08-07": {
       "fields": {
@@ -57067,14 +57057,10 @@
       "evidence": "https://www.basecampstudios.com/"
     },
     "seattle-pride:seattle-pride-rainbow-elder-play-connect-6": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-07",
+      "unresolvable": true,
+      "resolvedAt": "2026-08-08",
       "source": "agent",
-      "evidence": "https://seattlepride.org/events/rainbow-elder-play-connect-6"
+      "reason": "No event-specific image on source page"
     },
     "venue:loc:southwest washington fairgrounds, 1909 s gold st, centralia, wa 98531": {
       "unresolvable": true,
@@ -57427,6 +57413,14 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/portal-of-possibilities",
       "partialFingerprint": "hi9jml"
+    },
+    "SAF:186529045": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.strangertickets.com/imager/b/original/186529106/2c5e/SAF_ModernArtDeco2023_alessandrabrescia-6.jpg"
+      },
+      "resolvedAt": "2026-08-08",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/186529045/diamonds-gold-the-art-deco-skyscraper-northwest-style"
     }
   }
 }
