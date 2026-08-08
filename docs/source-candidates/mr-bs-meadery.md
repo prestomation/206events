@@ -3,7 +3,7 @@ name: "Mr. B's Meadery"
 status: candidate
 platform: Squarespace
 url: https://www.mrbsmeadery.com/events
-tags: [Beer, "White Center"]
+tags: [Mead, "White Center"]
 firstSeen: 2026-08-08
 lastChecked: 2026-08-08
 pr:
