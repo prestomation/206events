@@ -1043,6 +1043,19 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // prefix-matching keys added in earlier batches; lookupKnownVenue's
   // startsWith match already resolves them, so no new entry was needed.)
   'pier 62 seattle waterfront': { lat: 47.6085444, lng: -122.3448627, osmType: 'way', osmId: 57391649 },
+
+  // --- 2026-08-08 geo-resolver batch: remaining "has street address" /
+  // "venue name only" unresolvable entries whose addresses forward-geocode
+  // cleanly via Nominatim, or whose venue name resolves to a verified address
+  // on the venue's own site / Wikipedia infobox. Never reverse-geocoded —
+  // coordinates come straight from a forward geocode of the verified address.
+  'sullivan hall, second floor gallery': { lat: 47.609583, lng: -122.317083 }, // Seattle University School of Law, 901 12th Ave
+  'fogo de chao, alderwood mall, lynnwood, wa': { lat: 47.8301703, lng: -122.2696681 }, // 18602 Alderwood Mall Blvd, Lynnwood
+  '4851 s tacoma way, tacoma, wa 98409': { lat: 47.2121094, lng: -122.4829947 }, // Asia Pacific Cultural Center
+  '10530 airport way, snohomish, wa 98296': { lat: 47.9009901, lng: -122.1052339 }, // Harvey Airfield
+  '1801 hub drive, sedro-woolley, washington, 98284': { lat: 48.5305500, lng: -122.2079486 },
+  '14601 4th ave e, parkland, wa 98445': { lat: 47.1238678, lng: -122.4274024 },
+  '1101 industry street, everett, washington, 98203': { lat: 47.9417379, lng: -122.2469617 },
 };
 
 /**
