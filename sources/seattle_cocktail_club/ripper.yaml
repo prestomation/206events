@@ -1,0 +1,12 @@
+name: seattle-cocktail-club
+sourceRole: venue
+type: squarespace
+description: "Seattle Cocktail Club"
+url: "https://www.seattlecocktailclub.com/event"
+friendlyLink: https://www.seattlecocktailclub.com/events
+tags: ["Nightlife", "Community"]
+geo: null
+calendars:
+  - name: seattle-cocktail-club
+    friendlyname: "Seattle Cocktail Club"
+    timezone: America/Los_Angeles

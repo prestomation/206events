@@ -1,12 +1,12 @@
 ---
 name: Seattle Cocktail Club
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.seattlecocktailclub.com/event
 tags: [Nightlife, Community]
 firstSeen: 2026-08-06
-lastChecked: 2026-08-06
-pr:
+lastChecked: 2026-08-08
+pr: TBD
 ---
 
 Monthly happy hours / mixers at rotating Seattle bars (Mini Bar, Majnoon,
