@@ -136,11 +136,20 @@ describe('parseSummerFestivalPage', () => {
         expect(events[0].duration.toDays()).toBe(4);
     });
 
-    it('parses the venue from the second heading', () => {
-        const html = parse(loadSample('sample-summer-festival.html'));
-        const events = parseSummerFestivalPage(html, url).filter(isEvent);
+    it('parses the venue from a second heading when one is present, and does not flag location as uncertain', () => {
+        const html = parse(`<html><body><main><div class="sqs-html-content">
+            <h2>2nd Unbound Symphony Summer Festival is scheduled for<br>July 7-10, 2027</h2>
+            <h2>Highline Performing Arts Center<br>Burien, WA</h2>
+        </div></main></body></html>`);
+        const results = parseSummerFestivalPage(html, url);
+        const events = results.filter(isEvent);
+        const uncertainty = results.find(e => 'type' in e && e.type === 'Uncertainty');
 
         expect(events[0].location).toBe('Highline Performing Arts Center, Burien, WA');
+        expect(uncertainty).toBeDefined();
+        if (uncertainty && 'unknownFields' in uncertainty) {
+            expect(uncertainty.unknownFields).toEqual(['startTime']);
+        }
     });
 
     it('flags the daily start time as uncertain', () => {
@@ -154,7 +163,22 @@ describe('parseSummerFestivalPage', () => {
         }
     });
 
-    it('returns a ParseError when the heading blocks are missing', () => {
+    it('leaves location unset and flags it uncertain when no venue heading is published yet', () => {
+        const html = parse(loadSample('sample-summer-festival.html'));
+        const results = parseSummerFestivalPage(html, url);
+        const events = results.filter(isEvent);
+        const uncertainty = results.find(e => 'type' in e && e.type === 'Uncertainty');
+
+        expect(events.length).toBe(1);
+        expect(events[0].location).toBeUndefined();
+        expect(uncertainty).toBeDefined();
+        if (uncertainty && 'unknownFields' in uncertainty) {
+            expect(uncertainty.unknownFields).toContain('location');
+            expect(uncertainty.unknownFields).toContain('startTime');
+        }
+    });
+
+    it('returns a ParseError when the schedule heading block is missing', () => {
         const html = parse('<html><body><div class="sqs-html-content"></div></body></html>');
         const results = parseSummerFestivalPage(html, url);
 
