@@ -6,12 +6,13 @@ friendlyLink: https://threedollarbillcinema.org
 tags: ["Movies", "Arts"]
 geo: null
 calendars:
-  # 2026-08-01: confirmed via the live Squarespace ?format=json endpoint —
-  # `upcoming: []`, and no future-dated items hiding in `past` (ruled out
-  # the mis-tagged-collection fallback in ripper.ts). Last posted event was
-  # Jul 30, 2026; this org runs seasonal festivals (e.g. Translations Film
-  # Festival) with real gaps between programming, not continuous listings.
+  # 2026-08-01: was briefly 0 upcoming (Squarespace `upcoming: []`) — a short
+  # gap between the last posted screening (Jul 30) and the next one, not a
+  # real programming lull. Re-checked 2026-08-09: `past` events for this
+  # organizer show near-continuous monthly-or-more-often programming going
+  # back through the year (Mar, May, Jun, Jul, Aug), and 8 events are now
+  # posted through Aug 26. expectEmpty removed — this venue reliably has
+  # upcoming events; treat a future 0-event build as a real signal.
   - name: three-dollar-bill-cinema
     friendlyname: "Three Dollar Bill Cinema"
     timezone: America/Los_Angeles
-    expectEmpty: true

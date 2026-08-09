@@ -270,9 +270,15 @@ calendars:
       venue: "Blue Moon Tavern"
 
   # --- West Seattle ---
+  # 2026-08-09: citywide showlists feed carries exactly one Skylark show
+  # total, dated 2026-08-08 (already past by the time of this build) —
+  # a genuinely sparse venue in this feed, like the other expectEmpty
+  # entries above (Europa, Georgetown Liquor Company, Bad Bar, Darrell's
+  # Tavern).
   - name: skylark
     friendlyname: "Skylark"
     imageUrl: "https://images.squarespace-cdn.com/content/v1/525a1569e4b0daa056d0c8a9/1567399574315-98PICMAYXFVMICLX88QH/Skylark_front_page.jpg"
+    expectEmpty: true
     geo:
       lat: 47.5507
       lng: -122.3525
