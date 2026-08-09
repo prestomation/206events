@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import '@js-joda/timezone';
-import { extractSeaMonsterEvents, extractWarmupDataJson } from './ripper.js';
+import { extractSeaMonsterCost, extractSeaMonsterEvents, extractWarmupDataJson } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const TIMEZONE = ZoneId.of('America/Los_Angeles');
@@ -21,14 +21,17 @@ function loadWarmupJson(): string {
 }
 
 describe('SeaMonsterLoungeRipper', () => {
-    it('parses events from the sample warmup data with 0 errors', () => {
+    it('parses events from the sample warmup data with only cost-uncertainty errors', () => {
         const { events, errors } = extractSeaMonsterEvents(loadWarmupJson(), TIMEZONE, NOW);
 
-        expect(errors).toHaveLength(0);
         expect(events.length).toBeGreaterThan(0);
+        // The two fixture events with no `registration` block at all (an
+        // unknown, not a guess) surface as Uncertainty, not ParseError.
+        expect(errors.every(e => e.type === 'Uncertainty')).toBe(true);
+        expect(errors).toHaveLength(2);
     });
 
-    it('parses summary, date, location, imageUrl, and id for a known event', () => {
+    it('parses summary, date, location, imageUrl, id, and cost for a known priced event', () => {
         const { events } = extractSeaMonsterEvents(loadWarmupJson(), TIMEZONE, NOW);
 
         const xray = events.find(e => e.id === 'sea-monster-lounge-x-ray-friends-2026-07-01');
@@ -39,7 +42,35 @@ describe('SeaMonsterLoungeRipper', () => {
         expect(xray!.imageUrl).toBe('https://static.wixstatic.com/media/f53b7e_1cf1ea0b00d74466bce2605fbd9d9b2b~mv2.png');
         // Duration derived from startDate/endDate (1.5h in the fixture).
         expect(xray!.duration.toMinutes()).toBe(90);
-        expect(xray!.cost).toBeUndefined();
+        expect(xray!.cost).toEqual({ min: 15, max: 25 });
+    });
+
+    it('treats a ticketing block with no priced ticket type as free (RSVP-only entry)', () => {
+        const { events } = extractSeaMonsterEvents(loadWarmupJson(), TIMEZONE, NOW);
+
+        const marmalade = events.find(e => e.id?.startsWith('sea-monster-lounge-marmalade-friends'));
+        expect(marmalade).toBeDefined();
+        expect(marmalade!.cost).toEqual({ min: 0 });
+    });
+
+    it('maps a sold-out ticketing block to { soldOut: true }', () => {
+        const { events } = extractSeaMonsterEvents(loadWarmupJson(), TIMEZONE, NOW);
+
+        const stingsharks = events.filter(e => e.summary === 'Stingshark').sort((a, b) => (a.id! < b.id! ? -1 : 1));
+        const soldOutShow = stingsharks.find(e => e.id === 'sea-monster-lounge-stingshark-2026-07-09');
+        expect(soldOutShow?.cost).toEqual({ soldOut: true });
+    });
+
+    it('emits an Uncertainty error (cost) for events with no registration block, leaving cost undefined', () => {
+        const { events, errors } = extractSeaMonsterEvents(loadWarmupJson(), TIMEZONE, NOW);
+
+        const noEndTime = events.find(e => e.summary.includes('No End Time Listed Night'));
+        expect(noEndTime!.cost).toBeUndefined();
+
+        const uncertainty = errors.find(e => e.type === 'Uncertainty' && 'event' in e && e.event.id === noEndTime!.id);
+        expect(uncertainty).toBeDefined();
+        expect((uncertainty as any).unknownFields).toEqual(['cost']);
+        expect((uncertainty as any).source).toBe('sea-monster-lounge');
     });
 
     it('falls back to the default 2-hour duration when endDate equals startDate', () => {
@@ -92,11 +123,13 @@ describe('SeaMonsterLoungeRipper', () => {
                                     title: 'Dup Night',
                                     slug: 'dup-night',
                                     scheduling: { config: { startDate: '2026-07-05T02:00:00.000Z', endDate: '2026-07-05T04:00:00.000Z' } },
+                                    registration: { ticketing: {} },
                                 },
                                 {
                                     title: 'Dup Night',
                                     slug: 'dup-night',
                                     scheduling: { config: { startDate: '2026-07-05T02:00:00.000Z', endDate: '2026-07-05T04:00:00.000Z' } },
+                                    registration: { ticketing: {} },
                                 },
                             ],
                         },
@@ -151,5 +184,50 @@ describe('SeaMonsterLoungeRipper', () => {
     it('extractWarmupDataJson finds the script tag regardless of attribute order', () => {
         const html = '<html><head><script id="wix-warmup-data" type="application/json">{"a":1}</script></head></html>';
         expect(extractWarmupDataJson(html)).toBe('{"a":1}');
+    });
+
+    describe('extractSeaMonsterCost', () => {
+        it('returns undefined when there is no registration block at all', () => {
+            expect(extractSeaMonsterCost({})).toBeUndefined();
+        });
+
+        it('returns free (min: 0) when ticketing has no priced ticket type', () => {
+            expect(extractSeaMonsterCost({ registration: { ticketing: {} } })).toEqual({ min: 0 });
+        });
+
+        it('returns min-only when lowest and highest price are equal', () => {
+            const cost = extractSeaMonsterCost({
+                registration: { ticketing: { lowestTicketPrice: { amount: '15.00' }, highestTicketPrice: { amount: '15.00' } } },
+            });
+            expect(cost).toEqual({ min: 15 });
+        });
+
+        it('returns min/max when lowest and highest price differ', () => {
+            const cost = extractSeaMonsterCost({
+                registration: { ticketing: { lowestTicketPrice: { amount: '10.00' }, highestTicketPrice: { amount: '20.00' } } },
+            });
+            expect(cost).toEqual({ min: 10, max: 20 });
+        });
+
+        it('returns soldOut regardless of a still-present price', () => {
+            const cost = extractSeaMonsterCost({
+                registration: { ticketing: { soldOut: true, lowestTicketPrice: { amount: '15.00' } } },
+            });
+            expect(cost).toEqual({ soldOut: true });
+        });
+
+        it('returns undefined (not free) when lowestTicketPrice.amount is present but unparseable', () => {
+            const cost = extractSeaMonsterCost({
+                registration: { ticketing: { lowestTicketPrice: { amount: 'Contact for pricing' } } },
+            });
+            expect(cost).toBeUndefined();
+        });
+
+        it('drops a malformed highestTicketPrice.amount instead of embedding NaN', () => {
+            const cost = extractSeaMonsterCost({
+                registration: { ticketing: { lowestTicketPrice: { amount: '10.00' }, highestTicketPrice: { amount: 'TBD' } } },
+            });
+            expect(cost).toEqual({ min: 10 });
+        });
     });
 });
