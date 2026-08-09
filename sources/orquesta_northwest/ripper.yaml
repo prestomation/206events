@@ -1,4 +1,9 @@
 # verified: 2026-06-29 ok
+# 2026-08-09: expectEmpty removed — the live Squarespace ?format=json
+# endpoint lists 6 upcoming events, a full concert season running through
+# March 2027 (Latino Chamber Music Festival, Día de Muertos, Las Posadas,
+# International Women's Day concerts, ...). Steady, well ahead of time
+# programming, not a source that goes empty between shows.
 name: orquesta-northwest
 sourceRole: venue
 type: squarespace

@@ -12,6 +12,11 @@ geo:
   osmType: relation
   osmId: 3185569
 calendars:
+  # 2026-08-09: expectEmpty removed. The live calendar page currently lists 5
+  # upcoming events on a weekly cadence (storytelling, galleries & gardens,
+  # after-hours, an Alzheimer's café, a reading series) — a free, well-known
+  # museum with steady public programming, not the "small museum with
+  # intermittent programming" the flag was originally set for.
   - name: frye-art-museum
     friendlyname: "Frye Art Museum"
     timezone: America/Los_Angeles
