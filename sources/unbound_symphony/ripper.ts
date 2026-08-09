@@ -187,23 +187,30 @@ export function parseSummerPopupPage(html: HTMLElement, url: string): RipperEven
 }
 
 // Parses https://www.unboundsymphony.org/summer-festival — the annual
-// multi-day Summer Orchestra Festival. The page has no ICS/API, just two
-// heading blocks: one with the date range, one with the venue.
+// multi-day Summer Orchestra Festival. The page has no ICS/API. The date
+// range lives in a heading block ("... is scheduled for\n<dates>"). A second
+// heading block naming the venue is published once the venue is confirmed
+// (historically alongside the dates); early in the announcement cycle the
+// page carries only the date-range heading and a note that further details
+// (including the venue) are coming later, so the venue heading is optional
+// and its absence is surfaced as a location Uncertainty rather than a
+// ParseError.
 export function parseSummerFestivalPage(html: HTMLElement, url: string): RipperEvent[] {
     // Scope to <main> — a bare "h2" query would also match unrelated
     // headings in the site header/footer.
     const contentRoot = html.querySelector("main") ?? html;
     const headings = contentRoot.querySelectorAll("h2");
     const scheduleHeading = headings.find(h => /is scheduled for/i.test(h.text));
-    const venueHeading = headings.find(h => h !== scheduleHeading && h.text.trim().length > 0);
 
-    if (!scheduleHeading || !venueHeading) {
+    if (!scheduleHeading) {
         return [{
             type: "ParseError",
-            reason: "Could not find festival schedule/venue heading blocks",
+            reason: "Could not find festival schedule heading block",
             context: url,
         }];
     }
+
+    const venueHeading = headings.find(h => h !== scheduleHeading && h.text.trim().length > 0);
 
     const [titlePrefixRaw, dateLine] = scheduleHeading.text.split("\n");
     const titleMatch = (titlePrefixRaw || "").match(/^(.*?)\s+is scheduled for$/i);
@@ -238,7 +245,9 @@ export function parseSummerFestivalPage(html: HTMLElement, url: string): RipperE
         }];
     }
 
-    const location = venueHeading.text.split("\n").map(l => l.trim()).filter(Boolean).join(", ");
+    const location = venueHeading
+        ? venueHeading.text.split("\n").map(l => l.trim()).filter(Boolean).join(", ")
+        : undefined;
 
     let date: ZonedDateTime;
     try {
@@ -266,16 +275,20 @@ export function parseSummerFestivalPage(html: HTMLElement, url: string): RipperE
         url,
     };
 
-    const unknownFields: UncertaintyField[] = ["startTime"];
+    const unknownFields: UncertaintyField[] = location ? ["startTime"] : ["startTime", "location"];
+    const reason = location
+        ? "Festival page lists only a date range, no daily start time"
+        : "Festival page lists only a date range — venue not yet announced and no daily start time";
+
     return [
         event,
         {
             type: "Uncertainty",
-            reason: "Festival page lists only a date range, no daily start time",
+            reason,
             source: "unbound_symphony",
             unknownFields,
             event,
-            partialFingerprint: simpleHash(`${dateLine}|${location}`),
+            partialFingerprint: simpleHash(`${dateLine}|${location ?? ""}`),
         },
     ];
 }
