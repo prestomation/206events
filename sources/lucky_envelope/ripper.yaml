@@ -6,6 +6,10 @@ description: "Lucky Envelope Brewing"
 url: "https://www.luckyenvelopebrewing.com/events"
 friendlyLink: https://www.luckyenvelopebrewing.com/events
 tags: ["Beer", "Ballard"]
+# Verified 2026-08: taproom entry is free for every event type sampled
+# (anniversary party, tea-inspired beer day, dog training pop-up) — no cover
+# charge or ticket is ever mentioned; guests just pay for beer at the bar.
+cost: free
 geo:
   lat: 47.6649
   lng: -122.3691

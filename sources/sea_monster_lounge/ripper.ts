@@ -1,11 +1,20 @@
 import { Duration, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
 
+const SOURCE_NAME = "sea-monster-lounge";
 const LOCATION = "Sea Monster Lounge, 2202 N 45th St, Seattle, WA 98103";
 const DEFAULT_DURATION = Duration.ofHours(2);
+
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 // The Wix warmup data blob is a full-page JSON payload embedded by the site's
 // SSR. We only ever read the events array at this fixed path — sibling keys
@@ -36,6 +45,50 @@ interface SeaMonsterEvent {
         url?: string;
     };
     slug?: string;
+    // Wix Events "registration" block. Present on every event we've observed
+    // on the live site (list-page warmup data), so its absence is treated as
+    // a genuine unknown rather than "definitely free".
+    registration?: {
+        ticketing?: {
+            soldOut?: boolean;
+            // Amounts are decimal strings, e.g. "15.00".
+            lowestTicketPrice?: { amount?: string };
+            highestTicketPrice?: { amount?: string };
+        };
+    };
+}
+
+/**
+ * Derives admission cost from the Wix "registration.ticketing" block.
+ *
+ * Verified against the live site (2026-08): events with a priced ticket
+ * type carry `lowestTicketPrice`/`highestTicketPrice`; RSVP-only events
+ * (free door entry, no payment collected) carry a `ticketing` object with
+ * no price fields at all — confirmed by checking several such events'
+ * individual pages, which all report an empty `tickets: []` array (no
+ * ticket product configured, so nothing to charge). Events with no
+ * `registration` block at all are left as `undefined` (unknown) rather
+ * than guessed.
+ */
+export function extractSeaMonsterCost(raw: SeaMonsterEvent): EventCost | undefined {
+    const ticketing = raw.registration?.ticketing;
+    if (!ticketing) return undefined;
+
+    if (ticketing.soldOut === true) return { soldOut: true };
+
+    const lowestRaw = ticketing.lowestTicketPrice?.amount;
+    if (lowestRaw !== undefined) {
+        const min = parseFloat(lowestRaw);
+        if (!Number.isNaN(min)) {
+            const highestRaw = ticketing.highestTicketPrice?.amount;
+            const max = highestRaw !== undefined ? parseFloat(highestRaw) : undefined;
+            return max !== undefined && max !== min ? { min, max } : { min };
+        }
+    }
+
+    // Ticketing widget present but no priced ticket type configured — free
+    // RSVP entry (see doc comment above).
+    return { min: 0 };
 }
 
 /**
@@ -90,6 +143,18 @@ export function extractSeaMonsterEvents(
             if (result.id && seen.has(result.id)) continue;
             if (result.id) seen.add(result.id);
             events.push(result);
+
+            if (result.cost === undefined) {
+                const uncertainty: UncertaintyError = {
+                    type: "Uncertainty",
+                    reason: "No registration/ticketing data found for this Sea Monster Lounge event",
+                    source: SOURCE_NAME,
+                    unknownFields: ["cost"],
+                    event: result,
+                    partialFingerprint: simpleHash(JSON.stringify(raw.registration ?? {})),
+                };
+                errors.push(uncertainty);
+            }
         } else {
             errors.push(result);
         }
@@ -144,6 +209,7 @@ function parseSeaMonsterEvent(
         description: raw.description ? decode(raw.description) : undefined,
         location: LOCATION,
         imageUrl: raw.mainImage?.url || undefined,
+        cost: extractSeaMonsterCost(raw),
     };
 }
 
