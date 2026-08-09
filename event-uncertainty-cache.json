@@ -57431,6 +57431,54 @@
       "resolvedAt": "2026-08-08",
       "source": "agent",
       "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/6054/blue-angels-week"
+    },
+    "northwest-film-forum:cabaret-charlies-queer-books-2026-08-12": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/cabaretposter.png"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/cabaret-charlies-queer-books/"
+    },
+    "northwest-film-forum:chronovisor-2026-10-02": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/chronovisorposterTEMP.jpg"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/chronovisor/"
+    },
+    "northwest-film-forum:remake-2026-08-12": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/remakeposterSMALL-1200x1800.jpg"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/remake/"
+    },
+    "northwest-film-forum:the-history-of-concrete-2026-10-02": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/historyofconcrete1600-1.png"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/the-history-of-concrete/"
+    },
+    "seattle-folklore-society:seattle-folklore-society-hildaland-ethan-setiawan-louise-bichan-in-concert-sat-nov-21st-730-pm-2026-11-21": {
+      "fields": {
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Hildaland-13-credit-Louise-Bichan-825x510.jpg"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/hildaland-ethan-setiawan-louise-bichan-in-concert-sat-nov-21st-730-pm/"
+    },
+    "seattle-folklore-society:seattle-folklore-society-newberry-verch-at-the-royal-room-2026-10-25": {
+      "fields": {
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Newberry-Verch-Holiday-3-Sandlin-Gaither-600x411-1.jpg"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/newberry-verch-at-the-royal-room/"
     }
   }
 }
