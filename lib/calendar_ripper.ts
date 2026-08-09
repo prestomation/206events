@@ -779,7 +779,15 @@ export const main = async () => {
           if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
           }
-          return { calendar, icsContent: await response.text(), error: null };
+          const body = await response.text();
+          if (!body.trim()) {
+            // Some feeds (e.g. a broken calendar-plugin export endpoint) return
+            // HTTP 200 with an empty body instead of an error status. Treat that
+            // as a failure with a clear reason instead of falling through with
+            // icsContent="" and error=null, which renders as a confusing "null".
+            throw new Error(`Empty response body (HTTP ${response.status} with no content)`);
+          }
+          return { calendar, icsContent: body, error: null };
         } catch (error) {
           console.error(`  - Failed to fetch ${calendar.friendlyname}: ${error}`);
           return { calendar, icsContent: null, error };
