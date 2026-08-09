@@ -2,8 +2,8 @@ name: seattle-pro-musica
 sourceRole: venue
 type: squarespace
 description: "Seattle Pro Musica"
-url: "https://www.seattlepromusica.org/calendar"
-friendlyLink: https://www.seattlepromusica.org/calendar
+url: "https://www.seattlepromusica.org/season"
+friendlyLink: https://www.seattlepromusica.org/season
 tags: ["Music", "Arts"]
 imageUrl: "https://images.squarespace-cdn.com/content/v1/559c230de4b0a2650c6c7aa0/890a6db5-ba80-4bc0-a344-575879ee2b79/Seattle-Brand-Photographer-70+%281%29.jpg"
 geo: null
@@ -11,4 +11,13 @@ calendars:
   - name: seattle-pro-musica
     friendlyname: "Seattle Pro Musica"
     timezone: America/Los_Angeles
-    expectEmpty: true  # Site under redesign as of 2026-08-07; /calendar returns 404; check back after Aug 2026 relaunch
+    # Site is under redesign (homepage: "Our full site will be back at the
+    # end of August [2026] with details about our 2026-2027 season"). The
+    # Squarespace Events collection at /calendar is gone (404); the org now
+    # publishes concert dates as freeform copy on a custom /season landing
+    # page instead of a Squarespace Events collection, so the JSON endpoint
+    # this ripper reads (?format=json) has no upcoming/items/past array to
+    # parse. /season returns HTTP 200 (no more ParseError), just 0 events
+    # until they either restore a native Events collection or the page gets
+    # HTML-scraped instead. Re-check after the relaunch (~Sept 2026).
+    expectEmpty: true
