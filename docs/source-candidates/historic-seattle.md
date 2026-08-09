@@ -1,12 +1,12 @@
 ---
 name: "Historic Seattle"
-status: added
+status: proxy
 platform: WordPress (Tribe Events)
 url: https://historicseattle.org/events/
 icsUrl: https://historicseattle.org/events/?ical=1
 tags: [Arts, Education, "First Hill"]
 firstSeen: 2026-06-11
-lastChecked: 2026-07-14
+lastChecked: 2026-07-29
 pr: 758
 ---
 **Historic Seattle** — `https://historicseattle.org/events/` — Nonprofit preservation organization with property tours, lectures, advocacy events, and building history programs across Seattle.
@@ -25,4 +25,13 @@ Re-investigated 2026-06-29:
 Proxy escalation 2026-07-14:
 - 3 consecutive outofband failures (HTTP 403: Forbidden, last 2026-07-13)
 - Promoted from `outofband` → `browserbase` per pendingProxyVerification queue
-- Note: ICS feed fetched successfully from this residential IP during testing (1 VEVENT), but 3 consecutive outofband run failures triggered automatic escalation
+- Note: ICS feed fetched successfully from this residential ip during testing (1 VEVENT), but 3 consecutive outofband run failures triggered automatic escalation
+
+Proxy verification 2026-07-29:
+- outofband rung verified: residential IP fetch returns HTTP 200 with valid ICS (6.4 KB, 2 future VEVENTs: 2026-08-20, 2026-09-24)
+- SiteGround sgcaptcha not triggered from this IP
+
+Proxy verification 2026-08-09 (out-of-band run):
+- outofband rung re-verified: residential IP fetch returns valid ICS with 3 VEVENTs, hasFutureEvents=true
+- SiteGround sgcaptcha not triggered from this IP
+- Merged PR #877 at outofband rung
