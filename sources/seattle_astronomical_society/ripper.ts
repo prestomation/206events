@@ -1,10 +1,23 @@
 import { Duration, LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
-import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 const USER_AGENT = "Mozilla/5.0 (compatible; 206events/1.0)";
 const EVENT_URL_PREFIX = "https://www.seattleastro.org/events-1/";
+
+// Wix's CDN occasionally serves a freshly-published/edited event page before its
+// pre-rendered JSON-LD snapshot has finished populating (observed: a 200 response
+// whose SSR cache entry is missing the <script type="application/ld+json"> block,
+// which later appears on an identical re-fetch of the same URL with no other
+// change). Retry a couple of times with backoff before treating a missing JSON-LD
+// block as a genuine parse failure.
+const MAX_JSONLD_RETRIES = 2;
+const RETRY_BASE_DELAY_MS = 1000;
+
+function sleep(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 interface WixEventJsonLd {
     "@type": string;
@@ -124,6 +137,86 @@ export function parseEventFromJsonLd(
     };
 }
 
+/** Returns true for HTTP statuses worth retrying (rate limiting, server errors).
+ *  A permanent failure (404, 403, ...) won't be fixed by retrying, so return
+ *  immediately rather than burning the backoff budget — matches the
+ *  transient/permanent distinction in sources/pike_place_market/ripper.ts. */
+function isTransientHttpStatus(status: number): boolean {
+    return status === 429 || status >= 500;
+}
+
+/**
+ * Builds the URL for a given retry attempt. Attempt 0 uses the plain eventUrl;
+ * later attempts add a small, deterministic `_sasRetry` query param so each one
+ * bypasses the build's URL-keyed fetch cache (lib/fetch-cache.ts) and reaches
+ * the network again, instead of replaying the same cached response — verified
+ * necessary locally: without this, a build-time retry against the shared fetch
+ * cache just re-served the first (broken) response. The param is deterministic
+ * (attempt number, not a timestamp) so it doesn't grow the cache with a fresh
+ * orphaned entry on every retrying build. Uses the URL API rather than string
+ * concatenation so it's safe even if eventUrl already carries a query string.
+ */
+export function buildRetryUrl(eventUrl: string, attempt: number): string {
+    if (attempt === 0) return eventUrl;
+    const url = new URL(eventUrl);
+    url.searchParams.set("_sasRetry", String(attempt));
+    return url.toString();
+}
+
+/**
+ * Fetch a single event detail page and extract its JSON-LD Event, retrying
+ * (with backoff) when the page loads but the JSON-LD block isn't present yet —
+ * see the MAX_JSONLD_RETRIES comment above. A thrown fetch exception (timeout,
+ * DNS, connection reset) is also retried, since those are inherently transient.
+ * HTTP failure *responses* are retried only when the status itself is transient
+ * (429/5xx, see isTransientHttpStatus) — a permanent failure (404, 403, ...)
+ * returns immediately instead of burning the rest of the retry budget on a page
+ * that won't recover. This mirrors the transient/permanent distinction used
+ * elsewhere in this repo (e.g. sources/pike_place_market/ripper.ts). Returns
+ * the parsed JSON-LD, or the last-seen ParseError if every attempt fails.
+ */
+export async function fetchEventJsonLd(
+    fetchFn: FetchFn,
+    eventUrl: string,
+    maxRetries: number = MAX_JSONLD_RETRIES,
+): Promise<WixEventJsonLd | RipperError> {
+    let lastError: RipperError = { type: "ParseError", reason: "No JSON-LD Event found", context: eventUrl };
+
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+        if (attempt > 0) {
+            await sleep(RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1));
+        }
+
+        const fetchUrl = buildRetryUrl(eventUrl, attempt);
+
+        try {
+            const pageRes = await fetchFn(fetchUrl, { headers: { "User-Agent": USER_AGENT } });
+            if (!pageRes.ok) {
+                lastError = {
+                    type: "ParseError",
+                    reason: `HTTP ${pageRes.status} fetching event page`,
+                    context: eventUrl,
+                };
+                if (!isTransientHttpStatus(pageRes.status)) return lastError;
+                continue;
+            }
+
+            const html = await pageRes.text();
+            const jsonLd = extractEventJsonLd(html);
+            if (jsonLd) return jsonLd;
+
+            lastError = { type: "ParseError", reason: "No JSON-LD Event found", context: eventUrl };
+        } catch (error) {
+            // Isolate per-attempt fetch failures (timeout, DNS, connection reset) so a
+            // transient network blip doesn't discard events already parsed from earlier
+            // pages in the caller's loop.
+            lastError = { type: "ParseError", reason: `Failed to fetch event page: ${error}`, context: eventUrl };
+        }
+    }
+
+    return lastError;
+}
+
 export default class SeattleAstronomicalSocietyRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
@@ -147,34 +240,12 @@ export default class SeattleAstronomicalSocietyRipper implements IRipper {
         const errors: RipperError[] = [];
 
         for (const eventUrl of eventUrls) {
-            let html: string;
-            try {
-                const pageRes = await fetchFn(eventUrl, { headers: { "User-Agent": USER_AGENT } });
-                if (!pageRes.ok) {
-                    errors.push({
-                        type: "ParseError",
-                        reason: `HTTP ${pageRes.status} fetching event page`,
-                        context: eventUrl,
-                    });
-                    continue;
-                }
-                html = await pageRes.text();
-            } catch (error) {
-                // Isolate per-page fetch failures (timeout, DNS, connection reset) so one bad
-                // page doesn't discard events already parsed from earlier pages in this loop.
-                errors.push({
-                    type: "ParseError",
-                    reason: `Failed to fetch event page: ${error}`,
-                    context: eventUrl,
-                });
+            const jsonLdOrError = await fetchEventJsonLd(fetchFn, eventUrl);
+            if ("type" in jsonLdOrError) {
+                errors.push(jsonLdOrError);
                 continue;
             }
-
-            const jsonLd = extractEventJsonLd(html);
-            if (!jsonLd) {
-                errors.push({ type: "ParseError", reason: "No JSON-LD Event found", context: eventUrl });
-                continue;
-            }
+            const jsonLd = jsonLdOrError;
 
             // Skip events outside Seattle proper (regional club — see isSeattleEvent)
             if (!isSeattleEvent(jsonLd.location)) continue;
