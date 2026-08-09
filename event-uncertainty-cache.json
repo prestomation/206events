@@ -46465,7 +46465,8 @@
       },
       "resolvedAt": "2026-07-25",
       "source": "agent",
-      "evidence": "https://breweryrunningseries.com"
+      "evidence": "https://breweryrunningseries.com",
+      "lastSeen": "2026-08-09"
     },
     "native_action_network:6a5e823f05edd035928a8b0f": {
       "fields": {
@@ -54060,7 +54061,8 @@
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/node/4321475708"
+      "evidence": "https://www.openstreetmap.org/node/4321475708",
+      "lastSeen": "2026-08-09"
     },
     "venue:osm:way:1365269543": {
       "fields": {
@@ -57438,7 +57440,10 @@
     },
     "northwest-film-forum:cabaret-charlies-queer-books-2026-08-12": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/cabaretposter.png"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/cabaretposter.png",
+        "cost": {
+          "min": 15
+        }
       },
       "resolvedAt": "2026-08-09",
       "source": "agent",
@@ -57446,7 +57451,10 @@
     },
     "northwest-film-forum:chronovisor-2026-10-02": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/chronovisorposterTEMP.jpg"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/chronovisorposterTEMP.jpg",
+        "cost": {
+          "min": 15
+        }
       },
       "resolvedAt": "2026-08-09",
       "source": "agent",
@@ -57454,7 +57462,10 @@
     },
     "northwest-film-forum:remake-2026-08-12": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/remakeposterSMALL-1200x1800.jpg"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/remakeposterSMALL-1200x1800.jpg",
+        "cost": {
+          "min": 15
+        }
       },
       "resolvedAt": "2026-08-09",
       "source": "agent",
@@ -57462,7 +57473,10 @@
     },
     "northwest-film-forum:the-history-of-concrete-2026-10-02": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/historyofconcrete1600-1.png"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/historyofconcrete1600-1.png",
+        "cost": {
+          "min": 15
+        }
       },
       "resolvedAt": "2026-08-09",
       "source": "agent",
@@ -57470,7 +57484,10 @@
     },
     "seattle-folklore-society:seattle-folklore-society-hildaland-ethan-setiawan-louise-bichan-in-concert-sat-nov-21st-730-pm-2026-11-21": {
       "fields": {
-        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Hildaland-13-credit-Louise-Bichan-825x510.jpg"
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Hildaland-13-credit-Louise-Bichan-825x510.jpg",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-08-09",
       "source": "agent",
@@ -57478,7 +57495,10 @@
     },
     "seattle-folklore-society:seattle-folklore-society-newberry-verch-at-the-royal-room-2026-10-25": {
       "fields": {
-        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Newberry-Verch-Holiday-3-Sandlin-Gaither-600x411-1.jpg"
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Newberry-Verch-Holiday-3-Sandlin-Gaither-600x411-1.jpg",
+        "cost": {
+          "min": 25
+        }
       },
       "resolvedAt": "2026-08-09",
       "source": "agent",
@@ -57583,7 +57603,7 @@
     "seatoday:cityspark-19581737": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57629,7 +57649,7 @@
     "queer-social-club:6a73c2b6d38bb6646737934f": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57649,8 +57669,8 @@
     "queer-social-club:6a73fe4db5b9880d2616a7b1": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 20.0
+          "min": 10,
+          "max": 20
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57680,7 +57700,7 @@
     "queer-social-club:6a74fa91ebaa0e04e98b7bc6": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57730,7 +57750,7 @@
     "queer-social-club:6a761d493bdcf54959d183b6": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57740,7 +57760,7 @@
     "queer-social-club:6a76228a469d6b5c61575b66": {
       "fields": {
         "cost": {
-          "min": 45.0
+          "min": 45
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57770,7 +57790,7 @@
     "seattle-makers:seattle-makers-154847": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57780,7 +57800,7 @@
     "seattle-makers:seattle-makers-162085": {
       "fields": {
         "cost": {
-          "min": 175.0
+          "min": 175
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57800,7 +57820,7 @@
     "seattle-makers:seattle-makers-162090": {
       "fields": {
         "cost": {
-          "min": 100.0
+          "min": 100
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57820,7 +57840,7 @@
     "seattle-makers:seattle-makers-162408": {
       "fields": {
         "cost": {
-          "min": 140.0
+          "min": 140
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57830,7 +57850,7 @@
     "seattle-makers:seattle-makers-162447": {
       "fields": {
         "cost": {
-          "min": 140.0
+          "min": 140
         }
       },
       "resolvedAt": "2026-08-09",
@@ -57840,12 +57860,193 @@
     "seattle-makers:seattle-makers-162470": {
       "fields": {
         "cost": {
-          "min": 165.0
+          "min": 165
         }
       },
       "resolvedAt": "2026-08-09",
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/jointer-planer-certification-9/"
+    },
+    "rabbit_box:6a6c03c7e1e95e65a10d4970": {
+      "fields": {
+        "cost": {
+          "min": 20
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/chloe-tang"
+    },
+    "rabbit_box:6a6e2926f9e6c7653b2497ac": {
+      "fields": {
+        "cost": {
+          "min": 10,
+          "max": 15
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/sandalwood-macy-moose-birdie-fenn-cent-and-elliott-green"
+    },
+    "rabbit_box:6a6e3862e15c78663256c808": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-rabbit-box-presents-the-starlight-stage-lounge-dk3rw"
+    },
+    "rabbit_box:6a6e7412627f4d176ee1e3e4": {
+      "fields": {
+        "cost": {
+          "min": 18
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/rachael-sage-the-sequins-with-special-guest-tekla-waterfield"
+    },
+    "rabbit_box:6a738e8f115a1f29302cf083": {
+      "fields": {
+        "cost": {
+          "min": 35
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/venus-and-the-vixens-soundtrack-release-party"
+    },
+    "seattle-cocktail-club:6a1db154a2e1913896c8048f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/the-floating-cocktail-club"
+    },
+    "seattle-cocktail-club:6a21ab8849bd28307320dd62": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/happy-hour-at-judes"
+    },
+    "seattle-cocktail-club:6a26eb8492d25c199dff362c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/happy-hour-at-majnoon"
+    },
+    "seattle-cocktail-club:6a68ddc74111dc4fd3ca83e0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/happy-hour-at-ladyjaye-jn9kn"
+    },
+    "seattle-cocktail-club:6a68e16c3d5c363db0f6e688": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/happy-hour-at-judes-467w2"
+    },
+    "stg:tm-vvG1HZ_2mn-y7o": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/aterciopelados-la-pipa-de-la-paz-seattle-washington-11-08-2026/event/0F0064FBAA879111"
+    },
+    "stg:tm-vvG1HZ_CJwMaAF": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/oh-mary-touring-seattle-washington-11-08-2026/event/0F0064E9B2DC9148"
+    },
+    "stg:tm-vvG1HZ_GKqaTcR": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/taylor-mac-in-concert-tender-heart-seattle-washington-11-08-2026/event/0F0064C4DD27FB6F"
+    },
+    "seattle-chinese-garden:6a762b1b2f911702d4d3917d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seattlechinesegarden.org/visit"
+    },
+    "seattle-chinese-garden:6a77c296a6329b00af0216c4": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seattlechinesegarden.org/events/yoga-at-the-chinese-garden"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-08-15-bookstore-romance-day": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://qabookco.com/event/2026-08-15/bookstore-romance-day"
+    },
+    "seattle-creative-social:6a7380af3dd19e0cc6a600e8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.seattlecreativesocial.com/events/thirity-three"
+    },
+    "west-seattle-nursery:6a73cf8d623e901adfbf1339": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/ws-art-walk-featuring-marcia-bruno"
     }
   }
 }
