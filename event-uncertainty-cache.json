@@ -38117,7 +38117,8 @@
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-07-13",
       "source": "agent",
@@ -40773,7 +40774,8 @@
     },
     "cascade-bicycle-club:cascade-rsvp-2026": {
       "fields": {
-        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/54751197180_adc1459f74_k.jpg?h=a1e1a043&itok=n9XXuqlh"
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/54751197180_adc1459f74_k.jpg?h=a1e1a043&itok=n9XXuqlh",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
@@ -54409,7 +54411,8 @@
         "duration": 27000,
         "cost": {
           "min": 17
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -56379,7 +56382,8 @@
         "cost": {
           "min": 7.0
         },
-        "imageUrl": "https://wastategarlicfest.com/media/images/2026_Website_Cover_7.original.png"
+        "imageUrl": "https://wastategarlicfest.com/media/images/2026_Website_Cover_7.original.png",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -57479,6 +57483,62 @@
       "resolvedAt": "2026-08-09",
       "source": "agent",
       "evidence": "https://www.seafolklore.org/events/newberry-verch-at-the-royal-room/"
+    },
+    "venue:loc:columbia park, 4721 rainier ave s, seattle, wa 98118": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://rainierartscenter.org/98118-fest/"
+    },
+    "venue:osm:node:2360979446": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.tickettomato.com/event/10249/pioneer-square-s-nbsp-sips-in-the-square"
+    },
+    "venue:osm:node:2417109105": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://seattle.greencitypartnerships.org/event/44289/"
+    },
+    "venue:osm:way:1054956378": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://seattle.greencitypartnerships.org/event/44358/"
+    },
+    "venue:osm:way:245248689": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://seattle.greencitypartnerships.org/event/44325/"
+    },
+    "venue:osm:way:40790435": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/40790435"
+    },
+    "venue:osm:way:647896985": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://parks.wa.gov/find-activity/event-calendar/2026/aug/cambodian-cultural-celebration-2026"
     }
   }
 }
