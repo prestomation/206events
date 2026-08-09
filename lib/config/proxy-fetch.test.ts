@@ -380,6 +380,65 @@ describe("withCache (generic, over an arbitrary fetch fn)", () => {
         expect(stale[0].error).toBe("boom");
     });
 
+    it("does not cache a 2xx response with an empty body", async () => {
+        initFetchCache(emptyFetchCache());
+        const live: FetchFn = vi.fn(async () => new Response("", { status: 200 }));
+        const fetchFn = withCache(live);
+
+        const res = await fetchFn(URL);
+
+        expect(res.status).toBe(200);
+        expect(await res.text()).toBe("");
+        expect(getFetchCache()!.entries[URL]).toBeUndefined();
+    });
+
+    it("does not cache a 2xx response with a whitespace-only body", async () => {
+        initFetchCache(emptyFetchCache());
+        const live: FetchFn = vi.fn(async () => new Response("   \n  ", { status: 200 }));
+        const fetchFn = withCache(live);
+
+        await fetchFn(URL);
+
+        expect(getFetchCache()!.entries[URL]).toBeUndefined();
+    });
+
+    it("falls back to a stale copy (without overwriting it) when the live fetch returns 2xx with an empty body", async () => {
+        const cachedAt = new Date(Date.now() - 30 * 3600 * 1000).toISOString();
+        process.env.FETCH_CACHE_TTL_HOURS = "24";
+        initFetchCache({
+            version: 1,
+            entries: {
+                [URL]: { fetchedAt: cachedAt, status: 200, contentType: "text/calendar", content: "GOOD-ICS" },
+            },
+        });
+        const live: FetchFn = vi.fn(async () => new Response("", { status: 200 }));
+        const fetchFn = withCache(live);
+
+        const res = await fetchFn(URL);
+
+        // Serves the last good copy instead of the empty fresh body...
+        expect(await res.text()).toBe("GOOD-ICS");
+        // ...and the cache entry itself is untouched, not overwritten with "".
+        expect(getFetchCache()!.entries[URL].content).toBe("GOOD-ICS");
+        const stale = drainStaleServes();
+        expect(stale).toHaveLength(1);
+        expect(stale[0].url).toBe(URL);
+        expect(stale[0].error).toContain("Empty response body");
+    });
+
+    it("returns the empty response uncached when a 2xx-empty-body fetch has no stale copy to fall back to", async () => {
+        initFetchCache(emptyFetchCache());
+        const live: FetchFn = vi.fn(async () => new Response("", { status: 200 }));
+        const fetchFn = withCache(live);
+
+        const res = await fetchFn(URL);
+
+        expect(res.status).toBe(200);
+        expect(await res.text()).toBe("");
+        expect(getFetchCache()!.entries[URL]).toBeUndefined();
+        expect(drainStaleServes()).toHaveLength(0);
+    });
+
     it("keys POST requests by method + body so different bodies are distinct", async () => {
         initFetchCache({
             version: 1,
