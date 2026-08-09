@@ -1056,6 +1056,33 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   '1801 hub drive, sedro-woolley, washington, 98284': { lat: 48.5305500, lng: -122.2079486 },
   '14601 4th ave e, parkland, wa 98445': { lat: 47.1238678, lng: -122.4274024 },
   '1101 industry street, everett, washington, 98203': { lat: 47.9417379, lng: -122.2469617 },
+
+  // --- 2026-08-09 geo-resolver batch: today's build's non-vague geocodeErrors
+  // (all "Nominatim returned no results" on the raw source string) plus one
+  // legacy cache-wide "has street address" miss. Addresses verified against
+  // OSM's own indexed business/street record, then forward-geocoded via
+  // Nominatim. Never reverse-geocoded.
+  //
+  // Mill Creek Town Center coffee shop — source's own address, but Mill Creek
+  // (47.86N) sits just outside the configured Seattle-metro viewbox (north
+  // bound 47.8), so the bounded Nominatim query returns nothing even though
+  // the business is indexed.
+  'bequest coffee co, 15111 main street': { lat: 47.8609997, lng: -122.2202930 },
+  // seatoday's source string names the wrong street (S 180th St); OSM indexes
+  // this business at 8621 SW 43rd St, Kent — same building, business-name
+  // match confirms identity. Exact match only (no recognizable venue prefix
+  // to key on).
+  'behind the associated energy systems building, 8621 s 180th st, kent, wa': { lat: 47.4405450, lng: -122.2246373 },
+  // seatoday's location field leaked the class title ahead of the venue name;
+  // alias of the existing 'bellevue botanical garden' entry above.
+  'master your camera controls/bellevue botanical garden, seattle, wa': { lat: 47.609144, lng: -122.179506 },
+  // New Freeway Hall — Seattle DSA's meeting space at 5018 Rainier Ave S,
+  // Columbia City. Source duplicates the address text, confusing Nominatim;
+  // bare-name prefix matches the source's own naming convention.
+  'new freeway hall': { lat: 47.5565470, lng: -122.2839195 },
+  // One Fish Two Fish, Ballard — source duplicates "1400 NW 56th St..." twice
+  // in the same string, confusing Nominatim's parser.
+  '1400 nw 56th st.': { lat: 47.6698207, lng: -122.3744943 },
 };
 
 /**
