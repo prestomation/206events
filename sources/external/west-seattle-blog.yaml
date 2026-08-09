@@ -1,6 +1,13 @@
-# 2026-08-07: ICS endpoint returns empty (0 bytes); site uses All-in-One Event Calendar plugin
-# but the export URL is no longer functional. No working alternative ICS URL found.
-# Tribe Events and standard WordPress ?ical=1 URLs also return HTML. Non-fatal failure.
+# 2026-08-07 (re-confirmed 2026-08-09): ICS endpoint returns HTTP 200 with an
+# empty (0 byte) body; the site still uses the All-in-One Event Calendar
+# plugin and still renders events live on /events/, but the ai1ec_exporter
+# export controller itself is broken upstream. No working alternative ICS URL
+# found — plain http://, &xml=true, and standard WordPress/Tribe ?ical=1 URLs
+# all also fail (redirect-to-empty or return HTML). The blog and its events
+# calendar are NOT gone, so this source is intentionally kept (not disabled)
+# pending either an upstream fix or a future HTML-scraping ripper. Non-fatal
+# failure — see lib/calendar_ripper.ts external-fetch handling, which now
+# reports "Empty response body" instead of a bare "null" for this case.
 geo: null
 name: west-seattle-blog
 sourceRole: aggregator

@@ -73,14 +73,53 @@ export function withCache(liveFetch: FetchFn): FetchFn {
             });
         }
 
+        // Falls back to the last good cached copy, recording a stale serve so
+        // the build report flags it. Shared by the "live fetch threw" and
+        // "live fetch returned 2xx with an empty body" cases below. `reason`
+        // is stored verbatim in the stale-serve record's `error` field (kept
+        // as the exact underlying reason, not wrapped, so it reads the same
+        // as it always has); `logPrefix` only decorates the console message.
+        // Returns undefined (rather than throwing/returning) when there's no
+        // stale copy to fall back to, so callers can decide what to do next.
+        const serveStaleOr = (reason: string, logPrefix: string): Response | undefined => {
+            const stale = lookupAnyEntry(key);
+            if (!stale) return undefined;
+            const ageHours = Math.round((nowMs - Date.parse(stale.fetchedAt)) / 3_600_000);
+            recordStaleServe({ url: urlStr, cachedAt: stale.fetchedAt, ageHours, error: reason });
+            console.warn(`[fetch-cache] ${logPrefix} for ${urlStr}; serving stale cache from ${stale.fetchedAt} (~${ageHours}h old): ${reason}`);
+            return new Response(stale.content, {
+                status: stale.status,
+                headers: { "Content-Type": stale.contentType },
+            });
+        };
+
         // 2. Stale or missing — perform a real fetch.
         recordLiveFetch();
         try {
             const res = await liveFetch(url, init);
             const content = await res.text();
-            // Only cache successful responses so transient upstream error pages
-            // don't poison the cache.
-            if (res.status >= 200 && res.status < 300) {
+            const ok2xx = res.status >= 200 && res.status < 300;
+            // A 2xx response with an empty (or whitespace-only) body is never
+            // valid ICS/HTML/JSON content — it's a broken upstream endpoint
+            // (e.g. a calendar-plugin export that silently returns nothing)
+            // wearing a success status. Don't cache it (that would poison the
+            // cache and evict a real, working copy), and prefer serving the
+            // last good copy over a fresh-but-empty one so the source keeps
+            // working through a transient blip.
+            if (ok2xx && !content.trim()) {
+                recordLiveFailure();
+                const stale = serveStaleOr(`Empty response body (HTTP ${res.status} with no content)`, "live fetch returned an empty body");
+                if (stale) return stale;
+                // No stale copy to fall back to — return the real (empty)
+                // response uncached so the caller can decide how to report it.
+                return new Response(content, {
+                    status: res.status,
+                    headers: { "Content-Type": res.headers.get("content-type") ?? "" },
+                });
+            }
+            // Only cache successful, non-empty responses so transient upstream
+            // error pages (or empty bodies, above) don't poison the cache.
+            if (ok2xx) {
                 storeEntry(key, {
                     fetchedAt: new Date(nowMs).toISOString(),
                     status: res.status,
@@ -100,17 +139,9 @@ export function withCache(liveFetch: FetchFn): FetchFn {
             // 3. Live fetch failed — fall back to the last good copy if we have
             //    one, recording a stale serve so the build report flags it.
             recordLiveFailure();
-            const stale = lookupAnyEntry(key);
-            if (stale) {
-                const ageHours = Math.round((nowMs - Date.parse(stale.fetchedAt)) / 3_600_000);
-                const message = err instanceof Error ? err.message : String(err);
-                recordStaleServe({ url: urlStr, cachedAt: stale.fetchedAt, ageHours, error: message });
-                console.warn(`[fetch-cache] live fetch failed for ${urlStr}; serving stale cache from ${stale.fetchedAt} (~${ageHours}h old): ${message}`);
-                return new Response(stale.content, {
-                    status: stale.status,
-                    headers: { "Content-Type": stale.contentType },
-                });
-            }
+            const message = err instanceof Error ? err.message : String(err);
+            const stale = serveStaleOr(message, "live fetch failed");
+            if (stale) return stale;
             throw err;
         }
     };
