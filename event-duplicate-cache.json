@@ -11099,6 +11099,46 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-09",
       "note": "Same concert: Tractor Tavern presenting Night Two at Sunset Tavern; both venues listing the same event with title variants"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-11-09T15:00:00Z[UTC]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-11-09T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Identical event (same title, date, location, URL) in two UW external feeds"
+    },
+    "mr_bs_meadery-all-events.ics Rat City Art Walk Night|2026-08-20T17:00:00.018-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Rat City Art Walk Takeover|2026-08-20T17:00:00.385-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events at different venues on the same art walk route (Mr B's Meadery vs White Center Business Core)"
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event appearing in both seatoday-all and seatoday-community calendar segments"
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-08-20T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-08-20T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event appearing in both seatoday-all and seatoday-community calendar segments"
+    },
+    "seatoday-seatoday-arts.ics Summer Art|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event appearing in both seatoday-arts and seatoday-community calendar segments"
+    },
+    "seatoday-seatoday-arts.ics Summer Art|2026-08-20T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-08-20T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event appearing in both seatoday-arts and seatoday-community calendar segments"
+    },
+    "seattle-center-seattle-center-events.ics Freak the Mighty: ASL & Audio Described|2026-08-22T14:00:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Freak The Mighty |2026-08-22T14:00-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same 2 PM matinee at Bagley Wright Theatre; ASL & Audio Described is an accessibility feature of the same performance"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-08T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different physical locations: 1201 Eastlake Ave E vs 1551 Eastlake Ave E (321m apart)"
     }
   }
 }
