@@ -6,7 +6,7 @@ url: https://www.cuffcomplex.com/events
 tags: [Nightlife, "Capitol Hill"]
 firstSeen: 2026-07-22
 lastChecked: 2026-08-09
-pr: TBD
+pr: 1156
 ---
 
 Long-running Capitol Hill gay nightclub/leather bar at 1533 13th Ave —

@@ -2,4 +2,4 @@
 
 ## Source discovery: nightlife (candidate re-check)
 
-- ✅ Added: The Cuff Complex — Squarespace — 5 events — PR TBD
+- ✅ Added: The Cuff Complex — Squarespace — 5 events — PR #1156
