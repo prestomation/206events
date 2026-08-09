@@ -215,5 +215,19 @@ describe('SeaMonsterLoungeRipper', () => {
             });
             expect(cost).toEqual({ soldOut: true });
         });
+
+        it('returns undefined (not free) when lowestTicketPrice.amount is present but unparseable', () => {
+            const cost = extractSeaMonsterCost({
+                registration: { ticketing: { lowestTicketPrice: { amount: 'Contact for pricing' } } },
+            });
+            expect(cost).toBeUndefined();
+        });
+
+        it('drops a malformed highestTicketPrice.amount instead of embedding NaN', () => {
+            const cost = extractSeaMonsterCost({
+                registration: { ticketing: { lowestTicketPrice: { amount: '10.00' }, highestTicketPrice: { amount: 'TBD' } } },
+            });
+            expect(cost).toEqual({ min: 10 });
+        });
     });
 });

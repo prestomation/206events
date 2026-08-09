@@ -79,11 +79,17 @@ export function extractSeaMonsterCost(raw: SeaMonsterEvent): EventCost | undefin
     const lowestRaw = ticketing.lowestTicketPrice?.amount;
     if (lowestRaw !== undefined) {
         const min = parseFloat(lowestRaw);
-        if (!Number.isNaN(min)) {
-            const highestRaw = ticketing.highestTicketPrice?.amount;
-            const max = highestRaw !== undefined ? parseFloat(highestRaw) : undefined;
-            return max !== undefined && max !== min ? { min, max } : { min };
-        }
+        // A present-but-unparseable amount (e.g. "Contact for pricing") is an
+        // unknown, not a signal to fall through to the free-RSVP case below —
+        // never guess.
+        if (Number.isNaN(min)) return undefined;
+
+        const highestRaw = ticketing.highestTicketPrice?.amount;
+        const max = highestRaw !== undefined ? parseFloat(highestRaw) : undefined;
+        // Drop a malformed highest amount rather than embedding NaN (which
+        // serializes to `null` in the published JSON/ICS output) — fall back
+        // to a min-only cost instead of guessing a ceiling.
+        return max !== undefined && !Number.isNaN(max) && max !== min ? { min, max } : { min };
     }
 
     // Ticketing widget present but no priced ticket type configured — free
