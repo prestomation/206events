@@ -30,4 +30,8 @@ Proxy escalation 2026-07-14:
 Proxy verification 2026-07-29:
 - outofband rung verified: residential IP fetch returns HTTP 200 with valid ICS (6.4 KB, 2 future VEVENTs: 2026-08-20, 2026-09-24)
 - SiteGround sgcaptcha not triggered from this IP
+
+Proxy verification 2026-08-09 (out-of-band run):
+- outofband rung re-verified: residential IP fetch returns valid ICS with 3 VEVENTs, hasFutureEvents=true
+- SiteGround sgcaptcha not triggered from this IP
 - Merged PR #877 at outofband rung
