@@ -153,7 +153,7 @@ export function extractSeaMonsterEvents(
             if (result.cost === undefined) {
                 const uncertainty: UncertaintyError = {
                     type: "Uncertainty",
-                    reason: "No registration/ticketing data found for this Sea Monster Lounge event",
+                    reason: "No usable registration/ticketing price data for this Sea Monster Lounge event (either no registration block, or a non-numeric ticket price like \"Contact for pricing\")",
                     source: SOURCE_NAME,
                     unknownFields: ["cost"],
                     event: result,
