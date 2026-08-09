@@ -166,12 +166,14 @@ export function buildRetryUrl(eventUrl: string, attempt: number): string {
 /**
  * Fetch a single event detail page and extract its JSON-LD Event, retrying
  * (with backoff) when the page loads but the JSON-LD block isn't present yet —
- * see the MAX_JSONLD_RETRIES comment above. HTTP failures are also retried when
- * transient (429/5xx); a permanent failure (404, 403, ...) or thrown fetch
- * exception returns/records an error without burning further retry budget,
- * matching the retry-on-transient-error pattern used elsewhere in this repo
- * (e.g. sources/pike_place_market/ripper.ts). Returns the parsed JSON-LD, or
- * the last-seen ParseError if every attempt fails.
+ * see the MAX_JSONLD_RETRIES comment above. A thrown fetch exception (timeout,
+ * DNS, connection reset) is also retried, since those are inherently transient.
+ * HTTP failure *responses* are retried only when the status itself is transient
+ * (429/5xx, see isTransientHttpStatus) — a permanent failure (404, 403, ...)
+ * returns immediately instead of burning the rest of the retry budget on a page
+ * that won't recover. This mirrors the transient/permanent distinction used
+ * elsewhere in this repo (e.g. sources/pike_place_market/ripper.ts). Returns
+ * the parsed JSON-LD, or the last-seen ParseError if every attempt fails.
  */
 export async function fetchEventJsonLd(
     fetchFn: FetchFn,
