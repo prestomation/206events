@@ -15,6 +15,13 @@ geo:
   osmType: way
   osmId: 460348213
 calendars:
+  # 2026-08-09: confirmed via the live Squarespace ?format=json endpoint —
+  # `upcoming: []` currently, but `past` shows a real, roughly-monthly
+  # cadence (open houses, art/music events) with the most recent as recent
+  # as yesterday. Events get posted shortly before they happen, so the
+  # upcoming list often sits at 0 between postings — genuine intermittent
+  # programming, not a broken feed.
   - name: all-events
     friendlyname: "Georgetown Steam Plant"
     timezone: America/Los_Angeles
+    expectEmpty: true

@@ -16,9 +16,15 @@ geo:
   osmType: way
   osmId: 226324179
 calendars:
+  # 2026-08-09: 0 upcoming events on the Eventbrite organizer page. Matches
+  # the extensive pre-merge history in docs/source-candidates/railspur-seattle.md —
+  # the organizer sat at 0 upcoming for ~6 weeks (2026-05-16 through
+  # 2026-06-21) before a single event ("July Artwalk") appeared just before
+  # this source was added. Genuinely sporadic; not a broken integration.
   - name: railspur
     friendlyname: "RailSpur Seattle"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       organizerId: "120887697562"
       defaultLocation: "419 Occidental Ave S, Seattle, WA 98104"
