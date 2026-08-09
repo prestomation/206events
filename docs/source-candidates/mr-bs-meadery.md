@@ -6,7 +6,7 @@ url: https://www.mrbsmeadery.com/events
 tags: [Mead, "White Center"]
 firstSeen: 2026-08-08
 lastChecked: 2026-08-09
-pr:
+pr: 1154
 ---
 **Mr. B's Meadery** — two locations: Mr. B's Mead Center, 9444 Delridge Way
 SW, Seattle, WA 98106 (White Center) and the original "Hobbit Hole" location
