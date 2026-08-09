@@ -1,0 +1,18 @@
+name: mr_bs_meadery
+sourceRole: venue
+type: squarespace
+description: "Mr. B's Meadery"
+url: "https://www.mrbsmeadery.com/events"
+friendlyLink: https://www.mrbsmeadery.com/events
+tags: ["Mead", "White Center"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/62ba9484da1e5b5cb635c940/675640fc-9e3a-4e2b-a82c-0406491aa2bf/One+line+logo+-+WS+header.png"
+geo:
+  lat: 47.5181083
+  lng: -122.3554740
+  label: "Mr. B's Mead Center, 9444 Delridge Way SW, Seattle, WA 98106"
+  osmType: way
+  osmId: 238099138
+calendars:
+  - name: all-events
+    friendlyname: "Mr. B's Meadery"
+    timezone: America/Los_Angeles
