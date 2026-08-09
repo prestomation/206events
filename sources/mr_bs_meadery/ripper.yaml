@@ -1,0 +1,14 @@
+name: mr-bs-meadery
+type: squarespace
+description: "Mr. B's Meadery"
+url: "https://www.mrbsmeadery.com/events"
+friendlyLink: "https://www.mrbsmeadery.com/events"
+sourceRole: venue
+imageUrl: "https://static1.squarespace.com/static/62ba9484da1e5b5cb635c940/t/685da4d8302f6304fd2655de/1750967512286/One+line+logo+-+WS+header.png?format=1500w"
+geo: null
+tags: ["Mead", "White Center"]
+calendars:
+  - name: mr-bs-meadery
+    friendlyname: "Mr. B's Meadery"
+    timezone: America/Los_Angeles
+    tags: ["Mead", "White Center"]
