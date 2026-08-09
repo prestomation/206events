@@ -10824,6 +10824,281 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-08",
       "note": "Same show: Tractor Tavern's listing explicitly says 'AT The Sunset' — Tractor is presenting this Izaak Opatz show at The Sunset Tavern's room, same date/time. Both venues' calendars list it since Tractor is the promoter."
+    },
+    "19hz-all-events.ics Sam Gellaitry|2026-08-15T21:00:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Sam Gellaitry with Oliver Crosby|2026-08-15T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same show at The Showbox; AXS event ID 1471927 in both URLs"
+    },
+    "browne-family-vineyards-seattle-browne-family-vineyards-seattle.ics Sips in the Square|2026-08-22T13:00:00.282-07:00[America/Los_Angeles]::gray-sky-gallery-all-events.ics Pioneer Square's Sips in the Square|2026-08-22T13:00:00.451-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different venues: Grand Central Hall vs Gray Sky Gallery, different event listings"
+    },
+    "charlies-queer-books-all-events.ics Literary Fiction Book Club|2026-08-16T11:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Literary Fiction Book Club|2026-08-16T11:00:00.946-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same book club event at Charlie's Queer Books (465 N 36th St); queer-social-club has HTML entity in address"
+    },
+    "charlies-queer-books-all-events.ics Romance Book Club|2026-08-16T14:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Romance Book Club|2026-08-16T14:00:00.437-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same book club event at Charlie's Queer Books; queer-social-club has HTML entity in address"
+    },
+    "charlies-queer-books-all-events.ics Silent Book Club|2026-08-20T18:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Silent Book Club|2026-08-20T18:00:00.295-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same book club event at Charlie's Queer Books; queer-social-club has HTML entity in address"
+    },
+    "external-myballard.ics Ballard Bookworms Community Storytime|2026-08-09T10:30:00Z[UTC]::external-phinney-neighborhood-association.ics Ballard Bookworms Community Storytime|2026-08-09T10:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event at Ballard Locks (3015 NW 54th St); two neighborhood aggregators listing the same storytime"
+    },
+    "external-phinney-neighborhood-association.ics PhinneyWood Comic Book Show|2026-08-08T11:00:00Z[UTC]::external-seattle-gov-city-wide.ics PhinneyWood Comic Book Show|2026-08-08T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event at Phinney Center (6532 Phinney Ave N); two feeds listing the same show"
+    },
+    "external-populus-seattle.ics Sips in the Square After Party|2026-08-22T16:00:00Z[UTC]::gray-sky-gallery-all-events.ics Pioneer Square's Sips in the Square|2026-08-22T13:00:00.451-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events: main Sips in the Square at Gray Sky Gallery vs After Party at Populus Seattle; different venues, different times"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-08-12T12:00:00Z[UTC]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-08-12T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Identical event URL, same webinar; two UW calendar feeds listing the same online session"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-08-27T12:00:00Z[UTC]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-08-27T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Identical event URL, same webinar; two UW calendar feeds listing the same online session"
+    },
+    "external-uw-campus-events.ics Nature and Health Fall Community Dinner|2026-09-22T18:00:00Z[UTC]::external-uw-sustainability.ics Nature and Health Fall Community Dinner|2026-09-22T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event URL; two UW calendar feeds listing the same dinner"
+    },
+    "gray-sky-gallery-all-events.ics Pioneer Square's Sips in the Square|2026-08-22T13:00:00.451-07:00[America/Los_Angeles]::seattle-pride-all-events.ics Pioneer Square's Sips in the Square|2026-08-22T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Pioneer Square event; Gray Sky Gallery and Seattle Pride both listing the same neighborhood event"
+    },
+    "lumen-field-lumen-field.ics Seattle Seahawks vs. Los Angeles Chargers|2026-10-04T13:25:00-07:00[America/Los_Angeles]::sound_transit-sound-transit.ics Seahawks vs. Los Angeles|2026-10-04T13:25:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same NFL game at Lumen Field; Lumen Field and Sound Transit both listing the same Seahawks home game"
+    },
+    "lumen-field-lumen-field.ics Seattle Sounders FC vs. Chicago Fire FC|2026-08-29T13:30:00-07:00[America/Los_Angeles]::sound_transit-sound-transit.ics Sounders FC vs. Chicago|2026-08-29T13:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same MLS match at Lumen Field; title variants for same Sounders home game"
+    },
+    "queer-social-club-all-events.ics Album Release Show: GOOD GRIEF with Clover & Sabrina Saed|2026-09-01T20:00:00.531-07:00[America/Los_Angeles]::sunset-tavern-sunset-tavern.ics Clover, GOOD GRIEF, Sabrina Saed|2026-09-01T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same show at Sunset Tavern (5433 Ballard Ave NW); album release show listed by venue and by queer-social-club"
+    },
+    "queer-social-club-all-events.ics Rainbow Elder Play & Connect|2026-08-15T12:00:00.731-07:00[America/Los_Angeles]::seattle-pride-all-events.ics Rainbow Elder Play & Connect|2026-08-15T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event; queer-social-club and seattle-pride both listing the same Rainbow Elder gathering"
+    },
+    "queer-social-club-all-events.ics The Marvelous Miss Gender starring BOSCO|2026-08-21T20:00:00.454-07:00[America/Los_Angeles]::stg-stg-moore.ics The Marvelous Miss Gender starring BOSCO|2026-08-21T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same show at Moore Theatre (1932 2nd Ave); STG venue calendar and queer-social-club both listing the same performance"
+    },
+    "recurring-lake-washington-cars-and-coffee.ics Lake Washington Cars & Coffee|2026-08-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Lake Washington Cars & Coffee|2026-08-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same monthly car meet at Madrona Park; recurring source and seatoday aggregator both listing the same event"
+    },
+    "recurring-lake-washington-cars-and-coffee.ics Lake Washington Cars & Coffee|2026-08-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Lake Washington Cars & Coffee|2026-08-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same car meet at Madrona Park; same event appearing in seatoday food calendar"
+    },
+    "recurring-lake-washington-cars-and-coffee.ics Lake Washington Cars & Coffee|2026-08-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lake Washington Cars & Coffee|2026-08-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same car meet at Madrona Park; same event appearing in seatoday sports calendar"
+    },
+    "royal-room-all-events.ics Newberry & Verch|2026-10-25T19:30:00-07:00[America/Los_Angeles]::seattle-folklore-society-seattle-folklore-society.ics Newberry & Verch at the Royal Room!|2026-10-25T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same concert at The Royal Room (5000 Rainier Ave S); venue and Seattle Folklore Society both listing the same show"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-08-09T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-08-09T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event at The Missing Piece game store; seatoday has incorrect address (9456 35th Ave SW instead of 4707 California Ave SW B)"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-08-16T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-08-16T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event at The Missing Piece game store; seatoday has incorrect address"
+    },
+    "seatoday-seatoday-all.ics CL 102: Portable Lighting|2026-08-22T10:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics CL 102: Portable Lighting|2026-08-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Vera Project class at 305 Harrison Street, Seattle Center; seatoday label says Book-It but address is correct"
+    },
+    "seatoday-seatoday-all.ics Cello Concert with Gretchen Yanover|2026-08-12T10:45:00-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-08-12T10:45:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different venues: seatoday says Town Hall (1119 8th Ave) but SPL says Central Library (1000 4th Ave); different institutions 362m apart"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-08-17T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-08-17T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event at The Missing Piece; seatoday has incorrect address (9456 35th Ave SW vs actual 4707 California Ave SW B)"
+    },
+    "seatoday-seatoday-all.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Story Time|2026-08-12T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events: Firefighter Story Time (10:30am, no location) vs Story Time at Seattle Children's Museum (11:00am)"
+    },
+    "seatoday-seatoday-all.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Firefighter Story Time at SPL Ballard; seatoday has no location but same event ID and time"
+    },
+    "seatoday-seatoday-all.ics Homebuyer Education Workshop [VIRTUAL]|2026-08-22T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Homebuyer Education Workshop [VIRTUAL]|2026-08-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event listed in two seatoday category calendars (all and learning); identical event URL"
+    },
+    "seatoday-seatoday-all.ics Pet First Aid Class|2026-08-22T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Pet First Aid Class|2026-08-22T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event in two seatoday category calendars (all and community); identical event URL"
+    },
+    "seatoday-seatoday-all.ics Pet First Aid Class|2026-08-22T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Pet First Aid Class|2026-08-22T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event in two seatoday category calendars (all and learning); identical event URL"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-08-22T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-08-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event in two seatoday category calendars; identical event URL"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-08-22T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-08-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event in two seatoday category calendars; identical event URL"
+    },
+    "seatoday-seatoday-all.ics Story Time|2026-08-12T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events: Story Time at Seattle Children's Museum (11am) vs Firefighter Story Time (10:30am, no location)"
+    },
+    "seatoday-seatoday-all.ics Story Time|2026-08-12T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events: Story Time at Seattle Children's Museum (11am) vs Firefighter Story Time (10:30am, no location)"
+    },
+    "seatoday-seatoday-all.ics Story Time|2026-08-12T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events: Story Time at Seattle Children's Museum (11am) vs Firefighter Story Time (10:30am, no location)"
+    },
+    "seatoday-seatoday-arts.ics CL 102: Portable Lighting|2026-08-22T10:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics CL 102: Portable Lighting|2026-08-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Vera Project class at 305 Harrison St; seatoday arts calendar and Vera Project venue calendar"
+    },
+    "seatoday-seatoday-arts.ics Cello Concert with Gretchen Yanover|2026-08-12T10:45:00-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-08-12T10:45:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different venues: seatoday says Town Hall (1119 8th Ave) vs SPL says Central Library (1000 4th Ave)"
+    },
+    "seatoday-seatoday-arts.ics Crafting and Creativity Night|2026-08-17T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-08-17T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event at The Missing Piece; seatoday arts calendar has wrong address"
+    },
+    "seatoday-seatoday-arts.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Firefighter Story Time at SPL Ballard; seatoday arts calendar has no location but same event"
+    },
+    "seatoday-seatoday-arts.ics Story Time|2026-08-12T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events: Story Time at Seattle Children's Museum (11am) vs Firefighter Story Time (10:30am)"
+    },
+    "seatoday-seatoday-arts.ics Story Time|2026-08-12T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events: Story Time at Seattle Children's Museum (11am) vs Firefighter Story Time (10:30am)"
+    },
+    "seatoday-seatoday-community.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Firefighter Story Time at SPL Ballard; seatoday community calendar has no location"
+    },
+    "seatoday-seatoday-community.ics Pet First Aid Class|2026-08-22T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Pet First Aid Class|2026-08-22T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event in two seatoday category calendars; identical event URL"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-08-22T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-08-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same event in two seatoday category calendars; identical event URL"
+    },
+    "seatoday-seatoday-learning.ics CL 102: Portable Lighting|2026-08-22T10:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics CL 102: Portable Lighting|2026-08-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Vera Project class at 305 Harrison St; seatoday learning calendar and Vera Project"
+    },
+    "seatoday-seatoday-learning.ics Cello Concert with Gretchen Yanover|2026-08-12T10:45:00-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-08-12T10:45:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different venues: seatoday says Town Hall (1119 8th Ave) vs SPL says Central Library (1000 4th Ave)"
+    },
+    "seatoday-seatoday-learning.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Firefighter Story Time at SPL Ballard; seatoday learning calendar has no location"
+    },
+    "seatoday-seatoday-sports.ics CL 102: Portable Lighting|2026-08-22T10:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics CL 102: Portable Lighting|2026-08-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same Vera Project class at 305 Harrison St; seatoday sports calendar and Vera Project"
+    },
+    "seatoday-seatoday-sports.ics Cello Concert with Gretchen Yanover|2026-08-12T10:45:00-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-08-12T10:45:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different venues: seatoday says Town Hall (1119 8th Ave) vs SPL says Central Library (1000 4th Ave)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-07T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-07T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different food truck stops: 1201 Eastlake Ave E vs 1551 Eastlake Ave E; different locations 321m apart"
+    },
+    "spl-ballard.ics Firefighter Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Family Story Time|2026-08-12T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events at different library branches: Firefighter Story Time at Ballard Branch vs Family Story Time at Douglass-Truth Branch (8943m apart)"
+    },
+    "spl-lake-city.ics English Conversation Circle|2026-08-11T17:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual English Conversation Circle|2026-08-11T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-09",
+      "note": "Different events: in-person English Conversation Circle at Lake City Branch vs Virtual English Conversation Circle online; different times too"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Jesse Roper w/ Current Swell, Betsy Olson Band NIGHT ONE|2026-09-25T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Jesse Roper w/ Current Swell, Betsy Olson BandAT The Sunset|2026-09-25T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same concert: Tractor Tavern presenting Night One at Sunset Tavern; both venues listing the same event with title variants"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Jesse Roper, Tony Fulgham, Jessie Thoreson & The Crown Fire NIGHT TWO|2026-09-26T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Jesse Roper w/ Tony Fulgham, Jessie Thoreson & The Crown Fire AT The Sunset|2026-09-26T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-09",
+      "note": "Same concert: Tractor Tavern presenting Night Two at Sunset Tavern; both venues listing the same event with title variants"
     }
   }
 }
