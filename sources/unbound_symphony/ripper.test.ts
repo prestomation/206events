@@ -136,14 +136,20 @@ describe('parseSummerFestivalPage', () => {
         expect(events[0].duration.toDays()).toBe(4);
     });
 
-    it('parses the venue from a second heading when one is present', () => {
+    it('parses the venue from a second heading when one is present, and does not flag location as uncertain', () => {
         const html = parse(`<html><body><main><div class="sqs-html-content">
             <h2>2nd Unbound Symphony Summer Festival is scheduled for<br>July 7-10, 2027</h2>
             <h2>Highline Performing Arts Center<br>Burien, WA</h2>
         </div></main></body></html>`);
-        const events = parseSummerFestivalPage(html, url).filter(isEvent);
+        const results = parseSummerFestivalPage(html, url);
+        const events = results.filter(isEvent);
+        const uncertainty = results.find(e => 'type' in e && e.type === 'Uncertainty');
 
         expect(events[0].location).toBe('Highline Performing Arts Center, Burien, WA');
+        expect(uncertainty).toBeDefined();
+        if (uncertainty && 'unknownFields' in uncertainty) {
+            expect(uncertainty.unknownFields).toEqual(['startTime']);
+        }
     });
 
     it('flags the daily start time as uncertain', () => {
