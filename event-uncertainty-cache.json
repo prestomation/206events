@@ -39410,11 +39410,12 @@
     "events12:dance-in-the-park-2026-08-22": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-09",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/ - park event, outdoor; start time from previous resolution"
     },
     "events12:dance-in-the-park-2026-08-23": {
       "fields": {
@@ -57560,6 +57561,20 @@
       "source": "agent",
       "reason": "Source page lists event as \"All Day\" with no specific start/end hours given",
       "partialFingerprint": "pi5l8e"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "reason": "Event already occurred (Aug 1, 2026); start time no longer resolvable from source page"
+    },
+    "venue:osm:node:9546116668": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-09",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/9546116668"
     }
   }
 }
