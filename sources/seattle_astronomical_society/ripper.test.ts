@@ -10,6 +10,7 @@ import {
     isSeattleEvent,
     parseEventFromJsonLd,
     fetchEventJsonLd,
+    buildRetryUrl,
 } from "./ripper.js";
 import '@js-joda/timezone';
 
@@ -173,6 +174,28 @@ describe("parseEventFromJsonLd", () => {
     });
 });
 
+describe("buildRetryUrl", () => {
+    it("returns the plain eventUrl unchanged on attempt 0", () => {
+        const url = "https://www.seattleastro.org/events-1/membership-meetup-2026-08-19-18-30";
+        expect(buildRetryUrl(url, 0)).toBe(url);
+    });
+
+    it("adds a deterministic _sasRetry query param on later attempts", () => {
+        const url = "https://www.seattleastro.org/events-1/membership-meetup-2026-08-19-18-30";
+        expect(buildRetryUrl(url, 1)).toBe(`${url}?_sasRetry=1`);
+        expect(buildRetryUrl(url, 2)).toBe(`${url}?_sasRetry=2`);
+        // Deterministic (not timestamp-based) so repeated calls for the same
+        // attempt produce the same key, instead of growing the fetch cache
+        // with a fresh orphaned entry every time this path is hit.
+        expect(buildRetryUrl(url, 1)).toBe(buildRetryUrl(url, 1));
+    });
+
+    it("is safe when eventUrl already carries a query string", () => {
+        const url = "https://www.seattleastro.org/events-1/membership-meetup-2026-08-19-18-30?utm=x";
+        expect(buildRetryUrl(url, 1)).toBe(`${url}&_sasRetry=1`);
+    });
+});
+
 describe("fetchEventJsonLd", () => {
     afterEach(() => {
         vi.useRealTimers();
@@ -229,8 +252,7 @@ describe("fetchEventJsonLd", () => {
         await promise;
 
         expect(requestedUrls[0]).toBe(eventUrl);
-        expect(requestedUrls[1]).not.toBe(eventUrl);
-        expect(requestedUrls[1]).toContain(eventUrl);
+        expect(requestedUrls[1]).toBe(`${eventUrl}?_sasRetry=1`);
     });
 
     it("returns a ParseError after exhausting retries when the JSON-LD never appears", async () => {
@@ -271,6 +293,35 @@ describe("fetchEventJsonLd", () => {
         expect(fetchFn).toHaveBeenCalledTimes(2);
         expect((result as any).type).toBe("ParseError");
         expect((result as any).reason).toContain("Failed to fetch event page");
+    });
+
+    it("does not retry a permanent HTTP failure (e.g. 404) — returns immediately", async () => {
+        const fetchFn = vi.fn().mockResolvedValue({ ok: false, status: 404, text: async () => "" });
+
+        const result = await fetchEventJsonLd(fetchFn as any, eventUrl, 2);
+
+        expect(fetchFn).toHaveBeenCalledTimes(1); // no retries burned on a permanent failure
+        expect((result as any).type).toBe("ParseError");
+        expect((result as any).reason).toBe("HTTP 404 fetching event page");
+    });
+
+    it("retries a transient HTTP failure (429) but not a permanent one mixed into the same run", async () => {
+        vi.useFakeTimers();
+        let calls = 0;
+        const fetchFn = vi.fn().mockImplementation(async () => {
+            calls++;
+            // First attempt: transient (retried). Second attempt: permanent (stop).
+            return calls === 1
+                ? { ok: false, status: 429, text: async () => "" }
+                : { ok: false, status: 403, text: async () => "" };
+        });
+
+        const promise = fetchEventJsonLd(fetchFn as any, eventUrl, 2);
+        await vi.runAllTimersAsync();
+        const result = await promise;
+
+        expect(calls).toBe(2); // stopped after the 403 instead of using the 3rd attempt
+        expect((result as any).reason).toBe("HTTP 403 fetching event page");
     });
 });
 

@@ -137,13 +137,41 @@ export function parseEventFromJsonLd(
     };
 }
 
+/** Returns true for HTTP statuses worth retrying (rate limiting, server errors).
+ *  A permanent failure (404, 403, ...) won't be fixed by retrying, so return
+ *  immediately rather than burning the backoff budget — matches the
+ *  transient/permanent distinction in sources/pike_place_market/ripper.ts. */
+function isTransientHttpStatus(status: number): boolean {
+    return status === 429 || status >= 500;
+}
+
+/**
+ * Builds the URL for a given retry attempt. Attempt 0 uses the plain eventUrl;
+ * later attempts add a small, deterministic `_sasRetry` query param so each one
+ * bypasses the build's URL-keyed fetch cache (lib/fetch-cache.ts) and reaches
+ * the network again, instead of replaying the same cached response — verified
+ * necessary locally: without this, a build-time retry against the shared fetch
+ * cache just re-served the first (broken) response. The param is deterministic
+ * (attempt number, not a timestamp) so it doesn't grow the cache with a fresh
+ * orphaned entry on every retrying build. Uses the URL API rather than string
+ * concatenation so it's safe even if eventUrl already carries a query string.
+ */
+export function buildRetryUrl(eventUrl: string, attempt: number): string {
+    if (attempt === 0) return eventUrl;
+    const url = new URL(eventUrl);
+    url.searchParams.set("_sasRetry", String(attempt));
+    return url.toString();
+}
+
 /**
  * Fetch a single event detail page and extract its JSON-LD Event, retrying
  * (with backoff) when the page loads but the JSON-LD block isn't present yet —
- * see the MAX_JSONLD_RETRIES comment above. HTTP failures and fetch exceptions
- * are also retried, matching the retry-on-transient-error pattern used
- * elsewhere in this repo (e.g. sources/pike_place_market/ripper.ts).
- * Returns the parsed JSON-LD, or the last-seen ParseError if every attempt fails.
+ * see the MAX_JSONLD_RETRIES comment above. HTTP failures are also retried when
+ * transient (429/5xx); a permanent failure (404, 403, ...) or thrown fetch
+ * exception returns/records an error without burning further retry budget,
+ * matching the retry-on-transient-error pattern used elsewhere in this repo
+ * (e.g. sources/pike_place_market/ripper.ts). Returns the parsed JSON-LD, or
+ * the last-seen ParseError if every attempt fails.
  */
 export async function fetchEventJsonLd(
     fetchFn: FetchFn,
@@ -157,15 +185,7 @@ export async function fetchEventJsonLd(
             await sleep(RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1));
         }
 
-        // `fetchFn` is wrapped in the build's shared fetch cache (lib/fetch-cache.ts),
-        // keyed by URL — a second call to the same eventUrl within the cache's TTL
-        // window returns the *same* cached response instead of hitting the network
-        // again. That defeats a retry aimed at recovering from a transient Wix SSR
-        // gap (the page loads with a 200 but its JSON-LD snapshot hasn't populated
-        // yet). Retries append a cache-busting query param so each one forces a
-        // genuine live re-fetch; the canonical eventUrl (no query param) is still
-        // what's stored on the parsed event.
-        const fetchUrl = attempt === 0 ? eventUrl : `${eventUrl}?_sasRetry=${Date.now()}-${attempt}`;
+        const fetchUrl = buildRetryUrl(eventUrl, attempt);
 
         try {
             const pageRes = await fetchFn(fetchUrl, { headers: { "User-Agent": USER_AGENT } });
@@ -175,6 +195,7 @@ export async function fetchEventJsonLd(
                     reason: `HTTP ${pageRes.status} fetching event page`,
                     context: eventUrl,
                 };
+                if (!isTransientHttpStatus(pageRes.status)) return lastError;
                 continue;
             }
 
