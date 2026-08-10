@@ -11139,6 +11139,241 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-09",
       "note": "Different physical locations: 1201 Eastlake Ave E vs 1551 Eastlake Ave E (321m apart)"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-08-23T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-08-23T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same recurring American Mah Jongg class at The Missing Piece, exact date/time match; SeaToday carries a stale/older store address"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-all.ics Rise Within Summit: Discover Your Strength.  Lead with Confidence|2026-08-18T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Rise Within Summit: Discover Your Strength.  Lead with Confidence|2026-08-18T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Summer Quest: Piñata Workshop|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Summer Quest: Piñata Workshop|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Sunday Talks|2026-08-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sunday Talks|2026-08-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-all.ics The Third Annual Kings Of Kitsap Alumni Basketball Tournament|2026-08-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Third Annual Kings Of Kitsap Alumni Basketball Tournament|2026-08-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics The Third Annual Kings Of Kitsap Alumni Basketball Tournament|2026-08-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics The Third Annual Kings Of Kitsap Alumni Basketball Tournament|2026-08-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-18T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-18T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English|2026-08-17T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English|2026-08-17T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English|2026-08-17T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English|2026-08-17T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-community.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-community.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-community.ics The Third Annual Kings Of Kitsap Alumni Basketball Tournament|2026-08-23T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics The Third Annual Kings Of Kitsap Alumni Basketball Tournament|2026-08-23T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-13T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-18T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / Lớp học về Quốc tịch Trực tuyến và Trực tiếp - Tiếng Việt và Tiếng Anh|2026-08-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English|2026-08-17T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English|2026-08-17T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same 6amcity/SeaToday event id on both sides - cross-category listing of one aggregator event"
+    },
+    "seatoday-seatoday-learning.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-11T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-learning.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-13T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seatoday-seatoday-learning.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Tenants Rights Clinic|2026-08-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "SeaToday listing (no location given) matches the only SPL branch running this exact title at this exact date/time"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-09T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-10",
+      "note": "Different food truck stops (1201 vs 1551 Eastlake, ~321m apart) - distinct schedule feeds, not the same event"
     }
   }
 }
