@@ -1,3 +1,4 @@
+# verified: 2026-08-10 drift-fixed (months Apr-Oct→Feb-Nov)
 imageUrl: "https://images.squarespace-cdn.com/content/v1/675a320bec89ef0ffafe3f\
   fe/10812484-d1de-4225-b91f-367a5e3a62a2/IMG_9081.jpeg"
 geo:
@@ -25,6 +26,8 @@ schedules:
     start_time: "10:00"
     duration: PT6H
     months:
+      - 2
+      - 3
       - 4
       - 5
       - 6
@@ -32,3 +35,4 @@ schedules:
       - 8
       - 9
       - 10
+      - 11
