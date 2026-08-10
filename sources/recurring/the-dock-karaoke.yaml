@@ -6,6 +6,7 @@ geo:
   osmId: 115681579
 name: the-dock-karaoke
 sourceRole: venue
+imageUrl: "https://static.spotapps.co/spots/b5/cf98161e9a492a9e27b2a822700efe/w926"
 friendlyname: Karaoke Night at The Dock Sport Bar & Grill
 description: Weekly karaoke nights in Fremont, Thursday through Saturday, with drinks and bar food.
 timezone: America/Los_Angeles
@@ -15,6 +16,10 @@ tags:
   - Nightlife
   - Fremont
 cost: free
+# Venue's own page notes events are "not available during playoff games,
+# private events, or major sporting events" - not encodable as a schedule
+# exception, so an occasional false-positive occurrence is expected.
+# Re-verify periodically via the calendar-verification skill.
 schedules:
   - schedule: every Thursday
     start_time: "20:30"

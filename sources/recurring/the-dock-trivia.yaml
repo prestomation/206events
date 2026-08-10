@@ -6,6 +6,7 @@ geo:
   osmId: 115681579
 name: the-dock-trivia
 sourceRole: venue
+imageUrl: "https://static.spotapps.co/spots/bb/1e0d72e1c04d12872f751510f816d4/w926"
 friendlyname: Trivia Wednesdays at The Dock Sport Bar & Grill
 description: Weekly pub trivia in Fremont, run through Sporcle Events, with prizes for the top teams.
 timezone: America/Los_Angeles
@@ -15,6 +16,11 @@ tags:
   - Trivia
   - Fremont
 cost: free
+# Venue's own page notes trivia is "not available during playoff games,
+# private events, or major sporting events" and start time "may vary based
+# on sports completion" - not encodable as a schedule exception, so an
+# occasional false-positive occurrence is expected. Re-verify periodically
+# via the calendar-verification skill.
 schedules:
   - schedule: every Wednesday
     start_time: "19:30"
