@@ -37914,11 +37914,12 @@
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty — Freak the Mighty (Jul 30-Sep 6 2026) performs at the Bagley Wright Theater, Seattle Rep's indoor mainstage; matches setting already resolved for Aug 21 in the same run"
     },
     "events12:live-theater-2026-08-24": {
       "fields": {
@@ -39420,11 +39421,12 @@
     "events12:dance-in-the-park-2026-08-23": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/ — Dancing 'til Dusk series held at named outdoor Seattle parks (Westlake, Hing Hay, Freeway, Volunteer, Golden Gardens, etc.), page has a Rain Hotline and a smoke-cancellation notice; matches setting already resolved for prior dates in this series"
     },
     "events12:dance-in-the-park-2026-08-24": {
       "fields": {
@@ -55868,11 +55870,12 @@
         "cost": {
           "min": 7
         },
-        "imageUrl": "https://wastategarlicfest.com/media/images/2026_Website_Cover_7.original.png"
+        "imageUrl": "https://wastategarlicfest.com/media/images/2026_Website_Cover_7.original.png",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://wastategarlicfest.com"
+      "evidence": "https://wastategarlicfest.com — Southwest Washington Fairgrounds; festival entertainment (Saloon Stage) and food-vendor lines are outdoor on the fairgrounds, matching the outdoor classification already resolved for Aug 21/22 in this series (a small craft-vendor building exists but isn't the dominant setting)"
     },
     "events12:wine-walk-2026-08-22": {
       "fields": {
