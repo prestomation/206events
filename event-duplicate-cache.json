@@ -11374,6 +11374,31 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-10",
       "note": "Different food truck stops (1201 vs 1551 Eastlake, ~321m apart) - distinct schedule feeds, not the same event"
+    },
+    "19hz-all-events.ics Sazon Seattle: Dina, Mijo|2026-08-14T21:30:00-07:00[America/Los_Angeles]::vice-seattle-all-events.ics SAZON - PERREO FOREVER w DINA (LA) + MIJO|2026-08-14T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same event at Vice Seattle Aug 14, same time — title is the same event, different formatting between aggregator and venue feed"
+    },
+    "19hz-all-events.ics Sorry For Party Rocking|2026-09-11T21:00:00-07:00[America/Los_Angeles]::chop-suey-all-events.ics Sorry For Party Rocking (2010 – 2015 Pop & EDM Bangers All Night Long)|2026-09-11T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same event at Chop Suey Sep 11 9pm — Chop Suey feed has a subtitle, 19hz uses short title"
+    },
+    "19hz-all-events.ics TR/ST (DJ Set), Marie Davidson|2026-10-30T22:00:00-07:00[America/Los_Angeles]::substation-substation.ics TR/ST (DJ Set) x Marie Davidson x Dark Chisme x MØAA|2026-10-30T22:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same event at Substation Oct 30 — both link to same Eventbrite event ID 1995508424415; 19hz lists headliners only, Substation lists full lineup"
+    },
+    "19hz-all-events.ics The Afrobeats Party: 5 Year Anniversary|2026-08-29T21:00:00-07:00[America/Los_Angeles]::nectar-lounge-nectar-lounge.ics Afrobeats Party 5 Year Anniversary with Nayiram & Friends|2026-08-29T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same event at Nectar Lounge Aug 29 9pm — same time, same venue, title variant (with vs without artist name)"
+    },
+    "19hz-all-events.ics The Afrobeats Party: 5 Year Anniversary|2026-08-29T21:00:00-07:00[America/Los_Angeles]::seattle-showlists-nectar-lounge.ics Afrobeats Party 5 Year Anniversary with Nayiram & Friends|2026-08-29T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-10",
+      "note": "Same event at Nectar Lounge Aug 29 — 1hr time offset is likely doors vs set-start; same venue, title variant"
     }
   }
 }

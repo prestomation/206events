@@ -57657,6 +57657,344 @@
       "resolvedAt": "2026-08-10",
       "source": "agent",
       "reason": "Event page publishes no pricing/entry-cost text at all (unlike sibling recurring events at this venue, which explicitly state 'Entry: Free / No Cover'); venue FAQ states cost varies by programming so it cannot be inferred from other nights."
+    },
+    "burke-museum:burke-amber-stephens-artist-studio": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/amber-stephens-artist-studio"
+    },
+    "burke-museum:burke-jamie-pesquiza-cardenas-artist-studio": {
+      "fields": {
+        "cost": {
+          "min": 24.0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/visit (general admission 4; event included with admission)"
+    },
+    "pacific-science-center:240895": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Event page lists dates Aug 6-9 but no specific start/end times; event has passed"
+    },
+    "19hz:19hz-2026/08/13-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Source URL is Instagram profile only (not event page); no pricing or end time available"
+    },
+    "19hz:19hz-2026/08/20-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Source URL is Instagram profile only (not event page); no pricing or end time available"
+    },
+    "19hz:19hz-2026/08/27-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Source URL is Instagram profile only (not event page); no pricing or end time available"
+    },
+    "19hz:19hz-2026/08/15-Trans Music Showcase Afterparty": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Instagram post source; end time not listed on event page"
+    },
+    "19hz:19hz-2026/08/15-Jace M b2b Toy Armada": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Instagram post source; end time not listed on event page"
+    },
+    "19hz:19hz-2026/08/22-Morabito": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Instagram post source; end time not listed on event page"
+    },
+    "19hz:19hz-2026/08/31-Electric Blue: Constantine K, Wizard Moded": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Instagram post source; end time not listed on event page"
+    },
+    "19hz:19hz-2026/08/20-TKVR: August V.M.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Tixr event page returned HTTP 403; end time not accessible"
+    },
+    "19hz:19hz-2026/08/15-We Found Love: A 2010s EDM + Pop Party": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Instagram post source; no end time or pricing available"
+    },
+    "19hz:19hz-2026/08/29-Skrillex, Porter Robinson, Ninajirachi, Underscores, Dylan Brady, Nick Leon": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "AXS event page returned HTTP 403; end time and pricing not accessible"
+    },
+    "19hz:19hz-2026/09/25-Seven Lions with the Seattle Symphony": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Seattle Symphony ticket page redirected to queue; end time and pricing not accessible"
+    },
+    "19hz:19hz-2026/11/28-TVBOO, Doctor P, Ozztin": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "AXS event page returned HTTP 403; end time and pricing not accessible"
+    },
+    "19hz:19hz-2026/08/14-Two Room Takeover: The Afrobeats Party x Bubble Up": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DbgfACmj2za/ - Instagram post, no pricing listed"
+    },
+    "19hz:19hz-2026/08/29-The Afrobeats Party: 5 Year Anniversary": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DatEhwKvBB6/ - Instagram post, no pricing listed"
+    },
+    "19hz:19hz-2026/09/11-DJ Lag": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://events.globalbouncepresents.com/p/j53e4nxw - ticketed event, tickets not yet on sale"
+    },
+    "19hz:19hz-2026/09/12-Makes Me Dazed: Leafar Legov (Live)": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://ra.co/events/2500991 - RA event page returned 403; ticketed event"
+    },
+    "19hz:19hz-2026/09/18-What So Not": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/what-so-not-tickets-1990824690240 - Eventbrite ticketed, no price listed"
+    },
+    "19hz:19hz-2026/10/03-Nicky Romero": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/nicky-romero-193300 - Tixr returned 403; ticketed Q Nightclub event"
+    },
+    "19hz:19hz-2026/10/15-ALTEGO": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/wrg-presents-altgo - ticketed nightclub event, price not listed"
+    },
+    "19hz:19hz-2026/10/17-Eazybaked, Distinct Motive, rSUN": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DbmOi2fmRn3 - Instagram post, no pricing listed"
+    },
+    "19hz:19hz-2026/10/30-TR/ST (DJ Set), Marie Davidson": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/trst-x-marie-davidson-tickets-1995508424415 - Eventbrite ticketed, no price listed"
+    },
+    "19hz:19hz-2026/11/07-Capochino": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/capochino-tickets-1986265943907 - Eventbrite ticketed, no price listed"
+    },
+    "19hz:19hz-2026/11/13-HVDES": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/wrg-presents-hvdes - ticketed nightclub event, price not listed"
+    },
+    "19hz:19hz-2026/12/11-Bryce Alakai": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/bryce-alakai-201660 - Tixr returned 403; ticketed Q Nightclub event"
+    },
+    "ballard-brewed:6a70cf1dbae4d53ed3a9bd36": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/1xjh9uquloso92vz49wz9hiz8ezzuw-nw4dt-hhnpw-9ehzw - brewery collaboration event, no admission charge listed; free to attend (pay for beer)"
+    },
+    "ballard-brewed:6a7179cbba1c976fe5117300": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/nhq3ga7q0u6s02f4dxzhytqdp0o61d-hyd43-zzxm7-339ge-a8myz-nk9az-eaat5-eatwa-cg9xe-2y764-xcs7p-2azln-rhhnp-a22jj-ew8zg-2ehbb-3hpcg-jhmw6-pw54h-7kkjw-enkb2-4ylra-7s879-36lfx - monthly book club at brewery, no admission listed; free community event"
+    },
+    "ballard-brewed:6a717a4dd4d024765a55fc7f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/nhq3ga7q0u6s02f4dxzhytqdp0o61d-hyd43-zzxm7-339ge-a8myz-nk9az-eaat5-eatwa-cg9xe-2y764-xcs7p-2azln-rhhnp-a22jj-ew8zg-2ehbb-3hpcg-jhmw6-pw54h-7kkjw-enkb2-4ylra-7s879-cnbmw - monthly book club at brewery, no admission listed; free community event"
+    },
+    "ballard-brewed:6a71805a4be0d7075c2e3cb5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/nhq3ga7q0u6s02f4dxzhytqdp0o61d-hyd43-zzxm7-339ge-a8myz-nk9az-eaat5-eatwa-cg9xe-2y764-xcs7p-2azln-rhhnp-a22jj-ew8zg-2ehbb-3hpcg-jhmw6-pw54h-7kkjw-enkb2-4ylra-7s879-j2hdb - monthly book club at brewery, no admission listed; free community event"
+    },
+    "ballard-brewed:6a718a04d05daa4997da53a1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/obec-9-year-beeriversary-weekend - brewery anniversary celebration, no admission listed; free community event"
+    },
+    "ballard-brewed:6a718e15d2d7ca553157ce03": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/ballard-makers-market-bar-hop-59s5g-jt6r9 - outdoor makers market, no admission charge listed; free entry per pricing rubric (paid vendors inside)"
+    },
+    "ballard-brewed:6a718fbad624da1e45189b94": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/ballard-makers-market-bar-hop-59s5g-sf6bp - outdoor makers market, no admission charge listed; free entry"
+    },
+    "ballard-brewed:6a7190020c95d2729a687bfa": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/ballard-makers-market-bar-hop-59s5g-kaklt-mxr3j - outdoor makers market, no admission charge listed; free entry"
+    },
+    "ballard-brewed:6a71909cca7163410090b5fb": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/macabre-makers-market-w25h2 - makers market, no admission charge listed; free entry per pricing rubric"
+    },
+    "ballard-brewed:6a719298d4ed824b91037324": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/mens-group-meeting-gz88k-s4re4-nmkam-tssr6-jahks-42dlw-tpjbc-y4mbw-ttpc3-4jfhc-5rkee-dywf3-xll5k-nkmap-tdcry-c8p45-cp7tt-tla3e - monthly group run at brewery; no admission, free community event"
+    },
+    "ballard-brewed:6a7191cf88a61b606996b274": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/ballard-oktoberfest-1-2fgw5-2y69y-m69x6 - Oktoberfest event, no pricing listed on page; could be ticketed or free"
+    },
+    "ballard-brewed:6a7193a3e55c4b5e91684cde": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/quadsmas-1-ha5fn-sdnh3-pd5sj - Belgian quad tasting event at brewery, no admission listed; brewery special event (free entry, pay for drinks)"
     }
   }
 }
