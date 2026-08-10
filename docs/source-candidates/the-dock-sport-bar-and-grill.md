@@ -6,7 +6,7 @@ url: https://fremontdock.com/seattle-fremont-the-dock-sport-bar-and-grill-events
 tags: [Trivia, Nightlife, Fremont]
 firstSeen: 2026-08-06
 lastChecked: 2026-08-10
-pr:
+pr: 1172
 ---
 
 Fremont sports bar with recurring weekly trivia (Wed) and karaoke
