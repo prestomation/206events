@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6488884
+  lng: -122.3437903
+  label: "The Dock Sport Bar & Grill, 1102 N 34th St, Seattle, WA 98103"
+  osmType: way
+  osmId: 115681579
+name: the-dock-trivia
+sourceRole: venue
+friendlyname: Trivia Wednesdays at The Dock Sport Bar & Grill
+description: Weekly pub trivia in Fremont, run through Sporcle Events, with prizes for the top teams.
+timezone: America/Los_Angeles
+location: "1102 N 34th St, Seattle, WA 98103"
+url: https://fremontdock.com/seattle-fremont-the-dock-sport-bar-and-grill-events
+tags:
+  - Trivia
+  - Fremont
+cost: free
+schedules:
+  - schedule: every Wednesday
+    start_time: "19:30"
+    duration: PT2H

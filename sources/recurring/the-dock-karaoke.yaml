@@ -1,0 +1,27 @@
+geo:
+  lat: 47.6488884
+  lng: -122.3437903
+  label: "The Dock Sport Bar & Grill, 1102 N 34th St, Seattle, WA 98103"
+  osmType: way
+  osmId: 115681579
+name: the-dock-karaoke
+sourceRole: venue
+friendlyname: Karaoke Night at The Dock Sport Bar & Grill
+description: Weekly karaoke nights in Fremont, Thursday through Saturday, with drinks and bar food.
+timezone: America/Los_Angeles
+location: "1102 N 34th St, Seattle, WA 98103"
+url: https://fremontdock.com/seattle-fremont-the-dock-sport-bar-and-grill-events
+tags:
+  - Nightlife
+  - Fremont
+cost: free
+schedules:
+  - schedule: every Thursday
+    start_time: "20:30"
+    duration: PT3H30M
+  - schedule: every Friday
+    start_time: "21:00"
+    duration: PT5H
+  - schedule: every Saturday
+    start_time: "20:00"
+    duration: PT6H
