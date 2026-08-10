@@ -20,6 +20,8 @@ const MONTHS: Record<string, number> = {
 };
 
 const CONCURRENCY_LIMIT = 5;
+const PAGE_FETCH_RETRIES = 2;
+const PAGE_FETCH_RETRY_DELAY_MS = 500;
 
 // WordPress taxonomy IDs for show locations
 const LOCATION_LASER_DOME = 40;
@@ -107,19 +109,42 @@ export default class PacificScienceCenterRipper implements IRipper {
                 batch.map(async (item: any) => {
                     const link = item.link;
                     if (!link) return { item, html: null };
-                    try {
-                        const pageRes = await fetch(link);
-                        if (!pageRes.ok) return { item, html: null };
-                        const html = await pageRes.text();
-                        return { item, html };
-                    } catch {
-                        return { item, html: null };
-                    }
+                    const html = await this.fetchPageWithRetry(link);
+                    return { item, html };
                 })
             );
             results.push(...batchResults);
         }
         return results;
+    }
+
+    /**
+     * Fetch a single event/show page, retrying on transient failures
+     * (network errors, 5xx, 429) before giving up. Individual page
+     * fetches occasionally fail transiently under the site's rate
+     * limiting even though the page itself is live and well-formed —
+     * without a retry, a single flaky fetch surfaces as a misleading
+     * "could not extract event date" error.
+     */
+    private async fetchPageWithRetry(link: string): Promise<string | null> {
+        for (let attempt = 0; attempt <= PAGE_FETCH_RETRIES; attempt++) {
+            try {
+                const pageRes = await fetch(link);
+                if (pageRes.ok) {
+                    return await pageRes.text();
+                }
+                // Don't bother retrying permanent client errors (404, etc.)
+                if (pageRes.status < 500 && pageRes.status !== 429) {
+                    return null;
+                }
+            } catch {
+                // fall through to retry
+            }
+            if (attempt < PAGE_FETCH_RETRIES) {
+                await new Promise(resolve => setTimeout(resolve, PAGE_FETCH_RETRY_DELAY_MS * (attempt + 1)));
+            }
+        }
+        return null;
     }
 
     public parseEvents(eventPages: { item: any, html: string | null }[], timezone: ZoneRegion): RipperEvent[] {
@@ -131,10 +156,21 @@ export default class PacificScienceCenterRipper implements IRipper {
                     ? decode(event.title.rendered)
                     : "Untitled Event";
 
-                let heroDateText: string | null = null;
-                if (heroHtml) {
-                    heroDateText = this.extractHeroDate(heroHtml);
+                if (!heroHtml) {
+                    // Distinct from "date not found on the page" below: this
+                    // means the page fetch itself failed (network error,
+                    // non-2xx status). Conflating the two previously made
+                    // transient fetch failures look like a markup/parsing
+                    // regression.
+                    events.push({
+                        type: "ParseError",
+                        reason: `Could not fetch event page for "${title}"`,
+                        context: event.link || undefined
+                    });
+                    continue;
                 }
+
+                const heroDateText = this.extractHeroDate(heroHtml);
 
                 if (!heroDateText) {
                     events.push({
@@ -438,9 +474,16 @@ export default class PacificScienceCenterRipper implements IRipper {
             );
 
             const minutes = startDate.until(endDate, ChronoUnit.MINUTES);
+
+            // Source supplied only start/end dates, no times — we publish a
+            // midnight-to-midnight span as a placeholder and flag both the
+            // start time and duration so the resolver can replace them with
+            // the real values, same as the date-only case below.
             return {
                 startDate,
-                duration: Duration.ofMinutes(minutes > 0 ? minutes : 1440)
+                duration: Duration.ofMinutes(minutes > 0 ? minutes : 1440),
+                unknownFields: ["startTime", "duration"],
+                rawText: text,
             };
         }
 

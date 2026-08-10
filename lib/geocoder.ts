@@ -1083,6 +1083,12 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // One Fish Two Fish, Ballard — source duplicates "1400 NW 56th St..." twice
   // in the same string, confusing Nominatim's parser.
   '1400 nw 56th st.': { lat: 47.6698207, lng: -122.3744943 },
+
+  // --- 2026-08-10 geo-resolver batch: "venue name only" unresolvable entry.
+  // Address verified against Yelp/EverOut's own listing, then forward-geocoded
+  // via Nominatim (OSM indexes it under the shortened name "Badlands"). Never
+  // reverse-geocoded.
+  'montana badlands': { lat: 47.6243134, lng: -122.3565780 }, // 532 Queen Anne Ave N, Seattle — bar/pub, OSM node 12297741870
 };
 
 /**
