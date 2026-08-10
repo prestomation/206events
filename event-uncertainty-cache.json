@@ -57592,11 +57592,71 @@
     },
     "northwest-film-forum:cyanotype-workshop-suns-excrusion-interbay-cinema-society-2026-09-20": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/ICS_Cyanotype_Workshop_-FlyerA.jpg"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/ICS_Cyanotype_Workshop_-FlyerA.jpg",
+        "cost": {
+          "min": 150.0,
+          "max": 300.0
+        }
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/education/workshops/cyanotype-workshop-suns-excrusion-interbay-cinema-society/"
+    },
+    "mccaw-hall:tm-vvG1HZ_26b1chK": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/derek-hough-dance-for-the-holidays-seattle-washington-11-09-2026/event/0F0064F1D82AD6D3"
+    },
+    "the-cuff-complex:6a73721dc87dff3a00d15c3c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/x5w4bn72hlhmhn8g3fkjadxyz88bgb-82735"
+    },
+    "the-cuff-complex:6a7674f186bbd14b91579370": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/lnb32wms5ce8g5afmhs284ymmls35f"
+    },
+    "the-cuff-complex:6a76767bf35bf3259e1a4cb2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/tbc4r94rjzfer7284zse5fl5w7yftl"
+    },
+    "the-cuff-complex:6a7676d49c2dbb45cf2a0145": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/re2ftlcfs2a83syc6775glam8f8es5"
+    },
+    "the-cuff-complex:6a767800cf83647cfef74ba0": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Event page publishes no pricing/entry-cost text at all (unlike sibling recurring events at this venue, which explicitly state 'Entry: Free / No Cover'); venue FAQ states cost varies by programming so it cannot be inferred from other nights."
     }
   }
 }
