@@ -1,5 +1,6 @@
 name: marymoor-movies
 sourceRole: venue
+expectEmpty: true
 description: "KeyBank Outdoor Movies at Marymoor Park"
 url: "https://www.epiceap.com/movies-at-marymoor/"
 friendlyLink: https://www.epiceap.com/movies-at-marymoor/
