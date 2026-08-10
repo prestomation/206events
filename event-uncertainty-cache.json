@@ -57520,7 +57520,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.trumba.com/i/DgA5zl0sph-rPMRZK6jLunWW.jpg"
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
@@ -57589,6 +57590,18 @@
       "reason": "Ticketmaster listing for this Nov 9, 2026 Ballpark Tour is date-only (no time published) -- the event page itself is 403-blocked to automated fetches, and the published 2026 regular-season tour schedule (10:30am/12:30pm gameday, 12:30pm/2:30pm non-gameday) does not cover Nov 2026, which is outside the regular season, so no reliable off-season time could be confirmed without guessing.",
       "partialFingerprint": "97htzf"
     },
+    "northwest-film-forum:cyanotype-workshop-suns-excrusion-interbay-cinema-society-2026-09-20": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/ICS_Cyanotype_Workshop_-FlyerA.jpg",
+        "cost": {
+          "min": 150.0,
+          "max": 300.0
+        }
+      },
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/cyanotype-workshop-suns-excrusion-interbay-cinema-society/"
+    },
     "mccaw-hall:tm-vvG1HZ_26b1chK": {
       "fields": {
         "cost": {
@@ -57598,17 +57611,6 @@
       "resolvedAt": "2026-08-10",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/derek-hough-dance-for-the-holidays-seattle-washington-11-09-2026/event/0F0064F1D82AD6D3"
-    },
-    "northwest-film-forum:cyanotype-workshop-suns-excrusion-interbay-cinema-society-2026-09-20": {
-      "fields": {
-        "cost": {
-          "min": 150.0,
-          "max": 300.0
-        }
-      },
-      "resolvedAt": "2026-08-10",
-      "source": "agent",
-      "evidence": "https://nwfilmforum.org/education/workshops/cyanotype-workshop-suns-excrusion-interbay-cinema-society/"
     },
     "the-cuff-complex:6a73721dc87dff3a00d15c3c": {
       "fields": {
