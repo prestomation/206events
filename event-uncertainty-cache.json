@@ -9167,11 +9167,9 @@
     },
     "19hz:19hz-2026/10/07-Jane Remover, Dazegxd": {
       "unresolvable": true,
-      "reason": "Ticketmaster returned 403; time cell contained date not time — duration unknown",
-      "resolvedAt": "2026-05-18",
+      "resolvedAt": "2026-08-10",
       "source": "agent",
-      "partialFingerprint": "1636ksl",
-      "lastSeen": "2026-07-12"
+      "reason": "Ticketmaster page returned HTTP 403; duration unavailable"
     },
     "discover-slu:discover-slu-weekend-vibes-market": {
       "fields": {
@@ -57682,89 +57680,89 @@
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Event page lists dates Aug 6-9 but no specific start/end times; event has passed"
+      "reason": "Event dates Aug 6-9 have passed; page lists no specific start time"
     },
     "19hz:19hz-2026/08/13-Westworld": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Source URL is Instagram profile only (not event page); no pricing or end time available"
+      "reason": "Instagram profile only (w3stworld); no event-specific time or cost info accessible"
     },
     "19hz:19hz-2026/08/20-Westworld": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Source URL is Instagram profile only (not event page); no pricing or end time available"
+      "reason": "Instagram profile only (w3stworld); no event-specific time or cost info accessible"
     },
     "19hz:19hz-2026/08/27-Westworld": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Source URL is Instagram profile only (not event page); no pricing or end time available"
+      "reason": "Instagram profile only (w3stworld); no event-specific time or cost info accessible"
     },
     "19hz:19hz-2026/08/15-Trans Music Showcase Afterparty": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Instagram post source; end time not listed on event page"
+      "reason": "Start time 9 PM found but end time not stated; duration cannot be determined"
     },
     "19hz:19hz-2026/08/15-Jace M b2b Toy Armada": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Instagram post source; end time not listed on event page"
+      "reason": "Start time 10 PM found but end time not stated; duration cannot be determined"
     },
     "19hz:19hz-2026/08/22-Morabito": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Instagram post source; end time not listed on event page"
+      "reason": "Instagram post returned no content; duration cannot be determined"
     },
     "19hz:19hz-2026/08/31-Electric Blue: Constantine K, Wizard Moded": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Instagram post source; end time not listed on event page"
+      "reason": "Instagram post; end time not stated, duration cannot be determined"
     },
     "19hz:19hz-2026/08/20-TKVR: August V.M.": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Tixr event page returned HTTP 403; end time not accessible"
+      "reason": "Tixr page returned HTTP 403; duration unavailable"
     },
     "19hz:19hz-2026/08/15-We Found Love: A 2010s EDM + Pop Party": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Instagram post source; no end time or pricing available"
+      "reason": "Instagram post returned no content; cannot determine time or cost"
     },
     "19hz:19hz-2026/08/29-Skrillex, Porter Robinson, Ninajirachi, Underscores, Dylan Brady, Nick Leon": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "AXS event page returned HTTP 403; end time and pricing not accessible"
+      "reason": "AXS page returned HTTP 403; duration and cost unavailable"
     },
     "19hz:19hz-2026/09/25-Seven Lions with the Seattle Symphony": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "Seattle Symphony ticket page redirected to queue; end time and pricing not accessible"
+      "reason": "Cart page redirects to queue-it waiting room; no ticket or event details accessible"
     },
     "19hz:19hz-2026/11/28-TVBOO, Doctor P, Ozztin": {
       "unresolvable": true,
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "reason": "AXS event page returned HTTP 403; end time and pricing not accessible"
+      "reason": "AXS page returned HTTP 403; duration and cost unavailable"
     },
     "19hz:19hz-2026/08/14-Two Room Takeover: The Afrobeats Party x Bubble Up": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 10.0
         }
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.instagram.com/p/DbgfACmj2za/ - Instagram post, no pricing listed"
+      "evidence": "https://www.instagram.com/p/DbgfACmj2za/ — Global Bounce Presents event page: $10 early bird advance price"
     },
     "19hz:19hz-2026/08/29-The Afrobeats Party: 5 Year Anniversary": {
       "fields": {
@@ -57774,7 +57772,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.instagram.com/p/DatEhwKvBB6/ - Instagram post, no pricing listed"
+      "evidence": "https://www.instagram.com/p/DatEhwKvBB6/ — Instagram post, no pricing listed"
     },
     "19hz:19hz-2026/09/11-DJ Lag": {
       "fields": {
@@ -57784,7 +57782,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://events.globalbouncepresents.com/p/j53e4nxw - ticketed event, tickets not yet on sale"
+      "evidence": "https://events.globalbouncepresents.com/p/j53e4nxw — ticketed event, tickets not yet on sale"
     },
     "19hz:19hz-2026/09/12-Makes Me Dazed: Leafar Legov (Live)": {
       "fields": {
@@ -57794,7 +57792,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://ra.co/events/2500991 - RA event page returned 403; ticketed event"
+      "evidence": "https://ra.co/events/2500991 — RA event page returned 403; ticketed event"
     },
     "19hz:19hz-2026/09/18-What So Not": {
       "fields": {
@@ -57804,7 +57802,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/what-so-not-tickets-1990824690240 - Eventbrite ticketed, no price listed"
+      "evidence": "https://www.eventbrite.com/e/what-so-not-tickets-1990824690240 — Eventbrite ticketed, no price listed"
     },
     "19hz:19hz-2026/10/03-Nicky Romero": {
       "fields": {
@@ -57814,7 +57812,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.tixr.com/groups/qnightclub/events/nicky-romero-193300 - Tixr returned 403; ticketed Q Nightclub event"
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/nicky-romero-193300 — Tixr returned 403; ticketed Q Nightclub event"
     },
     "19hz:19hz-2026/10/15-ALTEGO": {
       "fields": {
@@ -57824,7 +57822,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://posh.vip/e/wrg-presents-altgo - ticketed nightclub event, price not listed"
+      "evidence": "https://posh.vip/e/wrg-presents-altgo — ticketed nightclub event, price not listed"
     },
     "19hz:19hz-2026/10/17-Eazybaked, Distinct Motive, rSUN": {
       "fields": {
@@ -57834,7 +57832,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.instagram.com/p/DbmOi2fmRn3 - Instagram post, no pricing listed"
+      "evidence": "https://www.instagram.com/p/DbmOi2fmRn3 — Instagram post, no pricing listed"
     },
     "19hz:19hz-2026/10/30-TR/ST (DJ Set), Marie Davidson": {
       "fields": {
@@ -57844,7 +57842,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/trst-x-marie-davidson-tickets-1995508424415 - Eventbrite ticketed, no price listed"
+      "evidence": "https://www.eventbrite.com/e/trst-x-marie-davidson-tickets-1995508424415"
     },
     "19hz:19hz-2026/11/07-Capochino": {
       "fields": {
@@ -57854,7 +57852,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/capochino-tickets-1986265943907 - Eventbrite ticketed, no price listed"
+      "evidence": "https://www.eventbrite.com/e/capochino-tickets-1986265943907 — Eventbrite ticketed, no price listed"
     },
     "19hz:19hz-2026/11/13-HVDES": {
       "fields": {
@@ -57864,7 +57862,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://posh.vip/e/wrg-presents-hvdes - ticketed nightclub event, price not listed"
+      "evidence": "https://posh.vip/e/wrg-presents-hvdes — ticketed nightclub event, price not listed"
     },
     "19hz:19hz-2026/12/11-Bryce Alakai": {
       "fields": {
@@ -57874,7 +57872,7 @@
       },
       "resolvedAt": "2026-08-10",
       "source": "agent",
-      "evidence": "https://www.tixr.com/groups/qnightclub/events/bryce-alakai-201660 - Tixr returned 403; ticketed Q Nightclub event"
+      "evidence": "https://www.tixr.com/groups/qnightclub/events/bryce-alakai-201660 — Tixr returned 403; ticketed Q Nightclub event"
     },
     "ballard-brewed:6a70cf1dbae4d53ed3a9bd36": {
       "fields": {
@@ -57995,6 +57993,12 @@
       "resolvedAt": "2026-08-10",
       "source": "agent",
       "evidence": "https://www.ballardbrewed.com/events/quadsmas-1-ha5fn-sdnh3-pd5sj - Belgian quad tasting event at brewery, no admission listed; brewery special event (free entry, pay for drinks)"
+    },
+    "19hz:19hz-2026/09/11-Sevag H": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-10",
+      "source": "agent",
+      "reason": "Instagram post says \"ticket link coming soon\"; no time or cost posted yet"
     }
   }
 }
