@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import PacificScienceCenterRipper from './ripper.js';
 import { RipperCalendarEvent } from '../../lib/config/schema.js';
 import { ZoneRegion, LocalDate } from '@js-joda/core';
@@ -94,6 +94,17 @@ describe('PacificScienceCenterRipper', () => {
             // Duration should span from Mar 12 00:00 to Mar 15 23:59
             const durationDays = result!.duration.toMinutes() / 60 / 24;
             expect(durationDays).toBeCloseTo(4, 0);
+        });
+
+        it('flags multi-day date ranges as uncertain (no times supplied)', () => {
+            // e.g. "Pacific Science Center: Corporate Member Weekend" —
+            // the hero only gives a start/end date, no times, so the
+            // midnight-to-midnight span is a guess and must be flagged
+            // the same way the single-date-only case is below.
+            const result = ripper.parseHeroDate('August 6 - August 9', timezone);
+            expect(result).not.toBeNull();
+            expect(result!.unknownFields).toEqual(['startTime', 'duration']);
+            expect(result!.rawText).toBe('August 6 - August 9');
         });
 
         it('parses date-only format', () => {
@@ -192,7 +203,7 @@ describe('PacificScienceCenterRipper', () => {
             expect(calEvents[0].description).toBe('Step into PacSci after hours for an unforgettable evening.');
         });
 
-        it('returns parse error when HTML is null', () => {
+        it('returns a distinct parse error when the page fetch failed (html is null)', () => {
             const eventPages = [{
                 item: { id: 1, title: { rendered: 'Test Event' }, link: 'https://example.com' },
                 html: null
@@ -201,9 +212,14 @@ describe('PacificScienceCenterRipper', () => {
             const events = ripper.parseEvents(eventPages, timezone);
             expect(events).toHaveLength(1);
             expect('type' in events[0] && events[0].type).toBe('ParseError');
+            // A failed fetch must not be reported as a date-extraction
+            // problem — that phrasing wrongly implies the page loaded but
+            // lacked date markup, which sends investigation down the wrong
+            // path (see root cause of the pac_sci false-positive ParseErrors).
+            expect('reason' in events[0] && events[0].reason).toContain('Could not fetch event page');
         });
 
-        it('returns parse error when hero date cannot be found', () => {
+        it('returns parse error when hero date cannot be found on a successfully-fetched page', () => {
             const eventPages = [{
                 item: { id: 1, title: { rendered: 'Test Event' }, link: 'https://example.com' },
                 html: '<html><body>No hero section</body></html>'
@@ -212,6 +228,31 @@ describe('PacificScienceCenterRipper', () => {
             const events = ripper.parseEvents(eventPages, timezone);
             expect(events).toHaveLength(1);
             expect('type' in events[0] && events[0].type).toBe('ParseError');
+            expect('reason' in events[0] && events[0].reason).toContain('Could not extract event date');
+        });
+
+        it('parses a real multi-day event page and flags the guessed time span as uncertain', () => {
+            // Real fixture: pacificsciencecenter.org/events/corporate-member-weekend/
+            const sampleHtml = fs.readFileSync(path.join(__dirname, 'sample-event-page-multiday.html'), 'utf8');
+
+            const eventPages = [{
+                item: {
+                    id: 240895,
+                    title: { rendered: 'Corporate Member Weekend' },
+                    link: 'https://pacificsciencecenter.org/events/corporate-member-weekend/',
+                },
+                html: sampleHtml
+            }];
+
+            const events = ripper.parseEvents(eventPages, timezone);
+            const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+            const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty');
+
+            expect(calEvents).toHaveLength(1);
+            expect(calEvents[0].summary).toBe('Corporate Member Weekend');
+            expect(calEvents[0].date.monthValue()).toBe(8);
+            expect(calEvents[0].date.dayOfMonth()).toBe(6);
+            expect(uncertainties).toHaveLength(1);
         });
 
         it('decodes HTML entities in titles', () => {
@@ -264,6 +305,62 @@ describe('PacificScienceCenterRipper', () => {
             expect(calEvents).toHaveLength(1);
             expect(calEvents[0].description).toBeUndefined();
             expect(calEvents[0].imageUrl).toBeUndefined();
+        });
+    });
+
+    describe('fetchPageWithRetry (transient fetch failure resilience)', () => {
+        afterEach(() => {
+            vi.unstubAllGlobals();
+            vi.useRealTimers();
+        });
+
+        it('retries after a transient network error and succeeds', async () => {
+            vi.useFakeTimers();
+            let calls = 0;
+            vi.stubGlobal('fetch', vi.fn(async () => {
+                calls++;
+                if (calls === 1) throw new Error('network hiccup');
+                return { ok: true, status: 200, text: async () => '<div class="hero-event__description">March 1, 7:00 p.m.</div>' } as unknown as Response;
+            }));
+
+            const resultPromise = (ripper as unknown as { fetchPageWithRetry(link: string): Promise<string | null> })
+                .fetchPageWithRetry('https://example.com/events/retry-me/');
+            await vi.runAllTimersAsync();
+            const html = await resultPromise;
+
+            expect(calls).toBe(2);
+            expect(html).toContain('hero-event__description');
+        });
+
+        it('retries on HTTP 503 and gives up after exhausting retries', async () => {
+            vi.useFakeTimers();
+            let calls = 0;
+            vi.stubGlobal('fetch', vi.fn(async () => {
+                calls++;
+                return { ok: false, status: 503, text: async () => '' } as unknown as Response;
+            }));
+
+            const resultPromise = (ripper as unknown as { fetchPageWithRetry(link: string): Promise<string | null> })
+                .fetchPageWithRetry('https://example.com/events/always-503/');
+            await vi.runAllTimersAsync();
+            const html = await resultPromise;
+
+            expect(calls).toBe(3); // initial attempt + 2 retries
+            expect(html).toBeNull();
+        });
+
+        it('does not retry a permanent 404', async () => {
+            let calls = 0;
+            vi.stubGlobal('fetch', vi.fn(async () => {
+                calls++;
+                return { ok: false, status: 404, text: async () => '' } as unknown as Response;
+            }));
+
+            const html = await (ripper as unknown as { fetchPageWithRetry(link: string): Promise<string | null> })
+                .fetchPageWithRetry('https://example.com/events/gone/');
+
+            expect(calls).toBe(1);
+            expect(html).toBeNull();
         });
     });
 
