@@ -429,14 +429,22 @@ export function PagedDayList({ events, restoreKey = null, withReason = false, pe
   // which would otherwise throw away the window we just restored above. The
   // saved scroll offset goes with it, so a stale deep position can't be
   // restored into a freshly-filtered list.
-  const prevEventsRef = useRef(events)
+  //
+  // Keyed on the content signature, not array identity: `App.jsx` republishes
+  // `perFilterMatches` as a fresh Map on every corpus checkpoint, which
+  // cascades into a brand-new `flat` array with identical contents in the
+  // Following feed. On identity alone that reads as a filter edit, and would
+  // yank a reader who is scrolled deep in their feed back to the top seconds
+  // after boot with nothing actually changed. It also keeps this path
+  // consistent with the unmounted one below, which has always used contents.
+  const prevSignatureRef = useRef(signature)
   const resetViewScroll = app?.resetViewScroll
   // The view this list is rendered in, read during render — safe to use from
   // the effects below, which only run for a render that committed.
   const scrollKey = app?.scrollKey
   useEffect(() => {
-    if (prevEventsRef.current === events) return
-    prevEventsRef.current = events
+    if (prevSignatureRef.current === signature) return
+    prevSignatureRef.current = signature
     setVisibleCount(EVENTS_PAGE_SIZE)
     clearSeekTarget()
     // Re-seed rather than delete: `setVisibleCount` bails out when the count is
@@ -445,7 +453,7 @@ export function PagedDayList({ events, restoreKey = null, withReason = false, pe
     // mount, which skips the staleness check below and inherits the old offset.
     if (restoreKey) pageWindows.set(restoreKey, { count: EVENTS_PAGE_SIZE, signature })
     resetViewScroll?.(scrollKey)
-  }, [events, clearSeekTarget, restoreKey, resetViewScroll, scrollKey, signature])
+  }, [clearSeekTarget, restoreKey, resetViewScroll, scrollKey, signature])
 
   // The same swap, but made while this list was UNMOUNTED — the search box and
   // date filter stay usable on a detail page, so the reader can come back to a

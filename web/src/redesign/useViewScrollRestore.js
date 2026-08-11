@@ -145,21 +145,42 @@ export function useViewScrollRestore(viewKey) {
     // events avoids both halves of the trap: native scrollbar drags dispatch no
     // pointer events at all in Chromium, while `pointerdown` fires for every
     // tap on a button or link, where yielding would be wrong.
+    // The last position credited to this view, so a shrink can be told from a
+    // scroll (see below).
+    let remembered = target
     const onScroll = () => {
       if (!settled()) {
         if (Math.abs(el.scrollTop - applied) <= LANDED_SLACK_PX) return
         pendingRef.current = null // the reader moved it, not us
       }
-      remember(viewKey, el.scrollTop)
+      const top = el.scrollTop
+      // Swapping what the container holds — Discover's Events list for its much
+      // shorter Calendars grid, say — makes the browser move scrollTop on its
+      // own: Chromium clamps it to the new maximum, Firefox zeroes it outright,
+      // and both dispatch a scroll event for it synchronously with the DOM
+      // change, i.e. before this listener has been detached. Recording that
+      // would wipe the position the reader actually left.
+      //
+      // The tell is a single event that jumps more than a screen upward and
+      // lands exactly on a limit. Scrolling by wheel, touch or scrollbar walks
+      // there instead, so the event before the top is already near the top and
+      // this never fires.
+      const jumpedUp = remembered - top > el.clientHeight
+      const atLimit = top === 0 || top >= el.scrollHeight - el.clientHeight - LANDED_SLACK_PX
+      if (jumpedUp && atLimit) return
+      remembered = top
+      remember(viewKey, top)
     }
-    // Wheel and touch still get an explicit yield: they arrive *before* the
-    // scroll they cause, so the chase stops a frame earlier and never fights
-    // the very first movement.
+    // `wheel` still gets an explicit yield: it arrives *before* the scroll it
+    // causes, so the chase stops a frame earlier and never fights the very
+    // first movement, and unlike a tap it means nothing but scrolling.
+    // `touchstart` is deliberately NOT listened for — on a phone it fires for
+    // every tap on a button or link, so it would abort a restore for the same
+    // false-positive reason `pointerdown` is rejected above.
     const yieldToReader = () => { pendingRef.current = null }
 
     el.addEventListener('scroll', onScroll, { passive: true })
     el.addEventListener('wheel', yieldToReader, { passive: true })
-    el.addEventListener('touchstart', yieldToReader, { passive: true })
 
     // Re-apply on each frame while content is still arriving under us. Skipped
     // entirely whenever the first try landed, which is the common case.

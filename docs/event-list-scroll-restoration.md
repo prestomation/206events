@@ -81,10 +81,23 @@ Owns the scroll map and the restore. Three things beyond a plain assignment:
   recorded, so anything else the container ends up at came from the reader —
   wheel, touch, keyboard, a scrollbar drag, the day scrubber, anything. Guessing
   from input events fails at both ends: native scrollbar drags dispatch no
-  pointer events at all in Chromium, while `pointerdown` fires for every tap on
-  a button or link, where yielding (and recording a still-clamped offset) would
-  destroy the saved position outright. `wheel`/`touchstart` are still listened
-  for as a fast path, since they arrive before the scroll they cause.
+  pointer events at all in Chromium, while `pointerdown` and `touchstart` fire
+  for every tap on a button or link, where yielding (and recording a
+  still-clamped offset) would destroy the saved position outright. `wheel` is
+  still listened for as a fast path — it arrives before the scroll it causes and,
+  unlike a tap, means nothing but scrolling.
+- **Ignoring the browser's own scroll resets.** Swapping what the container
+  holds — Discover's Events list for its much shorter Calendars grid — makes the
+  browser move `scrollTop` itself: Chromium clamps to the new maximum, Firefox
+  zeroes it outright, and both dispatch a scroll event synchronously with the
+  DOM change, before the outgoing view's listener is detached. Recorded, that
+  wipes the position the reader left. The tell is a single event jumping more
+  than a screen upward and landing exactly on a limit; real scrolling walks
+  there, so the event before the top is already near the top.
+
+  Discover's two modes also get separate keys (`discover:events` /
+  `discover:calendars`) rather than sharing one, since their lengths differ by
+  an order of magnitude.
 
   Both halves of the stability rule matter. A bare "height stopped changing"
   check aborts during the flat period *before* content arrives — a venue page's
@@ -107,10 +120,18 @@ on the first assignment and never touches the chase loop above.
 The counterweight is the reset. `visibleCount` must still drop to one page on a
 *genuine* list swap — a filter edit, the soon→full index swap, saved-search
 matches landing — so the reader isn't left deep inside a list they didn't ask
-for. That effect is guarded by a `useRef` holding the previous `events`, so it
-fires on identity changes but not on mount, where it would throw away the window
-just restored. When it does fire it clears the saved page window *and* calls
-`resetViewScroll()` so the stale offset goes with it.
+for. That effect is guarded by a `useRef` holding the previous **signature**
+(not array identity: `App.jsx` republishes `perFilterMatches` as a fresh Map on
+every corpus checkpoint, which cascades into a brand-new array with identical
+contents in the Following feed), so it fires when the list really changed but
+not on mount, where it would throw away the window just restored. When it does
+fire it re-seeds the saved page window at one page *and* calls
+`resetViewScroll(scrollKey)` so the stale offset goes with it.
+
+It re-seeds rather than deletes on purpose: `setVisibleCount(EVENTS_PAGE_SIZE)`
+bails out when the count is already one page, so the persist effect never re-runs
+to replace a deleted entry — and a missing entry reads as "never visited" on the
+next mount, skipping the staleness check below entirely.
 
 That covers a swap made **while the list is mounted**. The search box and date
 filter stay usable on a detail page, though, so the reader can also change the
@@ -184,7 +205,8 @@ window inside a transition — not to cap it.
   even though the container is reused — #4;
 - editing the search while reading an event leaves the list at the top, as does
   narrowing it while the list is on screen (which otherwise clamps to the
-  bottom).
+  bottom);
+- Discover's Calendars and Events modes keep separate positions.
 
 `web/src/redesign/pagedDayList.test.jsx` pins the page window itself: it
 survives a remount, stays separate per `restoreKey`, never seeds beyond the

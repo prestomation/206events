@@ -298,6 +298,26 @@ test('editing the search while reading an event drops the saved position', async
     .toBeLessThanOrEqual(TOLERANCE)
 })
 
+test('Discover’s Calendars and Events modes keep separate scroll positions', async ({ page }) => {
+  await overrideEventsIndex(page, makeDeepEvents())
+  await gotoEvents(page)
+
+  const content = page.locator('.a-content')
+  const savedScroll = await pageDownTo(page, content, 'Event #150')
+  expect(savedScroll).toBeGreaterThan(2000)
+
+  // The two modes share the container but not their length — the Calendars grid
+  // is a couple of rows. Switching clamps the container, and without a separate
+  // key that clamped value overwrites the events list's real position.
+  await page.getByText('Calendars', { exact: true }).first().click()
+  await expect(page.locator('.a-content .ch').first()).toBeVisible()
+
+  await page.getByText('Events', { exact: true }).first().click()
+  await expect(page.locator('.a-content .ev').first()).toBeVisible()
+
+  await expectRestored(content, savedScroll)
+})
+
 test('narrowing the search while deep in the list lands at the top, not the bottom', async ({ page }) => {
   await overrideEventsIndex(page, makeDeepEvents())
   await gotoEvents(page)

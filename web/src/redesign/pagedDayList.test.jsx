@@ -128,6 +128,24 @@ describe('PagedDayList paging window', () => {
     expect(rowCount(remounted)).toBe(PAGE)
   })
 
+  it('leaves a mounted list alone when the array is rebuilt with identical contents', () => {
+    const model = makeModel()
+    const { container, rerender } = renderList(model, { events: makeEvents(150), restoreKey: 'rebuild-live' })
+    fireEvent.click(screen.getByRole('button', { name: 'Load more' }))
+    expect(rowCount(container)).toBe(PAGE * 2)
+
+    // App.jsx republishes `perFilterMatches` as a fresh Map on every corpus
+    // checkpoint, which cascades into a brand-new array with the same contents.
+    // Nothing changed for the reader, so nothing should move.
+    rerender(
+      <App206Context.Provider value={model}>
+        <PagedDayList events={makeEvents(150)} restoreKey="rebuild-live" />
+      </App206Context.Provider>,
+    )
+    expect(rowCount(container)).toBe(PAGE * 2)
+    expect(model.resetViewScroll).not.toHaveBeenCalled()
+  })
+
   it('drops the window and the saved scroll when the list changed while unmounted', () => {
     const model = makeModel()
 

@@ -469,8 +469,14 @@ export function App206(props) {
   // per event and per channel, so one detail page's offset is never restored
   // onto a different one, while the React `key` stays coarse so navigating
   // between two events doesn't remount the whole container.
+  // Discover's two modes share one container but are wildly different lengths,
+  // so they get separate offsets too: without that, switching to the shorter
+  // Calendars grid clamps the container and the scroll listener writes that
+  // clamped value over the events list's real position.
   const contentKey = openEventObj ? 'ev' : openCh ? 'ch' : section
-  const scrollKey = openEventObj ? `ev:${eventKey(openEventObj)}` : openCh ? `ch:${openCh}` : section
+  const scrollKey = openEventObj ? `ev:${eventKey(openEventObj)}`
+    : openCh ? `ch:${openCh}`
+      : section === 'discover' ? `discover:${emphasis}` : section
   const { containerRef: contentRef, resetViewScroll } = useViewScrollRestore(scrollKey)
 
   // The context value is memoized so its identity only changes when one of
