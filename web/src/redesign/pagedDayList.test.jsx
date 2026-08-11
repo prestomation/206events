@@ -46,6 +46,9 @@ function makeModel(overrides = {}) {
     openEvent: vi.fn(),
     openChannel: vi.fn(),
     resetViewScroll: vi.fn(),
+    // The view this list renders in; the list hands it back when asking for the
+    // saved offset to be dropped, so the right view's entry is cleared.
+    scrollKey: 'discover',
     channelByIcsUrl: new Map(),
     eventAttributions: new Map(),
     ...overrides,
@@ -156,6 +159,39 @@ describe('PagedDayList paging window', () => {
     const second = renderList(model, { events: makeEvents(150), restoreKey: 'rebuilt' })
     expect(rowCount(second.container)).toBe(PAGE * 2)
     expect(model.resetViewScroll).not.toHaveBeenCalled()
+  })
+
+  it('clears the offset of the view it renders in, not whichever was last active', () => {
+    const model = makeModel({ scrollKey: 'following' })
+
+    const first = renderList(model, { events: makeEvents(150), restoreKey: 'own-view' })
+    fireEvent.click(screen.getByRole('button', { name: 'Load more' }))
+    first.unmount()
+    model.resetViewScroll.mockClear()
+
+    renderList(model, { events: makeEvents(150, 'b'), restoreKey: 'own-view' })
+    expect(model.resetViewScroll).toHaveBeenCalledWith('following')
+  })
+
+  it('still notices a later swap after one that left the window at a single page', () => {
+    const model = makeModel()
+
+    // Swap while mounted, from a list that was never paged past one page. The
+    // count doesn't change, so React bails out of the re-render — the stored
+    // window has to be re-seeded rather than deleted, or the next mount reads
+    // "never visited" and skips the staleness check entirely.
+    const { rerender, unmount } = renderList(model, { events: makeEvents(150), restoreKey: 'bailout' })
+    rerender(
+      <App206Context.Provider value={model}>
+        <PagedDayList events={makeEvents(150, 'b')} restoreKey="bailout" />
+      </App206Context.Provider>,
+    )
+    unmount()
+    model.resetViewScroll.mockClear()
+
+    // Away from the list, the result set changes again.
+    renderList(model, { events: makeEvents(150, 'c'), restoreKey: 'bailout' })
+    expect(model.resetViewScroll).toHaveBeenCalledWith('discover')
   })
 
   it('never seeds a window larger than the list it is rendering', () => {

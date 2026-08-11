@@ -431,14 +431,21 @@ export function PagedDayList({ events, restoreKey = null, withReason = false, pe
   // restored into a freshly-filtered list.
   const prevEventsRef = useRef(events)
   const resetViewScroll = app?.resetViewScroll
+  // The view this list is rendered in, read during render — safe to use from
+  // the effects below, which only run for a render that committed.
+  const scrollKey = app?.scrollKey
   useEffect(() => {
     if (prevEventsRef.current === events) return
     prevEventsRef.current = events
     setVisibleCount(EVENTS_PAGE_SIZE)
     clearSeekTarget()
-    if (restoreKey) pageWindows.delete(restoreKey)
-    resetViewScroll?.()
-  }, [events, clearSeekTarget, restoreKey, resetViewScroll])
+    // Re-seed rather than delete: `setVisibleCount` bails out when the count is
+    // already one page, and then the persist effect never re-runs to replace a
+    // deleted entry. A missing entry reads as "never visited" on the next
+    // mount, which skips the staleness check below and inherits the old offset.
+    if (restoreKey) pageWindows.set(restoreKey, { count: EVENTS_PAGE_SIZE, signature })
+    resetViewScroll?.(scrollKey)
+  }, [events, clearSeekTarget, restoreKey, resetViewScroll, scrollKey, signature])
 
   // The same swap, but made while this list was UNMOUNTED — the search box and
   // date filter stay usable on a detail page, so the reader can come back to a
@@ -447,8 +454,8 @@ export function PagedDayList({ events, restoreKey = null, withReason = false, pe
   // must be a layout effect: App206's restore runs in the parent's layout phase,
   // which is after this one, so clearing here lands the new list at the top.
   useLayoutEffect(() => {
-    if (restored.stale) resetViewScroll?.()
-  }, [restored, resetViewScroll])
+    if (restored.stale) resetViewScroll?.(scrollKey)
+  }, [restored, resetViewScroll, scrollKey])
 
   const hasMore = visibleCount < events.length
   const loadMore = () => setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, events.length))

@@ -507,7 +507,7 @@ export function App206(props) {
     mapWidth, setMapWidth,
     debugMode, toggleDebug,
     // handlers
-    go, openChannel, openEvent, back, toggleFilter, flash, saveArea, resetViewScroll,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea, resetViewScroll, scrollKey,
   }), [
     calendars, eventsIndex, fullEventsLoaded, loading,
     favoritesSet, toggleFollow,
@@ -533,7 +533,7 @@ export function App206(props) {
     mapExpanded, toggleMapExpand, mapScope,
     mapWidth, setMapWidth,
     debugMode, toggleDebug,
-    go, openChannel, openEvent, back, toggleFilter, flash, saveArea, resetViewScroll,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea, resetViewScroll, scrollKey,
   ])
 
   let content

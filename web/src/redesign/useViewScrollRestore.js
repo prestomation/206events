@@ -54,14 +54,6 @@ export function useViewScrollRestore(viewKey) {
   const positionsRef = useRef(new Map())
   // { target, deadline } while a restore is being chased; null once settled.
   const pendingRef = useRef(null)
-  // The last *committed* view key. Written only from the layout effect below,
-  // never during render: navigation runs inside `startTransition`, and a
-  // render-phase write survives a discarded transition render — which would
-  // leave this pointing at a view that never appeared, and delete the wrong
-  // entry. (App206 documents the same hazard for its map keep-alive latch.)
-  const committedKeyRef = useRef(viewKey)
-  // Set by a caller that wants the NEXT restore skipped. See `resetViewScroll`.
-  const resetRequestedRef = useRef(false)
 
   const remember = useCallback((key, top) => {
     const positions = positionsRef.current
@@ -73,32 +65,26 @@ export function useViewScrollRestore(viewKey) {
     }
   }, [])
 
-  // Drop the saved offset for the view being restored — called when the
-  // underlying list turns out to have been replaced (a filter edit, a corpus
-  // swap), so a stale deep offset isn't restored into a different set of rows.
+  // Drop a view's saved offset — called when the list that view renders turns
+  // out to have been replaced (a filter edit, a corpus swap), so a stale deep
+  // offset isn't restored into a different set of rows.
   //
-  // It does two things because it serves two orderings. A caller that notices
-  // the swap in its own layout effect runs BEFORE this hook's (children first),
-  // so the key it wants cleared isn't committed yet — hence the request flag,
-  // consumed below. A caller that notices later, in a passive effect, runs
-  // after, so the committed key is already correct and can be deleted outright.
-  // Doing both means the first case also drops the view just left, which is a
-  // detail page whose offset barely matters and only when its list was stale.
-  const resetViewScroll = useCallback(() => {
-    resetRequestedRef.current = true
-    positionsRef.current.delete(committedKeyRef.current)
+  // The caller passes the key rather than the hook inferring "the current
+  // view", because there is no ordering in which that inference is right for
+  // everyone: a caller that notices in its own layout effect runs BEFORE this
+  // hook's (children first), one that notices in a passive effect runs after.
+  // Callers read the key from context during their own render, which is safe
+  // even though navigation runs inside `startTransition` — effects only run for
+  // renders that commit, so the value an effect closes over is a committed one.
+  const resetViewScroll = useCallback((key) => {
+    if (key === undefined) return
+    positionsRef.current.delete(key)
     pendingRef.current = null
   }, [])
 
   useLayoutEffect(() => {
     const el = containerRef.current
     if (!el) return undefined
-
-    committedKeyRef.current = viewKey
-    if (resetRequestedRef.current) {
-      resetRequestedRef.current = false
-      positionsRef.current.delete(viewKey)
-    }
 
     const target = positionsRef.current.get(viewKey) ?? 0
     let frame = 0
