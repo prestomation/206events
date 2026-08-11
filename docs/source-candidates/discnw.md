@@ -5,7 +5,7 @@ platform: Custom HTML
 url: https://www.discnw.org/en_us/e
 tags: [Sports]
 firstSeen: 2026-07-28
-lastChecked: 2026-07-29
+lastChecked: 2026-08-11
 pr:
 ---
 
@@ -43,3 +43,19 @@ one-off attendable happenings, which is worth weighing against the
 candidate` — deprioritized this cycle in favor of Seattle Tech Mixer
 (built-in Eventbrite type, PR #1054), a higher-confidence pick per the
 "always implement highest-confidence source first" rule.
+
+Re-checked 2026-08-11: confirmed the "is this really an event" concern
+is the dominant pattern, not the exception. Fetched the live AJAX
+endpoint again — of the ~24 listed items, the large majority are league
+registration windows, coaching/volunteer applications, and clinic
+sign-ups spanning weeks-to-a-year (e.g. "Application for Eligibility
+Review - 2026 to 2027" dated 6/1/26 - 5/31/27), not discrete attendable
+happenings. A small minority (e.g. "2026 Fall HS Bx Seattle Invite",
+"2026 Fall Gx Middle School Hat Tournament") read like genuine single
+tournament events, but distinguishing those from registration windows
+programmatically (no structured field differentiates them) adds real
+parsing risk on top of the already-flagged custom-scrape effort.
+Deprioritized again in favor of a cleaner data source this cycle
+(Saltstone Ceramics, PR pending). Left as `candidate` — worth a closer
+look at only the small number of genuine one-off tournament pages if
+revisited, rather than the full event list.

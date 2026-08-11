@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.eventbrite.com/e/monthly-open-sapphire-mining-night-at-glitter-gold-studio-tickets-1995498852786
 tags: [Classes, Social]
 firstSeen: 2026-08-07
-lastChecked: 2026-08-07
+lastChecked: 2026-08-11
 ---
 
 Discovered via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1vhb21g/montana_sapphire_mining_social_event_at_glitter/
@@ -28,3 +28,17 @@ calendar — all events are on Eventbrite)
 Organizer: Mary Elizabeth Linford (Eventbrite organizer ID not publicly
 accessible via profile page — returns 404). May need to search Eventbrite
 for "glitter gold studio" to find new monthly listings.
+
+Investigated 2026-08-11 as a `sources/recurring/` candidate (fixed venue,
+monthly cadence, no organizer feed needed): confirmed address via web
+search — 3201 1st Avenue South, Suite 112, Seattle, WA 98134 (the Trigger
+Building, SODO; OSM node 2350316323, 47.5752912/-122.3347486). **Rejected
+as a recurring-YAML source**: the studio's own listing text says the
+mining night is "the third Thursday of every month (more or less)", and
+the live August 2026 Eventbrite listing confirms it — Aug 13, 2026, which
+is the **2nd** Thursday of August, not the 3rd. A fixed `schedule: "3rd
+Thursday"` RRULE would have been wrong (generated Aug 20 instead of the
+real Aug 13 date). Without a stable ordinal-weekday pattern, this doesn't
+fit the recurring-YAML model — would need a real feed (organizer page,
+ICS) to track the actual monthly date, and none is available. Leaving as
+`candidate`; re-check periodically for an Eventbrite organizer page.

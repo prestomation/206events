@@ -1,12 +1,12 @@
 ---
 name: "Saltstone Ceramics"
-status: candidate
+status: added
 platform: Shopify (custom scrape — no built-in Shopify ripper type exists yet)
 url: https://saltstoneceramics.com/
 tags: [Arts, Wallingford]
 firstSeen: 2026-08-05
-lastChecked: 2026-08-05
-pr:
+lastChecked: 2026-08-11
+pr: 1179
 ---
 
 Previously logged `❌ Not Viable` on 2026-07-01 ("Shopify booking
@@ -39,3 +39,32 @@ currently exists in `lib/config/`) — need to:
 🔴 Low-tier effort (custom title parsing, class/merch filtering). Worth
 implementing next cycle — Wallingford doesn't have many dedicated
 sources yet.
+
+Implemented 2026-08-11: added `sources/saltstone_ceramics/` (custom
+`JSONRipper` subclass, filtering `product_type === "retail-class"`).
+Title parsing handles three observed date shapes (cross-month range,
+same-month day range, single date) plus an optional weekday token.
+Multi-day/multi-week listings expand into **one event per actual
+occurrence** (not a single RRULE event) — filtering by weekday when
+stated, otherwise every calendar day for short spans (≤6 days) or
+weekdays-only for longer spans (camps/intensives), matching every
+example observed in the live catalog. Per-event `cost` (from
+`variants[0].price`, or `soldOut: true` when the variant is
+unavailable) and `imageUrl` (from `images[0].src`) come straight from
+the Shopify payload — no uncertainty/photo-gap queue needed.
+`ONLY_SOURCE` build confirmed 82 events, 0 errors, 0 unparseable
+titles against the live fixture.
+
+Note: while testing, discovered that the shared ICS TZID post-process
+in `lib/config/schema.ts` (~line 445) mis-assigns `DTSTART` when a
+calendar mixes `rrule` and non-`rrule` events (the non-global
+`ics.replace` matches by document position, not by event identity, and
+the underlying `ics` library appears to reorder VEVENTs by date). An
+earlier draft of this ripper used `rrule` for the multi-session
+listings and produced visibly wrong dates once mixed with the
+single-session `Clay Curious` events. Worked around by not emitting
+`rrule` at all (per-occurrence events instead) — every existing
+`rrule` producer (`lib/config/recurring.ts`) happens to emit 100%
+`rrule` events per calendar, which is presumably why this hasn't
+surfaced before. Flagging for a follow-up fix to the shared ICS writer
+rather than fixing it in this PR.

@@ -5,7 +5,7 @@ platform: WordPress / The Events Calendar (Tribe Events) — ICS export
 url: https://sodoseattle.org/events/
 tags: [Community, "SoDo"]
 firstSeen: 2026-08-04
-lastChecked: 2026-08-04
+lastChecked: 2026-08-11
 ---
 
 SODO's business improvement area organization (5 x N Corp / SODO BIA),
@@ -55,3 +55,13 @@ no-fetch-risk West Seattle Junction Harvest Fest candidate (recurring
 YAML, PR pending). Re-check with a plain fetch next cycle before staging
 for proxy testing — the block may be intermittent (it returned clean 200s
 with 19 VEVENTs on 2026-08-04).
+
+Re-checked 2026-08-11: still blocked. `curl -A "Mozilla/5.0 (compatible;
+206events/1.0)"` against the ICS URL returns HTTP 403 with an
+`/.well-known/sgcaptcha/` JS-challenge redirect body — same failure mode
+as 2026-08-05, not intermittent. Per the proxy-escalation workflow this
+is the JS-challenge case (needs `browserbase`, not `outofband`), but per
+source-discovery's own rules a source blocked even from this environment
+isn't stageable yet — leaving as `candidate` rather than opening a
+`requires-proxy-testing` PR. Deprioritized again this cycle in favor of
+Saltstone Ceramics (unblocked, PR pending).
