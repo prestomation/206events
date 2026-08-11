@@ -62,12 +62,12 @@ function makeManyEvents(n) {
 // spans many day groups. Titles are `#`-prefixed and zero-padded so
 // "Event #149" can never substring-match another row.
 const DEEP_TOTAL = 200
-function makeDeepEvents(icsUrl = 'test-ripper-cal1.ics', prefix = 'Event') {
+function makeDeepEvents(icsUrl = 'test-ripper-cal1.ics', prefix = 'Event', total = DEEP_TOTAL) {
   // Whole minutes: the index timestamps carry no seconds (toJoda pins ":00"),
   // and the parsed-vs-index join below matches on the exact start instant.
   const base = new Date()
   base.setSeconds(0, 0)
-  return Array.from({ length: DEEP_TOTAL }, (_, i) => {
+  return Array.from({ length: total }, (_, i) => {
     const d = new Date(base.getTime() + (i + 1) * 2 * 3600 * 1000)
     return {
       icsUrl,
@@ -106,11 +106,11 @@ function icsFor(events) {
 // sides so a regression that lands at the bottom can't masquerade as a pass.
 const TOLERANCE = 50
 
-async function expectRestored(content, saved) {
+async function expectRestored(content, saved, timeout = 5000) {
   await expect
     .poll(() => content.evaluate((el) => el.scrollTop), {
       message: 'scroll position should be restored after back-navigation',
-      timeout: 5000,
+      timeout,
     })
     .toBeGreaterThanOrEqual(saved - TOLERANCE)
 
@@ -121,11 +121,11 @@ async function expectRestored(content, saved) {
 
 // Page the list until `title` has rendered, then centre it in the viewport.
 // Returns the resulting scrollTop.
-async function pageDownTo(page, content, title) {
+async function pageDownTo(page, content, title, timeout = 20000) {
   await expect(async () => {
     await content.evaluate((el) => el.scrollTo(0, el.scrollHeight))
     await expect(page.getByText(title, { exact: true })).toHaveCount(1)
-  }).toPass({ timeout: 20000 })
+  }).toPass({ timeout })
 
   await page.getByText(title, { exact: true })
     .evaluate((el) => el.scrollIntoView({ block: 'center' }))

@@ -38,8 +38,12 @@ const MAX_TRACKED_VIEWS = 50
 // bare stability check would abort during the wait it was meant to survive.
 const MAX_STABLE_FRAMES = 30
 // Absolute backstop for content that never arrives at all — the channel ICS
-// fetch in App.jsx gives up at 10s, so nothing legitimate lands after this.
-const RESTORE_CAP_MS = 15000
+// fetch in App.jsx gives up at 10s, so nothing legitimate lands after this. It
+// also covers the case the stability rule above can't see: a view that is
+// statically shorter than the offset and never changes height (the viewport was
+// resized, or the phone rotated, between visits), where `contentArrived` never
+// flips. Each waiting frame costs two layout reads, no write — see `chase`.
+const RESTORE_CAP_MS = 12000
 // Sub-pixel slack: scrollTop can read back fractionally under the assigned
 // value on fractional-DPR displays.
 const LANDED_SLACK_PX = 1
@@ -116,22 +120,22 @@ export function useViewScrollRestore(viewKey) {
       if (!settled()) return
       remember(viewKey, el.scrollTop)
     }
-    // Any real gesture means the reader has taken over; stop chasing and start
-    // recording where they actually are.
-    const yieldToReader = () => {
-      if (!pendingRef.current) return
-      pendingRef.current = null
-      remember(viewKey, el.scrollTop)
-    }
+    // Any interaction means the reader has taken over — stop chasing. It
+    // deliberately does NOT record a position: `pointerdown` fires for taps on
+    // buttons and links too, and writing the (possibly still-clamped) offset
+    // there would destroy the saved one for good. Once this clears `pendingRef`
+    // the scroll listener above is live again, so an actual scroll records the
+    // reader's real position and a mere tap changes nothing.
+    const yieldToReader = () => { pendingRef.current = null }
 
     el.addEventListener('scroll', onScroll, { passive: true })
     el.addEventListener('wheel', yieldToReader, { passive: true })
     el.addEventListener('touchstart', yieldToReader, { passive: true })
-    el.addEventListener('keydown', yieldToReader)
-    // Scrollbar drags and day-scrubber drags produce neither wheel nor touch
-    // events, so without this the chase would fight them for up to half a
-    // second while discarding where the reader actually went.
+    // Scrollbar drags and day-scrubber drags produce neither wheel nor touch.
     el.addEventListener('pointerdown', yieldToReader, { passive: true })
+    // Keyboard scrolling goes on `window`: `.a-content` has no tabIndex, so it
+    // is never the focus target and a listener bound to it would never fire.
+    window.addEventListener('keydown', yieldToReader)
 
     // Re-apply on each frame while content is still arriving under us. Skipped
     // entirely whenever the first try landed, which is the common case.
@@ -141,7 +145,10 @@ export function useViewScrollRestore(viewKey) {
     const chase = () => {
       frame = 0
       if (settled()) return
-      if (apply()) {
+      // Only touch scrollTop when the range can actually hold the offset —
+      // otherwise this is a write plus a read-back, i.e. a forced reflow every
+      // frame, for an assignment guaranteed to be clamped away.
+      if (el.scrollHeight - el.clientHeight >= target - LANDED_SLACK_PX && apply()) {
         pendingRef.current = null
         return
       }
@@ -166,8 +173,8 @@ export function useViewScrollRestore(viewKey) {
       el.removeEventListener('scroll', onScroll)
       el.removeEventListener('wheel', yieldToReader)
       el.removeEventListener('touchstart', yieldToReader)
-      el.removeEventListener('keydown', yieldToReader)
       el.removeEventListener('pointerdown', yieldToReader)
+      window.removeEventListener('keydown', yieldToReader)
     }
   }, [viewKey, remember])
 

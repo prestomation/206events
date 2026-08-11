@@ -116,6 +116,27 @@ the top. Without it the chase would actively drive the reader thousands of
 pixels into a result set they never scrolled, as pagination grew the new list
 past the old offset.
 
+### Accepted trade-off: the restored window is uncapped
+
+The window is seeded on **every** mount, not only back-navigation, so returning
+to Discover from another tab also re-commits however many rows the reader had
+paged to. A day-scrubber drag deep into the timeline can set `visibleCount` to
+most of the list (`grow` in `useDayScrubberSeek`), so that commit can be large —
+where it used to be a flat 60 rows.
+
+A cap was tried and removed. Beyond the cap the offset is out of reach on the
+first try and the list has to page back up to it one `EVENTS_PAGE_SIZE` step per
+IntersectionObserver firing; measured against a 500-event fixture that took over
+15 s to walk back 200 rows. Trading a correct restore for a visibly slow one is
+the wrong way round, and it degrades exactly the deep-reading case this work is
+about.
+
+What's left is bounded by the fact that the reader already paid the same render
+once, while browsing, and navigation renders inside `startTransition` (Fix 1 in
+`docs/web-tab-switch-performance.md`) so React can yield rather than block the
+tap. If the boot-profile numbers ever show this as real, the fix is to seed the
+window inside a transition — not to cap it.
+
 ## What this does not change
 
 - The in-app back arrow on an event detail returns to the **section**
