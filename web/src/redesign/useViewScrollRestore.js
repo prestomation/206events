@@ -92,12 +92,20 @@ export function useViewScrollRestore(viewKey) {
   // even though navigation runs inside `startTransition` — effects only run for
   // renders that commit, so the value an effect closes over is a committed one.
   //
-  // Forgetting the offset is not enough on its own: when the swap happens while
-  // the view is mounted, the container is still sitting at the old offset, and
-  // a shorter result set just clamps it — leaving the reader at the BOTTOM of a
-  // list they never scrolled. So this also puts the container back at the top,
-  // which is where a freshly-filtered list should start. Only the displayed
-  // view has a list to raise this, so the container always belongs to `key`.
+  // The two paths need different things, which is why this does two things.
+  //
+  // Swapped while the view is MOUNTED: the container is live and still sitting
+  // at the old offset, and a shorter result set merely clamps it — leaving the
+  // reader at the BOTTOM of a list they never scrolled. Forgetting the offset
+  // changes nothing on its own, so the container is moved to the top too, which
+  // is where a freshly-filtered list should start.
+  //
+  // Swapped while UNMOUNTED (the stale-on-mount check): `containerRef` is null
+  // here — React attaches host refs after its descendants' layout effects, and
+  // that check runs in one — so the move is a no-op and the delete is what
+  // matters. The effect below then restores this view at 0. That works because
+  // `scrollKey` changes whenever `contentKey` does, so a remount always brings
+  // a restore with it.
   const resetViewScroll = useCallback((key) => {
     if (key === undefined) return
     positionsRef.current.delete(key)
