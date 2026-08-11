@@ -6,7 +6,7 @@ url: https://saltstoneceramics.com/
 tags: [Arts, Wallingford]
 firstSeen: 2026-08-05
 lastChecked: 2026-08-11
-pr: TBD
+pr: 1179
 ---
 
 Previously logged `❌ Not Viable` on 2026-07-01 ("Shopify booking
