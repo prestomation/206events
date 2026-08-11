@@ -18,8 +18,9 @@
 //      failed restore. `pendingRef` suppresses recording while a restore is in
 //      flight.
 //   3. A restore that can't be satisfied must not spin forever, and must yield
-//      the moment the reader takes over — hence the stable-height give-up and
-//      the gesture listeners.
+//      the moment the reader takes over — hence the stable-height give-up, and
+//      a scroll listener that compares where the container ended up against
+//      what this hook last put there.
 //
 // Keys are per-view (`ev:<eventKey>`, `ch:<icsUrl>`, or the section name), so
 // one detail page's offset is never restored onto a different one. The map is
@@ -53,9 +54,14 @@ export function useViewScrollRestore(viewKey) {
   const positionsRef = useRef(new Map())
   // { target, deadline } while a restore is being chased; null once settled.
   const pendingRef = useRef(null)
-  // Mirrors `viewKey` so the returned callback keeps a stable identity.
-  const viewKeyRef = useRef(viewKey)
-  viewKeyRef.current = viewKey
+  // The last *committed* view key. Written only from the layout effect below,
+  // never during render: navigation runs inside `startTransition`, and a
+  // render-phase write survives a discarded transition render — which would
+  // leave this pointing at a view that never appeared, and delete the wrong
+  // entry. (App206 documents the same hazard for its map keep-alive latch.)
+  const committedKeyRef = useRef(viewKey)
+  // Set by a caller that wants the NEXT restore skipped. See `resetViewScroll`.
+  const resetRequestedRef = useRef(false)
 
   const remember = useCallback((key, top) => {
     const positions = positionsRef.current
@@ -67,11 +73,20 @@ export function useViewScrollRestore(viewKey) {
     }
   }, [])
 
-  // Drop the current view's saved offset — used when the underlying list is
-  // replaced (a filter edit, a corpus swap), so a stale deep offset can't be
-  // restored into a different set of rows.
+  // Drop the saved offset for the view being restored — called when the
+  // underlying list turns out to have been replaced (a filter edit, a corpus
+  // swap), so a stale deep offset isn't restored into a different set of rows.
+  //
+  // It does two things because it serves two orderings. A caller that notices
+  // the swap in its own layout effect runs BEFORE this hook's (children first),
+  // so the key it wants cleared isn't committed yet — hence the request flag,
+  // consumed below. A caller that notices later, in a passive effect, runs
+  // after, so the committed key is already correct and can be deleted outright.
+  // Doing both means the first case also drops the view just left, which is a
+  // detail page whose offset barely matters and only when its list was stale.
   const resetViewScroll = useCallback(() => {
-    positionsRef.current.delete(viewKeyRef.current)
+    resetRequestedRef.current = true
+    positionsRef.current.delete(committedKeyRef.current)
     pendingRef.current = null
   }, [])
 
@@ -79,13 +94,23 @@ export function useViewScrollRestore(viewKey) {
     const el = containerRef.current
     if (!el) return undefined
 
+    committedKeyRef.current = viewKey
+    if (resetRequestedRef.current) {
+      resetRequestedRef.current = false
+      positionsRef.current.delete(viewKey)
+    }
+
     const target = positionsRef.current.get(viewKey) ?? 0
     let frame = 0
 
     // True once the offset has been reached (or there was nothing to restore).
+    // `applied` records what the container actually took, which is how the
+    // scroll listener tells our own writes apart from the reader's scrolling.
+    let applied = -1
     const apply = () => {
       el.scrollTop = target
-      return el.scrollTop >= target - LANDED_SLACK_PX
+      applied = el.scrollTop
+      return applied >= target - LANDED_SLACK_PX
     }
 
     // `clientHeight === 0` means the container is hidden (the Map tab flips
@@ -116,26 +141,28 @@ export function useViewScrollRestore(viewKey) {
       return false
     }
 
+    // The scroll listener is also how the reader takes over. Every position we
+    // put there is recorded in `applied`, so anything else the container ends
+    // up at came from them — wheel, touch, keyboard, a scrollbar drag, the day
+    // scrubber, anything. Watching the outcome rather than guessing at input
+    // events avoids both halves of the trap: native scrollbar drags dispatch no
+    // pointer events at all in Chromium, while `pointerdown` fires for every
+    // tap on a button or link, where yielding would be wrong.
     const onScroll = () => {
-      if (!settled()) return
+      if (!settled()) {
+        if (Math.abs(el.scrollTop - applied) <= LANDED_SLACK_PX) return
+        pendingRef.current = null // the reader moved it, not us
+      }
       remember(viewKey, el.scrollTop)
     }
-    // Any interaction means the reader has taken over — stop chasing. It
-    // deliberately does NOT record a position: `pointerdown` fires for taps on
-    // buttons and links too, and writing the (possibly still-clamped) offset
-    // there would destroy the saved one for good. Once this clears `pendingRef`
-    // the scroll listener above is live again, so an actual scroll records the
-    // reader's real position and a mere tap changes nothing.
+    // Wheel and touch still get an explicit yield: they arrive *before* the
+    // scroll they cause, so the chase stops a frame earlier and never fights
+    // the very first movement.
     const yieldToReader = () => { pendingRef.current = null }
 
     el.addEventListener('scroll', onScroll, { passive: true })
     el.addEventListener('wheel', yieldToReader, { passive: true })
     el.addEventListener('touchstart', yieldToReader, { passive: true })
-    // Scrollbar drags and day-scrubber drags produce neither wheel nor touch.
-    el.addEventListener('pointerdown', yieldToReader, { passive: true })
-    // Keyboard scrolling goes on `window`: `.a-content` has no tabIndex, so it
-    // is never the focus target and a listener bound to it would never fire.
-    window.addEventListener('keydown', yieldToReader)
 
     // Re-apply on each frame while content is still arriving under us. Skipped
     // entirely whenever the first try landed, which is the common case.
@@ -173,8 +200,6 @@ export function useViewScrollRestore(viewKey) {
       el.removeEventListener('scroll', onScroll)
       el.removeEventListener('wheel', yieldToReader)
       el.removeEventListener('touchstart', yieldToReader)
-      el.removeEventListener('pointerdown', yieldToReader)
-      window.removeEventListener('keydown', yieldToReader)
     }
   }, [viewKey, remember])
 

@@ -70,9 +70,18 @@ Owns the scroll map and the restore. Three things beyond a plain assignment:
 - **Chase-while-growing.** If the first assignment lands short, re-apply on each
   animation frame while `scrollHeight` is still changing. It stops on any of:
   the offset is reached; the content arrived and *then* held a stable height for
-  ~30 frames; the reader takes over (`wheel` / `touchstart` / `keydown` /
-  `pointerdown` — the last covers scrollbar and day-scrubber drags, which emit
-  none of the others); or a 15 s backstop for content that never arrives.
+  ~30 frames; the reader takes over; or a 12 s backstop for content that never
+  arrives. It only touches `scrollTop` when the scrollable range can actually
+  hold the offset — otherwise each frame would be a write plus a read-back, i.e.
+  a forced reflow, for an assignment guaranteed to be clamped away.
+- **Yielding by outcome, not by input event.** Every position the hook writes is
+  recorded, so anything else the container ends up at came from the reader —
+  wheel, touch, keyboard, a scrollbar drag, the day scrubber, anything. Guessing
+  from input events fails at both ends: native scrollbar drags dispatch no
+  pointer events at all in Chromium, while `pointerdown` fires for every tap on
+  a button or link, where yielding (and recording a still-clamped offset) would
+  destroy the saved position outright. `wheel`/`touchstart` are still listened
+  for as a fast path, since they arrive before the scroll they cause.
 
   Both halves of the stability rule matter. A bare "height stopped changing"
   check aborts during the flat period *before* content arrives — a venue page's
