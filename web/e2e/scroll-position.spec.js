@@ -237,10 +237,9 @@ test('the browser Back button restores the list scroll position too', async ({ p
   await expectRestored(content, savedScroll)
 })
 
-// Note: the in-app back arrow on an event detail returns to the *section*
-// (Discover), not to the venue page the event was opened from — `back()` clears
-// both overlays. Browser Back pops the hash to the venue entry, so that is the
-// route that actually returns here, and the one this covers.
+// Both routes back to a venue are covered: the in-app arrow here, browser Back
+// in the case below it. They land on the same state, but by different paths —
+// the arrow re-opens the recorded venue, Back pops the hash to it.
 test('a venue page keeps its place after opening an event and going back', async ({ page }) => {
   const events = makeDeepEvents()
   await overrideEventsIndex(page, events)
@@ -266,6 +265,31 @@ test('a venue page keeps its place after opening an event and going back', async
 
   // Back to the venue page — its list is re-parsed from the ICS, so the height
   // this offset needs only exists a beat after the container mounts.
+  await page.locator('.a-content .a-iconbtn').first().click()
+  await expect(page.getByText(`${DEEP_TOTAL} UPCOMING EVENTS`)).toBeVisible()
+
+  await expectRestored(content, savedScroll)
+})
+
+test('a venue page keeps its place when returning via browser Back too', async ({ page }) => {
+  const events = makeDeepEvents()
+  await overrideEventsIndex(page, events)
+  await page.route('**/test-ripper-cal1.ics', (route) =>
+    route.fulfill({ status: 200, contentType: 'text/calendar', body: icsFor(events) }))
+
+  await page.goto('/')
+  await page.locator('.ch', { hasText: 'Neumos' }).first().click()
+  await expect(page.locator('.a-content .ev').first()).toBeVisible()
+
+  const content = page.locator('.a-content')
+  const target = page.locator('.a-content .ev').nth(40)
+  await target.evaluate((el) => el.scrollIntoView({ block: 'center' }))
+  const savedScroll = await content.evaluate((el) => el.scrollTop)
+  expect(savedScroll).toBeGreaterThan(500)
+
+  await target.click()
+  await expect.poll(() => page.evaluate(() => window.location.hash)).toContain('event=')
+
   await page.goBack()
   await expect(page.getByText(`${DEEP_TOTAL} UPCOMING EVENTS`)).toBeVisible()
 

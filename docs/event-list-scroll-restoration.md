@@ -186,15 +186,37 @@ once, while browsing, and navigation renders inside `startTransition` (Fix 1 in
 tap. If the boot-profile numbers ever show this as real, the fix is to seed the
 window inside a transition — not to cap it.
 
+## Where "back" goes
+
+Restoring the position only helps if "back" lands on the right view in the first
+place, and it didn't. An event detail replaces the venue page it was opened
+from, so the arrow has two plausible destinations — and it always took the same
+one: `back()` cleared both overlays and dropped to the section. Browser Back
+meanwhile popped the hash and *did* return to the venue, so the two disagreed
+about what the reader had just done.
+
+`App206.jsx` now records the open venue when an event is opened from one, and
+the next `back` consumes it — once. `openChannel` and `go` clear the record, so
+a venue's own back arrow still goes to the section rather than bouncing into the
+venue it just came from.
+
+Two subtleties, both load-bearing:
+
+- The `openCh` mirror that recording reads is written from an **effect**, never
+  during render. Navigation runs inside `startTransition`, and a render-phase
+  write survives a discarded transition render — the same hazard the map
+  keep-alive latch documents.
+- Writing the hash fires a `hashchange`, which `useUrlState` applies straight
+  back, calling `openEvent` again for the event already on screen. By then the
+  venue is closed, so that echo would record `null` over it. Only a *different*
+  event records a return target.
+
 ## What this does not change
 
-- The in-app back arrow on an event detail returns to the **section**
-  (Discover), not to the venue page an event was opened from — `back()` clears
-  both overlays. Browser Back pops the hash to the venue entry and does return
-  there. That asymmetry predates this work and is left as-is.
 - Nothing is persisted to `sessionStorage` or any other browser storage. The map
   is in memory for the session, so a reload starts fresh — deliberate, per
-  `docs/privacy-and-consent.md`.
+  `docs/privacy-and-consent.md`. A return target is navigation state in the same
+  spirit: a reload drops it and the arrow falls back to the section.
 
 ## Tests
 
@@ -203,7 +225,8 @@ window inside a transition — not to cap it.
 - single-page list, in-app back — the narrow case that already worked;
 - 200-event list paged past the first window, in-app back — #1/#2;
 - the same via the browser Back button;
-- a venue page whose list is parsed from ICS after mount — #3;
+- a venue page whose list is parsed from ICS after mount, returning by the
+  in-app arrow and by browser Back — #3;
 - a *different* venue page starts at the top rather than inheriting the last
   one's offset, and a second event opened from a detail page starts at the top
   even though the container is reused — #4;
@@ -217,6 +240,11 @@ survives a remount, stays separate per `restoreKey`, never seeds beyond the
 list's length, resets (dropping the saved scroll) when the list is replaced —
 whether that happens while mounted or while away — and is *kept* when the same
 list is merely rebuilt with a fresh array identity.
+
+`web/e2e/event-navigation.spec.js` pins where the arrow lands: back to the venue
+from an event opened on one, back to the list from an event opened there, and
+back to the section from a venue's own arrow even after a return target has been
+recorded and consumed.
 
 Screenshots: `web/e2e/screenshots/scroll-restore-deep-list.png` (scrolled deep
 before opening an event) and `scroll-restore-after-back.png` (the same place

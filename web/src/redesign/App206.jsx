@@ -342,11 +342,36 @@ export function App206(props) {
      docs/web-tab-switch-performance.md). Only the tiny nav-highlight update
      (`navSection`) stays urgent so the pressed tab lights up immediately. */
   const clearOverlays = useCallback(() => { setOpenCh(null); setOpenEventObj(null) }, [])
+
+  // Where `back` should land, and the committed `openCh` it is derived from.
+  //
+  // An event detail replaces the venue page it was opened from, so "back" has
+  // two sensible destinations and has to remember which step the reader
+  // actually took. Browser Back always returned to the venue (it pops the
+  // hash); the arrow cleared both overlays and dropped to the section
+  // regardless, so the two disagreed. The venue is recorded when an event is
+  // opened from one, and consumed — once — by the next `back`.
+  //
+  // The mirror is written from an effect, never during render: navigation runs
+  // inside `startTransition`, and a render-phase write survives a discarded
+  // transition render (the same hazard the map keep-alive latch below documents).
+  const openChRef = useRef(null)
+  const openEventKeyRef = useRef(null)
+  useEffect(() => {
+    openChRef.current = openCh
+    openEventKeyRef.current = openEventObj ? eventKey(openEventObj) : null
+  }, [openCh, openEventObj])
+  const backToChannelRef = useRef(null)
+
   const go = useCallback((id) => {
     setNavSection(id)
+    backToChannelRef.current = null
     startTransition(() => { clearOverlays(); onSelectChannel(null); setSection(id) })
   }, [clearOverlays, onSelectChannel])
   const openChannel = useCallback((icsUrl) => {
+    // Landing ON a venue means there is no venue behind this view to go back
+    // to; the next `openEvent` records this one.
+    backToChannelRef.current = null
     startTransition(() => {
       setOpenEventObj(null); setOpenCh(icsUrl)
       const ch = channelByIcsUrl.get(icsUrl)
@@ -354,11 +379,22 @@ export function App206(props) {
     })
   }, [channelByIcsUrl, onSelectChannel])
   const openEvent = useCallback((event) => {
+    // Only a real navigation records a return target. Writing the hash fires a
+    // `hashchange`, which `useUrlState` applies straight back — calling this
+    // again for the event already on screen. By then the venue has been closed,
+    // so that echo would record `null` over the venue we just came from.
+    const key = event ? eventKey(event) : null
+    if (key !== openEventKeyRef.current) backToChannelRef.current = openChRef.current
     startTransition(() => { setOpenCh(null); onSelectChannel(null); setOpenEventObj(event) })
   }, [onSelectChannel])
   const back = useCallback(() => {
+    const returnTo = backToChannelRef.current
+    backToChannelRef.current = null
+    // `openChannel` clears the ref again on its own, which is what stops the
+    // venue's own back arrow from bouncing straight back into the venue.
+    if (returnTo && channelByIcsUrl.has(returnTo)) { openChannel(returnTo); return }
     startTransition(() => { clearOverlays(); onSelectChannel(null) })
-  }, [clearOverlays, onSelectChannel])
+  }, [clearOverlays, onSelectChannel, openChannel, channelByIcsUrl])
   const toggleFilter = useCallback(() => setFilterOpen((v) => !v), [])
 
   /* ---- health dashboard handlers ---- */
