@@ -92,8 +92,12 @@ Owns the scroll map and the restore. Three things beyond a plain assignment:
   zeroes it outright, and both dispatch a scroll event synchronously with the
   DOM change, before the outgoing view's listener is detached. Recorded, that
   wipes the position the reader left. The tell is a single event jumping more
-  than a screen upward and landing exactly on a limit; real scrolling walks
-  there, so the event before the top is already near the top.
+  than a screen upward, landing exactly on a limit, and following no input;
+  real scrolling walks there, so the event before the top is already near the
+  top. Recent input (a keypress, tap or wheel within 300 ms) vetoes it, since a
+  keyboard Home *does* move in one step. The comparison is against every
+  position the container passed through, recorded or not — otherwise one skipped
+  event leaves a stale baseline that swallows the next one too.
 
   Discover's two modes also get separate keys (`discover:events` /
   `discover:calendars`) rather than sharing one, since their lengths differ by

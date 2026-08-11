@@ -51,12 +51,24 @@ const RESTORE_CAP_MS = 3000
 // Sub-pixel slack: scrollTop can read back fractionally under the assigned
 // value on fractional-DPR displays.
 const LANDED_SLACK_PX = 1
+// How long after a keypress, tap or wheel a big jump still counts as the
+// reader's doing rather than the browser's. Long enough to cover the frame or
+// two between the input and the scroll it causes, short enough that an
+// unrelated view swap moments later isn't mistaken for it.
+const INPUT_GRACE_MS = 300
 
 export function useViewScrollRestore(viewKey) {
   const containerRef = useRef(null)
   const positionsRef = useRef(new Map())
   // { target, deadline } while a restore is being chased; null once settled.
   const pendingRef = useRef(null)
+  // Where the container was last seen, whether or not that position was
+  // recorded, and when the reader last touched it. Both feed the
+  // browser-reset check in the scroll listener; they live at hook scope so
+  // `resetViewScroll` — which moves the container without a scroll event of its
+  // own — can keep them honest.
+  const lastSeenRef = useRef(0)
+  const lastInputAtRef = useRef(-Infinity)
 
   const remember = useCallback((key, top) => {
     const positions = positionsRef.current
@@ -91,6 +103,7 @@ export function useViewScrollRestore(viewKey) {
     positionsRef.current.delete(key)
     pendingRef.current = null
     if (containerRef.current) containerRef.current.scrollTop = 0
+    lastSeenRef.current = 0
   }, [])
 
   useLayoutEffect(() => {
@@ -145,15 +158,19 @@ export function useViewScrollRestore(viewKey) {
     // events avoids both halves of the trap: native scrollbar drags dispatch no
     // pointer events at all in Chromium, while `pointerdown` fires for every
     // tap on a button or link, where yielding would be wrong.
-    // The last position credited to this view, so a shrink can be told from a
-    // scroll (see below).
-    let remembered = target
+    lastSeenRef.current = target
     const onScroll = () => {
       if (!settled()) {
         if (Math.abs(el.scrollTop - applied) <= LANDED_SLACK_PX) return
         pendingRef.current = null // the reader moved it, not us
       }
       const top = el.scrollTop
+      const previous = lastSeenRef.current
+      // Track every position the container passes through, recorded or not —
+      // the comparison below is against where it actually was, so a skipped
+      // event can't leave a stale baseline that swallows the next one too.
+      lastSeenRef.current = top
+
       // Swapping what the container holds — Discover's Events list for its much
       // shorter Calendars grid, say — makes the browser move scrollTop on its
       // own: Chromium clamps it to the new maximum, Firefox zeroes it outright,
@@ -161,26 +178,31 @@ export function useViewScrollRestore(viewKey) {
       // change, i.e. before this listener has been detached. Recording that
       // would wipe the position the reader actually left.
       //
-      // The tell is a single event that jumps more than a screen upward and
-      // lands exactly on a limit. Scrolling by wheel, touch or scrollbar walks
-      // there instead, so the event before the top is already near the top and
-      // this never fires.
-      const jumpedUp = remembered - top > el.clientHeight
+      // The tell is a single event that jumps more than a screen upward, lands
+      // exactly on a limit, and follows no input from the reader. Scrolling by
+      // wheel, touch or scrollbar walks there instead, so the event before the
+      // top is already near the top; a keyboard Home or a tapped jump does move
+      // in one step, which is why recent input vetoes this.
+      const jumpedUp = previous - top > el.clientHeight
       const atLimit = top === 0 || top >= el.scrollHeight - el.clientHeight - LANDED_SLACK_PX
-      if (jumpedUp && atLimit) return
-      remembered = top
+      const readerIsActive = Date.now() - lastInputAtRef.current < INPUT_GRACE_MS
+      if (jumpedUp && atLimit && !readerIsActive) return
       remember(viewKey, top)
     }
-    // `wheel` still gets an explicit yield: it arrives *before* the scroll it
-    // causes, so the chase stops a frame earlier and never fights the very
-    // first movement, and unlike a tap it means nothing but scrolling.
-    // `touchstart` is deliberately NOT listened for — on a phone it fires for
-    // every tap on a button or link, so it would abort a restore for the same
-    // false-positive reason `pointerdown` is rejected above.
-    const yieldToReader = () => { pendingRef.current = null }
+    // Input listeners serve two purposes. `wheel` also yields the chase — it
+    // arrives *before* the scroll it causes, so the chase stops a frame earlier
+    // and never fights the very first movement, and unlike a tap it means
+    // nothing but scrolling. The rest only timestamp: a tap is not a scroll, so
+    // it must not abort a restore, but it does tell the check above that a jump
+    // landing right after it came from the reader.
+    const noteInput = () => { lastInputAtRef.current = Date.now() }
+    const yieldToReader = () => { noteInput(); pendingRef.current = null }
 
     el.addEventListener('scroll', onScroll, { passive: true })
     el.addEventListener('wheel', yieldToReader, { passive: true })
+    el.addEventListener('touchstart', noteInput, { passive: true })
+    el.addEventListener('pointerdown', noteInput, { passive: true })
+    window.addEventListener('keydown', noteInput)
 
     // Re-apply on each frame while content is still arriving under us. Skipped
     // entirely whenever the first try landed, which is the common case.
@@ -217,7 +239,9 @@ export function useViewScrollRestore(viewKey) {
       pendingRef.current = null
       el.removeEventListener('scroll', onScroll)
       el.removeEventListener('wheel', yieldToReader)
-      el.removeEventListener('touchstart', yieldToReader)
+      el.removeEventListener('touchstart', noteInput)
+      el.removeEventListener('pointerdown', noteInput)
+      window.removeEventListener('keydown', noteInput)
     }
   }, [viewKey, remember])
 
