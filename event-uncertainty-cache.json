@@ -57886,6 +57886,12 @@
       "resolvedAt": "2026-08-11",
       "source": "agent",
       "reason": "No pricing information found on venue website or in calendar feed"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "Past event (Aug 1, 2026); event page now describes it in past tense with no start time listed"
     }
   }
 }
