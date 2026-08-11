@@ -29,6 +29,24 @@ import { indexBuildErrors, sourceDebug, eventDebug } from './debugData.js'
 // (see EventsMode) to keep the DOM light while every event stays reachable.
 const EVENTS_PAGE_SIZE = 60
 
+// How far each paged list had been scrolled through, by `restoreKey`, as
+// `{ count, signature }`. Kept at module scope on purpose: `.a-content` is
+// keyed by view in App206, so opening an event unmounts the list entirely, and
+// component state can't survive that. One entry per list (two today), so there
+// is nothing to evict.
+//
+// `signature` is what stops a *different* list inheriting the window: the
+// search box and date filter stay usable on a detail page, so the reader can
+// change the result set while the list is unmounted. A plain identity check
+// can't see that — a remounted `useMemo` yields a fresh array either way — so
+// the list is fingerprinted by its length and endpoints instead.
+const pageWindows = new Map()
+const listSignatureOf = (events) => (
+  events.length
+    ? `${events.length}|${eventKey(events[0])}|${eventKey(events[events.length - 1])}`
+    : '0'
+)
+
 // Build grouped dropdown options for the Category filter (taxonomy groups), and
 // a flat option list for Neighborhood — each with a live calendar count.
 function useCategoryGroups(app) {
@@ -364,12 +382,31 @@ function CalendarsMode() {
 // attribution chips (Following). `pendingMore` swaps the end-of-list caption for
 // a "still loading" one while an upstream fetch is in flight (Discover's
 // soon→full index swap). `emptyState` renders when there are no events.
-function PagedDayList({ events, withReason = false, pendingMore = false, emptyState = null }) {
+export function PagedDayList({ events, restoreKey = null, withReason = false, pendingMore = false, emptyState = null }) {
+  const app = useApp206()
   // How many of `events` to render. Grows a page at a time as the sentinel
   // scrolls into view. Resets to one page whenever `events`'s identity changes
   // — a filter edit or the soon→full index swap — so the reader starts back near
   // the top of the new list rather than deep in a stale scroll position.
-  const [visibleCount, setVisibleCount] = useState(EVENTS_PAGE_SIZE)
+  //
+  // The window is seeded from `pageWindows` during render (not in an effect) so
+  // the rows are already committed to the DOM by the time App206's scroll
+  // restore runs — React runs child layout effects before the parent's. Without
+  // that, back-navigation remounted the list at one page and the saved offset
+  // was clamped to the bottom of it. See docs/event-list-scroll-restoration.md.
+  const signature = listSignatureOf(events)
+  const [restored] = useState(() => {
+    const saved = restoreKey ? pageWindows.get(restoreKey) : null
+    // `stale` means we know this view changed while it was unmounted — as
+    // opposed to simply never having been visited, which resets nothing.
+    const stale = !!saved && saved.signature !== signature
+    return { stale, count: saved && !stale ? saved.count : EVENTS_PAGE_SIZE }
+  })
+  const [visibleCount, setVisibleCount] = useState(() =>
+    Math.min(Math.max(restored.count, EVENTS_PAGE_SIZE), Math.max(events.length, EVENTS_PAGE_SIZE)))
+  useEffect(() => {
+    if (restoreKey) pageWindows.set(restoreKey, { count: visibleCount, signature })
+  }, [restoreKey, visibleCount, signature])
 
   const groups = useMemo(
     () => groupIndexEventsByDay(events.slice(0, visibleCount)),
@@ -387,7 +424,50 @@ function PagedDayList({ events, withReason = false, pendingMore = false, emptySt
     grow: (day) => setVisibleCount((c) => Math.min(Math.max(c, day.firstIndex + EVENTS_PAGE_SIZE), events.length)),
     commitDep: groups,
   })
-  useEffect(() => { setVisibleCount(EVENTS_PAGE_SIZE); clearSeekTarget() }, [events, clearSeekTarget])
+  // Reset on a genuine list swap only — a filter edit, the soon→full index
+  // swap, saved-search matches landing. Guarded against the initial mount,
+  // which would otherwise throw away the window we just restored above. The
+  // saved scroll offset goes with it, so a stale deep position can't be
+  // restored into a freshly-filtered list.
+  //
+  // Keyed on the content signature, not array identity: `App.jsx` republishes
+  // `perFilterMatches` as a fresh Map on every corpus checkpoint, which
+  // cascades into a brand-new `flat` array with identical contents in the
+  // Following feed. On identity alone that reads as a filter edit, and would
+  // yank a reader who is scrolled deep in their feed back to the top seconds
+  // after boot with nothing actually changed. It also keeps this path
+  // consistent with the unmounted one below, which has always used contents.
+  const prevSignatureRef = useRef(signature)
+  const resetViewScroll = app?.resetViewScroll
+  // The view this list is rendered in, read during render — safe to use from
+  // the effects below, which only run for a render that committed.
+  const scrollKey = app?.scrollKey
+  // A layout effect, like its unmounted-path sibling below and for the same
+  // reason: the new, shorter list has already been committed, so the container
+  // is sitting clamped at its bottom. Resetting from a passive effect would
+  // paint that frame before snapping to the top.
+  useLayoutEffect(() => {
+    if (prevSignatureRef.current === signature) return
+    prevSignatureRef.current = signature
+    setVisibleCount(EVENTS_PAGE_SIZE)
+    clearSeekTarget()
+    // Re-seed rather than delete: `setVisibleCount` bails out when the count is
+    // already one page, and then the persist effect never re-runs to replace a
+    // deleted entry. A missing entry reads as "never visited" on the next
+    // mount, which skips the staleness check below and inherits the old offset.
+    if (restoreKey) pageWindows.set(restoreKey, { count: EVENTS_PAGE_SIZE, signature })
+    resetViewScroll?.(scrollKey)
+  }, [clearSeekTarget, restoreKey, resetViewScroll, scrollKey, signature])
+
+  // The same swap, but made while this list was UNMOUNTED — the search box and
+  // date filter stay usable on a detail page, so the reader can come back to a
+  // different result set entirely. The effect above can't see that (its "before"
+  // is the array it mounted with), so drop the saved offset here instead. It
+  // must be a layout effect: App206's restore runs in the parent's layout phase,
+  // which is after this one, so clearing here lands the new list at the top.
+  useLayoutEffect(() => {
+    if (restored.stale) resetViewScroll?.(scrollKey)
+  }, [restored, resetViewScroll, scrollKey])
 
   const hasMore = visibleCount < events.length
   const loadMore = () => setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, events.length))
@@ -445,6 +525,7 @@ function EventsMode() {
   return (
     <PagedDayList
       events={filtered}
+      restoreKey="discover-events"
       pendingMore={!app.fullEventsLoaded}
       emptyState={<DiscoverEmpty kind="events" />}
     />
@@ -541,7 +622,7 @@ export function FollowingView() {
       )}
 
       {total ? (
-        <PagedDayList events={flat} withReason />
+        <PagedDayList events={flat} restoreKey="following" withReason />
       ) : app.hasActiveFilters ? (
         <div className="a-empty" style={{ textAlign: 'center', padding: '40px 0' }}>
           <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink-2)', marginBottom: 6 }}>No feed events match these filters</div>

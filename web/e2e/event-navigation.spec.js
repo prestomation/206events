@@ -111,6 +111,74 @@ test('main events row: whole row opens the event; the venue chip opens the chann
   await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
 })
 
+// Where "back" lands from an event detail. The arrow should undo the step the
+// reader actually took: from a venue page it returns to that venue, from the
+// Discover list it returns to Discover. Browser Back has always done the former
+// (it pops the hash); the in-app arrow used to clear both overlays and drop to
+// the section regardless, so the two disagreed.
+test('back from an event opened on a venue page returns to the venue', async ({ page }) => {
+  await page.goto('/')
+  await page.getByText('Calendars', { exact: true }).first().click()
+  await page.locator('.ch', { hasText: 'Neumos' }).first().click()
+  // The venue page is identified by its unique CTA.
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
+
+  await page.locator('.ev', { hasText: 'Jazz Night' }).first().locator('.ev-title').click()
+  await expect(page.getByRole('link', { name: 'View event page' })).toBeVisible()
+
+  await page.locator('.a-content .a-iconbtn').first().click()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'View event page' })).toHaveCount(0)
+})
+
+test('back from an event opened in the Discover list returns to the list', async ({ page }) => {
+  await page.goto('/')
+  await page.getByText('Events', { exact: true }).first().click()
+
+  await page.locator('.ev', { hasText: 'Jazz Night' }).first().locator('.ev-title').click()
+  await expect(page.getByRole('link', { name: 'View event page' })).toBeVisible()
+
+  await page.locator('.a-content .a-iconbtn').first().click()
+  // Back on the events list — not on a venue page.
+  await expect(page.locator('.ev', { hasText: 'Open Mic' }).first()).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toHaveCount(0)
+})
+
+test('back still returns to the venue after hopping between events', async ({ page }) => {
+  await page.goto('/')
+  await page.getByText('Calendars', { exact: true }).first().click()
+  await page.locator('.ch', { hasText: 'Neumos' }).first().click()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
+
+  await page.locator('.ev', { hasText: 'Jazz Night' }).first().locator('.ev-title').click()
+  await expect(page.getByRole('link', { name: 'View event page' })).toBeVisible()
+
+  // "More from this venue" hops sideways to another event without passing
+  // through the venue page. The arrow still has to lead back out to it.
+  await page.locator('.a-content .ev', { hasText: 'Open Mic' }).first().click()
+  await expect.poll(() => page.evaluate(() => window.location.hash)).toContain('Open+Mic')
+
+  await page.locator('.a-content .a-iconbtn').first().click()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
+})
+
+test('back from a venue page itself returns to the section, not to another venue', async ({ page }) => {
+  await page.goto('/')
+  await page.getByText('Calendars', { exact: true }).first().click()
+  await page.locator('.ch', { hasText: 'Neumos' }).first().click()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
+
+  // Into an event and back to the venue, so a return target has been recorded
+  // and consumed — the venue's own back arrow must not reuse it and loop.
+  await page.locator('.ev', { hasText: 'Jazz Night' }).first().locator('.ev-title').click()
+  await page.locator('.a-content .a-iconbtn').first().click()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
+
+  await page.locator('.a-content .a-iconbtn').first().click()
+  await expect(page.locator('.ch', { hasText: 'Neumos' }).first()).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toHaveCount(0)
+})
+
 test('venue page rows carry a compact outbound-link icon and still open the event', async ({ page }) => {
   await page.goto('/')
   await page.getByText('Calendars', { exact: true }).first().click()

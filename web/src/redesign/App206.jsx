@@ -2,7 +2,7 @@
 // from App.jsx, derives the view-models, owns local navigation/overlay state,
 // and renders the responsive shell (rail · content · map / bottom nav).
 
-import { useState, useMemo, useRef, useCallback, useEffect, useLayoutEffect, useDeferredValue, startTransition, lazy, Suspense } from 'react'
+import { useState, useMemo, useRef, useCallback, useEffect, useDeferredValue, startTransition, lazy, Suspense } from 'react'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
 import { Lightbox } from './atoms.jsx'
@@ -15,6 +15,7 @@ import { eventKey } from '../lib/eventKey.js'
 import { haversineKm } from '../lib/haversine.js'
 import { deserializeHash } from './urlHash.js'
 import { useUrlState } from './useUrlState.js'
+import { useViewScrollRestore } from './useViewScrollRestore.js'
 
 // Lazy-load the health dashboard: it's behind the You-tab "Site health"
 // section that most sessions never open, so it (and its build-errors plumbing)
@@ -341,11 +342,36 @@ export function App206(props) {
      docs/web-tab-switch-performance.md). Only the tiny nav-highlight update
      (`navSection`) stays urgent so the pressed tab lights up immediately. */
   const clearOverlays = useCallback(() => { setOpenCh(null); setOpenEventObj(null) }, [])
+
+  // Where `back` should land, and the committed `openCh` it is derived from.
+  //
+  // An event detail replaces the venue page it was opened from, so "back" has
+  // two sensible destinations and has to remember which step the reader
+  // actually took. Browser Back always returned to the venue (it pops the
+  // hash); the arrow cleared both overlays and dropped to the section
+  // regardless, so the two disagreed. The venue is recorded when an event is
+  // opened from one, and consumed — once — by the next `back`.
+  //
+  // The mirror is written from an effect, never during render: navigation runs
+  // inside `startTransition`, and a render-phase write survives a discarded
+  // transition render (the same hazard the map keep-alive latch below documents).
+  const openChRef = useRef(null)
+  const openEventKeyRef = useRef(null)
+  useEffect(() => {
+    openChRef.current = openCh
+    openEventKeyRef.current = openEventObj ? eventKey(openEventObj) : null
+  }, [openCh, openEventObj])
+  const backToChannelRef = useRef(null)
+
   const go = useCallback((id) => {
     setNavSection(id)
+    backToChannelRef.current = null
     startTransition(() => { clearOverlays(); onSelectChannel(null); setSection(id) })
   }, [clearOverlays, onSelectChannel])
   const openChannel = useCallback((icsUrl) => {
+    // Landing ON a venue means there is no venue behind this view to go back
+    // to; the next `openEvent` records this one.
+    backToChannelRef.current = null
     startTransition(() => {
       setOpenEventObj(null); setOpenCh(icsUrl)
       const ch = channelByIcsUrl.get(icsUrl)
@@ -353,11 +379,27 @@ export function App206(props) {
     })
   }, [channelByIcsUrl, onSelectChannel])
   const openEvent = useCallback((event) => {
+    // Record only when arriving at a detail from somewhere that isn't one.
+    //
+    // Two things would otherwise clear the target wrongly, and both look like
+    // "open this event" from here. Writing the hash fires a `hashchange`, which
+    // `useUrlState` applies straight back, re-opening the event already on
+    // screen. And "Other dates" / "More from" hop sideways between details
+    // without passing through the venue. In both cases the venue is already
+    // closed, so reading it now would record `null` over the way out — the
+    // arrow leads back to the surface the reader was browsing, not to the
+    // previous card.
+    if (openEventKeyRef.current === null) backToChannelRef.current = openChRef.current
     startTransition(() => { setOpenCh(null); onSelectChannel(null); setOpenEventObj(event) })
   }, [onSelectChannel])
   const back = useCallback(() => {
+    const returnTo = backToChannelRef.current
+    backToChannelRef.current = null
+    // `openChannel` clears the ref again on its own, which is what stops the
+    // venue's own back arrow from bouncing straight back into the venue.
+    if (returnTo && channelByIcsUrl.has(returnTo)) { openChannel(returnTo); return }
     startTransition(() => { clearOverlays(); onSelectChannel(null) })
-  }, [clearOverlays, onSelectChannel])
+  }, [clearOverlays, onSelectChannel, openChannel, channelByIcsUrl])
   const toggleFilter = useCallback(() => setFilterOpen((v) => !v), [])
 
   /* ---- health dashboard handlers ---- */
@@ -457,6 +499,27 @@ export function App206(props) {
     else if (emphasis === 'events' && evMatchCount === 0 && calMatchCount > 0) setEmphasis('calendars')
   }, [query, emphasis, calMatchCount, evMatchCount])
 
+  // Preserve each view's scroll position across navigation. The `.a-content`
+  // scroll container is keyed by view, so forward-nav into an event/channel
+  // detail starts at the top — but without this, returning to the list via the
+  // back button (or the browser's) would remount the container at scrollTop 0
+  // and lose the user's place. See useViewScrollRestore.js for why this is more
+  // than one assignment.
+  //
+  // `scrollKey` is deliberately FINER than `contentKey` (below): identity is
+  // per event and per channel, so one detail page's offset is never restored
+  // onto a different one, while the React `key` stays coarse so navigating
+  // between two events doesn't remount the whole container.
+  // Discover's two modes share one container but are wildly different lengths,
+  // so they get separate offsets too: without that, switching to the shorter
+  // Calendars grid clamps the container and the scroll listener writes that
+  // clamped value over the events list's real position.
+  const contentKey = openEventObj ? 'ev' : openCh ? 'ch' : section
+  const scrollKey = openEventObj ? `ev:${eventKey(openEventObj)}`
+    : openCh ? `ch:${openCh}`
+      : section === 'discover' ? `discover:${emphasis}` : section
+  const { containerRef: contentRef, resetViewScroll } = useViewScrollRestore(scrollKey)
+
   // The context value is memoized so its identity only changes when one of
   // its constituents does (Fix 4 first step, docs/web-tab-switch-performance.md):
   // a parent (App.jsx) re-render with unchanged props no longer re-renders
@@ -491,7 +554,7 @@ export function App206(props) {
     mapWidth, setMapWidth,
     debugMode, toggleDebug,
     // handlers
-    go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea, resetViewScroll, scrollKey,
   }), [
     calendars, eventsIndex, fullEventsLoaded, loading,
     favoritesSet, toggleFollow,
@@ -517,27 +580,8 @@ export function App206(props) {
     mapExpanded, toggleMapExpand, mapScope,
     mapWidth, setMapWidth,
     debugMode, toggleDebug,
-    go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea, resetViewScroll, scrollKey,
   ])
-
-  // Preserve each view's scroll position across navigation. The `.a-content`
-  // scroll container is keyed by view, so forward-nav into an event/channel
-  // detail starts at the top — but without this, returning to the list via the
-  // back button would remount the container at scrollTop 0 and lose the user's
-  // place. We record the live scrollTop per view key and restore it when that
-  // view remounts.
-  const contentRef = useRef(null)
-  const scrollPositionsRef = useRef(new Map())
-  const contentKey = openEventObj ? 'ev' : openCh ? 'ch' : section
-  useLayoutEffect(() => {
-    const el = contentRef.current
-    if (!el) return
-    // Restore before paint (no flash); default to the top for first visits.
-    el.scrollTop = scrollPositionsRef.current.get(contentKey) ?? 0
-    const onScroll = () => { scrollPositionsRef.current.set(contentKey, el.scrollTop) }
-    el.addEventListener('scroll', onScroll, { passive: true })
-    return () => el.removeEventListener('scroll', onScroll)
-  }, [contentKey])
 
   let content
   if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><Suspense fallback={<div aria-busy="true">Loading site health…</div>}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></Suspense></div>
