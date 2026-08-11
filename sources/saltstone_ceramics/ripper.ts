@@ -194,52 +194,65 @@ export default class SaltstoneCeramicsRipper extends JSONRipper {
             if (this.seenIds.has(product.handle)) continue;
             this.seenIds.add(product.handle);
 
-            const schedule = parseSchedule(product.title, today);
-            if (!schedule) {
+            try {
+                const schedule = parseSchedule(product.title, today);
+                if (!schedule) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Could not parse a date/time schedule from title: "${product.title}"`,
+                        context: product.handle
+                    });
+                    continue;
+                }
+
+                const sessionDuration = Duration.between(schedule.startTime, schedule.endTime);
+                if (sessionDuration.isNegative() || sessionDuration.isZero()) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Parsed end time is not after start time in title: "${product.title}"`,
+                        context: product.handle
+                    });
+                    continue;
+                }
+
+                const variant = product.variants?.[0];
+                const price = variant ? parseFloat(variant.price) : NaN;
+                const cost = !variant ? undefined
+                    : !variant.available ? { soldOut: true as const }
+                    : Number.isFinite(price) ? { min: price }
+                    : undefined;
+                const description = product.body_html ? stripHtml(product.body_html) : undefined;
+                const occurrences = expandOccurrences(schedule);
+                const isMultiSession = occurrences.length > 1;
+
+                for (const occurrence of occurrences) {
+                    const calendarEvent: RipperCalendarEvent = {
+                        // Shopify handles are already stable/unique; a multi-session
+                        // class appends the occurrence date so each session gets its
+                        // own id without depending on array position.
+                        id: isMultiSession ? `${product.handle}-${occurrence.toString()}` : product.handle,
+                        ripped: new Date(),
+                        date: ZonedDateTime.of(occurrence, schedule.startTime, zone),
+                        duration: sessionDuration,
+                        summary: product.title,
+                        description,
+                        location: "Saltstone Ceramics, 2206 N 45th St, Seattle, WA 98103",
+                        url: `https://saltstoneceramics.com/products/${product.handle}`,
+                        imageUrl: product.images?.[0]?.src,
+                        cost,
+                    };
+
+                    events.push(calendarEvent);
+                }
+            } catch (error) {
+                // A malformed date (e.g. "November 31st", "Feb 30th") throws out of
+                // LocalDate.of - catch per-product so one bad title can't drop every
+                // other class in the same fetch.
                 events.push({
                     type: "ParseError",
-                    reason: `Could not parse a date/time schedule from title: "${product.title}"`,
+                    reason: `Failed to parse product "${product.title}": ${error}`,
                     context: product.handle
                 });
-                continue;
-            }
-
-            const sessionDuration = Duration.between(schedule.startTime, schedule.endTime);
-            if (sessionDuration.isNegative() || sessionDuration.isZero()) {
-                events.push({
-                    type: "ParseError",
-                    reason: `Parsed end time is not after start time in title: "${product.title}"`,
-                    context: product.handle
-                });
-                continue;
-            }
-
-            const variant = product.variants?.[0];
-            const cost = variant
-                ? (variant.available ? { min: parseFloat(variant.price) } : { soldOut: true as const })
-                : undefined;
-            const description = product.body_html ? stripHtml(product.body_html) : undefined;
-            const occurrences = expandOccurrences(schedule);
-            const isMultiSession = occurrences.length > 1;
-
-            for (const occurrence of occurrences) {
-                const calendarEvent: RipperCalendarEvent = {
-                    // Shopify handles are already stable/unique; a multi-session
-                    // class appends the occurrence date so each session gets its
-                    // own id without depending on array position.
-                    id: isMultiSession ? `${product.handle}-${occurrence.toString()}` : product.handle,
-                    ripped: new Date(),
-                    date: ZonedDateTime.of(occurrence, schedule.startTime, zone),
-                    duration: sessionDuration,
-                    summary: product.title,
-                    description,
-                    location: "Saltstone Ceramics, 2206 N 45th St, Seattle, WA 98103",
-                    url: `https://saltstoneceramics.com/products/${product.handle}`,
-                    imageUrl: product.images?.[0]?.src,
-                    cost,
-                };
-
-                events.push(calendarEvent);
             }
         }
 

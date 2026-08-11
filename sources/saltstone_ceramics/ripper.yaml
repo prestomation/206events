@@ -1,6 +1,11 @@
 name: saltstone-ceramics
 sourceRole: venue
 description: "Saltstone Ceramics"
+# limit=250 is Shopify's hard per-request cap and the whole catalog (retail +
+# classes) currently fits in one page (~250 products, 18 of them classes). If
+# the catalog grows past 250 total products, this single fetch will silently
+# stop covering the oldest/newest items - revisit with `page=`-based
+# pagination if that happens (ripper.ts has no pagination logic today).
 url: "https://saltstoneceramics.com/products.json?limit=250"
 friendlyLink: https://saltstoneceramics.com/
 tags: ["Arts"]

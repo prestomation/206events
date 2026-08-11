@@ -91,6 +91,56 @@ const UNPARSEABLE_CLASS = {
     images: [],
 };
 
+const INVALID_CALENDAR_DATE = {
+    id: 8,
+    title: "Impossible Class: Sunday November 31st, 6:30pm - 8:30pm",
+    handle: "impossible-class-nov-31",
+    product_type: "retail-class",
+    body_html: "<p>November only has 30 days.</p>",
+    variants: [{ price: "50.00", available: true }],
+    images: [{ src: "https://cdn.shopify.com/impossible.jpg" }],
+};
+
+const BACKWARDS_TIME_RANGE = {
+    id: 9,
+    title: "Backwards Class: Sunday September 20th, 8:30pm - 6:30pm",
+    handle: "backwards-class-sept-20",
+    product_type: "retail-class",
+    body_html: "<p>End time stated before start time.</p>",
+    variants: [{ price: "50.00", available: true }],
+    images: [],
+};
+
+const NOON_MIDNIGHT_BOUNDARY = {
+    id: 10,
+    title: "Midnight Oil: Sunday September 20th, 12am - 12pm",
+    handle: "midnight-oil-sept-20",
+    product_type: "retail-class",
+    body_html: "<p>Runs from just after midnight to noon.</p>",
+    variants: [{ price: "75.00", available: true }],
+    images: [],
+};
+
+const NON_NUMERIC_PRICE = {
+    id: 11,
+    title: "Free Community Night: Sunday September 20th, 6:30pm - 8:30pm",
+    handle: "free-community-night-sept-20",
+    product_type: "retail-class",
+    body_html: "<p>Price left blank upstream.</p>",
+    variants: [{ price: "", available: true }],
+    images: [],
+};
+
+const NO_VARIANTS_OR_IMAGES = {
+    id: 12,
+    title: "Bare Bones Class: Sunday September 20th, 6:30pm - 8:30pm",
+    handle: "bare-bones-class-sept-20",
+    product_type: "retail-class",
+    body_html: "<p>No variants or images provided.</p>",
+    variants: [],
+    images: [],
+};
+
 describe('Saltstone Ceramics Ripper', () => {
     test('skips plain merchandise (non retail-class products)', async () => {
         const ripper = new SaltstoneCeramicsRipper();
@@ -236,6 +286,79 @@ describe('Saltstone Ceramics Ripper', () => {
         const events = await ripper.parseEvents({ notProducts: [] }, testDate, {});
         expect(events).toHaveLength(1);
         expect((events[0] as RipperError).type).toBe('ParseError');
+    });
+
+    test('emits a ParseError instead of crashing on an impossible calendar date, without dropping other products', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        const jsonData = buildJsonData([INVALID_CALENDAR_DATE, CLAY_CURIOUS_SINGLE]);
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+
+        const errors = events.filter(e => 'type' in e) as RipperError[];
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
+        // The good product in the same batch still parses.
+        expect(valid).toHaveLength(1);
+        expect(valid[0].id).toBe('clay-curious-sunday-september-20th');
+    });
+
+    test('emits a ParseError when the parsed end time is not after the start time', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        const jsonData = buildJsonData([BACKWARDS_TIME_RANGE]);
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+        expect(events).toHaveLength(1);
+        expect((events[0] as RipperError).type).toBe('ParseError');
+    });
+
+    test('handles the 12am/12pm midnight-noon boundary correctly', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        const jsonData = buildJsonData([NOON_MIDNIGHT_BOUNDARY]);
+        const events = await ripper.parseEvents(jsonData, testDate, {}) as RipperCalendarEvent[];
+        expect(events).toHaveLength(1);
+        expect(events[0].date.hour()).toBe(0);
+        expect(events[0].date.minute()).toBe(0);
+        expect(events[0].duration.toHours()).toBe(12);
+    });
+
+    test('omits cost rather than publishing NaN when price is non-numeric', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        const jsonData = buildJsonData([NON_NUMERIC_PRICE]);
+        const events = await ripper.parseEvents(jsonData, testDate, {}) as RipperCalendarEvent[];
+        expect(events).toHaveLength(1);
+        expect(events[0].cost).toBeUndefined();
+    });
+
+    test('parses successfully with no variants or images present', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        const jsonData = buildJsonData([NO_VARIANTS_OR_IMAGES]);
+        const events = await ripper.parseEvents(jsonData, testDate, {}) as RipperCalendarEvent[];
+        expect(events).toHaveLength(1);
+        expect(events[0].cost).toBeUndefined();
+        expect(events[0].imageUrl).toBeUndefined();
+    });
+
+    test('stays in the current year exactly at the PAST_TOLERANCE_DAYS boundary, rolls just beyond it', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        // testDate is Aug 11, 2026. Aug 8 is exactly 3 days before (grace
+        // boundary - stays this year); Aug 7 is 4 days before (rolls to 2027).
+        const atBoundary = {
+            ...CLAY_CURIOUS_SINGLE,
+            id: 13,
+            title: "Clay Curious: Friday August 8th, 6:30pm - 8:30pm",
+            handle: "clay-curious-aug-8-boundary",
+        };
+        const justPastBoundary = {
+            ...CLAY_CURIOUS_SINGLE,
+            id: 14,
+            title: "Clay Curious: Friday August 7th, 6:30pm - 8:30pm",
+            handle: "clay-curious-aug-7-past-boundary",
+        };
+        const events = await ripper.parseEvents(buildJsonData([atBoundary, justPastBoundary]), testDate, {}) as RipperCalendarEvent[];
+
+        const atBoundaryEvent = events.find(e => e.id === 'clay-curious-aug-8-boundary')!;
+        const justPastBoundaryEvent = events.find(e => e.id === 'clay-curious-aug-7-past-boundary')!;
+        expect(atBoundaryEvent.date.year()).toBe(2026);
+        expect(justPastBoundaryEvent.date.year()).toBe(2027);
     });
 
     test('parses all retail-class events from the live sample fixture with no errors', async () => {
