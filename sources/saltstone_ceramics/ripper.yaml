@@ -1,0 +1,17 @@
+name: saltstone-ceramics
+sourceRole: venue
+description: "Saltstone Ceramics"
+url: "https://saltstoneceramics.com/products.json?limit=250"
+friendlyLink: https://saltstoneceramics.com/
+tags: ["Arts"]
+geo:
+  lat: 47.6615090
+  lng: -122.3321851
+  label: "Saltstone Ceramics, 2206 N 45th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2380088170
+calendars:
+  - name: classes
+    friendlyname: "Saltstone Ceramics"
+    timezone: America/Los_Angeles
+    tags: ["Wallingford"]
