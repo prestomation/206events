@@ -9,3 +9,4 @@ calendars:
   - name: all-events
     friendlyname: "Cornish College of the Arts"
     timezone: America/Los_Angeles
+    expectEmpty: true  # 2026-08-11: SeattleU Localist group page shows "no upcoming events" for Cornish right now
