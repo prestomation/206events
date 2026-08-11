@@ -1,11 +1,11 @@
 ---
 name: "Tilth Alliance"
-status: added
+status: proxy
 platform: WordPress / Tribe Events ICS
 url: https://tilthalliance.org/events/
 tags: [Community, Education]
 firstSeen: 2026-06-14
-lastChecked: 2026-06-14
+lastChecked: 2026-08-11
 ---
 Seattle-based urban agriculture nonprofit headquartered at Good Shepherd Center (4649 Sunnyside Ave N) with a second location at Rainier Beach Urban Farm and Wetlands (5513 S Cloverdale St).
 
@@ -19,3 +19,8 @@ Investigated 2026-06-14:
 - `geo: null` — multi-venue presenter
 
 Added as `sources/external/tilth-alliance.yaml`.
+
+Proxy-verified 2026-08-11 (out-of-band run): CI builds reported 0 events for this
+feed while a residential fetch returned 30. Verified the `outofband` rung from
+the residential out-of-band environment — HTTP 200, 30 events. Merged at
+`proxy: outofband` (PR #1176).
