@@ -379,12 +379,17 @@ export function App206(props) {
     })
   }, [channelByIcsUrl, onSelectChannel])
   const openEvent = useCallback((event) => {
-    // Only a real navigation records a return target. Writing the hash fires a
-    // `hashchange`, which `useUrlState` applies straight back — calling this
-    // again for the event already on screen. By then the venue has been closed,
-    // so that echo would record `null` over the venue we just came from.
-    const key = event ? eventKey(event) : null
-    if (key !== openEventKeyRef.current) backToChannelRef.current = openChRef.current
+    // Record only when arriving at a detail from somewhere that isn't one.
+    //
+    // Two things would otherwise clear the target wrongly, and both look like
+    // "open this event" from here. Writing the hash fires a `hashchange`, which
+    // `useUrlState` applies straight back, re-opening the event already on
+    // screen. And "Other dates" / "More from" hop sideways between details
+    // without passing through the venue. In both cases the venue is already
+    // closed, so reading it now would record `null` over the way out — the
+    // arrow leads back to the surface the reader was browsing, not to the
+    // previous card.
+    if (openEventKeyRef.current === null) backToChannelRef.current = openChRef.current
     startTransition(() => { setOpenCh(null); onSelectChannel(null); setOpenEventObj(event) })
   }, [onSelectChannel])
   const back = useCallback(() => {

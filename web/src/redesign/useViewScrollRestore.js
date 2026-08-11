@@ -158,18 +158,23 @@ export function useViewScrollRestore(viewKey) {
     // events avoids both halves of the trap: native scrollbar drags dispatch no
     // pointer events at all in Chromium, while `pointerdown` fires for every
     // tap on a button or link, where yielding would be wrong.
-    lastSeenRef.current = target
+    // Seeded from what the container actually took, not from the offset asked
+    // for: a clamped restore lands somewhere else entirely, and seeding the
+    // wish rather than the outcome makes the very next reader scroll look like
+    // an enormous jump.
+    lastSeenRef.current = visible ? el.scrollTop : 0
     const onScroll = () => {
-      if (!settled()) {
-        if (Math.abs(el.scrollTop - applied) <= LANDED_SLACK_PX) return
-        pendingRef.current = null // the reader moved it, not us
-      }
       const top = el.scrollTop
       const previous = lastSeenRef.current
       // Track every position the container passes through, recorded or not —
-      // the comparison below is against where it actually was, so a skipped
-      // event can't leave a stale baseline that swallows the next one too.
+      // including our own writes below — so a skipped event can't leave a stale
+      // baseline that swallows the next one too.
       lastSeenRef.current = top
+
+      if (!settled()) {
+        if (Math.abs(top - applied) <= LANDED_SLACK_PX) return
+        pendingRef.current = null // the reader moved it, not us
+      }
 
       // Swapping what the container holds — Discover's Events list for its much
       // shorter Calendars grid, say — makes the browser move scrollTop on its

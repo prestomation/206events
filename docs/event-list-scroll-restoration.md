@@ -206,10 +206,18 @@ Two subtleties, both load-bearing:
   during render. Navigation runs inside `startTransition`, and a render-phase
   write survives a discarded transition render — the same hazard the map
   keep-alive latch documents.
-- Writing the hash fires a `hashchange`, which `useUrlState` applies straight
-  back, calling `openEvent` again for the event already on screen. By then the
-  venue is closed, so that echo would record `null` over it. Only a *different*
-  event records a return target.
+- The target is recorded only when arriving at a detail from something that
+  isn't one. Two things otherwise clear it wrongly, and both look like "open
+  this event" from inside `openEvent`: writing the hash fires a `hashchange`,
+  which `useUrlState` applies straight back, re-opening the event already on
+  screen; and "Other dates" / "More from" hop sideways between details without
+  passing through the venue. In both, the venue is already closed, so reading it
+  then would record `null` over the way out.
+
+The rule this settles on is that the arrow leads back to the **surface the
+reader was browsing** — the venue, or the list — rather than to the previous
+card. A chain of "Other dates" hops still exits to the venue in one tap; browser
+Back walks the chain card by card, which is what it is for.
 
 ## What this does not change
 
@@ -242,9 +250,10 @@ whether that happens while mounted or while away — and is *kept* when the same
 list is merely rebuilt with a fresh array identity.
 
 `web/e2e/event-navigation.spec.js` pins where the arrow lands: back to the venue
-from an event opened on one, back to the list from an event opened there, and
-back to the section from a venue's own arrow even after a return target has been
-recorded and consumed.
+from an event opened on one, back to the list from an event opened there, back
+to the venue still after hopping sideways between events, and back to the
+section from a venue's own arrow even after a return target has been recorded
+and consumed.
 
 Screenshots: `web/e2e/screenshots/scroll-restore-deep-list.png` (scrolled deep
 before opening an event) and `scroll-restore-after-back.png` (the same place

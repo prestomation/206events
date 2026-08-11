@@ -144,6 +144,24 @@ test('back from an event opened in the Discover list returns to the list', async
   await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toHaveCount(0)
 })
 
+test('back still returns to the venue after hopping between events', async ({ page }) => {
+  await page.goto('/')
+  await page.getByText('Calendars', { exact: true }).first().click()
+  await page.locator('.ch', { hasText: 'Neumos' }).first().click()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
+
+  await page.locator('.ev', { hasText: 'Jazz Night' }).first().locator('.ev-title').click()
+  await expect(page.getByRole('link', { name: 'View event page' })).toBeVisible()
+
+  // "More from this venue" hops sideways to another event without passing
+  // through the venue page. The arrow still has to lead back out to it.
+  await page.locator('.a-content .ev', { hasText: 'Open Mic' }).first().click()
+  await expect.poll(() => page.evaluate(() => window.location.hash)).toContain('Open+Mic')
+
+  await page.locator('.a-content .a-iconbtn').first().click()
+  await expect(page.getByRole('link', { name: 'Add to my calendar app' })).toBeVisible()
+})
+
 test('back from a venue page itself returns to the section, not to another venue', async ({ page }) => {
   await page.goto('/')
   await page.getByText('Calendars', { exact: true }).first().click()

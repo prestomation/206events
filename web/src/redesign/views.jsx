@@ -442,7 +442,11 @@ export function PagedDayList({ events, restoreKey = null, withReason = false, pe
   // The view this list is rendered in, read during render — safe to use from
   // the effects below, which only run for a render that committed.
   const scrollKey = app?.scrollKey
-  useEffect(() => {
+  // A layout effect, like its unmounted-path sibling below and for the same
+  // reason: the new, shorter list has already been committed, so the container
+  // is sitting clamped at its bottom. Resetting from a passive effect would
+  // paint that frame before snapping to the top.
+  useLayoutEffect(() => {
     if (prevSignatureRef.current === signature) return
     prevSignatureRef.current = signature
     setVisibleCount(EVENTS_PAGE_SIZE)
