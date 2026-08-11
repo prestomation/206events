@@ -57784,12 +57784,6 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/j-cole"
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-11",
-      "source": "agent",
-      "reason": "Event already passed; page now shows thank-you message with no timing info"
-    },
     "dogwoodplaypark:fa10d1c2-a199-4ad9-be89-d36776728a8c": {
       "fields": {
         "imageUrl": "https://static.wixstatic.com/media/037af7_e2b62ee714544238980a130167017f0c~mv2.jpg"
@@ -57807,6 +57801,91 @@
       "resolvedAt": "2026-08-11",
       "source": "agent",
       "evidence": "https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D202326485"
+    },
+    "seatoday:cityspark-17845536": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "Stale 2025 event; 2026 Exotic365 Conference is in Philadelphia Aug 30-Sep 3"
+    },
+    "seatoday:cityspark-17662801": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "Registration price not publicly listed; chamber website returns 403"
+    },
+    "seatoday:cityspark-19111152": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "Registration price not publicly listed; Auctria registration page requires JavaScript"
+    },
+    "seatoday:cityspark-17845674": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "Stale 2025 event; Wilco performed at ZooTunes Aug 24-25 2025, no 2026 date exists"
+    },
+    "seatoday:cityspark-18995746": {
+      "fields": {
+        "cost": {
+          "min": 14.0,
+          "max": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/wisdom-of-nature-cultivate-connection/18995746/2026-08-24T00"
+    },
+    "couth-buzzard:49rbdon9l9f7j6hdo72iavf4r8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "evidence": "https://www.phinneycenter.org/events/art-walk/"
+    },
+    "couth-buzzard:0gbn2v3j9qsl2tm015gtbc82rh": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "evidence": "https://www.phinneycenter.org/events/art-walk/"
+    },
+    "couth-buzzard:_8go42d9p8gsj0b9h69144b9k6134ab9p84qk8b9o60sk6gi668q3ccpj64": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "No pricing information found on venue website or in calendar feed"
+    },
+    "couth-buzzard:1ve317d6rg7dj9u1j0kasfu6hg": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "No pricing information found on venue website or in calendar feed"
+    },
+    "couth-buzzard:216cj4peioge0m5pailnsslulh": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "Event not yet listed on Maritime Folknet website; pricing unknown"
+    },
+    "couth-buzzard:pdg91vk2joog6qjic4khu13r9n_20261005T000000Z": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "No pricing information found on venue website or in calendar feed"
+    },
+    "couth-buzzard:0eoqh3ic047ghkiu6o6i9449il": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-11",
+      "source": "agent",
+      "reason": "No pricing information found on venue website or in calendar feed"
     }
   }
 }
