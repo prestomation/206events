@@ -38,13 +38,16 @@ const MAX_TRACKED_VIEWS = 50
 // as its ICS fetch takes, which is exactly the case the chase exists for, so a
 // bare stability check would abort during the wait it was meant to survive.
 const MAX_STABLE_FRAMES = 30
-// Absolute backstop for content that never arrives at all — the channel ICS
-// fetch in App.jsx gives up at 10s, so nothing legitimate lands after this. It
-// also covers the case the stability rule above can't see: a view that is
+// How long the chase will wait for content at all. Short on purpose: a restore
+// that fires seconds after the reader settled is a page that jumps under them,
+// which is worse than not restoring. If a venue page's ICS takes longer than
+// this, the reader simply stays at the top.
+//
+// It also covers the case the stability rule above can't see: a view that is
 // statically shorter than the offset and never changes height (the viewport was
 // resized, or the phone rotated, between visits), where `contentArrived` never
 // flips. Each waiting frame costs two layout reads, no write — see `chase`.
-const RESTORE_CAP_MS = 12000
+const RESTORE_CAP_MS = 3000
 // Sub-pixel slack: scrollTop can read back fractionally under the assigned
 // value on fractional-DPR displays.
 const LANDED_SLACK_PX = 1
@@ -76,10 +79,18 @@ export function useViewScrollRestore(viewKey) {
   // Callers read the key from context during their own render, which is safe
   // even though navigation runs inside `startTransition` — effects only run for
   // renders that commit, so the value an effect closes over is a committed one.
+  //
+  // Forgetting the offset is not enough on its own: when the swap happens while
+  // the view is mounted, the container is still sitting at the old offset, and
+  // a shorter result set just clamps it — leaving the reader at the BOTTOM of a
+  // list they never scrolled. So this also puts the container back at the top,
+  // which is where a freshly-filtered list should start. Only the displayed
+  // view has a list to raise this, so the container always belongs to `key`.
   const resetViewScroll = useCallback((key) => {
     if (key === undefined) return
     positionsRef.current.delete(key)
     pendingRef.current = null
+    if (containerRef.current) containerRef.current.scrollTop = 0
   }, [])
 
   useLayoutEffect(() => {

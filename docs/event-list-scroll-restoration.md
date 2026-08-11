@@ -70,8 +70,11 @@ Owns the scroll map and the restore. Three things beyond a plain assignment:
 - **Chase-while-growing.** If the first assignment lands short, re-apply on each
   animation frame while `scrollHeight` is still changing. It stops on any of:
   the offset is reached; the content arrived and *then* held a stable height for
-  ~30 frames; the reader takes over; or a 12 s backstop for content that never
-  arrives. It only touches `scrollTop` when the scrollable range can actually
+  ~30 frames; the reader takes over; or a 3 s backstop. That backstop is short
+  on purpose — a restore that fires seconds after the reader has settled is a
+  page that jumps under them, which is worse than not restoring, so a venue page
+  whose ICS takes longer than that simply stays at the top. It only touches
+  `scrollTop` when the scrollable range can actually
   hold the offset — otherwise each frame would be a write plus a read-back, i.e.
   a forced reflow, for an assignment guaranteed to be clamped away.
 - **Yielding by outcome, not by input event.** Every position the hook writes is
@@ -118,12 +121,24 @@ whether or not anything changed.
 
 So each stored window carries a **signature** — the list's length plus its first
 and last `eventKey`. On mount, a saved window whose signature no longer matches
-is discarded, and a layout effect calls `resetViewScroll()` to drop the offset
-with it. It has to be a *layout* effect: the parent's restore runs in the same
-commit's layout phase, after the child's, so clearing here lands the new list at
-the top. Without it the chase would actively drive the reader thousands of
-pixels into a result set they never scrolled, as pagination grew the new list
+is discarded, and a layout effect calls `resetViewScroll(scrollKey)` to drop the
+offset with it. It has to be a *layout* effect: the parent's restore runs in the
+same commit's layout phase, after the child's, so clearing here lands the new
+list at the top. Without it the chase would actively drive the reader thousands
+of pixels into a result set they never scrolled, as pagination grew the new list
 past the old offset.
+
+`resetViewScroll` takes the key rather than inferring "the current view".
+Neither ordering works for both callers — the mount-time one runs before this
+hook's effect, the mounted-swap one after — so callers pass the key they read
+from context during their own render. That is safe under `startTransition`:
+effects only run for renders that commit, so the value an effect closes over is
+a committed one.
+
+It also puts the container back at the top, not just forgetting the offset.
+When the swap happens while the view is mounted, the container is still sitting
+at the old position, and a shorter result set merely clamps it — parking the
+reader at the *bottom* of a list they never scrolled.
 
 ### Accepted trade-off: the restored window is uncapped
 
@@ -167,7 +182,9 @@ window inside a transition — not to cap it.
 - a *different* venue page starts at the top rather than inheriting the last
   one's offset, and a second event opened from a detail page starts at the top
   even though the container is reused — #4;
-- editing the search while reading an event leaves the list at the top.
+- editing the search while reading an event leaves the list at the top, as does
+  narrowing it while the list is on screen (which otherwise clamps to the
+  bottom).
 
 `web/src/redesign/pagedDayList.test.jsx` pins the page window itself: it
 survives a remount, stays separate per `restoreKey`, never seeds beyond the

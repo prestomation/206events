@@ -298,6 +298,28 @@ test('editing the search while reading an event drops the saved position', async
     .toBeLessThanOrEqual(TOLERANCE)
 })
 
+test('narrowing the search while deep in the list lands at the top, not the bottom', async ({ page }) => {
+  await overrideEventsIndex(page, makeDeepEvents())
+  await gotoEvents(page)
+
+  const content = page.locator('.a-content')
+  expect(await pageDownTo(page, content, 'Event #150')).toBeGreaterThan(2000)
+
+  // Filtering in place leaves the container sitting at an offset the new,
+  // shorter result set can't hold. Forgetting the saved offset isn't enough —
+  // the browser just clamps, which parks the reader at the BOTTOM of a list
+  // they never scrolled.
+  await page.getByPlaceholder('Search events & venues…').fill('Event #18')
+  await expect(page.getByText('Event #150', { exact: true })).toHaveCount(0)
+
+  await expect
+    .poll(() => content.evaluate((el) => el.scrollTop), {
+      message: 'a narrowed list should start at the top',
+      timeout: 5000,
+    })
+    .toBeLessThanOrEqual(TOLERANCE)
+})
+
 test('opening a second event from a detail page starts that page at the top', async ({ page }) => {
   // Four occurrences of one title so the detail page carries an "Other dates"
   // list, which navigates event → event WITHOUT remounting `.a-content` (its
