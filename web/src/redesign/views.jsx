@@ -29,11 +29,23 @@ import { indexBuildErrors, sourceDebug, eventDebug } from './debugData.js'
 // (see EventsMode) to keep the DOM light while every event stays reachable.
 const EVENTS_PAGE_SIZE = 60
 
-// How far each paged list had been scrolled through, by `restoreKey`. Kept at
-// module scope on purpose: `.a-content` is keyed by view in App206, so opening
-// an event unmounts the list entirely, and component state can't survive that.
-// One entry per list (two today), so there is nothing to evict.
+// How far each paged list had been scrolled through, by `restoreKey`, as
+// `{ count, signature }`. Kept at module scope on purpose: `.a-content` is
+// keyed by view in App206, so opening an event unmounts the list entirely, and
+// component state can't survive that. One entry per list (two today), so there
+// is nothing to evict.
+//
+// `signature` is what stops a *different* list inheriting the window: the
+// search box and date filter stay usable on a detail page, so the reader can
+// change the result set while the list is unmounted. A plain identity check
+// can't see that — a remounted `useMemo` yields a fresh array either way — so
+// the list is fingerprinted by its length and endpoints instead.
 const pageWindows = new Map()
+const listSignatureOf = (events) => (
+  events.length
+    ? `${events.length}|${eventKey(events[0])}|${eventKey(events[events.length - 1])}`
+    : '0'
+)
 
 // Build grouped dropdown options for the Category filter (taxonomy groups), and
 // a flat option list for Neighborhood — each with a live calendar count.
@@ -382,13 +394,19 @@ export function PagedDayList({ events, restoreKey = null, withReason = false, pe
   // restore runs — React runs child layout effects before the parent's. Without
   // that, back-navigation remounted the list at one page and the saved offset
   // was clamped to the bottom of it. See docs/event-list-scroll-restoration.md.
-  const [visibleCount, setVisibleCount] = useState(() => {
-    const saved = (restoreKey && pageWindows.get(restoreKey)) || 0
-    return Math.min(Math.max(saved, EVENTS_PAGE_SIZE), Math.max(events.length, EVENTS_PAGE_SIZE))
+  const signature = listSignatureOf(events)
+  const [restored] = useState(() => {
+    const saved = restoreKey ? pageWindows.get(restoreKey) : null
+    // `stale` means we know this view changed while it was unmounted — as
+    // opposed to simply never having been visited, which resets nothing.
+    const stale = !!saved && saved.signature !== signature
+    return { stale, count: saved && !stale ? saved.count : EVENTS_PAGE_SIZE }
   })
+  const [visibleCount, setVisibleCount] = useState(() =>
+    Math.min(Math.max(restored.count, EVENTS_PAGE_SIZE), Math.max(events.length, EVENTS_PAGE_SIZE)))
   useEffect(() => {
-    if (restoreKey) pageWindows.set(restoreKey, visibleCount)
-  }, [restoreKey, visibleCount])
+    if (restoreKey) pageWindows.set(restoreKey, { count: visibleCount, signature })
+  }, [restoreKey, visibleCount, signature])
 
   const groups = useMemo(
     () => groupIndexEventsByDay(events.slice(0, visibleCount)),
@@ -421,6 +439,16 @@ export function PagedDayList({ events, restoreKey = null, withReason = false, pe
     if (restoreKey) pageWindows.delete(restoreKey)
     resetViewScroll?.()
   }, [events, clearSeekTarget, restoreKey, resetViewScroll])
+
+  // The same swap, but made while this list was UNMOUNTED — the search box and
+  // date filter stay usable on a detail page, so the reader can come back to a
+  // different result set entirely. The effect above can't see that (its "before"
+  // is the array it mounted with), so drop the saved offset here instead. It
+  // must be a layout effect: App206's restore runs in the parent's layout phase,
+  // which is after this one, so clearing here lands the new list at the top.
+  useLayoutEffect(() => {
+    if (restored.stale) resetViewScroll?.()
+  }, [restored, resetViewScroll])
 
   const hasMore = visibleCount < events.length
   const loadMore = () => setVisibleCount((c) => Math.min(c + EVENTS_PAGE_SIZE, events.length))

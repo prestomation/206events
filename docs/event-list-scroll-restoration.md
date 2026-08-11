@@ -57,20 +57,29 @@ Owns the scroll map and the restore. Three things beyond a plain assignment:
 
 - **Per-view keys.** `ev:<eventKey>`, `ch:<icsUrl>`, or the section name.
   Deliberately *finer* than the React `key` on `.a-content`, which stays coarse
-  so navigating between two events doesn't remount the container. The map is
-  capped at 50 entries and evicts least-recently-written.
+  so navigating between two events doesn't remount the container.
+
+  That gap is why the offset is assigned **even when it's zero**: moving between
+  two events (an "Other dates" or "More from" row on a detail page) reuses the
+  same DOM node, so without an explicit write the second event would open still
+  scrolled to the first one's position.
+
+  The map is capped at 50 entries and evicts least-recently-written.
 - **A pending-restore guard.** While a restore is in flight the scroll listener
   records nothing, so a clamped echo can't overwrite the saved offset (#2).
 - **Chase-while-growing.** If the first assignment lands short, re-apply on each
   animation frame while `scrollHeight` is still changing. It stops on any of:
-  the offset is reached; the height has been stable for ~30 frames (the view is
-  genuinely shorter now — a filter narrowed it); the reader takes over
-  (`wheel` / `touchstart` / `keydown`); or a 15 s backstop.
+  the offset is reached; the content arrived and *then* held a stable height for
+  ~30 frames; the reader takes over (`wheel` / `touchstart` / `keydown` /
+  `pointerdown` — the last covers scrollbar and day-scrubber drags, which emit
+  none of the others); or a 15 s backstop for content that never arrives.
 
-  The give-up signal is deliberately *content stopped growing*, not a timeout —
-  a venue page's height stays flat for as long as its ICS fetch takes, which can
-  be seconds, and a wall-clock deadline gives up on exactly the case that needs
-  the chase most.
+  Both halves of the stability rule matter. A bare "height stopped changing"
+  check aborts during the flat period *before* content arrives — a venue page's
+  height doesn't move for as long as its ICS fetch takes, which is exactly the
+  case the chase exists for. And giving up must not write the clamped position
+  back: the saved offset is left intact so a later, taller visit can still
+  honour it.
 
 ### `web/src/redesign/views.jsx`
 
@@ -91,6 +100,22 @@ fires on identity changes but not on mount, where it would throw away the window
 just restored. When it does fire it clears the saved page window *and* calls
 `resetViewScroll()` so the stale offset goes with it.
 
+That covers a swap made **while the list is mounted**. The search box and date
+filter stay usable on a detail page, though, so the reader can also change the
+result set while the list is *unmounted* — and the effect above can't see that,
+because its "before" is whatever array the remount started with. A plain
+identity check is no help either: a remounted `useMemo` produces a fresh array
+whether or not anything changed.
+
+So each stored window carries a **signature** — the list's length plus its first
+and last `eventKey`. On mount, a saved window whose signature no longer matches
+is discarded, and a layout effect calls `resetViewScroll()` to drop the offset
+with it. It has to be a *layout* effect: the parent's restore runs in the same
+commit's layout phase, after the child's, so clearing here lands the new list at
+the top. Without it the chase would actively drive the reader thousands of
+pixels into a result set they never scrolled, as pagination grew the new list
+past the old offset.
+
 ## What this does not change
 
 - The in-app back arrow on an event detail returns to the **section**
@@ -110,11 +135,15 @@ just restored. When it does fire it clears the saved page window *and* calls
 - the same via the browser Back button;
 - a venue page whose list is parsed from ICS after mount — #3;
 - a *different* venue page starts at the top rather than inheriting the last
-  one's offset — #4.
+  one's offset, and a second event opened from a detail page starts at the top
+  even though the container is reused — #4;
+- editing the search while reading an event leaves the list at the top.
 
 `web/src/redesign/pagedDayList.test.jsx` pins the page window itself: it
 survives a remount, stays separate per `restoreKey`, never seeds beyond the
-list's length, and resets (dropping the saved scroll) when the list is replaced.
+list's length, resets (dropping the saved scroll) when the list is replaced —
+whether that happens while mounted or while away — and is *kept* when the same
+list is merely rebuilt with a fresh array identity.
 
 Screenshots: `web/e2e/screenshots/scroll-restore-deep-list.png` (scrolled deep
 before opening an event) and `scroll-restore-after-back.png` (the same place

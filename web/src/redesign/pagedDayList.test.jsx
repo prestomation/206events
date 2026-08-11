@@ -125,6 +125,39 @@ describe('PagedDayList paging window', () => {
     expect(rowCount(remounted)).toBe(PAGE)
   })
 
+  it('drops the window and the saved scroll when the list changed while unmounted', () => {
+    const model = makeModel()
+
+    const first = renderList(model, { events: makeEvents(150), restoreKey: 'away' })
+    fireEvent.click(screen.getByRole('button', { name: 'Load more' }))
+    expect(rowCount(first.container)).toBe(PAGE * 2)
+    // Opening an event unmounts the list — but the search box and date filter
+    // are still on screen, so the result set can change while it's away.
+    first.unmount()
+    model.resetViewScroll.mockClear()
+
+    const second = renderList(model, { events: makeEvents(150, 'b'), restoreKey: 'away' })
+    expect(rowCount(second.container)).toBe(PAGE)
+    // The offset must go too: otherwise the restore chases it as pagination
+    // grows and drives the reader deep into a list they never scrolled.
+    expect(model.resetViewScroll).toHaveBeenCalled()
+  })
+
+  it('keeps the window when the same list is rebuilt with a fresh identity', () => {
+    const model = makeModel()
+
+    const first = renderList(model, { events: makeEvents(150), restoreKey: 'rebuilt' })
+    fireEvent.click(screen.getByRole('button', { name: 'Load more' }))
+    first.unmount()
+    model.resetViewScroll.mockClear()
+
+    // A remount recomputes the filtered array, so identity always differs even
+    // when nothing about the list changed. Only the contents decide.
+    const second = renderList(model, { events: makeEvents(150), restoreKey: 'rebuilt' })
+    expect(rowCount(second.container)).toBe(PAGE * 2)
+    expect(model.resetViewScroll).not.toHaveBeenCalled()
+  })
+
   it('never seeds a window larger than the list it is rendering', () => {
     const model = makeModel()
     const big = renderList(model, { events: makeEvents(150), restoreKey: 'clamp' })

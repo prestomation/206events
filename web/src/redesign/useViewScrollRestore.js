@@ -30,14 +30,15 @@ import { useRef, useCallback, useLayoutEffect } from 'react'
 // Views to remember offsets for. Keys are per-event/per-venue, so this is
 // unbounded without a cap; 50 covers any realistic back-and-forth session.
 const MAX_TRACKED_VIEWS = 50
-// Give up once the content has stopped growing for this many consecutive
-// frames and the offset still isn't reachable — the view is genuinely shorter
-// than it was (a filter narrowed it, a source now returns less). Roughly half a
-// second at 60fps, which is the signal to stop rather than a timeout: a venue
-// page fetching and parsing its ICS can take much longer than that to arrive,
-// and the height is flat until it does.
+// Once content HAS arrived and then holds the same height for this many frames
+// while the offset still isn't reachable, the view is genuinely shorter than it
+// was (a filter narrowed it, a source now returns less) — stop chasing. The
+// "has arrived" precondition matters: a venue page's height is flat for as long
+// as its ICS fetch takes, which is exactly the case the chase exists for, so a
+// bare stability check would abort during the wait it was meant to survive.
 const MAX_STABLE_FRAMES = 30
-// Absolute backstop so a pathological page can't hold a rAF loop forever.
+// Absolute backstop for content that never arrives at all — the channel ICS
+// fetch in App.jsx gives up at 10s, so nothing legitimate lands after this.
 const RESTORE_CAP_MS = 15000
 // Sub-pixel slack: scrollTop can read back fractionally under the assigned
 // value on fractional-DPR displays.
@@ -83,12 +84,21 @@ export function useViewScrollRestore(viewKey) {
       return el.scrollTop >= target - LANDED_SLACK_PX
     }
 
-    // A restore is only "pending" while it still has somewhere to get to. The
-    // common case — the view remounts at its full height — settles here, on the
-    // first synchronous try, and nothing below ever runs.
     // `clientHeight === 0` means the container is hidden (the Map tab flips
     // `.a-content` to display:none), where assigning scrollTop is a no-op.
-    pendingRef.current = target > 0 && el.clientHeight > 0 && !apply()
+    //
+    // `apply()` runs even when the target is 0, and that matters: the React
+    // `key` on `.a-content` is coarser than this hook's key, so moving between
+    // two events (an "other dates" / "more from" row on a detail page) REUSES
+    // the same DOM node. Without an explicit assignment the new event would
+    // open still scrolled to the previous one's offset.
+    const visible = el.clientHeight > 0
+    const landed = visible ? apply() : false
+
+    // A restore stays "pending" only while it still has somewhere to get to.
+    // The common case — the view remounts at its full height — settles here, on
+    // the first synchronous try, and nothing below ever runs.
+    pendingRef.current = target > 0 && visible && !landed
       ? { target, deadline: Date.now() + RESTORE_CAP_MS }
       : null
 
@@ -118,11 +128,15 @@ export function useViewScrollRestore(viewKey) {
     el.addEventListener('wheel', yieldToReader, { passive: true })
     el.addEventListener('touchstart', yieldToReader, { passive: true })
     el.addEventListener('keydown', yieldToReader)
+    // Scrollbar drags and day-scrubber drags produce neither wheel nor touch
+    // events, so without this the chase would fight them for up to half a
+    // second while discarding where the reader actually went.
+    el.addEventListener('pointerdown', yieldToReader, { passive: true })
 
-    // Re-apply on each frame while content is still arriving under us, and stop
-    // once the height goes quiet without ever getting tall enough. Skipped
+    // Re-apply on each frame while content is still arriving under us. Skipped
     // entirely whenever the first try landed, which is the common case.
-    let lastHeight = -1
+    let lastHeight = el.scrollHeight
+    let contentArrived = false
     let stableFrames = 0
     const chase = () => {
       frame = 0
@@ -133,10 +147,13 @@ export function useViewScrollRestore(viewKey) {
       }
       if (el.scrollHeight !== lastHeight) {
         lastHeight = el.scrollHeight
+        contentArrived = true
         stableFrames = 0
-      } else if (++stableFrames > MAX_STABLE_FRAMES) {
+      } else if (contentArrived && ++stableFrames > MAX_STABLE_FRAMES) {
+        // Content came in, settled, and still can't reach the offset: the view
+        // is genuinely shorter now. Stop — but leave the saved offset alone, so
+        // a later visit that IS tall enough can still honour it.
         pendingRef.current = null
-        remember(viewKey, el.scrollTop)
         return
       }
       frame = requestAnimationFrame(chase)
@@ -150,6 +167,7 @@ export function useViewScrollRestore(viewKey) {
       el.removeEventListener('wheel', yieldToReader)
       el.removeEventListener('touchstart', yieldToReader)
       el.removeEventListener('keydown', yieldToReader)
+      el.removeEventListener('pointerdown', yieldToReader)
     }
   }, [viewKey, remember])
 

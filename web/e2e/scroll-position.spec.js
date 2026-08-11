@@ -272,6 +272,78 @@ test('a venue page keeps its place after opening an event and going back', async
   await expectRestored(content, savedScroll)
 })
 
+test('editing the search while reading an event drops the saved position', async ({ page }) => {
+  await overrideEventsIndex(page, makeDeepEvents())
+  await gotoEvents(page)
+
+  const content = page.locator('.a-content')
+  const savedScroll = await pageDownTo(page, content, 'Event #150')
+  expect(savedScroll).toBeGreaterThan(2000)
+
+  await page.getByText('Event #150', { exact: true }).click()
+  await expect(page.locator('.a-content .a-iconbtn').first()).toBeVisible()
+
+  // The search box stays usable on a detail page, so the reader can change the
+  // result set while the list is unmounted. Coming back to a DIFFERENT list
+  // deep inside it would be worse than not restoring at all.
+  await page.getByPlaceholder('Search events & venues…').fill('Event #18')
+  await page.locator('.a-content .a-iconbtn').first().click()
+  await expect(page.locator('.a-content .ev').first()).toBeVisible()
+
+  await expect
+    .poll(() => content.evaluate((el) => el.scrollTop), {
+      message: 'a re-filtered list should start at the top',
+      timeout: 5000,
+    })
+    .toBeLessThanOrEqual(TOLERANCE)
+})
+
+test('opening a second event from a detail page starts that page at the top', async ({ page }) => {
+  // Four occurrences of one title so the detail page carries an "Other dates"
+  // list, which navigates event → event WITHOUT remounting `.a-content` (its
+  // React key stays 'ev'). The scroll offset has to be reset explicitly there.
+  const base = new Date()
+  base.setSeconds(0, 0)
+  const series = Array.from({ length: 4 }, (_, i) => {
+    const d = new Date(base.getTime() + (i + 1) * 24 * 3600 * 1000)
+    return {
+      icsUrl: 'test-ripper-cal1.ics',
+      summary: 'Weekly Trivia Night',
+      // Long enough that the detail page itself overflows and can be scrolled.
+      description: `Pub trivia. ${'Teams of up to six, prizes for the top three. '.repeat(60)}`,
+      location: 'Neumos, Capitol Hill',
+      date: toJoda(d),
+      lat: 47.61,
+      lng: -122.32,
+    }
+  })
+  await overrideEventsIndex(page, [...series, ...makeDeepEvents()])
+  await gotoEvents(page)
+
+  const content = page.locator('.a-content')
+  await page.locator('.a-content .ev').first().click()
+  const otherDates = page.locator('.a-content .ev')
+  await expect(otherDates.first()).toBeVisible()
+
+  // Scroll the detail page down, then jump to a sibling occurrence. The
+  // description arrives from the lazy dictionary a beat after the page opens,
+  // so retry until the page is actually tall enough to scroll.
+  await expect(async () => {
+    await content.evaluate((el) => el.scrollTo(0, el.scrollHeight))
+    expect(await content.evaluate((el) => el.scrollTop), 'detail page should be scrollable')
+      .toBeGreaterThan(TOLERANCE)
+  }).toPass({ timeout: 10000 })
+
+  await otherDates.last().click()
+
+  await expect
+    .poll(() => content.evaluate((el) => el.scrollTop), {
+      message: 'a newly opened event should start at the top',
+      timeout: 5000,
+    })
+    .toBeLessThanOrEqual(TOLERANCE)
+})
+
 test('a different venue page starts at the top rather than inheriting the last one’s offset', async ({ page }) => {
   const cal1 = makeDeepEvents('test-ripper-cal1.ics', 'Neumos Show')
   const cal2 = makeDeepEvents('test-ripper-cal2.ics', 'SIFF Show')
