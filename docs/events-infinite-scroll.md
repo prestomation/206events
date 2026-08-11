@@ -26,7 +26,11 @@ the full index — so the list stayed truncated until a full page reload.
   '800px'` preloads the next page so scrolling stays smooth).
 - `visibleCount` resets to one page whenever the filtered set's identity changes
   (a filter edit, or the soon→full index swap) so the user starts near the top
-  of the new list rather than deep in a stale scroll position.
+  of the new list rather than deep in a stale scroll position. It does **not**
+  reset on a remount: back-navigation from an event detail unmounts the list, so
+  the window is parked in a module-scope store and seeded from it during render,
+  which is what lets the scroll offset be restored. See
+  `docs/event-list-scroll-restoration.md`.
 - Explicit footer states replace the silent cut-off:
   - **more rows in memory** → the sentinel doubles as a "Loading more…" hint;
   - **everything rendered but the full index is still fetching**

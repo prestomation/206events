@@ -2,7 +2,7 @@
 // from App.jsx, derives the view-models, owns local navigation/overlay state,
 // and renders the responsive shell (rail · content · map / bottom nav).
 
-import { useState, useMemo, useRef, useCallback, useEffect, useLayoutEffect, useDeferredValue, startTransition, lazy, Suspense } from 'react'
+import { useState, useMemo, useRef, useCallback, useEffect, useDeferredValue, startTransition, lazy, Suspense } from 'react'
 import { App206Context } from './context.js'
 import { TopBar, RailNav, BottomNav, MapPanel, FilterPopover, Toast } from './shell.jsx'
 import { Lightbox } from './atoms.jsx'
@@ -15,6 +15,7 @@ import { eventKey } from '../lib/eventKey.js'
 import { haversineKm } from '../lib/haversine.js'
 import { deserializeHash } from './urlHash.js'
 import { useUrlState } from './useUrlState.js'
+import { useViewScrollRestore } from './useViewScrollRestore.js'
 
 // Lazy-load the health dashboard: it's behind the You-tab "Site health"
 // section that most sessions never open, so it (and its build-errors plumbing)
@@ -457,6 +458,21 @@ export function App206(props) {
     else if (emphasis === 'events' && evMatchCount === 0 && calMatchCount > 0) setEmphasis('calendars')
   }, [query, emphasis, calMatchCount, evMatchCount])
 
+  // Preserve each view's scroll position across navigation. The `.a-content`
+  // scroll container is keyed by view, so forward-nav into an event/channel
+  // detail starts at the top — but without this, returning to the list via the
+  // back button (or the browser's) would remount the container at scrollTop 0
+  // and lose the user's place. See useViewScrollRestore.js for why this is more
+  // than one assignment.
+  //
+  // `scrollKey` is deliberately FINER than `contentKey` (below): identity is
+  // per event and per channel, so one detail page's offset is never restored
+  // onto a different one, while the React `key` stays coarse so navigating
+  // between two events doesn't remount the whole container.
+  const contentKey = openEventObj ? 'ev' : openCh ? 'ch' : section
+  const scrollKey = openEventObj ? `ev:${eventKey(openEventObj)}` : openCh ? `ch:${openCh}` : section
+  const { containerRef: contentRef, resetViewScroll } = useViewScrollRestore(scrollKey)
+
   // The context value is memoized so its identity only changes when one of
   // its constituents does (Fix 4 first step, docs/web-tab-switch-performance.md):
   // a parent (App.jsx) re-render with unchanged props no longer re-renders
@@ -491,7 +507,7 @@ export function App206(props) {
     mapWidth, setMapWidth,
     debugMode, toggleDebug,
     // handlers
-    go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea, resetViewScroll,
   }), [
     calendars, eventsIndex, fullEventsLoaded, loading,
     favoritesSet, toggleFollow,
@@ -517,27 +533,8 @@ export function App206(props) {
     mapExpanded, toggleMapExpand, mapScope,
     mapWidth, setMapWidth,
     debugMode, toggleDebug,
-    go, openChannel, openEvent, back, toggleFilter, flash, saveArea,
+    go, openChannel, openEvent, back, toggleFilter, flash, saveArea, resetViewScroll,
   ])
-
-  // Preserve each view's scroll position across navigation. The `.a-content`
-  // scroll container is keyed by view, so forward-nav into an event/channel
-  // detail starts at the top — but without this, returning to the list via the
-  // back button would remount the container at scrollTop 0 and lose the user's
-  // place. We record the live scrollTop per view key and restore it when that
-  // view remounts.
-  const contentRef = useRef(null)
-  const scrollPositionsRef = useRef(new Map())
-  const contentKey = openEventObj ? 'ev' : openCh ? 'ch' : section
-  useLayoutEffect(() => {
-    const el = contentRef.current
-    if (!el) return
-    // Restore before paint (no flash); default to the top for first visits.
-    el.scrollTop = scrollPositionsRef.current.get(contentKey) ?? 0
-    const onScroll = () => { scrollPositionsRef.current.set(contentKey, el.scrollTop) }
-    el.addEventListener('scroll', onScroll, { passive: true })
-    return () => el.removeEventListener('scroll', onScroll)
-  }, [contentKey])
 
   let content
   if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><Suspense fallback={<div aria-busy="true">Loading site health…</div>}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></Suspense></div>

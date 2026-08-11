@@ -50,7 +50,8 @@ All four causes live in the redesigned shell (`web/src/redesign/`):
    200 event rows plus every channel card; the browser can't paint *anything*
    — including the tapped nav button's active state — until that commit
    finishes. (The keying exists for scroll-position bookkeeping, not by
-   accident; see the scroll-restore comment in `App206.jsx`.)
+   accident; see `web/src/redesign/useViewScrollRestore.js` and
+   `docs/event-list-scroll-restoration.md`.)
 
 2. **Navigation is an urgent, blocking update.** `go()` calls a plain
    `setSection`, so React renders the entire transition at urgent priority.
