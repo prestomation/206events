@@ -5,6 +5,11 @@ friendlyLink: "https://business.fremont.com/calendar"
 sourceRole: aggregator
 weatherSetting: "mixed"
 geo: null
+# Verified 2026-08-12: every event page's og:image is the same Fremont
+# Chamber of Commerce logo (Cloudinary FCC-Vertical-color.jpg) — no
+# per-event images are published on this GrowthZone/ChamberMaster feed.
+skipEventPhotos: true
+imageUrl: "https://res.cloudinary.com/micronetonline/image/upload/c_crop,h_1080,w_1472,x_0,y_0/f_auto/q_auto/v1757376892/tenants/7060bc55-3207-412a-9d82-3e1fb7cc1a40/06e878cc6dad49eb8f99760feead003e/FCC-Vertical-color.jpg"
 tags: ["Community", "Fremont"]
 calendars:
   - name: fremont-chamber-of-commerce

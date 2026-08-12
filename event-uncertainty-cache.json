@@ -57651,7 +57651,7 @@
       },
       "resolvedAt": "2026-08-12",
       "source": "agent",
-      "evidence": "https://business.fremont.com/calendar/Details/solid-ground-day-of-service-volunteer-event-1881875"
+      "evidence": "https://business.fremont.com/calendar/Details/solid-ground-day-of-service-volunteer-event-1881875 — free volunteer event at 3 outdoor project sites: Magnuson Park beautification, bus fleet cleaning at the Transportation Hub lot, and gardening at Marra Farm Giving Garden. imageUrl from solid-ground.org Day of Service 2026 photo (resolved concurrently in #1183)."
     },
     "seatoday:cityspark-19537897": {
       "fields": {
@@ -57905,16 +57905,22 @@
       "evidence": "https://www.ticketmaster.com/national-park-after-dark-your-neck-seattle-washington-11-11-2026/event/0F0064F8C3251F30"
     },
     "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "unresolvable": true,
+      "fields": {
+        "startTime": "12:00",
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-08-12",
       "source": "agent",
-      "reason": "Event has already occurred (Aug 1, 2026); no start time listed on event page (now shows only thank-you message)"
+      "evidence": "https://slurpstation.com/blog/boba-fest-u-district-2026 — \"Admission: Free — individual drinks & items to purchase.\" Time confirmed by search of EverOut/do206 listings: \"runs from 12:00 PM to 6:00 PM.\" (The event page itself now only shows post-event thank-you copy — a concurrent session marked this unresolvable on that basis alone; these secondary listings still corroborate concrete values.)"
     },
     "venue:osm:node:126314909": {
       "unresolvable": true,
       "resolvedAt": "2026-08-12",
       "source": "agent",
-      "reason": "Fremont Chamber of Commerce is an aggregator calendar hosting events throughout Seattle at mixed indoor and outdoor locations"
+      "reason": "Not a real single venue — OSM node is the Fremont neighborhood centroid, used by fremont-chamber-of-commerce ripper as a fallback location whenever the GrowthZone/ChamberMaster feed publishes no address. Indoor/outdoor varies per event (e.g. indoor health meetups vs. outdoor optimism walks); demotes to per-event gaps."
     }
   }
 }
