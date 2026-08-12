@@ -57643,6 +57643,8 @@
     },
     "fremont-chamber-of-commerce:solid-ground-day-of-service-volunteer-event-1881875": {
       "fields": {
+        "imageUrl": "https://s14621.pcdn.co/wp-content/uploads/2026/07/DoS-SGT-RG-08.22.25-33-570x350-1.jpg",
+        "setting": "outdoor",
         "cost": {
           "min": 0
         }
@@ -57901,6 +57903,18 @@
       "resolvedAt": "2026-08-12",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/national-park-after-dark-your-neck-seattle-washington-11-11-2026/event/0F0064F8C3251F30"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "reason": "Event has already occurred (Aug 1, 2026); no start time listed on event page (now shows only thank-you message)"
+    },
+    "venue:osm:node:126314909": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "reason": "Fremont Chamber of Commerce is an aggregator calendar hosting events throughout Seattle at mixed indoor and outdoor locations"
     }
   }
 }
