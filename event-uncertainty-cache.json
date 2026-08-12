@@ -37367,13 +37367,14 @@
     "events12:live-theater-2026-08-25": {
       "fields": {
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
+        "setting": "indoor",
         "cost": {
           "paid": true
         }
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-08-12",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty"
     },
     "events12:live-theater-2026-08-26": {
       "fields": {
@@ -38744,11 +38745,12 @@
     "events12:dance-in-the-park-2026-08-25": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-12",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-26": {
       "fields": {
@@ -52915,11 +52917,12 @@
       "fields": {
         "startTime": "08:30",
         "duration": 27000,
+        "setting": "outdoor",
         "cost": {
-          "min": 17
+          "min": 17.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-12",
       "source": "agent",
       "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
     },
@@ -57639,10 +57642,14 @@
       "evidence": "https://www.discoverslu.com/events/coherence-in-chaos-2-2-2-2-2/"
     },
     "fremont-chamber-of-commerce:solid-ground-day-of-service-volunteer-event-1881875": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-08-12",
       "source": "agent",
-      "reason": "No image found on the event page; multi-site volunteer event has no dedicated photo"
+      "evidence": "https://business.fremont.com/calendar/Details/solid-ground-day-of-service-volunteer-event-1881875"
     },
     "seatoday:cityspark-19537897": {
       "fields": {
@@ -57725,6 +57732,175 @@
       "resolvedAt": "2026-08-12",
       "source": "agent",
       "reason": "Event page lists this as an All Day event with no specific start or end time"
+    },
+    "seatoday:cityspark-19618999": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "reason": "CitySpark embed page is JavaScript-rendered and inaccessible to web fetch; no alternative cost source found"
+    },
+    "kremwerk:6a726a8632d950551b9950a9": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/14/thee-baile"
+    },
+    "kremwerk:6a7277a32acdc577f0f36da1": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/13/emergence-dnb"
+    },
+    "kremwerk:6a751d18300c5133f1449875": {
+      "fields": {
+        "cost": {
+          "min": 15.0,
+          "max": 22.0
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/21/off-the-rack-presents-behind-the-seams"
+    },
+    "kremwerk:6a78f8d25277cd5bc88ff748": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/05/studio-saturdays-open-stage"
+    },
+    "kremwerk:6a726ccb776d727df75bfcb1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/19/summer-isnt-over"
+    },
+    "kremwerk:6a72720cf1245c51fb98d79a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/29/diva-vs-the-dj"
+    },
+    "kremwerk:6a727d058c87c355f1cc9593": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/29/its-my-party-and-ill-cry-if-i-want-to"
+    },
+    "kremwerk:6a73c40a87d76c5bb8a7b7f8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/29/mood-swing"
+    },
+    "kremwerk:6a73c82987d76c5bb8a90fca": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/13/modern-heart-mixya"
+    },
+    "kremwerk:6a73cd16a533da24c790e3a7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/20/thump-all-vinyl"
+    },
+    "kremwerk:6a753541300c5133f14ce809": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/10/civil-defense-ministry"
+    },
+    "kremwerk:6a763ac32f911702d4da474f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/11/impact-100"
+    },
+    "kremwerk:6a768c40cf83647cfefc09a9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/28/thump-all-vinyl-b2b"
+    },
+    "kremwerk:6a78ef52e97bb931af45c850": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/28/la-krem-am2xr"
+    },
+    "stg:tm-vvG1HZ_2mSj1e2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/national-park-after-dark-vip-qa-seattle-washington-11-11-2026/event/0F0064FBB370A08F"
+    },
+    "stg:tm-vvG1HZ_2NdaoHY": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-12",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/national-park-after-dark-your-neck-seattle-washington-11-11-2026/event/0F0064F8C3251F30"
     }
   }
 }

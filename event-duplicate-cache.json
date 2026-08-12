@@ -11709,6 +11709,76 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-11",
       "note": "Different events at different addresses (1201 Eastlake vs 1551 Eastlake)"
+    },
+    "external-impact-raves.ics 100% IMPACT!|2026-09-11T19:00:00Z[UTC]::kremwerk-kremwerk.ics Impact! 100%|2026-09-11T19:00:00.496-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same event at Kremwerk (1809 Minor Ave), listed by both Kremwerk and Impact Raves"
+    },
+    "seatoday-seatoday-all.ics 4th ANNUAL HATCH GREEN CHILE WEEK AT THE HALL|2026-08-25T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 4th ANNUAL HATCH GREEN CHILE WEEK AT THE HALL|2026-08-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event appearing in both all and food calendar feeds"
+    },
+    "seatoday-seatoday-all.ics Back 2 School Free Haircuts|2026-08-25T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Back 2 School Free Haircuts|2026-08-25T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event appearing in both all and community calendar feeds"
+    },
+    "seatoday-seatoday-all.ics Camp Shine - Summer Cheer Camp!|2026-08-25T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Camp Shine - Summer Cheer Camp!|2026-08-25T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in all and arts feeds"
+    },
+    "seatoday-seatoday-all.ics Camp Shine - Summer Cheer Camp!|2026-08-25T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Camp Shine - Summer Cheer Camp!|2026-08-25T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in all and sports feeds"
+    },
+    "seatoday-seatoday-all.ics MEMBERSHIP & EVENTS COMMITTEE|2026-08-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics MEMBERSHIP & EVENTS COMMITTEE|2026-08-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in all and community feeds"
+    },
+    "seatoday-seatoday-all.ics Meet Bluey at the Sand Garden|2026-08-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Meet Bluey at the Sand Garden|2026-08-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in all and community feeds"
+    },
+    "seatoday-seatoday-all.ics Meet Bluey at the Sand Garden|2026-08-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Meet Bluey at the Sand Garden|2026-08-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in all and learning feeds"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Town Center Committee|2026-08-25T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mill Creek Town Center Committee|2026-08-25T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in all and community feeds"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Town Center Committee|2026-08-25T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Town Center Committee|2026-08-25T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in all and learning feeds"
+    },
+    "seatoday-seatoday-arts.ics Camp Shine - Summer Cheer Camp!|2026-08-25T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Camp Shine - Summer Cheer Camp!|2026-08-25T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in arts and sports feeds"
+    },
+    "seatoday-seatoday-community.ics Meet Bluey at the Sand Garden|2026-08-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Meet Bluey at the Sand Garden|2026-08-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in community and learning feeds"
+    },
+    "seatoday-seatoday-community.ics Mill Creek Town Center Committee|2026-08-25T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Town Center Committee|2026-08-25T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-12",
+      "note": "Same seatoday event in community and learning feeds"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-12",
+      "note": "Different locations: 1201 Eastlake vs 1551 Eastlake — separate food truck stops on same day"
     }
   }
 }
