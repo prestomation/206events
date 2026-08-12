@@ -1,11 +1,12 @@
 ---
 name: "The Residency"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.theresidencyseattle.org/upcoming-events
-tags: [Community, "Pioneer Square"]
+tags: [Music, Community]
 firstSeen: 2026-08-03
-lastChecked: 2026-08-03
+lastChecked: 2026-08-12
+pr: 1186
 ---
 
 Seattle youth hip-hop nonprofit (theresidencyseattle.org) running an
@@ -27,3 +28,11 @@ Investigated 2026-08-03:
 Per the quality gate, 0 upcoming events at check time means do not
 implement yet — re-check next cycle since the org clearly runs a live
 annual cadence of public shows.
+
+**Implemented 2026-08-12 (PR #1186):** re-checked `?format=json` on
+`/upcoming-events` — 1 confirmed future event ("We dream of hip-hop",
+Aug 15, 2026, Nippon Kan Theatre, Pioneer Square). Added as a built-in
+`squarespace` ripper source (`sources/the_residency_seattle/ripper.yaml`),
+`geo: null` / `sourceRole: venue` (multi-venue, first-party org events),
+tags `["Music", "Community"]`. Verified locally with `ONLY_SOURCE=
+the-residency-seattle npm run generate-calendars`: 1 event, 0 errors.
