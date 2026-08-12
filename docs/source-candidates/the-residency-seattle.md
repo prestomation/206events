@@ -3,7 +3,7 @@ name: "The Residency"
 status: added
 platform: Squarespace
 url: https://www.theresidencyseattle.org/upcoming-events
-tags: [Music, Community]
+tags: [Music, Arts, Community]
 firstSeen: 2026-08-03
 lastChecked: 2026-08-12
 pr: 1186
@@ -34,5 +34,9 @@ annual cadence of public shows.
 Aug 15, 2026, Nippon Kan Theatre, Pioneer Square). Added as a built-in
 `squarespace` ripper source (`sources/the_residency_seattle/ripper.yaml`),
 `geo: null` / `sourceRole: venue` (multi-venue, first-party org events),
-tags `["Music", "Community"]`. Verified locally with `ONLY_SOURCE=
-the-residency-seattle npm run generate-calendars`: 1 event, 0 errors.
+tags `["Music", "Arts", "Community"]`, `expectEmpty: true` (intermittent
+programming — a handful of shows per year, per the analogous
+`downtown_seattle_association`/`futurewise`/`sync_seattle` pattern; the
+build shouldn't flag a false zero-event warning between shows). Verified
+locally with `ONLY_SOURCE=the-residency-seattle npm run
+generate-calendars`: 1 event, 0 errors.
