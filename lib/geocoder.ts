@@ -866,6 +866,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'olde town issaquah, front street, issaquah, wa': { lat: 47.531020, lng: -122.035424 }, // Issaquah Depot Museum — Olde Town Issaquah historic-core anchor
   'rein haus': { lat: 47.610924, lng: -122.316570 }, // source misspelling of Rhein Haus Seattle, 912 12th Ave
   'reinhaus': { lat: 47.610924, lng: -122.316570 }, // source misspelling of Rhein Haus Seattle, 912 12th Ave
+  'alki courtyard': { lat: 47.6228259, lng: -122.3532999 }, // Seattle Center's "Lower NW Courtyard" — confirmed via the venue's own event page (seattlecenter.com), not the West Seattle Alki neighborhood
+  'mirra': { lat: 47.6144, lng: -122.2010 }, // Mirra Social Entertainment Venue, 500 Bellevue Way NE Ste 310, Bellevue (Lincoln Square South) — Nominatim building-cluster centroid, no exact OSM POI yet
+  'myrtle edward’s park': { lat: 47.6185765, lng: -122.3602348 }, // Myrtle Edwards Park, Seattle waterfront — source spelling with possessive apostrophe (OSM relation 3148301)
+  'town square park, pete von reichbauer way south, wa, federal way, wa': { lat: 47.317826, lng: -122.308114 }, // same park as 'federal way town square park' above — reordered source string
 
   // --- 2026-07-20 geo-resolver batch: "venue name only" / intersection unresolvable
   // entries. Verified against each venue's own listing or the referring source's own
