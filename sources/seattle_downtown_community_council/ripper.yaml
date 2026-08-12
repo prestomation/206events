@@ -4,6 +4,7 @@ type: eventbrite
 # Events (walking tours, meetings, community gatherings) happen at rotating
 # downtown locations, not one fixed venue — geo: null at the ripper level,
 # like freeze-tag-events/mixmix-socials.
+expectEmpty: true
 sourceRole: venue
 geo: null
 description: "Seattle Downtown Community Council"

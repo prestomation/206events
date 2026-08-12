@@ -1,11 +1,10 @@
-# verified: 2026-05-18 ok
+# verified: 2026-05-18 ok; 2026-08-12: direct fetch works (30 events), removed proxy: browserbase
 geo: null
 name: urban-league-seattle
 sourceRole: venue
 friendlyname: Urban League of Metropolitan Seattle
 description: Community events from the Urban League of Metropolitan Seattle - housing workshops, education, and community programs
 icsUrl: https://urbanleague.org/events-calendar/?post_type=tribe_events&ical=1&eventDisplay=list
-proxy: browserbase
 infoUrl: https://urbanleague.org/events-calendar/
 tags:
   - Community
