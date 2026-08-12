@@ -1,0 +1,17 @@
+# Intermittent programming — a handful of public shows per year at rotating
+# venues, not a steady season. expectEmpty avoids a false zeroEventCalendars
+# flag between shows.
+name: the-residency-seattle
+sourceRole: venue
+type: squarespace
+expectEmpty: true
+description: "The Residency"
+url: "https://www.theresidencyseattle.org/upcoming-events"
+friendlyLink: https://www.theresidencyseattle.org/upcoming-events
+tags: ["Music", "Arts", "Community"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/688bc2654f5a350ce28e173e/f392a16f-3264-4f3b-967b-addd34a17cd3/The+Residency-Full+Logo-GHOST+TAG-3000w.png"
+geo: null
+calendars:
+  - name: the-residency-seattle
+    friendlyname: "The Residency"
+    timezone: America/Los_Angeles
