@@ -5,7 +5,7 @@ platform: Custom (WordPress/Divi)
 url: https://raygunlounge.com/calendar/
 tags: [Nightlife, Capitol Hill]
 firstSeen: 2026-07-19
-lastChecked: 2026-07-19
+lastChecked: 2026-08-13
 pr:
 ---
 
@@ -24,3 +24,8 @@ Investigated 2026-07-19:
 - Needs a follow-up look at the page's actual network requests (e.g. via
   a JS-capable fetch) to find the underlying data source before this can
   be scoped as Squarespace/API/custom-HTML
+
+Re-checked 2026-08-13: `/calendar/` still returns HTTP 200 with no
+JSON, iframe embed, API endpoint, or third-party widget reference in
+the fetched markup — same result as 2026-07-19. Still needs a
+JS-capable fetch to find the real data source. No status change.
