@@ -52604,7 +52604,7 @@
         "duration": 27000,
         "setting": "outdoor",
         "cost": {
-          "min": 17.0
+          "min": 17
         }
       },
       "resolvedAt": "2026-08-12",
@@ -52617,7 +52617,7 @@
         "duration": 27000,
         "setting": "outdoor",
         "cost": {
-          "min": 17.0
+          "min": 17
         }
       },
       "resolvedAt": "2026-08-13",
@@ -52628,13 +52628,14 @@
       "fields": {
         "startTime": "08:30",
         "duration": 27000,
+        "setting": "outdoor",
         "cost": {
           "min": 17
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-13",
       "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival (page meta description: 'enjoy the great outdoors, take photos in the sunflowers')"
     },
     "events12:sunflower-farms-2026-08-28": {
       "fields": {
@@ -57231,8 +57232,8 @@
     "seatoday:cityspark-18995746": {
       "fields": {
         "cost": {
-          "min": 14.0,
-          "max": 20.0
+          "min": 14,
+          "max": 20
         }
       },
       "resolvedAt": "2026-08-11",
@@ -57439,7 +57440,7 @@
     "kremwerk:6a726a8632d950551b9950a9": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57449,8 +57450,8 @@
     "kremwerk:6a7277a32acdc577f0f36da1": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57460,8 +57461,8 @@
     "kremwerk:6a751d18300c5133f1449875": {
       "fields": {
         "cost": {
-          "min": 15.0,
-          "max": 22.0
+          "min": 15,
+          "max": 22
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57471,8 +57472,8 @@
     "kremwerk:6a78f8d25277cd5bc88ff748": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57699,7 +57700,7 @@
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
         "setting": "indoor",
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-08-13",
@@ -57974,6 +57975,27 @@
       "resolvedAt": "2026-08-13",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/api/0.6/way/563016991.json"
+    },
+    "northwest-film-forum:wtf-with-stuff-holy-trinity-2026-10-21": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/holytrinity1600-5.png",
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-08-13",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-holy-trinity/ ($15 General Admission, $10 Student/Child/Senior, $7 NWFF Member)"
+    },
+    "charlies-queer-books:charlies-queer-books-1217620260909": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-13",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/1217620260909 (BookManager API: attendance=purchase, ticket required, but price not exposed via API — JS-rendered checkout only)"
     }
   }
 }

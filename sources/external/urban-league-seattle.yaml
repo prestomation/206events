@@ -1,4 +1,10 @@
 # verified: 2026-05-18 ok; 2026-08-12: direct fetch works (30 events), removed proxy: browserbase
+# 2026-08-13: back to 0 events in CI. Direct fetch from the sandbox now returns
+# HTTP 202 with an empty body and an `sg-captcha: challenge` response header
+# (SiteGround JS bot challenge) on every attempt — the same intermittent block
+# pattern the browserbase rung exists for. Staging for out-of-band proxy
+# testing rather than re-adding a rung by hand; see requires-proxy-testing PR.
+proxy: outofband
 geo: null
 name: urban-league-seattle
 sourceRole: venue

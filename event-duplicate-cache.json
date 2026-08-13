@@ -11864,6 +11864,21 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-13",
       "note": "Same seatoday event appearing in multiple sub-calendars (community vs food); identical URL and title"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics The Strokes - Reality Awaits North America|2026-08-28T19:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics The Strokes: Reality Awaits Tour|2026-08-28T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-13",
+      "note": "Same Strokes show at Climate Pledge Arena, listed by the venue's own ticketing feed and Seattle Center's calendar (30min listing skew, same date/venue)"
+    },
+    "external-nw-asian-weekly.ics Panda Fest Seattle 2026|2026-08-28T00:00:00Z[UTC]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-13",
+      "note": "Same Panda Fest at Seattle Center Fisher Pavilion, listed by NW Asian Weekly community calendar and Seattle Center's own calendar"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-28T16:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-13",
+      "note": "Same Panda Fest at Fisher Pavilion, listed by Eventbrite ticketing page and Seattle Center's own calendar (identical date/time)"
     }
   }
 }
