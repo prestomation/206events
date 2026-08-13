@@ -52604,7 +52604,7 @@
         "duration": 27000,
         "setting": "outdoor",
         "cost": {
-          "min": 17
+          "min": 17.0
         }
       },
       "resolvedAt": "2026-08-12",
@@ -52617,7 +52617,7 @@
         "duration": 27000,
         "setting": "outdoor",
         "cost": {
-          "min": 17
+          "min": 17.0
         }
       },
       "resolvedAt": "2026-08-13",
@@ -57232,8 +57232,8 @@
     "seatoday:cityspark-18995746": {
       "fields": {
         "cost": {
-          "min": 14,
-          "max": 20
+          "min": 14.0,
+          "max": 20.0
         }
       },
       "resolvedAt": "2026-08-11",
@@ -57440,7 +57440,7 @@
     "kremwerk:6a726a8632d950551b9950a9": {
       "fields": {
         "cost": {
-          "min": 20
+          "min": 20.0
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57450,8 +57450,8 @@
     "kremwerk:6a7277a32acdc577f0f36da1": {
       "fields": {
         "cost": {
-          "min": 10,
-          "max": 15
+          "min": 10.0,
+          "max": 15.0
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57461,8 +57461,8 @@
     "kremwerk:6a751d18300c5133f1449875": {
       "fields": {
         "cost": {
-          "min": 15,
-          "max": 22
+          "min": 15.0,
+          "max": 22.0
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57472,8 +57472,8 @@
     "kremwerk:6a78f8d25277cd5bc88ff748": {
       "fields": {
         "cost": {
-          "min": 10,
-          "max": 15
+          "min": 10.0,
+          "max": 15.0
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57700,7 +57700,7 @@
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
         "setting": "indoor",
         "cost": {
-          "min": 40
+          "min": 40.0
         }
       },
       "resolvedAt": "2026-08-13",
