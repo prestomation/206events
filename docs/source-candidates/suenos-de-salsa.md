@@ -1,11 +1,12 @@
 ---
 name: "Sueños de Salsa"
-status: candidate
+status: added
 platform: Custom HTML (WordPress, recurring weekly schedule)
 url: https://suenosdesalsa.com/socials-and-practicas/
 tags: [Dance, "Roosevelt"]
 firstSeen: 2026-08-12
-lastChecked: 2026-08-12
+lastChecked: 2026-08-13
+pr: 1189
 ---
 
 Salsa/bachata dance studio at 6512 Roosevelt Way NE, Seattle, WA 98115
@@ -25,3 +26,9 @@ Investigated 2026-08-12:
   trivia-night recurring entries
 - Not yet geocoded; address above needs Nominatim verification before
   implementation
+
+Implemented 2026-08-13 as `sources/recurring/suenos-de-salsa.yaml` (PR #1189):
+geocoded via Nominatim (47.6762994, -122.3172087), `cost: 10` (cheaper online
+price), duration estimated at `PT3H` (no end time published — flagged for
+calendar-verification). Also registered "Roosevelt" as a new neighborhood tag
+in `city.config.ts`.

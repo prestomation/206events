@@ -1,0 +1,27 @@
+# verified: 2026-08-13 unverifiable (duration not published — see comment below)
+geo:
+  lat: 47.6762994
+  lng: -122.3172087
+  label: "Sueños de Salsa, 6512 Roosevelt Way NE, Seattle, WA 98115"
+name: suenos-de-salsa
+sourceRole: venue
+friendlyname: Sueños de Salsa — Wednesday Night Social
+description: Weekly Wednesday night social dancing (salsa and bachata) at
+  Sueños de Salsa, a dance studio in the Roosevelt neighborhood.
+timezone: America/Los_Angeles
+location: "6512 Roosevelt Way NE, Seattle, WA 98115"
+url: https://suenosdesalsa.com/socials-and-practicas/
+tags:
+  - Dance
+  - Roosevelt
+# $10 online / $15 at the door; students get half off. Cheapest
+# general-admission adult price, fees excluded, per the pricing rubric.
+cost: 10
+# No end time published on the site (just "every Wednesday at 8:45 pm") — PT3H
+# is an estimate for a social dance night. Re-verify against
+# suenosdesalsa.com/socials-and-practicas/ periodically (calendar-verification
+# skill).
+schedules:
+  - schedule: every Wednesday
+    start_time: "20:45"
+    duration: PT3H
