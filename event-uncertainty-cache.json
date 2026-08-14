@@ -37019,11 +37019,12 @@
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-07-13",
+      "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
+      "evidence": "https://app.arts-people.com/index.php?preseason=spt — Seattle Rep indoor theater, consistent with all other dates"
     },
     "events12:live-theater-2026-08-28": {
       "fields": {
@@ -38306,11 +38307,12 @@
     "events12:dance-in-the-park-2026-08-27": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events"
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/ — outdoor park dance event, consistent with all other dates"
     },
     "events12:dance-in-the-park-2026-08-28": {
       "fields": {
@@ -52323,11 +52325,12 @@
         "duration": 27000,
         "cost": {
           "min": 17
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival — outdoor farm festival, consistent with all other dates"
     },
     "events12:sunflower-farms-2026-08-28": {
       "fields": {
