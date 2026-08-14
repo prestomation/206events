@@ -1,7 +1,11 @@
 ---
-name: "Village Theatre"
-status: notviable
-firstSeen: 2026-05-08
-lastChecked: 2026-05-08
+name: Village Theatre
+status: candidate
+platform: Unknown
+url: https://villagetheatre.org
+tags: [Theater]
+firstSeen: 2026-08-14
+lastChecked: 2026-08-14
 ---
-**Village Theatre** — Issaquah and Everett venues — not Seattle city limits
+
+Major Seattle-area theater company producing musicals and plays in Issaquah and Everett.
