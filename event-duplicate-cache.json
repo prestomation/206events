@@ -11910,6 +11910,11 @@
       "resolvedAt": "2026-08-14",
       "note": "Same film screening event in both city-wide and parks foundation feeds"
     },
+    "external-seattle-gov-city-wide.ics “Teaching of the Tree People” Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]::external-seattle-parks-foundation.ics “Teaching of the Tree People” Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same film screening event in both city-wide and parks foundation feeds (curly-quote key variant)"
+    },
     "external-seattle-gov-parks-recreation.ics August Oak Understory Tending|2026-08-23T11:00:00Z[UTC]::external-seattle-parks-foundation.ics August Oak Understory Tending|2026-08-23T11:00:00Z[UTC]": {
       "decision": "confirmed",
       "resolvedAt": "2026-08-14",
@@ -11934,6 +11939,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-14",
       "note": "Same film screening in parks-recreation and parks foundation feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics "Teaching of the Tree People" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]::external-seattle-parks-foundation.ics "Teaching of the Tree People" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same film screening in parks-recreation and parks foundation feeds (curly-quote key variant)"
     },
     "external-seattle-parks-foundation.ics Freeway Park 50th Anniversary Forum|2026-08-18T17:00:00Z[UTC]::external-town-hall-seattle.ics Freeway Park 50th Anniversary Forum|2026-08-18T18:00:00Z[UTC]": {
       "decision": "confirmed",
