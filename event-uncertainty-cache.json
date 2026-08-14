@@ -52299,7 +52299,7 @@
         "duration": 27000,
         "setting": "outdoor",
         "cost": {
-          "min": 17.0
+          "min": 17
         }
       },
       "resolvedAt": "2026-08-12",
@@ -52312,7 +52312,7 @@
         "duration": 27000,
         "setting": "outdoor",
         "cost": {
-          "min": 17.0
+          "min": 17
         }
       },
       "resolvedAt": "2026-08-13",
@@ -52336,13 +52336,14 @@
       "fields": {
         "startTime": "08:30",
         "duration": 27000,
+        "setting": "outdoor",
         "cost": {
-          "min": 17
+          "min": 17.0
         }
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival — open-air u-pick sunflower field festival at a farm"
     },
     "events12:sunflower-farms-2026-08-29": {
       "fields": {
@@ -56917,8 +56918,8 @@
     "seatoday:cityspark-18995746": {
       "fields": {
         "cost": {
-          "min": 14.0,
-          "max": 20.0
+          "min": 14,
+          "max": 20
         }
       },
       "resolvedAt": "2026-08-11",
@@ -57125,7 +57126,7 @@
     "kremwerk:6a726a8632d950551b9950a9": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57135,8 +57136,8 @@
     "kremwerk:6a7277a32acdc577f0f36da1": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57146,8 +57147,8 @@
     "kremwerk:6a751d18300c5133f1449875": {
       "fields": {
         "cost": {
-          "min": 15.0,
-          "max": 22.0
+          "min": 15,
+          "max": 22
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57157,8 +57158,8 @@
     "kremwerk:6a78f8d25277cd5bc88ff748": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-08-12",
@@ -57385,7 +57386,7 @@
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
         "setting": "indoor",
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-08-13",
@@ -57828,7 +57829,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/holytrinityposterSMALL.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-14",
@@ -57946,6 +57947,77 @@
       "resolvedAt": "2026-08-14",
       "source": "agent",
       "evidence": "OSM way:893842128 — McKinney Center for Community and Economic Development is an indoor community/office building at 2205 7th Ave, Seattle"
+    },
+    "seattle-center:yugioh-x47925": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 34200
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/yugioh-x47925 (calendar-add link: eventStartTime=10:00:00&eventEndTime=19:30:00)"
+    },
+    "seattle-center:35-years-of-ukraine-independence-commemoration": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 32400
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/35-years-of-ukraine-independence-commemoration (calendar-add link: eventStartTime=12:00:00&eventEndTime=21:00:00)"
+    },
+    "seattle-center:panda-fest-2026-x47112": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 43200
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/panda-fest-2026-x47112 (calendar-add link: eventStartTime=10:00:00&eventEndTime=22:00:00)"
+    },
+    "seattle-center:freak-the-mighty-x47869": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47869 (calendar-add link: 2:00pm-5:00pm)"
+    },
+    "seattle-center:freak-the-mighty-x47870": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47870 (calendar-add link: 7:30pm-10:00pm)"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46386": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "reason": "Self-guided outdoor sculpture walk across campus grounds; page lists \"All Day\" with no posted specific hours. Calendar-add link shows 06:00-23:59, which reads as a generic all-day placeholder (campus grounds hours) rather than installation-specific hours."
+    },
+    "seattle_universal_math_museum:6a7654c19b7d87527a27e1c9": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "https://seattlemathmuseum.org/events/math-out-loud-shiying-dong-workshop (meta description: \"$10 Workshop — Registration Required\")"
+    },
+    "charlies-queer-books:charlies-queer-books-6108620260906": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "reason": "Event page is a pure JS SPA (BookManager storefront) with no pricing rendered in static HTML; no price/registration text found."
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "reason": "udistrictseattle.com event page does not publish start time or pricing; event already occurred on 2026-08-01 with no info recoverable."
     }
   }
 }
