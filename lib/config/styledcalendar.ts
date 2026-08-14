@@ -22,6 +22,7 @@ interface StyledCalendarRawEvent {
     exdate?: string;
     extendedProps?: {
         description?: string;
+        location?: string;
     };
 }
 
@@ -159,6 +160,7 @@ export class StyledCalendarRipper implements IRipper {
                             : duration;
 
                         const description = event.extendedProps?.description ?? undefined;
+                        const location = event.extendedProps?.location ?? undefined;
 
                         events.push({
                             id: event.id,
@@ -167,6 +169,7 @@ export class StyledCalendarRipper implements IRipper {
                             duration: safeDuration,
                             summary: event.title,
                             description,
+                            location,
                         });
                     } catch (err) {
                         errors.push({
