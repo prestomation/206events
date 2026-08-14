@@ -17,4 +17,3 @@ calendars:
   - name: all-events
     friendlyname: "Fremont Brewing - Fremont"
     timezone: America/Los_Angeles
-    expectEmpty: true  # 2026-08-07: no upcoming events listed; posting gap, not a broken parser (cf. squarespace ripper)
