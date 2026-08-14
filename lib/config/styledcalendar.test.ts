@@ -95,6 +95,53 @@ describe("StyledCalendarRipper", () => {
             expect(event.duration.toHours()).toBe(2);
         });
 
+        it("maps extendedProps.location to event.location", async () => {
+            const rawEvents = [
+                {
+                    id: "event-4",
+                    title: "Westie Brunch Dance",
+                    start: futureDateStr(30, "10:30:00", "-07:00"),
+                    end: futureDateStr(30, "12:30:00", "-07:00"),
+                    allDay: false,
+                    extendedProps: {
+                        location: "Phinney Community Center, 459 N 67th St, Seattle, WA 98103, USA",
+                    },
+                },
+            ];
+
+            vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
+                ok: true,
+                json: async () => JSON.parse(makeApiResponse(rawEvents)),
+            }));
+
+            const ripper = new StyledCalendarRipper();
+            const calendars = await ripper.rip(makeRipper("test-id"));
+            const event = calendars[0].events[0];
+            expect(event.location).toBe("Phinney Community Center, 459 N 67th St, Seattle, WA 98103, USA");
+        });
+
+        it("leaves event.location undefined when extendedProps.location is absent", async () => {
+            const rawEvents = [
+                {
+                    id: "event-5",
+                    title: "Zoom Meeting",
+                    start: futureDateStr(30, "17:00:00", "-07:00"),
+                    end: futureDateStr(30, "18:00:00", "-07:00"),
+                    allDay: false,
+                },
+            ];
+
+            vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
+                ok: true,
+                json: async () => JSON.parse(makeApiResponse(rawEvents)),
+            }));
+
+            const ripper = new StyledCalendarRipper();
+            const calendars = await ripper.rip(makeRipper("test-id"));
+            const event = calendars[0].events[0];
+            expect(event.location).toBeUndefined();
+        });
+
         it("maps all-day events correctly", async () => {
             // Use a fixed far-future date so we can assert on specific month/day values.
             // 2035-07-04 is Independence Day — won't rot for a decade.
