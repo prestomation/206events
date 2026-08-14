@@ -1,0 +1,15 @@
+name: seattle-swing-dance-club
+sourceRole: aggregator
+type: styledcalendar
+description: "Seattle Swing Dance Club"
+url: "https://seattleswingdanceclub.com/seattlewcscalendar"
+friendlyLink: https://seattleswingdanceclub.com/seattlewcscalendar
+tags: ["Dance"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/57f2f11f6b8f5b29b4254ce4/1735333278335-CMPFUHPVFM3DWQ84FTOU/public.png?format=1500w"
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Swing Dance Club"
+    timezone: America/Los_Angeles
+    config:
+      styledCalendarId: "jXHhMhnUux4yMQJoT1Uj"
