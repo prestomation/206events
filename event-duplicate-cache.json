@@ -12009,6 +12009,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-14",
       "note": "Same seatoday event in different subcalendars"
+    },
+    "NWMetalCalendar-NWMetal.ics Lacabra, Reburied, Vanishment, Smearing|2026-08-22T19:00-07:00[America/Los_Angeles]::seattle-showlists-central-saloon.ics LACABRA • REBURIED • SMEARING • IRON ROT|2026-08-22T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same Central Saloon show on Aug 22 from two sources; 19:00 vs 20:00 is doors vs showtime; lineup difference (Vanishment/Iron Rot) is partial coverage by each source"
     }
   }
 }
