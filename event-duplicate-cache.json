@@ -11864,6 +11864,121 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-13",
       "note": "Same seatoday event appearing in multiple sub-calendars (community vs food); identical URL and title"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics The Strokes - Reality Awaits North America|2026-08-28T19:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics The Strokes: Reality Awaits Tour|2026-08-28T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same show at Climate Pledge Arena, two feeds (Climate Pledge Arena Ticketmaster vs Seattle Center calendar), 30-min time difference typical for doors vs show time"
+    },
+    "external-nw-asian-weekly.ics Panda Fest Seattle 2026|2026-08-28T00:00:00Z[UTC]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same festival at Fisher Pavilion, Seattle Center; NW Asian Weekly feed lacks specific time (midnight UTC placeholder)"
+    },
+    "external-nw-asian-weekly.ics Seattle Hmong New Year|2026-11-14T00:00:00Z[UTC]::seattle-center-festal-all-events.ics Seattle Hmong New Year|2026-11-14T11:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same annual Festal event at Seattle Center; NW Asian Weekly lacks specific time"
+    },
+    "external-nw-asian-weekly.ics Seattle Hmong New Year|2026-11-14T00:00:00Z[UTC]::visit-seattle-visit-seattle.ics Festal: Seattle Hmong New Year|2026-11-14T12:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same Festal event at Seattle Center; 'Festal:' title prefix is a common Visit Seattle convention"
+    },
+    "external-seattle-gov-city-wide.ics August Oak Understory Tending|2026-08-23T11:00:00Z[UTC]::external-seattle-parks-foundation.ics August Oak Understory Tending|2026-08-23T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Identical event in both city-wide and Seattle Parks Foundation feeds; same title, time, and URL pattern (greencitypartnerships.org)"
+    },
+    "external-seattle-gov-city-wide.ics Kingfisher Natural Area Restoration- Forest Bathing and Work Party|2026-08-29T09:00:00Z[UTC]::external-seattle-parks-foundation.ics Kingfisher Natural Area Restoration - Forest Bathing and Work Party|2026-08-29T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same volunteer restoration event in both city and parks foundation feeds; hyphen vs space variant in title"
+    },
+    "external-seattle-gov-city-wide.ics Longfellow Creek Forest Restoration @ Willow St|2026-08-28T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Longfellow Creek Forest Restoration at Willow St|2026-08-28T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same restoration event; @ vs at title variant, same greencitypartnerships.org event"
+    },
+    "external-seattle-gov-city-wide.ics Restore 29th Ave Pocket Forest|2026-08-18T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Restore 29th Ave Pocket Forest|2026-08-18T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Identical volunteer event in both city-wide and parks foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics \"Teaching of the Tree People\" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]::external-seattle-parks-foundation.ics \"Teaching of the Tree People\" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same film screening event in both city-wide and parks foundation feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics August Oak Understory Tending|2026-08-23T11:00:00Z[UTC]::external-seattle-parks-foundation.ics August Oak Understory Tending|2026-08-23T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same volunteer event in both parks-recreation and parks foundation feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Kingfisher Natural Area Restoration- Forest Bathing and Work Party|2026-08-29T09:00:00Z[UTC]::external-seattle-parks-foundation.ics Kingfisher Natural Area Restoration - Forest Bathing and Work Party|2026-08-29T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same restoration event in parks-recreation and parks foundation feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Longfellow Creek Forest Restoration @ Willow St|2026-08-28T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Longfellow Creek Forest Restoration at Willow St|2026-08-28T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same restoration event; @ vs at variant"
+    },
+    "external-seattle-gov-parks-recreation.ics Restore 29th Ave Pocket Forest|2026-08-18T09:30:00Z[UTC]::external-seattle-parks-foundation.ics Restore 29th Ave Pocket Forest|2026-08-18T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same volunteer event in parks-recreation and parks foundation feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics \"Teaching of the Tree People\" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]::external-seattle-parks-foundation.ics \"Teaching of the Tree People\" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same film screening in parks-recreation and parks foundation feeds"
+    },
+    "external-seattle-parks-foundation.ics Freeway Park 50th Anniversary Forum|2026-08-18T17:00:00Z[UTC]::external-town-hall-seattle.ics Freeway Park 50th Anniversary Forum|2026-08-18T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same forum at Town Hall Seattle; 17:00 vs 18:00 likely doors-open vs program-start"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-28T16:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-28T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same festival at Fisher Pavilion; panda-fest-seattle source and Seattle Center calendar, same date/time"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in all-events and arts subcalendars"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in all-events and community subcalendars"
+    },
+    "seatoday-seatoday-all.ics Mindfulness Walk | Pioneer Park NW|2026-08-27T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mindfulness Walk | Pioneer Park NW|2026-08-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in all-events and sports subcalendars"
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-08-27T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-08-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in all-events and arts subcalendars"
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-08-27T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-08-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in all-events and community subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-08-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in arts and community subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Summer Art|2026-08-27T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-08-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in arts and community subcalendars"
     }
   }
 }
