@@ -57413,11 +57413,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/93047DSC05488.jpeg?w=1200&fit=max&auto=compress,format&cs=origin"
       },
-      "resolvedAt": "2026-08-13",
+      "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://www.hotstovesociety.com/store/events/"
+      "evidence": "https://www.hotstovesociety.com/store/event/date-night-paella-party-with-chef-bridget-charters-1/ (JSON-LD event image field; same event as events12 listing)"
     },
     "events12:mexican-dancers-2026-08-16": {
       "unresolvable": true,
@@ -57910,6 +57911,38 @@
       "resolvedAt": "2026-08-14",
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/aug-24-28-pm-camps-minecraft-game-design-jrs/19635178/2026-08-24T00 (tech summer camp program, definitely paid; JS-rendered page, specific price not retrievable)"
+    },
+    "venue:loc:evergreen state fairgrounds, 14405 179th ave se, monroe, wa 98272": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "https://www.evergreenfair.org/ — Evergreen State Fairgrounds is a large outdoor agricultural fairground in Monroe, WA"
+    },
+    "venue:osm:relation:6618625": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "OSM relation:6618625 — Magnuson Park is a large outdoor public park on Lake Washington in northeast Seattle"
+    },
+    "venue:osm:way:140675988": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "OSM way:140675988 — Town Hall Seattle is a historic indoor auditorium/lecture hall building at 1119 8th Ave, Seattle"
+    },
+    "venue:osm:way:893842128": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "evidence": "OSM way:893842128 — McKinney Center for Community and Economic Development is an indoor community/office building at 2205 7th Ave, Seattle"
     }
   }
 }
