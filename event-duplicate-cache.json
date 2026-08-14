@@ -11940,7 +11940,7 @@
       "resolvedAt": "2026-08-14",
       "note": "Same film screening in parks-recreation and parks foundation feeds"
     },
-    "external-seattle-gov-parks-recreation.ics "Teaching of the Tree People" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]::external-seattle-parks-foundation.ics "Teaching of the Tree People" Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]": {
+    "external-seattle-gov-parks-recreation.ics “Teaching of the Tree People” Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]::external-seattle-parks-foundation.ics “Teaching of the Tree People” Screening The Work of Bruce Miller at The Seattle Central Library Auditororium|2026-08-27T18:00:00Z[UTC]": {
       "decision": "confirmed",
       "resolvedAt": "2026-08-14",
       "note": "Same film screening in parks-recreation and parks foundation feeds (curly-quote key variant)"
@@ -12024,6 +12024,26 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-14",
       "note": "Same Central Saloon show on Aug 22 from two sources; 19:00 vs 20:00 is doors vs showtime; lineup difference (Vanishment/Iron Rot) is partial coverage by each source"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same Panda Fest at Seattle Center's Fisher Pavilion; Eventbrite session start matches Seattle Center's all-day listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-29T13:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same Panda Fest at Seattle Center's Fisher Pavilion; 1pm Eventbrite session is one showtime within Seattle Center's all-day listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-29T16:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same Panda Fest at Seattle Center's Fisher Pavilion; 4pm Eventbrite session is one showtime within Seattle Center's all-day listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-29T19:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same Panda Fest at Seattle Center's Fisher Pavilion; 7pm Eventbrite session is one showtime within Seattle Center's all-day listing"
     }
   }
 }
