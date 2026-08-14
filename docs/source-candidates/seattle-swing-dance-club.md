@@ -6,7 +6,7 @@ url: https://seattleswingdanceclub.com/seattlewcscalendar
 tags: [Dance]
 firstSeen: 2026-08-10
 lastChecked: 2026-08-14
-pr:
+pr: 1199
 ---
 
 Community-run West Coast Swing calendar aggregating classes, workshops, and
