@@ -1,9 +1,11 @@
 ---
-name: "Seattle Met (events)"
-status: notviable
-firstSeen: 2026-05-07
-lastChecked: 2026-05-07
+name: Seattle Met Things to Do
+status: candidate
+platform: Unknown
+url: https://www.seattlemet.com/arts-and-culture/things-to-do-in-seattle-events
+tags: [Media]
+firstSeen: 2026-08-14
+lastChecked: 2026-08-14
 ---
-`https://www.seattlemet.com/events/` redirects (302). `/events/feed/`,
-`/events.ics`, `/feed/` all 301 with no usable target. No clean feed
-found. New 2026-05-07.
+
+Seattle Met magazine's comprehensive things-to-do event listings for Seattle.
