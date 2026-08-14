@@ -57413,11 +57413,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/93047DSC05488.jpeg?w=1200&fit=max&auto=compress,format&cs=origin"
       },
-      "resolvedAt": "2026-08-13",
+      "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://www.hotstovesociety.com/store/events/"
+      "evidence": "https://www.hotstovesociety.com/store/event/date-night-paella-party-with-chef-bridget-charters-1/ (JSON-LD event image field; same event as events12 listing)"
     },
     "events12:mexican-dancers-2026-08-16": {
       "unresolvable": true,
