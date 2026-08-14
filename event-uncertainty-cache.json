@@ -58018,6 +58018,12 @@
       "resolvedAt": "2026-08-14",
       "source": "agent",
       "reason": "udistrictseattle.com event page does not publish start time or pricing; event already occurred on 2026-08-01 with no info recoverable."
+    },
+    "19hz:19hz-2026/08/05-Re/Evolution: Summerjam": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-14",
+      "source": "agent",
+      "reason": "Multi-day camping festival (Aug 5-10) on Eventbrite; page lists a garbled/ambiguous overall window (\"2 PM-12 PM\") with no per-day schedule breakdown, so no reliable single end time can be extracted. (19hz continues to list this past-dated event; re-added after an over-eager date-based prune removed it.)"
     }
   }
 }
