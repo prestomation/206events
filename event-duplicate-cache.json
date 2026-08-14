@@ -11979,6 +11979,36 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-14",
       "note": "Same seatoday event in arts and community subcalendars"
+    },
+    "seatoday-seatoday-all.ics Aug 17-21 AM Camps: Minecraft + AI + JRs|2026-08-17T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Aug 17-21 AM Camps: Minecraft + AI + JRs|2026-08-17T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in different subcalendars"
+    },
+    "seatoday-seatoday-all.ics Aug 17-21 AM Camps: Minecraft + AI + JRs|2026-08-17T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Aug 17-21 AM Camps: Minecraft + AI + JRs|2026-08-17T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in different subcalendars"
+    },
+    "seatoday-seatoday-all.ics Aug 24-28 PM Camps: Minecraft + Game Design + JRs|2026-08-24T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Aug 24-28 PM Camps: Minecraft + Game Design + JRs|2026-08-24T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in different subcalendars"
+    },
+    "seatoday-seatoday-all.ics Aug 24-28 PM Camps: Minecraft + Game Design + JRs|2026-08-24T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Aug 24-28 PM Camps: Minecraft + Game Design + JRs|2026-08-24T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in different subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Aug 24-28 PM Camps: Minecraft + Game Design + JRs|2026-08-24T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Aug 24-28 PM Camps: Minecraft + Game Design + JRs|2026-08-24T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in different subcalendars"
+    },
+    "seatoday-seatoday-community.ics Aug 17-21 AM Camps: Minecraft + AI + JRs|2026-08-17T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Aug 17-21 AM Camps: Minecraft + AI + JRs|2026-08-17T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-14",
+      "note": "Same seatoday event in different subcalendars"
     }
   }
 }
