@@ -1,11 +1,12 @@
 ---
 name: Folk Dance Page Calendar
-status: candidate
+status: added
 platform: ICS Feed (custom, city-filterable)
 url: https://www.folkdance.page/calendar?date=all
-tags: [Dancing, Folk]
+tags: [Dance, Folk]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-08-15
+pr: 1202
 ---
 
 Comprehensive calendar of folk dance events including contra, English country, and international folk dancing.
@@ -20,3 +21,11 @@ fields, categorized by dance style (Scandi, contra, English country,
 international, etc). This should be a simple `sources/external/` ICS
 entry (global page but the `city=Seattle` filter param scopes it). Not
 found under `sources/`.
+
+**Implemented 2026-08-15:** Added `sources/external/folkdance-page.yaml`
+(`geo: null`, `sourceRole: aggregator`, tags `Dance`/`Folk` — used `Dance`
+instead of `Dancing` to match the canonical tag spelling already in
+`lib/config/tags.ts`). Re-verified the feed live: 333 total VEVENTs, 18
+with future `DTSTART` (16 surfaced in the near-term tag aggregates at
+build time). `ONLY_SOURCE=folkdance-page npm run generate-calendars`
+confirmed 0 errors and correct tag aggregation.

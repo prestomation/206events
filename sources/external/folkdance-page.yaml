@@ -1,0 +1,11 @@
+# verified: 2026-08-15 ok — 18 upcoming events, ICS feed filtered to Seattle
+geo: null
+name: folkdance-page
+sourceRole: aggregator
+friendlyname: Folk Dance Page - Seattle
+description: Community calendar of folk dance events in Seattle - contra, English country, Scandinavian, and international folk dancing.
+icsUrl: "https://www.folkdance.page/index.ics?date=all&country=USA&city=Seattle"
+infoUrl: "https://www.folkdance.page/calendar?date=all&country=USA&city=Seattle"
+tags:
+  - Dance
+  - Folk
