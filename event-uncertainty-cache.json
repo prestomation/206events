@@ -57739,33 +57739,36 @@
     },
     "seatoday:cityspark-17845559": {
       "fields": {
+        "imageUrl": "https://cdn-az.allevents.in/events5/banners/9f9dd7c1498a8d28cf9ee21a37bce01ec7fe5c5059e98030fe75d2e4b35da980-rimg-w1200-h1552-dc01ebfe-gmir",
         "cost": {
           "paid": true
         }
       },
       "resolvedAt": "2026-08-15",
       "source": "agent",
-      "evidence": "https://portal.cityspark.com/api/events/GetEvent/SEAtoday"
+      "evidence": "https://allevents.in/seattle/dance-cruise-to-alaska/200028768813034"
     },
     "seatoday:cityspark-19475977": {
       "fields": {
+        "imageUrl": "https://bellevuebotanical.org/wp-content/uploads/2019/04/IMG_20160609_171349.jpg",
         "cost": {
           "min": 0
         }
       },
       "resolvedAt": "2026-08-15",
       "source": "agent",
-      "evidence": "https://portal.cityspark.com/api/events/GetEvent/SEAtoday"
+      "evidence": "https://bellevuebotanical.org/arts-in-the-garden/"
     },
     "seatoday:cityspark-19475978": {
       "fields": {
+        "imageUrl": "https://bellevuebotanical.org/wp-content/uploads/2019/04/IMG_20160609_171349.jpg",
         "cost": {
           "min": 0
         }
       },
       "resolvedAt": "2026-08-15",
       "source": "agent",
-      "evidence": "https://portal.cityspark.com/api/events/GetEvent/SEAtoday"
+      "evidence": "https://bellevuebotanical.org/arts-in-the-garden/"
     },
     "seatoday:cityspark-19523305": {
       "fields": {
@@ -57779,6 +57782,7 @@
     },
     "seatoday:cityspark-19417993": {
       "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c48db894eddeca43abfade1/1672449417797-739B2GBL1Y1WZO7TYLRU/QuickAndDaring-MMasson-0026.jpg",
         "cost": {
           "paid": true
         }
