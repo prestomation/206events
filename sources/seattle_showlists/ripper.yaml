@@ -144,6 +144,7 @@ calendars:
   # --- Eastlake ---
   - name: black-lodge
     friendlyname: "Black Lodge"
+    expectEmpty: true
     imageUrl: "https://images.squarespace-cdn.com/content/v1/631b91c4dca71e1c72c4ee\
       2d/ab7f3ab9-a4e8-4f8c-af67-77be0c76e35a/blacklodgevera__1_.jpeg"
     geo:
