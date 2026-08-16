@@ -1,5 +1,6 @@
 name: south-park-business-district
 sourceRole: venue
+expectEmpty: true
 type: squarespace
 description: "South Park Business District"
 url: "https://www.southparkbusinessdistrict.com/events"
