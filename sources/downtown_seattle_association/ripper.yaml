@@ -1,9 +1,11 @@
 # verified: 2026-06-01 ok
+# EXPERIMENT (see PR): proxy: "outofband" temporarily removed to test whether
+# GitHub Actions runners can still fetch this source directly, or whether it's
+# still blocked. Revert to `proxy: "outofband"` if CI shows a 403/fetch failure.
 name: downtown-seattle-association
 sourceRole: aggregator
 friendlyname: "Downtown Seattle Association"
 description: "Downtown Seattle Association Events Calendar"
-proxy: "outofband"
 url: "https://downtownseattle.org/wp-json/tribe/events/v1/events"
 friendlyLink: https://downtownseattle.org
 geo: null
