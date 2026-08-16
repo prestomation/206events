@@ -129,6 +129,7 @@ describe('parseEventPage', () => {
         expect('type' in result).toBe(false);
         if ('type' in result) return;
         expect(result.startDate.equals(today)).toBe(true);
+        expect(result.endDate.year()).toBe(2026);
         expect(result.endDate.monthValue()).toBe(10);
         expect(result.endDate.dayOfMonth()).toBe(31);
         expect(result.location).toBe('Frye Art Museum');
