@@ -5,6 +5,7 @@
 # ladder (`proxy: "outofband"` first, then `"browserbase"`).
 name: downtown-seattle-association
 sourceRole: aggregator
+cost: free
 friendlyname: "Downtown Seattle Association"
 description: "Downtown Seattle Association Events Calendar"
 url: "https://downtownseattle.org/wp-json/tribe/events/v1/events"
@@ -53,7 +54,6 @@ calendars:
   - name: bell-street-park
     friendlyname: "Bell Street Park Events"
     timezone: America/Los_Angeles
-    expectEmpty: true  # Intermittent programming; re-verify if events resume (added 2026-05-28)
     config:
       venue_id: 53974
     tags:
@@ -102,6 +102,5 @@ calendars:
     # (e.g. "Belltown Blast", a neighborhood-wide street festival) or a one-off
     # venue_id (e.g. per-performer "Downtown Summer Sounds" bookings). May be empty
     # if nothing DSA-organized is currently unattached to a tracked venue.
-    expectEmpty: true
     config:
       catchAll: true

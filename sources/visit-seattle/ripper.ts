@@ -70,6 +70,8 @@ export function parseEventPage(html: string): ParsedEventDate | RipperError {
     const wordRangeMatch = dateStr.match(/^(\w+)\s+(\d{1,2})\s*[-–]\s*(?:(\w+)\s+)?(\d{1,2}),\s+(\d{4})$/);
     // Current: "October 31, 2026"
     const wordSingleMatch = dateStr.match(/^(\w+)\s+(\d{1,2}),\s+(\d{4})$/);
+    // Ongoing exhibitions: "Now through August 9, 2026"
+    const nowThroughMatch = dateStr.match(/^Now through (\w+)\s+(\d{1,2}),\s+(\d{4})$/);
 
     if (rangeMatch) {
         const [, sm, sd, sy, em, ed, ey] = rangeMatch;
@@ -117,6 +119,22 @@ export function parseEventPage(html: string): ParsedEventDate | RipperError {
             return { startDate: date, endDate: date, location };
         } catch {
             return { type: 'ParseError', reason: `Invalid date: ${dateStr}`, context: dateStr };
+        }
+    } else if (nowThroughMatch) {
+        const [, monthName, day, year] = nowThroughMatch;
+        const month = MONTHS[monthName];
+        if (month === undefined) {
+            return { type: 'ParseError', reason: `Unknown month name in: ${dateStr}`, context: dateStr };
+        }
+        try {
+            // Use today as the start date; the end date is the closing date of the exhibition
+            return {
+                startDate: LocalDate.now(),
+                endDate: LocalDate.of(parseInt(year), month, parseInt(day)),
+                location,
+            };
+        } catch {
+            return { type: 'ParseError', reason: `Invalid date in "Now through": ${dateStr}`, context: dateStr };
         }
     } else {
         return { type: 'ParseError', reason: `Unrecognized date format: ${dateStr}`, context: dateStr };
