@@ -66,6 +66,14 @@ describe('MuseumOfFlightRipper', () => {
             expect(r.unknownDuration).toBe(true);
         });
 
+        it('parses "H:MM AM and H:MM PM" as two slots with unknown duration', () => {
+            const r = parseTimeString('10:30 AM and 1:00 PM');
+            expect(r.slots).toHaveLength(2);
+            expect(r.slots[0]).toEqual({ hour: 10, minute: 30 });
+            expect(r.slots[1]).toEqual({ hour: 13, minute: 0 });
+            expect(r.unknownDuration).toBe(true);
+        });
+
         it('defaults unparseable text to noon with unknown duration', () => {
             const r = parseTimeString('Dads FREE all day');
             expect(r.slots).toHaveLength(1);

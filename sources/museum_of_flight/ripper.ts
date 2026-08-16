@@ -110,10 +110,11 @@ export function parseTimeString(raw: string): ParsedTime {
         }
     }
 
-    // "H:MM AM; H:MM PM[; H:MM PM]" or "H:MM AM & H:MM PM" — multiple showings (2 or more)
-    // Split on semicolons or ampersands and parse each part
-    if (/[;&]/.test(s)) {
-        const parts = s.split(/\s*[;&]\s*/);
+    // "H:MM AM; H:MM PM[; H:MM PM]", "H:MM AM & H:MM PM", or "H:MM AM and H:MM PM"
+    // — multiple showings (2 or more). Split on semicolons, ampersands, or the
+    // word "and" and parse each part.
+    if (/[;&]|\band\b/i.test(s)) {
+        const parts = s.split(/\s*(?:[;&]|\band\b)\s*/i);
         const parsed = parts.map(p => parseTime12(p.trim()));
         if (parsed.every(t => t !== null)) {
             return { slots: parsed as Array<{ hour: number; minute: number }>, unknownDuration: true };
