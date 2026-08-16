@@ -214,10 +214,81 @@ describe('Downtown Seattle Association Ripper', () => {
       // Verify image URL is set
       expect(eventWithImage.imageUrl).toBeDefined();
       expect(eventWithImage.imageUrl).toContain('https://downtownseattle.org');
-      
+
       // Verify image URL is appended to description
       expect(eventWithImage.description).toContain('Event image:');
       expect(eventWithImage.description).toContain(eventWithImage.imageUrl);
     }
+  });
+
+  function makeEvent(overrides: Record<string, any>) {
+    return {
+      id: 1,
+      title: 'Test Event',
+      description: '<p>Test description</p>',
+      url: 'https://downtownseattle.org/event/test-event/',
+      start_date_details: { year: '2026', month: '08', day: '15', hour: '12', minutes: '00', seconds: '00' },
+      end_date_details: { year: '2026', month: '08', day: '15', hour: '13', minutes: '00', seconds: '00' },
+      timezone: 'America/Los_Angeles',
+      categories: [{ slug: 'public' }],
+      venue: [],
+      ...overrides,
+    };
+  }
+
+  test('catch-all calendar includes events with no venue and unknown venues, excludes tracked venues', async () => {
+    const ripper = new DowntownSeattleRipper();
+    const jsonData = {
+      events: [
+        makeEvent({ id: 1, title: 'Belltown Blast', venue: [] }), // no venue at all
+        makeEvent({ id: 2, title: 'One-off performer slot', venue: { id: 99999 } }), // untracked venue
+        makeEvent({ id: 3, title: 'Pioneer Park show', venue: { id: 53757 } }), // tracked venue
+      ],
+    };
+    const date = ZonedDateTime.parse('2026-08-15T00:00:00-07:00[America/Los_Angeles]');
+
+    const otherEvents = await ripper.parseEvents(jsonData, date, {
+      catchAll: true,
+      excludeVenueIds: [53757, 53732],
+    });
+
+    const titles = otherEvents.filter((e): e is RipperCalendarEvent => 'summary' in e).map(e => e.summary);
+    expect(titles).toContain('Belltown Blast');
+    expect(titles).toContain('One-off performer slot');
+    expect(titles).not.toContain('Pioneer Park show');
+  });
+
+  test('excludes DSA member-only events from every calendar', async () => {
+    const ripper = new DowntownSeattleRipper();
+    const jsonData = {
+      events: [
+        makeEvent({ id: 1, title: 'DSA Member Roundtable', venue: [], categories: [{ slug: 'member' }] }),
+        makeEvent({ id: 2, title: 'Belltown Blast', venue: [], categories: [{ slug: 'public' }] }),
+        makeEvent({ id: 3, title: 'Member reception at Pioneer Park', venue: { id: 53757 }, categories: [{ slug: 'member' }] }),
+      ],
+    };
+    const date = ZonedDateTime.parse('2026-08-15T00:00:00-07:00[America/Los_Angeles]');
+
+    const otherEvents = await ripper.parseEvents(jsonData, date, { catchAll: true, excludeVenueIds: [53757] });
+    const otherTitles = otherEvents.filter((e): e is RipperCalendarEvent => 'summary' in e).map(e => e.summary);
+    expect(otherTitles).toEqual(['Belltown Blast']);
+
+    const pioneerParkEvents = await ripper.parseEvents(jsonData, date, { venue_id: 53757 });
+    expect(pioneerParkEvents.length).toBe(0);
+  });
+
+  test('parses McGraw Square events by venue_id', async () => {
+    const ripper = new DowntownSeattleRipper();
+    const jsonData = {
+      events: [
+        makeEvent({ id: 1, title: 'Double Dutch Divas at McGraw Square', venue: { id: 60595 } }),
+        makeEvent({ id: 2, title: 'Belltown Blast', venue: [] }),
+      ],
+    };
+    const date = ZonedDateTime.parse('2026-08-15T00:00:00-07:00[America/Los_Angeles]');
+
+    const mcgrawEvents = await ripper.parseEvents(jsonData, date, { venue_id: 60595 });
+    const titles = mcgrawEvents.filter((e): e is RipperCalendarEvent => 'summary' in e).map(e => e.summary);
+    expect(titles).toEqual(['Double Dutch Divas at McGraw Square']);
   });
 });
