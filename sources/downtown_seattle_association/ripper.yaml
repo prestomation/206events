@@ -1,7 +1,8 @@
-# verified: 2026-06-01 ok
-# EXPERIMENT (see PR): proxy: "outofband" temporarily removed to test whether
-# GitHub Actions runners can still fetch this source directly, or whether it's
-# still blocked. Revert to `proxy: "outofband"` if CI shows a 403/fetch failure.
+# verified: 2026-08-16 ok
+# No longer proxied: verified via a real PR-preview build (#1205) that GitHub
+# Actions runners can fetch this source directly (no 403). If it starts
+# getting blocked again, see docs/proxy-verification.md for the escalation
+# ladder (`proxy: "outofband"` first, then `"browserbase"`).
 name: downtown-seattle-association
 sourceRole: aggregator
 friendlyname: "Downtown Seattle Association"

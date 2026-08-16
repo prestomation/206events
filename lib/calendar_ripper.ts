@@ -512,6 +512,12 @@ export const main = async () => {
     if (parsedReport.externalCalendars) {
       parsedReport.externalCalendars = parsedReport.externalCalendars.filter(e => currentOutofbandExternalNames.has(e.name));
     }
+    // Recompute to match the filtered sources/externals (mirrors how
+    // generate-outofband.ts accumulates it) so log output doesn't overcount
+    // errors that belonged to a now-dropped stale source.
+    parsedReport.totalErrors =
+      parsedReport.sources.reduce((sum, s) => sum + s.calendars.reduce((calSum, c) => calSum + c.errors.length, 0), 0) +
+      (parsedReport.externalCalendars?.filter(e => e.fetchError).length ?? 0);
 
     outofbandReport = parsedReport;
   } catch (err: any) {
