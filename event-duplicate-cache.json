@@ -12099,6 +12099,381 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-15",
       "note": "Different venues: 1201 Eastlake Ave E vs 1551 Eastlake Ave E are separate food truck stops 321m apart on the same street"
+    },
+    "19hz-all-events.ics Beats Antique, David Starfire|2026-12-17T19:00:00-08:00[America/Los_Angeles]::nectar-lounge-nectar-lounge.ics CASCADIA WINTER SOLSTICE WEEKEND Ft. BEATS ANTIQUE with David Starfire|2026-12-17T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-16",
+      "note": "different Tixr event pages (200645 vs 202365); B is a larger 'Cascadia Winter Solstice Weekend' multi-act lineup, not confidently the same ticketed event as A's solo Beats Antique/David Starfire listing"
+    },
+    "NWMetalCalendar-NWMetal.ics Eihwar|2026-09-12T19:00-07:00[America/Los_Angeles]::showbox-presents-neumos.ics EIHWAR Frayle|2026-09-12T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "same venue (Neumos, 22m), same date; B adds a support act (Frayle) to the same headliner listing"
+    },
+    "discover-slu-discover-slu.ics 2026 Seattle Design Festival Block Party|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Seattle Design Festival 2026 Block Party|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same date/time; discover-slu direct site vs seatoday aggregator republishing"
+    },
+    "discover-slu-discover-slu.ics 2026 Seattle Design Festival Block Party|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Seattle Design Festival 2026 Block Party|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same date/time; discover-slu direct site vs seatoday aggregator republishing"
+    },
+    "discover-slu-discover-slu.ics 2026 Seattle Design Festival Block Party|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Seattle Design Festival 2026 Block Party|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same date/time; discover-slu direct site vs seatoday aggregator republishing"
+    },
+    "downtown-seattle-association-occidental-square.ics Aqui Mercado at Occidental Square|2026-08-29T12:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Aqui Mercado at Occidental Square|2026-08-29T19:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical downtownseattle.org URL on both sides -- same event record"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Flea|2026-09-12T12:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Flea|2026-09-12T19:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical downtownseattle.org URL on both sides -- same event record"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Flea|2026-10-17T12:00-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Flea|2026-10-17T19:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical downtownseattle.org URL on both sides -- same event record"
+    },
+    "downtown-seattle-association-occidental-square.ics Occidental Square Flea|2026-12-12T12:00-08:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Occidental Square Flea|2026-12-12T19:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical downtownseattle.org URL on both sides -- same event record"
+    },
+    "external-seattle-city-of-lit.ics  Seattle Reads: Sara Nović discusses \"True Biz\"|2026-09-26T18:00:00Z[UTC]::spl-authors-books-authors-books.ics Seattle Reads: Sara Nović discusses \"True Biz\"|2026-09-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title (leading-space variant), same instant (11:00-07:00 = 18:00 UTC), both 'non-library location'"
+    },
+    "external-seattle-university.ics School Counseling Programs Virtual Information Session|2026-08-19T19:00:00Z[UTC]::seatoday-seatoday-all.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant (12:00-07:00 = 19:00 UTC); seatoday aggregator republishing Seattle U's event"
+    },
+    "external-seattle-university.ics School Counseling Programs Virtual Information Session|2026-08-19T19:00:00Z[UTC]::seatoday-seatoday-community.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday aggregator republishing Seattle U's event"
+    },
+    "external-seattle-university.ics School Counseling Programs Virtual Information Session|2026-08-19T19:00:00Z[UTC]::seatoday-seatoday-learning.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday aggregator republishing Seattle U's event"
+    },
+    "external-uw-campus-events.ics EMBA Online Application Strategies Workshop|2026-09-17T12:00:00Z[UTC]::external-uw-foster-school-of-business.ics EMBA Online Application Strategies Workshop|2026-09-17T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical uwfoster.my.site.com eventId (a1wa600000J0Flh) on both sides -- same event record"
+    },
+    "external-uw-campus-events.ics EMBA Online Application Strategies Workshop|2026-09-30T17:00:00Z[UTC]::external-uw-foster-school-of-business.ics EMBA Online Application Strategies Workshop|2026-09-30T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical uwfoster.my.site.com eventId (a1wa600000J0GJZ) on both sides -- same event record"
+    },
+    "gallery-110-all-events.ics Closing Reception - None & Everything|2026-08-29T16:00:00.221-07:00[America/Los_Angeles]::pioneer-square-market-all-events.ics Closing Reception – Jessie Summa Russo: None & Everything|2026-08-29T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "same address (110 3rd Ave S / Gallery 110), same instant (23:00 UTC), same exhibit title 'None & Everything'"
+    },
+    "kremwerk-kremwerk.ics THEE BAILE|2026-08-14T22:00:00.452-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Thee Baile|2026-08-14T22:00:00.268-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "same address (1809 Minor Ave -- Cherry room within the Kremwerk complex), same date/time, matching title"
+    },
+    "mccaw-hall-mccaw-hall.ics TajMo: Room On The Porch Tour 2026|2026-09-01T20:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Taj Mahal and Keb’ Mo’ : Room On The Porch Tour 2026|2026-09-01T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "same venue (McCaw Hall, 3m), same date/time, same tour ('TajMo' = Taj Mahal + Keb' Mo')"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-30T10:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-30T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "same venue (Fisher Pavilion, 231m), same day, matching title 'Panda Fest'; B's 00:00 time looks like a placeholder"
+    },
+    "queer-power-alliance-all-events.ics Alki Beach Pride|2026-08-15T12:00:00.991-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Alki Beach Pride|2026-08-15T12:00:00.150-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "same event (88m apart, same beach), same instant, identical title 'Alki Beach Pride'"
+    },
+    "rabbit_box-all-events.ics The Triple Door presents Alexandr Misko at The Rabbit Box|2026-10-21T19:30:00.902-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Alexandr Misko at The Rabbit Box|2026-10-21T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "same address (94 Pike St, The Rabbit Box), same date/time; B has a presenter prefix ('The Triple Door presents')"
+    },
+    "seatoday-seatoday-all.ics 2026 WABA Korea Expo & Festival|2026-08-16T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics 2026 WABA Korea Expo & Festival|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-all aggregating waterfront-park's own listing"
+    },
+    "seatoday-seatoday-all.ics Bike Works - Free Bike Repair|2026-08-19T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bike Works - Free Bike Repair|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and community-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Bike Works - Free Bike Repair|2026-08-19T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bike Works - Free Bike Repair|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and sports-tag calendars"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-08-21T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-08-21T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and community-tag calendars"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-08-28T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-08-28T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and community-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and learning-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and sports-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-all aggregating SPL Ballard's own listing"
+    },
+    "seatoday-seatoday-all.ics Games and Crafts|2026-08-19T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-08-19T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and community-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Games and Crafts|2026-08-26T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-08-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and community-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Intro to Fermentation|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Intro to Fermentation|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL/location -- same seatoday record surfaced in both the all-events and learning-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and arts-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and learning-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-all aggregating SPL Rainier Beach's own listing (8/17 occurrence)"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and arts-tag calendars (8/18 occurrence)"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and learning-tag calendars (8/18 occurrence)"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-all aggregating SPL Lake City's own listing (8/18 occurrence)"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Engstrom Open Space|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Engstrom Open Space|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and community-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Engstrom Open Space|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Engstrom Open Space|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and sports-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and community-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and sports-tag calendars"
+    },
+    "seatoday-seatoday-all.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and community-tag calendars"
+    },
+    "seatoday-seatoday-all.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and learning-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Teen Snacks & Facts|2026-08-17T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Teen Snacks & Facts|2026-08-17T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and food-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Teen Snacks & Facts|2026-08-17T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Teen Snacks & Facts|2026-08-17T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and learning-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and arts-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the all-events and learning-tag calendars"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]::spl-green-lake.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-all aggregating SPL Green Lake's own listing"
+    },
+    "seatoday-seatoday-arts.ics 2026 WABA Korea Expo & Festival|2026-08-16T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics 2026 WABA Korea Expo & Festival|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-arts aggregating waterfront-park's own listing"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the arts-tag and learning-tag calendars (8/17 occurrence)"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-arts aggregating SPL Rainier Beach's own listing (8/17 occurrence)"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the arts-tag and learning-tag calendars (8/18 occurrence)"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-arts aggregating SPL Lake City's own listing (8/18 occurrence)"
+    },
+    "seatoday-seatoday-arts.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the arts-tag and learning-tag calendars"
+    },
+    "seatoday-seatoday-arts.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]::spl-green-lake.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-arts aggregating SPL Green Lake's own listing"
+    },
+    "seatoday-seatoday-community.ics 2026 WABA Korea Expo & Festival|2026-08-16T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics 2026 WABA Korea Expo & Festival|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-community aggregating waterfront-park's own listing"
+    },
+    "seatoday-seatoday-community.ics Bike Works - Free Bike Repair|2026-08-19T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bike Works - Free Bike Repair|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the community-tag and sports-tag calendars"
+    },
+    "seatoday-seatoday-community.ics BirdWalk|2026-08-21T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-08-21T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the community-tag and sports-tag calendars"
+    },
+    "seatoday-seatoday-community.ics BirdWalk|2026-08-28T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-08-28T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the community-tag and sports-tag calendars"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Engstrom Open Space|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Engstrom Open Space|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the community-tag and sports-tag calendars"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the community-tag and sports-tag calendars"
+    },
+    "seatoday-seatoday-community.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics School Counseling Programs Virtual Information Session|2026-08-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the community-tag and learning-tag calendars"
+    },
+    "seatoday-seatoday-food.ics Teen Snacks & Facts|2026-08-17T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Teen Snacks & Facts|2026-08-17T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the food-tag and learning-tag calendars"
+    },
+    "seatoday-seatoday-learning.ics 2026 WABA Korea Expo & Festival|2026-08-16T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics 2026 WABA Korea Expo & Festival|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-learning aggregating waterfront-park's own listing"
+    },
+    "seatoday-seatoday-learning.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title/time/URL -- same seatoday record surfaced in both the learning-tag and sports-tag calendars"
+    },
+    "seatoday-seatoday-learning.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-learning aggregating SPL Ballard's own listing"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-learning aggregating SPL Rainier Beach's own listing (8/17 occurrence)"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-learning aggregating SPL Lake City's own listing (8/18 occurrence)"
+    },
+    "seatoday-seatoday-learning.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]::spl-green-lake.ics Toddler Play Group|2026-08-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-learning aggregating SPL Green Lake's own listing"
+    },
+    "seatoday-seatoday-sports.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Game on! Board Games for All Ages|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "identical title, same instant; seatoday-sports aggregating SPL Ballard's own listing"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-15T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-15T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-16",
+      "note": "different physical addresses (1201 vs 1551 Eastlake Ave, 321m apart) -- two distinct Seattle Food Trucks pod locations, not the same occurrence"
+    },
+    "spl-douglass-truth.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-16",
+      "note": "same recurring 'Family Story Time' program at two branches 10.4km apart, same day/time -- independent weekly sessions, not one occurrence"
+    },
+    "spl-lake-city.ics English Conversation Circle|2026-08-18T17:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual English Conversation Circle|2026-08-18T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-16",
+      "note": "in-person (Lake City Branch) vs explicitly 'Virtual' online session, different start times (17:30 vs 18:00) -- distinct program offerings"
+    },
+    "spl-lake-city.ics English Conversation Circle|2026-08-25T17:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual English Conversation Circle|2026-08-25T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-16",
+      "note": "in-person (Lake City Branch) vs explicitly 'Virtual' online session, different start times (17:30 vs 18:00) -- distinct program offerings"
     }
   }
 }
