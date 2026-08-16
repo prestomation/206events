@@ -79,3 +79,26 @@ calendars:
       # Alley, a different spot inside the market, not the street plaza itself.
       # Tier D — clearly a different feature — not applying an id.
       osmChecked: 2026-07-20
+  - name: mcgraw-square
+    friendlyname: "McGraw Square Events"
+    timezone: America/Los_Angeles
+    config:
+      venue_id: 60595
+    tags:
+      - Belltown
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Seattle_-_McGraw_Square_01.jpg"
+    geo:
+      lat: 47.6131360
+      lng: -122.3374550
+      osmType: way
+      osmId: 57883629
+  - name: other-events
+    friendlyname: "Other Downtown Seattle Association Events"
+    timezone: America/Los_Angeles
+    # Catches events not tied to one of the tracked venues above: no venue at all
+    # (e.g. "Belltown Blast", a neighborhood-wide street festival) or a one-off
+    # venue_id (e.g. per-performer "Downtown Summer Sounds" bookings). May be empty
+    # if nothing DSA-organized is currently unattached to a tracked venue.
+    expectEmpty: true
+    config:
+      catchAll: true
