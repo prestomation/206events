@@ -102,5 +102,3 @@ calendars:
     expectEmpty: true
     config:
       catchAll: true
-    tags:
-      - Downtown

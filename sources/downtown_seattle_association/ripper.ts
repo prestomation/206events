@@ -19,6 +19,9 @@ export default class DowntownSeattleRipper extends JSONRipper {
         const startDate = LocalDateTime.now().toLocalDate().toString();
 
         const allRawEvents: any[] = [];
+        // Surfaced on every calendar below rather than thrown — a single malformed page
+        // shouldn't zero out every calendar's events when other pages parsed fine.
+        const fetchErrors: RipperError[] = [];
         let page = 1;
         let totalPages = 1;
         while (page <= totalPages) {
@@ -33,7 +36,15 @@ export default class DowntownSeattleRipper extends JSONRipper {
 
             const jsonData = await res.json();
             totalPages = jsonData.total_pages ?? 1;
-            if (Array.isArray(jsonData.events)) allRawEvents.push(...jsonData.events);
+            if (Array.isArray(jsonData.events)) {
+                allRawEvents.push(...jsonData.events);
+            } else {
+                fetchErrors.push({
+                    type: "ParseError",
+                    reason: `Invalid JSON structure on page ${page}: missing events array`,
+                    context: JSON.stringify(jsonData).substring(0, 100) + "...",
+                });
+            }
             page++;
         }
         const combinedJsonData = { events: allRawEvents };
@@ -58,7 +69,7 @@ export default class DowntownSeattleRipper extends JSONRipper {
                 name: cal.name,
                 friendlyname: cal.friendlyname,
                 events: calEvents.filter(e => "date" in e).map(e => e as RipperCalendarEvent),
-                errors: calEvents.filter(e => "type" in e).map(e => e as RipperError),
+                errors: [...fetchErrors, ...calEvents.filter(e => "type" in e).map(e => e as RipperError)],
                 parent: ripper.config,
                 tags: cal.tags || [],
             });
@@ -173,6 +184,12 @@ export default class DowntownSeattleRipper extends JSONRipper {
         return categories.some((cat: any) => cat?.slug === "member");
     }
 
+    // Only considers the first venue for events the API tags with more than one (e.g.
+    // "Community Blood Drives at Downtown Parks" listing both Westlake Park and Occidental
+    // Square). Such an event is routed to only its first venue's calendar, not both, and
+    // not the catch-all. Pre-existing limitation, not introduced by the catch-all/bucketing
+    // rework — a real fix requires deciding how a multi-venue event should be represented
+    // across calendars, which is out of scope here.
     private getVenue(event: any): any | null {
         if (!event.venue) return null;
         if (Array.isArray(event.venue)) return event.venue[0] ?? null;

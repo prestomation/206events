@@ -1,12 +1,42 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi, afterEach } from 'vitest';
 import DowntownSeattleRipper from './ripper.js';
-import { ZonedDateTime, Duration } from '@js-joda/core';
+import { ZonedDateTime, Duration, ZoneId } from '@js-joda/core';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { RipperCalendarEvent } from '../../lib/config/schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const TIMEZONE = ZoneId.of('America/Los_Angeles');
+
+function makeRipper(overrides: Record<string, any> = {}) {
+  return {
+    config: {
+      name: 'downtown-seattle-association',
+      url: new URL('https://downtownseattle.org/wp-json/tribe/events/v1/events'),
+      tags: ['Downtown'],
+      geo: null,
+      disabled: false,
+      proxy: false,
+      calendars: [
+        {
+          name: 'pioneer-park',
+          friendlyname: 'Pioneer Park Events',
+          timezone: TIMEZONE,
+          config: { venue_id: 53757 },
+          tags: ['Pioneer Square'],
+        },
+        {
+          name: 'other-events',
+          friendlyname: 'Other Downtown Seattle Association Events',
+          timezone: TIMEZONE,
+          config: { catchAll: true },
+        },
+      ],
+      ...overrides,
+    },
+  } as any;
+}
 
 describe('Downtown Seattle Association Ripper', () => {
   test('parses Pioneer Park events correctly from JSON', async () => {
@@ -290,5 +320,84 @@ describe('Downtown Seattle Association Ripper', () => {
     const mcgrawEvents = await ripper.parseEvents(jsonData, date, { venue_id: 60595 });
     const titles = mcgrawEvents.filter((e): e is RipperCalendarEvent => 'summary' in e).map(e => e.summary);
     expect(titles).toEqual(['Double Dutch Divas at McGraw Square']);
+  });
+
+  describe('rip()', () => {
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    function jsonResponse(body: any) {
+      return Promise.resolve({ ok: true, json: () => Promise.resolve(body) });
+    }
+
+    test('wires excludeVenueIds from configured venue_ids into the catch-all calendar', async () => {
+      const events = [
+        makeEvent({ id: 1, title: 'Pioneer Park show', venue: { id: 53757 } }),
+        makeEvent({ id: 2, title: 'Belltown Blast', venue: [] }),
+        makeEvent({ id: 3, title: 'One-off performer slot', venue: { id: 99999 } }),
+      ];
+      const mockFetch = vi.fn().mockImplementation(() => jsonResponse({ events, total_pages: 1 }));
+      vi.stubGlobal('fetch', mockFetch);
+
+      const ripper = new DowntownSeattleRipper();
+      const result = await ripper.rip(makeRipper());
+
+      // Fetched once (single unfiltered page), not once per calendar.
+      expect(mockFetch).toHaveBeenCalledTimes(1);
+      expect(mockFetch.mock.calls[0][0]).not.toContain('venue=');
+
+      const pioneerPark = result.find(c => c.name === 'pioneer-park')!;
+      expect(pioneerPark.events.map(e => e.summary)).toEqual(['Pioneer Park show']);
+
+      const other = result.find(c => c.name === 'other-events')!;
+      const otherTitles = other.events.map(e => e.summary).sort();
+      expect(otherTitles).toEqual(['Belltown Blast', 'One-off performer slot']);
+    });
+
+    test('fully paginates the unfiltered fetch before bucketing', async () => {
+      const page1Events = [makeEvent({ id: 1, title: 'Page 1 event', venue: { id: 53757 } })];
+      const page2Events = [makeEvent({ id: 2, title: 'Page 2 event', venue: { id: 53757 } })];
+      const mockFetch = vi.fn()
+        .mockImplementationOnce(() => jsonResponse({ events: page1Events, total_pages: 2 }))
+        .mockImplementationOnce(() => jsonResponse({ events: page2Events, total_pages: 2 }));
+      vi.stubGlobal('fetch', mockFetch);
+
+      const ripper = new DowntownSeattleRipper();
+      const result = await ripper.rip(makeRipper());
+
+      expect(mockFetch).toHaveBeenCalledTimes(2);
+      const pioneerPark = result.find(c => c.name === 'pioneer-park')!;
+      expect(pioneerPark.events.map(e => e.summary).sort()).toEqual(['Page 1 event', 'Page 2 event']);
+    });
+
+    test('surfaces a malformed page as a per-calendar error without dropping other pages\' events', async () => {
+      const goodEvents = [makeEvent({ id: 1, title: 'Pioneer Park show', venue: { id: 53757 } })];
+      const mockFetch = vi.fn()
+        .mockImplementationOnce(() => jsonResponse({ events: goodEvents, total_pages: 2 }))
+        .mockImplementationOnce(() => jsonResponse({ total_pages: 2 })); // page 2: malformed, no events array
+      vi.stubGlobal('fetch', mockFetch);
+
+      const ripper = new DowntownSeattleRipper();
+      const result = await ripper.rip(makeRipper());
+
+      const pioneerPark = result.find(c => c.name === 'pioneer-park')!;
+      expect(pioneerPark.events.map(e => e.summary)).toEqual(['Pioneer Park show']);
+      expect(pioneerPark.errors).toHaveLength(1);
+      expect(pioneerPark.errors[0].reason).toContain('page 2');
+
+      // The fetch error is surfaced on every calendar, not just one.
+      const other = result.find(c => c.name === 'other-events')!;
+      expect(other.errors).toHaveLength(1);
+      expect(other.errors[0].reason).toContain('page 2');
+    });
+
+    test('throws when a page fetch returns a non-OK status', async () => {
+      const mockFetch = vi.fn().mockResolvedValue({ ok: false, status: 503, statusText: 'Service Unavailable' });
+      vi.stubGlobal('fetch', mockFetch);
+
+      const ripper = new DowntownSeattleRipper();
+      await expect(ripper.rip(makeRipper())).rejects.toThrow(/503/);
+    });
   });
 });

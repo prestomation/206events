@@ -27,6 +27,12 @@ exclusion of the known venue ids). Events tagged with DSA's "DSA
 Member-Only" category (internal roundtables, member receptions) are
 excluded from every calendar — they aren't events the public can attend.
 
+Bucketing only looks at an event's *first* listed venue (`getVenue()`), so
+an event the API tags with more than one venue is routed to just that
+first venue's calendar — it won't also appear under its other venue(s),
+and won't land in the catch-all either. This is a pre-existing limitation
+of the venue-lookup logic, not something the catch-all rework fixes.
+
 ## Usage
 
 ```typescript
