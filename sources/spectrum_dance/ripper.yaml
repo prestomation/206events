@@ -17,7 +17,6 @@ calendars:
   - name: spectrum-dance
     friendlyname: "Spectrum Dance Theater"
     timezone: America/Los_Angeles
-    expectEmpty: true
     config:
       clientId: 36947
       clientOrigin: "https://spectrumdance.org"

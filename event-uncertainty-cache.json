@@ -57934,12 +57934,6 @@
       "source": "agent",
       "evidence": "https://therendezvous.boldtypetickets.com/events/186701366/peter-liu-live-comedy"
     },
-    "19hz:19hz-2026/08/07-Return to Nature": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-16",
-      "source": "agent",
-      "reason": "No longer listed on 19hz.info; Facebook event page requires login for price details"
-    },
     "new-tech-seattle:new-tech-seattle-jptjztykclbnb": {
       "fields": {
         "cost": {
@@ -57979,16 +57973,6 @@
       "resolvedAt": "2026-08-16",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/eivr-seattle-washington-11-15-2026/event/0F006498A145A7A3"
-    },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-16",
-      "source": "agent",
-      "evidence": "https://udistrictseattle.com/bobafest"
     },
     "seattle-makers:seattle-makers-154850": {
       "fields": {
@@ -58251,6 +58235,30 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46387",
       "partialFingerprint": "b09m1n"
+    },
+    "19hz:19hz-2026/08/05-Re/Evolution: Summerjam": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "reason": "Multi-day camping festival (Aug 5-10); per-session duration ambiguous — \"2 PM-12 PM\" format unclear on Eventbrite; event is past"
+    },
+    "19hz:19hz-2026/08/07-Capitol Hill Block Party: Muna, Disco Lines, Wet Leg": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "reason": "CHBP multi-day festival; per-artist set duration not posted on capitolhillblockparty.com; event is past"
+    },
+    "19hz:19hz-2026/08/07-Return to Nature": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "reason": "Past event (Aug 7, 2026); event is over and cost/duration info no longer verifiable"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "reason": "Past event (Aug 1, 2026); event is over and start time/duration no longer verifiable"
     }
   }
 }
