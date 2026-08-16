@@ -49,9 +49,14 @@ export default class VermillionGalleryRipper implements IRipper {
     }
 
     // Public for testing. Scans every rich-text block on the homepage for one
-    // that pairs an <h4> (exhibition title) with an <h3> containing at least
-    // one parseable reception date/time line. Returns a ParseError (never an
-    // empty silent result) when no such block is found.
+    // that pairs a leading heading (exhibition title, historically an <h4>)
+    // with one or more following headings containing at least one parseable
+    // reception date/time line. Vermillion has used both an <h4> title + <h3>
+    // date pairing and, after a homepage redesign, two consecutive <h4>s (no
+    // <h3> at all) for the same content — so every <h3>/<h4> in the block is
+    // treated as a candidate, in document order, rather than requiring a
+    // specific tag for the date/detail portion. Returns a ParseError (never
+    // an empty silent result) when no such block is found.
     parseHomepageHtml(html: string): RipperEvent[] {
         const root = parse(html);
         const blocks = root.querySelectorAll('.sqs-html-content');
@@ -60,17 +65,17 @@ export default class VermillionGalleryRipper implements IRipper {
         let matchedBlock = false;
 
         for (const block of blocks) {
-            const h4 = block.querySelector('h4');
-            const h3 = block.querySelector('h3');
-            if (!h4 || !h3) continue;
+            const headings = block.querySelectorAll('h3, h4');
+            if (headings.length < 2) continue;
 
-            const title = h4.text.replace(/\s+/g, ' ').trim();
+            const [titleEl, ...detailEls] = headings;
+            const title = titleEl.text.replace(/\s+/g, ' ').trim();
             if (!title) continue;
 
-            const lines = h3.innerHTML
+            const lines = detailEls.flatMap(el => el.innerHTML
                 .split(/<br\s*\/?>/i)
                 .map(line => parse(line).text.replace(/\s+/g, ' ').trim())
-                .filter(Boolean);
+                .filter(Boolean));
 
             const dated = this.extractDatedLines(lines);
             if (dated.length === 0) continue;

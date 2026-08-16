@@ -1,5 +1,6 @@
 name: west-seattle-nursery
 sourceRole: venue
+expectEmpty: true
 type: squarespace
 description: "West Seattle Nursery"
 url: "https://www.westseattlenursery.com/events-classes"

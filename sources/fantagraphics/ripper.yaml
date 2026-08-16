@@ -1,6 +1,7 @@
 # verified: 2026-07-27 ok
 name: fantagraphics-bookstore
 sourceRole: venue
+expectEmpty: true
 description: "Fantagraphics Bookstore & Gallery"
 url: "https://blog.fantagraphics.com/wp-json/tribe/events/v1/events"
 friendlyLink: https://fantagraphics.com/bookstore
