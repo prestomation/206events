@@ -6,7 +6,7 @@ url: https://www.savoyswing.org/events
 tags: [Dance, "Capitol Hill"]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-16
-pr: TBD
+pr: 1212
 ---
 
 Seattle-based swing dance organization hosting regular dances, lessons, and workshops.
