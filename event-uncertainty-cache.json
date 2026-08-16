@@ -36837,7 +36837,8 @@
         "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-07-13",
       "source": "agent",
@@ -38079,7 +38080,8 @@
     "events12:dance-in-the-park-2026-08-29": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
@@ -51945,7 +51947,8 @@
         "duration": 27000,
         "cost": {
           "min": 17
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -57342,11 +57345,12 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.trumba.com/i/DgAALFOrkacWMG7AHz%2AjXfv5.jpg"
       },
-      "resolvedAt": "2026-08-14",
+      "resolvedAt": "2026-08-16",
       "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/emba-online-information-session/19622380/2026-08-27T00",
+      "evidence": "https://uwfoster.my.site.com/FosterEvents/s/events-public?eventId=a1wa600000Ik6Pp (same real-world event as covered by external-uw-foster-school-of-business, which carries a real event image; CitySpark's own SmallImg/MediumImg/LargeImg are all null for this event)",
       "partialFingerprint": "15vo2qn"
     },
     "stg:tm-vvG1HZ_7Scn270": {
@@ -57798,6 +57802,78 @@
       "resolvedAt": "2026-08-16",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/films/seattle-film-society-presents-locals-august-2026/"
+    },
+    "seattle-folklore-society:seattle-folklore-society-bushwick-book-club-seattle-1-2026-10-17": {
+      "fields": {
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Dont-tell-me-the-odds-banner-825x510.jpg"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/bushwick-book-club-seattle-1/"
+    },
+    "seattle-folklore-society:seattle-folklore-society-tannahill-weavers-return-to-phinney-2026-10-24": {
+      "fields": {
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/meta_eyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ-825x510.webp"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/tannahill-weavers-return-to-phinney/"
+    },
+    "vashon-center-for-the-arts:vashon-95601AKBTMBPSVSQQNHNMNCNJRTLHSSTL": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/4/f/0/c/0/4f0c0e04cc17188791acd71699af8588.jpg"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/across-africa"
+    },
+    "venue:loc:14601 4th ave e, parkland, wa 98445": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://lemaymarymount.org/events/lemay-annual-show/ — cars shown on the Marymount feature lawn"
+    },
+    "venue:loc:4851 s tacoma way, tacoma, wa 98409": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.asiapacificculturalcenter.org/polynesianluau — luau held on the park grounds next to the APCC building, under a dining tent"
+    },
+    "venue:loc:greta hackett outdoor sculpture gallery, i-90 trail, mercer island, wa 98040": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.mercerislandartuncorked.com — named Outdoor Sculpture Gallery, on the I-90 trail"
+    },
+    "venue:osm:node:2303382190": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/kingfisher-natural-area-restoration/ — riparian forest natural area along Thornton Creek, outdoor habitat restoration"
+    },
+    "venue:osm:way:435217612": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44327/ (Camp Long) — DNDA forest/greenspace restoration, outdoor work in the park's forested natural areas"
+    },
+    "venue:osm:way:437181884": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/des-moines-poverty-bay-blues-brews-festival-2026-tickets-1988708278997 — 'outdoor event... rain or shine' on the beach park shoreline"
     }
   }
 }
