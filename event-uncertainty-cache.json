@@ -57797,7 +57797,10 @@
     },
     "northwest-film-forum:seattle-film-society-presents-locals-august-2026-2026-08-27": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/IG2.png"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/IG2.png",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-08-16",
       "source": "agent",
@@ -57805,7 +57808,10 @@
     },
     "seattle-folklore-society:seattle-folklore-society-bushwick-book-club-seattle-1-2026-10-17": {
       "fields": {
-        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Dont-tell-me-the-odds-banner-825x510.jpg"
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Dont-tell-me-the-odds-banner-825x510.jpg",
+        "cost": {
+          "min": 20.0
+        }
       },
       "resolvedAt": "2026-08-16",
       "source": "agent",
@@ -57813,7 +57819,10 @@
     },
     "seattle-folklore-society:seattle-folklore-society-tannahill-weavers-return-to-phinney-2026-10-24": {
       "fields": {
-        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/meta_eyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ-825x510.webp"
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/meta_eyJzcmNCdWNrZXQiOiJiemdsZmlsZXMifQ-825x510.webp",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-08-16",
       "source": "agent",
@@ -57874,6 +57883,820 @@
       "resolvedAt": "2026-08-16",
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/des-moines-poverty-bay-blues-brews-festival-2026-tickets-1988708278997 — 'outdoor event... rain or shine' on the beach park shoreline"
+    },
+    "seattle-makers:seattle-makers-162882": {
+      "fields": {
+        "cost": {
+          "min": 75.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/industrial-sewing-certification-76/"
+    },
+    "seattle-makers:seattle-makers-162932": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/monoprinting-printmaking-with-gelli-plates-8/"
+    },
+    "seattle-makers:seattle-makers-162951": {
+      "fields": {
+        "cost": {
+          "min": 175.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-cutter-certification-313/"
+    },
+    "seattle-makers:seattle-makers-162954": {
+      "fields": {
+        "cost": {
+          "min": 175.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-cutter-certification-314/"
+    },
+    "seattle-makers:seattle-makers-162959": {
+      "fields": {
+        "cost": {
+          "min": 125.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/leather-working-basics-2/"
+    },
+    "seattle-makers:seattle-makers-163086": {
+      "fields": {
+        "cost": {
+          "min": 110.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/embroidery-machine-basics-41/"
+    },
+    "seattle-makers:seattle-makers-163089": {
+      "fields": {
+        "cost": {
+          "min": 110.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/embroidery-machine-basics-48/"
+    },
+    "seattle-makers:seattle-makers-163092": {
+      "fields": {
+        "cost": {
+          "min": 110.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/embroidery-machine-basics-49/"
+    },
+    "seattle-makers:seattle-makers-162944": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/electronics-and-robotics-meetup-guided-studio-8/"
+    },
+    "seattle-makers:seattle-makers-163095": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/cosplay-meetup-41/"
+    },
+    "seattle-makers:seattle-makers-163106": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/queer-crafters-meetup-11/"
+    },
+    "seattle-makers:seattle-makers-162844": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-14/"
+    },
+    "seattle-makers:seattle-makers-162846": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-15/"
+    },
+    "seattle-makers:seattle-makers-162851": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-guided-studio-with-free-machine-time-11/"
+    },
+    "seattle-makers:seattle-makers-162886": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/woodshop-basics-4-part-series-20/"
+    },
+    "seattle-makers:seattle-makers-162891": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-93/"
+    },
+    "seattle-makers:seattle-makers-162893": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-94/"
+    },
+    "seattle-makers:seattle-makers-162895": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-95/"
+    },
+    "seattle-makers:seattle-makers-162897": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%aa%9a-woodshop-guided-studio-96/"
+    },
+    "seattle-makers:seattle-makers-162901": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/woodshop-basics-4-part-series-21/"
+    },
+    "seattle-makers:seattle-makers-162935": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/visible-and-invisible-mending-sewing-9/"
+    },
+    "seattle-makers:seattle-makers-162947": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/visible-and-invisible-mending-sewing-10/"
+    },
+    "seattle-makers:seattle-makers-162966": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-16/"
+    },
+    "seattle-makers:seattle-makers-163096": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-certification-34/"
+    },
+    "seattle-makers:seattle-makers-163099": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%e2%9a%a1electronics-guided-studio-12/"
+    },
+    "seattle-makers:seattle-makers-163101": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-17/"
+    },
+    "seattle-makers:seattle-makers-163103": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/sewing-guided-studio-4/"
+    },
+    "seattle-makers:seattle-makers-163104": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-guided-studio-with-free-machine-time-12/"
+    },
+    "seattle-makers:seattle-makers-163112": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/multi-color-screen-printing-13/"
+    },
+    "seattle-makers:seattle-makers-162854": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-15/"
+    },
+    "seattle-makers:seattle-makers-162856": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-16/"
+    },
+    "seattle-makers:seattle-makers-162858": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-17/"
+    },
+    "seattle-makers:seattle-makers-162860": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-18/"
+    },
+    "seattle-makers:seattle-makers-162870": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "reason": "Event page no longer serves event content (returns generic homepage); likely cancelled/removed"
+    },
+    "seatoday:cityspark-19475979": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://bellevuebotanical.org/event/arts-in-the-garden-aug29/"
+    },
+    "seatoday:cityspark-19480866": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/1513580456839296/"
+    },
+    "seatoday:cityspark-19489971": {
+      "fields": {
+        "cost": {
+          "min": 29.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/visit"
+    },
+    "seatoday:cityspark-19642850": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D204547347"
+    },
+    "seatoday:cityspark-19644189": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://business.kingstonchamber.com/events/Details/ollie-coloring-contest-at-kpm-1889810?sourceTypeId=Website"
+    },
+    "queer-social-club:6a7d52f120206f5251c14459": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.tixtree.com/e/lez-out-at-lumberyard-e658cca80222"
+    },
+    "queer-social-club:6a7d54aeb0e768773f977661": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://tickets.kremwerk.com/event/kremwerk-thee-baile-08-14-2026-2200/tickets/seg"
+    },
+    "queer-social-club:6a7d56144471ee234da7907e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/trans-music-showcase-afterparty"
+    },
+    "queer-social-club:6a7d57f11451646451657a8c": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/plant-sip-tickets-1996256116783"
+    },
+    "queer-social-club:6a7d58c087d4550be2095036": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/sweet-treats-lebanese-wines"
+    },
+    "queer-social-club:6a7d5a25fd2cd97a17552ba9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lezfindr-with-jordan-knoll"
+    },
+    "queer-social-club:6a7d5b321274085de5da0d7c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://alkibeachpride.my.canva.site/"
+    },
+    "queer-social-club:6a7d60344471ee234da9df0e": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/it-girl"
+    },
+    "queer-social-club:6a7d665d08104b3399832adc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://buy.stripe.com/eVq5kD8p68lFb8y2Vh1VK08"
+    },
+    "side-rail-collective:6a7e091e6f387401a57307cb": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a7e0c0233fae15a875dccc8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a7e0fe8e7a5c855361c8950": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a7e101b313a9b1f5a1fd391": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a7e1041bfc9542ecba80c32": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a7e105fb838cd39dc63e687": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "side-rail-collective:6a7e107a7537002ae0978186": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar"
+    },
+    "rabbit_box:6a775e64bf01396d48eff6c6": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-presents-alexandr-misko-at-the-rabbit-box"
+    },
+    "rabbit_box:6a7a33e1c22eee74fc4ba105": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/brood-awakening-6wjfn-tjwmy"
+    },
+    "rabbit_box:6a7a714a6752ce2fd6c48356": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/joseph-decosimo-elise-levy"
+    },
+    "rabbit_box:6a7e027b3eba233e24b99e23": {
+      "fields": {
+        "cost": {
+          "min": 23.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-crocodile-presents-bernice-ye"
+    },
+    "rabbit_box:6a7e0690e6b10e2bac763d9c": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/7158jxyp00rlrk7ipx4xxx1okq9bak"
+    },
+    "charlies-queer-books:charlies-queer-books-5713320260918": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/5713320260918"
+    },
+    "charlies-queer-books:charlies-queer-books-6111920261009": {
+      "fields": {
+        "cost": {
+          "min": 42.14
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/melissa-king-the-girl-who-became-king-tickets-1993872936627"
+    },
+    "rendezvous:6a7797f1469d6b5c61b3ebee": {
+      "fields": {
+        "cost": {
+          "min": 5.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://therendezvous.strangertickets.com/events/186658373/jewelbox-comedy-series"
+    },
+    "rendezvous:6a7b63f2268b1a63eeff2f7d": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://therendezvous.boldtypetickets.com/events/186701366/peter-liu-live-comedy"
+    },
+    "19hz:19hz-2026/08/07-Return to Nature": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "reason": "No longer listed on 19hz.info; Facebook event page requires login for price details"
+    },
+    "new-tech-seattle:new-tech-seattle-jptjztykclbnb": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/jptjztykclbnb/"
+    },
+    "seattle-cocktail-club:6a7b40b3a2ed932b7f7b729c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/talkingcedar"
+    },
+    "sol-yoga-seattle:6a7b8ad246fff84108f439a1": {
+      "fields": {
+        "cost": {
+          "min": 60.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/sol-sound-bath-95aty-5xw7a-fce89-we7xj-4nzgr"
+    },
+    "stg:tm-vvG1HZ_ax-oQrN": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/eivr-seattle-washington-11-15-2026/event/0F006498A145A7A3"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/bobafest"
+    },
+    "seattle-makers:seattle-makers-154850": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-17/"
+    },
+    "seattle-makers:seattle-makers-162873": {
+      "fields": {
+        "cost": {
+          "min": 175.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-cutter-certification-312/"
+    },
+    "19hz:19hz-2026/08/21-Rhythm Riot": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/Db4dbrxlMsc"
+    },
+    "19hz:19hz-2026/08/29-Gas Works Afterparty: Skrillex": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.axs.com/events/1559123/gas-works-afterparty-tickets?cid=19hz"
+    },
+    "19hz:19hz-2026/09/12-Vibronics, McPullish": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/1389053886512167/"
+    },
+    "19hz:19hz-2026/10/01-Whethan, STVSH": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.axs.com/events/1468574/whethan-warehouse-wavs-tour-tickets?cid=19hz"
+    },
+    "19hz:19hz-2026/10/08-jigitz, Killen": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.axs.com/events/1559145/jigitz-tickets"
+    },
+    "19hz:19hz-2026/11/13-Richard Finger, Bommer, Stink Dinker, asau, Thew": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/Db6JjESifKw"
+    },
+    "19hz:19hz-2026/11/14-AEREA (Live)": {
+      "fields": {
+        "cost": {
+          "min": 25.87,
+          "max": 31.94
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/aerea-tickets-1986461116674"
+    },
+    "19hz:19hz-2026/11/18-Julian Fijma": {
+      "fields": {
+        "cost": {
+          "min": 13.73
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/social-house-presents-julian-fijma-tickets-1996666754010"
+    },
+    "northwest-film-forum:the-incredibly-true-adventure-of-two-girls-in-love-2026-09-29": {
+      "fields": {
+        "cost": {
+          "min": 12.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/the-incredibly-true-adventure-of-two-girls-in-love/"
+    },
+    "northwest-film-forum:who-moves-america-2026-10-19": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/who-moves-america/"
     }
   }
 }
