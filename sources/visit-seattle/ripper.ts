@@ -53,7 +53,7 @@ const MONTHS: { [key: string]: number } = {
 //   <h4><span>October 31-November 1, 2026</span> | <span> Location</span></h4>
 //   <h4><span>July 24-26, 2026</span> | <span> Location</span></h4>
 //   <h4><span>October 31, 2026</span> | <span> Location</span></h4>
-export function parseEventPage(html: string): ParsedEventDate | RipperError {
+export function parseEventPage(html: string, today: LocalDate): ParsedEventDate | RipperError {
     const h4Match = html.match(/<h4><span>([^<]+)<\/span>\s*\|\s*<span>\s*([^<]+)<\/span><\/h4>/);
     if (!h4Match) {
         return { type: 'ParseError', reason: 'No date/location h4 found on event page', context: html.slice(0, 200) };
@@ -129,7 +129,7 @@ export function parseEventPage(html: string): ParsedEventDate | RipperError {
         try {
             // Use today as the start date; the end date is the closing date of the exhibition
             return {
-                startDate: LocalDate.now(),
+                startDate: today,
                 endDate: LocalDate.of(parseInt(year), month, parseInt(day)),
                 location,
             };
@@ -172,7 +172,7 @@ export default class VisitSeattleRipper implements IRipper {
                     continue;
                 }
                 const html = await pageRes.text();
-                const parsed = parseEventPage(html);
+                const parsed = parseEventPage(html, today);
 
                 if ('type' in parsed) {
                     errors.push(parsed);

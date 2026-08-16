@@ -2,9 +2,12 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { LocalDate } from '@js-joda/core';
 import { parseRSSItems, parseEventPage } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const FIXED_TODAY = LocalDate.of(2026, 8, 16);
 
 function loadSampleFeed(): string {
     return fs.readFileSync(path.join(__dirname, 'sample-feed.xml'), 'utf8');
@@ -49,7 +52,7 @@ describe('parseRSSItems', () => {
 
 describe('parseEventPage', () => {
     it('parses multi-day event date and location (word-based same-month range)', () => {
-        const result = parseEventPage(loadSampleEventPage());
+        const result = parseEventPage(loadSampleEventPage(), FIXED_TODAY);
         expect('type' in result).toBe(false);
         if ('type' in result) return;
         expect(result.startDate.year()).toBe(2026);
@@ -65,7 +68,7 @@ describe('parseEventPage', () => {
         const html = `<html><body>
             <h4><span>October 31-November 1, 2026</span> | <span> Seattle Center</span></h4>
         </body></html>`;
-        const result = parseEventPage(html);
+        const result = parseEventPage(html, FIXED_TODAY);
         expect('type' in result).toBe(false);
         if ('type' in result) return;
         expect(result.startDate.monthValue()).toBe(10);
@@ -79,7 +82,7 @@ describe('parseEventPage', () => {
         const html = `<html><body>
             <h4><span>August 1, 2026</span> | <span> Seattle Center Armory</span></h4>
         </body></html>`;
-        const result = parseEventPage(html);
+        const result = parseEventPage(html, FIXED_TODAY);
         expect('type' in result).toBe(false);
         if ('type' in result) return;
         expect(result.startDate.monthValue()).toBe(8);
@@ -92,7 +95,7 @@ describe('parseEventPage', () => {
         const html = `<html><body>
             <h4><span>8/1/2026</span> | <span> Seattle Center Armory</span></h4>
         </body></html>`;
-        const result = parseEventPage(html);
+        const result = parseEventPage(html, FIXED_TODAY);
         expect('type' in result).toBe(false);
         if ('type' in result) return;
         expect(result.startDate.monthValue()).toBe(8);
@@ -101,7 +104,7 @@ describe('parseEventPage', () => {
     });
 
     it('returns ParseError when no h4 date found', () => {
-        const result = parseEventPage('<html><body><p>No dates here</p></body></html>');
+        const result = parseEventPage('<html><body><p>No dates here</p></body></html>', FIXED_TODAY);
         expect('type' in result).toBe(true);
         if (!('type' in result)) return;
         expect(result.type).toBe('ParseError');
@@ -111,9 +114,23 @@ describe('parseEventPage', () => {
         const html = `<html><body>
             <h4><span>September 13, 2026</span> | <span> Seattle Center &amp; Armory</span></h4>
         </body></html>`;
-        const result = parseEventPage(html);
+        const result = parseEventPage(html, FIXED_TODAY);
         expect('type' in result).toBe(false);
         if ('type' in result) return;
         expect(result.location).toBe('Seattle Center & Armory');
+    });
+
+    it('parses "Now through" ongoing exhibition using provided today as startDate', () => {
+        const html = `<html><body>
+            <h4><span>Now through October 31, 2026</span> | <span> Frye Art Museum</span></h4>
+        </body></html>`;
+        const today = LocalDate.of(2026, 8, 20);
+        const result = parseEventPage(html, today);
+        expect('type' in result).toBe(false);
+        if ('type' in result) return;
+        expect(result.startDate.equals(today)).toBe(true);
+        expect(result.endDate.monthValue()).toBe(10);
+        expect(result.endDate.dayOfMonth()).toBe(31);
+        expect(result.location).toBe('Frye Art Museum');
     });
 });
