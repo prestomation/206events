@@ -94,6 +94,23 @@ describe('VermillionGalleryRipper - parseHomepageHtml', () => {
         expect(events[0]).toMatchObject({ type: 'ParseError' });
     });
 
+    test('extracts an event from two consecutive h4s (post-redesign homepage, no h3 at all)', () => {
+        // 2026-08 homepage redesign: Vermillion now puts both the title and
+        // the reception/date text in <h4> elements instead of h4 (title) + h3
+        // (date) — confirmed live against the site on 2026-08-16.
+        const html = `<div class="sqs-html-content"><h4>AFRO SPK: Promenade</h4><h4>Opening Thursday, August 13, 2026 5-9pm<br><span>Capitol Hill Artwalk <br></span><em>Show runs through August 29, 2026</em></h4></div>`;
+        const events = ripper.parseHomepageHtml(html);
+        const calEvents = events.filter((e): e is RipperCalendarEvent => 'date' in e);
+        const errors = events.filter((e): e is RipperError => 'type' in e);
+
+        expect(errors).toEqual([]);
+        expect(calEvents).toHaveLength(1);
+        expect(calEvents[0].summary).toBe('AFRO SPK: Promenade — Opening Reception');
+        expect(calEvents[0].date.toString()).toContain('2026-08-13T17:00');
+        expect(calEvents[0].duration.toMinutes()).toBe(240);
+        expect(calEvents[0].description).toContain('Show runs through August 29, 2026');
+    });
+
     test('ignores html blocks with an h4 but no dated h3', () => {
         const html = `<div class="sqs-html-content"><h4>Coming Soon</h4><h3>Details to be announced</h3></div>`;
         const events = ripper.parseHomepageHtml(html);
