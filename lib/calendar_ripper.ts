@@ -490,7 +490,36 @@ export const main = async () => {
   let outofbandReport: OutOfBandReport | null = null;
   try {
     const reportRaw = await readFile("outofband-report.json", "utf-8");
-    outofbandReport = JSON.parse(reportRaw) as OutOfBandReport;
+    const parsedReport = JSON.parse(reportRaw) as OutOfBandReport;
+
+    // The report reflects whatever the out-of-band runner last saw, which can
+    // lag behind a same-day config change (e.g. a source moving off `proxy:
+    // "outofband"` to a direct fetch, or being retired/disabled). Drop any
+    // report entry for a source that isn't *currently* configured as
+    // `proxy: "outofband"` — otherwise it'd register alongside that source's
+    // freshly-ripped live entry, duplicating it in the manifest.
+    const currentOutofbandSourceNames = new Set(
+      configs.filter(c => !c.config.disabled && c.config.proxy === "outofband").map(c => c.config.name)
+    );
+    const currentOutofbandExternalNames = new Set(
+      externalCalendars.filter(c => !c.disabled && c.proxy === "outofband").map(c => c.name)
+    );
+    const staleSources = parsedReport.sources.filter(s => !currentOutofbandSourceNames.has(s.source));
+    if (staleSources.length > 0) {
+      console.log(`[outofband] Dropping ${staleSources.length} stale report source(s) no longer configured as proxy: "outofband": ${staleSources.map(s => s.source).join(", ")}`);
+    }
+    parsedReport.sources = parsedReport.sources.filter(s => currentOutofbandSourceNames.has(s.source));
+    if (parsedReport.externalCalendars) {
+      parsedReport.externalCalendars = parsedReport.externalCalendars.filter(e => currentOutofbandExternalNames.has(e.name));
+    }
+    // Recompute to match the filtered sources/externals (mirrors how
+    // generate-outofband.ts accumulates it) so log output doesn't overcount
+    // errors that belonged to a now-dropped stale source.
+    parsedReport.totalErrors =
+      parsedReport.sources.reduce((sum, s) => sum + s.calendars.reduce((calSum, c) => calSum + c.errors.length, 0), 0) +
+      (parsedReport.externalCalendars?.filter(e => e.fetchError).length ?? 0);
+
+    outofbandReport = parsedReport;
   } catch (err: any) {
     console.warn(`[outofband] Warning: could not read outofband-report.json: ${err?.message ?? err} — skipping out-of-band calendars`);
   }

@@ -1,9 +1,12 @@
-# verified: 2026-06-01 ok
+# verified: 2026-08-16 ok
+# No longer proxied: verified via a real PR-preview build (#1205) that GitHub
+# Actions runners can fetch this source directly (no 403). If it starts
+# getting blocked again, see docs/proxy-verification.md for the escalation
+# ladder (`proxy: "outofband"` first, then `"browserbase"`).
 name: downtown-seattle-association
 sourceRole: aggregator
 friendlyname: "Downtown Seattle Association"
 description: "Downtown Seattle Association Events Calendar"
-proxy: "outofband"
 url: "https://downtownseattle.org/wp-json/tribe/events/v1/events"
 friendlyLink: https://downtownseattle.org
 geo: null

@@ -16,7 +16,15 @@ export default class DowntownSeattleRipper extends JSONRipper {
     // also seeing events outside the tracked venue list.)
     public override async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
-        const startDate = LocalDateTime.now().toLocalDate().toString();
+        // Use the calendars' own timezone (Pacific), not the build runner's system
+        // clock (UTC in GitHub Actions), to compute "today". DSA's API excludes any
+        // event whose date is before `start_date` — using UTC "today" during Pacific
+        // evening/night hours (UTC is a day ahead of Seattle from ~5pm-midnight PDT)
+        // silently drops events still in progress today, e.g. an event running
+        // noon-11:30pm Pacific gets excluded from the fetch entirely once it's past
+        // midnight UTC, even though it hasn't started or hasn't ended yet locally.
+        const timezone = ripper.config.calendars[0]?.timezone ?? ZoneId.of("America/Los_Angeles");
+        const startDate = ZonedDateTime.now(timezone).toLocalDate().toString();
 
         const allRawEvents: any[] = [];
         // Surfaced on every calendar below rather than thrown — a single malformed page
