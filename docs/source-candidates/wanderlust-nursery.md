@@ -1,11 +1,11 @@
 ---
 name: "Wanderlust Nursery"
-status: candidate
+status: notviable
 platform: Squarespace
 url: https://wanderlustnursery.com/events
 tags: [Community]
 firstSeen: 2026-07-23
-lastChecked: 2026-07-23
+lastChecked: 2026-08-16
 ---
 
 Plant nursery/garden business (Seattle-based per site metadata) that
@@ -30,3 +30,14 @@ Investigated 2026-07-23:
 
 Re-check next cycle to see if `upcoming` populates and whether the events
 listed are majority Seattle-based.
+
+**Re-checked 2026-08-16:** `upcoming` has now repopulated — 4 events with
+future `startDate` values (confirms the Squarespace events collection
+works as expected). But the Seattle-focus caveat resolved negative: only
+1 of the 4 (Admiral Block Party, West Seattle) is in Seattle proper. The
+other 3 are at PowellsWood Garden (Federal Way) and Bellevue Botanical
+Garden ×2 (Bellevue) — same pattern as the 19 `past` entries checked
+7/23 (SeaTac, Burien, Federal Way, Bellevue, Tacoma dominate). This is a
+regional plant-events curator that occasionally touches Seattle, not a
+primarily-Seattle source — fails the "must primarily serve Seattle
+audiences" gate. Marking `notviable`.
