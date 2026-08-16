@@ -1,0 +1,18 @@
+name: savoy-swing
+sourceRole: venue
+type: squarespace
+description: "Savoy Swing Club"
+url: "https://www.savoyswing.org/events"
+friendlyLink: https://www.savoyswing.org/events
+tags: ["Dance", "Capitol Hill"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/6773040c8fdfff22fc76b184/cd9bbc8a-b0d3-48c9-a0f9-b993acec0921/New+Logo+2025.png"
+geo:
+  lat: 47.6251280
+  lng: -122.3175078
+  label: "Lowdown Ballroom, 628 11th Ave E, Seattle, WA 98102"
+  osmType: way
+  osmId: 206082195
+calendars:
+  - name: all-events
+    friendlyname: "Savoy Swing Club"
+    timezone: America/Los_Angeles
