@@ -325,11 +325,32 @@ describe('Downtown Seattle Association Ripper', () => {
   describe('rip()', () => {
     afterEach(() => {
       vi.unstubAllGlobals();
+      vi.useRealTimers();
     });
 
     function jsonResponse(body: any) {
       return Promise.resolve({ ok: true, json: () => Promise.resolve(body) });
     }
+
+    test('computes start_date from the calendars\' own (Pacific) timezone, not the system clock', async () => {
+      // 2026-08-16T03:00:00Z is 2026-08-15T20:00:00-07:00 in Seattle — still
+      // "today" locally even though UTC has already rolled over to the 16th.
+      // DSA's API excludes events dated before start_date, so requesting the
+      // UTC date here would silently drop a same-day event still in progress
+      // (e.g. an event running noon-11:30pm Pacific).
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-08-16T03:00:00Z'));
+
+      const mockFetch = vi.fn().mockImplementation(() => jsonResponse({ events: [], total_pages: 1 }));
+      vi.stubGlobal('fetch', mockFetch);
+
+      const ripper = new DowntownSeattleRipper();
+      await ripper.rip(makeRipper());
+
+      const requestedUrl = mockFetch.mock.calls[0][0] as string;
+      expect(requestedUrl).toContain('start_date=2026-08-15');
+      expect(requestedUrl).not.toContain('start_date=2026-08-16');
+    });
 
     test('wires excludeVenueIds from configured venue_ids into the catch-all calendar', async () => {
       const events = [
