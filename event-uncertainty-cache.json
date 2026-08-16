@@ -58247,6 +58247,18 @@
       "resolvedAt": "2026-08-16",
       "source": "agent",
       "reason": "CHBP multi-day festival; per-artist set duration not posted on capitolhillblockparty.com; event is past"
+    },
+    "19hz:19hz-2026/08/07-Return to Nature": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "reason": "Past event (Aug 7, 2026); event is over and cost/duration info no longer verifiable"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-16",
+      "source": "agent",
+      "reason": "Past event (Aug 1, 2026); event is over and start time/duration no longer verifiable"
     }
   }
 }

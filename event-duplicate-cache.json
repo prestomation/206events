@@ -12494,6 +12494,21 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-16",
       "note": "Different start times (5:30 PM ticket slot vs 10:00 AM general festival); not the same occurrence"
+    },
+    "recurring-lake-washington-cars-and-coffee.ics Lake Washington Cars & Coffee|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Lake Washington Cars & Coffee|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "Same monthly car meet at Madrona Park; recurring source and seatoday-all aggregator both listing the same event"
+    },
+    "recurring-lake-washington-cars-and-coffee.ics Lake Washington Cars & Coffee|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Lake Washington Cars & Coffee|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "Same car meet at Madrona Park; same event appearing in seatoday food calendar"
+    },
+    "recurring-lake-washington-cars-and-coffee.ics Lake Washington Cars & Coffee|2026-08-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Lake Washington Cars & Coffee|2026-08-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-16",
+      "note": "Same car meet at Madrona Park; same event appearing in seatoday sports calendar"
     }
   }
 }
