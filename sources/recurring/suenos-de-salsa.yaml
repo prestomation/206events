@@ -3,11 +3,12 @@ geo:
   lat: 47.6762994
   lng: -122.3172087
   label: "Sueños de Salsa, 6512 Roosevelt Way NE, Seattle, WA 98115"
+  osmType: node
+  osmId: 2434504333
 name: suenos-de-salsa
 sourceRole: venue
 friendlyname: Sueños de Salsa — Wednesday Night Social
-description: Weekly Wednesday night social dancing (salsa and bachata) at
-  Sueños de Salsa, a dance studio in the Roosevelt neighborhood.
+description: Weekly Wednesday night social dancing (salsa and bachata) at Sueños de Salsa, a dance studio in the Roosevelt neighborhood.
 timezone: America/Los_Angeles
 location: "6512 Roosevelt Way NE, Seattle, WA 98115"
 url: https://suenosdesalsa.com/socials-and-practicas/

@@ -3,8 +3,7 @@ sourceRole: venue
 description: "Seattle Food Trucks"
 url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_\
-  food_truck_Seattle_Washington.JPG"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
 cost: free
 # Each event is a generic "Food Trucks @ <pod>" slot with no per-event image;
 # don't queue them in photoGaps (the venue imageUrl above is the intended photo).
@@ -110,7 +109,8 @@ calendars:
       lat: 47.62775
       lng: -122.33067
       label: "1100 Fairview Ave N, Seattle, WA 98109"
-      osmChecked: 2026-07-12
+      osmType: way
+      osmId: 384119484
   - name: west-lake-union-center
     friendlyname: "Food Trucks @ West Lake Union Center"
     timezone: America/Los_Angeles

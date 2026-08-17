@@ -88,30 +88,19 @@ function findGeoNode(doc: YAML.Document.Parsed, label: string): YAML.YAMLMap | n
     }
     return null;
   }
-  if (label.startsWith("external: ")) {
-    const name = label.slice("external: ".length);
-    if (!YAML.isSeq(doc.contents)) return null;
-    for (const item of doc.contents.items) {
-      if (!YAML.isMap(item)) continue;
-      if (String(item.get("name")) === name) {
-        const geo = item.get("geo");
-        return YAML.isMap(geo) ? geo : null;
-      }
-    }
-    return null;
-  }
-  if (label.startsWith("recurring: ")) {
-    const name = label.slice("recurring: ".length);
-    const events = doc.get("events");
-    if (!YAML.isSeq(events)) return null;
-    for (const item of events.items) {
-      if (!YAML.isMap(item)) continue;
-      if (String(item.get("name")) === name) {
-        const geo = item.get("geo");
-        return YAML.isMap(geo) ? geo : null;
-      }
-    }
-    return null;
+  if (label.startsWith("external: ") || label.startsWith("recurring: ")) {
+    // Both external calendars (sources/external/<name>.yaml) and recurring
+    // events (sources/recurring/<name>.yaml) are one-entry-per-file: a
+    // top-level map with its own `name` and `geo` fields. (Older revisions
+    // of this script expected a shared multi-entry file — a list of maps
+    // for external, an `events:` list for recurring — but both schemas have
+    // since migrated to one file per entry; see AGENTS.md "Recurring
+    // Calendars" / "Source Candidate Tracking".)
+    const name = label.slice(label.indexOf(": ") + 2);
+    if (!YAML.isMap(doc.contents)) return null;
+    if (String(doc.contents.get("name")) !== name) return null;
+    const geo = doc.contents.get("geo");
+    return YAML.isMap(geo) ? geo : null;
   }
   return null;
 }
@@ -194,7 +183,11 @@ async function main() {
         rejected++;
       }
     }
-    await writeFile(file, doc.toString({ flowCollectionPadding: false }), "utf8");
+    // lineWidth: 0 disables line-folding entirely — without it, `yaml`
+    // re-wraps every long scalar (imageUrl, description, label) it
+    // re-serializes, even ones untouched by this script, producing large
+    // diffs unrelated to the OSM-id change actually being applied.
+    await writeFile(file, doc.toString({ flowCollectionPadding: false, lineWidth: 0 }), "utf8");
   }
 
   console.log(`\nWrote ${accepted} OSM IDs and ${rejected} rejection marker(s) across ${byFile.size} file(s).`);

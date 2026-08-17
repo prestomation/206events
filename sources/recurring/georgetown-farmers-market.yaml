@@ -3,7 +3,8 @@ geo:
   lat: 47.5442037
   lng: -122.3214361
   label: "Georgetown Farmers Market, 6601 Carleton Ave S, Seattle, WA 98108"
-  osmChecked: "2026-06-18"
+  osmType: way
+  osmId: 231288598
 name: georgetown-farmers-market
 sourceRole: venue
 friendlyname: Georgetown Farmers Market

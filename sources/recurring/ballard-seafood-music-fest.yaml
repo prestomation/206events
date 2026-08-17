@@ -4,13 +4,14 @@ geo:
   lat: 47.6680
   lng: -122.384
   label: "Old Ballard (Ballard Ave NW), Seattle, WA 98107"
-  osmChecked: "2026-06-16"
+  # "Old Ballard" matches "Old Salt" (node 2140460433, amenity/cafe, 817m) on
+  # a coincidental shared word, not the historic district itself — a
+  # different, unrelated cafe.
+  osmChecked: "2026-08-17"
 name: ballard-seafood-music-fest
 sourceRole: venue
 friendlyname: Ballard Seafood & Music Fest
-description: Annual three-day festival in Old Ballard with live music across
-  multiple stages, local restaurants, seafood vendors, craft beer, and family
-  activities.
+description: Annual three-day festival in Old Ballard with live music across multiple stages, local restaurants, seafood vendors, craft beer, and family activities.
 timezone: America/Los_Angeles
 location: Ballard Ave NW, Seattle, WA 98107
 url: https://seafoodfest.org/

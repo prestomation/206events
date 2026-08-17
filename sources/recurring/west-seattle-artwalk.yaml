@@ -3,7 +3,10 @@ geo:
   lat: 47.5629
   lng: -122.3862
   label: "West Seattle Junction, Seattle, WA"
-  osmChecked: "2026-06-16"
+  # "West Seattle" matches "West Seattle Foot and Ankle" (node 12351552301,
+  # amenity/clinic, 115m) only because the clinic's name contains "West
+  # Seattle" — a specific unrelated business, not the Junction district.
+  osmChecked: "2026-08-17"
 name: west-seattle-artwalk
 sourceRole: venue
 friendlyname: West Seattle Art Walk

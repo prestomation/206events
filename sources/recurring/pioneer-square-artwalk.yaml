@@ -1,10 +1,12 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/63/Pioneer_Square%2\
-  C_Seattle_%281933715075%29.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/63/Pioneer_Square%2C_Seattle_%281933715075%29.jpg"
 geo:
   lat: 47.6007
   lng: -122.3321
   label: "Pioneer Square, Seattle, WA"
-  osmChecked: "2026-06-16"
+  # Nearest match is "Pioneer Square" light rail station (node 8511481744,
+  # railway/station, 232m) — a specific transit stop, not the historic
+  # district the art walk spans.
+  osmChecked: "2026-08-17"
 name: pioneer-square-artwalk
 sourceRole: venue
 friendlyname: Pioneer Square Art Walk

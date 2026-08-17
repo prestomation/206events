@@ -1,11 +1,13 @@
 # verified: 2026-05-25 ok
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Seattle_-_Pionee\
-  r_Square_Pergola_-_2020-04-24.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Seattle_-_Pioneer_Square_Pergola_-_2020-04-24.jpg"
 geo:
   lat: 47.608
   lng: -122.3351
   label: "Downtown Seattle, WA"
-  osmChecked: "2026-06-16"
+  # "Downtown Seattle" matches "Crowne Plaza Seattle Downtown" (way 396824069,
+  # tourism/hotel, 224m) only because the hotel's own name contains the word
+  # "Downtown" — a specific unrelated hotel, not the district itself.
+  osmChecked: "2026-08-17"
 name: downtown-seattle-artwalk
 sourceRole: venue
 friendlyname: Downtown Seattle Art Walk
