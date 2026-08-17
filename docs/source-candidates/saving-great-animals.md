@@ -6,7 +6,7 @@ url: https://savinggreatanimals.org/events/
 tags: [Community, Volunteer]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-17
-pr:
+pr: 1222
 ---
 
 Seattle-area animal rescue hosting adoption events and volunteer opportunities.
