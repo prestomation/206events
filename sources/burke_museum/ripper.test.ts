@@ -24,10 +24,10 @@ describe('Burke Museum Ripper', () => {
         const events = await ripper.parseEvents(html, testDate, {});
 
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-        // 13 total cards, minus "Fossil Finders" (monthly, vague) and
+        // 14 total cards, minus "Fossil Finders" (monthly, vague) and
         // "Reclaiming Our Roots" (postponed, no date)
         // "Free First Thursday" is synthesized into 2 concrete events (Mar 5, Apr 2 — Feb 5 is before test date)
-        expect(validEvents.length).toBe(12);
+        expect(validEvents.length).toBe(13);
     });
 
     test('parses a date with no weekday prefix ("Month Day, Year")', async () => {
@@ -158,6 +158,26 @@ describe('Burke Museum Ripper', () => {
         expect(marchFft!.date.hour()).toBe(10); // 10 a.m.
         expect(marchFft!.duration.toHours()).toBe(10); // 10 a.m. – 8 p.m.
         expect(marchFft!.description).toContain('FREE ADMISSION');
+    });
+
+    test('parses multi-date class series using the first listed date', async () => {
+        const ripper = new BurkeMuseumRipper();
+        const html = loadSampleHtml();
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const errors = events.filter(e => 'type' in e && e.type === 'ParseError');
+
+        const qiGong = validEvents.find(e => e.summary.includes('Qi Gong'));
+        expect(qiGong).toBeDefined();
+        expect(qiGong!.date.year()).toBe(2026);
+        expect(qiGong!.date.monthValue()).toBe(9); // first session: September 25
+        expect(qiGong!.date.dayOfMonth()).toBe(25);
+        expect(qiGong!.date.hour()).toBe(12); // 12–1 p.m.
+        expect(qiGong!.duration.toHours()).toBe(1);
+        expect(qiGong!.description).toContain('multi-date class series');
+        expect(qiGong!.description).toContain('October 16, 2026');
+        expect(errors.some(e => 'reason' in e && e.reason.includes('Qi Gong'))).toBe(false);
     });
 
     test('all events have required fields', async () => {
