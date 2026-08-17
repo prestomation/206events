@@ -1093,6 +1093,45 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // via Nominatim (OSM indexes it under the shortened name "Badlands"). Never
   // reverse-geocoded.
   'montana badlands': { lat: 47.6243134, lng: -122.3565780 }, // 532 Queen Anne Ave N, Seattle — bar/pub, OSM node 12297741870
+
+  // --- 2026-08-17 geo-resolver batch: today's build's "Nominatim returned no
+  // results" geocodeErrors. Addresses verified against each venue's own
+  // listing (or, for the out-of-viewbox venues, OSM's own indexed record),
+  // then forward-geocoded via Nominatim. Never reverse-geocoded.
+  //
+  // Club Sur — 19hz lists only the bare venue name with no address; address
+  // (2901 1st Ave S, Seattle, WA 98134) confirmed via the venue's own site
+  // and Yelp listing, then forward-geocoded.
+  'club sur': { lat: 47.5776040, lng: -122.3343240 },
+  // WSU Everett Center, 915 N Broadway Ave, Everett — resolves fine unbounded,
+  // but Everett (48.00N) sits just outside the configured Seattle-metro
+  // viewbox (north bound 47.8), so the bounded Nominatim query used by the
+  // build returns nothing even though the building is indexed.
+  'wsu everett center': { lat: 48.0049976, lng: -122.1974489, osmType: 'way', osmId: 617105229 },
+  // PNNL Discovery Hall, 650 Horn Rapids Rd, Richland, WA — a Tri-Cities venue
+  // GeekWire occasionally lists; far outside the Seattle-metro viewbox, so the
+  // bounded query returns nothing even though OSM indexes the building.
+  'pnnl discovery hall': { lat: 46.3517478, lng: -119.2772376, osmType: 'way', osmId: 964037423 },
+  // The Lighthouse for the Blind, Inc., 2501 S Plum St, Seattle — the venue
+  // name itself contains a comma ("...Blind, Inc.,"), which defeats
+  // extractAddressFromVenuePrefix's single-comma assumption and confuses
+  // Nominatim's free-text parser under the bounded viewbox.
+  'the lighthouse for the blind, inc.': { lat: 47.5850559, lng: -122.2996266, osmType: 'way', osmId: 228744804 },
+  // Hiawatha Park (NE corner near the wading pool, Lander & Walnut) —
+  // everyday-rides-seattle's landmark description for Hiawatha Playfield,
+  // West Seattle; Nominatim only indexes it as "Hiawatha Playfield".
+  'hiawatha park': { lat: 47.5782471, lng: -122.3849500, osmType: 'way', osmId: 53610784 },
+  // Spencer Spit State Park, Lopez Island — a real park, but San Juan County
+  // (48.54N) sits far outside the Seattle-metro viewbox, so the bounded query
+  // returns nothing even though OSM indexes the park.
+  'spencer spit state park': { lat: 48.5379471, lng: -122.8607568, osmType: 'way', osmId: 757909879 },
+  // The Beach @ Expedia — everyday-rides-seattle's ICS location is
+  // "The Beach @ Expedia\n<google maps short link>"; normalizeLocation's
+  // newline split keeps only the venue name, which Nominatim doesn't index.
+  // Coords resolved by following the source's own Google Maps short link
+  // (maps.app.goo.gl/gktGmXjHRDJdBveQ9), which redirects to "The Beach at
+  // Expedia Group" in Interbay.
+  'the beach @ expedia': { lat: 47.6270804, lng: -122.3779245 },
 };
 
 /**
