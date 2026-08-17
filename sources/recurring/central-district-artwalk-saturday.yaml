@@ -1,11 +1,13 @@
 # verified: 2026-05-17 flagged (seattleartwalks.com lists CD Art Walk as First Fridays only; Second Saturday origin unclear — may be separate/defunct event)
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/35/Pan-African_flag\
-  _pedestrian_crossing%2C_Central_District%2C_Seattle%2C_2024.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/35/Pan-African_flag_pedestrian_crossing%2C_Central_District%2C_Seattle%2C_2024.jpg"
 geo:
   lat: 47.6097
   lng: -122.2953
   label: "Central District, Seattle, WA"
-  osmChecked: "2026-06-16"
+  # Only match is the "Central District" neighborhood centroid (node
+  # 1999382370, place/suburb, 1218m) — too coarse/far for a specific art-walk
+  # point; no venue-class feature covers this label.
+  osmChecked: "2026-08-17"
 name: central-district-artwalk-saturday
 sourceRole: venue
 friendlyname: Central District Art Walk (Second Saturday)

@@ -48,7 +48,7 @@ calendars:
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Occidental_Square_in_Seattle_%2837425611642%29.jpg"
     geo:
       lat: 47.6004770
-      lng: -122.3331470
+      lng: -122.333147
       osmType: way
       osmId: 174692555
   - name: bell-street-park
@@ -81,7 +81,7 @@ calendars:
       # declared coords, ~30m) is "Corner Market" — a named building at Post
       # Alley, a different spot inside the market, not the street plaza itself.
       # Tier D — clearly a different feature — not applying an id.
-      osmChecked: 2026-07-20
+      osmChecked: 2026-08-17
   - name: mcgraw-square
     friendlyname: "McGraw Square Events"
     timezone: America/Los_Angeles
@@ -92,7 +92,7 @@ calendars:
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Seattle_-_McGraw_Square_01.jpg"
     geo:
       lat: 47.6131360
-      lng: -122.3374550
+      lng: -122.337455
       osmType: way
       osmId: 57883629
   - name: other-events

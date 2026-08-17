@@ -11,7 +11,10 @@ geo:
   lat: 47.6205
   lng: -122.3493
   label: "Seattle Center Fisher Pavilion, 305 Harrison St, Seattle, WA 98109"
-  osmChecked: 2026-06-16
+  # Nearest match is "Seattle Children's Museum" (node 2494550791,
+  # tourism/museum, 166m) — a different building in the same Seattle Center
+  # complex, not Fisher Pavilion.
+  osmChecked: 2026-08-17
 calendars:
   - name: panda-fest-seattle
     friendlyname: "Panda Fest Seattle"

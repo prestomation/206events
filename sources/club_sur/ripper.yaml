@@ -11,8 +11,13 @@ geo:
   lat: 47.5775510
   lng: -122.334467
   label: "Club Sur, 2901 1st Ave S, Seattle, WA 98134"
-  # Nominatim returns "Cafe Con Leche" (node 2350317066) at this address — different business, not Club Sur
-  osmChecked: "2026-06-16"
+  # Nominatim's named-feature match at this address is "Cafe Con Leche" (node
+  # 2350317066) — a different business, not Club Sur (checked 2026-06-16).
+  # Nominatim's second (unnamed) result for the same address is the plain
+  # address/building point (way 427901475, class place/house) — a Tier C
+  # address-only match, useful even without a name attached, 2026-08-17.
+  osmType: way
+  osmId: 427901475
 calendars:
   - name: club-sur
     friendlyname: "Club Sur"

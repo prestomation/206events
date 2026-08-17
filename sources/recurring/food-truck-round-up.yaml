@@ -1,16 +1,19 @@
 # verified: 2026-05-25 drift-fixed (duration PT4H→PT5H)
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_\
-  food_truck_Seattle_Washington.JPG"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
 geo:
   lat: 47.6153914
   lng: -122.3396249
   label: "2100 6th Ave, Seattle"
-  osmChecked: "2026-06-16"
+  # Address-only label; Nominatim's nearest feature at this exact point is
+  # "Willmott's Ghost" (node 2327723036, amenity/restaurant, 0m) — an
+  # unrelated restaurant coincidentally at the same address, not the food
+  # truck plaza. (Same result/reasoning as south-lake-union-saturday-market,
+  # which shares this address.)
+  osmChecked: "2026-08-17"
 name: food-truck-round-up
 sourceRole: venue
 friendlyname: Food Truck Round-Up
-description: Monthly food truck gathering at the South Lake Union Saturday
-  Market. Free and family-friendly.
+description: Monthly food truck gathering at the South Lake Union Saturday Market. Free and family-friendly.
 timezone: America/Los_Angeles
 location: 2100 6th Ave, Seattle
 url: http://slumarket.com/popups

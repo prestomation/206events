@@ -10,6 +10,8 @@ geo:
   lat: 47.660432
   lng: -122.3092
   label: "Theodor Jacobsen Observatory, 4324 Memorial Way NE, Seattle, WA 98105"
+  osmType: way
+  osmId: 893679935
 calendars:
   - name: jacobsen-observatory
     friendlyname: "Theodor Jacobsen Observatory Open Houses"

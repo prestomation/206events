@@ -1,16 +1,17 @@
 # verified: 2026-07-27 flagged (page describes a one-time-only fall/winter Saturday market for 2026 via a former-Mayor's-office proposal, not a permanent schedule change — schema has no way to bound a schedules[] entry to a single year, so adding it as a recurring months:[10,11,12] entry would wrongly repeat every future year; needs a human decision)
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Juarez-Market-1_\
-  %2841903681375%29.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Juarez-Market-1_%2841903681375%29.jpg"
 geo:
   lat: 47.7193734
   lng: -122.298168
   label: "NE 125th St & 28th Ave NE, Seattle"
-  osmChecked: "2026-06-16"
+  # Nominatim returns the intersection's bus stop (node 2382966090,
+  # highway/bus_stop, 0m) — matches the location exactly but isn't a
+  # venue-class feature; no venue exists for an open-air market intersection.
+  osmChecked: "2026-08-17"
 name: lake-city-farmers-market
 sourceRole: venue
 friendlyname: Lake City Farmers Market
-description: Seasonal Thursday afternoon farmers market in Lake City. Runs June
-  through September.
+description: Seasonal Thursday afternoon farmers market in Lake City. Runs June through September.
 timezone: America/Los_Angeles
 location: NE 125th St & 28th Ave NE, Seattle
 url: https://seattlefarmersmarkets.org/lcfm
