@@ -100,8 +100,6 @@ calendars:
     timezone: America/Los_Angeles
     # Catches events not tied to one of the tracked venues above: no venue at all
     # (e.g. "Belltown Blast", a neighborhood-wide street festival) or a one-off
-    # venue_id (e.g. per-performer "Downtown Summer Sounds" bookings). May be empty
-    # if nothing DSA-organized is currently unattached to a tracked venue.
-    expectEmpty: true
+    # venue_id (e.g. per-performer "Downtown Summer Sounds" bookings).
     config:
       catchAll: true

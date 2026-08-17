@@ -1,6 +1,5 @@
 # Intermittent programming — a handful of public shows per year at rotating
-# venues, not a steady season. expectEmpty avoids a false zeroEventCalendars
-# flag between shows.
+# venues, not a steady season.
 name: the-residency-seattle
 sourceRole: venue
 type: squarespace
