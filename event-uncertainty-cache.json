@@ -36427,11 +36427,13 @@
         "cost": {
           "min": 35,
           "max": 74
-        }
+        },
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-07-30",
+      "resolvedAt": "2026-08-17",
       "source": "agent",
-      "evidence": "https://www.taproottheatre.org/"
+      "evidence": "https://www.taproottheatre.org/ — Note (2026-08-17): events12's generic 'live-theater-<date>' id is unstable — this build's settingGaps entry for this key links to https://www.seattlerep.org/plays/202627-season/freak-the-mighty instead (Seattle Rep's Bagley Wright mainstage), not Taproot's Joseph cited above. See sources/events12/ripper.ts (date-range placeholder expansion under the generic 'Live theater' <h3>, which bundles Seattle Rep / Taproot Theatre / Latitude Theatre / arts-people.com shows with no per-show id). Resolving 'setting: indoor' regardless of which show occupies this id: every show in that digest is a conventional indoor stage production. startTime/duration/imageUrl/cost above are left untouched from the 2026-07-30 resolution and may now be stale for whichever show currently occupies this id — flagged for follow-up, not fixed here.",
+      "lastSeen": "2026-08-17"
     },
     "three-dollar-bill-cinema:6a5296035bf69209561aead2": {
       "fields": {
@@ -58093,6 +58095,50 @@
       "resolvedAt": "2026-08-17",
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/dancingtildusk"
+    },
+    "ballard-brewed:6a7fbaa8448a2d030d03b101": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/seastar-live-at-obec — free patio live-music show (Obec Brewing 9th Beeriversary); no cover charge or ticket link on the page, consistent with the source's other free patio shows",
+      "lastSeen": "2026-08-17"
+    },
+    "ballard-brewed:6a7fc0390809eb59f36219ce": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/frelard-run-club-at-obec — free weekly community run club meetup at Obec Brewing; no admission fee, ticket, or cover mentioned",
+      "lastSeen": "2026-08-17"
+    },
+    "burke-museum:burke-author-talk-gyetk-coastal-fusion-and-ancestral-knowledge-tsmsyen-kitchen": {
+      "fields": {
+        "cost": {
+          "min": 10
+        }
+      },
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/author-talk-gyetk-coastal-fusion-and-ancestral-knowledge-tsmsyen-kitchen — \"Tickets General admission: $10 Burke members: FREE\"",
+      "lastSeen": "2026-08-17"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/bobafest — U District street festival visiting participating boba shops; no admission fee or ticket listed, attendees pay per drink/item at each vendor",
+      "lastSeen": "2026-08-17"
     }
   }
 }
