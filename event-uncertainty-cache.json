@@ -58093,6 +58093,93 @@
       "resolvedAt": "2026-08-17",
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/dancingtildusk"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "evidence": "https://slurpstation.com/blog/boba-fest-u-district-2026",
+      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+    },
+    "19hz:19hz-2026/08/18-DJs in a Dive Bar: Bingo & Beats": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "Instagram post (instagram.com/p/Db6h2vPktui) gives themed start times (80s music 7p, bingo 9p) but only a hedged general venue estimate for closing ('music 7p-1:30a(ish) give or take') -- no confirmed end time for this specific night",
+      "partialFingerprint": "ihp21h"
+    },
+    "19hz:19hz-2026/08/25-DJs in a Dive Bar: Digital Night": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "Same Instagram post (instagram.com/p/Db6h2vPktui) -- 'open decks all night long' with no specific closing time; only a hedged general venue estimate ('1:30a(ish) give or take')",
+      "partialFingerprint": "186xq0p"
+    },
+    "19hz:19hz-2026/08/27-Soft Circuit: Carnival": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "Partiful page (partiful.com/e/oJvcacScSJenicKwib1t) lists start 8:00pm only; no end time or 'until' time given",
+      "partialFingerprint": "uxzo55"
+    },
+    "19hz:19hz-2026/08/28-Goth Skate": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "southgaterollerrink.com/events.html lists the Goth Skate lineup but no start or end time; the '9pm doors' text on the page belongs to a different listing (Rat City Recon 'Make it Loud')",
+      "partialFingerprint": "1bibwgr"
+    },
+    "19hz:19hz-2026/09/06-Hard Labor Day: SHT TLK": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches with a Datadome bot-challenge (HTTP 403) to both WebFetch and direct curl with a browser user-agent; no end time accessible",
+      "partialFingerprint": "1hyi6oh"
+    },
+    "19hz:19hz-2026/09/17-TKVR: Cucci": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches with a Datadome bot-challenge (HTTP 403); no end time accessible",
+      "partialFingerprint": "1kd2jmm"
+    },
+    "19hz:19hz-2026/10/14-Safety Trance": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "Eventbrite page states 'Doors @ 8:00pm. Music @ 9:00pm.' but lists no end time",
+      "partialFingerprint": "5t5qmr"
+    },
+    "19hz:19hz-2026/10/15-TKVR: Nolid": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches with a Datadome bot-challenge (HTTP 403); no end time accessible",
+      "partialFingerprint": "pru196"
+    },
+    "19hz:19hz-2026/11/19-TKVR: DJ Girlfriends": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches with a Datadome bot-challenge (HTTP 403); no end time accessible",
+      "partialFingerprint": "2o3ksp"
+    },
+    "19hz:19hz-2026/12/17-TKVR: Flittie": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches with a Datadome bot-challenge (HTTP 403); no end time accessible",
+      "partialFingerprint": "byplfe"
+    },
+    "19hz:19hz-2027/01/02-Horse Meat Disco": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-17",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches with a Datadome bot-challenge (HTTP 403); no end time accessible",
+      "partialFingerprint": "1pserab"
     }
   }
 }
