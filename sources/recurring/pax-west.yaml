@@ -1,3 +1,4 @@
+# verified: 2026-08-17 drift-fixed (Fri/Sat/Sun duration PT12H→PT14H, Monday duration PT10H→PT8H)
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Washington_State_Convention_Center_and_Freeway_Park_from_Columbia_Center.jpg"
 geo:
   lat: 47.6109
@@ -21,17 +22,17 @@ tags:
 schedules:
   - schedule: "1st Friday"
     start_time: "10:00"
-    duration: PT12H
+    duration: PT14H
     months: [9]
   - schedule: "1st Saturday"
     start_time: "10:00"
-    duration: PT12H
+    duration: PT14H
     months: [9]
   - schedule: "1st Sunday"
     start_time: "10:00"
-    duration: PT12H
+    duration: PT14H
     months: [9]
   - schedule: "1st Monday"
     start_time: "10:00"
-    duration: PT10H
+    duration: PT8H
     months: [9]
