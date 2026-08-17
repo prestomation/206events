@@ -1,4 +1,14 @@
 # verified: 2026-08-03 ok
+# 2026-08-17: build-health flagged this as "expectEmpty but has events" after
+# a single upcoming show appeared. Checked the live tickets page: Bandit is a
+# comedy production company (not a single fixed venue — geo: null above) that
+# runs many shows across the year at rotating spaces (Washington Hall, Fremont
+# Abbey, West of Lenin, Seattle Open Arts Place, The LAB @ 1010), but with
+# real gaps in the schedule between announced runs. Same situation as
+# the-residency-seattle (see sources/the_residency_seattle/ripper.yaml):
+# intermittent programming at rotating venues, not a steady season. Keeping
+# expectEmpty so a quiet stretch between shows doesn't false-positive as a
+# broken source.
 name: bandit-improv
 sourceRole: venue
 expectEmpty: true

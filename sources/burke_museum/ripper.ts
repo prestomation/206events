@@ -106,6 +106,31 @@ function parseDate(dateStr: string): { year: number; month: number; day: number 
     return null;
 }
 
+/**
+ * Parse the first date out of a multi-date class-series listing, e.g.
+ * "This class series meets four times. You can register for any
+ * combination of dates you'd like to attend: September 25, October 2,
+ * October 9, and October 16, 2026" (Burke "Wellness Class" listings).
+ * The dates are listed chronologically, so the first "Month Day" match
+ * paired with the (single, shared) trailing year is the series start.
+ * Returns null unless at least two dates are present, so it never
+ * misfires on ordinary single-date listings (those are handled by
+ * `parseDate` before this is tried).
+ */
+function parseFirstOfMultiDateSeries(dateStr: string): { year: number; month: number; day: number } | null {
+    const monthDayPattern = /\b(january|february|march|april|may|june|july|august|september|october|november|december)\s+(\d{1,2})\b/gi;
+    const matches = [...dateStr.matchAll(monthDayPattern)];
+    if (matches.length < 2) return null;
+
+    const yearMatch = dateStr.match(/\b(\d{4})\b/);
+    if (!yearMatch) return null;
+
+    const month = MONTHS[matches[0][1].toLowerCase()];
+    if (!month) return null;
+
+    return { year: parseInt(yearMatch[1]), month, day: parseInt(matches[0][2]) };
+}
+
 export default class BurkeMuseumRipper extends HTMLRipper {
     private seenEvents = new Set<string>();
 
@@ -181,6 +206,16 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                     }
                 }
 
+                // Multi-date class series: "September 25, October 2, October 9,
+                // and October 16, 2026" — a recurring class listing all of its
+                // session dates in one paragraph instead of a single date. Use
+                // the first listed date as the event start.
+                let isMultiDateSeries = false;
+                if (!parsedDate) {
+                    parsedDate = parseFirstOfMultiDateSeries(dateTimeText);
+                    isMultiDateSeries = parsedDate !== null;
+                }
+
                 if (!parsedDate) {
                     events.push({
                         type: "ParseError",
@@ -227,6 +262,9 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                 let fullDescription = '';
                 if (category) {
                     fullDescription += `${category}\n`;
+                }
+                if (isMultiDateSeries) {
+                    fullDescription += `This is a multi-date class series; the date/time shown is the first session. See the event page for the full schedule (${dateTimeText.replace(/\s+/g, ' ').trim()}).\n`;
                 }
                 if (description) {
                     fullDescription += description;
