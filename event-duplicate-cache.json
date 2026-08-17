@@ -12099,6 +12099,26 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-15",
       "note": "Different venues: 1201 Eastlake Ave E vs 1551 Eastlake Ave E are separate food truck stops 321m apart on the same street"
+    },
+    "19hz-all-events.ics AEREA (Live)|2026-11-14T22:00:00-08:00[America/Los_Angeles]::substation-substation.ics AEREA|2026-11-14T22:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-17",
+      "note": "19hz (aggregator) republishing Substation's own Eventbrite listing via affiliate link (?aff=19hz); same eventbrite event id, same date/time/venue. Substation (venue) wins canonical."
+    },
+    "19hz-all-events.ics Hard Labor Day: SHT TLK|2026-09-06T22:00:00-07:00[America/Los_Angeles]::massive-calendar.ics Bottom Forty Hard Labor Day Wknd w/ SHT TLK|2026-09-06T22:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-17",
+      "note": "19hz (aggregator) republishing Massive's own Tixr listing (Bottom Forty promoter series); same date/time/venue, Tixr pretty URL vs canonical /e/ URL for the same event. Massive (venue) wins canonical."
+    },
+    "19hz-all-events.ics Horse Meat Disco|2027-01-02T22:00:00-08:00[America/Los_Angeles]::massive-calendar.ics HORSE MEAT DISCO 1/02/27|2027-01-02T22:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-17",
+      "note": "19hz (aggregator) republishing Massive's own Tixr listing (Bottom Forty promoter series); same date/time/venue, Tixr pretty URL vs canonical /e/ URL for the same event. Massive (venue) wins canonical."
+    },
+    "19hz-all-events.ics Julian Fijma|2026-11-18T19:00:00-08:00[America/Los_Angeles]::substation-substation.ics Social House Presents: Julian Fijma|2026-11-18T19:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-17",
+      "note": "19hz (aggregator) republishing Substation's own Eventbrite listing via affiliate link (?aff=19hz); same eventbrite event id, same date/time/venue. Substation (venue) wins canonical."
     }
   }
 }
