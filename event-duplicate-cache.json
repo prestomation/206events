@@ -12554,6 +12554,196 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-17",
       "note": "Different food truck stops at different addresses (1201 vs 1551 Eastlake Ave E, 321m apart) - distinct events"
+    },
+    "19hz-all-events.ics AEREA (Live)|2026-11-14T22:00:00-08:00[America/Los_Angeles]::substation-substation.ics AEREA|2026-11-14T22:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same Eventbrite event, title variant (Live suffix)"
+    },
+    "19hz-all-events.ics Hard Labor Day: SHT TLK|2026-09-06T22:00:00-07:00[America/Los_Angeles]::massive-calendar.ics Bottom Forty Hard Labor Day Wknd w/ SHT TLK|2026-09-06T22:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same event at Massive, title variant (promoter prefix)"
+    },
+    "19hz-all-events.ics Horse Meat Disco|2027-01-02T22:00:00-08:00[America/Los_Angeles]::massive-calendar.ics HORSE MEAT DISCO 1/02/27|2027-01-02T22:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same event at Massive, title case variant + date suffix"
+    },
+    "19hz-all-events.ics Julian Fijma|2026-11-18T19:00:00-08:00[America/Los_Angeles]::substation-substation.ics Social House Presents: Julian Fijma|2026-11-18T19:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same Eventbrite event, title variant (presenter prefix)"
+    },
+    "external-go-latin-dance-seattle.ics eSOeS - Salsa/Bachata at Aria Ballroom every Sunday|2026-08-23T19:00:00Z[UTC]::external-seattle-dance-info.ics Sunday Salsa/Bachata Party|2026-08-23T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same weekly event at Aria Ballroom, title variant"
+    },
+    "external-science-in-seattle.ics SIGNAL: Modular on the Spot: Seattle|2026-09-12T18:00:00Z[UTC]::external-seattle-gov-city-wide.ics SIGNAL: Modular on the Spot|2026-09-12T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same event at Pacific Science Center; 1h UTC offset likely source error"
+    },
+    "external-seattle-gov-arts.ics CANCELLED - Creative Placemaking Committee (CPC)|2026-08-18T16:00:00Z[UTC]::external-seattle-gov-city-wide.ics CANCELLED - Creative Placemaking Committee (CPC)|2026-08-18T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov feeds"
+    },
+    "external-seattle-gov-arts.ics Creative Placemaking Committee (CPC)|2026-09-15T16:00:00Z[UTC]::external-seattle-gov-city-wide.ics Creative Placemaking Committee (CPC)|2026-09-15T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov feeds"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-09-10T15:00:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-09-10T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov feeds"
+    },
+    "external-seattle-gov-arts.ics [Virtual] KSS Exhibitions Information Session|2026-09-15T12:00:00Z[UTC]::external-seattle-gov-city-wide.ics [Virtual] KSS Exhibitions Information Session|2026-09-15T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov feeds"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-11T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-11T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov Parks feeds"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-09-12T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-09-12T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov Parks feeds"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-09-10T19:00:00Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-09-10T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov feeds (city-wide and neighborhoods)"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-16T09:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-16T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov Parks feeds"
+    },
+    "external-seattle-gov-city-wide.ics Green Lake Work Party|2026-09-13T09:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Green Lake Work Party|2026-09-13T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov Parks feeds"
+    },
+    "external-seattle-gov-city-wide.ics Magnuson Park Advisory Committee|2026-09-09T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Magnuson Park Advisory Committee|2026-09-09T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov Parks feeds"
+    },
+    "external-seattle-gov-city-wide.ics Orchard Street Ravine Work Party|2026-09-12T14:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Orchard Street Ravine Work Party|2026-09-12T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov Parks feeds"
+    },
+    "external-seattle-gov-city-wide.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Identical event from two Seattle.gov Parks feeds"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Bicycle Advisory Board|2026-09-15T17:00:00Z[UTC]::external-seattle-streets-alliance.ics Seattle Bicycle Advisory Board Meeting|2026-09-15T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same advisory board meeting, title variant; Seattle.gov and Streets Alliance both list it"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-08-18T00:00:00-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-08-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-18",
+      "note": "Different events: Board Game Night (Queer Social Club) vs Trivia Night (Head in the Clouds)"
+    },
+    "recurring-bumbershoot.ics Bumbershoot|2026-09-05T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bumbershoot 2026|2026-09-05T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same Bumbershoot festival day 1, two different feeds"
+    },
+    "recurring-bumbershoot.ics Bumbershoot|2026-09-06T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Bumbershoot 2026|2026-09-06T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same Bumbershoot festival day 2, two different feeds"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-08-18T19:00:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-18T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same trivia night, title variant (with organizer name)"
+    },
+    "seatoday-seatoday-all.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event appearing in multiple seatoday category calendars"
+    },
+    "seatoday-seatoday-all.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event appearing in multiple seatoday category calendars"
+    },
+    "seatoday-seatoday-all.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event appearing in multiple seatoday category calendars"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-08-31T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-08-31T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same event at The Missing Piece; seatoday has wrong address but same event"
+    },
+    "seatoday-seatoday-all.ics Noah Kahan: The Great Divide Tour|2026-08-31T18:30:00-07:00[America/Los_Angeles]::t-mobile-park-t-mobile-park.ics Noah Kahan: The Great Divide Tour |2026-08-31T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same concert at T-Mobile Park, seatoday and venue feed"
+    },
+    "seatoday-seatoday-all.ics PNW Sampler Cruise  Labor Day Overnight Party Cruise on Holland|2026-08-31T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics PNW Sampler Cruise  Labor Day Overnight Party Cruise on Holland|2026-08-31T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event appearing in multiple seatoday category calendars"
+    },
+    "seatoday-seatoday-all.ics PNW Sampler Cruise  Labor Day Overnight Party Cruise on Holland|2026-08-31T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-nightlife.ics PNW Sampler Cruise  Labor Day Overnight Party Cruise on Holland|2026-08-31T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event appearing in multiple seatoday category calendars"
+    },
+    "seatoday-seatoday-arts.ics Crafting and Creativity Night|2026-08-31T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-08-31T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same event at The Missing Piece; seatoday arts feed vs venue feed"
+    },
+    "seatoday-seatoday-arts.ics Noah Kahan: The Great Divide Tour|2026-08-31T18:30:00-07:00[America/Los_Angeles]::t-mobile-park-t-mobile-park.ics Noah Kahan: The Great Divide Tour |2026-08-31T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same concert at T-Mobile Park, seatoday arts feed vs venue feed"
+    },
+    "seatoday-seatoday-community.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event in multiple seatoday category calendars"
+    },
+    "seatoday-seatoday-community.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event in multiple seatoday category calendars"
+    },
+    "seatoday-seatoday-community.ics Noah Kahan: The Great Divide Tour|2026-08-31T18:30:00-07:00[America/Los_Angeles]::t-mobile-park-t-mobile-park.ics Noah Kahan: The Great Divide Tour |2026-08-31T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same concert at T-Mobile Park, seatoday community feed vs venue feed"
+    },
+    "seatoday-seatoday-food.ics PNW Sampler Cruise  Labor Day Overnight Party Cruise on Holland|2026-08-31T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-nightlife.ics PNW Sampler Cruise  Labor Day Overnight Party Cruise on Holland|2026-08-31T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event in multiple seatoday category calendars"
+    },
+    "seatoday-seatoday-learning.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2026 Mill Creek Classic|2026-08-31T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same seatoday event in multiple seatoday category calendars"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-18",
+      "note": "Different locations: 1201 Eastlake Ave E vs 1551 Eastlake Ave E (321m apart)"
     }
   }
 }
