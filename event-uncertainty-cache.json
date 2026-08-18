@@ -58127,9 +58127,7 @@
       "reason": "Past event (Aug 1 2026); udistrictseattle.com events page did not include start time and event has already occurred"
     },
     "cobys_cafe:https://www.cobyscafe.com/product/x/CJS2YAZNFBNVI6GM2GIM67GU": {
-      "unresolvable": [
-        "cost"
-      ],
+      "unresolvable": true,
       "resolvedAt": "2026-08-18",
       "source": "agent",
       "evidence": "Square Online SPA — price not in page meta description and product page requires JS execution to render. Description says the price includes entry for one dog and one additional human but no dollar amount is published in static HTML."
