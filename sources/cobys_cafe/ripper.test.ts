@@ -107,6 +107,17 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
         expect(result!.endHour).toBe(15);
         expect(result!.endMinute).toBe(0);
     });
+
+    test('parses emoji-delimited "🗓️ Weekday, Mon Day🕒 StartTime - EndTime" format with abbreviated month', () => {
+        const result = ripper.parseDateTimeFromText('🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm (After Hours)📍 101 Nickerson St, Seattle, WA');
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(9);
+        expect(result!.day).toBe(6);
+        expect(result!.startHour).toBe(17);
+        expect(result!.startMinute).toBe(30);
+        expect(result!.endHour).toBe(19);
+        expect(result!.endMinute).toBe(0);
+    });
 });
 
 describe('CobysCafeRipper - parseProductHtml', () => {
@@ -165,6 +176,23 @@ describe('CobysCafeRipper - parseProductHtml', () => {
             expect(result.date.dayOfMonth()).toBe(1);
             expect(result.date.hour()).toBe(18);
             expect(result.duration.toHours()).toBe(2);
+        }
+    });
+
+    test('parses Custom Dog Art Workshop event (emoji-delimited date format)', () => {
+        const data = loadSampleData();
+        const product = data.products['CJS2YAZNFBNVI6GM2GIM67GU'];
+        const html = makeProductHtml(product.title, product.description);
+        const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/CJS2YAZNFBNVI6GM2GIM67GU');
+
+        expect('date' in result).toBe(true);
+        if ('date' in result) {
+            expect(result.summary).toBe('Custom Dog Art Workshop');
+            expect(result.date.monthValue()).toBe(9);
+            expect(result.date.dayOfMonth()).toBe(6);
+            expect(result.date.hour()).toBe(17);
+            expect(result.date.minute()).toBe(30);
+            expect(result.duration.toMinutes()).toBe(90);
         }
     });
 
