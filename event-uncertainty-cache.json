@@ -49488,7 +49488,8 @@
       },
       "resolvedAt": "2026-08-04",
       "source": "agent",
-      "evidence": "https://www.cobyscafe.com/product/x/W65UEM474AOF4MGMTNWLHFBI"
+      "evidence": "https://www.cobyscafe.com/product/x/W65UEM474AOF4MGMTNWLHFBI",
+      "lastSeen": "2026-08-18"
     },
     "chophouse-row:6a68e0383c3b0304f49c0cf8": {
       "fields": {
@@ -50799,7 +50800,7 @@
         "duration": 27000,
         "setting": "outdoor",
         "cost": {
-          "min": 17.0
+          "min": 17
         }
       },
       "resolvedAt": "2026-08-14",
@@ -50825,7 +50826,7 @@
         "duration": 27000,
         "setting": "outdoor",
         "cost": {
-          "min": 17.0
+          "min": 17
         }
       },
       "resolvedAt": "2026-08-17",
@@ -56200,7 +56201,7 @@
     "seattle_universal_math_museum:6a7654c19b7d87527a27e1c9": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-14",
@@ -56451,7 +56452,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/IG2.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56462,7 +56463,7 @@
       "fields": {
         "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Dont-tell-me-the-odds-banner-825x510.jpg",
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56539,7 +56540,7 @@
     "seattle-makers:seattle-makers-162882": {
       "fields": {
         "cost": {
-          "min": 75.0
+          "min": 75
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56549,7 +56550,7 @@
     "seattle-makers:seattle-makers-162932": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56559,7 +56560,7 @@
     "seattle-makers:seattle-makers-162951": {
       "fields": {
         "cost": {
-          "min": 175.0
+          "min": 175
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56569,7 +56570,7 @@
     "seattle-makers:seattle-makers-162954": {
       "fields": {
         "cost": {
-          "min": 175.0
+          "min": 175
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56579,7 +56580,7 @@
     "seattle-makers:seattle-makers-162959": {
       "fields": {
         "cost": {
-          "min": 125.0
+          "min": 125
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56589,7 +56590,7 @@
     "seattle-makers:seattle-makers-163086": {
       "fields": {
         "cost": {
-          "min": 110.0
+          "min": 110
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56599,7 +56600,7 @@
     "seattle-makers:seattle-makers-163089": {
       "fields": {
         "cost": {
-          "min": 110.0
+          "min": 110
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56609,7 +56610,7 @@
     "seattle-makers:seattle-makers-163092": {
       "fields": {
         "cost": {
-          "min": 110.0
+          "min": 110
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56897,7 +56898,7 @@
     "seatoday:cityspark-19489971": {
       "fields": {
         "cost": {
-          "min": 29.0
+          "min": 29
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56960,7 +56961,7 @@
     "queer-social-club:6a7d57f11451646451657a8c": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-08-16",
@@ -56970,7 +56971,7 @@
     "queer-social-club:6a7d58c087d4550be2095036": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57000,7 +57001,7 @@
     "queer-social-club:6a7d60344471ee234da9df0e": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57090,7 +57091,7 @@
     "rabbit_box:6a775e64bf01396d48eff6c6": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57110,7 +57111,7 @@
     "rabbit_box:6a7a714a6752ce2fd6c48356": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57120,7 +57121,7 @@
     "rabbit_box:6a7e027b3eba233e24b99e23": {
       "fields": {
         "cost": {
-          "min": 23.0
+          "min": 23
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57130,7 +57131,7 @@
     "rabbit_box:6a7e0690e6b10e2bac763d9c": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57140,7 +57141,7 @@
     "charlies-queer-books:charlies-queer-books-5713320260918": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57160,8 +57161,8 @@
     "rendezvous:6a7797f1469d6b5c61b3ebee": {
       "fields": {
         "cost": {
-          "min": 5.0,
-          "max": 15.0
+          "min": 5,
+          "max": 15
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57171,7 +57172,7 @@
     "rendezvous:6a7b63f2268b1a63eeff2f7d": {
       "fields": {
         "cost": {
-          "min": 30.0
+          "min": 30
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57181,7 +57182,7 @@
     "new-tech-seattle:new-tech-seattle-jptjztykclbnb": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57201,7 +57202,7 @@
     "sol-yoga-seattle:6a7b8ad246fff84108f439a1": {
       "fields": {
         "cost": {
-          "min": 60.0
+          "min": 60
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57221,7 +57222,7 @@
     "seattle-makers:seattle-makers-154850": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57231,7 +57232,7 @@
     "seattle-makers:seattle-makers-162873": {
       "fields": {
         "cost": {
-          "min": 175.0
+          "min": 175
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57322,7 +57323,7 @@
     "northwest-film-forum:the-incredibly-true-adventure-of-two-girls-in-love-2026-09-29": {
       "fields": {
         "cost": {
-          "min": 12.0
+          "min": 12
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57332,7 +57333,7 @@
     "northwest-film-forum:who-moves-america-2026-10-19": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-16",
@@ -57644,7 +57645,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/02/Elvira.jpg",
         "cost": {
-          "min": 16.0
+          "min": 16
         }
       },
       "resolvedAt": "2026-08-17",
@@ -57674,7 +57675,7 @@
     "savoy-swing:6a5409f6b344bf6935f833fa": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-17",
@@ -57774,7 +57775,7 @@
     "the-cuff-complex:6a7e28f95f3c7945643fa762": {
       "fields": {
         "cost": {
-          "min": 21.0
+          "min": 21
         }
       },
       "resolvedAt": "2026-08-17",
@@ -57784,7 +57785,7 @@
     "the-cuff-complex:6a7f18d47267342c56d1b24f": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-17",
@@ -57987,8 +57988,8 @@
     "seatoday:cityspark-19468420": {
       "fields": {
         "cost": {
-          "min": 6.0,
-          "max": 10.0
+          "min": 6,
+          "max": 10
         }
       },
       "resolvedAt": "2026-08-18",
@@ -57998,7 +57999,7 @@
     "seatoday:cityspark-19490002": {
       "fields": {
         "cost": {
-          "min": 12.0
+          "min": 12
         }
       },
       "resolvedAt": "2026-08-18",
@@ -58008,7 +58009,7 @@
     "seatoday:cityspark-19056699": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-08-18",
@@ -58018,7 +58019,7 @@
     "seatoday:cityspark-18836109": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-18",
@@ -58028,7 +58029,7 @@
     "burke-museum:burke-wellness-class-introduction-qi-gong": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-18",
@@ -58038,7 +58039,7 @@
     "stg:tm-vvG1HZ_G2lcfBz": {
       "fields": {
         "cost": {
-          "min": 53.0
+          "min": 53
         }
       },
       "resolvedAt": "2026-08-18",
@@ -58048,7 +58049,7 @@
     "stg:tm-vvG1HZ_G9P_dIQ": {
       "fields": {
         "cost": {
-          "min": 63.0
+          "min": 63
         }
       },
       "resolvedAt": "2026-08-18",
@@ -58058,7 +58059,7 @@
     "wamu-theater:tm-vvG1HZ_2qGZ489": {
       "fields": {
         "cost": {
-          "min": 84.0
+          "min": 84
         }
       },
       "resolvedAt": "2026-08-18",
@@ -58124,6 +58125,12 @@
       "resolvedAt": "2026-08-18",
       "source": "agent",
       "reason": "Past event (Aug 1 2026); udistrictseattle.com events page did not include start time and event has already occurred"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/CJS2YAZNFBNVI6GM2GIM67GU": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-18",
+      "source": "agent",
+      "evidence": "Square Online SPA — price not in page meta description and product page requires JS execution to render. Description says the price includes entry for one dog and one additional human but no dollar amount is published in static HTML."
     }
   }
 }
