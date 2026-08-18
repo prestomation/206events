@@ -58131,6 +58131,22 @@
       "resolvedAt": "2026-08-18",
       "source": "agent",
       "evidence": "Square Online SPA — price not in page meta description and product page requires JS execution to render. Description says the price includes entry for one dog and one additional human but no dollar amount is published in static HTML."
+    },
+    "seattle-center:freak-the-mighty-x47877": {
+      "fields": {
+        "duration": "PT3H"
+      },
+      "resolvedAt": "2026-08-18",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47877 — event runs 14:00-17:00",
+      "partialFingerprint": "92in0w"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46395": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-18",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46395 — page says All Day with no specific hours",
+      "partialFingerprint": "1km777b"
     }
   }
 }

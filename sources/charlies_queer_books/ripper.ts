@@ -1,4 +1,4 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, EventCost } from "../../lib/config/schema.js";
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime, DateTimeFormatter } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
@@ -41,6 +41,10 @@ interface BookManagerEventRow {
     // Most events are in-store ("Charlie's"); a few are hosted off-site
     // (e.g. "Town Hall Seattle") or "Virtual" — see OFFSITE_LOCATIONS.
     location_text?: string;
+    // Ticket SKUs; non-empty means the event has paid tickets.
+    tickets?: string[];
+    // "Buy Tickets" when paid, "" when free/RSVP.
+    ticket_label?: string;
 }
 
 // The normal case: `location_text` is "Charlie's" (in-store).
@@ -200,6 +204,10 @@ export default class CharliesQueerBooksRipper implements IRipper {
             event.lng = coords.lng;
             event.geocodeSource = 'ripper';
         }
+
+        // Bookmanager exposes ticket SKUs when an event is paid; absence means free.
+        const hasPaidTickets = Array.isArray(row.tickets) && row.tickets.length > 0;
+        event.cost = hasPaidTickets ? { paid: true } : { min: 0 };
 
         return event;
     }
