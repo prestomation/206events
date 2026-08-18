@@ -162,7 +162,7 @@ export default class CobysCafeRipper implements IRipper {
         // Primary pattern: "Month Day from StartTime–EndTimePM"
         const re = new RegExp(
             `(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})(?![a-zA-Z])\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
+            `(${monthPattern})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
             `\\s+from\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
             'i'
@@ -174,14 +174,16 @@ export default class CobysCafeRipper implements IRipper {
             `between\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s+on\\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})(?![a-zA-Z])\\s+(\\d{1,2})`,
+            `(${monthPattern})\\s+(\\d{1,2})`,
             'i'
         );
 
-        // Emoji-delimited pattern: "🗓️ [Weekday,] Month Day🕒 StartTime - EndTime" (no "from"/"between...on")
-        // Matches e.g. "🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm"
+        // Last-resort fallback: "Month Day <up to 15 non-digit chars> StartTime - EndTime",
+        // with no "from"/"between...on" keyword required. Matches the emoji-delimited style
+        // some sources use (e.g. "🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm") but doesn't actually
+        // require an emoji — only tried after the more specific patterns above fail.
         const reEmoji = new RegExp(
-            `(${monthPattern})(?![a-zA-Z])\\s+(\\d{1,2})` +
+            `(${monthPattern})\\s+(\\d{1,2})` +
             `[^\\d]{0,15}` +
             `(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
