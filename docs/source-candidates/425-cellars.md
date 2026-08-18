@@ -8,9 +8,9 @@ firstSeen: 2026-07-29
 lastChecked: 2026-08-18
 ---
 
-Winery and event venue at 14525 148th Ave NE Suite 211, **Woodinville, WA
-98072**. Regular programming — weekly happy hours with live musicians,
-weekend live music, stand-up comedy nights, wine releases.
+Winery and event venue at 14525 148th Ave NE Suite 211,
+**Woodinville, WA 98072**. Regular programming — weekly happy hours with
+live musicians, weekend live music, stand-up comedy nights, wine releases.
 
 **Rejected: outside Seattle city limits.** Woodinville is outside the
 206.events geographic scope, the same reason recorded for
