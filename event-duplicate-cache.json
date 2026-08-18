@@ -12744,6 +12744,41 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-18",
       "note": "Different locations: 1201 Eastlake Ave E vs 1551 Eastlake Ave E (321m apart)"
+    },
+    "external-seattle-gov-city-wide.ics Comedy Battle Royale - Ballard|2026-09-10T19:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Comedy Battle Royale - Ballard|2026-09-10T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same event in two Seattle.gov calendar feeds (city-wide and neighborhoods)"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-16T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-16T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same event in two Seattle.gov calendar feeds (city-wide and parks-recreation)"
+    },
+    "external-seattle-gov-city-wide.ics Magnuson Park Advisory Committee|2026-09-09T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Magnuson Park Advisory Committee|2026-09-09T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same committee meeting in two Seattle.gov calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Orchard Street Ravine Work Party|2026-09-12T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Orchard Street Ravine Work Party|2026-09-12T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same parks event in two Seattle.gov calendar feeds (city-wide and parks-recreation)"
+    },
+    "external-seattle-gov-city-wide.ics Seattle Bicycle Advisory Board|2026-09-15T17:45:00Z[UTC]::external-seattle-streets-alliance.ics Seattle Bicycle Advisory Board Meeting|2026-09-15T17:45:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same SBAB meeting — title variant (streets-alliance adds 'Meeting' suffix)"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-08-24T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-08-24T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-18",
+      "note": "Different events at same venue: Board Gayme Night (18:30) vs Trivia (19:30); different organizers, different start times"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-08-24T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-24T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-18",
+      "note": "Same trivia event — stoup source appends organizer 'with Head in the Clouds' to title"
     }
   }
 }

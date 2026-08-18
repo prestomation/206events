@@ -58112,6 +58112,12 @@
       "resolvedAt": "2026-08-18",
       "source": "agent",
       "reason": "WAMU Theater Amplified Access is an add-on (expedited entry + dedicated bar), not the show ticket; pricing not published"
+    },
+    "u-district-partnership:u-district-partnership-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-18",
+      "source": "agent",
+      "reason": "Past event (Aug 1 2026); udistrictseattle.com events page did not include start time and event has already occurred"
     }
   }
 }
