@@ -1,4 +1,4 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, EventCost } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime, DateTimeFormatter } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
