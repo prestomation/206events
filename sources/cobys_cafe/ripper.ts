@@ -155,12 +155,14 @@ export default class CobysCafeRipper implements IRipper {
         // so the regexes below can match regardless of styling.
         text = text.normalize('NFKC');
 
-        const monthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
+        const fullMonthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
+        const abbrevMonthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1, 3)).join('|');
+        const monthPattern = `${fullMonthPattern}|${abbrevMonthPattern}`;
 
         // Primary pattern: "Month Day from StartTime–EndTimePM"
         const re = new RegExp(
             `(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
+            `(${monthPattern})(?![a-zA-Z])\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
             `\\s+from\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
             'i'
@@ -172,7 +174,17 @@ export default class CobysCafeRipper implements IRipper {
             `between\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s+on\\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})\\s+(\\d{1,2})`,
+            `(${monthPattern})(?![a-zA-Z])\\s+(\\d{1,2})`,
+            'i'
+        );
+
+        // Emoji-delimited pattern: "🗓️ [Weekday,] Month Day🕒 StartTime - EndTime" (no "from"/"between...on")
+        // Matches e.g. "🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm"
+        const reEmoji = new RegExp(
+            `(${monthPattern})(?![a-zA-Z])\\s+(\\d{1,2})` +
+            `[^\\d]{0,15}` +
+            `(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
+            `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
             'i'
         );
 
@@ -181,18 +193,22 @@ export default class CobysCafeRipper implements IRipper {
             // Primary pattern matched — fall through to shared parsing below
         } else {
             const altMatch = text.match(reAlt);
-            if (!altMatch) return null;
-            // Rearrange altMatch captures to align with the primary pattern's named slots:
-            // primary: [, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]
-            // alt:     [, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm, monthName, dayStr]
-            const [full, sh, sm, sa, eh, em, ea, mon, day] = altMatch;
-            match = [full, mon, day, sh, sm, sa, eh, em, ea];
+            if (altMatch) {
+                // Rearrange altMatch captures to align with the primary pattern's named slots:
+                // primary: [, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]
+                // alt:     [, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm, monthName, dayStr]
+                const [full, sh, sm, sa, eh, em, ea, mon, day] = altMatch;
+                match = [full, mon, day, sh, sm, sa, eh, em, ea];
+            } else {
+                match = text.match(reEmoji);
+                if (!match) return null;
+            }
         }
 
         const [, monthName, dayStr, startHourStr, startMinStr, startAmPm,
             endHourStr, endMinStr, endAmPm] = match;
 
-        const monthIdx = MONTHS.findIndex(m => m === monthName.toLowerCase());
+        const monthIdx = MONTHS.findIndex(m => m.startsWith(monthName.toLowerCase()));
         if (monthIdx === -1) return null;
 
         const month = monthIdx + 1;
