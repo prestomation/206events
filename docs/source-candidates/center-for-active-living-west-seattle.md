@@ -1,11 +1,12 @@
 ---
 name: "The Center for Active Living (formerly Senior Center of West Seattle)"
-status: candidate
+status: added
 platform: "ICS feed (WordPress calendar plugin)"
 url: https://wscenter.org/calendar/
 tags: ["Community", "West Seattle"]
 firstSeen: 2026-08-17
-lastChecked: 2026-08-17
+lastChecked: 2026-08-18
+pr:
 ---
 
 **The Center for Active Living** — `https://wscenter.org/calendar/` — senior
@@ -34,3 +35,18 @@ Investigated 2026-08-17:
   custom ripper code needed.
 - Not yet implemented — leaving as a candidate for a future implementation
   cycle (this run's scope was discovery/candidate-list only).
+
+Implemented 2026-08-18 as `sources/external/center-for-active-living.yaml`:
+- `ONLY_SOURCE=center-for-active-living npm run generate-calendars` produced
+  **100 events**, 1 venue in `venues.json`, no parse or geocode errors.
+- `geo` resolved via Nominatim to the OSM way `450278367`
+  ("Senior Center of West Seattle", the venue's former name) at
+  47.5626534/-122.3862787.
+- Tagged `Community` + `West Seattle`; `sourceRole: venue` (fixed address on
+  every VEVENT).
+- One transient JS bot-challenge response was observed mid-session on the ICS
+  URL (a `window.location.reload()` interstitial instead of the feed). It did
+  not reproduce on any subsequent fetch, with or without a browser UA, so this
+  is not treated as a block. If it recurs in CI, the fetch cache's stale-serve
+  fallback covers it; a persistent recurrence would be the signal to stage the
+  source for proxy testing.

@@ -1,0 +1,15 @@
+geo:
+  lat: 47.5626534
+  lng: -122.3862787
+  label: "The Center for Active Living, 4217 SW Oregon St, Seattle, WA 98116"
+  osmType: way
+  osmId: 450278367
+name: center-for-active-living
+sourceRole: venue
+friendlyname: The Center for Active Living
+description: West Seattle senior center (formerly Senior Center of West Seattle) offering recurring fitness classes, community dining, tech help, support groups, and social programs for older adults.
+icsUrl: https://wscenter.org/calendar/?ical=1
+infoUrl: https://wscenter.org/calendar/
+tags:
+  - Community
+  - West Seattle
