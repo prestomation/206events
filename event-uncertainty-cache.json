@@ -57979,14 +57979,10 @@
       "evidence": "https://www.dogwoodplaypark.com/event-details/doodle-romp-58"
     },
     "seatoday:cityspark-18151115": {
-      "fields": {
-        "cost": {
-          "min": 220.0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-18",
       "source": "agent",
-      "evidence": "https://www.yahoo.com/entertainment/music/article/noah-kahan-great-divide-tour-2026-schedule-where-to-find-tickets-prices-and-more-185717478.html"
+      "reason": "Noah Kahan at T-Mobile Park: Ticketmaster blocked; resale floor ~47-190 but face value minimum is unverifiable from primary sources"
     },
     "seatoday:cityspark-19468420": {
       "fields": {
