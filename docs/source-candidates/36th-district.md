@@ -6,7 +6,7 @@ url: https://36th.org/attend-a-meeting
 tags: [Political]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-19
-pr: TBD
+pr: 1233
 ---
 
 36th Legislative District Democrats meetings and political events in Seattle.
