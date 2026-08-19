@@ -1139,6 +1139,12 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // (maps.app.goo.gl/gktGmXjHRDJdBveQ9), which redirects to "The Beach at
   // Expedia Group" in Interbay.
   'the beach @ expedia': { lat: 47.6270804, lng: -122.3779245 },
+  // Black & Tan Hall — 5608 Rainier Ave S, Seattle (Rainier Valley music venue);
+  // Nominatim returns no results for the bare venue name.
+  'black & tan hall': { lat: 47.5518, lng: -122.2776 },
+  // Four Points by Sheraton Bellingham at 714 Lakeway Drive — Nominatim can't
+  // resolve "Four Points Sheraton" as a venue name in that exact string format.
+  'four points sheraton, 714 lakeway drive, bellingham, 98229, united states': { lat: 48.7430, lng: -122.4661 },
 };
 
 /**
