@@ -68,6 +68,7 @@ export const TAG_CATEGORIES = {
         'Activism',
         'Community',
         'Parks',
+        'Political',
         'Volunteer',
     ],
     'Urbanism': [
