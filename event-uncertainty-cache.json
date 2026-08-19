@@ -45709,7 +45709,8 @@
         "cost": {
           "min": 35,
           "max": 74
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-07-30",
       "source": "agent",
@@ -50852,7 +50853,8 @@
         "duration": 27000,
         "cost": {
           "min": 17
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -50864,7 +50866,8 @@
         "duration": 27000,
         "cost": {
           "min": 17
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
@@ -55519,7 +55522,8 @@
     "events12:dance-in-the-park-2026-09-01": {
       "fields": {
         "startTime": "18:00",
-        "duration": 10800
+        "duration": 10800,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-13",
       "source": "agent",
