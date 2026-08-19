@@ -4,7 +4,7 @@ status: blocked
 platform: AXS (built-in `axs` type)
 url: https://www.axs.com/venues/125609/q-nightclub-seattle-tickets
 tags: [Nightlife, Capitol Hill]
-firstSeen: 2026-08-19
+firstSeen: 2026-07-21
 lastChecked: 2026-08-19
 pr:
 ---
