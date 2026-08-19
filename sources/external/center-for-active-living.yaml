@@ -4,6 +4,7 @@ geo:
   label: "The Center for Active Living, 4217 SW Oregon St, Seattle, WA 98116"
   osmType: way
   osmId: 450278367
+imageUrl: "https://graph.facebook.com/thecenterforactiveliving/picture?type=large"
 name: center-for-active-living
 sourceRole: venue
 friendlyname: The Center for Active Living

@@ -57332,11 +57332,12 @@
     },
     "northwest-film-forum:who-moves-america-2026-10-19": {
       "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/whomovesamericaposterLOWRES-1200x1773.jpg",
         "cost": {
-          "min": 15
+          "min": 15.0
         }
       },
-      "resolvedAt": "2026-08-16",
+      "resolvedAt": "2026-08-19",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/films/who-moves-america/"
     },
