@@ -1,0 +1,12 @@
+geo: null
+name: saving-great-animals
+sourceRole: venue
+friendlyname: Saving Great Animals
+description: Seattle-area animal rescue nonprofit hosting adoption events, trivia nights, and fundraisers at partner venues around the region
+icsUrl: https://savinggreatanimals.org/events/?ical=1
+infoUrl: https://savinggreatanimals.org/events/
+tags:
+  - Community
+  - Volunteer
+
+proxy: outofband
