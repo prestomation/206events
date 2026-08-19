@@ -63,9 +63,14 @@ python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py resolve \
 ```
 
 The script edits the committed `event-uncertainty-cache.json` in place.
-Refuses to overwrite an existing entry without `--force`. **Commit the
-file and open a PR** — CI reads the committed cache directly (there is no
-S3). See `docs/github-native-caches.md`.
+Resolving a key that already has an entry **merges** the new fields into
+the existing ones (a key routinely accrues resolutions for different
+fields across separate runs — e.g. `startTime` resolved on one pass,
+`setting` on a later pass — so this never needs `--force`). `--force` is
+only required to overwrite a field that already has a *different* cached
+value, or to replace an `unresolvable` entry. **Commit the file and open
+a PR** — CI reads the committed cache directly (there is no S3). See
+`docs/github-native-caches.md`.
 
 Fingerprints carried by the `UncertaintyError` (the
 `partialFingerprint` field) are automatically copied into the new cache

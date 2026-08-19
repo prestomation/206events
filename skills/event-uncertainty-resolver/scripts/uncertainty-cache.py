@@ -16,9 +16,12 @@ Usage:
                                  [--unresolvable [--reason STR]]
                                  [--repo-root PATH] [--force]
         Resolve a single cache entry by editing the committed
-        event-uncertainty-cache.json in place. Refuses to overwrite an
-        existing entry unless --force. Commit the file and open a PR to
-        publish the resolution — CI reads the committed file directly.
+        event-uncertainty-cache.json in place. Resolving a key that
+        already has an entry merges the new fields into the existing
+        ones; --force is only required to overwrite a field that
+        already has a different cached value, or to replace an
+        unresolvable entry. Commit the file and open a PR to publish
+        the resolution — CI reads the committed file directly.
 
     uncertainty-cache.py prune [--lastseen-older-than DAYS]
                                [--date-in-key-older-than DAYS]
@@ -119,6 +122,17 @@ def cmd_outstanding(args):
         print(f"... and {len(queue) - limit} more (use --limit to show more)")
 
 
+def _carry_forward(entry, existing, key, new_value, allow):
+    """Set entry[key] to new_value if the caller passed one; otherwise copy
+    it from the existing cache entry, but only when `allow` says the old
+    value still describes what's being written (see call sites — carrying
+    stale evidence/fingerprint across a value change misattributes it)."""
+    if new_value:
+        entry[key] = new_value
+    elif allow and existing and existing.get(key):
+        entry[key] = existing[key]
+
+
 def cmd_resolve(args):
     if not args.key:
         print("--key is required", file=sys.stderr)
@@ -126,14 +140,14 @@ def cmd_resolve(args):
 
     cache = load_cache(args.repo_root)
     existing = cache["entries"].get(args.key)
-    if existing and not args.force:
-        print(f"Entry {args.key!r} already exists. Use --force to overwrite.", file=sys.stderr)
-        print(json.dumps(existing, indent=2), file=sys.stderr)
-        sys.exit(1)
 
     today = date.today().isoformat()
 
     if args.unresolvable:
+        if existing and not args.force:
+            print(f"Entry {args.key!r} already exists. Use --force to overwrite.", file=sys.stderr)
+            print(json.dumps(existing, indent=2), file=sys.stderr)
+            sys.exit(1)
         entry = {
             "unresolvable": True,
             "resolvedAt": today,
@@ -141,6 +155,13 @@ def cmd_resolve(args):
         }
         if args.reason:
             entry["reason"] = args.reason
+        # Only carry the prior partialFingerprint forward when the existing
+        # entry was itself unresolvable (re-affirming/updating that same
+        # determination). An existing *resolved* entry's fingerprint
+        # characterized different fields entirely, so it doesn't describe
+        # this "we investigated and couldn't determine it" decision.
+        _carry_forward(entry, existing, "partialFingerprint", args.fingerprint,
+                        allow=bool(existing and existing.get("unresolvable")))
     else:
         fields = {}
         if args.start_time:
@@ -179,16 +200,50 @@ def cmd_resolve(args):
         if not fields:
             print("Need at least one field (or --unresolvable).", file=sys.stderr)
             sys.exit(2)
+
+        # Merge into the existing entry's fields rather than replacing the
+        # whole entry outright: a key routinely accrues resolutions for
+        # different fields across separate runs (e.g. startTime resolved on
+        # one pass, setting resolved on a later pass), and clobbering the
+        # earlier fields would silently re-open those gaps in future builds.
+        # Only a genuine per-field conflict (this run's value differs from
+        # what's already cached) requires --force.
+        existing_fields = {}
+        if existing:
+            if existing.get("unresolvable"):
+                if not args.force:
+                    print(f"Entry {args.key!r} is marked unresolvable. Use --force to overwrite.", file=sys.stderr)
+                    print(json.dumps(existing, indent=2), file=sys.stderr)
+                    sys.exit(1)
+            else:
+                existing_fields = dict(existing.get("fields", {}))
+
+        conflicts = {
+            k: (existing_fields[k], v)
+            for k, v in fields.items()
+            if k in existing_fields and existing_fields[k] != v
+        }
+        if conflicts and not args.force:
+            print(f"Entry {args.key!r} already has different value(s) for: {', '.join(conflicts)}. Use --force to overwrite.", file=sys.stderr)
+            for k, (old, new) in conflicts.items():
+                print(f"  {k}: {old!r} -> {new!r}", file=sys.stderr)
+            sys.exit(1)
+
         entry = {
-            "fields": fields,
+            "fields": {**existing_fields, **fields},
             "resolvedAt": today,
             "source": "agent",
         }
-        if args.evidence:
-            entry["evidence"] = args.evidence
-
-    if args.fingerprint:
-        entry["partialFingerprint"] = args.fingerprint
+        # Only carry the prior evidence/fingerprint forward on a clean
+        # additive merge (no field's cached value was actually overwritten
+        # this run). A --force run that changed a field's value makes the
+        # old evidence/fingerprint stale — they verified the value that
+        # just got replaced, not the new one — so require them to be
+        # repassed explicitly in that case rather than silently persisting
+        # a mismatched provenance link.
+        clean_merge = not conflicts
+        _carry_forward(entry, existing, "evidence", args.evidence, allow=clean_merge)
+        _carry_forward(entry, existing, "partialFingerprint", args.fingerprint, allow=clean_merge)
 
     cache["entries"][args.key] = entry
     save_cache(cache, args.repo_root)
