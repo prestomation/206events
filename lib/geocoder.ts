@@ -53,6 +53,31 @@ export function isVagueLocation(location: string): boolean {
 }
 
 /**
+ * Many government/community calendars describe a hybrid event as
+ * "Online or in-person at <venue>" / "Virtual or In-Person at <venue>" /
+ * "Online or at <venue>". Read literally, these strings start with
+ * "online"/"virtual" and get caught by `isVagueLocation` — but they name a
+ * real physical venue worth geocoding. If the string names a physical part
+ * after an "at"/"@"/"in the" connector, return just that part so it can be
+ * resolved normally. Returns null when there is no physical part (e.g.
+ * "Online (Zoom)", "Virtual Meeting via Zoom", "Virtual/Online Event") —
+ * those remain correctly vague.
+ */
+export function extractHybridPhysicalLocation(location: string): string | null {
+  const match = location.match(
+    /^(?:online|virtual)(?:\/online)?(?:\s+event|\s+meeting)?\s*(?:or|and)?\s*(?:in[- ]?person)?\s*(?:via\s+\w+)?\s*(?:at|@|in the)\s+(.+)$/i,
+  );
+  if (!match) return null;
+  const rest = match[1].trim().replace(/\.+$/, '').trim();
+  if (rest.length === 0) return null;
+  // Guard against a connector immediately followed by another vague/virtual
+  // descriptor rather than an actual place (defensive — not hit by any known
+  // source string today, but cheap insurance against a future false match).
+  if (/^(zoom|webinar|registration|link)\b/i.test(rest)) return null;
+  return rest;
+}
+
+/**
  * Normalize a raw location string from an ICS feed or scraper:
  * 1. Unescape ICS-escaped commas (\\, → ,)
  * 2. Strip HTML tags
@@ -1171,6 +1196,18 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // 42nd Ave SW (4200 SW Juneau St resolves to -122.3858, 4159 42nd Ave SW to
   // -122.3856), taking SW Juneau St's latitude at that meridian.
   'maarten park @ 42nd sw & sw juneau, west seattle': { lat: 47.5504, lng: -122.3857 },
+
+  // --- 2026-08-19 geo-resolver batch: venues named by the new
+  // extractHybridPhysicalLocation() strategy (see above) after stripping an
+  // "Online or in-person at ..." prefix off government/community hybrid
+  // meeting descriptions. "Seattle City Hall" coords match the existing
+  // 'council chambers, 600 4th ave., floor, seattle, wa' entry (same
+  // building); the Fauntleroy/Hinds addresses were forward-geocoded via
+  // Nominatim from "<address>, Seattle, WA" (never reverse-geocoded).
+  'seattle city hall': { lat: 47.6038904, lng: -122.3300986 }, // prefix-matches every "Seattle City Hall, <room/floor>" variant
+  'boards and commissions room - city hall l280': { lat: 47.6038904, lng: -122.3300986 }, // "Online or In Person in the Boards and Commissions Room - City Hall L280" doesn't start with "Seattle City Hall", so needs its own key
+  'fauntleroy schoolhouse @ 9131 california sw, west seattle': { lat: 47.5217017, lng: -122.3878878 }, // Nominatim indexes this building as "Hall at Fauntleroy"
+  '6115 sw hinds, west seattle': { lat: 47.5737709, lng: -122.4116683 }, // same address as the existing "alki ucc @ 6115 sw hinds, west seattle" entry, without the venue-name prefix
 };
 
 /**
@@ -1420,6 +1457,8 @@ export interface ResolveEventCoordsResult {
  * the returned cache and persisting it to disk.
  *
  * Resolution order:
+ * 0a. Extract the physical venue from a hybrid "online or in-person at X"
+ *     description, if present, and recurse on just that part
  * 0. Check for vague locations (TBA, Offsite, etc.) - mark as unresolvable
  * 1. Google Maps URL extraction (before normalization)
  * 2. normalizeLocation()
@@ -1439,6 +1478,15 @@ export async function resolveEventCoords(
 ): Promise<ResolveEventCoordsResult> {
   if (!location || location.trim() === '') {
     return { coords: null, geocodeSource: 'none', cache };
+  }
+
+  // Step 0a: A "hybrid" online/in-person description (e.g. "Online or
+  // in-person at Seattle City Hall") names a real physical venue after the
+  // "at"/"@"/"in the" connector. Resolve using just that physical part
+  // instead of falling into the vague-location short-circuit below.
+  const hybridPhysical = extractHybridPhysicalLocation(location);
+  if (hybridPhysical !== null) {
+    return resolveEventCoords(cache, hybridPhysical, sourceName);
   }
 
   // Step 0: Check for vague/unresolvable locations (Offsite, TBA, etc.)
