@@ -12779,6 +12779,116 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-18",
       "note": "Same trivia event — stoup source appends organizer 'with Head in the Clouds' to title"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-11-11T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-11-11T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same weekly meetup group (verified via westseattleblog.com/event page + web search of meetup.com listings); west-seattle-blog carries a stale venue (Elliott Bay Brewing, the pre-2025 location) while the-urbanist has the current venue (Great American Diner & Bar) - same recurring Wed 6pm event, not two events."
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-11-18T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-11-18T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same as 2026-11-11 pair, one week later occurrence of the same recurring meetup; west-seattle-blog's venue field is stale (old Elliott Bay Brewing location)."
+    },
+    "seatoday-seatoday-all.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (17845563) cross-posted to the -all and -arts topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (17845563) cross-posted to the -all and -community topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (17845563) cross-posted to the -all and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics City Council Regular Hybrid Meeting|2026-09-01T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics City Council Regular Hybrid Meeting|2026-09-01T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (18066423) cross-posted to the -all and -community topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics City Council Regular Hybrid Meeting|2026-09-01T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics City Council Regular Hybrid Meeting|2026-09-01T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (18066423) cross-posted to the -all and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Finance & Audit Committee|2026-09-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Finance & Audit Committee|2026-09-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19523280) cross-posted to the -all and -community topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Finance & Audit Committee|2026-09-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Finance & Audit Committee|2026-09-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19523280) cross-posted to the -all and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Happy Hour at 20 Corners|2026-09-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Happy Hour at 20 Corners|2026-09-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19306135) cross-posted to the -all and -food topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Keep Bellevue Beautiful - Wilburton Cleanup|2026-08-22T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Keep Bellevue Beautiful - Wilburton Cleanup|2026-08-22T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19666576) cross-posted to the -all and -community topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Keep Bellevue Beautiful - Wilburton Cleanup|2026-08-22T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Keep Bellevue Beautiful - Wilburton Cleanup|2026-08-22T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19666576) cross-posted to the -all and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Mindful Mornings at Kelsey Creek Farm|2026-08-22T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mindful Mornings at Kelsey Creek Farm|2026-08-22T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19666575) cross-posted to the -all and -community topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Mindful Mornings at Kelsey Creek Farm|2026-08-22T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mindful Mornings at Kelsey Creek Farm|2026-08-22T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19666575) cross-posted to the -all and -sports topic calendars from the same source."
+    },
+    "seatoday-seatoday-all.ics Scrabble Night|2026-09-01T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Scrabble Night|2026-09-01T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same business (The Missing Piece Games, themissingpiecegames.com, phone 206-420-8960). seatoday's location field carries the pre-relocation address (9456 35th Ave SW); the business moved to 4707 California Ave SW B in the West Seattle Junction per West Seattle Blog (Oct 2025 BIZNOTE) - our ripper's geo is the current address."
+    },
+    "seatoday-seatoday-arts.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (17845563) cross-posted to the -arts and -community topic calendars from the same source."
+    },
+    "seatoday-seatoday-arts.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (17845563) cross-posted to the -arts and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-community.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Circus Workshop Extravaganza|2026-09-01T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (17845563) cross-posted to the -community and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-community.ics City Council Regular Hybrid Meeting|2026-09-01T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics City Council Regular Hybrid Meeting|2026-09-01T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (18066423) cross-posted to the -community and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-community.ics Finance & Audit Committee|2026-09-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Finance & Audit Committee|2026-09-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19523280) cross-posted to the -community and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-community.ics Keep Bellevue Beautiful - Wilburton Cleanup|2026-08-22T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Keep Bellevue Beautiful - Wilburton Cleanup|2026-08-22T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19666576) cross-posted to the -community and -learning topic calendars from the same source."
+    },
+    "seatoday-seatoday-community.ics Mindful Mornings at Kelsey Creek Farm|2026-08-22T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mindful Mornings at Kelsey Creek Farm|2026-08-22T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-19",
+      "note": "Same seatoday/6amcity event id (19666575) cross-posted to the -community and -sports topic calendars from the same source."
     }
   }
 }
