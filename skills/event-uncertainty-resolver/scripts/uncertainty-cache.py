@@ -141,8 +141,6 @@ def cmd_resolve(args):
         }
         if args.reason:
             entry["reason"] = args.reason
-        if args.evidence:
-            entry["evidence"] = args.evidence
     else:
         fields = {}
         if args.start_time:
@@ -186,8 +184,9 @@ def cmd_resolve(args):
             "resolvedAt": today,
             "source": "agent",
         }
-        if args.evidence:
-            entry["evidence"] = args.evidence
+
+    if args.evidence:
+        entry["evidence"] = args.evidence
 
     if args.fingerprint:
         entry["partialFingerprint"] = args.fingerprint
