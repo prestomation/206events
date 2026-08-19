@@ -141,6 +141,8 @@ def cmd_resolve(args):
         }
         if args.reason:
             entry["reason"] = args.reason
+        if args.evidence:
+            entry["evidence"] = args.evidence
     else:
         fields = {}
         if args.start_time:
