@@ -126,14 +126,14 @@ def cmd_resolve(args):
 
     cache = load_cache(args.repo_root)
     existing = cache["entries"].get(args.key)
-    if existing and not args.force:
-        print(f"Entry {args.key!r} already exists. Use --force to overwrite.", file=sys.stderr)
-        print(json.dumps(existing, indent=2), file=sys.stderr)
-        sys.exit(1)
 
     today = date.today().isoformat()
 
     if args.unresolvable:
+        if existing and not args.force:
+            print(f"Entry {args.key!r} already exists. Use --force to overwrite.", file=sys.stderr)
+            print(json.dumps(existing, indent=2), file=sys.stderr)
+            sys.exit(1)
         entry = {
             "unresolvable": True,
             "resolvedAt": today,
@@ -179,16 +179,49 @@ def cmd_resolve(args):
         if not fields:
             print("Need at least one field (or --unresolvable).", file=sys.stderr)
             sys.exit(2)
+
+        # Merge into the existing entry's fields rather than replacing the
+        # whole entry outright: a key routinely accrues resolutions for
+        # different fields across separate runs (e.g. startTime resolved on
+        # one pass, setting resolved on a later pass), and clobbering the
+        # earlier fields would silently re-open those gaps in future builds.
+        # Only a genuine per-field conflict (this run's value differs from
+        # what's already cached) requires --force.
+        existing_fields = {}
+        if existing:
+            if existing.get("unresolvable"):
+                if not args.force:
+                    print(f"Entry {args.key!r} is marked unresolvable. Use --force to overwrite.", file=sys.stderr)
+                    print(json.dumps(existing, indent=2), file=sys.stderr)
+                    sys.exit(1)
+            else:
+                existing_fields = dict(existing.get("fields", {}))
+
+        conflicts = {
+            k: (existing_fields[k], v)
+            for k, v in fields.items()
+            if k in existing_fields and existing_fields[k] != v
+        }
+        if conflicts and not args.force:
+            print(f"Entry {args.key!r} already has different value(s) for: {', '.join(conflicts)}. Use --force to overwrite.", file=sys.stderr)
+            for k, (old, new) in conflicts.items():
+                print(f"  {k}: {old!r} -> {new!r}", file=sys.stderr)
+            sys.exit(1)
+
         entry = {
-            "fields": fields,
+            "fields": {**existing_fields, **fields},
             "resolvedAt": today,
             "source": "agent",
         }
         if args.evidence:
             entry["evidence"] = args.evidence
+        elif existing and existing.get("evidence"):
+            entry["evidence"] = existing["evidence"]
 
     if args.fingerprint:
         entry["partialFingerprint"] = args.fingerprint
+    elif existing and existing.get("partialFingerprint"):
+        entry["partialFingerprint"] = existing["partialFingerprint"]
 
     cache["entries"][args.key] = entry
     save_cache(cache, args.repo_root)
