@@ -5,7 +5,7 @@ platform: ICS (Tribe Events)
 url: https://savinggreatanimals.org/events/
 tags: [Community, Volunteer]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-17
+lastChecked: 2026-08-19
 pr: 1222
 ---
 
@@ -43,3 +43,7 @@ not a URL/parsing bug. Staged for proxy testing: PR #1222 left open at
 `skills/proxy-escalation/SKILL.md` (out-of-band job) to test the
 `outofband` → `browserbase` ladder and merge the working rung (or close
 the PR if neither works).
+
+**Verified 2026-08-19 (out-of-band job):** `outofband` rung confirmed
+working from the residential IP — fetched 3 events, `hasFutureEvents=true`,
+0 fetch errors. Lowest working rung; PR #1222 merged at `proxy: outofband`.
