@@ -58,22 +58,25 @@ export function isVagueLocation(location: string): boolean {
  * "Online or at <venue>". Read literally, these strings start with
  * "online"/"virtual" and get caught by `isVagueLocation` — but they name a
  * real physical venue worth geocoding. If the string names a physical part
- * after an "at"/"@"/"in the" connector, return just that part so it can be
- * resolved normally. Returns null when there is no physical part (e.g.
- * "Online (Zoom)", "Virtual Meeting via Zoom", "Virtual/Online Event") —
- * those remain correctly vague.
+ * after an "or"/"and" connector followed by an "at"/"@"/"in the" connector,
+ * return just that part so it can be resolved normally. Returns null when
+ * there is no physical part (e.g. "Online (Zoom)", "Virtual Meeting via
+ * Zoom", "Virtual/Online Event") — those remain correctly vague.
+ *
+ * The "or"/"and" connector is required, not optional: without it, a plain
+ * "Virtual at <phrase>" (e.g. external-discover-magnolia's "Virtual at home
+ * event") would be misread as naming a venue when "at home" is just as vague
+ * as "Virtual" alone. Every real hybrid-location string in the source data
+ * uses "or" ("Online or ...", "Virtual or ..."), so requiring it costs
+ * nothing on the strings this is meant to catch.
  */
 export function extractHybridPhysicalLocation(location: string): string | null {
   const match = location.match(
-    /^(?:online|virtual)(?:\/online)?(?:\s+event|\s+meeting)?\s*(?:or|and)?\s*(?:in[- ]?person)?\s*(?:via\s+\w+)?\s*(?:at|@|in the)\s+(.+)$/i,
+    /^(?:online|virtual)(?:\/online)?(?:\s+event|\s+meeting)?\s+(?:or|and)\s+(?:in[- ]?person\s+)?(?:via\s+\w+\s+)?(?:at|@|in the)\s+(.+)$/i,
   );
   if (!match) return null;
   const rest = match[1].trim().replace(/\.+$/, '').trim();
   if (rest.length === 0) return null;
-  // Guard against a connector immediately followed by another vague/virtual
-  // descriptor rather than an actual place (defensive — not hit by any known
-  // source string today, but cheap insurance against a future false match).
-  if (/^(zoom|webinar|registration|link)\b/i.test(rest)) return null;
   return rest;
 }
 

@@ -170,6 +170,14 @@ describe('extractHybridPhysicalLocation', () => {
     expect(extractHybridPhysicalLocation('Online & In-person')).toBeNull();
   });
 
+  it('returns null for "Virtual at <vague phrase>" (no "or"/"and" connector — not a real hybrid venue)', () => {
+    // Regression: external-discover-magnolia's "Virtual at home event" must NOT
+    // be misread as naming a venue called "home event". Every genuine hybrid
+    // string in the source data uses "or" ("Online or ...", "Virtual or
+    // ..."), so requiring that connector is what tells this apart.
+    expect(extractHybridPhysicalLocation('Virtual at home event')).toBeNull();
+  });
+
   it('returns null for strings that do not start with online/virtual', () => {
     expect(extractHybridPhysicalLocation('Zoom Webinar')).toBeNull();
     expect(extractHybridPhysicalLocation('The Crocodile')).toBeNull();
@@ -700,6 +708,14 @@ describe('resolveEventCoords - hybrid online/in-person locations', () => {
     const result = await resolveEventCoords(cache, 'Online (Zoom)', 'test-source');
     expect(result.coords).toBeNull();
     expect(result.error?.reason).toBe('Vague/unresolvable location');
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it('does not misread "Virtual at <vague phrase>" as naming a venue (no "or" connector)', async () => {
+    const result = await resolveEventCoords(cache, 'Virtual at home event', 'test-source');
+    expect(result.coords).toBeNull();
+    expect(result.error?.reason).toBe('Vague/unresolvable location');
+    expect(result.error?.location).toBe('Virtual at home event');
     expect(mockFetch).not.toHaveBeenCalled();
   });
 
