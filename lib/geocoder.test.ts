@@ -3,6 +3,7 @@ import {
   normalizeLocation,
   normalizeLocationKey,
   extractAddressFromVenuePrefix,
+  extractHybridPhysicalLocation,
   extractFromGoogleMapsUrl,
   stripSuiteFloorSuffixes,
   lookupNeighborhoodCentroid,
@@ -123,6 +124,63 @@ describe('extractAddressFromVenuePrefix', () => {
 
   it('returns null for empty string', () => {
     expect(extractAddressFromVenuePrefix('')).toBeNull();
+  });
+});
+
+describe('extractHybridPhysicalLocation', () => {
+  it('extracts the venue from "Online or in-person at X."', () => {
+    expect(extractHybridPhysicalLocation('Online or in-person at Seattle City Hall.')).toBe('Seattle City Hall');
+  });
+
+  it('extracts the venue from "Online or in person at X" (no hyphen)', () => {
+    expect(extractHybridPhysicalLocation('Online or in person at Seattle City Hall')).toBe('Seattle City Hall');
+  });
+
+  it('extracts the venue from "Virtual or In-Person at X"', () => {
+    expect(extractHybridPhysicalLocation('Virtual or In-Person at Seattle City Hall')).toBe('Seattle City Hall');
+  });
+
+  it('extracts the venue from "Online or In Person in the X"', () => {
+    expect(extractHybridPhysicalLocation('Online or In Person in the Boards and Commissions Room - City Hall L280')).toBe(
+      'Boards and Commissions Room - City Hall L280',
+    );
+  });
+
+  it('extracts a full address after "Online or in-person at X, room, address"', () => {
+    expect(
+      extractHybridPhysicalLocation('Online or in-person at Seattle City Hall, Room 370, 600 4th Ave, Seattle, WA 98104.'),
+    ).toBe('Seattle City Hall, Room 370, 600 4th Ave, Seattle, WA 98104');
+  });
+
+  it('extracts a venue-@-address after "Online or at X"', () => {
+    expect(extractHybridPhysicalLocation('Online or at Fauntleroy Schoolhouse @ 9131 California SW, West Seattle')).toBe(
+      'Fauntleroy Schoolhouse @ 9131 California SW, West Seattle',
+    );
+  });
+
+  it('extracts a bare address after "Online or in-person @ X"', () => {
+    expect(extractHybridPhysicalLocation('Online or in-person @ 6115 SW Hinds, West Seattle')).toBe('6115 SW Hinds, West Seattle');
+  });
+
+  it('returns null for a purely virtual description with no physical part', () => {
+    expect(extractHybridPhysicalLocation('Online (Zoom)')).toBeNull();
+    expect(extractHybridPhysicalLocation('Virtual Meeting via Zoom')).toBeNull();
+    expect(extractHybridPhysicalLocation('Virtual/Online Event')).toBeNull();
+    expect(extractHybridPhysicalLocation('Virtual, WA, United States')).toBeNull();
+    expect(extractHybridPhysicalLocation('Online & In-person')).toBeNull();
+  });
+
+  it('returns null for "Virtual at <vague phrase>" (no "or"/"and" connector — not a real hybrid venue)', () => {
+    // Regression: external-discover-magnolia's "Virtual at home event" must NOT
+    // be misread as naming a venue called "home event". Every genuine hybrid
+    // string in the source data uses "or" ("Online or ...", "Virtual or
+    // ..."), so requiring that connector is what tells this apart.
+    expect(extractHybridPhysicalLocation('Virtual at home event')).toBeNull();
+  });
+
+  it('returns null for strings that do not start with online/virtual', () => {
+    expect(extractHybridPhysicalLocation('Zoom Webinar')).toBeNull();
+    expect(extractHybridPhysicalLocation('The Crocodile')).toBeNull();
   });
 });
 
@@ -616,6 +674,61 @@ describe('resolveEventCoords - new strategies', () => {
     expect(result.coords).toEqual({ lat: 47.6050, lng: -122.3295 });
     expect(result.geocodeSource).toBe('cached');
     expect(mockFetch).not.toHaveBeenCalled();
+  });
+});
+
+describe('resolveEventCoords - hybrid online/in-person locations', () => {
+  let cache: GeoCache;
+
+  beforeEach(() => {
+    cache = { version: 1, entries: {} };
+    mockFetch.mockReset();
+  });
+
+  it.skipIf(!HAS_VENUE_DATA)('resolves the physical venue instead of marking hybrid strings vague', async () => {
+    const result = await resolveEventCoords(cache, 'Online or in-person at Seattle City Hall.', 'test-source');
+    expect(result.coords).toEqual({ lat: 47.6038904, lng: -122.3300986 });
+    expect(result.error).toBeUndefined();
+    expect(mockFetch).not.toHaveBeenCalled(); // known-venue lookup, no network needed
+    // Cached under the extracted physical location, not the raw hybrid string
+    expect(result.cache.entries['seattle city hall']).toBeDefined();
+  });
+
+  it.skipIf(!HAS_VENUE_DATA)('resolves a room-suffixed hybrid variant via prefix match', async () => {
+    const result = await resolveEventCoords(
+      cache,
+      'Virtual or In-Person at Seattle City Hall, Boards & Commissions Room L280',
+      'test-source',
+    );
+    expect(result.coords).toEqual({ lat: 47.6038904, lng: -122.3300986 });
+    expect(result.error).toBeUndefined();
+  });
+
+  it('still marks a purely virtual description as vague/unresolvable', async () => {
+    const result = await resolveEventCoords(cache, 'Online (Zoom)', 'test-source');
+    expect(result.coords).toBeNull();
+    expect(result.error?.reason).toBe('Vague/unresolvable location');
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it('does not misread "Virtual at <vague phrase>" as naming a venue (no "or" connector)', async () => {
+    const result = await resolveEventCoords(cache, 'Virtual at home event', 'test-source');
+    expect(result.coords).toBeNull();
+    expect(result.error?.reason).toBe('Vague/unresolvable location');
+    expect(result.error?.location).toBe('Virtual at home event');
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it('geocodes the extracted address on a Nominatim cache miss', async () => {
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => [{ lat: '47.6100', lon: '-122.3400' }],
+    });
+
+    const result = await resolveEventCoords(cache, 'Online or in-person at 1234 New Venue Way, Seattle, WA', 'test-source');
+    expect(result.coords).toEqual({ lat: 47.6100, lng: -122.3400 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.cache.entries['1234 new venue way, seattle, wa']).toBeDefined();
   });
 });
 
