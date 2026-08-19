@@ -1145,6 +1145,32 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Four Points by Sheraton Bellingham at 714 Lakeway Drive — Nominatim can't
   // resolve "Four Points Sheraton" as a venue name in that exact string format.
   'four points sheraton, 714 lakeway drive, bellingham, 98229, united states': { lat: 48.7430, lng: -122.4661 },
+
+  // --- 2026-08-19 geo-resolver batch: external-west-seattle-blog "Nominatim
+  // returned no results" geocodeErrors. Every string is the venue name
+  // followed by "@ <street address>, West Seattle" — the "@" and the
+  // non-place-name "West Seattle" suffix both defeat Nominatim's free-text
+  // parser even though the address is real. Addresses forward-geocoded via
+  // Nominatim from "<address>, Seattle, WA" (never reverse-geocoded); OSM's
+  // own indexed name is noted where it differs from the source's wording.
+  'times tba @ 2343 california sw, west seattle': { lat: 47.5819689, lng: -122.3869421 }, // 2343 California Ave SW, Admiral
+  'neighborhood house high point @ 6400 sylvan way sw, west seattle': { lat: 47.5449050, lng: -122.3722178 }, // OSM: "The High Point Center"
+  'south seattle college north lot @ 6000 16th sw, west seattle': { lat: 47.5515196, lng: -122.3517706 }, // 6000 16th Ave SW, Delridge
+  'this month, the missing piece @ 4707 california sw, west seattle': { lat: 47.5609189, lng: -122.3869873 }, // 4707 California Ave SW, Alaska Junction
+  '2 fingers social @ 9011 delridge way sw, west seattle': { lat: 47.5243186, lng: -122.3604725 }, // street-level (Nominatim has no house-specific node at this address)
+  'the hall at fauntleroy @ 9131 california sw, west seattle': { lat: 47.5217017, lng: -122.3878878 }, // same building OSM indexes as "Hall at Fauntleroy"
+  'gatewood elementary @ 4320 sw myrtle, west seattle': { lat: 47.5402245, lng: -122.3891028 }, // Gatewood Elementary School
+  'sacred growing space @ 7358 35th sw, west seattle': { lat: 47.5356852, lng: -122.3762630 }, // 7358 35th Ave SW, High Point
+  // Bare street intersections — Nominatim's free-text search can't parse
+  // "X & Y" without a house number.
+  '11th sw & sw cloverdale, west seattle': { lat: 47.5264714, lng: -122.3493270 }, // Overpass-confirmed intersection node (osm node 53139114)
+  '26th sw & sw barton, west seattle': { lat: 47.5209592, lng: -122.3673486 }, // Nominatim-indexed bus stop right at the intersection
+  '35th sw & sw barton, west seattle': { lat: 47.52130, lng: -122.37664 }, // same intersection as the existing "35th sw and sw barton, west seattle" entry above; this source spells it with "&"
+  // 42nd Ave SW & SW Juneau St — Overpass timed out repeatedly on this query;
+  // estimated from two on-block addresses that share the same longitude as
+  // 42nd Ave SW (4200 SW Juneau St resolves to -122.3858, 4159 42nd Ave SW to
+  // -122.3856), taking SW Juneau St's latitude at that meridian.
+  'maarten park @ 42nd sw & sw juneau, west seattle': { lat: 47.5504, lng: -122.3857 },
 };
 
 /**
