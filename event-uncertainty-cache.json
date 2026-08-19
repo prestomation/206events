@@ -58147,6 +58147,128 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46395 — page says All Day with no specific hours",
       "partialFingerprint": "1km777b"
+    },
+    "seattle-center:kexp-bbq-event": {
+      "fields": {
+        "duration": 25200
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.kexp.org/bbq",
+      "partialFingerprint": "1jf7ezc"
+    },
+    "discover-slu:discover-slu-national-banana-split-day-2": {
+      "fields": {
+        "startTime": "15:00"
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/calendar/national-banana-split-day/",
+      "partialFingerprint": "cit0im"
+    },
+    "seatoday:cityspark-19666576": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/events/keep-bellevue-beautiful-wilburton-cleanup",
+      "partialFingerprint": "18hpdp2"
+    },
+    "seatoday:cityspark-18066423": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.mercerisland.gov/calendar",
+      "partialFingerprint": "17wxho0"
+    },
+    "seatoday:cityspark-19344296": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://waterfrontparkseattle.org/blog/event/yoga-2026/?date=202607211800",
+      "partialFingerprint": "7qm1o8"
+    },
+    "seatoday:cityspark-19150767": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/health-and-wellness-meetup-09-01-2026-17112",
+      "partialFingerprint": "hdi8y0"
+    },
+    "seatoday:cityspark-19196235": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events",
+      "partialFingerprint": "1xug92m"
+    },
+    "seatoday:cityspark-17845563": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "reason": "Event cost not publicly listed; Facebook event page requires login",
+      "partialFingerprint": "14txdkt"
+    },
+    "seatoday:cityspark-19666575": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "reason": "Cost not listed on Bellevue city page; instructor (Prana Path) website under construction",
+      "partialFingerprint": "1gup987"
+    },
+    "seatoday:cityspark-18845332": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "reason": "No pricing information listed on the event page",
+      "partialFingerprint": "1jjvmf0"
+    },
+    "seatoday:cityspark-19646956": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "reason": "No pricing information listed on Tabletop Village events page",
+      "partialFingerprint": "1sv4nyq"
+    },
+    "seatoday:cityspark-19625025": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "reason": "No pricing information listed on Tabletop Village events page",
+      "partialFingerprint": "dzi9y2"
+    },
+    "seatoday:cityspark-19227468": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "reason": "No pricing information listed on Tabletop Village events page",
+      "partialFingerprint": "df8tv9"
+    },
+    "seatoday:cityspark-19306137": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "reason": "No pricing information found on visitwoodinville.org event page or Fireside Lounge website",
+      "partialFingerprint": "13zbgzc"
     }
   }
 }
