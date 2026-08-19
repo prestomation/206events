@@ -58269,6 +58269,107 @@
       "source": "agent",
       "reason": "No pricing information found on visitwoodinville.org event page or Fireside Lounge website",
       "partialFingerprint": "13zbgzc"
+    },
+    "kremwerk:6a84026d1ae8c92e0d8f8f80": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/29/kings-a-drag-king-show-y2k"
+    },
+    "kremwerk:6a73b372ab47ee4ead57ab3e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/05/modern-heart-daystar-xqzme"
+    },
+    "kremwerk:6a7bcb0be6c54879061df3db": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/12/in-heaven-x-judy-on-duty"
+    },
+    "kremwerk:6a80ebcdf8c8d23eb546c379": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/28/locked-groove"
+    },
+    "kremwerk:6a840670b5ef517cdb76874e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/22/impact-sunnydaze"
+    },
+    "kremwerk:6a8408cb304d30413c875d6a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/21/rhythm-riot"
+    },
+    "kremwerk:6a840a8c2c0fc531f0ca341f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/22/werk-it-out-featuring-manwell"
+    },
+    "stg:tm-vvG1HZ_8DSE3eC": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/brett-goldstein-sex-death-small-talk-seattle-washington-11-13-2026/event/0F00650EF39D208E"
+    },
+    "stg:tm-vvG1HZ_C5qmjnp": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/todd-rundgren-damned-if-i-do-seattle-washington-11-18-2026/event/0F0064E2DDB9CA96"
+    },
+    "stg:tm-vvG1HZ_o6A0Q_x": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-19",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/personalized-signed-tour-poster-seattle-washington-11-13-2026/event/0F006511C591A662"
     }
   }
 }
