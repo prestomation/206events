@@ -59129,6 +59129,12 @@
       "resolvedAt": "2026-08-20",
       "source": "agent",
       "reason": "Neither the Instagram announcement nor basecamp206.com publishes any admission info for this artist talk (no price, no ticket link, no RSVP)"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Source page udistrictseattle.com/bobafest does not publish event hours"
     }
   }
 }

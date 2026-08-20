@@ -103,6 +103,16 @@ stamps never accumulate across builds. Stick to `--orphan-prefixes` and
 `--date-in-key-older-than`, which read the committed cache and the source
 list directly.
 
+**`--date-in-key-older-than` is not safe for sources that keep emitting
+past-dated events.** It assumes a stale date in the key means the event is
+gone, but a source with a static page of annual events (e.g.
+`u-district-partnership`, whose page lists Boba Fest, Chow Down, and the
+Street Fair year-round) re-emits the same event — and its
+`UncertaintyError` — long after the date passes. Pruning its resolution
+puts the entry straight back on the outstanding queue on the next build.
+After any prune, re-check the outstanding queue and restore anything that
+reappears.
+
 See the [flag reference](#prune-flag-reference) below for details.
 
 ### 6. Re-trigger the build
