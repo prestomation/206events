@@ -1,14 +1,23 @@
 ---
 name: Sound Theatre Company
-status: candidate
-platform: WordPress + OvationTix/Stellar Tickets
+status: added
+platform: OvationTix (built-in ripper)
 url: https://soundtheatrecompany.org
-tags: [Theater]
+tags: [Theatre, Arts]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-08-20
+pr:
 ---
 
 Seattle theater company producing contemporary and experimental works.
+
+**Implemented 2026-08-20:** config-only `ovationtix` source (client `36643`,
+origin `https://soundtheatrecompany.org`). The OvationTix calendar API
+(`https://api.ovationtix.com/public/calendar/client(36643)`) returns real dated
+performances (14 events verified locally, currently "References to Salvador Dalí
+Make Me Hot" running Oct 2026). STC is an itinerant company, so modeled like
+`the_feast`: `geo: null`, no `venueAddress`, per-production ticket links. Tags
+`Theatre`/`Arts` to match existing OvationTix theatre sources.
 
 Confirmed live: WordPress site (`/wp-content/uploads/` paths) with productions organized
 by season (current: "Illuminate: Disability Performance In The Spotlight", "References to

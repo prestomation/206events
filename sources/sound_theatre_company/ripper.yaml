@@ -1,0 +1,15 @@
+name: sound-theatre-company
+sourceRole: venue
+type: ovationtix
+description: "Sound Theatre Company"
+url: "https://api.ovationtix.com/public/calendar/client(36643)"
+friendlyLink: "https://soundtheatrecompany.org"
+tags: ["Theatre", "Arts"]
+geo: null
+calendars:
+  - name: sound-theatre-company
+    friendlyname: "Sound Theatre Company"
+    timezone: America/Los_Angeles
+    config:
+      clientId: 36643
+      clientOrigin: "https://soundtheatrecompany.org"
