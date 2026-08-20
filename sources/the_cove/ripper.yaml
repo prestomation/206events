@@ -1,0 +1,14 @@
+name: the-cove
+sourceRole: venue
+description: "The Cove"
+url: "https://www.thecoveseattle.com/all-events"
+friendlyLink: https://www.thecoveseattle.com/all-events
+tags: ["Music", "South Lake Union"]
+geo:
+  lat: 47.6275761
+  lng: -122.3339647
+  label: "901 Fairview Ave N, Seattle, WA 98109"
+calendars:
+  - name: the-cove
+    friendlyname: "The Cove"
+    timezone: America/Los_Angeles
