@@ -4,6 +4,10 @@ type: eventbrite
 # Events (walking tours, meetings, community gatherings) happen at rotating
 # downtown locations, not one fixed venue — geo: null at the ripper level,
 # like freeze-tag-events/mixmix-socials.
+# 2026-08-20: build-health flagged this as "expectEmpty but has events" off a
+# single upcoming listing. Checked the Eventbrite organizer: a volunteer
+# coalition that posts a handful of events a year with long gaps between them,
+# so the flag stays — same situation as bandit-improv.
 expectEmpty: true
 sourceRole: venue
 geo: null

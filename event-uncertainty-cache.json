@@ -50252,9 +50252,10 @@
         "duration": 27000,
         "cost": {
           "min": 17
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-20",
       "source": "agent",
       "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
     },
@@ -56638,9 +56639,10 @@
       "fields": {
         "cost": {
           "min": 12
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/incrediblytrueadventure1600-2.png"
       },
-      "resolvedAt": "2026-08-16",
+      "resolvedAt": "2026-08-20",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/films/the-incredibly-true-adventure-of-two-girls-in-love/"
     },
@@ -56648,7 +56650,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/whomovesamericaposterLOWRES-1200x1773.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-19",
@@ -57576,8 +57578,8 @@
     "kremwerk:6a84026d1ae8c92e0d8f8f80": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 20.0
+          "min": 10,
+          "max": 20
         }
       },
       "resolvedAt": "2026-08-19",
@@ -57677,7 +57679,7 @@
     "seatoday:cityspark-19672244": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-08-20",
@@ -57836,8 +57838,9 @@
         "startTime": "11:00",
         "duration": 7200,
         "cost": {
-          "min": 105.0
-        }
+          "min": 105
+        },
+        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/5686Pozole_horizontal_1.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600"
       },
       "resolvedAt": "2026-08-20",
       "source": "agent",
@@ -57848,8 +57851,9 @@
         "startTime": "14:30",
         "duration": 7200,
         "cost": {
-          "min": 105.0
-        }
+          "min": 105
+        },
+        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/57915Gnocchi_horizontal_1_1.jpeg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600"
       },
       "resolvedAt": "2026-08-20",
       "source": "agent",
@@ -57859,7 +57863,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57871,7 +57875,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57883,7 +57887,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57895,7 +57899,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57907,7 +57911,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57919,7 +57923,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57931,7 +57935,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57943,7 +57947,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57955,7 +57959,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57967,7 +57971,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57979,7 +57983,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -57991,7 +57995,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -58003,7 +58007,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -58015,7 +58019,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -58027,7 +58031,7 @@
       "fields": {
         "startTime": "20:00",
         "cost": {
-          "min": 33.0
+          "min": 33
         },
         "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
       },
@@ -58962,8 +58966,9 @@
     "northwest-film-forum:local-sightings-2026-lenses-experimental-shorts-2026-09-24": {
       "fields": {
         "cost": {
-          "min": 15.0
-        }
+          "min": 15
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/Charlatans_1600x900.png"
       },
       "resolvedAt": "2026-08-20",
       "source": "agent",
@@ -58972,8 +58977,9 @@
     "northwest-film-forum:local-sightings-2026-life-in-the-sound-2026-09-24": {
       "fields": {
         "cost": {
-          "min": 15.0
-        }
+          "min": 15
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/lifeinthesound1600-5.png"
       },
       "resolvedAt": "2026-08-20",
       "source": "agent",
@@ -59027,11 +59033,116 @@
       "source": "agent",
       "evidence": "https://seattle.gov/human-services"
     },
+    "seattle-center:washington-home-show-x47102": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 36000
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/washington-home-show-x47102",
+      "partialFingerprint": "1orj8ep"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46397": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Listed as 'All Day' on the Seattle Center event page; the calendar-add link's 06:00-23:59 block is a generic campus-hours placeholder, not installation hours"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46398": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Listed as 'All Day' on the Seattle Center event page; the calendar-add link's 06:00-23:59 block is a generic campus-hours placeholder, not installation hours"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46399": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Listed as 'All Day' on the Seattle Center event page; the calendar-add link's 06:00-23:59 block is a generic campus-hours placeholder, not installation hours"
+    },
+    "seattle-center:andrea-bocelli": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Seattle Center lists only a start time (8:00 p.m.) for this Climate Pledge Arena date; no end time or run time is published by the venue or promoter",
+      "partialFingerprint": "1iekx3s"
+    },
+    "base-camp-studios:base.camp.studios-DcHSbjfgZYM": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Instagram announcement gives the Oct 23 - Dec 13 run only; per-performance times and pricing were not announced, and the event has no page on basecamp206.com",
+      "partialFingerprint": "0631035266ce"
+    },
+    "seatoday:cityspark-19676560": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "No Hololive TCG product or pricing exists on tabletopvillage.com — the store catalog (44 products) has Pokemon, Grand Archive, and Beyblade weeklies but nothing named Hololive",
+      "partialFingerprint": "1h8huii"
+    },
+    "events12:party-in-the-market-2026-08-28": {
+      "fields": {
+        "imageUrl": "https://images.pikeplacemarket.org/wp-content/uploads/2026/06/01112831/the_night_shift-800x800-1.jpg"
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/the-night-shift-after-hours-arts-music-series/"
+    },
+    "events12:party-in-the-park-2026-08-22": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/651d82fb57c3631e6174eae2/t/6632dd7cae655e1ad6767bff/1714609532674/53618269307_9b2637b7c7_k.jpg?format=1500w"
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.freewayparkassociation.org/50-years"
+    },
+    "base-camp-studios:base.camp.studios-DavU-w0lCmM-the-matrix": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DavU-w0lCmM/"
+    },
+    "base-camp-studios:base.camp.studios-DcPNUfoEqxv": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Neither the Instagram announcement nor basecamp206.com publishes any admission info for this artist talk (no price, no ticket link, no RSVP)"
+    },
     "u-district-partnership:seattle-boba-fest-2026-08-01": {
       "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
       "reason": "Source page udistrictseattle.com/bobafest does not publish event hours"
+    },
+    "the-cove:6a4423fefab4493916d0e1aa": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "No pricing signal published — thecoveseattle.com lists this as a walk-in patio DJ set with no price, cover, ticket link, or RSVP anywhere on the page"
+    },
+    "the-cove:6a4e89ae65bbeb6cf08a2aa8": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "No pricing signal published — thecoveseattle.com lists this as a walk-in patio jazz set with no price, cover, ticket link, or RSVP anywhere on the page"
+    },
+    "the-cove:6a4e8afb544c9f29d6d88f22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "No pricing signal published — thecoveseattle.com lists this as a walk-in patio jazz set with no price, cover, ticket link, or RSVP anywhere on the page"
+    },
+    "the-cove:6a4e8b1aa12da26763f97441": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "No pricing signal published — thecoveseattle.com lists this as a walk-in patio jazz set with no price, cover, ticket link, or RSVP anywhere on the page"
     }
   }
 }
