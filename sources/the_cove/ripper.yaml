@@ -4,10 +4,16 @@ description: "The Cove"
 url: "https://www.thecoveseattle.com/all-events"
 friendlyLink: https://www.thecoveseattle.com/all-events
 tags: ["Music", "South Lake Union"]
+# Waterfront bar/restaurant: every listing is walk-in live music on the patio,
+# with no cover, ticket link, or RSVP anywhere on thecoveseattle.com.
+cost: free
+imageUrl: "https://images.squarespace-cdn.com/content/v1/64dd25580267041cabfcd5b1/1781132058804-SRGB9WC12M5AEUXJ3F8D/image-asset.jpeg"
 geo:
   lat: 47.6275761
   lng: -122.3339647
   label: "901 Fairview Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 4830109018
 calendars:
   - name: the-cove
     friendlyname: "The Cove"

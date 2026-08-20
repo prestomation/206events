@@ -13064,6 +13064,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-20",
       "note": "Same event: Design Commission Annual Retreat, seatoday arts vs community internal duplicate"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-18T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-20",
+      "note": "Two distinct seattlefoodtruck.com pods on Eastlake Ave E, 321m apart (1201 vs 1551) with separate schedules — same-titled sibling locations, not one event."
     }
   }
 }

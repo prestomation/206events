@@ -1,5 +1,11 @@
 name: lid-i5
 sourceRole: venue
+# 2026-08-20: flagged as a zero-event calendar. The tours page parses fine —
+# it just lists a few dates at a time (Jun 23 / Jul 23 / Aug 19 2026), all now
+# past, with the next batch unannounced. A volunteer-led walking-tour series
+# that runs in bursts and goes quiet between them, so an empty window is
+# expected rather than broken.
+expectEmpty: true
 description: "Lid I-5"
 url: "https://lidi5.org/tours/"
 friendlyLink: https://lidi5.org/tours/
