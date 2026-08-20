@@ -6,7 +6,7 @@ url: https://soundtheatrecompany.org
 tags: [Theatre, Arts]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-20
-pr:
+pr: 1244
 ---
 
 Seattle theater company producing contemporary and experimental works.
