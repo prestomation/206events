@@ -319,6 +319,124 @@
       "source": "agent",
       "reason": "Okonomiyaki Week product promo carousel, not a dated event",
       "postFingerprint": "ebb2dca3ea59"
+    },
+    "base.camp.studios:DcPNUfoEqxv": {
+      "isEvent": true,
+      "title": "Dahyun Kim Artist Talk \u2014 Watda gatda",
+      "date": "2026-08-22",
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "startTime": "13:00",
+      "durationSeconds": 3600,
+      "location": "Base Camp Studios, 2407 1st Ave, Seattle, WA 98121",
+      "description": "Artist talk with Dahyun Kim, RAD Artist-in-Residence at Base Camp Studios, about the exhibition Watda gatda, in their studio.",
+      "permalink": "https://www.instagram.com/p/DcPNUfoEqxv/",
+      "postFingerprint": "71fe1bc2118f"
+    },
+    "base.camp.studios:DavU-w0lCmM-the-matrix": {
+      "isEvent": true,
+      "title": "Summer Outdoor Movie Series: The Matrix",
+      "date": "2026-08-26",
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "startTime": "17:00",
+      "durationSeconds": 18000,
+      "location": "Portal Park, 1st Ave & Battery St, Seattle, WA 98121",
+      "description": "Free outdoor screening of The Matrix in Portal Park, closing the 5th annual Summer Outdoor Movie Series. Art market, food trucks, and music 5-8pm; movie screening 8-10pm. Presented by Base Camp Studios with the Downtown Seattle Association, Belltown United, SIFF, and Seattle Neighborhoods.",
+      "imageUrl": "https://images.squarespace-cdn.com/content/v1/644aec6e0116a22a15133b26/bcf33dce-2000-4957-a6b8-5cc5b7b33eba/Summer+Movie+Series+%28Instagram+Post+%2845%29%29+-+5.PNG",
+      "permalink": "https://www.instagram.com/p/DavU-w0lCmM/",
+      "postFingerprint": "485d3999f12d"
+    },
+    "base.camp.studios:DcHSbjfgZYM": {
+      "isEvent": true,
+      "title": "SENSORIUM",
+      "date": "2026-10-23",
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "location": "Base Camp Studios 2, 1901 3rd Ave, Seattle, WA 98101",
+      "description": "Opening of SENSORIUM, an immersive installation and performance extravaganza running 8 weekends, Oct 23 - Dec 13 2026, with 30+ artists. Curated with Esther Loopstra and Gobbeldigook; programming from Alana O. Rogers Dance Company, Glory Hole, High F@ggotry, TUSH, and CO- dance. Per-performance times were not announced in the post.",
+      "permalink": "https://www.instagram.com/p/DcHSbjfgZYM/",
+      "postFingerprint": "0631035266ce"
+    },
+    "base.camp.studios:DavU-w0lCmM": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Roundup flyer for the 5th annual Summer Outdoor Movie Series (Aug 5 Terminator, Aug 12 Iron Giant, Aug 19 Blade Runner, Aug 26 The Matrix). Expanded into DavU-w0lCmM-the-matrix (2026-08-26); the Aug 5, 12, and 19 screenings had already passed when this post was read.",
+      "permalink": "https://www.instagram.com/p/DavU-w0lCmM/",
+      "postFingerprint": "485d3999f12d"
+    },
+    "base.camp.studios:Da5mCJlBlWf": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Recap of the completed \"Butterfly Blocks\" public art installation on 3rd Ave. Permanent artwork, no dated event.",
+      "permalink": "https://www.instagram.com/p/Da5mCJlBlWf/",
+      "postFingerprint": "73b0f9487da5"
+    },
+    "base.camp.studios:DW5RaMgkR9V": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Announcement that Base Camp bought 1518 3rd Ave for the PARNASSUS artist-housing project. Org news, no dated event.",
+      "permalink": "https://www.instagram.com/p/DW5RaMgkR9V/",
+      "postFingerprint": "9a4159ab4a16"
+    },
+    "base.camp.studios:DcKVi3jmv1m": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Photo carousel of a Monday evening in the Base Camp 2 studios. No event.",
+      "permalink": "https://www.instagram.com/p/DcKVi3jmv1m/",
+      "postFingerprint": "26c6664a5e81"
+    },
+    "base.camp.studios:DcKEgMREu6G": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Dahyun Kim promoting the Watda gatda residency exhibition (open by appointment Aug 14-30, no fixed times). The one dated event it mentions, the Aug 22 artist talk, has its own dedicated post and is recorded under DcPNUfoEqxv.",
+      "permalink": "https://www.instagram.com/p/DcKEgMREu6G/",
+      "postFingerprint": "34b2b47964e8"
+    },
+    "base.camp.studios:DcJSU6vNY7R": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Downtown Seattle arts promo naming several organizations. No dated event.",
+      "permalink": "https://www.instagram.com/p/DcJSU6vNY7R/",
+      "postFingerprint": "4527c07a00b0"
+    },
+    "base.camp.studios:DcBqM_xRZc5": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Ticket reminder for Curious Levity ALL IN at Base Camp Studios 2 on 8/21 and 8/22. The run is already published from the events12 source (Eventbrite listing, nightly 8pm), so recording it here would duplicate it.",
+      "permalink": "https://www.instagram.com/p/DcBqM_xRZc5/",
+      "postFingerprint": "0f82868a94df"
+    },
+    "base.camp.studios:DcAQBbXRipf": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Underground Market during the Belltown Art Walk on 2026-08-15; already past when this post was read.",
+      "permalink": "https://www.instagram.com/p/DcAQBbXRipf/",
+      "postFingerprint": "d720862a13c1"
+    },
+    "base.camp.studios:Db_IVGUxvD4": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Recap reel of the Aug 12 movie-night vendors; the Aug 19 Blade Runner screening it trails had also passed when read (covered by the series roundup DavU-w0lCmM).",
+      "permalink": "https://www.instagram.com/p/Db_IVGUxvD4/",
+      "postFingerprint": "0b0ad41a3f18"
+    },
+    "base.camp.studios:Db9a2G5AMjQ": {
+      "isEvent": false,
+      "readAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Day-of post for the Aug 12 Iron Giant screening; already past when read (covered by the series roundup DavU-w0lCmM).",
+      "permalink": "https://www.instagram.com/p/Db9a2G5AMjQ/",
+      "postFingerprint": "4168a8d3ec1e"
     }
   }
 }
