@@ -13034,6 +13034,36 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-20",
       "note": "Same event from seatoday in community and learning feeds, same URL"
+    },
+    "coo-partnerships-all-events.ics Day of Service 2026 (Solid Ground)|2026-08-21T09:00:00.198-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Solid Ground's Day of Service|2026-08-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-20",
+      "note": "Same event: Solid Ground Day of Service 2026-08-21, cross-source coo-partnerships vs seatoday"
+    },
+    "coo-partnerships-all-events.ics Day of Service 2026 (Solid Ground)|2026-08-21T09:00:00.198-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Solid Ground's Day of Service|2026-08-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-20",
+      "note": "Same event: Solid Ground Day of Service 2026-08-21, cross-source coo-partnerships vs seatoday-community"
+    },
+    "seatoday-seatoday-all.ics Design Commission - Annual Retreat|2026-08-20T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Design Commission - Annual Retreat|2026-08-20T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-20",
+      "note": "Same event: Design Commission Annual Retreat, seatoday internal cross-calendar duplicate"
+    },
+    "seatoday-seatoday-all.ics Design Commission - Annual Retreat|2026-08-20T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Design Commission - Annual Retreat|2026-08-20T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-20",
+      "note": "Same event: Design Commission Annual Retreat, seatoday internal cross-calendar duplicate"
+    },
+    "seatoday-seatoday-all.ics Solid Ground's Day of Service|2026-08-21T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Solid Ground's Day of Service|2026-08-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-20",
+      "note": "Same event: Solid Ground Day of Service, seatoday internal cross-calendar duplicate"
+    },
+    "seatoday-seatoday-arts.ics Design Commission - Annual Retreat|2026-08-20T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Design Commission - Annual Retreat|2026-08-20T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-20",
+      "note": "Same event: Design Commission Annual Retreat, seatoday arts vs community internal duplicate"
     }
   }
 }

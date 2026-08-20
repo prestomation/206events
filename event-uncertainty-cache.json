@@ -58986,6 +58986,52 @@
       "resolvedAt": "2026-08-20",
       "source": "agent",
       "evidence": "https://uaws.org/ukrainian-independence-2026/"
+    },
+    "seatoday:cityspark-19679860": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://seattle.gov/arts/programs/design-commission"
+    },
+    "seatoday:cityspark-19679861": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://seattle.gov/transportation"
+    },
+    "seatoday:cityspark-19679869": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.solid-ground.org/day-of-service/"
+    },
+    "seatoday:cityspark-19679870": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://seattle.gov/human-services"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "reason": "Source page udistrictseattle.com/bobafest does not publish event hours"
     }
   }
 }
