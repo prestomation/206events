@@ -1211,6 +1211,17 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'boards and commissions room - city hall l280': { lat: 47.6038904, lng: -122.3300986 }, // "Online or In Person in the Boards and Commissions Room - City Hall L280" doesn't start with "Seattle City Hall", so needs its own key
   'fauntleroy schoolhouse @ 9131 california sw, west seattle': { lat: 47.5217017, lng: -122.3878878 }, // Nominatim indexes this building as "Hall at Fauntleroy"
   '6115 sw hinds, west seattle': { lat: 47.5737709, lng: -122.4116683 }, // same address as the existing "alki ucc @ 6115 sw hinds, west seattle" entry, without the venue-name prefix
+
+  // Portal Park (a.k.a. the 1st & Battery "Portal Porch") — the Belltown
+  // greenspace on the former Battery Street Tunnel portal, where Base Camp
+  // Studios runs its Summer Outdoor Movie Series. Not indexed in OSM under
+  // that name, and Nominatim can't parse the bare "1st Ave & Battery St"
+  // intersection, so it returns no results. Coordinates taken from the
+  // adjacent Nominatim-indexed address 2321 1st Ave (47.6135024,
+  // -122.3469189), which fronts the site at the Battery St corner. The key is
+  // the bare park name so it prefix-matches the "Portal Park, <address>"
+  // spellings the source uses.
+  'portal park': { lat: 47.6135, lng: -122.3469 },
 };
 
 /**

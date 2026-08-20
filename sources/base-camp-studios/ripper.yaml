@@ -1,0 +1,28 @@
+name: base-camp-studios
+type: instagram
+# First-party host: Base Camp Studios is an artist studio, gallery, and
+# community space in Belltown. It programs its own shows, markets, artist
+# talks, and the annual Summer Outdoor Movie Series — it doesn't republish
+# other orgs' calendars, so `venue`, not `aggregator`.
+sourceRole: venue
+description: "Base Camp Studios"
+url: "https://www.instagram.com/base.camp.studios/"
+friendlyLink: https://www.basecamp206.com/
+# Two galleries (BCS at 2407 1st Ave, BCS2 at 1901 3rd Ave) plus off-site
+# programming in Portal Park, so there's no single fixed location — per-event
+# addresses come from the cache (flyer/caption), like the other instagram
+# sources.
+geo: null
+imageUrl: "https://images.squarespace-cdn.com/content/644aec6e0116a22a15133b26/4805f9a2-a349-4f13-8187-65da8e42f464/Basecamp-Logo-SprayPaintStencil-StardoFont.png?format=1500w&content-type=image%2Fpng"
+# Event "pages" are Instagram permalinks; the flyer images live on the
+# Instagram CDN behind short-lived `oe=` expiries, so they're not harvestable
+# as durable per-event photos.
+skipEventPhotos: true
+tags: ["Arts", "Belltown"]
+calendars:
+  - name: base-camp-studios
+    friendlyname: "Base Camp Studios"
+    timezone: America/Los_Angeles
+    config:
+      username: base.camp.studios
+      defaultDurationHours: 2
