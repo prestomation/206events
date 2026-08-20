@@ -57840,11 +57840,11 @@
         "cost": {
           "min": 105
         },
-        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/14207DSC00293.jpeg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600"
+        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/5686Pozole_horizontal_1.jpg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600"
       },
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.hotstovesociety.com/store/events/"
+      "evidence": "https://www.hotstovesociety.com/store/event/posole-with-chef-sean-mcfadyen-2/"
     },
     "events12:gourmet-cooking-class-vs-italian-gnocchi-2026-09-05-1430": {
       "fields": {
@@ -57853,11 +57853,11 @@
         "cost": {
           "min": 105
         },
-        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/14207DSC00293.jpeg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600"
+        "imageUrl": "https://images.getbento.com/accounts/63fc38c2dfeb8f583c6681d7e8acdafa/media/images/57915Gnocchi_horizontal_1_1.jpeg?w=1200&fit=crop&auto=compress,format&cs=origin&h=600"
       },
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.hotstovesociety.com/store/events/"
+      "evidence": "https://www.hotstovesociety.com/store/event/make-and-take-gnocchi-with-chef-bridget-charters-1/"
     },
     "events12:interactive-show-2026-08-22": {
       "fields": {
@@ -59044,34 +59044,22 @@
       "partialFingerprint": "1orj8ep"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46397": {
-      "fields": {
-        "startTime": "07:00",
-        "duration": 61200
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/visitor-info/campus-rules",
-      "partialFingerprint": "1vv37ll"
+      "reason": "Listed as 'All Day' on the Seattle Center event page; the calendar-add link's 06:00-23:59 block is a generic campus-hours placeholder, not installation hours"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46398": {
-      "fields": {
-        "startTime": "07:00",
-        "duration": 61200
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/visitor-info/campus-rules",
-      "partialFingerprint": "1din80f"
+      "reason": "Listed as 'All Day' on the Seattle Center event page; the calendar-add link's 06:00-23:59 block is a generic campus-hours placeholder, not installation hours"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46399": {
-      "fields": {
-        "startTime": "07:00",
-        "duration": 61200
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/visitor-info/campus-rules",
-      "partialFingerprint": "jmj780"
+      "reason": "Listed as 'All Day' on the Seattle Center event page; the calendar-add link's 06:00-23:59 block is a generic campus-hours placeholder, not installation hours"
     },
     "seattle-center:andrea-bocelli": {
       "unresolvable": true,
@@ -59095,7 +59083,7 @@
       },
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events",
+      "evidence": "https://tabletopvillage.com/products/standard-tournament",
       "partialFingerprint": "1h8huii"
     },
     "events12:party-in-the-market-2026-08-28": {
@@ -59135,6 +59123,50 @@
       "resolvedAt": "2026-08-20",
       "source": "agent",
       "reason": "Source page udistrictseattle.com/bobafest does not publish event hours"
+    },
+    "the-cove:6a4423fefab4493916d0e1aa": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/dj-cenzoe-f2k87-a83g6-7r96e-ytg93",
+      "lastSeen": "2026-08-20"
+    },
+    "the-cove:6a4e89ae65bbeb6cf08a2aa8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events",
+      "lastSeen": "2026-08-20"
+    },
+    "the-cove:6a4e8afb544c9f29d6d88f22": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events",
+      "lastSeen": "2026-08-20"
+    },
+    "the-cove:6a4e8b1aa12da26763f97441": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-20",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events",
+      "lastSeen": "2026-08-20"
     }
   }
 }
