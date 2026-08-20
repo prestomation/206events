@@ -95,23 +95,21 @@ python3 skills/event-uncertainty-resolver/scripts/uncertainty-cache.py prune \
   --date-in-key-older-than 7
 ```
 
-The two flags above are safe on every run. **Don't rely on
-`--lastseen-older-than`**: in the GitHub-native model the build's
-`lastSeen` stamps live only in the runner's working copy and are
+**Don't rely on `--lastseen-older-than`**: in the GitHub-native model the
+build's `lastSeen` stamps live only in the runner's working copy and are
 discarded when it's reclaimed (only PR-committed changes persist), so the
-stamps never accumulate across builds. Stick to `--orphan-prefixes` and
-`--date-in-key-older-than`, which read the committed cache and the source
-list directly.
-
-**`--date-in-key-older-than` is not safe for sources that keep emitting
-past-dated events.** It assumes a stale date in the key means the event is
-gone, but a source with a static page of annual events (e.g.
-`u-district-partnership`, whose page lists Boba Fest, Chow Down, and the
-Street Fair year-round) re-emits the same event — and its
+stamps never accumulate across builds. `--orphan-prefixes` (safe on every
+run — it only drops entries whose source no longer exists) and
+`--date-in-key-older-than` read the committed cache and the source list
+directly, but **`--date-in-key-older-than` is not safe for sources that
+keep emitting past-dated events.** It assumes a stale date in the key
+means the event is gone, but a source with a static page of annual events
+(e.g. `u-district-partnership`, whose page lists Boba Fest, Chow Down, and
+the Street Fair year-round) re-emits the same event — and its
 `UncertaintyError` — long after the date passes. Pruning its resolution
 puts the entry straight back on the outstanding queue on the next build.
-After any prune, re-check the outstanding queue and restore anything that
-reappears.
+Use it, but **after any prune, re-check the outstanding queue and restore
+anything that reappears** before committing.
 
 See the [flag reference](#prune-flag-reference) below for details.
 
@@ -173,7 +171,10 @@ combination; running with no flags prints help and exits.
 - `--date-in-key-older-than DAYS` — drops entries whose key embeds a
   parseable date (`YYYY-MM-DD`, `YYYY/MM/DD`, `YYYYMMDD`) older than
   today − DAYS. Cheap; covers the common `events12:slug-2026-05-19`
-  shape. Skips opaque-ID keys like `climate-pledge-arena:tm-…`.
+  shape. Skips opaque-ID keys like `climate-pledge-arena:tm-…`. **Not
+  safe for a source whose page re-lists past-dated events** (see the
+  `u-district-partnership` case above) — re-check the outstanding queue
+  after pruning and restore anything that reappears.
 - `--lastseen-older-than DAYS` — drops entries whose `lastSeen` (or
   `resolvedAt` fallback) is older than today − DAYS. **Effectively
   unusable in the GitHub-native model:** the build's `lastSeen` stamps

@@ -59076,14 +59076,10 @@
       "partialFingerprint": "0631035266ce"
     },
     "seatoday:cityspark-19676560": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://tabletopvillage.com/products/standard-tournament",
+      "reason": "No Hololive TCG product or pricing exists on tabletopvillage.com — the store catalog (44 products) has Pokemon, Grand Archive, and Beyblade weeklies but nothing named Hololive",
       "partialFingerprint": "1h8huii"
     },
     "events12:party-in-the-market-2026-08-28": {
@@ -59125,48 +59121,28 @@
       "reason": "Source page udistrictseattle.com/bobafest does not publish event hours"
     },
     "the-cove:6a4423fefab4493916d0e1aa": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.thecoveseattle.com/all-events/dj-cenzoe-f2k87-a83g6-7r96e-ytg93",
-      "lastSeen": "2026-08-20"
+      "reason": "No pricing signal published — thecoveseattle.com lists this as a walk-in patio DJ set with no price, cover, ticket link, or RSVP anywhere on the page"
     },
     "the-cove:6a4e89ae65bbeb6cf08a2aa8": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.thecoveseattle.com/all-events",
-      "lastSeen": "2026-08-20"
+      "reason": "No pricing signal published — thecoveseattle.com lists this as a walk-in patio jazz set with no price, cover, ticket link, or RSVP anywhere on the page"
     },
     "the-cove:6a4e8afb544c9f29d6d88f22": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.thecoveseattle.com/all-events",
-      "lastSeen": "2026-08-20"
+      "reason": "No pricing signal published — thecoveseattle.com lists this as a walk-in patio jazz set with no price, cover, ticket link, or RSVP anywhere on the page"
     },
     "the-cove:6a4e8b1aa12da26763f97441": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-20",
       "source": "agent",
-      "evidence": "https://www.thecoveseattle.com/all-events",
-      "lastSeen": "2026-08-20"
+      "reason": "No pricing signal published — thecoveseattle.com lists this as a walk-in patio jazz set with no price, cover, ticket link, or RSVP anywhere on the page"
     }
   }
 }
