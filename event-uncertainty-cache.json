@@ -58872,19 +58872,22 @@
       },
       "resolvedAt": "2026-08-21",
       "source": "agent",
-      "evidence": "https://udistrictpartnership.org/events/business-participation/ (\"August 1, 2026 | 12pm – 6pm\"); corroborated by https://slurpstation.com/blog/boba-fest-u-district-2026 and https://www.parentmap.com/calendar/seattle-boba-fest-0/ (both \"12pm-6pm\")"
+      "evidence": "https://udistrictpartnership.org/events/business-participation/ (\"August 1, 2026 | 12pm – 6pm\"); corroborated by https://slurpstation.com/blog/boba-fest-u-district-2026 and https://www.parentmap.com/calendar/seattle-boba-fest-0/ (both \"12pm-6pm\")",
+      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46400": {
       "unresolvable": true,
       "resolvedAt": "2026-08-21",
       "source": "agent",
-      "reason": "Source page literally lists \"Time: All Day\" with no start/end time — this is a self-guided outdoor sculpture/art installation across Seattle Center grounds with no fixed operating hours, not a missing-data gap."
+      "reason": "Source page literally lists \"Time: All Day\" with no start/end time — this is a self-guided outdoor sculpture/art installation across Seattle Center grounds with no fixed operating hours, not a missing-data gap.",
+      "partialFingerprint": "1orj8ep"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46401": {
       "unresolvable": true,
       "resolvedAt": "2026-08-21",
       "source": "agent",
-      "reason": "Source page literally lists \"Time: All Day\" with no start/end time — this is a self-guided outdoor sculpture/art installation across Seattle Center grounds with no fixed operating hours, not a missing-data gap."
+      "reason": "Source page literally lists \"Time: All Day\" with no start/end time — this is a self-guided outdoor sculpture/art installation across Seattle Center grounds with no fixed operating hours, not a missing-data gap.",
+      "partialFingerprint": "uvf7ma"
     }
   }
 }
