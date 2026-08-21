@@ -49927,9 +49927,10 @@
         "duration": 27000,
         "cost": {
           "min": 17
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-21",
       "source": "agent",
       "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
     },
@@ -58888,6 +58889,14 @@
       "source": "agent",
       "reason": "Source page literally lists \"Time: All Day\" with no start/end time — this is a self-guided outdoor sculpture/art installation across Seattle Center grounds with no fixed operating hours, not a missing-data gap.",
       "partialFingerprint": "uvf7ma"
+    },
+    "venue:osm:way:221295297": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-21",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/221295297"
     }
   }
 }
