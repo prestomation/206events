@@ -3,7 +3,7 @@ name: "Ozzie's"
 status: candidate
 platform: custom (no calendar page — individual static pages per program)
 url: https://ozziesinseattle.com/
-tags: [Nightlife, "Queen Anne"]
+tags: [Nightlife, QueenAnne]
 firstSeen: 2026-08-21
 lastChecked: 2026-08-21
 ---
@@ -12,6 +12,13 @@ Dive bar at 105 W Mercer St, Lower Queen Anne (next to Climate Pledge
 Arena) with a full weekly slate of recurring programming: nightly
 karaoke (9pm), Wednesday trivia, Thursday live music, Friday/Saturday DJ
 takeovers (10pm), and recurring pinball tournaments.
+
+Previously evaluated as part of a karaoke-bars batch on 2026-07-02,
+2026-07-28, and 2026-08-13 and marked not viable each time (nightly
+karaoke only, no structured calendar found) — but no candidate file was
+ever created, so it kept resurfacing. This cycle went past the karaoke
+angle and found two distinctly-scheduled programs (below) that justify
+reopening it as a real candidate.
 
 Investigated 2026-08-21:
 - Linked `/event-calendar` URL 404s — no working dedicated calendar page
