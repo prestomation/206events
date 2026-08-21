@@ -58850,6 +58850,12 @@
       "resolvedAt": "2026-08-21",
       "source": "agent",
       "evidence": "https://www.seattleparksfoundation.org/event/bellevue-green-clean-summer-of-jimothy-litter-cleanup/"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-21",
+      "source": "agent",
+      "reason": "Event page lists date only (August 1, 2026) with no start time or hours; event is now past"
     }
   }
 }
