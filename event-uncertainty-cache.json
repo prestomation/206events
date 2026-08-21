@@ -58850,6 +58850,41 @@
       "resolvedAt": "2026-08-21",
       "source": "agent",
       "evidence": "https://www.seattleparksfoundation.org/event/bellevue-green-clean-summer-of-jimothy-litter-cleanup/"
+    },
+    "seatoday:cityspark-19698716": {
+      "fields": {
+        "cost": {
+          "min": 6.0
+        }
+      },
+      "resolvedAt": "2026-08-21",
+      "source": "agent",
+      "evidence": "https://www.volunteerparkconservatory.org/visitus",
+      "partialFingerprint": "fd84rx"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "cost": {
+          "min": 0
+        },
+        "startTime": "12:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-08-21",
+      "source": "agent",
+      "evidence": "https://udistrictpartnership.org/events/business-participation/ (\"August 1, 2026 | 12pm – 6pm\"); corroborated by https://slurpstation.com/blog/boba-fest-u-district-2026 and https://www.parentmap.com/calendar/seattle-boba-fest-0/ (both \"12pm-6pm\")"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46400": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-21",
+      "source": "agent",
+      "reason": "Source page literally lists \"Time: All Day\" with no start/end time — this is a self-guided outdoor sculpture/art installation across Seattle Center grounds with no fixed operating hours, not a missing-data gap."
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46401": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-21",
+      "source": "agent",
+      "reason": "Source page literally lists \"Time: All Day\" with no start/end time — this is a self-guided outdoor sculpture/art installation across Seattle Center grounds with no fixed operating hours, not a missing-data gap."
     }
   }
 }
