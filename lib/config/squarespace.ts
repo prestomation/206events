@@ -2,6 +2,7 @@ import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import { parse } from "node-html-parser";
+import { decode } from "html-entities";
 import '@js-joda/timezone';
 
 // Deterministic hash for partialFingerprint — stability only, not security.
@@ -215,7 +216,7 @@ export class SquarespaceRipper implements IRipper {
                 sqEvent.location.addressTitle,
                 sqEvent.location.addressLine1,
                 sqEvent.location.addressLine2
-            ].filter(Boolean);
+            ].filter(Boolean).map(part => decode(part));
             location = parts.length > 0 ? parts.join(', ') : undefined;
         }
 
