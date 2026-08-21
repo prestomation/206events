@@ -139,7 +139,10 @@ calendars:
   # --- Eastlake ---
   - name: black-lodge
     friendlyname: "Black Lodge"
-    expectEmpty: true
+    # 2026-08-21: build-health flagged this as "expectEmpty but has events" —
+    # 14 upcoming shows, not a one-off blip. Unlike bandit-improv/seattle-
+    # downtown-community-council (intermittent programming with real gaps),
+    # Black Lodge has sustained regular programming, so the flag no longer fits.
     imageUrl: "https://images.squarespace-cdn.com/content/v1/631b91c4dca71e1c72c4ee2d/ab7f3ab9-a4e8-4f8c-af67-77be0c76e35a/blacklodgevera__1_.jpeg"
     geo:
       lat: 47.6231

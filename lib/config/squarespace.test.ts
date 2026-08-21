@@ -166,6 +166,21 @@ describe('SquarespaceRipper', () => {
             expect(event.location).toBe('The Venue');
         });
 
+        test('decodes HTML entities in location fields', () => {
+            const sqEvent: SquarespaceEvent = {
+                id: 'entityloc',
+                title: 'Intersection Rally',
+                startDate: 1771106400000,
+                location: {
+                    addressTitle: 'C&amp;P Coffee',
+                    addressLine1: '35th Ave SW &amp; SW Edmunds St.',
+                },
+            };
+
+            const event = ripper.testMapEvent(sqEvent, timezone, baseUrl) as RipperCalendarEvent;
+            expect(event.location).toBe('C&P Coffee, 35th Ave SW & SW Edmunds St.');
+        });
+
         test('handles empty location object', () => {
             const sqEvent: SquarespaceEvent = {
                 id: 'emptyloc',
