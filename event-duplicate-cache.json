@@ -13069,6 +13069,96 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-20",
       "note": "Two distinct seattlefoodtruck.com pods on Eastlake Ave E, 321m apart (1201 vs 1551) with separate schedules — same-titled sibling locations, not one event."
+    },
+    "external-seattle-gov-city-wide.ics EC Hughes Restoration Event|2026-09-01T10:00:00Z[UTC]::external-seattle-parks-foundation.ics EC Hughes Restoration Event|2026-09-01T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same volunteer restoration event, listed by both Seattle.gov and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-city-wide.ics Orchard Street Ravine Work Party|2026-09-12T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Orchard Street Ravine Work Party|2026-09-12T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same volunteer work party event, listed by both Seattle.gov and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics EC Hughes Restoration Event|2026-09-01T10:00:00Z[UTC]::external-seattle-parks-foundation.ics EC Hughes Restoration Event|2026-09-01T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same volunteer restoration event, listed by both Seattle.gov Parks & Recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Orchard Street Ravine Work Party|2026-09-12T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Orchard Street Ravine Work Party|2026-09-12T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same volunteer work party, listed by both Seattle.gov Parks & Recreation and Seattle Parks Foundation"
+    },
+    "external-teku-tavern.ics Seattle Seahawks vs 49ers|2026-10-11T20:25:00Z[UTC]::lumen-field-lumen-field.ics Seattle Seahawks vs. San Francisco 49ers|2026-10-11T13:25:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-21",
+      "note": "Different events: lumen-field is the actual NFL game; teku-tavern is a bar watch party at their venue"
+    },
+    "external-teku-tavern.ics Seattle Seahawks vs Cardinals|2026-11-08T21:25:00Z[UTC]::lumen-field-lumen-field.ics Seattle Seahawks vs. Arizona Cardinals|2026-11-08T13:25:00-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-21",
+      "note": "Different events: lumen-field is the actual NFL game; teku-tavern is a bar watch party at their venue"
+    },
+    "seatoday-seatoday-all.ics EDUCATION COMMITTEE MEETING|2026-09-03T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics EDUCATION COMMITTEE MEETING|2026-09-03T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-all.ics EDUCATION COMMITTEE MEETING|2026-09-03T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics EDUCATION COMMITTEE MEETING|2026-09-03T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-09-03T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-03T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-09-03T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-03T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-all.ics smART Ventures Information Session|2026-09-03T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics smART Ventures Information Session|2026-09-03T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-all.ics smART Ventures Information Session|2026-09-03T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics smART Ventures Information Session|2026-09-03T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-arts.ics Summer Art|2026-09-03T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-03T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-community.ics EDUCATION COMMITTEE MEETING|2026-09-03T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics EDUCATION COMMITTEE MEETING|2026-09-03T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
+    },
+    "seatoday-seatoday-community.ics smART Ventures Information Session|2026-09-03T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics smART Ventures Information Session|2026-09-03T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-21",
+      "note": "Same event in multiple seatoday category feeds"
     }
   }
 }
