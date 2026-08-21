@@ -1,0 +1,12 @@
+name: west-seattle-indivisible
+sourceRole: venue
+type: squarespace
+description: "West Seattle Indivisible"
+url: "https://www.westseattleindivisible.com/events-actions"
+friendlyLink: https://www.westseattleindivisible.com/events-actions
+tags: ["Political", "West Seattle"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "West Seattle Indivisible"
+    timezone: America/Los_Angeles
