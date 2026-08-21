@@ -58852,6 +58852,27 @@
       "source": "agent",
       "evidence": "https://www.seattleparksfoundation.org/event/bellevue-green-clean-summer-of-jimothy-litter-cleanup/"
     },
+    "seatoday:cityspark-19698716": {
+      "fields": {
+        "cost": {
+          "min": 6.0
+        }
+      },
+      "resolvedAt": "2026-08-21",
+      "source": "agent",
+      "evidence": "https://www.volunteerparkconservatory.org/visitus",
+      "partialFingerprint": "fd84rx"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-21",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/bobafest"
+    },
     "venue:osm:way:221295297": {
       "fields": {
         "setting": "indoor"
