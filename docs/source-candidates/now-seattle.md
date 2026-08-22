@@ -9,7 +9,7 @@ firstSeen: 2026-08-14
 lastChecked: 2026-08-22
 ---
 
-Now Seattle events calendar covering local happenings, food, arts, and culture.
+Seattle NOW (National Organization for Women) events calendar.
 
 **Findings (2026-08-14):** Note the description is off — this is the Seattle chapter of the
 National Organization for Women (NOW), not a "local happenings/food/arts/culture" media
