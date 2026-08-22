@@ -1,0 +1,14 @@
+# verified: 2026-08-22 ok
+name: now-seattle
+sourceRole: venue
+expectEmpty: true
+type: squarespace
+description: "Seattle NOW (National Organization for Women)"
+url: "https://www.nowseattle.org/events"
+friendlyLink: https://www.nowseattle.org/events
+tags: ["Political", "Community"]
+geo: null
+calendars:
+  - name: now-seattle
+    friendlyname: "Seattle NOW"
+    timezone: America/Los_Angeles
