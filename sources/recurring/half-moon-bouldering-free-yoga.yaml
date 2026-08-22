@@ -1,0 +1,25 @@
+# Site lists Sunday yoga as "9:30a-10:30p" on both the events and yoga pages,
+# which is an 13-hour class and clearly a copy/paste typo elsewhere on the
+# site for what every other listed session there is (45min-1hr). Treated as
+# 9:30-10:30am. Re-verify against halfmoonbouldering.com/yoga if this drifts.
+geo:
+  lat: 47.6912616
+  lng: -122.3569385
+  label: "Half Moon Bouldering, 124 N 85th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2420103499
+name: half-moon-bouldering-free-yoga
+sourceRole: venue
+friendlyname: Free Community Yoga at Half Moon Bouldering
+description: Free beginner-friendly vinyasa-inspired yoga class open to everyone, every Sunday morning at this Greenwood bouldering gym.
+timezone: America/Los_Angeles
+location: "124 N 85th St, Seattle, WA 98103"
+url: https://www.halfmoonbouldering.com/yoga
+tags:
+  - Sports
+  - Greenwood
+cost: free
+schedules:
+  - schedule: every Sunday
+    start_time: "09:30"
+    duration: PT1H
