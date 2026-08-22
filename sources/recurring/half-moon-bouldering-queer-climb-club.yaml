@@ -1,0 +1,20 @@
+geo:
+  lat: 47.6912616
+  lng: -122.3569385
+  label: "Half Moon Bouldering, 124 N 85th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2420103499
+name: half-moon-bouldering-queer-climb-club
+sourceRole: venue
+friendlyname: Queer Climb Club at Half Moon Bouldering
+description: A weekly safe space for the LGBTQIA+ community to climb and socialize at this Greenwood bouldering gym, hosted by a member of the queer community. On the 4th Tuesday of each month the session features Queer Mountaineers.
+timezone: America/Los_Angeles
+location: "124 N 85th St, Seattle, WA 98103"
+url: https://www.halfmoonbouldering.com/events
+tags:
+  - Sports
+  - Greenwood
+schedules:
+  - schedule: every Tuesday
+    start_time: "19:00"
+    duration: PT2H

@@ -1,11 +1,12 @@
 ---
 name: "Half Moon Bouldering"
-status: candidate
+status: added
 platform: Custom HTML (Webflow, static CMS content)
 url: https://www.halfmoonbouldering.com/events
 tags: [Sports, Greenwood]
 firstSeen: 2026-08-15
-lastChecked: 2026-08-15
+lastChecked: 2026-08-22
+pr: 1260
 ---
 
 Bouldering gym at 124 N 85th St, Seattle, WA 98103 (Greenwood), billed as
@@ -40,3 +41,33 @@ already in the repo (e.g. gyms/breweries with weekly theme nights). Needs an
 address geocode and confirmation of the Yoga start time before implementation.
 
 Not currently covered in `sources/` or `sources/external/`.
+
+Implemented 2026-08-22 (PR #1260). Re-fetched `/events` and `/yoga` and
+confirmed the schedule plus one addition not caught on the first pass —
+**Teen Climb**, Fridays 4:00-6:00 pm, ages 14-19. Address confirmed as
+124 N 85th St, Seattle, WA 98103 and geocoded via Nominatim (exact venue
+match, OSM node 2420103499).
+
+Because each night is a distinctly-named, differently-timed event (not the
+same event repeating on several days), this used the **Unicorn-style
+pattern** — one single-schedule recurring file per event
+(`half-moon-bouldering-<slug>.yaml`), not one multi-schedule file — matching
+`sources/recurring/unicorn-seattle-*.yaml`:
+
+- `half-moon-bouldering-bipoc-night.yaml` — Mondays 7:00 pm
+- `half-moon-bouldering-queer-climb-club.yaml` — Tuesdays 7:00 pm
+- `half-moon-bouldering-womens-wednesdays.yaml` — Wednesdays 7:00 pm
+- `half-moon-bouldering-teen-climb.yaml` — Fridays 4:00-6:00 pm
+- `half-moon-bouldering-free-yoga.yaml` — Sundays, `cost: free`
+
+The Yoga page (`/yoga`) lists the Sunday session as "9:30a-10:30p", which is
+an obvious copy/paste typo (every other session on that page is 45min-1hr) —
+implemented as 9:30-10:30am with a comment in the YAML flagging it for
+re-verification.
+
+Left out the **Annual Summer BBQ Night** (one-off dated event, not a fixed
+weekly recurrence) as originally scoped — not worth a recurring schedule
+entry for a single yearly date.
+
+Verified locally: 1 event per calendar (5 total) via
+`ONLY_SOURCE=half-moon-bouldering-bipoc-night,half-moon-bouldering-queer-climb-club,half-moon-bouldering-womens-wednesdays,half-moon-bouldering-teen-climb,half-moon-bouldering-free-yoga npm run generate-calendars`.

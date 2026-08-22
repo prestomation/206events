@@ -1,0 +1,20 @@
+geo:
+  lat: 47.6912616
+  lng: -122.3569385
+  label: "Half Moon Bouldering, 124 N 85th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2420103499
+name: half-moon-bouldering-teen-climb
+sourceRole: venue
+friendlyname: Teen Climb at Half Moon Bouldering
+description: Weekly climb and social session for climbers ages 14-19 at this Greenwood bouldering gym, with a floating instructor available to assist.
+timezone: America/Los_Angeles
+location: "124 N 85th St, Seattle, WA 98103"
+url: https://www.halfmoonbouldering.com/events
+tags:
+  - Sports
+  - Greenwood
+schedules:
+  - schedule: every Friday
+    start_time: "16:00"
+    duration: PT2H

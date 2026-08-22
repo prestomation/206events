@@ -1,0 +1,20 @@
+geo:
+  lat: 47.6912616
+  lng: -122.3569385
+  label: "Half Moon Bouldering, 124 N 85th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2420103499
+name: half-moon-bouldering-bipoc-night
+sourceRole: venue
+friendlyname: BIPOC Night at Half Moon Bouldering
+description: Weekly climb night for members of BIPOC communities to socialize and climb together at this Greenwood bouldering gym. Discounted day passes include rentals.
+timezone: America/Los_Angeles
+location: "124 N 85th St, Seattle, WA 98103"
+url: https://www.halfmoonbouldering.com/events
+tags:
+  - Sports
+  - Greenwood
+schedules:
+  - schedule: every Monday
+    start_time: "19:00"
+    duration: PT2H
