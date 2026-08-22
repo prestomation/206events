@@ -42,7 +42,7 @@ address geocode and confirmation of the Yoga start time before implementation.
 
 Not currently covered in `sources/` or `sources/external/`.
 
-Implemented 2026-08-22 (PR #TBD). Re-fetched `/events` and `/yoga` and
+Implemented 2026-08-22 (PR #1260). Re-fetched `/events` and `/yoga` and
 confirmed the schedule plus one addition not caught on the first pass —
 **Teen Climb**, Fridays 4:00-6:00 pm, ages 14-19. Address confirmed as
 124 N 85th St, Seattle, WA 98103 and geocoded via Nominatim (exact venue
