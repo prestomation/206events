@@ -1,8 +1,8 @@
 name: the-fishbowl
 sourceRole: venue
 type: squarespace
-expectEmpty: true
 description: "The Fishbowl"
+cost: free
 url: "https://www.thefishbowlseattle.com/events"
 friendlyLink: https://www.thefishbowlseattle.com
 tags: ["Arts", "Community", "QueenAnne"]
