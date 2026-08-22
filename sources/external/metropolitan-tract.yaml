@@ -1,0 +1,16 @@
+geo:
+  lat: 47.6084437
+  lng: -122.3330798
+  label: "Metropolitan Tract, 1200 5th Ave, Seattle, WA 98101"
+  osmType: way
+  osmId: 107124282
+name: metropolitan-tract
+sourceRole: venue
+friendlyname: Metropolitan Tract
+description: The downtown Seattle office/retail block bounded by 4th, 5th, University, and Union — hosts a monthly Sunset Market, seasonal outdoor concerts, art markets, and community programs on its public plaza.
+icsUrl: https://metropolitantract.com/?post_type=tribe_events&ical=1&eventDisplay=list
+infoUrl: https://metropolitantract.com/events/
+tags:
+  - MakersMarket
+  - Community
+  - Downtown
