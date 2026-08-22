@@ -1,7 +1,7 @@
 ---
 name: Now Seattle Events
 status: added
-pr: TBD
+pr: 1259
 platform: Squarespace
 url: https://www.nowseattle.org/events
 tags: [Political, Community]
