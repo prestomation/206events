@@ -6,7 +6,7 @@ url: https://www.halfmoonbouldering.com/events
 tags: [Sports, Greenwood]
 firstSeen: 2026-08-15
 lastChecked: 2026-08-22
-pr: TBD
+pr: 1260
 ---
 
 Bouldering gym at 124 N 85th St, Seattle, WA 98103 (Greenwood), billed as
