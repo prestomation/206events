@@ -6,7 +6,7 @@ url: https://metropolitantract.com/
 tags: [MakersMarket]
 firstSeen: 2026-08-22
 lastChecked: 2026-08-22
-pr:
+pr: 1257
 ---
 
 Requested via GitHub issue #1256 ("Add the Seattle sunset market on
