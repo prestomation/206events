@@ -1,9 +1,9 @@
 ---
 name: Metropolitan Tract
-status: candidate
+status: added
 platform: ICS (Tribe Events)
 url: https://metropolitantract.com/
-tags: [MakersMarket]
+tags: [MakersMarket, Community, Downtown]
 firstSeen: 2026-08-22
 lastChecked: 2026-08-22
 pr: 1257
