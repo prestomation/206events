@@ -2,12 +2,13 @@
 # 2026-08-14: direct fetch now returns an HTTP 202 SiteGround sgcaptcha JS
 # challenge page (meta-refresh to /.well-known/sgcaptcha/) — 0 events. Staged
 # for out-of-band proxy testing; the sgcaptcha signature means a plain
-# residential fetch will likely hit the same challenge, so Mode A should skip
-# straight to the browserbase rung.
+# residential fetch will likely hit the same challenge.
+# 2026-08-21: outofband rung failed 3x (HTTP 403). Escalating outofband →
+# browserbase (JS challenge requires JS execution; residential fetch can't).
 geo: null
 name: urban-league-seattle
 sourceRole: venue
-proxy: "outofband"
+proxy: browserbase
 friendlyname: Urban League of Metropolitan Seattle
 description: Community events from the Urban League of Metropolitan Seattle - housing workshops, education, and community programs
 icsUrl: https://urbanleague.org/events-calendar/?post_type=tribe_events&ical=1&eventDisplay=list
