@@ -12,6 +12,9 @@ timezone: America/Los_Angeles
 location: "105 W Mercer St, Seattle, WA 98119"
 url: https://ozziesinseattle.com/drag-brunch
 imageUrl: "https://ozziesinseattle.com/images/logo.png"
+# Page said online ticketing was "almost live" as of 2026-08-23 (phone
+# reservations only); cost is the cheapest posted tier ("Show Only", $25).
+# Re-verify pricing once online ticketing fully launches.
 tags:
   - Nightlife
   - QueenAnne
