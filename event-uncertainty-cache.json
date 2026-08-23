@@ -44729,7 +44729,7 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty"
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty — confirms setting only (Bagley Wright Theater, Seattle Rep's indoor mainstage). Note (2026-08-23): events12's generic 'live-theater-<date>' id is unstable (see the 2026-08-30 entry in this cache) — startTime/duration/imageUrl/cost above are carried over from an earlier Taproot Theatre resolution (evidence: https://www.taproottheatre.org/) and may be stale for whichever show currently occupies this id. Only 'setting: indoor' is verified against the URL above; it applies regardless of which show occupies the id, since every show in this digest is a conventional indoor stage production."
     },
     "events12:live-theater-2026-09-06": {
       "fields": {
@@ -49577,7 +49577,7 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/"
+      "evidence": "https://www.loraleesfamilyfarm.com/ — confirms setting only (sunflower maze / u-pick, outdoor farm attraction). Note (2026-08-23): events12's generic 'sunflower-farms-<date>' id is unstable (mirrors the 'live-theater-<date>' pattern noted in the 2026-08-30 live-theater entry in this cache) — startTime/duration/cost above are carried over from an earlier Mountain View Blueberry Farm resolution (evidence: https://www.mountainviewblueberryfarm.com/sunflower-festival) and may be stale for whichever farm currently occupies this id. Only 'setting: outdoor' is verified against the URL above; it applies regardless of which farm occupies the id, since every listing in this digest is an outdoor u-pick/sunflower-field attraction."
     },
     "events12:sunflower-farms-2026-09-06": {
       "fields": {
