@@ -1245,6 +1245,14 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'casey building, casey commons': { lat: 47.6106523, lng: -122.3171370 }, // Seattle University, 901 12th Ave (campus-address approximation, same node as Pigott below)
   'pigott building, pigott auditorium': { lat: 47.6106523, lng: -122.3171370 }, // Seattle University, 901 12th Ave (campus-address approximation, same node as Casey above)
   'advancement & alumni building, rolfe roome': { lat: 47.6100596, lng: -122.3163837 }, // Seattle University Advancement & Alumni Building (Stuart T. Rolfe Community Room), 824 12th Ave
+
+  // --- 2026-08-23 geo-resolver batch, continued: entries from the "has
+  // street address" bucket of geo-cache.py analyze whose source string
+  // includes literal "undefined" placeholders or other junk that defeats
+  // Nominatim even though a real address is embedded. Forward-geocoded from
+  // just the clean address portion.
+  'pier 66': { lat: 47.6117181, lng: -122.3503214 }, // Bell Street Cruise Terminal, 2225 Alaskan Way, Seattle — source string was "Pier 66, 2225 Alaskan Way, undefined, undefined undefined"
+  '8045 pacific avenue, tacoma, washington, 98408': { lat: 47.1841129, lng: -122.4339502 },
 };
 
 /**
