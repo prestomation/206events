@@ -13243,12 +13243,12 @@
     "black-tan-hall-all-events.ics The Griot Party Experience presents: The Sun Session Showcase|2026-09-26T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-black-and-tan-hall.ics The Sun Session Showcase|2026-09-26T20:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-08-23",
-      "note": "Same venue (Black & Tan Hall) and date; presenter-prefix title variant of the same show"
+      "note": "Same venue (Black & Tan Hall, ~85m apart in geocoding) and date; B's title 'The Sun Session Showcase' is an exact substring of A's 'The Griot Party Experience presents: The Sun Session Showcase' — a presenter-prefix variant, not a distinct show. The 7pm/8pm gap reads as doors-vs-start time (A is ticketed via Humanitix, B is the generic seattle.showlists.net aggregator listing, which commonly uses the venue's official start time over the ticketing site's door time)"
     },
     "events12-seattle-events.ics Electric aircraft|2026-08-29T10:00:00-07:00[America/Los_Angeles]::museum_of_flight-museum-of-flight.ics Pulitzer: Electric Aircraft Race|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-08-23",
-      "note": "Same venue/date/time; both URLs reference Museum of Flight calendar item id 8495, just different title/slug variants of the same page"
+      "note": "Same venue/date/time; both URLs share the identical calendar item id in the path (.../calendar-of-events/8495/electric-aircraft-expo vs .../calendar-of-events/8495/pulitzer-electric-aircraft-race) — id 8495 is the same museum.org calendar entry, events12 just scraped the generic page label instead of the full event name"
     },
     "external-Geekwire.ics PAX West 2026|2026-09-04T00:00:00Z[UTC]::where-ya-at-matt-where-ya-at-matt.ics PAX WEST|2026-09-04T10:00:00.191-07:00[America/Los_Angeles]": {
       "decision": "rejected",
