@@ -104,6 +104,27 @@ describe('BeguiledBooksRipper', () => {
             expect(event.description).toBe('An evening with the author & friends');
         });
 
+        it('parses JSON-LD whose description embeds numeric HTML entities as literal newlines', () => {
+            // Wix embeds multi-paragraph descriptions with `&#010;` (decimal
+            // entity for \n). node-html-parser's `textContent` HTML-decodes
+            // this into a raw control character, which breaks JSON.parse
+            // (control characters are illegal inside a JSON string). The
+            // parser must read the script tag's rawText instead, so the
+            // JSON itself parses; decode() still resolves the entity in the
+            // extracted description afterward.
+            const ripper = new BeguiledBooksRipper();
+            const html = `<html><head><script type="application/ld+json">
+                {"@context":"https://schema.org","@type":"Event","name":"Entity Newline Event","description":"First paragraph.&#010;&#010;Second paragraph.","startDate":"2026-08-13T18:00:00-07:00","endDate":"2026-08-13T20:00:00-07:00"}
+                </script></head></html>`;
+            const events = ripper.parseEventPage(html, 'https://www.beguiledbooks.com/event-details/entity-newline-event', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            expect('date' in events[0]).toBe(true);
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.summary).toBe('Entity Newline Event');
+            expect(event.description).toBe('First paragraph.\n\nSecond paragraph.');
+        });
+
         it('leaves cost unset (fed to the costGaps queue instead of guessed)', () => {
             const ripper = new BeguiledBooksRipper();
             const html = loadSample('sample-event.html');

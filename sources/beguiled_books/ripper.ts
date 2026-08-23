@@ -145,7 +145,14 @@ export default class BeguiledBooksRipper implements IRipper {
         let eventData: Record<string, any> | null = null;
         for (const script of ldScripts) {
             try {
-                const parsed = JSON.parse(script.textContent);
+                // Use rawText, not textContent: node-html-parser HTML-decodes
+                // textContent, which turns numeric entities like `&#010;`
+                // (embedded by Wix inside multi-paragraph descriptions) into
+                // literal control characters — invalid inside a JSON string
+                // and fatal to JSON.parse. rawText leaves entities untouched
+                // so the JSON itself parses; the `decode()` call below still
+                // resolves them in the extracted description text.
+                const parsed = JSON.parse(script.rawText);
                 if (parsed['@type'] === 'Event') {
                     eventData = parsed;
                     break;
