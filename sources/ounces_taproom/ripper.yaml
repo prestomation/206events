@@ -1,8 +1,12 @@
 # verified: 2026-07-27 ok
+# 2026-08-23: build-health flagged expectEmpty but 8 events (National Dog
+# Day, Fresh Hop Week, 3-day Oktoberfest, 3 live-music nights spanning
+# Aug-Oct 2026) — confirmed live via ?format=json. The 2026-08-15 zero-event
+# snapshot this flag was set from was a temporary posting gap, not the norm.
+# Removing expectEmpty.
 name: ounces_taproom
 sourceRole: venue
 type: squarespace
-expectEmpty: true
 description: "Ounces Taproom & Beer Garden"
 url: "https://www.ounceswestseattle.com/events"
 friendlyLink: https://www.ounceswestseattle.com/events

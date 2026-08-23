@@ -1,6 +1,10 @@
+# 2026-08-23: build-health flagged expectEmpty but 4 events (Tent Sale,
+# WS Art Walk feature, inventory closure, a tree-care class spanning
+# Aug-Oct 2026) — confirmed live via ?format=json. The 2026-08-15
+# zero-event snapshot this flag was set from was a temporary posting gap,
+# not the norm. Removing expectEmpty.
 name: west-seattle-nursery
 sourceRole: venue
-expectEmpty: true
 type: squarespace
 description: "West Seattle Nursery"
 url: "https://www.westseattlenursery.com/events-classes"
