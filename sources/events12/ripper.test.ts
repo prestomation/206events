@@ -45,6 +45,45 @@ describe('Events12Ripper', () => {
         expect(calEvents[0].imageUrl).toBe('https://www.events12.com/img/113825b.jpg');
     });
 
+    it('gives two unrelated real bookings that land on the same generic-digest date across different builds distinct ids', async () => {
+        // events12 buckets listings under generic category headers (e.g.
+        // "Live theater") rather than per-event titles, and each build only
+        // ever sees whichever real booking currently occupies that date —
+        // so this reproduces two separate builds/rips, not two articles on
+        // one page. Without folding in the article's own id, both builds
+        // would produce the identical id "live-theater-2026-02-22", so the
+        // second booking would silently inherit the first's cached
+        // event-uncertainty-cache fields (stale time/cost/image) under a
+        // title+date collision.
+        const ripper1 = new Events12Ripper();
+        const build1Html = parse(`
+            <article id="300001" class="qc q12">
+                <h3>Live theater</h3>
+                <p class="date">February 22, 2026 <span class="nobreak">(7:30 p.m.)</span>
+                <p class="miles">Downtown (0.4 miles S)
+                <p class="event">A play at one theater.
+            </article>
+        `);
+        const build1Events = await ripper1.parseEvents(build1Html, testDate, {});
+        const build1Event = build1Events.find(e => 'date' in e) as any;
+
+        const ripper2 = new Events12Ripper();
+        const build2Html = parse(`
+            <article id="300002" class="qc q12">
+                <h3>Live theater</h3>
+                <p class="date">February 22, 2026 <span class="nobreak">(7:30 p.m.)</span>
+                <p class="miles">Capitol Hill (1.1 miles NE)
+                <p class="event">A different play at another theater, weeks later.
+            </article>
+        `);
+        const build2Events = await ripper2.parseEvents(build2Html, testDate, {});
+        const build2Event = build2Events.find(e => 'date' in e) as any;
+
+        expect(build1Event.id).toBe('live-theater-300001-2026-02-22');
+        expect(build2Event.id).toBe('live-theater-300002-2026-02-22');
+        expect(build1Event.id).not.toBe(build2Event.id);
+    });
+
     it('leaves imageUrl undefined when the article has no per-event image', async () => {
         const ripper = new Events12Ripper();
         const sampleHtml = `
@@ -498,7 +537,7 @@ describe('Events12Ripper', () => {
             expect(tigers.date.toLocalDate().toString()).toBe('2026-08-06');
             expect(tigers.date.hour()).toBe(13);
             expect(tigers.date.minute()).toBe(10);
-            expect(tigers.id).toBe('baseball-vs-detroit-tigers-2026-08-06');
+            expect(tigers.id).toBe('baseball-vs-detroit-tigers-118511-2026-08-06');
 
             const cubs = calEvents.find(e => e.summary === 'Baseball vs. Chicago Cubs')!;
             expect(cubs.date.toLocalDate().toString()).toBe('2026-08-21');
@@ -628,8 +667,8 @@ describe('Events12Ripper', () => {
             expect(calEvents.length).toBe(2);
             const ids = calEvents.map(e => e.id).sort();
             expect(ids).toEqual([
-                'baseball-vs-chicago-cubs-2026-08-06-1840',
-                'baseball-vs-detroit-tigers-2026-08-06-1210',
+                'baseball-vs-chicago-cubs-doubleheader-2026-08-06-1840',
+                'baseball-vs-detroit-tigers-doubleheader-2026-08-06-1210',
             ]);
         });
 
