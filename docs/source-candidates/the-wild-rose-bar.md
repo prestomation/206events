@@ -3,10 +3,10 @@ name: The Wild Rose Bar
 status: added
 platform: Wix
 url: https://www.thewildrosebar.com
-tags: [Nightlife, Queer, "Capitol Hill"]
+tags: [Nightlife, LGBTQ, "Capitol Hill"]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-23
-pr: pending
+pr: 1272
 ---
 
 Capitol Hill lesbian bar hosting regular events, dance nights, and live music.
