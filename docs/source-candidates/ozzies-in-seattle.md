@@ -6,7 +6,7 @@ url: https://ozziesinseattle.com/
 tags: [Nightlife, Running, QueenAnne]
 firstSeen: 2026-08-21
 lastChecked: 2026-08-23
-pr: TBD
+pr: 1271
 ---
 
 Dive bar at 105 W Mercer St, Lower Queen Anne (next to Climate Pledge
