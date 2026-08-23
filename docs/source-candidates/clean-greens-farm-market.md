@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.cleangreensfarmmarket.com/
 tags: [Community, "Central District"]
 firstSeen: 2026-07-13
-lastChecked: 2026-07-22
+lastChecked: 2026-08-23
 ---
 
 Small Central District nonprofit farm (founded 2007 by Project of Black
@@ -24,3 +24,7 @@ Investigated 2026-07-13:
   market-season events are likely to be posted
 
 Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcoming array empty, or Eventbrite organizer `upcomingEvents` empty). No change.
+
+Re-checked 2026-08-23: Eventbrite organizer `96261948593` public API
+(`/api/v3/organizers/96261948593/events/?status=live`) still returns
+`object_count: 0` — the Harvest Dinner hasn't posted yet this season. No change.

@@ -1,0 +1,24 @@
+geo:
+  lat: 47.6139709
+  lng: -122.3182962
+  label: "Wildrose, 1021 E Pike St, Seattle, WA 98122"
+  osmType: node
+  osmId: 2158750160
+name: wild-rose-bar
+sourceRole: venue
+friendlyname: The Wildrose
+description: Capitol Hill lesbian bar with weekly DJ nights.
+timezone: America/Los_Angeles
+location: 1021 E Pike St, Seattle, WA 98122
+url: https://www.thewildrosebar.com
+tags:
+  - Nightlife
+  - Queer
+  - Capitol Hill
+schedules:
+  - schedule: every Friday
+    start_time: "21:00"
+    duration: PT5H
+  - schedule: every Saturday
+    start_time: "21:00"
+    duration: PT5H

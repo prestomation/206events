@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://reconnectsouthpark.org/events
 tags: [Community, "South Park"]
 firstSeen: 2026-06-18
-lastChecked: 2026-07-22
+lastChecked: 2026-08-23
 ---
 South Park community organization based at the South Park Idea Lab, 1251-B S Cloverdale Street, Seattle. Hosts "Cafecitos" community gatherings, block parties, neighborhood association meetings, school activities, and seasonal celebrations.
 
@@ -20,3 +20,6 @@ Investigated 2026-06-18:
 Re-checked 2026-07-02: Still 0 upcoming events (`?format=json` returns empty `upcoming`). Monitor for fall 2026 programming.
 
 Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcoming array empty, or Eventbrite organizer `upcomingEvents` empty). No change.
+
+Re-checked 2026-08-23: still 0 upcoming events (35 `past`, 0 `upcoming`). Fall
+programming still hasn't posted. No change.
