@@ -13234,6 +13234,246 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-22",
       "note": "Same show: Tractor Tavern is the promoter, venue is The Sunset Tavern — both ICS feeds list the same Babehoven show on 2026-11-17"
+    },
+    "19hz-all-events.ics Tinlicker|2026-10-17T21:30:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Tinlicker with Helsloot|2026-10-17T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same AXS event id 1414733 on both sides (19hz links to axs.com/events/1414733, Showbox links to showboxpresents.com/events/detail/1414733); same date/time"
+    },
+    "black-tan-hall-all-events.ics The Griot Party Experience presents: The Sun Session Showcase|2026-09-26T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-black-and-tan-hall.ics The Sun Session Showcase|2026-09-26T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same venue (Black & Tan Hall) and date; presenter-prefix title variant of the same show"
+    },
+    "events12-seattle-events.ics Electric aircraft|2026-08-29T10:00:00-07:00[America/Los_Angeles]::museum_of_flight-museum-of-flight.ics Pulitzer: Electric Aircraft Race|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same venue/date/time; both URLs reference Museum of Flight calendar item id 8495, just different title/slug variants of the same page"
+    },
+    "external-Geekwire.ics PAX West 2026|2026-09-04T00:00:00Z[UTC]::where-ya-at-matt-where-ya-at-matt.ics PAX WEST|2026-09-04T10:00:00.191-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-23",
+      "note": "Different real-world occurrences: Geekwire lists the PAX West convention itself; Where Ya At Matt is a food truck's vending-schedule entry for working the convention weekend, not the con"
+    },
+    "external-myballard.ics How to Get Published! A conversation with Diana Ma at The Ink Drinker!|2026-08-25T19:30:00Z[UTC]::external-visit-ballard.ics How to Get Published! A conversation with Diana Ma at The Ink Drinker!|2026-08-25T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and event URL slug across myballard and visitballard - same Ink Drinker event"
+    },
+    "external-seattle-city-of-lit.ics  AAWA 35 Reading & Writing Workshop|2026-08-24T22:00:00Z[UTC]::spl-authors-books-authors-books.ics AAWA 35 Reading & Writing Workshop|2026-08-24T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same AAWA 35 workshop at Douglass-Truth Branch, same date/time (22:00Z == 15:00-07:00); city-of-lit aggregator vs SPL system calendar"
+    },
+    "external-seattle-city-of-lit.ics  AAWA 35 Reading & Writing Workshop|2026-08-24T22:00:00Z[UTC]::spl-douglass-truth.ics AAWA 35 Reading & Writing Workshop|2026-08-24T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same AAWA 35 workshop at Douglass-Truth Branch, same date/time; city-of-lit aggregator vs SPL branch calendar"
+    },
+    "external-uw-campus-events.ics Film Screening with Q&A | The Boys from Fengkuei (Hou Hsiao Hsien, 1983) with Beth Tsai (Film & Media Studies, Hunter College in NY) and James Tweedie (Cinema & Media Studies, UW)|2026-10-15T18:30:00Z[UTC]::external-uw-college-of-arts-sciences.ics Film Screening with Q&A | The Boys from Fengkuei (Hou Hsiao Hsien, 1983) with Beth Tsai (Film & Media Studies, Hunter College in NY) and James Tweedie (Cinema & Media Studies, UW)|2026-10-15T18:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and location ('Forthcoming') - same UW event syndicated on two UW sub-department calendars"
+    },
+    "external-uw-campus-events.ics Geographers in Practice|2026-11-19T18:00:00Z[UTC]::external-uw-college-of-arts-sciences.ics Geographers in Practice|2026-11-19T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and location ('Online via Zoom') - same UW event on two UW sub-department calendars"
+    },
+    "external-uw-campus-events.ics Informatics Application Q&A / Application Workshop|2026-09-30T16:00:00Z[UTC]::external-uw-information-school.ics Informatics Application Q&A / Application Workshop|2026-09-30T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, location (Zoom), and URL - same UW Informatics event on two calendars"
+    },
+    "external-uw-campus-events.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-cinema-media-studies.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-campus-events.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-college-of-arts-sciences.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-campus-events.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-school-of-art.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-campus-events.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-school-of-music.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-cinema-media-studies.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-college-of-arts-sciences.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-cinema-media-studies.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-school-of-art.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-cinema-media-studies.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-school-of-music.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-school-of-art.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-school-of-music.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "external-uw-school-of-art.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]::external-uw-school-of-music.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Identical title, date/time, and runsignup.com URL (Dawg Dash) - same UW event syndicated across dept calendars"
+    },
+    "recurring-pax-west.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]::where-ya-at-matt-where-ya-at-matt.ics PAX WEST|2026-09-04T10:00:00.191-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-23",
+      "note": "Different real-world occurrences: recurring-pax-west lists the PAX West convention itself; Where Ya At Matt is a food truck's vending-schedule entry for the weekend, not the con"
+    },
+    "seatoday-seatoday-all.ics 2025 WSC Dominate the Dome|2026-09-05T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2025 WSC Dominate the Dome|2026-09-05T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source; event appears in both the 'all events' feed and the category-filtered 'sports' feed by design (category tagging), identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Earn Your Tape Clogging Weekend|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Earn Your Tape Clogging Weekend|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs arts-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Earn Your Tape Clogging Weekend|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Earn Your Tape Clogging Weekend|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs learning-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Farm to Table Exhibit Opening|2026-09-05T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Farm to Table Exhibit Opening|2026-09-05T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs arts-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Farm to Table Exhibit Opening|2026-09-05T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Farm to Table Exhibit Opening|2026-09-05T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs community-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Keep Bellevue Beautiful - BelRed Cleanup|2026-09-05T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Keep Bellevue Beautiful - BelRed Cleanup|2026-09-05T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs community-category feed, identical title/URL/time"
+    },
+    "seatoday-seatoday-all.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]::where-ya-at-matt-where-ya-at-matt.ics PAX WEST|2026-09-04T10:00:00.191-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-23",
+      "note": "Different real-world occurrences: seatoday-all lists the PAX West convention itself; Where Ya At Matt is a food truck's vending-schedule entry for the weekend, not the con"
+    },
+    "seatoday-seatoday-all.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs community-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs sports-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs community-category feed, identical title/URL/time"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs sports-category feed, identical title/URL/time"
+    },
+    "seatoday-seatoday-all.ics Saturdays at Vaughn's Farm|2026-08-29T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Saturdays at Vaughn's Farm|2026-08-29T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs community-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs community-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs learning-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-all.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, all-events feed vs sports-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-arts.ics Earn Your Tape Clogging Weekend|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Earn Your Tape Clogging Weekend|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, arts-category feed vs learning-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-arts.ics Farm to Table Exhibit Opening|2026-09-05T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Farm to Table Exhibit Opening|2026-09-05T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, arts-category feed vs community-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-community.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]::where-ya-at-matt-where-ya-at-matt.ics PAX WEST|2026-09-04T10:00:00.191-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-23",
+      "note": "Different real-world occurrences: seatoday-community lists the PAX West convention itself; Where Ya At Matt is a food truck's vending-schedule entry for the weekend, not the con"
+    },
+    "seatoday-seatoday-community.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, community-category feed vs sports-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, community-category feed vs sports-category feed, identical title/URL/time"
+    },
+    "seatoday-seatoday-community.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, community-category feed vs learning-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-community.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, community-category feed vs sports-category feed, identical title/venue/URL/time"
+    },
+    "seatoday-seatoday-learning.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Volunteer Opportunity: Habitat Restoration at Squak Valley|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "Same seatoday source, learning-category feed vs sports-category feed, identical title/venue/URL/time"
+    },
+    "seattle-convention-center-all-events.ics PAX West 2026|2026-09-04T09:00:00-07:00[America/Los_Angeles]::where-ya-at-matt-where-ya-at-matt.ics PAX WEST|2026-09-04T10:00:00.191-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-23",
+      "note": "Different real-world occurrences: seattle-convention-center lists the PAX West convention itself; Where Ya At Matt is a food truck's vending-schedule entry for the weekend, not the con"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-22T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-23",
+      "note": "Different physical addresses 321m apart with different street numbers (1201 vs 1551 Eastlake Ave) - two distinct food-truck-pod sites with generic same-named listings, not a location-string typo"
+    },
+    "spl-lake-city.ics English Conversation Circle|2026-09-01T17:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual English Conversation Circle|2026-09-01T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-23",
+      "note": "Different modality/location: Lake City Branch in-person conversation circle vs SPL's separate Virtual/Online conversation circle program - distinct recurring instances, not the same occurrence"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Theo Kandel w/ Annika Wells|2026-09-16T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Theo Kandel w/ Annika Wells AT The Sunset|2026-09-16T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-23",
+      "note": "B's title explicitly says 'AT The Sunset' - Tractor Tavern presenting a show hosted at Sunset Tavern; same date/time; Tractor's location field is just their own default venue address, not this show's actual venue"
     }
   }
 }
