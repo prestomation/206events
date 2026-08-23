@@ -245,10 +245,15 @@ export default class BeguiledBooksRipper implements IRipper {
         // Every event checked so far is at the store itself, but a future
         // off-site author appearance would have a different JSON-LD address —
         // trust it over our hardcoded venue address when it clearly diverges.
-        const jsonAddress = (eventData['location']?.['address'] as string | undefined)?.trim();
+        // Reading rawText (see JSON-LD extraction above) means nothing in
+        // eventData has been HTML-decoded yet, so this needs its own decode()
+        // just like title/description above.
+        const rawJsonAddress = (eventData['location']?.['address'] as string | undefined)?.trim();
+        const jsonAddress = rawJsonAddress ? decode(rawJsonAddress) : undefined;
         const location = jsonAddress && !jsonAddress.includes(VENUE_STREET) ? jsonAddress : VENUE_ADDRESS;
 
-        const imageUrl = extractImageUrl(eventData['image']);
+        const rawImageUrl = extractImageUrl(eventData['image']);
+        const imageUrl = rawImageUrl ? decode(rawImageUrl) : undefined;
 
         const event: RipperCalendarEvent = {
             id,
