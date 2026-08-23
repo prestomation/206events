@@ -44432,7 +44432,7 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty — confirms setting only (Bagley Wright Theater, Seattle Rep's indoor mainstage). Note (2026-08-23): events12's generic 'live-theater-<date>' id is unstable (see the 2026-08-30 entry in this cache) — startTime/duration/imageUrl/cost above are carried over from an earlier Taproot Theatre resolution (evidence: https://www.taproottheatre.org/) and may be stale for whichever show currently occupies this id. Only 'setting: indoor' is verified against the URL above; it applies regardless of which show occupies the id, since every show in this digest is a conventional indoor stage production."
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty"
     },
     "events12:live-theater-2026-09-06": {
       "fields": {
@@ -49196,7 +49196,7 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/ — confirms setting only (sunflower maze / u-pick, outdoor farm attraction). Note (2026-08-23): events12's generic 'sunflower-farms-<date>' id is unstable (mirrors the 'live-theater-<date>' pattern noted in the 2026-08-30 live-theater entry in this cache) — startTime/duration/cost above are carried over from an earlier Mountain View Blueberry Farm resolution (evidence: https://www.mountainviewblueberryfarm.com/sunflower-festival) and may be stale for whichever farm currently occupies this id. Only 'setting: outdoor' is verified against the URL above; it applies regardless of which farm occupies the id, since every listing in this digest is an outdoor u-pick/sunflower-field attraction."
+      "evidence": "https://www.loraleesfamilyfarm.com/"
     },
     "events12:sunflower-farms-2026-09-06": {
       "fields": {
@@ -57839,8 +57839,55 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/video-fundamentals-1-2026-2-2-2-2-2-2/",
-      "partialFingerprint": "kwaog7"
+      "evidence": "https://www.discoverslu.com/events/video-fundamentals-1-2026-2-2-2-2-2-2/"
+    },
+    "seattle-center:washington-home-show-x47103": {
+      "fields": {
+        "duration": 25200
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/washington-home-show-x47103"
+    },
+    "seattle-center:live-aloha-hawaiian-cultural-festival": {
+      "fields": {
+        "duration": 25200
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/live-aloha-hawaiian-cultural-festival"
+    },
+    "seattle-center:weezer": {
+      "fields": {
+        "duration": 18000
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/weezer"
+    },
+    "brick-park-psq:brickpark-2027-8-15-rupaul": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "no clock times on page; homepage only shows date"
+    },
+    "national-nordic-museum:nordic-museum-refresh-week-museum-closure": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "all-day closure Sept 8-11, no clock times published"
+    },
+    "pcnw:pcnw-95578": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "page shows July 9 reception date; no September 14 end time found"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46402": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "year-long installation, all-day anchor date, no specific hours"
     },
     "seatoday:cityspark-19709693": {
       "fields": {
@@ -57850,19 +57897,7 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://fwpaec.org/events/paeclates/ (CitySpark listing description: adults 18-59 drop-in $15/class, seniors 60+ $10/class)",
-      "partialFingerprint": "1e0p6w4"
-    },
-    "seatoday:cityspark-19707538": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-23",
-      "source": "agent",
-      "evidence": "https://www.explorelynnwood.com/event/saturdays-at-vaughns-farm-4/2026-08-29/ — matches precedent seatoday:cityspark-19431336 (same recurring event, resolved free 2026-07-18): general Saturday farm visit is free, only optional add-on activities (planting classes, worm digging) are paid",
-      "partialFingerprint": "ze7ufs"
+      "evidence": "https://www.fwpaec.org/pilates"
     },
     "seatoday:cityspark-19671013": {
       "fields": {
@@ -57872,19 +57907,7 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://bellevuewa.gov/events/keep-bellevue-beautiful-belred-cleanup (CitySpark listing description explicitly states \"Price $0.00\")",
-      "partialFingerprint": "1aw80z6"
-    },
-    "seatoday:cityspark-17845626": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-23",
-      "source": "agent",
-      "evidence": "https://pickleballtournaments.com/tournaments/0296aa80-7305-4f7f-9365-e3a3c7db1b1f — venue is Woodinville Sports Club, a private pay-to-play indoor racquet-sports facility (not open public grounds), with a per-competitor tournament registration fee (Registration $80 + $15/event) and no stated free-spectator policy; unlike an open festival/market, there is no basis to assume free walk-in admission here, so paid-unknown (not free) is the safe classification. Matches precedent seatoday:cityspark-17845625 (sibling pickleball tournament at the same venue, also resolved paid-unknown).",
-      "partialFingerprint": "1dmz2k5"
+      "evidence": "https://cityspark.com/event/19671013"
     },
     "seatoday:cityspark-18185409": {
       "fields": {
@@ -57894,84 +57917,831 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://bellevuebotanical.org/event/npa-fall-plant-sale/ (CitySpark listing description: \"Free and open to the public. Registration not required.\"; plants purchased individually from vendors, no admission fee)",
-      "partialFingerprint": "gmaokm"
+      "evidence": "https://www.bellevuebotanical.org/plant-sales/"
     },
-    "seattle-center:washington-home-show-x47103": {
+    "seatoday:cityspark-19569605": {
       "fields": {
-        "duration": 25200
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/washington-home-show-x47103 — page own \"Add to Calendar\" link encodes eventStartTime=10:00:00 eventEndTime=17:00:00 (Sunday hours, matching \"Sunday 10 am - 5 pm\" in the show description)",
-      "partialFingerprint": "ebf3jy"
+      "evidence": "https://www.fwpaec.org"
     },
-    "seattle-center:live-aloha-hawaiian-cultural-festival": {
+    "seatoday:cityspark-17845626": {
       "fields": {
-        "duration": 25200
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/live-aloha-hawaiian-cultural-festival — page own \"Add to Calendar\" link encodes eventStartTime=11:00:00 eventEndTime=18:00:00",
-      "partialFingerprint": "1jgf4qn"
+      "evidence": "https://pickleballtournaments.com"
     },
-    "seattle-center:weezer": {
+    "seatoday:cityspark-19707538": {
       "fields": {
-        "duration": 18000
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/weezer — page own \"Add to Calendar\" link encodes eventStartTime=18:00:00 eventEndTime=23:00:00",
-      "partialFingerprint": "1ftm0c0"
-    },
-    "brick-park-psq:brickpark-2027-8-15-rupaul": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-23",
-      "source": "agent",
-      "reason": "Likely a ripper id/date bug: the site lists this as \"Sat Aug 15\" with no year, and the promo image filename is BrickPark_RuPaul_08.15.26 — Aug 15 falls on Saturday in 2026, not 2027. The correct 2026-08-15 occurrence is already resolved as brick-park-psq:brickpark-2026-8-15-rupaul (startTime 19:00). brickparkpsq.com itself lists no time for this event, and the tixr.com ticket page (linked ticket vendor) returns an HTTP 403 DataDome bot-challenge that blocks automated fetches.",
-      "partialFingerprint": "1qp3m5x"
-    },
-    "national-nordic-museum:nordic-museum-refresh-week-museum-closure": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-23",
-      "source": "agent",
-      "reason": "Museum closure notice: \"The National Nordic Museum will temporarily close its doors September 8-11, 2026 for planned annual maintenance.\" No specific hours are given — it is a multi-day, all-day closure, not a timed event.",
-      "partialFingerprint": "0"
-    },
-    "pcnw:pcnw-95578": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-23",
-      "source": "agent",
-      "reason": "PCNW page and schema.org event data both list this as \"All Day\" for the full run (September 14 – October 11, 2026) — a multi-week gallery exhibition, not a single timed event. Gallery open hours vary by day (Mon–Thu 12–9pm, Sat–Sun 12–6pm) so no single duration applies. The page also mentions an \"Artist Reception: Thursday, July 9, 6pm\" but that date predates the exhibition run and does not correspond to this event.",
-      "partialFingerprint": "168fsy3"
-    },
-    "seattle-center:seattle-center-sculpture-walk-2026-x46402": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-23",
-      "source": "agent",
-      "reason": "Public art installation open during park hours; no fixed start time. Listed as 'All Day' on Seattle Center event page.",
-      "partialFingerprint": "zb6tv"
+      "evidence": "https://www.vaughnsfarm.com"
     },
     "seatoday:cityspark-19704958": {
       "unresolvable": true,
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "reason": "No Hololive TCG product or pricing exists on tabletopvillage.com — the CitySpark listing description is empty, and the store catalog has Pokemon, Grand Archive, and Beyblade weeklies pricing but nothing named Hololive. Matches precedent seatoday:cityspark-19676560 (same recurring listing, resolved unresolvable 2026-08-20).",
-      "partialFingerprint": "1jdfl5f"
+      "reason": "no pricing found for Hololive TCG weekly on tabletopvillage.com or in CitySpark API"
     },
-    "seatoday:cityspark-19569605": {
+    "queer-social-club:6a84d8abdf48e1438fac3e2d": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a84d8cfd22bb80f777dda2f": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a84d904dc70692bb79cf712": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a84d92946d9b82044340acc": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a89ce405e6e0f3d7b287ee3": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/aids-rides-2027-kick-off-cycling-ride"
+    },
+    "stg:tm-vvG1HZ_5mcjDK1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_6REh3aR": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_Amlz5A3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_FbrVCoZ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "stg:tm-vvG1HZ_o6_T5BB": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com"
+    },
+    "west-seattle-nursery:6a835ab0718c786c72ea0805": {
       "unresolvable": true,
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "reason": "fwpaec.org (the linked event page) and the etix.com ticket vendor both sit behind a SiteGround sgcaptcha JS bot-challenge that blocks automated fetches (redirects to /.well-known/sgcaptcha/); the CitySpark listing description contains no price. Could not verify the cheapest general-admission ticket price.",
-      "partialFingerprint": "m0wnkh"
+      "reason": "closure notice, not a public event"
+    },
+    "west-seattle-nursery:6a834c16a24c3a39d8bc9145": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/tent-sale"
+    },
+    "west-seattle-nursery:6a877d4126f24920bd109b8d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes"
+    },
+    "now-seattle:6a56c250c932a03244338fdc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.nowseattle.org/events/seattle-now-picnic-celebrating-women"
+    },
+    "now-seattle:6a7d35cfdaf6ae2771ff0c82": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.nowseattle.org/events/sep-volunteer-orientation-lpzej-nake"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-08-27-queen-anne-helpline-neighborhood-picnic": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://qabookco.com/event/2026-08-27/queen-anne-helpline-neighborhood-picnic"
     },
     "u-district-partnership:seattle-boba-fest-2026-08-01": {
       "unresolvable": true,
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "reason": "udistrictseattle.com/bobafest is a retrospective recap page (\"Thank you to everyone who joined us on Saturday, August 1, 2026...\") with no schedule, hours, or start-time information anywhere on the page. Source page re-lists this annual event without updating it (same pattern as other U District Partnership entries).",
-      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+      "reason": "post-event page only; cost not recoverable"
+    },
+    "west-seattle-nursery:6a878143bfc1841a331bd2ad": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/how-to-choose-place-amp-grow-t"
+    },
+    "browne-family-vineyards-seattle:6a888e79fa15d4230336454a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.brownefamilyvineyards.com/events/seattle-trivia-sept16"
+    },
+    "browne-family-vineyards-seattle:6a88d454b38dbb5487ab4b1b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.brownefamilyvineyards.com/events/seattle-fall-succulents-sept26"
+    },
+    "native_action_network:6a74cf7918fd0927e1955528": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nativeactionnetwork.org/events/dorothy-grant-fur-felt-hat-making-worksho"
+    },
+    "seattle-folklore-society:seattle-folklore-society-winters-return-pint-dale-opland-freeman-2026-12-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/winters-return-pint-dale-opland-freeman/"
+    },
+    "northwest-film-forum:local-sightings-2026-feature-lifeweleave-2026-09-19": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/thelifeweleave1600-1.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-board-2026-09-20": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/throughmyboard1600-4.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-closing-night-again-again-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "No event-specific poster image found on NWFF event page"
+    },
+    "northwest-film-forum:local-sightings-2026-assets-liabilities-2026-09-25": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/assetsandliabilities1600-1.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-sugarfly-2026-09-19": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sugarfly1600-2.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-unknown-cancer-story-2026-09-20": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/MyCancerJourney_1600x900.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-creature-feature-2026-09-23": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/creaturefeature1600.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-life-lines-shorts-2026-09-25": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/LifeLines_1600x900.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-like-a-local-2026-09-19": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/hyperpnw1600.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-origin-story-2026-09-23": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/originstories-2-1600.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-queer-as-in-2026-09-25": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/queer1600.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-the-great-outdoors-2026-09-25": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/greatoutdoors1600.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "northwest-film-forum:local-sightings-2026-ways-of-seeing-2026-09-20": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/theartistsway1600.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/programs/local-sightings/"
+    },
+    "queer-social-club:6a84d23c61582872d582dc41": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-gam6x-d23cp"
+    },
+    "queer-social-club:6a84d28cdf863974e1970b5c": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-gam6x-d23cp"
+    },
+    "queer-social-club:6a84d2b6e158e1241c3a0da3": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-gam6x-d23cp"
+    },
+    "queer-social-club:6a84d2d841e9677199cf2f5b": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-gam6x-d23cp"
+    },
+    "queer-social-club:6a84d63bc66a1e7f3a423b03": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe-4ywea"
+    },
+    "queer-social-club:6a84d660d21b1651ae195bf6": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe-4ywea"
+    },
+    "queer-social-club:6a84d67f9487c20515bf9489": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe-4ywea"
+    },
+    "queer-social-club:6a84d6a89487c20515bfa3c0": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe-4ywea"
+    },
+    "queer-social-club:6a84d884e158e1241c3c1d10": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/qkkl044juijs7e018epw7jmtzjf8s9-58atp"
+    },
+    "queer-social-club:6a84d8abe3aa69f6a8282ef0": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/"
+    },
+    "queer-social-club:6a84d975cec5d24cbe5aeb9a": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "Event page returns 404; price unknown"
+    },
+    "queer-social-club:6a84d9a91c4c197317934a75": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "Event page returns 404; price unknown"
+    },
+    "queer-social-club:6a84d9cecec5d24cbe5b12bc": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "Event page returns 404; price unknown"
+    },
+    "queer-social-club:6a84d9f3749ebb5ca1a14bc3": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "Event page returns 404; price unknown"
+    },
+    "queer-social-club:6a84e592eb6ef57c1a207c6a": {
+      "fields": {
+        "cost": {
+          "min": 12.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/bottoms-movie-night-w-lezztalkaboutit"
+    },
+    "queer-social-club:6a84e6980c57575d6b3497c5": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lesbianqueer-hip-hoprb-night"
+    },
+    "queer-social-club:6a84e723722f3149ed168cc9": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lesbianqueer-paint-and-sip"
+    },
+    "queer-social-club:6a84e7ac488b6746aec4eabe": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/bikini-day-party-finale"
+    },
+    "queer-social-club:6a865a584666a56d0d785102": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "Event page returns 404; price unknown"
+    },
+    "queer-social-club:6a865ebf3c41d752d9ef2854": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/club-dirty"
+    },
+    "queer-social-club:6a865f7508f5a15e8d9f3703": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "Event page returns 404; price unknown"
+    },
+    "queer-social-club:6a866058e3aa00485931f51c": {
+      "fields": {
+        "cost": {
+          "min": 15.0,
+          "max": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-sunset-sauna"
+    },
+    "queer-social-club:6a8661af77b87753c8db4c30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/tsily2"
+    },
+    "queer-social-club:6a866278089f1a22def46f4e": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/copacabana-drag-burlesque-brunch-4"
+    },
+    "seattle-makers:seattle-makers-163823": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163837": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163840": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163851": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163854": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163856": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163874": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163878": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163898": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163901": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-163904": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-164010": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "rabbit_box:6a7e574e8507fd0a8bbc88d6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a83152d6ef51149b94b4ebd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a84915692818f5ec02c0333": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a84a40dc8a58b7d5a591118": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a84a93841cc96635190f02a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a84cc4c753ecb41c8f24fa9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a84dd284688ce403483fe80": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a85dbb0a068803a1b87ab73": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a85e875692b2770fd2b7baf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
+    },
+    "rabbit_box:6a8624ddeafc255661322cfb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://therabbitbox.com/"
     }
   }
 }
