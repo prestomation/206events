@@ -146,7 +146,10 @@ export default class BrickParkPSQRipper implements IRipper {
             // after the fact) — bumping the year there previously fabricated a
             // spurious brickpark-2027-8-15-rupaul event on a date (Sunday) that
             // doesn't even match the site's own "Sat" label.
-            const now = LocalDate.now();
+            // Use the venue's own timezone, not the system default (UTC in CI) —
+            // near midnight UTC that's already tomorrow in Pacific time, which
+            // could shift a date right at the staleness threshold.
+            const now = ZonedDateTime.now(TIMEZONE).toLocalDate();
             const STALE_LISTING_BUFFER_DAYS = 45;
             let year = now.year();
             try {
