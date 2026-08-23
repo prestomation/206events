@@ -44724,11 +44724,12 @@
         "cost": {
           "min": 35,
           "max": 74
-        }
+        },
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-07-30",
+      "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.taproottheatre.org/"
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty"
     },
     "events12:live-theater-2026-09-06": {
       "fields": {
@@ -49571,11 +49572,12 @@
         "duration": 27000,
         "cost": {
           "min": 17
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-07",
+      "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
+      "evidence": "https://www.loraleesfamilyfarm.com/"
     },
     "events12:sunflower-farms-2026-09-06": {
       "fields": {
@@ -58469,6 +58471,14 @@
       "resolvedAt": "2026-08-22",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/"
+    },
+    "venue:osm:way:161070747": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty (Bagley Wright Theater, Seattle Rep's indoor mainstage; matches sources/seattle_rep/ripper.yaml geo.osmType/osmId)"
     }
   }
 }
