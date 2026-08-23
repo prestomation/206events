@@ -1,11 +1,12 @@
 ---
 name: "Ozzie's"
-status: candidate
+status: added
 platform: custom (no calendar page — individual static pages per program)
 url: https://ozziesinseattle.com/
-tags: [Nightlife, QueenAnne]
+tags: [Nightlife, Running, QueenAnne]
 firstSeen: 2026-08-21
-lastChecked: 2026-08-21
+lastChecked: 2026-08-23
+pr: TBD
 ---
 
 Dive bar at 105 W Mercer St, Lower Queen Anne (next to Climate Pledge
@@ -35,10 +36,26 @@ Investigated 2026-08-21:
   distinctively dated beyond "every night" or a single weekly slot —
   lower priority than the two above.
 
-**Recommended next step**: implement as `sources/recurring/ozzies-seattle.yaml`
-with schedules for drag brunch (`last Saturday`, start `12:30`, e.g.
-`PT2H`) and run club (`every Tuesday`, start `17:30`, `PT1H15M`) per the
-AGENTS.md multi-schedule recurring pattern (one file, one entry per
-program with its own id suffix). Confirm drag brunch ticketing has gone
-live before adding it as a real event (page said "almost live" as of
-this check).
+**Implemented 2026-08-23** as two files —
+`sources/recurring/ozzies-drag-brunch.yaml` and
+`sources/recurring/ozzies-run-club.yaml` — rather than one multi-schedule
+file. AGENTS.md's multi-schedule pattern shares `friendlyname`/
+`description`/`tags` across every `schedules:` entry in a file, which is
+correct when the entries describe the *same* recurring event on more
+than one day/time (e.g. a market open Sat and Sun). Drag brunch and run
+club are two distinct, differently-tagged programs, so combining them
+would have mislabeled one of them; the existing `targys-tavern-bingo.yaml`
+/ `targys-tavern-trivia.yaml` split (same venue, separate files) is the
+precedent this follows.
+
+- `ozzies-drag-brunch`: `last Saturday`, start `11:30` (seating time),
+  `PT2H`, `cost: 25` (cheapest "Show Only" tier). Re-confirmed 2026-08-23:
+  page still describes online tickets as "almost live" but phone
+  reservations are open now and the show runs on its stated schedule, so
+  treating it as a real recurring event (ticketing status doesn't gate a
+  recurring listing, unlike a one-off event page with 0 posted dates).
+- `ozzies-run-club`: `every Tuesday`, start `17:30`, `PT1H15M`, `cost: free`.
+
+Geo resolved via Nominatim to OSM node 2400948514 ("Ozzie's Bar", 105 W
+Mercer St, Seattle, WA 98119 — note: page/candidate text said 98109,
+but OSM/Nominatim confirm 98119).

@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6244856
+  lng: -122.3582883
+  label: "Ozzie's, 105 W Mercer St, Seattle, WA 98119"
+  osmType: node
+  osmId: 2400948514
+name: ozzies-run-club
+sourceRole: venue
+friendlyname: Ozzie's Run Club
+description: Weekly ~2 mile round-trip run through Lower Queen Anne starting and ending at Ozzie's, next to Climate Pledge Arena. Check-in at 5:30pm, group rolls out at 6:00pm, back at the bar around 6:45pm for a discount.
+timezone: America/Los_Angeles
+location: "105 W Mercer St, Seattle, WA 98119"
+url: https://ozziesinseattle.com/run-club
+imageUrl: "https://ozziesinseattle.com/images/logo.png"
+tags:
+  - Running
+  - QueenAnne
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "17:30"
+    duration: PT1H15M
