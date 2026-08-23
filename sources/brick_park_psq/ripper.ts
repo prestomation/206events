@@ -132,12 +132,26 @@ export default class BrickParkPSQRipper implements IRipper {
                 continue;
             }
 
-            // Infer year: if the date is more than 7 days in the past, assume next year
+            // Infer year: the site never publishes one, so assume the current year
+            // unless the date is well into the past, in which case assume next
+            // year (a rollover case — e.g. the page listing a January date while
+            // the ripper runs in December).
+            //
+            // The buffer is intentionally generous (45 days, not just a few) because
+            // the site doesn't always move a passed event out of "Upcoming Events"
+            // promptly — a listing that's merely stale by a week or two should still
+            // resolve to the date it actually already occurred on, not get bumped a
+            // full year into a future that doesn't exist. See brick-park-psq's
+            // "Sat Aug 15" RuPaul listing (still under "Upcoming Events" 8 days
+            // after the fact) — bumping the year there previously fabricated a
+            // spurious brickpark-2027-8-15-rupaul event on a date (Sunday) that
+            // doesn't even match the site's own "Sat" label.
             const now = LocalDate.now();
+            const STALE_LISTING_BUFFER_DAYS = 45;
             let year = now.year();
             try {
                 const candidate = LocalDate.of(year, month, day);
-                if (candidate.isBefore(now.minusDays(7))) {
+                if (candidate.isBefore(now.minusDays(STALE_LISTING_BUFFER_DAYS))) {
                     year += 1;
                 }
             } catch {
