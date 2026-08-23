@@ -1,0 +1,25 @@
+geo:
+  lat: 47.6244856
+  lng: -122.3582883
+  label: "Ozzie's, 105 W Mercer St, Seattle, WA 98119"
+  osmType: node
+  osmId: 2400948514
+name: ozzies-drag-brunch
+sourceRole: venue
+friendlyname: Drag Brunch at Ozzie's
+description: Monthly drag brunch at Ozzie's, a dive bar in Lower Queen Anne next to Climate Pledge Arena, hosted by Athena. Seating opens 11:30am with the show starting at 12:30pm.
+timezone: America/Los_Angeles
+location: "105 W Mercer St, Seattle, WA 98119"
+url: https://ozziesinseattle.com/drag-brunch
+imageUrl: "https://ozziesinseattle.com/images/logo.png"
+# Page said online ticketing was "almost live" as of 2026-08-23 (phone
+# reservations only); cost is the cheapest posted tier ("Show Only", $25).
+# Re-verify pricing once online ticketing fully launches.
+tags:
+  - Nightlife
+  - QueenAnne
+cost: 25
+schedules:
+  - schedule: last Saturday
+    start_time: "11:30"
+    duration: PT2H
