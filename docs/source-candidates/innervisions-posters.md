@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.eventbrite.com/o/seattle-records-49577348033
 tags: [Music, University District]
 firstSeen: 2026-08-07
-lastChecked: 2026-08-07
+lastChecked: 2026-08-23
 ---
 
 Poster/record shop at 4548 University Way NE, University District, hosting a
@@ -27,3 +27,7 @@ Investigated 2026-08-07:
 Re-check closer to a First Friday (next listing likely posts a few weeks out)
 to confirm a live event appears under this organizer ID before implementing
 as `eventbrite` type.
+
+Re-checked 2026-08-23: organizer `49577348033` public API
+(`/api/v3/organizers/49577348033/events/?status=live`) still returns
+`object_count: 0`. No change.
