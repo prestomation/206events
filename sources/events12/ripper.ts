@@ -204,11 +204,16 @@ export default class Events12Ripper extends HTMLRipper {
 
                 for (const { date: d, duration: dur, slot, title: occTitle, timeUnknown: occTimeUnknown } of parsed.occurrences) {
                     const eventTitle = occTitle ?? title;
-                    const eventId = this.generateEventId(eventTitle, d, slot);
+                    // Two articles on the same page can list the same real
+                    // occurrence twice (e.g. under two browse categories);
+                    // dedup within this rip on title+date+slot alone, NOT
+                    // the article id, so that intentional same-page repeat
+                    // still collapses to one event.
+                    const dedupKey = this.generateEventId(eventTitle, d, slot, '');
+                    if (this.seenEvents.has(dedupKey)) continue;
+                    this.seenEvents.add(dedupKey);
 
-                    // Skip if we've already seen this event in this rip
-                    if (this.seenEvents.has(eventId)) continue;
-                    this.seenEvents.add(eventId);
+                    const eventId = this.generateEventId(eventTitle, d, slot, articleId);
 
                     const event: RipperCalendarEvent = {
                         id: eventId,
@@ -596,13 +601,21 @@ export default class Events12Ripper extends HTMLRipper {
     }
 
     // Stable id from source content only (no Date.now / no randomness).
-    // Format: <title-slug>-YYYY-MM-DD[-HHMM].  The optional slot keeps
-    // multi-showing days (e.g. "5 & 8 p.m.") unique without disturbing
-    // ids on single-showing days, which keeps existing cache keys stable.
-    private generateEventId(title: string, date: ZonedDateTime, slot: string | null): string {
+    // Format: <title-slug>[-<article-id>]-YYYY-MM-DD[-HHMM].  events12
+    // buckets listings under generic digest headers ("Live theater",
+    // "Baseball", ...), so the title slug alone collides across unrelated
+    // real bookings that land on the same date in different builds. The
+    // article's own numeric id (upstream's stable identifier for the
+    // listing, e.g. <article id="113825">) disambiguates those; it's
+    // folded in whenever present. The optional slot keeps multi-showing
+    // days (e.g. "5 & 8 p.m.") unique without disturbing ids on
+    // single-showing days.
+    private generateEventId(title: string, date: ZonedDateTime, slot: string | null, articleId: string): string {
         const titleSlug = title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+        const articleSlug = articleId.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+        const base = articleSlug ? `${titleSlug}-${articleSlug}` : titleSlug;
         const dateStr = date.toLocalDate().toString();
-        return slot ? `${titleSlug}-${dateStr}-${slot}` : `${titleSlug}-${dateStr}`;
+        return slot ? `${base}-${dateStr}-${slot}` : `${base}-${dateStr}`;
     }
 
     // Compact deterministic fingerprint of the parsed source data.
