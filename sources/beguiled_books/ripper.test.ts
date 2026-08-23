@@ -104,6 +104,27 @@ describe('BeguiledBooksRipper', () => {
             expect(event.description).toBe('An evening with the author & friends');
         });
 
+        it('parses JSON-LD whose description embeds numeric HTML entities as literal newlines', () => {
+            // Wix embeds multi-paragraph descriptions with `&#010;` (decimal
+            // entity for \n). node-html-parser's `textContent` HTML-decodes
+            // this into a raw control character, which breaks JSON.parse
+            // (control characters are illegal inside a JSON string). The
+            // parser must read the script tag's rawText instead, so the
+            // JSON itself parses; decode() still resolves the entity in the
+            // extracted description afterward.
+            const ripper = new BeguiledBooksRipper();
+            const html = `<html><head><script type="application/ld+json">
+                {"@context":"https://schema.org","@type":"Event","name":"Entity Newline Event","description":"First paragraph.&#010;&#010;Second paragraph.","startDate":"2026-08-13T18:00:00-07:00","endDate":"2026-08-13T20:00:00-07:00"}
+                </script></head></html>`;
+            const events = ripper.parseEventPage(html, 'https://www.beguiledbooks.com/event-details/entity-newline-event', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            expect('date' in events[0]).toBe(true);
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.summary).toBe('Entity Newline Event');
+            expect(event.description).toBe('First paragraph.\n\nSecond paragraph.');
+        });
+
         it('leaves cost unset (fed to the costGaps queue instead of guessed)', () => {
             const ripper = new BeguiledBooksRipper();
             const html = loadSample('sample-event.html');
@@ -185,6 +206,20 @@ describe('BeguiledBooksRipper', () => {
             expect(event.location).toBe('1119 8th Ave, Seattle, WA 98101, USA');
         });
 
+        it('decodes HTML entities in an off-site JSON-LD address', () => {
+            // rawText (used for JSON.parse, see the entity-newline test above)
+            // leaves the whole payload undecoded, so location.address needs
+            // its own decode() just like title/description.
+            const ripper = new BeguiledBooksRipper();
+            const html = `<html><head><script type="application/ld+json">
+                {"@context":"https://schema.org","@type":"Event","name":"Off-site Reading","startDate":"2026-08-20T18:00:00-07:00","endDate":"2026-08-20T20:00:00-07:00","location":{"@type":"Place","name":"Town Hall Seattle","address":"1119 8th Ave &amp; Pine, Seattle, WA 98101, USA"}}
+                </script></head></html>`;
+            const events = ripper.parseEventPage(html, 'https://www.beguiledbooks.com/event-details/off-site-entity-address', BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.location).toBe('1119 8th Ave & Pine, Seattle, WA 98101, USA');
+        });
+
         it('extracts imageUrl from a schema.org Event image string', () => {
             const ripper = new BeguiledBooksRipper();
             const html = `<html><head><script type="application/ld+json">
@@ -194,6 +229,19 @@ describe('BeguiledBooksRipper', () => {
 
             const event = events[0] as RipperCalendarEvent;
             expect(event.imageUrl).toBe('https://static.wixstatic.com/media/example.jpg');
+        });
+
+        it('decodes HTML entities in an imageUrl query string', () => {
+            // Same rawText rationale as the address test above: image URLs
+            // need their own decode() now that the payload isn't pre-decoded.
+            const ripper = new BeguiledBooksRipper();
+            const html = `<html><head><script type="application/ld+json">
+                {"@context":"https://schema.org","@type":"Event","name":"Image Query Event","startDate":"2026-08-20T18:00:00-07:00","endDate":"2026-08-20T20:00:00-07:00","image":"https://static.wixstatic.com/media/example.jpg?w=800&amp;h=600"}
+                </script></head></html>`;
+            const events = ripper.parseEventPage(html, 'https://www.beguiledbooks.com/event-details/image-query-event', BEFORE_EVENT);
+
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.imageUrl).toBe('https://static.wixstatic.com/media/example.jpg?w=800&h=600');
         });
 
         it('leaves imageUrl undefined when JSON-LD has no image', () => {
