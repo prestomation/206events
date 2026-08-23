@@ -1222,6 +1222,37 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // the bare park name so it prefix-matches the "Portal Park, <address>"
   // spellings the source uses.
   'portal park': { lat: 47.6135, lng: -122.3469 },
+
+  // --- 2026-08-23 geo-resolver batch: seatoday venues just north of the
+  // metro viewbox (city.config.ts nominatimViewbox caps at lat 47.8), so the
+  // bounded Nominatim query rejects them even though the source-provided
+  // address is real and geocodes cleanly on its own (confirmed against
+  // Nominatim without the viewbox, and against the venue's public listing).
+  // Coordinates forward-geocoded from the address exactly as given by the
+  // source (never reverse-geocoded). Keyed on venue name so it prefix-matches
+  // the "<venue>, <address>" spelling the source uses.
+  'alderwood dance spectrum': { lat: 47.8246458, lng: -122.2776306 }, // 19231 33rd Ave W, Lynnwood, WA 98036
+  'edmonds historical museum': { lat: 47.8110557, lng: -122.3767568 }, // 118 5th Ave N, Edmonds, WA 98020
+
+  // --- 2026-08-23 geo-resolver batch, continued: Seattle University /
+  // Cornish sub-building names that Nominatim doesn't index individually
+  // (same issue as the existing SU cluster above — Administration Building,
+  // Bannan, Sullivan Hall, Sinegal Center, Campion Ballroom). Coordinates are
+  // the campus street address these rooms sit inside, forward-geocoded via
+  // Nominatim; addresses confirmed against events.seattleu.edu building
+  // pages, never reverse-geocoded.
+  'cornish main campus center - alumni gallery': { lat: 47.6180773, lng: -122.3362287 }, // Cornish College of the Arts, 1000 Lenora St — same building as the existing 'cornish college of the arts' entry
+  'casey building, casey commons': { lat: 47.6106523, lng: -122.3171370 }, // Seattle University, 901 12th Ave (campus-address approximation, same node as Pigott below)
+  'pigott building, pigott auditorium': { lat: 47.6106523, lng: -122.3171370 }, // Seattle University, 901 12th Ave (campus-address approximation, same node as Casey above)
+  'advancement & alumni building, rolfe roome': { lat: 47.6100596, lng: -122.3163837 }, // Seattle University Advancement & Alumni Building (Stuart T. Rolfe Community Room), 824 12th Ave
+
+  // --- 2026-08-23 geo-resolver batch, continued: entries from the "has
+  // street address" bucket of geo-cache.py analyze whose source string
+  // includes literal "undefined" placeholders or other junk that defeats
+  // Nominatim even though a real address is embedded. Forward-geocoded from
+  // just the clean address portion.
+  'pier 66': { lat: 47.6117181, lng: -122.3503214 }, // Bell Street Cruise Terminal, 2225 Alaskan Way, Seattle — source string was "Pier 66, 2225 Alaskan Way, undefined, undefined undefined"
+  '8045 pacific avenue, tacoma, washington, 98408': { lat: 47.1841129, lng: -122.4339502 },
 };
 
 /**
