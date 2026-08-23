@@ -612,6 +612,10 @@ export default class Events12Ripper extends HTMLRipper {
     // single-showing days.
     private generateEventId(title: string, date: ZonedDateTime, slot: string | null, articleId: string): string {
         const titleSlug = title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+        // articleId is always present in practice (the regex that finds
+        // each <article> requires an id attribute) — an empty string here
+        // just falls back to the pre-fix title+date id rather than
+        // producing a malformed one.
         const articleSlug = articleId.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
         const base = articleSlug ? `${titleSlug}-${articleSlug}` : titleSlug;
         const dateStr = date.toLocalDate().toString();
