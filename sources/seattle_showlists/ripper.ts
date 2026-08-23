@@ -47,7 +47,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Barboza":              { address: "925 E Pike St, Seattle, WA 98122", skip: true },
     "Belltown Yacht Club":  { address: "2320 1st Ave, Seattle, WA 98121", skip: true },
     "Black &amp; Tan Hall": { address: "5608 Rainier Ave S, Seattle, WA 98118" }, // server sends HTML entity
-    "Black Lodge":          { address: "427 Eastlake Ave E, Seattle, WA 98109" },
+    "Black Lodge":          { address: "427 Eastlake Ave E, Seattle, WA 98109", skip: true }, // dedicated ripper at sources/black_lodge/ (DICE-based)
     "Blue Moon Tavern":     { address: "712 NE 45th St, Seattle, WA 98105" },
     "Central Saloon":       { address: "207 1st Ave S, Seattle, WA 98104" },
     "Clock-Out Lounge":     { address: "4864 Beacon Ave S, Seattle, WA 98108", skip: true },

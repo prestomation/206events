@@ -1,5 +1,11 @@
+# 2026-08-23: build-health flagged 0 events. Confirmed live via the
+# Squarespace ?format=json endpoint — `upcoming: []`. `past` shows a
+# steady posting cadence (most recent Aug 14, 2026, ~9 days before this
+# check), so this is a genuine short-lead-time posting gap rather than a
+# broken feed — same situation as greg-kucera-gallery.
 name: seattle-creates
 sourceRole: aggregator
+expectEmpty: true
 type: squarespace
 description: "Seattle Creates"
 url: "https://www.seattlecreates.org/events"

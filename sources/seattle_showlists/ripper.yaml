@@ -137,25 +137,17 @@ calendars:
   # The Rabbit Box has a dedicated ripper at sources/rabbit_box/
 
   # --- Eastlake ---
-  - name: black-lodge
-    friendlyname: "Black Lodge"
-    # 2026-08-21: build-health flagged this as "expectEmpty but has events" —
-    # 14 upcoming shows, not a one-off blip. Unlike bandit-improv/seattle-
-    # downtown-community-council (intermittent programming with real gaps),
-    # Black Lodge has sustained regular programming, so the flag no longer fits.
-    imageUrl: "https://images.squarespace-cdn.com/content/v1/631b91c4dca71e1c72c4ee2d/ab7f3ab9-a4e8-4f8c-af67-77be0c76e35a/blacklodgevera__1_.jpeg"
-    geo:
-      lat: 47.6231
-      lng: -122.3539
-      label: "Black Lodge, 305 Harrison St, Seattle, WA 98109"
-      # Nominatim's only nearby match is "Seattle Children's Museum" (node
-      # 2494550791, tourism/museum, 284m) — a different venue in the same
-      # Seattle Center complex, not Black Lodge. 0% name match.
-      osmChecked: 2026-08-17
-    timezone: America/Los_Angeles
-    tags: ["Eastlake"]
-    config:
-      venue: "Black Lodge"
+  # Black Lodge has a dedicated ripper at sources/black_lodge/ (DICE-based)
+  # — see VENUE_CONFIG skip:true below. 2026-08-23: build-health flagged
+  # this calendar with 0 events; investigating found all 14 showlists.net
+  # entries for "Black Lodge" carry the identical (now-past) date
+  # "20260822" (see window.upcomingShows on seattle.showlists.net) — a
+  # data bug on that source, not a ripper bug (other venues in the same
+  # feed have correctly varied dates). Songkick corroborates the venue has
+  # real upcoming shows Sept–Nov 2026 under those same band names, so the
+  # dedicated DICE ripper is the reliable source for this venue; removed
+  # the redundant/buggy showlists.net listing rather than carry a
+  # perpetually-unreliable duplicate.
 
   # --- Georgetown ---
   - name: georgetown-liquor-company

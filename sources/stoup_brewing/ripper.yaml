@@ -30,6 +30,11 @@ calendars:
   - name: kenmore
     friendlyname: "Stoup Brewing - Kenmore"
     timezone: America/Los_Angeles
+    # 2026-08-23: build-health flagged expectEmpty but 1 event. Checked
+    # live — Ballard has 59 upcoming events and Capitol Hill has 130, but
+    # Kenmore has just this 1, confirming it's still a much quieter
+    # location rather than a stale flag. Keeping expectEmpty so normal
+    # single-digit swings here don't false-positive.
     expectEmpty: true
     tags: ["Kenmore"]
     config:

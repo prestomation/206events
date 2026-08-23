@@ -1,5 +1,10 @@
 # 2026-07-21: ICS feed works from residential IP but CI gets 0 events (likely WAF challenge page)
 # Escalating to outofband proxy per the escalation ladder
+# 2026-08-23: build-health flagged 0 events. Not a source problem — this is
+# in proxyStaleServes with "Browserbase fetch failed: HTTP 402" (billing/
+# credits exhausted), cached copy from 2026-08-07 is now past its event
+# window. Browserbase billing is out of scope for build-report; no action
+# taken here (do not touch proxy rung or disable).
 proxy: browserbase
 geo:
   lat: 47.6261

@@ -1,4 +1,9 @@
 # verified: 2026-05-18 ok
+# 2026-08-23: build-health flagged 0 events. Not a source problem — this is
+# in proxyStaleServes with "Browserbase fetch failed: HTTP 402" (billing/
+# credits exhausted), cached copy from 2026-08-05 is now past its event
+# window. Browserbase billing is out of scope for build-report; no action
+# taken here (do not touch proxy rung or disable).
 geo: null
 name: seattledances
 sourceRole: aggregator
