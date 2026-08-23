@@ -57972,6 +57972,826 @@
       "source": "agent",
       "reason": "udistrictseattle.com/bobafest is a retrospective recap page (\"Thank you to everyone who joined us on Saturday, August 1, 2026...\") with no schedule, hours, or start-time information anywhere on the page. Source page re-lists this annual event without updating it (same pattern as other U District Partnership entries).",
       "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+    },
+    "browne-family-vineyards-seattle:6a888e79fa15d4230336454a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.brownefamilyvineyards.com/events/seattle-trivia-sept16 — RSVP required via Tock/Eventbrite ticketing link, no price posted on page"
+    },
+    "browne-family-vineyards-seattle:6a88d454b38dbb5487ab4b1b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.brownefamilyvineyards.com/events/seattle-fall-succulents-sept26 — \"All supplies included\", RSVP required via Eventbrite, no price posted on page"
+    },
+    "native_action_network:6a74cf7918fd0927e1955528": {
+      "fields": {
+        "cost": {
+          "min": 250.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nativeactionnetwork.org/events/dorothy-grant-fur-felt-hat-making-workshop — \"a registration fee of $250 to cover material and instruction costs\""
+    },
+    "northwest-film-forum:local-sightings-2026-assets-liabilities-2026-09-25": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-assets-liabilities/ — \"$15 General Admission\""
+    },
+    "northwest-film-forum:local-sightings-2026-board-2026-09-20": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-board/ — Local Sightings 2026 festival screening, uniform \"$15 General Admission\" confirmed across sampled festival pages"
+    },
+    "northwest-film-forum:local-sightings-2026-closing-night-again-again-2026-09-18": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/events/local-sightings-2026-closing-night-again-again/ — \"$15 General Admission\" (Local Sightings 2026 festival, uniform pricing)"
+    },
+    "northwest-film-forum:local-sightings-2026-creature-feature-2026-09-23": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-creature-feature/ — \"$15 General Admission\""
+    },
+    "northwest-film-forum:local-sightings-2026-feature-lifeweleave-2026-09-19": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-feature-lifeweleave/ — Local Sightings 2026 festival screening, uniform \"$15 General Admission\" confirmed across sampled festival pages"
+    },
+    "northwest-film-forum:local-sightings-2026-life-lines-shorts-2026-09-25": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-life-lines-shorts/ — \"$15 General Admission\""
+    },
+    "northwest-film-forum:local-sightings-2026-like-a-local-2026-09-19": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-like-a-local/ — Local Sightings 2026 festival screening, uniform \"$15 General Admission\" confirmed across sampled festival pages"
+    },
+    "northwest-film-forum:local-sightings-2026-origin-story-2026-09-23": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-origin-story/ — Local Sightings 2026 festival screening, uniform \"$15 General Admission\" confirmed across sampled festival pages"
+    },
+    "northwest-film-forum:local-sightings-2026-queer-as-in-2026-09-25": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-queer-as-in/ — Local Sightings 2026 festival screening, uniform \"$15 General Admission\" confirmed across sampled festival pages"
+    },
+    "northwest-film-forum:local-sightings-2026-sugarfly-2026-09-19": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-sugarfly/ — \"$15 General Admission\""
+    },
+    "northwest-film-forum:local-sightings-2026-the-great-outdoors-2026-09-25": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-the-great-outdoors/ — Local Sightings 2026 festival screening, uniform \"$15 General Admission\" confirmed across sampled festival pages"
+    },
+    "northwest-film-forum:local-sightings-2026-unknown-cancer-story-2026-09-20": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-unknown-cancer-story/ — Local Sightings 2026 festival screening, uniform \"$15 General Admission\" confirmed across sampled festival pages"
+    },
+    "northwest-film-forum:local-sightings-2026-ways-of-seeing-2026-09-20": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-ways-of-seeing/ — Local Sightings 2026 festival screening, uniform \"$15 General Admission\" confirmed across sampled festival pages"
+    },
+    "now-seattle:6a56c250c932a03244338fdc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.nowseattle.org/events/seattle-now-picnic-celebrating-womens-equality-day — potluck-style community picnic, free Google Form RSVP, no admission fee mentioned"
+    },
+    "now-seattle:6a7d35cfdaf6ae2771ff0c82": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.nowseattle.org/events/sep-volunteer-orientation-lpzej-nake6-yzygh-fr6dl — volunteer orientation, free Google Form registration, no cost mentioned"
+    },
+    "queen-anne-book-company:queen-anne-book-company-2026-08-27-queen-anne-helpline-neighborhood-picnic": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://qabookco.com/event/2026-08-27/queen-anne-helpline-neighborhood-picnic — \"No agenda, just community\", no admission fee mentioned"
+    },
+    "queer-social-club:6a84d23c61582872d582dc41": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-gam6x-d23cp — no cost, no ticket link; recurring event previously confirmed free (min:0) multiple times in this cache"
+    },
+    "queer-social-club:6a84d28cdf863974e1970b5c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-gam6x-d23cp-4jrlk — no cost, no ticket link; recurring event previously confirmed free (min:0) multiple times in this cache"
+    },
+    "queer-social-club:6a84d2b6e158e1241c3a0da3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-gam6x-d23cp-4jrlk-ja2e5 — no cost, no ticket link; recurring event previously confirmed free (min:0) multiple times in this cache"
+    },
+    "queer-social-club:6a84d2d841e9677199cf2f5b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-ay53e-2gjdx — no cost, no ticket link; recurring event previously confirmed free (min:0) multiple times in this cache"
+    },
+    "queer-social-club:6a84d63bc66a1e7f3a423b03": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe-4ywea — \"$14 ($5 skate rental)\""
+    },
+    "queer-social-club:6a84d660d21b1651ae195bf6": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe-4ywea — \"$14 ($5 skate rental)\" (same recurring event)"
+    },
+    "queer-social-club:6a84d67f9487c20515bf9489": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe-4ywea — \"$14 ($5 skate rental)\" (same recurring event)"
+    },
+    "queer-social-club:6a84d6a89487c20515bfa3c0": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night-n47fe-4ywea — \"$14 ($5 skate rental)\" (same recurring event)"
+    },
+    "queer-social-club:6a84d884e158e1241c3c1d10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "no pricing published — page has no price, no ticket/RSVP link, no Free/No Cover tag (unlike sibling Unicorn shows explicitly marked no-cover)"
+    },
+    "queer-social-club:6a84d8abdf48e1438fac3e2d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lashes-cabaret-a-free-drag-show-j28bj-8c8r5-7bjc4-srbwl-ta2gx-esbgn — \"No Cover Charge!!!\""
+    },
+    "queer-social-club:6a84d8cfd22bb80f777dda2f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lashes-cabaret-a-free-drag-show-j28bj-8c8r5-7bjc4-srbwl-ta2gx-esbgn — \"No Cover Charge!!!\" (same recurring event)"
+    },
+    "queer-social-club:6a84d904dc70692bb79cf712": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lashes-cabaret-a-free-drag-show-j28bj-8c8r5-7bjc4-srbwl-ta2gx-esbgn — \"No Cover Charge!!!\" (same recurring event)"
+    },
+    "queer-social-club:6a84d92946d9b82044340acc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lashes-cabaret-a-free-drag-show-j28bj-8c8r5-7bjc4-srbwl-ta2gx-esbgn — \"No Cover Charge!!!\" (same recurring event)"
+    },
+    "queer-social-club:6a84d975cec5d24cbe5aeb9a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.dreamlandfremont.com/drag — tickets required via Tock, price not accessible (403); matches prior QSC Dream Girls resolutions (paid, unknown)"
+    },
+    "queer-social-club:6a84d9a91c4c197317934a75": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.dreamlandfremont.com/drag — tickets required via Tock, price not accessible (403); matches prior QSC Dream Girls resolutions (paid, unknown)"
+    },
+    "queer-social-club:6a84d9cecec5d24cbe5b12bc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.dreamlandfremont.com/drag — tickets required via Tock, price not accessible (403); matches prior QSC Dream Girls resolutions (paid, unknown)"
+    },
+    "queer-social-club:6a84d9f3749ebb5ca1a14bc3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.dreamlandfremont.com/drag — tickets required via Tock, price not accessible (403); matches prior QSC Dream Girls resolutions (paid, unknown)"
+    },
+    "queer-social-club:6a84e592eb6ef57c1a207c6a": {
+      "fields": {
+        "cost": {
+          "min": 12.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/bottoms/ — $12 General Admission (linked from QSC page as the ticket source)"
+    },
+    "queer-social-club:6a84e6980c57575d6b3497c5": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://partiful.com/e/VilsZDHQOf9bh5mcA43P (linked from QSC Lesbian/Queer HIP HOP+R&B NIGHT page) — \"$5 per person\""
+    },
+    "queer-social-club:6a84e723722f3149ed168cc9": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://partiful.com/e/ODbpMmcGUrwaYfoFr5Aq (linked from QSC Lesbian/Queer PAINT AND SIP page) — \"$20 per person\""
+    },
+    "queer-social-club:6a84e7ac488b6746aec4eabe": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://partiful.com/e/sPajCbWiPsLBol78B9cA (linked from QSC BIKINI DAY PARTY FINALE page) — \"$5 per person\""
+    },
+    "queer-social-club:6a865a584666a56d0d785102": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "no pricing published — page has no price, no ticket/RSVP link, no Free/No Cover tag"
+    },
+    "queer-social-club:6a865ebf3c41d752d9ef2854": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "no pricing published — page has no price, no ticket/RSVP link, no Free/No Cover tag"
+    },
+    "queer-social-club:6a865f7508f5a15e8d9f3703": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "no pricing published — page has no price, no ticket/RSVP link, no Free/No Cover tag"
+    },
+    "queer-social-club:6a866058e3aa00485931f51c": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-sunset-sauna — \"sliding $15 (min) - $20 (suggested)\""
+    },
+    "queer-social-club:6a8661af77b87753c8db4c30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "reason": "no pricing published — page has no price, no ticket/RSVP link, no Free/No Cover tag"
+    },
+    "queer-social-club:6a866278089f1a22def46f4e": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/copacabana-drag-burlesque-brunch-4 — \"$20 presale or $25 at the door\""
+    },
+    "queer-social-club:6a89ce405e6e0f3d7b287ee3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/aids-rides-2027-kick-off-cycling-ride — tagged Fundraiser, no price, no Free tag, registration via email"
+    },
+    "rabbit_box:6a7e574e8507fd0a8bbc88d6": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-presents-emily-scott-robinson — \"$25 Advance // $30 Day of show\""
+    },
+    "rabbit_box:6a83152d6ef51149b94b4ebd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/vivienne-dimarco-the-warning-strobe-lights — \"Free Admission!\""
+    },
+    "rabbit_box:6a84915692818f5ec02c0333": {
+      "fields": {
+        "cost": {
+          "min": 12.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/movie-night-at-the-roach-motel — \"Tickets at door: $12-25 sliding scale\""
+    },
+    "rabbit_box:6a84a40dc8a58b7d5a591118": {
+      "fields": {
+        "cost": {
+          "min": 18.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/debbie-miller-amanda-winterhalter-friends — \"GA Seated $18 adv. / $23 door\""
+    },
+    "rabbit_box:6a84a93841cc96635190f02a": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-crocodile-presents-anthony-locascio-the-divine-comedy — \"Adv. $35.38 ($25.00 + $10.38 fee)\"; face value excluding fees = $25"
+    },
+    "rabbit_box:6a84cc4c753ecb41c8f24fa9": {
+      "fields": {
+        "cost": {
+          "min": 18.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/degenerate-fellows — \"GA Seated $18 adv. / $23 door\""
+    },
+    "rabbit_box:6a84dd284688ce403483fe80": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/nate-varrone-intersting-perspectives-tour — \"GA Seated $20 adv. // $25 door\""
+    },
+    "rabbit_box:6a85dbb0a068803a1b87ab73": {
+      "fields": {
+        "cost": {
+          "min": 12.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/desert-hollow — \"GA Seated $12 adv. // $17 door\""
+    },
+    "rabbit_box:6a85e875692b2770fd2b7baf": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/ticklemuffs-big-tour-featuring-zack-binder — 3pm show, cheapest tier Standing Room Only \"$15 adv. & door\""
+    },
+    "rabbit_box:6a8624ddeafc255661322cfb": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/ticklemuffs-big-tour-featuring-zack-binder-jwwj6 — 7:30pm \"After Dark\" show, cheapest tier Standing Room Only \"$15 adv. & door\""
+    },
+    "seattle-folklore-society:seattle-folklore-society-winters-return-pint-dale-opland-freeman-2026-12-19": {
+      "fields": {
+        "cost": {
+          "min": 26.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/winters-return-pint-dale-opland-freeman/ — \"General Advance: $26\" (general-admission adult advance price)"
+    },
+    "seattle-makers:seattle-makers-163823": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-18/ — members-only guided studio time (no public/non-member tier offered), \"$0.00\""
+    },
+    "seattle-makers:seattle-makers-163837": {
+      "fields": {
+        "cost": {
+          "min": 100.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/soldering-101-98/ — Members $70.00 / Non-members $100.00; non-member general-admission price used"
+    },
+    "seattle-makers:seattle-makers-163840": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-19/ — members-only guided studio time (no public/non-member tier offered), \"$0.00\""
+    },
+    "seattle-makers:seattle-makers-163851": {
+      "fields": {
+        "cost": {
+          "min": 175.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/laser-cutter-certification-315/ — Members $115.00 / Non-members $175.00; non-member general-admission price used"
+    },
+    "seattle-makers:seattle-makers-163854": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%e2%9a%a1electronics-guided-studio-13/ — members-only guided studio time (no public/non-member tier offered), \"$0.00\""
+    },
+    "seattle-makers:seattle-makers-163856": {
+      "fields": {
+        "cost": {
+          "min": 115.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-certification-35/ — Members $85.00 / Non-members $115.00; non-member general-admission price used"
+    },
+    "seattle-makers:seattle-makers-163874": {
+      "fields": {
+        "cost": {
+          "min": 85.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/sewing-machine-basics-52/ — Members $65.00 / Non-members $85.00; non-member general-admission price used"
+    },
+    "seattle-makers:seattle-makers-163878": {
+      "fields": {
+        "cost": {
+          "min": 85.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/sewing-machine-basics-53/ — Members $65.00 / Non-members $85.00; non-member general-admission price used"
+    },
+    "seattle-makers:seattle-makers-163898": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio/ — Members $0.00 / Non-members $20.00; non-member general-admission price used"
+    },
+    "seattle-makers:seattle-makers-163901": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-thursdays-10/ — Members $0.00 / Non-members $20.00; non-member general-admission price used"
+    },
+    "seattle-makers:seattle-makers-163904": {
+      "fields": {
+        "cost": {
+          "min": 85.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/sewing-machine-basics-54/ — Members $65.00 / Non-members $85.00; non-member general-admission price used"
+    },
+    "seattle-makers:seattle-makers-164010": {
+      "fields": {
+        "cost": {
+          "min": 55.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/serger-coverstitch-certification-sewing-6/ — Members $30.00 / Non-members $55.00; non-member general-admission price used"
+    },
+    "stg:tm-vvG1HZ_5mcjDK1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/josh-johnsons-comedy-band-camp-seattle-washington-11-22-2026/event/0F0064BBAD73B4CA — ticketed (confirmed on sale via search), TM (403) and stgpresents.org (sgcaptcha) both blocked; no verified face-value price"
+    },
+    "stg:tm-vvG1HZ_6REh3aR": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/nutcracker-magical-christmas-ballet-seattle-washington-11-22-2026/event/0F00647BE76D226F — ticketed (confirmed on sale via search), TM (403) and stgpresents.org (sgcaptcha) both blocked; no verified face-value price"
+    },
+    "stg:tm-vvG1HZ_Amlz5A3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/josh-johnsons-comedy-band-camp-seattle-washington-11-22-2026/event/0F00645BABE0B152 — ticketed (confirmed on sale via search), TM (403) and stgpresents.org (sgcaptcha) both blocked; no verified face-value price"
+    },
+    "stg:tm-vvG1HZ_FbrVCoZ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/comedy-band-camp-essentials-upgrade-seattle-washington-11-22-2026/event/0F0064861ED0E440 — VIP add-on package (not a general-admission ticket), price varies by market ($91.50 seen elsewhere); TM blocked (403), no verified Seattle-specific price"
+    },
+    "stg:tm-vvG1HZ_o6_T5BB": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-music-of-hey-arnold-live-seattle-washington-11-22-2026/event/0F006511D9FCBEBA — ticketed, on sale since Aug 21 2026 (confirmed via search), TM (403) and stgpresents.org (sgcaptcha) both blocked; no verified face-value price"
+    },
+    "west-seattle-nursery:6a834c16a24c3a39d8bc9145": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/tent-sale — no admission fee mentioned, \"Everything in the sale is 50% off!\" (pay per item, not entry)"
+    },
+    "west-seattle-nursery:6a835ab0718c786c72ea0805": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/closed-for-inventory-1 — store closure notice, not a ticketed event"
+    },
+    "west-seattle-nursery:6a877d4126f24920bd109b8d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/33j62c6wfitrepky3ebkkgc0xx4xnt — art walk stop, \"Join us between 5-8PM to view and purchase her amazing artwork\", no admission fee"
+    },
+    "west-seattle-nursery:6a878143bfc1841a331bd2ad": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/how-to-choose-place-amp-grow-trees-for-a-more-beautiful-comfortable-and-valuable-home — \"Sign-up link and more details TBA!\"; a class, price not yet posted"
+    },
+    "northwest-film-forum:local-sightings-2026-beau-ideal-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-beau-ideal/ — \"$15 General Admission\""
+    },
+    "northwest-film-forum:local-sightings-2026-closing-night-the-joyless-economy-2026-09-27": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/events/local-sightings-2026-closing-night-the-joyless-economy/ — \"$15 General Admission\""
+    },
+    "northwest-film-forum:local-sightings-2026-dad-genes-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-dad-genes/ — \"$15 General Admission\""
+    },
+    "northwest-film-forum:local-sightings-2026-female-gaze-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-female-gaze/ — \"$15 General Admission\""
+    },
+    "northwest-film-forum:local-sightings-2026-our-land-shorts-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-our-land-shorts/ — \"$15 General Admission\""
     }
   }
 }
