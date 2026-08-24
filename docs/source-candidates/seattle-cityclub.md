@@ -1,12 +1,12 @@
 ---
 name: "Seattle CityClub"
-status: investigating
+status: added
 platform: Eventbrite
 url: https://www.eventbrite.com/o/seattle-cityclub-12026318033
 tags: [Community]
 firstSeen: 2026-07-11
 lastChecked: 2026-08-24
-pr:
+pr: 1275
 ---
 
 Nonpartisan 501(c)(3) nonprofit focused on the civic health of the Puget
@@ -32,5 +32,8 @@ as `sync-seattle`). `EVENTBRITE_TOKEN` is already an existing repo
 secret, so no new credential wiring needed. Local
 `ONLY_SOURCE=seattle-cityclub npm run generate-calendars` confirms the
 config loads and parses cleanly (0 events locally since the token isn't
-available in this environment — expected; CI has the secret). Awaiting
-CI to confirm live event count before flipping to `added`.
+available in this environment — expected; CI has the secret).
+
+CI confirmed 2026-08-24: PR preview build shows 1 event for
+`seattle-cityclub` ("Voter Guide Live with Seattle CityClub & KUOW"),
+all checks green. PR #1275.
