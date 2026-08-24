@@ -38743,9 +38743,9 @@
     },
     "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-23": {
       "unresolvable": true,
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-08-24",
       "source": "agent",
-      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
+      "reason": "NW Film Forum lacks the missing field(s); default retained."
     },
     "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-28": {
       "unresolvable": true,
@@ -58161,9 +58161,10 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Winters-Return-Wm-Tania-Mike-Felicia.jpeg"
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-08-24",
       "source": "agent",
       "evidence": "https://www.seafolklore.org/events/winters-return-pint-dale-opland-freeman/"
     },
@@ -58742,6 +58743,4033 @@
       "resolvedAt": "2026-08-23",
       "source": "agent",
       "evidence": "https://therabbitbox.com/"
+    },
+    "venue:loc:all national parks": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.nps.gov/planyourvisit/passes.htm#free_entrance_days"
+    },
+    "venue:loc:bellevue botanical garden, 12001 main st, bellevue, wa 98005": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://bellevuebotanical.org/arts-in-the-garden/"
+    },
+    "venue:loc:dakwas park, , neah bay, wa 98357": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://makah.com/attractions/makah-days/"
+    },
+    "venue:loc:seattle, bellevue, issaquah": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://trailheaddirect.org/"
+    },
+    "venue:osm:node:2127063769": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2"
+    },
+    "venue:osm:way:6404712": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://downtownissaquah.com/events/confluence-music-festival-2026/"
+    },
+    "events12:architectural-tour-119702-2026-08-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-08-29-tk"
+    },
+    "events12:architectural-tour-119702-2026-08-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-08-29-tk"
+    },
+    "events12:architectural-tour-119702-2026-08-26": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-08-29-tk"
+    },
+    "events12:architectural-tour-119702-2026-08-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-08-29-tk"
+    },
+    "events12:architectural-tour-119702-2026-08-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-08-29-tk"
+    },
+    "events12:architectural-tour-119702-2026-08-29": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-08-29-tk"
+    },
+    "events12:concerts-120202-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:concerts-120202-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-08-24": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-08-25": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-08-26": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-08-27": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-08-28": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-08-29": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-08-30": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-08-31": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-09-01": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-09-02": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-09-03": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-09-04": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-09-05": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-09-06": {
+      "fields": {
+        "setting": "outdoor",
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:fun-tours-120200-2026-08-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-08-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-08-26": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-08-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-08-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-08-29": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-08-30": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-08-31": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-01": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-02": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-03": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-04": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-05": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-06": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:hip-hop-tournament-119314-2026-08-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.206zulu.org/15th-annual-beat-masters-2026/",
+      "partialFingerprint": "1ix6rzy-until2026-08-28-tu"
+    },
+    "events12:hip-hop-tournament-119314-2026-08-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.206zulu.org/15th-annual-beat-masters-2026/",
+      "partialFingerprint": "1ix6rzy-until2026-08-28-tu"
+    },
+    "events12:live-theater-119957-2026-08-24": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-08-25": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-08-26": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-08-27": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-08-28": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-08-29": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-08-30": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-08-31": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-09-01": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-09-02": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-09-03": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-09-04": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-09-05": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:live-theater-119957-2026-09-06": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-09-06-tu"
+    },
+    "events12:movies-in-seattle-parks-117041-2026-08-23": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
+    },
+    "events12:movies-in-seattle-parks-117041-2026-08-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
+    },
+    "events12:movies-in-seattle-parks-117041-2026-08-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
+    },
+    "events12:movies-in-seattle-parks-117041-2026-08-26": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
+    },
+    "events12:movies-in-seattle-parks-117041-2026-08-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
+    },
+    "events12:movies-in-seattle-parks-117041-2026-08-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
+    },
+    "events12:music-by-candlelight-nordic-museum-119604-2026-08-28-1200": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://fever.pxf.io/Kj6j5x",
+      "partialFingerprint": "8kffbv-until2026-08-28-tk"
+    },
+    "events12:sunflower-farms-118543-2026-08-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-08-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-08-26": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-08-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-08-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-08-29": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-08-30": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-08-31": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-01": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-02": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-03": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-04": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-05": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-06": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "brick-park-psq:brickpark-2026-7-9-the-residency": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Brick Park PSQ does not publish per-event times; 7 PM / 3 hr default retained.",
+      "partialFingerprint": "9bh9km"
+    },
+    "brick-park-psq:brickpark-2026-7-12-dj-jazzy-jeff-four-color-zack": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Brick Park PSQ does not publish per-event times; 7 PM / 3 hr default retained.",
+      "partialFingerprint": "zv41am"
+    },
+    "brick-park-psq:brickpark-2026-7-15-seattle-jazz-fellowship": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Brick Park PSQ does not publish per-event times; 7 PM / 3 hr default retained.",
+      "partialFingerprint": "9nndsc"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2SpZuPG": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Ticketmaster listing is date-only; 19:30 placeholder retained.",
+      "partialFingerprint": "97izib"
+    },
+    "discover-slu:discover-slu-steamship-sunday-2026-2-2-2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Steamship Sunday Cruise page has date only; default retained.",
+      "partialFingerprint": "sun9ur"
+    },
+    "events12:concerts-120202-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+    },
+    "events12:eastside-movies-in-parks-117040-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Eastside movies in parks' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "ixxxr3-until2026-08-27-tu"
+    },
+    "events12:family-circus-115468-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:family-circus-115468-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-09-07": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:dance-in-the-park-109594-2026-09-08": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-07": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-08": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:sunflower-farms-118543-2026-09-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "partialFingerprint": "oju0is-until2026-09-13-tu"
+    },
+    "events12:fun-tours-120200-2026-09-07": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-08": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-20": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-21": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-22": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-23": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-26": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-29": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-09-30": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-01": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-02": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-03": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-04": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-05": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-06": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-07": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-08": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-20": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-21": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-22": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-23": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-26": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-29": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-30": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-10-31": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-01": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-02": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-03": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-04": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-05": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-06": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-07": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-08": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-20": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-21": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-22": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-23": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-26": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-29": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-11-30": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-01": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-02": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-03": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-04": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-05": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-06": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-07": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-08": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-09": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-10": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-11": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-13": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-14": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-15": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-16": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-17": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-18": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-19": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-20": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-21": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-22": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-23": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-24": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-25": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-26": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-27": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-28": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-29": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-30": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:fun-tours-120200-2026-12-31": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
+    },
+    "events12:sailboat-120161-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-09-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:sailboat-120161-2026-10-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
+    },
+    "events12:bus-to-the-mountains-120038-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Bus to the mountains' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-120038-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Bus to the mountains' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-120038-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Bus to the mountains' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-120038-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Bus to the mountains' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-120038-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Bus to the mountains' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-120038-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Bus to the mountains' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:bus-to-the-mountains-120038-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Bus to the mountains' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "6j1to2-until2026-08-30-tu"
+    },
+    "events12:chamber-music-in-port-townsend-100372-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Chamber music in Port Townsend' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "82rwyj-until2026-08-30-tk"
+    },
+    "events12:chamber-music-in-port-townsend-100372-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Chamber music in Port Townsend' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "82rwyj-until2026-08-30-tk"
+    },
+    "events12:chamber-music-in-port-townsend-100372-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Chamber music in Port Townsend' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "82rwyj-until2026-08-30-tk"
+    },
+    "events12:chamber-music-in-port-townsend-100372-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Chamber music in Port Townsend' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "82rwyj-until2026-08-30-tk"
+    },
+    "events12:chamber-music-in-port-townsend-100372-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Chamber music in Port Townsend' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "82rwyj-until2026-08-30-tk"
+    },
+    "events12:chamber-music-in-port-townsend-100372-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Chamber music in Port Townsend' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "82rwyj-until2026-08-30-tk"
+    },
+    "events12:chamber-music-in-port-townsend-100372-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Chamber music in Port Townsend' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "82rwyj-until2026-08-30-tk"
+    },
+    "events12:gourmet-cooking-class-vs-international-street-food-119075-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Gourmet cooking class vs. International street food' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1vmda95-until2026-09-05-tk"
+    },
+    "events12:gourmet-cooking-class-vs-chicken-paella-tapas-119075-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Gourmet cooking class vs. Chicken paella & tapas' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1vmda95-until2026-09-05-tk"
+    },
+    "events12:gourmet-cooking-class-vs-mexican-pork-pozole-119075-2026-09-05-1100": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Gourmet cooking class vs. Mexican pork pozole' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1vmda95-until2026-09-05-tk"
+    },
+    "events12:gourmet-cooking-class-vs-italian-gnocchi-119075-2026-09-05-1430": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Gourmet cooking class vs. Italian gnocchi' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1vmda95-until2026-09-05-tk"
+    },
+    "events12:interactive-show-120403-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:interactive-show-120403-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12utjff-until2026-09-05-tu"
+    },
+    "events12:harry-potter-live-117523-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:harry-potter-live-117523-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-08-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-09-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:party-on-a-ferry-boat-119803-2026-10-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
+    },
+    "events12:national-park-day-102684-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'National park day' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "t4pf5g-until2026-08-25-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-08-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:baseball-in-tacoma-120216-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "74kv5k-until2026-09-13-tu"
+    },
+    "events12:romantic-rooftop-concert-119755-2026-08-26-1800": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Romantic rooftop concert' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "14ji9rs-until2026-08-26-tk"
+    },
+    "events12:romantic-rooftop-concert-119755-2026-08-26-2030": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Romantic rooftop concert' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "14ji9rs-until2026-08-26-tk"
+    },
+    "events12:evergreen-state-fair-100089-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:evergreen-state-fair-100089-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "5ptse-until2026-09-07-tu"
+    },
+    "events12:olympia-music-festival-119338-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Olympia music festival' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "u1irss-until2026-08-29-tu"
+    },
+    "events12:olympia-music-festival-119338-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Olympia music festival' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "u1irss-until2026-08-29-tu"
+    },
+    "events12:art-fair-in-a-garden-118574-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Art fair in a garden' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12eg8fk-until2026-08-30-tu"
+    },
+    "events12:art-fair-in-a-garden-118574-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Art fair in a garden' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12eg8fk-until2026-08-30-tu"
+    },
+    "events12:art-fair-in-a-garden-118574-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Art fair in a garden' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "12eg8fk-until2026-08-30-tu"
+    },
+    "events12:neah-bay-celebration-100132-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Neah Bay celebration' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "9gyx2a-until2026-08-30-tu"
+    },
+    "events12:neah-bay-celebration-100132-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Neah Bay celebration' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "9gyx2a-until2026-08-30-tu"
+    },
+    "events12:neah-bay-celebration-100132-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Neah Bay celebration' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "9gyx2a-until2026-08-30-tu"
+    },
+    "events12:lunch-specials-in-chinatown-118712-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Lunch specials in Chinatown' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "6ufyf2-until2026-08-29-tk"
+    },
+    "events12:electric-aircraft-120416-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Electric aircraft' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "8a0u55-until2026-08-29-tk"
+    },
+    "events12:hawaiian-luau-119086-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 aggregates 'Hawaiian luau' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "partialFingerprint": "1x9gmr1-until2026-08-29-tk"
+    },
+    "seatoday:cityspark-17845558": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "CitySpark API does not expose price",
+      "partialFingerprint": "194hzh3"
+    },
+    "seatoday:cityspark-19254923": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "title indicates \"Free\"",
+      "partialFingerprint": "9rgz4b"
+    },
+    "seatoday:cityspark-19712272": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "CitySpark API does not expose price",
+      "partialFingerprint": "b6xj8f"
+    },
+    "seatoday:cityspark-19543895": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "CitySpark API does not expose price",
+      "partialFingerprint": "1l6sv84"
+    },
+    "seatoday:cityspark-17845538": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "CitySpark API does not expose price",
+      "partialFingerprint": "1uahwlx"
+    },
+    "seatoday:cityspark-18829961": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "CitySpark API does not expose price",
+      "partialFingerprint": "ntjvwe"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46403": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
+      "partialFingerprint": "164b80k"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46404": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
+      "partialFingerprint": "c87785"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46405": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
+      "partialFingerprint": "1hd78eu"
+    },
+    "seattle-center:artsfund-2026-celebration-of-the-arts": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
+      "partialFingerprint": "xvegxf"
+    },
+    "seattle-center:artists-at-the-center-path-with-art": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
+      "partialFingerprint": "3zag50"
+    },
+    "seattle-center:seattle-storm-vs-las-vegas-aces": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
+      "partialFingerprint": "3zag50"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46406": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
+      "partialFingerprint": "nh37mf"
+    },
+    "seattle-center:johnny-blue-skies-and-the-dark-clouds-mutiny-after-midnight": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
+      "partialFingerprint": "1kjflyv"
+    },
+    "t-mobile-park:tm-vvG1HZ_7HoNcKM": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "T-Mobile Park lacks the missing field(s).",
+      "partialFingerprint": "97izib"
+    },
+    "the-cuff-complex:6a874dfe150b7c2e58cf9de1": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/cuff-presents-brian-kent"
+    },
+    "the-cuff-complex:6a874f8ad0f38e667fe45bfd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Dum Top Trivia = free entry)"
+    },
+    "the-cuff-complex:6a87500d0cf92c591bba7dc5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Hump Day Karaoke = $0 cover)"
+    },
+    "the-cuff-complex:6a8756c76e941239c6ee3143": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Pride Sports Corn Hole free Open Play)"
+    },
+    "the-cuff-complex:6a87592523c8a66bc43f2581": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Pride Sports Corn Hole free Open Play)"
+    },
+    "the-cuff-complex:6a87593c3937e8128357b285": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Pride Sports Corn Hole free Open Play)"
+    },
+    "the-cuff-complex:6a87596a0ec3b12cf8bfcd5a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Pride Sports Corn Hole free Open Play)"
+    },
+    "the-cuff-complex:6a875984267bbb0c1d20575d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Pride Sports Corn Hole free Open Play)"
+    },
+    "the-cuff-complex:6a87598c3c52f165ae04f83d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Pride Sports Corn Hole free Open Play)"
+    },
+    "the-cuff-complex:6a875995fecc3f0b0f906069": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Pride Sports Corn Hole free Open Play)"
+    },
+    "the-cuff-complex:6a877e76d272885488b7776e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events (Cuff Presents DJ show — cover charge, exact price not published)"
+    },
+    "northwest-film-forum:local-sightings-2026-beau-ideal-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/beauidealposter.jpg"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-beau-ideal/"
+    },
+    "northwest-film-forum:local-sightings-2026-dad-genes-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/dadgenesposter.jpg"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-dad-genes/"
+    },
+    "northwest-film-forum:local-sightings-2026-female-gaze-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2017/08/lsff2026-1600-2-1200x675.png"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-female-gaze/"
+    },
+    "northwest-film-forum:local-sightings-2026-our-land-shorts-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2017/08/lsff2026-1600-2-1200x675.png"
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/local-sightings-2026-our-land-shorts/"
+    },
+    "beguiled-books:a-curse-for-christmas-past-by-morgan-lockhart-release-event": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.beguiledbooks.com/event-details/a-curse-for-christmas-past-by-morgan-lockhart-release-event (indie bookstore release event; free with RSVP)"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OQB10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-anaheim-ducks-seattle-washington-11-23-2026/event/0F0064C4A06BA2A4"
+    },
+    "events12:blues-beer-101141-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:celebrate-ukraine-120430-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:concerts-at-marymoor-park-squeeze-adam-ant-112869-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:concerts-on-a-farm-big-thief-119764-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:dating-comedy-120395-2026-08-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:mercer-island-wine-tasting-115319-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:music-in-issaquah-park-118576-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:party-in-the-market-120429-2026-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:seattle-waterfront-festival-119783-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:soccer-vs-bay-fc-119759-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:soccer-vs-boston-legacy-119759-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:soccer-vs-houston-dash-119759-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:soccer-vs-norh-carolina-courage-119759-2026-10-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:soccer-vs-orlando-pride-119759-2026-11-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "events12:soccer-vs-san-diego-wave-119759-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-24",
+      "source": "agent",
+      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
     }
   }
 }
