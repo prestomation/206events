@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.upliftclimbing.com/events
 tags: [Sports]
 firstSeen: 2026-06-30
-lastChecked: 2026-06-30
+lastChecked: 2026-08-24
 ---
 **Uplift Climbing** — `https://www.upliftclimbing.com/events` — climbing gym in SODO hosting community climb nights (She Rocks, Rising Roots, Queer Mountaineers) and social events (BBQ potlucks).
 
@@ -15,3 +15,6 @@ Investigated 2026-06-30:
 - Unlike Unicorn (same investigation day), the page does not render individually-dated weekly occurrences — only descriptive blurbs ("July 28 & August 25", etc. embedded in body copy), not a stable per-week pattern suitable for recurring YAML without re-checking dates each month
 
 Re-evaluate if the venue adopts a real Squarespace events collection or a clearer fixed weekly pattern emerges.
+
+Re-checked 2026-08-24: `/events?format=json` still returns an empty page
+shell (`data-type="page"`, no events collection). No change.

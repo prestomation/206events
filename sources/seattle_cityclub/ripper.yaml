@@ -1,0 +1,25 @@
+name: seattle-cityclub
+sourceRole: venue
+type: eventbrite
+# Nonpartisan civic nonprofit; events (candidate forums, civic discussions)
+# happen at rotating venues around the city, not one fixed address —
+# geo: null at the ripper level, same pattern as seattle-social-club /
+# seattle-downtown-community-council.
+# 2026-08-24: confirmed via Eventbrite organizer page: 1 upcoming event
+# ("Voter Guide Live with Seattle CityClub & KUOW", Sep 16 2026 at The
+# Collective Seattle). Low, intermittent volume expected (civic-forum
+# cadence), so expectEmpty stays set like sync-seattle.
+expectEmpty: true
+description: "Seattle CityClub"
+url: "https://www.eventbrite.com/o/seattle-cityclub-12026318033"
+friendlyLink: "https://www.seattlecityclub.org/"
+geo: null
+tags: ["Community"]
+calendars:
+  - name: seattle-cityclub
+    friendlyname: "Seattle CityClub"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "12026318033"
+      defaultLocation: "Seattle, WA"
+      defaultDurationHours: 2
