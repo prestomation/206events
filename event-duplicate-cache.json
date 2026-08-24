@@ -13474,6 +13474,86 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-23",
       "note": "B's title explicitly says 'AT The Sunset' - Tractor Tavern presenting a show hosted at Sunset Tavern; same date/time; Tractor's location field is just their own default venue address, not this show's actual venue"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Johnny Blue Skies & the Dark Clouds - Mutiny for the Masses 2026 Tour|2026-09-18T20:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Johnny Blue Skies & the Dark Clouds: Mutiny After Midnight|2026-09-18T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across climate-pledge-arena-climate-pledge-arena.ics and seattle-center-seattle-center-events.ics"
+    },
+    "external-seattle-indies.ics Seattle Indies Expo (SIX)|2026-09-06T11:30:00Z[UTC]::seatoday-seatoday-all.ics Seattle Indies Expo 2026|2026-09-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and external-seattle-indies.ics"
+    },
+    "external-seattle-indies.ics Seattle Indies Expo (SIX)|2026-09-06T11:30:00Z[UTC]::seatoday-seatoday-learning.ics Seattle Indies Expo 2026|2026-09-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-learning.ics and external-seattle-indies.ics"
+    },
+    "seatoday-seatoday-all.ics 2026 Edmonds Classic Car & Motorcycle Show|2026-09-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2026 Edmonds Classic Car & Motorcycle Show|2026-09-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-sports.ics"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-arts.ics"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-community.ics"
+    },
+    "seatoday-seatoday-all.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-community.ics"
+    },
+    "seatoday-seatoday-all.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-sports.ics"
+    },
+    "seatoday-seatoday-all.ics Sabrosura: Ladies Salsa Weekender 2025|2026-09-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Sabrosura: Ladies Salsa Weekender 2025|2026-09-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-arts.ics"
+    },
+    "seatoday-seatoday-all.ics Sabrosura: Ladies Salsa Weekender 2025|2026-09-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Sabrosura: Ladies Salsa Weekender 2025|2026-09-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-community.ics"
+    },
+    "seatoday-seatoday-all.ics Seattle Indies Expo 2026|2026-09-06T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle Indies Expo 2026|2026-09-06T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-learning.ics"
+    },
+    "seatoday-seatoday-all.ics Sunday Talks|2026-09-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sunday Talks|2026-09-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-all.ics and seatoday-seatoday-learning.ics"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-arts.ics and seatoday-seatoday-community.ics"
+    },
+    "seatoday-seatoday-arts.ics Sabrosura: Ladies Salsa Weekender 2025|2026-09-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Sabrosura: Ladies Salsa Weekender 2025|2026-09-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-arts.ics and seatoday-seatoday-community.ics"
+    },
+    "seatoday-seatoday-community.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-06T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-24",
+      "note": "Same event across seatoday-seatoday-sports.ics and seatoday-seatoday-community.ics"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-24",
+      "note": "Different food truck pods at different addresses (1201 vs 1551 Eastlake)"
     }
   }
 }
