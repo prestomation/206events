@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.dogyardbar.com/events
 tags: [Pets, Nightlife]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-19
+lastChecked: 2026-08-24
 ---
 
 Seattle dog bar where patrons can bring their dogs, hosting themed events and social gatherings.
@@ -30,3 +30,7 @@ quality-gate rule ("200 + 0 events → do not implement"), holding this as
 `candidate` rather than implementing against a dead pipeline. Worth a
 fresh check next cycle in case the venue resumes posting to
 `/events-all`.
+
+**Re-checked 2026-08-24:** `/events-all?format=json` still `itemCount: 123`,
+`upcoming: 0`, most recent `past` entry still mid-December 2024. No change —
+still a dead pipeline despite the live site. Keep as `candidate`.

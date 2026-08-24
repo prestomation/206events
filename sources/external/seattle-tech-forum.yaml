@@ -1,0 +1,9 @@
+geo: null
+name: seattle-tech-forum
+sourceRole: venue
+friendlyname: Seattle Tech Forum
+description: Seattle-based professional tech community running recurring meetups, panels, and workshops — including job-seeker meetups, AI/PM training, and a women-in-tech forum, both in-person and virtual
+icsUrl: https://api.lu.ma/ics/get?entity=calendar&id=cal-eQcMdYUbFxXxonI
+infoUrl: https://www.seattletechforum.org/events
+tags:
+  - Tech
