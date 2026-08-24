@@ -1,11 +1,11 @@
 ---
 name: "Bellevue Arts Fair"
-status: candidate
+status: notviable
 platform: Unknown
 url: https://www.bellevueartsfair.com/
 tags: [Art, Craft, Bellevue, Community]
 firstSeen: 2026-07-22
-lastChecked: 2026-07-22
+lastChecked: 2026-08-24
 ---
 
 Discovered via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1v2lm6v/bellevue_arts_fair_weekend_july_2426/
@@ -24,3 +24,9 @@ recurring source similar to `bite-of-seattle` or `seafair` with a fixed schedule
 
 **Location:** Bellevue, WA (outside Seattle city limits but within Puget Sound region — consider
 whether this fits the calendar's geographic scope).
+
+**Verdict (2026-08-24):** Not viable — entirely a Bellevue event (Bellevue
+Downtown/Bellevue Square/Bellevue Arts Museum), not "primarily Seattle"
+per the geographic-scope rule. Marketing site also has no structured
+event data (no ICS/API), so even a Bellevue-appropriate calendar would
+need this as a hand-authored recurring entry.

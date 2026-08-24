@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.eventbrite.com/o/ncnw-seattle-section-32936501843
 tags: [Community]
 firstSeen: 2026-07-11
-lastChecked: 2026-07-22
+lastChecked: 2026-08-24
 pr:
 ---
 
@@ -20,3 +20,5 @@ Investigated 2026-07-11:
   future cycle to see if event volume grows before implementing.
 
 Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcoming array empty, or Eventbrite organizer `upcomingEvents` empty). No change.
+
+Re-checked 2026-08-24: still 0 upcoming events (`__NEXT_DATA__` `upcomingEvents` empty). No change.
