@@ -1,0 +1,13 @@
+name: a-cleaner-alki
+sourceRole: venue
+type: squarespace
+description: "A Cleaner Alki"
+url: "https://www.byandby.org/events"
+friendlyLink: https://www.byandby.org/events
+cost: free
+geo: null
+tags: ["Community", "West Seattle"]
+calendars:
+  - name: a-cleaner-alki
+    friendlyname: "A Cleaner Alki"
+    timezone: America/Los_Angeles
