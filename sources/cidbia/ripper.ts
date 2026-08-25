@@ -10,7 +10,7 @@ const DEFAULT_DURATION_HOURS = 2;
 const MONTH_NAMES: Record<string, number> = {
     january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
     july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
-    jan: 1, feb: 2, mar: 3, apr: 4, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12,
+    jan: 1, feb: 2, mar: 3, apr: 4, jun: 6, jul: 7, aug: 8, sep: 9, sept: 9, oct: 10, nov: 11, dec: 12,
 };
 
 interface ParsedTime {
@@ -147,10 +147,14 @@ export default class CIDBIARipper implements IRipper {
             return { type: 'ParseError', reason: 'No date found', context: title };
         }
 
-        // A multi-day event's date range doesn't match parseMonthDay's single-date shape;
-        // fall back to the section's own day header, which pins the specific occurrence.
+        // A multi-day event's date range (e.g. "August 21st - August 22nd") doesn't match
+        // parseMonthDay's single-date shape; fall back to the section's own day header,
+        // which pins the specific occurrence. Only take the fallback for an actual range —
+        // any other unparseable single-date text should still surface as a loud ParseError
+        // rather than silently masking a future format change.
         const directMonthDay = this.parseMonthDay(datePText);
-        const monthDay = directMonthDay ?? this.parseHeaderDay(headerText);
+        const isDateRange = !directMonthDay && /\s-\s/.test(datePText);
+        const monthDay = directMonthDay ?? (isDateRange ? this.parseHeaderDay(headerText) : null);
         if (!monthDay) {
             return { type: 'ParseError', reason: `Could not parse date: ${datePText}`, context: title };
         }
