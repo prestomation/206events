@@ -6,7 +6,7 @@ url: https://www.byandby.org/events
 tags: ["Community", "West Seattle"]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-25
-pr: TBD
+pr: 1283
 ---
 
 Seattle community gathering space hosting events, meetings, and social activities.
