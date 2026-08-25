@@ -63028,6 +63028,12 @@
       "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://calendar.thecrocodile.com/"
+    },
+    "u-district-partnership:bobafest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "Event already past (Aug 1 2026); start time not listed on source page"
     }
   }
 }
