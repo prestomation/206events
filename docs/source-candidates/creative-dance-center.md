@@ -9,11 +9,19 @@ lastChecked: 2026-08-25
 ---
 
 Dance education nonprofit (Wallingford, 4649 Sunnyside Ave N) mixing
-ongoing class registration with dated public workshops/institutes:
-"Movement Matters Workshop" (Sat Mar 7, 2026), "BrainDance for Every
-Body Workshop" (Sun May 17, 2026), Summer Dance Institute for Teachers
-(Jul 20-24), Summer Teen Intensive (Aug 10-14), Summer Dance Lab
-(Aug 4-6), plus themed weekly summer camps (Jun 29-Aug 21).
+ongoing class registration with dated public workshops/institutes.
+As of this Aug 25, 2026 investigation, the listed examples (a "Movement
+Matters" parent/educator workshop in March, "BrainDance for Every Body"
+in May, Summer Dance Institute for Teachers in July, Summer Teen
+Intensive and Summer Dance Lab in August, plus themed weekly summer
+camps) had all already passed for the year — the page hadn't yet posted
+its next round. The one confirmed still-future dated item at check time
+was "An Afternoon of Dance" (school performance, Mar 21, 2027). The
+recurring cadence (several single-day public workshops per year, named
+per-instructor/topic, alongside multi-week Fall/Winter and
+Winter/Spring class sessions) suggests the page refreshes with new
+dated workshops seasonally — re-check closer to a session start for
+current examples before implementing.
 
 WordPress-hosted, class registration via a third-party system
 (`reg135.imerisoft.com`) — no Squarespace/Eventbrite/ICS export
