@@ -14097,6 +14097,283 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-25",
       "note": "Same event; seatoday has wrong location (Town Hall vs actual Central Library)"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-08-31T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-08-31T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events at same venue: Board Gayme Night (18:30) vs Trivia (19:30), different times and different events"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-08-31T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-08-31T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same event: HITC = Head in the Clouds Trivia; same venue and time"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-09-06T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-06T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same event at The Missing Piece; seatoday has wrong address (~4880m off)"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Story Time|2026-08-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events: Family Story Time (SPL, 10:30) vs Story Time (Children's Museum, 11:00)"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same time, seatoday aggregates SPL Capitol Hill Family Story Time"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::spl-northeast.ics Family Story Time|2026-09-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "15-min time difference (10:15 vs 10:30); seatoday event matches Queen Anne branch, not Northeast"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same time (10:15), seatoday matches SPL Queen Anne branch"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-magnolia.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different SPL branch; seatoday event matches Capitol Hill branch (confirmed above), not Magnolia"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::spl-greenwood.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (10:00 vs 11:30); seatoday 10:00 is a different session from spl-online 11:30"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (11:30 vs 10:00); same recurring service but different sessions"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (11:30 vs 10:00)"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same time (11:30), seatoday aggregates SPL Online Virtual Consult"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]::spl-northeast.ics Family Story Time|2026-08-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "15-min time difference; seatoday-arts 10:15 matches Queen Anne branch, not Northeast (10:30)"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::spl-northeast.ics Family Story Time|2026-09-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "15-min time difference; seatoday-arts 10:15 = Queen Anne branch, Northeast is 10:30"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-magnolia.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different SPL branch; seatoday-arts event matches Capitol Hill, not Magnolia"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::spl-greenwood.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::spl-greenwood.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-community.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pikmin Bloom x Seattle Aquarium MINI WALK|2026-09-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-arts.ics Story Time|2026-08-26T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events: Story Time at Children's Museum (11:00) vs Family Story Time at SPL (10:30)"
+    },
+    "seatoday-seatoday-arts.ics Story Time|2026-08-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events: Story Time at Children's Museum (11:00) vs Family Story Time at SPL (10:30)"
     }
   }
 }
