@@ -58761,33 +58761,37 @@
     },
     "events12:movies-in-seattle-parks-117041-2026-08-25": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://www.seattle.gov/images/Departments/ParksAndRecreation/Programs/Center%20City%20Parks/Freeway%20Park%20Movie%202023%203.jpg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
     },
     "events12:movies-in-seattle-parks-117041-2026-08-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://www.seattle.gov/images/Departments/ParksAndRecreation/Programs/Center%20City%20Parks/Freeway%20Park%20Movie%202023%203.jpg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
     },
     "events12:movies-in-seattle-parks-117041-2026-08-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://www.seattle.gov/images/Departments/ParksAndRecreation/Programs/Center%20City%20Parks/Freeway%20Park%20Movie%202023%203.jpg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
     },
     "events12:movies-in-seattle-parks-117041-2026-08-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://www.seattle.gov/images/Departments/ParksAndRecreation/Programs/Center%20City%20Parks/Freeway%20Park%20Movie%202023%203.jpg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
     },
@@ -58796,11 +58800,12 @@
         "setting": "indoor",
         "cost": {
           "min": 49.0
-        }
+        },
+        "imageUrl": "https://applications-media.feverup.com/image/upload/f_auto,ar_15:8,c_fill/fever2/plan/photo/5c755a1c-0b29-11f0-827c-a2cfe8261701.jpg"
       },
       "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://feverup.com/en/seattle/candlelight",
+      "evidence": "https://fever.pxf.io/Kj6j5x (redirects to https://feverup.com/m/563925, the currently-listed Candlelight concert at The National Nordic Museum)",
       "partialFingerprint": "8kffbv-until2026-08-28-tk"
     },
     "events12:sunflower-farms-118543-2026-08-24": {
