@@ -1,22 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-08-16": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:free-things-to-do-2026-08-17": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-08-18": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -1105,20 +1089,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-08-16": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:taste-of-seattle-2026-08-17": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-08-18": {
       "unresolvable": true,
       "reason": "Commercial tour — booking times vary by individual reservation",
@@ -2035,20 +2005,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-08-16": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
-    },
-    "events12:dining-cruise-2026-08-17": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-08-18": {
       "unresolvable": true,
@@ -2974,20 +2930,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-08-16": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:soccer-2026-08-17": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-08-18": {
       "unresolvable": true,
       "reason": "Season schedule page — each home game has a different start time",
@@ -3561,22 +3503,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-08-16": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour — booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:sailboat-2026-08-17": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour — booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-08-18": {
       "unresolvable": true,
@@ -4178,22 +4104,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-08-16": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:baseball-2026-08-17": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-08-18": {
       "unresolvable": true,
       "reason": "Season schedule page — each game has a different start time",
@@ -4520,22 +4430,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-08-16": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-08-17": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
     "events12:winery-concerts-2026-08-18": {
@@ -4866,22 +4760,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-08-16": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-the-locks-2026-08-17": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
     "events12:concerts-at-the-locks-2026-08-18": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
@@ -5050,22 +4928,6 @@
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
-    "events12:bus-to-the-mountains-2026-08-16": {
-      "unresolvable": true,
-      "reason": "General transit service page — specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:bus-to-the-mountains-2026-08-17": {
-      "unresolvable": true,
-      "reason": "General transit service page — specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:bus-to-the-mountains-2026-08-18": {
       "unresolvable": true,
       "reason": "General transit service page — specific departure times vary by date and destination",
@@ -5169,20 +5031,6 @@
       "source": "agent",
       "evidence": "https://trailheaddirect.org/",
       "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-marymoor-park-2026-08-16": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
-    },
-    "events12:concerts-at-marymoor-park-2026-08-17": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
     },
     "events12:concerts-at-marymoor-park-2026-08-18": {
       "unresolvable": true,
@@ -8463,12 +8311,6 @@
       "resolvedAt": "2026-05-20",
       "source": "agent"
     },
-    "waterfront-park:waterfront-park-6871-202608161000": {
-      "unresolvable": true,
-      "reason": "No end time listed on event page (waterfrontparkseattle.org); only start time of 10 AM provided for each day",
-      "resolvedAt": "2026-05-20",
-      "source": "agent"
-    },
     "waterfront-park:waterfront-park-6887-202608221200": {
       "unresolvable": true,
       "reason": "No hours listed on encantoarts.org for Encanto Arts Music Festival",
@@ -9742,22 +9584,6 @@
       "resolvedAt": "2026-05-24",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
-    },
-    "events12:taste-of-pike-place-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:taste-of-pike-place-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
     },
     "events12:taste-of-pike-place-2026-08-18": {
       "unresolvable": true,
@@ -12634,22 +12460,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:zoo-concerts-2026-08-16": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:zoo-concerts-2026-08-17": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:zoo-concerts-2026-08-18": {
       "unresolvable": true,
       "reason": "ZooTunes website returning 503; individual concert times not accessible",
@@ -14551,26 +14361,6 @@
       "source": "agent",
       "evidence": "https://www.couthbuzzard.com/event-calendar"
     },
-    "events12:on-the-water-2026-08-16": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
-    },
-    "events12:on-the-water-2026-08-17": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
-    },
     "events12:on-the-water-2026-08-18": {
       "fields": {
         "cost": {
@@ -15942,20 +15732,6 @@
       "resolvedAt": "2026-06-15",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-welcomes-bosnia-and-herzegovina"
-    },
-    "events12:movies-in-seattle-parks-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Start time not posted on source page; movies start at dusk (varies by date)",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:movies-in-seattle-parks-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-15",
-      "source": "agent",
-      "reason": "Start time not posted on source page; movies start at dusk (varies by date)",
-      "lastSeen": "2026-06-21"
     },
     "events12:movies-in-seattle-parks-2026-08-18": {
       "unresolvable": true,
@@ -17774,18 +17550,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:baseball-in-tacoma-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
-    },
-    "events12:baseball-in-tacoma-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-08-18": {
       "unresolvable": true,
@@ -23298,17 +23062,6 @@
       "resolvedAt": "2026-07-04",
       "source": "agent",
       "evidence": "MLB.com confirms 75-min ballpark tour duration; Ticketmaster blocked from cloud - face value unknown (Vivid Seats resale from $67 excluded); start time not confirmed (12:30pm typical but Oct 2 date/gameday status unverified)"
-    },
-    "northwest-film-forum:animation-domination-the-wolf-house-2026-08-16": {
-      "fields": {
-        "cost": {
-          "min": 15
-        },
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/thewolfhouseposterSMALL-1200x1778.png"
-      },
-      "resolvedAt": "2026-07-04",
-      "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/animation-domination-the-wolf-house/"
     },
     "chophouse-row:67103733cfc2481c77f6224a": {
       "fields": {
@@ -30884,16 +30637,6 @@
       "source": "agent",
       "reason": "Multi-day/drop-in event with no fixed daily start time or end time on page"
     },
-    "mopop:mopop-the-brunch-bundle-at-mopop-august-16-2026-2026-08-16": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 18000,
-        "imageUrl": "https://cdn.prod.website-files.com/66a00e48c726b5c85469ae46/6a3d4f29460da95779f07daf_BRUPPK26_Web%20Hero_1200x600_2026.06.17.jpg"
-      },
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "evidence": "https://www.mopop.org/events/the-brunch-bundle-at-mopop-7-11-26"
-    },
     "mopop:mopop-the-brunch-bundle-at-mopop-august-22-2026-2026-08-22": {
       "fields": {
         "startTime": "10:00",
@@ -34993,16 +34736,6 @@
       "source": "agent",
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/member-mixer/19382751/2026-07-23T00"
     },
-    "events12:renaissance-fair-2026-08-16": {
-      "resolvedAt": "2026-07-11",
-      "source": "cost-resolver",
-      "evidence": "https://206.events",
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      }
-    },
     "venue:loc:harvey airfield, 9900 airport way, snohomish, wa 98296": {
       "fields": {
         "setting": "outdoor"
@@ -35139,17 +34872,6 @@
       "source": "agent",
       "evidence": "https://rainierbeachcommunityclub.org/events/harvest-social - community social event is free"
     },
-    "rainier-beach-community-club:rbcc-ice-cream-social-and-jazz-jam-2026-08-16": {
-      "fields": {
-        "cost": {
-          "min": 0
-        },
-        "imageUrl": "https://i0.wp.com/rainierbeachcommunityclub.org/wp-content/uploads/2025/12/jazz_ice-cream-social-green.jpg?resize=580%2C751&ssl=1"
-      },
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "evidence": "https://rainierbeachcommunityclub.org/ice-cream-social-and-jazz-jam/ - community social event is free"
-    },
     "rainier-beach-community-club:rbcc-meaningful-movies-2026-09-12": {
       "fields": {
         "cost": {
@@ -35172,30 +34894,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "evidence": "https://rainierbeachcommunityclub.org - 0 pre-paid online / 5 at door"
-    },
-    "events12:live-theater-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
-        "setting": "indoor",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-03",
-      "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt; setting per https://taproottheatre.org/2026/joseph-and-the-amazing-technicolor-dreamcoat/ (indoor Jewell Mainstage Theatre)"
-    },
-    "events12:live-theater-2026-08-17": {
-      "fields": {
-        "imageUrl": "https://app.arts-people.com/uploads/2338/BOP_1080x1080_2026.png",
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor"
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://app.arts-people.com/index.php?preseason=spt"
     },
     "events12:live-theater-2026-08-18": {
       "fields": {
@@ -35789,28 +35487,6 @@
       "source": "agent",
       "evidence": "https://www.discoverslu.com/events/photo-essentials-1-2026-2-2-2-2-2-2-2-2/"
     },
-    "events12:shakespeare-in-the-park-2026-08-16": {
-      "fields": {
-        "startTime": "19:00",
-        "duration": 7200,
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-08-03",
-      "source": "agent",
-      "evidence": "https://greenstage.org/schedule/; setting per https://theatrepugetsound.org/event/wooden-o-macbeth/2026-08-16/ — Aug 16 performance at Luther Burbank Park, Mercer Island (outdoor touring production)"
-    },
-    "events12:concerts-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source URL is an image file (events12.com/img/), not an event page"
-    },
-    "events12:concerts-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source URL is an image file (events12.com/img/), not an event page"
-    },
     "events12:concerts-2026-08-18": {
       "unresolvable": true,
       "resolvedAt": "2026-07-12",
@@ -35937,24 +35613,6 @@
       "source": "agent",
       "reason": "Source URL is an image file (events12.com/img/), not an event page"
     },
-    "events12:eastside-movies-in-parks-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://bellevuewa.gov/sites/default/files/styles/header_image/public/media/header_image/2021-07/movies-in-the-park-banner.jpg?h=680c2ec9&itok=S3Q2wKzG",
-        "startTime": "19:00"
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
-    },
-    "events12:eastside-movies-in-parks-2026-08-17": {
-      "fields": {
-        "imageUrl": "https://bellevuewa.gov/sites/default/files/styles/header_image/public/media/header_image/2021-07/movies-in-the-park-banner.jpg?h=680c2ec9&itok=S3Q2wKzG",
-        "startTime": "19:00"
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
-    },
     "events12:eastside-movies-in-parks-2026-08-18": {
       "fields": {
         "imageUrl": "https://bellevuewa.gov/sites/default/files/styles/header_image/public/media/header_image/2021-07/movies-in-the-park-banner.jpg?h=680c2ec9&itok=S3Q2wKzG",
@@ -36045,24 +35703,6 @@
       "source": "agent",
       "evidence": "https://bellevuewa.gov/city-government/departments/parks/summer-outdoor-movies"
     },
-    "events12:movies-at-seattle-center-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2023/05/Movies-at-the-Mural-Image-scaled.jpg",
-        "startTime": "21:00"
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
-    },
-    "events12:movies-at-seattle-center-2026-08-17": {
-      "fields": {
-        "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2023/05/Movies-at-the-Mural-Image-scaled.jpg",
-        "startTime": "21:00"
-      },
-      "resolvedAt": "2026-07-13",
-      "source": "agent",
-      "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
-    },
     "events12:movies-at-seattle-center-2026-08-18": {
       "fields": {
         "imageUrl": "https://centerspotlight.seattle.gov/wp-content/uploads/sites/19/2023/05/Movies-at-the-Mural-Image-scaled.jpg",
@@ -36098,26 +35738,6 @@
       "resolvedAt": "2026-07-13",
       "source": "agent",
       "evidence": "https://seattlecenter.com/events/featured-events/movies-at-the-mural"
-    },
-    "events12:dance-in-the-park-2026-08-16": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 10800,
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-08-03",
-      "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/events; setting per https://www.danceforjoy.biz/dancingtildusk/ (outdoor Seattle parks)"
-    },
-    "events12:dance-in-the-park-2026-08-17": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 10800,
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-08-04",
-      "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
     "events12:dance-in-the-park-2026-08-18": {
       "fields": {
@@ -36248,18 +35868,6 @@
       "resolvedAt": "2026-08-17",
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/dancingtildusk"
-    },
-    "events12:concerts-on-a-farm-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
-    },
-    "events12:concerts-on-a-farm-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
     },
     "events12:concerts-on-a-farm-2026-08-18": {
       "unresolvable": true,
@@ -36494,18 +36102,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
-    },
-    "events12:tacoma-concerts-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
-    },
-    "events12:tacoma-concerts-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
     },
     "events12:tacoma-concerts-2026-08-18": {
       "unresolvable": true,
@@ -36968,14 +36564,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/featured-events/festal/turkfest (og:image meta tag)"
-    },
-    "seattle-center-festal:seattle-center-festal-2026-08-16-brasilfest": {
-      "fields": {
-        "imageUrl": "https://www.seattlecenter.com/assets/Images/Events/Productions/Festal/BrasilFest/Hero/Brasil-Dancers-2022-Hero-1800x820.jpg"
-      },
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/featured-events/festal/brasilfest (og:image meta tag)"
     },
     "seattle-center-festal:seattle-center-festal-2026-11-14-seattle-hmong-new-year": {
       "fields": {
@@ -40265,18 +39853,6 @@
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/node/690994406"
     },
-    "events12:basketball-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-23",
-      "source": "agent",
-      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
-    },
-    "events12:basketball-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-23",
-      "source": "agent",
-      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
-    },
     "events12:basketball-2026-08-18": {
       "unresolvable": true,
       "resolvedAt": "2026-07-23",
@@ -41880,26 +41456,6 @@
       "resolvedAt": "2026-07-24",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-chicago (calendar export eventEndTime=22:30:00, matching precedent for other Storm games on this page pattern)"
-    },
-    "charlies-queer-books:charlies-queer-books-992020260816": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "evidence": "https://charliesqueerbooks.com/events (recurring Romance Book Club series — same event id 9920 resolved free on 2026-07-19 and every prior occurrence)"
-    },
-    "charlies-queer-books:charlies-queer-books-992120260816": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-07-24",
-      "source": "agent",
-      "evidence": "https://charliesqueerbooks.com/events (recurring Literary Fiction Book Club series — same event id 9921 resolved free on 2026-07-19 and every prior occurrence)"
     },
     "SAF:185612534": {
       "fields": {
@@ -44448,18 +44004,6 @@
       "source": "agent",
       "evidence": "https://www.taproottheatre.org/"
     },
-    "events12:party-on-a-ferry-boat-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
-    },
-    "events12:party-on-a-ferry-boat-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
-    },
     "events12:party-on-a-ferry-boat-2026-08-18": {
       "unresolvable": true,
       "resolvedAt": "2026-07-30",
@@ -44664,18 +44208,6 @@
       "source": "agent",
       "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
     },
-    "events12:underground-tour-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "viator.com returned HTTP 403, event details unavailable"
-    },
-    "events12:underground-tour-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "viator.com returned HTTP 403, event details unavailable"
-    },
     "events12:underground-tour-2026-08-18": {
       "unresolvable": true,
       "resolvedAt": "2026-07-30",
@@ -44759,30 +44291,6 @@
       "resolvedAt": "2026-07-30",
       "source": "agent",
       "reason": "viator.com returned HTTP 403, event details unavailable"
-    },
-    "events12:architectural-tour-2026-08-16": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 35
-        },
-        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg"
-      },
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/"
-    },
-    "events12:architectural-tour-2026-08-17": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 35
-        },
-        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg"
-      },
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-2026-08-18": {
       "fields": {
@@ -44928,30 +44436,6 @@
       "source": "agent",
       "evidence": "https://seattlearchitecture.org/tours/"
     },
-    "events12:music-by-candlelight-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
-        "setting": "indoor",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-03",
-      "source": "agent",
-      "evidence": "https://feverup.com/en/seattle/candlelight (Fever Candlelight series — indoor venues: Arctic Club Hotel, National Nordic Museum, Langston Hughes PAI, SPL Central Library, Town Hall Seattle)"
-    },
-    "events12:music-by-candlelight-2026-08-17": {
-      "fields": {
-        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor"
-      },
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "evidence": "https://feverup.com/en/seattle/candlelight"
-    },
     "events12:music-by-candlelight-2026-08-18": {
       "fields": {
         "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
@@ -45075,18 +44559,6 @@
       "resolvedAt": "2026-07-30",
       "source": "agent",
       "evidence": "https://feverup.com/en/seattle/candlelight"
-    },
-    "events12:gourmet-cooking-class-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
-    },
-    "events12:gourmet-cooking-class-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "hotstovesociety.com JS-heavy, no image accessible via fetch"
     },
     "events12:gourmet-cooking-class-2026-08-18": {
       "unresolvable": true,
@@ -47208,16 +46680,6 @@
       "source": "agent",
       "evidence": "pcnw.ejoinme.org/pcnw2026 ticketing page: Art & Wine Pairing Ticket $100, Individual Ticket (Early Bird) $250"
     },
-    "charlies-queer-books:charlies-queer-books-6007320260816": {
-      "fields": {
-        "cost": {
-          "min": 15
-        }
-      },
-      "resolvedAt": "2026-08-01",
-      "source": "agent",
-      "evidence": "Event description via BookManager API: 'General Admission - $15, $25 with Book' at Northwest Film Forum (nwfilmforum.org/films/cabaret-charlies-queer-books)"
-    },
     "northwest-film-forum:an-autumn-afternoon-2026-10-09": {
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/03/anautumnafternoonposter-1200x1681.jpg",
@@ -48612,24 +48074,6 @@
       "source": "agent",
       "reason": "Large resort with both indoor and outdoor event spaces; could not verify this specific wine-tasting event setting (event page is a JS-rendered widget)"
     },
-    "events12:art-walks-2026-08-16": {
-      "fields": {
-        "setting": "outdoor",
-        "imageUrl": "https://www.seattle.gov/images//images/Departments/Arts/Staff/oac.png"
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.seattle.gov/arts/experience/art-walks"
-    },
-    "events12:art-walks-2026-08-17": {
-      "fields": {
-        "setting": "outdoor",
-        "imageUrl": "https://www.seattle.gov/images//images/Departments/Arts/Staff/oac.png"
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.seattle.gov/arts/experience/art-walks"
-    },
     "events12:art-walks-2026-08-18": {
       "fields": {
         "setting": "outdoor",
@@ -48656,28 +48100,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "evidence": "https://www.seattle.gov/arts/experience/art-walks"
-    },
-    "events12:sunflower-farms-2026-08-16": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 17
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
-    },
-    "events12:sunflower-farms-2026-08-17": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 17
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival-pricing"
     },
     "events12:sunflower-farms-2026-08-18": {
       "fields": {
@@ -48966,18 +48388,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "reason": "Fairgrounds have mixed indoor/outdoor stages; festival uses multiple areas"
-    },
-    "events12:music-by-candlelight-arctic-club-hotel-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://media.feverup.com/image/upload/f_auto,w_800,c_fill/v1681285818/Header01_4096_hfbbab.jpg",
-        "setting": "indoor",
-        "cost": {
-          "min": 43
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://feverup.com/en/seattle/candlelight"
     },
     "events12:tacoma-museum-night-2026-08-20": {
       "fields": {
@@ -49293,28 +48703,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
-    },
-    "events12:chamber-music-in-port-townsend-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c7dbe4677b90397ce873422/c42863d1-ad96-4505-90e0-5c56e26b27a7/OMF-AD-Logo-White.png",
-        "cost": {
-          "min": 39
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.olympicmusicfestival.org/2026-concerts"
-    },
-    "events12:chamber-music-in-port-townsend-2026-08-17": {
-      "fields": {
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c7dbe4677b90397ce873422/c42863d1-ad96-4505-90e0-5c56e26b27a7/OMF-AD-Logo-White.png",
-        "cost": {
-          "min": 39
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.olympicmusicfestival.org/2026-concerts"
     },
     "events12:chamber-music-in-port-townsend-2026-08-18": {
       "fields": {
@@ -49729,12 +49117,6 @@
       "source": "agent",
       "evidence": "https://www.evergreenfair.org/248/The-Evergreen-State-Fair"
     },
-    "events12:kite-festival-2026-08-17": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "WSIKF schedule/cost details not found without JS rendering"
-    },
     "events12:kite-festival-2026-08-18": {
       "unresolvable": true,
       "resolvedAt": "2026-08-07",
@@ -49770,24 +49152,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "reason": "WSIKF schedule/cost details not found without JS rendering"
-    },
-    "events12:omak-stampede-rodeo-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "JS-rendered site — schedule and pricing not accessible without browser"
-    },
-    "events12:fossil-weekend-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "No source URL available — cannot verify schedule or pricing"
-    },
-    "events12:antique-dolls-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "No source URL available — cannot verify schedule or pricing"
     },
     "events12:princess-picnic-2026-08-22": {
       "unresolvable": true,
@@ -49895,74 +49259,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1A70MAe"
     },
-    "events12:korean-festival-2026-08-16": {
-      "fields": {
-        "startTime": "12:00",
-        "duration": 28800,
-        "imageUrl": "https://waterfrontparkseattle.org/wp-content/uploads/2024/09/Print-1-of-94-1440x1079.jpg"
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://waterfrontparkseattle.org/blog/event/2026-waba-korea-expo-and-festival/"
-    },
-    "events12:tattoo-convention-2026-08-16": {
-      "fields": {
-        "startTime": "12:00",
-        "duration": 25200,
-        "imageUrl": "https://www.seattletattooexpo.com/wp-content/uploads/2023/03/screenshot.png",
-        "cost": {
-          "min": 32
-        }
-      },
-      "resolvedAt": "2026-08-08",
-      "source": "agent",
-      "evidence": "https://www.seattletattooexpo.com/"
-    },
-    "events12:chief-seattle-days-2026-08-16": {
-      "fields": {
-        "startTime": "10:00"
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://suquamish.nsn.us/csd-landing/"
-    },
-    "events12:golf-tournament-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://www.boeingclassic.com/wp-content/uploads/2024/02/2021.08.20-Boeing-Classic-1149.jpg",
-        "cost": {
-          "min": 20
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.boeingclassic.com/spectators/spectator-information/"
-    },
-    "events12:music-festival-whidbey-island-2026-08-16": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 50400,
-        "imageUrl": "https://littlebigfest.org/cdn/shop/files/FINAL_MANDALA_2026_3151d6ce-9618-4747-86b4-0092a1e963e0.jpg?v=1779768691",
-        "setting": "outdoor",
-        "cost": {
-          "soldOut": true
-        }
-      },
-      "resolvedAt": "2026-08-13",
-      "source": "agent",
-      "evidence": "https://littlebigfest.org/pages/schedule"
-    },
-    "events12:music-in-the-forest-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "Festival schedule/hours not found on website"
-    },
-    "events12:bass-heavy-music-festival-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "Ticket prices and daily gate hours not displayed on website (JS-rendered pricing)"
-    },
     "events12:music-by-candlelight-nordic-museum-2026-08-21": {
       "unresolvable": true,
       "resolvedAt": "2026-08-07",
@@ -49980,16 +49276,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "reason": "Affiliate link resolves to generic Candlelight Seattle listing; cannot identify specific show, times, or prices without JS"
-    },
-    "events12:everett-art-festival-2026-08-16": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 21600,
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/6202a7c6ca8a7a4c4e8c92c0/1661884827046-902195N4HFPLIDHTE8L9/220820_Fresh_Paint_2988.jpg"
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.schack.org/fresh-paint"
     },
     "events12:gourmet-cooking-class-vs-dishes-of-singapore-2026-08-22": {
       "fields": {
@@ -50012,38 +49298,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "evidence": "https://www.hotstovesociety.com/store/events/"
-    },
-    "events12:brazilian-festival-2026-08-16": {
-      "fields": {
-        "startTime": "11:00",
-        "duration": 25200
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://seattlecenter.com/events/featured-events/festal/brasilfest"
-    },
-    "events12:mexican-dance-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "Registration page (GiveButter) shows no dollar amount — cannot confirm free vs. paid",
-      "fields": {
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/6013333948b486140baac7b1/3b5941d8-baf9-45da-bfdd-45234f32570b/2026+Festival+Poster+Drafts+%2811+x+17+in%29.png"
-      },
-      "evidence": "https://www.joyasmestizas.org/pnw-folklorico-festival"
-    },
-    "events12:run-or-walk-for-ice-cream-2026-08-16": {
-      "fields": {
-        "startTime": "09:15",
-        "cost": {
-          "min": 50
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://sundaerunday.com",
-      "unresolvable": true,
-      "reason": "sundaerunday.com returned HTTP 503; no image accessible"
     },
     "kremwerk:6a6052bb6994ec7174e8a50f": {
       "fields": {
@@ -50828,14 +50082,6 @@
       "source": "agent",
       "evidence": "https://dunepeninsula.com/calendar/"
     },
-    "events12:annual-garage-sale-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5b0484d64eddec167a7e855b/60218b7d-eb12-4ab0-84b6-135e27a8de77/2026+Capitol+Hill+Garage+Sale.jpg"
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://capitolhillgaragesale.org"
-    },
     "events12:blues-beer-2026-08-29": {
       "fields": {
         "imageUrl": "https://img.evbuc.com/https%3A%252F%252Fcdn.evbuc.com%252Fimages%252F1187686271%252F545996647673%252F1%252Foriginal.20260626-021503"
@@ -50851,14 +50097,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "evidence": "https://parks.wa.gov/find-activity/event-calendar/2026/aug/cambodian-cultural-celebration-2026"
-    },
-    "events12:car-show-2026-08-16": {
-      "fields": {
-        "imageUrl": "https://static.wixstatic.com/media/d21799_cf66cb12ff644f20b8759208656faaea~mv2.png"
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.pacificcascademustangclub.com/carshow"
     },
     "events12:dating-comedy-2026-08-27": {
       "fields": {
@@ -53373,23 +52611,11 @@
       "source": "agent",
       "evidence": "https://www.hotstovesociety.com/store/event/date-night-paella-party-with-chef-bridget-charters-1/ (JSON-LD event image field; same event as events12 listing)"
     },
-    "events12:mexican-dancers-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-13",
-      "source": "agent",
-      "reason": "Cost not published on source page (joyasmestizas.org) or givebutter registration link"
-    },
     "seatoday:cityspark-19622677": {
       "unresolvable": true,
       "resolvedAt": "2026-08-13",
       "source": "agent",
       "reason": "Source page (6amcity.com embed) not accessible; cost could not be determined"
-    },
-    "events12:eastside-aerial-festival-2026-08-16": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-13",
-      "source": "agent",
-      "reason": "Festival schedule page (airecraftfest.com/festival-schedule) does not list specific daily hours"
     },
     "events12:harry-potter-live-2026-08-22": {
       "unresolvable": true,
@@ -58111,12 +57337,6 @@
       "source": "agent",
       "evidence": "https://qabookco.com/event/2026-08-27/queen-anne-helpline-neighborhood-picnic"
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-23",
-      "source": "agent",
-      "reason": "post-event page only; cost not recoverable"
-    },
     "west-seattle-nursery:6a878143bfc1841a331bd2ad": {
       "fields": {
         "cost": {
@@ -58803,47 +58023,67 @@
     },
     "events12:architectural-tour-119702-2026-08-25": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "cost": {
+          "min": 28.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
+      "evidence": "https://seattlearchitecture.strangertickets.com/upcoming",
       "partialFingerprint": "rb7b97-until2026-08-29-tk"
     },
     "events12:architectural-tour-119702-2026-08-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "cost": {
+          "min": 28.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
+      "evidence": "https://seattlearchitecture.strangertickets.com/upcoming",
       "partialFingerprint": "rb7b97-until2026-08-29-tk"
     },
     "events12:architectural-tour-119702-2026-08-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "cost": {
+          "min": 28.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
+      "evidence": "https://seattlearchitecture.strangertickets.com/upcoming",
       "partialFingerprint": "rb7b97-until2026-08-29-tk"
     },
     "events12:architectural-tour-119702-2026-08-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "cost": {
+          "min": 28.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
+      "evidence": "https://seattlearchitecture.strangertickets.com/upcoming",
       "partialFingerprint": "rb7b97-until2026-08-29-tk"
     },
     "events12:architectural-tour-119702-2026-08-29": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "cost": {
+          "min": 28.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
+      "evidence": "https://seattlearchitecture.strangertickets.com/upcoming",
       "partialFingerprint": "rb7b97-until2026-08-29-tk"
     },
     "events12:concerts-120202-2026-08-24": {
@@ -59151,135 +58391,176 @@
     },
     "events12:fun-tours-120200-2026-08-25": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-08-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-08-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-08-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-08-29": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-08-30": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-08-31": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-01": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-02": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-03": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-04": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-05": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-06": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:hip-hop-tournament-119314-2026-08-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://www.206zulu.org/wp-content/uploads/2026/07/BM-IG-1-scaled.jpg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.206zulu.org/15th-annual-beat-masters-2026/",
       "partialFingerprint": "1ix6rzy-until2026-08-28-tu"
     },
     "events12:hip-hop-tournament-119314-2026-08-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://www.206zulu.org/wp-content/uploads/2026/07/BM-IG-1-scaled.jpg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.206zulu.org/15th-annual-beat-masters-2026/",
       "partialFingerprint": "1ix6rzy-until2026-08-28-tu"
@@ -59295,117 +58576,169 @@
     },
     "events12:live-theater-119957-2026-08-25": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-08-26": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-08-27": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-08-28": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-08-29": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-08-30": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-08-31": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-09-01": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-09-02": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-09-03": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-09-04": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-09-05": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-09-06": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
@@ -59460,11 +58793,14 @@
     },
     "events12:music-by-candlelight-nordic-museum-119604-2026-08-28-1200": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "min": 49.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://fever.pxf.io/Kj6j5x",
+      "evidence": "https://feverup.com/en/seattle/candlelight",
       "partialFingerprint": "8kffbv-until2026-08-28-tk"
     },
     "events12:sunflower-farms-118543-2026-08-24": {
@@ -59478,119 +58814,158 @@
     },
     "events12:sunflower-farms-118543-2026-08-25": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-08-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-08-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-08-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-08-29": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-08-30": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-08-31": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-01": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-02": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-03": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-04": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-05": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-06": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "brick-park-psq:brickpark-2026-7-9-the-residency": {
@@ -59753,9 +59128,10 @@
         "duration": 10800,
         "cost": {
           "min": 0
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
       "partialFingerprint": "1fn83bb-until2026-09-08-tu"
@@ -59775,1109 +59151,1478 @@
     },
     "events12:sunflower-farms-118543-2026-09-07": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-08": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-09": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-10": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-11": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-12": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:sunflower-farms-118543-2026-09-13": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "min": 16.0
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.loraleesfamilyfarm.com/",
+      "evidence": "https://www.loraleesfamilyfarm.com/sunflowermaze",
       "partialFingerprint": "oju0is-until2026-09-13-tu"
     },
     "events12:fun-tours-120200-2026-09-07": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-08": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-09": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-10": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-11": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-12": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-13": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-14": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-15": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-16": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-17": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-18": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-19": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-20": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-21": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-22": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-23": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-24": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-25": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-29": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-09-30": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-01": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-02": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-03": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-04": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-05": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-06": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-07": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-08": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-09": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-10": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-11": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-12": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-13": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-14": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-15": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-16": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-17": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-18": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-19": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-20": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-21": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-22": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-23": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-24": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-25": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-29": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-30": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-10-31": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-01": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-02": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-03": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-04": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-05": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-06": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-07": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-08": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-09": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-10": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-11": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-12": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-13": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-14": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-15": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-16": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-17": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-18": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-19": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-20": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-21": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-22": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-23": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-24": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-25": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-29": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-11-30": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-01": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-02": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-03": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-04": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-05": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-06": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-07": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-08": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-09": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-10": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-11": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-12": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-13": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-14": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-15": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-16": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-17": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-18": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-19": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-20": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-21": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-22": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-23": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-24": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-25": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-27": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-29": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-30": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:fun-tours-120200-2026-12-31": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR?pid=P00051759&mcid=42383&medium=link&campaign=119020zj",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
     },
     "events12:sailboat-120161-2026-08-24": {
@@ -62770,6 +62515,519 @@
       "resolvedAt": "2026-08-24",
       "source": "agent",
       "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
+    },
+    "discover-slu:discover-slu-butter-bandit-popup-2": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/butter-bandit-popup-2/"
+    },
+    "discover-slu:discover-slu-hiking-basics-2-2": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/hiking-basics-2-2/"
+    },
+    "discover-slu:discover-slu-national-public-lands-day": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/national-public-lands-day/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-mount-rainier-fall": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-mount-rainier-fall/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-paris-rain": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-paris-rain/"
+    },
+    "discover-slu:discover-slu-beaded-spider-webs": {
+      "fields": {
+        "startTime": "14:00"
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/beaded-spider-webs/"
+    },
+    "discover-slu:discover-slu-hello-goodbye-hello": {
+      "fields": {
+        "startTime": "17:00"
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/hello-goodbye-hello/"
+    },
+    "discover-slu:discover-slu-practical-magic": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "Event page only shows start time (5:30pm), no end time listed"
+    },
+    "discover-slu:discover-slu-fall-painted-doormats": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "Event page only shows start time (5:30pm), no end time listed"
+    },
+    "seattle-center:st-jude-walk-seattle": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/st-jude-walk-seattle"
+    },
+    "seattle-center:sea-mar-fiestas-patrias-x50381": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/sea-mar-fiestas-patrias-x50381"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46407": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "All-day exhibit available during venue hours; no specific start/end time listed"
+    },
+    "burke-museum:burke-experience-alcoves-spooky-science": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "Daily exhibit Sep 15 - Nov 1 with no specific start/end times listed on event page"
+    },
+    "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2027-08-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "Multi-day festival pass event; attendees choose their own screening times across 3 days, no single fixed start time"
+    },
+    "19hz:19hz-2026/08/25-Modbang": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "Source page is Instagram (authentication required), end time not accessible"
+    },
+    "19hz:19hz-2026/09/20-Elder Island, HELLOBABYOK, Glassio": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "AXS event page returns 403; end time and ticket price not accessible"
+    },
+    "19hz:19hz-2026/09/26-teXture: seattle": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "DICE event page returns 403; end time not accessible"
+    },
+    "19hz:19hz-2026/09/30-Bassvictim, Thoom": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "AXS event page returns 403; end time and ticket price not accessible"
+    },
+    "19hz:19hz-2026/09/05-KuniKlub": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DcCyU7nRfE7/"
+    },
+    "19hz:19hz-2026/10/17-Ahee, Mport b2b Xotix": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "AXS event page returns 403; end time and ticket price not accessible"
+    },
+    "19hz:19hz-2026/10/17-Tinlicker, Helsloot": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "AXS event page returns 403; end time and ticket price not accessible"
+    },
+    "19hz:19hz-2026/11/25-Ayria": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "Event page shows doors 8pm/show 8:30pm but no end time; duration not determinable"
+    },
+    "19hz:19hz-2026/11/27-DENNETT": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "AXS event page returns 403; end time and ticket price not accessible"
+    },
+    "19hz:19hz-2026/12/04-Frost Children": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "AXS event page returns 403; end time and ticket price not accessible"
+    },
+    "19hz:19hz-2026/12/04-Bolo": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "AXS event page returns 403; end time and ticket price not accessible"
+    },
+    "19hz:19hz-2026/10/02-Luke Alexander": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.tixr.com"
+    },
+    "19hz:19hz-2026/10/10-SOUNDWAVS: DJ Habibeats": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "http://posh.vip/e/wrg-presents-soundwavs-w-dj-habibeats"
+    },
+    "19hz:19hz-2026/11/21-Space 92": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.tixr.com"
+    },
+    "19hz:19hz-2026/11/28-Blanke, Virtual Riot": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://bassrush.frontgatetickets.com/event/e5nchjdrlxu5x64y"
+    },
+    "seatoday:cityspark-19406123": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com"
+    },
+    "seatoday:cityspark-17845555": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com"
+    },
+    "seatoday:cityspark-19676544": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com"
+    },
+    "seatoday:cityspark-19573791": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com"
+    },
+    "seatoday:cityspark-19716114": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com"
+    },
+    "seatoday:cityspark-19641571": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com"
+    },
+    "seatoday:cityspark-19642399": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://6amcity.com"
+    },
+    "burke-museum:burke-steam-spotlight-queers-steam": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/steam-spotlight-queers-steam"
+    },
+    "burke-museum:burke-wellness-class-introduction-qi-gong-0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/wellness-class-introduction-qi-gong-0"
+    },
+    "burke-museum:burke-workshop-bird-collisions-art-project": {
+      "fields": {
+        "cost": {
+          "min": 12.0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/workshop-bird-collisions-art-project"
+    },
+    "chophouse-row:6a848ca20810f50e8bac6ae2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/cloud-room-manager-coach"
+    },
+    "chophouse-row:6a84b35443aede2445af0325": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/cloud-room-hill-talk"
+    },
+    "rainier-beach-community-club:rbcc-ice-cream-social-and-jazz-jam-2027-08-16": {
+      "fields": {
+        "imageUrl": "https://rainierbeachcommunityclub.org/wp-content/uploads/2025/12/jazz_ice-cream-social-green.jpg",
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/ice-cream-social-and-jazz-jam/"
+    },
+    "pacific-science-center:show-961393-Friday,December18,2026-12:40p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Friday,December18,2026-3:45p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Friday,December18,2026-7:30p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Saturday,December19,2026-12:40p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Saturday,December19,2026-3:45p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Saturday,December19,2026-7:30p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Sunday,December20,2026-12:40p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Sunday,December20,2026-3:45p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Sunday,December20,2026-7:30p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "pacific-science-center:show-961393-Thursday,December17,2026-7:30p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "No image on source page - movie releases December 2026, PSC listing has no poster yet"
+    },
+    "chophouse-row:6a874e75881ac81943a48cd1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/summer-sounds-september19"
+    },
+    "chophouse-row:6a874eb58592fd1766f1f76f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/summer-sounds-september25-2026"
+    },
+    "chophouse-row:6a874ed1c7665b67b948d867": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/summer-sounds-september26-2026"
+    },
+    "ballard-brewed:6a863f3e88f1eb5ad1bf4bbc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/1xjh9uquloso92vz49wz9hiz8ezzuw-nw4dt-hhnpw-9ehzw-rk6z8-ff554"
+    },
+    "ballard-brewed:6a863f41505c144e15893104": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/1xjh9uquloso92vz49wz9hiz8ezzuw-nw4dt-hhnpw-9ehzw-rk6z8-ff554-w2y25"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/LFXUJWVT5OLRPKV6IJGTPSCG": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/LFXUJWVT5OLRPKV6IJGTPSCG"
+    },
+    "tractor-tavern:tm-rZ7HnEZ1Af1d17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.ticketweb.com/event/seahawks-watch-party-tractor-tickets/14283284"
+    },
+    "stg:tm-vvG1HZ_aDKprbj": {
+      "fields": {
+        "cost": {
+          "min": 26.0
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://everout.com/seattle/events/postmodern-jukebox/e89038/"
+    },
+    "stg:tm-vvG1HZ_udx4T8k": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/senses-fail-seattle-11-13-2026/event/0F0062D8E16C5049"
+    },
+    "wamu-theater:tm-vvG1HZ_oKhg9ms": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/jessie-reyez-seattle-11-03-2026/event/0F006"
+    },
+    "crocodile:tm-Z7r9jZ1AAZzfx": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "evidence": "https://calendar.thecrocodile.com/"
     }
   }
 }

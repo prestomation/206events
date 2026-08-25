@@ -13554,6 +13554,549 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-24",
       "note": "Different food truck pods at different addresses (1201 vs 1551 Eastlake)"
+    },
+    "19hz-all-events.ics Bolo|2026-12-04T21:00:00-08:00[America/Los_Angeles]::showbox-presents-the-showbox.ics BOLO THE DJ|2026-12-04T21:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same AXS event #1569821 at The Showbox, title variant"
+    },
+    "19hz-all-events.ics Frost Children|2026-12-04T20:00:00-08:00[America/Los_Angeles]::neumos-neumos.ics Frost Children with Kuru|2026-12-04T20:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same AXS event #1556931 at Neumos, Neumos listing includes opener Kuru"
+    },
+    "19hz-all-events.ics Sabor X Bota Tudo|2026-08-28T21:00:00-07:00[America/Los_Angeles]::massive-calendar.ics Sabor x Bota Tudo | Full Building Pari|2026-08-28T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Tixr event #203359 at Massive, 19hz shortens the title"
+    },
+    "barboza-barboza.ics MC Lars with Optimus Rhyme + Beefy|2026-09-07T19:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics MC Lars|2026-09-07T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same show at Barboza Sep 7, seatoday truncates the opener list"
+    },
+    "barboza-barboza.ics MC Lars with Optimus Rhyme + Beefy|2026-09-07T19:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics MC Lars|2026-09-07T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same show at Barboza Sep 7, seatoday arts feed truncates the opener list"
+    },
+    "external-seattle-dance-info.ics Dancing til Dusk 2026|2026-08-25T18:00:00Z[UTC]::external-seattle-gov-city-wide.ics Dancing til Dusk|2026-08-25T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Dancing til Dusk city parks series, seattledanceinfo.com vs Seattle.gov feed"
+    },
+    "external-seattle-dance-info.ics Dancing til Dusk 2026|2026-08-25T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-08-25T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Dancing til Dusk city parks series, seattledanceinfo.com vs Seattle.gov feed"
+    },
+    "external-seattle-dance-info.ics Dancing til Dusk 2026|2026-08-27T18:00:00Z[UTC]::external-seattle-gov-city-wide.ics Dancing til Dusk|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Dancing til Dusk city parks series, seattledanceinfo.com vs Seattle.gov feed"
+    },
+    "external-seattle-dance-info.ics Dancing til Dusk 2026|2026-08-27T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-08-27T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Dancing til Dusk city parks series, seattledanceinfo.com vs Seattle.gov feed"
+    },
+    "external-seattle-dance-info.ics Dancing til Dusk 2026|2026-09-01T18:00:00Z[UTC]::external-seattle-gov-city-wide.ics Dancing til Dusk|2026-09-01T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Dancing til Dusk city parks series, seattledanceinfo.com vs Seattle.gov feed"
+    },
+    "external-seattle-dance-info.ics Dancing til Dusk 2026|2026-09-01T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-09-01T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Dancing til Dusk city parks series, seattledanceinfo.com vs Seattle.gov feed"
+    },
+    "external-go-latin-dance-seattle.ics eSOeS - Salsa/Bachata at Aria Ballroom every Sunday|2026-08-30T19:00:00Z[UTC]::external-seattle-dance-info.ics Sunday Salsa/Bachata Party|2026-08-30T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same weekly salsa/bachata event at Aria Ballroom Redmond, different source names"
+    },
+    "external-nw-asian-weekly.ics Taiwan Music Festival|2026-08-29T14:00:00Z[UTC]::external-seattle-gov-city-wide.ics Formosound Music Festival|2026-08-29T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same festival at Redmond Downtown Park Aug 29 - Formosound/Taiwan Music Festival is one event with two names"
+    },
+    "external-seattle-gov-arts.ics Arts in Parks Virtual Information Session|2026-09-21T16:00:00Z[UTC]::external-seattle-gov-city-wide.ics Arts in Parks Virtual Information Session|2026-09-21T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics Community Office Hours with Director Amy Nguyen|2026-09-25T10:00:00Z[UTC]::external-seattle-gov-city-wide.ics Community Office Hours with Director Amy Nguyen|2026-09-25T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics Cultural Investments Committee (CIC)|2026-09-22T12:30:00Z[UTC]::external-seattle-gov-city-wide.ics Cultural Investments Committee (CIC)|2026-09-22T12:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics Public Art Advisory Committee (PAAC)|2026-09-22T09:00:00Z[UTC]::external-seattle-gov-city-wide.ics Public Art Advisory Committee (PAAC)|2026-09-22T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-09-24T15:00:00Z[UTC]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-09-24T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics [Virtual] KSS Exhibitions Information Session|2026-09-22T12:00:00Z[UTC]::external-seattle-gov-city-wide.ics [Virtual] KSS Exhibitions Information Session|2026-09-22T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Draft Review Session|2026-09-17T12:30:00Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Draft Review Session|2026-09-17T12:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Information Session|2026-09-17T11:30:00Z[UTC]::external-seattle-gov-city-wide.ics smART Ventures Information Session|2026-09-17T11:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in arts calendar and city-wide calendar"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-18T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-18T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-25T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-25T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Board of Parks and Recreation Commissioners - Subcommittee Meetings|2026-09-24T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Board of Parks and Recreation Commissioners - Subcommittee Meetings|2026-09-24T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Bridgerton Stroll|2026-08-20T13:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Bridgerton Stroll|2026-08-20T13:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-09-19T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-09-19T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-09-26T15:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-09-26T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Habitat Restoration and Beaver Talk on Lake Washington Blvd|2026-09-19T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Habitat Restoration and Beaver Talk on Lake Washington Blvd|2026-09-19T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same Seattle.gov event in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Walk USA for Health Equity Finale|2026-09-24T13:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Walk USA for Health Equity|2026-09-24T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same walkathon event Sep 24 at Pier 62, city-wide lists full route from 1:30pm, neighborhoods lists Pier 62 arrival at 4pm"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-08-25T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Baby Story Time|2026-08-25T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-08-25T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Baby Story Time|2026-08-25T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-08-25T12:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Baby Story Time|2026-08-25T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-01T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Baby Story Time|2026-09-01T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-01T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Baby Story Time|2026-09-01T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-01T12:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Baby Story Time|2026-09-01T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Bilingual Toddler Story Time / Hora de cuentos bilingüe para niños pequeños|2026-08-26T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Bilingual Toddler Story Time / Hora de cuentos bilingüe para niños pequeños|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Bilingual Toddler Story Time / Hora de cuentos bilingüe para niños pequeños|2026-08-26T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Bilingual Toddler Story Time / Hora de cuentos bilingüe para niños pequeños|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Bilingual Toddler Story Time / Hora de cuentos bilingüe para niños pequeños|2026-09-02T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Bilingual Toddler Story Time / Hora de cuentos bilingüe para niños pequeños|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Bilingual Toddler Story Time / Hora de cuentos bilingüe para niños pequeños|2026-09-02T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Bilingual Toddler Story Time / Hora de cuentos bilingüe para niños pequeños|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Cello Concert with Gretchen Yanover|2026-08-26T10:45:00-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-08-26T10:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same event; seatoday has wrong location (Town Hall vs actual Central Library)"
+    },
+    "seatoday-seatoday-all.ics Cocktails & Connections at Camelot|2026-09-01T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Cocktails & Connections at Camelot|2026-09-01T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Cocktails & Connections at Camelot|2026-09-01T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Cocktails & Connections at Camelot|2026-09-01T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-09-07T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-09-07T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same event; seatoday has wrong address (9456 35th Ave SW vs actual 4707 California Ave SW B)"
+    },
+    "seatoday-seatoday-all.ics Design Review Board Regular Meeting|2026-09-07T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Design Review Board Regular Meeting|2026-09-07T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics English Conversation Circle|2026-09-01T14:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics English Conversation Circle|2026-09-01T14:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics English Conversation Circle|2026-09-04T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics English Conversation Circle|2026-09-04T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics English Conversation Circle|2026-09-04T12:30:00-07:00[America/Los_Angeles]::spl-high-point.ics English Conversation Circle|2026-09-04T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]::spl-northeast.ics Family Story Time|2026-08-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different time (10:15 vs 10:30) = different branch events"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Story Time|2026-08-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events: Family Story Time (SPL) vs Story Time at Seattle Children's Museum; different time and location"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics September Classes Series at Cloudland Dance!|2026-09-07T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics September Classes Series at Cloudland Dance!|2026-09-07T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics September Classes Series at Cloudland Dance!|2026-09-07T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics September Classes Series at Cloudland Dance!|2026-09-07T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Story Time|2026-08-26T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events: Story Time at Children's Museum vs Family Story Time at SPL"
+    },
+    "seatoday-seatoday-all.ics Story Time|2026-08-26T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events: Story Time at Children's Museum vs Family Story Time at SPL"
+    },
+    "seatoday-seatoday-all.ics Story Time|2026-08-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events: Story Time at Children's Museum vs Family Story Time at SPL"
+    },
+    "seatoday-seatoday-all.ics Story Time|2026-08-28T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different events: Story Time at Children's Museum vs Family Story Time at SPL"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Toddler Play Group|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Play Group|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-29T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Toddler Play Group|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-31T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Toddler Play Group|2026-08-31T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-31T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Play Group|2026-08-31T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-08-31T10:00:00-07:00[America/Los_Angeles]::spl-green-lake.ics Toddler Play Group|2026-08-31T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Toddler Play Group|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-09-05T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Play Group|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-09-05T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Toddler Play Group|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-08-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-08-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-08-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-08-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-08-25T10:00:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-08-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (10:00 vs 11:30) of the same recurring virtual series = separate events"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (10:00 vs 11:30) of the same recurring virtual series = separate events"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (10:00 vs 11:30)"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (10:00 vs 11:30)"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (11:30 vs 10:00)"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-food.ics Cocktails & Connections at Camelot|2026-09-01T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Cocktails & Connections at Camelot|2026-09-01T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Baby Story Time|2026-08-25T12:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Baby Story Time|2026-08-25T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Baby Story Time|2026-09-01T12:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Baby Story Time|2026-09-01T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Cello Concert with Gretchen Yanover|2026-08-26T10:45:00-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-08-26T10:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics English Conversation Circle|2026-09-04T12:30:00-07:00[America/Los_Angeles]::spl-high-point.ics English Conversation Circle|2026-09-04T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]::spl-northeast.ics Family Story Time|2026-08-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different times (10:15 vs 10:30) = different branch events"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Family Story Time|2026-08-25T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-08-26T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::spl-northeast.ics Family Story Time|2026-09-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different times (10:15 vs 10:30) = different branch events"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Family Story Time|2026-09-01T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-magnolia.ics Family Story Time|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-08-31T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-04T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]::spl-greenwood.ics La Hora de Cuentos Familiares|2026-08-28T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-08-27T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Toddler Play Group|2026-08-29T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Toddler Play Group|2026-08-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Toddler Play Group|2026-08-31T10:00:00-07:00[America/Los_Angeles]::spl-green-lake.ics Toddler Play Group|2026-08-31T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Toddler Play Group|2026-09-05T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Toddler Play Group|2026-09-05T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-08-25T10:00:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-08-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-08-31T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T10:00:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-25",
+      "note": "Different timeslots (10:00 vs 11:30)"
+    },
+    "seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-02T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25"
+    },
+    "seatoday-seatoday-sports.ics Cello Concert with Gretchen Yanover|2026-08-26T10:45:00-07:00[America/Los_Angeles]::spl-central-library.ics Cello Concert with Gretchen Yanover|2026-08-26T10:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-25",
+      "note": "Same event; seatoday has wrong location (Town Hall vs actual Central Library)"
     }
   }
 }
