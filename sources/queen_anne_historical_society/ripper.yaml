@@ -12,3 +12,7 @@ calendars:
   - name: all-events
     friendlyname: "Queen Anne Historical Society"
     timezone: America/Los_Angeles
+    # 2026-08-25: build-health flagged 0 events. Verified via the live
+    # Squarespace calendar JSON — 0 upcoming events currently listed. Small
+    # historical society with intermittent walking tours/talks.
+    expectEmpty: true

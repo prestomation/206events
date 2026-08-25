@@ -50,6 +50,22 @@ describe('CIDBIARipper - parseMonthDay', () => {
     });
 });
 
+describe('CIDBIARipper - parseHeaderDay', () => {
+    const ripper = new CIDBIARipper();
+
+    test('parses weekday + abbreviated month + ordinal day', () => {
+        expect(ripper.parseHeaderDay('Friday Aug. 21st')).toEqual({ month: 8, day: 21 });
+        expect(ripper.parseHeaderDay('Saturday Aug. 22nd')).toEqual({ month: 8, day: 22 });
+        expect(ripper.parseHeaderDay('Friday May. 15th')).toEqual({ month: 5, day: 15 });
+        expect(ripper.parseHeaderDay('Tuesday Sept. 1st')).toEqual({ month: 9, day: 1 });
+    });
+
+    test('returns null for invalid input', () => {
+        expect(ripper.parseHeaderDay('not a header')).toBeNull();
+        expect(ripper.parseHeaderDay('')).toBeNull();
+    });
+});
+
 describe('CIDBIARipper - parseTimeRange', () => {
     const ripper = new CIDBIARipper();
 
@@ -125,6 +141,7 @@ describe('CIDBIARipper - parseEvents from sample HTML', () => {
         expect(openMic!.date.hour()).toBe(18);
         expect(openMic!.date.minute()).toBe(30);
         expect(openMic!.url).toContain('/local-events/events/');
+        expect(openMic!.id).toBe('cidbia-805');
     });
 
     test('event location is populated', () => {
@@ -132,5 +149,61 @@ describe('CIDBIARipper - parseEvents from sample HTML', () => {
         const events = results.filter(r => 'date' in r) as any[];
         const openMic = events.find((e: any) => e.summary === 'Heritage Open Mic');
         expect(openMic?.location).toContain('Seattle');
+    });
+});
+
+describe('CIDBIARipper - multi-day events with a "(multi-day event)" title tag', () => {
+    const ripper = new CIDBIARipper();
+
+    // Captured from the live site 2026-08-25: the same "Director's Cut and
+    // Rumpus during Freehold Benefit Nights" collaItem repeated verbatim
+    // under its two day headers, exactly as CIDBIA renders it.
+    function multiDayHtml(): string {
+        return fs.readFileSync(path.join(__dirname, 'sample-data-multiday.html'), 'utf8');
+    }
+
+    test('extracts the title despite the nested span', () => {
+        const results = ripper.parseEvents(multiDayHtml(), 'https://www.seattlechinatownid.com/local-events');
+        const events = results.filter(r => 'date' in r) as any[];
+        expect(results.filter(r => 'type' in r)).toHaveLength(0);
+        expect(events.every(e => e.summary === "Director's Cut and Rumpus during Freehold Benefit Nights")).toBe(true);
+    });
+
+    test('produces one occurrence per day header with distinct, stable ids', () => {
+        const results = ripper.parseEvents(multiDayHtml(), 'https://www.seattlechinatownid.com/local-events');
+        const events = results.filter(r => 'date' in r) as any[];
+        expect(events).toHaveLength(2);
+
+        const day21 = events.find(e => e.date.dayOfMonth() === 21);
+        const day22 = events.find(e => e.date.dayOfMonth() === 22);
+        expect(day21).toBeDefined();
+        expect(day22).toBeDefined();
+        expect(day21!.date.hour()).toBe(20);
+        expect(day22!.date.hour()).toBe(20);
+        expect(day21!.id).not.toBe(day22!.id);
+        expect(day21!.id).toBe('cidbia-844-2026-08-21');
+        expect(day22!.id).toBe('cidbia-844-2026-08-22');
+    });
+
+    test('an unparseable single date still surfaces a ParseError instead of silently falling back to the header', () => {
+        // Not a "<date> - <date>" range — an unrelated future format drift in
+        // the "When" field should keep failing loudly, not take the
+        // multi-day fallback path.
+        const html = `
+        <div class="eventMonth"><p>August 2026</p></div>
+        <h2>Friday Aug. 21st</h2>
+        <div class="collaItem">
+            <div class="name"><div class="title"><p>Some Event</p></div></div>
+            <div class="description">
+                <div class="time bottomMargin">
+                    <p class="title">When</p>
+                    <p>Aug 21, 2026</p>
+                    <p>8:00pm</p>
+                </div>
+            </div>
+        </div>`;
+        const results = ripper.parseEvents(html, 'https://www.seattlechinatownid.com/local-events');
+        expect(results).toHaveLength(1);
+        expect(results[0]).toMatchObject({ type: 'ParseError', reason: 'Could not parse date: Aug 21, 2026' });
     });
 });
