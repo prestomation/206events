@@ -63028,6 +63028,12 @@
       "resolvedAt": "2026-08-25",
       "source": "agent",
       "evidence": "https://calendar.thecrocodile.com/"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-25",
+      "source": "agent",
+      "reason": "Source page now shows a past-event recap (\"Thank you to everyone who joined us...\") for the fifth annual Boba Fest; no start/end time is listed anywhere on the page."
     }
   }
 }
