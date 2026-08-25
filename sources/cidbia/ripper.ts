@@ -131,12 +131,14 @@ export default class CIDBIARipper implements IRipper {
     }
 
     private parseEvent(html: string, headerText: string, year: number, pageUrl: string): RipperCalendarEvent | RipperError {
-        const title = this.extractText(html, /<div class="title">\s*<p>([^<]+)<\/p>/);
+        // Title text may be followed by a nested tag, e.g. <span>(multi-day event)</span>
+        const title = this.extractText(html, /<div class="title">\s*<p>([^<]+)/);
         if (!title) {
             return { type: 'ParseError', reason: 'No title found', context: headerText };
         }
 
-        // Date text from time div: "May 15th"
+        // Date text from time div: "May 15th" for single-day events, or a range like
+        // "August 21st - August 22nd" for multi-day events (repeated under each day's header)
         const datePText = this.extractText(html, /class="time bottomMargin">\s*<p class="title">When<\/p>\s*<p>([^<]+)<\/p>/);
         // Time text: "6:30pm - 9:30pm"
         const timePText = this.extractText(html, /class="time bottomMargin">[\s\S]*?<p>[^<]+<\/p>\s*<p>([^<]+)<\/p>/);
@@ -145,7 +147,10 @@ export default class CIDBIARipper implements IRipper {
             return { type: 'ParseError', reason: 'No date found', context: title };
         }
 
-        const monthDay = this.parseMonthDay(datePText);
+        // A multi-day event's date range doesn't match parseMonthDay's single-date shape;
+        // fall back to the section's own day header, which pins the specific occurrence.
+        const directMonthDay = this.parseMonthDay(datePText);
+        const monthDay = directMonthDay ?? this.parseHeaderDay(headerText);
         if (!monthDay) {
             return { type: 'ParseError', reason: `Could not parse date: ${datePText}`, context: title };
         }
@@ -180,6 +185,9 @@ export default class CIDBIARipper implements IRipper {
         const url = eventId
             ? `https://www.seattlechinatownid.com/local-events/events/${eventId}`
             : pageUrl;
+        // A multi-day event repeats the same upstream event id under each day's header;
+        // suffix with the resolved date so each occurrence gets a distinct, stable id.
+        const idSuffix = directMonthDay ? '' : `-${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
         let date: ZonedDateTime;
         try {
@@ -192,7 +200,7 @@ export default class CIDBIARipper implements IRipper {
         }
 
         return {
-            id: eventId ? `cidbia-${eventId}` : `cidbia-${year}-${month}-${day}-${title.slice(0, 20)}`,
+            id: eventId ? `cidbia-${eventId}${idSuffix}` : `cidbia-${year}-${month}-${day}-${title.slice(0, 20)}`,
             ripped: new Date(),
             date,
             duration: Duration.ofMinutes(durationMinutes),
@@ -216,6 +224,17 @@ export default class CIDBIARipper implements IRipper {
     parseMonthDay(text: string): { month: number; day: number } | null {
         // e.g. "May 15th", "June 13th", "July 4th"
         const match = text.trim().match(/^(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?$/i);
+        if (!match) return null;
+        const month = MONTH_NAMES[match[1].toLowerCase()];
+        const day = parseInt(match[2], 10);
+        if (!month || !day) return null;
+        return { month, day };
+    }
+
+    // Public for testing
+    parseHeaderDay(headerText: string): { month: number; day: number } | null {
+        // e.g. "Friday Aug. 21st" -> weekday, abbreviated month with trailing period, ordinal day
+        const match = headerText.trim().match(/^\w+\s+(\w+)\.?\s+(\d{1,2})(?:st|nd|rd|th)?$/i);
         if (!match) return null;
         const month = MONTH_NAMES[match[1].toLowerCase()];
         const day = parseInt(match[2], 10);

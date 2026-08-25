@@ -50,6 +50,21 @@ describe('CIDBIARipper - parseMonthDay', () => {
     });
 });
 
+describe('CIDBIARipper - parseHeaderDay', () => {
+    const ripper = new CIDBIARipper();
+
+    test('parses weekday + abbreviated month + ordinal day', () => {
+        expect(ripper.parseHeaderDay('Friday Aug. 21st')).toEqual({ month: 8, day: 21 });
+        expect(ripper.parseHeaderDay('Saturday Aug. 22nd')).toEqual({ month: 8, day: 22 });
+        expect(ripper.parseHeaderDay('Friday May. 15th')).toEqual({ month: 5, day: 15 });
+    });
+
+    test('returns null for invalid input', () => {
+        expect(ripper.parseHeaderDay('not a header')).toBeNull();
+        expect(ripper.parseHeaderDay('')).toBeNull();
+    });
+});
+
 describe('CIDBIARipper - parseTimeRange', () => {
     const ripper = new CIDBIARipper();
 
@@ -132,5 +147,61 @@ describe('CIDBIARipper - parseEvents from sample HTML', () => {
         const events = results.filter(r => 'date' in r) as any[];
         const openMic = events.find((e: any) => e.summary === 'Heritage Open Mic');
         expect(openMic?.location).toContain('Seattle');
+    });
+});
+
+describe('CIDBIARipper - multi-day events with a "(multi-day event)" title tag', () => {
+    const ripper = new CIDBIARipper();
+
+    function multiDayHtml(): string {
+        const collaItem = `
+        <div class="collaItem">
+            <div class="name">
+                <div class="title">
+                    <p>Director's Cut and Rumpus during Freehold Benefit Nights <span>(multi-day event)</span></p>
+                </div>
+            </div>
+            <div class="description">
+                <div class="time bottomMargin">
+                    <p class="title">When</p>
+                    <p>August 21st - August 22nd</p>
+                    <p>8:00pm - 10:00pm</p>
+                </div>
+                <div class="address bottomMargin">
+                    <p class="title">Where</p>
+                    <p> 517 Maynard Ave S , Seattle WA 98104</p>
+                </div>
+                <a href="https://www.seattlechinatownid.com/local-events/events/844" title="Add To Calendar">Add To Calendar</a>
+            </div>
+        </div>`;
+        return `
+        <div class="eventMonth"><p>August 2026</p></div>
+        <h2>Friday Aug. 21st</h2>
+        ${collaItem}
+        <h2>Saturday Aug. 22nd</h2>
+        ${collaItem}`;
+    }
+
+    test('extracts the title despite the nested span', () => {
+        const results = ripper.parseEvents(multiDayHtml(), 'https://www.seattlechinatownid.com/local-events');
+        const events = results.filter(r => 'date' in r) as any[];
+        expect(results.filter(r => 'type' in r)).toHaveLength(0);
+        expect(events.every(e => e.summary === "Director's Cut and Rumpus during Freehold Benefit Nights")).toBe(true);
+    });
+
+    test('produces one occurrence per day header with distinct, stable ids', () => {
+        const results = ripper.parseEvents(multiDayHtml(), 'https://www.seattlechinatownid.com/local-events');
+        const events = results.filter(r => 'date' in r) as any[];
+        expect(events).toHaveLength(2);
+
+        const day21 = events.find(e => e.date.dayOfMonth() === 21);
+        const day22 = events.find(e => e.date.dayOfMonth() === 22);
+        expect(day21).toBeDefined();
+        expect(day22).toBeDefined();
+        expect(day21!.date.hour()).toBe(20);
+        expect(day22!.date.hour()).toBe(20);
+        expect(day21!.id).not.toBe(day22!.id);
+        expect(day21!.id).toBe('cidbia-844-2026-08-21');
+        expect(day22!.id).toBe('cidbia-844-2026-08-22');
     });
 });
