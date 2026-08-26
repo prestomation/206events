@@ -58495,9 +58495,10 @@
     },
     "events12:movies-in-seattle-parks-117041-2026-08-26": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://www.seattle.gov/images/Departments/ParksAndRecreation/Programs/Center%20City%20Parks/Freeway%20Park%20Movie%202023%203.jpg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-26",
       "source": "agent",
       "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
     },
@@ -58511,9 +58512,10 @@
     },
     "events12:movies-in-seattle-parks-117041-2026-08-28": {
       "fields": {
-        "setting": "outdoor"
+        "setting": "outdoor",
+        "imageUrl": "https://www.seattle.gov/images/Departments/ParksAndRecreation/Programs/Center%20City%20Parks/Freeway%20Park%20Movie%202023%203.jpg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-26",
       "source": "agent",
       "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events#moviesinthepark"
     },
@@ -58868,11 +58870,12 @@
         "duration": 10800,
         "cost": {
           "min": 0
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-08-26",
       "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
+      "evidence": "https://www.danceforjoy.biz/dancingtildusk/ — outdoor park dance series (Dancing Til Dusk)",
       "partialFingerprint": "1fn83bb-until2026-09-08-tu"
     },
     "events12:sunflower-farms-118543-2026-09-07": {
@@ -62881,6 +62884,68 @@
       "resolvedAt": "2026-08-26",
       "source": "agent",
       "evidence": "https://www.kremwerk.com/upcoming/2026/10/10/impact-karan"
+    },
+    "northwest-film-forum:mysterious-skin-4k-restoration-2026-08-28": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/mysteriousskinposter-1200x1778.jpg"
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/mysterious-skin-4k-restoration/"
+    },
+    "northwest-film-forum:three-bewildered-people-in-the-night-2026-08-28": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeopleposter.jpg"
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/three-bewildered-people-in-the-night/"
+    },
+    "SAF:186618449": {
+      "fields": {
+        "imageUrl": "https://www.seattlespheres.com/imager/b/original/186618509/b20e/Rainier_Square_Tower_-_credit_NBBJ_.png"
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/186618449/refract-2026-through-the-looking-glass-tour"
+    },
+    "events12:free-things-to-do-119028-2026-08-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "reason": "Ballard Locks tour-info page has no dedicated event photo (only generic logo/tour-type icons)"
+    },
+    "venue:loc:seward park, 5900 lake washington blvd s, seattle, wa, united states": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/pop-up-concert-in-the-park-cytrus-at-seward-park-amphitheater/ — Seward Park Amphitheater, an outdoor park amphitheater"
+    },
+    "venue:osm:way:1541422357": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "sample event at 'The Seattle Central Library Auditororium' (SPL Central Library, downtown) — indoor auditorium; the attached OSM way (an EV charging station in Covington, WA) is a stale/mismatched id, not used for this classification"
+    },
+    "venue:osm:way:161077718": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/parks/jose-rizal-park — Dr. Jose Rizal Park, 9.6-acre park on Beacon Hill; the attached OSM way (12th Ave S, a residential street) is Nominatim's housenumber-search fallback, not the actual park feature"
+    },
+    "venue:osm:way:180075377": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "sample event 'Sk8' — Hubbard Homestead's guided skateboarding sessions run in its temperature-controlled gym per Seattle's Child (seattleschild.com/events/rnts-free-skate-school-indoors); this seattle-gov-parks-recreation feed's programming ties to the indoor gym, not the park's outdoor skate spot"
     }
   }
 }
