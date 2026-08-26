@@ -7,7 +7,7 @@ geo:
   # Only match is the "Central District" neighborhood centroid (node
   # 1999382370, place/suburb, 1218m) — too coarse/far for a specific art-walk
   # point; no venue-class feature covers this label.
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: central-district-artwalk-friday
 sourceRole: venue
 friendlyname: Central District Art Walk (First Friday)

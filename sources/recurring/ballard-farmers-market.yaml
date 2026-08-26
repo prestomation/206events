@@ -6,7 +6,7 @@ geo:
   label: "Ballard Ave NW between 20th Ave NW & 22nd Ave NW, Seattle"
   # No venue-level match — Nominatim's bounded query only returns the citywide
   # "Seattle" administrative boundary (relation 237385, 8.2km away).
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: ballard-farmers-market
 sourceRole: venue
 friendlyname: Ballard Farmers Market

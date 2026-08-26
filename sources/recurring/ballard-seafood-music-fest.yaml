@@ -7,7 +7,7 @@ geo:
   # "Old Ballard" matches "Old Salt" (node 2140460433, amenity/cafe, 817m) on
   # a coincidental shared word, not the historic district itself — a
   # different, unrelated cafe.
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: ballard-seafood-music-fest
 sourceRole: venue
 friendlyname: Ballard Seafood & Music Fest

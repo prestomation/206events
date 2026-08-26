@@ -5,7 +5,7 @@ geo:
   label: "White Center Business Core, 16th Ave SW, Seattle, WA 98146"
   # Nearest match is a distant, unrelated segment of "16th Avenue Southwest"
   # (way 1066252874, highway/tertiary, 3.8km away) — wrong location.
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: rat-city-artwalk
 sourceRole: venue
 friendlyname: Rat City Art Walk

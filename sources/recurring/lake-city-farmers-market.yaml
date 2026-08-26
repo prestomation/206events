@@ -7,7 +7,7 @@ geo:
   # Nominatim returns the intersection's bus stop (node 2382966090,
   # highway/bus_stop, 0m) — matches the location exactly but isn't a
   # venue-class feature; no venue exists for an open-air market intersection.
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: lake-city-farmers-market
 sourceRole: venue
 friendlyname: Lake City Farmers Market

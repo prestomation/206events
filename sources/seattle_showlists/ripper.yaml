@@ -275,7 +275,7 @@ calendars:
       # 100% name match ("Skylark Cafe", node 9846636254, amenity/restaurant)
       # but 2268m away in Delridge — too far to trust as the same venue
       # without further verification; may be a different "Skylark" business.
-      osmChecked: 2026-08-17
+      osmChecked: 2026-08-26
     timezone: America/Los_Angeles
     tags: ["West Seattle"]
     config:

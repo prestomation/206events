@@ -7,7 +7,7 @@ geo:
   # Only match is the "Ballard" neighborhood centroid (node 150940157,
   # place/suburb, 1010m) — too coarse/far to represent a specific art-walk
   # gathering point; no venue-class feature covers this label.
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: ballard-artwalk
 sourceRole: venue
 friendlyname: Ballard Art Walk
