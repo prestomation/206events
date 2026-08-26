@@ -1,0 +1,19 @@
+geo:
+  lat: 47.555556
+  lng: -122.334337
+  label: "Tiki Motors, 5201 1st Ave S, Seattle, WA 98108"
+  osmType: way
+  osmId: 428018929
+name: rigs-and-coffee-tiki-motors
+sourceRole: venue
+friendlyname: Rigs & Coffee at Tiki Motors
+description: Monthly car meet at Tiki Motors in Georgetown, drawing a mix of overland rigs, classic trucks, sports cars, and imports.
+timezone: America/Los_Angeles
+location: "Tiki Motors, 5201 1st Ave S, Seattle, WA 98108"
+url: https://www.tikimotors.com/
+tags: ["Cars", "Georgetown"]
+cost: free
+schedules:
+  - schedule: 3rd Saturday
+    start_time: "10:00"
+    duration: PT2H
