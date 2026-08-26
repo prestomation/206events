@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'fs/promises';
 import type { GeocodeError } from './config/schema.js';
 import { CITY } from './config/city.js';
+import { decodeEntities } from './text-normalize.js';
 
 export type OsmType = 'node' | 'way' | 'relation';
 
@@ -82,15 +83,21 @@ export function extractHybridPhysicalLocation(location: string): string | null {
 
 /**
  * Normalize a raw location string from an ICS feed or scraper:
- * 1. Unescape ICS-escaped commas (\\, → ,)
- * 2. Strip HTML tags
- * 3. Split on <br>, newlines, or semicolons and take only the first segment
+ * 1. Decode HTML entities (&amp; → &)
+ * 2. Unescape ICS-escaped commas (\\, → ,)
+ * 3. Strip HTML tags
+ * 4. Split on <br>, newlines, or semicolons and take only the first segment
  *    OR intelligently extract address from HTML-bridge format (venue<br>address)
- * 4. Collapse internal whitespace and trim
+ * 5. Collapse internal whitespace and trim
  */
 export function normalizeLocation(location: string): string {
+  // Step 0: Decode HTML entities (e.g. "39th Ave SW &amp; SW Orchard St" →
+  // "39th Ave SW & SW Orchard St"). Some ICS feeds carry entity-encoded
+  // punctuation in LOCATION, which Nominatim can't parse.
+  let normalized = decodeEntities(location);
+
   // Step 1: Unescape ICS-escaped commas (\\, → ,)
-  let normalized = location.replace(/\\,/g, ',');
+  normalized = normalized.replace(/\\,/g, ',');
 
   // Step 2: Check for HTML <br> format with venue on first line and address on second
   // e.g. "A Resting Place<br>670 S. King St.<br>Seattle, WA 98104"
@@ -249,6 +256,34 @@ export function stripSuiteFloorSuffixes(location: string): string | null {
   // Trim
   result = result.trim().replace(/,\s*$/, '').trim();
 
+  if (result === location || result === '') return null;
+  return result;
+}
+
+/**
+ * Some ICS feeds (notably WordPress "The Events Calendar"/Tribe Events
+ * plugin, seen from GeekWire and several external calendars) emit a
+ * LOCATION field with the same street address rendered twice in slightly
+ * different formats, e.g.
+ *   "1015 2nd Ave, Seattle, WA 98104, USA, 1015 2nd Ave, Seattle, 98104, United States"
+ * Nominatim can't parse the run-on duplicate. When the same 5-digit ZIP
+ * code appears more than once, the first occurrence is always the
+ * complete, well-formed rendition — truncate right after it (extending
+ * past any immediately-following closing parens so a "Venue (address)"
+ * wrapper stays balanced). Returns null when no ZIP repeats.
+ */
+export function stripDuplicateAddressTail(location: string): string | null {
+  const zipMatches = [...location.matchAll(/\b\d{5}\b/g)];
+  if (zipMatches.length < 2) return null;
+
+  const firstZip = zipMatches[0];
+  const hasRepeat = zipMatches.slice(1).some(m => m[0] === firstZip[0]);
+  if (!hasRepeat) return null;
+
+  let cutPoint = firstZip.index! + firstZip[0].length;
+  while (location[cutPoint] === ')') cutPoint++;
+
+  const result = location.slice(0, cutPoint).trim().replace(/,\s*$/, '').trim();
   if (result === location || result === '') return null;
   return result;
 }
@@ -1253,6 +1288,19 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // just the clean address portion.
   'pier 66': { lat: 47.6117181, lng: -122.3503214 }, // Bell Street Cruise Terminal, 2225 Alaskan Way, Seattle — source string was "Pier 66, 2225 Alaskan Way, undefined, undefined undefined"
   '8045 pacific avenue, tacoma, washington, 98408': { lat: 47.1841129, lng: -122.4339502 },
+
+  // --- 2026-08-26 build-report geo pass: named venues from the "venue name
+  // only" bucket of geo-cache.py analyze. Addresses confirmed against each
+  // venue's own site/booking page, forward-geocoded via Nominatim (never
+  // reverse-geocoded). (bainbridge performing arts center, vashon center for
+  // the arts, and burien farmer's market were already covered above — this
+  // batch's analyze run was reading a stale geo-cache mirror.)
+  "merchant's cafe & saloon": { lat: 47.6015479, lng: -122.3334283 }, // 109 Yesler Way, Seattle, WA 98104
+  'harissa mediterranean': { lat: 47.6756728, lng: -122.3034100 }, // 2255 NE 65th St, Seattle, WA 98115
+  'raisbeck auditorium': { lat: 47.6179836, lng: -122.3346425 }, // 2017 Boren Ave, Seattle, WA 98121 (events.seattleu.edu venue listing — Cornish's Ivy on Boren building, not the SU main campus)
+  'samuel e. kelly ethnic cultural center (ecc)': { lat: 47.6546132, lng: -122.3145827 }, // 3931 Brooklyn Ave NE, Seattle, WA 98105
+  'volunteer park - burke monument': { lat: 47.6295663, lng: -122.3156138 }, // Volunteer Park, 1247 15th Ave E, Seattle, WA 98112 — monument itself isn't individually indexed in OSM, using the park's coords
+  'union bay viewpoint': { lat: 47.6573765, lng: -122.2940013 }, // Union Bay Natural Area, Seattle, WA — approximation; the specific viewpoint isn't individually indexed in OSM
 };
 
 /**
@@ -1645,6 +1693,15 @@ export async function resolveEventCoords(
         coords = await geocodeLocation(candidate);
         if (coords !== null) break;
       }
+    }
+  }
+
+  // Step 10: Duplicate-address-tail stripping retry (e.g. Tribe Events
+  // ICS feeds that render the same street address twice)
+  if (coords === null) {
+    const deduped = stripDuplicateAddressTail(normalized);
+    if (deduped !== null) {
+      coords = await geocodeLocation(deduped);
     }
   }
 

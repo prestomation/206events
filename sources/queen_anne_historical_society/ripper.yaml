@@ -12,3 +12,11 @@ calendars:
   - name: all-events
     friendlyname: "Queen Anne Historical Society"
     timezone: America/Los_Angeles
+    # 2026-08-26: build-health flagged 0 events. Confirmed live via the
+    # Squarespace ?format=json endpoint — `upcoming: []`. `past` shows the
+    # most recent event was Aug 22 (Mount Pleasant Cemetery Walking Tours),
+    # with only a handful of events posted per year — sporadic
+    # walking-tour/talk cadence, same profile as bandit-improv /
+    # seattle-downtown-community-council. Adding expectEmpty so a quiet
+    # stretch between postings doesn't false-positive.
+    expectEmpty: true
