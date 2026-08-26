@@ -283,7 +283,9 @@ export function stripDuplicateAddressTail(location: string): string | null {
   let cutPoint = firstZip.index! + firstZip[0].length;
   while (location[cutPoint] === ')') cutPoint++;
 
-  const result = location.slice(0, cutPoint).trim().replace(/,\s*$/, '').trim();
+  // No trailing-comma strip needed: cutPoint always lands on a digit or a
+  // closing paren, never a comma.
+  const result = location.slice(0, cutPoint).trim();
   if (result === location || result === '') return null;
   return result;
 }
@@ -1563,6 +1565,8 @@ export interface ResolveEventCoordsResult {
  * 8. Suite/floor stripping retry (if first Nominatim attempt fails)
  * 9. UW building lookup (building code in parens, or named UW location)
  * 10. Known venue lookup (well-known Seattle venues that Nominatim misses)
+ * 11. Duplicate-address-tail stripping retry (ICS feeds that render the
+ *     same street address twice, e.g. the WordPress Tribe Events plugin)
  */
 export async function resolveEventCoords(
   cache: Readonly<GeoCache>,
