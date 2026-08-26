@@ -6,7 +6,7 @@ url: https://www.tikimotors.com/
 tags: ["Cars", "Georgetown"]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-26
-pr:
+pr: 1287
 ---
 
 Monthly car meet (overland rigs, classic trucks, sports cars) at Tiki Motors
