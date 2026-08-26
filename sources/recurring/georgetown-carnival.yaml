@@ -5,7 +5,7 @@ geo:
   lng: -122.3157
   label: "Georgetown Carnival, Airport Way S & 12th Ave S, Seattle, WA 98108"
   # Nominatim's bounded query returns no result at all for this label.
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: georgetown-carnival
 sourceRole: venue
 friendlyname: Georgetown Carnival

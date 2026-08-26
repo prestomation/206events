@@ -7,7 +7,7 @@ geo:
   # 2327723036, amenity/restaurant, 0m) — an unrelated restaurant
   # coincidentally at the same address, not the market. (Same result as
   # food-truck-round-up, which shares this address.)
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: south-lake-union-saturday-market
 sourceRole: venue
 friendlyname: South Lake Union Saturday Market

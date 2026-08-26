@@ -5,14 +5,12 @@ geo:
   # Nominatim returned a different "Village Green" (way/876643300) in Seattle's
   # Ravenna neighborhood, 26.9km away — a same-name coincidence, not this venue.
   # Rejected 2026-07-02 geo-resolver run.
-  osmChecked: "2026-07-02"
+  osmChecked: "2026-08-26"
 imageUrl: "https://images.squarespace-cdn.com/content/v1/5faad068614bea1fe622cd3e/25d401bf-8b92-4c43-8e43-be77039453eb/alltheviga_VFMcolor+Trimmed.png"
 name: vashon-farmers-market
 sourceRole: venue
 friendlyname: Vashon Farmers Market
-description: Weekly seasonal farmers market at the Village Green in the town of
-  Vashon, run by the Vashon Island Growers Association (VIGA). Local produce,
-  artisan goods, and live music.
+description: Weekly seasonal farmers market at the Village Green in the town of Vashon, run by the Vashon Island Growers Association (VIGA). Local produce, artisan goods, and live music.
 timezone: America/Los_Angeles
 location: "Village Green, 17519 Vashon Highway SW, Vashon, WA 98070"
 url: https://www.vigavashon.org/market

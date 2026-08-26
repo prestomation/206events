@@ -6,7 +6,7 @@ geo:
   label: "37th Ave S & S Edmunds St, Seattle"
   # No venue-level match — Nominatim's bounded query only returns the citywide
   # "Seattle" administrative boundary (relation 237385, 6km away).
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: columbia-city-farmers-market
 sourceRole: venue
 friendlyname: Columbia City Farmers Market

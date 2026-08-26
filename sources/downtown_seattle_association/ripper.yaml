@@ -81,7 +81,7 @@ calendars:
       # declared coords, ~30m) is "Corner Market" — a named building at Post
       # Alley, a different spot inside the market, not the street plaza itself.
       # Tier D — clearly a different feature — not applying an id.
-      osmChecked: 2026-08-17
+      osmChecked: 2026-08-26
   - name: mcgraw-square
     friendlyname: "McGraw Square Events"
     timezone: America/Los_Angeles

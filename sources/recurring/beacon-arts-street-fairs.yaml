@@ -7,7 +7,7 @@ geo:
   # "Roberto Maestas" matches "Seattle Credit Union" (node 5695266918,
   # amenity/bank, 0m) only because the bank's address happens to sit on this
   # street — coincidental, not the street/festival itself.
-  osmChecked: "2026-08-17"
+  osmChecked: "2026-08-26"
 name: beacon-arts-street-fairs
 sourceRole: venue
 friendlyname: Beacon Arts Street Fairs

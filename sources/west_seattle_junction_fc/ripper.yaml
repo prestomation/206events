@@ -11,7 +11,7 @@ geo:
   label: "Nino Cantu SW Athletic Complex, Seattle, WA 98146"
   # No venue-level match — Nominatim's bounded query only returns the citywide
   # "Seattle" administrative boundary (relation 237385, 11.5km away).
-  osmChecked: 2026-08-17
+  osmChecked: 2026-08-26
 calendars:
   - name: home-games
     friendlyname: "West Seattle Junction FC — Home Games"
