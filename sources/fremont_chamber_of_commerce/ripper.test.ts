@@ -69,11 +69,11 @@ describe("parseEventIcs", () => {
         expect(event.location).toBe("St. James Tower, 920 N 34th St, #200 Seattle WA 98103");
         expect(event.url).toBe("https://business.fremont.com/calendar/Details/fremont-health-and-wellness-meet-up-1870771");
 
-        // DTSTART;TZID=America/Los_Angeles:20260825T173000 / DTEND ...T183000
+        // DTSTART;TZID=America/Los_Angeles:20260910T173000 / DTEND ...T183000
         const start = event.date;
         expect(start.year()).toBe(2026);
-        expect(start.monthValue()).toBe(8);
-        expect(start.dayOfMonth()).toBe(25);
+        expect(start.monthValue()).toBe(9);
+        expect(start.dayOfMonth()).toBe(10);
         expect(start.hour()).toBe(17);
         expect(start.minute()).toBe(30);
         expect(start.zone().toString()).toBe("America/Los_Angeles");

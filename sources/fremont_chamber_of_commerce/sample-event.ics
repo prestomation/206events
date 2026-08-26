@@ -23,8 +23,8 @@ TZNAME:Pacific Standard Time
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260825T173000
-DTEND;TZID=America/Los_Angeles:20260825T183000
+DTSTART;TZID=America/Los_Angeles:20260910T173000
+DTEND;TZID=America/Los_Angeles:20260910T183000
 X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
 SUMMARY:Fremont Health and Wellness Meet Up
 DESCRIPTION:This is a free and open to all networking\, referral\, community building group that is meant to connect and strengthen the health and wellness community in Fremont through continued connection and collaboration. Join us. We will get together for an hour\, get to know each other\, each other's businesses and share what we need\, what would be helpful to get from the group or just better connect and be part of community. This is not a time to "sell" but more a time to grow and get to know the people around you\, who are doing similar work\n\n\nRegistration link: https://luma.com/z7dsrmdd
