@@ -6,6 +6,7 @@ import {
   extractHybridPhysicalLocation,
   extractFromGoogleMapsUrl,
   stripSuiteFloorSuffixes,
+  stripDuplicateAddressTail,
   lookupNeighborhoodCentroid,
   lookupSPLBranchCoords,
   lookupVenueAreaFallback,
@@ -72,6 +73,15 @@ describe('normalizeLocation', () => {
 
   it('handles combined HTML and ICS escapes', () => {
     expect(normalizeLocation('NWFF: 1515 12th Ave\\, Seattle WA 98122')).toBe('NWFF: 1515 12th Ave, Seattle WA 98122');
+  });
+
+  it('decodes HTML entities like &amp;', () => {
+    expect(normalizeLocation('39th Ave SW &amp; SW Orchard St, Seattle, WA 98126'))
+      .toBe('39th Ave SW & SW Orchard St, Seattle, WA 98126');
+  });
+
+  it('decodes numeric HTML entities', () => {
+    expect(normalizeLocation('Tom &#38; Jerry\'s, Seattle, WA')).toBe("Tom & Jerry's, Seattle, WA");
   });
 });
 
@@ -480,6 +490,41 @@ describe('stripSuiteFloorSuffixes', () => {
 
   it('returns null for empty string', () => {
     expect(stripSuiteFloorSuffixes('')).toBeNull();
+  });
+});
+
+describe('stripDuplicateAddressTail', () => {
+  it('truncates a Tribe Events-style duplicated address at the first ZIP', () => {
+    const result = stripDuplicateAddressTail(
+      '1015 2nd Ave, Seattle, WA 98104, USA, 1015 2nd Ave, Seattle, 98104, United States',
+    );
+    expect(result).toBe('1015 2nd Ave, Seattle, WA 98104');
+  });
+
+  it('keeps a "Venue (address)" wrapper balanced when the ZIP is inside parens', () => {
+    const result = stripDuplicateAddressTail(
+      'North Seattle College, Education Bldg (9600 College Way N, Seattle, WA 98103), 9600 College Way N, Seattle, WA, 98103, United States',
+    );
+    expect(result).toBe('North Seattle College, Education Bldg (9600 College Way N, Seattle, WA 98103)');
+  });
+
+  it('truncates an adjacent duplicated ZIP', () => {
+    const result = stripDuplicateAddressTail(
+      'Traver Gallery, 1100 W. Ewing Street Suite 160, Seattle, 98119, 98119, United States',
+    );
+    expect(result).toBe('Traver Gallery, 1100 W. Ewing Street Suite 160, Seattle, 98119');
+  });
+
+  it('returns null when only one ZIP is present', () => {
+    expect(stripDuplicateAddressTail('600 4th Ave, Seattle, WA 98104')).toBeNull();
+  });
+
+  it('returns null when two different ZIPs are present', () => {
+    expect(stripDuplicateAddressTail('600 4th Ave, Seattle, WA 98104 to 500 Yale Ave, Seattle, WA 98121')).toBeNull();
+  });
+
+  it('returns null for empty string', () => {
+    expect(stripDuplicateAddressTail('')).toBeNull();
   });
 });
 

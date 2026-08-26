@@ -14424,6 +14424,571 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-26",
       "note": "Different food truck locations: 1201 Eastlake Ave E vs 1551 Eastlake Ave E (321m apart). Same day, same time, but separate venues with separate schedules."
+    },
+    "events12-seattle-events.ics Electric aircraft|2026-08-29T10:00:00-07:00[America/Los_Angeles]::museum_of_flight-museum-of-flight.ics Pulitzer: Electric Aircraft Race|2026-08-29T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-26",
+      "note": "Same museum, same day, but different sub-events: 10am Electric Aircraft Expo vs 2pm Pulitzer Electric Aircraft Race"
+    },
+    "external-myballard.ics 2026 Seattle Optimism Walk|2026-09-19T09:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Seattle Optimism Walk|2026-09-19T09:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-myballard.ics / external-seattle-gov-neighborhoods.ics), same title and start time"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-10-24T21:00:00Z[UTC]::spl-authors-books-authors-books.ics Book Club: Let's Talk About Books|2026-10-24T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (spl-authors-books-authors-books.ics / external-seattle-city-of-lit.ics), same title and start time"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-10-24T22:00:00Z[UTC]::spl-authors-books-authors-books.ics Book Club: Let's Talk About Books|2026-10-24T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (spl-authors-books-authors-books.ics / external-seattle-city-of-lit.ics), same title and start time"
+    },
+    "external-seattle-city-of-lit.ics  Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T18:30:00Z[UTC]::seatoday-seatoday-all.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / external-seattle-city-of-lit.ics), same title and start time"
+    },
+    "external-seattle-city-of-lit.ics  Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T18:30:00Z[UTC]::seatoday-seatoday-arts.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / external-seattle-city-of-lit.ics), same title and start time"
+    },
+    "external-seattle-city-of-lit.ics  Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T18:30:00Z[UTC]::seatoday-seatoday-learning.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / external-seattle-city-of-lit.ics), same title and start time"
+    },
+    "external-seattle-city-of-lit.ics  Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T18:30:00Z[UTC]::seatoday-seatoday-sports.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-sports.ics / external-seattle-city-of-lit.ics), same title and start time"
+    },
+    "external-seattle-gov-city-wide.ics Green Lake Work Party|2026-09-13T09:00:00Z[UTC]::external-seattle-parks-foundation.ics Green Lake Work Party|2026-09-13T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-seattle-gov-city-wide.ics / external-seattle-parks-foundation.ics), same title and start time"
+    },
+    "external-seattle-gov-city-wide.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-seattle-gov-city-wide.ics / external-seattle-parks-foundation.ics), same title and start time"
+    },
+    "external-seattle-gov-city-wide.ics Westcrest Park- Fallin' for Fungi!|2026-09-12T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Westcrest Park - Fallin' for Fungi!|2026-09-12T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-seattle-gov-city-wide.ics / external-seattle-parks-foundation.ics), same title and start time"
+    },
+    "external-seattle-gov-parks-recreation.ics Green Lake Work Party|2026-09-13T09:00:00Z[UTC]::external-seattle-parks-foundation.ics Green Lake Work Party|2026-09-13T09:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-seattle-gov-parks-recreation.ics / external-seattle-parks-foundation.ics), same title and start time"
+    },
+    "external-seattle-gov-parks-recreation.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-seattle-gov-parks-recreation.ics / external-seattle-parks-foundation.ics), same title and start time"
+    },
+    "external-seattle-gov-parks-recreation.ics Westcrest Park- Fallin' for Fungi!|2026-09-12T10:00:00Z[UTC]::external-seattle-parks-foundation.ics Westcrest Park - Fallin' for Fungi!|2026-09-12T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-seattle-gov-parks-recreation.ics / external-seattle-parks-foundation.ics), same title and start time"
+    },
+    "external-uw-campus-events.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-college-of-arts-sciences.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-campus-events.ics / external-uw-college-of-arts-sciences.ics), same title and start time"
+    },
+    "external-uw-campus-events.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-libraries-seattle.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-campus-events.ics / external-uw-libraries-seattle.ics), same title and start time"
+    },
+    "external-uw-campus-events.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-school-of-law.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-campus-events.ics / external-uw-school-of-law.ics), same title and start time"
+    },
+    "external-uw-campus-events.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-school-of-music.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-campus-events.ics / external-uw-school-of-music.ics), same title and start time"
+    },
+    "external-uw-college-of-arts-sciences.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-libraries-seattle.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-college-of-arts-sciences.ics / external-uw-libraries-seattle.ics), same title and start time"
+    },
+    "external-uw-college-of-arts-sciences.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-school-of-law.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-college-of-arts-sciences.ics / external-uw-school-of-law.ics), same title and start time"
+    },
+    "external-uw-college-of-arts-sciences.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-school-of-music.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-college-of-arts-sciences.ics / external-uw-school-of-music.ics), same title and start time"
+    },
+    "external-uw-libraries-seattle.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-school-of-law.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-libraries-seattle.ics / external-uw-school-of-law.ics), same title and start time"
+    },
+    "external-uw-libraries-seattle.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-school-of-music.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-libraries-seattle.ics / external-uw-school-of-music.ics), same title and start time"
+    },
+    "external-uw-school-of-law.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]::external-uw-school-of-music.ics Thanksgiving Day|2026-11-26T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (external-uw-school-of-law.ics / external-uw-school-of-music.ics), same title and start time"
+    },
+    "queer-social-club-all-events.ics Trivia Tuesday - Ballard|2026-09-01T19:00:00.018-07:00[America/Los_Angeles]::recurring-rough-tumble-trivia-tuesday-ballard.ics Trivia Tuesday at Rough & Tumble - Ballard|2026-09-01T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (recurring-rough-tumble-trivia-tuesday-ballard.ics / queer-social-club-all-events.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics All ages CRAFT-ernoon|2026-08-31T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics All ages CRAFT-ernoon|2026-08-31T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-arts.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-central-library.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-rainier-beach.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-arts.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Exceptional Connections September Networking Luncheon|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Exceptional Connections September Networking Luncheon|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-food.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Exceptional Connections September Networking Luncheon|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Exceptional Connections September Networking Luncheon|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-arts.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-queen-anne.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-arts.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-lake-city.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-arts.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]::spl-newholly.ics Kaleidoscope Play and Learn  / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-newholly.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-arts.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-sports.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-authors-books-authors-books.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-central-library.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-food.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-arts.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-northgate.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Rent Smart: Mold & Your Rights as a Tenant|2026-09-01T14:45:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Rent Smart: Mold & Your Rights as a Tenant|2026-09-01T14:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-sports.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-broadview.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-arts.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::spl-southwest.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-southwest.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-all.ics / spl-online.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-central-library.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-rainier-beach.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-queen-anne.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-lake-city.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]::spl-newholly.ics Kaleidoscope Play and Learn  / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-newholly.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-sports.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-authors-books-authors-books.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-central-library.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-northgate.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-arts.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::spl-southwest.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-arts.ics / spl-southwest.ics), same title and start time"
+    },
+    "seatoday-seatoday-community.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Creative Chats in Community|2026-09-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-community.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-food.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-community.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-community.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-community.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-community.ics / spl-northgate.ics), same title and start time"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / seatoday-seatoday-community.ics), same title and start time"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-community.ics / spl-online.ics), same title and start time"
+    },
+    "seatoday-seatoday-food.ics Exceptional Connections September Networking Luncheon|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Exceptional Connections September Networking Luncheon|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-food.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-food.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-09-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-food.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-central-library.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Baby Story Time|2026-09-08T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-rainier-beach.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Family Story Time|2026-09-08T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-queen-anne.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-08T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-lake-city.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play and Learn / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]::spl-newholly.ics Kaleidoscope Play and Learn  / Ku ciyaarista iyo barashada qalabka Kaleidoscope-ka|2026-08-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-newholly.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-sports.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-authors-books-authors-books.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-central-library.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Reading with Rover|2026-09-08T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-northgate.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-sports.ics / seatoday-seatoday-learning.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-broadview.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]::spl-southwest.ics Toddler Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-southwest.ics), same title and start time"
+    },
+    "seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-learning.ics / spl-online.ics), same title and start time"
+    },
+    "seatoday-seatoday-sports.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-sports.ics / spl-authors-books-authors-books.ics), same title and start time"
+    },
+    "seatoday-seatoday-sports.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Low Vision Book Group: \"The Penguin Lessons: What I Learned from a Remarkable Bird\"|2026-09-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-sports.ics / spl-central-library.ics), same title and start time"
+    },
+    "seatoday-seatoday-sports.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same real-world event across feeds (seatoday-seatoday-sports.ics / spl-broadview.ics), same title and start time"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-25T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-26",
+      "note": "1201 Eastlake vs 1551 Eastlake — 321m apart, distinct food-truck stop locations"
+    },
+    "spl-douglass-truth.ics Family Story Time|2026-09-09T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-09-09T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-26",
+      "note": "Douglass-Truth Branch vs Greenwood Branch — 10.5km apart, distinct SPL branches; 'Family Story Time' is a generic recurring program name used at every branch"
     }
   }
 }
