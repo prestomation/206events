@@ -14374,6 +14374,56 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-25",
       "note": "Different events: Story Time at Children's Museum (11:00) vs Family Story Time at SPL (10:30)"
+    },
+    "seatoday-seatoday-all.ics FamilyWorks Mobile Food Bank|2026-09-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics FamilyWorks Mobile Food Bank|2026-09-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same event from the same source (seatoday/CitySpark), appearing in two tag-filtered calendars (all and community)"
+    },
+    "seatoday-seatoday-all.ics FamilyWorks Mobile Food Bank|2026-09-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics FamilyWorks Mobile Food Bank|2026-09-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same event from the same source (seatoday/CitySpark), appearing in two tag-filtered calendars (all and learning)"
+    },
+    "seatoday-seatoday-community.ics FamilyWorks Mobile Food Bank|2026-09-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics FamilyWorks Mobile Food Bank|2026-09-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same event from the same source (seatoday/CitySpark), appearing in two tag-filtered calendars (community and learning)"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-08-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-08-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same event from seatoday/CitySpark in two tag-filtered calendars (all and learning)"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-09-01T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-09-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "Same event from seatoday/CitySpark in two tag-filtered calendars (all and learning)"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-08-25T10:30:00-07:00[America/Los_Angeles]::spl-beacon-hill.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-08-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "CitySpark (seatoday) republishes SPL events; both refer to the same SPL Beacon Hill program occurrence on Aug 25"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-09-01T10:30:00-07:00[America/Los_Angeles]::spl-beacon-hill.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-09-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "CitySpark (seatoday) republishes SPL events; both refer to the same SPL Beacon Hill program occurrence on Sep 1"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-08-25T10:30:00-07:00[America/Los_Angeles]::spl-beacon-hill.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-08-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "CitySpark (seatoday-learning) republishes SPL events; both refer to the same SPL Beacon Hill program on Aug 25"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-09-01T10:30:00-07:00[America/Los_Angeles]::spl-beacon-hill.ics Kaleidoscope Play & Learn / 万花筒游戏和学习 / 萬花筒遊戲和學習|2026-09-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-26",
+      "note": "CitySpark (seatoday-learning) republishes SPL events; both refer to the same SPL Beacon Hill program on Sep 1"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-26",
+      "note": "Different food truck locations: 1201 Eastlake Ave E vs 1551 Eastlake Ave E (321m apart). Same day, same time, but separate venues with separate schedules."
     }
   }
 }
