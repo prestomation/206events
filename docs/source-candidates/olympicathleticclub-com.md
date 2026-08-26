@@ -1,6 +1,6 @@
 ---
 name: BodyPump
-status: candidate
+status: investigating
 platform: Unknown
 url: https://www.olympicathleticclub.com/classes/
 tags: ["fitness", "dancing", "playing-sports", "wellness"]
@@ -19,7 +19,7 @@ NW, Seattle, WA 98107) — passes the geographic gate. However the sample
 events are recurring group-fitness class instances (BodyPump, Tae Kwon
 Do-style class slots), not one-off events — closer to a class schedule
 than a calendar of happenings. `/classes/` is a JS-rendered schedule
-widget; no ICS/JSON API found on a quick pass. Leaving as `candidate`
+widget; no ICS/JSON API found on a quick pass. Flipped to `investigating`
 rather than promoting to implementation — would need to confirm the
 class-schedule content fits the calendar's purpose and find the
 underlying data source (likely a booking platform API) before treating
