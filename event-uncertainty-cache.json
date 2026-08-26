@@ -62887,19 +62887,25 @@
     },
     "northwest-film-forum:mysterious-skin-4k-restoration-2026-08-28": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/mysteriousskinposter-1200x1778.jpg"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/mysteriousskinposter-1200x1778.jpg",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-08-26",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/mysterious-skin-4k-restoration/"
+      "evidence": "https://nwfilmforum.org/films/mysterious-skin-4k-restoration/ — $15 General Admission ($10 student/child/senior, $7 member)"
     },
     "northwest-film-forum:three-bewildered-people-in-the-night-2026-08-28": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeopleposter.jpg"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeopleposter.jpg",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-08-26",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/three-bewildered-people-in-the-night/"
+      "evidence": "https://nwfilmforum.org/films/three-bewildered-people-in-the-night/ — $15 General Admission"
     },
     "SAF:186618449": {
       "fields": {
@@ -62946,6 +62952,2258 @@
       "resolvedAt": "2026-08-26",
       "source": "agent",
       "evidence": "sample event 'Sk8' — Hubbard Homestead's guided skateboarding sessions run in its temperature-controlled gym per Seattle's Child (seattleschild.com/events/rnts-free-skate-school-indoors); this seattle-gov-parks-recreation feed's programming ties to the indoor gym, not the park's outdoor skate spot"
+    },
+    "events12:on-the-water-118692-2026-08-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-08-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-08-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-08-29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-08-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-08-31": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-09-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-10-31": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-11-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:on-the-water-118692-2026-12-31": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
+    },
+    "events12:sunflower-farms-118543-2026-09-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "events12:sunflower-farms-118543-2026-09-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://rutledgecornmaze.ticketspice.com/2026-sunflower-festival — dynamic per-date pricing ($0-$13.50 weekday / $0-$17.50 weekend general admission range), no fixed adult price posted"
+    },
+    "seatoday:cityspark-18572476": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (Reading with Rover) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seatoday:cityspark-19726762": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (Low Vision Book Group) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seatoday:cityspark-18572332": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (Creative Chats in Community) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seatoday:cityspark-19726759": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (Toddler Story Time) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seatoday:cityspark-19726758": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (Tai Chi for Stability) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seatoday:cityspark-19726756": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (Rent Smart: Mold & Your Rights as a Tenant) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seatoday:cityspark-19726755": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (Brick Buddies) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seatoday:cityspark-19726754": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (All ages CRAFT-ernoon) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seatoday:cityspark-19726752": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Seattle Public Library branch program (Kaleidoscope Play and Learn) — SPL/KCLS drop-in and community programs are always free and open to everyone"
+    },
+    "seattle-makers:seattle-makers-164595": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-thursdays-19/ — non-member $20.00, member free"
+    },
+    "seattle-makers:seattle-makers-164598": {
+      "fields": {
+        "cost": {
+          "min": 55.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/serger-coverstitch-certification-sewing-7/ — non-member $55.00, member $30.00"
+    },
+    "seattle-makers:seattle-makers-164608": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/orientation-for-new-members-30/ — $0.00 (members-only orientation, no other price shown)"
+    },
+    "seattle-makers:seattle-makers-164615": {
+      "fields": {
+        "cost": {
+          "min": 100.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/soldering-101-101/ — non-member $100.00, member $70.00"
+    },
+    "seattle-makers:seattle-makers-164618": {
+      "fields": {
+        "cost": {
+          "min": 130.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/3d-printer-certification-286/ — non-member $130.00, member $85.00"
+    },
+    "seattle-makers:seattle-makers-164622": {
+      "fields": {
+        "cost": {
+          "min": 125.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%e2%9a%a1programmable-leds-4/ — non-member $125.00, member $95.00"
+    },
+    "seattle-makers:seattle-makers-164625": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/cnc-certification-series-3-part-series-19/ — member $320.00 posted; non-member/general-public price not listed (page says contact Seattle Makers directly)"
+    },
+    "seattle-makers:seattle-makers-164649": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-thursdays-20/ — same recurring class as seattle-makers-164595, non-member $20.00"
+    },
+    "seattle-makers:seattle-makers-164660": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/queer-crafters-meetup-22/ — $0.00 for members and non-members"
+    },
+    "seattle-makers:seattle-makers-164750": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-19/ — $0.00 (members-only guided studio hours, non-members cannot attend)"
+    },
+    "seattle-makers:seattle-makers-164764": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/woodshop-guided-studio-thursdays-26/ — same recurring class as seattle-makers-164750, $0.00 members-only"
+    },
+    "the-cove:6a8cc225f396c45fa1b1219b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — Wine Wednesday, no cover charge listed (10% off bottles promo only)"
+    },
+    "the-cove:6a8cc251fb949d3ae3cdb13f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — Wine Wednesday, no cover charge listed (10% off bottles promo only)"
+    },
+    "the-cove:6a8cc26baafad971bb4a6cc6": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — Wine Wednesday, no cover charge listed (10% off bottles promo only)"
+    },
+    "the-cove:6a8cc2bcc706f715e1e26acd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — Wine Wednesday, no cover charge listed (10% off bottles promo only)"
+    },
+    "the-cove:6a8cc2e25bb63371cdf3fbe4": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — Wine Wednesday, no cover charge listed (10% off bottles promo only)"
+    },
+    "the-cove:6a8cc48c494440715b8d4c9d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — recurring Music Night DJ series, no cover charge listed on any checked instance"
+    },
+    "the-cove:6a8cc6a4bb1be704f0b9b8e0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — recurring Music Night DJ series, no cover charge listed on any checked instance"
+    },
+    "the-cove:6a8cc7b772676961a944d0f6": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — recurring Music Night DJ series, no cover charge listed on any checked instance"
+    },
+    "the-cove:6a8cc886f234633b8363f71f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — recurring Music Night DJ series, no cover charge listed on any checked instance"
+    },
+    "the-cove:6a8cca87d5e8671f5abb286e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/ — recurring Music Night DJ series, no cover charge listed on any checked instance"
+    },
+    "the-cove:6a8ccb50ce7d2b37726aeb34": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.thecoveseattle.com/all-events/dj-cenzoe-f2k87-a83g6-7r96e-ytg93-bj88f-2as67-a4428-jlbrp-zet5n-8r34x — End of Summer Party, no admission cost specified"
+    },
+    "queer-social-club:6a8e1059c3a271590725b9ff": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Seattle Bouldering Project: University; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e11030558fa6d585441aa": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Vertical World North; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e11625077a31aa55b1e3e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Edgeworks Bellevue; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e11b870361c477d1903f0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Edgeworks Seattle; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e12485077a31aa55b794c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Edgeworks Tacoma; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e12d39258a72776fd4ecd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Climb NORA; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e1494a0028e6507bfa94e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Uplift; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e14f69a383b773dd0c166": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Endurance Burlington; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e163d8872f133058caf08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Momentum SODO; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e168d9258a72776fe9405": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Castle Climbing Club; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e174ff5f8677a820bec8e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Half Moon Bouldering; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e179c4f892d0004a291bc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Seattle Bouldering Project: Fremont; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e17f23f4be82041eb3c2e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Vertical World Seattle; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e18a1f5f8677a820c4b77": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Edgeworks Bel-Red; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "queer-social-club:6a8e1933e580a5640c083139": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/ — Queer Climb Night at Seattle Bouldering Project: Poplar; attendees pay a discounted day-pass rate at the gym's front desk, rate not disclosed online and varies by gym"
+    },
+    "chophouse-row:68532aa963c0a879624f05f3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/cloud-room-member-mixer-aug27 — members-only mixer, complimentary bubbles for members and guests"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2SpvqPf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Ticketmaster listing blocks automated fetches (403); price not verifiable"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OjQ1c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Ticketmaster listing blocks automated fetches (403); price not verifiable"
+    },
+    "crocodile:tm-Z7r9jZ1A7Pdu4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Ticketmaster listing blocks automated fetches (403); price not verifiable"
+    },
+    "crocodile:tm-Z7r9jZ1AAZYx_": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Ticketmaster listing blocks automated fetches (403); price not verifiable"
+    },
+    "el-suenito-brewing:el-suenito-brewing-0ee39f44-3f10-4da4-afc1-600f881ae5db": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "reason": "https://www.elsuenitobrewing.com/event-details/queer-book-club-2026-08-26-19-00 — no pricing or ticketing signal on the page (informal brewery book club)"
+    },
+    "el-suenito-brewing:el-suenito-brewing-e3c3eaa6-d9cd-4874-a4cd-390504391f8a": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/suenito-special-disney-themed-drag-brunch — $25 individual GA (also $150/$350 group tiers)"
+    },
+    "kremwerk:6a8e3185ea5c717943e13523": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/08/04/rabbas-house-nohup — ticketed (external ticketing platform), price not posted on the event page"
+    },
+    "kremwerk:6a8e4da7ea5c717943ea3a0c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/12/t4t-all-trans-non-binary-drag-variety-show — ticketed (external ticketing platform), price not posted on the event page"
+    },
+    "lumen-field:tm-vvG1HZ_8clox8I": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Ticketmaster listing blocks automated fetches (403); price not verifiable"
+    },
+    "mr_bs_meadery:6a8b797ec0a1ea33980609b5": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.mrbsmeadery.com/events/sip-stitch-sept — $35/adult (18+); pay-what-you-can for 12-17, free under 12"
+    },
+    "naam:6a863acf6c3e5e2bdd15b5ff": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/freedom-day-august-28th — 'Enjoy FREE admission'"
+    },
+    "naam:6a89ea07bd87f603194b88bc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/a937i67kncszzy5f6jkjjehighj044 — no price shown; NAAM runs a mixed free/paid program model"
+    },
+    "naam:6a89f648861759360f4fb74b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/origin-of-the-dream-film-screening — no price shown; NAAM runs a mixed free/paid program model"
+    },
+    "naam:6a89f6a2871f597d4f956b5f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/rewriting-reality-a-conversation-with-leslye-penelope — 'Admission is free, but registration is encouraged'"
+    },
+    "naam:6a89f777b4087805850a1075": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/grandparents-african-american-elders-day — no price shown; NAAM runs a mixed free/paid program model"
+    },
+    "native_action_network:6a8de424a1d88e693a500a21": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Native Action Network art markets are consistently free/family-friendly (confirmed across multiple market listings on nativeactionnetwork.org)"
+    },
+    "pono-ranch:6a8944c8330f435618d7c491": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/simon-okelo-and-the-one-vibe-band-w-special-guests — Eventbrite ticket link present, price not shown on page"
+    },
+    "pono-ranch:6a8e08999258a72776f933c9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/the-rodeo-at-pono-ranch — 'no cover'"
+    },
+    "rabbit_box:6a8c7ce6a29a031d0671bf8c": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-only-living-boys-dirty-verbs-guest-dj — GA Seated $15 adv / $20 door"
+    },
+    "rabbit_box:6a8ce643f234633b836f4097": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/karaoke-hosted-by-snax-the-bunny-members-cocktail-party — 'Members Cocktail Party', no price posted"
+    },
+    "rabbit_box:6a8e377097636c49e284ab21": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-pearl-cafe-brunch-chef-simon-rutherford — 'Free Admission'"
+    },
+    "savoy-swing:6a82a8ea85257c20ef6e88ed": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.savoyswing.org/events/savoy-fridays-2026-09-25 — $15 non-member (sliding scale available), free for members"
+    },
+    "savoy-swing:6a82ab5bf9434158ce497a02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.savoyswing.org/events/dance-workshop-guided-practice-2026-09-18 — no price shown on page"
+    },
+    "savoy-swing:6a82ae1b10dc4c266164ff2e": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.savoyswing.org/events/savoy-fridays-2026-09-11 — $15 non-member (sliding scale available), free for members"
+    },
+    "seattle-chamber-music:scms-5615": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/9-10-26/ — 'These events are free and open to the public'"
+    },
+    "seattle-cocktail-club:6a8db71dc47d8f2be5c49cb3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/happy-hour-at-judes-37wab — no price shown on page"
+    },
+    "seattle-cocktail-club:6a8dc8e22c482b1e6d05c854": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/happy-hour-at-judes-37wab-s2rdf — members-only blind whiskey tasting, no price shown"
+    },
+    "seattle-swing-dance-club:n32n2ebh2ttrdvs47td5aiiutv": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "reason": "Event marked CANCELLED in its own title; no source URL available in the queue to verify pricing"
+    },
+    "sol-yoga-seattle:6a8df3cc5dc87229dd22ad37": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/hipresetdeepstretch-... — '$40 Workshop (75 mins) pass'"
+    },
+    "stg:tm-vvG1HZ_5K2Rs9k": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Ticketmaster listing blocks automated fetches (403); price not verifiable"
+    },
+    "stg:tm-vvG1HZ_oKJjyek": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "Ticketmaster listing blocks automated fetches (403); price not verifiable"
+    },
+    "the-cuff-complex:6a8e12ce4f892d0004a120fd": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/cuff-presents-qwest — '$10 at the door'"
+    },
+    "the-cuff-complex:6a8e134ef941d26e9815dbdc": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/chapstick-gwnn-pauline — 'Cover: $10 at the door'"
+    },
+    "the-cuff-complex:6a8e13d0cc89bd383aca15f0": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/lyriq-nick-cressman-andrew-scott — 'Cover: $10 at the door'"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/bobafest — 'no tickets or admission fees for this event'"
+    },
+    "wamu-theater:tm-vvG1HZ_oxJKai_": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-26",
+      "source": "agent",
+      "evidence": "'Amplified Access' VIP add-on (not a show ticket); Ticketmaster blocks automated fetches (403), price not verifiable for this specific date"
     }
   }
 }
