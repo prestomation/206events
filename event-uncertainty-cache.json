@@ -63866,6 +63866,16 @@
       "resolvedAt": "2026-08-27",
       "source": "agent",
       "reason": "No event-specific image on page — only Bloodworks Northwest logo and QR code"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_o3DfQsX": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-seattle-washington-11-10-2026/event/0F006514BB51AC7E"
     }
   }
 }
