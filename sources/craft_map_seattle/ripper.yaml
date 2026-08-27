@@ -1,0 +1,12 @@
+name: craft-map-seattle
+description: "The Craft Map Seattle Fairs"
+url: "https://www.thecraftmap.com/fairs/washington/seattle"
+friendlyLink: "https://www.thecraftmap.com/fairs/washington/seattle"
+sourceRole: aggregator
+weatherSetting: "mixed"
+geo: null
+tags: ["MakersMarket"]
+calendars:
+  - name: craft-map-seattle
+    friendlyname: "The Craft Map - Seattle Craft Fairs"
+    timezone: America/Los_Angeles
