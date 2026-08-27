@@ -1,10 +1,14 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5c/University_Distr\
-  ict_Seattle%2C_May_2024.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5c/University_District_Seattle%2C_May_2024.jpg"
 geo:
   lat: 47.6614
   lng: -122.3121
   label: "University District, Seattle, WA"
-  osmChecked: "2026-06-22"
+  # Nominatim only returns the neighborhood itself (node/977967666,
+  # place/suburb "University District", 80m) — not a venue. This art
+  # walk covers the whole neighborhood, no single physical venue
+  # exists to attach an OSM id to. Rejected in June 2026 for the same
+  # reason; re-checked.
+  osmChecked: "2026-08-27"
 name: university-district-artwalk
 sourceRole: venue
 friendlyname: University District Art Walk

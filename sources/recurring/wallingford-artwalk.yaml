@@ -1,10 +1,14 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Seattle_-_Wallin\
-  gford_sign_01.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Seattle_-_Wallingford_sign_01.jpg"
 geo:
   lat: 47.6603
   lng: -122.3338
   label: "Wallingford, Seattle, WA"
-  osmChecked: "2026-06-22"
+  # Nominatim only returns the neighborhood itself (node/150973716,
+  # place/suburb "Wallingford", 102m) — not a venue. This art walk
+  # covers the whole neighborhood, no single physical venue exists to
+  # attach an OSM id to. Rejected in June 2026 for the same reason;
+  # re-checked.
+  osmChecked: "2026-08-27"
 name: wallingford-artwalk
 sourceRole: venue
 friendlyname: Wallingford Art Walk

@@ -1,16 +1,19 @@
 # verified: 2026-08-10 ok
-imageUrl: "https://images.squarespace-cdn.com/content/v1/5ec32aea37a8de7bea1707\
-  60/9d75b1f0-9ef6-4e76-8488-0a9279e767c7/DSC01096.jpg"
+imageUrl: "https://images.squarespace-cdn.com/content/v1/5ec32aea37a8de7bea170760/9d75b1f0-9ef6-4e76-8488-0a9279e767c7/DSC01096.jpg"
 geo:
   lat: 47.6431
   lng: -122.4009
   label: "Magnolia, Seattle, WA"
-  osmChecked: "2026-06-22"
+  # Nominatim only returns the neighborhood itself (node/150936037,
+  # place/suburb "Magnolia", 426m) — not a venue. This farmers market
+  # covers a parking-lot/street area within the neighborhood, no
+  # dedicated OSM venue feature exists. Rejected in June 2026 for the
+  # same reason; re-checked.
+  osmChecked: "2026-08-27"
 name: magnolia-farmers-market
 sourceRole: venue
 friendlyname: Magnolia Farmers Market
-description: Seasonal Saturday farmers market in the Magnolia neighborhood. Runs
-  June through October.
+description: Seasonal Saturday farmers market in the Magnolia neighborhood. Runs June through October.
 timezone: America/Los_Angeles
 location: Magnolia neighborhood, Seattle
 url: https://seattlefarmersmarkets.org/
