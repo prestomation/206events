@@ -51,6 +51,7 @@ calendars:
   - name: mcgraw-square
     friendlyname: "Food Trucks @ McGraw Square"
     timezone: America/Los_Angeles
+    expectEmpty: true
     tags: ["FoodTruck", "Downtown"]
     geo:
       lat: 47.61299
