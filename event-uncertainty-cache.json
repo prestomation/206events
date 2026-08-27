@@ -63838,14 +63838,10 @@
       "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/seattle-mariners-vs-texas-rangers/16856554/2026-09-09T00"
     },
     "seatoday:cityspark-19523287": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-27",
       "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/bike-lessons-with-cascade-bike-club/19523287/2026-09-09T00"
+      "reason": "Page inaccessible (404/503); could not determine whether event is paid or free — Cascade Bike Club runs both paid courses and free community programs"
     },
     "venue:osm:relation:1047789": {
       "fields": {
