@@ -63712,7 +63712,7 @@
     "seattle-makers:seattle-makers-164985": {
       "fields": {
         "cost": {
-          "min": 85.0
+          "min": 130.0
         }
       },
       "resolvedAt": "2026-08-27",
@@ -63722,7 +63722,7 @@
     "seattle-makers:seattle-makers-164994": {
       "fields": {
         "cost": {
-          "min": 45.0
+          "min": 75.0
         }
       },
       "resolvedAt": "2026-08-27",
@@ -63732,7 +63732,7 @@
     "seattle-makers:seattle-makers-164978": {
       "fields": {
         "cost": {
-          "min": 60.0
+          "paid": true
         }
       },
       "resolvedAt": "2026-08-27",
@@ -63742,7 +63742,7 @@
     "seattle-makers:seattle-makers-164981": {
       "fields": {
         "cost": {
-          "min": 60.0
+          "paid": true
         }
       },
       "resolvedAt": "2026-08-27",
