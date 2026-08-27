@@ -63675,6 +63675,131 @@
       "resolvedAt": "2026-08-26",
       "source": "agent",
       "evidence": "https://www.discoverslu.com/events/cycling-basics-2/ — 'Cycling Basics class runs from 6 - 7 pm'"
+    },
+    "seattle-center:seattle-kraken-vs-vancouver-canucks-x48926": {
+      "fields": {
+        "duration": 12000
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-vancouver-canucks-x48926"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46408": {
+      "fields": {
+        "startTime": "06:00",
+        "duration": 64740
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46408"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Event already occurred (Aug 1 2026); page says only \"thank you for joining us\" with no timing info"
+    },
+    "seattle-makers:seattle-makers-164983": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/orientation-for-new-members-20/"
+    },
+    "seattle-makers:seattle-makers-164985": {
+      "fields": {
+        "cost": {
+          "min": 85.0
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/3d-printer-certification-287/"
+    },
+    "seattle-makers:seattle-makers-164994": {
+      "fields": {
+        "cost": {
+          "min": 45.0
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/industrial-sewing-certification-77/"
+    },
+    "seattle-makers:seattle-makers-164978": {
+      "fields": {
+        "cost": {
+          "min": 60.0
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/3d-printing-certification-prusa-xl-with-2-heads-2/"
+    },
+    "seattle-makers:seattle-makers-164981": {
+      "fields": {
+        "cost": {
+          "min": 60.0
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/3d-printing-certification-prusa-xl-with-2-heads-3/"
+    },
+    "seattle-swing-dance-club:0vs40epno104h4d2q5efc0ifc6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://seattleswingdanceclub.com/seattlewcscalendar"
+    },
+    "seattle-swing-dance-club:24q7cd1m3u6lhrb70126sqfnql": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://seattleswingdanceclub.com/seattlewcscalendar"
+    },
+    "seattle-swing-dance-club:54s0sh1mr20d5faslac1492noi": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Event is cancelled - no cost applicable"
+    },
+    "seattle-swing-dance-club:l0a5df84uekjtcoijofqctfjt0_R20260904T013000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://seattleswingdanceclub.com/seattlewcscalendar"
+    },
+    "queen-anne-historical-society:6a8609d69a63c931743502ee": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.qahistory.org/calendar"
+    },
+    "venue:loc:lake city court community room & courtyard (12536 33rd ave ne, seattle, wa 98125": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Venue name includes both \"Community Room\" (indoor) and \"Courtyard\" (outdoor/covered) — mixed setting, cannot classify uniformly"
     }
   }
 }

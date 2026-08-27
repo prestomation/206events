@@ -14989,6 +14989,16 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-26",
       "note": "Douglass-Truth Branch vs Greenwood Branch — 10.5km apart, distinct SPL branches; 'Family Story Time' is a generic recurring program name used at every branch"
+    },
+    "external-center-for-active-living.ics Navigating Medicare|2026-09-03T11:00:00Z[UTC]::external-west-seattle-blog.ics Navigating Medicare, September 2026|2026-09-03T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same event at Center for Active Living (4217 SW Oregon St), same date/time - WSB title just adds month suffix"
+    },
+    "external-the-urbanist.ics West Seattle Urbanism Weekly Meetup|2026-11-25T18:00:00Z[UTC]::external-west-seattle-blog.ics West Seattle Urbanism weekly meetup|2026-11-25T18:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-27",
+      "note": "Different venues: The Urbanist says Great American Diner & Bar, WSB says Elliott Bay Brewing @ 4720 California SW - likely different location for that week or a source error; keep separate to avoid hiding either event"
     }
   }
 }
