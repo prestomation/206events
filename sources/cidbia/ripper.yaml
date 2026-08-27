@@ -1,12 +1,15 @@
 name: cidbia
 sourceRole: aggregator
 description: "CIDBIA Events"
-url: "https://www.seattlechinatownid.com/local-events"
+# The site's "Local Events" page (friendlyLink below) dropped its
+# server-rendered markup for a client-side Proxi.co widget as of ~2026-08.
+# This is the widget's own public JSON API — found by reading the embed
+# bundle at https://app.proxi.co/embed/e/66a82b2c8cb3161b7d22dc0d.js — not
+# the page a person would visit. See sources/cidbia/ripper.ts for details.
+url: "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d"
 friendlyLink: https://www.seattlechinatownid.com/local-events
 tags: ["Community", "International District"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/64/International_District_station_with_Link_trains_passing_%282010%29.jpg"
-# Verified 2026-07-12: checked 3 distinct event pages — 0 <img> tags on any.
-skipEventPhotos: true
 geo: null
 calendars:
   - name: cidbia-events

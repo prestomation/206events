@@ -1,260 +1,219 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
-import { Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
-import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { Duration, ZonedDateTime, ZoneId } from "@js-joda/core";
+import { Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { JSONRipper } from "../../lib/config/jsonscrapper.js";
+import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
-const BASE_URL = "https://www.seattlechinatownid.com";
-const TIMEZONE = ZoneId.of('America/Los_Angeles');
-const DEFAULT_DURATION_HOURS = 2;
+// The CIDBIA "Local Events" page (https://www.seattlechinatownid.com/local-events)
+// no longer server-renders any event markup — it dropped a WordPress plugin's
+// day-by-day HTML in favor of a client-side Proxi.co widget:
+//   <script src="https://app.proxi.co/embed/e/<orgId>.js" defer></script>
+//   <proxi-calendar data-org-id="<orgId>" ...></proxi-calendar>
+// The widget itself calls a public, unauthenticated JSON API
+// (`GET {apiBase}/api/public/events/<orgId>?from=<iso>&to=<iso>`) to fetch
+// its data — found by reading the embed bundle's `fetchEvents()`/
+// `resolveApiBase()` methods. `apiBase` resolves to the origin the embed
+// script itself was loaded from (`https://app.proxi.co`), not the CIDBIA
+// site, so that's what we call directly instead of scraping the widget.
+// `ripper.config.url` (set in ripper.yaml) is the full API endpoint, e.g.
+// https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d — org id
+// included. `cover_image` paths in the response are relative to the API's
+// own origin (confirmed by the embed bundle's `resolveImageUrl()`), which
+// is the same origin regardless of which org's calendar is requested, so
+// it's safe to hardcode here rather than thread it through from `rip()`.
+const API_ORIGIN = "https://app.proxi.co";
+// The API has no per-event detail page/permalink of its own — the widget
+// only ever opens events in an in-page modal — so every event links back to
+// the CIDBIA events page itself.
+const FRIENDLY_EVENT_URL = "https://www.seattlechinatownid.com/local-events";
+const DEFAULT_TIMEZONE = ZoneId.of("America/Los_Angeles");
+const DEFAULT_DURATION = Duration.ofHours(2);
+const LOOKAHEAD_MONTHS = 6;
 
-const MONTH_NAMES: Record<string, number> = {
-    january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
-    july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
-    jan: 1, feb: 2, mar: 3, apr: 4, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12,
-};
-
-interface ParsedTime {
-    hour: number;
-    minute: number;
+interface ProxiVenue {
+    id?: { $oid?: string };
+    name?: string;
+    primary_address?: { search?: string };
 }
 
-export default class CIDBIARipper implements IRipper {
-    private fetchFn: FetchFn = fetch;
+interface ProxiOccurrence {
+    event?: ProxiEvent;
+    occurrence_start?: string;
+    occurrence_end?: string;
+}
 
-    public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
-        this.fetchFn = getFetchForConfig(ripper.config);
+interface ProxiEvent {
+    id?: { $oid?: string };
+    name?: string;
+    summary?: string;
+    description?: string;
+    cover_image?: string;
+    start_time?: string;
+    end_time?: string;
+    venue_id?: { $oid?: string };
+    venue_override_address?: { search?: string };
+    tags?: string[];
+    status?: string;
+}
+
+export default class CIDBIARipper extends JSONRipper {
+    public override async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         if (!ripper.config.calendars?.length) {
             throw new Error('No calendars configured');
         }
         const calConfig = ripper.config.calendars[0];
+        const fetchFn = getFetchForConfig(ripper.config);
+        const timezone = calConfig.timezone ?? DEFAULT_TIMEZONE;
 
-        const now = ZonedDateTime.now(TIMEZONE);
-        const months = await this.fetchMonths(ripper.config.url.href, now);
+        // Window from the start of "today" (in the calendar's own timezone, not
+        // the build runner's system clock) through a few months out. The Proxi
+        // API takes an explicit [from, to) range rather than paging, and
+        // returns every occurrence in range in one response (no truncation
+        // observed testing a two-year window against the live org).
+        const from = ZonedDateTime.now(timezone).toLocalDate().atStartOfDay(timezone);
+        const to = from.plusMonths(LOOKAHEAD_MONTHS);
+        const params = new URLSearchParams({
+            from: from.toInstant().toString(),
+            to: to.toInstant().toString(),
+        });
+        const url = `${ripper.config.url.href}?${params.toString()}`;
 
-        const events: RipperCalendarEvent[] = [];
-        const errors: RipperError[] = [];
-
-        for (const { html, monthUrl } of months) {
-            const results = this.parseEvents(html, monthUrl);
-            for (const r of results) {
-                if ('date' in r) {
-                    if (!r.date.isBefore(now)) events.push(r);
-                } else {
-                    errors.push(r);
-                }
-            }
+        const res = await fetchFn(url);
+        if (!res.ok) {
+            throw new Error(`CIDBIA (Proxi) events API returned ${res.status} ${res.statusText}`);
         }
+        const jsonData = await res.json();
+
+        const results = await this.parseEvents(jsonData, ZonedDateTime.now(timezone), calConfig.config ?? {});
 
         return [{
             name: calConfig.name,
             friendlyname: calConfig.friendlyname,
-            events,
-            errors,
+            events: results.filter((e): e is RipperCalendarEvent => 'date' in e),
+            errors: results.filter((e): e is RipperError => 'type' in e),
             tags: calConfig.tags ?? ripper.config.tags ?? [],
             parent: ripper.config,
         }];
     }
 
-    private async fetchMonths(baseUrl: string, now: ZonedDateTime): Promise<{ html: string; monthUrl: string }[]> {
-        const results: { html: string; monthUrl: string }[] = [];
-
-        // Fetch current month and next 2 months
-        for (let offset = 0; offset < 3; offset++) {
-            const date = now.plusMonths(offset);
-            const year = date.year();
-            const month = date.monthValue();
-            const url = offset === 0 ? baseUrl : `${BASE_URL}/local-events/month/${year}/${month}/`;
-
-            const res = await this.fetchFn(url, {
-                headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' },
-            });
-            if (!res.ok) throw new Error(`CIDBIA events page returned ${res.status}`);
-            results.push({ html: await res.text(), monthUrl: url });
+    // Public (required by the JSONRipper abstract signature, and used directly
+    // by tests). Only `date.zone()` is used, to render event times in the
+    // calendar's configured timezone; `config` is unused because this source
+    // has a single calendar with no per-calendar filtering, unlike
+    // JSONRipper's default day-by-day template model (which doesn't fit a
+    // single ranged API call, hence the overridden `rip()` above).
+    public async parseEvents(jsonData: any, date: ZonedDateTime, _config: any): Promise<RipperEvent[]> {
+        if (!jsonData || !Array.isArray(jsonData.occurrences)) {
+            return [{
+                type: 'ParseError',
+                reason: 'Invalid JSON structure: missing "occurrences" array — the Proxi widget API may have changed',
+                context: JSON.stringify(jsonData).substring(0, 200),
+            }];
         }
 
+        const venuesById = new Map<string, ProxiVenue>();
+        for (const v of (jsonData.venues ?? []) as ProxiVenue[]) {
+            const oid = v?.id?.$oid;
+            if (oid) venuesById.set(oid, v);
+        }
+
+        const results: RipperEvent[] = [];
+        for (const occurrence of jsonData.occurrences as ProxiOccurrence[]) {
+            const event = occurrence?.event;
+            if (!event) {
+                results.push({
+                    type: 'ParseError',
+                    reason: 'Occurrence missing "event" object',
+                    context: JSON.stringify(occurrence).substring(0, 200),
+                });
+                continue;
+            }
+            // The public API should only ever return published events, but
+            // guard defensively rather than surface a draft if that changes.
+            // An intentional content filter, not a parse failure — skipped
+            // before parsing, per the "parse methods never drop silently" rule.
+            if (event.status && event.status !== 'published') continue;
+
+            results.push(this.parseOccurrence(occurrence, event, venuesById, date.zone()));
+        }
         return results;
     }
 
-    // Public for testing
-    parseEvents(html: string, pageUrl: string): Array<RipperCalendarEvent | RipperError> {
-        const results: Array<RipperCalendarEvent | RipperError> = [];
-
-        const year = this.parseMonthYear(html);
-        if (!year) return results;
-
-        // Split on <h2> day headers to pair each header with its event block
-        const sections = html.split(/<h2>[^<]*<\/h2>/);
-        const headers = [...html.matchAll(/<h2>([^<]+)<\/h2>/g)];
-
-        for (let i = 0; i < headers.length; i++) {
-            const headerText = headers[i][1].trim(); // e.g. "Friday May. 15th"
-            const sectionHtml = sections[i + 1] ?? '';
-
-            // Extract all collaItem divs in this section (before next h2)
-            const collaItems = this.splitCollaItems(sectionHtml);
-            for (const itemHtml of collaItems) {
-                const result = this.parseEvent(itemHtml, headerText, year, pageUrl);
-                results.push(result);
-            }
-        }
-
-        return results;
-    }
-
-    private splitCollaItems(html: string): string[] {
-        const items: string[] = [];
-        // Match everything between collaItem divs using a simpler approach
-        let start = 0;
-        while (true) {
-            const openIdx = html.indexOf('<div class="collaItem">', start);
-            if (openIdx === -1) break;
-
-            // Find the matching closing div by counting depth
-            let depth = 1;
-            let pos = openIdx + '<div class="collaItem">'.length;
-            while (depth > 0 && pos < html.length) {
-                const nextOpen = html.indexOf('<div', pos);
-                const nextClose = html.indexOf('</div>', pos);
-                if (nextClose === -1) break;
-                if (nextOpen !== -1 && nextOpen < nextClose) {
-                    depth++;
-                    pos = nextOpen + 4;
-                } else {
-                    depth--;
-                    pos = nextClose + 6;
-                }
-            }
-            items.push(html.slice(openIdx, pos));
-            start = pos;
-        }
-        return items;
-    }
-
-    private parseEvent(html: string, headerText: string, year: number, pageUrl: string): RipperCalendarEvent | RipperError {
-        const title = this.extractText(html, /<div class="title">\s*<p>([^<]+)<\/p>/);
+    private parseOccurrence(occurrence: ProxiOccurrence, event: ProxiEvent, venuesById: Map<string, ProxiVenue>, zone: ZoneId): RipperCalendarEvent | RipperError {
+        const title = event.name?.trim();
         if (!title) {
-            return { type: 'ParseError', reason: 'No title found', context: headerText };
+            return { type: 'ParseError', reason: 'Event missing name', context: JSON.stringify(event).substring(0, 200) };
         }
 
-        // Date text from time div: "May 15th"
-        const datePText = this.extractText(html, /class="time bottomMargin">\s*<p class="title">When<\/p>\s*<p>([^<]+)<\/p>/);
-        // Time text: "6:30pm - 9:30pm"
-        const timePText = this.extractText(html, /class="time bottomMargin">[\s\S]*?<p>[^<]+<\/p>\s*<p>([^<]+)<\/p>/);
-
-        if (!datePText) {
-            return { type: 'ParseError', reason: 'No date found', context: title };
+        const startIso = occurrence.occurrence_start ?? event.start_time;
+        if (!startIso) {
+            return { type: 'ParseError', reason: 'Event missing start time', context: title };
         }
-
-        const monthDay = this.parseMonthDay(datePText);
-        if (!monthDay) {
-            return { type: 'ParseError', reason: `Could not parse date: ${datePText}`, context: title };
-        }
-
-        const { month, day } = monthDay;
-        let startHour = 12, startMinute = 0;
-        let durationMinutes = DEFAULT_DURATION_HOURS * 60;
-
-        if (timePText) {
-            const parsed = this.parseTimeRange(timePText);
-            if (parsed) {
-                startHour = parsed.start.hour;
-                startMinute = parsed.start.minute;
-                if (parsed.end) {
-                    const endTotalMin = parsed.end.hour * 60 + parsed.end.minute;
-                    const startTotalMin = startHour * 60 + startMinute;
-                    let durationCalc = endTotalMin - startTotalMin;
-                    if (durationCalc < 0) {
-                        durationCalc += 24 * 60; // handle events spanning midnight
-                    }
-                    if (durationCalc > 0) {
-                        durationMinutes = durationCalc;
-                    }
-                }
-            }
-        }
-
-        const location = this.extractText(html, /class="address bottomMargin">\s*<p class="title">Where<\/p>\s*<p>([^<]+)<\/p>/);
-
-        const icsLinkMatch = html.match(/href="https:\/\/www\.seattlechinatownid\.com\/local-events\/events\/(\d+)"/);
-        const eventId = icsLinkMatch ? icsLinkMatch[1] : null;
-        const url = eventId
-            ? `https://www.seattlechinatownid.com/local-events/events/${eventId}`
-            : pageUrl;
 
         let date: ZonedDateTime;
         try {
-            date = ZonedDateTime.of(
-                LocalDateTime.of(year, month, day, startHour, startMinute),
-                TIMEZONE
-            );
+            date = ZonedDateTime.parse(startIso).withZoneSameInstant(zone);
         } catch (e) {
-            return { type: 'ParseError', reason: `Invalid date: ${year}-${month}-${day}`, context: title };
+            return { type: 'ParseError', reason: `Could not parse start time "${startIso}": ${e}`, context: title };
         }
 
+        let duration = DEFAULT_DURATION;
+        const endIso = occurrence.occurrence_end ?? event.end_time;
+        if (endIso) {
+            try {
+                const seconds = ZonedDateTime.parse(endIso).toEpochSecond() - date.toEpochSecond();
+                if (seconds > 0) duration = Duration.ofSeconds(seconds);
+            } catch {
+                // Keep the default duration; end time is best-effort.
+            }
+        }
+
+        const eventOid = event.id?.$oid;
+        const id = eventOid
+            ? `cidbia-${eventOid}-${this.compactTimestamp(date)}`
+            : `cidbia-${this.slugify(title)}-${this.compactTimestamp(date)}`;
+
+        const tags = Array.isArray(event.tags) ? event.tags : [];
+        // The rubric's minimum is the cheapest general-admission price; the
+        // source only ever tells us "Free" as a fact (never a numeric price),
+        // so that's the only case worth encoding here. Anything else is left
+        // unknown for the cost-resolver queue rather than guessed.
+        const cost = tags.includes('Free') ? { min: 0 } : undefined;
+
         return {
-            id: eventId ? `cidbia-${eventId}` : `cidbia-${year}-${month}-${day}-${title.slice(0, 20)}`,
+            id,
             ripped: new Date(),
             date,
-            duration: Duration.ofMinutes(durationMinutes),
+            duration,
             summary: title,
-            location: location ?? undefined,
-            url,
-            cost: { min: 0 },
+            description: event.summary || event.description || undefined,
+            location: this.resolveLocation(event, venuesById),
+            url: FRIENDLY_EVENT_URL,
+            imageUrl: this.resolveImageUrl(event.cover_image),
+            cost,
         };
     }
 
-    // Public for testing
-    parseMonthYear(html: string): number | null {
-        // Matches: <p>May 2026</p> inside div.eventMonth
-        const match = html.match(/class="eventMonth[^"]*"[\s\S]*?<p>(\w+ \d{4})<\/p>/);
-        if (!match) return null;
-        const parts = match[1].split(' ');
-        return parts[1] ? parseInt(parts[1], 10) : null;
-    }
-
-    // Public for testing
-    parseMonthDay(text: string): { month: number; day: number } | null {
-        // e.g. "May 15th", "June 13th", "July 4th"
-        const match = text.trim().match(/^(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?$/i);
-        if (!match) return null;
-        const month = MONTH_NAMES[match[1].toLowerCase()];
-        const day = parseInt(match[2], 10);
-        if (!month || !day) return null;
-        return { month, day };
-    }
-
-    // Public for testing
-    parseTimeRange(text: string): { start: ParsedTime; end?: ParsedTime } | null {
-        // e.g. "6:30pm - 9:30pm", "11:00am - 5:00pm", "3:00pm - 7:00pm"
-        const rangeRe = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*[-–]\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i;
-        const rangeMatch = text.match(rangeRe);
-        if (rangeMatch) {
-            const start = this.parseTime(rangeMatch[1], rangeMatch[2], rangeMatch[3]);
-            const end = this.parseTime(rangeMatch[4], rangeMatch[5], rangeMatch[6]);
-            return { start, end };
+    private resolveLocation(event: ProxiEvent, venuesById: Map<string, ProxiVenue>): string | undefined {
+        const venueOid = event.venue_id?.$oid;
+        if (venueOid) {
+            const venue = venuesById.get(venueOid);
+            if (venue) return venue.primary_address?.search ?? venue.name;
         }
-
-        // Single time: "3:00pm"
-        const singleRe = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i;
-        const singleMatch = text.match(singleRe);
-        if (singleMatch) {
-            return { start: this.parseTime(singleMatch[1], singleMatch[2], singleMatch[3]) };
-        }
-
-        return null;
+        return event.venue_override_address?.search;
     }
 
-    private parseTime(hourStr: string, minuteStr: string | undefined, ampm: string): ParsedTime {
-        let hour = parseInt(hourStr, 10);
-        const minute = minuteStr ? parseInt(minuteStr, 10) : 0;
-        const isPm = ampm.toLowerCase() === 'pm';
-        if (isPm && hour !== 12) hour += 12;
-        if (!isPm && hour === 12) hour = 0;
-        return { hour, minute };
+    private resolveImageUrl(coverImage: string | undefined): string | undefined {
+        if (!coverImage) return undefined;
+        if (/^(https?:|data:)/i.test(coverImage)) return coverImage;
+        return `${API_ORIGIN}${coverImage.startsWith('/') ? '' : '/'}${coverImage}`;
     }
 
-    private extractText(html: string, re: RegExp): string | null {
-        const match = html.match(re);
-        return match ? match[1].trim() : null;
+    private compactTimestamp(date: ZonedDateTime): string {
+        return date.withZoneSameInstant(ZoneId.of('UTC')).toString().replace(/[^0-9]/g, '');
+    }
+
+    private slugify(text: string): string {
+        return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40);
     }
 }

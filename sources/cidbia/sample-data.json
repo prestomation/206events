@@ -1,0 +1,819 @@
+{
+  "organization": {
+    "id": {
+      "$oid": "66a82b2c8cb3161b7d22dc0d"
+    },
+    "name": "CIDBIA",
+    "logo": "/i/EY6_s3oga_zl5zlzO7kYnqREnTc7Vj.png",
+    "primary_color": "#f00000",
+    "secondary_color": "#000000",
+    "reply_to_email": "info@cidbia.org",
+    "hide_powered_by": true
+  },
+  "calendar_description": "Explore local community events in the Chinatown-International District and add them directly to your calendar!",
+  "groups": [
+    {
+      "id": {
+        "$oid": "6a3f0a3c635642116c0b3dfb"
+      },
+      "name": "CID Community Calendar",
+      "description": "Events added by community members in the CID.",
+      "color": "#10b981",
+      "accepts_submissions": true,
+      "suggested_tags": [
+        "Free",
+        "All-Ages",
+        "Outdoor",
+        "Indoor",
+        "Street Festival",
+        "Ticketed"
+      ],
+      "locked": false
+    }
+  ],
+  "venues": [
+    {
+      "id": {
+        "$oid": "6a73839b7d03995ee814015d"
+      },
+      "name": "Hing Hay Park",
+      "primary_address": {
+        "search": "423 Maynard Ave S, Seattle, WA 98104 US",
+        "place_id": "radar_47.5986116333856_-122.325519244253_0",
+        "latLng": {
+          "lat": 47.5986116333856,
+          "lng": -122.325519244253
+        }
+      },
+      "location": {
+        "lat": 47.5986116333856,
+        "lng": -122.325519244253
+      },
+      "color": "#6366f1",
+      "url": "https://maps.app.goo.gl/8Lntp893FUjx7Ycr9",
+      "venue_type": "park"
+    },
+    {
+      "id": {
+        "$oid": "6a7383f77d03995ee8140296"
+      },
+      "name": "Hoa Mai Park",
+      "primary_address": {
+        "search": "1224 S King St, Seattle, WA 98144 US",
+        "place_id": "radar_47.5986354792035_-122.315984945282_0",
+        "latLng": {
+          "lat": 47.5986354792035,
+          "lng": -122.315984945282
+        }
+      },
+      "location": {
+        "lat": 47.5986354792035,
+        "lng": -122.315984945282
+      },
+      "color": "#6366f1",
+      "cover_image": "https://maps.app.goo.gl/jJb2sbyTjhSc5w1VA",
+      "url": "https://maps.app.goo.gl/jJb2sbyTjhSc5w1VA",
+      "venue_type": "park"
+    },
+    {
+      "id": {
+        "$oid": "6a738e2c7d03995ee814393e"
+      },
+      "name": "International District/Chinatown Branch - The Seattle Public Library",
+      "primary_address": {
+        "search": "International District/Chinatown Branch - The Seattle Public Library, 8th Avenue South, Seattle, WA, USA",
+        "place_id": "ChIJn-krn71qkFQR54uojagWKD8",
+        "latLng": {
+          "lat": 47.596232699999995,
+          "lng": -122.3227843
+        }
+      },
+      "location": {
+        "lat": 47.596232699999995,
+        "lng": -122.3227843
+      },
+      "color": "#6366f1",
+      "url": "https://www.spl.org/hours-and-locations/international-district-chinatown-branch"
+    },
+    {
+      "id": {
+        "$oid": "6a738d037d03995ee81433c1"
+      },
+      "name": "Tabletop Village",
+      "description": "Tabletop Village - a Pokémon Training Gym in Seattle’s Chinatown & International District",
+      "primary_address": {
+        "search": "Tabletop Village, 8th Avenue South, Seattle, WA, USA",
+        "place_id": "ChIJrUYpcR1rkFQRR5Z4S5xid4A",
+        "latLng": {
+          "lat": 47.5968694,
+          "lng": -122.3220414
+        }
+      },
+      "location": {
+        "lat": 47.5968694,
+        "lng": -122.3220414
+      },
+      "color": "#6366f1",
+      "url": "http://tabletopvillage.com/"
+    },
+    {
+      "id": {
+        "$oid": "6a7388e87d03995ee8141586"
+      },
+      "name": "Under the Historic Chinatown Gate",
+      "description": "Many street festivals take place under the Chinatown Gate and closed streets around Hing Hay Park",
+      "primary_address": {
+        "search": "504 5th Ave S, Seattle, WA 98104 US",
+        "place_id": "radar_47.5979778952023_-122.327456000886_0",
+        "latLng": {
+          "lat": 47.5979778952023,
+          "lng": -122.327456000886
+        }
+      },
+      "location": {
+        "lat": 47.5979778952023,
+        "lng": -122.327456000886
+      },
+      "color": "#f26464",
+      "cover_image": "https://maps.app.goo.gl/EizpWFmL64xqV2Es5",
+      "venue_type": "Street Festival"
+    }
+  ],
+  "occurrences": [
+    {
+      "event": {
+        "id": {
+          "$oid": "6a3ef357635642116c0af131"
+        },
+        "name": "Seattle Shines Pop Up Event",
+        "summary": "Join CID Business Improvement Area and Union Cultural Center for a Seattle Shines pop up event featuring food, music, lion dance, Capoeira, Samba, Kung Fu, Cuban Salsa, and more!",
+        "description": "Join CID Business Improvement Area and Union Cultural Center for a Seattle Shines pop up event featuring food, music, lion dance, Capoeira, Samba, Kung Fu, Cuban Salsa, and more!",
+        "start_time": "2026-07-01T00:00:00Z",
+        "end_time": "2026-07-01T03:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "location_type": "venue",
+        "tags": [
+          "friends of the waterfront"
+        ],
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-07-01T00:00:00Z",
+      "occurrence_end": "2026-07-01T03:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a3f157f635642116c0b6b44"
+        },
+        "name": "Quarterfinal Watch Party",
+        "summary": "CID Small Business Relief Team presents Quarterfinal Watch Party - Friday, July 10, 2026 at Hing Hay Park, Seattle, WA. Find event and ticket information.",
+        "description": "Join us for the quarterfinal and stay for the wonderful performers of Brazilian Swag and CHIKIRI/The School of Taiko!",
+        "cover_image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186014265%2F805513799793%2F1%2Foriginal.20260602-232329?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=136797b9cfa3e5d349eed7a3cdc966b5",
+        "start_time": "2026-07-10T18:30:00Z",
+        "end_time": "2026-07-10T22:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-07-10T18:30:00Z",
+      "occurrence_end": "2026-07-10T22:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a3f154a635642116c0b6a98"
+        },
+        "name": "Danny Woo Community Garden's 51st Annual Pig Roast Celebration!",
+        "summary": "Come out to join the Danny Woo Community Garden's 51st Annual Pig Roast celebration for fun times, delicious food & loving community vibes!",
+        "description": "Come out to join the Danny Woo Community Garden's 51st Annual Pig Roast celebration for fun times, delicious food & loving community vibes!",
+        "cover_image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187521413%2F2993810103770%2F1%2Foriginal.20260623-224245?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.513&fp-y=0.468&s=2bf6c4c36bafb2a8221ff25eb71edc9e",
+        "start_time": "2026-07-18T00:00:00Z",
+        "end_time": "2026-07-18T22:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-07-18T00:00:00Z",
+      "occurrence_end": "2026-07-18T22:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a3f15cc635642116c0b6bb2"
+        },
+        "name": "TGSCCC - Chinatown Parade",
+        "summary": "The Greater Seattle Chinese Chamber of Commerce would like to invite you to participate in the annual Chinatown Seafair Parade to be held on Sunday, July 19, 2026 ! ​ The Greater Seattle Chinese...",
+        "description": "The Greater Seattle Chinese Chamber of Commerce would like to invite you to participate in the annual Chinatown Seafair Parade to be held on Sunday, July 19, 2026 ! ​ The Greater Seattle Chinese...",
+        "cover_image": "https://www.seattlechinesechamber.org/uploads/6/9/3/5/69357395/editor/1774499314851-bfd7be6a-4bed-448c-9fee-e72a9583848a26-1.png?1774499804",
+        "start_time": "2026-07-19T07:00:00Z",
+        "end_time": "2026-07-19T09:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-07-19T07:00:00Z",
+      "occurrence_end": "2026-07-19T09:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a3f1594635642116c0b6b78"
+        },
+        "name": "Final Match Watch Party + Film Screening",
+        "summary": "Join us for the final match, live performances, and a screening of \"Bend It Like Beckham\"!",
+        "description": "Join us for the final match, live performances, and a screening of \"Bend It Like Beckham\"!",
+        "cover_image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1186014797%2F805513799793%2F1%2Foriginal.20260602-233426?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c2c2f9ced0c07cfccf816c2b7f96a857",
+        "start_time": "2026-07-19T18:30:00Z",
+        "end_time": "2026-07-20T00:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-07-19T18:30:00Z",
+      "occurrence_end": "2026-07-20T00:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a3ef5b021fcdd5ed98aaf1c"
+        },
+        "name": "Bon Odori",
+        "description": "Enjoy performances by Seattle Matsuri, Northwest Taiko, and Okinawa Kenjin Kai, browse local vendors, watch a mahjong demonstration, and stop by the Ayame Kai craft booth and bake sale. Fresh poke will also be available for purchase from the Nikkei Manor kitchen.",
+        "start_time": "2026-07-26T20:00:00Z",
+        "end_time": "2026-07-26T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-07-26T20:00:00Z",
+      "occurrence_end": "2026-07-26T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a738ca37d03995ee814327f"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Drag Village at Tabletop Village",
+        "summary": "ONE-YEAR ANNIVERSARY of Drag Village on Saturday, August 8th",
+        "description": "Welcome to Drag Village! Coda & Tabletop Village invite you to celebrate the ONE-YEAR ANNIVERSARY show of Drag Village! 🎊 You don’t want to miss this show because we will have 16 performers, including myself, performing at the show! Mostly everyone who’s previously performed at Drag Village this past year will be joining us to celebrate this incredible milestone together with you all. 🥳 It takes a village to have a drag show! All ages are welcome (PG-13).\n\nHosted by Coda 🤘\nFeaturing Absinthe Father, Dante Vanity, Fallon Angel, Feather Fatale, Holli B. Sinclair, Katherine Rose, Kida Rarity, Kitty Vixen, Kymera D'Vil, Nadia Nuff, Pam Jobb N. Moore, Peach, Velvet Vendetta Doll, and Zire Stardust\nWith our stage kittens, Luscious Lambing and Pup Ghostboy\n \n📆 Date: Saturday, August 8, 2026\n\n🚪 Doors: 6:30 PM\n\n🎭 Show: 7:30 PM\n\n📍Location: Tabletop Village\n\n🪑Seats are first come, first served\n\n💵Be sure to bring cash to exchange for tips!",
+        "cover_image": "/i/FSv8BaWD1IWEvMS7z6WaTt5-GGvkf_.png",
+        "start_time": "2026-08-09T01:30:00Z",
+        "end_time": "2026-08-09T04:30:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "venue_id": {
+          "$oid": "6a738d037d03995ee81433c1"
+        },
+        "location_type": "venue",
+        "tags": [
+          "All-Ages",
+          "Indoor",
+          "Ticketed"
+        ],
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-08-09T01:30:00Z",
+      "occurrence_end": "2026-08-09T04:30:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a738ac97d03995ee8142fa5"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Hing Hay Park Summer Cinema 2026",
+        "summary": "Free films in the park, all August long – Co-presented by Seattle Asian American Film Festival, Shunpike, Seattle Parks & Recreation, and Interim CDA",
+        "description": "Summer nights are better under the stars. SAAFF's C-ID Summer Cinema returns to Hing Hay Park for four Saturdays of free outdoor movies, live performances from local artists, and community in the heart of the Chinatown-International District.\n\nBring a blanket, grab a bite from the neighborhood, and settle in. Live performances start at 7:00 PM and films begin at 7:30 PM. All are welcome, and admission is completely free.\n\nAug 1 (Hoppers): Mak Fai Dragon and Lion Dance Association, Summer School\n\nAug 8 (Eve and the Fire Horse): Lexi Nguyen, Melody Xie Dance Group\n\nAug 15 (Ulam): To be confirmed\n\nAug 22 (Shaolin Soccer): MiSSMANAGED, Seattle Shaolin Kungfu Academy",
+        "cover_image": "/i/KkWfZKiiIUxixUOT2oAh-M38Tb-5nM.png",
+        "start_time": "2026-08-09T02:00:00Z",
+        "end_time": "2026-08-09T04:30:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a73839b7d03995ee814015d"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-08-09T02:00:00Z",
+      "occurrence_end": "2026-08-09T04:30:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a738d6d7d03995ee8143685"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Celebrate Little Saigon 2026",
+        "summary": "Celebrate Little Saigon is back on Saturday, August 15th! 🌞🎉",
+        "description": "Join us for a free, all-ages community festival hosted by Friends of Little Sài Gòn. Enjoy live music, drag bingo, community joy, and food!\n\nCelebrate Little Saigon is a free, all-ages community street festival honoring the food and culture of Seattle’s Vietnamese and Southeast Asian communities. What began in 2011 as a grassroots event with four food vendors and folding chairs has grown into a summer tradition welcoming hundreds of attendees each year.\n\nHeld across Hoa Mai Park, Nisei Veterans Hall Parking Lot, and Little Saigon Creative, the festival features local performers and vendors of the Southeast Asian diaspora who have ties to Little Saigon. Enjoy live music, family-friendly activities, and playful programming like the Phở Eating Contest, Drag Bingo, and the FIRST-EVER Spring Roll Wrapping Contest. More than two dozen local vendors will offer food, drinks, handmade goods, and local resources, reflecting the neighborhood’s cultural richness.\n\nOrganized by Friends of Little Sài Gòn, Celebrate Little Saigon is more than a festival; it’s a space to honor heritage, support small businesses, and build joy and connection in the heart of Little Saigon.",
+        "cover_image": "https://www.eventbrite.com/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1189979189%252F758157560443%252F1%252Foriginal.20260730-182558%3Fw%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26s%3Dd2a080822b01b1a9a1f58db44e76cbd3&w=940&q=75",
+        "start_time": "2026-08-15T19:00:00Z",
+        "end_time": "2026-08-16T00:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "venue_id": {
+          "$oid": "6a7383f77d03995ee8140296"
+        },
+        "location_type": "venue",
+        "tags": [
+          "Free",
+          "All-Ages",
+          "Outdoor",
+          "Street Festival"
+        ],
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-08-15T19:00:00Z",
+      "occurrence_end": "2026-08-16T00:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a738ac97d03995ee8142fa5"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Hing Hay Park Summer Cinema 2026",
+        "summary": "Free films in the park, all August long – Co-presented by Seattle Asian American Film Festival, Shunpike, Seattle Parks & Recreation, and Interim CDA",
+        "description": "Summer nights are better under the stars. SAAFF's C-ID Summer Cinema returns to Hing Hay Park for four Saturdays of free outdoor movies, live performances from local artists, and community in the heart of the Chinatown-International District.\n\nBring a blanket, grab a bite from the neighborhood, and settle in. Live performances start at 7:00 PM and films begin at 7:30 PM. All are welcome, and admission is completely free.\n\nAug 1 (Hoppers): Mak Fai Dragon and Lion Dance Association, Summer School\n\nAug 8 (Eve and the Fire Horse): Lexi Nguyen, Melody Xie Dance Group\n\nAug 15 (Ulam): To be confirmed\n\nAug 22 (Shaolin Soccer): MiSSMANAGED, Seattle Shaolin Kungfu Academy",
+        "cover_image": "/i/KkWfZKiiIUxixUOT2oAh-M38Tb-5nM.png",
+        "start_time": "2026-08-09T02:00:00Z",
+        "end_time": "2026-08-09T04:30:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a73839b7d03995ee814015d"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-08-16T02:00:00Z",
+      "occurrence_end": "2026-08-16T04:30:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a738e927d03995ee8143a6a"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Washington 250: Making American History in Seattle",
+        "summary": "Join us to commemorate the first-ever “Day of Remembrance\" with Frank Abe and Densho.",
+        "description": "Connected to the Washington state-wide celebration of America’s 250 anniversary, we have collaborated with Densho on a mini-exhibit for the \"Out of Many, One\" initiative.\n\nThe summertime exhibit features the poster from the first Japanese American Pilgrimage from Seattle to the Puyallup Fairgrounds where many of the participants and their families were incarcerated during World War II and marked the first Day of Remembrance.\n\nA movement rooted in memory, join Frank Abe as he shares the important moment it created and stories from the experience. This talk will be paired with an art-making activity for families to honor these histories created within Seattle and we will highlight the installed Densho (Out of Many, One Display) poster at the library.",
+        "cover_image": "/i/a8s6VT2ojs5HJE6iWlGZ6HfOlSAd2v.png",
+        "start_time": "2026-08-16T20:00:00Z",
+        "end_time": "2026-08-16T22:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "tags": [
+          "Free",
+          "Indoor",
+          "All-Ages"
+        ],
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-08-16T20:00:00Z",
+      "occurrence_end": "2026-08-16T22:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a738f577d03995ee8143f0c"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Connecting Through Culture Community Art Market",
+        "summary": "Join SISC for our Community Art Market - Connecting Through Culture on August 22, 2026, from 11 am to 4 pm.",
+        "description": "The art market will be held at the future site of the Native Village & Gateway project. This event is free and open to the public! The market is a chance to check out a new set of murals that celebrate our cultures.\nWe invite Native and Indigenous artists and vendors, along with vendors from the Little Saigon neighborhood, to participate. The cost per vendor is $25 and we have space for 15 vendors, the deadline to apply to vend is August 7, 2026. To apply to vend, go to our website and look at our blog under 'services'.",
+        "cover_image": "/i/_g204p6MOIW7PU89d8-ME0V9AtoAQJ.png",
+        "start_time": "2026-08-22T18:00:00Z",
+        "end_time": "2026-08-22T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "venue_override_address": {
+          "search": "606 12th Avenue South, Seattle, WA, USA",
+          "place_id": "ChIJbX3-IL5qkFQRv2BopyeZR0Q",
+          "latLng": {
+            "lat": 47.5971723,
+            "lng": -122.3167664
+          }
+        },
+        "location_type": "address",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-08-22T18:00:00Z",
+      "occurrence_end": "2026-08-22T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a738ac97d03995ee8142fa5"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Hing Hay Park Summer Cinema 2026",
+        "summary": "Free films in the park, all August long – Co-presented by Seattle Asian American Film Festival, Shunpike, Seattle Parks & Recreation, and Interim CDA",
+        "description": "Summer nights are better under the stars. SAAFF's C-ID Summer Cinema returns to Hing Hay Park for four Saturdays of free outdoor movies, live performances from local artists, and community in the heart of the Chinatown-International District.\n\nBring a blanket, grab a bite from the neighborhood, and settle in. Live performances start at 7:00 PM and films begin at 7:30 PM. All are welcome, and admission is completely free.\n\nAug 1 (Hoppers): Mak Fai Dragon and Lion Dance Association, Summer School\n\nAug 8 (Eve and the Fire Horse): Lexi Nguyen, Melody Xie Dance Group\n\nAug 15 (Ulam): To be confirmed\n\nAug 22 (Shaolin Soccer): MiSSMANAGED, Seattle Shaolin Kungfu Academy",
+        "cover_image": "/i/KkWfZKiiIUxixUOT2oAh-M38Tb-5nM.png",
+        "start_time": "2026-08-09T02:00:00Z",
+        "end_time": "2026-08-09T04:30:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a73839b7d03995ee814015d"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-08-23T02:00:00Z",
+      "occurrence_end": "2026-08-23T04:30:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6f4ce446bb188d5cb0de"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "The Man of the House Live Reading",
+        "description": "Come to a live reading of Annie Williams's play 'The Man of the House' at Freehold's Black Box Theatre. Join us on August 27th to see 'The Man of the House,' by Annie Williams. 'The Man of the House' centers on an African American family living in Seattle in 1992, Mother (Laura), her son (Jason), & Mother’s determination to save her son from the dangers of the street. This story explores the family’s reactions to social and economic challenges facing the young man in this context of inequity. Donations are appreciated.",
+        "cover_image": "/i/7CJFM_vuZqosk-TKcce0XChxiPlzcx.png",
+        "start_time": "2026-08-28T02:30:00Z",
+        "end_time": "2026-08-28T05:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "venue_override_address": {
+          "search": "517 Maynard Ave S, Seattle, WA 98104, USA",
+          "place_id": "ChIJocwy9rxqkFQRAFKCbvQegAU",
+          "latLng": {
+            "lat": 47.5977928,
+            "lng": -122.3252652
+          }
+        },
+        "location_type": "address",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-08-28T02:30:00Z",
+      "occurrence_end": "2026-08-28T05:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a7385f07d03995ee8140d47"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "CID Food Walk",
+        "summary": "Celebrate Summer with the CID Food Walk on August 29 from 11AM-4PM!",
+        "description": "Calling all foodies! Come try new foods and support local at the CID Food Walk. Participating businesses across Chinatown-International District will offer special $6 + $8 bites and other discounts. Food Walk is a great way to stuff your bellies and support various neighborhood businesses.\n\nStop by the CIDBIA information booth at Hing Hay Park to pick up a printed menu. Map out your route and enjoy delicious bites along the way!",
+        "cover_image": "/i/H93eC5mMBcRzHLhY7_DTf_Gydr9RHx.png",
+        "start_time": "2026-08-29T18:00:00Z",
+        "end_time": "2026-08-29T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "venue_id": {
+          "$oid": "6a73839b7d03995ee814015d"
+        },
+        "location_type": "venue",
+        "tags": [
+          "Free",
+          "All-Ages",
+          "Outdoor"
+        ],
+        "status": "published",
+        "featured": true
+      },
+      "occurrence_start": "2026-08-29T18:00:00Z",
+      "occurrence_end": "2026-08-29T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6eb6e446bb188d5cb007"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Pokémon Club",
+        "summary": "Kids! Join us for all things Pokémon!",
+        "description": "For the Pokémon Fans: Kids and their families can join the Pokémon Club to play the classic trading card game, trade cards with other players and make themed crafts.",
+        "cover_image": "/i/kHHyw-EHb7pHpXrB-qPpyDXQGS44j6.png",
+        "start_time": "2026-09-02T22:00:00Z",
+        "end_time": "2026-09-02T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-09-02T22:00:00Z",
+      "occurrence_end": "2026-09-02T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6eb6e446bb188d5cb007"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Pokémon Club",
+        "summary": "Kids! Join us for all things Pokémon!",
+        "description": "For the Pokémon Fans: Kids and their families can join the Pokémon Club to play the classic trading card game, trade cards with other players and make themed crafts.",
+        "cover_image": "/i/kHHyw-EHb7pHpXrB-qPpyDXQGS44j6.png",
+        "start_time": "2026-09-02T22:00:00Z",
+        "end_time": "2026-09-02T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-09-16T22:00:00Z",
+      "occurrence_end": "2026-09-16T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6ee9e446bb188d5cb009"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Coffee & Conversations",
+        "summary": "Join us for a snack, some coffee or tea, and to chat with your neighbors!",
+        "description": "Coffee & Conversations is a space for relaxing and getting to know your neighbors! Chat about books, hobbies, the weather, or anything else on your mind.\n\nThere will be light snacks and coffee/tea provided, a place to charge your devices, books & magazines to look at, and conversation to be had.\n\nThis program was designed for insecurely-housed community members, and is free and open to all. The Library celebrates and reflects the voices, experiences and perspectives of Seattle’s diverse communities in our spaces, collections and programs. Learn more about the Library’s equity efforts at www.spl.org/Equity.",
+        "cover_image": "/i/RFFVg2L8bnhNe3eZ8uxrA4JWG71Hdn.png",
+        "start_time": "2026-09-21T21:00:00Z",
+        "end_time": "2026-09-21T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-09-21T21:00:00Z",
+      "occurrence_end": "2026-09-21T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a7389c07d03995ee8142074"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "CID Night Market",
+        "summary": "As the sun sets over the historic Chinatown Gate, experience a vibrant side of the neighborhood with an unique open-air market and live music to dance to all night.",
+        "description": "Since 2006, the CID Night Market has provided locals and visitors a unique open-air market experience - at night. Visitors can expect to find dozens of local street vendors offering food, arts and crafts, and more. Cultural performances including a lion dance, taiko, and martial arts demonstrations will take place under the red arch in Hing Hay Park as the sun sets.",
+        "cover_image": "https://www.seattlechinatownid.com/images/uploads/meta_og/_resized/DSC_4890.jpg",
+        "start_time": "2026-09-26T20:00:00Z",
+        "end_time": "2026-09-27T04:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": false,
+        "venue_id": {
+          "$oid": "6a7388e87d03995ee8141586"
+        },
+        "location_type": "venue",
+        "tags": [
+          "Free",
+          "All-Ages",
+          "Outdoor",
+          "Street Festival",
+          "Food",
+          "Art",
+          "Vendors"
+        ],
+        "status": "published",
+        "featured": true
+      },
+      "occurrence_start": "2026-09-26T20:00:00Z",
+      "occurrence_end": "2026-09-27T04:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6eb6e446bb188d5cb007"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Pokémon Club",
+        "summary": "Kids! Join us for all things Pokémon!",
+        "description": "For the Pokémon Fans: Kids and their families can join the Pokémon Club to play the classic trading card game, trade cards with other players and make themed crafts.",
+        "cover_image": "/i/kHHyw-EHb7pHpXrB-qPpyDXQGS44j6.png",
+        "start_time": "2026-09-02T22:00:00Z",
+        "end_time": "2026-09-02T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-09-30T22:00:00Z",
+      "occurrence_end": "2026-09-30T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6eb6e446bb188d5cb007"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Pokémon Club",
+        "summary": "Kids! Join us for all things Pokémon!",
+        "description": "For the Pokémon Fans: Kids and their families can join the Pokémon Club to play the classic trading card game, trade cards with other players and make themed crafts.",
+        "cover_image": "/i/kHHyw-EHb7pHpXrB-qPpyDXQGS44j6.png",
+        "start_time": "2026-09-02T22:00:00Z",
+        "end_time": "2026-09-02T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-10-14T22:00:00Z",
+      "occurrence_end": "2026-10-14T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6eb6e446bb188d5cb007"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Pokémon Club",
+        "summary": "Kids! Join us for all things Pokémon!",
+        "description": "For the Pokémon Fans: Kids and their families can join the Pokémon Club to play the classic trading card game, trade cards with other players and make themed crafts.",
+        "cover_image": "/i/kHHyw-EHb7pHpXrB-qPpyDXQGS44j6.png",
+        "start_time": "2026-09-02T22:00:00Z",
+        "end_time": "2026-09-02T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-10-28T22:00:00Z",
+      "occurrence_end": "2026-10-28T23:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6eb6e446bb188d5cb007"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Pokémon Club",
+        "summary": "Kids! Join us for all things Pokémon!",
+        "description": "For the Pokémon Fans: Kids and their families can join the Pokémon Club to play the classic trading card game, trade cards with other players and make themed crafts.",
+        "cover_image": "/i/kHHyw-EHb7pHpXrB-qPpyDXQGS44j6.png",
+        "start_time": "2026-09-02T22:00:00Z",
+        "end_time": "2026-09-02T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-11-11T23:00:00Z",
+      "occurrence_end": "2026-11-12T00:00:00Z"
+    },
+    {
+      "event": {
+        "id": {
+          "$oid": "6a8f6eb6e446bb188d5cb007"
+        },
+        "group_id": {
+          "$oid": "6a3f0a3c635642116c0b3dfb"
+        },
+        "name": "Pokémon Club",
+        "summary": "Kids! Join us for all things Pokémon!",
+        "description": "For the Pokémon Fans: Kids and their families can join the Pokémon Club to play the classic trading card game, trade cards with other players and make themed crafts.",
+        "cover_image": "/i/kHHyw-EHb7pHpXrB-qPpyDXQGS44j6.png",
+        "start_time": "2026-09-02T22:00:00Z",
+        "end_time": "2026-09-02T23:00:00Z",
+        "all_day": false,
+        "has_end_time": true,
+        "timezone": "America/Los_Angeles",
+        "is_recurring": true,
+        "venue_id": {
+          "$oid": "6a738e2c7d03995ee814393e"
+        },
+        "location_type": "venue",
+        "status": "published",
+        "featured": false
+      },
+      "occurrence_start": "2026-11-25T23:00:00Z",
+      "occurrence_end": "2026-11-26T00:00:00Z"
+    }
+  ]
+}
