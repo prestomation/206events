@@ -63915,13 +63915,15 @@
     },
     "19hz:19hz-2026/08/29-FREQNC Friday": {
       "fields": {
+        "duration": 14400,
         "cost": {
           "paid": true
         }
       },
       "resolvedAt": "2026-08-27",
       "source": "agent",
-      "evidence": "https://tickets.oraseattle.com"
+      "evidence": "duration: https://www.instagram.com/p/DcSK0qvs6H6/ ; cost: https://tickets.oraseattle.com",
+      "partialFingerprint": "rvvor5"
     },
     "19hz:19hz-2026/08/29-Heavy Sounds Tips Their Hat to Bobby Ghanoush": {
       "fields": {
@@ -63976,12 +63978,13 @@
     "19hz:19hz-2026/09/18-Carrie Nation & The Speakeasy, Angry Zeta - Angry Nation Tour 2026": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 20.0
         }
       },
       "resolvedAt": "2026-08-27",
       "source": "agent",
-      "evidence": "https://app.opendate.io/e/carrie-nation-the-speakeasy-angry-zeta-angry-nation-tour-2026-september-18-2026-721039"
+      "evidence": "https://app.opendate.io/e/carrie-nation-the-speakeasy-angry-zeta-angry-nation-tour-2026-september-18-2026-721039",
+      "partialFingerprint": "17larom"
     },
     "19hz:19hz-2026/09/18-Halo Varga": {
       "fields": {
@@ -64192,6 +64195,214 @@
       "resolvedAt": "2026-08-27",
       "source": "agent",
       "evidence": "https://www.brownefamilyvineyards.com/events/seattle-bingo-sept10"
+    },
+    "19hz:19hz-2026/08/29-Zanderwoodz, Balsem": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with an end time.",
+      "partialFingerprint": "bxejn3"
+    },
+    "19hz:19hz-2026/09/03-FEEL NOTHING.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "facebook.com/events requires login to view (HTTP 400 without auth); no alternate listing found with an end time.",
+      "partialFingerprint": "dfogdk"
+    },
+    "19hz:19hz-2026/09/03-Less Than Three": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with an end time.",
+      "partialFingerprint": "1p7iid5"
+    },
+    "19hz:19hz-2026/09/05-100% Dirty Pop": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.instagram.com/p/DcUbjSaBT32/",
+      "partialFingerprint": "br0y9i"
+    },
+    "19hz:19hz-2026/09/10-Continuum: DJ Daemon Chadeau & Biopsych": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "facebook.com/events requires login to view (HTTP 400 without auth); no alternate listing found with an end time.",
+      "partialFingerprint": "12cy0ui"
+    },
+    "19hz:19hz-2026/09/11-Shea Coulee (DJ Set)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with an end time.",
+      "partialFingerprint": "1wspit0"
+    },
+    "19hz:19hz-2026/09/12-Global Groove: Nil Elses, Samba da Renata, Gata Galactica": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "etix.com ticket page returns an empty bot-challenge response (HTTP 202, no body); no alternate listing found with an end time.",
+      "partialFingerprint": "zategz"
+    },
+    "19hz:19hz-2026/09/12-CRUISE / DISCO": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Instagram post (DcXyqfBPjS4) returns only site footer/nav content (login required); no caption text available.",
+      "partialFingerprint": "zau1gi"
+    },
+    "19hz:19hz-2026/09/13-Flow Meetup": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Instagram caption (Dce56vbB25P) gives only 'dusk' as the end time -- not a concrete clock time.",
+      "partialFingerprint": "1t6v5sv"
+    },
+    "19hz:19hz-2026/10/21-EQ": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Eventbrite page confirms start time only ('Music @ 8:00pm', startDate 20:00); no end time or duration published.",
+      "partialFingerprint": "vieelz"
+    },
+    "19hz:19hz-2026/11/22-Buunshin": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Eventbrite page confirms start time only ('Music @ 8:00pm', startDate 20:00); no end time or duration published.",
+      "partialFingerprint": "fu7ead"
+    },
+    "19hz:19hz-2026/11/24-Fraxiom, Draz, Paintscratcher": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://dice.fm/event/bbgbmk-fraxiom-draz-paintscratcher-24th-nov-belltown-yacht-club-seattle-tickets",
+      "partialFingerprint": "1pyblq4"
+    },
+    "19hz:19hz-2026/12/17-Cascadia Winter Solstice Weekend Thursday: Beats Antique, High Step Society": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "1nypmp4"
+    },
+    "19hz:19hz-2026/12/17-Cascadia Winter Solstice Weekend: Beats Antique, Desert Dwellers, High Step Society, Atyya, Chmura, Duffrey, Marques Wyatt, Sabo": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "wcr1kz"
+    },
+    "19hz:19hz-2026/12/17-Cascadia Winter Solstice Weekend Thursday: High Step Society": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "1nyq9on"
+    },
+    "19hz:19hz-2026/12/18-Cascadia Winter Solstice Weekend Friday: Beats Antique, Bluetech": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "5hx623"
+    },
+    "19hz:19hz-2026/12/18-Cascadia Winter Solstice Weekend Friday: Beats Antique, Desert Dwellers, Bluetech": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "5hx623"
+    },
+    "19hz:19hz-2026/12/18-Cascadia Winter Solstice Weekend Friday: Desert Dwellers": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "5hxt1m"
+    },
+    "19hz:19hz-2026/12/19-Cascadia Winter Solstice Weekend Saturday: Atyya, Chmura, Duffrey": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "1kwl0bl"
+    },
+    "19hz:19hz-2026/12/19-Cascadia Winter Solstice Weekend Saturday: Atyya, Marques Wyatt, Chmura, Sabo": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "1kwl0bl"
+    },
+    "19hz:19hz-2026/12/19-Cascadia Winter Solstice Weekend Saturday: Marques Wyatt, Sabo": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "tixr.com blocks automated fetches (HTTP 403); no alternate listing found with per-set end times.",
+      "partialFingerprint": "1kwlnb4"
+    },
+    "19hz:19hz-2026/12/17-Austeria": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Eventbrite page confirms start time only ('Music @ 9:00pm', startDate 21:00); no end time or duration published.",
+      "partialFingerprint": "1nyqwo6"
+    },
+    "seattle-center:x50382.xml": {
+      "fields": {
+        "duration": 25200
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/x50382.xml",
+      "partialFingerprint": "1876exv"
+    },
+    "seattle-center:journey-final-frontier-tour": {
+      "fields": {
+        "startTime": "19:30"
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.axs.com/events/1442691/journey-tickets",
+      "partialFingerprint": "gdj8fj"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46409": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "seattlecenter.com lists this as 'All Day' with generic placeholder times (eventStartTime=06:00:00/eventEndTime=23:59:00 -- the same 23:59 sentinel used on pages with no real scheduled time, e.g. the Journey concert page); no specific scheduled hours are published for this self-guided outdoor sculpture walk.",
+      "partialFingerprint": "gdj8fj"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46410": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "seattlecenter.com lists this as 'All Day' with generic placeholder times (eventStartTime=06:00:00/eventEndTime=23:59:00 -- the same 23:59 sentinel used on pages with no real scheduled time, e.g. the Journey concert page); no specific scheduled hours are published for this self-guided outdoor sculpture walk.",
+      "partialFingerprint": "1lij9m8"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46411": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "seattlecenter.com lists this as 'All Day' with generic placeholder times (eventStartTime=06:00:00/eventEndTime=23:59:00 -- the same 23:59 sentinel used on pages with no real scheduled time, e.g. the Journey concert page); no specific scheduled hours are published for this self-guided outdoor sculpture walk.",
+      "partialFingerprint": "rmf8tt"
+    },
+    "seattle-center:seattle-storm-vs-dallas-wings": {
+      "fields": {
+        "duration": 16200
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-dallas-wings",
+      "partialFingerprint": "1hygp73"
     }
   }
 }
