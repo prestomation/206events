@@ -15159,6 +15159,76 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-27",
       "note": "Same seatoday event (ID 18981047), same URL, different sub-calendars"
+    },
+    "19hz-all-events.ics Brian Kent|2026-08-29T22:00:00-07:00[America/Los_Angeles]::the-cuff-complex-the-cuff-complex-events.ics Cuff Presents: Brian Kent|2026-08-29T22:00:00.106-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same show at The Cuff Complex, 8/29 10pm - confirmed via cuffcomplex.com event page"
+    },
+    "19hz-all-events.ics Club Bahay: BLK LAB|2026-09-03T21:30:00-07:00[America/Los_Angeles]::vice-seattle-all-events.ics Club BAHAY|2026-09-03T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same Club Bahay night at VICE Seattle, exact date/time/venue match"
+    },
+    "19hz-all-events.ics Fraxiom, Draz, Paintscratcher|2026-11-24T19:00:00-08:00[America/Los_Angeles]::belltown_yacht_club-belltown-yacht-club.ics Fraxiom, Draz, Paintscratcher|2026-11-24T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Identical title/date/time, both link to same DICE listing at Belltown Yacht Club"
+    },
+    "19hz-all-events.ics Shea Coulee (DJ Set)|2026-09-11T22:00:00-07:00[America/Los_Angeles]::massive-calendar.ics Massive Friday - Shea Coulee|2026-09-11T22:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same Tixr event id 204110 on both sides"
+    },
+    "19hz-all-events.ics Zanderwoodz, Balsem|2026-08-29T22:00:00-07:00[America/Los_Angeles]::massive-calendar.ics Zanderwoodz (SF) + Balsem All Night|2026-08-29T22:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same Tixr event id 204809 on both sides"
+    },
+    "external-discover-magnolia.ics Daybreak Star Indian Summer Concert|2026-09-26T15:00:00Z[UTC]::external-united-indians-daybreak-star.ics Daybreak Star Sacred Circle Gallery's Indian Summer Concert|2026-09-26T15:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same event and address (5011 Bernie Whitebear Way); neighborhood site republishing United Indians' own listing"
+    },
+    "seatoday-seatoday-all.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same seatoday aggregator event republished under its own food-tag sub-feed; identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same seatoday aggregator event republished under its own learning-tag sub-feed; identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same seatoday aggregator event republished under its own sports-tag sub-feed; identical 6amcity URL"
+    },
+    "seatoday-seatoday-food.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same seatoday aggregator event, food-tag and learning-tag sub-feeds; identical 6amcity URL"
+    },
+    "seatoday-seatoday-food.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same seatoday aggregator event, food-tag and sports-tag sub-feeds; identical 6amcity URL"
+    },
+    "seatoday-seatoday-learning.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2026 SEA Airport Luncheon|2026-09-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Same seatoday aggregator event, learning-tag and sports-tag sub-feeds; identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics Brujitaxo, Toxic Tears, + DJ Dazé|2026-09-07T19:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Brujitaxo, Toxic Tears, + DJ Dazé|2026-09-07T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Identical title/date/time, both at 305 Harrison St (Vera Project's own venue, Seattle Center) - seatoday republishing venue's show"
+    },
+    "seatoday-seatoday-arts.ics Brujitaxo, Toxic Tears, + DJ Dazé|2026-09-07T19:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Brujitaxo, Toxic Tears, + DJ Dazé|2026-09-07T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-27",
+      "note": "Identical title/date/time, both at 305 Harrison St (Vera Project's own venue, Seattle Center) - seatoday republishing venue's show"
     }
   }
 }
