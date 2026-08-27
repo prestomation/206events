@@ -83,9 +83,33 @@ export function extractFairSlug(url: string): string {
     return match ? match[1] : url;
 }
 
-function isUnresolvedLocation(streetAddress: string | undefined, name: string | undefined): boolean {
-    const normalize = (s: string | undefined) => (s ?? "").trim().toLowerCase();
-    return normalize(streetAddress) === "tba" || normalize(streetAddress) === "" || normalize(name) === "tba";
+// Builds the best available location string from a JSON-LD Event's `location`
+// block. A handful of listings leave the street address blank or the literal
+// "TBA" — that alone doesn't mean the venue name is unknown too (e.g. a real
+// "Fisher Pavilion" with no street address), so this only falls all the way
+// back to FALLBACK_LOCATION when neither a usable name nor a street address
+// is available. `unresolved` is true whenever the street address is missing,
+// since even a named-but-unaddressed venue is still uncertain for geocoding.
+function resolveLocation(address: { streetAddress?: string; addressLocality?: string; addressRegion?: string }, placeName: string | undefined): { location: string; unresolved: boolean } {
+    const isUsable = (s: string | undefined) => {
+        const trimmed = (s ?? "").trim();
+        return trimmed.length > 0 && trimmed.toLowerCase() !== "tba";
+    };
+    const hasStreet = isUsable(address.streetAddress);
+    const hasName = isUsable(placeName);
+
+    if (!hasStreet && !hasName) {
+        return { location: FALLBACK_LOCATION, unresolved: true };
+    }
+
+    const parts = [
+        hasName ? placeName : undefined,
+        hasStreet ? address.streetAddress : undefined,
+        address.addressLocality,
+        address.addressRegion,
+    ].filter((part) => typeof part === "string" && part.trim().length > 0);
+
+    return { location: decode(parts.join(", ")), unresolved: !hasStreet };
 }
 
 /**
@@ -122,12 +146,7 @@ export function parseFairDetail(html: string, url: string): RipperEvent[] {
 
     const place = item.location ?? {};
     const address = place.address ?? {};
-    const unresolvedLocation = isUnresolvedLocation(address.streetAddress, place.name);
-    const location = unresolvedLocation
-        ? FALLBACK_LOCATION
-        : decode([place.name, address.streetAddress, address.addressLocality, address.addressRegion]
-            .filter((part) => typeof part === "string" && part.trim().length > 0)
-            .join(", "));
+    const { location, unresolved: unresolvedLocation } = resolveLocation(address, place.name);
 
     const date = ZonedDateTime.of(
         startDate.atTime(DEFAULT_UNKNOWN_TIME_HOUR, DEFAULT_UNKNOWN_TIME_MINUTE),
@@ -151,7 +170,7 @@ export function parseFairDetail(html: string, url: string): RipperEvent[] {
     const uncertainty: UncertaintyError = {
         type: "Uncertainty",
         reason: unresolvedLocation
-            ? `The Craft Map listing for "${summary}" has no explicit time and an unresolved (TBA) venue`
+            ? `The Craft Map listing for "${summary}" has no explicit time and no street address for its venue`
             : `The Craft Map listing for "${summary}" has no explicit start time`,
         source: "craft-map-seattle",
         unknownFields,

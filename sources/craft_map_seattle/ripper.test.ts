@@ -100,6 +100,20 @@ describe("parseFairDetail", () => {
         expect(uncertainty.unknownFields).toEqual(["startTime", "duration", "location"]);
     });
 
+    test("keeps a real venue name when only the street address is missing, rather than collapsing to the generic fallback", () => {
+        const html = `<script type="application/ld+json">{"@type":"Event","name":"Fisher Pavilion Market","startDate":"2026-09-05","location":{"name":"Fisher Pavilion","address":{"addressLocality":"Seattle","addressRegion":"WA"}}}</script>`;
+        const results = parseFairDetail(html, "https://www.thecraftmap.com/fair/fisher-pavilion-market-seattle-wa");
+
+        expect(results).toHaveLength(2);
+        const event = results[0] as RipperCalendarEvent;
+        expect(event.location).toBe("Fisher Pavilion, Seattle, WA");
+
+        // Still flagged uncertain — the street address itself is unknown —
+        // but the real venue name is preserved rather than discarded.
+        const uncertainty = results[1] as UncertaintyError;
+        expect(uncertainty.unknownFields).toEqual(["startTime", "duration", "location"]);
+    });
+
     test("returns a ParseError when no JSON-LD Event block is present", () => {
         const results = parseFairDetail("<p>Not found</p>", "https://www.thecraftmap.com/fair/missing");
         expect(results).toHaveLength(1);
