@@ -539,7 +539,13 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'kane hall, university of washington, 4069 spokane ln, seattle, 98105, united states': { lat: 47.6566, lng: -122.3092 },
   'langston hughes performing arts institute': { lat: 47.5969, lng: -122.3165 },
   'meadowbrook community center': { lat: 47.7133, lng: -122.2989 },
-  'mercury @ machinewerks': { lat: 47.5983, lng: -122.3237 },
+  // Corrected 2026-08-27: was pinned at 47.5983,-122.3237 (Chinatown-ID —
+  // duplicate of the unrelated 'orient express restaurant & lounge' coords).
+  // Verified address is 1009 E Union St, Seattle, WA 98122 (Capitol Hill) per
+  // Yelp/RA.co/Fever/Waze listings; forward-geocoded via Nominatim.
+  'mercury @ machinewerks': { lat: 47.6127716, lng: -122.3189306 },
+  // 19hz drops the "@" — bare-name variant needs its own key.
+  'mercury machinewerks': { lat: 47.6127716, lng: -122.3189306 },
   'mount vernon downtown association': { lat: 48.4206767, lng: -122.337333 },
   'old stove brewery ship canal': { lat: 47.6521302, lng: -122.3645639 },
   'museum of flight': { lat: 47.5186, lng: -122.2967 },
@@ -1303,6 +1309,29 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'samuel e. kelly ethnic cultural center (ecc)': { lat: 47.6546132, lng: -122.3145827 }, // 3931 Brooklyn Ave NE, Seattle, WA 98105
   'volunteer park - burke monument': { lat: 47.6295663, lng: -122.3156138 }, // Volunteer Park, 1247 15th Ave E, Seattle, WA 98112 — monument itself isn't individually indexed in OSM, using the park's coords
   'union bay viewpoint': { lat: 47.6573765, lng: -122.2940013 }, // Union Bay Natural Area, Seattle, WA — approximation; the specific viewpoint isn't individually indexed in OSM
+
+  // --- 2026-08-27 geo-resolver pass: "venue name only" and "has street
+  // address" buckets of geo-cache.py analyze. Addresses confirmed against
+  // each venue's own listing/site, forward-geocoded via Nominatim (never
+  // reverse-geocoded).
+  'the monkey loft': { lat: 47.5771889, lng: -122.3344660 }, // 2915 1st Ave S, Seattle, WA 98134 (SoDo)
+  // 19hz's "Nectar Lounge, Hidden Hall" names the room; Hidden Hall shares the
+  // Nectar Lounge complex in Fremont. Bare-name prefix match (see
+  // lookupKnownVenue) also covers plain "Nectar Lounge".
+  'nectar lounge': { lat: 47.6523876, lng: -122.3538542 }, // 412 N 36th St, Seattle, WA 98103
+  // Magnuson Park's historic aircraft hangar; already covered under the
+  // "magnuson hanger" source-misspelling key above with the same coords —
+  // this covers the "Hangar 30 at Magnuson Park (...)" naming pattern.
+  'hangar 30 at magnuson park': { lat: 47.682846, lng: -122.260988 }, // 6310 NE 74th St, Seattle, WA 98115 — source key had a "989115" zip typo
+  'hop frog farm, onalaska, wa, united states': { lat: 46.5756275, lng: -122.6699789 }, // 214 Jorgensen Rd, Onalaska, WA 98570 — OSM indexes the road but not the house number; road-level fix at the correct zip (Nominatim has no result at all for the street-number query)
+  '1401 100th street northeast, granite falls, washington, 98252': { lat: 48.0877048, lng: -121.9874521 }, // Granite Falls High School — resolves directly via Nominatim; only failed previously in the "washington" (spelled out) + no-"street" query form the source emits
+  '35th sw & sw myrtle, west seattle': { lat: 47.5394669, lng: -122.3764650 }, // exact Nominatim bus-stop node at this intersection
+  // No direct Nominatim intersection match for either street name pair;
+  // estimated by combining each street's segment nearest the 98126/High
+  // Point zip in the source string (39th Ave SW's longitude with SW Orchard
+  // St's High Point-segment latitude). Approximate — flag if a tighter fix
+  // is found later.
+  '39th ave sw & sw orchard st, seattle, wa 98126': { lat: 47.5386719, lng: -122.3818986 },
 };
 
 /**
