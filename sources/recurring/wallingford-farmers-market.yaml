@@ -1,15 +1,18 @@
-imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Fremont_and_Wall\
-  ingford_neighborhoods%2C_Seattle%2C_ca_1906_%28MOHAI_820%29.jpg"
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Fremont_and_Wallingford_neighborhoods%2C_Seattle%2C_ca_1906_%28MOHAI_820%29.jpg"
 geo:
   lat: 47.6603
   lng: -122.3338
   label: "Wallingford, Seattle, WA"
-  osmChecked: "2026-06-22"
+  # Nominatim only returns the neighborhood itself (node/150973716,
+  # place/suburb "Wallingford", 102m) — not a venue. This farmers
+  # market covers a street area within the neighborhood, no dedicated
+  # OSM venue feature exists. Rejected in June 2026 for the same
+  # reason; re-checked.
+  osmChecked: "2026-08-27"
 name: wallingford-farmers-market
 sourceRole: venue
 friendlyname: Wallingford Farmers Market
-description: Seasonal Wednesday evening farmers market in Wallingford. Runs May
-  through September.
+description: Seasonal Wednesday evening farmers market in Wallingford. Runs May through September.
 timezone: America/Los_Angeles
 location: Wallingford neighborhood, Seattle
 url: https://seattlefarmersmarkets.org/
