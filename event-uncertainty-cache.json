@@ -63800,6 +63800,78 @@
       "resolvedAt": "2026-08-27",
       "source": "agent",
       "reason": "Venue name includes both \"Community Room\" (indoor) and \"Courtyard\" (outdoor/covered) — mixed setting, cannot classify uniformly"
+    },
+    "discover-slu:discover-slu-road-running-basics": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/road-running-basics/"
+    },
+    "discover-slu:discover-slu-made-in-slu-event-2026-2-2-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/made-in-slu-event-2026-2-2-2-2-2-2-2-2-2-2/"
+    },
+    "seatoday:cityspark-19731876": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/let-s-mix-it-up/19731876/2026-09-08T00"
+    },
+    "seatoday:cityspark-16856554": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/seattle-mariners-vs-texas-rangers/16856554/2026-09-09T00"
+    },
+    "seatoday:cityspark-19523287": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Page inaccessible (404/503); could not determine whether event is paid or free — Cascade Bike Club runs both paid courses and free community programs"
+    },
+    "venue:osm:relation:1047789": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation/1047789"
+    },
+    "venue:loc:online via zoom": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "Virtual/online venue has no weather setting"
+    },
+    "pacific-science-center:961821": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "No event-specific image on page — only Bloodworks Northwest logo and QR code"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_o3DfQsX": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/ms-lauryn-hill-wyclef-jean-celebrating-seattle-washington-11-10-2026/event/0F006514BB51AC7E"
     }
   }
 }
