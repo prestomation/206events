@@ -186,7 +186,11 @@ export default class CIDBIARipper extends JSONRipper {
             date,
             duration,
             summary: title,
-            description: event.summary || event.description || undefined,
+            // `description` is consistently the fuller write-up (`summary` is a
+            // short teaser line, when present at all) — verified against a live
+            // sample where every event with a `summary` also had a `description`
+            // at least as long.
+            description: event.description || event.summary || undefined,
             location: this.resolveLocation(event, venuesById),
             url: FRIENDLY_EVENT_URL,
             imageUrl: this.resolveImageUrl(event.cover_image),

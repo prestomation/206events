@@ -124,6 +124,16 @@ describe('CIDBIARipper - parseEvents from sample JSON', () => {
         expect(new Set(pokemonIds1).size).toBe(pokemonIds1.length);
     });
 
+    test('prefers the fuller "description" field over the short "summary" teaser', async () => {
+        const results = await ripper.parseEvents(jsonData, now, {});
+        const events = results.filter((r): r is RipperCalendarEvent => 'date' in r);
+        const dragVillage = events.find(e => e.summary === 'Drag Village at Tabletop Village');
+        // The sample's `summary` for this event is a ~60-char teaser; `description`
+        // is the ~950-char full write-up. The ICS description should be the latter.
+        expect(dragVillage?.description?.length).toBeGreaterThan(200);
+        expect(dragVillage?.description).toContain('16 performers');
+    });
+
     test('duration reflects occurrence_end when present', async () => {
         const results = await ripper.parseEvents(jsonData, now, {});
         const events = results.filter((r): r is RipperCalendarEvent => 'date' in r);
