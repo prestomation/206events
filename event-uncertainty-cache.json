@@ -63860,6 +63860,12 @@
       "resolvedAt": "2026-08-27",
       "source": "agent",
       "reason": "Virtual/online venue has no weather setting"
+    },
+    "pacific-science-center:961821": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-27",
+      "source": "agent",
+      "reason": "No event-specific image on page — only Bloodworks Northwest logo and QR code"
     }
   }
 }
