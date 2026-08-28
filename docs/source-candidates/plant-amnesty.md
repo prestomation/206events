@@ -6,7 +6,7 @@ url: https://www.plantamnesty.org/all-upcoming-events-classes
 tags: [Education, Community]
 firstSeen: 2026-08-27
 lastChecked: 2026-08-28
-pr: TBD
+pr: 1305
 ---
 
 Seattle-based tree/plant-care education nonprofit — "Master Pruner"
