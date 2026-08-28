@@ -61,6 +61,9 @@ const RANGE_SAME_MONTH = new RegExp(`(${MONTH_PATTERN})\\.?\\s+(\\d{1,2})(?:st|n
 // "September 20th" (single date, no range)
 const SINGLE_DATE = new RegExp(`(${MONTH_PATTERN})\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)`, "i");
 const TIME_PATTERN = /(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)/gi;
+// Shorthand range where only the end time states am/pm, e.g. "6:30-8:30pm" —
+// the start time shares the end time's meridiem.
+const TIME_RANGE_SHORTHAND = /(\d{1,2})(?::(\d{2}))?\s*-\s*(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)/i;
 
 // A product listing already >3 days in the past (relative to build time) is
 // assumed to be next year's occurrence rather than a fabricated guess at a
@@ -95,7 +98,19 @@ function parseTimeToken(match: RegExpMatchArray): LocalTime {
 }
 
 function parseSchedule(title: string, today: LocalDate): ParsedSchedule | null {
-    const times = [...title.matchAll(TIME_PATTERN)];
+    let times = [...title.matchAll(TIME_PATTERN)];
+    if (times.length < 2) {
+        const shorthand = title.match(TIME_RANGE_SHORTHAND);
+        if (shorthand) {
+            const [, startHour, startMin, endHour, endMin, meridiem] = shorthand;
+            const normalized = title.replace(
+                TIME_RANGE_SHORTHAND,
+                `${startHour}${startMin ? ":" + startMin : ""}${meridiem}-${endHour}${endMin ? ":" + endMin : ""}${meridiem}`
+            );
+            times = [...normalized.matchAll(TIME_PATTERN)];
+            if (times.length >= 2) title = normalized;
+        }
+    }
     if (times.length < 2) return null;
     const startTime = parseTimeToken(times[0]);
     const endTime = parseTimeToken(times[times.length - 1]);

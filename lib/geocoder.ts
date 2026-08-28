@@ -422,6 +422,10 @@ export function lookupSPLBranchCoords(location: string): GeoCoords | null {
 const UW_BUILDING_COORDS: Record<string, GeoCoords> = {
   HUB: { lat: 47.6557, lng: -122.3050 },
   PAT: { lat: 47.6532, lng: -122.3115 },
+  // Physics-Astronomy Auditorium — the lecture-hall wing of the Physics/
+  // Astronomy Tower complex; Nominatim has no separate record, so this
+  // reuses PAT's coords (same building complex).
+  PAA: { lat: 47.6532, lng: -122.3115 },
   KNE: { lat: 47.6561, lng: -122.3088 },
   MNY: { lat: 47.6556, lng: -122.3073 },
   MUS: { lat: 47.6553, lng: -122.3060 },
@@ -593,6 +597,18 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Seattle University campus buildings (Nominatim doesn't index individual buildings)
   'redhawk center': { lat: 47.6095, lng: -122.3188 },
   'student center, student center 160 fr. leroux conference center': { lat: 47.6095, lng: -122.3188 },
+  // Shorter variant phrasing seen from a different source for the same room.
+  'student center, the leroux conference room': { lat: 47.6095, lng: -122.3188 },
+  // UW Physics-Astronomy Auditorium — the lecture-hall wing of the Physics/
+  // Astronomy Tower complex (PAT, above); Nominatim has no separate record.
+  'physics-astronomy auditorium (paa)': { lat: 47.6532, lng: -122.3115 },
+  // Nominatim resolves "Danny Woo Community Garden" alone but the source
+  // string appends a street ("...South Main Street, Seattle, WA, USA") that
+  // isn't the garden's actual address and throws off the match.
+  'danny woo community garden, south main street, seattle, wa, usa': { lat: 47.6004923, lng: -122.3251717, osmType: 'way', osmId: 25793176 },
+  // Combined-neighborhood centroid (midpoint of Roosevelt and Ravenna) —
+  // Nominatim doesn't resolve the "X/Y neighborhood" compound phrasing.
+  'roosevelt/ravenna neighborhood, seattle, washington': { lat: 47.6725, lng: -122.3090 },
   // Old Rainier Brewery event spaces
   'the mountain room: bar at the r, 3100 airport way south': { lat: 47.5754764, lng: -122.3207484 },
   // --- Added known venues for Nominatim failure fallback ---

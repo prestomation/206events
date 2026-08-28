@@ -218,6 +218,11 @@ calendars:
   - name: market-at-the-marquee
     friendlyname: "Food Trucks @ Market at the Marquee"
     timezone: America/Los_Angeles
+    # 2026-08-28: build-health flagged 0 events. Confirmed live via the SFT
+    # events API: no bookings for this pod across a ~290-event/29-page
+    # near-term window, though the pod is still listed in /api/pods — a
+    # currently quiet pod, like the other expectEmpty pods above.
+    expectEmpty: true
     tags: ["FoodTruck", "Downtown"]
     geo:
       lat: 47.6138731

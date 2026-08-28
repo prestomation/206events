@@ -211,6 +211,19 @@ calendars:
 
   # --- Queen Anne ---
   # KEXP Studio: now covered by dedicated ripper at sources/kexp/
+  - name: kexp-gathering-space
+    friendlyname: "KEXP Gathering Space"
+    expectEmpty: true
+    geo:
+      lat: 47.6231
+      lng: -122.3551
+      label: "KEXP Gathering Space, 472 1st Ave N, Seattle, WA 98109"
+      osmType: node
+      osmId: 3886776643
+    timezone: America/Los_Angeles
+    tags: ["QueenAnne"]
+    config:
+      venue: "KEXP Gathering Space"
   - name: bad-bar
     friendlyname: "Bad Bar"
     expectEmpty: true

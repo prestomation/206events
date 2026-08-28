@@ -131,6 +131,16 @@ const NON_NUMERIC_PRICE = {
     images: [],
 };
 
+const SHORTHAND_TIME_RANGE = {
+    id: 15,
+    title: "BIPOC Wheel Night Sunday, October 4th, 6:30-8:30pm",
+    handle: "bipoc-wheel-night-sunday-october-4th-6-30-8-30pm",
+    product_type: "retail-class",
+    body_html: "<p>Only the end time states am/pm.</p>",
+    variants: [{ price: "45.00", available: true }],
+    images: [{ src: "https://cdn.shopify.com/bipoc.jpg" }],
+};
+
 const NO_VARIANTS_OR_IMAGES = {
     id: 12,
     title: "Bare Bones Class: Sunday September 20th, 6:30pm - 8:30pm",
@@ -359,6 +369,17 @@ describe('Saltstone Ceramics Ripper', () => {
         const justPastBoundaryEvent = events.find(e => e.id === 'clay-curious-aug-7-past-boundary')!;
         expect(atBoundaryEvent.date.year()).toBe(2026);
         expect(justPastBoundaryEvent.date.year()).toBe(2027);
+    });
+
+    test('infers the start-time meridiem from the end time in a shorthand range ("6:30-8:30pm")', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        const jsonData = buildJsonData([SHORTHAND_TIME_RANGE]);
+        const events = await ripper.parseEvents(jsonData, testDate, {}) as RipperCalendarEvent[];
+
+        expect(events).toHaveLength(1);
+        expect(events[0].date.hour()).toBe(18);
+        expect(events[0].date.minute()).toBe(30);
+        expect(events[0].duration.toHours()).toBe(2);
     });
 
     test('parses all retail-class events from the live sample fixture with no errors', async () => {

@@ -1885,6 +1885,67 @@
           ]
         }
       ]
+    },
+    {
+      "id": 9554836717781,
+      "title": "BIPOC Wheel Night Sunday, October 4th, 6:30-8:30pm",
+      "handle": "bipoc-wheel-night-sunday-october-4th-6-30-8-30pm",
+      "body_html": "<p style=\"white-space: pre-wrap;\" data-mce-style=\"white-space: pre-wrap;\">Our Clay Curious session is a great opportunity for people to try the potter's wheel for the first time and see what all the excitement is all about while being in a space that is safe and encouraging to beginners.<br></p>\n<p style=\"white-space: pre-wrap;\" data-mce-style=\"white-space: pre-wrap;\">In this two hour session, our friendly instructor Jem Tong will give you a demonstration of how to throw and then guide you through the process of trying it out for yourself. You\u2019ll learn how to center clay on the wheel, create an open form, and raise up the sides to a make beautiful cup or bowl with your own hands.</p>\n<p style=\"white-space: pre-wrap;\" data-mce-style=\"white-space: pre-wrap;\">Each student will get to keep one piece of their choice. We will do all the firing and glazing for you and notify you once they are ready for pick up (usually takes one month).<span></span></p>\n<p style=\"white-space: pre-wrap;\" data-mce-style=\"white-space: pre-wrap;\">This class is recommended for students age 18 and older, and for anyone who identifies as BIPOC.<strong> </strong><strong> </strong></p>\n<p style=\"white-space: pre-wrap;\" data-mce-style=\"white-space: pre-wrap;\"><strong>Note that this is an evening class, from 6:30pm to 8:30pm.</strong></p>",
+      "published_at": "2026-08-26T12:25:19-07:00",
+      "created_at": "2026-08-26T12:22:40-07:00",
+      "updated_at": "2026-08-28T03:40:43-07:00",
+      "vendor": "Saltstone Ceramics",
+      "product_type": "retail-class",
+      "tags": [
+        "adult-one-night",
+        "bipoc-one-night",
+        "class",
+        "comingsoon.2026-10-27-12-00",
+        "indemand"
+      ],
+      "variants": [
+        {
+          "id": 54639474966741,
+          "title": "Default Title",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "sku": "BCC100426",
+          "requires_shipping": true,
+          "taxable": true,
+          "featured_image": null,
+          "available": true,
+          "price": "25.00",
+          "grams": 0,
+          "compare_at_price": null,
+          "position": 1,
+          "product_id": 9554836717781,
+          "created_at": "2026-08-26T12:22:40-07:00",
+          "updated_at": "2026-08-28T03:40:43-07:00"
+        }
+      ],
+      "images": [
+        {
+          "id": 42860872204501,
+          "created_at": "2024-09-19T13:06:43-07:00",
+          "position": 1,
+          "updated_at": "2024-09-19T13:06:44-07:00",
+          "product_id": 9554836717781,
+          "variant_ids": [],
+          "src": "https://cdn.shopify.com/s/files/1/0164/0955/9104/files/2_10512820-2658-456b-8d2e-f20ac9898eb0.png?v=1726776404",
+          "width": 1080,
+          "height": 1080
+        }
+      ],
+      "options": [
+        {
+          "name": "Title",
+          "position": 1,
+          "values": [
+            "Default Title"
+          ]
+        }
+      ]
     }
   ]
 }

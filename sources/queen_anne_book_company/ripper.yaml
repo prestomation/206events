@@ -1,5 +1,12 @@
 name: queen-anne-book-company
 sourceRole: venue
+# 2026-08-28: build-health flagged an HTTP 403 ParseError. Confirmed live:
+# Cloudflare returns a JS bot-challenge (cf-mitigated: challenge), which a
+# plain fetch can never pass — staging the proxy ladder entry point per
+# docs/proxy-verification.md. Per the JS-challenge shortcut, the out-of-band
+# proxy-escalation run should skip straight to the browserbase rung rather
+# than trying outofband first (a residential fetch gets the same challenge).
+proxy: "outofband"
 description: "Queen Anne Book Company"
 url: "https://qabookco.com/events"
 friendlyLink: https://qabookco.com/events

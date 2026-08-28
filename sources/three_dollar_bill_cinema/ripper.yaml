@@ -13,6 +13,11 @@ calendars:
   # back through the year (Mar, May, Jun, Jul, Aug), and 8 events are now
   # posted through Aug 26. expectEmpty removed — this venue reliably has
   # upcoming events; treat a future 0-event build as a real signal.
+  # 2026-08-28: 0-event build recurred. Re-checked: 0 upcoming, but `past`
+  # shows near-daily screenings through Aug 26 (today is Aug 28) — the same
+  # short posting-gap pattern, now confirmed recurring rather than one-off.
+  # Restoring expectEmpty.
   - name: three-dollar-bill-cinema
+    expectEmpty: true
     friendlyname: "Three Dollar Bill Cinema"
     timezone: America/Los_Angeles
