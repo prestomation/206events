@@ -110,25 +110,28 @@ export default class SeattleCenterRipper implements IRipper {
                     const timeTextEl = eventRow.querySelector('.event-list__time');
                     const timeText = timeTextEl ? timeTextEl.text.trim() : '';
                     const isAllDay = /all\s*day/i.test(timeText);
-                    // All-day events: source said "All Day" but we publish
-                    // midnight + 12 h as a placeholder — both start time and
-                    // duration are guesses. Timed events use the parsed start
-                    // time but always default duration to 2 h.
+                    // "All Day" is a stated fact, not a guess — the source
+                    // explicitly has no fixed start/end time, so startTime and
+                    // duration are already fully determined (midnight, 24h) and
+                    // never queued as uncertain. Timed events default duration
+                    // to 2h, which IS a guess, so that stays uncertain.
                     const hasCost = (parsed as RipperCalendarEvent).cost !== undefined;
-                    const unknownFields: UncertaintyField[] = isAllDay
-                        ? ["startTime", "duration"]
-                        : ["duration"];
+                    const unknownFields: UncertaintyField[] = isAllDay ? [] : ["duration"];
                     if (!hasCost) unknownFields.push("cost");
-                    events.push({
-                        type: "Uncertainty",
-                        reason: isAllDay
-                            ? `Source listed "All Day"; precise start time and duration not given`
-                            : "Source does not expose an end time",
-                        source: "seattle_center",
-                        unknownFields,
-                        event: parsed as RipperCalendarEvent,
-                        partialFingerprint: simpleHash(`${currentDate ?? ''}|${timeText}`),
-                    });
+                    if (unknownFields.length > 0) {
+                        events.push({
+                            type: "Uncertainty",
+                            reason: !isAllDay && !hasCost
+                                ? "Source does not expose an end time or cost"
+                                : !isAllDay
+                                    ? "Source does not expose an end time"
+                                    : "Source does not expose cost information",
+                            source: "seattle_center",
+                            unknownFields,
+                            event: parsed as RipperCalendarEvent,
+                            partialFingerprint: simpleHash(`${currentDate ?? ''}|${timeText}`),
+                        });
+                    }
                 }
             }
         }
@@ -188,7 +191,7 @@ export default class SeattleCenterRipper implements IRipper {
             id: slug || undefined,
             ripped: new Date(),
             date: parsedDate,
-            duration: isAllDay ? Duration.ofHours(12) : Duration.ofHours(2),
+            duration: isAllDay ? Duration.ofHours(24) : Duration.ofHours(2),
             summary: title,
             description: description || undefined,
             location: location || "Seattle Center",

@@ -1,6 +1,11 @@
 # verified: 2026-07-06 ok
+# 2026-08-28: build-health flagged 0 events. Confirmed live via the Squarespace
+# ?format=json endpoint: 0 upcoming, but 30 past events with the most recent
+# (Bingo Night) on Aug 27 — a short posting-gap between events, not a broken
+# feed. Adding expectEmpty so this recurring cadence doesn't false-positive.
 name: fremont-brewing-columbia-city
 sourceRole: venue
+expectEmpty: true
 type: squarespace
 description: "Fremont Brewing - Columbia City"
 url: "https://www.fremontbrewing.com/columbia-city-ubg-events"

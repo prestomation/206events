@@ -39351,7 +39351,8 @@
       },
       "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:174692555"
+      "evidence": "https://www.openstreetmap.org/way:174692555",
+      "lastSeen": "2026-08-28"
     },
     "venue:osm:way:231281902": {
       "fields": {
@@ -39423,7 +39424,8 @@
       },
       "resolvedAt": "2026-07-23",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/25123756"
+      "evidence": "https://www.openstreetmap.org/way/25123756",
+      "lastSeen": "2026-08-28"
     },
     "venue:osm:node:13458644701": {
       "fields": {
@@ -46948,7 +46950,8 @@
       },
       "resolvedAt": "2026-08-07",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/56629742"
+      "evidence": "https://www.openstreetmap.org/way/56629742",
+      "lastSeen": "2026-08-28"
     },
     "venue:osm:way:675018019": {
       "fields": {
@@ -51119,7 +51122,8 @@
       "resolvedAt": "2026-08-14",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/panda-fest-2026-x47111",
-      "partialFingerprint": "uf642o"
+      "partialFingerprint": "uf642o",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:the-strokes-reality-awaits-tour": {
       "fields": {
@@ -51128,7 +51132,8 @@
       "resolvedAt": "2026-08-14",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/the-strokes-reality-awaits-tour",
-      "partialFingerprint": "1jt4ycm"
+      "partialFingerprint": "1jt4ycm",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:freak-the-mighty-x47868": {
       "fields": {
@@ -51136,7 +51141,8 @@
       },
       "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47868"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47868",
+      "lastSeen": "2026-08-28"
     },
     "discover-slu:discover-slu-living-voices-living-voices-double-feature": {
       "unresolvable": true,
@@ -51368,7 +51374,8 @@
       },
       "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47869 (calendar-add link: 2:00pm-5:00pm)"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47869 (calendar-add link: 2:00pm-5:00pm)",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:freak-the-mighty-x47870": {
       "fields": {
@@ -51376,7 +51383,8 @@
       },
       "resolvedAt": "2026-08-14",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47870 (calendar-add link: 7:30pm-10:00pm)"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47870 (calendar-add link: 7:30pm-10:00pm)",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46386": {
       "unresolvable": true,
@@ -52534,7 +52542,8 @@
       "resolvedAt": "2026-08-16",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/taj-mahal-and-keb-mo-room-on-the-porch-tour-2026",
-      "partialFingerprint": "1dc92z5"
+      "partialFingerprint": "1dc92z5",
+      "lastSeen": "2026-08-28"
     },
     "museum_of_flight:mof-stem-starters-beebots-2026-09-20-1030": {
       "fields": {
@@ -52571,7 +52580,8 @@
       "resolvedAt": "2026-08-16",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/artists-at-the-center-notmilky",
-      "partialFingerprint": "4tntro"
+      "partialFingerprint": "4tntro",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:freak-the-mighty": {
       "fields": {
@@ -52580,7 +52590,8 @@
       "resolvedAt": "2026-08-16",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty",
-      "partialFingerprint": "19ynuyd"
+      "partialFingerprint": "19ynuyd",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46389": {
       "fields": {
@@ -52628,7 +52639,8 @@
       "resolvedAt": "2026-08-16",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/tame-impala-deadbeat-tour-x46958",
-      "partialFingerprint": "8791sg"
+      "partialFingerprint": "8791sg",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-storm-vs-los-angeles-sparks-x46784": {
       "fields": {
@@ -52663,7 +52675,8 @@
       },
       "resolvedAt": "2026-08-17",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/tame-impala-deadbeat-tour-x47157"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/tame-impala-deadbeat-tour-x47157",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:freak-the-mighty-x47872": {
       "fields": {
@@ -52671,7 +52684,8 @@
       },
       "resolvedAt": "2026-08-17",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47872"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47872",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:freak-the-mighty-x47873": {
       "fields": {
@@ -52679,7 +52693,8 @@
       },
       "resolvedAt": "2026-08-17",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47873"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47873",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46390": {
       "unresolvable": true,
@@ -53007,7 +53022,8 @@
       },
       "resolvedAt": "2026-08-18",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-los-angeles-sparks"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-los-angeles-sparks",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:freak-the-mighty-x47874": {
       "fields": {
@@ -53015,7 +53031,8 @@
       },
       "resolvedAt": "2026-08-18",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47874"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47874",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:freak-the-mighty-x47875": {
       "fields": {
@@ -53023,7 +53040,8 @@
       },
       "resolvedAt": "2026-08-18",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47875"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47875",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:freak-the-mighty-x47876": {
       "fields": {
@@ -53031,7 +53049,8 @@
       },
       "resolvedAt": "2026-08-18",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47876"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47876",
+      "lastSeen": "2026-08-28"
     },
     "19hz:19hz-2026/08/25-DJs in a Dive Bar: Digital Night": {
       "unresolvable": true,
@@ -53289,7 +53308,8 @@
       "resolvedAt": "2026-08-18",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/freak-the-mighty-x47877 — event runs 14:00-17:00",
-      "partialFingerprint": "92in0w"
+      "partialFingerprint": "92in0w",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46395": {
       "unresolvable": true,
@@ -54881,7 +54901,8 @@
       "resolvedAt": "2026-08-20",
       "source": "agent",
       "reason": "Seattle Center lists only a start time (8:00 p.m.) for this Climate Pledge Arena date; no end time or run time is published by the venue or promoter",
-      "partialFingerprint": "1iekx3s"
+      "partialFingerprint": "1iekx3s",
+      "lastSeen": "2026-08-28"
     },
     "base-camp-studios:base.camp.studios-DcHSbjfgZYM": {
       "unresolvable": true,
@@ -54960,7 +54981,7 @@
     "seatoday:cityspark-19693248": {
       "fields": {
         "cost": {
-          "min": 55.0
+          "min": 55
         }
       },
       "resolvedAt": "2026-08-21",
@@ -55054,7 +55075,7 @@
     "seatoday:cityspark-19698716": {
       "fields": {
         "cost": {
-          "min": 6.0
+          "min": 6
         }
       },
       "resolvedAt": "2026-08-21",
@@ -55222,7 +55243,8 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty (Bagley Wright Theater, Seattle Rep's indoor mainstage; matches sources/seattle_rep/ripper.yaml geo.osmType/osmId)"
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty (Bagley Wright Theater, Seattle Rep's indoor mainstage; matches sources/seattle_rep/ripper.yaml geo.osmType/osmId)",
+      "lastSeen": "2026-08-28"
     },
     "discover-slu:discover-slu-video-fundamentals-1-2026-2-2-2-2-2-2": {
       "fields": {
@@ -55238,7 +55260,8 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/washington-home-show-x47103"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/washington-home-show-x47103",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:live-aloha-hawaiian-cultural-festival": {
       "fields": {
@@ -55246,7 +55269,8 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/live-aloha-hawaiian-cultural-festival"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/live-aloha-hawaiian-cultural-festival",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:weezer": {
       "fields": {
@@ -55254,7 +55278,8 @@
       },
       "resolvedAt": "2026-08-23",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/weezer"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/weezer",
+      "lastSeen": "2026-08-28"
     },
     "brick-park-psq:brickpark-2027-8-15-rupaul": {
       "unresolvable": true,
@@ -55283,7 +55308,7 @@
     "seatoday:cityspark-19709693": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55349,7 +55374,7 @@
     "queer-social-club:6a84d8abdf48e1438fac3e2d": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55359,7 +55384,7 @@
     "queer-social-club:6a84d8cfd22bb80f777dda2f": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55369,7 +55394,7 @@
     "queer-social-club:6a84d904dc70692bb79cf712": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55379,7 +55404,7 @@
     "queer-social-club:6a84d92946d9b82044340acc": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55389,7 +55414,7 @@
     "queer-social-club:6a89ce405e6e0f3d7b287ee3": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55557,7 +55582,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/thelifeweleave1600-1.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55568,7 +55593,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/throughmyboard1600-4.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55585,7 +55610,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/assetsandliabilities1600-1.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55596,7 +55621,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/sugarfly1600-2.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55607,7 +55632,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/MyCancerJourney_1600x900.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55618,7 +55643,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/creaturefeature1600.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55629,7 +55654,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/LifeLines_1600x900.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55640,7 +55665,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/hyperpnw1600.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55651,7 +55676,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/originstories-2-1600.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55662,7 +55687,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/queer1600.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55673,7 +55698,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/greatoutdoors1600.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55684,7 +55709,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/theartistsway1600.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55694,7 +55719,7 @@
     "queer-social-club:6a84d23c61582872d582dc41": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55704,7 +55729,7 @@
     "queer-social-club:6a84d28cdf863974e1970b5c": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55714,7 +55739,7 @@
     "queer-social-club:6a84d2b6e158e1241c3a0da3": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55724,7 +55749,7 @@
     "queer-social-club:6a84d2d841e9677199cf2f5b": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55734,7 +55759,7 @@
     "queer-social-club:6a84d63bc66a1e7f3a423b03": {
       "fields": {
         "cost": {
-          "min": 14.0
+          "min": 14
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55744,7 +55769,7 @@
     "queer-social-club:6a84d660d21b1651ae195bf6": {
       "fields": {
         "cost": {
-          "min": 14.0
+          "min": 14
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55754,7 +55779,7 @@
     "queer-social-club:6a84d67f9487c20515bf9489": {
       "fields": {
         "cost": {
-          "min": 14.0
+          "min": 14
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55764,7 +55789,7 @@
     "queer-social-club:6a84d6a89487c20515bfa3c0": {
       "fields": {
         "cost": {
-          "min": 14.0
+          "min": 14
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55774,7 +55799,7 @@
     "queer-social-club:6a84d884e158e1241c3c1d10": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55784,7 +55809,7 @@
     "queer-social-club:6a84d8abe3aa69f6a8282ef0": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55818,7 +55843,7 @@
     "queer-social-club:6a84e592eb6ef57c1a207c6a": {
       "fields": {
         "cost": {
-          "min": 12.0
+          "min": 12
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55828,7 +55853,7 @@
     "queer-social-club:6a84e6980c57575d6b3497c5": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55838,7 +55863,7 @@
     "queer-social-club:6a84e723722f3149ed168cc9": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55848,7 +55873,7 @@
     "queer-social-club:6a84e7ac488b6746aec4eabe": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55880,8 +55905,8 @@
     "queer-social-club:6a866058e3aa00485931f51c": {
       "fields": {
         "cost": {
-          "min": 15.0,
-          "max": 20.0
+          "min": 15,
+          "max": 20
         }
       },
       "resolvedAt": "2026-08-23",
@@ -55901,8 +55926,8 @@
     "queer-social-club:6a866278089f1a22def46f4e": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 25.0
+          "min": 20,
+          "max": 25
         }
       },
       "resolvedAt": "2026-08-23",
@@ -56191,7 +56216,7 @@
         "setting": "outdoor",
         "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
         "cost": {
-          "min": 28.0
+          "min": 28
         }
       },
       "resolvedAt": "2026-08-25",
@@ -56204,7 +56229,7 @@
         "setting": "outdoor",
         "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
         "cost": {
-          "min": 28.0
+          "min": 28
         }
       },
       "resolvedAt": "2026-08-25",
@@ -56217,7 +56242,7 @@
         "setting": "outdoor",
         "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
         "cost": {
-          "min": 28.0
+          "min": 28
         }
       },
       "resolvedAt": "2026-08-25",
@@ -56230,7 +56255,7 @@
         "setting": "outdoor",
         "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
         "cost": {
-          "min": 28.0
+          "min": 28
         }
       },
       "resolvedAt": "2026-08-25",
@@ -56243,7 +56268,7 @@
         "setting": "outdoor",
         "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
         "cost": {
-          "min": 28.0
+          "min": 28
         }
       },
       "resolvedAt": "2026-08-25",
@@ -56962,7 +56987,7 @@
       "fields": {
         "setting": "indoor",
         "cost": {
-          "min": 49.0
+          "min": 49
         }
       },
       "resolvedAt": "2026-08-25",
@@ -56983,7 +57008,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         }
       },
       "resolvedAt": "2026-08-25",
@@ -56995,7 +57020,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57008,7 +57033,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57021,7 +57046,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57034,7 +57059,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57047,7 +57072,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57060,7 +57085,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57073,7 +57098,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57086,7 +57111,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57099,7 +57124,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57112,7 +57137,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57125,7 +57150,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57138,7 +57163,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57333,7 +57358,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57346,7 +57371,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57359,7 +57384,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57372,7 +57397,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57385,7 +57410,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57398,7 +57423,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -57411,7 +57436,7 @@
       "fields": {
         "setting": "outdoor",
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "startTime": "10:00"
       },
@@ -59394,17 +59419,25 @@
       "partialFingerprint": "82rwyj-until2026-08-30-tk"
     },
     "events12:gourmet-cooking-class-vs-international-street-food-119075-2026-08-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
+      "fields": {
+        "cost": {
+          "min": 80
+        }
+      },
+      "resolvedAt": "2026-08-28",
       "source": "agent",
-      "reason": "events12 aggregates 'Gourmet cooking class vs. International street food' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "evidence": "https://www.hotstovesociety.com/store/event/international-street-food-a-walk-around-tasting-experience/ (single ticket \"Street Food | 8/28/26 - $80.00\", matching this exact occurrence)",
       "partialFingerprint": "1vmda95-until2026-09-05-tk"
     },
     "events12:gourmet-cooking-class-vs-chicken-paella-tapas-119075-2026-09-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
+      "fields": {
+        "cost": {
+          "min": 110
+        }
+      },
+      "resolvedAt": "2026-08-28",
       "source": "agent",
-      "reason": "events12 aggregates 'Gourmet cooking class vs. Chicken paella & tapas' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
+      "evidence": "https://www.hotstovesociety.com/store/event/date-night-paella-party-with-chef-bridget-charters-1/ (single ticket \"Paella Party | 9/4/26 - $110.00\", matching this exact occurrence)",
       "partialFingerprint": "1vmda95-until2026-09-05-tk"
     },
     "events12:gourmet-cooking-class-vs-mexican-pork-pozole-119075-2026-09-05-1100": {
@@ -60402,21 +60435,24 @@
       "resolvedAt": "2026-08-24",
       "source": "agent",
       "reason": "Seattle Center listing lacks precise time/cost; default retained.",
-      "partialFingerprint": "xvegxf"
+      "partialFingerprint": "xvegxf",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:artists-at-the-center-path-with-art": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
       "source": "agent",
       "reason": "Seattle Center listing lacks precise time/cost; default retained.",
-      "partialFingerprint": "3zag50"
+      "partialFingerprint": "3zag50",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-storm-vs-las-vegas-aces": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
       "source": "agent",
       "reason": "Seattle Center listing lacks precise time/cost; default retained.",
-      "partialFingerprint": "3zag50"
+      "partialFingerprint": "3zag50",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46406": {
       "unresolvable": true,
@@ -60430,7 +60466,8 @@
       "resolvedAt": "2026-08-24",
       "source": "agent",
       "reason": "Seattle Center listing lacks precise time/cost; default retained.",
-      "partialFingerprint": "1kjflyv"
+      "partialFingerprint": "1kjflyv",
+      "lastSeen": "2026-08-28"
     },
     "t-mobile-park:tm-vvG1HZ_7HoNcKM": {
       "unresolvable": true,
@@ -60442,7 +60479,7 @@
     "the-cuff-complex:6a874dfe150b7c2e58cf9de1": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-24",
@@ -60552,7 +60589,7 @@
     "northwest-film-forum:local-sightings-2026-beau-ideal-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/beauidealposter.jpg"
       },
@@ -60563,7 +60600,7 @@
     "northwest-film-forum:local-sightings-2026-dad-genes-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/dadgenesposter.jpg"
       },
@@ -60574,7 +60611,7 @@
     "northwest-film-forum:local-sightings-2026-female-gaze-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2017/08/lsff2026-1600-2-1200x675.png"
       },
@@ -60585,7 +60622,7 @@
     "northwest-film-forum:local-sightings-2026-our-land-shorts-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2017/08/lsff2026-1600-2-1200x675.png"
       },
@@ -60777,7 +60814,8 @@
       },
       "resolvedAt": "2026-08-25",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/st-jude-walk-seattle"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/st-jude-walk-seattle",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:sea-mar-fiestas-patrias-x50381": {
       "fields": {
@@ -60908,7 +60946,7 @@
     "19hz:19hz-2026/11/28-Blanke, Virtual Riot": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-08-25",
@@ -61008,7 +61046,7 @@
     "burke-museum:burke-workshop-bird-collisions-art-project": {
       "fields": {
         "cost": {
-          "min": 12.0
+          "min": 12
         }
       },
       "resolvedAt": "2026-08-25",
@@ -61179,7 +61217,7 @@
     "stg:tm-vvG1HZ_aDKprbj": {
       "fields": {
         "cost": {
-          "min": 26.0
+          "min": 26
         }
       },
       "resolvedAt": "2026-08-25",
@@ -61222,7 +61260,8 @@
       },
       "resolvedAt": "2026-08-26",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/9/11-remembrance-ceremony-25th-anniversary"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/9/11-remembrance-ceremony-25th-anniversary",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:sea-mar-fiestas-patrias-2026": {
       "fields": {
@@ -61230,7 +61269,8 @@
       },
       "resolvedAt": "2026-08-26",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/sea-mar-fiestas-patrias-2026"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/sea-mar-fiestas-patrias-2026",
+      "lastSeen": "2026-08-28"
     },
     "seatoday:cityspark-19722932": {
       "fields": {
@@ -61256,7 +61296,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/joylesseconomyposter.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-26",
@@ -61347,7 +61387,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/mysteriousskinposter-1200x1778.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-26",
@@ -61358,7 +61398,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeopleposter.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-26",
@@ -62949,7 +62989,7 @@
     "seattle-makers:seattle-makers-164595": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-26",
@@ -62959,7 +62999,7 @@
     "seattle-makers:seattle-makers-164598": {
       "fields": {
         "cost": {
-          "min": 55.0
+          "min": 55
         }
       },
       "resolvedAt": "2026-08-26",
@@ -62979,7 +63019,7 @@
     "seattle-makers:seattle-makers-164615": {
       "fields": {
         "cost": {
-          "min": 100.0
+          "min": 100
         }
       },
       "resolvedAt": "2026-08-26",
@@ -62989,7 +63029,7 @@
     "seattle-makers:seattle-makers-164618": {
       "fields": {
         "cost": {
-          "min": 130.0
+          "min": 130
         }
       },
       "resolvedAt": "2026-08-26",
@@ -62999,7 +63039,7 @@
     "seattle-makers:seattle-makers-164622": {
       "fields": {
         "cost": {
-          "min": 125.0
+          "min": 125
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63019,7 +63059,7 @@
     "seattle-makers:seattle-makers-164649": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63375,7 +63415,7 @@
     "el-suenito-brewing:el-suenito-brewing-e3c3eaa6-d9cd-4874-a4cd-390504391f8a": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63415,7 +63455,7 @@
     "mr_bs_meadery:6a8b797ec0a1ea33980609b5": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63505,7 +63545,7 @@
     "rabbit_box:6a8c7ce6a29a031d0671bf8c": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63535,7 +63575,7 @@
     "savoy-swing:6a82a8ea85257c20ef6e88ed": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63555,7 +63595,7 @@
     "savoy-swing:6a82ae1b10dc4c266164ff2e": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63601,7 +63641,7 @@
     "sol-yoga-seattle:6a8df3cc5dc87229dd22ad37": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63631,7 +63671,7 @@
     "the-cuff-complex:6a8e12ce4f892d0004a120fd": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63641,7 +63681,7 @@
     "the-cuff-complex:6a8e134ef941d26e9815dbdc": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63651,7 +63691,7 @@
     "the-cuff-complex:6a8e13d0cc89bd383aca15f0": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-26",
@@ -63682,7 +63722,8 @@
       },
       "resolvedAt": "2026-08-27",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-vancouver-canucks-x48926"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-vancouver-canucks-x48926",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46408": {
       "fields": {
@@ -63706,7 +63747,7 @@
     "seattle-makers:seattle-makers-164985": {
       "fields": {
         "cost": {
-          "min": 130.0
+          "min": 130
         }
       },
       "resolvedAt": "2026-08-27",
@@ -63716,7 +63757,7 @@
     "seattle-makers:seattle-makers-164994": {
       "fields": {
         "cost": {
-          "min": 75.0
+          "min": 75
         }
       },
       "resolvedAt": "2026-08-27",
@@ -63870,7 +63911,7 @@
     "19hz:19hz-2026/08/28-Alfonso & Friends: Tony H, Seattle House Mafia": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-27",
@@ -63880,7 +63921,7 @@
     "19hz:19hz-2026/09/04-Chapstick: A Sapphic Night Out": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-27",
@@ -63972,7 +64013,7 @@
     "19hz:19hz-2026/09/18-Carrie Nation & The Speakeasy, Angry Zeta - Angry Nation Tour 2026": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-27",
@@ -64113,7 +64154,7 @@
     "seatoday:cityspark-19740415": {
       "fields": {
         "cost": {
-          "min": 100.0
+          "min": 100
         }
       },
       "resolvedAt": "2026-08-27",
@@ -64214,7 +64255,7 @@
     "19hz:19hz-2026/09/05-100% Dirty Pop": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-08-27",
@@ -64357,7 +64398,8 @@
       "resolvedAt": "2026-08-27",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/x50382.xml",
-      "partialFingerprint": "1876exv"
+      "partialFingerprint": "1876exv",
+      "lastSeen": "2026-08-28"
     },
     "seattle-center:journey-final-frontier-tour": {
       "fields": {
@@ -64396,7 +64438,8 @@
       "resolvedAt": "2026-08-27",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-dallas-wings",
-      "partialFingerprint": "1hygp73"
+      "partialFingerprint": "1hygp73",
+      "lastSeen": "2026-08-28"
     },
     "craft-map-seattle:the-market-experience-930-am-seattle-wa-2026-08-28": {
       "fields": {
@@ -64671,16 +64714,19 @@
     },
     "fremont-chamber-of-commerce:blood-drive-staybridge-suites-seattle-fremont-1905971": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-08-28",
       "source": "agent",
-      "evidence": "https://business.fremont.com/calendar/Details/blood-drive-staybridge-suites-seattle-fremont-1905971"
+      "evidence": "Bloodworks Northwest blood drive, open to the public — blood drives do not charge admission"
     },
     "northwest-film-forum:welcome-to-the-dollhouse-2026-08-27": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/welcometothedollhouseposter.jpg"
       },
@@ -64691,7 +64737,7 @@
     "queer-social-club:6a8f9f1435339821cbb3ec57": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-28",
@@ -65007,6 +65053,184 @@
       "resolvedAt": "2026-08-28",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/way/644748880"
+    },
+    "northwest-film-forum:truth-to-fiction-cameraperson-2026-11-05": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/cameraperson1600-2.png",
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/truth-to-fiction-cameraperson/ — '$15 General Admission $10 Student/Child/Senior $7 Member'"
+    },
+    "discover-slu:discover-slu-filet-crochet": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "Source page states only a 5:30pm start; no end time or duration listed"
+    },
+    "pacific-science-center:443642": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "Page lists start time only (7:30pm); no end time or duration stated (next show starts 9pm but that gap isn't a confirmed session length)"
+    },
+    "seatoday:cityspark-19306902": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "CitySpark API returns no Free/Price/PriceHigh/IsTicketed fields for this event; the embed detail page is a client-rendered SPA with no server-side fallback content"
+    },
+    "seatoday:cityspark-19719512": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "CitySpark API returns no Free/Price/PriceHigh/IsTicketed fields for this event; the embed detail page is a client-rendered SPA with no server-side fallback content"
+    },
+    "seatoday:cityspark-19740333": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "CitySpark API returns no Free/Price/PriceHigh/IsTicketed fields for this event; the embed detail page is a client-rendered SPA with no server-side fallback content"
+    },
+    "seattle-center:seattle-kraken-vs-calgary-flames-x48928": {
+      "fields": {
+        "duration": 12000
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-calgary-flames-x48928 (page's calendar-export data: eventStartTime=18:40:00, eventEndTime=22:00:00)",
+      "lastSeen": "2026-08-28"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-preview-performance": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-preview-performance (page's calendar-export data: eventStartTime=19:30:00, eventEndTime=22:00:00)",
+      "lastSeen": "2026-08-28"
+    },
+    "seattle-center:eureka-day-preview-performance": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-preview-performance (page's calendar-export data: eventStartTime=19:30:00, eventEndTime=22:00:00)",
+      "lastSeen": "2026-08-28"
+    },
+    "seattle-center:seattle-center-sculpture-walk-2026-x46412": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "Self-guided outdoor sculpture walk, listed as All Day with no fixed hours — consistent with ~90 prior identical resolutions for this recurring daily listing. Fixed at the ripper level (sources/seattle_center/ripper.ts) in this same PR: All Day events are no longer queued as uncertain since the source's \"All Day\" is a stated fact, not a guess."
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "Event already happened (page now reads 'Thank you to everyone who joined us on Saturday, August 1, 2026...'); this is a static year-round recap page with no start time or duration ever listed, per the known u-district-partnership pattern in the resolver skill docs."
+    },
+    "cidbia:cidbia-6a90c3dd2556ecc89721bf7d-202609040030": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "Proxi API description: '8th & Weller Mahjong Collab and First Free Thursday — Wing Luke Museum' (Wing Luke's monthly free-admission day)"
+    },
+    "cidbia:cidbia-6a90c6512556ecc89721eb00-202609240700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "Proxi API description: Mariners game 'Cambodian Heritage Night' at T-Mobile Park, 'First pitch: 6:40 PM' — requires a game ticket; no price stated in the CID listing"
+    },
+    "cidbia:cidbia-6a90c73e2556ecc89721fd40-202608290100": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "No pricing signal in Proxi API description; API has no per-event detail page (widget opens events in an in-page modal, all link back to the same CID events page)"
+    },
+    "cidbia:cidbia-6a90c7d52556ecc89722043b-202609051700": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "No pricing signal in Proxi API description (RSVP-based community birding tour); API has no per-event detail page"
+    },
+    "cidbia:cidbia-6a90c8a42556ecc897220b0f-202608290230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "Proxi API description details a produced cabaret show with door/bar times and a costume contest at Theatre off Jackson; ticketed but no price stated in the listing"
+    },
+    "cidbia:cidbia-6a90c8a42556ecc897220b0f-202608300230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "Same event/description as the 8/29 occurrence — produced cabaret show, ticketed but no price stated"
+    },
+    "cidbia:cidbia-6a90ca062556ecc897222131-202608292200": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "Proxi API description: free community party; the only fee is an optional $5 per-name donation to name a chicken (an activity inside, not admission)"
+    },
+    "cidbia:cidbia-6a90cbd32556ecc897223758-202609050100": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "No pricing signal in Proxi API description; API has no per-event detail page"
+    },
+    "the-residency-seattle:6a908405434ea70f37c9526d": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.theresidencyseattle.org/upcoming-events/gala-dinner — fundraising gala with live/silent auctions; no ticket price posted"
+    },
+    "stg:tm-vvG1HZ_2Usj_0V": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-11-27-2026/event/0F0064FDB1719934 — Ticketmaster-confirmed touring show, priceRanges not yet published for this on-sale"
+    },
+    "stg:tm-vvG1HZ_2Usqy0T": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-11-28-2026/event/0F0064FDB177993F — Ticketmaster-confirmed touring show, priceRanges not yet published for this on-sale"
     }
   }
 }

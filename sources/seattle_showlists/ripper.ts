@@ -41,6 +41,9 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
 
     // --- INCLUDE: per-venue calendars ---
     "KEXP Studio":          { address: "472 1st Ave N, Seattle, WA 98109", skip: true },
+    // Same building as KEXP Studio, but a separate community-events room not
+    // covered by the dedicated KEXP ripper (which only pulls category=in-studio).
+    "KEXP Gathering Space": { address: "472 1st Ave N, Seattle, WA 98109" },
     "Baba Yaga":            { address: "124 S Washington St, Seattle, WA 98104" },
     "Europa":               { address: "401 2nd Ave S, Seattle, WA 98104" },
     "Bad Bar":              { address: "819 5th Ave N, Seattle, WA 98109" },

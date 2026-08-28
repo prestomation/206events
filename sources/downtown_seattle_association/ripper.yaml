@@ -85,6 +85,11 @@ calendars:
   - name: mcgraw-square
     friendlyname: "McGraw Square Events"
     timezone: America/Los_Angeles
+    # 2026-08-28: build-health flagged 0 events. Confirmed via the live Tribe
+    # Events API (venue=60595): only one event exists at this venue at all
+    # ("Double Dutch Divas at McGraw Square", a Thursday series that ended
+    # 2026-08-27) — a genuinely low-volume plaza, not a broken feed.
+    expectEmpty: true
     config:
       venue_id: 60595
     tags:

@@ -120,7 +120,7 @@ describe('SeattleCenterRipper', () => {
             expect(calEvents[0].date.monthValue()).toBe(2);
             expect(calEvents[0].date.dayOfMonth()).toBe(15);
             expect(calEvents[0].date.hour()).toBe(0);
-            expect(calEvents[0].duration.toHours()).toBe(12);
+            expect(calEvents[0].duration.toHours()).toBe(24);
             expect(calEvents[0].location).toBe('Seattle Center');
             expect(calEvents[0].description).toContain('art installations');
 
@@ -204,6 +204,31 @@ describe('SeattleCenterRipper', () => {
 
             // "Entry Charge" → { paid: true }
             expect(calEvents[2].cost).toEqual({ paid: true }); // Ghost at Climate Pledge Arena
+        });
+
+        it('does not flag an All Day event as uncertain when its cost is known', () => {
+            const sampleHtml = fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
+            const events = ripper.parseEventsFromHtml([sampleHtml], timezone);
+            const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty');
+
+            // Sculpture Walk (index 0) is "All Day" + "Free Event" — both start
+            // time/duration and cost are known, so it should never reach the
+            // uncertainty queue (source-stated "All Day" is a fact, not a guess).
+            const sculptureWalkUncertainty = uncertainties.find(
+                e => 'event' in e && (e as any).event.summary === 'Seattle Center Sculpture Walk 2026'
+            );
+            expect(sculptureWalkUncertainty).toBeUndefined();
+        });
+
+        it('flags a timed event with an unstated end time as duration-uncertain', () => {
+            const sampleHtml = fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
+            const events = ripper.parseEventsFromHtml([sampleHtml], timezone);
+            const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty') as any[];
+
+            const ghostUncertainty = uncertainties.find(e => e.event.summary === 'Ghost');
+            expect(ghostUncertainty).toBeDefined();
+            expect(ghostUncertainty.unknownFields).toEqual(['duration']);
+            expect(ghostUncertainty.reason).toBe('Source does not expose an end time');
         });
     });
 });
