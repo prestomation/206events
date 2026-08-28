@@ -5,6 +5,8 @@ friendlyLink: "https://www.thecraftmap.com/fairs/washington/seattle"
 sourceRole: aggregator
 weatherSetting: "mixed"
 geo: null
+# Event pages on thecraftmap.com show only a generic site logo, no per-event images
+skipEventPhotos: true
 tags: ["MakersMarket"]
 calendars:
   - name: craft-map-seattle

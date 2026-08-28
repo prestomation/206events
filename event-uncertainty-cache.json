@@ -63693,12 +63693,6 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-center-sculpture-walk-2026-x46408"
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-27",
-      "source": "agent",
-      "reason": "Event already occurred (Aug 1 2026); page says only \"thank you for joining us\" with no timing info"
-    },
     "seattle-makers:seattle-makers-164983": {
       "fields": {
         "cost": {
@@ -64403,6 +64397,616 @@
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-dallas-wings",
       "partialFingerprint": "1hygp73"
+    },
+    "craft-map-seattle:the-market-experience-930-am-seattle-wa-2026-08-28": {
+      "fields": {
+        "startTime": "09:30",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:seasonal-arts-and-crafts-for-families-2nd-saturdays-11am-in-seattle-seattle-wa-2026-09-12": {
+      "fields": {
+        "startTime": "11:00",
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:reserve-your-vendors-table-today-seattle-wa-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "vendor application page with TBA location, setting unknowable"
+    },
+    "craft-map-seattle:international-gem-jewelry-show-seattle-wa-2026-11-20": {
+      "fields": {
+        "location": "Seattle Center, 301 Mercer St, Seattle, WA 98109",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:renegade-craft-fair-seattle-wa-2026-11-20": {
+      "fields": {
+        "location": "Magnuson Park Hangar 30, 6310 NE 74th St, Seattle, WA 98115",
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:panda-fest-seattle-2026-seattle-wa-2026-08-28": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:book-swap-sip-mobile-bookstore-urban-family-brewing-seattle-wa-2026-08-29": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:produce-on-pike-weekly-farmers-market-seattle-wa-2026-09-02": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:210-seattle-night-market-seattle-wa-2026-09-03": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:mime-and-improv-in-action-with-jay-hitt-seattle-wa-2026-09-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:first-thursday-sunset-markets-seattle-wa-2026-09-03": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:art-walk-open-figure-class-market-seattle-wa-2026-09-03": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:seattle-community-vendor-fair-seattle-wa-2026-09-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:seattle-queer-crafts-craft-supply-swap-seattle-wa-2026-09-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:beacon-arts-street-fairs-seattle-wa-2026-09-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:the-seattle-pancakes-booze-art-show-artistvendor-reservations-only-seattle-wa-2026-09-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:pnw-mixed-media-workshop-seattle-wa-2026-09-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:improv-500-the-art-craft-of-improv-mondays-fall-26-seattle-wa-2026-09-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:gobble-up-seattle-9th-seattle-wa-2026-11-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:gobble-up-seattle-2026-local-food-tastings-holiday-shopping-seattle-wa-2026-11-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:international-gem-jewelry-show-november-2026-seattle-wa-2026-11-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:ucu-22nd-anniversary-winter-show-preview-night-2026-seattle-wa-2026-12-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:urban-craft-uprising-winter-show-22nd-seattle-wa-2026-12-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:hometown-holidays-night-market-seattle-wa-2026-12-05": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:studio-forma-holiday-crafts-seattle-wa-2026-12-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:seattle-wedding-show-36th-seattle-wa-2027-01-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "events12:free-things-to-do-119028-2026-08-27": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 3600,
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Ballard_Locks_from_above.jpg/320px-Ballard_Locks_from_above.jpg",
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://ballardlocks.org/tour-information.html"
+    },
+    "fremont-chamber-of-commerce:blood-drive-staybridge-suites-seattle-fremont-1905971": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://business.fremont.com/calendar/Details/blood-drive-staybridge-suites-seattle-fremont-1905971"
+    },
+    "northwest-film-forum:welcome-to-the-dollhouse-2026-08-27": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/welcometothedollhouseposter.jpg"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/welcome-to-the-dollhouse/"
+    },
+    "queer-social-club:6a8f9f1435339821cbb3ec57": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/drag-me-to-brunch"
+    },
+    "el-suenito-brewing:el-suenito-brewing-e2530375-f9b7-43b6-b40f-9d4766dcf735": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/queer-book-club-2026-09-02-19-00"
+    },
+    "kremwerk:6a8f8a1cdc520c74a11ed095": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/18/club-v-presents-its-my-birthday"
+    },
+    "naam:6a8f52966d18877421053707": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/2026-unity-benefit"
+    },
+    "queer-social-club:6a8f4399b851d23815b646c8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/rooftop-wine-night"
+    },
+    "queer-social-club:6a8fa04fc9381b739ce9a3b4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/pixie-lust"
+    },
+    "queer-social-club:6a8fa4c061f09901204e7e80": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/star-sign-virgo-edition"
+    },
+    "queer-social-club:6a8f99317b0227319447d7a7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/book-bingo"
+    },
+    "rabbit_box:6a8f10ac7323180a7dcd0a07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-presents-dan-rodriguez"
+    },
+    "craft-map-seattle:seattle-sister-cities-street-fair-seattle-wa-2026-09-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/seattle-sister-cities-street-fair-seattle-wa"
+    },
+    "craft-map-seattle:skylit-presents-soufend-bazaar-2026-fall-edition-seattle-wa-2026-09-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/skylit-presents-soufend-bazaar-2026-fall-edition-seattle-wa"
+    },
+    "craft-map-seattle:the-italian-festival-seattle-wa-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/featured-events/festal/the-italian-festival"
+    },
+    "craft-map-seattle:turkish-festival-26th-seattle-wa-2026-10-10": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/turkish-festival-26th-seattle-wa"
+    },
+    "craft-map-seattle:st-bens-bratwurst-festival-46th-seattle-wa-2026-09-18": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/st-bens-bratwurst-festival-46th-seattle-wa"
+    },
+    "craft-map-seattle:taste-of-the-sound-seattle-wa-2026-09-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "craft-map-seattle:the-38th-annual-best-of-the-northwest-fall-show-seattle-wa-2026-11-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com"
+    },
+    "cidbia:cidbia-6a8f6eb6e446bb188d5cb007-202609022200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "cidbia:cidbia-6a8f6eb6e446bb188d5cb007-202609162200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "cidbia:cidbia-6a8f6eb6e446bb188d5cb007-202609302200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "cidbia:cidbia-6a8f6eb6e446bb188d5cb007-202610142200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "cidbia:cidbia-6a8f6eb6e446bb188d5cb007-202610282200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "cidbia:cidbia-6a8f6eb6e446bb188d5cb007-202611112300": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "cidbia:cidbia-6a8f6eb6e446bb188d5cb007-202611252300": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "cidbia:cidbia-6a8f6ee9e446bb188d5cb009-202609212100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "cidbia:cidbia-6a8f6f4ce446bb188d5cb0de-202608280230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "futurewise:https://futurewise.org/september-comp-plan-happy-hour/": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "policy/community event page has no event-specific image"
+    },
+    "venue:loc:meet your guide at the corner:, western ave and virginia st, seattle, wa": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/the-market-experience-930-am-seattle-wa"
+    },
+    "venue:osm:node:2351695502": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2351695502"
+    },
+    "venue:osm:node:2351711842": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2351711842"
+    },
+    "venue:osm:node:2351712250": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2351712250"
+    },
+    "venue:osm:node:7241641164": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/7241641164"
+    },
+    "venue:osm:way:231287038": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/231287038"
+    },
+    "venue:osm:way:363400641": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/363400641"
+    },
+    "venue:osm:way:644748880": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/644748880"
     }
   }
 }
