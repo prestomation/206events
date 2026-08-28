@@ -1,12 +1,12 @@
 ---
 name: "PlantAmnesty"
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.plantamnesty.org/all-upcoming-events-classes
 tags: [Education, Community]
 firstSeen: 2026-08-27
-lastChecked: 2026-08-27
-pr:
+lastChecked: 2026-08-28
+pr: TBD
 ---
 
 Seattle-based tree/plant-care education nonprofit — "Master Pruner"
@@ -28,3 +28,10 @@ Investigated 2026-08-27:
   limits" allowance
 - 🔥 High confidence — verified `itemCount`/future `startDate` per the
   quality-gate requirement, fits the built-in `squarespace` ripper type
+
+Implemented 2026-08-28: `sources/plant_amnesty/ripper.yaml`, built-in
+`squarespace` type, `sourceRole: venue`, `geo: null` (per-event locations
+vary — Nominatim geocodes each), `weatherSetting: "mixed"` (walks are
+outdoor, classes are a mix of indoor/outdoor), tags `["Education",
+"Community"]`. `ONLY_SOURCE=plant-amnesty` build confirmed 10 events, 0
+errors, all locations geocoded successfully.
