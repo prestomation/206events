@@ -65007,6 +65007,12 @@
       "resolvedAt": "2026-08-28",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/way/644748880"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-28",
+      "source": "agent",
+      "reason": "u-district-partnership keeps past-dated events on page year-round; Boba Fest 2026-08-01 already occurred; do not prune with date-in-key flag"
     }
   }
 }
