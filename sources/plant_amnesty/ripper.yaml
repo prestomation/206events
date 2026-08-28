@@ -1,0 +1,13 @@
+name: plant-amnesty
+sourceRole: venue
+type: squarespace
+weatherSetting: "mixed"
+description: "PlantAmnesty"
+url: "https://www.plantamnesty.org/all-upcoming-events-classes"
+friendlyLink: https://www.plantamnesty.org/all-upcoming-events-classes
+tags: ["Education", "Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "PlantAmnesty"
+    timezone: America/Los_Angeles
