@@ -6,7 +6,7 @@ url: https://www.greenlakecrew.org/adult-crew/masters-calendar
 tags: [Sports, Green Lake]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-29
-pr: TBD
+pr: 1308
 ---
 
 Green Lake rowing crew masters program calendar with practice and regatta schedules.

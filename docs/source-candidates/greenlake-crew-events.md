@@ -6,7 +6,7 @@ url: https://www.greenlakecrew.org/events
 tags: [Sports, Green Lake]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-29
-pr: TBD
+pr: 1308
 ---
 
 Green Lake rowing crew community events and regattas.
