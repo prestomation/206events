@@ -1,0 +1,32 @@
+# verified: 2026-08-29 via seattlecoffeefestival.com + eventbrite (2026 dates: Oct 24-25)
+imageUrl: "https://images.squarespace-cdn.com/content/v1/674f752ccd4a1b3a646a087d/118ddbad-3cfa-4dde-8598-68acd0e3755f/sea-coffee-38.jpg"
+geo:
+  lat: 47.682846
+  lng: -122.260988
+  label: "Magnuson Park Hangar 30, 6310 NE 74th St, Seattle, WA 98115"
+name: seattle-coffee-festival
+sourceRole: venue
+friendlyname: Seattle Coffee Festival
+description: Annual coffee festival at Magnuson Park's Hangar 30 featuring specialty roasters, cafes, and teahouses sharing tastings and flavor profiles, plus food and entertainment.
+timezone: America/Los_Angeles
+location: "Magnuson Park Hangar 30, 6310 NE 74th St, Seattle, WA 98115"
+url: https://www.seattlecoffeefestival.com/
+tags:
+  - Food
+  - Community
+  - Sand Point
+# Approximates the 4th Saturday-Sunday of October. Matches both confirmed
+# instances: 2025 (Oct 25, per EverOut) and 2026 (Oct 24-25, per Eventbrite
+# listing 1976544126690 — startDate 2026-10-24T09:00-07:00, endDate
+# 2026-10-25T16:30-07:00). Per-day hours aren't published separately, so both
+# days use the combined listing's 09:00 start / 16:30 end as a symmetric
+# approximation. Verify against seattlecoffeefestival.com each year.
+schedules:
+  - schedule: "4th Saturday"
+    start_time: "09:00"
+    duration: PT7H30M
+    months: [10]
+  - schedule: "4th Sunday"
+    start_time: "09:00"
+    duration: PT7H30M
+    months: [10]
