@@ -8,6 +8,11 @@ proxy: "browserbase"
 imageUrl: "https://uploads.visitseattle.org/simpleview/image/upload/crm/seattle/E9C38F71-ACD7-41B4-AF0E-A8DD1C9581B3_1_105_c_3AC5F49F-60FB-422C-A139EDA2E3E38D42_5e7513ea-3a4a-4f62-80bfb5d0501db808.jpg"
 # Event pages only show the venue raccoon logo — no per-event images exist.
 skipEventPhotos: true
+# Taproom entry is free for every event type posted here (food trucks, trivia,
+# D&D, book truck, community events) — you pay for what you order, not to get
+# in. No cover charge is ever mentioned on the site. Confirmed 2026-08-29 via
+# search (Untappd: "Trivia night at Urban Family Brewing is free to play").
+cost: free
 description: "Urban Family Brewing Co."
 url: "https://urbanfamilybrewing.com/home/calendar/"
 friendlyLink: https://urbanfamilybrewing.com/home/calendar/
