@@ -56559,6 +56559,46 @@
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify price"
+    },
+    "venue:loc:39th ave sw & sw orchard st, seattle, wa 98126": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43233/ (Orchard Street Ravine — \"restoring and preserving our native forest\", meets in the gravel lot where Orchard St dead-ends at the park)"
+    },
+    "venue:loc:westcrest park, 9000 8th avenue sw, seattle, wa, 98106": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/westcrest-park-fallin-for-fungi/ (restoration work party, Westcrest trails)"
+    },
+    "venue:osm:way:57883625": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/burke-gilman-55th-anniversary-celebration/ — Matthews Beach Park; note the OSM way itself tags a small bathhouse building on the site, but the venue and all events are the outdoor park/beach, not the bathhouse"
+    },
+    "venue:osm:way:727276657": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/tree-care-skill-share-and-volunteer-work-party-gateway-park-north/ — Gateway Park North greenspace; note the OSM way itself tags a nearby building, not the park"
+    },
+    "venue:osm:way:767770210": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/hitts-hill-park-25th-anniversary-celebration/ — Hitt's Hill Park; note the OSM way itself tags the adjacent residential street, not the park"
     }
   }
 }
