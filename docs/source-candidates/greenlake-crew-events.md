@@ -1,11 +1,12 @@
 ---
 name: Green Lake Crew Events
-status: candidate
-platform: WordPress
+status: added
+platform: ICS (Google Calendar)
 url: https://www.greenlakecrew.org/events
-tags: [Fitness, Green Lake]
+tags: [Sports, Green Lake]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-08-29
+pr: TBD
 ---
 
 Green Lake rowing crew community events and regattas.
@@ -19,3 +20,10 @@ dates — see the companion candidate `greenlake-crew-masters.md`
 the same events. Implement against the masters-calendar page/feed;
 this general events page may only be useful for event descriptions.
 Not found under `sources/`.
+
+**Implemented 2026-08-29:** covered by the same ICS feed added for
+`greenlake-crew-masters.md` (`sources/external/greenlake-small-craft-center.yaml`,
+the GLSCC shared boathouse Google Calendar) — the named annual events
+listed here (Erg-a-Thon, Frostbite Regatta, Spring Regatta, Summer
+Extravaganza) all appear as `VEVENT`s in that feed. No separate
+implementation needed.

@@ -526,9 +526,11 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'fremont studios': { lat: 47.6513746, lng: -122.3556160 },
   'glasswing shop': { lat: 47.6175, lng: -122.3251 },
   'gard vintners, 19151 144th ave. ne unit d, woodinville, wa': { lat: 47.7553, lng: -122.1516 },
+  'glscc': { lat: 47.6716676, lng: -122.3431769 }, // Green Lake Small Craft Center, 5900 W Green Lake Way N
   'gorge amphitheatre': { lat: 47.0801, lng: -119.9947 },
   'gould gallery': { lat: 47.6092, lng: -122.3321 },
   'green lake community center': { lat: 47.6803, lng: -122.3285 },
+  'green lake small craft center': { lat: 47.6716676, lng: -122.3431769 },
   'hazard factory': { lat: 47.6138, lng: -122.3204 },
   'husky ballpark': { lat: 47.6515, lng: -122.3011 },
   'husky softball stadium': { lat: 47.6555, lng: -122.3009 },
