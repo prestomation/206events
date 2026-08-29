@@ -54981,7 +54981,7 @@
     "seatoday:cityspark-19693248": {
       "fields": {
         "cost": {
-          "min": 55
+          "min": 55.0
         }
       },
       "resolvedAt": "2026-08-21",
@@ -55075,7 +55075,7 @@
     "seatoday:cityspark-19698716": {
       "fields": {
         "cost": {
-          "min": 6
+          "min": 6.0
         }
       },
       "resolvedAt": "2026-08-21",
@@ -55236,6 +55236,850 @@
       "resolvedAt": "2026-08-22",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2SpecPb": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify start time",
+      "partialFingerprint": "97j37s"
+    },
+    "events12:asian-festival-120012-2026-08-29": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 43200,
+        "cost": {
+          "min": 16.0,
+          "max": 37.0
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/671a9ce14a84f2359ce74a1d/b8972a2c-862c-46fa-bda5-047fb8427ced/Image_20260528115309_8_416.png?format=1500w"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.pandafests.com/pandafestevents/seattle2026",
+      "partialFingerprint": "17vxhec-until2026-08-30-tu"
+    },
+    "events12:asian-festival-120012-2026-08-30": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 36000,
+        "cost": {
+          "min": 14.0,
+          "max": 35.0
+        },
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/671a9ce14a84f2359ce74a1d/b8972a2c-862c-46fa-bda5-047fb8427ced/Image_20260528115309_8_416.png?format=1500w"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.pandafests.com/pandafestevents/seattle2026",
+      "partialFingerprint": "17vxhec-until2026-08-30-tu"
+    },
+    "events12:interactive-show-120403-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:interactive-show-120403-2026-09-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
+      "partialFingerprint": "12utjff-until2026-09-26-tu"
+    },
+    "events12:live-theater-119957-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-08-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-08-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:live-theater-119957-2026-09-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
+      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+    },
+    "events12:free-things-to-do-119028-2026-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Ballard Locks free scheduled tours run Wed/Thu/Fri only (2pm, ~1hr); page states weekend free tours have been canceled due to reduced staffing, so no tour actually occurs on this Saturday date",
+      "partialFingerprint": "13oc9ft-until2026-08-29-tu"
+    },
+    "mopop:mopop-steel-magnolias-film-screening-at-mopop-2026-08-29": {
+      "fields": {
+        "startTime": "13:00"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.mopop.org/events/steel-magnolias-film-screening",
+      "partialFingerprint": "79qsa"
+    },
+    "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2027-08-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Choose-your-slot double feature with two showtimes per film per day (4:00pm/7:00pm and 4:30pm/7:30pm) — no single canonical start time; page also shows screenings for Aug 29-30 (2026) with no year printed, which does not clearly match this cache entry's 2027-08-28 date"
+    },
+    "seatoday:cityspark-19599394": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://volunteer.uwkc.org/need/detail/?need_id=379909",
+      "partialFingerprint": "hjkd6j"
+    },
+    "seatoday:cityspark-17845544": {
+      "fields": {
+        "cost": {
+          "min": 16.0,
+          "max": 24.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://boatsafloatshow.ticketspice.com/2026-fall-boats-afloat-show",
+      "partialFingerprint": "1hmxf6i"
+    },
+    "seatoday:cityspark-19523306": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "CitySpark listing is a bare \"Kickball\" event with no organizer link or identifiable specific league; could not confirm which Seattle kickball program/pricing it refers to",
+      "partialFingerprint": "15p2j81"
+    },
+    "seattle-center:b-52s-/-devo-cosmic-de-evolution-tour-2026": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/b-52s-/-devo-cosmic-de-evolution-tour-2026",
+      "partialFingerprint": "znqxaq"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-opening-night": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-opening-night",
+      "partialFingerprint": "8ntpzp"
+    },
+    "seattle-center:eureka-day-preview-performance-x50304": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-preview-performance-x50304",
+      "partialFingerprint": "8ntpzp"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Page is a post-event recap confirming the Aug 1 2026 date but publishes no specific start/end time for the festival. NOTE: this source re-lists past-dated events persistently (see AGENTS.md prune caution) — restored after date-based prune."
+    },
+    "dogwoodplaypark:7b528a47-aac5-4ec9-a00b-24e3b7f77070": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_4f085a3e4e4048588e19ce7399bb609b~mv2.jpg/v1/fill/w_980,h_1307,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/037af7_4f085a3e4e4048588e19ce7399bb609b~mv2.jpg"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/samoyed-meet-up-9"
+    },
+    "cidbia:cidbia-6a91f8cd1a58f6cd34350320-202609042100": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (event description: \"Free, public ping pong tournament in Hing Hay Park\")"
+    },
+    "cidbia:cidbia-6a9200ac1a58f6cd34353657-202609121700": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events (CID Monthly Community Cleanup — volunteer event)"
+    },
+    "cidbia:cidbia-6a9200ac1a58f6cd34353657-202610101700": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events (CID Monthly Community Cleanup — volunteer event)"
+    },
+    "cidbia:cidbia-6a9200ac1a58f6cd34353657-202611141800": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events (CID Monthly Community Cleanup — volunteer event)"
+    },
+    "cidbia:cidbia-6a9200ac1a58f6cd34353657-202612121800": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events (CID Monthly Community Cleanup — volunteer event)"
+    },
+    "cidbia:cidbia-6a9200ac1a58f6cd34353657-202701091800": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events (CID Monthly Community Cleanup — volunteer event)"
+    },
+    "cidbia:cidbia-6a9200ac1a58f6cd34353657-202702131800": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattlechinatownid.com/local-events (CID Monthly Community Cleanup — volunteer event)"
+    },
+    "cidbia:cidbia-6a9229a81a58f6cd3436566b-202609051700": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (free RSVP birding/history walking tour; no fee mentioned)"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztyjcnbbc": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztyjcpbwb": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztyjcqbtb": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztykccbzb": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztykcdbvb": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztykcfbvb": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztykcgbbc": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztykchbxb": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztykcjbtb": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztykckbbc": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "new-tech-seattle:new-tech-seattle-wlqxztykclbwb": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 27.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/newtechseattle/events/ (\"$20 before the event and $27 if purchased the day of the event\")"
+    },
+    "kremwerk:6a90b9251251f35f3ad81a56": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/06/bitch-glitch (ticketed via posh.vip, no price shown on page)"
+    },
+    "kremwerk:6a90dc541251f35f3ae08be5": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/17/nite-school-blone-noble-tour (ticketed via posh.vip, no price shown on page)"
+    },
+    "fremont-chamber-of-commerce:canceled-fremont-health-and-wellness-meet-up-1870819": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://business.fremont.com/calendar/Details/canceled-fremont-health-and-wellness-meet-up-1870819 (\"free and open to all networking, referral, community building group\")"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OqB1B": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify price"
+    },
+    "stg:tm-vvG1HZ_2UsLaPk": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify price"
+    },
+    "stg:tm-vvG1HZ_2UsO_PF": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify price"
+    },
+    "wamu-theater:tm-vvG1HZ_895XK8n": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify price"
+    },
+    "wamu-theater:tm-vvG1HZ_8pK8E2L": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify price"
+    },
+    "venue:loc:39th ave sw & sw orchard st, seattle, wa 98126": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/43233/ (Orchard Street Ravine — \"restoring and preserving our native forest\", meets in the gravel lot where Orchard St dead-ends at the park)"
+    },
+    "venue:loc:westcrest park, 9000 8th avenue sw, seattle, wa, 98106": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/westcrest-park-fallin-for-fungi/ (restoration work party, Westcrest trails)"
+    },
+    "venue:osm:way:57883625": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/burke-gilman-55th-anniversary-celebration/ — Matthews Beach Park; note the OSM way itself tags a small bathhouse building on the site, but the venue and all events are the outdoor park/beach, not the bathhouse"
+    },
+    "venue:osm:way:727276657": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/tree-care-skill-share-and-volunteer-work-party-gateway-park-north/ — Gateway Park North greenspace; note the OSM way itself tags a nearby building, not the park"
+    },
+    "venue:osm:way:767770210": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.seattleparksfoundation.org/event/hitts-hill-park-25th-anniversary-celebration/ — Hitt's Hill Park; note the OSM way itself tags the adjacent residential street, not the park"
     },
     "venue:osm:way:161070747": {
       "fields": {
@@ -56804,123 +57648,6 @@
       "partialFingerprint": "8mclbx-until2026-09-06-tu"
     },
     "events12:live-theater-119957-2026-08-28": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-08-29": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-08-30": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-08-31": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-09-01": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-09-02": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-09-03": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-09-04": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-09-05": {
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-06-tu"
-    },
-    "events12:live-theater-119957-2026-09-06": {
       "fields": {
         "setting": "indoor",
         "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fit,h_667,w_1000/f_auto/q_auto/v1773418929/FY27/Show%20Titles/1-FR?_a=BAAAV6DQ",
@@ -59483,62 +60210,6 @@
       "partialFingerprint": "12utjff-until2026-09-05-tu"
     },
     "events12:interactive-show-120403-2026-08-28": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12utjff-until2026-09-05-tu"
-    },
-    "events12:interactive-show-120403-2026-08-29": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12utjff-until2026-09-05-tu"
-    },
-    "events12:interactive-show-120403-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12utjff-until2026-09-05-tu"
-    },
-    "events12:interactive-show-120403-2026-08-31": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12utjff-until2026-09-05-tu"
-    },
-    "events12:interactive-show-120403-2026-09-01": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12utjff-until2026-09-05-tu"
-    },
-    "events12:interactive-show-120403-2026-09-02": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12utjff-until2026-09-05-tu"
-    },
-    "events12:interactive-show-120403-2026-09-03": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12utjff-until2026-09-05-tu"
-    },
-    "events12:interactive-show-120403-2026-09-04": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Interactive show' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12utjff-until2026-09-05-tu"
-    },
-    "events12:interactive-show-120403-2026-09-05": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
       "source": "agent",

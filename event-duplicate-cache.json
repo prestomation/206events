@@ -15419,6 +15419,271 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-28",
       "note": "Same real-world event/time, cross-source (seattle-center-seattle-center-events.ics vs seattle-rep-all-performances.ics)"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics JOURNEY - Final Frontier Tour (An Evening With)|2026-09-21T19:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Journey: Final Frontier Tour|2026-09-21T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same JOURNEY - Final Frontier Tour show at Climate Pledge Arena, 1m apart (Ticketmaster venue feed vs Seattle Center aggregator listing)"
+    },
+    "events12-seattle-events.ics Soccer vs. Sporting Kansas City|2026-10-01T18:30:00-07:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Sounders FC vs. Sporting Kansas City|2026-10-01T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Sounders FC vs Sporting Kansas City match at Lumen Field, 6m apart (events12 aggregator vs venue feed)"
+    },
+    "external-seattle-childrens-museum.ics OPEN | Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-campus-events.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-29",
+      "note": "Seattle Children's Museum 'OPEN | Labor Day' (we're open on the holiday) vs UW academic calendar's 'Labor Day' campus-closure marker — different orgs, different meaning of the same generic holiday title, not the same occurrence"
+    },
+    "external-seattle-childrens-museum.ics OPEN | Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-college-of-arts-sciences.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-29",
+      "note": "Same as above — Children's Museum open-on-holiday notice vs UW College of Arts & Sciences academic calendar holiday marker"
+    },
+    "external-seattle-childrens-museum.ics OPEN | Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-libraries-seattle.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-29",
+      "note": "Same as above — Children's Museum open-on-holiday notice vs UW Libraries academic calendar holiday marker"
+    },
+    "external-seattle-childrens-museum.ics OPEN | Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-law.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-29",
+      "note": "Same as above — Children's Museum open-on-holiday notice vs UW School of Law academic calendar holiday marker"
+    },
+    "external-seattle-childrens-museum.ics OPEN | Labor Day|2026-09-07T00:00:00Z[UTC]::external-uw-school-of-music.ics Labor Day|2026-09-07T00:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-29",
+      "note": "Same as above — Children's Museum open-on-holiday notice vs UW School of Music academic calendar holiday marker"
+    },
+    "external-seattle-dance-info.ics Dancing til Dusk 2026|2026-09-08T18:00:00Z[UTC]::external-seattle-gov-city-wide.ics Dancing til Dusk|2026-09-08T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Dancing til Dusk 2026 session at Occidental Park, same date/time (seattle-dance-info vs seattle.gov city-wide feed)"
+    },
+    "external-seattle-dance-info.ics Dancing til Dusk 2026|2026-09-08T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Dancing til Dusk|2026-09-08T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Dancing til Dusk 2026 session at Occidental Park, same date/time (seattle-dance-info vs seattle.gov parks-recreation feed)"
+    },
+    "external-seattle-gov-city-wide.ics Back to Beaver Pond Restoration Event|2026-09-03T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Back to Beaver Pond Restoration Event|2026-09-03T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL republished under seattle.gov's city-wide and parks-recreation topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-03T11:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-03T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (Daybreak Community & Land Tending, 9/3) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-04T11:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-04T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (Daybreak Community & Land Tending, 9/4) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-10T11:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-10T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (Daybreak Community & Land Tending, 9/10) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-11T11:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-11T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (Daybreak Community & Land Tending, 9/11) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-17T11:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-17T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (Daybreak Community & Land Tending, 9/17) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-18T11:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-18T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (Daybreak Community & Land Tending, 9/18) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-24T11:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-24T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (Daybreak Community & Land Tending, 9/24) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-25T11:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-25T11:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (Daybreak Community & Land Tending, 9/25) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Public Engagement Session: Denny-Blaine Park Long-Term Plan|2026-09-23T16:30:00Z[UTC]::external-seattle-gov-parks-recreation.ics Public Engagement Session: Denny-Blaine Park Long-Term Plan|2026-09-23T16:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical engageseattleparks.com URL (Denny-Blaine Park Long-Term Plan session) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics Public Engagement Session: Denny-Blaine Park Supplemental Use Guidelines feedback session|2026-09-17T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Public Engagement Session: Denny-Blaine Park Supplemental Use Guidelines feedback session|2026-09-17T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical parkways.seattle.gov URL (Denny-Blaine Park Supplemental Use Guidelines session) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-gov-city-wide.ics invasive Removal|2026-08-31T10:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics invasive Removal|2026-08-31T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Identical greencitypartnerships.org event URL (invasive Removal) republished under seattle.gov's two topic feeds"
+    },
+    "external-seattle-parks-foundation.ics Rainier Beach Farm Fest|2026-09-19T10:00:00Z[UTC]::external-tilth-alliance.ics Farm Fest at Rainier Beach Urban Farm & Wetlands|2026-09-19T10:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Farm Fest at Rainier Beach Urban Farm & Wetlands, identical address, same date (Seattle Parks Foundation cross-listing vs organizer Tilth Alliance)"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-29T10:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-29T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Panda Fest Seattle 2026 festival at Fisher Pavilion, Seattle Center — timed Eventbrite session (8/29 10am) vs Seattle Center's day-level listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-29T13:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-29T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Panda Fest Seattle 2026 festival at Fisher Pavilion, Seattle Center — timed Eventbrite session (8/29 1pm) vs Seattle Center's day-level listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-29T16:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-29T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Panda Fest Seattle 2026 festival at Fisher Pavilion, Seattle Center — timed Eventbrite session (8/29 4pm) vs Seattle Center's day-level listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-29T19:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-29T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Panda Fest Seattle 2026 festival at Fisher Pavilion, Seattle Center — timed Eventbrite session (8/29 7pm) vs Seattle Center's day-level listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-30T12:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-30T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Panda Fest Seattle 2026 festival at Fisher Pavilion, Seattle Center — timed Eventbrite session (8/30 12:30pm) vs Seattle Center's day-level listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-30T15:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-30T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Panda Fest Seattle 2026 festival at Fisher Pavilion, Seattle Center — timed Eventbrite session (8/30 3pm) vs Seattle Center's day-level listing"
+    },
+    "panda-fest-seattle-panda-fest-seattle.ics Panda Fest Seattle 2026|2026-08-30T17:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Panda Fest 2026|2026-08-30T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Panda Fest Seattle 2026 festival at Fisher Pavilion, Seattle Center — timed Eventbrite session (8/30 5:30pm) vs Seattle Center's day-level listing"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-09-04T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-09-04T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Lashes Cabaret drag show at Unicorn, 1118 E Pike St, identical date/time (Queer Social Club listing vs venue's own recurring calendar)"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'BirdWalk' event, identical 6amcity.com URL/event id, republished across seatoday's all/community topic feeds"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'BirdWalk' event, identical 6amcity.com URL/event id, republished across seatoday's all/sports topic feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Eric-Paul Riege: ojo|-|ólǫ́' at Henry Art Gallery, identical URL, republished across seatoday's all/arts topic feeds"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Eric-Paul Riege: ojo|-|ólǫ́' at Henry Art Gallery, identical URL, republished across seatoday's all/community topic feeds"
+    },
+    "seatoday-seatoday-all.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's all/arts topic feeds"
+    },
+    "seatoday-seatoday-all.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's all/food topic feeds"
+    },
+    "seatoday-seatoday-all.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's all/learning topic feeds"
+    },
+    "seatoday-seatoday-all.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's all/sports topic feeds"
+    },
+    "seatoday-seatoday-all.ics Screen Printing Open Session|2026-09-11T14:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-09-11T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Screen Printing Open Session' at 305 Harrison St (Vera Project, Seattle Center), seatoday all-feed vs Vera Project's own DICE listing"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Eric-Paul Riege: ojo|-|ólǫ́' at Henry Art Gallery, identical URL, republished across seatoday's arts/community topic feeds"
+    },
+    "seatoday-seatoday-arts.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's arts/food topic feeds"
+    },
+    "seatoday-seatoday-arts.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's arts/learning topic feeds"
+    },
+    "seatoday-seatoday-arts.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's arts/sports topic feeds"
+    },
+    "seatoday-seatoday-arts.ics Screen Printing Open Session|2026-09-11T14:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-09-11T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Screen Printing Open Session' at 305 Harrison St, seatoday arts-feed vs Vera Project's own DICE listing"
+    },
+    "seatoday-seatoday-community.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'BirdWalk' event, identical 6amcity.com URL/event id, republished across seatoday's community/sports topic feeds"
+    },
+    "seatoday-seatoday-community.ics Screen Printing Open Session|2026-09-11T14:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-09-11T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Screen Printing Open Session' at 305 Harrison St, seatoday community-feed vs Vera Project's own DICE listing"
+    },
+    "seatoday-seatoday-food.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's food/learning topic feeds"
+    },
+    "seatoday-seatoday-food.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's food/sports topic feeds"
+    },
+    "seatoday-seatoday-learning.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fall 2025 Boats Afloat Show|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Fall 2025 Boats Afloat Show', identical URL, republished across seatoday's learning/sports topic feeds"
+    },
+    "seatoday-seatoday-learning.ics Screen Printing Open Session|2026-09-11T14:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-09-11T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Screen Printing Open Session' at 305 Harrison St, seatoday learning-feed vs Vera Project's own DICE listing"
+    },
+    "seattle-center-seattle-center-events.ics Eureka Day: Preview Performance|2026-09-25T19:30:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Eureka Day|2026-09-25T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same 'Eureka Day' preview performance at Seattle Rep's Leo K. Theater, Seattle Center, 3m apart (Seattle Center aggregator listing vs Seattle Rep's own feed)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-28T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-28T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-29",
+      "note": "Two distinct Seattle Food Truck pod locations (1201 Eastlake vs 1551 Eastlake, ~321m apart, different street addresses) — same title template, different real-world location, not the same event"
+    },
+    "sam-sam-downtown.ics Friends of Waterfront Block Party|2026-08-29T12:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Waterfront Block Party 2026|2026-08-29T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Waterfront Block Party 2026 at Pier 62/Salish Steps — SAM's 'Saturdays at SAM' listing is their off-site cross-promotion of the event, Waterfront Park's own feed is the authoritative listing; 242m reflects SAM's building address vs the actual pier location, 1hr gap is SAM's own-programming start time vs the block party's stated start"
     }
   }
 }
