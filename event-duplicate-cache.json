@@ -15679,6 +15679,11 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-29",
       "note": "Two distinct Seattle Food Truck pod locations (1201 Eastlake vs 1551 Eastlake, ~321m apart, different street addresses) — same title template, different real-world location, not the same event"
+    },
+    "sam-sam-downtown.ics Friends of Waterfront Block Party|2026-08-29T12:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Waterfront Block Party 2026|2026-08-29T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-29",
+      "note": "Same Waterfront Block Party 2026 at Pier 62/Salish Steps — SAM's 'Saturdays at SAM' listing is their off-site cross-promotion of the event, Waterfront Park's own feed is the authoritative listing; 242m reflects SAM's building address vs the actual pier location, 1hr gap is SAM's own-programming start time vs the block party's stated start"
     }
   }
 }
