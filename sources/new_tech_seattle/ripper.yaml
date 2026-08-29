@@ -15,6 +15,12 @@ imageUrl: "https://www.newtechnorthwest.com/wp-content/uploads/2021/07/New-Tech-
 # same og:image (the group's Meetup cover photo), not a distinct per-event
 # photo — nothing unique to harvest.
 skipEventPhotos: true
+# All monthly meetups carry the same admission ($20 advance / $27 day-of,
+# confirmed 2026-08-29 across multiple event pages). YAML sugar only takes a
+# flat amount, so this records the advance (cheaper GA) price as the floor;
+# per-event cache resolutions carry the full $20/$27 min/max for events
+# already investigated.
+cost: 20
 calendars:
   - name: calendar
     friendlyname: "New Tech Seattle"
