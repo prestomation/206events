@@ -65128,12 +65128,6 @@
       "source": "agent",
       "reason": "Self-guided outdoor sculpture walk, listed as All Day with no fixed hours — consistent with ~90 prior identical resolutions for this recurring daily listing. Fixed at the ripper level (sources/seattle_center/ripper.ts) in this same PR: All Day events are no longer queued as uncertain since the source's \"All Day\" is a stated fact, not a guess."
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-28",
-      "source": "agent",
-      "reason": "Event already happened (page now reads 'Thank you to everyone who joined us on Saturday, August 1, 2026...'); this is a static year-round recap page with no start time or duration ever listed, per the known u-district-partnership pattern in the resolver skill docs."
-    },
     "cidbia:cidbia-6a90c3dd2556ecc89721bf7d-202609040030": {
       "fields": {
         "cost": {
@@ -65231,6 +65225,178 @@
       "resolvedAt": "2026-08-28",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-11-28-2026/event/0F0064FDB177993F — Ticketmaster-confirmed touring show, priceRanges not yet published for this on-sale"
+    },
+    "seatoday:cityspark-19056710": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/open-art-studio-2026-schedule/19056710/2026-08-28T00"
+    },
+    "seatoday:cityspark-19757963": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/usaa-s-salute-250-kickoff-concert-featuring-luke-bryan/19757963/2026-09-09T00"
+    },
+    "venue:loc:8th ave ne & ne 105th st, seattle, wa 98125": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44559/ — \"Back to Beaver Pond Restoration Event\" in Beaver Pond Natural Area, outdoor restoration work"
+    },
+    "venue:osm:relation:19654064": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation/19654064 — leisure=garden, tourism=attraction"
+    },
+    "venue:osm:way:174700049": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44540/ — \"Root in Reciprocity\" in grass field above Seward Park Amphitheatre, outdoor restoration event"
+    },
+    "venue:osm:way:220080853": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes/plant-walk-dunn-gardens-with-michelle-rau — Plant Walk at Dunn Gardens, outdoor garden"
+    },
+    "plant-amnesty:6a18cd9a6b57e15cf80c4c5f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a19e49339c9390910a352ae": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a20a64e82a2b82973cbc22a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a235cc8fd1b651803bfb8fa": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a274700bd95693531ab8cb2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a284cd65f96dd28979d4945": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a39902457646f77e372e24e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a3ed3783f9f64273f24d9f2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a4d489afb405f3f868f8e01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "plant-amnesty:6a848ce51a789065df10f849": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes — ticketed events via TicketTailor, price not posted on listing page"
+    },
+    "burke-museum:burke-julie-kim-artist-studio": {
+      "fields": {
+        "cost": {
+          "min": 24.0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/julie-kim-artist-studio — \"Included with museum admission\" (general admission $24 per visit page)"
+    },
+    "burke-museum:burke-steam-spotlight-celebrate-hispanic-heritage-month-steam-spotlight-celebra-el-mes-de-la": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-29",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/steam-spotlight-celebrate-hispanic-heritage-month-steam-spotlight-celebra-el-mes-de-la — \"FREE event; Admission is free on Free First Thursday\""
     }
   }
 }

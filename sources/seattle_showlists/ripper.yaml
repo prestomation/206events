@@ -214,6 +214,7 @@ calendars:
   - name: kexp-gathering-space
     friendlyname: "KEXP Gathering Space"
     expectEmpty: true
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/61/KEXP_Gathering_Space_04.jpg"
     geo:
       lat: 47.6231
       lng: -122.3551

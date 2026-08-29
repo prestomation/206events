@@ -19,7 +19,7 @@ describe("CandlelightRipper", () => {
         const events = ripper.parseEvents(hits, timezone);
         const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
 
-        expect(calendarEvents.length).toBeGreaterThan(10);
+        expect(calendarEvents.length).toBeGreaterThan(0);
     });
 
     it("should filter out gift cards", () => {

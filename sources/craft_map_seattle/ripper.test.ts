@@ -65,13 +65,13 @@ describe("parseFairDetail", () => {
 
         expect(results).toHaveLength(2);
         const event = results[0] as RipperCalendarEvent;
-        expect(event.id).toBe("the-market-experience-930-am-seattle-wa-2026-08-28");
+        expect(event.id).toBe("the-market-experience-930-am-seattle-wa-2027-08-28");
         expect(event.summary).toBe("The Market Experience (9:30 AM)");
         expect(event.location).toBe("Meet your guide at the corner:, Western Ave and Virginia St, Seattle, WA");
         expect(event.url).toBe("https://www.thecraftmap.com/fair/the-market-experience-930-am-seattle-wa");
         expect(event.description).toContain("Pike Place Market");
 
-        expect(event.date.year()).toBe(2026);
+        expect(event.date.year()).toBe(2027);
         expect(event.date.monthValue()).toBe(8);
         expect(event.date.dayOfMonth()).toBe(28);
         expect(event.date.hour()).toBe(12);
