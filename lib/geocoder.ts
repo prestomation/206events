@@ -1357,7 +1357,12 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'folio: the seattle athenaeum': { lat: 47.6085956, lng: -122.3402705 }, // 93 Pike St #307, Seattle, WA 98101
   'mercaz seattle': { lat: 47.6854807, lng: -122.2901151 }, // 7724 35th Ave NE, Seattle, WA 98115
   'madrona playground shelter house': { lat: 47.6115557, lng: -122.2912007 }, // Madrona Playfield Shelterhouse, 3211 E Spring St, Seattle, WA 98122
+  // Legacy "venue name only" unresolvable geo-cache entry — no currently-active
+  // source YAML references this string, so the originating source (likely a
+  // regional/community aggregator) couldn't be pinned down; kept for whenever
+  // it recurs.
   'renton technical college': { lat: 47.4886562, lng: -122.1757840 }, // 3000 NE 4th St, Renton, WA 98056
+  // Same provenance note as Renton Technical College above.
   'tacoma public library, main branch': { lat: 47.2523845, lng: -122.4447979 }, // 1102 Tacoma Ave S, Tacoma, WA 98402
   // Matches sources/recurring/beacon-arts-street-fairs.yaml's own geo (same street,
   // repeated-name source variant from a different, non-recurring calendar).
