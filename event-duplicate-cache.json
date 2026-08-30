@@ -15689,6 +15689,76 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-30",
       "note": "Same show at Rabbit Box Theatre (94 Pike St): Triple Door co-presenting an event in the Rabbit Box's own space — same venue, same date, same time"
+    },
+    "seatoday-seatoday-all.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-all.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-all.ics Fall & Winter Cover Crop Management|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Fall & Winter Cover Crop Management|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-all.ics Growing Unusual Edible Plants in the PNW|2026-09-12T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Growing Unusual Edible Plants in the PNW|2026-09-12T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-all.ics Growing Unusual Edible Plants in the PNW|2026-09-12T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Growing Unusual Edible Plants in the PNW|2026-09-12T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-all.ics Recycling Event: Styrofoam, Plastic Bags, & Document Shred Collection|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Recycling Event: Styrofoam, Plastic Bags, & Document Shred Collection|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-all.ics Recycling Event: Styrofoam, Plastic Bags, & Document Shred Collection|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Recycling Event: Styrofoam, Plastic Bags, & Document Shred Collection|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Slater Park|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Slater Park|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Slater Park|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Slater Park|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-arts.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-arts.ics Recycling Event: Styrofoam, Plastic Bags, & Document Shred Collection|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Recycling Event: Styrofoam, Plastic Bags, & Document Shred Collection|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Slater Park|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Slater Park|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seatoday-seatoday-learning.ics Growing Unusual Edible Plants in the PNW|2026-09-12T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Growing Unusual Edible Plants in the PNW|2026-09-12T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-30",
+      "note": "SEAtoday fetches one CitySpark event feed and re-filters it per topic (seatoday-all=no filter, arts/community/sports/learning=filterTags subsets, per ripper.yaml); same PId/URL and timestamp on both sides confirms it's the same underlying event cross-listed into overlapping topical sub-calendars, not a coincidental title match."
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-09-29T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-09-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-08-30",
+      "note": "Two distinct food-truck pod locations on Eastlake Ave E (ripper.yaml: 1201 Eastlake @ 47.63082,-122.32794 osm way 418153348 vs 1551 Eastlake @ 47.63348,-122.32628, different osm way, 321m apart, different street numbers/ZIPs 98109 vs 98102) - not the same event, just two pods scheduling trucks the same morning."
     }
   }
 }
