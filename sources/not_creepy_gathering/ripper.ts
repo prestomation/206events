@@ -1,6 +1,15 @@
 import { parse } from 'node-html-parser';
-import { EventCost, Ripper, RipperCalendar } from "../../lib/config/schema.js";
+import { EventCost, Ripper, RipperCalendar, RipperCalendarEvent, UncertaintyError } from "../../lib/config/schema.js";
 import { SquarespaceEvent, SquarespaceRipper } from "../../lib/config/squarespace.js";
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 // The Not-Creepy Gathering also runs a Bellingham chapter (~90mi north of
 // Seattle, hosted at "Wink Wink"). Filter those out to keep this source
@@ -33,6 +42,25 @@ export function extractCost(bodyText: string): EventCost | undefined {
     return undefined;
 }
 
+// Body text didn't match a known venue — surface it via the uncertainty
+// system (docs/event-uncertainty.md) rather than shipping a silent gap.
+export function buildLocationUncertainty(
+    sourceName: string,
+    calendarName: string,
+    event: RipperCalendarEvent,
+    bodyText: string,
+): UncertaintyError {
+    return {
+        type: "Uncertainty",
+        reason: "Could not extract a known venue from the event body",
+        source: sourceName,
+        calendar: calendarName,
+        unknownFields: ["location"],
+        event,
+        partialFingerprint: simpleHash(bodyText),
+    };
+}
+
 function stripToText(html: string): string {
     const root = parse(html);
     root.querySelectorAll('style, script').forEach(el => el.remove());
@@ -60,7 +88,11 @@ export default class NotCreepyGatheringRipper extends SquarespaceRipper {
                 if (!event.description) event.description = bodyText;
                 if (!event.location) {
                     const location = extractLocation(bodyText);
-                    if (location) event.location = location;
+                    if (location) {
+                        event.location = location;
+                    } else {
+                        cal.errors.push(buildLocationUncertainty(ripper.config.name, cal.name, event, bodyText));
+                    }
                 }
                 if (event.cost === undefined) {
                     const cost = extractCost(bodyText);

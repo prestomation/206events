@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { extractCost, extractLocation, isBellingham } from './ripper.js';
+import { buildLocationUncertainty, extractCost, extractLocation, isBellingham } from './ripper.js';
 import { SquarespaceEvent } from '../../lib/config/squarespace.js';
+import { RipperCalendarEvent } from '../../lib/config/schema.js';
+import { Duration, ZonedDateTime } from '@js-joda/core';
 
 function sqEvent(title: string): SquarespaceEvent {
     return { id: 'x', title, startDate: 0 };
@@ -49,5 +51,25 @@ describe('extractCost', () => {
 
     it('returns undefined with no pricing signals', () => {
         expect(extractCost('Come hang out with us!')).toBeUndefined();
+    });
+});
+
+describe('buildLocationUncertainty', () => {
+    it('flags location as unknown for an unrecognized venue, rather than shipping a silent gap', () => {
+        const event: RipperCalendarEvent = {
+            id: 'x',
+            ripped: new Date(),
+            date: ZonedDateTime.now(),
+            duration: Duration.ofHours(2),
+            summary: 'Not-Creepy Gathering -- Seattle!',
+        };
+        const uncertainty = buildLocationUncertainty('not-creepy-gathering', 'all-events', event, 'At Stemma West!');
+
+        expect(uncertainty.type).toBe('Uncertainty');
+        expect(uncertainty.unknownFields).toEqual(['location']);
+        expect(uncertainty.source).toBe('not-creepy-gathering');
+        expect(uncertainty.calendar).toBe('all-events');
+        expect(uncertainty.event).toBe(event);
+        expect(uncertainty.partialFingerprint).toBeTruthy();
     });
 });
