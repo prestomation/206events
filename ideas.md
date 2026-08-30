@@ -84,3 +84,17 @@ The favorites worker already assembles per-list ICS; emitting an RSS variant of 
 ## Sold-Out / Availability Tracking
 
 `docs/sold-out-pricing.md` has a stub — surfacing "likely sold out" from ticketing APIs (DICE, Ticketmaster, AXS already have built-in rippers) would save users dead-end clicks.
+
+## Auto-Confirm Same-Ripper Cross-Calendar Duplicates
+
+Multi-calendar rippers that re-parse one upstream feed per topical sub-calendar
+(e.g. `seatoday`'s `all`/`arts`/`community`/`sports`/`learning` filters over a
+single CitySpark feed) generate `duplicateCandidates` pairs every build for
+every event that lands in more than one sub-calendar — a structural
+self-duplication, not a real cross-source judgment call. The duplicate-resolver
+skill currently hand-confirms these one by one (13 such pairs in the
+2026-08-30 daily drain alone). `lib/cross-source-dedup.ts` could auto-confirm
+same-ripper-name pairs with an exact title+timestamp match at HIGH confidence
+(same treatment as today's automatic HIGH-tier merge) instead of routing them
+through the MED-confidence human/LLM queue, since there's no real ambiguity —
+they're the same feed by construction.

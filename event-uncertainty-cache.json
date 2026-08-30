@@ -65128,11 +65128,12 @@
         "startTime": "11:00",
         "cost": {
           "min": 0
-        }
+        },
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-08-28",
+      "resolvedAt": "2026-08-30",
       "source": "agent",
-      "evidence": "https://www.thecraftmap.com"
+      "evidence": "https://www.yelp.com/biz/make-it-workshop-seattle-2"
     },
     "craft-map-seattle:reserve-your-vendors-table-today-seattle-wa-2026-08-29": {
       "unresolvable": true,
@@ -66104,7 +66105,10 @@
     },
     "rainier-beach-community-club:rbcc-ice-cream-social-and-jazz-jam-2027-08-15": {
       "fields": {
-        "imageUrl": "https://rainierbeachcommunityclub.org/wp-content/uploads/2025/12/jazz_ice-cream-social-green.jpg"
+        "imageUrl": "https://rainierbeachcommunityclub.org/wp-content/uploads/2025/12/jazz_ice-cream-social-green.jpg",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-08-30",
       "source": "agent",
@@ -66783,6 +66787,274 @@
       "resolvedAt": "2026-08-30",
       "source": "agent",
       "reason": "event page does not specify indoor/outdoor; address alone insufficient to determine"
+    },
+    "seatoday:cityspark-18836078": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "http://rentonchamber.chambermaster.com/events/details/city-of-renton-2023-recycling-event-styrofoam-document-shred-collection-15389"
+    },
+    "seatoday:cityspark-19300161": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.visitissaquahwa.com/event/free-kids-workshop-at-lowes-11/"
+    },
+    "seatoday:cityspark-19301299": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.visitissaquahwa.com/event/summer-sound-bath-at-blakely-hall/2026-09-12/"
+    },
+    "seatoday:cityspark-19325153": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.visitissaquahwa.com/event/salmon-on-sunset/"
+    },
+    "seatoday:cityspark-19406124": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.cwb.org/performance-sailing"
+    },
+    "seatoday:cityspark-19489959": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.mercerisland.gov/parksrec/page/restoration-event-slater-park"
+    },
+    "seatoday:cityspark-19523140": {
+      "fields": {
+        "cost": {
+          "min": 9.0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://kingcounty.mastergardenerfoundation.org/education/pnw-garden-savvy-2026/"
+    },
+    "seatoday:cityspark-19625021": {
+      "fields": {
+        "cost": {
+          "min": 14.0,
+          "max": 16.0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://cityofrenton.perfectmind.com/24123/Clients/BookMe4LandingPages/CoursesLandingPage?widgetId=3c841aea-46ca-4b8e-b369-94fe6bc53c4c&courseId=e8b9fe7e-ed28-407a-b0fd-3eda102ca771"
+    },
+    "seatoday:cityspark-19676530": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.federalwaywa.gov/page/rainfest"
+    },
+    "seatoday:cityspark-19676541": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/drawing-jam-2026-tickets-1998393282102"
+    },
+    "seatoday:cityspark-19716104": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://bellevuebotanical.org/event/fall-fernfest-plant-sale-2/"
+    },
+    "seatoday:cityspark-19731877": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://business.lynnwoodchamber.org/events/details/walk-for-wonderland-1664"
+    },
+    "northwest-film-forum:staff-selects-the-daytrippers-2026-10-23": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/daytrippers1600-3.jpg"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/staff-selects-the-daytrippers/"
+    },
+    "northwest-film-forum:trauma-bond-a-serbian-film-2026-extended-cut-2026-10-23": {
+      "fields": {
+        "cost": {
+          "min": 16.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/serbianfilm1600-2.png"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/trauma-bond-a-serbian-film-2026-extended-cut/"
+    },
+    "northwest-film-forum:trauma-bond-come-and-see-2026-10-09": {
+      "fields": {
+        "cost": {
+          "min": 16.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/comeandsee1600-4.png"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/trauma-bond-come-and-see/"
+    },
+    "northwest-film-forum:trauma-bond-irreversible-2026-10-16": {
+      "fields": {
+        "cost": {
+          "min": 16.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/irreversible1600-1.png"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/trauma-bond-irreversible/"
+    },
+    "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2027-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "reason": "Source lists this as an all-day flexible double-feature pass, not a single showtime: page shows \"Sun Aug 30: All Day\" and the $24 pass \"GETS YOU INTO ONE SCREENING OF EACH FILM, YOU CHOOSE WHEN\" - Mysterious Skin screens at 3:30pm/7:00pm and Three Bewildered People In The Night at 7:30pm, so there is no single start time/duration to publish without guessing which showing the patron picks.",
+      "fields": {
+        "cost": {
+          "min": 24.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/arakiDF1600.png"
+      },
+      "evidence": "https://nwfilmforum.org/events/two-angels-in-the-night-a-gregg-araki-double-feature/"
+    },
+    "stg:tm-vvG1HZ_2Us-tP2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-11-29-2026/event/0F0064FDB186994F"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-fall-sunset-2": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-fall-sunset-2/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-starry-halloween-3": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-starry-halloween-3/"
+    },
+    "seattle-center:serenade": {
+      "fields": {
+        "duration": 12600
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade"
+    },
+    "seattle-center:artists-at-the-center-rhapsody-project": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/artists-at-the-center-rhapsody-project"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)"
+    },
+    "seattle-center:serenade-x47351": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x47351"
+    },
+    "venue:loc:south roberto maestas festival street, south roberto maestas festival street, seattle, wa": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/beacon-arts-street-fairs-seattle-wa"
+    },
+    "venue:osm:node:818597264": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.elcorazonseattle.com/"
+    },
+    "venue:osm:way:34148956": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/34148956"
+    },
+    "venue:osm:way:345465231": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44671/"
     }
   }
 }
