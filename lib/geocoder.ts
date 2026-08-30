@@ -1350,6 +1350,18 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // St's High Point-segment latitude). Approximate — flag if a tighter fix
   // is found later.
   '39th ave sw & sw orchard st, seattle, wa 98126': { lat: 47.5386719, lng: -122.3818986 },
+
+  // --- 2026-08-30 geo-resolver batch: "venue name only" unresolvable entries ---
+  // Addresses verified against each venue's own site/official listing, then
+  // forward-geocoded via Nominatim (never reverse-geocoded street numbers).
+  'folio: the seattle athenaeum': { lat: 47.6085956, lng: -122.3402705 }, // 93 Pike St #307, Seattle, WA 98101
+  'mercaz seattle': { lat: 47.6854807, lng: -122.2901151 }, // 7724 35th Ave NE, Seattle, WA 98115
+  'madrona playground shelter house': { lat: 47.6115557, lng: -122.2912007 }, // Madrona Playfield Shelterhouse, 3211 E Spring St, Seattle, WA 98122
+  'renton technical college': { lat: 47.4886562, lng: -122.1757840 }, // 3000 NE 4th St, Renton, WA 98056
+  'tacoma public library, main branch': { lat: 47.2523845, lng: -122.4447979 }, // 1102 Tacoma Ave S, Tacoma, WA 98402
+  // Matches sources/recurring/beacon-arts-street-fairs.yaml's own geo (same street,
+  // repeated-name source variant from a different, non-recurring calendar).
+  'south roberto maestas festival street, south roberto maestas festival street, seattle, wa': { lat: 47.5795585, lng: -122.3116428 },
 };
 
 /**
