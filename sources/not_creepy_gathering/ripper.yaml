@@ -1,0 +1,14 @@
+# verified: 2026-08-30 via https://www.thenotcreepygathering.com/upcoming-dates?format=json
+# (4 upcoming events at time of check; 2 Seattle (Fremont Abbey / Ballard Homestead),
+# 2 Bellingham (filtered out by the ripper — see isBellingham in ripper.ts))
+name: not-creepy-gathering
+sourceRole: venue
+description: "The Not-Creepy Gathering"
+url: "https://www.thenotcreepygathering.com/upcoming-dates"
+friendlyLink: https://www.thenotcreepygathering.com/upcoming-dates
+tags: ["Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "The Not-Creepy Gathering"
+    timezone: America/Los_Angeles
