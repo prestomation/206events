@@ -66068,6 +66068,721 @@
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "evidence": "https://www.burkemuseum.org/calendar/steam-spotlight-celebrate-hispanic-heritage-month-steam-spotlight-celebra-el-mes-de-la — \"FREE event; Admission is free on Free First Thursday\""
+    },
+    "northwest-film-forum:the-best-little-whorehouse-in-texas-2026-09-09": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/bestlittlewhorehouseposter.jpg",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/the-best-little-whorehouse-in-texas/"
+    },
+    "northwest-film-forum:trauma-bond-cannibal-holocaust-4k-restoration-2026-10-02": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/cannibalholocaust4Kposter-1200x1778.jpg",
+        "cost": {
+          "min": 16.0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/trauma-bond-cannibal-holocaust-4k-restoration/"
+    },
+    "rainier-beach-community-club:rbcc-bridge-2-beach-2026-09-26": {
+      "fields": {
+        "imageUrl": "https://rainierbeachcommunityclub.org/wp-content/uploads/2020/07/2026-08-27_14-46-11.jpg",
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/events/bridge-2-beach/"
+    },
+    "rainier-beach-community-club:rbcc-ice-cream-social-and-jazz-jam-2027-08-15": {
+      "fields": {
+        "imageUrl": "https://rainierbeachcommunityclub.org/wp-content/uploads/2025/12/jazz_ice-cream-social-green.jpg"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/ice-cream-social-and-jazz-jam/"
+    },
+    "sam:free-first-thursday-seattle-art-museum-sep-3-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/free-first-thursday-seattle-art-museum-sep-3-26"
+    },
+    "sam:free-first-thursday-seattle-art-museum-dec-3-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/free-first-thursday-seattle-art-museum-dec-3-26"
+    },
+    "sam:free-first-thursday-seattle-art-museum-jan-7-27": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/free-first-thursday-seattle-art-museum-jan-7-27"
+    },
+    "sam:free-third-saturday-seattle-asian-art-museum-sep-19-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/free-third-saturday-seattle-asian-art-museum-sep-19-26"
+    },
+    "sam:free-third-saturday-seattle-asian-art-museum-oct-17-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/free-third-saturday-seattle-asian-art-museum-oct-17-26"
+    },
+    "sam:free-third-saturday-seattle-asian-art-museum-nov-21-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/free-third-saturday-seattle-asian-art-museum-nov-21-26"
+    },
+    "sam:diwali-community-celebration-oct-17-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/diwali-community-celebration-oct-17-26"
+    },
+    "sam:fall-educator-workshop-elemental-artistry-oct-9-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/fall-educator-workshop-elemental-artistry-oct-9-26"
+    },
+    "sam:friday-night-fun-oct-23-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/friday-night-fun-oct-23-26"
+    },
+    "sam:karon-davis-not-my-circus-opening-celebration-nov-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/karon-davis-not-my-circus-opening-celebration-nov-12-26"
+    },
+    "sam:legendary-children-nov-20-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/legendary-children-nov-20-26"
+    },
+    "sam:lunar-new-year-community-celebration-jan-30-27": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/lunar-new-year-community-celebration-jan-30-27"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-29-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-aug-29-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-aug-30-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-aug-30-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-oct-1-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-oct-1-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-oct-2-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-oct-2-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-oct-3-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-oct-3-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-oct-4-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-oct-4-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-11-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-11-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-12-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-13-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-13-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-18-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-18-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-19-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-19-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-20-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-20-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-25-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-25-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-26-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-26-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-27-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-27-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-3-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-3-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-4-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-4-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-5-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-5-26"
+    },
+    "sam:public-tour-highlights-from-sam-s-collection-sep-6-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-highlights-from-sam-s-collection-sep-6-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-aug-29-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-aug-29-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-aug-30-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-aug-30-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-oct-1-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-oct-1-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-oct-3-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-oct-3-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-oct-4-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-oct-4-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-12-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-13-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-13-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-19-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-19-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-20-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-20-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-26-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-26-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-27-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-27-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-3-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-3-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-5-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-5-26"
+    },
+    "sam:public-tour-journeys-through-time-and-space-sep-6-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/public-tour-journeys-through-time-and-space-sep-6-26"
+    },
+    "sam:sam-films-bill-ted-s-excellent-adventure-sep-25-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-films-bill-ted-s-excellent-adventure-sep-25-26"
+    },
+    "sam:sam-films-bram-stoker-s-dracula-oct-30-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-films-bram-stoker-s-dracula-oct-30-26"
+    },
+    "sam:sam-films-dangerous-liaisons-oct-2-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-films-dangerous-liaisons-oct-2-26"
+    },
+    "sam:sam-films-much-ado-about-nothing-nov-13-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-films-much-ado-about-nothing-nov-13-26"
+    },
+    "sam:sam-films-my-own-private-idaho-oct-16-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-films-my-own-private-idaho-oct-16-26"
+    },
+    "sam:sam-films-point-break-oct-9-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-films-point-break-oct-9-26"
+    },
+    "sam:sam-films-speed-nov-20-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-films-speed-nov-20-26"
+    },
+    "sam:sam-films-the-matrix-nov-27-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-films-the-matrix-nov-27-26"
+    },
+    "sam:sam-talks-christine-mehring-nov-21-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/sam-talks-christine-mehring-nov-21-26"
+    },
+    "sam:samily-tours-dec-5-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/samily-tours-dec-5-26"
+    },
+    "sam:samily-tours-nov-7-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/samily-tours-nov-7-26"
+    },
+    "sam:samily-tours-oct-3-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/samily-tours-oct-3-26"
+    },
+    "sam:saturday-university-lab-dec-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturday-university-lab-dec-12-26"
+    },
+    "sam:saturday-university-lab-nov-14-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturday-university-lab-nov-14-26"
+    },
+    "sam:saturday-university-lab-oct-10-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturday-university-lab-oct-10-26"
+    },
+    "sam:saturday-university-lecture-dec-12-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturday-university-lecture-dec-12-26"
+    },
+    "sam:saturday-university-lecture-nov-14-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturday-university-lecture-nov-14-26"
+    },
+    "sam:saturday-university-lecture-oct-10-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturday-university-lecture-oct-10-26"
+    },
+    "sam:saturdays-at-sam-friends-of-waterfront-block-party-aug-29-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturdays-at-sam-friends-of-waterfront-block-party-aug-29-26"
+    },
+    "sam:saturdays-at-sam-walk-don-t-run-sep-19-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/saturdays-at-sam-walk-don-t-run-sep-19-26"
+    },
+    "sam:the-art-of-visual-storytelling-oct-4-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/the-art-of-visual-storytelling-oct-4-26"
+    },
+    "venue:osm:way:222569341": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/api/0.6/way/222569341.json"
+    },
+    "venue:loc:4316 sw othello st, 4316 southwest othello street, seattle, wa": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "reason": "event page does not specify indoor/outdoor; address alone insufficient to determine"
     }
   }
 }

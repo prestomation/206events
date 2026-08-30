@@ -1,5 +1,4 @@
-# verified: 2026-06-08 unverifiable; feed has returned 0 events since June 2026
-expectEmpty: true  # ICS feed unverifiable since June 2026; suppress until fixed
+# verified: 2026-08-30 ok — feed has 10 upcoming events
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/El_Centro_de_la_Raza_01.jpg"
 geo:
   lat: 47.580325
