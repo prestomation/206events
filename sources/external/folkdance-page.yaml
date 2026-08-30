@@ -1,7 +1,9 @@
 # verified: 2026-08-15 ok — 18 upcoming events, ICS feed filtered to Seattle
+# 2026-08-30: HTTP 403 from CI — staging for proxy testing
 geo: null
 name: folkdance-page
 sourceRole: aggregator
+proxy: "outofband"
 friendlyname: Folk Dance Page - Seattle
 description: Community calendar of folk dance events in Seattle - contra, English country, Scandinavian, and international folk dancing.
 icsUrl: "https://www.folkdance.page/index.ics?date=all&country=USA&city=Seattle"

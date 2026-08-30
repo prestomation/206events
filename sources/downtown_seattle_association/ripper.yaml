@@ -106,5 +106,7 @@ calendars:
     # Catches events not tied to one of the tracked venues above: no venue at all
     # (e.g. "Belltown Blast", a neighborhood-wide street festival) or a one-off
     # venue_id (e.g. per-performer "Downtown Summer Sounds" bookings).
+    # Intermittently empty when no such events are posted.
+    expectEmpty: true
     config:
       catchAll: true
