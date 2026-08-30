@@ -66967,6 +66967,54 @@
       "resolvedAt": "2026-08-30",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-11-29-2026/event/0F0064FDB186994F"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-fall-sunset-2": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-fall-sunset-2/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-starry-halloween-3": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-starry-halloween-3/"
+    },
+    "seattle-center:serenade": {
+      "fields": {
+        "duration": 12600
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade"
+    },
+    "seattle-center:artists-at-the-center-rhapsody-project": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/artists-at-the-center-rhapsody-project"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)"
+    },
+    "seattle-center:serenade-x47351": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x47351"
     }
   }
 }
