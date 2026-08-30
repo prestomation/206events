@@ -66949,13 +66949,15 @@
       "evidence": "https://nwfilmforum.org/films/trauma-bond-irreversible/"
     },
     "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2027-08-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "reason": "Source lists this as an all-day flexible double-feature pass, not a single showtime: page shows \"Sun Aug 30: All Day\" and the $24 pass \"GETS YOU INTO ONE SCREENING OF EACH FILM, YOU CHOOSE WHEN\" - Mysterious Skin screens at 3:30pm/7:00pm and Three Bewildered People In The Night at 7:30pm, so there is no single start time/duration to publish without guessing which showing the patron picks.",
       "fields": {
         "cost": {
           "min": 24.0
         }
       },
-      "resolvedAt": "2026-08-30",
-      "source": "agent",
       "evidence": "https://nwfilmforum.org/events/two-angels-in-the-night-a-gregg-araki-double-feature/"
     },
     "stg:tm-vvG1HZ_2Us-tP2": {
