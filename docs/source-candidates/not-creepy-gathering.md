@@ -6,7 +6,7 @@ url: http://www.thenotcreepygathering.com/upcoming-dates
 tags: [Community]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-30
-pr: pending
+pr: 1314
 ---
 
 Seattle social gathering event designed for meeting new people in a low-pressure environment.
