@@ -65128,11 +65128,12 @@
         "startTime": "11:00",
         "cost": {
           "min": 0
-        }
+        },
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-08-28",
+      "resolvedAt": "2026-08-30",
       "source": "agent",
-      "evidence": "https://www.thecraftmap.com"
+      "evidence": "https://www.yelp.com/biz/make-it-workshop-seattle-2"
     },
     "craft-map-seattle:reserve-your-vendors-table-today-seattle-wa-2026-08-29": {
       "unresolvable": true,
@@ -67022,6 +67023,38 @@
       "resolvedAt": "2026-08-30",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x47351"
+    },
+    "venue:loc:south roberto maestas festival street, south roberto maestas festival street, seattle, wa": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/beacon-arts-street-fairs-seattle-wa"
+    },
+    "venue:osm:node:818597264": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.elcorazonseattle.com/"
+    },
+    "venue:osm:way:34148956": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/34148956"
+    },
+    "venue:osm:way:345465231": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-08-30",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44671/"
     }
   }
 }
