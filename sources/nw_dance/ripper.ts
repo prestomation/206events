@@ -128,17 +128,21 @@ export function parseFeedItem(raw: RawNwDanceItem, zone: ZoneId): RipperEvent {
     }
 
     let eventDate: ZonedDateTime;
-    let endDateTime: ZonedDateTime;
     try {
         eventDate = ZonedDateTime.of(LocalDateTime.of(start.year, start.month, start.day, start.hour, start.minute), zone);
-        endDateTime = ZonedDateTime.of(LocalDateTime.of(end.year, end.month, end.day, end.hour, end.minute), zone);
     } catch (error) {
         return { type: "ParseError", reason: `Invalid date/time for event "${title}": ${error}`, context: title };
     }
 
-    let duration = Duration.ofMinutes(DEFAULT_DURATION_MINUTES);
-    const diffMinutes = Duration.between(eventDate, endDateTime).toMinutes();
-    if (diffMinutes > 0) duration = Duration.ofMinutes(diffMinutes);
+    // mec:endDate is the *last occurrence's* date for a recurring class series
+    // (e.g. a 4-week series' feed item carries startDate = week 1, endDate =
+    // week 4), not the end of this single posting — using it directly would
+    // publish multi-week "durations". Duration is derived from the hour-of-day
+    // difference only, which also correctly handles a same-night event that
+    // crosses midnight (the wraparound below).
+    let diffMinutes = (end.hour * 60 + end.minute) - (start.hour * 60 + start.minute);
+    if (diffMinutes < 0) diffMinutes += 24 * 60;
+    const duration = diffMinutes > 0 ? Duration.ofMinutes(diffMinutes) : Duration.ofMinutes(DEFAULT_DURATION_MINUTES);
 
     const postIdMatch = decodeHtmlEntities(guid).match(/[?&]p=(\d+)/);
     const id = postIdMatch ? `nw-dance-${postIdMatch[1]}` : `nw-dance-${startDate}-${decodeHtmlEntities(title).toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
