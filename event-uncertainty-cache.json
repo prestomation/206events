@@ -67098,6 +67098,67 @@
       "resolvedAt": "2026-08-31",
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/big-cnc-industrial-4%e2%80%b2-x-10%e2%80%b2-wood-cutting-certification-8/"
+    },
+    "discover-slu:discover-slu-stir-up-the-paint-fall-cabin": {
+      "fields": {
+        "duration": 7200,
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-fall-cabin/"
+    },
+    "seatoday:cityspark-19769393": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19769394": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://www.idealist.org/en/volunteer-opportunity/7b1e37f1cfde44bbacadd0f6daa54e9a-stewardship-saturdays-with-tu-green-issaquah-issaquah"
+    },
+    "seatoday:cityspark-19671016": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/events/thread-together-sewing-upcycle-event-fall-fun"
+    },
+    "seatoday:cityspark-19726164": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://mastergardenerfoundation.org/event/king-county-cool-plants-hot-topics/"
+    },
+    "seatoday:cityspark-19479834": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://posh.vip/e/wrg-presents-soundwavs-w-omnom"
     }
   }
 }
