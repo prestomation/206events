@@ -66796,6 +66796,50 @@
       "resolvedAt": "2026-08-31",
       "source": "agent",
       "reason": "Page is a post-event recap confirming the Aug 1 2026 date but publishes no specific start/end time for the festival. NOTE: this source re-lists past-dated events persistently (see AGENTS.md prune caution) — restored after date-based prune."
+    },
+    "pacific-science-center:show-963299-Friday,September11,2026-7:30p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "reason": "WP show post (id 963299) has featured_media:0 and no yoast og_image; no other official \"Laser GRiZ\" poster image found via web search. Venue-level imageUrl already covers the card."
+    },
+    "pacific-science-center:show-963299-Friday,September18,2026-7:30p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "reason": "WP show post (id 963299) has featured_media:0 and no yoast og_image; no other official \"Laser GRiZ\" poster image found via web search. Venue-level imageUrl already covers the card."
+    },
+    "pacific-science-center:show-963299-Friday,September25,2026-7:30p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "reason": "WP show post (id 963299) has featured_media:0 and no yoast og_image; no other official \"Laser GRiZ\" poster image found via web search. Venue-level imageUrl already covers the card."
+    },
+    "pacific-science-center:show-963299-Friday,September4,2026-7:30p.m.": {
+      "unresolvable": true,
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "reason": "WP show post (id 963299) has featured_media:0 and no yoast og_image; no other official \"Laser GRiZ\" poster image found via web search. Venue-level imageUrl already covers the card."
+    },
+    "seattle-makers:seattle-makers-165259": {
+      "fields": {
+        "cost": {
+          "min": 200.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/big-cnc-industrial-4%e2%80%b2-x-10%e2%80%b2-wood-cutting-certification-9/ (only tier shown: Member $200.00; no public/non-member tier listed)"
+    },
+    "seattle-makers:seattle-makers-165262": {
+      "fields": {
+        "cost": {
+          "min": 115.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-certification-36/ (Member $85.00 / Non-member $115.00 — anchored on general/non-member tier per pricing rubric)"
     }
   }
 }
