@@ -3,7 +3,7 @@ name: "Emerald City Trapeze"
 status: candidate
 platform: Custom HTML (WordPress)
 url: https://emeraldcitytrapeze.com/shows/
-tags: [Circus, SODO]
+tags: [Circus, SoDo]
 firstSeen: 2026-08-31
 lastChecked: 2026-08-31
 ---
