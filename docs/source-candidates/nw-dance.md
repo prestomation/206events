@@ -6,7 +6,7 @@ url: https://nwdance.net/events
 tags: [Dance]
 firstSeen: 2026-08-14
 lastChecked: 2026-08-31
-pr:
+pr: 1319
 ---
 
 Pacific Northwest dance organization hosting social dance events and lessons.
