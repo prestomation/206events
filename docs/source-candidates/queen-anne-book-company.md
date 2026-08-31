@@ -40,3 +40,8 @@ field needed (title, date, time, printed address) — no per-event detail-page
 fetch was required. Verified 4 upcoming events locally with
 `ONLY_SOURCE=queen-anne-book-company`. `geo: null` at the ripper level
 (most events are off-site community promotions, not just in-store).
+
+Escalated 2026-08-31: the site's edge WAF began returning a Cloudflare JS
+bot-challenge (`cf-mitigated: challenge`) that a plain fetch can never pass.
+The `outofband` rung (residential IP fetch) failed 3× with HTTP 403 —
+escalated to `proxy: browserbase` per proxy-verification Mode B.
