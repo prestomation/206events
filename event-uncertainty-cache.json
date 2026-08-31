@@ -67111,14 +67111,10 @@
       "evidence": "https://www.discoverslu.com/events/stir-up-the-paint-fall-cabin/"
     },
     "seatoday:cityspark-19769393": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-08-31",
       "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/september-11th-remembrance-ceremony/19769393/2026-09-11T00"
+      "reason": "September 11th Remembrance Ceremony — civic event no longer in CitySpark feed; no event-specific image available"
     },
     "seatoday:cityspark-19769394": {
       "fields": {
