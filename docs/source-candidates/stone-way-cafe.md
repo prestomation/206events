@@ -5,7 +5,7 @@ platform: Custom (unknown calendar widget)
 url: https://stonewaycafe.com/events
 tags: ["Wallingford"]
 firstSeen: 2026-07-08
-lastChecked: 2026-07-08
+lastChecked: 2026-08-31
 pr:
 ---
 
@@ -25,3 +25,11 @@ implement yet.
 🟡 Low priority — re-check in a future cycle to see if the platform can be
 identified (view page source / network tab for the calendar widget's data
 endpoint) and whether event volume picks up.
+
+Re-checked 2026-08-31: platform identified — the site loads a "Spot"
+widget (`static.spotapps.co/web/stonewaycafe--com/js/events_calendar_script.js`)
+whose events are server-rendered as `.event-calendar-card` elements
+with a machine-readable `data-event-start-date` ISO timestamp, so this
+would be scrapable via custom HTML once volume picks up. Still only
+**1 confirmed future event** ("Labor Day", Sept 7, 2026) — same
+single-item count as the July check. No change to status/priority.
