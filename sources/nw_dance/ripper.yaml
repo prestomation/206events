@@ -1,0 +1,11 @@
+name: nw-dance
+sourceRole: venue
+description: "NW Dance"
+url: "https://nwdance.net/events/feed/"
+friendlyLink: "https://nwdance.net/events/"
+tags: ["Dance"]
+geo: null
+calendars:
+  - name: nw-dance
+    friendlyname: "NW Dance"
+    timezone: America/Los_Angeles
