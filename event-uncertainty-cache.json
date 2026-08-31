@@ -66840,6 +66840,14 @@
       "resolvedAt": "2026-08-31",
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/screen-printing-certification-36/ (Member $85.00 / Non-member $115.00 — anchored on general/non-member tier per pricing rubric)"
+    },
+    "venue:osm:way:231288129": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/231288129 (building=yes); Editions is a gallery/print studio — letterpress printing is an indoor activity"
     }
   }
 }

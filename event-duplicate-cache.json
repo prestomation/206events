@@ -15809,6 +15809,31 @@
       "decision": "rejected",
       "resolvedAt": "2026-08-31",
       "note": "Different physical locations (321m apart, different street numbers), different event titles, different schedules — genuinely separate food truck events"
+    },
+    "19hz-all-events.ics Simon Vuarambon|2026-09-07T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Oasis presents: Simon Vuarambon - Labor Day|2026-09-07T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-31",
+      "note": "Same Monkey Loft show, same date/time; seatoday's 6amcity URL literally names it oasis-presents-simon-vuarambon-labor-day"
+    },
+    "19hz-all-events.ics Simon Vuarambon|2026-09-07T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Oasis presents: Simon Vuarambon - Labor Day|2026-09-07T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-31",
+      "note": "Same Monkey Loft show, same date/time; seatoday's 6amcity URL literally names it oasis-presents-simon-vuarambon-labor-day (arts calendar cross-listing)"
+    },
+    "19hz-all-events.ics Thievery Corporation|2026-09-20T20:00:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Thievery Corporation with LAPA|2026-09-20T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-31",
+      "note": "Same show at Showbox SoDo, same date/time, AXS event id 1441050 on both; LAPA is the opener, omitted from 19hz's shorter title"
+    },
+    "external-uw-campus-events.ics Info Session | Foster Undergraduate Study Abroad|2026-12-01T15:30:00Z[UTC]::external-uw-foster-school-of-business.ics Info Session | Foster Undergraduate Study Abroad|2026-12-01T15:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-31",
+      "note": "Identical title, identical Zoom location, identical foster.uw.edu URL — same info session cross-listed on two UW calendars"
+    },
+    "seattle-center-seattle-center-events.ics Eureka Day: Preview Performance|2026-09-26T19:30:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Eureka Day|2026-09-26T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-08-31",
+      "note": "Same production, same date/time (7:30pm Sep 26), same venue (Leo K. Theater, Seattle Center, 3m apart); Seattle Center's listing specifies it's the preview performance"
     }
   }
 }
