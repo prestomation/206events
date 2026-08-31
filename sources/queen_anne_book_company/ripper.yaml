@@ -6,7 +6,9 @@ sourceRole: venue
 # docs/proxy-verification.md. Per the JS-challenge shortcut, the out-of-band
 # proxy-escalation run should skip straight to the browserbase rung rather
 # than trying outofband first (a residential fetch gets the same challenge).
-proxy: "outofband"
+# 2026-08-31: outofband rung failed 3× (HTTP 403, Cloudflare JS challenge) —
+# escalated to browserbase per proxy-verification Mode B.
+proxy: "browserbase"
 description: "Queen Anne Book Company"
 url: "https://qabookco.com/events"
 friendlyLink: https://qabookco.com/events
