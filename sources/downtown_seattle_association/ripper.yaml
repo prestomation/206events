@@ -54,6 +54,11 @@ calendars:
   - name: bell-street-park
     friendlyname: "Bell Street Park Events"
     timezone: America/Los_Angeles
+    # 2026-08-31: build-health flagged 0 events. Confirmed via the live Tribe
+    # Events API (venue=53974): only one event exists at this venue at all
+    # ("Summer Streets at Bell Street Park", a Sunday series that ran through
+    # 2026-08-30) — a genuinely low-volume seasonal plaza, not a broken feed.
+    expectEmpty: true
     config:
       venue_id: 53974
     tags:
