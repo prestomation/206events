@@ -1,3 +1,4 @@
+# verified: 2026-08-31 drift-fixed (url events-schedules→happenings)
 geo:
   lat: 47.6670341
   lng: -122.3850297
@@ -11,7 +12,7 @@ friendlyname: Trivia Tuesday at Rough & Tumble - Ballard
 description: Weekly pub trivia at Rough & Tumble's flagship Ballard location, Seattle's Official US Soccer bar. Six-person team cap, prize sponsors, and rotating celebrity guest hosts. Free to play.
 timezone: America/Los_Angeles
 location: "5309 22nd Ave NW, Seattle, WA 98107"
-url: https://www.roughandtumblepub.com/events-schedules
+url: https://www.roughandtumblepub.com/happenings
 tags:
   - Trivia
   - Ballard

@@ -1,3 +1,4 @@
+# verified: 2026-08-31 flagged (geo mismatch: nearest OSM match is a distant unrelated way ~3.8km away per prior osmChecked note; site gives no street address/cross-streets to geocode more precisely, only "White Center neighborhood"; schedule (3rd Thursday, Apr-Sep) confirmed on site but start_time 17:00 not independently confirmable — page states no time)
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0b/White_Center_01.jpg"
 geo:
   lat: 47.5519
