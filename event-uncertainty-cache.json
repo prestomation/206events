@@ -35630,11 +35630,12 @@
     },
     "cascade-bicycle-club:cascade-lake-union-family-ride-2026": {
       "fields": {
-        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2026-06/LUFR%202026%20banner%20image.png?h=f2acab53&itok=V908ZdNp"
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2026-06/LUFR%202026%20banner%20image.png?h=f2acab53&itok=V908ZdNp",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-08-31",
       "source": "agent",
-      "evidence": "https://cascade.org/rides-events/lake-union-family-ride-2026 (image found on event page)"
+      "evidence": "https://cascade.org/rides-events/lake-union-family-ride-2026"
     },
     "cascade-bicycle-club:cascade-rsvp-2026": {
       "fields": {
@@ -67055,6 +67056,48 @@
       "resolvedAt": "2026-08-30",
       "source": "agent",
       "evidence": "http://seattle.greencitypartnerships.org/event/44671/"
+    },
+    "northwest-film-forum:mysterious-skin-4k-restoration-2026-08-30": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/mysteriousskin1600-7.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/mysterious-skin-4k-restoration/"
+    },
+    "northwest-film-forum:three-bewildered-people-in-the-night-2026-08-30": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeople1600-1.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/three-bewildered-people-in-the-night/"
+    },
+    "seattle-makers:seattle-makers-154859": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-20/"
+    },
+    "seattle-makers:seattle-makers-165226": {
+      "fields": {
+        "cost": {
+          "min": 200.0
+        }
+      },
+      "resolvedAt": "2026-08-31",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/big-cnc-industrial-4%e2%80%b2-x-10%e2%80%b2-wood-cutting-certification-8/"
     }
   }
 }
