@@ -157,6 +157,11 @@ calendars:
   - name: bell-street-park
     friendlyname: "Food Trucks @ Bell Street Park"
     timezone: America/Los_Angeles
+    # 2026-08-31: build-health flagged 0 events. Confirmed live via the SFT
+    # events API: the pod is still listed in /api/pods but has no bookings
+    # across the near-term paginated window — a currently quiet pod, like the
+    # other expectEmpty pods above.
+    expectEmpty: true
     tags: ["FoodTruck", "Belltown"]
     geo:
       lat: 47.61467

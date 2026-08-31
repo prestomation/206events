@@ -4,6 +4,8 @@ geo:
   lat: 47.682846
   lng: -122.260988
   label: "Magnuson Park Hangar 30, 6310 NE 74th St, Seattle, WA 98115"
+  osmType: way
+  osmId: 68303178
 name: seattle-coffee-festival
 sourceRole: venue
 friendlyname: Seattle Coffee Festival
