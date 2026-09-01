@@ -223,6 +223,11 @@ jobs:
     # silently. So the build now merges three independent sources and the
     # committed file is never overwritten on disk by a cache hit.
     - name: Restore event history
+      # Guarded like Save below: PR builds do not merge (they copy the committed
+      # baseline into output/), so restoring here would download a cache entry
+      # nothing reads — and imply PR builds take part in the merge, which is
+      # exactly the wrong mental model for a deliberately stale preview.
+      if: github.event_name != 'pull_request'
       uses: actions/cache/restore@v4
       with:
         # Sidecar path, not docs/event-history.json — a cache hit must not

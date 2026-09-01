@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { mkdtempSync, writeFileSync, rmSync, mkdirSync, readFileSync, existsSync } from 'fs'
 import { tmpdir } from 'os'
 import path from 'path'
@@ -11,6 +11,9 @@ import {
   upsertPoint,
   main,
 } from './update-event-history.mjs'
+
+// main() stamps today's date; tests must derive it, never hardcode it.
+const today = () => new Date().toISOString().slice(0, 10)
 
 describe('countCalendars', () => {
   it('sums ripper calendars, recurring, and external', () => {
@@ -328,6 +331,20 @@ describe('main', () => {
 
   // A corrupt merge source must not fail the build (it is one recovery layer of
   // several) but must also not be silently written off as absent.
+  // Guards the class of bug where a test hardcodes today's date: the suite gates
+  // every calendar build, so it would go red on the next calendar day.
+  it('stamps whatever today is, not a fixed date', () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2027-03-04T12:00:00Z'))
+    try {
+      write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+      expect(main([])).toBe(0)
+      expect(readHistory().at(-1).date).toBe('2027-03-04')
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
   it('skips a corrupt merge source without failing', () => {
     write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
     write('cached.json', 'truncated{{{')
@@ -346,7 +363,9 @@ describe('main', () => {
       { events: 3 },
     ])
     expect(main(['--merge', 'cached.json'])).toBe(0)
-    expect(readHistory().map((p) => p.date)).toEqual(['2026-04-13', '2026-05-01', '2026-09-01'])
+    // Derived, never hardcoded: main() stamps the point with today's date, so
+    // a literal here would start failing the whole build the next day.
+    expect(readHistory().map((p) => p.date)).toEqual(['2026-04-13', '2026-05-01', today()])
   })
 
   // A day when every source failed genuinely measures 0 events; dropping it

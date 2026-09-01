@@ -9,10 +9,12 @@ import {
   segments,
   axisTicks,
   fmtAxis,
+  useCompactAxis,
   fmtFullDate,
   monthTicks,
   layout,
   xScale,
+  timePositions,
   indexFromClientX,
   deltaAt,
 } from './coverageChart.js'
@@ -118,19 +120,22 @@ export function CoverageChart({ history }) {
   const present = useMemo(() => SERIES.filter((s) => hasSeries(history, s.key)), [history])
   const geom = useMemo(() => layout(width ?? 760, present.length), [width, present.length])
   const { W, H, ML, PW, narrow, panelH, gridSteps, minTickGap } = geom
-  const xOf = useCallback((i) => xScale(i, n, ML, PW), [n, ML, PW])
+  // Spaced by elapsed time, not array index, so a stretch of days with no build
+  // occupies real width instead of collapsing to nothing.
+  const positions = useMemo(() => timePositions(history), [history])
+  const xOf = useCallback((i) => xScale(positions[i], ML, PW), [positions, ML, PW])
 
   // The rAF callback below runs a frame later, so it must not close over
   // geometry: a ResizeObserver firing in between (rotation, panel open, a
   // phone's URL bar collapsing) would pair a fresh rect with a stale viewBox
   // and land on an index off by the width ratio.
-  const liveRef = useRef({ geom, n })
-  liveRef.current = { geom, n }
+  const liveRef = useRef({ geom, positions })
+  liveRef.current = { geom, positions }
 
   const select = (clientX) => {
     const rect = svgRef.current?.getBoundingClientRect()
-    const { geom: g, n: count } = liveRef.current
-    const i = indexFromClientX(clientX, rect, g, count)
+    const { geom: g, positions: pos } = liveRef.current
+    const i = indexFromClientX(clientX, rect, g, pos)
     // Only re-render when the index actually changes: otherwise every pointer
     // move is a React render and an aria-live announcement.
     setSel((prev) => (prev === i ? prev : i))
@@ -154,6 +159,12 @@ export function CoverageChart({ history }) {
     // Hover-scrub with a mouse, drag-scrub with a finger.
     if (draggingRef.current || e.pointerType === 'mouse') queueSelect(e.clientX)
   }
+  const cancelQueued = () => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current)
+      rafRef.current = 0
+    }
+  }
   const onPointerUp = (e) => {
     // Guarded: pointercancel fires when the UA has already abandoned the
     // pointer (a pinch, a gesture takeover), and releasing a pointer that is no
@@ -167,7 +178,12 @@ export function CoverageChart({ history }) {
   const onPointerLeave = (e) => {
     // A touch tap synthesizes enter with no matching leave, so clearing on any
     // pointer type would wipe the readout the moment a finger lifts.
-    if (e.pointerType === 'mouse' && !draggingRef.current) setSel(null)
+    if (e.pointerType !== 'mouse' || draggingRef.current) return
+    // Drop the queued frame first: it still holds the last pointer position and
+    // would re-select a moment later, leaving the crosshair stuck on screen
+    // with the pointer long gone.
+    cancelQueued()
+    setSel(null)
   }
   const onKeyDown = (e) => {
     const at = sel ?? n - 1
@@ -187,7 +203,7 @@ export function CoverageChart({ history }) {
   }
 
   const panels = useMemo(() => present.map((s, k) => {
-    const max = niceCeil(maxOf(history, s.key))
+    const max = niceCeil(maxOf(history, s.key), gridSteps - 1)
     const top = geom.panelTop(k)
     return {
       ...s,
@@ -197,7 +213,7 @@ export function CoverageChart({ history }) {
       yOf: (v) => top + panelH - (v / max) * panelH,
       runs: segments(history, s.key),
     }
-  }), [present, history, geom, panelH])
+  }), [present, history, geom, panelH, gridSteps])
 
   const ticks = useMemo(() => monthTicks(history, xOf, minTickGap), [history, xOf, minTickGap])
   const axisY = geom.panelTop(Math.max(0, panels.length - 1)) + panelH
@@ -213,7 +229,12 @@ export function CoverageChart({ history }) {
 
   // Only flagged when a plotted series starts late, so nobody reads its
   // absence as "the backlog was zero back then".
-  const lateStarts = panels.filter((p) => p.startsAt > 0)
+  // Covers readout-only metrics as well: `queue` only exists from the build
+  // where every gap queue it sums became measurable, and an unexplained blank
+  // reads as a zero just as readily in the readout as on a panel.
+  const lateStarts = [...SERIES, ...READOUT_ONLY]
+    .map((m) => ({ ...m, startsAt: firstDefinedIndex(history, m.key) }))
+    .filter((m) => m.startsAt > 0)
 
   // Every series keeps a readout row even without a panel, so the row set does
   // not shift as data arrives; the value just reads as not-recorded.
@@ -291,7 +312,7 @@ export function CoverageChart({ history }) {
                       x={ML - 6} y={panel.yOf(g.val)}
                       textAnchor="end" dominantBaseline="middle"
                       fontSize="11" fill="var(--ink-3)"
-                    >{fmtAxis(g.val, narrow)}</text>
+                    >{fmtAxis(g.val, useCompactAxis(narrow, panel.max))}</text>
                   </g>
                 ))}
                 {/* One polyline per run of consecutive defined points, so a gap

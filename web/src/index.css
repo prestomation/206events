@@ -3179,20 +3179,22 @@ html, body, #root { height: 100%; }
 
 @media (max-width: 767px) {
   /* The chart goes edge-to-edge on a phone: at ~390px every pixel of width is
-     legibility. Padding moves off the dashboard and onto its in-flow children
-     so only the chart reaches the viewport edge. Enumerated deliberately, not
-     `> *` — .health-drawer-overlay is position:fixed inset:0 and padding would
-     inset the drawer on exactly the viewport where it is full-width. */
+     legibility. The gutter moves off the dashboard and onto its in-flow
+     children so only the chart reaches the viewport edge. */
   .app206 .health-dashboard {
     padding: 16px 0;
   }
 
   /* Everything except the chart, so a child added later gets a gutter by
      default rather than silently sitting against the screen edge. The drawer
-     overlay is excluded because it is position:fixed inset:0 — padding would
-     inset the drawer on exactly the viewport where it is full-width. */
+     overlay is excluded because it is position:fixed inset:0 and a gutter
+     would inset the drawer on exactly the viewport where it is full-width.
+
+     MARGIN, not padding: padding sits inside the border box, so a child with a
+     border or background (.health-tabs has a border-bottom) would keep drawing
+     it across the full viewport width. */
   .app206 .health-dashboard > *:not(.health-coverage-chart):not(.health-drawer-overlay) {
-    padding-inline: 16px;
+    margin-inline: 16px;
   }
 
   .app206 .health-dashboard > .health-coverage-chart {

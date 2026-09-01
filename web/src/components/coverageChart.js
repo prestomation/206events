@@ -26,15 +26,28 @@ export const READOUT_ONLY = [
   { key: 'errors', label: 'Build errors' },
 ]
 
-// Round up to a friendly axis maximum.
-export function niceCeil(v) {
+// Round up to a friendly axis maximum that divides evenly into `intervals`
+// gridline steps, so the intermediate labels are round too.
+//
+// The previous implementation searched [1, 2, 2.5, 5, 10] as multipliers of the
+// leading power of ten, but `ceil(v / mag) * mag >= v` is true by construction,
+// so it always returned on the first entry and the rest was unreachable — every
+// axis was rounded to the next power of ten. That is tolerable for 554 -> 600
+// but wasted half the panel just above a power of ten (1050 -> 2000).
+//
+// Sizing the STEP instead of the maximum fixes both: pick the smallest nice
+// step whose `intervals` multiple covers the data.
+const NICE_STEPS = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]
+
+export function niceCeil(v, intervals = 4) {
   if (!Number.isFinite(v) || v <= 0) return 10
-  const mag = Math.pow(10, Math.floor(Math.log10(v)))
-  for (const s of [1, 2, 2.5, 5, 10]) {
-    const candidate = Math.ceil(v / (mag * s)) * (mag * s)
-    if (candidate >= v) return candidate
+  const raw = v / Math.max(1, intervals)
+  const mag = Math.pow(10, Math.floor(Math.log10(raw)))
+  for (const m of NICE_STEPS) {
+    const step = m * mag
+    if (step * intervals >= v) return step * intervals
   }
-  return Math.ceil(v / mag) * mag
+  return Math.ceil(v / (10 * mag)) * (10 * mag) * intervals
 }
 
 // Max of one field across the series, skipping points that don't carry it.
@@ -88,10 +101,19 @@ export function axisTicks(max, steps) {
 }
 
 // Compact axis labels so a narrow panel doesn't need a wide left margin.
+//
+// `compact` is decided per AXIS, not per value: thresholding each label on its
+// own magnitude mixes styles within one axis ("16k" above "8,000").
 export function fmtAxis(v, compact) {
   if (!compact) return v.toLocaleString()
-  if (v >= 10000) return `${(v / 1000).toFixed(v % 1000 === 0 ? 0 : 1)}k`
-  return v.toLocaleString()
+  if (v === 0) return '0'
+  return `${(v / 1000).toFixed(v % 1000 === 0 ? 0 : 1)}k`
+}
+
+// Whether a panel's labels should be abbreviated: only on a narrow layout, and
+// only when the axis actually reaches the thousands.
+export function useCompactAxis(narrow, max) {
+  return narrow && max >= 10000
 }
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -163,6 +185,16 @@ export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
     // one carrying the year. With only two left, the later one goes instead.
     kept.splice(kept.length === 2 ? 1 : kept.length - 2, 1)
   }
+
+  // Re-derive labels after culling. The forward pass decided which tick carries
+  // a year, but the tail loop can splice that exact tick out — leaving an axis
+  // that runs "Nov 2026 -> Mar" with nothing saying Mar is 2027.
+  let year = null
+  for (const tick of kept) {
+    const [y] = String(history[tick.i].date).split('-')
+    tick.label = y === year ? fmtMonth(history[tick.i].date) : `${fmtMonth(history[tick.i].date)} ${y}`
+    year = y
+  }
   return kept
 }
 
@@ -201,20 +233,57 @@ export function layout(width, panelCount = SERIES.length) {
   }
 }
 
-// x for point index i. A single point sits at the left edge rather than
-// dividing by zero.
-export function xScale(i, n, ML, PW) {
-  if (n <= 1) return ML
-  return ML + (i / (n - 1)) * PW
+// Days since the epoch for a YYYY-MM-DD string. Parsed by hand for the same
+// reason as fmtFullDate: Date's string parsing is timezone-dependent.
+export function dayNumber(dateStr) {
+  const [y, m, d] = String(dateStr).split('-').map(Number)
+  if (!y || !m || !d) return NaN
+  return Math.floor(Date.UTC(y, m - 1, d) / 86400000)
 }
 
-// Nearest point index for a client-space x. Rendering at 1:1 CSS pixels means
-// no CTM inverse is needed; the ratio guards a stale measure mid-resize.
-export function indexFromClientX(clientX, rect, { W, ML, PW }, n) {
-  if (!rect || !rect.width || n <= 1) return 0
+// Positions for a history, spaced by ELAPSED TIME rather than array index.
+//
+// Index spacing gives a day with no recorded build zero width, which quietly
+// undoes everything else here: the 67-day outage this series was rebuilt to
+// recover would render as a single step with an unbroken line across it, and
+// months with few builds would be compressed so the axis misstates elapsed
+// time. Returns a normalized 0..1 position per point.
+export function timePositions(history) {
+  const days = history.map((p) => dayNumber(p?.date))
+  const valid = days.filter(Number.isFinite)
+  const first = valid.length ? Math.min(...valid) : 0
+  const last = valid.length ? Math.max(...valid) : 0
+  const span = last - first
+  return days.map((d) => {
+    if (!Number.isFinite(d) || span <= 0) return 0
+    return (d - first) / span
+  })
+}
+
+// x for a normalized position.
+export function xScale(t, ML, PW) {
+  return ML + (Number.isFinite(t) ? t : 0) * PW
+}
+
+// Nearest point for a client-space x. Rendering at 1:1 CSS pixels means no CTM
+// inverse is needed; the ratio guards a stale measure mid-resize.
+//
+// With time-spaced points a linear index is no longer the answer, so this scans
+// for the closest position — the reader aims at a date, and the nearest
+// recorded build to that date is what they mean.
+export function indexFromClientX(clientX, rect, { W, ML, PW }, positions) {
+  const n = positions?.length ?? 0
+  if (!rect || !rect.width || n === 0) return 0
+  if (n === 1) return 0
   const x = (clientX - rect.left) * (W / rect.width)
-  const i = Math.round(((x - ML) / PW) * (n - 1))
-  return Math.min(n - 1, Math.max(0, i))
+  const t = (x - ML) / PW
+  let best = 0
+  let bestDist = Infinity
+  for (let i = 0; i < n; i++) {
+    const dist = Math.abs(positions[i] - t)
+    if (dist < bestDist) { bestDist = dist; best = i }
+  }
+  return best
 }
 
 // Signed change vs the previous point that carried the field, or null.

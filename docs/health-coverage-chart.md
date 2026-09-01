@@ -88,7 +88,7 @@ One point per build day, published at `/event-history.json`:
 
 ```json
 { "date": "2026-09-01", "events": 15377, "calendars": 555,
-  "candidates": 264, "queue": 1639, "errors": 348 }
+  "candidates": 264, "queue": 1636, "errors": 348 }
 ```
 
 Every field except `date` is **optional**. A field a build could not compute is
@@ -97,8 +97,9 @@ are drawn as one polyline per run of consecutive defined points (`segments()`),
 so a late-starting series starts where its data does and an interior gap reads
 as a break rather than a line dropping to zero.
 
-`queue` = outstanding uncertainty + photo gaps + cost gaps + setting gaps +
-duplicate candidates + geocode errors. **Every term must be present** for the
+`queue` = outstanding uncertainty + photo gaps (venue + event) + cost gaps +
+setting gaps (venue + event) + duplicate candidates + geocode errors + OSM gaps
+— the nine terms in `QUEUE_TERMS`. **Every term must be present** for the
 point to carry a value; a report missing any of them yields `undefined` and the
 series simply starts later. The gap queues were added to `build-errors.json` at
 different times (`duplicateStats` ~2026-06-17, `settingGaps` ~2026-07-06), so

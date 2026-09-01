@@ -181,12 +181,24 @@ function readJsonObject(file) {
   }
 }
 
+// Strict: an unknown flag or a value-less --merge throws rather than being
+// ignored. A typo in the workflow would otherwise silently drop the published
+// copy — the layer that makes a cache eviction survivable — and the loss would
+// stay invisible until the next eviction took months of data with it.
 function parseArgs(argv) {
   const merges = [];
   let cacheOut = null;
   for (let i = 0; i < argv.length; i++) {
-    if (argv[i] === '--merge' && argv[i + 1]) merges.push(argv[++i]);
-    else if (argv[i] === '--cache-out' && argv[i + 1]) cacheOut = argv[++i];
+    const arg = argv[i];
+    if (arg === '--merge' || arg === '--cache-out') {
+      const value = argv[i + 1];
+      if (!value || value.startsWith('--')) throw new Error(`${arg} requires a path`);
+      i++;
+      if (arg === '--merge') merges.push(value);
+      else cacheOut = value;
+    } else {
+      throw new Error(`Unknown argument: ${arg}`);
+    }
   }
   return { merges, cacheOut };
 }

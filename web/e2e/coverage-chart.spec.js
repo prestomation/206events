@@ -72,7 +72,12 @@ test('reports a not-yet-tracked series as an em-dash, not zero', async ({ page }
   await page.keyboard.press('End')
   await expect(metric(page, 'candidates')).toContainText('90')
 
-  await expect(page.locator('.health-chart-note')).toContainText('Viable candidates tracked from')
+  // One note per late-starting metric, readout-only ones included: an
+  // unexplained blank reads as a zero in the readout just as on a panel.
+  await expect(page.locator('.health-chart-note', { hasText: 'Viable candidates tracked from' }))
+    .toBeVisible()
+  await expect(page.locator('.health-chart-note', { hasText: 'Open work queue tracked from' }))
+    .toBeVisible()
 })
 
 test('scrubs with the keyboard and reports position through aria', async ({ page }) => {
@@ -89,6 +94,20 @@ test('scrubs with the keyboard and reports position through aria', async ({ page
 
   await page.keyboard.press('End')
   await expect(readout(page)).toContainText('12,345')
+})
+
+// The queued animation frame still holds the last pointer position, so leaving
+// without cancelling it re-selects a frame later and the crosshair stays drawn
+// with the pointer nowhere near the chart.
+test('clears the crosshair when the pointer leaves', async ({ page }) => {
+  const plot = await openChart(page)
+  const box = await plot.boundingBox()
+  await page.mouse.move(box.x + box.width * 0.4, box.y + box.height / 2)
+  await expect(plot.locator('.health-chart-crosshair')).toBeVisible()
+
+  // Straight out past the right edge, in one fast movement.
+  await page.mouse.move(box.x + box.width + 200, box.y + box.height / 2)
+  await expect(plot.locator('.health-chart-crosshair')).toHaveCount(0)
 })
 
 // The chart is aria-hidden decoration; the numbers must still be reachable as
@@ -130,6 +149,16 @@ test.describe('mobile', () => {
     await expect(plot.locator('.health-chart-crosshair')).toBeVisible()
     await expect(readout(page)).toBeVisible()
     await screenshotStable(page, 'e2e/screenshots/coverage-chart-mobile-selected.png')
+  })
+
+  // Only the CHART is edge-to-edge. The gutter moved onto the dashboard's
+  // children, so a child with a border (.health-tabs has a border-bottom) must
+  // still be inset — which is why that rule uses margin, not padding.
+  test('keeps bordered siblings inset while the chart is full width', async ({ page }) => {
+    await openChart(page)
+    const tabs = await page.locator('.health-tabs').boundingBox()
+    expect(tabs.x).toBeGreaterThanOrEqual(8)
+    expect(tabs.width).toBeLessThanOrEqual(390 - 16)
   })
 
   // A cheap proxy for "the chart does not trap vertical page scroll".

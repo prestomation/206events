@@ -7,11 +7,14 @@ import {
   segments,
   axisTicks,
   fmtAxis,
+  useCompactAxis,
   fmtMonth,
   fmtFullDate,
   monthTicks,
   layout,
   xScale,
+  dayNumber,
+  timePositions,
   indexFromClientX,
   deltaAt,
   SERIES,
@@ -20,11 +23,39 @@ import {
 const pt = (date, fields = {}) => ({ date, ...fields })
 
 describe('niceCeil', () => {
-  it('rounds up to a friendly maximum', () => {
-    expect(niceCeil(15312)).toBe(20000)
-    expect(niceCeil(554)).toBe(600)
-    expect(niceCeil(265)).toBe(300)
-    expect(niceCeil(100)).toBe(100)
+  it('covers the data without wasting the panel', () => {
+    for (const [v, expected] of [[15312, 16000], [554, 600], [265, 320], [100, 100]]) {
+      expect(niceCeil(v, 4), `niceCeil(${v})`).toBe(expected)
+    }
+  })
+
+  // The old implementation's step search was unreachable (ceil(v/mag)*mag >= v
+  // always holds), so everything rounded to the next power of ten and a value
+  // just above one wasted half the panel.
+  it('does not round a value just over a power of ten to the next one', () => {
+    expect(niceCeil(1050, 4)).toBe(1200)
+    expect(niceCeil(1050, 4)).toBeLessThan(2000)
+  })
+
+  it('always covers the value and never wastes more than half the panel', () => {
+    for (const v of [1, 7, 42, 99, 101, 265, 554, 1050, 9999, 15312, 123456]) {
+      for (const intervals of [2, 4]) {
+        const max = niceCeil(v, intervals)
+        expect(max, `niceCeil(${v}, ${intervals}) must cover`).toBeGreaterThanOrEqual(v)
+        expect(v / max, `niceCeil(${v}, ${intervals}) wastes too much`).toBeGreaterThan(0.4)
+      }
+    }
+  })
+
+  // Gridline labels are max * [0, .25, .5, .75, 1] (or halves), so the maximum
+  // has to divide evenly or the intermediate labels come out ragged.
+  it('produces round intermediate gridline labels', () => {
+    for (const v of [265, 554, 1050, 15312]) {
+      for (const intervals of [2, 4]) {
+        const step = niceCeil(v, intervals) / intervals
+        expect(Number.isInteger(step), `step ${step} for ${v}/${intervals}`).toBe(true)
+      }
+    }
   })
 
   it('floors at 10 for zero, negatives and non-numbers', () => {
@@ -32,6 +63,37 @@ describe('niceCeil', () => {
     expect(niceCeil(-5)).toBe(10)
     expect(niceCeil(NaN)).toBe(10)
     expect(niceCeil(undefined)).toBe(10)
+  })
+})
+
+describe('timePositions', () => {
+  // The whole point: a stretch of days with no build must occupy real width,
+  // or the 67-day outage this series was rebuilt to recover renders as a single
+  // step with an unbroken line across it.
+  it('spaces points by elapsed time, not array index', () => {
+    const h = [pt('2026-01-01'), pt('2026-01-02'), pt('2026-01-11')]
+    expect(timePositions(h)).toEqual([0, 0.1, 1])
+  })
+
+  it('puts a single point, or an all-same-day series, at the left edge', () => {
+    expect(timePositions([pt('2026-01-01')])).toEqual([0])
+    expect(timePositions([pt('2026-01-01'), pt('2026-01-01')])).toEqual([0, 0])
+  })
+
+  it('treats an unparseable date as position 0 rather than NaN', () => {
+    const out = timePositions([pt('2026-01-01'), pt('nonsense'), pt('2026-01-11')])
+    expect(out.every(Number.isFinite)).toBe(true)
+  })
+})
+
+describe('dayNumber', () => {
+  it('counts whole days and is timezone-independent', () => {
+    expect(dayNumber('2026-01-02') - dayNumber('2026-01-01')).toBe(1)
+    expect(dayNumber('2027-01-01') - dayNumber('2026-01-01')).toBe(365)
+  })
+
+  it('is NaN for an unparseable value', () => {
+    expect(Number.isNaN(dayNumber('nope'))).toBe(true)
   })
 })
 
@@ -114,8 +176,22 @@ describe('fmtAxis', () => {
   it('abbreviates only in compact mode', () => {
     expect(fmtAxis(20000, true)).toBe('20k')
     expect(fmtAxis(15500, true)).toBe('15.5k')
-    expect(fmtAxis(500, true)).toBe('500')
+    expect(fmtAxis(0, true)).toBe('0')
     expect(fmtAxis(20000, false)).toBe('20,000')
+  })
+
+  // Per-axis, not per-value: thresholding each label on its own magnitude gave
+  // one axis reading "16k" above "8,000".
+  it('abbreviates every label on a compact axis, not just the large ones', () => {
+    const compact = useCompactAxis(true, 16000)
+    expect([0, 4000, 8000, 12000, 16000].map((v) => fmtAxis(v, compact)))
+      .toEqual(['0', '4k', '8k', '12k', '16k'])
+  })
+
+  it('stays uncompacted on a wide layout or a small axis', () => {
+    expect(useCompactAxis(false, 16000)).toBe(false)
+    expect(useCompactAxis(true, 600)).toBe(false)
+    expect(fmtAxis(600, useCompactAxis(true, 600))).toBe('600')
   })
 })
 
@@ -230,40 +306,53 @@ describe('layout', () => {
 })
 
 describe('xScale', () => {
-  it('spreads indices across the plot width', () => {
-    expect(xScale(0, 5, 50, 200)).toBe(50)
-    expect(xScale(4, 5, 50, 200)).toBe(250)
-    expect(xScale(2, 5, 50, 200)).toBe(150)
+  it('maps a normalized position across the plot width', () => {
+    expect(xScale(0, 50, 200)).toBe(50)
+    expect(xScale(1, 50, 200)).toBe(250)
+    expect(xScale(0.5, 50, 200)).toBe(150)
   })
 
-  it('puts a lone point at the left edge rather than dividing by zero', () => {
-    expect(xScale(0, 1, 50, 200)).toBe(50)
+  it('treats a non-finite position as the left edge', () => {
+    expect(xScale(NaN, 50, 200)).toBe(50)
+    expect(xScale(undefined, 50, 200)).toBe(50)
   })
 })
 
 describe('indexFromClientX', () => {
   const geom = { W: 400, ML: 50, PW: 300 }
   const rect = { left: 0, width: 400 }
+  const even = Array.from({ length: 11 }, (_, i) => i / 10)
 
-  it('finds the nearest index', () => {
-    expect(indexFromClientX(50, rect, geom, 11)).toBe(0)
-    expect(indexFromClientX(200, rect, geom, 11)).toBe(5)
-    expect(indexFromClientX(350, rect, geom, 11)).toBe(10)
+  it('finds the nearest point', () => {
+    expect(indexFromClientX(50, rect, geom, even)).toBe(0)
+    expect(indexFromClientX(200, rect, geom, even)).toBe(5)
+    expect(indexFromClientX(350, rect, geom, even)).toBe(10)
   })
 
   it('clamps outside the plot area so an off-axis tap still selects', () => {
-    expect(indexFromClientX(0, rect, geom, 11)).toBe(0)
-    expect(indexFromClientX(9999, rect, geom, 11)).toBe(10)
+    expect(indexFromClientX(0, rect, geom, even)).toBe(0)
+    expect(indexFromClientX(9999, rect, geom, even)).toBe(10)
   })
 
   it('scales when the rendered width differs from the viewBox width', () => {
     // Half-size render: a click at 100 client px is 200 user units.
-    expect(indexFromClientX(100, { left: 0, width: 200 }, geom, 11)).toBe(5)
+    expect(indexFromClientX(100, { left: 0, width: 200 }, geom, even)).toBe(5)
   })
 
-  it('returns 0 for a missing rect or a single point', () => {
-    expect(indexFromClientX(100, null, geom, 11)).toBe(0)
-    expect(indexFromClientX(100, rect, geom, 1)).toBe(0)
+  // With time spacing the points are no longer evenly distributed, so the
+  // nearest one is a scan rather than a division.
+  it('picks the nearest point when spacing is uneven', () => {
+    const uneven = timePositions([pt('2026-01-01'), pt('2026-01-02'), pt('2026-01-31')])
+    // Just right of the left edge: the 2nd of January, not the 31st.
+    expect(indexFromClientX(60, rect, geom, uneven)).toBe(1)
+    // Far right: the 31st.
+    expect(indexFromClientX(340, rect, geom, uneven)).toBe(2)
+  })
+
+  it('returns 0 for a missing rect, an empty series, or a single point', () => {
+    expect(indexFromClientX(100, null, geom, even)).toBe(0)
+    expect(indexFromClientX(100, rect, geom, [])).toBe(0)
+    expect(indexFromClientX(100, rect, geom, [0])).toBe(0)
   })
 })
 
