@@ -544,6 +544,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'kremwerk-timbre room-cherry complex': { lat: 47.6202, lng: -122.3374 },
   'kane hall, university of washington, 4069 spokane ln, seattle, 98105, united states': { lat: 47.6566, lng: -122.3092 },
   'langston hughes performing arts institute': { lat: 47.5969, lng: -122.3165 },
+  // Leschi South Marina per OSM (way 52135058); club's own site calls it
+  // "Leschi South Sailboat Moorage", 150 Lakeside Ave S, Seattle, WA 98144
+  'leschi south sailboat moorage': { lat: 47.6007789, lng: -122.2843483, osmType: 'way', osmId: 52135058 },
   'meadowbrook community center': { lat: 47.7133, lng: -122.2989 },
   // Corrected 2026-08-27: was pinned at 47.5983,-122.3237 (Chinatown-ID —
   // duplicate of the unrelated 'orient express restaurant & lounge' coords).
