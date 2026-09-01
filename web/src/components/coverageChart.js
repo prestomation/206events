@@ -1,0 +1,197 @@
+// Pure geometry, scaling and formatting for the health page's coverage chart.
+//
+// Kept out of the component so it can be unit-tested without React, and so the
+// gap handling below has somewhere to live where it is obvious. See
+// docs/health-coverage-chart.md.
+
+// The three plotted series, in fixed order. Colors were validated against the
+// card surfaces in both themes (light #f4f1ea, dark #262318) — all six
+// categorical checks pass. Tritan separation between candidates and calendars
+// is 4.9, below the ideal floor, so candidates also carries a dash pattern as
+// secondary encoding: identity is never color-alone.
+//
+// Do not substitute #7c3aed for the candidates hue — it is indistinguishable
+// from the events blue under deuteranopia (ΔE 0.4).
+export const SERIES = [
+  { key: 'events', label: 'Events', color: '#2563eb' },
+  { key: 'calendars', label: 'Calendars', color: '#ea580c' },
+  { key: 'candidates', label: 'Viable candidates', color: '#db2777', dash: '5 3' },
+]
+
+// Metrics carried in the readout but never plotted — they answer "how much
+// maintenance work is outstanding", which is a different question from "how
+// much coverage do we have" and does not deserve a panel.
+export const READOUT_ONLY = [
+  { key: 'queue', label: 'Open work queue' },
+  { key: 'errors', label: 'Build errors' },
+]
+
+// Round up to a friendly axis maximum.
+export function niceCeil(v) {
+  if (!Number.isFinite(v) || v <= 0) return 10
+  const mag = Math.pow(10, Math.floor(Math.log10(v)))
+  for (const s of [1, 2, 2.5, 5, 10]) {
+    const candidate = Math.ceil(v / (mag * s)) * (mag * s)
+    if (candidate >= v) return candidate
+  }
+  return Math.ceil(v / mag) * mag
+}
+
+// Max of one field across the series, skipping points that don't carry it.
+//
+// A reducer rather than Math.max(...arr): spreading an absent field yields
+// undefined -> NaN, which silently propagates into every coordinate and blanks
+// the chart with no error. It also avoids blowing the stack on a long series.
+export function maxOf(history, key) {
+  let max = 0
+  for (const p of history) {
+    const v = p?.[key]
+    if (Number.isFinite(v) && v > max) max = v
+  }
+  return max
+}
+
+export function hasSeries(history, key) {
+  return history.some((p) => Number.isFinite(p?.[key]))
+}
+
+// Index of the first point carrying `key`, or -1.
+export function firstDefinedIndex(history, key) {
+  return history.findIndex((p) => Number.isFinite(p?.[key]))
+}
+
+// Split a series into runs of consecutive points that actually carry a value.
+//
+// Each run becomes its own polyline, so a series that starts partway through
+// the x-range simply starts there, and an interior gap reads as a break. One
+// polyline over the whole range would draw a line down to zero across the
+// missing span — inventing a collapse that never happened.
+export function segments(history, key) {
+  const runs = []
+  let run = null
+  history.forEach((p, i) => {
+    const v = p?.[key]
+    if (Number.isFinite(v)) {
+      if (!run) { run = []; runs.push(run) }
+      run.push({ i, v })
+    } else {
+      run = null
+    }
+  })
+  return runs
+}
+
+// Axis tick values for a panel: 0, midpoint, max (narrow) or quarters (wide).
+export function axisTicks(max, steps) {
+  const fractions = steps === 3 ? [0, 0.5, 1] : [0, 0.25, 0.5, 0.75, 1]
+  return fractions.map((t) => ({ t, val: Math.round(t * max) }))
+}
+
+// Compact axis labels so a narrow panel doesn't need a wide left margin.
+export function fmtAxis(v, compact) {
+  if (!compact) return v.toLocaleString()
+  if (v >= 10000) return `${(v / 1000).toFixed(v % 1000 === 0 ? 0 : 1)}k`
+  return v.toLocaleString()
+}
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+export function fmtMonth(dateStr) {
+  const [, m] = dateStr.split('-')
+  return MONTHS[parseInt(m, 10) - 1] ?? ''
+}
+
+// "Aug 14, 2026". Parsed by hand rather than through Date: `new Date('2026-08-14')`
+// parses as UTC and renders in local time, which shifts the label a day west of
+// UTC — including in Seattle, where this site is read.
+export function fmtFullDate(dateStr) {
+  const [y, m, d] = String(dateStr).split('-')
+  const month = MONTHS[parseInt(m, 10) - 1]
+  if (!month) return String(dateStr)
+  return `${month} ${parseInt(d, 10)}, ${y}`
+}
+
+// One x tick per month boundary, then cull ticks that would collide. The first
+// tick is always kept so the series start is labelled.
+export function monthTicks(history, xOf, minGap) {
+  const kept = []
+  let lastMonth = null
+  let lastYear = null
+  history.forEach((p, i) => {
+    const [year, month] = String(p.date).split('-')
+    if (`${year}-${month}` === lastMonth) return
+    lastMonth = `${year}-${month}`
+    const x = xOf(i)
+    // Always keep the first tick; drop any that would collide with the last
+    // one kept (not the last one seen).
+    if (kept.length > 0 && x - kept[kept.length - 1].x < minGap) return
+    // Label the year only when it changes, so a multi-year series stays
+    // readable without repeating "2026" on every tick. Tracked across *kept*
+    // ticks only — otherwise a dropped January swallows the year change and it
+    // never gets shown at all.
+    const label = year === lastYear ? fmtMonth(p.date) : `${fmtMonth(p.date)} ${year}`
+    lastYear = year
+    kept.push({ i, label, x })
+  })
+  return kept
+}
+
+// Layout for a measured container width. Small multiples: three stacked panels
+// sharing one x-axis, so there is no second y-scale to align arbitrarily
+// against the first.
+export function layout(width) {
+  const W = Math.max(240, Math.round(width))
+  const narrow = W < 520
+  const panelH = narrow ? 64 : 88
+  const titleH = narrow ? 18 : 20
+  const gap = narrow ? 12 : 14
+  const axisH = narrow ? 24 : 26
+  const ML = narrow ? 38 : 52
+  const MR = narrow ? 6 : 8
+  const MT = 6
+  const n = SERIES.length
+  return {
+    W,
+    narrow,
+    ML,
+    MR,
+    MT,
+    panelH,
+    titleH,
+    gap,
+    axisH,
+    PW: W - ML - MR,
+    H: MT + n * (titleH + panelH) + (n - 1) * gap + axisH,
+    gridSteps: narrow ? 3 : 5,
+    minTickGap: narrow ? 34 : 44,
+    // Top of panel k's plot area (below its title).
+    panelTop: (k) => MT + k * (titleH + panelH + gap) + titleH,
+  }
+}
+
+// x for point index i. A single point sits at the left edge rather than
+// dividing by zero.
+export function xScale(i, n, ML, PW) {
+  if (n <= 1) return ML
+  return ML + (i / (n - 1)) * PW
+}
+
+// Nearest point index for a client-space x. Rendering at 1:1 CSS pixels means
+// no CTM inverse is needed; the ratio guards a stale measure mid-resize.
+export function indexFromClientX(clientX, rect, { W, ML, PW }, n) {
+  if (!rect || !rect.width || n <= 1) return 0
+  const x = (clientX - rect.left) * (W / rect.width)
+  const i = Math.round(((x - ML) / PW) * (n - 1))
+  return Math.min(n - 1, Math.max(0, i))
+}
+
+// Signed change vs the previous point that carried the field, or null.
+export function deltaAt(history, i, key) {
+  const v = history[i]?.[key]
+  if (!Number.isFinite(v)) return null
+  for (let j = i - 1; j >= 0; j--) {
+    const prev = history[j]?.[key]
+    if (Number.isFinite(prev)) return v - prev
+  }
+  return null
+}
