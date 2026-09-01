@@ -1,0 +1,25 @@
+# verified: 2026-09-01 via eventbrite public API (organizer 121073963359 —
+# "fog-room-seattle" — 20 live events at time of check: weekly Rooftop Drag
+# Brunch series plus one-off nightlife events; EVENTBRITE_TOKEN required in CI)
+name: fog-room
+sourceRole: venue
+type: eventbrite
+description: "Fog Room"
+url: "https://www.eventbrite.com/o/fog-room-seattle-121073963359"
+friendlyLink: https://www.fogroomseattle.com/events/
+tags: ["Nightlife", "Downtown"]
+imageUrl: "https://www.fogroomseattle.com/site/assets/files/10906/best_rooftop_bar_downtown_seattle.1200x0.jpg"
+geo:
+  lat: 47.6111373
+  lng: -122.3399742
+  label: "Fog Room, 1610 2nd Ave, Seattle, WA 98101"
+  osmType: node
+  osmId: 5855398686
+calendars:
+  - name: fog-room
+    friendlyname: "Fog Room"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "121073963359"
+      defaultLocation: "Fog Room, 1610 2nd Ave, Seattle, WA 98101"
+      defaultDurationHours: 2

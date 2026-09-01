@@ -1,12 +1,12 @@
 ---
 name: "Fog Room"
-status: candidate
-platform: Custom (ProcessWire CMS, server-rendered HTML)
-url: https://www.fogroomseattle.com/events/
+status: added
+platform: Eventbrite
+url: https://www.eventbrite.com/o/fog-room-seattle-121073963359
 tags: [Nightlife, Downtown]
 firstSeen: 2026-08-18
-lastChecked: 2026-08-18
-pr:
+lastChecked: 2026-09-01
+pr: TBD
 ---
 
 **Fog Room** — rooftop bar/restaurant at 1610 2nd Ave, Downtown Seattle
@@ -39,3 +39,17 @@ Investigated 2026-08-18:
 🔴 Low confidence tier (custom HTML scraper, per-event detail page fetch
 likely needed for start time) but genuinely fetchable and viable per the
 quality-gate checklist.
+
+**Implemented 2026-09-01** — re-checked before writing the custom scraper
+and found each event detail page links to an Eventbrite ticket page
+(e.g. `.../seattle-drag-brunch-at-fog-room-tickets-1992209203356`). That
+listing resolves to Eventbrite organizer `121073963359`
+(`fog-room-seattle`); the public Eventbrite API
+(`eventbrite.com/api/v3/organizers/121073963359/events/?status=live`)
+returned 20 live events at check time — the weekly Rooftop Drag Brunch
+series (Sundays, 11:00 AM - 1:30 PM) plus other themed nightlife nights.
+🔥 High confidence — verified working built-in `eventbrite` ripper type,
+no custom scraper needed. Implemented as `sources/fog_room/ripper.yaml`
+(`organizerId: "121073963359"`, `geo` set to the venue's OSM node
+5855398686). Uses the existing `EVENTBRITE_TOKEN` repo secret already
+configured in CI for other Eventbrite sources.
