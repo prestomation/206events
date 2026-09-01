@@ -809,6 +809,13 @@ calendars, expected-empty, uncertain events, OSM gaps, photo/cost gaps,
 cross-source duplicates — are all plumbed through every surface. Use
 them as templates.
 
+**A new *gap queue* has a sixth surface**: `QUEUE_TERMS` in
+`scripts/update-event-history.mjs`, which sums every drainable queue
+into the health chart's `queue` series. That series is all-or-nothing by
+design — a report missing any term yields no value at all — so omitting
+a new queue there silently redefines a published metric from that build
+onward. See `docs/health-coverage-chart.md`.
+
 ## Writing Descriptions
 
 The `description` field is used as the `<h2>` section heading on the website for rippers, and as supplementary info for external calendars.

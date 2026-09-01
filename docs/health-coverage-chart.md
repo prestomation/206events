@@ -109,7 +109,13 @@ worse than a shorter one. In practice `queue` starts 2026-07-07.
 
 **When a new gap queue is added to `build-errors.json`, add it to `QUEUE_TERMS`
 in `scripts/update-event-history.mjs`**, or the series changes meaning from that
-build onward.
+build onward. This is listed alongside the reporting surfaces in AGENTS.md's
+Reporting Parity rule for the same reason.
+
+`queue` and `errors` are **not independent**: `totalErrors` already includes
+geocode errors and per-source uncertainty, both of which `queue` also counts.
+Read them as two views of overlapping work, not as figures to add together — a
+drop in geocode errors moves both lines for one cause.
 
 ### Persistence: three sources, merged
 

@@ -73,7 +73,11 @@ async function tryPr(n) {
   const manifest = await fetchJson(`${base}/manifest.json`);
   const events = errors.geoStats?.totalEvents;
   const calendars = countCalendars(manifest);
-  if (!events && !calendars) return null;
+  // `!== undefined`, matching update-event-history.mjs: a build where every
+  // source failed genuinely measured 0 events, and since these previews are the
+  // only record of the recovered window, dropping such a day would erase the
+  // outage entirely and draw a straight line across it.
+  if (events === undefined && calendars === undefined) return null;
 
   return {
     // buildTime is kept on the working record for the per-day tie-break and

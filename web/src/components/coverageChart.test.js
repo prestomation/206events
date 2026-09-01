@@ -7,7 +7,7 @@ import {
   segments,
   axisTicks,
   fmtAxis,
-  useCompactAxis,
+  shouldCompactAxis,
   fmtMonth,
   fmtFullDate,
   monthTicks,
@@ -38,7 +38,7 @@ describe('niceCeil', () => {
   })
 
   it('always covers the value and never wastes more than half the panel', () => {
-    for (const v of [1, 7, 42, 99, 101, 265, 554, 1050, 9999, 15312, 123456]) {
+    for (const v of [7, 42, 99, 101, 265, 554, 1050, 9999, 15312, 123456]) {
       for (const intervals of [2, 4]) {
         const max = niceCeil(v, intervals)
         expect(max, `niceCeil(${v}, ${intervals}) must cover`).toBeGreaterThanOrEqual(v)
@@ -47,13 +47,26 @@ describe('niceCeil', () => {
     }
   })
 
+  // Below the interval count, a step of 1 is already the finest integer
+  // gridline available, so the fill ratio is bounded by arithmetic rather than
+  // by the algorithm. It must still cover the value and stay integral.
+  it('degrades gracefully for values smaller than the interval count', () => {
+    for (const v of [1, 2, 3]) {
+      expect(niceCeil(v, 4)).toBe(4)
+    }
+  })
+
   // Gridline labels are max * [0, .25, .5, .75, 1] (or halves), so the maximum
-  // has to divide evenly or the intermediate labels come out ragged.
-  it('produces round intermediate gridline labels', () => {
-    for (const v of [265, 554, 1050, 15312]) {
+  // has to divide evenly into whole numbers or two labels round to the same
+  // value and their gridlines are drawn on top of each other.
+  it('produces round, distinct intermediate gridline labels', () => {
+    for (const v of [1, 2, 3, 7, 42, 265, 554, 1050, 15312]) {
       for (const intervals of [2, 4]) {
-        const step = niceCeil(v, intervals) / intervals
+        const max = niceCeil(v, intervals)
+        const step = max / intervals
         expect(Number.isInteger(step), `step ${step} for ${v}/${intervals}`).toBe(true)
+        const labels = axisTicks(max, intervals + 1).map((t) => t.val)
+        expect(new Set(labels).size, `duplicate labels ${labels} for ${v}`).toBe(labels.length)
       }
     }
   })
@@ -183,15 +196,15 @@ describe('fmtAxis', () => {
   // Per-axis, not per-value: thresholding each label on its own magnitude gave
   // one axis reading "16k" above "8,000".
   it('abbreviates every label on a compact axis, not just the large ones', () => {
-    const compact = useCompactAxis(true, 16000)
+    const compact = shouldCompactAxis(true, 16000)
     expect([0, 4000, 8000, 12000, 16000].map((v) => fmtAxis(v, compact)))
       .toEqual(['0', '4k', '8k', '12k', '16k'])
   })
 
   it('stays uncompacted on a wide layout or a small axis', () => {
-    expect(useCompactAxis(false, 16000)).toBe(false)
-    expect(useCompactAxis(true, 600)).toBe(false)
-    expect(fmtAxis(600, useCompactAxis(true, 600))).toBe('600')
+    expect(shouldCompactAxis(false, 16000)).toBe(false)
+    expect(shouldCompactAxis(true, 600)).toBe(false)
+    expect(fmtAxis(600, shouldCompactAxis(true, 600))).toBe('600')
   })
 })
 

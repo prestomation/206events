@@ -41,13 +41,21 @@ const NICE_STEPS = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]
 
 export function niceCeil(v, intervals = 4) {
   if (!Number.isFinite(v) || v <= 0) return 10
-  const raw = v / Math.max(1, intervals)
-  const mag = Math.pow(10, Math.floor(Math.log10(raw)))
+  const n = Math.max(1, intervals)
+  const raw = v / n
+  // Floored at 1: every series here is a count, and a sub-unit step yields a
+  // fractional maximum whose gridline labels collide once rounded — niceCeil(3)
+  // was 3.2, so axisTicks produced [0, 1, 2, 2, 3] and drew two gridlines on
+  // top of each other.
+  const mag = Math.max(1, Math.pow(10, Math.floor(Math.log10(raw))))
   for (const m of NICE_STEPS) {
     const step = m * mag
-    if (step * intervals >= v) return step * intervals
+    if (!Number.isInteger(step)) continue
+    if (step * n >= v) return step * n
   }
-  return Math.ceil(v / (10 * mag)) * (10 * mag) * intervals
+  // Reachable only if every NICE_STEP were non-integral; mag >= 1 makes m = 10
+  // integral always, so in practice the loop returns first.
+  return 10 * mag * n
 }
 
 // Max of one field across the series, skipping points that don't carry it.
@@ -111,8 +119,11 @@ export function fmtAxis(v, compact) {
 }
 
 // Whether a panel's labels should be abbreviated: only on a narrow layout, and
-// only when the axis actually reaches the thousands.
-export function useCompactAxis(narrow, max) {
+// only when the axis actually reaches the thousands. Deliberately NOT named
+// use*: it is a pure formatter, and the `use` prefix both trips
+// react-hooks/rules-of-hooks where it is called and invites someone to add real
+// hook state to it later.
+export function shouldCompactAxis(narrow, max) {
   return narrow && max >= 10000
 }
 
@@ -193,6 +204,10 @@ export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
   for (const tick of kept) {
     const [y] = String(history[tick.i].date).split('-')
     tick.label = y === year ? fmtMonth(history[tick.i].date) : `${fmtMonth(history[tick.i].date)} ${y}`
+    // Width follows the final label. Leaving the pre-cull width behind would
+    // make `width` describe a string that is no longer rendered — including for
+    // the overlap property test, which builds its extents from it.
+    tick.width = tick.label.length * charW
     year = y
   }
   return kept
@@ -250,9 +265,17 @@ export function dayNumber(dateStr) {
 // time. Returns a normalized 0..1 position per point.
 export function timePositions(history) {
   const days = history.map((p) => dayNumber(p?.date))
-  const valid = days.filter(Number.isFinite)
-  const first = valid.length ? Math.min(...valid) : 0
-  const last = valid.length ? Math.max(...valid) : 0
+  // One pass rather than Math.min(...days) / Math.max(...days): this series
+  // grows by a point per build day, and spreading it would eventually hit the
+  // engine's argument limit — the same reason maxOf above is a reducer.
+  let first = Infinity
+  let last = -Infinity
+  for (const d of days) {
+    if (!Number.isFinite(d)) continue
+    if (d < first) first = d
+    if (d > last) last = d
+  }
+  if (first === Infinity) { first = 0; last = 0 }
   const span = last - first
   return days.map((d) => {
     if (!Number.isFinite(d) || span <= 0) return 0

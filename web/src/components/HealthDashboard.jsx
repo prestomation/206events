@@ -9,7 +9,7 @@ import {
   segments,
   axisTicks,
   fmtAxis,
-  useCompactAxis,
+  shouldCompactAxis,
   fmtFullDate,
   monthTicks,
   layout,
@@ -97,6 +97,12 @@ export function CoverageChart({ history }) {
   // is 11px on every screen (the old fixed 760-wide viewBox scaled to ~0.4x on
   // a phone, rendering axis labels at ~4px), and hit testing needs no CTM
   // inverse. Same measure pattern as DayScrubber.
+  // `renderable` in the deps, not []: below two points the component renders
+  // nothing, so wrapRef.current is null and this effect bails. With empty deps
+  // it would never retry, and a history that later grew past two points would
+  // be stuck on the 760-wide fallback viewBox forever — no measurement, no
+  // resize response, which is exactly what the 1:1 rendering exists to fix.
+  const renderable = history.length >= 2
   useLayoutEffect(() => {
     const el = wrapRef.current
     if (!el) return
@@ -110,7 +116,7 @@ export function CoverageChart({ history }) {
     }
     window.addEventListener('resize', measure)
     return () => { ro?.disconnect(); window.removeEventListener('resize', measure) }
-  }, [])
+  }, [renderable])
 
   useEffect(() => () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }, [])
 
@@ -130,7 +136,11 @@ export function CoverageChart({ history }) {
   // phone's URL bar collapsing) would pair a fresh rect with a stale viewBox
   // and land on an index off by the width ratio.
   const liveRef = useRef({ geom, positions })
-  liveRef.current = { geom, positions }
+  // Assigned in an effect, never during render: React may execute a render and
+  // discard it (StrictMode, a Suspense retry — this component is lazy-loaded —
+  // or an interrupted concurrent render), which would leave the ref describing
+  // geometry the DOM never had.
+  useEffect(() => { liveRef.current = { geom, positions } }, [geom, positions])
 
   const select = (clientX) => {
     const rect = svgRef.current?.getBoundingClientRect()
@@ -151,13 +161,17 @@ export function CoverageChart({ history }) {
   }
 
   const onPointerDown = (e) => {
+    setKeyboardDriven(false)
     e.currentTarget.setPointerCapture?.(e.pointerId)
     draggingRef.current = true
     select(e.clientX)
   }
   const onPointerMove = (e) => {
     // Hover-scrub with a mouse, drag-scrub with a finger.
-    if (draggingRef.current || e.pointerType === 'mouse') queueSelect(e.clientX)
+    if (draggingRef.current || e.pointerType === 'mouse') {
+      setKeyboardDriven(false)
+      queueSelect(e.clientX)
+    }
   }
   const cancelQueued = () => {
     if (rafRef.current) {
@@ -185,6 +199,12 @@ export function CoverageChart({ history }) {
     cancelQueued()
     setSel(null)
   }
+  // A pointer sweep changes the index once per data point. With an
+  // unconditional live region that is one announcement per point — 137 of them
+  // for a single drag — so the region is only live while the selection is being
+  // driven from the keyboard, where there is nothing to see on screen.
+  const [keyboardDriven, setKeyboardDriven] = useState(false)
+
   const onKeyDown = (e) => {
     const at = sel ?? n - 1
     let next = null
@@ -199,6 +219,7 @@ export function CoverageChart({ history }) {
     else if (e.key === 'PageDown') next = at + 7
     if (next === null) return
     e.preventDefault()
+    setKeyboardDriven(true)
     setSel(Math.min(n - 1, Math.max(0, next)))
   }
 
@@ -232,9 +253,9 @@ export function CoverageChart({ history }) {
   // Covers readout-only metrics as well: `queue` only exists from the build
   // where every gap queue it sums became measurable, and an unexplained blank
   // reads as a zero just as readily in the readout as on a panel.
-  const lateStarts = [...SERIES, ...READOUT_ONLY]
+  const lateStarts = useMemo(() => [...SERIES, ...READOUT_ONLY]
     .map((m) => ({ ...m, startsAt: firstDefinedIndex(history, m.key) }))
-    .filter((m) => m.startsAt > 0)
+    .filter((m) => m.startsAt > 0), [history])
 
   // Every series keeps a readout row even without a panel, so the row set does
   // not shift as data arrives; the value just reads as not-recorded.
@@ -270,6 +291,56 @@ export function CoverageChart({ history }) {
   </table>
   ), [history, readoutRows])
 
+  // Memoized: none of the plot body depends on the selection, but it is ~390
+  // coordinate pairs of string building plus 30 axis elements across three
+  // panels — rebuilding and diffing all of it at pointer-move rate is what
+  // makes a scrub feel heavy on a phone. Only the crosshair and the readout
+  // below actually change per frame.
+  const panelBody = useMemo(() => (
+    <>
+            {panels.map((panel) => {
+              const gridTicks = axisTicks(panel.max, gridSteps)
+              const compact = shouldCompactAxis(narrow, panel.max)
+              return (
+                <g key={panel.key} data-panel={panel.key}>
+                  <text x={ML} y={panel.top - 6} fontSize="12" fill="var(--ink-2)">{panel.label}</text>
+                  {gridTicks.map((g, i) => (
+                    <g key={i}>
+                      <line
+                        x1={ML} x2={ML + PW}
+                        y1={panel.yOf(g.val)} y2={panel.yOf(g.val)}
+                        stroke="var(--line)" strokeWidth="1"
+                      />
+                      <text
+                        x={ML - 6} y={panel.yOf(g.val)}
+                        textAnchor="end" dominantBaseline="middle"
+                        fontSize="11" fill="var(--ink-3)"
+                      >{fmtAxis(g.val, compact)}</text>
+                    </g>
+                  ))}
+                  {/* One polyline per run of consecutive defined points, so a gap
+                      reads as a break rather than a line dropping to zero. */}
+                  {panel.runs.map((run, i) => (
+                    run.length === 1
+                      ? <circle key={i} cx={xOf(run[0].i)} cy={panel.yOf(run[0].v)} r="2.5" fill={panel.color} />
+                      : <polyline
+                          key={i}
+                          points={run.map((s) => `${xOf(s.i)},${panel.yOf(s.v)}`).join(' ')}
+                          fill="none" stroke={panel.color} strokeWidth="2"
+                          strokeLinejoin="round" strokeLinecap="round"
+                          strokeDasharray={panel.dash}
+                        />
+                  ))}
+                  {/* Runs of length 1 already drew their own circle above. */}
+                  {showDots && panel.runs.filter((r) => r.length > 1).flat().map((s) => (
+                    <circle key={s.i} cx={xOf(s.i)} cy={panel.yOf(s.v)} r="2.5" fill={panel.color} />
+                  ))}
+                </g>
+              )
+            })}
+    </>
+  ), [panels, gridSteps, narrow, xOf, showDots, ML, PW])
+
   // Below every hook: an early return above one changes the hook count between
   // renders of the same instance, which React rejects outright.
   if (n < 2) return null
@@ -296,45 +367,7 @@ export function CoverageChart({ history }) {
         {/* The chart is decoration: every number it shows is also text, in the
             readout below and the table at the end. */}
         <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false">
-          {panels.map((panel) => {
-            const gridTicks = axisTicks(panel.max, gridSteps)
-            return (
-              <g key={panel.key} data-panel={panel.key}>
-                <text x={ML} y={panel.top - 6} fontSize="12" fill="var(--ink-2)">{panel.label}</text>
-                {gridTicks.map((g, i) => (
-                  <g key={i}>
-                    <line
-                      x1={ML} x2={ML + PW}
-                      y1={panel.yOf(g.val)} y2={panel.yOf(g.val)}
-                      stroke="var(--line)" strokeWidth="1"
-                    />
-                    <text
-                      x={ML - 6} y={panel.yOf(g.val)}
-                      textAnchor="end" dominantBaseline="middle"
-                      fontSize="11" fill="var(--ink-3)"
-                    >{fmtAxis(g.val, useCompactAxis(narrow, panel.max))}</text>
-                  </g>
-                ))}
-                {/* One polyline per run of consecutive defined points, so a gap
-                    reads as a break rather than a line dropping to zero. */}
-                {panel.runs.map((run, i) => (
-                  run.length === 1
-                    ? <circle key={i} cx={xOf(run[0].i)} cy={panel.yOf(run[0].v)} r="2.5" fill={panel.color} />
-                    : <polyline
-                        key={i}
-                        points={run.map((s) => `${xOf(s.i)},${panel.yOf(s.v)}`).join(' ')}
-                        fill="none" stroke={panel.color} strokeWidth="2"
-                        strokeLinejoin="round" strokeLinecap="round"
-                        strokeDasharray={panel.dash}
-                      />
-                ))}
-                {/* Runs of length 1 already drew their own circle above. */}
-                {showDots && panel.runs.filter((r) => r.length > 1).flat().map((s) => (
-                  <circle key={s.i} cx={xOf(s.i)} cy={panel.yOf(s.v)} r="2.5" fill={panel.color} />
-                ))}
-              </g>
-            )
-          })}
+          {panelBody}
 
           {sel !== null && (
             <g className="health-chart-crosshair" pointerEvents="none">
@@ -383,7 +416,12 @@ export function CoverageChart({ history }) {
         </svg>
       </div>
 
-      <div className="health-chart-readout" id={readoutId} role="status" aria-live="polite">
+      <div
+        className="health-chart-readout"
+        id={readoutId}
+        role="status"
+        aria-live={keyboardDriven ? 'polite' : 'off'}
+      >
         <div className="health-chart-readout-date">{fmtFullDate(point.date)}</div>
         <dl className="health-chart-readout-grid">
           {readoutRows.map((row) => {
