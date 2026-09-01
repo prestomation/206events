@@ -1,12 +1,12 @@
 ---
 name: Tabletop Village Tournaments
 status: added
-platform: Shopify
+platform: ICS (Google Calendar)
 url: https://tabletopvillage.com/collections/tournament
 tags: [Gaming]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-01
-pr: TBD
+pr: 1327
 ---
 
 Seattle tabletop gaming organization / game store (616 8th Ave S, Seattle, WA 98104,
@@ -20,13 +20,21 @@ implementing). Verified recurring tournaments: "Pokemon TCG: Weekly Tournament"
 (Pokemon/Magic-style) rather than traditional board games despite the "Tabletop Village"
 name. Low-moderate volume but real and Seattle-based (SODO/Pioneer Square area).
 
-**Implemented 2026-09-01:** the Shopify collection's product `body_html` for each
-tournament spelled out a fixed weekly day/time pattern (no bounded course dates), so
-this fit the `sources/recurring/` model better than a custom Shopify ripper — no code
-needed. Added three entries: `tabletop-village-pokemon-tcg` (every Wed & Fri, 6pm,
-$15 door/$10 member), `tabletop-village-grand-archive-tcg` (every Sun, 1-4:30pm, free),
-and `tabletop-village-beyblade` (every Sun, 1-5pm, free — found on the same collection
-page, not previously noted). Geocoded via Nominatim: 47.5970231/-122.3221329 (616 8th
-Ave S, Seattle, WA 98104, International District). The "Magic TCG: Regional
-Championship Qualifiers" product was skipped — it's a dated seasonal series, not a
-stable weekly pattern.
+**Implemented 2026-09-01:** first attempt used three `sources/recurring/` entries
+derived from the Shopify tournament collection's product `body_html` text (Pokemon
+TCG Wed/Fri, Grand Archive TCG Sun, Beyblade Sun). Automated PR review (Amazon Q)
+flagged that Grand Archive and Beyblade both landed on "every Sunday 13:00" at the
+same venue — a real scheduling-conflict smell that turned out to be a symptom of
+using static blurb text instead of ground truth. While investigating, found the
+store's own site embeds a **public Google Calendar** (`calendar.google.com/calendar/
+embed?src=c_lk5nf8ne5ih2qtirija6h8vbqg%40group.calendar.google.com`) with a working
+public ICS export (`.../ical/c_lk5nf8ne5ih2qtirija6h8vbqg%40group.calendar.google.com/
+public/basic.ics`) — 917 events total, 59 upcoming at check time, real dated
+occurrences (not guessed weekly rules) going back to 2023. Per the "ICS feed is the
+best case" priority order, replaced the three recurring entries with a single
+`sources/external/tabletop-village.yaml` pointing at this feed — resolves the
+scheduling-conflict concern outright (no more guessed recurring rules) and picks up
+every event type on the calendar (weekly tournaments, release events, championship
+qualifiers), not just the three tournaments visible on the product-collection page.
+Geocoded via Nominatim: 47.5970231/-122.3221329 (616 8th Ave S, Seattle, WA 98104,
+International District).
