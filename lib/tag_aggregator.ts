@@ -107,6 +107,21 @@ export function parseExternalCalendarEvents(icsData: string, opts?: { windowMont
   }
 
   const comp = new ICAL.Component(jcalData);
+
+  // Register every embedded VTIMEZONE with ICAL.TimezoneService so DTSTART/DTEND
+  // values carrying a TZID (e.g. "America/Denver") resolve to the correct UTC
+  // instant. Without this, ICAL.Time#toJSDate() can't look up an unregistered
+  // TZID and silently treats the wall-clock value as if it were UTC — producing
+  // an event that's off by the feed's own UTC offset (observed: seattle-indies
+  // VEVENTs mislabeled TZID=America/Denver showed hours early).
+  for (const vtimezone of comp.getAllSubcomponents('vtimezone')) {
+    try {
+      ICAL.TimezoneService.register(vtimezone);
+    } catch (error) {
+      console.error('Error registering VTIMEZONE:', error);
+    }
+  }
+
   const vevents = comp.getAllSubcomponents('vevent');
 
   // Google Calendar (and other producers) represent a modified occurrence of
