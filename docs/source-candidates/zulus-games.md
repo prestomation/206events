@@ -6,7 +6,7 @@ url: https://zulusgames.com/pages/calendar
 tags: [Gaming, Bothell]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-01
-pr:
+pr: 1334
 ---
 
 Bothell board game store hosting Magic: The Gathering drafts/FNM/prereleases,
