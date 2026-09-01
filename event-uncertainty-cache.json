@@ -66464,6 +66464,122 @@
       "resolvedAt": "2026-08-31",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/way/231288129 (building=yes); Editions is a gallery/print studio — letterpress printing is an indoor activity"
+    },
+    "seatoday:cityspark-17845634": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returned no LargeImg/MediumImg/SmallImg for this event"
+    },
+    "seatoday:cityspark-19523267": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-19650403": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-19472063": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-19342385": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-19671017": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-19718632": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-19671009": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-18995747": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-19580334": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seatoday:cityspark-19676558": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "CitySpark API returns Free=false, Price=null, IsTicketed=false for this listing (queried API directly with ppid=9228/lat=47.6062095/lng=-122.3320708/distance=20) — no price published by source"
+    },
+    "seattle-center:sea-mar-fiestas-patrias-2026-x50381": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/sea-mar-fiestas-patrias-2026-x50381"
+    },
+    "seattle-center:sea-mar-fiestas-patrias-2026-x50382": {
+      "fields": {
+        "duration": 25200
+      },
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/sea-mar-fiestas-patrias-2026-x50382"
+    },
+    "seattle-center:northwest-tea-festival-x43877": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/northwest-tea-festival-x43877"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "reason": "Event already occurred (Aug 1 2026); page is now a post-event recap with no clock times published anywhere (checked body/FAQ/footer)"
+    },
+    "seattle-makers:seattle-makers-160408": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/hardware-hacking-meetup-58/"
+    },
+    "seattle-makers:seattle-makers-162427": {
+      "fields": {
+        "cost": {
+          "min": 140.0
+        }
+      },
+      "resolvedAt": "2026-09-01",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/clay-tools-diy/"
     }
   }
 }
