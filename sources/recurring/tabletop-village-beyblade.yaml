@@ -1,0 +1,18 @@
+geo:
+  lat: 47.5970231
+  lng: -122.3221329
+  label: "Tabletop Village, 616 8th Ave S, Seattle, WA 98104"
+name: tabletop-village-beyblade
+sourceRole: venue
+friendlyname: "Beyblade Locals at Tabletop Village"
+description: Weekly Beyblade tournament and casual play at Tabletop Village, open to all skill levels.
+timezone: America/Los_Angeles
+location: 616 8th Ave S, Seattle, WA 98104
+url: https://tabletopvillage.com/products/beyblade-tournament
+tags:
+  - Gaming
+  - International District
+schedules:
+  - schedule: every Sunday
+    start_time: "13:00"
+    duration: PT4H
