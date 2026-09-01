@@ -217,28 +217,60 @@ jobs:
         path: fetch-cache.json
         key: fetch-cache-v1-${{ github.run_id }}
 
+    # The coverage series behind the health dashboard's chart. It has been lost
+    # once already: it lived only in this cache, the cache was evicted, the
+    # restore fell through to the stale committed copy, and 67 days vanished
+    # silently. So the build now merges three independent sources and the
+    # committed file is never overwritten on disk by a cache hit.
     - name: Restore event history
       uses: actions/cache/restore@v4
       with:
-        path: docs/event-history.json
-        key: event-history-v1-${{ github.run_id }}
+        # Sidecar path, not docs/event-history.json — a cache hit must not
+        # clobber the committed baseline before the merge can read it. Cache
+        # entries are tied to the path they were saved under, hence the v2 key.
+        path: cached-event-history.json
+        key: event-history-v2-${{ github.run_id }}
         restore-keys: |
-          event-history-v1-
+          event-history-v2-
+
+    # The deployed site is the one source always as fresh as the last build, so
+    # it is what makes a cache eviction survivable. Failure is fine: no file
+    # means the merge just skips this layer.
+    - name: Fetch published event history
+      if: github.event_name != 'pull_request'
+      continue-on-error: true
+      env:
+        SITE_URL: ${{ vars.SITE_URL || 'https://206.events' }}
+      run: |
+        curl -fsSL --max-time 30 "$SITE_URL/event-history.json" \
+          -o published-event-history.json || rm -f published-event-history.json
 
     - name: Update event history
       if: github.event_name != 'pull_request'
-      run: node scripts/update-event-history.mjs
+      # Merge order is increasing authority: committed file, then cache, then
+      # the published copy, then this build's own numbers.
+      run: |
+        node scripts/update-event-history.mjs \
+          --merge cached-event-history.json \
+          --merge published-event-history.json \
+          --cache-out cached-event-history.json
 
+    # PR builds render the chart from the committed baseline. Deliberately no
+    # network call here: previews get a slightly stale chart rather than every
+    # PR build paying for a fetch it does not need.
     - name: Copy event history to output (PR builds)
       if: github.event_name == 'pull_request'
       run: cp docs/event-history.json output/event-history.json
 
+    # hashFiles guard: on a cold cache the update step is what first creates the
+    # sidecar, so if that step failed there is nothing to save and cache/save
+    # would error on the missing path.
     - name: Save event history
-      if: always() && github.event_name != 'pull_request'
+      if: always() && github.event_name != 'pull_request' && hashFiles('cached-event-history.json') != ''
       uses: actions/cache/save@v4
       with:
-        path: docs/event-history.json
-        key: event-history-v1-${{ github.run_id }}
+        path: cached-event-history.json
+        key: event-history-v2-${{ github.run_id }}
 
     - name: Validate discovery API
       run: npm run check-discovery-api

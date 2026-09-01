@@ -201,6 +201,10 @@ async function main() {
     "event-descriptions.json",
     "build-errors.json",
     "geo-cache.json",
+    // The health dashboard's coverage series. Listed here because it has gone
+    // missing silently once before; both build paths produce it (the main
+    // build writes it, PR builds copy the committed baseline).
+    "event-history.json",
     "sitemap.xml",
   ];
   const missingDataFiles: string[] = [];
