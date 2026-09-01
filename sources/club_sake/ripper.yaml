@@ -1,0 +1,11 @@
+name: club-sake
+sourceRole: venue
+description: "Seattle SAKE Paddling Club"
+url: "https://www.clubsake.com/events/list"
+friendlyLink: "https://www.clubsake.com/events/list"
+tags: ["Sports", "Outdoors"]
+geo: null
+calendars:
+  - name: club-sake
+    friendlyname: "Seattle SAKE Paddling Club"
+    timezone: America/Los_Angeles
