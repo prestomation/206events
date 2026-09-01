@@ -1639,10 +1639,12 @@ export interface ResolveEventCoordsResult {
  * calendar declares a single fixed venue (`geo` non-null, `sourceRole:
  * venue`) and the event has no location text of its own, default to that
  * declared venue instead of calling into `resolveEventCoords` with an empty
- * string (which just returns `geocodeSource: 'none'`). Mirrors the
- * "declared venue coords are the default, an explicit per-event location
- * wins when present" precedence `attachEventCoords` applies to
- * ripper/recurring calendars.
+ * string (which just returns `geocodeSource: 'none'`). In spirit this
+ * mirrors the "declared venue coords are the default, an explicit
+ * per-event value wins when present" precedence `attachEventCoords`
+ * applies to ripper/recurring calendars — though the signal differs: ICS
+ * has no separate per-event coordinate field, so this keys off whether the
+ * feed's LOCATION *text* is present, not off already-resolved lat/lng.
  *
  * Falls through to the normal `resolveEventCoords` geocoding path whenever
  * the event does carry location text (it may describe an off-site event) or
