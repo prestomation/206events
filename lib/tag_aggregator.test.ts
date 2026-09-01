@@ -487,6 +487,85 @@ END:VCALENDAR`;
       expect(events[0].lng).toBeCloseTo(-122.3197);
     });
 
+    it('resolves DTSTART against an embedded VTIMEZONE instead of treating it as UTC', () => {
+      // Reproduces the seattle-indies "Seattle Indies Expo (SIX)" bug: a feed
+      // whose VEVENT carries DTSTART;TZID=America/Denver (or any non-UTC TZID)
+      // must be interpreted using that VTIMEZONE's offset, not silently read as
+      // if the wall-clock value were already UTC.
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const y = tomorrow.getUTCFullYear();
+      const m = String(tomorrow.getUTCMonth() + 1).padStart(2, '0');
+      const d = String(tomorrow.getUTCDate()).padStart(2, '0');
+      const wallClock = `${y}${m}${d}T113000`; // 11:30 local, in the fixed -05:00 zone below
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Test/FixedMinus5
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+TZNAME:TST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:tz-event-1
+SUMMARY:Timezone Test Event
+DTSTART;TZID=Test/FixedMinus5:${wallClock}
+DTEND;TZID=Test/FixedMinus5:${y}${m}${d}T140000
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events).toHaveLength(1);
+      // 11:30 in a fixed UTC-05:00 zone is 16:30Z — not 11:30Z, which is what
+      // an unregistered/misresolved TZID would silently produce.
+      const expectedUtc = new Date(Date.UTC(y, tomorrow.getUTCMonth(), tomorrow.getUTCDate(), 16, 30, 0));
+      expect(events[0].date.toInstant().toEpochMilli()).toBe(expectedUtc.getTime());
+    });
+
+    it('resolves RRULE-expanded recurring instances against an embedded VTIMEZONE (not as UTC)', () => {
+      // The RRULE-expansion branch converts each occurrence via a separate
+      // next.toJSDate() call — this pins that ICAL.TimezoneService registration
+      // fixes that code path too, not just the single-event branch above.
+      const pastStart = new Date();
+      pastStart.setMonth(pastStart.getMonth() - 6);
+      const y = pastStart.getUTCFullYear();
+      const m = String(pastStart.getUTCMonth() + 1).padStart(2, '0');
+      const d = String(pastStart.getUTCDate()).padStart(2, '0');
+      const dtStart = `${y}${m}${d}T090000`; // 09:00 local, in the fixed -05:00 zone below
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VTIMEZONE
+TZID:Test/FixedMinus5-Recurring
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0500
+TZNAME:TST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:tz-recurring-1
+SUMMARY:Weekly TZ Test
+DTSTART;TZID=Test/FixedMinus5-Recurring:${dtStart}
+RRULE:FREQ=WEEKLY
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events.length).toBeGreaterThan(0);
+      // 09:00 in a fixed UTC-05:00 zone is 14:00Z for every occurrence — not
+      // 09:00Z, which is what an unregistered/misresolved TZID would produce.
+      for (const event of events) {
+        expect(event.date.hour()).toBe(14);
+        expect(event.date.minute()).toBe(0);
+      }
+    });
+
     it('respects the windowMonths option', () => {
       // Event 5 months from now — outside default 3-month window
       const fiveMonths = new Date();
