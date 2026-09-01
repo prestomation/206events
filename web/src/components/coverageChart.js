@@ -113,7 +113,12 @@ export function fmtFullDate(dateStr) {
 
 // One x tick per month boundary, then cull ticks that would collide. The first
 // tick is always kept so the series start is labelled.
-export function monthTicks(history, xOf, minGap) {
+// Approximate advance width of the 11px axis font, in px per character. Only
+// needs to be good enough to keep labels apart; SVG text measurement would mean
+// a layout round-trip per tick.
+const AXIS_CHAR_W = 6.2
+
+export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
   const kept = []
   let lastMonth = null
   let lastYear = null
@@ -122,16 +127,27 @@ export function monthTicks(history, xOf, minGap) {
     if (`${year}-${month}` === lastMonth) return
     lastMonth = `${year}-${month}`
     const x = xOf(i)
-    // Always keep the first tick; drop any that would collide with the last
-    // one kept (not the last one seen).
-    if (kept.length > 0 && x - kept[kept.length - 1].x < minGap) return
     // Label the year only when it changes, so a multi-year series stays
-    // readable without repeating "2026" on every tick. Tracked across *kept*
-    // ticks only — otherwise a dropped January swallows the year change and it
-    // never gets shown at all.
+    // readable without repeating "2026" on every tick. Computed before the
+    // cull because a year-bearing label ("Apr 2026") is much wider than a bare
+    // one and needs more room beside it.
     const label = year === lastYear ? fmtMonth(p.date) : `${fmtMonth(p.date)} ${year}`
+    const width = label.length * charW
+
+    if (kept.length > 0) {
+      const prev = kept[kept.length - 1]
+      // The first tick renders left-anchored (so it stays inside the box), the
+      // rest centered — so the previous label extends its full width to the
+      // right only when it is the first one.
+      const prevRight = kept.length === 1 ? prev.width : prev.width / 2
+      const need = Math.max(minGap, prevRight + width / 2 + 6)
+      if (x - prev.x < need) return
+    }
+
+    // Tracked across *kept* ticks only: otherwise a dropped January swallows
+    // the year change and the year never gets shown at all.
     lastYear = year
-    kept.push({ i, label, x })
+    kept.push({ i, label, x, width })
   })
   return kept
 }

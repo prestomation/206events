@@ -1,4 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import {
+  SERIES,
+  READOUT_ONLY,
+  niceCeil,
+  maxOf,
+  hasSeries,
+  firstDefinedIndex,
+  segments,
+  axisTicks,
+  fmtAxis,
+  fmtFullDate,
+  monthTicks,
+  layout,
+  xScale,
+  indexFromClientX,
+  deltaAt,
+} from './coverageChart.js'
 
 // Human-readable label + tone for each source status.
 const STATUS_META = {
@@ -50,113 +67,318 @@ function ErrorItem({ type, reason, path, href }) {
   )
 }
 
-// Dual-axis line chart: events (left, blue) and calendars (right, orange).
-// Pure SVG — no dependencies.
+// Coverage over time as small multiples: one panel per series, stacked on a
+// shared x-axis, with a single crosshair and one readout for the selected date.
+//
+// Small multiples rather than the dual-axis plot this replaces. Events (~15k),
+// calendars (~700) and candidates (~265) are three different scales, and
+// aligning two of them against one another on a shared frame invents a
+// correlation that is not in the data. Each panel now carries its own honest
+// scale, and three short wide panels read far better on a phone than three
+// lines crossing in one box.
+//
+// Pure SVG — no charting dependency. Geometry and formatting live in
+// coverageChart.js so they can be tested without React.
 function CoverageChart({ history }) {
-  const W = 760, H = 260
-  const ML = 58, MR = 58, MT = 28
-  const PW = W - ML - MR, PH = H - MT - 46
+  const wrapRef = useRef(null)
+  const svgRef = useRef(null)
+  const [width, setWidth] = useState(null)
+  // null = nothing picked; the readout falls back to the latest point so the
+  // card always shows current numbers and has a constant height.
+  const [sel, setSel] = useState(null)
+  const draggingRef = useRef(false)
+  const rafRef = useRef(0)
+  const pendingRef = useRef(0)
+  const readoutId = useId()
 
-  if (history.length < 2) return null
+  // Render at 1:1 CSS pixels: the viewBox is the measured width, so 11px text
+  // is 11px on every screen (the old fixed 760-wide viewBox scaled to ~0.4x on
+  // a phone, rendering axis labels at ~4px), and hit testing needs no CTM
+  // inverse. Same measure pattern as DayScrubber.
+  useLayoutEffect(() => {
+    const el = wrapRef.current
+    if (!el) return
+    // jsdom reports 0; without the fallback every unit test renders an empty chart.
+    const measure = () => setWidth(el.clientWidth || 760)
+    measure()
+    let ro
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(measure)
+      ro.observe(el)
+    }
+    window.addEventListener('resize', measure)
+    return () => { ro?.disconnect(); window.removeEventListener('resize', measure) }
+  }, [])
 
-  const events = history.map(p => p.events)
-  const calendars = history.map(p => p.calendars)
+  useEffect(() => () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }, [])
 
-  const eMax = niceCeil(Math.max(...events))
-  const cMax = niceCeil(Math.max(...calendars))
+  const n = history.length
+  const geom = layout(width ?? 760)
+  const { W, H, ML, PW, narrow, panelH, titleH, gridSteps, minTickGap } = geom
+  const xOf = (i) => xScale(i, n, ML, PW)
 
-  const xOf = i => ML + (i / (history.length - 1)) * PW
-  const yOfE = v => MT + PH - (v / eMax) * PH
-  const yOfC = v => MT + PH - (v / cMax) * PH
+  const select = (clientX) => {
+    const rect = svgRef.current?.getBoundingClientRect()
+    const i = indexFromClientX(clientX, rect, geom, n)
+    // Only re-render when the index actually changes: otherwise every pointer
+    // move is a React render and an aria-live announcement.
+    setSel((prev) => (prev === i ? prev : i))
+  }
 
-  const ePoints = history.map((p, i) => `${xOf(i)},${yOfE(p.events)}`).join(' ')
-  const cPoints = history.map((p, i) => `${xOf(i)},${yOfC(p.calendars)}`).join(' ')
+  const queueSelect = (clientX) => {
+    pendingRef.current = clientX
+    if (rafRef.current) return
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0
+      select(pendingRef.current)
+    })
+  }
 
-  // X-axis ticks: one per month boundary
-  const xTicks = []
-  let lastMonth = null
-  history.forEach((p, i) => {
-    const m = p.date.slice(0, 7)
-    if (m !== lastMonth) { xTicks.push({ i, label: fmtMonth(p.date) }); lastMonth = m }
+  const onPointerDown = (e) => {
+    e.currentTarget.setPointerCapture?.(e.pointerId)
+    draggingRef.current = true
+    select(e.clientX)
+  }
+  const onPointerMove = (e) => {
+    // Hover-scrub with a mouse, drag-scrub with a finger.
+    if (draggingRef.current || e.pointerType === 'mouse') queueSelect(e.clientX)
+  }
+  const onPointerUp = (e) => {
+    e.currentTarget.releasePointerCapture?.(e.pointerId)
+    // Keep the selection after release — a tap must leave its numbers on screen.
+    draggingRef.current = false
+  }
+  const onPointerLeave = (e) => {
+    // A touch tap synthesizes enter with no matching leave, so clearing on any
+    // pointer type would wipe the readout the moment a finger lifts.
+    if (e.pointerType === 'mouse' && !draggingRef.current) setSel(null)
+  }
+  const onKeyDown = (e) => {
+    const at = sel ?? n - 1
+    let next = null
+    if (e.key === 'ArrowLeft') next = at - 1
+    else if (e.key === 'ArrowRight') next = at + 1
+    else if (e.key === 'Home') next = 0
+    else if (e.key === 'End') next = n - 1
+    else if (e.key === 'PageUp') next = at - 7
+    else if (e.key === 'PageDown') next = at + 7
+    if (next === null) return
+    e.preventDefault()
+    setSel(Math.min(n - 1, Math.max(0, next)))
+  }
+
+  if (n < 2) return null
+
+  const panels = SERIES.map((s, k) => {
+    const max = niceCeil(maxOf(history, s.key))
+    const top = geom.panelTop(k)
+    return {
+      ...s,
+      top,
+      max,
+      present: hasSeries(history, s.key),
+      startsAt: firstDefinedIndex(history, s.key),
+      yOf: (v) => top + panelH - (v / max) * panelH,
+      runs: segments(history, s.key),
+    }
   })
 
-  // Y gridlines (5 steps)
-  const eGrids = [0, 0.25, 0.5, 0.75, 1].map(t => ({ y: MT + PH - t * PH, val: Math.round(t * eMax) }))
-  const cGrids = [0, 0.25, 0.5, 0.75, 1].map(t => ({ val: Math.round(t * cMax) }))
+  const ticks = monthTicks(history, xOf, minTickGap)
+  const axisY = geom.panelTop(SERIES.length - 1) + panelH
+  // Degrade smoothly instead of the old `length <= 90` cliff, which the
+  // backfill would have crossed — making every dot vanish at once.
+  const showDots = PW / n >= 6
+  const active = sel ?? n - 1
+  const point = history[active]
+  const selX = xOf(active)
 
-  const dots = history.length <= 90
+  // Only flagged when a plotted series starts late, so nobody reads its
+  // absence as "the backlog was zero back then".
+  const lateStart = panels.find((p) => p.present && p.startsAt > 0)
+
+  const readoutRows = [
+    ...panels.map((p) => ({ key: p.key, label: p.label, color: p.color, dash: p.dash })),
+    ...READOUT_ONLY.map((m) => ({ key: m.key, label: m.label, color: null })),
+  ]
 
   return (
     <div className="health-coverage-chart">
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Event and calendar coverage over time">
-        {/* gridlines */}
-        {eGrids.map((g, i) => (
-          <line key={i} x1={ML} x2={ML + PW} y1={g.y} y2={g.y} stroke="var(--line)" strokeWidth="1" />
-        ))}
+      <div
+        className="health-chart-plot"
+        ref={wrapRef}
+        tabIndex={0}
+        role="slider"
+        aria-orientation="horizontal"
+        aria-label="Coverage history date"
+        aria-valuemin={0}
+        aria-valuemax={n - 1}
+        aria-valuenow={active}
+        // Date only: the live-region readout announces the numbers, and saying
+        // them here too would double-announce.
+        aria-valuetext={fmtFullDate(point.date)}
+        aria-describedby={readoutId}
+        onKeyDown={onKeyDown}
+        style={{ minHeight: H }}
+      >
+        {/* The chart is decoration: every number it shows is also text, in the
+            readout below and the table at the end. */}
+        <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false">
+          {panels.map((panel) => {
+            const gridTicks = axisTicks(panel.max, gridSteps)
+            return (
+              <g key={panel.key} data-panel={panel.key}>
+                <text x={ML} y={panel.top - 6} fontSize="12" fill="var(--ink-2)">{panel.label}</text>
+                {gridTicks.map((g, i) => (
+                  <g key={i}>
+                    <line
+                      x1={ML} x2={ML + PW}
+                      y1={panel.yOf(g.val)} y2={panel.yOf(g.val)}
+                      stroke="var(--line)" strokeWidth="1"
+                    />
+                    <text
+                      x={ML - 6} y={panel.yOf(g.val)}
+                      textAnchor="end" dominantBaseline="middle"
+                      fontSize="11" fill="var(--ink-3)"
+                    >{fmtAxis(g.val, narrow)}</text>
+                  </g>
+                ))}
+                {/* One polyline per run of consecutive defined points, so a gap
+                    reads as a break rather than a line dropping to zero. */}
+                {panel.runs.map((run, i) => (
+                  run.length === 1
+                    ? <circle key={i} cx={xOf(run[0].i)} cy={panel.yOf(run[0].v)} r="2.5" fill={panel.color} />
+                    : <polyline
+                        key={i}
+                        points={run.map((s) => `${xOf(s.i)},${panel.yOf(s.v)}`).join(' ')}
+                        fill="none" stroke={panel.color} strokeWidth="2"
+                        strokeLinejoin="round" strokeLinecap="round"
+                        strokeDasharray={panel.dash}
+                      />
+                ))}
+                {showDots && panel.runs.flatMap((run) => run).map((s) => (
+                  <circle key={s.i} cx={xOf(s.i)} cy={panel.yOf(s.v)} r="2.5" fill={panel.color} />
+                ))}
+              </g>
+            )
+          })}
 
-        {/* event series (blue) */}
-        <polyline points={ePoints} fill="none" stroke="#2563eb" strokeWidth="2" strokeLinejoin="round" />
-        {dots && history.map((p, i) => (
-          <circle key={i} cx={xOf(i)} cy={yOfE(p.events)} r="3" fill="#2563eb" />
-        ))}
+          {sel !== null && (
+            <g className="health-chart-crosshair" pointerEvents="none">
+              <line
+                x1={selX} x2={selX} y1={geom.MT} y2={axisY}
+                stroke="var(--ink-4)" strokeWidth="1" strokeDasharray="3 3"
+              />
+              {panels.map((panel) => (
+                Number.isFinite(point?.[panel.key]) && (
+                  <circle
+                    key={panel.key}
+                    cx={selX} cy={panel.yOf(point[panel.key])} r="5"
+                    fill={panel.color} stroke="var(--surface-2)" strokeWidth="2"
+                  />
+                )
+              ))}
+            </g>
+          )}
 
-        {/* calendar series (orange) */}
-        <polyline points={cPoints} fill="none" stroke="#ea580c" strokeWidth="2" strokeLinejoin="round" />
-        {dots && history.map((p, i) => (
-          <circle key={i} cx={xOf(i)} cy={yOfC(p.calendars)} r="3" fill="#ea580c" />
-        ))}
+          <line x1={ML} x2={ML + PW} y1={axisY} y2={axisY} stroke="var(--line)" strokeWidth="1" />
+          {ticks.map((t, i) => (
+            <g key={i}>
+              <line x1={t.x} x2={t.x} y1={axisY} y2={axisY + 4} stroke="var(--line)" strokeWidth="1" />
+              <text
+                x={t.x} y={axisY + 16}
+                // Keep the first and last labels inside the box instead of
+                // padding the plot with a wide margin for them.
+                textAnchor={i === 0 ? 'start' : i === ticks.length - 1 ? 'end' : 'middle'}
+                fontSize="11" fill="var(--ink-3)"
+              >{t.label}</text>
+            </g>
+          ))}
 
-        {/* left y-axis labels (events) */}
-        {eGrids.map((g, i) => (
-          <text key={i} x={ML - 6} y={g.y} textAnchor="end" dominantBaseline="middle"
-            fontSize="11" fill="var(--ink-3)">{g.val.toLocaleString()}</text>
-        ))}
+          {/* Full-SVG hit target: nearest-point is one rounding operation, so
+              there is no reason for per-point targets, and a tap below the axis
+              still selects. */}
+          <rect
+            className="health-chart-hit"
+            x="0" y="0" width={W} height={H} fill="transparent"
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={onPointerUp}
+            onPointerCancel={onPointerUp}
+            onPointerLeave={onPointerLeave}
+          />
+        </svg>
+      </div>
 
-        {/* right y-axis labels (calendars) */}
-        {cGrids.map((g, i) => (
-          <text key={i} x={ML + PW + 6} y={MT + PH - (g.val / cMax) * PH}
-            textAnchor="start" dominantBaseline="middle"
-            fontSize="11" fill="var(--ink-3)">{g.val}</text>
-        ))}
+      <div className="health-chart-readout" id={readoutId} role="status" aria-live="polite">
+        <div className="health-chart-readout-date">{fmtFullDate(point.date)}</div>
+        <dl className="health-chart-readout-grid">
+          {readoutRows.map((row) => {
+            const v = point[row.key]
+            const has = Number.isFinite(v)
+            const delta = has ? deltaAt(history, active, row.key) : null
+            return (
+              <div className="health-chart-readout-row" data-metric={row.key} key={row.key}>
+                <dt>
+                  {row.color && (
+                    <svg className="health-chart-key" width="14" height="8" aria-hidden="true">
+                      <line
+                        x1="0" y1="4" x2="14" y2="4"
+                        stroke={row.color} strokeWidth="2" strokeDasharray={row.dash}
+                      />
+                    </svg>
+                  )}
+                  {row.label}
+                </dt>
+                <dd>
+                  {has ? (
+                    <>
+                      <span className="health-chart-readout-value">{v.toLocaleString()}</span>
+                      {delta !== null && (
+                        <span className="health-chart-readout-delta">
+                          {delta > 0 ? `+${delta.toLocaleString()}` : delta.toLocaleString()}
+                        </span>
+                      )}
+                    </>
+                  ) : (
+                    <span className="health-chart-readout-absent" title="Not recorded on this date">—</span>
+                  )}
+                </dd>
+              </div>
+            )
+          })}
+        </dl>
+        {lateStart && (
+          <p className="health-chart-note">
+            {lateStart.label} tracked from {fmtFullDate(history[lateStart.startsAt].date)}.
+          </p>
+        )}
+      </div>
 
-        {/* x-axis ticks */}
-        {xTicks.map((t, i) => (
-          <g key={i}>
-            <line x1={xOf(t.i)} x2={xOf(t.i)} y1={MT + PH} y2={MT + PH + 5} stroke="var(--line)" strokeWidth="1" />
-            <text x={xOf(t.i)} y={MT + PH + 16} textAnchor="middle" fontSize="11" fill="var(--ink-3)">{t.label}</text>
-          </g>
-        ))}
-
-        {/* axis lines */}
-        <line x1={ML} x2={ML} y1={MT} y2={MT + PH} stroke="var(--line)" strokeWidth="1" />
-        <line x1={ML + PW} x2={ML + PW} y1={MT} y2={MT + PH} stroke="var(--line)" strokeWidth="1" />
-        <line x1={ML} x2={ML + PW} y1={MT + PH} y2={MT + PH} stroke="var(--line)" strokeWidth="1" />
-
-        {/* legend */}
-        <rect x={W - MR - 130} y={MT + 4} width={10} height={10} rx="2" fill="#2563eb" />
-        <text x={W - MR - 116} y={MT + 13} fontSize="11" fill="var(--ink-2)">Events</text>
-        <rect x={W - MR - 130} y={MT + 20} width={10} height={10} rx="2" fill="#ea580c" />
-        <text x={W - MR - 116} y={MT + 29} fontSize="11" fill="var(--ink-2)">Calendars</text>
-      </svg>
+      {/* The accessible representation of the chart: every number reachable to
+          a screen reader, to Ctrl-F, and to copy/paste. */}
+      <table className="health-visually-hidden">
+        <caption>Coverage history</caption>
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            {readoutRows.map((r) => <th scope="col" key={r.key}>{r.label}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {history.map((p) => (
+            <tr key={p.date}>
+              <th scope="row">{fmtFullDate(p.date)}</th>
+              {readoutRows.map((r) => (
+                <td key={r.key}>
+                  {Number.isFinite(p[r.key]) ? p[r.key].toLocaleString() : 'Not recorded'}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
-}
-
-function niceCeil(v) {
-  if (v <= 0) return 10
-  const mag = Math.pow(10, Math.floor(Math.log10(v)))
-  const steps = [1, 2, 2.5, 5, 10]
-  for (const s of steps) {
-    const candidate = Math.ceil(v / (mag * s)) * (mag * s)
-    if (candidate >= v) return candidate
-  }
-  return Math.ceil(v / mag) * mag
-}
-
-function fmtMonth(dateStr) {
-  const [, m] = dateStr.split('-')
-  return ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][parseInt(m, 10)]
 }
 
 // Internal health dashboard: scrape source status, build errors, geo/uncertainty
