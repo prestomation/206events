@@ -3,17 +3,14 @@ geo:
   lat: 47.5604
   lng: -122.2886
   label: "Rainier Ave S, Columbia City, Seattle, WA 98118"
-  # Nominatim returned Rainier Avenue South itself (way/427900949, highway/primary,
-  # 131m) — the beatwalk spans the whole street, so there's no single venue
-  # feature to attach an osmId to. Rejected 2026-07-02 geo-resolver run.
-  osmChecked: "2026-07-02"
+  # Rainier Avenue South (way/1154921904, highway/primary, 343m) — the road IS
+  # the venue for this street festival; using the road way as the OSM reference.
+  osmType: way
+  osmId: 1154921904
 name: columbia-city-beatwalk
 sourceRole: venue
 friendlyname: Columbia City Beatwalk
-description: Free outdoor live music festival in Columbia City's historic commercial
-  district. Multiple stages along Rainier Ave S feature diverse genres including
-  Latin, jazz, R&B, hip-hop, world music, and roots. Every 2nd Sunday, June–September.
-  Free and family-friendly.
+description: Free outdoor live music festival in Columbia City's historic commercial district. Multiple stages along Rainier Ave S feature diverse genres including Latin, jazz, R&B, hip-hop, world music, and roots. Every 2nd Sunday, June–September. Free and family-friendly.
 timezone: America/Los_Angeles
 location: Rainier Ave S, Columbia City, Seattle, WA 98118
 url: https://beatwalk.org
