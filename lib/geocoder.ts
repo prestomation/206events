@@ -1370,6 +1370,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Matches sources/recurring/beacon-arts-street-fairs.yaml's own geo (same street,
   // repeated-name source variant from a different, non-recurring calendar).
   'south roberto maestas festival street, south roberto maestas festival street, seattle, wa': { lat: 47.5795585, lng: -122.3116428 },
+  // "Guildhall" is the tournament-room nickname some sources/external/zulus-games.yaml
+  // events use for the same venue as its main geo — Zulu's Games Event Center,
+  // 10131b Main St, Bothell, WA 98011 (OSM node 2367594038).
+  "zulu's guildhall": { lat: 47.7599233, lng: -122.2042918 },
 };
 
 /**

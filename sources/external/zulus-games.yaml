@@ -1,0 +1,15 @@
+geo:
+  lat: 47.7599233
+  lng: -122.2042918
+  label: "Zulu's Games Event Center, 10131b Main St, Bothell, WA 98011"
+  osmType: node
+  osmId: 2367594038
+name: zulus-games
+sourceRole: venue
+friendlyname: "Zulu's Games"
+description: "Bothell tabletop game store and event center hosting Magic: The Gathering drafts and prereleases, Flesh and Blood tournaments, Star Wars Unlimited events, and board game nights."
+icsUrl: "https://calendar.google.com/calendar/ical/pnnfrgkbp668db7eqkcj256e2s%40group.calendar.google.com/public/basic.ics"
+infoUrl: "https://zulusgames.com/pages/calendar"
+tags:
+  - Gaming
+  - Bothell
