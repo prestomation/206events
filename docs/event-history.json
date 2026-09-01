@@ -123,779 +123,896 @@
     "date": "2026-05-08",
     "events": 7615,
     "calendars": 246,
-    "errors": 221
+    "errors": 221,
+    "candidates": 55
   },
   {
     "date": "2026-05-09",
     "events": 7715,
     "calendars": 252,
-    "errors": 219
+    "errors": 219,
+    "candidates": 52
   },
   {
     "date": "2026-05-10",
     "events": 8113,
     "calendars": 261,
-    "errors": 222
+    "errors": 222,
+    "candidates": 46
   },
   {
     "date": "2026-05-11",
     "events": 8048,
     "calendars": 262,
-    "errors": 234
+    "errors": 234,
+    "candidates": 47
   },
   {
     "date": "2026-05-12",
     "events": 8272,
     "calendars": 265,
-    "errors": 238
+    "errors": 238,
+    "candidates": 44
   },
   {
     "date": "2026-05-13",
     "events": 8256,
     "calendars": 267,
-    "errors": 238
+    "errors": 238,
+    "candidates": 36
   },
   {
     "date": "2026-05-14",
     "events": 8322,
     "calendars": 267,
-    "errors": 235
+    "errors": 235,
+    "candidates": 36
   },
   {
     "date": "2026-05-15",
     "events": 8294,
     "calendars": 267,
-    "errors": 232
+    "errors": 232,
+    "candidates": 35
   },
   {
     "date": "2026-05-16",
     "events": 8169,
     "calendars": 265,
-    "errors": 231
+    "errors": 231,
+    "candidates": 33
   },
   {
     "date": "2026-05-17",
     "events": 10161,
     "calendars": 267,
-    "errors": 282
+    "errors": 282,
+    "candidates": 24
   },
   {
     "date": "2026-05-18",
     "events": 10271,
     "calendars": 274,
-    "errors": 410
+    "errors": 410,
+    "candidates": 20
   },
   {
     "date": "2026-05-19",
     "events": 10367,
     "calendars": 278,
-    "errors": 414
+    "errors": 414,
+    "candidates": 17
   },
   {
     "date": "2026-05-20",
     "events": 10354,
     "calendars": 284,
-    "errors": 299
+    "errors": 299,
+    "candidates": 17
   },
   {
     "date": "2026-05-21",
     "events": 10626,
     "calendars": 288,
-    "errors": 321
+    "errors": 321,
+    "candidates": 16
   },
   {
     "date": "2026-05-22",
     "events": 10541,
     "calendars": 294,
-    "errors": 275
+    "errors": 275,
+    "candidates": 17
   },
   {
     "date": "2026-05-23",
     "events": 10632,
     "calendars": 296,
-    "errors": 275
+    "errors": 275,
+    "candidates": 16
   },
   {
     "date": "2026-05-24",
     "events": 10673,
     "calendars": 298,
-    "errors": 275
+    "errors": 275,
+    "candidates": 16
   },
   {
     "date": "2026-05-25",
     "events": 10181,
     "calendars": 304,
-    "errors": 270
+    "errors": 270,
+    "candidates": 17
   },
   {
     "date": "2026-05-26",
     "events": 10260,
     "calendars": 308,
-    "errors": 284
+    "errors": 284,
+    "candidates": 16
   },
   {
     "date": "2026-05-27",
     "events": 10250,
     "calendars": 303,
-    "errors": 325
+    "errors": 325,
+    "candidates": 14
   },
   {
     "date": "2026-05-28",
     "events": 10383,
     "calendars": 308,
-    "errors": 265
+    "errors": 265,
+    "candidates": 14
   },
   {
     "date": "2026-05-29",
     "events": 10540,
     "calendars": 320,
-    "errors": 343
+    "errors": 343,
+    "candidates": 13
   },
   {
     "date": "2026-05-30",
     "events": 10461,
     "calendars": 323,
-    "errors": 320
+    "errors": 320,
+    "candidates": 17
   },
   {
     "date": "2026-05-31",
     "events": 10439,
     "calendars": 323,
-    "errors": 344
+    "errors": 344,
+    "candidates": 17
   },
   {
     "date": "2026-06-01",
     "events": 10334,
     "calendars": 324,
-    "errors": 1213
+    "errors": 1213,
+    "candidates": 17
   },
   {
     "date": "2026-06-02",
     "events": 11626,
     "calendars": 323,
-    "errors": 1227
+    "errors": 1227,
+    "candidates": 16
   },
   {
     "date": "2026-06-03",
     "events": 10833,
     "calendars": 299,
-    "errors": 1243
+    "errors": 1243,
+    "candidates": 15
   },
   {
     "date": "2026-06-04",
     "events": 10852,
     "calendars": 311,
-    "errors": 1278
+    "errors": 1278,
+    "candidates": 10
   },
   {
     "date": "2026-06-05",
     "events": 10763,
     "calendars": 307,
-    "errors": 1327
+    "errors": 1327,
+    "candidates": 11
   },
   {
     "date": "2026-06-06",
     "events": 10861,
     "calendars": 311,
-    "errors": 1309
+    "errors": 1309,
+    "candidates": 11
   },
   {
     "date": "2026-06-07",
     "events": 10726,
     "calendars": 326,
-    "errors": 888
+    "errors": 888,
+    "candidates": 16
   },
   {
     "date": "2026-06-08",
     "events": 9950,
     "calendars": 328,
-    "errors": 839
+    "errors": 839,
+    "candidates": 12
   },
   {
     "date": "2026-06-09",
     "events": 10156,
     "calendars": 336,
-    "errors": 740
+    "errors": 740,
+    "candidates": 12
   },
   {
     "date": "2026-06-10",
     "events": 10319,
     "calendars": 339,
-    "errors": 819
+    "errors": 819,
+    "candidates": 16
   },
   {
     "date": "2026-06-11",
     "events": 10416,
     "calendars": 350,
-    "errors": 664
+    "errors": 664,
+    "candidates": 13
   },
   {
     "date": "2026-06-12",
     "events": 10450,
     "calendars": 351,
-    "errors": 359
+    "errors": 359,
+    "candidates": 11
   },
   {
     "date": "2026-06-13",
     "events": 10291,
     "calendars": 352,
-    "errors": 338
+    "errors": 338,
+    "candidates": 13
   },
   {
     "date": "2026-06-14",
     "events": 10093,
     "calendars": 353,
-    "errors": 775
+    "errors": 775,
+    "candidates": 13
   },
   {
     "date": "2026-06-15",
     "events": 9996,
     "calendars": 350,
-    "errors": 787
+    "errors": 787,
+    "candidates": 13
   },
   {
     "date": "2026-06-16",
     "events": 11135,
     "calendars": 349,
-    "errors": 756
+    "errors": 756,
+    "candidates": 12
   },
   {
     "date": "2026-06-17",
     "events": 11125,
     "calendars": 354,
     "queue": 3851,
-    "errors": 711
+    "errors": 711,
+    "candidates": 12
   },
   {
     "date": "2026-06-18",
     "events": 11181,
     "calendars": 359,
     "queue": 4544,
-    "errors": 860
+    "errors": 860,
+    "candidates": 13
   },
   {
     "date": "2026-06-19",
     "events": 11257,
     "calendars": 365,
     "queue": 5013,
-    "errors": 904
+    "errors": 904,
+    "candidates": 13
   },
   {
     "date": "2026-06-20",
     "events": 11240,
     "calendars": 367,
     "queue": 4657,
-    "errors": 935
+    "errors": 935,
+    "candidates": 13
   },
   {
     "date": "2026-06-21",
     "events": 11142,
     "calendars": 368,
     "queue": 4911,
-    "errors": 1025
+    "errors": 1025,
+    "candidates": 14
   },
   {
     "date": "2026-06-22",
     "events": 11081,
     "calendars": 365,
     "queue": 5146,
-    "errors": 1062
+    "errors": 1062,
+    "candidates": 13
   },
   {
     "date": "2026-06-23",
     "events": 11124,
     "calendars": 367,
     "queue": 4764,
-    "errors": 884
+    "errors": 884,
+    "candidates": 13
   },
   {
     "date": "2026-06-24",
     "events": 11181,
     "calendars": 369,
     "queue": 4825,
-    "errors": 897
+    "errors": 897,
+    "candidates": 13
   },
   {
     "date": "2026-06-25",
     "events": 11161,
     "calendars": 369,
     "queue": 2228,
-    "errors": 422
+    "errors": 422,
+    "candidates": 13
   },
   {
     "date": "2026-06-26",
     "events": 11210,
     "calendars": 374,
     "queue": 2026,
-    "errors": 318
+    "errors": 318,
+    "candidates": 13
   },
   {
     "date": "2026-06-27",
     "events": 11121,
     "calendars": 374,
     "queue": 2147,
-    "errors": 364
+    "errors": 364,
+    "candidates": 13
   },
   {
     "date": "2026-06-28",
     "events": 10994,
     "calendars": 372,
     "queue": 2100,
-    "errors": 373
+    "errors": 373,
+    "candidates": 13
   },
   {
     "date": "2026-06-29",
     "events": 11191,
     "calendars": 379,
     "queue": 2286,
-    "errors": 388
+    "errors": 388,
+    "candidates": 13
   },
   {
     "date": "2026-06-30",
     "events": 11667,
     "calendars": 401,
     "queue": 2656,
-    "errors": 409
+    "errors": 409,
+    "candidates": 10
   },
   {
     "date": "2026-07-01",
     "events": 12355,
     "calendars": 442,
     "queue": 3222,
-    "errors": 479
+    "errors": 479,
+    "candidates": 11
   },
   {
     "date": "2026-07-02",
     "events": 12502,
     "calendars": 462,
     "queue": 3107,
-    "errors": 406
+    "errors": 406,
+    "candidates": 11
   },
   {
     "date": "2026-07-03",
     "events": 12516,
     "calendars": 463,
     "queue": 3349,
-    "errors": 478
+    "errors": 478,
+    "candidates": 13
   },
   {
     "date": "2026-07-04",
     "events": 12492,
     "calendars": 464,
     "queue": 2650,
-    "errors": 412
+    "errors": 412,
+    "candidates": 16
   },
   {
     "date": "2026-07-05",
     "events": 12465,
     "calendars": 464,
     "queue": 1492,
-    "errors": 289
+    "errors": 289,
+    "candidates": 16
   },
   {
     "date": "2026-07-06",
     "events": 11731,
     "calendars": 467,
     "queue": 1613,
-    "errors": 428
+    "errors": 428,
+    "candidates": 16
   },
   {
     "date": "2026-07-07",
     "events": 11721,
     "calendars": 466,
     "queue": 1258,
-    "errors": 316
+    "errors": 316,
+    "candidates": 16
   },
   {
     "date": "2026-07-08",
     "events": 13096,
     "calendars": 468,
     "queue": 3170,
-    "errors": 1214
+    "errors": 1214,
+    "candidates": 15
   },
   {
     "date": "2026-07-09",
     "events": 13123,
     "calendars": 469,
     "queue": 2976,
-    "errors": 1156
+    "errors": 1156,
+    "candidates": 14
   },
   {
     "date": "2026-07-10",
     "events": 13190,
     "calendars": 469,
     "queue": 3036,
-    "errors": 1131
+    "errors": 1131,
+    "candidates": 14
   },
   {
     "date": "2026-07-11",
     "events": 12827,
     "calendars": 474,
     "queue": 2057,
-    "errors": 795
+    "errors": 795,
+    "candidates": 19
   },
   {
     "date": "2026-07-12",
     "events": 13227,
     "calendars": 496,
     "queue": 682,
-    "errors": 341
+    "errors": 341,
+    "candidates": 18
   },
   {
     "date": "2026-07-13",
     "events": 12807,
     "calendars": 485,
     "queue": 430,
-    "errors": 372
+    "errors": 372,
+    "candidates": 20
   },
   {
     "date": "2026-07-14",
     "events": 12924,
     "calendars": 486,
     "queue": 552,
-    "errors": 419
+    "errors": 419,
+    "candidates": 20
   },
   {
     "date": "2026-07-15",
     "events": 14476,
     "calendars": 486,
     "queue": 784,
-    "errors": 564
+    "errors": 564,
+    "candidates": 25
   },
   {
     "date": "2026-07-16",
     "events": 14516,
     "calendars": 486,
     "queue": 929,
-    "errors": 563
+    "errors": 563,
+    "candidates": 25
   },
   {
     "date": "2026-07-17",
     "events": 14458,
     "calendars": 489,
     "queue": 1047,
-    "errors": 617
+    "errors": 617,
+    "candidates": 24
   },
   {
     "date": "2026-07-18",
     "events": 14392,
     "calendars": 486,
     "queue": 426,
-    "errors": 384
+    "errors": 384,
+    "candidates": 25
   },
   {
     "date": "2026-07-19",
     "events": 14126,
     "calendars": 485,
     "queue": 377,
-    "errors": 364
+    "errors": 364,
+    "candidates": 27
   },
   {
     "date": "2026-07-20",
     "events": 13957,
     "calendars": 481,
     "queue": 329,
-    "errors": 331
+    "errors": 331,
+    "candidates": 27
   },
   {
     "date": "2026-07-21",
     "events": 13810,
     "calendars": 490,
     "queue": 433,
-    "errors": 364
+    "errors": 364,
+    "candidates": 27
   },
   {
     "date": "2026-07-22",
     "events": 13885,
     "calendars": 493,
     "queue": 490,
-    "errors": 377
+    "errors": 377,
+    "candidates": 29
   },
   {
     "date": "2026-07-23",
     "events": 13939,
     "calendars": 490,
     "queue": 471,
-    "errors": 386
+    "errors": 386,
+    "candidates": 31
   },
   {
     "date": "2026-07-24",
     "events": 13639,
     "calendars": 486,
     "queue": 336,
-    "errors": 338
+    "errors": 338,
+    "candidates": 33
   },
   {
     "date": "2026-07-25",
     "events": 13972,
     "calendars": 491,
     "queue": 580,
-    "errors": 398
+    "errors": 398,
+    "candidates": 35
   },
   {
     "date": "2026-07-26",
     "events": 13717,
     "calendars": 491,
     "queue": 346,
-    "errors": 346
+    "errors": 346,
+    "candidates": 34
   },
   {
     "date": "2026-07-27",
     "events": 13800,
     "calendars": 489,
     "queue": 595,
-    "errors": 428
+    "errors": 428,
+    "candidates": 33
   },
   {
     "date": "2026-07-28",
     "events": 13767,
     "calendars": 494,
     "queue": 335,
-    "errors": 339
+    "errors": 339,
+    "candidates": 33
   },
   {
     "date": "2026-07-29",
     "events": 13738,
     "calendars": 506,
     "queue": 459,
-    "errors": 342
+    "errors": 342,
+    "candidates": 37
   },
   {
     "date": "2026-07-30",
     "events": 13950,
     "calendars": 504,
     "queue": 351,
-    "errors": 333
+    "errors": 333,
+    "candidates": 38
   },
   {
     "date": "2026-07-31",
     "events": 13971,
     "calendars": 505,
     "queue": 318,
-    "errors": 314
+    "errors": 314,
+    "candidates": 39
   },
   {
     "date": "2026-08-01",
     "events": 14240,
     "calendars": 508,
     "queue": 318,
-    "errors": 308
+    "errors": 308,
+    "candidates": 39
   },
   {
     "date": "2026-08-02",
     "events": 13965,
     "calendars": 503,
     "queue": 324,
-    "errors": 316
+    "errors": 316,
+    "candidates": 38
   },
   {
     "date": "2026-08-03",
     "events": 14206,
     "calendars": 509,
     "queue": 331,
-    "errors": 310
+    "errors": 310,
+    "candidates": 37
   },
   {
     "date": "2026-08-04",
     "events": 14189,
     "calendars": 511,
     "queue": 333,
-    "errors": 303
+    "errors": 303,
+    "candidates": 38
   },
   {
     "date": "2026-08-05",
     "events": 14062,
     "calendars": 511,
     "queue": 315,
-    "errors": 299
+    "errors": 299,
+    "candidates": 40
   },
   {
     "date": "2026-08-06",
     "events": 13976,
     "calendars": 512,
     "queue": 351,
-    "errors": 308
+    "errors": 308,
+    "candidates": 40
   },
   {
     "date": "2026-08-07",
     "events": 12218,
     "calendars": 506,
     "queue": 383,
-    "errors": 341
+    "errors": 341,
+    "candidates": 47
   },
   {
     "date": "2026-08-08",
     "events": 13518,
     "calendars": 511,
     "queue": 454,
-    "errors": 325
+    "errors": 325,
+    "candidates": 47
   },
   {
     "date": "2026-08-09",
     "events": 13113,
     "calendars": 508,
     "queue": 321,
-    "errors": 318
+    "errors": 318,
+    "candidates": 45
   },
   {
     "date": "2026-08-10",
     "events": 13443,
     "calendars": 514,
     "queue": 366,
-    "errors": 322
+    "errors": 322,
+    "candidates": 46
   },
   {
     "date": "2026-08-11",
     "events": 13357,
     "calendars": 517,
     "queue": 342,
-    "errors": 317
+    "errors": 317,
+    "candidates": 48
   },
   {
     "date": "2026-08-12",
     "events": 13322,
     "calendars": 517,
     "queue": 320,
-    "errors": 326
+    "errors": 326,
+    "candidates": 49
   },
   {
     "date": "2026-08-13",
     "events": 13027,
     "calendars": 519,
     "queue": 318,
-    "errors": 338
+    "errors": 338,
+    "candidates": 49
   },
   {
     "date": "2026-08-14",
     "events": 13088,
     "calendars": 517,
     "queue": 332,
-    "errors": 320
+    "errors": 320,
+    "candidates": 130
   },
   {
     "date": "2026-08-15",
     "events": 13290,
     "calendars": 522,
     "queue": 438,
-    "errors": 345
+    "errors": 345,
+    "candidates": 131
   },
   {
     "date": "2026-08-16",
     "events": 13090,
     "calendars": 523,
     "queue": 320,
-    "errors": 323
+    "errors": 323,
+    "candidates": 131
   },
   {
     "date": "2026-08-17",
     "events": 12910,
     "calendars": 522,
     "queue": 325,
-    "errors": 333
+    "errors": 333,
+    "candidates": 131
   },
   {
     "date": "2026-08-18",
     "events": 13006,
     "calendars": 522,
     "queue": 306,
-    "errors": 317
+    "errors": 317,
+    "candidates": 135
   },
   {
     "date": "2026-08-19",
     "events": 13198,
     "calendars": 494,
     "queue": 318,
-    "errors": 316
+    "errors": 316,
+    "candidates": 135
   },
   {
     "date": "2026-08-20",
     "events": 14429,
     "calendars": 527,
     "queue": 298,
-    "errors": 315
+    "errors": 315,
+    "candidates": 134
   },
   {
     "date": "2026-08-21",
     "events": 14389,
     "calendars": 529,
     "queue": 320,
-    "errors": 319
+    "errors": 319,
+    "candidates": 135
   },
   {
     "date": "2026-08-22",
     "events": 14745,
     "calendars": 544,
     "queue": 452,
-    "errors": 347
+    "errors": 347,
+    "candidates": 134
   },
   {
     "date": "2026-08-23",
     "events": 14486,
     "calendars": 546,
     "queue": 1403,
-    "errors": 797
+    "errors": 797,
+    "candidates": 132
   },
   {
     "date": "2026-08-24",
     "events": 14452,
     "calendars": 547,
     "queue": 760,
-    "errors": 368
+    "errors": 368,
+    "candidates": 128
   },
   {
     "date": "2026-08-25",
     "events": 14586,
     "calendars": 546,
     "queue": 362,
-    "errors": 348
+    "errors": 348,
+    "candidates": 275
   },
   {
     "date": "2026-08-26",
     "events": 15008,
     "calendars": 542,
     "queue": 354,
-    "errors": 355
+    "errors": 355,
+    "candidates": 273
   },
   {
     "date": "2026-08-27",
     "events": 15092,
     "calendars": 543,
     "queue": 510,
-    "errors": 405
+    "errors": 405,
+    "candidates": 273
   },
   {
     "date": "2026-08-28",
     "events": 14950,
     "calendars": 541,
     "queue": 400,
-    "errors": 368
+    "errors": 368,
+    "candidates": 270
   },
   {
     "date": "2026-08-29",
     "events": 15284,
     "calendars": 555,
     "queue": 425,
-    "errors": 352
+    "errors": 352,
+    "candidates": 269
   },
   {
     "date": "2026-08-30",
     "events": 14986,
     "calendars": 555,
     "queue": 351,
-    "errors": 352
+    "errors": 352,
+    "candidates": 266
   },
   {
     "date": "2026-08-31",
     "events": 14814,
     "calendars": 553,
     "queue": 353,
-    "errors": 352
+    "errors": 352,
+    "candidates": 269
   },
   {
     "date": "2026-09-01",
     "events": 15377,
     "calendars": 555,
     "queue": 1639,
-    "errors": 348
+    "errors": 348,
+    "candidates": 264
   }
 ]
