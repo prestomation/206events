@@ -5,7 +5,7 @@ platform: Custom (Drupal 10)
 url: https://theatres.seattlecentral.edu/event-calendar
 tags: [Theatre]
 firstSeen: 2026-07-03
-lastChecked: 2026-07-11
+lastChecked: 2026-09-01
 pr:
 ---
 
@@ -35,3 +35,9 @@ path variants 404), meaning either the webName is stale or the calendar was unpu
 Trumba's export feature. Still `investigating` — would need a browser session to inspect the
 live Trumba widget's actual XHR calls (the `s.aspx` loader endpoint) to find the correct feed
 identifier, which isn't visible from a plain HTML fetch.
+
+Re-checked 2026-09-01: page still advertises `webName: "seattletheatres_calendar"`; confirmed
+`https://www.trumba.com/calendars/seattletheatres_calendar.ics` and several other guessed
+webName variants (`seattlecentral`, `seattlecentraltheatres`, `broadwayperformancehall`,
+`ericksontheatre`, `seattlecentralcollege_events`, `seattlecentral_events`) all still return
+HTTP 410 Gone. No change from July. Still `investigating`.
