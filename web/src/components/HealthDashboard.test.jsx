@@ -61,8 +61,15 @@ const buildErrors = {
   ],
 }
 
-function mockFetch(data) {
-  vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => data }))
+// Dispatch on URL. The dashboard fetches build-errors.json and
+// event-history.json separately; answering both with the same payload fed the
+// error report to the history fetch, which failed Array.isArray and silently
+// left the chart with an empty series.
+function mockFetch(data, history = []) {
+  vi.stubGlobal('fetch', vi.fn((url) => Promise.resolve({
+    ok: true,
+    json: async () => (String(url).includes('event-history') ? history : data),
+  })))
 }
 
 describe('HealthDashboard', () => {
@@ -209,5 +216,115 @@ describe('HealthDashboard', () => {
     expect(toggle.getAttribute('aria-checked')).toBe('false')
     fireEvent.click(toggle)
     expect(onToggleDebug).toHaveBeenCalled()
+  })
+})
+
+// ---------------------------------------------------------- coverage chart
+
+// jsdom has no ResizeObserver and reports clientWidth 0, so the component
+// falls back to the 760-wide layout. These assertions pin that fallback: if it
+// were removed, every test below would silently render an empty chart.
+const history = (n = 6) =>
+  Array.from({ length: n }, (_, i) => ({
+    date: `2026-05-${String(i + 1).padStart(2, '0')}`,
+    events: 1000 + i * 100,
+    calendars: 50 + i * 5,
+    candidates: i >= 3 ? 10 + i : undefined,
+    queue: 200 + i,
+    errors: 5,
+  })).map((p) => Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)))
+
+describe('CoverageChart', () => {
+  afterEach(() => { vi.unstubAllGlobals() })
+
+  const renderChart = async (points) => {
+    mockFetch(buildErrors, points)
+    render(<Harness />)
+    return await screen.findByRole('slider', { name: /coverage history date/i })
+  }
+
+  it('renders one panel per series with the 760-wide fallback viewBox', async () => {
+    const slider = await renderChart(history())
+    const svg = slider.querySelector('svg')
+    expect(svg.getAttribute('viewBox')).toMatch(/^0 0 760 /)
+    for (const key of ['events', 'calendars', 'candidates']) {
+      expect(svg.querySelector(`[data-panel="${key}"]`)).toBeTruthy()
+    }
+  })
+
+  it('renders nothing below two points', async () => {
+    mockFetch(buildErrors, [{ date: '2026-05-01', events: 1, calendars: 1 }])
+    render(<Harness />)
+    await screen.findByText('Source Health Dashboard')
+    expect(screen.queryByRole('slider', { name: /coverage history date/i })).toBeNull()
+  })
+
+  // The regression the maxOf reducer exists for: Math.max over a partially
+  // present field yields NaN, which propagates into every coordinate and
+  // blanks the chart with no error at all.
+  it('emits no NaN coordinates when a series is only partly present', async () => {
+    const slider = await renderChart(history())
+    const svg = slider.querySelector('svg')
+    for (const el of svg.querySelectorAll('polyline, circle, line, text, rect')) {
+      for (const attr of ['points', 'cx', 'cy', 'x', 'y', 'x1', 'x2', 'y1', 'y2', 'width', 'height']) {
+        const v = el.getAttribute(attr)
+        if (v !== null) expect(v).not.toMatch(/NaN/)
+      }
+    }
+  })
+
+  it('defaults the readout to the latest point before any interaction', async () => {
+    await renderChart(history())
+    const readout = document.querySelector('.health-chart-readout')
+    expect(readout.textContent).toContain('May 6, 2026')
+    expect(readout.textContent).toContain('1,500')
+  })
+
+  it('scrubs with the keyboard and reports position via aria', async () => {
+    const slider = await renderChart(history())
+    expect(slider.getAttribute('aria-valuenow')).toBe('5')
+
+    fireEvent.keyDown(slider, { key: 'Home' })
+    expect(slider.getAttribute('aria-valuenow')).toBe('0')
+    expect(slider.getAttribute('aria-valuetext')).toBe('May 1, 2026')
+
+    fireEvent.keyDown(slider, { key: 'ArrowRight' })
+    expect(slider.getAttribute('aria-valuenow')).toBe('1')
+
+    fireEvent.keyDown(slider, { key: 'End' })
+    expect(slider.getAttribute('aria-valuenow')).toBe('5')
+  })
+
+  it('clamps arrow scrubbing at both ends', async () => {
+    const slider = await renderChart(history())
+    fireEvent.keyDown(slider, { key: 'Home' })
+    fireEvent.keyDown(slider, { key: 'ArrowLeft' })
+    expect(slider.getAttribute('aria-valuenow')).toBe('0')
+    fireEvent.keyDown(slider, { key: 'End' })
+    fireEvent.keyDown(slider, { key: 'ArrowRight' })
+    expect(slider.getAttribute('aria-valuenow')).toBe('5')
+  })
+
+  // A date where a series has no value must read as "not recorded", never 0.
+  it('shows an em-dash where a series has no value at that date', async () => {
+    const slider = await renderChart(history())
+    fireEvent.keyDown(slider, { key: 'Home' })
+    const row = document.querySelector('.health-chart-readout-row[data-metric="candidates"]')
+    expect(row.textContent).toContain('—')
+    fireEvent.keyDown(slider, { key: 'End' })
+    expect(row.textContent).toContain('15')
+  })
+
+  it('notes when a plotted series starts partway through the range', async () => {
+    await renderChart(history())
+    expect(document.querySelector('.health-chart-note').textContent)
+      .toMatch(/Viable candidates tracked from May 4, 2026/)
+  })
+
+  it('exposes every point as a row in the visually-hidden table', async () => {
+    await renderChart(history())
+    const table = screen.getByRole('table', { name: /coverage history/i })
+    expect(within(table).getAllByRole('row')).toHaveLength(7) // header + 6 points
+    expect(within(table).getAllByText('Not recorded').length).toBeGreaterThan(0)
   })
 })

@@ -139,25 +139,35 @@ describe('fmtMonth / fmtFullDate', () => {
 })
 
 describe('monthTicks', () => {
-  const xOf = (i) => i * 10
+  const spaced = (px) => (i) => i * px
 
   it('emits one tick per month boundary', () => {
     const h = [pt('2026-04-01'), pt('2026-04-20'), pt('2026-05-02'), pt('2026-06-09')]
-    expect(monthTicks(h, xOf, 5).map((t) => t.label)).toEqual(['Apr 2026', 'May', 'Jun'])
+    // Indices 0,1,2,3 at 60px apart: boundaries fall at 0, 120, 180.
+    expect(monthTicks(h, spaced(60), 44).map((t) => t.label)).toEqual(['Apr 2026', 'May', 'Jun'])
   })
 
   it('culls ticks that would collide with the last one kept', () => {
     const h = [pt('2026-04-01'), pt('2026-05-01'), pt('2026-06-01'), pt('2026-07-01')]
-    // Spacing is 10px between consecutive months; a 25px gap keeps every other.
-    expect(monthTicks(h, xOf, 25).map((t) => t.label)).toEqual(['Apr 2026', 'Jul'])
+    expect(monthTicks(h, spaced(30), 44).map((t) => t.label)).toEqual(['Apr 2026', 'Jul'])
+  })
+
+  // The real collision this guards: the first label carries a year, is
+  // left-anchored, and so extends its FULL width to the right — a fixed gap
+  // sized for a bare "May" let "Apr 2026" run into the next label.
+  it('reserves room for a wide year-bearing first label', () => {
+    const h = [pt('2026-04-01'), pt('2026-05-01'), pt('2026-06-01')]
+    // 50px apart clears the 44px floor, but "Apr 2026" is ~50px wide on its own.
+    expect(monthTicks(h, spaced(50), 44).map((t) => t.label)).toEqual(['Apr 2026', 'Jun'])
+    // Given real room, both survive.
+    expect(monthTicks(h, spaced(90), 44).map((t) => t.label)).toEqual(['Apr 2026', 'May', 'Jun'])
   })
 
   // A dropped January must not swallow the year change, or the year never
   // appears again.
   it('shows the year on the first kept tick of a new year', () => {
     const h = [pt('2026-11-01'), pt('2026-12-01'), pt('2027-01-01'), pt('2027-02-01')]
-    const labels = monthTicks(h, xOf, 25).map((t) => t.label)
-    expect(labels).toEqual(['Nov 2026', 'Feb 2027'])
+    expect(monthTicks(h, spaced(30), 44).map((t) => t.label)).toEqual(['Nov 2026', 'Feb 2027'])
   })
 })
 
