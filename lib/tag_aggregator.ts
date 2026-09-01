@@ -114,6 +114,18 @@ export function parseExternalCalendarEvents(icsData: string, opts?: { windowMont
   // TZID and silently treats the wall-clock value as if it were UTC — producing
   // an event that's off by the feed's own UTC offset (observed: seattle-indies
   // VEVENTs mislabeled TZID=America/Denver showed hours early).
+  //
+  // ICAL.TimezoneService is a process-wide singleton keyed by TZID name, and
+  // this function runs once per external calendar — a later feed's VTIMEZONE
+  // overwrites an earlier feed's registration for the same TZID name. That's
+  // fine for real IANA ids (every feed's own VTIMEZONE for e.g.
+  // "America/Denver" describes the same real timezone), and each feed's
+  // .toJSDate() calls happen synchronously within this same function call, so
+  // registrations never mix mid-feed. The only latent edge case: a feed that
+  // references a TZID but never defines its own VTIMEZONE for it would now
+  // pick up whatever an unrelated, earlier-processed feed last registered
+  // under that name, instead of falling through to the old UTC-literal
+  // behavior — order-dependent and not something any current feed hits.
   for (const vtimezone of comp.getAllSubcomponents('vtimezone')) {
     try {
       ICAL.TimezoneService.register(vtimezone);
