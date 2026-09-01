@@ -1,7 +1,7 @@
 ---
 name: OPEN 1PM-8PM (Tuesday)
 status: added
-platform: ICS (Google Calendar)
+platform: Custom ripper (Google Calendar ICS, filtered)
 url: https://tabletopvillage.com/pages/events
 tags: ["board-games"]
 firstSeen: 2026-08-25
@@ -17,7 +17,9 @@ Description: Store open hours 1PM-8PM at Tabletop Village.
 
 **Duplicate of `tabletop-village.md`** — same venue (616 8th Ave S, Seattle),
 which had already been investigated in more depth. Implemented there as
-`sources/external/tabletop-village.yaml`, pointing at the store's public
-Google Calendar ICS feed (found embedded on the site's events page) on
-2026-09-01. The "OPEN 1PM-8PM" sample here reflects generic store hours,
-not a dated event — not itself actionable.
+`sources/tabletop-village/ripper.ts` on 2026-09-01, reading the store's
+public Google Calendar ICS feed (found embedded on the site's events page)
+and filtering out non-event noise. This candidate's own sample event —
+"OPEN 1PM-8PM (Tuesday)" — turned out to be exactly that kind of noise
+(posted store hours, not a real event); it's explicitly excluded by the
+ripper's title filter, not published.
