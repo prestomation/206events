@@ -149,13 +149,27 @@ export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
     lastYear = year
     kept.push({ i, label, x, width })
   })
+
+  // The last tick renders end-anchored (to stay inside the box), so it extends
+  // its FULL width to the LEFT, not half. The greedy pass above budgeted only
+  // half, so re-check the tail and drop whichever neighbour collides.
+  while (kept.length >= 2) {
+    const last = kept[kept.length - 1]
+    const prev = kept[kept.length - 2]
+    // The first tick is start-anchored, so its full width sits to the right.
+    const prevRight = prev.x + (kept.length === 2 ? prev.width : prev.width / 2)
+    if (last.x - last.width - prevRight >= 6) break
+    // Never drop the first tick: it anchors the start of the series and is the
+    // one carrying the year. With only two left, the later one goes instead.
+    kept.splice(kept.length === 2 ? 1 : kept.length - 2, 1)
+  }
   return kept
 }
 
 // Layout for a measured container width. Small multiples: three stacked panels
 // sharing one x-axis, so there is no second y-scale to align arbitrarily
 // against the first.
-export function layout(width) {
+export function layout(width, panelCount = SERIES.length) {
   const W = Math.max(240, Math.round(width))
   const narrow = W < 520
   const panelH = narrow ? 64 : 88
@@ -165,7 +179,9 @@ export function layout(width) {
   const ML = narrow ? 38 : 52
   const MR = narrow ? 6 : 8
   const MT = 6
-  const n = SERIES.length
+  // Height follows the panels actually drawn: a series absent from the whole
+  // series gets no panel, rather than an axis invented from niceCeil(0).
+  const n = Math.max(1, panelCount)
   return {
     W,
     narrow,

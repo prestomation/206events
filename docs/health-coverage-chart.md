@@ -98,10 +98,17 @@ so a late-starting series starts where its data does and an interior gap reads
 as a break rather than a line dropping to zero.
 
 `queue` = outstanding uncertainty + photo gaps + cost gaps + setting gaps +
-duplicate candidates + geocode errors. It is `undefined` for builds predating
-cross-source dedup (~PR 700, before 2026-06-17) rather than silently dropping
-the `duplicateStats` term — a backlog trend whose definition changed partway
-through is worse than a shorter one.
+duplicate candidates + geocode errors. **Every term must be present** for the
+point to carry a value; a report missing any of them yields `undefined` and the
+series simply starts later. The gap queues were added to `build-errors.json` at
+different times (`duplicateStats` ~2026-06-17, `settingGaps` ~2026-07-06), so
+treating an absent queue as 0 would silently redefine the metric partway
+through — a backlog trend that means two different things over its length is
+worse than a shorter one. In practice `queue` starts 2026-07-07.
+
+**When a new gap queue is added to `build-errors.json`, add it to `QUEUE_TERMS`
+in `scripts/update-event-history.mjs`**, or the series changes meaning from that
+build onward.
 
 ### Persistence: three sources, merged
 
@@ -121,8 +128,22 @@ For any `(date, field)` the most authoritative source with a *defined* value
 wins; a date present in any source is kept; nothing is dropped. Losing a date
 now requires it to be absent from all four at once — and the published copy is
 the previous run's merged output, so one successful build after any cache loss
-restores everything the site was serving. The script refuses to write a series
-shorter than any of its inputs.
+restores everything the site was serving.
+
+Two guards back that up: the script refuses to write a series shorter than any
+of its inputs (reachable when a source carries duplicate dates), and a
+committed history that exists but does not parse **throws** rather than being
+read as empty — swallowing it would hand the merge an empty base *and* zero the
+shrink guard's own baseline, so a one-point series would be written back over
+every destination. A build with no output still merges and republishes:
+skipping the write would fail `check-missing-urls` and drop the file from the
+site, knocking out the published layer the next build merges from.
+
+The published-history fetch resolves the site origin from `city.config.ts`
+(via `scripts/print-city-config.ts`), overridable with the `SITE_URL` repo
+variable. It must never hardcode a default: this repo is a city template, and a
+fork without the variable set would otherwise merge Seattle's series into its
+own.
 
 PR builds deliberately skip the fetch and copy the committed baseline: previews
 get a slightly stale chart rather than every PR build paying for a network call.
@@ -143,7 +164,9 @@ Two one-shot scripts, both with `--dry-run`:
   git, counting frontmatter statuses at the last first-parent commit on main for
   each date. `--first-parent` matters: without it a date can land on a PR-branch
   commit whose candidate set is mid-edit. `README.md` must be excluded — it
-  documents the schema with a literal `status: candidate` line. The script
+  documents the schema with a literal `status: candidate` line. `git grep` has
+  no notion of the `---` fences, unlike the live counter, so the script asserts
+  the two agree at HEAD before writing a whole historical series. It also
   refuses to run on a shallow clone (use `git fetch --shallow-since=`, **not**
   `--unshallow`; this repo commits ~20MB of screenshots and map tiles).
 
@@ -163,5 +186,6 @@ date, so it would systematically understate the past.
 - `web/e2e/coverage-chart.spec.js` — click and touch scrubbing, full-bleed
   geometry at 390px, `touch-action`, the screen-reader table, and that the page
   never scrolls sideways.
-- `scripts/update-event-history.test.mjs` — the counters and the merge
-  semantics, including the shrink guard.
+- `scripts/update-event-history.test.mjs` — the counters, the merge semantics,
+  and `main()` end-to-end in a temp working directory: the shrink guard, the
+  corrupt-file throw, and the no-build-output path that must still republish.

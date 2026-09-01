@@ -3187,11 +3187,11 @@ html, body, #root { height: 100%; }
     padding: 16px 0;
   }
 
-  .app206 .health-dashboard > .health-header,
-  .app206 .health-dashboard > .health-search,
-  .app206 .health-dashboard > .health-summary,
-  .app206 .health-dashboard > .health-tabs,
-  .app206 .health-dashboard > .health-tab-panel {
+  /* Everything except the chart, so a child added later gets a gutter by
+     default rather than silently sitting against the screen edge. The drawer
+     overlay is excluded because it is position:fixed inset:0 — padding would
+     inset the drawer on exactly the viewport where it is full-width. */
+  .app206 .health-dashboard > *:not(.health-coverage-chart):not(.health-drawer-overlay) {
     padding-inline: 16px;
   }
 

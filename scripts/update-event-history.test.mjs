@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
-import { mkdtempSync, writeFileSync, rmSync } from 'fs'
+import { mkdtempSync, writeFileSync, rmSync, mkdirSync, readFileSync, existsSync } from 'fs'
 import { tmpdir } from 'os'
 import path from 'path'
 import {
@@ -9,6 +9,7 @@ import {
   definedFields,
   mergeHistory,
   upsertPoint,
+  main,
 } from './update-event-history.mjs'
 
 describe('countCalendars', () => {
@@ -46,19 +47,37 @@ describe('openWorkQueue', () => {
     expect(openWorkQueue(full)).toBe(24)
   })
 
-  it('treats every missing sub-key as 0 without throwing', () => {
-    expect(openWorkQueue({ duplicateStats: { candidates: 0 } })).toBe(0)
+  it('sums to 0 when every term is present but empty', () => {
+    expect(openWorkQueue({
+      uncertaintyStats: { outstanding: 0 },
+      photoGaps: { venueGaps: [], eventGaps: [] },
+      costGaps: [],
+      settingGaps: { venueGaps: [], eventGaps: [] },
+      duplicateStats: { candidates: 0 },
+      geocodeErrors: [],
+    })).toBe(0)
   })
 
-  // Builds predating cross-source dedup (~PR 700) have no duplicateStats.
-  // Dropping the term would change the metric's definition mid-series.
-  it('returns undefined when duplicateStats is absent', () => {
-    const { duplicateStats, ...rest } = full
+  // The gap queues landed in build-errors.json at different times
+  // (duplicateStats ~2026-06-17, settingGaps ~2026-07-06). Treating any absent
+  // term as 0 would redefine the metric partway through the series, so EVERY
+  // contributing key has to be present.
+  it.each([
+    'uncertaintyStats',
+    'photoGaps',
+    'costGaps',
+    'settingGaps',
+    'duplicateStats',
+    'geocodeErrors',
+  ])('returns undefined when %s is absent', (key) => {
+    const { [key]: _dropped, ...rest } = full
     expect(openWorkQueue(rest)).toBeUndefined()
   })
 
-  it('is not fooled by an empty duplicateStats object', () => {
+  it('is not fooled by an empty stats object', () => {
     expect(openWorkQueue({ ...full, duplicateStats: {} })).toBeUndefined()
+    expect(openWorkQueue({ ...full, settingGaps: {} })).toBeUndefined()
+    expect(openWorkQueue({ ...full, photoGaps: { venueGaps: [1] } })).toBeUndefined()
   })
 
   it('returns undefined for a missing report', () => {
@@ -116,6 +135,13 @@ describe('countViableCandidates', () => {
   // line scan and not a YAML parse.
   it('handles an unquoted colon in a sibling frontmatter value', () => {
     write('a.md', '---\nname: Barks, Bikes + Brews: Dog Days of Summer\nstatus: candidate\n---\n\nProse.\n')
+    expect(countViableCandidates(dir)).toBe(1)
+  })
+
+  // YAML and every Markdown renderer accept a fence with trailing whitespace;
+  // an exact indexOf('---') would drop the file from the count silently.
+  it('accepts a closing fence with trailing whitespace', () => {
+    write('a.md', '---\nname: X\nstatus: candidate\n--- \n\nProse.\n')
     expect(countViableCandidates(dir)).toBe(1)
   })
 
@@ -212,5 +238,97 @@ describe('countViableCandidates against the real tree', () => {
     const n = countViableCandidates(path.join(repoRoot, 'docs/source-candidates'))
     expect(n).toBeGreaterThan(0)
     expect(n).toBeLessThan(2000)
+  })
+})
+
+// ------------------------------------------------------------------ main()
+
+// These run main() against a temp working directory, since the script resolves
+// its paths relative to cwd.
+describe('main', () => {
+  let dir
+  let cwd
+
+  const write = (rel, data) => {
+    const full = path.join(dir, rel)
+    mkdirSync(path.dirname(full), { recursive: true })
+    writeFileSync(full, typeof data === 'string' ? data : JSON.stringify(data))
+  }
+  const readHistory = () => JSON.parse(readFileSync(path.join(dir, 'docs/event-history.json'), 'utf-8'))
+
+  beforeEach(() => {
+    dir = mkdtempSync(path.join(tmpdir(), 'history-main-'))
+    cwd = process.cwd()
+    process.chdir(dir)
+    write('docs/source-candidates/a.md', '---\nstatus: candidate\n---\n\nx\n')
+    write('output/manifest.json', { rippers: [{ calendars: [1, 2] }] })
+    write('output/build-errors.json', {
+      totalErrors: 9,
+      geoStats: { totalEvents: 500 },
+      uncertaintyStats: { outstanding: 1 },
+      photoGaps: { venueGaps: [], eventGaps: [] },
+      costGaps: [],
+      settingGaps: { venueGaps: [], eventGaps: [] },
+      duplicateStats: { candidates: 2 },
+      geocodeErrors: [],
+    })
+  })
+  afterEach(() => {
+    process.chdir(cwd)
+    rmSync(dir, { recursive: true, force: true })
+  })
+
+  it('merges every source and adds today, writing all three destinations', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100, calendars: 10 }])
+    write('cached.json', [{ date: '2026-05-01', events: 200, calendars: 20 }])
+    write('published.json', [{ date: '2026-06-01', events: 300, calendars: 30 }])
+
+    expect(main(['--merge', 'cached.json', '--merge', 'published.json', '--cache-out', 'cached.json'])).toBe(0)
+
+    const out = readHistory()
+    expect(out.length).toBe(4) // three merged dates plus today
+    expect(out.map((p) => p.date).slice(0, 3)).toEqual(['2026-04-13', '2026-05-01', '2026-06-01'])
+    expect(existsSync(path.join(dir, 'output/event-history.json'))).toBe(true)
+    expect(JSON.parse(readFileSync(path.join(dir, 'cached.json'), 'utf-8')).length).toBe(4)
+  })
+
+  // event-history.json is a required data file; skipping the write would fail
+  // check-missing-urls AND drop the file from the site, knocking out the
+  // published layer the next build merges from.
+  it('still merges and republishes when there is no build output', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100, calendars: 10 }])
+    write('cached.json', [{ date: '2026-05-01', events: 200, calendars: 20 }])
+    rmSync(path.join(dir, 'output/build-errors.json'))
+    rmSync(path.join(dir, 'output/manifest.json'))
+
+    expect(main(['--merge', 'cached.json'])).toBe(0)
+
+    const out = readHistory()
+    expect(out.map((p) => p.date)).toEqual(['2026-04-13', '2026-05-01']) // no new point
+    expect(existsSync(path.join(dir, 'output/event-history.json'))).toBe(true)
+  })
+
+  // Reachable when a merge source carries duplicate dates: the union collapses
+  // them and the result is shorter than the input.
+  it('refuses to write a series shorter than an input', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+    write('cached.json', Array.from({ length: 5 }, () => ({ date: '2026-05-01', events: 1 })))
+
+    expect(main(['--merge', 'cached.json'])).toBe(1)
+    expect(readHistory()).toEqual([{ date: '2026-04-13', events: 100 }]) // untouched
+  })
+
+  // A corrupt committed file must fail loudly. Swallowing it would hand the
+  // merge an empty base AND zero the shrink guard's baseline, so a one-point
+  // series would be written back over everything.
+  it('throws on a corrupt committed history instead of starting from empty', () => {
+    write('docs/event-history.json', '{ this is not json')
+    expect(() => main([])).toThrow(/not valid JSON/)
+  })
+
+  it('skips a merge source that does not exist', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+    expect(main(['--merge', 'absent.json'])).toBe(0)
+    expect(readHistory().length).toBe(2)
   })
 })

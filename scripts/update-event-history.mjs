@@ -49,24 +49,36 @@ export function countCalendars(manifest) {
 
 // The maintenance backlog: everything the resolver skills still have to drain.
 //
-// Returns undefined when `duplicateStats` is absent, which is the case for
-// builds predating cross-source dedup (~PR 700). Dropping that term instead
-// would silently change the metric's *definition* partway through the series —
-// a backlog trend that means two different things is worse than a shorter one,
-// so those points get no value at all and the line simply starts later.
+// Every term must be *measurable* for the number to mean anything. The gap
+// queues were added to build-errors.json at different times (duplicateStats
+// ~2026-06-17, settingGaps ~2026-07-06), and treating an absent queue as 0
+// would silently redefine the metric partway through the series — a backlog
+// trend that means two different things over its length is worse than a
+// shorter one. So a report missing any contributing key yields undefined and
+// the line simply starts later.
+//
+// When a NEW gap queue is added to build-errors.json, add it here too, or the
+// series silently changes meaning from that build onward.
+const QUEUE_TERMS = [
+  (be) => be.uncertaintyStats?.outstanding,
+  (be) => be.photoGaps?.venueGaps?.length,
+  (be) => be.photoGaps?.eventGaps?.length,
+  (be) => be.costGaps?.length,
+  (be) => be.settingGaps?.venueGaps?.length,
+  (be) => be.settingGaps?.eventGaps?.length,
+  (be) => be.duplicateStats?.candidates,
+  (be) => be.geocodeErrors?.length,
+];
+
 export function openWorkQueue(be) {
-  if (!be || typeof be.duplicateStats?.candidates !== 'number') return undefined;
-  const len = (v) => (Array.isArray(v) ? v.length : 0);
-  return (
-    (be.uncertaintyStats?.outstanding ?? 0) +
-    len(be.photoGaps?.venueGaps) +
-    len(be.photoGaps?.eventGaps) +
-    len(be.costGaps) +
-    len(be.settingGaps?.venueGaps) +
-    len(be.settingGaps?.eventGaps) +
-    be.duplicateStats.candidates +
-    len(be.geocodeErrors)
-  );
+  if (!be) return undefined;
+  let total = 0;
+  for (const term of QUEUE_TERMS) {
+    const v = term(be);
+    if (typeof v !== 'number' || !Number.isFinite(v)) return undefined;
+    total += v;
+  }
+  return total;
 }
 
 // Count source candidates that are viable but not yet implemented.
@@ -96,7 +108,10 @@ export function countViableCandidates(dir = CANDIDATES_DIR) {
     }
     const lines = text.split(/\r?\n/);
     if (lines[0]?.trim() !== '---') continue;
-    const end = lines.indexOf('---', 1);
+    // Trim the closing fence too. An exact indexOf('---') misses a fence with
+    // trailing whitespace — which YAML and every Markdown renderer accept — and
+    // the file would vanish from the count with no error anywhere.
+    const end = lines.findIndex((l, i) => i > 0 && l.trim() === '---');
     if (end === -1) continue;
     const match = /^status:\s*([a-z-]+)/m.exec(lines.slice(1, end).join('\n'));
     if (!match) continue;
@@ -137,14 +152,23 @@ export function upsertPoint(history, point) {
 
 // ------------------------------------------------------------------- main
 
-function readJsonArray(file) {
+// `null` means "not there", which callers treat as a layer to skip. A file
+// that EXISTS but does not parse is a different thing entirely and must throw:
+// swallowing it would hand the merge an empty base, which also zeroes the
+// shrink guard's baseline — so a corrupt committed file would be silently
+// replaced by a one-point series and written back to every destination.
+function readJsonArray(file, { required = false } = {}) {
   if (!existsSync(file)) return null;
+  let parsed;
   try {
-    const parsed = JSON.parse(readFileSync(file, 'utf-8'));
-    return Array.isArray(parsed) ? parsed : null;
-  } catch {
+    parsed = JSON.parse(readFileSync(file, 'utf-8'));
+  } catch (err) {
+    if (required) throw new Error(`${file} exists but is not valid JSON: ${err.message}`);
     return null;
   }
+  if (Array.isArray(parsed)) return parsed;
+  if (required) throw new Error(`${file} is not a JSON array`);
+  return null;
 }
 
 function readJsonObject(file) {
@@ -166,7 +190,7 @@ function parseArgs(argv) {
   return { merges, cacheOut };
 }
 
-function main(argv) {
+export function main(argv) {
   const { merges, cacheOut } = parseArgs(argv);
 
   const manifest = readJsonObject(MANIFEST_FILE);
@@ -174,23 +198,30 @@ function main(argv) {
   const calendars = countCalendars(manifest);
   const events = buildErrors?.geoStats?.totalEvents;
 
-  if (!events && !calendars) {
-    console.log('No build output found — skipping history update');
-    return 0;
+  // A build with no output still has to merge and republish. event-history.json
+  // is a required data file (check-missing-urls), and skipping the write would
+  // both fail that check and drop the file from the deployed site — knocking
+  // out the published layer that the next build merges from. So only today's
+  // POINT is skipped here, never the merge.
+  const haveOutput = Boolean(events || calendars);
+  if (!haveOutput) {
+    console.log('No build output found — merging and republishing without a new point');
   }
 
-  const point = definedFields({
-    date: new Date().toISOString().slice(0, 10),
-    events,
-    calendars,
-    candidates: countViableCandidates(),
-    queue: openWorkQueue(buildErrors),
-    errors: buildErrors?.totalErrors,
-  });
+  const point = haveOutput
+    ? definedFields({
+        date: new Date().toISOString().slice(0, 10),
+        events,
+        calendars,
+        candidates: countViableCandidates(),
+        queue: openWorkQueue(buildErrors),
+        errors: buildErrors?.totalErrors,
+      })
+    : null;
 
   // Merge in increasing authority, tracking the biggest input so the shrink
   // guard can tell truncation from a genuinely small series.
-  let history = readJsonArray(HISTORY_FILE) ?? [];
+  let history = readJsonArray(HISTORY_FILE, { required: true }) ?? [];
   let largestInput = history.length;
   for (const file of merges) {
     const incoming = readJsonArray(file);
@@ -202,7 +233,7 @@ function main(argv) {
     largestInput = Math.max(largestInput, incoming.length);
     history = mergeHistory(history, incoming);
   }
-  history = upsertPoint(history, point);
+  if (point) history = upsertPoint(history, point);
 
   if (history.length < largestInput) {
     console.error(
@@ -217,11 +248,15 @@ function main(argv) {
   if (existsSync('output')) writeFileSync('output/event-history.json', json);
   if (cacheOut) writeFileSync(cacheOut, json);
 
-  const shown = Object.entries(point)
-    .filter(([k]) => k !== 'date')
-    .map(([k, v]) => `${k}=${v}`)
-    .join(' ');
-  console.log(`Event history: ${point.date} ${shown} (${history.length} total points)`);
+  if (point) {
+    const shown = Object.entries(point)
+      .filter(([k]) => k !== 'date')
+      .map(([k, v]) => `${k}=${v}`)
+      .join(' ');
+    console.log(`Event history: ${point.date} ${shown} (${history.length} total points)`);
+  } else {
+    console.log(`Event history: no new point (${history.length} total points)`);
+  }
   return 0;
 }
 

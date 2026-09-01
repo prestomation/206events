@@ -240,8 +240,18 @@ jobs:
       if: github.event_name != 'pull_request'
       continue-on-error: true
       env:
-        SITE_URL: ${{ vars.SITE_URL || 'https://206.events' }}
+        SITE_URL_OVERRIDE: ${{ vars.SITE_URL }}
       run: |
+        # The site's own origin, from city.config.ts — NOT a hardcoded default.
+        # This repo is a city template, and a fork without vars.SITE_URL set
+        # would otherwise fetch 206.events and permanently merge Seattle's
+        # coverage series into its own history.
+        SITE_URL="${SITE_URL_OVERRIDE:-$(npx tsx scripts/print-city-config.ts site.productionUrl)}"
+        if [ -z "$SITE_URL" ]; then
+          echo "No site URL resolved; skipping the published-history merge layer."
+          exit 0
+        fi
+        echo "Fetching published history from $SITE_URL"
         curl -fsSL --max-time 30 "$SITE_URL/event-history.json" \
           -o published-event-history.json || rm -f published-event-history.json
 

@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import {
   SERIES,
   READOUT_ONLY,
@@ -113,9 +113,12 @@ function CoverageChart({ history }) {
   useEffect(() => () => { if (rafRef.current) cancelAnimationFrame(rafRef.current) }, [])
 
   const n = history.length
-  const geom = layout(width ?? 760)
-  const { W, H, ML, PW, narrow, panelH, titleH, gridSteps, minTickGap } = geom
-  const xOf = (i) => xScale(i, n, ML, PW)
+  // A series absent from every point gets no panel at all: niceCeil(0) would
+  // otherwise invent a 0-10 axis under an empty plot.
+  const present = useMemo(() => SERIES.filter((s) => hasSeries(history, s.key)), [history])
+  const geom = useMemo(() => layout(width ?? 760, present.length), [width, present.length])
+  const { W, H, ML, PW, narrow, panelH, gridSteps, minTickGap } = geom
+  const xOf = useCallback((i) => xScale(i, n, ML, PW), [n, ML, PW])
 
   const select = (clientX) => {
     const rect = svgRef.current?.getBoundingClientRect()
@@ -156,8 +159,11 @@ function CoverageChart({ history }) {
   const onKeyDown = (e) => {
     const at = sel ?? n - 1
     let next = null
-    if (e.key === 'ArrowLeft') next = at - 1
-    else if (e.key === 'ArrowRight') next = at + 1
+    // Up/Down as well as Left/Right: DayScrubber maps both pairs, and the ARIA
+    // slider pattern expects them. Without them the key falls through
+    // unprevented and scrolls the page instead.
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = at - 1
+    else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = at + 1
     else if (e.key === 'Home') next = 0
     else if (e.key === 'End') next = n - 1
     else if (e.key === 'PageUp') next = at - 7
@@ -169,22 +175,21 @@ function CoverageChart({ history }) {
 
   if (n < 2) return null
 
-  const panels = SERIES.map((s, k) => {
+  const panels = useMemo(() => present.map((s, k) => {
     const max = niceCeil(maxOf(history, s.key))
     const top = geom.panelTop(k)
     return {
       ...s,
       top,
       max,
-      present: hasSeries(history, s.key),
       startsAt: firstDefinedIndex(history, s.key),
       yOf: (v) => top + panelH - (v / max) * panelH,
       runs: segments(history, s.key),
     }
-  })
+  }), [present, history, geom, panelH])
 
-  const ticks = monthTicks(history, xOf, minTickGap)
-  const axisY = geom.panelTop(SERIES.length - 1) + panelH
+  const ticks = useMemo(() => monthTicks(history, xOf, minTickGap), [history, xOf, minTickGap])
+  const axisY = geom.panelTop(Math.max(0, panels.length - 1)) + panelH
   // Degrade smoothly instead of the old `length <= 90` cliff, which the
   // backfill would have crossed — making every dot vanish at once.
   const showDots = PW / n >= 6
@@ -194,12 +199,41 @@ function CoverageChart({ history }) {
 
   // Only flagged when a plotted series starts late, so nobody reads its
   // absence as "the backlog was zero back then".
-  const lateStart = panels.find((p) => p.present && p.startsAt > 0)
+  const lateStart = panels.find((p) => p.startsAt > 0)
 
-  const readoutRows = [
-    ...panels.map((p) => ({ key: p.key, label: p.label, color: p.color, dash: p.dash })),
+  // Every series keeps a readout row even without a panel, so the row set does
+  // not shift as data arrives; the value just reads as not-recorded.
+  const readoutRows = useMemo(() => [
+    ...SERIES.map((s) => ({ key: s.key, label: s.label, color: s.color, dash: s.dash })),
     ...READOUT_ONLY.map((m) => ({ key: m.key, label: m.label, color: null })),
-  ]
+  ], [])
+
+  // Memoized: this is history.length x 6 cells (~800 today) and none of it
+  // depends on the selection, so rebuilding it on every scrub frame would
+  // reconcile the whole table at pointer-move rate.
+  const dataTable = useMemo(() => (
+    <table className="health-visually-hidden">
+    <caption>Coverage history</caption>
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        {readoutRows.map((r) => <th scope="col" key={r.key}>{r.label}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {history.map((p) => (
+        <tr key={p.date}>
+          <th scope="row">{fmtFullDate(p.date)}</th>
+          {readoutRows.map((r) => (
+            <td key={r.key}>
+              {Number.isFinite(p[r.key]) ? p[r.key].toLocaleString() : 'Not recorded'}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  ), [history, readoutRows])
 
   return (
     <div className="health-coverage-chart">
@@ -255,7 +289,8 @@ function CoverageChart({ history }) {
                         strokeDasharray={panel.dash}
                       />
                 ))}
-                {showDots && panel.runs.flatMap((run) => run).map((s) => (
+                {/* Runs of length 1 already drew their own circle above. */}
+                {showDots && panel.runs.filter((r) => r.length > 1).flat().map((s) => (
                   <circle key={s.i} cx={xOf(s.i)} cy={panel.yOf(s.v)} r="2.5" fill={panel.color} />
                 ))}
               </g>
@@ -356,27 +391,7 @@ function CoverageChart({ history }) {
 
       {/* The accessible representation of the chart: every number reachable to
           a screen reader, to Ctrl-F, and to copy/paste. */}
-      <table className="health-visually-hidden">
-        <caption>Coverage history</caption>
-        <thead>
-          <tr>
-            <th scope="col">Date</th>
-            {readoutRows.map((r) => <th scope="col" key={r.key}>{r.label}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {history.map((p) => (
-            <tr key={p.date}>
-              <th scope="row">{fmtFullDate(p.date)}</th>
-              {readoutRows.map((r) => (
-                <td key={r.key}>
-                  {Number.isFinite(p[r.key]) ? p[r.key].toLocaleString() : 'Not recorded'}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {dataTable}
     </div>
   )
 }

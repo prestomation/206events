@@ -17,7 +17,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { execFileSync } from 'child_process';
-import { mergeHistory } from './update-event-history.mjs';
+import { mergeHistory, countViableCandidates } from './update-event-history.mjs';
 
 const HISTORY_FILE = 'docs/event-history.json';
 const DIR = 'docs/source-candidates';
@@ -67,6 +67,27 @@ if (git('rev-parse', '--is-shallow-repository').trim() === 'true') {
 
 const history = JSON.parse(readFileSync(HISTORY_FILE, 'utf-8'));
 
+// git grep has no notion of the `---` fences, so it would also match a
+// `status:` line in a file's prose body, while the live counter
+// (countViableCandidates) scans only the frontmatter. They agree on the tree as
+// it stands; this asserts that before writing a whole historical series with
+// the cheaper method, because a silent divergence would mean the backfilled
+// points and the live points measure subtly different things.
+function assertCountersAgree() {
+  const live = countViableCandidates(DIR);
+  const viaGrep = countAt(git('rev-parse', 'HEAD').trim());
+  if (live === undefined || viaGrep === undefined) return; // nothing to compare
+  if (live !== viaGrep) {
+    console.error(
+      `::error::Counter mismatch at HEAD: frontmatter scan says ${live}, git grep says ${viaGrep}. ` +
+        'A candidate file probably has a `status:` line in its prose body. ' +
+        'Fix that file (or teach this script to parse frontmatter) before backfilling.'
+    );
+    process.exit(1);
+  }
+  console.log(`Counters agree at HEAD (${live} viable candidates).`);
+}
+
 // Last first-parent commit at or before end-of-day. --first-parent matters:
 // without it you can land on a PR-branch commit whose candidate set is
 // mid-edit, rather than on the state main actually had.
@@ -93,24 +114,28 @@ function countAt(sha) {
       // example line, which would otherwise count as a real candidate.
       `:!${DIR}/README.md`
     );
-  } catch {
-    return 0; // git grep exits 1 on no matches
+  } catch (err) {
+    // git grep exits 1 for "no matches" and >1 for real failures. Treating
+    // every failure as zero would write a fabricated 0 — the thing the
+    // undefined return above exists to avoid — and stderr is discarded here,
+    // so the two are otherwise indistinguishable.
+    if (err.status === 1) return 0;
+    throw new Error(`git grep failed at ${sha} (exit ${err.status}): ${err.message}`);
   }
   return out.split('\n').filter(Boolean).length;
 }
 
-const shaCache = new Map();
+assertCountersAgree();
+
+// Keyed by sha, not date: history dates are unique (mergeHistory keys by
+// date), but many dates resolve to the same commit.
 const countCache = new Map();
 const points = [];
 let resolved = 0;
 let skipped = 0;
 
 for (const p of history) {
-  let sha = shaCache.get(p.date);
-  if (sha === undefined) {
-    sha = commitAt(p.date);
-    shaCache.set(p.date, sha);
-  }
+  const sha = commitAt(p.date);
   if (!sha) { skipped++; continue; }
 
   let count = countCache.get(sha);
