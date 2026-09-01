@@ -112,8 +112,17 @@ export function parseEventCard(card: HTMLElement, zone: ZoneId): ParsedClubSakeE
         return { type: "ParseError", reason: `Invalid date/time "${dateText}": ${e}`, context: title };
     }
 
+    const hasExplicitEndDate = Boolean(endDayStr && endMonStr && endYearStr);
     let durationMinutes = eventDate.until(eventEndDate, ChronoUnit.MINUTES);
-    if (durationMinutes <= 0) durationMinutes += 24 * 60; // same-day card spanning midnight
+    if (durationMinutes <= 0) {
+        if (hasExplicitEndDate) {
+            // A dated end ("Sat ... - Sun ...") that isn't after the start is bad
+            // source data, not a midnight-spanning session — surface it rather
+            // than silently guessing a duration.
+            return { type: "ParseError", reason: `End date/time is not after start date/time: "${dateText}"`, context: title };
+        }
+        durationMinutes += 24 * 60; // same-day card spanning midnight
+    }
     const duration = Duration.ofMinutes(durationMinutes);
 
     const location = container.querySelector('.font-size-sm')?.textContent?.trim();

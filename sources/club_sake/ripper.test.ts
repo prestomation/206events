@@ -66,6 +66,59 @@ describe('parseEventCard', () => {
         expect(parsed.duration.toMinutes()).toBe(1980);
     });
 
+    it('wraps duration past midnight for a same-day card with no dated end', () => {
+        const card = parse(`
+            <div class="card card-hover">
+                <div class="p-4">
+                    <div class="flex-grow-1">
+                        <a href="https://www.clubsake.com/events/555555">Late Night Paddle</a>
+                        <div>Fri 04 Sep 2026 11:30PM - 12:30AM</div>
+                        <div class="font-size-sm">Lakewood Marina - 4500 Lake Washington Blvd S, Seattle WA</div>
+                    </div>
+                </div>
+            </div>
+        `).querySelector('.card.card-hover')!;
+        const parsed = parseEventCard(card, ZONE);
+        expect('type' in parsed).toBe(false);
+        if ('type' in parsed) return;
+        expect(parsed.duration.toMinutes()).toBe(60);
+    });
+
+    it('returns a ParseError for a multi-day card whose dated end is not after the start (bad source data)', () => {
+        const card = parse(`
+            <div class="card card-hover">
+                <div class="p-4">
+                    <div class="flex-grow-1">
+                        <a href="https://www.clubsake.com/events/666666">Backwards Dates</a>
+                        <div>Sun 13 Sep 2026 5:00PM - Sat 12 Sep 2026 8:00AM</div>
+                        <div class="font-size-sm">Tom McCall Waterfront Park</div>
+                    </div>
+                </div>
+            </div>
+        `).querySelector('.card.card-hover')!;
+        const parsed = parseEventCard(card, ZONE);
+        expect('type' in parsed).toBe(true);
+        if (!('type' in parsed)) return;
+        expect(parsed.type).toBe('ParseError');
+    });
+
+    it('falls back to a default location when the card has no .font-size-sm div', () => {
+        const card = parse(`
+            <div class="card card-hover">
+                <div class="p-4">
+                    <div class="flex-grow-1">
+                        <a href="https://www.clubsake.com/events/777777">No Location Listed</a>
+                        <div>Fri 04 Sep 2026 6:00PM - 7:00PM</div>
+                    </div>
+                </div>
+            </div>
+        `).querySelector('.card.card-hover')!;
+        const parsed = parseEventCard(card, ZONE);
+        expect('type' in parsed).toBe(false);
+        if ('type' in parsed) return;
+        expect(parsed.location).toBe('Seattle SAKE Paddling Club, Seattle, WA');
+    });
+
     it('returns a ParseError when the card has no title/url', () => {
         const card = parse('<div class="card card-hover"><div class="p-4"><div class="flex-grow-1"></div></div></div>')
             .querySelector('.card.card-hover')!;
