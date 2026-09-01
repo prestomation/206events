@@ -79,7 +79,7 @@ function ErrorItem({ type, reason, path, href }) {
 //
 // Pure SVG — no charting dependency. Geometry and formatting live in
 // coverageChart.js so they can be tested without React.
-function CoverageChart({ history }) {
+export function CoverageChart({ history }) {
   const wrapRef = useRef(null)
   const svgRef = useRef(null)
   const [width, setWidth] = useState(null)
@@ -120,9 +120,17 @@ function CoverageChart({ history }) {
   const { W, H, ML, PW, narrow, panelH, gridSteps, minTickGap } = geom
   const xOf = useCallback((i) => xScale(i, n, ML, PW), [n, ML, PW])
 
+  // The rAF callback below runs a frame later, so it must not close over
+  // geometry: a ResizeObserver firing in between (rotation, panel open, a
+  // phone's URL bar collapsing) would pair a fresh rect with a stale viewBox
+  // and land on an index off by the width ratio.
+  const liveRef = useRef({ geom, n })
+  liveRef.current = { geom, n }
+
   const select = (clientX) => {
     const rect = svgRef.current?.getBoundingClientRect()
-    const i = indexFromClientX(clientX, rect, geom, n)
+    const { geom: g, n: count } = liveRef.current
+    const i = indexFromClientX(clientX, rect, g, count)
     // Only re-render when the index actually changes: otherwise every pointer
     // move is a React render and an aria-live announcement.
     setSel((prev) => (prev === i ? prev : i))
@@ -147,7 +155,12 @@ function CoverageChart({ history }) {
     if (draggingRef.current || e.pointerType === 'mouse') queueSelect(e.clientX)
   }
   const onPointerUp = (e) => {
-    e.currentTarget.releasePointerCapture?.(e.pointerId)
+    // Guarded: pointercancel fires when the UA has already abandoned the
+    // pointer (a pinch, a gesture takeover), and releasing a pointer that is no
+    // longer captured throws NotFoundError.
+    if (e.currentTarget.hasPointerCapture?.(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId)
+    }
     // Keep the selection after release — a tap must leave its numbers on screen.
     draggingRef.current = false
   }
@@ -173,8 +186,6 @@ function CoverageChart({ history }) {
     setSel(Math.min(n - 1, Math.max(0, next)))
   }
 
-  if (n < 2) return null
-
   const panels = useMemo(() => present.map((s, k) => {
     const max = niceCeil(maxOf(history, s.key))
     const top = geom.panelTop(k)
@@ -193,13 +204,16 @@ function CoverageChart({ history }) {
   // Degrade smoothly instead of the old `length <= 90` cliff, which the
   // backfill would have crossed — making every dot vanish at once.
   const showDots = PW / n >= 6
-  const active = sel ?? n - 1
+  // Clamped against the current history: `sel` is set against the length of the
+  // render that scheduled it, so a history that shrinks while mounted would
+  // otherwise index past the end and throw on point.date.
+  const active = Math.min(Math.max(sel ?? n - 1, 0), Math.max(0, n - 1))
   const point = history[active]
   const selX = xOf(active)
 
   // Only flagged when a plotted series starts late, so nobody reads its
   // absence as "the backlog was zero back then".
-  const lateStart = panels.find((p) => p.startsAt > 0)
+  const lateStarts = panels.filter((p) => p.startsAt > 0)
 
   // Every series keeps a readout row even without a panel, so the row set does
   // not shift as data arrives; the value just reads as not-recorded.
@@ -234,6 +248,10 @@ function CoverageChart({ history }) {
     </tbody>
   </table>
   ), [history, readoutRows])
+
+  // Below every hook: an early return above one changes the hook count between
+  // renders of the same instance, which React rejects outright.
+  if (n < 2) return null
 
   return (
     <div className="health-coverage-chart">
@@ -382,11 +400,11 @@ function CoverageChart({ history }) {
             )
           })}
         </dl>
-        {lateStart && (
-          <p className="health-chart-note">
-            {lateStart.label} tracked from {fmtFullDate(history[lateStart.startsAt].date)}.
+        {lateStarts.map((p) => (
+          <p className="health-chart-note" key={p.key}>
+            {p.label} tracked from {fmtFullDate(history[p.startsAt].date)}.
           </p>
-        )}
+        ))}
       </div>
 
       {/* The accessible representation of the chart: every number reachable to

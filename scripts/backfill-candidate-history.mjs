@@ -17,14 +17,14 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { execFileSync } from 'child_process';
-import { mergeHistory, countViableCandidates } from './update-event-history.mjs';
+import { mergeHistory, countViableCandidates, VIABLE_STATUSES } from './update-event-history.mjs';
 
 const HISTORY_FILE = 'docs/event-history.json';
 const DIR = 'docs/source-candidates';
 
-// Statuses meaning "viable, evaluated, not implemented yet". Kept in step with
-// VIABLE_STATUSES in update-event-history.mjs.
-const VIABLE = 'candidate|investigating';
+// Derived from the live counter's set rather than restated, so the historical
+// series and the live series cannot drift apart when a status is added.
+const VIABLE = [...VIABLE_STATUSES].join('|');
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
@@ -108,7 +108,11 @@ function countAt(sha) {
   let out;
   try {
     out = gitQuiet(
-      'grep', '-h', '-E', `^status: *(${VIABLE})`, sha, '--',
+      // -l lists each MATCHING FILE once. -h would print one line per match, so
+      // a doc carrying both a frontmatter status and a `status:`-lookalike line
+      // in its prose would count twice — and unlike assertCountersAgree, which
+      // only checks HEAD, that would silently skew a historical point.
+      'grep', '-l', '-E', `^status: *(${VIABLE})`, sha, '--',
       `${DIR}/*.md`,
       // README.md documents the schema with a literal `status: candidate`
       // example line, which would otherwise count as a real candidate.
@@ -138,11 +142,10 @@ for (const p of history) {
   const sha = commitAt(p.date);
   if (!sha) { skipped++; continue; }
 
-  let count = countCache.get(sha);
-  if (count === undefined) {
-    count = countAt(sha);
-    countCache.set(sha, count);
-  }
+  // .has(), not .get() !== undefined: countAt legitimately returns undefined
+  // for every commit predating the directory, and those would never cache.
+  if (!countCache.has(sha)) countCache.set(sha, countAt(sha));
+  const count = countCache.get(sha);
   if (count === undefined) { skipped++; continue; }
 
   resolved++;

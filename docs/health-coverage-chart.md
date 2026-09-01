@@ -130,10 +130,12 @@ now requires it to be absent from all four at once — and the published copy is
 the previous run's merged output, so one successful build after any cache loss
 restores everything the site was serving.
 
-Two guards back that up: the script refuses to write a series shorter than any
-of its inputs (reachable when a source carries duplicate dates), and a
-committed history that exists but does not parse **throws** rather than being
-read as empty — swallowing it would hand the merge an empty base *and* zero the
+Two guards back that up. The script refuses to write a series with fewer dates
+than any of its inputs — a defensive invariant rather than a live recovery
+path, since the merge cannot produce that while it behaves as documented; it is
+there so a future change that started dropping dates fails the build instead of
+quietly republishing. And a committed history that exists but does not parse
+**throws** rather than being read as empty — swallowing it would hand the merge an empty base *and* zero the
 shrink guard's own baseline, so a one-point series would be written back over
 every destination. A build with no output still merges and republishes:
 skipping the write would fail `check-missing-urls` and drop the file from the
@@ -187,5 +189,7 @@ date, so it would systematically understate the past.
   geometry at 390px, `touch-action`, the screen-reader table, and that the page
   never scrolls sideways.
 - `scripts/update-event-history.test.mjs` — the counters, the merge semantics,
-  and `main()` end-to-end in a temp working directory: the shrink guard, the
-  corrupt-file throw, and the no-build-output path that must still republish.
+  and `main()` end-to-end in a temp working directory: the corrupt-file throw,
+  the corrupt-vs-absent merge source distinction, a duplicate date not being
+  mistaken for truncation, a real measured zero being recorded, and the
+  no-build-output path that must still republish.

@@ -34,7 +34,7 @@ const CANDIDATES_DIR = 'docs/source-candidates';
 // Statuses that mean "we evaluated this source, it looks viable, and it is not
 // implemented yet" — the un-worked part of the discovery pipeline. `added` and
 // `proxy` are live; `notviable`/`blocked`/`dead` are not actionable.
-const VIABLE_STATUSES = new Set(['candidate', 'investigating']);
+export const VIABLE_STATUSES = new Set(['candidate', 'investigating']);
 
 // ---------------------------------------------------------------- counters
 
@@ -68,6 +68,7 @@ const QUEUE_TERMS = [
   (be) => be.settingGaps?.eventGaps?.length,
   (be) => be.duplicateStats?.candidates,
   (be) => be.geocodeErrors?.length,
+  (be) => be.osmGaps?.length,
 ];
 
 export function openWorkQueue(be) {
@@ -158,17 +159,17 @@ export function upsertPoint(history, point) {
 // shrink guard's baseline — so a corrupt committed file would be silently
 // replaced by a one-point series and written back to every destination.
 function readJsonArray(file, { required = false } = {}) {
-  if (!existsSync(file)) return null;
+  if (!existsSync(file)) return { status: 'absent' };
   let parsed;
   try {
     parsed = JSON.parse(readFileSync(file, 'utf-8'));
   } catch (err) {
     if (required) throw new Error(`${file} exists but is not valid JSON: ${err.message}`);
-    return null;
+    return { status: 'corrupt', reason: err.message };
   }
-  if (Array.isArray(parsed)) return parsed;
+  if (Array.isArray(parsed)) return { status: 'ok', points: parsed };
   if (required) throw new Error(`${file} is not a JSON array`);
-  return null;
+  return { status: 'corrupt', reason: 'not a JSON array' };
 }
 
 function readJsonObject(file) {
@@ -203,7 +204,11 @@ export function main(argv) {
   // both fail that check and drop the file from the deployed site — knocking
   // out the published layer that the next build merges from. So only today's
   // POINT is skipped here, never the merge.
-  const haveOutput = Boolean(events || calendars);
+  // `!== undefined`, not truthiness: a day when every source failed genuinely
+  // measures 0 events, and that outage is the most diagnostic point in the
+  // series. Treating it as "no output" would drop it and draw a straight line
+  // across the gap.
+  const haveOutput = events !== undefined || calendars !== undefined;
   if (!haveOutput) {
     console.log('No build output found — merging and republishing without a new point');
   }
@@ -221,23 +226,41 @@ export function main(argv) {
 
   // Merge in increasing authority, tracking the biggest input so the shrink
   // guard can tell truncation from a genuinely small series.
-  let history = readJsonArray(HISTORY_FILE, { required: true }) ?? [];
-  let largestInput = history.length;
+  let history = readJsonArray(HISTORY_FILE, { required: true }).points ?? [];
+  // Count DISTINCT dates, not raw entries. mergeHistory keys by date, so a
+  // source carrying one duplicated or date-less entry would otherwise look
+  // like truncation and fail the build on every subsequent run — the poisoned
+  // file gets re-saved to the cache and restored again next time.
+  const distinctDates = (points) => new Set(points.map((p) => p?.date).filter(Boolean)).size;
+  let largestInput = distinctDates(history);
+
   for (const file of merges) {
-    const incoming = readJsonArray(file);
-    if (!incoming) {
-      console.log(`Merge source unavailable, skipping: ${file}`);
+    const read = readJsonArray(file);
+    if (read.status === 'corrupt') {
+      // Never conflate this with "absent": a truncated download of the
+      // published copy would otherwise be logged as "the site had none",
+      // silently dropping the recovery layer this whole design rests on.
+      console.error(`::warning::Merge source ${file} is unreadable (${read.reason}); skipping it.`);
       continue;
     }
-    console.log(`Merging ${incoming.length} points from ${file}`);
-    largestInput = Math.max(largestInput, incoming.length);
-    history = mergeHistory(history, incoming);
+    if (read.status === 'absent') {
+      console.log(`Merge source not present, skipping: ${file}`);
+      continue;
+    }
+    console.log(`Merging ${read.points.length} points from ${file}`);
+    largestInput = Math.max(largestInput, distinctDates(read.points));
+    history = mergeHistory(history, read.points);
   }
   if (point) history = upsertPoint(history, point);
 
+  // Defensive invariant, not a live recovery path: mergeHistory unions by date,
+  // so this cannot fire while it behaves as documented. It is here because this
+  // file has already been silently truncated once, and a future change to the
+  // merge that started dropping dates should fail the build rather than
+  // quietly republish a shorter series.
   if (history.length < largestInput) {
     console.error(
-      `::error::Event history shrank: merged ${history.length} points but an input had ${largestInput}. ` +
+      `::error::Event history shrank: merged ${history.length} dates but an input had ${largestInput}. ` +
         'Refusing to write a truncated series.'
     );
     return 1;

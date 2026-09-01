@@ -464,7 +464,10 @@ parity with `lib/tag_aggregator.ts`. Run locally with
 `scripts/check-missing-urls.ts` additionally enforces that the set of
 required discovery data files (`index.json`, `llms.txt`, `tags.json`,
 `venues.json`, `manifest.json`, `events-index.json`, `build-errors.json`,
-`geo-cache.json`, `sitemap.xml`) is present on disk.
+`geo-cache.json`, `sitemap.xml`) is present on disk, plus
+`event-history.json` — the health dashboard's coverage series, which is
+required on disk but deliberately outside the discovery graph (see
+`docs/health-coverage-chart.md`).
 
 ## Unit Tests
 

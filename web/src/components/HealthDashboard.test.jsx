@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { render, screen, fireEvent, within } from '@testing-library/react'
-import { HealthDashboard } from './HealthDashboard.jsx'
+import { HealthDashboard, CoverageChart } from './HealthDashboard.jsx'
 
 // HealthDashboard is controlled (tab + drilled-into source live in App206 so
 // they can be deep-linked). This harness mirrors that wiring: switching tabs
@@ -326,5 +326,45 @@ describe('CoverageChart', () => {
     const table = screen.getByRole('table', { name: /coverage history/i })
     expect(within(table).getAllByRole('row')).toHaveLength(7) // header + 6 points
     expect(within(table).getAllByText('Not recorded').length).toBeGreaterThan(0)
+  })
+})
+
+// The chart's early `return null` for a too-short history must sit BELOW every
+// hook. When it sat above the useMemo calls, the same mounted instance rendered
+// a different number of hooks once the history grew, and React tore the whole
+// health page down with "Rendered more hooks than during the previous render".
+describe('CoverageChart hook stability', () => {
+  it('survives a history growing past the render threshold while mounted', () => {
+    const errors = []
+    const orig = console.error
+    console.error = (...a) => errors.push(String(a[0]))
+    try {
+      const { rerender } = render(<CoverageChart history={history().slice(0, 1)} />)
+      expect(screen.queryByRole('slider', { name: /coverage history date/i })).toBeNull()
+
+      // Same instance, now above the threshold: the hook count must not change.
+      rerender(<CoverageChart history={history()} />)
+      expect(screen.getByRole('slider', { name: /coverage history date/i })).toBeTruthy()
+
+      // And back down again.
+      rerender(<CoverageChart history={history().slice(0, 1)} />)
+      expect(screen.queryByRole('slider', { name: /coverage history date/i })).toBeNull()
+    } finally {
+      console.error = orig
+    }
+    expect(errors.filter((e) => /Rendered (more|fewer) hooks/.test(e))).toEqual([])
+  })
+
+  // sel is set against the length of the render that scheduled it, so a
+  // shrinking history must not index past the end and throw on point.date.
+  it('clamps the selection when the history shrinks under it', () => {
+    const { rerender } = render(<CoverageChart history={history(8)} />)
+    const slider = screen.getByRole('slider', { name: /coverage history date/i })
+    fireEvent.keyDown(slider, { key: 'End' })
+    expect(slider.getAttribute('aria-valuenow')).toBe('7')
+
+    expect(() => rerender(<CoverageChart history={history(3)} />)).not.toThrow()
+    expect(screen.getByRole('slider', { name: /coverage history date/i })
+      .getAttribute('aria-valuenow')).toBe('2')
   })
 })

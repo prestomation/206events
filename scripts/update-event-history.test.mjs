@@ -40,11 +40,12 @@ describe('openWorkQueue', () => {
     settingGaps: { venueGaps: [1], eventGaps: [1, 2] },
     duplicateStats: { candidates: 5 },
     geocodeErrors: [1, 2, 3, 4, 5, 6],
+    osmGaps: [1, 2],
   }
 
-  it('sums all seven terms', () => {
-    // 3 + 2 + 1 + 4 + 1 + 2 + 5 + 6
-    expect(openWorkQueue(full)).toBe(24)
+  it('sums every term', () => {
+    // 3 + 2 + 1 + 4 + 1 + 2 + 5 + 6 + 2
+    expect(openWorkQueue(full)).toBe(26)
   })
 
   it('sums to 0 when every term is present but empty', () => {
@@ -55,6 +56,7 @@ describe('openWorkQueue', () => {
       settingGaps: { venueGaps: [], eventGaps: [] },
       duplicateStats: { candidates: 0 },
       geocodeErrors: [],
+      osmGaps: [],
     })).toBe(0)
   })
 
@@ -69,6 +71,7 @@ describe('openWorkQueue', () => {
     'settingGaps',
     'duplicateStats',
     'geocodeErrors',
+    'osmGaps',
   ])('returns undefined when %s is absent', (key) => {
     const { [key]: _dropped, ...rest } = full
     expect(openWorkQueue(rest)).toBeUndefined()
@@ -271,6 +274,7 @@ describe('main', () => {
       settingGaps: { venueGaps: [], eventGaps: [] },
       duplicateStats: { candidates: 2 },
       geocodeErrors: [],
+      osmGaps: [],
     })
   })
   afterEach(() => {
@@ -308,16 +312,6 @@ describe('main', () => {
     expect(existsSync(path.join(dir, 'output/event-history.json'))).toBe(true)
   })
 
-  // Reachable when a merge source carries duplicate dates: the union collapses
-  // them and the result is shorter than the input.
-  it('refuses to write a series shorter than an input', () => {
-    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
-    write('cached.json', Array.from({ length: 5 }, () => ({ date: '2026-05-01', events: 1 })))
-
-    expect(main(['--merge', 'cached.json'])).toBe(1)
-    expect(readHistory()).toEqual([{ date: '2026-04-13', events: 100 }]) // untouched
-  })
-
   // A corrupt committed file must fail loudly. Swallowing it would hand the
   // merge an empty base AND zero the shrink guard's baseline, so a one-point
   // series would be written back over everything.
@@ -330,5 +324,51 @@ describe('main', () => {
     write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
     expect(main(['--merge', 'absent.json'])).toBe(0)
     expect(readHistory().length).toBe(2)
+  })
+
+  // A corrupt merge source must not fail the build (it is one recovery layer of
+  // several) but must also not be silently written off as absent.
+  it('skips a corrupt merge source without failing', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+    write('cached.json', 'truncated{{{')
+    expect(main(['--merge', 'cached.json'])).toBe(0)
+    expect(readHistory().length).toBe(2)
+  })
+
+  // The guard counts distinct dates. Counting raw entries would fail the build
+  // permanently on a source carrying one duplicate, and the poisoned file gets
+  // re-saved to the cache and restored next run.
+  it('does not mistake a duplicate date in a source for truncation', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+    write('cached.json', [
+      { date: '2026-05-01', events: 1 },
+      { date: '2026-05-01', events: 2 },
+      { events: 3 },
+    ])
+    expect(main(['--merge', 'cached.json'])).toBe(0)
+    expect(readHistory().map((p) => p.date)).toEqual(['2026-04-13', '2026-05-01', '2026-09-01'])
+  })
+
+  // A day when every source failed genuinely measures 0 events; dropping it
+  // would hide the outage behind a straight line.
+  it('records a real zero rather than treating it as no build output', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+    write('output/manifest.json', { rippers: [] })
+    write('output/build-errors.json', {
+      totalErrors: 500,
+      geoStats: { totalEvents: 0 },
+      uncertaintyStats: { outstanding: 0 },
+      photoGaps: { venueGaps: [], eventGaps: [] },
+      costGaps: [],
+      settingGaps: { venueGaps: [], eventGaps: [] },
+      duplicateStats: { candidates: 0 },
+      geocodeErrors: [],
+      osmGaps: [],
+    })
+    expect(main([])).toBe(0)
+    const today = readHistory().at(-1)
+    expect(today.events).toBe(0)
+    expect(today.calendars).toBe(0)
+    expect(today.errors).toBe(500)
   })
 })

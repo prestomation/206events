@@ -8,6 +8,7 @@
 //
 // Run with: node scripts/backfill-event-history.mjs [MAX_PR] [MIN_PR]
 //           node scripts/backfill-event-history.mjs 1400 --dry-run
+//           node scripts/backfill-event-history.mjs --preview-host 'https://pr-{n}.example.pages.dev'
 //
 // PROVENANCE CAVEAT: preview points are builds of *unmerged branches*. A PR
 // adding twelve sources shows inflated `calendars`; a PR mid-way through
@@ -20,18 +21,35 @@
 // Writes (or merges into) docs/event-history.json, one point per day.
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { execFileSync } from 'child_process';
 import { openWorkQueue, definedFields, mergeHistory, countCalendars } from './update-event-history.mjs';
 
 const HISTORY_FILE = 'docs/event-history.json';
-const BASE_URL = 'https://pr-{n}.206events.pages.dev';
+
+// Cloudflare's per-PR preview host, derived from the site's own domain rather
+// than hardcoded: this repo is a city template, and a fork sweeping
+// 206events.pages.dev would merge Seattle's series into its own. Override with
+// --preview-host <pattern> where {n} is the PR number.
+function defaultPreviewHost() {
+  const url = execFileSync('npx', ['tsx', 'scripts/print-city-config.ts', 'site.productionUrl'], {
+    encoding: 'utf-8',
+  }).trim();
+  // https://206.events -> 206events (Cloudflare Pages project slug)
+  const project = new URL(url).hostname.replace(/^www\./, '').replace(/\./g, '');
+  return `https://pr-{n}.${project}.pages.dev`;
+}
 const CONCURRENCY = 30;
 const TIMEOUT_MS = 8000;
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
-const positional = args.filter((a) => !a.startsWith('--'));
+const hostIdx = args.indexOf('--preview-host');
+// `hostIdx >= 0 &&` matters: without it, hostIdx of -1 makes the i-1 test drop
+// argv[0], silently shifting MAX_PR to MIN_PR's value.
+const positional = args.filter((a, i) => !a.startsWith('--') && !(hostIdx >= 0 && i === hostIdx + 1));
 const MAX_PR = parseInt(positional[0] ?? '1400', 10);
 const MIN_PR = parseInt(positional[1] ?? '1', 10);
+const BASE_URL = hostIdx >= 0 ? args[hostIdx + 1] : defaultPreviewHost();
 
 async function fetchJson(url) {
   const ctrl = new AbortController();
@@ -91,7 +109,7 @@ async function pool(items, fn, concurrency) {
 const existing = existsSync(HISTORY_FILE) ? JSON.parse(readFileSync(HISTORY_FILE, 'utf-8')) : [];
 const prs = Array.from({ length: MAX_PR - MIN_PR + 1 }, (_, i) => i + MIN_PR);
 
-console.log(`Sweeping PR #${MIN_PR}-#${MAX_PR} (${prs.length} PRs, concurrency=${CONCURRENCY})...`);
+console.log(`Sweeping PR #${MIN_PR}-#${MAX_PR} at ${BASE_URL} (${prs.length} PRs, concurrency=${CONCURRENCY})...`);
 
 let done = 0;
 const tick = setInterval(() => process.stdout.write(`\r  ${done}/${prs.length} checked...`), 500);
