@@ -1,0 +1,23 @@
+imageUrl: "https://images.squarespace-cdn.com/content/v1/69b9106d8444485ae8ecb8d3/e74b2fc5-f304-45b8-94d3-60a0753fb928/hamepage-banner.webp?format=1500w"
+geo:
+  lat: 47.5605097
+  lng: -122.3865915
+  label: "4718 California Ave SW, Seattle, WA 98116"
+  osmType: node
+  osmId: 2397396563
+name: talaricos-pizzeria-trivia
+sourceRole: venue
+friendlyname: Trivia Night at Talarico's Pizzeria
+description: Weekly pub trivia at Talarico's Pizzeria & Lounge, hosted by Phil Tavel (500+ weeks running)
+timezone: America/Los_Angeles
+location: 4718 California Ave SW, Seattle, WA 98116
+url: https://www.talaricospizza.com/faq
+tags:
+  - Trivia
+  - Pub Trivia
+  - West Seattle
+cost: 2
+schedules:
+  - schedule: every Wednesday
+    start_time: "20:30"
+    duration: PT1H30M
