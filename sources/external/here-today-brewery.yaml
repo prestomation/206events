@@ -1,0 +1,15 @@
+geo:
+  lat: 47.6149875
+  lng: -122.3539810
+  label: "Here Today Brewery & Kitchen, 2815 Elliott Ave, Seattle, WA 98121"
+  osmType: node
+  osmId: 11013224482
+name: here-today-brewery
+sourceRole: venue
+friendlyname: Here Today Brewery + Kitchen
+description: Seattle waterfront brewery and kitchen in Belltown, hosting weekly trivia, bingo, and a run club
+icsUrl: "https://calendar.google.com/calendar/ical/c_68b145f3cfd346b343edd8b12a218719cd5be6bc17312d7bda694f602026d335%40group.calendar.google.com/public/basic.ics"
+infoUrl: https://www.heretodayseattle.com/event-calendar
+tags:
+  - Beer
+  - Belltown

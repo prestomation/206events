@@ -1632,6 +1632,36 @@ export interface ResolveEventCoordsResult {
  * 11. Duplicate-address-tail stripping retry (ICS feeds that render the
  *     same street address twice, e.g. the WordPress Tribe Events plugin)
  */
+/**
+ * Resolve coordinates for an external-calendar (ICS) event. External feeds
+ * frequently carry no per-event LOCATION at all (e.g. a venue's Google
+ * Calendar with events like "Trivia Night" and no address field) — when the
+ * calendar declares a single fixed venue (`geo` non-null, `sourceRole:
+ * venue`) and the event has no location text of its own, default to that
+ * declared venue instead of calling into `resolveEventCoords` with an empty
+ * string (which just returns `geocodeSource: 'none'`). In spirit this
+ * mirrors the "declared venue coords are the default, an explicit
+ * per-event value wins when present" precedence `attachEventCoords`
+ * applies to ripper/recurring calendars — though the signal differs: ICS
+ * has no separate per-event coordinate field, so this keys off whether the
+ * feed's LOCATION *text* is present, not off already-resolved lat/lng.
+ *
+ * Falls through to the normal `resolveEventCoords` geocoding path whenever
+ * the event does carry location text (it may describe an off-site event) or
+ * the calendar has no declared venue (aggregator feeds, `geo: null`).
+ */
+export async function resolveExternalEventCoords(
+  cache: Readonly<GeoCache>,
+  location: string | undefined,
+  sourceName: string,
+  venueGeo: GeoCoords | null,
+): Promise<ResolveEventCoordsResult> {
+  if ((!location || location.trim() === '') && venueGeo) {
+    return { coords: venueGeo, geocodeSource: 'ripper', cache };
+  }
+  return resolveEventCoords(cache, location, sourceName);
+}
+
 export async function resolveEventCoords(
   cache: Readonly<GeoCache>,
   location: string | undefined,

@@ -14,6 +14,7 @@ import {
   lookupKnownVenue,
   lookupGeoCache,
   resolveEventCoords,
+  resolveExternalEventCoords,
   resetGeocodeStats,
   getGeocodeStats,
   type GeoCache,
@@ -391,6 +392,50 @@ describe('resolveEventCoords', () => {
 
     // Original cache is unmodified
     expect(cache.entries['nowhere land']).toBeUndefined();
+  });
+});
+
+describe('resolveExternalEventCoords', () => {
+  let cache: GeoCache;
+  const venueGeo = { lat: 47.6149875, lng: -122.353981, osmType: 'node' as const, osmId: 11013224482 };
+
+  beforeEach(() => {
+    cache = { version: 1, entries: {} };
+    mockFetch.mockReset();
+  });
+
+  it('defaults to the declared venue when the event has no location text', async () => {
+    const result = await resolveExternalEventCoords(cache, undefined, 'test-source', venueGeo);
+    expect(result.coords).toEqual(venueGeo);
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.cache).toBe(cache); // no lookup, no mutation
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it('defaults to the declared venue when the location is blank/whitespace', async () => {
+    const result = await resolveExternalEventCoords(cache, '   ', 'test-source', venueGeo);
+    expect(result.coords).toEqual(venueGeo);
+    expect(result.geocodeSource).toBe('ripper');
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+
+  it('geocodes the event location instead of defaulting when the feed provides one', async () => {
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => [{ lat: '47.6000', lon: '-122.3300' }],
+    });
+
+    const result = await resolveExternalEventCoords(cache, 'Some Off-Site Hall, Seattle', 'test-source', venueGeo);
+    expect(result.coords).toEqual({ lat: 47.6, lng: -122.33 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(mockFetch).toHaveBeenCalled();
+  });
+
+  it('falls through to normal geocoding (returning none) when the calendar has no declared venue', async () => {
+    const result = await resolveExternalEventCoords(cache, undefined, 'test-source', null);
+    expect(result.coords).toBeNull();
+    expect(result.geocodeSource).toBe('none');
+    expect(mockFetch).not.toHaveBeenCalled();
   });
 });
 
