@@ -6,7 +6,7 @@ url: https://www.clubsake.com/events/list
 tags: [Sports, Outdoors]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-01
-pr:
+pr: 1332
 ---
 
 Seattle SAKE Paddling Club — dragon boat, outrigger canoe (OC6), and
