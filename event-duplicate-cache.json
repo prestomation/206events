@@ -15834,6 +15834,156 @@
       "decision": "confirmed",
       "resolvedAt": "2026-08-31",
       "note": "Same production, same date/time (7:30pm Sep 26), same venue (Leo K. Theater, Seattle Center, 3m apart); Seattle Center's listing specifies it's the preview performance"
+    },
+    "19hz-all-events.ics NonSeq: Sarah Belle Reid|2026-09-10T20:00:00-07:00[America/Los_Angeles]::wayward-music-wayward-music.ics NonSeq: Sarah Belle Reid + Marcin Pączkowski|2026-09-10T20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same NonSeq show, Chapel Performance Space, same day/time; B adds co-performer name"
+    },
+    "19hz-all-events.ics SOUNDWAVS: DJ Habibeats|2026-10-10T12:00:00-07:00[America/Los_Angeles]::external-on-the-hiyu.ics WRG Presents: SOUNDWAVS w/ DJ Habibeats|2026-10-10T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same venue On the Hiyu, same time (12:00 PDT = 19:00 UTC), title variant with promoter prefix"
+    },
+    "chop-suey-all-events.ics Trans Music Showcase|2026-09-19T16:30:00-07:00[America/Los_Angeles]::external-seattle-dsa.ics Trans Music Showcase - Supporting Lambert House and Local Queer Youth|2026-09-19T23:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same venue Chop Suey, exact same time, DSA feed adds subtitle"
+    },
+    "cidbia-cidbia-events.ics Ping Pong Tournament|2026-09-04T14:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Tournaments Ping Pong|2026-09-04T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same date/time, both resolve to Hing Hay Park (CID); Seattle Parks activation event cross-listed by neighborhood BIA"
+    },
+    "cidbia-cidbia-events.ics Ping Pong Tournament|2026-09-04T14:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Tournaments Ping Pong|2026-09-04T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same date/time, both resolve to Hing Hay Park (CID); duplicate of the seattle-gov-city-wide pairing"
+    },
+    "discover-slu-discover-slu.ics Drawing From History: Ripples of Time|2026-09-19T13:00:00-07:00[America/Los_Angeles]::external-mohai.ics Drawing From History: Ripples of Time|2026-09-19T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Identical title, same venue MOHAI, exact same time"
+    },
+    "external-access-events-seattle.ics Harry Potter and the Cursed Child (ASL-Interpreted and Open-Captioned)|2026-09-05T21:00:00Z[UTC]::stg-stg-paramount.ics Harry Potter and the Cursed Child (Touring)|2026-09-05T13:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Same show/venue/day but times differ by 30min (13:30 vs 14:00) with no confirmation of which specific performance is ASL-interpreted; multi-show days are common for touring productions, rejecting per when-in-doubt rule"
+    },
+    "external-center-for-active-living.ics American Mah Jongg|2026-09-02T19:30:00Z[UTC]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-02T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Different venues 210m apart (The Missing Piece vs Center for Active Living, West Seattle) and different times (12:30 vs 14:00 PDT) - generic recurring activity, likely two independent sessions"
+    },
+    "external-center-for-active-living.ics American Mah Jongg|2026-09-09T19:30:00Z[UTC]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-09T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Same reasoning as the 09-02 occurrence: different venues and times"
+    },
+    "external-discover-magnolia.ics 30th Annual SpiritWalk & Warrior Run|2026-10-10T16:00:00Z[UTC]::seattle-indian-health-board-seattle-indian-health-board.ics 30th Annual SpiritWalk & Warrior Run|2026-10-10T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Identical title, same venue Daybreak Star, exact same time; neighborhood aggregator republishing the health board's own annual event"
+    },
+    "external-discover-magnolia.ics Daybreak Star Indian Summer Concert|2026-09-26T22:00:00Z[UTC]::external-united-indians-daybreak-star.ics Daybreak Star Sacred Circle Gallery's Indian Summer Concert|2026-09-26T22:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same venue, exact same time, title variant with organizer name added"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-02T14:00:00Z[UTC]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-02T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same weekly meetup, identical venue and time, title differs only by emoji"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-09T14:00:00Z[UTC]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-09T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same weekly meetup, identical venue and time, title differs only by emoji"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-16T14:00:00Z[UTC]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-16T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same weekly meetup, identical venue and time, title differs only by emoji"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-23T14:00:00Z[UTC]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-23T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same weekly meetup, identical venue and time, title differs only by emoji"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-30T14:00:00Z[UTC]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-30T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same weekly meetup, identical venue and time, title differs only by emoji"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-10-07T14:00:00Z[UTC]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-10-07T14:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same weekly meetup, identical venue and time, title differs only by emoji"
+    },
+    "external-myballard.ics 2026 Seattle Optimism Walk|2026-09-19T16:30:00Z[UTC]::external-seattle-gov-neighborhoods.ics Seattle Optimism Walk|2026-09-19T16:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same address (130 Nickerson St) and exact same time; APDA's 'Optimism Walk' is the fundraiser's actual event brand name, matching the qgiv URL"
+    },
+    "external-nw-asian-weekly.ics CID Night Market|2026-09-26T20:00:00Z[UTC]::recurring-cid-night-market.ics CID Night Market|2026-09-26T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Identical title, same venue Hing Hay Park/CID, exact same time; news outlet republishing the recurring community event"
+    },
+    "external-science-in-seattle.ics SIGNAL: Modular on the Spot: Seattle|2026-09-13T01:00:00Z[UTC]::external-seattle-gov-city-wide.ics SIGNAL: Modular on the Spot|2026-09-13T02:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same distinctive event name, same venue Pacific Science Center, same evening (1hr apart, likely door vs show time)"
+    },
+    "external-seattle-bach-choir.ics Actus Tragicus|2026-11-22T23:00:00Z[UTC]::greater-seattle-choral-consortium-seattle-events.ics Actus Tragicus — Bach and others|2026-11-22T15:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same venue Trinity Parish Church, exact same time, title variant with subtitle added by choral consortium aggregator"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-01T18:00:00Z[UTC]::seatoday-seatoday-all.ics Story Time|2026-09-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "seatoday explicitly lists location as Seattle Children's Museum, exact same title and time"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-01T18:00:00Z[UTC]::seatoday-seatoday-arts.ics Story Time|2026-09-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-01",
+      "note": "Same as seatoday-all pairing, just cross-listed in the arts sub-calendar"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-01T18:00:00Z[UTC]::spl-northeast.ics Family Story Time|2026-09-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Different venue (SPL Northeast Branch) and different time (10:30 vs 11:00) - a separate library story-time program"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-02T18:00:00Z[UTC]::seatoday-seatoday-all.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "seatoday listing has no location and a different title/time (Family Story Time, 10:30) than the museum's own Story Time (11:00) - looks like a different recurring program, unlike the 09-01 pairing which matched location+title+time exactly"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-02T18:00:00Z[UTC]::seatoday-seatoday-arts.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Same reasoning as the seatoday-all pairing for 09-02"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-02T18:00:00Z[UTC]::seatoday-seatoday-learning.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Same reasoning: no location, title/time mismatch"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-02T18:00:00Z[UTC]::spl-greenwood.ics Family Story Time|2026-09-02T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Different venue (SPL Greenwood Branch) and different time - a separate library story-time program"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-03T18:00:00Z[UTC]::seatoday-seatoday-all.ics Family Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Same reasoning: no location, title/time mismatch vs museum's own Story Time"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-03T18:00:00Z[UTC]::seatoday-seatoday-arts.ics Family Story Time|2026-09-03T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-01",
+      "note": "Same reasoning: no location, title/time mismatch vs museum's own Story Time"
     }
   }
 }
