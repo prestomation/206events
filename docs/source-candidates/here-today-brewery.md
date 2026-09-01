@@ -6,7 +6,7 @@ url: https://www.heretodayseattle.com/event-calendar
 tags: [Beer, Belltown]
 firstSeen: 2026-09-01
 lastChecked: 2026-09-01
-pr:
+pr: 1331
 ---
 
 Seattle waterfront brewery and kitchen at 2815 Elliott Ave, Suite 101,
@@ -29,4 +29,4 @@ Single fixed venue — `geo` resolved via Nominatim (`amenity=pub`
 47.6149875/-122.353981, high-confidence direct name match).
 
 Implemented as `sources/external/here-today-brewery.yaml` (`sourceRole:
-venue`, `geo` set, `Beer`/`Belltown` tags). PR: see frontmatter.
+venue`, `geo` set, `Beer`/`Belltown` tags). PR #1331.
