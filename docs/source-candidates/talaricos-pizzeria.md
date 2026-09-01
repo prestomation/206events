@@ -6,7 +6,7 @@ url: https://www.talaricospizza.com/event
 tags: [Nightlife, "West Seattle"]
 firstSeen: 2026-08-11
 lastChecked: 2026-09-01
-pr:
+pr: 1330
 ---
 
 West Seattle pizzeria (4718 California Ave SW) well known locally for its
