@@ -1,0 +1,14 @@
+name: tabletop-village
+description: "Tabletop Village"
+url: "https://tabletopvillage.com/pages/events"
+friendlyLink: "https://tabletopvillage.com/pages/events"
+sourceRole: venue
+geo:
+  lat: 47.5970231
+  lng: -122.3221329
+  label: "Tabletop Village, 616 8th Ave S, Seattle, WA 98104"
+tags: ["Gaming", "International District"]
+calendars:
+  - name: tabletop-village
+    friendlyname: "Tabletop Village"
+    timezone: America/Los_Angeles
