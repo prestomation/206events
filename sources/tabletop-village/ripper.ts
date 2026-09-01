@@ -35,11 +35,23 @@ const MAX_OCCURRENCES_PER_SERIES = 500;
 // title is the only way to separate those from real programming — none of
 // them carry any other distinguishing field.
 const NOISE_TITLE_PATTERNS: RegExp[] = [
-    /^OPEN\b/i,     // "OPEN 11AM-8PM" — posted store hours
-    /^CLOSED\b/i,   // "CLOSED"
-    /\bCLOSED$/i,   // "Birthday Reservation: CLOSED"
-    /^REGIONAL:/i,  // "REGIONAL: Nice" — a Pokemon Regional Championship in another city
-    /^@\s/,         // "@ Card Party Dallas" — staff travel reference, not a Seattle event
+    /^OPEN\s+\d/i,        // "OPEN 11AM-8PM" — posted store hours. Requires a digit right
+                          // after "OPEN" (a time) so a real event like "... OPEN PLAY"
+                          // (the store's own convention for drop-in play, always
+                          // mid-title, never leading) never collides.
+    /\bCLOSED\b/i,        // "CLOSED", "STORE CLOSED", "TTV Closed for the Holiday
+                          // Weekend", "Birthday Reservation: CLOSED"
+    /^Birthday Reservation\b/i, // "Birthday Reservation: OPEN" — a private party booking
+                          // block, not a public event; timed (not all-day), so the
+                          // isInWindow() all-day guard alone wouldn't catch it.
+    // Reference dates for Pokemon Regional Championships held in OTHER cities —
+    // the store's own real "Regional Championship Qualifier" events are always
+    // styled "RCQ" in their titles (see "MAGIC RCQ Season 5 - Round 2"), never
+    // spelled out, so matching the whole word "Regional(s)" anywhere is safe:
+    // "REGIONAL: Nice", "Pittsburgh Pokemon Regional", "San Antonio Regionals",
+    // "Pokemon: LAIC REGIONAL CHAMPIONSHIP", "Pokemon Regional Championship: <City>".
+    /\bRegionals?\b/i,
+    /^@\s/,               // "@ Card Party Dallas" — staff travel reference, not a Seattle event
 ];
 
 export function isNoiseTitle(rawSummary: string): boolean {
@@ -181,6 +193,8 @@ export function parseIcsEvents(icsText: string, now: ZonedDateTime): RipperEvent
         const rawSummary: string = icalEvent.summary || "";
         if (!rawSummary.trim()) continue; // no title to show; nothing useful to publish
         if (isNoiseTitle(rawSummary)) continue;
+        const masterStatus: string | null = master.getFirstPropertyValue?.("status") ?? null;
+        if (masterStatus && masterStatus.toUpperCase() === "CANCELLED") continue;
 
         if (!icalEvent.isRecurring()) {
             if (isInWindow(icalEvent.startDate, now, horizonEnd)) {
@@ -211,6 +225,15 @@ export function parseIcsEvents(icsText: string, now: ZonedDateTime): RipperEvent
                 continue;
             }
             const item = occurrence.item;
+            // RFC 5545 allows cancelling a single occurrence of a recurring
+            // series via a RECURRENCE-ID override with STATUS:CANCELLED,
+            // distinct from an EXDATE-based deletion (which ical.js's
+            // iterator already omits automatically). Skip it — publishing a
+            // cancelled instance as a real event would tell someone to show
+            // up to something that isn't happening.
+            const occStatus: string | null = item.component?.getFirstPropertyValue?.("status") ?? null;
+            if (occStatus && occStatus.toUpperCase() === "CANCELLED") continue;
+
             const occSummary: string = item.summary || rawSummary;
             if (isNoiseTitle(occSummary)) continue; // an override could rename an occurrence to a noise title
 

@@ -19,9 +19,18 @@ describe("isNoiseTitle", () => {
         "OPEN 11AM-8PM",
         "OPEN 5PM-8PM",
         "CLOSED",
+        "STORE CLOSED",
+        "TTV Closed for the Holiday Weekend",
         "Birthday Reservation: CLOSED",
+        "Birthday Reservation: OPEN",
         "REGIONAL: Nice",
         "REGIONAL: Buenos Aires SPE",
+        "Pittsburgh Pokemon Regional",
+        "San Antonio Regionals",
+        "Portland Mock Regional",
+        "Pokemon: LAIC REGIONAL CHAMPIONSHIP",
+        "Pokemon Regional Championship: Frankfurt",
+        "Pokemon Regionals: Gdansk",
         "@ Card Party Dallas",
     ])("flags %s as noise", (title) => {
         expect(isNoiseTitle(title)).toBe(true);
@@ -32,6 +41,8 @@ describe("isNoiseTitle", () => {
         "EVENT: GUNDAM CARD GAME 1st Anniversary Event",
         "Tabletop Village TRADE NIGHT!",
         "POKÉMON League/Family Day",
+        "MAGIC RCQ Season 5 - Round 2",
+        "Magic The Gathering: Weekly OPEN PLAY",
     ])("does not flag %s as noise", (title) => {
         expect(isNoiseTitle(title)).toBe(false);
     });
@@ -96,9 +107,20 @@ describe("parseIcsEvents", () => {
         expect(events.some(e => e.summary.startsWith("REGIONAL:"))).toBe(false);
     });
 
+    test("drops a single occurrence cancelled via a RECURRENCE-ID override with STATUS:CANCELLED", () => {
+        const series = events.filter(e => e.id?.startsWith("weekly-cancel-test@tabletopvillage.com-"));
+        const dates = series.map(e => e.date.toLocalDate().toString()).sort();
+        // Every Wednesday Jan 7 - Jan 28 2026, except Jan 14 (cancelled override).
+        expect(dates).toEqual(["2026-01-07", "2026-01-21", "2026-01-28"]);
+        expect(events.some(e => e.id === "weekly-cancel-test@tabletopvillage.com-2026-01-14")).toBe(false);
+    });
+
     test("produces exactly the expected non-noise events", () => {
         expect(events.map(e => e.summary).sort()).toEqual([
             "EVENT: Test Release Party",
+            "WEEKLIES: Cancel Test",
+            "WEEKLIES: Cancel Test",
+            "WEEKLIES: Cancel Test",
             "WEEKLIES: Test Tournament",
             "WEEKLIES: Test Tournament",
             "WEEKLIES: Test Tournament",
