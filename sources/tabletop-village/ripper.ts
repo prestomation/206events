@@ -72,13 +72,28 @@ function eventUrl(): string {
     return "https://tabletopvillage.com/pages/events";
 }
 
+// Whether an occurrence's start time falls in [now, horizonEnd) and is
+// expressed with a timestamp we trust (see hasExpectedTimezone) — checked by
+// the caller *before* calling buildEvent, so an out-of-window or untrusted
+// occurrence is never turned into an event in the first place. Public for
+// testing.
+export function isInWindow(startTime: any, now: ZonedDateTime, horizonEnd: ZonedDateTime): boolean {
+    if (!startTime || startTime.isDate || !hasExpectedTimezone(startTime)) return false;
+    let date: ZonedDateTime;
+    try {
+        date = icalTimeToLocalDateTime(startTime).atZone(TIMEZONE);
+    } catch {
+        return false;
+    }
+    return !date.isBefore(now) && date.isBefore(horizonEnd);
+}
+
 /**
  * Builds one RipperCalendarEvent from a resolved occurrence (a one-off
  * VEVENT, or a single expanded instance of a recurring series with any
- * RECURRENCE-ID override already applied). Returns null for occurrences
- * outside [now, horizonEnd) or with an untrusted/all-day timestamp — the
- * caller drops these silently, mirroring how recurring-YAML expansion
- * drops out-of-window occurrences. Public for testing.
+ * RECURRENCE-ID override already applied) already confirmed by the caller
+ * to be isInWindow(). Returns a ParseError rather than throwing if the start
+ * time turns out not to convert cleanly. Public for testing.
  */
 export function buildEvent(
     id: string,
@@ -87,20 +102,14 @@ export function buildEvent(
     location: string | undefined,
     startTime: any,
     endTime: any,
-    now: ZonedDateTime,
-    horizonEnd: ZonedDateTime,
-): RipperCalendarEvent | null {
-    if (!startTime || startTime.isDate) return null;
-    if (!hasExpectedTimezone(startTime)) return null;
-
+): RipperCalendarEvent | RipperError {
     const startLdt = icalTimeToLocalDateTime(startTime);
     let date: ZonedDateTime;
     try {
         date = startLdt.atZone(TIMEZONE);
-    } catch {
-        return null;
+    } catch (error) {
+        return { type: "ParseError", reason: `Invalid start time for "${summary}": ${error}`, context: id };
     }
-    if (date.isBefore(now) || !date.isBefore(horizonEnd)) return null;
 
     let duration = DEFAULT_DURATION;
     if (endTime && !endTime.isDate && hasExpectedTimezone(endTime)) {
@@ -174,11 +183,12 @@ export function parseIcsEvents(icsText: string, now: ZonedDateTime): RipperEvent
         if (isNoiseTitle(rawSummary)) continue;
 
         if (!icalEvent.isRecurring()) {
-            const built = buildEvent(
-                `${uid}`, rawSummary, icalEvent.description, icalEvent.location,
-                icalEvent.startDate, icalEvent.endDate, now, horizonEnd,
-            );
-            if (built) results.push(built);
+            if (isInWindow(icalEvent.startDate, now, horizonEnd)) {
+                results.push(buildEvent(
+                    `${uid}`, rawSummary, icalEvent.description, icalEvent.location,
+                    icalEvent.startDate, icalEvent.endDate,
+                ));
+            }
             continue;
         }
 
@@ -205,17 +215,21 @@ export function parseIcsEvents(icsText: string, now: ZonedDateTime): RipperEvent
             if (isNoiseTitle(occSummary)) continue; // an override could rename an occurrence to a noise title
 
             const occId = `${uid}-${icalTimeToLocalDateTime(next).toLocalDate().toString()}`;
-            const built = buildEvent(
-                occId, occSummary, item.description, item.location,
-                occurrence.startDate, occurrence.endDate, now, horizonEnd,
-            );
-            if (built) results.push(built);
+            if (isInWindow(occurrence.startDate, now, horizonEnd)) {
+                results.push(buildEvent(
+                    occId, occSummary, item.description, item.location,
+                    occurrence.startDate, occurrence.endDate,
+                ));
+            }
 
-            // Occurrences come out in increasing order; once we're past the
-            // horizon nothing later in this series can be in range either.
+            // `next` is the series' own scheduled time (unaffected by an
+            // override's time shift) and comes out in increasing order, so
+            // once it's past the horizon nothing later in this series can be
+            // in range either — safe to stop regardless of how this specific
+            // occurrence was resolved above.
             if (!next.isDate && hasExpectedTimezone(next)) {
-                const occDate = icalTimeToLocalDateTime(next).atZone(TIMEZONE);
-                if (!occDate.isBefore(horizonEnd)) break;
+                const seriesDate = icalTimeToLocalDateTime(next).atZone(TIMEZONE);
+                if (!seriesDate.isBefore(horizonEnd)) break;
             }
         }
     }
