@@ -125,10 +125,10 @@ was evicted, the restore fell through to the stale committed copy, and 67 days
 
 `scripts/update-event-history.mjs` now merges in increasing authority:
 
-1. the committed `docs/event-history.json`
-2. the restored Actions cache (a **sidecar path**, so a cache hit can no longer
+1. the restored Actions cache (a **sidecar path**, so a cache hit can no longer
    overwrite the committed baseline before the merge reads it)
-3. the live published copy fetched from the deployed site
+2. the live published copy fetched from the deployed site
+3. the committed `docs/event-history.json`
 4. this build's own numbers
 
 For any `(date, field)` the most authoritative source with a *defined* value
@@ -136,6 +136,19 @@ wins; a date present in any source is kept; nothing is dropped. Losing a date
 now requires it to be absent from all four at once — and the published copy is
 the previous run's merged output, so one successful build after any cache loss
 restores everything the site was serving.
+
+**The committed file outranks both machine-generated layers deliberately.** The
+backfill harvests preview builds of unmerged branches, so a skewed value can
+reach the published copy; if the site outranked the repo, correcting that value
+in a PR would be reverted by the next build and could never land. The two
+machine layers only ever supply dates and fields the committed file lacks,
+which is all recovery needs.
+
+Because of that ordering, the committed baseline is worth refreshing
+occasionally — copy the deployed `/event-history.json` over it in a PR. Nothing
+advances it automatically (no workflow in this repo pushes commits), so it
+otherwise freezes at whatever the last human PR wrote while the live series
+grows in the cache and on the site.
 
 Two guards back that up. The script refuses to write a series with fewer dates
 than any of its inputs — a defensive invariant rather than a live recovery
