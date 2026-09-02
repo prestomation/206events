@@ -1,0 +1,19 @@
+name: paper-boat-booksellers
+sourceRole: venue
+type: squarespace
+description: "Paper Boat Booksellers"
+url: "https://www.paperboatbooksellers.com/calendar/events"
+friendlyLink: https://www.paperboatbooksellers.com/calendar
+tags: ["Books", "West Seattle"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/69f3c888968dd92b00e1fff8/46e15194-e5cb-4932-836f-80fbabc25054/paper-boat-booksellers-west-seattle-bookstore-interior.jpg"
+geo:
+  lat: 47.5621570
+  lng: -122.3865598
+  label: "Paper Boat Booksellers, 4522 California Ave SW, Seattle, WA 98116"
+  osmType: node
+  osmId: 2397384462
+  osmChecked: 2026-09-02
+calendars:
+  - name: events
+    friendlyname: "Paper Boat Booksellers"
+    timezone: America/Los_Angeles

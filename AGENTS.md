@@ -457,7 +457,7 @@ aggregator set.
 `scripts/check-discovery-api.ts` runs in CI after the build. It parses
 each discovery doc against its Zod schema, crawls every href to assert
 the target exists on disk, enforces PNW bounding-box sanity on venue
-coordinates, budgets `venues.json` at 100 KB, and asserts tag-slug
+coordinates, budgets `venues.json` at 600 KB, and asserts tag-slug
 parity with `lib/tag_aggregator.ts`. Run locally with
 `npm run check-discovery-api`.
 
