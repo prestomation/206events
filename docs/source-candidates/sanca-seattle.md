@@ -6,7 +6,7 @@ url: https://sancaseattle.org/calendar/
 tags: [Circus]
 firstSeen: 2026-08-31
 lastChecked: 2026-09-02
-pr:
+pr: 1341
 ---
 
 Georgetown circus school. `/calendar/` is a genuine Tribe Events
