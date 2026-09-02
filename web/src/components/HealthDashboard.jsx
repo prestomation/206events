@@ -2,6 +2,7 @@ import { useCallback, useEffect, useId, useLayoutEffect, useMemo, useRef, useSta
 import {
   SERIES,
   READOUT_ONLY,
+  READOUT_ROWS,
   niceCeil,
   maxOf,
   hasSeries,
@@ -245,13 +246,6 @@ export function CoverageChart({ history }) {
   // from the TIGHTEST adjacent gap: with time spacing the average says nothing
   // about whether a dense cluster overlaps.
   const showDots = minPointGap(positions, PW) >= 6
-  // Clamped against the current history: `sel` is set against the length of the
-  // render that scheduled it, so a history that shrinks while mounted would
-  // otherwise index past the end and throw on point.date.
-  const active = Math.min(Math.max(sel ?? n - 1, 0), Math.max(0, n - 1))
-  const point = history[active]
-  const selX = xOf(active)
-
   // Only flagged when a plotted series starts late, so nobody reads its
   // absence as "the backlog was zero back then".
   // Covers readout-only metrics as well: `queue` only exists from the build
@@ -260,23 +254,6 @@ export function CoverageChart({ history }) {
   const lateStarts = useMemo(() => [...SERIES, ...READOUT_ONLY]
     .map((m) => ({ ...m, startsAt: firstDefinedIndex(history, m.key) }))
     .filter((m) => m.startsAt > 0), [history])
-
-  // Every series keeps a readout row even without a panel, so the row set does
-  // not shift as data arrives; the value just reads as not-recorded.
-  const readoutRows = useMemo(() => [
-    ...SERIES.map((s) => ({ key: s.key, label: s.label, color: s.color, dash: s.dash })),
-    ...READOUT_ONLY.map((m) => ({ key: m.key, label: m.label, color: null })),
-  ], [])
-
-  // Spoken form of the selected point: the date plus every metric, so a
-  // keyboard user hears what the visible readout shows.
-  const announcement = [
-    fmtFullDate(point.date),
-    ...readoutRows.map((row) => {
-      const v = point[row.key]
-      return `${row.label} ${Number.isFinite(v) ? v.toLocaleString() : 'not recorded'}`
-    }),
-  ].join(', ')
 
   // Memoized: this is history.length x 6 cells (~800 today) and none of it
   // depends on the selection, so rebuilding it on every scrub frame would
@@ -287,14 +264,17 @@ export function CoverageChart({ history }) {
     <thead>
       <tr>
         <th scope="col">Date</th>
-        {readoutRows.map((r) => <th scope="col" key={r.key}>{r.label}</th>)}
+        {READOUT_ROWS.map((r) => <th scope="col" key={r.key}>{r.label}</th>)}
       </tr>
     </thead>
     <tbody>
-      {history.map((p) => (
-        <tr key={p.date}>
+      {/* Keyed by index, not date: this array is fetched and only checked with
+          Array.isArray, so a duplicated date would give two rows the same key
+          and React would reuse the wrong one. */}
+      {history.map((p, i) => (
+        <tr key={i}>
           <th scope="row">{fmtFullDate(p.date)}</th>
-          {readoutRows.map((r) => (
+          {READOUT_ROWS.map((r) => (
             <td key={r.key}>
               {Number.isFinite(p[r.key]) ? p[r.key].toLocaleString() : 'Not recorded'}
             </td>
@@ -303,7 +283,7 @@ export function CoverageChart({ history }) {
       ))}
     </tbody>
   </table>
-  ), [history, readoutRows])
+  ), [history])
 
   // Memoized: none of the plot body depends on the selection, but it is ~390
   // coordinate pairs of string building plus 30 axis elements across three
@@ -358,6 +338,23 @@ export function CoverageChart({ history }) {
   // Below every hook: an early return above one changes the hook count between
   // renders of the same instance, which React rejects outright.
   if (n < 2) return null
+
+  // Clamped against the current history: `sel` is set against the length of the
+  // render that scheduled it, so a history that shrinks while mounted would
+  // otherwise index past the end and throw on point.date.
+  const active = Math.min(Math.max(sel ?? n - 1, 0), Math.max(0, n - 1))
+  const point = history[active]
+  const selX = xOf(active)
+
+  // Spoken form of the selected point: the date plus every metric, so a
+  // keyboard user hears what the visible readout shows.
+  const announcement = [
+    fmtFullDate(point.date),
+    ...READOUT_ROWS.map((row) => {
+      const v = point[row.key]
+      return `${row.label} ${Number.isFinite(v) ? v.toLocaleString() : 'not recorded'}`
+    }),
+  ].join(', ')
 
   return (
     <div className="health-coverage-chart health-full-bleed">
@@ -448,7 +445,7 @@ export function CoverageChart({ history }) {
       <div className="health-chart-readout" id={readoutId}>
         <div className="health-chart-readout-date">{fmtFullDate(point.date)}</div>
         <dl className="health-chart-readout-grid">
-          {readoutRows.map((row) => {
+          {READOUT_ROWS.map((row) => {
             const v = point[row.key]
             const has = Number.isFinite(v)
             const delta = has ? deltaAt(history, active, row.key) : null

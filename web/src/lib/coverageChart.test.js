@@ -71,11 +71,19 @@ describe('niceCeil', () => {
     }
   })
 
-  it('floors at 10 for zero, negatives and non-numbers', () => {
-    expect(niceCeil(0)).toBe(10)
-    expect(niceCeil(-5)).toBe(10)
-    expect(niceCeil(NaN)).toBe(10)
-    expect(niceCeil(undefined)).toBe(10)
+  // The fallback has to stay divisible by the interval count too, or an
+  // all-zero series (a new city's first builds) gets labels that do not line up
+  // with its gridlines.
+  it('falls back to a small axis that still divides evenly', () => {
+    for (const v of [0, -5, NaN, undefined]) {
+      for (const intervals of [2, 4]) {
+        const max = niceCeil(v, intervals)
+        expect(max, `niceCeil(${v}, ${intervals})`).toBeGreaterThan(0)
+        expect(Number.isInteger(max / intervals)).toBe(true)
+        const labels = axisTicks(max, intervals + 1).map((t) => t.val)
+        expect(new Set(labels).size).toBe(labels.length)
+      }
+    }
   })
 })
 

@@ -41,12 +41,33 @@ function defaultPreviewHost() {
 const CONCURRENCY = 30;
 const TIMEOUT_MS = 8000;
 
+// Strict parsing, matching update-event-history.mjs: silently ignoring an
+// unknown flag means `--dryrun` overwrites the committed data file the operator
+// meant only to inspect, and `--preview-host=...` sweeps the wrong Cloudflare
+// project — merging another city's series into this one.
 const args = process.argv.slice(2);
-const dryRun = args.includes('--dry-run');
-const hostIdx = args.indexOf('--preview-host');
-// `hostIdx >= 0 &&` matters: without it, hostIdx of -1 makes the i-1 test drop
-// argv[0], silently shifting MAX_PR to MIN_PR's value.
-const positional = args.filter((a, i) => !a.startsWith('--') && !(hostIdx >= 0 && i === hostIdx + 1));
+const positional = [];
+let dryRun = false;
+let hostArg = null;
+for (let i = 0; i < args.length; i++) {
+  const arg = args[i];
+  if (arg === '--dry-run') {
+    dryRun = true;
+  } else if (arg === '--preview-host') {
+    const value = args[i + 1];
+    if (!value || value.startsWith('--')) {
+      console.error('--preview-host requires a URL pattern, e.g. https://pr-{n}.example.pages.dev');
+      process.exit(1);
+    }
+    hostArg = value;
+    i++;
+  } else if (arg.startsWith('--')) {
+    console.error(`Unknown argument: ${arg}`);
+    process.exit(1);
+  } else {
+    positional.push(arg);
+  }
+}
 const MAX_PR = parseInt(positional[0] ?? '1400', 10);
 const MIN_PR = parseInt(positional[1] ?? '1', 10);
 // Without this, `backfill-event-history.mjs latest` yields NaN bounds, an empty
@@ -56,11 +77,7 @@ if (!Number.isInteger(MAX_PR) || !Number.isInteger(MIN_PR) || MIN_PR < 1 || MAX_
   console.error(`Invalid PR range: MIN_PR=${positional[1] ?? 1} MAX_PR=${positional[0] ?? 1400}`);
   process.exit(1);
 }
-if (hostIdx >= 0 && (!args[hostIdx + 1] || args[hostIdx + 1].startsWith('--'))) {
-  console.error('--preview-host requires a URL pattern, e.g. https://pr-{n}.example.pages.dev');
-  process.exit(1);
-}
-const BASE_URL = hostIdx >= 0 ? args[hostIdx + 1] : defaultPreviewHost();
+const BASE_URL = hostArg ?? defaultPreviewHost();
 
 async function fetchJson(url) {
   const ctrl = new AbortController();
@@ -121,7 +138,15 @@ async function pool(items, fn, concurrency) {
   return results;
 }
 
-const existing = existsSync(HISTORY_FILE) ? JSON.parse(readFileSync(HISTORY_FILE, 'utf-8')) : [];
+let existing = [];
+if (existsSync(HISTORY_FILE)) {
+  existing = JSON.parse(readFileSync(HISTORY_FILE, 'utf-8'));
+  if (!Array.isArray(existing)) {
+    console.error(`${HISTORY_FILE} is not a JSON array`);
+    process.exit(1);
+  }
+}
+const distinctDates = (points) => new Set(points.map((p) => p?.date).filter(Boolean)).size;
 const prs = Array.from({ length: MAX_PR - MIN_PR + 1 }, (_, i) => i + MIN_PR);
 
 console.log(`Sweeping PR #${MIN_PR}-#${MAX_PR} at ${BASE_URL} (${prs.length} PRs, concurrency=${CONCURRENCY})...`);
@@ -175,8 +200,10 @@ console.log(`Points: ${existing.length} -> ${merged.length} (+${addedDates} new 
 console.log(`Fields added to existing days: ${fieldsAdded}`);
 console.log('Date range:', merged[0]?.date, '->', merged[merged.length - 1]?.date);
 
-if (merged.length < existing.length) {
-  console.error('::error::Merged series is shorter than the committed one. Refusing to write.');
+// Distinct DATES, not raw entries: mergeHistory keys by date, so one duplicated
+// entry in the committed file would otherwise abort a perfectly good backfill.
+if (merged.length < distinctDates(existing)) {
+  console.error('::error::Merged series covers fewer dates than the committed one. Refusing to write.');
   process.exit(1);
 }
 

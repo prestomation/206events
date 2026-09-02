@@ -26,6 +26,15 @@ export const READOUT_ONLY = [
   { key: 'errors', label: 'Build errors' },
 ]
 
+// Every row of the readout and of the screen-reader table, in order: the
+// plotted series (each with a colour key) then the readout-only metrics. A
+// series absent from the data keeps its row so the set does not shift as data
+// arrives; the value just reads as not-recorded.
+export const READOUT_ROWS = [
+  ...SERIES.map((s) => ({ key: s.key, label: s.label, color: s.color, dash: s.dash })),
+  ...READOUT_ONLY.map((m) => ({ key: m.key, label: m.label, color: null })),
+]
+
 // Round up to a friendly axis maximum that divides evenly into `intervals`
 // gridline steps, so the intermediate labels are round too.
 //
@@ -40,8 +49,12 @@ export const READOUT_ONLY = [
 const NICE_STEPS = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10]
 
 export function niceCeil(v, intervals = 4) {
-  if (!Number.isFinite(v) || v <= 0) return 10
   const n = Math.max(1, intervals)
+  // `n`, not a hardcoded 10: the maximum has to stay divisible by the interval
+  // count or axisTicks rounds two fractions to the same label. An all-zero
+  // series (a new city's first builds) took the old branch and got labels
+  // [0, 3, 5, 8, 10] drawn at exact quarters of 10.
+  if (!Number.isFinite(v) || v <= 0) return n
   const raw = v / n
   // Floored at 1: every series here is a count, and a sub-unit step yields a
   // fractional maximum whose gridline labels collide once rounded — niceCeil(3)
@@ -137,7 +150,7 @@ export function shouldCompactAxis(narrow, max) {
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 export function fmtMonth(dateStr) {
-  const [, m] = dateStr.split('-')
+  const [, m] = String(dateStr).split('-')
   return MONTHS[parseInt(m, 10) - 1] ?? ''
 }
 
@@ -163,7 +176,13 @@ export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
   let lastMonth = null
   let lastYear = null
   history.forEach((p, i) => {
-    const [year, month] = String(p.date).split('-')
+    // Guarded like every sibling helper: this array comes off the network and
+    // is only checked with Array.isArray, so one null entry or numeric date
+    // would otherwise take down the whole health page.
+    const date = p?.date
+    if (typeof date !== 'string') return
+    const [year, month] = date.split('-')
+    if (!year || !month) return
     if (`${year}-${month}` === lastMonth) return
     lastMonth = `${year}-${month}`
     const x = xOf(i)
@@ -171,7 +190,7 @@ export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
     // readable without repeating "2026" on every tick. Computed before the
     // cull because a year-bearing label ("Apr 2026") is much wider than a bare
     // one and needs more room beside it.
-    const label = year === lastYear ? fmtMonth(p.date) : `${fmtMonth(p.date)} ${year}`
+    const label = year === lastYear ? fmtMonth(date) : `${fmtMonth(date)} ${year}`
     const width = label.length * charW
 
     if (kept.length > 0) {
@@ -198,8 +217,9 @@ export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
   const relabel = () => {
     let year = null
     for (const tick of kept) {
-      const [y] = String(history[tick.i].date).split('-')
-      const month = fmtMonth(history[tick.i].date)
+      const date = String(history[tick.i]?.date ?? '')
+      const [y] = date.split('-')
+      const month = fmtMonth(date)
       tick.label = y === year ? month : `${month} ${y}`
       tick.width = tick.label.length * charW
       year = y

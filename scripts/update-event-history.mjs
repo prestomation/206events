@@ -274,9 +274,12 @@ export function main(argv, { root = '' } = {}) {
       console.log(`Merge source not present, skipping: ${file}`);
       continue;
     }
-    console.log(`Merging ${read.points.length} points from ${file}`);
-    mergedAny = true;
-    largestInput = Math.max(largestInput, distinctDates(read.points));
+    const dates = distinctDates(read.points);
+    console.log(`Merging ${read.points.length} points (${dates} dates) from ${file}`);
+    // Dated points, not merely a readable file: a site serving `[]` would
+    // otherwise satisfy the guard below while contributing nothing.
+    if (dates > 0) mergedAny = true;
+    largestInput = Math.max(largestInput, dates);
     history = mergeHistory(history, read.points);
   }
 
@@ -285,13 +288,20 @@ export function main(argv, { root = '' } = {}) {
   // knows about inputs it managed to read. Republishing that would drop every
   // date between the baseline and now from the cache AND the site, which is
   // precisely how the original 67 days were lost. Refuse instead.
-  if (requireMergeSource && merges.length > 0 && !mergedAny) {
+  // Only when there is actually something to lose. On a cold start — a fresh
+  // city copy whose committed baseline is empty and whose site does not serve
+  // the file yet — failing here would be a deadlock: the build fails, so the
+  // cache is never seeded, so the next build fails identically forever.
+  if (requireMergeSource && merges.length > 0 && !mergedAny && distinctDates(committed) > 0) {
     console.error(
-      '::error::No merge source could be read (' + merges.join(', ') + '). ' +
+      '::error::No merge source carried any dates (' + merges.join(', ') + '). ' +
         'Refusing to republish from the committed baseline alone, which would ' +
-        'truncate the series to whatever was last committed.'
+        'drop every date accumulated since it was last committed.'
     );
     return 1;
+  }
+  if (!mergedAny && merges.length > 0) {
+    console.log('Cold start: no merge source carried dates, and the committed baseline is empty.');
   }
   // Committed last of the three, so the repo stays authoritative over its own
   // data file; today's own measurements then win over everything.
