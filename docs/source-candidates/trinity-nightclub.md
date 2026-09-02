@@ -6,7 +6,7 @@ url: https://www.trinitynightclub.com
 tags: [Nightlife, Music, "Pioneer Square"]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-02
-pr:
+pr: 1336
 ---
 
 Downtown Seattle nightclub featuring EDM, house, and dance music events.
