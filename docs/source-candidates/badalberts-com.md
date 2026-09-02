@@ -6,7 +6,7 @@ url: https://badalberts.com/-events
 tags: ["Nightlife", "Ballard"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-02
-pr:
+pr: 1345
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle
