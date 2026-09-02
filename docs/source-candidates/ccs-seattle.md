@@ -6,7 +6,7 @@ url: https://www.ccsseattle.com/events
 tags: [Nightlife, "Capitol Hill"]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-02
-pr:
+pr: 1353
 ---
 
 Seattle nightlife venue hosting live music and events. Calendar available on their website.
