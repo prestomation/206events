@@ -6,7 +6,7 @@ url: https://www.paperboatbooksellers.com/calendar/events
 tags: ["Books", "West Seattle"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-02
-pr:
+pr: 1339
 ---
 
 Independent bookstore in the West Seattle Junction (4522 California Ave
