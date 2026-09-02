@@ -1,0 +1,23 @@
+# verified: 2026-09-02 via eventbrite public API (organizer 116050962771 —
+# "swoon-city" — 4 live events at time of check: craft classes such as
+# embroidery, visible mending, and stained glass; EVENTBRITE_TOKEN required
+# in CI, reused from other Eventbrite sources)
+name: swoon-city
+sourceRole: venue
+type: eventbrite
+description: "Swoon City"
+url: "https://www.eventbrite.com/o/swoon-city-116050962771"
+friendlyLink: https://swoon.city
+geo:
+  lat: 47.6689014
+  lng: -122.3796874
+  label: "Swoon City, 1716 NW Market St, Seattle, WA 98107"
+tags: ["Books", "Creation", "Ballard"]
+calendars:
+  - name: swoon-city
+    friendlyname: "Swoon City"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "116050962771"
+      defaultLocation: "1716 NW Market St, Seattle, WA 98107"
+      defaultDurationHours: 2
