@@ -6,7 +6,7 @@ url: https://www.elysianbrewing.com/events
 tags: [Beer, "Capitol Hill"]
 firstSeen: 2026-08-30
 lastChecked: 2026-09-02
-pr:
+pr: 1347
 ---
 
 Seattle craft brewery chain (Capitol Hill flagship, Georgetown Alchemy
