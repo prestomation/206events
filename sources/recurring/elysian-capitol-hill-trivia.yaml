@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6139598
+  lng: -122.3157647
+  label: "Elysian Brewing, 1221 E Pike St, Seattle, WA 98122"
+  osmType: node
+  osmId: 1726088085
+name: elysian-capitol-hill-trivia
+sourceRole: venue
+friendlyname: Trivia Tuesdays at Elysian Capitol Hill
+description: Weekly pub trivia at Elysian Brewing's original Capitol Hill brewpub.
+timezone: America/Los_Angeles
+location: "1221 E Pike St, Seattle, WA 98122"
+url: https://www.elysianbrewing.com/events
+tags:
+  - Trivia
+  - "Pub Trivia"
+  - "Capitol Hill"
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "19:00"
+    duration: PT2H
