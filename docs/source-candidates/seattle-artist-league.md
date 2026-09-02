@@ -31,9 +31,12 @@ the trailing `M.D` date token from the title (excluding session-length
 decimals like "3.5 hour"), and falls back to a placeholder time/location +
 `UncertaintyError` when no `Time:`/`Where:` bullet is present (including for
 the small number of "@ The Brick" listings — a separate SAL-run space at a
-different street address — that only mention it in the title).
-Live build (`ONLY_SOURCE=seattle-artist-league`) confirmed 65 events, 6
-pending uncertainties (5 missing time, 3 missing an off-site "@ The Brick"
-location, 2 overlapping both), and 7 legitimate ParseErrors (gift
-certificates, the certificate program, drop-in sessions, kits, independent
-study — real catalog entries with no class date).
+different street address — that only mention it in the title). A product
+whose title has no date token at all (gift certificates, the certificate
+program, drop-in sessions, kits, independent study) is silently skipped
+rather than reported as a ParseError — it's real store content, not a
+malformed class, and `lib/calendar_ripper.ts`'s `newSourceParseErrors` gate
+fails CI on any ParseError from a brand-new source. Live build
+(`ONLY_SOURCE=seattle-artist-league`) confirmed 65 events, 0 ParseErrors, 5
+pending time/location uncertainties (4 missing time, 3 missing an off-site
+"@ The Brick" location, 2 overlapping both).

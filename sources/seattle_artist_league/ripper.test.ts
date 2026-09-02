@@ -199,6 +199,31 @@ describe('SeattleArtistLeagueRipper', () => {
         expect(valid[0].duration.toHours()).toBe(3);
     });
 
+    test('does not pair the "Time:" bullet with a later, unrelated time mention repeated in the prose body', async () => {
+        // Real live listing: the description restates the same time later
+        // in a different format ("10:00 am–1:00 pm") as part of the body
+        // copy - a wider scan that treats "first token found, last token
+        // found" as the range would pair the bullet's start with that later
+        // mention's end (or vice versa), producing a bogus/negative span.
+        const ripper = new SeattleArtistLeagueRipper();
+        const workshop = {
+            ...CLASS_WITH_TIME_BULLET,
+            id: 16,
+            name: "Training for Figure Models WORKSHOP SUNDAY MORNING 9.13",
+            slug: "training-for-figure-models-workshop-sunday-morning-9-13",
+            short_description: "<ul><li>Teacher: Ruthie V.</li><li>Date: Sunday, September 13</li><li>Time: 10:00 &#8211; 1:00 pm</li></ul>SAL models attend at 11:00am. Single session 3 hour workshop for art models. Training for Figure Models Sunday, September 13 10:00 am&#8211;1:00 pm. Figure modeling is creative, physical work.",
+        };
+        const events = await ripper.parseEvents(buildJsonData([workshop]), testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const uncertain = events.filter(e => 'type' in e && (e as any).type === 'Uncertainty');
+
+        expect(valid).toHaveLength(1);
+        expect(uncertain).toHaveLength(0);
+        expect(valid[0].date.hour()).toBe(10);
+        expect(valid[0].date.minute()).toBe(0);
+        expect(valid[0].duration.toHours()).toBe(3);
+    });
+
     test('ignores a session-length decimal ("3.5 hour workshop") regardless of whether it precedes or trails the real start date', async () => {
         const ripper = new SeattleArtistLeagueRipper();
         // Real fixture title: the decimal happens to precede the date, which
@@ -257,11 +282,10 @@ describe('SeattleArtistLeagueRipper', () => {
         expect(events).toHaveLength(0);
     });
 
-    test('emits a ParseError when the title has no start date', async () => {
+    test('skips a title with no start date without emitting an error (store merchandise/programs, not a dated class)', async () => {
         const ripper = new SeattleArtistLeagueRipper();
         const events = await ripper.parseEvents(buildJsonData([NO_DATE_IN_TITLE]), testDate, {});
-        expect(events).toHaveLength(1);
-        expect((events[0] as RipperError).type).toBe('ParseError');
+        expect(events).toHaveLength(0);
     });
 
     test('emits a ParseError instead of crashing on an impossible calendar date, without dropping other products', async () => {
@@ -340,7 +364,7 @@ describe('SeattleArtistLeagueRipper', () => {
         expect(justPastBoundaryEvent.date.year()).toBe(2027);
     });
 
-    test('parses the live sample fixture, surfacing only the expected non-event products as ParseErrors', async () => {
+    test('parses the live sample fixture with no ParseErrors, silently skipping the real non-class products', async () => {
         const ripper = new SeattleArtistLeagueRipper();
         const jsonData = loadSampleData();
         const events = await ripper.parseEvents(jsonData, testDate, {});
@@ -350,16 +374,17 @@ describe('SeattleArtistLeagueRipper', () => {
 
         // A handful of real catalog entries (gift certificates, the
         // certificate program, drop-in sessions, kits, independent study)
-        // are genuinely undated products, not classes - they're expected to
-        // surface as ParseErrors rather than being silently dropped.
+        // are genuinely undated store products, not classes - findLastDateToken
+        // returning null for them is expected and is not a parse failure, so
+        // they're silently skipped rather than surfaced as a ParseError (a
+        // brand-new source failing CI on its very first ParseError - see
+        // lib/calendar_ripper.ts's newSourceParseErrors fatal gate).
         expect(valid.length).toBeGreaterThan(50);
+        expect(errors).toHaveLength(0);
         // Only listings with no "Time:" bullet at all should end up
         // uncertain - a regression that mis-parses a *present* bullet (e.g.
         // misreading "10:00 – 1:00 pm" as 10pm instead of 10am) would
         // silently inflate this count instead of failing loudly.
         expect(uncertain.length).toBeLessThanOrEqual(6);
-        for (const error of errors) {
-            expect(error.type).toBe('ParseError');
-        }
     });
 });

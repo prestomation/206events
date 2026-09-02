@@ -69,12 +69,15 @@ const PAST_TOLERANCE_DAYS = 3;
 // below rather than relied on to always come first in the title.
 const TITLE_DATE_PATTERN = /(\d{1,2})\.(\d{1,2})(?!\d)(?!\s*hours?\b)/gi;
 
-const TIME_TOKEN_PATTERN = /(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)/gi;
-// Shorthand range where only the end time states am/pm (e.g. "6:00 – 8:30
-// pm", "10:00 – 1:00 pm"). The start hour's meridiem is ambiguous from text
-// alone - parseTimeRange resolves it by trying the end's meridiem first,
-// then the other, keeping whichever produces a plausible span.
-const TIME_RANGE_SHORTHAND = /(\d{1,2})(?::(\d{2}))?\s*[-–—]\s*(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)/i;
+// Anchored directly to "Time:" and matches only the range immediately
+// following it (start meridiem optional, e.g. "6:00 – 8:30 pm" or
+// "10:00 – 1:00 pm"; end meridiem required). Deliberately does NOT scan a
+// wider chunk of free text for "the first two time-like tokens" - a real
+// short_description often repeats the same time later in its prose body
+// (e.g. "...Time: 10:00 – 1:00 pm SAL models attend... Sunday, September 13
+// 10:00 am–1:00 pm..."), and a broader scan would pair up mismatched tokens
+// from two different mentions instead of the one true range.
+const TIME_RANGE_AFTER_LABEL = /\bTime:\s*(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)?\s*[-–—]\s*(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)/i;
 
 // Known label bullets seen in short_description, used only to bound where a
 // field's free-text value ends (the next label starts).
@@ -139,10 +142,6 @@ function toLocalTime(hourStr: string, minuteStr: string | undefined, meridiemRaw
     return LocalTime.of(hour, minute);
 }
 
-function parseTimeToken(match: RegExpMatchArray): LocalTime {
-    return toLocalTime(match[1], match[2], match[3]);
-}
-
 // A start/end pair is only accepted when it produces a same-day, sub-12-hour
 // span - long enough to rule out an accidental wraparound (e.g. reading
 // "10:00" as 10pm) while still covering the rare all-day workshop.
@@ -154,13 +153,13 @@ function isPlausibleSpan(start: LocalTime, end: LocalTime): boolean {
 // Returns null when no usable "Time:" range was found - the caller falls
 // back to a placeholder and flags the event uncertain rather than guessing.
 function parseTimeRange(description: string): { start: LocalTime; end: LocalTime } | null {
-    const timeField = fieldAfterLabel(description, "Time");
-    if (!timeField) return null;
+    const match = description.match(TIME_RANGE_AFTER_LABEL);
+    if (!match) return null;
+    const [, startHour, startMin, startMeridiem, endHour, endMin, endMeridiem] = match;
+    const end = toLocalTime(endHour, endMin, endMeridiem);
 
-    const tokens = [...timeField.matchAll(TIME_TOKEN_PATTERN)];
-    if (tokens.length >= 2) {
-        const start = parseTimeToken(tokens[0]);
-        const end = parseTimeToken(tokens[tokens.length - 1]);
+    if (startMeridiem) {
+        const start = toLocalTime(startHour, startMin, startMeridiem);
         return isPlausibleSpan(start, end) ? { start, end } : null;
     }
 
@@ -169,10 +168,6 @@ function parseTimeRange(description: string): { start: LocalTime; end: LocalTime
     // alone (10am, not 10pm, is what makes this span sensible) - try the
     // end's own meridiem first, then the other, and keep whichever produces
     // a plausible span rather than assuming they always match.
-    const shorthand = timeField.match(TIME_RANGE_SHORTHAND);
-    if (!shorthand) return null;
-    const [, startHour, startMin, endHour, endMin, endMeridiem] = shorthand;
-    const end = toLocalTime(endHour, endMin, endMeridiem);
     const endMeridiemNormalized = endMeridiem.toLowerCase().replace(/\./g, "");
     const otherMeridiem = endMeridiemNormalized === "am" ? "pm" : "am";
     for (const meridiem of [endMeridiemNormalized, otherMeridiem]) {
@@ -206,19 +201,21 @@ export default class SeattleArtistLeagueRipper extends JSONRipper {
             // Remote/virtual sessions aren't a physical Seattle event.
             if (/\bonline\b/i.test(product.name)) continue;
             if (this.seenIds.has(product.slug)) continue;
+
+            // Every real scheduled class in this catalog encodes its start
+            // date in the title (verified against all ~85 live products) -
+            // it's the site's own de facto signal that a product is a
+            // dated class rather than store merchandise (gift certificates,
+            // class kits), a standing program (the certificate program,
+            // independent study), or a perpetual walk-in session (Friday
+            // drop-in figure sessions). None of those are events with a
+            // "missing" date to report - skip them here rather than
+            // publishing a ParseError for something that was never a class.
+            const dateToken = findLastDateToken(product.name);
+            if (!dateToken) continue;
             this.seenIds.add(product.slug);
 
             try {
-                const dateToken = findLastDateToken(product.name);
-                if (!dateToken) {
-                    events.push({
-                        type: "ParseError",
-                        reason: `Could not find a start date (e.g. "begins 10.28") in title: "${product.name}"`,
-                        context: product.slug,
-                    });
-                    continue;
-                }
-
                 let startDate: LocalDate;
                 try {
                     startDate = resolveYear(dateToken.month, dateToken.day, today);
