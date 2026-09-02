@@ -1,8 +1,17 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { HTMLElement } from "node-html-parser";
 import { ChronoUnit, Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { RipperEvent, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { RipperEvent, RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 /**
  * Ripper for Bad Albert's Tap & Grill (SpotApps platform, Ballard).
@@ -40,14 +49,25 @@ export default class BadAlbertsRipper extends HTMLRipper {
                 events.push(result);
             } else {
                 this.seenEvents.add(id);
-                events.push(result);
+                events.push(result.event);
+                if (result.durationUncertain) {
+                    const uncertainty: UncertaintyError = {
+                        type: "Uncertainty",
+                        reason: "SpotApps atc_date_end missing, unparsable, or identical to atc_date_start",
+                        source: "bad-alberts",
+                        unknownFields: ["duration"],
+                        event: result.event,
+                        partialFingerprint: simpleHash(`${result.event.id}|${result.event.date.toString()}`),
+                    };
+                    events.push(uncertainty);
+                }
             }
         }
 
         return events;
     }
 
-    private parseSection(section: HTMLElement, id: string): RipperCalendarEvent | RipperError {
+    private parseSection(section: HTMLElement, id: string): { event: RipperCalendarEvent; durationUncertain: boolean } | RipperError {
         const atc = section.querySelector('var.atc_event');
         if (!atc) {
             return { type: "ParseError", reason: "Event section missing atc_event block", context: id };
@@ -67,16 +87,26 @@ export default class BadAlbertsRipper extends HTMLRipper {
 
         const endText = atc.querySelector('var.atc_date_end')?.textContent?.trim();
         let durationMinutes = DEFAULT_DURATION_MINUTES;
+        let durationUncertain = true;
         if (endText) {
             const end = this.parseDateTime(endText);
             if (end) {
                 const minutes = start.until(end, ChronoUnit.MINUTES);
-                // A few source entries have an end time earlier than the start
-                // time on the same calendar date when the event crosses
-                // midnight (the site doesn't roll the date over) — treat that
-                // as "ends the next day" rather than a negative duration.
-                durationMinutes = minutes > 0 ? minutes : minutes + 24 * 60;
-                if (durationMinutes <= 0) durationMinutes = DEFAULT_DURATION_MINUTES;
+                if (minutes > 0) {
+                    durationMinutes = minutes;
+                    durationUncertain = false;
+                } else if (minutes < 0) {
+                    // A few source entries have an end time earlier than the
+                    // start time on the same calendar date when the event
+                    // crosses midnight (the site doesn't roll the date over)
+                    // — treat that as "ends the next day" rather than a
+                    // negative duration.
+                    durationMinutes = minutes + 24 * 60;
+                    durationUncertain = false;
+                }
+                // minutes === 0 (identical start/end) carries no real
+                // duration signal — keep the default and flag it uncertain
+                // rather than publishing a spurious 24-hour event.
             }
         }
 
@@ -98,7 +128,7 @@ export default class BadAlbertsRipper extends HTMLRipper {
             cost: { min: 0 },
         };
 
-        return event;
+        return { event, durationUncertain };
     }
 
     private parseDateTime(text: string): LocalDateTime | null {

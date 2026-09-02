@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { parse } from 'node-html-parser';
 import { ZonedDateTime } from '@js-joda/core';
-import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
+import { RipperCalendarEvent, RipperError, UncertaintyError } from '../../lib/config/schema.js';
 import BadAlbertsRipper from './ripper.js';
 import fs from 'fs';
 import path from 'path';
@@ -126,5 +126,61 @@ describe('BadAlbertsRipper', () => {
 
         const events = await ripper.parseEvents(html, testDate, {});
         expect(events).toHaveLength(0);
+    });
+
+    it('emits no Uncertainty errors for the sample data (every event has a valid atc_date_end)', async () => {
+        const ripper = new BadAlbertsRipper();
+        const html = loadSampleHtml();
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty');
+
+        expect(uncertainties).toHaveLength(0);
+    });
+
+    function atcSection(id: string, extra: string): string {
+        return `<html><div class="events-holder"><section id="${id}"><div class="row event-content"><div class="event-text-holder"><span class="addtocalendar"><var class="atc_event"><var class="atc_date_start">2026-09-07 11:00:00</var>${extra}<var class="atc_title">Test Event</var></var></span></div></div></section></div></html>`;
+    }
+
+    it('falls back to the default duration and flags Uncertainty when atc_date_end is missing', async () => {
+        const ripper = new BadAlbertsRipper();
+        const html = parse(atcSection('1001', ''));
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty') as UncertaintyError[];
+
+        expect(calEvents).toHaveLength(1);
+        expect(calEvents[0].duration.toMinutes()).toBe(120);
+        expect(uncertainties).toHaveLength(1);
+        expect(uncertainties[0].unknownFields).toEqual(['duration']);
+        expect(uncertainties[0].event.id).toBe(calEvents[0].id);
+    });
+
+    it('falls back to the default duration and flags Uncertainty when atc_date_end equals atc_date_start', async () => {
+        const ripper = new BadAlbertsRipper();
+        const html = parse(atcSection('1002', '<var class="atc_date_end">2026-09-07 11:00:00</var>'));
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty');
+
+        expect(calEvents).toHaveLength(1);
+        // Must NOT silently become a 24-hour event.
+        expect(calEvents[0].duration.toMinutes()).toBe(120);
+        expect(uncertainties).toHaveLength(1);
+    });
+
+    it('does not flag Uncertainty when atc_date_end is a valid, later timestamp', async () => {
+        const ripper = new BadAlbertsRipper();
+        const html = parse(atcSection('1003', '<var class="atc_date_end">2026-09-07 13:00:00</var>'));
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty');
+
+        expect(calEvents).toHaveLength(1);
+        expect(calEvents[0].duration.toMinutes()).toBe(120);
+        expect(uncertainties).toHaveLength(0);
     });
 });
