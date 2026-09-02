@@ -27,8 +27,4 @@ calendars:
   - name: urban-family-brewing
     friendlyname: "Urban Family Brewing Co. (Ballard)"
     timezone: America/Los_Angeles
-    # The taproom's Sugar Calendar Lite plugin only exposes the current month
-    # with no way to page ahead (see ripper.ts), so some months legitimately
-    # have 0 events posted yet. Confirmed 2026-08-04: fetch succeeds (no
-    # ParseError), page just has no August listings yet.
-    expectEmpty: true
+    # 2026-09-02: 7 upcoming events in September; removing expectEmpty

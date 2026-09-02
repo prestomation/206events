@@ -1,15 +1,6 @@
-# verified: 2026-07-02 via direct eventbrite fetch (1 upcoming event: FCS presents
-# Iskwelahang Pilipino of Boston's "Musikang Kalipay", July 3 2026)
-# 2026-08-23: build-health flagged 0 events. That July 3 show has since
-# passed and nothing new has been posted. Confirmed live via Eventbrite's
-# public destination API (eventbrite.com/api/v3/destination/organizers/
-# 56553753403/events/) — 0 upcoming events currently. This community org
-# posts sporadically (a handful of events a year, one at a time), matching
-# the profile of seattle-downtown-community-council/bandit-improv. Adding
-# expectEmpty so a quiet stretch between postings doesn't false-positive.
+# verified: 2026-09-02 ok — 1 upcoming event; removing expectEmpty
 name: filipino-community-seattle
 sourceRole: venue
-expectEmpty: true
 type: eventbrite
 description: "Filipino Community of Seattle"
 url: "https://www.eventbrite.com/o/filipino-community-of-seattle-56553753403"
