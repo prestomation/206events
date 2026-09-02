@@ -66189,10 +66189,14 @@
       "reason": "Ticketmaster event page returns HTTP 403; start time cannot be fetched automatically"
     },
     "seatoday:cityspark-17845644": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-09-02",
       "source": "agent",
-      "reason": "CitySpark API missing cost fields (Free/Price/IsTicketed all absent); event page is JS-rendered embed not fetchable without browser"
+      "evidence": "Keeping the Blues Alive at Sea Alaska is a paid music cruise (Sep 14-21, 2026, Seattle to Alaska); cruise cabin packages required per bluesaliveatseaalaska.com"
     },
     "seatoday:cityspark-19762808": {
       "fields": {
@@ -66205,10 +66209,14 @@
       "evidence": "Description on ICS output: \"RSVP for free: https://www.startup425.org/event-details/...\""
     },
     "seatoday:cityspark-19689632": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-02",
       "source": "agent",
-      "reason": "CitySpark API missing cost fields (Free/Price/IsTicketed all absent); event page is JS-rendered embed not fetchable without browser"
+      "evidence": "\u00a1Vamos al Acuario! is a free Hispanic Heritage Month event at Seattle Aquarium with complimentary admission via Seattle Aquarium Connections program; CitySpark API shows Price=0"
     },
     "seatoday:cityspark-19671018": {
       "fields": {
@@ -66274,7 +66282,7 @@
       },
       "resolvedAt": "2026-09-02",
       "source": "agent",
-      "evidence": "STG Ticketmaster show; price not fetchable (403)"
+      "evidence": "The Outsiders (Touring) Broadway musical at Paramount Theatre Dec 1-6, 2026; paid ticketed event per stgpresents.org"
     },
     "stg:tm-vvG1HZ_5mUzHoZ": {
       "fields": {
@@ -66284,7 +66292,7 @@
       },
       "resolvedAt": "2026-09-02",
       "source": "agent",
-      "evidence": "STG Ticketmaster show; price not fetchable (403)"
+      "evidence": "Dweezil Zappa DZ20: Like Father, Like Son at Neptune Theatre Dec 1, 2026; paid ticketed event (prices ~$41+ on secondary market per search results)"
     },
     "stg:tm-vvG1HZ_owjO1--": {
       "fields": {
@@ -66294,7 +66302,7 @@
       },
       "resolvedAt": "2026-09-02",
       "source": "agent",
-      "evidence": "STG Ticketmaster show; price not fetchable (403)"
+      "evidence": "The Residency: A Night of NW Hip Hop at STG venue Nov 12, 2026; paid ticketed event"
     },
     "watershed-pub:watershed-pub-cider_tasting_sundays_september_26-2026-09-20": {
       "fields": {
