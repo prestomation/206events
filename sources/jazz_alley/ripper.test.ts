@@ -116,6 +116,19 @@ describe('JazzAlleyRipper.parseShowDetail', () => {
         }
     });
 
+    it('parses a comma-formatted price (e.g. a premium-priced show) correctly', () => {
+        const html = `<html><body>
+            <select name="perfnum">
+                <option value="0">Choose a Performance</option>
+                <option value=1>Fri, Sep 4, 2026 7:30 PM</option>
+            </select>
+            <div class="price-box"><strong class="price">$1,200.00</strong></div>
+        </body></html>`;
+        const result = ripper.parseShowDetail(card, html, url);
+        expect(result).toHaveLength(1);
+        expect((result[0] as RipperCalendarEvent).cost).toEqual({ min: 1200 });
+    });
+
     it('returns a ParseError when no performance options are present (sold-out / past run)', () => {
         const emptyHtml = '<html><body><select name="perfnum"><option value="0">Choose a Performance</option></select></body></html>';
         const result = ripper.parseShowDetail(card, emptyHtml, url);

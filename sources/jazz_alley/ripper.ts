@@ -152,8 +152,8 @@ export default class JazzAlleyRipper implements IRipper {
         }
 
         const priceText = doc.querySelector(".price-box .price")?.text?.trim();
-        const priceMatch = priceText?.match(/\$([\d.]+)/);
-        const cost = priceMatch ? { min: parseFloat(priceMatch[1]) } : undefined;
+        const priceMatch = priceText?.match(/\$([\d,]+(?:\.\d+)?)/);
+        const cost = priceMatch ? { min: parseFloat(priceMatch[1].replace(/,/g, "")) } : undefined;
 
         return performances.map((p): RipperCalendarEvent => {
             const date = ZonedDateTime.of(
