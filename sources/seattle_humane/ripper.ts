@@ -54,6 +54,14 @@ export default class SeattleHumaneRipper implements IRipper {
             // Items with no recognizable date line are informational content
             // (e.g. an ongoing "Summer Camp" registration blurb), not a dated
             // one-off event — skip them rather than reporting a parse error.
+            // Tradeoff: if a real event's date paragraph ever drifts away from
+            // the "Month Day | time" shape parseDateLine expects, it will also
+            // fail this check and disappear silently rather than surfacing as
+            // a ParseError (see parseItem's own "No date line found" branch,
+            // which this filter prevents from ever being reached in practice).
+            // Accepted for now since the alternative — erroring on every
+            // build for the page's known non-dated informational items —
+            // would be permanent, non-actionable noise in build-errors.json.
             if (!this.hasDateLine(item.detailsHtml)) continue;
 
             const result = this.parseItem(item, now);
@@ -120,13 +128,44 @@ export default class SeattleHumaneRipper implements IRipper {
         // of its own — inherit it from that same line's end time.
         const firstLineEndMeridiem = first.endTimeText ? this.extractMeridiem(first.endTimeText) : undefined;
         const startTimeParsed = this.parseTime(first.startTimeText, firstLineEndMeridiem);
-        const startTimeGuessed = startTimeParsed === null;
-        const startTime = startTimeParsed ?? { hour: 10, minute: 0, meridiem: "am" as const };
+        let startTimeGuessed = startTimeParsed === null;
+        let startTime = startTimeParsed ?? { hour: 10, minute: 0, meridiem: "am" as const };
 
         // Prefer the last line's own end time; fall back to the first line's
         // end time for a single-line range (e.g. "10 a.m. - 6 p.m.").
         const rawEndTimeText = last.endTimeText ?? first.endTimeText;
         const endTime = rawEndTimeText ? this.parseTime(rawEndTimeText, startTime.meridiem) : undefined;
+
+        // The inherited meridiem above is a guess, not a fact — a bare start
+        // like "11" in "11 - 1 p.m." could mean 11am or 11pm, and inheriting
+        // "pm" from the end time gives the wrong (23:00) answer for a same-day
+        // 11am-1pm event. When the source really is a single same-day span,
+        // cross-check the inherited reading against the known end time: if it
+        // produces a non-positive or implausibly long (>12h) span while the
+        // opposite reading produces a sane one, use that instead; if neither
+        // (or, in principle, both) reading is a sane short span, the source
+        // is ambiguous or crosses midnight in a way this parser doesn't model
+        // (no next-day rollover), so flag the start time as uncertain rather
+        // than silently publishing a guess.
+        const isSingleDaySpan = dateLines.length === 1 && first.endDay === undefined;
+        if (!startTimeGuessed && isSingleDaySpan && endTime && !this.extractMeridiem(first.startTimeText)) {
+            const alternateMeridiem = startTime.meridiem === "am" ? "pm" : "am";
+            const alternateStart = this.parseTime(first.startTimeText, alternateMeridiem)!;
+
+            const endMinutes = endTime.hour * 60 + endTime.minute;
+            const primaryMinutes = endMinutes - (startTime.hour * 60 + startTime.minute);
+            const alternateMinutes = endMinutes - (alternateStart.hour * 60 + alternateStart.minute);
+            const primaryPlausible = primaryMinutes > 0 && primaryMinutes <= 12 * 60;
+            const alternatePlausible = alternateMinutes > 0 && alternateMinutes <= 12 * 60;
+
+            if (!primaryPlausible && alternatePlausible) {
+                startTime = alternateStart;
+            } else if (primaryPlausible === alternatePlausible) {
+                // Either both readings are sane (genuinely ambiguous) or
+                // neither is (unparseable in context) — don't guess which.
+                startTimeGuessed = true;
+            }
+        }
 
         let date: ZonedDateTime;
         try {

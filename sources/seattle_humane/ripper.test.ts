@@ -282,6 +282,46 @@ describe('SeattleHumaneRipper', () => {
             const uncertainty = results[1] as UncertaintyError;
             expect(uncertainty.unknownFields).toEqual(['startTime', 'duration']);
         });
+
+        it('corrects an inherited pm meridiem that would invert a same-day range (bare "11 - 1 p.m." means 11am-1pm, not 11pm-1pm)', () => {
+            const results = ripper.parseItem({
+                title: 'Morning Adoption Event',
+                detailsHtml: 'September 25 | 11 - 1 p.m.<br />Hyatt Regency Bellevue',
+            }, NOW);
+
+            expect(results).toHaveLength(1);
+            const event = results[0] as RipperCalendarEvent;
+            expect(event.date.hour()).toBe(11);
+            expect(event.duration.toMinutes()).toBe(120);
+        });
+
+        it('keeps a plausible inherited-pm reading for a same-day range unflagged (bare "3 - 8 p.m." is 3pm-8pm, not 3am-8pm)', () => {
+            const results = ripper.parseItem({
+                title: 'Afternoon Event',
+                detailsHtml: 'September 25 | 3 - 8 p.m.<br />Hyatt Regency Bellevue',
+            }, NOW);
+
+            expect(results).toHaveLength(1);
+            const event = results[0] as RipperCalendarEvent;
+            expect(event.date.hour()).toBe(15);
+            expect(event.duration.toMinutes()).toBe(300);
+        });
+
+        it('flags startTime (and duration) as uncertain when neither meridiem reading of a same-day range is plausible', () => {
+            // "11 - 1 a.m." crosses midnight (e.g. 11pm-1am) — a range this
+            // parser can't model (no next-day rollover), so both the
+            // inherited-am (11am-1am, negative) and alternate-pm (11pm-1am,
+            // negative) same-day readings are invalid. Neither is silently
+            // trusted.
+            const results = ripper.parseItem({
+                title: 'Overnight Event',
+                detailsHtml: 'September 25 | 11 - 1 a.m.<br />Hyatt Regency Bellevue',
+            }, NOW);
+
+            expect(results).toHaveLength(2);
+            const uncertainty = results[1] as UncertaintyError;
+            expect(uncertainty.unknownFields).toEqual(['startTime', 'duration']);
+        });
     });
 
     describe('normalizeLocation', () => {

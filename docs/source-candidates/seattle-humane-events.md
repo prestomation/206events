@@ -3,7 +3,7 @@ name: Seattle Humane Society Events
 status: added
 platform: Custom HTML (WordPress / Elementor nested-accordion)
 url: https://www.seattlehumane.org/ways-to-give/events/
-tags: [Community]
+tags: [Community, Pets]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-02
 pr: TBD

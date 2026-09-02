@@ -11,7 +11,7 @@ sourceRole: venue
 description: "Seattle Humane"
 url: "https://www.seattlehumane.org/ways-to-give/events/"
 friendlyLink: https://www.seattlehumane.org/ways-to-give/events/
-tags: ["Community"]
+tags: ["Community", "Pets"]
 # Events are held at rotating community venues (convention center, festival
 # lawn, hotel), not a single fixed address.
 geo: null
