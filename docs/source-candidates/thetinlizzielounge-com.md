@@ -6,7 +6,7 @@ url: https://thetinlizzielounge.com/live-music/
 tags: ["Music", "Nightlife", "Dance", "QueenAnne"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-02
-pr:
+pr: 1352
 ---
 
 Discovered via aggregator gap analysis (sample event: "Balboa, Booze and
