@@ -26,9 +26,15 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const SRC = join(__dirname, '..')
 
-const jsxFiles = readdirSync(__dirname)
+// The map popup family (components/map/) is scanned too: it is authored
+// against the same `.app206` tokens, and the whole point of that port is that
+// the legacy Bootstrap palette must not leak into it — an invariant worth
+// enforcing rather than trusting. See docs/map-design-system.md.
+const SCANNED_DIRS = [__dirname, join(SRC, 'components', 'map')]
+
+const jsxFiles = SCANNED_DIRS.flatMap((dir) => readdirSync(dir)
   .filter((f) => f.endsWith('.jsx') && !f.includes('.test.'))
-  .map((f) => ({ name: f, text: readFileSync(join(__dirname, f), 'utf8') }))
+  .map((f) => ({ name: `${dir === __dirname ? '' : 'map/'}${f}`, text: readFileSync(join(dir, f), 'utf8') })))
 
 function cssFilesUnder(dir) {
   const out = []

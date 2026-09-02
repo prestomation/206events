@@ -77,8 +77,11 @@ describe('cadence', () => {
       .toBe('3 dates · 7:00 PM')
   })
 
-  it('handles a single date', () => {
-    expect(cadence([at('2026-07-02')])).toBe('One date · 7:00 PM')
+  // A lone occurrence has no rhythm, so it names the date rather than saying
+  // "One date" in the place the date should have been.
+  it('names the date itself for a single occurrence', () => {
+    expect(cadence([at('2026-07-02')])).toBe('Thu Jul 2 · 7:00 PM')
+    expect(cadence([at('2026-07-02')], { withTime: false })).toBe('Thu Jul 2')
   })
 
   it('omits the time when the instances do not agree on one', () => {

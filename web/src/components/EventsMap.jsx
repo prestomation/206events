@@ -7,6 +7,7 @@ import { eventKey } from '../lib/eventKey.js'
 import { groupEvents, groupByVenue } from '../lib/event-grouping.js'
 import { channelColor } from '../redesign/categories.js'
 import { createPinIcon, shouldLabelPins } from './map/pinIcon.js'
+import { resolveVenueIdentity } from './map/venueIdentity.js'
 import cityConfig from '../../../city.config.ts'
 
 // Populated metro extent used to reject distant outliers from the default map
@@ -227,6 +228,8 @@ export function isMappable(event, {
  *   calendarFilter   - optional: icsUrl of selected calendar (or tag icsUrl) to filter by
  *   calendarTagsByIcsUrl - map of icsUrl → tags[]
  *   selectedTag      - currently active tag ('' means all)
+ *   venueByIcsUrl    - optional Map<icsUrl, venue> from venues.json, so a pin can
+ *                      name its venue the same way its popup does
  *   eventAttributions  - optional Map<compositeKey, Attribution[]> from App.jsx for showing why events appear
  *   feedOnly         - when true (and no calendarFilter), restrict markers to the personal feed
  *   queryKeySet      - optional Set<eventKey> of live search matches; when non-null, only those events map
@@ -235,6 +238,8 @@ export function isMappable(event, {
  *                      itself is rendered by MapPanel, NOT here: keeping it outside
  *                      this memoized subtree means a follow-toggle re-renders the
  *                      popup without rebuilding the marker layer.
+ *   onRefreshVenue   - called with the rebuilt open venue whenever the corpus
+ *                      changes, so the popup follows late-arriving data
  */
 // Memoized so the heavy marker/cluster subtree is rebuilt only when its own
 // inputs actually change. While the date-window slider is being dragged, the
@@ -247,6 +252,7 @@ function EventsMapInner({
   calendarFilter,
   calendarTagsByIcsUrl,
   selectedTag,
+  venueByIcsUrl,
   eventAttributions,
   dateInScope = () => true,
   feedOnly = false,
@@ -254,6 +260,7 @@ function EventsMapInner({
   mapRef,
   selectedVenueKey = null,
   onSelectVenue,
+  onRefreshVenue,
 }) {
   // Filter events: only those with lat/lng, respecting the active tag/calendar
   // filter, the global date window, (when feedOnly) the personal feed, and (when
@@ -274,11 +281,17 @@ function EventsMapInner({
   // panel now derives both at render time from the raw instance.
 
   // A single-series pin names the show; a multi-series pin names the place.
+  //
+  // The place name comes from the SAME resolver the popup uses, not from
+  // splitting `venue.label`. That label is the modal event `location`, which in
+  // this corpus is a bare street address far more often than not (102 of 171
+  // recurring sources) — so splitting it would put "5805 Airport Way S" on the
+  // pill while the popup it opens says "Georgetown Trailer Park Mall".
   const pinLabel = useCallback((venue) => (
     venue.seriesCount === 1
       ? venue.series[0].summary
-      : (venue.label.split(',')[0].trim() || venue.series[0].summary)
-  ), [])
+      : (resolveVenueIdentity(venue, venueByIcsUrl).name || venue.series[0].summary)
+  ), [venueByIcsUrl])
 
   // Category colour for the pin's dot, taken from the venue's first series.
   const pinColor = useCallback((venue) => (
@@ -323,6 +336,16 @@ function EventsMapInner({
     return { visibleVenues: visible, tightCount: tight }
   }, [venueGroups, viewport])
 
+  // The open venue is a snapshot of the generation it was clicked in, and
+  // `eventsIndex` is replaced several times after first paint (the "soon"
+  // payload, the full index, then again once descriptions land). Re-report it
+  // so the popup follows the live data instead of freezing on load-time state.
+  useEffect(() => {
+    if (!selectedVenueKey || !onRefreshVenue) return
+    const fresh = venueGroups.find((v) => v.key === selectedVenueKey)
+    if (fresh) onRefreshVenue(fresh)
+  }, [venueGroups, selectedVenueKey, onRefreshVenue])
+
   // The label tier: a 190px pill per pin is unreadable at city zoom and
   // unaffordable in bulk, so pins wear their name only once they have the room.
   // The selected pin is labelled regardless (see createPinIcon).
@@ -339,27 +362,48 @@ function EventsMapInner({
     startTransition(() => setMarkersReady(true))
   }, [])
 
-  // One marker per VENUE, memoized so the list rebuilds only when the visible
-  // venue set (or the selection) changes. A venue with more than one date gets
-  // a count-badge icon; a single-date venue omits the `icon` prop entirely so
-  // Leaflet uses its default marker — passing `icon={undefined}` instead would
-  // override (and crash) Leaflet's default icon in a real browser. Clicking
-  // reports the venue up to MapPanel, which owns the popup. Keyed on the stable
-  // venue key (date-independent) so slider drags update markers in place.
-  const markers = useMemo(() => !markersReady ? [] : visibleVenues.map((venue) => (
-    <Marker
-      key={`venue-${venue.key}`}
-      position={[venue.lat, venue.lng]}
-      icon={createPinIcon({
+  // Pin icons, memoized WITHOUT the selection in the deps. react-leaflet calls
+  // marker.setIcon whenever the `icon` prop is a new object, so building icons
+  // inside the marker map would re-icon every visible venue (a padded viewport,
+  // potentially thousands) on every pin click. Held apart, only the selected
+  // pin's icon identity changes and every other marker is skipped.
+  const icons = useMemo(() => {
+    const byKey = new Map()
+    for (const venue of visibleVenues) {
+      byKey.set(venue.key, createPinIcon({
         label: pinLabel(venue),
         count: venue.dateCount,
         dotColor: pinColor(venue),
         labelled: labelsOn,
-        selected: venue.key === selectedVenueKey,
-      })}
+      }))
+    }
+    return byKey
+  }, [visibleVenues, labelsOn, pinLabel, pinColor])
+
+  const selectedIcon = useMemo(() => {
+    const venue = visibleVenues.find((v) => v.key === selectedVenueKey)
+    if (!venue) return null
+    return createPinIcon({
+      label: pinLabel(venue),
+      count: venue.dateCount,
+      dotColor: pinColor(venue),
+      labelled: labelsOn,
+      selected: true,
+    })
+  }, [visibleVenues, selectedVenueKey, labelsOn, pinLabel, pinColor])
+
+  // One marker per VENUE, memoized so the list rebuilds only when the visible
+  // venue set (or the selection) changes. Clicking reports the venue up to
+  // MapPanel, which owns the popup. Keyed on the stable venue key
+  // (date-independent) so slider drags update markers in place.
+  const markers = useMemo(() => !markersReady ? [] : visibleVenues.map((venue) => (
+    <Marker
+      key={`venue-${venue.key}`}
+      position={[venue.lat, venue.lng]}
+      icon={venue.key === selectedVenueKey ? selectedIcon : icons.get(venue.key)}
       eventHandlers={{ click: () => onSelectVenue?.(venue) }}
     />
-  )), [markersReady, visibleVenues, onSelectVenue, labelsOn, selectedVenueKey, pinLabel, pinColor])
+  )), [markersReady, visibleVenues, onSelectVenue, selectedVenueKey, icons, selectedIcon])
 
   return (
     <div className="events-map-container" data-testid="events-map">

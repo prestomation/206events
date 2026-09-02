@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { MapPopupHost, resolveVenueIdentity } from './MapPopupHost.jsx'
+import { MapPopupHost, popupShell } from './MapPopupHost.jsx'
 
 const inst = (day, over = {}) => ({
   icsUrl: 'test-ripper-cal1.ics',
@@ -22,37 +22,26 @@ const venue = (s) => ({
   series: s, seriesCount: s.length, dateCount: s.reduce((n, g) => n + g.count, 0),
 })
 
-describe('resolveVenueIdentity', () => {
-  it('splits the events-index location on its first comma', () => {
-    expect(resolveVenueIdentity(venue([series('A', [1])]))).toEqual({ name: 'Neumos', address: 'Capitol Hill' })
+// The shell a selection commits to, which MapPanel also consults so the
+// floating map chrome retreats to the side the card actually docks on.
+describe('popupShell', () => {
+  const twoSeries = { venue: { seriesCount: 2, series: [] } }
+  const oneSeries = { venue: { seriesCount: 1, series: [] } }
+
+  it('lets a venue decline the expanded map\u2019s two-column card', () => {
+    expect(popupShell('wide', twoSeries)).toBe('panel')
   })
 
-  it('keeps a comma-less label whole', () => {
-    const v = { ...venue([series('A', [1])]), label: 'Gas Works Park' }
-    expect(resolveVenueIdentity(v)).toEqual({ name: 'Gas Works Park', address: '' })
+  it('keeps wide for an event, which has two columns\u2019 worth', () => {
+    expect(popupShell('wide', { ...twoSeries, group: { key: 'g' } })).toBe('wide')
+    // A single-series pin opens its event popup directly, so it keeps wide too.
+    expect(popupShell('wide', oneSeries)).toBe('wide')
   })
 
-  it('handles a venue no instance labelled', () => {
-    const v = { ...venue([series('A', [1])]), label: '' }
-    expect(resolveVenueIdentity(v)).toEqual({ name: '', address: '' })
-  })
-
-  // venues.json only covers sources with a fixed declared geo, so it enriches
-  // the label rather than replacing it as the primary source.
-  it('prefers a venues.json entry that resolves to the same coordinate', () => {
-    const byIcs = new Map([['test-ripper-cal1.ics', {
-      name: 'neumos', friendlyName: 'Neumos', geo: { lat: 47.61, lng: -122.32, label: '925 E Pike St, Seattle' },
-    }]])
-    expect(resolveVenueIdentity(venue([series('A', [1])]), byIcs))
-      .toEqual({ name: 'Neumos', address: '925 E Pike St, Seattle' })
-  })
-
-  it('ignores a venues.json entry sitting somewhere else', () => {
-    const byIcs = new Map([['test-ripper-cal1.ics', {
-      friendlyName: 'Somewhere Else', geo: { lat: 47.70, lng: -122.20, label: 'Elsewhere' },
-    }]])
-    expect(resolveVenueIdentity(venue([series('A', [1])]), byIcs))
-      .toEqual({ name: 'Neumos', address: 'Capitol Hill' })
+  it('passes every other layout through untouched', () => {
+    expect(popupShell('panel', twoSeries)).toBe('panel')
+    expect(popupShell('sheet', twoSeries)).toBe('sheet')
+    expect(popupShell('panel', null)).toBe('panel')
   })
 })
 

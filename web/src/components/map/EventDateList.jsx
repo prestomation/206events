@@ -1,16 +1,11 @@
 import { eventDateParts } from '../../lib/dateFormat.js'
 import { relativeDay } from '../../lib/eventCadence.js'
 import { Ico } from '../../redesign/icons.jsx'
+import { isHttpUrl } from './isHttpUrl.js'
 
 // Hard cap on rendered dates so a very long run (a nightly show over a wide
 // window) can't balloon the DOM. Overflow is summarised as "+N more dates".
 export const MAX_GROUP_DATES = 50
-
-// Only emit http(s) links -- guards against javascript:/data: URLs in source
-// data. (React escapes text by default, so no manual HTML escaping.)
-function isHttpUrl(u) {
-  return typeof u === 'string' && /^https?:\/\//i.test(u)
-}
 
 /**
  * A series' dates at the two densities the map needs: `chips` for the narrow

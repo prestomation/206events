@@ -68,6 +68,16 @@ describe('EventPopup', () => {
     expect(container.querySelector('.mp-next-when')).toHaveTextContent('PM')
   })
 
+  // The rhythm lines are about rhythm; with one date the block above already
+  // names it, so neither line repeats it.
+  it('shows no rhythm line for a single-date event', () => {
+    const sheet = render(<EventPopup layout="sheet" group={group()} venue={VENUE} />)
+    expect(sheet.container.querySelector('.mp-cadence')).toBeNull()
+
+    const panel = render(<EventPopup layout="panel" group={group()} venue={VENUE} />)
+    expect(panel.container.querySelector('.mp-next-rel')).not.toHaveTextContent('Jul')
+  })
+
   it('gives the sheet a chip strip and a cadence line instead of date rows', () => {
     const { container } = render(
       <EventPopup layout="sheet" group={group([inst(2), inst(9), inst(16)])} venue={VENUE} />,

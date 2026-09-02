@@ -20,16 +20,13 @@ import { Ico } from '../../redesign/icons.jsx'
 export function VenuePopup({
   venue, layout = 'panel', following = false, followTarget, peek = 3,
   attributions, mapsUrl, seriesColor,
-  onFollow, onOpenSeries, onClose, onPickDate, rootRef,
+  onFollow, onOpenSeries, onClose, onPickDate, rootRef, escapeEnabled,
 }) {
   if (!venue) return null
-  // A venue's content is ONE list, so it declines the two-column `wide` layout
-  // the expanded map offers: splitting it leaves a header and two buttons
-  // stranded in a 376px column of nothing. The event popup does have two
-  // columns' worth (copy and the next date on one side, every date and the
-  // venue's other series on the other), so `wide` still earns its keep there.
-  const shell = layout === 'wide' ? 'panel' : layout
-  const rich = shell !== 'sheet'
+  // A venue's content is ONE list, so it is never handed the two-column `wide`
+  // layout — see `popupShell` in MapPopupHost, which makes that call once so
+  // the map chrome can retreat to the same side the card lands on.
+  const rich = layout !== 'sheet'
   const { name, address, series, seriesCount, dateCount } = venue
 
   const list = (
@@ -68,7 +65,8 @@ export function VenuePopup({
   return (
     <MapPopup
       rootRef={rootRef}
-      layout={shell}
+      escapeEnabled={escapeEnabled}
+      layout={layout}
       eyebrow="Venue"
       title={name}
       subtitle={address}

@@ -25,6 +25,7 @@ export function EventPopup({
   calendarName, channelColor = 'var(--blue)', attributions, calendarAddMode = 'auto',
   mapsUrl, alsoHere = [], seriesMeta, descriptionsPending = false,
   onFollow, onDetails, onClose, onBack, backLabel, onPickDate, onOpenSeries, onZoomImage, rootRef,
+  escapeEnabled,
 }) {
   if (!group) return null
   const rich = layout !== 'sheet'
@@ -32,7 +33,6 @@ export function EventPopup({
   const rep = instances[0]
   const sel = selected || rep
   const selParts = eventDateParts(sel?.date)
-  const rhythm = cadence(instances)
   // The next-date line right above already carries the start time, so the
   // rhythm beside it drops its own copy rather than saying 7:00 PM twice.
   const rhythmNoTime = cadence(instances, { withTime: false })
@@ -55,7 +55,9 @@ export function EventPopup({
           {selParts ? `${selParts.dow}, ${selParts.dayMonth} · ${selParts.time}` : 'No upcoming dates'}
         </div>
         {rich && selParts && (
-          <div className="mp-next-rel">{relativeDay(sel.date)}{rhythmNoTime ? ` · ${rhythmNoTime}` : ''}</div>
+          <div className="mp-next-rel">
+            {relativeDay(sel.date)}{count > 1 && rhythmNoTime ? ` · ${rhythmNoTime}` : ''}
+          </div>
         )}
       </div>
       <AddToCalendar
@@ -110,10 +112,11 @@ export function EventPopup({
   return (
     <MapPopup
       rootRef={rootRef}
+      escapeEnabled={escapeEnabled}
       layout={layout}
       eyebrow={count > 1 ? `${count} dates` : 'Event'}
       title={summary}
-      subtitle={venue?.label || rep.location}
+      subtitle={[venue?.name, venue?.address].filter(Boolean).join(', ') || venue?.label || rep.location}
       source={calendarName}
       media={media}
       onClose={onClose}
@@ -154,10 +157,9 @@ export function EventPopup({
       {!rich && (
         <>
           <Rule />
-          {rhythm && (
+          {count > 1 && rhythmNoTime && (
             <div className="mp-cadence">
-              {rhythmNoTime}
-              {count > 1 && <> · <b>{count} dates</b></>}
+              {rhythmNoTime} · <b>{count} dates</b>
             </div>
           )}
           <EventDateList

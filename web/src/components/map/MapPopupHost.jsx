@@ -3,46 +3,24 @@ import { VenuePopup } from './VenuePopup.jsx'
 import { googleMapsUrl } from '../../lib/maplink.js'
 import { eventKey } from '../../lib/eventKey.js'
 import { cadence } from '../../lib/eventCadence.js'
-import { quantizeCoord } from '../../lib/event-grouping.js'
-
-// A venue label from the events index is usually "Name, Neighborhood" or a
-// full street address. Split on the first comma so the popup can lead with the
-// place and subordinate the rest, which is what the design system's title /
-// subtitle pairing wants.
-function splitVenueLabel(label) {
-  const s = String(label ?? '').trim()
-  if (!s) return { name: '', address: '' }
-  const i = s.indexOf(',')
-  if (i === -1) return { name: s, address: '' }
-  return { name: s.slice(0, i).trim(), address: s.slice(i + 1).trim() }
-}
+import { resolveVenueIdentity } from './venueIdentity.js'
 
 /**
- * Resolve a clicked venue into the name and address the popup shows.
+ * The shell a selection actually commits to, which is not always the layout it
+ * was offered: a venue's content is one list, so it declines the expanded map's
+ * two-column `wide` card rather than stranding a header and two buttons in a
+ * column of nothing.
  *
- * `venues.json` is enrichment, never the primary source: it only covers sources
- * whose declared `geo` is non-null (lib/discovery.ts), so aggregator feeds that
- * carry per-event locations have no entry there. The event's own `location`
- * string always exists, so it leads; a venues.json entry that resolves to the
- * SAME coordinate then supplies the better street address.
+ * This lives here, next to the component that picks which popup to render, and
+ * `MapPanel` consults it too — the floating map chrome has to retreat to the
+ * side the card is ACTUALLY docked to, and guessing from the offered layout put
+ * it under the card instead.
  */
-export function resolveVenueIdentity(venue, venueByIcsUrl) {
-  const split = splitVenueLabel(venue.label)
-  if (!venueByIcsUrl) return split
-  for (const g of venue.series) {
-    const entry = venueByIcsUrl.get(g.instances[0]?.icsUrl)
-    if (!entry?.geo) continue
-    const sameSpot = quantizeCoord(entry.geo.lat) === quantizeCoord(venue.lat)
-      && quantizeCoord(entry.geo.lng) === quantizeCoord(venue.lng)
-    if (!sameSpot) continue
-    return {
-      name: entry.friendlyName || entry.name || split.name,
-      // geo.label is a raw street address — wrong as a section heading (which
-      // is why channelFromCalendar refuses it) and exactly right as a subtitle.
-      address: entry.geo.label || split.address,
-    }
-  }
-  return split
+export function popupShell(layout, selection) {
+  const venue = selection?.venue
+  if (!venue) return layout
+  const showsVenue = !selection.group && venue.seriesCount > 1
+  return layout === 'wide' && showsVenue ? 'panel' : layout
 }
 
 /**
@@ -58,10 +36,11 @@ export function MapPopupHost({
   selection, layout = 'panel',
   venueByIcsUrl, channelByIcsUrl, calendarNameByIcsUrl, eventAttributions,
   favoritesSet, calendarAddMode = 'auto', descriptionsPending = false,
-  onToggleFollow, onOpenEvent, onZoomImage, onSelect, onClose, rootRef,
+  onToggleFollow, onOpenEvent, onZoomImage, onSelect, onClose, rootRef, escapeEnabled,
 }) {
   if (!selection?.venue) return null
   const { venue, group } = selection
+  const shell = popupShell(layout, selection)
   const { name, address } = resolveVenueIdentity(venue, venueByIcsUrl)
   const mapsUrl = googleMapsUrl({ location: venue.label, lat: venue.lat, lng: venue.lng })
   const colorFor = (g) => channelByIcsUrl?.get(g.instances[0]?.icsUrl)?.color || 'var(--blue)'
@@ -80,8 +59,9 @@ export function MapPopupHost({
     return (
       <VenuePopup
         rootRef={rootRef}
+        escapeEnabled={escapeEnabled}
         venue={{ ...venue, name, address }}
-        layout={layout}
+        layout={shell}
         attributions={eventAttributions?.get(eventKey(venue.series[0].instances[0]))}
         mapsUrl={mapsUrl}
         seriesColor={colorFor}
@@ -102,9 +82,10 @@ export function MapPopupHost({
   return (
     <EventPopup
       rootRef={rootRef}
+      escapeEnabled={escapeEnabled}
       group={open}
       venue={{ ...venue, name, address }}
-      layout={layout}
+      layout={shell}
       selected={selection.selected}
       calendarName={calendarName}
       channelColor={colorFor(open)}

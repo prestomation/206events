@@ -3890,7 +3890,7 @@ html, body, #root { height: 100%; }
 .app206 .mp-chip-day { font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1; white-space: nowrap; }
 .app206 .mp-chip--on .mp-chip-day { color: var(--blue-ink); }
 
-.app206 .mp-dates--rows { display: grid; gap: 1px; padding: 2px 9px 12px; }
+.app206 .mp-dates--rows { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; padding: 2px 9px 12px; }
 /* The row is the SELECTOR and the trailing icon is the only navigation — the
    same split the app uses for location lines, so tapping a date never
    unexpectedly leaves the map. */
@@ -3900,6 +3900,7 @@ html, body, #root { height: 100%; }
 .app206 .mp-daterow-pick {
   flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 10px;
   padding: 8px 10px; border-radius: var(--radius-lg); text-align: left; white-space: nowrap;
+  overflow: hidden;
 }
 .app206 .mp-daterow-day { flex: 0 0 auto; font-family: var(--font-display); font-weight: 700; font-size: 14.5px; color: var(--ink); }
 .app206 .mp-daterow--on .mp-daterow-day { color: var(--blue-ink); }
@@ -3928,10 +3929,13 @@ html, body, #root { height: 100%; }
 }
 
 /* ---- series rows ---- */
-.app206 .mp-serieslist { display: grid; gap: 2px; padding: 2px 9px 13px; }
+/* minmax(0, 1fr), not the default `auto`: a grid item's automatic minimum size
+   is its content, so a long event name refused to shrink and pushed the popup
+   body into a horizontal scroll rather than ellipsising inside it. */
+.app206 .mp-serieslist { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 2px 9px 13px; }
 .app206 .mp-serieslist--peek { gap: 10px; }
 .app206 .mp-series {
-  display: flex; align-items: center; gap: 12px; width: 100%;
+  display: flex; align-items: center; gap: 12px; width: 100%; min-width: 0;
   padding: 10px 7px; border-radius: var(--radius-lg); text-align: left; color: var(--ink);
 }
 .app206 .mp-series:hover { background: var(--surface-2); }
@@ -3948,6 +3952,7 @@ html, body, #root { height: 100%; }
 .app206 .mp-series-note {
   font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em;
   text-transform: uppercase; color: var(--ink-3);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .app206 .mp-series-trail { flex: 0 0 auto; display: flex; color: var(--ink-4); }
 .app206 .mp-series-trail svg { width: 16px; height: 16px; }
@@ -4031,7 +4036,7 @@ html, body, #root { height: 100%; }
   /* Map surface geometry (design-system port -- docs/map-design-system.md).
      Dimensions and one elevation; the only colour here is the shadow's tint. */
   --map-pin-h:30px; --map-pin-max-w:190px;
-  --map-popup-w:366px; --map-popup-w-wide:668px; --map-popup-w-panel:412px;
+  --map-popup-w-wide:668px; --map-popup-w-panel:412px;
   --map-popup-aside-w:292px; --map-popup-radius:16px; --map-popup-pad-x:15px;
   --map-chip-w:58px; --map-chip-h:50px;
   --map-shadow:0 18px 44px rgba(26,26,46,.18);
@@ -4636,14 +4641,23 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
 .app206 .a-mapfilter .a-mapscope { flex: 0 0 auto; }
 /* With a popup open, the floating bars must not sit behind it — "Save this
    area" and the expand toggle would be unreachable for as long as a pin is
-   open. In the docked column a 412px popup leaves ~45px, which is no room for
-   a bar at all, so the chrome stands down and the popup IS the panel (closing
-   it brings the chrome back). Expanded to full screen there is real room
-   beside it, so the bars just retreat to the right of the card. */
+   open. In the docked column a 412px card leaves ~45px, which is no room for a
+   bar at all, so the chrome stands down and the popup IS the panel (closing it
+   brings the chrome back). */
 .app206 .a-mappanel--popup .a-mapbar,
 .app206 .a-mappanel--popup .a-mapfilter { display: none; }
-.app206 .a-mappanel--popupwide .a-mapbar,
-.app206 .a-mappanel--popupwide .a-mapfilter { left: calc(min(var(--map-popup-w-wide), 100% - 64px) + 16px); }
+/* Expanded to full screen there IS real room, so the bars retreat beside the
+   card instead of hiding. Which edge depends on the shell the popup actually
+   committed to, not the one it was offered: a venue declines the wide card and
+   docks right like a panel, so keying this off "expanded" alone put the bars
+   straight back under it. `popupShell` (MapPopupHost) makes that call once and
+   MapPanel stamps the matching class here. */
+.app206 .a-map--expanded .a-mappanel--popup .a-mapbar { display: flex; }
+.app206 .a-map--expanded .a-mappanel--popup .a-mapfilter { display: flex; }
+.app206 .a-map--expanded .a-mappanel--popupleft .a-mapbar,
+.app206 .a-map--expanded .a-mappanel--popupleft .a-mapfilter { left: calc(min(var(--map-popup-w-wide), 100% - 64px) + 16px); }
+.app206 .a-map--expanded .a-mappanel--popupright .a-mapbar,
+.app206 .a-map--expanded .a-mappanel--popupright .a-mapfilter { right: calc(min(var(--map-popup-w-panel), 100% - 44px) + 16px); }
 /* Active-search hint chip in the map's floating filter bar (desktop + mobile).
    Flows inline beside the slider/scope toggle and wraps to its own line when
    space is tight; the pill stays content-width (never stretches full-bar). */
@@ -4702,7 +4716,6 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
 .app206 .a-lightbox-close:hover { background: rgba(0,0,0,0.75); }
 @keyframes a-lightbox-fade { from { opacity: 0; } to { opacity: 1; } }
 
-/* Map popup photo: click to enlarge in the lightbox (handler delegated in App206). */
 
 /* Feedback modal (FeedbackModal.jsx) — centered sheet over a dimmed backdrop. */
 .app206 .a-modal-backdrop { position: fixed; inset: 0; z-index: 2100; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; padding: 20px; animation: a-lightbox-fade 140ms ease; }

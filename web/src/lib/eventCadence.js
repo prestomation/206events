@@ -43,6 +43,10 @@ export function sharedTime(instances = []) {
  * gaps are irregular. Instances are expected pre-sorted by date ascending
  * (which is what `groupEvents` hands back).
  *
+ * A single occurrence has no rhythm to describe, so it names the DATE instead
+ * ("Wed Sep 9 · 7:00 PM"). "One date" told a reader nothing they could act on
+ * while occupying the line where the date belongs.
+ *
  * `withTime: false` drops the trailing start time, for callers that already
  * show it on the line above and would otherwise print it twice.
  */
@@ -51,7 +55,7 @@ export function cadence(instances = [], { withTime = true } = {}) {
   const time = withTime ? sharedTime(instances) : null
   const suffix = time ? ` · ${time}` : ''
   if (parts.length === 0) return ''
-  if (parts.length === 1) return `One date${suffix}`
+  if (parts.length === 1) return `${parts[0].dow} ${parts[0].dayMonth}${suffix}`
 
   const gaps = parts.slice(1).map((p, i) => p.dayIndex - parts[i].dayIndex)
   const even = gaps.every((g) => g === gaps[0])

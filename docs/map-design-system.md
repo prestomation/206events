@@ -108,16 +108,51 @@ pill only when every series there comes from one feed; when they span several,
 there is no single thing to follow, so the pill is omitted and each series row
 leads to a popup where following means exactly one calendar.
 
+### The key is coordinate **plus the name the events give the place**
+
+The coordinate alone is not enough, and getting this wrong produced a real bug.
+A source with a ripper-level `geo` stamps that **one point** on every event it
+publishes. `discover-slu` is an aggregator: its 43 events all carry its office
+coordinate but actually happen at 17 different places — MOHAI, REI, The
+Spheres, The Center for Wooden Boats, Tapster. Keyed on the coordinate alone,
+the whole neighbourhood collapsed into a single pin named after whichever
+`location` string happened to be modal, so the South Lake Union Farmers Market
+was filed under "The Behnke Family Gallery".
+
+So the key is the quantized coordinate plus `venueNameKey(location)` — the
+leading segment of the location string, lowercased, with a leading "the" and
+punctuation dropped. Events at one dot are one venue **only when they agree
+about where they are**, or when none of them says.
+
+That still merges across feeds, which was the point of dropping `icsUrl`:
+"Seattle Center, 305 Harrison St" and a bare "Seattle Center" in another feed
+normalize to the same token. On the live corpus this takes 5,687 series to
+1,299 venues, and the widest are genuine — Tractor (92 series), Neumos (77),
+The Showbox (75).
+
 ### Venue name and address
 
-The event's own `location` string leads; `venues.json` enriches. That order
-matters: `venues.json` only covers sources whose declared `geo` is non-null
-(`lib/discovery.ts`), so aggregator feeds carrying per-event locations have no
-entry there and a venues-first path would leave most pins unlabelled. A
-`venues.json` entry is used only when it resolves to the same quantized
-coordinate, and then supplies the better street address —
-`geo.label` is a raw address, wrong as a section heading (which is why
-`channelFromCalendar` refuses it) and exactly right as a popup subtitle.
+The event's own `location` leads; `venues.json` **enriches, never overrides**.
+That order is what the `discover-slu` bug teaches twice over: a `venues.json`
+entry describes the SOURCE's single declared point, so letting it win would
+label The Spheres "Discover South Lake Union". `venues.json` also only covers
+sources whose declared `geo` is non-null (`lib/discovery.ts`), so a
+venues-first path would leave most pins unlabelled anyway.
+
+`resolveVenueIdentity` (`components/map/venueIdentity.js`) therefore:
+
+1. Keeps the name the events give, whenever they give one.
+2. Falls back to the entry's `friendlyName` when they give nothing, or give a
+   **bare street address** — which 102 of this repo's 171 recurring sources do.
+   That is the Georgetown Trailer Park Mall case: `location` is
+   `5805 Airport Way S`, and the source's own name is plainly better.
+3. Takes `geo.label` as the street address only when the entry names the same
+   place, so an aggregator's address never lands under someone else's name.
+
+**The pin and the popup share this resolver.** They must: the pill's whole
+premise is that a venue name is short and stable, and an earlier version that
+split `venue.label` itself put "5805 Airport Way S" on the pin while the popup
+it opened said "Georgetown Trailer Park Mall".
 
 ## The pin, and the label budget
 
@@ -192,6 +227,18 @@ unreachable for as long as a pin was open.
   popup that actually committed.
 - **The map bar sat under Leaflet's zoom control** (controls are z-1000),
   clipping "6 EVENTS / Near you" to "EVENTS / ear you".
+- **A venue popup on the expanded map hid the map chrome behind itself.** The
+  CSS shifted the floating bars left, assuming the `wide` card; a venue declines
+  `wide` and docks right, so the bars landed straight back under it. `popupShell`
+  now makes that call once and both the popup and the panel read it.
+- **Escape fired two handlers at once** — collapsing the expanded map (or
+  closing the lightbox) *and* the popup underneath, in one press.
+- **A popup opened during load froze on that generation.** `eventsIndex` is
+  replaced several times after first paint, so the description the sheet
+  reserves space for never arrived. The open venue is re-reported whenever the
+  corpus rebuilds.
+- **Opening a popup re-iconed every visible marker.** Icons are memoized apart
+  from the selection, so only the selected pin's icon identity changes.
 - **Attribution chips didn't theme.** The legacy emoji `AttributionChips`
   hardcoded `#e3f2fd` / `#e8f5e9` / `#f3e5f5` with no dark-mode values. It is
   deleted; the map renders the app's own `ProvChip`, so there is one attribution

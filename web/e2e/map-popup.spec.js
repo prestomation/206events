@@ -31,7 +31,10 @@ const venueEvents = [
     date: futureJoda(d), url: `https://example.com/punk/${d}`, ...NEUMOS,
   })),
   {
-    icsUrl: 'test-ripper-cal1.ics', summary: 'Poetry Slam',
+    icsUrl: 'test-ripper-cal1.ics',
+    // Long on purpose: a title wider than the popup must ellipsise, not push
+    // the body into a horizontal scroll.
+    summary: 'Poetry Slam and Open Mic Night with Featured Readers from Across the Pacific Northwest',
     date: futureJoda(7), url: 'https://example.com/poetry', ...NEUMOS,
   },
 ]
@@ -236,9 +239,76 @@ test('labels appear on the pins once the map is zoomed in far enough', async ({ 
   await screenshotStable(page, 'e2e/screenshots/map-pins-labelled.png', { expectMarkers: true })
 })
 
+// Regression: the pin used to name itself by splitting the event's `location`
+// on its first comma. In this corpus that string is a bare street address for
+// 102 of 171 recurring sources, so the headline pill read "5805 Airport Way S"
+// while the popup it opened said "Georgetown Trailer Park Mall". Pin and popup
+// now share one resolver.
+test('a pin names its venue from venues.json when the events only give an address', async ({ page }) => {
+  const ADDRESS = { lat: 47.61, lng: -122.32, location: '925 E Pike St, Seattle, WA 98122' }
+  await overrideEventsIndex(page, [
+    { icsUrl: 'test-ripper-cal1.ics', summary: 'Jazz Night', date: futureJoda(2), ...ADDRESS },
+    { icsUrl: 'test-ripper-cal1.ics', summary: 'Punk Weekender', date: futureJoda(4), ...ADDRESS },
+  ])
+  await page.goto('/')
+  const mapTab = page.getByRole('button', { name: 'Map', exact: true })
+  if (await mapTab.count() && await mapTab.first().isVisible()) await mapTab.first().click()
+  const map = page.locator('.events-map-container:visible').first()
+  await expect(map.locator('.mpin')).toHaveCount(1)
+
+  // The pill says the venue, not the street number...
+  await expect(map.locator('.mpin-label')).toHaveText('Neumos')
+  // ...and the popup it opens agrees with it.
+  await map.locator('.mpin').click()
+  await expect(visiblePopup(page).getByRole('heading', { name: 'Neumos' })).toBeVisible()
+})
+
+// Regression: `discover-slu` declares one ripper-level geo (its office) and
+// stamps it on every event it publishes, which happen at 17 different places.
+// Grouping on the coordinate alone merged them into one pin named after
+// whichever location string was most common, so the South Lake Union Farmers
+// Market showed up at "The Behnke Family Gallery".
+test('events sharing a stamped coordinate stay separate when they name different places', async ({ page }) => {
+  const AT = { lat: 47.61, lng: -122.32 }
+  await overrideEventsIndex(page, [
+    { icsUrl: 'test-ripper-cal1.ics', summary: 'Farmers Market', date: futureJoda(2), ...AT, location: 'The Spheres, South Lake Union, Seattle, WA' },
+    { icsUrl: 'test-ripper-cal1.ics', summary: 'Gallery Walk', date: futureJoda(3), ...AT, location: 'The Behnke Family Gallery, South Lake Union, Seattle, WA' },
+  ])
+  await page.goto('/')
+  const mapTab = page.getByRole('button', { name: 'Map', exact: true })
+  if (await mapTab.count() && await mapTab.first().isVisible()) await mapTab.first().click()
+  const map = page.locator('.events-map-container:visible').first()
+  // Two places, so two pins — which at one coordinate means a cluster of 2,
+  // never a single pin claiming both events.
+  await expect(map.locator('.mpin, .cluster-icon')).toHaveCount(1)
+  await expect(map.locator('.cluster-icon')).toHaveText('2')
+})
+
 test.describe('mobile', () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
   test.skip(({ browserName }) => browserName === 'firefox', 'isMobile not supported in Firefox')
+
+  // Regression: `.mp-serieslist` is a grid, and a grid item's automatic minimum
+  // size is its CONTENT — so a long event name refused to shrink and scrolled
+  // the popup body sideways instead of ellipsising inside it.
+  test('a long event name ellipsises rather than scrolling the sheet sideways', async ({ page }) => {
+    await openVenue(page)
+    const popup = visiblePopup(page)
+    const body = popup.locator('.mp-body')
+    await expect(body).toBeVisible()
+
+    const overflow = await body.evaluate((el) => ({
+      scrollWidth: el.scrollWidth,
+      clientWidth: el.clientWidth,
+    }))
+    expect(overflow.scrollWidth, 'popup body must not scroll horizontally')
+      .toBeLessThanOrEqual(overflow.clientWidth)
+
+    // And the long title is actually clipped, not just wrapped off-screen.
+    const clipped = await popup.locator('.mp-series-title').last()
+      .evaluate((el) => el.scrollWidth > el.clientWidth)
+    expect(clipped, 'the long title should be ellipsised').toBe(true)
+  })
 
   test('the venue popup opens as a bottom sheet listing every series', async ({ page }) => {
     const map = await openVenue(page)

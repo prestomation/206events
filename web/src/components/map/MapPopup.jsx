@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Ico } from '../../redesign/icons.jsx'
 import { useSheetDrag } from './sheet.js'
+import { isHttpUrl } from './isHttpUrl.js'
 
 /**
  * The chrome every map popup shares. Three layouts, one component:
@@ -22,13 +23,20 @@ import { useSheetDrag } from './sheet.js'
 export function MapPopup({
   layout = 'panel', eyebrow, title, subtitle, source, media,
   onClose, onBack, backLabel, children, aside, footer, dialogLabel, rootRef,
+  escapeEnabled = true,
 }) {
   const isSheet = layout === 'sheet'
   const { dvh, handlers } = useSheetDrag(isSheet)
 
   // Escape closes -- or, mid-drill-down, steps back one level first. Bound
   // above any early return so the hook order never shifts.
+  //
+  // `escapeEnabled` is how the caller hands Escape to something in front: the
+  // popup's own artwork opens the app lightbox, and without this one press
+  // would close the lightbox AND the popup underneath it, dumping the reader
+  // back to a bare map.
   useEffect(() => {
+    if (!escapeEnabled) return undefined
     const onKey = (e) => {
       if (e.key !== 'Escape') return
       if (onBack) onBack()
@@ -36,7 +44,7 @@ export function MapPopup({
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [onBack, onClose])
+  }, [escapeEnabled, onBack, onClose])
 
   const body = layout === 'wide' && aside
     ? (
@@ -98,7 +106,7 @@ export function Rule() {
  */
 export function MapMedia({ imageUrl, title, color = 'var(--blue)', size, onZoom }) {
   const style = size ? { width: size, height: size, fontSize: Math.round(size * 0.42) } : undefined
-  if (imageUrl) {
+  if (isHttpUrl(imageUrl)) {
     return (
       <img
         className={`mp-media mp-media-img${onZoom ? ' mp-media--zoom' : ''}`}

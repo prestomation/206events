@@ -48,7 +48,9 @@ describe('VenuePopup', () => {
     expect(rows[0]).toHaveTextContent('Jazz Night')
     expect(rows[0]).toHaveTextContent('Every Thursday')
     expect(rows[0]).toHaveTextContent('3 dates')
-    expect(rows[1]).toHaveTextContent('1 date')
+    // A one-date series names the date instead of the useless words "One date".
+    expect(rows[1]).toHaveTextContent('Sat Jul 4')
+    expect(rows[1]).not.toHaveTextContent('One date')
   })
 
   it('peeks at each series’ next dates in the rich layouts, capped by `peek`', () => {
@@ -95,16 +97,6 @@ describe('VenuePopup', () => {
       <VenuePopup venue={venue([series('Jazz Night', [2])])} followTarget="Neumos" following />,
     )
     expect(container.querySelector('.mp-follow--on')).toHaveTextContent('Following')
-  })
-
-  // The expanded map offers a two-column card; a venue's single list declines it.
-  it('declines the wide layout and stays one column', () => {
-    const { container } = render(
-      <VenuePopup layout="wide" venue={venue([series('Jazz Night', [2]), series('Punk', [4])])} />,
-    )
-    expect(container.querySelector('.mp-popup').className).toContain('mp-popup--panel')
-    expect(container.querySelector('.mp-split')).toBeNull()
-    expect(container.querySelectorAll('.mp-series')).toHaveLength(2)
   })
 
   it('sums the venue’s dates in the rich list head', () => {

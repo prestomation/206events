@@ -223,12 +223,51 @@ export function groupEvents(events) {
 // second pass collapses those into a single venue whose popup lists every
 // series running there.
 //
-// Keyed on the quantized coordinate ALONE — dropping `icsUrl` is the whole
-// point: a venue is a place, and which feed happened to publish a show is not
-// part of its identity. This runs on `groupEvents` output, never on raw events,
-// so it inherits the same post-`isMappable` scoping and changes nothing about
-// membership.
+// `icsUrl` is deliberately NOT part of the key: a venue is a place, and which
+// feed happened to publish a show is not part of its identity.
+//
+// The coordinate alone is not enough either. A source with a ripper-level `geo`
+// stamps that ONE point on every event it publishes — `discover-slu` puts its
+// office coordinate on 43 events that actually happen at 17 different places
+// (MOHAI, REI, The Spheres, The Center for Wooden Boats…). Keying on the
+// coordinate alone merged that whole neighbourhood into a single pin and named
+// it after whichever location string happened to be most common, so the South
+// Lake Union Farmers Market showed up at "The Behnke Family Gallery". So the
+// key is coordinate + the name the events give the place: they are one venue
+// only when they agree about where they are (or none of them says).
+//
+// This runs on `groupEvents` output, never on raw events, so it inherits the
+// same post-`isMappable` scoping and changes nothing about membership.
 // ---------------------------------------------------------------------------
+
+// Leading "the" is noise for identity ("The Spheres" / "Spheres"), and the tail
+// after the first comma is the address or neighborhood rather than the place.
+const LEADING_THE = /^the\s+/
+
+/**
+ * Identity token for the place an event names, from its `location` string.
+ * Keeps only the leading segment, so "Seattle Center, 305 Harrison St" and a
+ * bare "Seattle Center" in another feed are recognised as one place. Returns
+ * '' when the event names nothing, which groups such events by coordinate
+ * alone — right for a single-venue source whose events carry no location.
+ */
+export function venueNameKey(location) {
+  return String(location ?? '')
+    .split(',')[0]
+    .toLowerCase()
+    .trim()
+    .replace(LEADING_THE, '')
+    .replace(/[^a-z0-9]/g, '')
+}
+
+// The place a series names: the first instance that carries a location.
+function seriesLocation(group) {
+  for (const inst of group.instances) {
+    const loc = String(inst?.location ?? '').trim()
+    if (loc) return loc
+  }
+  return ''
+}
 
 // First non-empty `location` string across a venue's instances, picking the
 // most common one so a single mislabelled instance can't rename the venue.
@@ -268,7 +307,7 @@ export function groupByVenue(groups) {
   const order = []
 
   for (const g of groups) {
-    const key = `${quantizeCoord(g?.lat)}|${quantizeCoord(g?.lng)}`
+    const key = `${quantizeCoord(g?.lat)}|${quantizeCoord(g?.lng)}|${venueNameKey(seriesLocation(g))}`
     let bucket = buckets.get(key)
     if (!bucket) {
       bucket = { key, lat: g.lat, lng: g.lng, series: [] }

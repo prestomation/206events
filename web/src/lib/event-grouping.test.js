@@ -5,6 +5,7 @@ import {
   groupKey,
   groupEvents,
   groupByVenue,
+  venueNameKey,
   GROUP_COORD_EPSILON_DEG,
 } from './event-grouping.js'
 
@@ -275,6 +276,41 @@ describe('groupByVenue', () => {
     expect(a).toEqual([['Beta', 'Gamma', 'Alpha']])
   })
 
+  // Regression: `discover-slu` declares one ripper-level `geo` (its office) and
+  // stamps it on all 43 events it publishes, which actually happen at 17
+  // different places. Keying on the coordinate alone merged the whole
+  // neighbourhood into one pin and named it after whichever location string was
+  // most common, so the South Lake Union Farmers Market at The Spheres was
+  // filed under "The Behnke Family Gallery".
+  it('does NOT merge differently-named places that share one stamped coordinate', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'Farmers Market', location: 'The Spheres, South Lake Union, Seattle, WA' }),
+      ev({ summary: 'Gallery Walk', location: 'The Behnke Family Gallery, South Lake Union, Seattle, WA' }),
+      ev({ summary: 'Trivia', location: 'Tapster, South Lake Union, Seattle, WA' }),
+    ]))
+    expect(venues).toHaveLength(3)
+    expect(venues.map((v) => v.label.split(',')[0]).sort())
+      .toEqual(['Tapster', 'The Behnke Family Gallery', 'The Spheres'])
+  })
+
+  it('still merges one place named slightly differently by two feeds', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ icsUrl: 'a.ics', summary: 'One', location: 'Seattle Center, 305 Harrison St, Seattle, WA 98109' }),
+      ev({ icsUrl: 'b.ics', summary: 'Two', location: 'Seattle Center' }),
+    ]))
+    expect(venues).toHaveLength(1)
+    expect(venues[0].seriesCount).toBe(2)
+  })
+
+  it('groups by coordinate alone when no event names a place', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'One', location: undefined }),
+      ev({ summary: 'Two', location: '' }),
+    ]))
+    expect(venues).toHaveLength(1)
+    expect(venues[0].seriesCount).toBe(2)
+  })
+
   it('returns an empty array for empty input', () => {
     expect(groupByVenue([])).toEqual([])
   })
@@ -283,5 +319,27 @@ describe('groupByVenue', () => {
     const venues = groupByVenue(groupEvents([ev()]))
     expect(venues[0].lat).toBe(VENUE.lat)
     expect(venues[0].lng).toBe(VENUE.lng)
+  })
+})
+
+describe('venueNameKey', () => {
+  it('keeps only the leading segment, so an address tail does not split a place', () => {
+    expect(venueNameKey('Seattle Center, 305 Harrison St, Seattle, WA 98109'))
+      .toBe(venueNameKey('Seattle Center'))
+  })
+
+  it('ignores a leading "the", case and punctuation', () => {
+    expect(venueNameKey('The Spheres')).toBe(venueNameKey('spheres'))
+    expect(venueNameKey("Glazer's Camera")).toBe(venueNameKey('Glazers Camera'))
+  })
+
+  it('keeps genuinely different places apart', () => {
+    expect(venueNameKey('The Spheres, South Lake Union'))
+      .not.toBe(venueNameKey('The Behnke Family Gallery, South Lake Union'))
+  })
+
+  it('is empty when nothing is named', () => {
+    expect(venueNameKey('')).toBe('')
+    expect(venueNameKey(undefined)).toBe('')
   })
 })
