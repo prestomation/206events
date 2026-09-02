@@ -177,8 +177,8 @@ export default class DanceUSSwingRipper implements IRipper {
         const venueName = ld.location?.name?.trim();
         const location = venueName ? `${venueName}, Seattle, WA` : 'Seattle, WA';
 
-        const lat = ld.location?.geo?.latitude !== undefined ? Number(ld.location.geo.latitude) : undefined;
-        const lng = ld.location?.geo?.longitude !== undefined ? Number(ld.location.geo.longitude) : undefined;
+        const lat = ld.location?.geo?.latitude ? Number(ld.location.geo.latitude) : undefined;
+        const lng = ld.location?.geo?.longitude ? Number(ld.location.geo.longitude) : undefined;
 
         const cost: EventCost | undefined = meta?.price !== undefined ? { min: meta.price } : undefined;
 
