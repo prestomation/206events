@@ -272,8 +272,31 @@ describe('SeattleArtistLeagueRipper', () => {
 
         expect(errors).toHaveLength(1);
         expect(errors[0].type).toBe('ParseError');
+        expect((errors[0] as RipperError & { reason: string }).reason).toMatch(/not a valid calendar date/);
         expect(valid).toHaveLength(1);
         expect(valid[0].id).toBe('beginning-drawing-wednesday-evening-begins-10-28');
+    });
+
+    test('does not misread a version-like "10.28.5" trailing digit group as a different date', async () => {
+        const ripper = new SeattleArtistLeagueRipper();
+        const versionLike = {
+            ...CLASS_WITH_TIME_BULLET,
+            id: 15,
+            name: "Beginning Drawing WEDNESDAY EVENING begins 10.28.5",
+            slug: "beginning-drawing-wednesday-evening-begins-10-28-5",
+        };
+        const events = await ripper.parseEvents(buildJsonData([versionLike]), testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        // TITLE_DATE_PATTERN's (?!\d) lookahead only rejects a match
+        // immediately followed by another digit, not a whole "X.Y.Z" chain,
+        // but the regex's own matching order still isolates "10.28" here:
+        // matchAll continues scanning from the end of that match (right
+        // after "28", at ".5"), and a lone trailing "5" with no further
+        // "N.N" shape never produces a second candidate to prefer instead.
+        expect(valid).toHaveLength(1);
+        expect(valid[0].date.monthValue()).toBe(10);
+        expect(valid[0].date.dayOfMonth()).toBe(28);
     });
 
     test('marks a sold-out class instead of publishing a price', async () => {

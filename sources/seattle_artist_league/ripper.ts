@@ -105,6 +105,10 @@ function fieldAfterLabel(text: string, label: string, maxLen = 150): string | un
     return value || undefined;
 }
 
+// LocalDate.of throws DateTimeException for a day that doesn't exist in the
+// given month (e.g. Feb 30) - resolveYear lets that propagate so the caller
+// can report a specific "found a date but it isn't a real calendar date"
+// ParseError, distinct from "no date token found" at all.
 function resolveYear(month: number, day: number, today: LocalDate): LocalDate {
     let candidate = LocalDate.of(today.year(), month, day);
     if (candidate.isBefore(today.minusDays(PAST_TOLERANCE_DAYS))) {
@@ -113,14 +117,17 @@ function resolveYear(month: number, day: number, today: LocalDate): LocalDate {
     return candidate;
 }
 
-function parseStartDate(title: string, today: LocalDate): LocalDate | null {
+// The last "M.D" token in the title, before it's checked against the
+// calendar (month 1-12, day 1-31 is only a loose range check - resolveYear
+// is what catches a day that doesn't exist in that month, e.g. "2.30").
+function findLastDateToken(title: string): { month: number; day: number } | null {
     const matches = [...title.matchAll(TITLE_DATE_PATTERN)];
     if (matches.length === 0) return null;
     const last = matches[matches.length - 1];
     const month = parseInt(last[1]);
     const day = parseInt(last[2]);
     if (month < 1 || month > 12 || day < 1 || day > 31) return null;
-    return resolveYear(month, day, today);
+    return { month, day };
 }
 
 function toLocalTime(hourStr: string, minuteStr: string | undefined, meridiemRaw: string): LocalTime {
@@ -202,11 +209,23 @@ export default class SeattleArtistLeagueRipper extends JSONRipper {
             this.seenIds.add(product.slug);
 
             try {
-                const startDate = parseStartDate(product.name, today);
-                if (!startDate) {
+                const dateToken = findLastDateToken(product.name);
+                if (!dateToken) {
                     events.push({
                         type: "ParseError",
                         reason: `Could not find a start date (e.g. "begins 10.28") in title: "${product.name}"`,
+                        context: product.slug,
+                    });
+                    continue;
+                }
+
+                let startDate: LocalDate;
+                try {
+                    startDate = resolveYear(dateToken.month, dateToken.day, today);
+                } catch (error) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Found date token "${dateToken.month}.${dateToken.day}" in title "${product.name}" but it is not a valid calendar date: ${error}`,
                         context: product.slug,
                     });
                     continue;
