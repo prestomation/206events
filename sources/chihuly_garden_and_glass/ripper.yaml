@@ -1,0 +1,16 @@
+name: chihuly-garden-and-glass
+sourceRole: venue
+description: "Chihuly Garden and Glass"
+url: "https://www.chihulygardenandglass.com/events"
+friendlyLink: "https://www.chihulygardenandglass.com/events"
+tags: ["Arts", "Museums", "Uptown"]
+geo:
+  lat: 47.6205296
+  lng: -122.3502071
+  label: "Chihuly Garden and Glass, 305 Harrison St, Seattle, WA 98109"
+  osmType: way
+  osmId: 161587729
+calendars:
+  - name: chihuly-garden-and-glass
+    friendlyname: "Chihuly Garden and Glass"
+    timezone: America/Los_Angeles
