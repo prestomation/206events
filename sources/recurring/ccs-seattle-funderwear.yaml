@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6197166
+  lng: -122.3233324
+  label: "CC's Seattle, 1701 East Olive Way, Seattle, WA 98102"
+  osmType: node
+  osmId: 2158768715
+name: ccs-seattle-funderwear
+sourceRole: venue
+friendlyname: Funderwear at CC's
+description: Monthly underwear party at CC's, a longtime gay bar on Capitol Hill, with drinks and music.
+timezone: America/Los_Angeles
+location: "1701 East Olive Way, Seattle, WA 98102"
+url: https://www.ccsseattle.com/events
+tags:
+  - Nightlife
+  - Capitol Hill
+cost: 5
+schedules:
+  - schedule: 3rd Saturday
+    start_time: "20:00"
+    duration: PT4H

@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6197166
+  lng: -122.3233324
+  label: "CC's Seattle, 1701 East Olive Way, Seattle, WA 98102"
+  osmType: node
+  osmId: 2158768715
+name: ccs-seattle-tunesday-bingo
+sourceRole: venue
+friendlyname: "Tunesday: Music Bingo at CC's"
+description: Weekly music bingo night at CC's, a longtime gay bar on Capitol Hill. Grab a bingo card and sing along with the DJ.
+timezone: America/Los_Angeles
+location: "1701 East Olive Way, Seattle, WA 98102"
+url: https://www.ccsseattle.com/events
+tags:
+  - Nightlife
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "19:00"
+    duration: PT3H

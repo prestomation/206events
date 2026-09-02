@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6197166
+  lng: -122.3233324
+  label: "CC's Seattle, 1701 East Olive Way, Seattle, WA 98102"
+  osmType: node
+  osmId: 2158768715
+name: ccs-seattle-fetish-night
+sourceRole: venue
+friendlyname: Fetish Night at CC's
+description: Monthly fetish night at CC's, a longtime gay bar on Capitol Hill. Gear up in your favorite fetish attire and socialize.
+timezone: America/Los_Angeles
+location: "1701 East Olive Way, Seattle, WA 98102"
+url: https://www.ccsseattle.com/events
+tags:
+  - Nightlife
+  - Capitol Hill
+cost: 5
+schedules:
+  - schedule: 1st Saturday
+    start_time: "20:00"
+    duration: PT4H
