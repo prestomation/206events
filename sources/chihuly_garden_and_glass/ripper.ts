@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import '@js-joda/timezone';
 
@@ -46,13 +47,17 @@ interface DatedOccurrence {
 }
 
 export default class ChihulyGardenAndGlassRipper implements IRipper {
+    private fetchFn: FetchFn = fetch;
+
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        this.fetchFn = getFetchForConfig(ripper.config);
+
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
         }
 
-        const res = await fetch(ripper.config.url.toString(), { headers: { "User-Agent": USER_AGENT } });
+        const res = await this.fetchFn(ripper.config.url.toString(), { headers: { "User-Agent": USER_AGENT } });
         if (!res.ok) {
             throw new Error(`HTTP ${res.status}: ${res.statusText}`);
         }
@@ -61,8 +66,7 @@ export default class ChihulyGardenAndGlassRipper implements IRipper {
         const cards = this.parseEventCards(html);
 
         const eventResults = await Promise.all(cards.map(card => this.fetchAndParseEvent(card)));
-        const now = ZonedDateTime.now();
-        const allEvents = eventResults.flat().filter(e => !("date" in e) || !e.date.isBefore(now));
+        const allEvents = this.filterFutureEvents(eventResults.flat(), ZonedDateTime.now());
 
         for (const cal of ripper.config.calendars) {
             calendars[cal.name].events = allEvents;
@@ -99,9 +103,21 @@ export default class ChihulyGardenAndGlassRipper implements IRipper {
         return cards;
     }
 
+    // A RipperCalendarEvent carries its own `date`; an UncertaintyError
+    // nests the event it's paired with at `.event.date` instead (it has no
+    // top-level `date`) — check both so a dropped-as-past event doesn't
+    // leave an orphaned Uncertainty entry pointing at nothing.
+    public filterFutureEvents(events: RipperEvent[], now: ZonedDateTime): RipperEvent[] {
+        return events.filter(e => {
+            if ("date" in e) return !e.date.isBefore(now);
+            if (e.type === "Uncertainty") return !e.event.date.isBefore(now);
+            return true;
+        });
+    }
+
     private async fetchAndParseEvent(card: ParsedEventCard): Promise<RipperEvent[]> {
         try {
-            const res = await fetch(card.href, { headers: { "User-Agent": USER_AGENT } });
+            const res = await this.fetchFn(card.href, { headers: { "User-Agent": USER_AGENT } });
             if (!res.ok) {
                 return [{
                     type: "ParseError" as const,
@@ -296,12 +312,19 @@ export default class ChihulyGardenAndGlassRipper implements IRipper {
     // some series use for a one-off exception (see sample-yoga.html).
     public extractOccurrences(text: string, defaultYear: number): DatedOccurrence[] {
         const occurrences: DatedOccurrence[] = [];
+        const seen = new Set<string>();
         DATE_PATTERN.lastIndex = 0;
         let m: RegExpExecArray | null;
         while ((m = DATE_PATTERN.exec(text)) !== null) {
             const month = MONTHS[m[1]];
             const day = parseInt(m[2], 10);
             const year = m[3] ? parseInt(m[3], 10) : defaultYear;
+
+            // Guards the stable-id contract (one event id per date) against
+            // the same date being mentioned twice in a series' body copy.
+            const key = `${year}-${month}-${day}`;
+            if (seen.has(key)) continue;
+            seen.add(key);
 
             const window = text.slice(m.index, m.index + 80);
             const overrideMatch = window.match(/\((?:Class|Yoga)\s+(?:starts|begins)\s+at\s+(\d{1,2})(?::(\d{2}))?\s*([AP]M)\)/i);

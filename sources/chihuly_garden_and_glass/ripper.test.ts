@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { parse } from 'node-html-parser';
+import { ZonedDateTime, Duration } from '@js-joda/core';
 import ChihulyGardenAndGlassRipper from './ripper.js';
 import { RipperCalendarEvent, RipperError, UncertaintyError } from '../../lib/config/schema.js';
 import '@js-joda/timezone';
@@ -123,6 +124,22 @@ describe('ChihulyGardenAndGlassRipper', () => {
             }
         });
 
+        it('uses the stated 45-minute Yoga and Sound Bath duration with no uncertainty', () => {
+            const ripper = new ChihulyGardenAndGlassRipper();
+            const card = { href: 'https://www.chihulygardenandglass.com/events/evening-yoga-in-the-glasshouse-10', title: 'Yoga and Sound Bath in the Glasshouse', dateText: 'October- November 2026' };
+            const html = parse(loadSample('sample-yoga-sound-bath.html'));
+            const results = ripper.parseEventDetail(card, html, card.href);
+            const events = results.filter(e => 'date' in e) as RipperCalendarEvent[];
+            const uncertainties = results.filter(e => 'type' in e) as RipperError[];
+
+            expect(events).toHaveLength(2);
+            for (const event of events) {
+                expect(event.duration.toMinutes()).toBe(45);
+                expect(event.date.hour()).toBe(18);
+            }
+            expect(uncertainties).toHaveLength(0);
+        });
+
         it('recognizes a "two-hour" duration mention', () => {
             const ripper = new ChihulyGardenAndGlassRipper();
             const card = { href: 'https://www.chihulygardenandglass.com/events/canvas-cocktails', title: 'Canvas & Cocktails', dateText: 'August - September 2026' };
@@ -192,7 +209,53 @@ describe('ChihulyGardenAndGlassRipper', () => {
         });
     });
 
+    describe('filterFutureEvents', () => {
+        it('drops a past event and its paired UncertaintyError together', () => {
+            const ripper = new ChihulyGardenAndGlassRipper();
+            const now = ZonedDateTime.parse('2026-09-01T00:00-07:00[America/Los_Angeles]');
+            const pastEvent: RipperCalendarEvent = {
+                id: 'chihuly-past-20260801',
+                ripped: new Date(),
+                date: now.minusDays(1),
+                duration: Duration.ofMinutes(60),
+                summary: 'Past Event',
+            };
+            const pastUncertainty: UncertaintyError = {
+                type: 'Uncertainty',
+                reason: 'test',
+                source: 'chihuly_garden_and_glass',
+                unknownFields: ['duration'],
+                event: pastEvent,
+            };
+            const futureEvent: RipperCalendarEvent = {
+                id: 'chihuly-future-20261001',
+                ripped: new Date(),
+                date: now.plusDays(1),
+                duration: Duration.ofMinutes(60),
+                summary: 'Future Event',
+            };
+
+            const result = ripper.filterFutureEvents([pastEvent, pastUncertainty, futureEvent], now);
+
+            expect(result).toEqual([futureEvent]);
+        });
+
+        it('keeps a ParseError regardless of any date', () => {
+            const ripper = new ChihulyGardenAndGlassRipper();
+            const now = ZonedDateTime.now();
+            const parseError: RipperError = { type: 'ParseError', reason: 'boom', context: 'test' };
+
+            expect(ripper.filterFutureEvents([parseError], now)).toEqual([parseError]);
+        });
+    });
+
     describe('extractOccurrences', () => {
+        it('does not emit the same date twice from a body that mentions it more than once', () => {
+            const ripper = new ChihulyGardenAndGlassRipper();
+            const result = ripper.extractOccurrences('September 4, 2026 ... reminder: September 4, 2026 is coming up', 2026);
+            expect(result).toHaveLength(1);
+        });
+
         it('ignores instructor names or other unrelated month-shaped text', () => {
             const ripper = new ChihulyGardenAndGlassRipper();
             const result = ripper.extractOccurrences('No dates mentioned here at all.', 2026);
