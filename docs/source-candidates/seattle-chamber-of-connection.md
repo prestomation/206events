@@ -6,7 +6,7 @@ url: https://www.seattlechamberofconnection.org/event-calendar
 tags: [Community, Learning]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-02
-pr:
+pr: 1351
 ---
 
 Seattle community organization hosting networking events, workshops, and professional gatherings.
