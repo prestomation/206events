@@ -52,5 +52,8 @@ calendars:
     friendlyname: "SEAtoday - Nightlife"
     timezone: America/Los_Angeles
     tags: ["Nightlife"]
+    # 2026-09-02: SEAtoday's cityspark feed has no events tagged Nightlife (14)
+    # in the lookahead window; this is a thin category on this aggregator.
+    expectEmpty: true
     config:
       filterTags: [14]  # Nightlife

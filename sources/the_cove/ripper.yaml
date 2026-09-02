@@ -1,5 +1,8 @@
 name: the-cove
 sourceRole: venue
+# All events (music nights, jazz, wine nights) have no ticketUrl or ticketCost
+# in Squarespace; free entry bar events.
+cost: free
 description: "The Cove"
 url: "https://www.thecoveseattle.com/all-events"
 friendlyLink: https://www.thecoveseattle.com/all-events

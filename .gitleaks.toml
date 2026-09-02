@@ -19,3 +19,8 @@ regexes = [
   # Dummy key used by unit tests.
   '''test-sitecore-key''',
 ]
+commits = [
+  # Firebase Storage public access token in watershed-pub imageUrl; token removed in follow-up commit.
+  # The URL is publicly accessible without the token; this is not a credential.
+  "37e3b3b17f24c6fc905b93dd20338545ced51b30",
+]
