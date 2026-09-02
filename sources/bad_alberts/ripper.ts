@@ -1,7 +1,8 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { HTMLElement } from "node-html-parser";
+import { parse, HTMLElement } from "node-html-parser";
 import { ChronoUnit, Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { RipperEvent, RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
+import { Ripper, RipperCalendar, RipperEvent, RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 // Deterministic hash for partialFingerprint — stability only, not security.
@@ -32,9 +33,69 @@ const TIMEZONE = ZoneId.of("America/Los_Angeles");
 const VENUE_ADDRESS = "Bad Albert's Tap & Grill, 5100 Ballard Ave NW, Seattle, WA 98107";
 const VENUE_URL = "https://badalberts.com/seattle-ballard-bad-albert-s-tap-and-grill-events";
 const DEFAULT_DURATION_MINUTES = 120;
+const FETCH_ATTEMPTS = 3;
 
 export default class BadAlbertsRipper extends HTMLRipper {
     private seenEvents = new Set<string>();
+
+    // Override the base HTMLRipper fetch with a small retry-with-backoff:
+    // CI has occasionally hit a transient `TypeError: fetch failed` here
+    // (observed alongside identical failures on unrelated sources in the
+    // same build, i.e. a runner-level network blip, not a badalberts.com
+    // block) — a single retry absorbs that instead of publishing 0 events.
+    public override async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const fetchFn = getFetchForConfig(ripper.config);
+        const url = ripper.config.url.toString();
+
+        let html: HTMLElement;
+        try {
+            html = parse(await this.fetchWithRetry(fetchFn, url));
+        } catch (error) {
+            return ripper.config.calendars.map(c => ({
+                name: c.name,
+                friendlyname: c.friendlyname,
+                events: [],
+                errors: [{
+                    type: "ParseError" as const,
+                    reason: `Failed to fetch Bad Albert's events: ${error}`,
+                    context: url,
+                }],
+                parent: ripper.config,
+                tags: c.tags || [],
+            }));
+        }
+
+        const events = await this.parseEvents(html, ZonedDateTime.now(TIMEZONE), {});
+        return ripper.config.calendars.map(c => ({
+            name: c.name,
+            friendlyname: c.friendlyname,
+            events: events.filter((e): e is RipperCalendarEvent => !('type' in e)),
+            errors: events.filter((e): e is RipperError => 'type' in e),
+            parent: ripper.config,
+            tags: c.tags || [],
+        }));
+    }
+
+    private async fetchWithRetry(fetchFn: FetchFn, url: string): Promise<string> {
+        let lastError: unknown;
+        for (let attempt = 1; attempt <= FETCH_ATTEMPTS; attempt++) {
+            try {
+                const res = await fetchFn(url, {
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)',
+                    },
+                });
+                if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+                return await res.text();
+            } catch (error) {
+                lastError = error;
+                if (attempt < FETCH_ATTEMPTS) {
+                    await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+                }
+            }
+        }
+        throw lastError;
+    }
 
     public async parseEvents(html: HTMLElement, _date: ZonedDateTime, _config: any): Promise<RipperEvent[]> {
         const events: RipperEvent[] = [];

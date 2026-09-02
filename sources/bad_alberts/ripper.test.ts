@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { parse } from 'node-html-parser';
 import { ZonedDateTime } from '@js-joda/core';
-import { RipperCalendarEvent, RipperError, UncertaintyError } from '../../lib/config/schema.js';
+import { Ripper, RipperCalendarEvent, RipperError, UncertaintyError } from '../../lib/config/schema.js';
 import BadAlbertsRipper from './ripper.js';
 import fs from 'fs';
 import path from 'path';
@@ -182,5 +182,60 @@ describe('BadAlbertsRipper', () => {
         expect(calEvents).toHaveLength(1);
         expect(calEvents[0].duration.toMinutes()).toBe(120);
         expect(uncertainties).toHaveLength(0);
+    });
+
+    describe('rip() fetch retry', () => {
+        afterEach(() => {
+            vi.unstubAllGlobals();
+            vi.useRealTimers();
+        });
+
+        function mockRipper(): Ripper {
+            return {
+                config: {
+                    name: 'bad-alberts',
+                    url: 'https://badalberts.com/seattle-ballard-bad-albert-s-tap-and-grill-events',
+                    proxy: false,
+                    calendars: [
+                        { name: 'bad-alberts', friendlyname: "Bad Albert's Tap & Grill", timezone: 'America/Los_Angeles' },
+                    ],
+                } as any,
+            } as Ripper;
+        }
+
+        it('retries a transient fetch failure and still parses events', async () => {
+            vi.useFakeTimers();
+            const html = atcSection('2001', '<var class="atc_date_end">2026-09-07 13:00:00</var>');
+            const fetchMock = vi.fn()
+                .mockRejectedValueOnce(new TypeError('fetch failed'))
+                .mockResolvedValueOnce({ ok: true, status: 200, statusText: 'OK', text: () => Promise.resolve(html) });
+            vi.stubGlobal('fetch', fetchMock);
+
+            const promise = new BadAlbertsRipper().rip(mockRipper());
+            await vi.runAllTimersAsync();
+            const calendars = await promise;
+            vi.useRealTimers();
+            const cal = calendars.find(c => c.name === 'bad-alberts')!;
+
+            expect(fetchMock).toHaveBeenCalledTimes(2);
+            expect(cal.errors).toHaveLength(0);
+            expect(cal.events).toHaveLength(1);
+        });
+
+        it('returns a ParseError (not a throw) when every retry fails', async () => {
+            vi.useFakeTimers();
+            const fetchMock = vi.fn().mockRejectedValue(new TypeError('fetch failed'));
+            vi.stubGlobal('fetch', fetchMock);
+
+            const promise = new BadAlbertsRipper().rip(mockRipper());
+            await vi.runAllTimersAsync();
+            const calendars = await promise;
+            vi.useRealTimers();
+            const cal = calendars.find(c => c.name === 'bad-alberts')!;
+
+            expect(cal.events).toHaveLength(0);
+            expect(cal.errors).toHaveLength(1);
+            expect(cal.errors[0].type).toBe('ParseError');
+        });
     });
 });
