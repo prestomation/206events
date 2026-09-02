@@ -1,11 +1,12 @@
 ---
 name: Elysian Brewing
-status: candidate
+status: added
 platform: Custom HTML (Drupal 10)
 url: https://www.elysianbrewing.com/events
 tags: [Beer, "Capitol Hill"]
 firstSeen: 2026-08-30
-lastChecked: 2026-08-30
+lastChecked: 2026-09-02
+pr:
 ---
 
 Seattle craft brewery chain (Capitol Hill flagship, Georgetown Alchemy
@@ -27,3 +28,13 @@ Investigated 2026-08-30:
   custom date parsing. Worth a re-check once/if the events page fills
   out closer to the Oct 3 festival, or if a JSON/ICS endpoint turns up
   on a future pass.
+
+**Implemented 2026-09-02:** the recurring "Trivia Tuesdays @ Capitol Hill
+Pub" item (every Tuesday, 7-9 PM, at the Capitol Hill flagship — 1221 E
+Pike St, Seattle, WA 98122; OSM node 1726088085) fits the
+`sources/recurring/` model directly and avoids the free-text date
+parsing that made the full events page low-confidence. Added as
+`sources/recurring/elysian-capitol-hill-trivia.yaml`. The one-off
+"Great Pumpkin Beer Festival 2026" (Oct 3) is a single dated event with
+no confirmed year-over-year recurrence pattern, so it was left out
+rather than guessed at as a schedule.
