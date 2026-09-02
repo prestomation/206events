@@ -44,6 +44,10 @@ interface WooProduct {
 
 const SOURCE_NAME = "seattle-artist-league";
 const DEFAULT_VENUE_LOCATION = "Seattle Artist League, 5516 4th Ave S, Seattle, WA 98108";
+// "The Brick" (5513 6th Ave S) is a separate SAL-run space at a different
+// street address from the main studio above - a title mentioning it is a
+// signal the default venue address may not apply to this listing.
+const OFF_SITE_TITLE_MARKER = /@\s*the\s+brick\b/i;
 
 // Categories that never carry a dated, attendable class (memberships, store
 // credit) - skipped in the caller per the "filters belong in the caller, not
@@ -225,6 +229,13 @@ export default class SeattleArtistLeagueRipper extends JSONRipper {
                 const where = fieldAfterLabel(flatDescription, "Where")
                     ?.replace(/(^|\s+)FREE$/i, "")
                     .trim() || undefined;
+                // "@ The Brick" (a separate SAL-run space at a different
+                // street address, per its own page) sometimes appears only
+                // as a title marker or free prose, with no structured
+                // "Where:" bullet to capture - publish the default studio
+                // address as a placeholder but flag it uncertain rather than
+                // asserting it as fact.
+                const locationUnknown = !where && OFF_SITE_TITLE_MARKER.test(product.name);
 
                 const priceRaw = product.prices ? parseInt(product.prices.price, 10) : NaN;
                 const minorUnit = product.prices?.currency_minor_unit ?? 2;
@@ -247,11 +258,20 @@ export default class SeattleArtistLeagueRipper extends JSONRipper {
                 };
                 events.push(event);
 
-                if (timeUnknown) {
-                    const unknownFields: UncertaintyField[] = ["startTime", "duration"];
+                if (timeUnknown || locationUnknown) {
+                    const unknownFields: UncertaintyField[] = [];
+                    const gaps: string[] = [];
+                    if (timeUnknown) {
+                        unknownFields.push("startTime", "duration");
+                        gaps.push('no "Time:" bullet');
+                    }
+                    if (locationUnknown) {
+                        unknownFields.push("location");
+                        gaps.push('title suggests an off-site "@ The Brick" location with no "Where:" bullet');
+                    }
                     const uncertainty: UncertaintyError = {
                         type: "Uncertainty",
-                        reason: `Seattle Artist League listing did not include a "Time:" bullet for "${product.name}"`,
+                        reason: `Seattle Artist League listing for "${product.name}" had ${gaps.join(" and ")}`,
                         source: SOURCE_NAME,
                         unknownFields,
                         event,

@@ -27,10 +27,13 @@ occasional off-site location live in inconsistent "Time:"/"Where:" bullets
 inside `short_description`. Custom `JSONRipper` added at
 `sources/seattle_artist_league/`: filters out Membership/Payment-Due
 categories and ONLINE-titled classes (not physical Seattle events), parses
-the trailing `M.D` date token from the title, and falls back to a
-placeholder time + `UncertaintyError` when no `Time:` bullet is present.
-Live build (`ONLY_SOURCE=seattle-artist-league`) confirmed 65 events, 5
-pending time uncertainties (listings with no `Time:` bullet at all), and 7
-legitimate ParseErrors (gift certificates, the certificate program, drop-in
-sessions, kits, independent study — real catalog entries with no class
-date).
+the trailing `M.D` date token from the title (excluding session-length
+decimals like "3.5 hour"), and falls back to a placeholder time/location +
+`UncertaintyError` when no `Time:`/`Where:` bullet is present (including for
+the small number of "@ The Brick" listings — a separate SAL-run space at a
+different street address — that only mention it in the title).
+Live build (`ONLY_SOURCE=seattle-artist-league`) confirmed 65 events, 6
+pending uncertainties (5 missing time, 3 missing an off-site "@ The Brick"
+location, 2 overlapping both), and 7 legitimate ParseErrors (gift
+certificates, the certificate program, drop-in sessions, kits, independent
+study — real catalog entries with no class date).

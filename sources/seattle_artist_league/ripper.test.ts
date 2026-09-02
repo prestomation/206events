@@ -160,6 +160,25 @@ describe('SeattleArtistLeagueRipper', () => {
         expect(uncertain[0].event.id).toBe(valid[0].id);
     });
 
+    test('flags location uncertain (default studio address as placeholder) for an "@ The Brick" title with no Where: bullet', async () => {
+        const ripper = new SeattleArtistLeagueRipper();
+        const offSiteClass = {
+            ...CLASS_WITH_TIME_BULLET,
+            id: 14,
+            name: "Rapid Drawing @ The Brick SUNDAY AFTERNOON w/ Natasha 9.27",
+            slug: "rapid-drawing-the-brick-sunday-afternoon-w-natasha-9-27",
+            short_description: "<ul><li>Time: 1:00 &#8211; 4:00 pm</li></ul>",
+        };
+        const events = await ripper.parseEvents(buildJsonData([offSiteClass]), testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const uncertain = events.filter(e => 'type' in e && (e as any).type === 'Uncertainty') as UncertaintyError[];
+
+        expect(valid).toHaveLength(1);
+        expect(valid[0].location).toBe('Seattle Artist League, 5516 4th Ave S, Seattle, WA 98108');
+        expect(uncertain).toHaveLength(1);
+        expect(uncertain[0].unknownFields).toEqual(['location']);
+    });
+
     test('resolves a morning-to-afternoon shorthand range ("10:00 – 1:00 pm") to 10am, not 10pm', async () => {
         const ripper = new SeattleArtistLeagueRipper();
         const morningClass = {
