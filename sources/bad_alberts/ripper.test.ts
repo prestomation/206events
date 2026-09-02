@@ -77,6 +77,20 @@ describe('Bad Alberts Ripper', () => {
         expect(karaoke.description).not.toContain('OlusBad');
     });
 
+    test('extracts a per-event photo when the section has one, protocol-relative URLs made absolute', async () => {
+        const ripper = new BadAlbertsRipper();
+        const html = loadSampleHtml();
+
+        const events = await ripper.parseEvents(html, testDate, {});
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const karaoke = validEvents.find(e => e.summary.includes('Karaoke'))!;
+        const laborDay = validEvents.find(e => e.summary === 'Labor Day')!;
+
+        expect(karaoke.imageUrl).toBe('https://static.spotapps.co/spots/d4/785a24067040acbcd99244a8ac0ad0/w926');
+        // Not every event has a per-event photo uploaded.
+        expect(laborDay.imageUrl).toBeUndefined();
+    });
+
     test('all events have required fields and stable, source-derived ids', async () => {
         const ripper = new BadAlbertsRipper();
         const html = loadSampleHtml();

@@ -25,7 +25,6 @@ export default class BadAlbertsRipper extends HTMLRipper {
         for (const section of sections) {
             const id = section.getAttribute("id");
             if (!id || this.seenEvents.has(id)) continue;
-            this.seenEvents.add(id);
 
             const startText = section.querySelector(".atc_date_start")?.textContent.trim();
             const title = section.querySelector(".atc_title")?.textContent.trim();
@@ -55,6 +54,7 @@ export default class BadAlbertsRipper extends HTMLRipper {
 
             const duration = this.parseDuration(start, section.querySelector(".atc_date_end")?.textContent.trim());
             const description = this.parseDescription(section);
+            const imageUrl = this.parseImageUrl(section);
 
             const event: RipperCalendarEvent = {
                 id: `bad-alberts-${id}`,
@@ -65,8 +65,14 @@ export default class BadAlbertsRipper extends HTMLRipper {
                 description: description || undefined,
                 location: LOCATION,
                 url: EVENTS_URL,
+                imageUrl,
             };
 
+            // Only mark a section seen once it's produced a real event —
+            // a transient parse failure shouldn't permanently suppress it
+            // from a later pass over the same section (e.g. if a
+            // `lookahead` is ever configured).
+            this.seenEvents.add(id);
             results.push(event);
         }
 
@@ -104,5 +110,14 @@ export default class BadAlbertsRipper extends HTMLRipper {
             .filter(Boolean);
         if (paragraphs.length) return paragraphs.join("\n\n");
         return section.querySelector(".atc_description")?.textContent.trim() || undefined;
+    }
+
+    // Not every event has a photo — only present when the venue uploaded
+    // one for that specific occurrence. The widget serves it as a
+    // protocol-relative URL (`//static.spotapps.co/...`).
+    private parseImageUrl(section: HTMLElement): string | undefined {
+        const src = section.querySelector(".event-image")?.getAttribute("src")?.trim();
+        if (!src) return undefined;
+        return src.startsWith("//") ? `https:${src}` : src;
     }
 }
