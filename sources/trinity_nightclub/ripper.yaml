@@ -1,0 +1,26 @@
+# verified: 2026-09-02 via eventbrite public API (organizer 33445751813 —
+# "trinity-nightclub" — 38 live events at time of check: weekly Y2K Thursdays,
+# Fridays at Trinity, and Reload Saturdays series plus occasional specials;
+# EVENTBRITE_TOKEN required in CI, reused from other Eventbrite sources)
+name: trinity-nightclub
+sourceRole: venue
+type: eventbrite
+description: "Trinity Nightclub"
+url: "https://www.eventbrite.com/o/trinity-nightclub-33445751813"
+friendlyLink: https://www.trinitynightclub.com
+imageUrl: "http://static1.squarespace.com/static/609d81ca94865f37d7582444/t/609d849a7175f809f218497c/1620935835720/Trinity-Logo.png?format=1500w"
+geo:
+  lat: 47.6003351
+  lng: -122.3337875
+  label: "Trinity Nightclub, 107 Occidental Ave S, Seattle, WA 98104"
+  osmType: way
+  osmId: 140631769
+tags: ["Nightlife", "Music", "Pioneer Square"]
+calendars:
+  - name: trinity-nightclub
+    friendlyname: "Trinity Nightclub"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "33445751813"
+      defaultLocation: "107 Occidental Ave S, Seattle, WA 98104"
+      defaultDurationHours: 4
