@@ -3658,39 +3658,6 @@ html, body, #root { height: 100%; }
   }
 }
 
-/* Attribution chips */
-.event-attributions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 4px;
-}
-
-.attribution-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  padding: 2px 8px;
-  border-radius: var(--radius-xl);
-  font-size: 11px;
-  font-weight: 500;
-}
-
-.attribution-calendar {
-  background: #e3f2fd;
-  color: #1565c0;
-}
-
-.attribution-search {
-  background: #e8f5e9;
-  color: #2e7d32;
-}
-
-.attribution-geo {
-  background: #f3e5f5;
-  color: #7b1fa2;
-}
-
 /* Cluster icons */
 .cluster-icon {
   display: flex;
@@ -3731,222 +3698,294 @@ html, body, #root { height: 100%; }
   box-sizing: content-box;
 }
 
-/* Drill-down side panel: opens over the map when a marker is clicked, listing
-   every date for the selected conceptual event. Styled to match the App206
-   design system; theme vars resolve from the surrounding app206 tree (fallbacks
-   cover the legacy unscoped UI). */
-.event-group-panel {
+/* ==================================================== MAP POPUPS ==========
+   The map surface's popup family, ported from the 206.events Design System
+   (see docs/map-design-system.md). Structure, type scale and geometry are the
+   design system's; every colour resolves to the app's own warm-paper tokens,
+   declared on `.app206` further down — the design system's palette is a
+   generation behind the product and deliberately does not come across.
+
+   Scoped under `.app206` because the map only ever mounts inside that tree
+   (shell.jsx -> .a-mappanel / .a-maptab, and .a-map--expanded is still a
+   descendant), so unlike the panel these rules replace there are no legacy
+   `var(--token, #fallback)` doubles to carry.
+
+   Three layouts, matching MapPopup.jsx:
+     --sheet  mobile bottom sheet, draggable, the design system's "compact"
+     --panel  docked right on the desktop map column
+     --wide   the expanded full-screen map, with the aside as a real column   */
+
+.app206 .mp-popup {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 340px;
-  max-width: 88%;
   display: flex;
   flex-direction: column;
-  background: var(--surface, #fff);
-  color: var(--ink, #1a1a2e);
-  border-left: 1px solid var(--line, #e9e4da);
-  box-shadow: -8px 0 24px rgba(20, 15, 10, 0.16);
-  z-index: 1100;
-  font-family: var(--font-sans, sans-serif);
-  animation: egp-in 0.18s ease-out;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  z-index: 1100; /* above Leaflet's controls (1000), below .a-map--expanded (1200) */
+  overscroll-behavior: contain;
 }
-@keyframes egp-in {
-  from { transform: translateX(14px); opacity: 0; }
-  to { transform: none; opacity: 1; }
+.app206 .mp-popup :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* The width clamp is load-bearing: the desktop map column is
+   clamp(360px, 32%, 520px), so a bare 412px panel would leave no map at all in
+   a narrow column. */
+.app206 .mp-popup--panel {
+  top: 0; right: 0; bottom: 0;
+  width: min(var(--map-popup-w-panel), 100% - 44px);
+  border-left: 1px solid var(--line-2);
+  box-shadow: var(--map-shadow);
+  animation: mp-in-right .18s ease-out;
+}
+.app206 .mp-popup--wide {
+  top: 0; left: 0; bottom: 0;
+  width: min(var(--map-popup-w-wide), 100% - 64px);
+  border-right: 1px solid var(--line-2);
+  box-shadow: var(--map-shadow);
+  animation: mp-in-left .18s ease-out;
+}
+/* Height is set inline in dvh by the drag gesture (see sheet.js). */
+.app206 .mp-popup--sheet {
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  border-top: 1px solid var(--line-2);
+  border-radius: var(--map-popup-radius) var(--map-popup-radius) 0 0;
+  box-shadow: var(--map-shadow-up);
+  animation: mp-in-up .2s ease-out;
+}
+@keyframes mp-in-right { from { transform: translateX(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes mp-in-left  { from { transform: translateX(-14px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes mp-in-up    { from { transform: translateY(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* Grab handle — sheet only. A generous hit area so it's easy to grab, and
+   touch-action:none so the browser doesn't scroll instead of dragging. */
+.app206 .mp-handle {
+  display: flex; justify-content: center; align-items: center;
+  flex: 0 0 auto; min-height: 34px; padding: 14px 0 10px;
+  touch-action: none; cursor: grab;
+}
+.app206 .mp-handle:active { cursor: grabbing; }
+.app206 .mp-handle::before { content: ''; width: 48px; height: 5px; border-radius: 999px; background: var(--ink-4); }
+
+/* ---- header ---- */
+.app206 .mp-head {
+  position: relative; flex: 0 0 auto;
+  display: flex; align-items: flex-start; gap: 13px;
+  padding: 17px 46px 13px var(--map-popup-pad-x);
+  border-bottom: 1px solid var(--line);
+}
+.app206 .mp-popup--sheet .mp-head { padding-top: 4px; }
+.app206 .mp-headtext { flex: 1 1 auto; min-width: 0; }
+.app206 .mp-eyebrow {
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 600;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3);
+}
+.app206 .mp-title {
+  font-family: var(--font-display); font-weight: 800; font-size: 19px;
+  line-height: 1.14; letter-spacing: -.022em; color: var(--ink);
+}
+.app206 .mp-eyebrow + .mp-title { margin-top: 5px; }
+.app206 .mp-popup--wide .mp-title { font-size: 21px; }
+.app206 .mp-sub { margin-top: 5px; font-size: var(--type-sm-size); color: var(--ink-2); }
+.app206 .mp-source {
+  margin-top: 6px; font-family: var(--font-mono); font-size: 10.5px;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3);
 }
 
-.egp-head {
-  position: relative;
-  flex: 0 0 auto;
-  padding: 16px 46px 14px 18px;
-  border-bottom: 1px solid var(--line, #e9e4da);
+/* Artwork square: the event's own image, else a category-tinted initial so a
+   series without a photo still has an identity. Width/height/font-size come
+   inline, since they vary with layout. */
+.app206 .mp-media {
+  flex: 0 0 auto; width: 64px; height: 64px;
+  border-radius: var(--radius-xl);
+  display: grid; place-items: center; overflow: hidden;
+  color: #fff; font-family: var(--font-display); font-weight: 800;
+  font-size: 27px; line-height: 1;
 }
-.egp-eyebrow {
-  font-family: var(--font-mono, monospace);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-3, #86848e);
-}
-.egp-title {
-  margin-top: 4px;
-  font-family: var(--font-display, sans-serif);
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--ink, #1a1a2e);
-}
-.egp-source { margin-top: 6px; font-size: 12.5px; color: var(--ink-2, #46454f); }
-.egp-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  background: var(--surface-2, #f4f1ea);
-  border: 1px solid var(--line, #e9e4da);
-  color: var(--ink-2, #46454f);
-}
-.egp-close:hover { background: var(--surface-3, #ede9e0); color: var(--ink, #1a1a2e); }
+.app206 img.mp-media { object-fit: cover; }
+.app206 .mp-media--zoom { cursor: zoom-in; }
 
-.egp-image {
-  flex: 0 0 auto;
-  width: calc(100% - 36px);
-  margin: 14px 18px 0;
-  max-height: 150px;
-  object-fit: cover;
-  border-radius: 12px;
+.app206 .mp-close, .app206 .mp-back {
+  flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface-2); border: 1px solid var(--line); color: var(--ink-2);
 }
+.app206 .mp-close { position: absolute; top: 12px; right: 12px; z-index: 2; }
+.app206 .mp-close:hover, .app206 .mp-back:hover { background: var(--surface-3); color: var(--ink); }
+.app206 .mp-close svg, .app206 .mp-back svg { width: 15px; height: 15px; }
 
-.egp-dates {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  list-style: none;
-  margin: 0;
-  padding: 8px 10px 10px;
+/* ---- body ---- */
+.app206 .mp-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.app206 .mp-split { display: grid; grid-template-columns: minmax(0,1fr) var(--map-popup-aside-w); align-items: stretch; }
+.app206 .mp-col { min-width: 0; }
+.app206 .mp-aside { min-width: 0; border-left: 1px solid var(--line); background: var(--paper); }
+.app206 .mp-rule { height: 1px; background: var(--line); }
+
+.app206 .mp-chips { display: flex; flex-wrap: wrap; gap: 7px; padding: 13px var(--map-popup-pad-x) 0; }
+
+.app206 .mp-desc {
+  padding: 13px var(--map-popup-pad-x) 15px;
+  font-size: 13.5px; line-height: 1.55; color: var(--ink-2); text-wrap: pretty;
 }
-.egp-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 9px 8px;
-  border-radius: 11px;
-  color: inherit;
-  text-decoration: none;
+.app206 .mp-desc .event-details { font-size: inherit; line-height: inherit; color: inherit; }
+.app206 .mp-desc--clamp .event-details {
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
-.egp-row:hover { background: var(--surface-2, #f4f1ea); }
-.egp-row--plain { cursor: default; }
-.egp-cal {
-  flex: 0 0 38px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1;
+/* Descriptions stream in after the main corpus, so the sheet reserves the three
+   lines the clamp will occupy while they are still pending — otherwise the
+   whole sheet visibly reflows under the reader's thumb when they land. */
+.app206 .mp-desc--pending { min-height: calc(3 * 1.55em + 28px); }
+
+.app206 .mp-next { display: flex; align-items: center; gap: 12px; padding: 14px var(--map-popup-pad-x); }
+.app206 .mp-next-text { flex: 1 1 auto; min-width: 0; }
+.app206 .mp-next-when {
+  margin-top: 3px; font-family: var(--font-display); font-weight: 700;
+  font-size: 17px; color: var(--ink);
 }
-.egp-cal .dow {
-  font-family: var(--font-mono, monospace);
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-3, #86848e);
+.app206 .mp-next-rel { margin-top: 2px; font-size: var(--type-sm-size); color: var(--ink-2); }
+.app206 .mp-cadence { padding: 13px var(--map-popup-pad-x) 0; font-size: var(--type-sm-size); color: var(--ink-2); }
+.app206 .mp-cadence b { color: var(--ink); font-weight: 700; }
+
+.app206 .mp-listhead {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 8px;
+  padding: 14px var(--map-popup-pad-x) 5px;
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 600;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3);
 }
-.egp-cal .num {
-  margin-top: 2px;
-  font-family: var(--font-display, sans-serif);
-  font-weight: 800;
-  font-size: 20px;
-  color: var(--ink, #1a1a2e);
+.app206 .mp-listhead-n { color: var(--ink-2); }
+
+/* ---- dates ---- */
+.app206 .mp-dates { list-style: none; margin: 0; }
+.app206 .mp-dates--chips { display: flex; flex-wrap: wrap; gap: 7px; padding: 11px var(--map-popup-pad-x) 16px; }
+.app206 .mp-chip {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-width: var(--map-chip-w); height: var(--map-chip-h); padding: 0 9px;
+  border-radius: var(--radius-lg); background: var(--surface-2);
+  border: 1px solid var(--line-2); color: var(--ink);
 }
-.egp-when {
-  flex: 1 1 auto;
-  font-family: var(--font-display, sans-serif);
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--ink, #1a1a2e);
+.app206 .mp-chip:hover { background: var(--surface-3); }
+.app206 .mp-chip--on, .app206 .mp-chip--on:hover { background: var(--blue-soft); border-color: var(--blue-ink); }
+.app206 .mp-chip-dow {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-3);
 }
-.egp-go { flex: 0 0 auto; font-size: 15px; font-weight: 700; color: var(--blue, #1366d6); opacity: 0.6; }
-.egp-row:hover .egp-go { opacity: 1; }
-/* Month divider — a small sticky header grouping the dates by month. */
-.egp-month {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  padding: 8px 12px 5px;
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-4, #a8a6ad);
-  background: var(--surface, #fff);
+.app206 .mp-chip-day { font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1; white-space: nowrap; }
+.app206 .mp-chip--on .mp-chip-day { color: var(--blue-ink); }
+
+.app206 .mp-dates--rows { display: grid; gap: 1px; padding: 2px 9px 12px; }
+/* The row is the SELECTOR and the trailing icon is the only navigation — the
+   same split the app uses for location lines, so tapping a date never
+   unexpectedly leaves the map. */
+.app206 .mp-daterow { display: flex; align-items: center; gap: 2px; border-radius: var(--radius-lg); }
+.app206 .mp-daterow:hover { background: var(--surface-2); }
+.app206 .mp-daterow--on, .app206 .mp-daterow--on:hover { background: var(--blue-soft); }
+.app206 .mp-daterow-pick {
+  flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: var(--radius-lg); text-align: left; white-space: nowrap;
 }
-.egp-more {
-  padding: 10px 12px 4px;
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-4, #a8a6ad);
+.app206 .mp-daterow-day { flex: 0 0 auto; font-family: var(--font-display); font-weight: 700; font-size: 14.5px; color: var(--ink); }
+.app206 .mp-daterow--on .mp-daterow-day { color: var(--blue-ink); }
+.app206 .mp-daterow-time { flex: 0 0 auto; font-size: var(--type-sm-size); color: var(--ink-2); }
+.app206 .mp-daterow-rel {
+  margin-left: auto; min-width: 0; font-family: var(--font-mono); font-size: 11px;
+  color: var(--ink-3); overflow: hidden; text-overflow: ellipsis;
+}
+.app206 .mp-daterow-go {
+  flex: 0 0 auto; width: 30px; height: 30px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center; color: var(--ink-3);
+}
+.app206 .mp-daterow-go:hover { background: var(--surface-3); color: var(--blue); }
+.app206 .mp-daterow-go svg { width: 15px; height: 15px; }
+/* Sticky month divider, so a long run stays oriented while it scrolls. */
+.app206 .mp-month {
+  position: sticky; top: 0; z-index: 1; padding: 9px 12px 5px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-4);
+  background: var(--surface);
+}
+.app206 .mp-aside .mp-month { background: var(--paper); }
+.app206 .mp-dates-more {
+  padding: 9px 12px 2px; font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--ink-4); align-self: center;
 }
 
-/* Grab handle — mobile bottom sheet only (hidden on the desktop side panel). */
-.egp-handle { display: none; }
-
-.egp-foot {
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px 16px;
-  border-top: 1px solid var(--line, #e9e4da);
+/* ---- series rows ---- */
+.app206 .mp-serieslist { display: grid; gap: 2px; padding: 2px 9px 13px; }
+.app206 .mp-serieslist--peek { gap: 10px; }
+.app206 .mp-series {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 10px 7px; border-radius: var(--radius-lg); text-align: left; color: var(--ink);
 }
-.egp-maplink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--pin, #d24a3d);
-  text-decoration: none;
+.app206 .mp-series:hover { background: var(--surface-2); }
+.app206 .mp-series--on, .app206 .mp-series--on:hover { background: var(--blue-soft); }
+.app206 .mp-series-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.app206 .mp-series-title {
+  font-weight: 600; font-size: var(--type-md-size); line-height: 1.25;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.egp-maplink:hover { text-decoration: underline; }
+.app206 .mp-series-meta {
+  font-size: var(--type-sm-size); color: var(--ink-2);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.app206 .mp-series-note {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.app206 .mp-series-trail { flex: 0 0 auto; display: flex; color: var(--ink-4); }
+.app206 .mp-series-trail svg { width: 16px; height: 16px; }
 
-/* On narrow screens (≤ tablet breakpoint, matching useBreakpoint's 768) the
-   panel becomes a draggable bottom sheet. Its height is set inline in dvh (from
-   the drag gesture); the header (handle + title) and footer stay put while the
-   date list scrolls between them. */
-@media (max-width: 767.98px) {
-  .event-group-panel {
-    top: auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: 100%;
-    border-left: none;
-    border-top: 1px solid var(--line, #e9e4da);
-    border-radius: 18px 18px 0 0;
-    box-shadow: 0 -10px 30px rgba(20, 15, 10, 0.22);
-    animation: egp-in-up 0.2s ease-out;
-  }
-  @keyframes egp-in-up {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: none; opacity: 1; }
-  }
+/* ---- footer + actions ---- */
+.app206 .mp-foot {
+  flex: 0 0 auto; display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
+  padding: 11px var(--map-popup-pad-x);
+  border-top: 1px solid var(--line); background: var(--surface);
+}
+.app206 .mp-foot-gap { flex: 1 1 auto; }
+.app206 .mp-venue-actions { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; padding: 13px var(--map-popup-pad-x) 15px; }
 
-  /* The handle is the drag grab target: a generous hit area so it's easy to
-     grab, touch-action:none so the browser doesn't scroll instead. */
-  .egp-handle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 auto;
-    min-height: 34px;
-    padding: 14px 0 10px;
-    touch-action: none;
-    cursor: grab;
-  }
-  .egp-handle:active { cursor: grabbing; }
-  .egp-handle::before {
-    content: '';
-    width: 48px;
-    height: 5px;
-    border-radius: 999px;
-    background: var(--ink-4, #a8a6ad);
-  }
-  .egp-head { padding-top: 2px; }
+/* The app's shared `.btn` is 46px — right for a full-width action row, far too
+   tall for a popup that must fit a header, copy, a date list and a footer
+   inside a 45dvh sheet. So the design system's tighter button lives here,
+   scoped to the popup, rather than being retrofitted across every screen. */
+.app206 .mp-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  font-family: inherit; font-size: var(--type-sm-size); font-weight: 600; line-height: 1;
+  white-space: nowrap; border-radius: var(--radius-md);
+  border: 1px solid transparent; box-sizing: border-box;
+}
+.app206 .mp-btn--sm { min-height: 32px; padding: 0 12px; }
+.app206 .mp-btn--md { min-height: 36px; padding: 0 14px; }
+.app206 .mp-btn svg { width: 16px; height: 16px; }
+/* Mixing toward --ink darkens in light mode and lightens in dark, so one rule
+   reads as "hover" in both. */
+.app206 .mp-btn--primary { background: var(--blue); color: #fff; }
+.app206 .mp-btn--primary:hover { background: color-mix(in srgb, var(--blue) 86%, var(--ink)); }
+.app206 .mp-btn--secondary { background: var(--surface); border-color: var(--line-2); color: var(--ink); font-weight: 500; }
+.app206 .mp-btn--secondary:hover { background: var(--surface-2); }
+.app206 .mp-btn--quiet { background: var(--surface-2); color: var(--ink); font-weight: 500; }
+.app206 .mp-btn--quiet:hover { background: var(--surface-3); }
+
+/* Following is a heart everywhere in the app. Off is a tinted pill with an
+   outline heart; on is solid ink with a filled heart, which reads as "done"
+   without needing a second colour. */
+.app206 .mp-follow {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 34px; padding: 0 13px; border-radius: 999px;
+  font-size: var(--type-sm-size); font-weight: 600; white-space: nowrap;
+  background: var(--blue-soft); color: var(--blue-ink); border: 1px solid transparent;
+}
+.app206 .mp-follow:hover { background: color-mix(in srgb, var(--blue-soft) 72%, var(--blue)); }
+.app206 .mp-follow--on, .app206 .mp-follow--on:hover { background: var(--ink); color: var(--surface); }
+.app206 .mp-follow--on .mp-follow-ico svg { fill: currentColor; }
+.app206 .mp-follow--icon { width: 42px; padding: 0; }
+.app206 .mp-follow-ico { display: flex; }
+.app206 .mp-follow-ico svg { width: 15px; height: 15px; }
+
+/* Touch devices get back the 44px-ish target the popup's density trims. */
+@media (pointer: coarse) {
+  .app206 .mp-btn--sm, .app206 .mp-btn--md { min-height: 40px; }
+  .app206 .mp-follow { height: 40px; }
+  .app206 .mp-close, .app206 .mp-back { width: 34px; height: 34px; }
 }
 
 /* ============================================================= REDESIGN ===
@@ -3978,6 +4017,7 @@ html, body, #root { height: 100%; }
   --map-popup-aside-w:292px; --map-popup-radius:16px; --map-popup-pad-x:15px;
   --map-chip-w:58px; --map-chip-h:50px;
   --map-shadow:0 18px 44px rgba(26,26,46,.18);
+  --map-shadow-up:0 -12px 34px rgba(26,26,46,.20);
   font-family: var(--font-sans);
   color: var(--ink);
   background: var(--paper);
@@ -3997,6 +4037,7 @@ html, body, #root { height: 100%; }
     --c-music:#a78bfa; --c-art:#e08a4f; --c-film:#3db9cf; --c-market:#4caf6a;
     --c-talk:#d99a4e; --c-comedy:#ec5f95; --c-community:#94c14d;
     --map-shadow:0 18px 44px rgba(0,0,0,.5);
+    --map-shadow-up:0 -12px 34px rgba(0,0,0,.55);
   }
 }
 /* Touch devices: map pins and date chips grow back to a real target. */

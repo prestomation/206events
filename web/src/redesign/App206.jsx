@@ -526,7 +526,7 @@ export function App206(props) {
     createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
     calendarAddMode, setCalendarAddMode,
     // derived
-    channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
+    channels, channelByIcsUrl, venueByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
     upcomingEvents: scopedUpcoming, allUpcomingEvents: upcomingEvents, eventsByIcsUrl,
     feedGroups, matchEvents, queryKeySet, inScope,
     // ui state
@@ -554,7 +554,7 @@ export function App206(props) {
     channelEvents, channelEventsLoading, channelEventsError,
     createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
     calendarAddMode, setCalendarAddMode,
-    channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
+    channels, channelByIcsUrl, venueByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
     scopedUpcoming, upcomingEvents, eventsByIcsUrl,
     feedGroups, matchEvents, queryKeySet, inScope,
     section, navSection, openCh, openEventObj, dateWindow, dateWindowPending, emphasis, setEmphasis, pickEmphasis,

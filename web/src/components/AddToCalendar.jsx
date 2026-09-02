@@ -8,7 +8,12 @@ import { Ico } from '../redesign/icons.jsx'
 // registry. `showLabel` renders a full-width labeled ghost button (used on the
 // event-detail action row, matching the Follow / Copy buttons beside it);
 // otherwise it's a compact icon-only button (a trailing control on event rows).
-export function AddToCalendar({ title, startDate, endDate, description, location, url, mode = 'auto', showLabel = false }) {
+// `className` overrides the button's chrome for surfaces with their own button
+// scale -- the map popups, whose `.mp-btn` runs tighter than the 46px `.btn`.
+export function AddToCalendar({
+  title, startDate, endDate, description, location, url,
+  mode = 'auto', showLabel = false, className: classNameOverride, label = 'Add to calendar',
+}) {
   // Without a start date there's nothing to add to a calendar; render nothing
   // rather than crash on toISOString() inside the URL/ICS builders.
   if (!startDate) return null
@@ -19,11 +24,14 @@ export function AddToCalendar({ title, startDate, endDate, description, location
   // `add-to-cal-btn` stays on both variants as the stable hook for tests. The
   // labeled variant layers on the redesign's `btn btn-ghost`; the icon variant
   // carries its own compact square styling via `add-to-cal-icon`.
-  const className = showLabel
-    ? 'btn btn-ghost add-to-cal-btn add-to-cal-full'
-    : 'add-to-cal-btn add-to-cal-icon'
-  const content = showLabel
-    ? <>{Ico.cal}<span>Add to calendar</span></>
+  const labelled = showLabel || !!classNameOverride
+  const className = classNameOverride
+    ? `${classNameOverride} add-to-cal-btn`
+    : showLabel
+      ? 'btn btn-ghost add-to-cal-btn add-to-cal-full'
+      : 'add-to-cal-btn add-to-cal-icon'
+  const content = labelled
+    ? <>{Ico.cal}<span>{label}</span></>
     : <span className="add-to-cal-ico" aria-hidden="true">{Ico.cal}</span>
 
   const handleDownloadICS = (e) => {

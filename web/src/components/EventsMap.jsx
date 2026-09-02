@@ -4,8 +4,7 @@ import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { eventKey } from '../lib/eventKey.js'
-import { groupEvents } from '../lib/event-grouping.js'
-import { EventGroupPanel } from './EventGroupPanel.jsx'
+import { groupEvents, groupByVenue } from '../lib/event-grouping.js'
 import cityConfig from '../../../city.config.ts'
 
 // Fix Leaflet default marker icons in Vite
@@ -19,11 +18,6 @@ L.Icon.Default.mergeOptions({
   iconUrl: markerIcon,
   shadowUrl: markerShadow,
 })
-
-// Width (px) of the drill-down side panel on desktop. Kept in sync with the
-// `.event-group-panel` width in index.css so the map can pan a clicked marker
-// out from behind it.
-const PANEL_WIDTH = 340
 
 // Populated metro extent used to reject distant outliers from the default map
 // fit. Configured per city in city.config.ts (Seattle's box hugs King County
@@ -164,17 +158,18 @@ function FitBounds({ events, geoFilters, fitKey }) {
   return null
 }
 
-// Reports the map's current bounds up to EventsMap on pan/zoom (moveend/zoomend)
-// so the marker layer can be culled to roughly what's on screen. moveend/zoomend
-// fire once per gesture (not continuously), so no debounce is needed.
-function ViewportTracker({ onBounds }) {
+// Reports the map's current bounds and zoom up to EventsMap on pan/zoom
+// (moveend/zoomend) so the marker layer can be culled to roughly what's on
+// screen and the pin-label budget can read the zoom. moveend/zoomend fire once
+// per gesture (not continuously), so no debounce is needed.
+function ViewportTracker({ onViewport }) {
   const map = useMap()
   useEffect(() => {
-    const update = () => onBounds(map.getBounds())
-    update() // seed initial bounds
+    const update = () => onViewport({ bounds: map.getBounds(), zoom: map.getZoom() })
+    update() // seed the initial viewport
     map.on('moveend zoomend', update)
     return () => map.off('moveend zoomend', update)
-  }, [map, onBounds])
+  }, [map, onViewport])
   return null
 }
 
@@ -257,10 +252,14 @@ export function isMappable(event, {
  *   calendarFilter   - optional: icsUrl of selected calendar (or tag icsUrl) to filter by
  *   calendarTagsByIcsUrl - map of icsUrl → tags[]
  *   selectedTag      - currently active tag ('' means all)
- *   calendarNameByIcsUrl - map of icsUrl → friendly calendar name
  *   eventAttributions  - optional Map<compositeKey, Attribution[]> from App.jsx for showing why events appear
  *   feedOnly         - when true (and no calendarFilter), restrict markers to the personal feed
  *   queryKeySet      - optional Set<eventKey> of live search matches; when non-null, only those events map
+ *   selectedVenueKey - key of the venue whose popup is open, so its pin can read as selected
+ *   onSelectVenue    - called with a venue group when its pin is clicked. The popup
+ *                      itself is rendered by MapPanel, NOT here: keeping it outside
+ *                      this memoized subtree means a follow-toggle re-renders the
+ *                      popup without rebuilding the marker layer.
  */
 // Memoized so the heavy marker/cluster subtree is rebuilt only when its own
 // inputs actually change. While the date-window slider is being dragged, the
@@ -273,12 +272,13 @@ function EventsMapInner({
   calendarFilter,
   calendarTagsByIcsUrl,
   selectedTag,
-  calendarNameByIcsUrl,
   eventAttributions,
   dateInScope = () => true,
   feedOnly = false,
   queryKeySet = null,
   mapRef,
+  selectedVenueKey = null,
+  onSelectVenue,
 }) {
   // Filter events: only those with lat/lng, respecting the active tag/calendar
   // filter, the global date window, (when feedOnly) the personal feed, and (when
@@ -298,14 +298,16 @@ function EventsMapInner({
   // display strings only ever read in the drill-down panel (≤ 50 rows). The
   // panel now derives both at render time from the raw instance.
 
-  // Temporal grouping: collapse the many instances of a conceptually-same
-  // recurring event at one venue into a single group → a single marker. Runs on
-  // the already-filtered (isMappable) set, so each group's date count reflects
-  // the active date window automatically. All instances of a group share one
-  // coordinate, so grouping first and culling the groups (below) is equivalent
-  // to and cheaper than culling instances. The spatial MarkerClusterGroup layer
-  // then still clusters distinct venues on top — the two are complementary.
-  const eventGroups = useMemo(() => groupEvents(mappableEvents), [mappableEvents])
+  // Two-stage grouping, both on the already-filtered (isMappable) set so counts
+  // reflect the active date window automatically:
+  //   1. groupEvents  — the many instances of a conceptually-same recurring
+  //      event at one venue collapse into one series.
+  //   2. groupByVenue — series sharing a coordinate collapse into one VENUE.
+  // A pin is therefore a place, not a series: three different shows at Neumos
+  // are one pin whose popup lists all three, rather than three markers stacked
+  // on the same dot. The spatial MarkerClusterGroup layer still clusters
+  // distinct venues on top — the three are complementary.
+  const venueGroups = useMemo(() => groupByVenue(groupEvents(mappableEvents)), [mappableEvents])
 
   // Viewport culling: only render markers within (a padded) current map bounds,
   // re-filtering when the map pans/zooms. This keeps a date-window change cheap
@@ -315,13 +317,13 @@ function EventsMapInner({
   // at (INITIAL_BOUNDS), so far-flung out-of-county groups never enter the
   // initial marker build — they appear as soon as the real viewport includes
   // them (ViewportTracker seeds actual bounds right after mount).
-  const [bounds, setBounds] = useState(null)
-  const onBounds = useCallback((b) => setBounds(b), [])
-  const visibleGroups = useMemo(() => {
-    const b = bounds || L.latLngBounds(INITIAL_BOUNDS)
+  const [viewport, setViewport] = useState(null)
+  const onViewport = useCallback((v) => setViewport(v), [])
+  const visibleVenues = useMemo(() => {
+    const b = viewport?.bounds || L.latLngBounds(INITIAL_BOUNDS)
     const padded = b.pad(0.5) // ~50% buffer so just-offscreen markers stay put while panning
-    return eventGroups.filter((g) => padded.contains([g.lat, g.lng]))
-  }, [eventGroups, bounds])
+    return venueGroups.filter((v) => padded.contains([v.lat, v.lng]))
+  }, [venueGroups, viewport])
 
   // Defer the marker/cluster layer behind the map shell's first paint: the
   // container + tiles commit and paint first, then the (thousands-strong)
@@ -334,42 +336,24 @@ function EventsMapInner({
     startTransition(() => setMarkersReady(true))
   }, [])
 
-  // The group whose drill-down panel is open (null = closed).
-  const [selectedGroup, setSelectedGroup] = useState(null)
-
-  // Open a group's panel and pan the map so the clicked marker isn't hidden
-  // behind the right-side panel. `panInside` shifts the view the minimum amount
-  // needed to bring the point into the area left of the panel; it's a no-op on
-  // mobile (mapRef undefined) where the panel is a bottom sheet instead.
-  const openGroup = useCallback((group) => {
-    setSelectedGroup(group)
-    const map = mapRef?.current
-    if (map && group?.lat != null && group?.lng != null) {
-      map.panInside([group.lat, group.lng], {
-        paddingTopRight: [PANEL_WIDTH + 24, 24],
-        paddingBottomLeft: [24, 24],
-      })
-    }
-  }, [mapRef])
-
-  // One marker per group, memoized so the list rebuilds only when the visible
-  // group set changes. Multi-date groups get a count-badge icon; single-date
-  // groups omit the `icon` prop entirely so Leaflet uses its default marker —
-  // passing `icon={undefined}` instead would override (and crash) Leaflet's
-  // default icon in a real browser. Clicking opens the side detail panel rather
-  // than a Leaflet popup. Keyed on the stable group key (date-independent) so
-  // slider drags update markers in place.
-  const markers = useMemo(() => !markersReady ? [] : visibleGroups.map((group) => {
-    const iconProps = group.count > 1 ? { icon: createGroupBadgeIcon(group.count) } : {}
+  // One marker per VENUE, memoized so the list rebuilds only when the visible
+  // venue set (or the selection) changes. A venue with more than one date gets
+  // a count-badge icon; a single-date venue omits the `icon` prop entirely so
+  // Leaflet uses its default marker — passing `icon={undefined}` instead would
+  // override (and crash) Leaflet's default icon in a real browser. Clicking
+  // reports the venue up to MapPanel, which owns the popup. Keyed on the stable
+  // venue key (date-independent) so slider drags update markers in place.
+  const markers = useMemo(() => !markersReady ? [] : visibleVenues.map((venue) => {
+    const iconProps = venue.dateCount > 1 ? { icon: createGroupBadgeIcon(venue.dateCount) } : {}
     return (
       <Marker
-        key={`group-${group.key}`}
-        position={[group.lat, group.lng]}
+        key={`venue-${venue.key}`}
+        position={[venue.lat, venue.lng]}
         {...iconProps}
-        eventHandlers={{ click: () => openGroup(group) }}
+        eventHandlers={{ click: () => onSelectVenue?.(venue) }}
       />
     )
-  }), [markersReady, visibleGroups, openGroup])
+  }), [markersReady, visibleVenues, onSelectVenue])
 
   return (
     <div className="events-map-container" data-testid="events-map">
@@ -380,7 +364,7 @@ function EventsMapInner({
         className="events-map"
       >
         <MapBridge mapRef={mapRef} />
-        <ViewportTracker onBounds={onBounds} />
+        <ViewportTracker onViewport={onViewport} />
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -427,15 +411,6 @@ function EventsMapInner({
           {markers}
         </MarkerClusterGroup>}
       </MapContainer>
-
-      {/* Drill-down: clicking a marker opens this side panel with the group's
-          venue details and full date list. Rendered over the map container. */}
-      <EventGroupPanel
-        group={selectedGroup}
-        eventAttributions={eventAttributions}
-        calendarNameByIcsUrl={calendarNameByIcsUrl}
-        onClose={() => setSelectedGroup(null)}
-      />
 
       {mappableEvents.length === 0 && (
         <div className="events-map-empty">
