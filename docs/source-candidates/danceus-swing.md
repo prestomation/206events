@@ -6,7 +6,7 @@ url: https://www.danceus.org/events/swing/seattle-wa-swing-calendar
 tags: [Dance]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-02
-pr:
+pr: 1337
 ---
 
 Aggregated calendar of swing dancing events in the Seattle area.
