@@ -1,0 +1,21 @@
+name: seattle-artist-league
+sourceRole: venue
+description: "Seattle Artist League"
+# WooCommerce's public "Store API" (used by the site's own headless cart/
+# checkout widgets) returns the full class catalog as JSON with no auth
+# required. per_page=100 comfortably covers the ~85-product catalog in one
+# page; the built-in schema URLParser fetches this once (no lookahead set).
+url: "https://www.seattleartistleague.com/wp-json/wc/store/v1/products?per_page=100"
+friendlyLink: https://www.seattleartistleague.com/all-classes/
+tags: ["Arts", "Georgetown"]
+geo:
+  lat: 47.5528833
+  lng: -122.3290379
+  label: "Seattle Artist League, 5516 4th Ave S, Seattle, WA 98108"
+  osmType: way
+  osmId: 231286747
+  osmChecked: "2026-09-02"
+calendars:
+  - name: classes
+    friendlyname: "Seattle Artist League"
+    timezone: America/Los_Angeles
