@@ -267,7 +267,7 @@ export default class SeattleArtistLeagueRipper extends JSONRipper {
                     }
                     if (locationUnknown) {
                         unknownFields.push("location");
-                        gaps.push('title suggests an off-site "@ The Brick" location with no "Where:" bullet');
+                        gaps.push('a title suggesting an off-site "@ The Brick" location but no "Where:" bullet');
                     }
                     const uncertainty: UncertaintyError = {
                         type: "Uncertainty",
