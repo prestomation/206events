@@ -217,28 +217,106 @@ jobs:
         path: fetch-cache.json
         key: fetch-cache-v1-${{ github.run_id }}
 
+    # The coverage series behind the health dashboard's chart. It has been lost
+    # once already: it lived only in this cache, the cache was evicted, the
+    # restore fell through to the stale committed copy, and 67 days vanished
+    # silently. So the build now merges three independent sources and the
+    # committed file is never overwritten on disk by a cache hit.
     - name: Restore event history
+      # Guarded like Save below: PR builds do not merge (they copy the committed
+      # baseline into output/), so restoring here would download a cache entry
+      # nothing reads — and imply PR builds take part in the merge, which is
+      # exactly the wrong mental model for a deliberately stale preview.
+      if: github.event_name != 'pull_request'
       uses: actions/cache/restore@v4
       with:
-        path: docs/event-history.json
-        key: event-history-v1-${{ github.run_id }}
+        # Sidecar path, not docs/event-history.json — a cache hit must not
+        # clobber the committed baseline before the merge can read it. Cache
+        # entries are tied to the path they were saved under, hence the v2 key.
+        path: cached-event-history.json
+        key: event-history-v2-${{ github.run_id }}
         restore-keys: |
-          event-history-v1-
+          event-history-v2-
+
+    # The deployed site is the one source always as fresh as the last build, so
+    # it is what makes a cache eviction survivable. Failure is fine: no file
+    # means the merge just skips this layer.
+    - name: Fetch published event history
+      if: github.event_name != 'pull_request'
+      continue-on-error: true
+      env:
+        SITE_URL_OVERRIDE: ${{ vars.SITE_URL }}
+      run: |
+        # The site's own origin, from city.config.ts — NOT a hardcoded default.
+        # This repo is a city template, and a fork without vars.SITE_URL set
+        # would otherwise fetch 206.events and permanently merge Seattle's
+        # coverage series into its own history.
+        # Substitution on its own line with `|| true`: under the default
+        # `bash -e`, a failing print-city-config inside the assignment aborts
+        # the step outright, so neither the fallback nor its warning would run.
+        SITE_URL="$SITE_URL_OVERRIDE"
+        if [ -z "$SITE_URL" ]; then
+          SITE_URL="$(npx tsx scripts/print-city-config.ts site.productionUrl || true)"
+        fi
+        if [ -z "$SITE_URL" ]; then
+          echo "::warning::Could not resolve the site URL; the published-history merge layer is unavailable this build."
+          echo "No site URL resolved; skipping the published-history merge layer."
+          exit 0
+        fi
+        # Trailing slash tolerated: a fork setting SITE_URL=https://x.org/ (or a
+        # productionUrl written that way) would otherwise request //event-history.json,
+        # which both Cloudflare and GitHub Pages 404 — in the step whose whole
+        # purpose is making forks work.
+        SITE_URL="${SITE_URL%/}"
+        echo "Fetching published history from $SITE_URL"
+        if ! curl -fsSL --max-time 30 "$SITE_URL/event-history.json" \
+          -o published-event-history.json; then
+          rm -f published-event-history.json
+          # Warn, don't just skip. This layer is what makes a cache eviction
+          # survivable, and a silent fallback is the exact shape of the failure
+          # that lost 67 days in the first place — it must not be able to sit
+          # broken for months looking like a normal cold start.
+          echo "::warning::Could not fetch $SITE_URL/event-history.json; the published-history merge layer is unavailable this build."
+        fi
 
     - name: Update event history
       if: github.event_name != 'pull_request'
-      run: node scripts/update-event-history.mjs
+      # Increasing authority: cache, then the published copy, then the
+      # COMMITTED file, then this build's own numbers. Committed outranks both
+      # machine layers so a value corrected in a PR is not reverted by the
+      # site on the next build — do not reorder these without reading
+      # docs/health-coverage-chart.md.
+      run: |
+        node scripts/update-event-history.mjs \
+          --merge cached-event-history.json \
+          --merge published-event-history.json \
+          --cache-out cached-event-history.json
 
+    # PR builds render the chart from the committed baseline. Deliberately no
+    # network call here: previews get a slightly stale chart rather than every
+    # PR build paying for a fetch it does not need.
     - name: Copy event history to output (PR builds)
       if: github.event_name == 'pull_request'
       run: cp docs/event-history.json output/event-history.json
 
+    # hashFiles guard: on a cold cache the update step is what first creates the
+    # sidecar, so if that step failed there is nothing to save and cache/save
+    # would error on the missing path.
     - name: Save event history
-      if: always() && github.event_name != 'pull_request'
+      if: always() && github.event_name != 'pull_request' && hashFiles('cached-event-history.json') != ''
       uses: actions/cache/save@v4
       with:
-        path: docs/event-history.json
-        key: event-history-v1-${{ github.run_id }}
+        path: cached-event-history.json
+        key: event-history-v2-${{ github.run_id }}
+
+    # Asserted here rather than in check-missing-urls' REQUIRED_DATA_FILES:
+    # every file on that list is produced by the build itself, so adding this
+    # one would fail a plain local build. It has gone missing silently once, so
+    # it is still worth failing CI over.
+    - name: Assert event history was published
+      run: |
+        test -s output/event-history.json \
+          || { echo "::error::output/event-history.json is missing or empty"; exit 1; }
 
     - name: Validate discovery API
       run: npm run check-discovery-api

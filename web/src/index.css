@@ -2505,6 +2505,11 @@ html, body, #root { height: 100%; }
   padding: 24px;
   max-width: 960px;
   margin: 0 auto;
+  /* NB: with overflow-y set, overflow-x computes to `auto` rather than
+     `visible`. A child pulled out with negative margins is therefore clipped
+     on the left and adds a horizontal scrollbar on the right — which is why
+     the full-bleed chart on mobile is done by removing padding (see the
+     max-width: 767px block) and not by negative margins. */
   overflow-y: auto;
   height: 100%;
 }
@@ -2661,19 +2666,121 @@ html, body, #root { height: 100%; }
 }
 .app206 .health-debug-toggle--on .health-debug-toggle-thumb { transform: translateX(14px); }
 
-/* Coverage chart */
+/* Health page padding. In CSS rather than inline on the element so the mobile
+   rule below can drop the horizontal half and let the coverage chart run
+   edge-to-edge. */
+.app206 .a-healthpad { padding: var(--pad); }
+@media (max-width: 767px) {
+  .app206 .a-healthpad { padding-inline: 0; }
+}
+
+/* Coverage chart — small multiples with a shared crosshair and a readout. */
 .app206 .health-coverage-chart {
   margin: 0 0 20px 0;
   background: var(--surface-2);
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 12px 8px 4px;
+  padding: 12px 8px 8px;
   overflow: hidden;
 }
-.app206 .health-coverage-chart svg {
+/* The plot svg only — NOT a descendant selector. The readout's line-keys are
+   also svgs, and width:100% stretched a 14x8 key to the full column width
+   (and, via height:auto, to ~98px tall), wrecking the readout. */
+.app206 .health-chart-plot > svg {
   display: block;
   width: 100%;
   height: auto;
+}
+/* pan-y, not none: a horizontal drag scrubs the chart, a vertical one still
+   scrolls the page. Without this the chart traps scroll on a phone. */
+.app206 .health-chart-plot {
+  touch-action: pan-y;
+  border-radius: 6px;
+}
+.app206 .health-chart-plot:focus { outline: none; }
+.app206 .health-chart-plot:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+.app206 .health-chart-hit { cursor: crosshair; }
+
+.app206 .health-chart-readout {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.app206 .health-chart-readout-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+/* One compact cell per metric rather than a stretched label/value row: at
+   readout density a space-between row leaves the number stranded away from the
+   thing it names. */
+.app206 .health-chart-readout-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 10px 16px;
+  margin: 0;
+}
+.app206 .health-chart-readout-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.app206 .health-chart-readout-row dt {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--ink-3);
+  min-width: 0;
+}
+.app206 .health-chart-readout-row dd {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  white-space: nowrap;
+}
+.app206 .health-chart-key {
+  flex: none;
+  width: 14px;
+  height: 8px;
+  overflow: visible;
+}
+/* Value leads, label follows: the reader already has the series and wants the
+   number. Tabular figures so the column does not jitter while scrubbing. */
+.app206 .health-chart-readout-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.app206 .health-chart-readout-delta {
+  font-size: 11px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.app206 .health-chart-readout-absent { color: var(--ink-4); }
+.app206 .health-chart-note {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+.app206 .health-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Page-wide filter box. */
@@ -3071,8 +3178,42 @@ html, body, #root { height: 100%; }
 }
 
 @media (max-width: 767px) {
+  /* The chart goes edge-to-edge on a phone: at ~390px every pixel of width is
+     legibility. The gutter moves off the dashboard and onto its in-flow
+     children so only the chart reaches the viewport edge. */
   .app206 .health-dashboard {
-    padding: 16px;
+    padding: 16px 0;
+  }
+
+  /* Everything except the chart, so a child added later gets a gutter by
+     default rather than silently sitting against the screen edge. The drawer
+     overlay is excluded because it is position:fixed inset:0 and a gutter
+     would inset the drawer on exactly the viewport where it is full-width.
+
+     MARGIN, not padding: padding sits inside the border box, so a child with a
+     border or background (.health-tabs has a border-bottom) would keep drawing
+     it across the full viewport width.
+
+     Opting out via a class rather than another :not() so the exception list
+     does not have to grow — and so this rule's specificity stays low enough
+     that a child can still set its own horizontal margin. */
+  .app206 .health-dashboard > *:not(.health-full-bleed) {
+    margin-inline: 16px;
+  }
+
+  .app206 .health-dashboard > .health-coverage-chart {
+    margin-inline: 0;
+    padding-inline: 0;
+    /* A 10px radius against the viewport edge reads as a rendering bug; a
+       plain rule above and below reads as an intentional band. */
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+
+  /* Only the plot is edge-to-edge; text keeps its gutter. */
+  .app206 .health-chart-readout {
+    padding-inline: 16px;
   }
 
   .app206 .health-summary {

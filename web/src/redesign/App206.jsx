@@ -584,7 +584,10 @@ export function App206(props) {
   ])
 
   let content
-  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><Suspense fallback={<div aria-busy="true">Loading site health…</div>}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></Suspense></div>
+  // Padding lives in CSS (.a-healthpad), not inline, so the mobile media query
+  // can drop the horizontal half for the full-bleed coverage chart — an inline
+  // style would need !important to beat.
+  if (section === 'health') content = <div className="a-healthpad"><Suspense fallback={<div aria-busy="true">Loading site health…</div>}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></Suspense></div>
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />

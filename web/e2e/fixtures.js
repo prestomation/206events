@@ -186,5 +186,31 @@ export const mockVenues = {
 
 export const mockBuildErrors = { buildTime: '', totalErrors: 0, sources: [] }
 
+// Coverage history for the health chart. Built rather than copied from real
+// data so it exercises the awkward cases: irregular spacing (so the month-tick
+// cull runs), `candidates` present only on the last third (the partial-series
+// path, which must render a gap and not a line to zero), `queue`/`errors` on
+// the tail only, and an unmistakable final point whose values cannot collide
+// with anything else the dashboard renders.
+export const mockEventHistory = (() => {
+  // Irregular day steps, repeated to span three months.
+  const steps = [1, 1, 3, 1, 2, 5, 1, 1, 4, 2]
+  const points = []
+  let day = new Date(Date.UTC(2026, 3, 1)) // 2026-04-01
+  for (let i = 0; i < 39; i++) {
+    const date = day.toISOString().slice(0, 10)
+    const p = { date, events: 6000 + i * 160, calendars: 200 + i * 12 }
+    if (i >= 24) p.candidates = 20 + (i - 24) * 4
+    if (i >= 19) { p.queue = 400 + i * 9; p.errors = 40 + (i % 5) }
+    points.push(p)
+    day = new Date(day.getTime() + steps[i % steps.length] * 86400000)
+  }
+  points[points.length - 1] = {
+    date: points[points.length - 1].date,
+    events: 12345, calendars: 678, candidates: 90, queue: 111, errors: 7,
+  }
+  return points
+})()
+
 // A minimal valid ICS body for any per-calendar .ics fetch.
 export const mockIcs = 'BEGIN:VCALENDAR\nVERSION:2.0\nEND:VCALENDAR'

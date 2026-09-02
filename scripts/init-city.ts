@@ -363,6 +363,11 @@ export async function buildActions(root: string, cfg: CityConfig): Promise<Strip
     // out-of-band report is Seattle data and the build tolerates its absence.
     add("reset event-uncertainty-cache.json to the empty baseline", () =>
         writeFile(join(root, "event-uncertainty-cache.json"), JSON.stringify({ version: 1, entries: {} }, null, 2) + "\n"));
+    // The coverage series is the LOWEST layer of the health chart's merge, and
+    // mergeHistory never drops a date — so leaving Seattle's points here would
+    // permanently blend them into the copy's own dashboard.
+    add("reset docs/event-history.json to the empty baseline", () =>
+        writeFile(join(root, "docs", "event-history.json"), "[]\n"));
     add("delete outofband-report.json", () =>
         rm(join(root, "outofband-report.json"), { force: true }));
     // The upstream-feature-sync ledger resets to the empty baseline; the copy's

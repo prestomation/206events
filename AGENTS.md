@@ -464,7 +464,10 @@ parity with `lib/tag_aggregator.ts`. Run locally with
 `scripts/check-missing-urls.ts` additionally enforces that the set of
 required discovery data files (`index.json`, `llms.txt`, `tags.json`,
 `venues.json`, `manifest.json`, `events-index.json`, `build-errors.json`,
-`geo-cache.json`, `sitemap.xml`) is present on disk.
+`geo-cache.json`, `sitemap.xml`) is present on disk. The health
+dashboard's coverage series, `event-history.json`, is deliberately not in
+that list — it is written by a workflow step rather than by the build, so
+the workflow asserts it separately (see `docs/health-coverage-chart.md`).
 
 ## Unit Tests
 
@@ -805,6 +808,13 @@ The existing categories — parse errors, geocode errors, zero-event
 calendars, expected-empty, uncertain events, OSM gaps, photo/cost gaps,
 cross-source duplicates — are all plumbed through every surface. Use
 them as templates.
+
+**A new *gap queue* has a sixth surface**: `QUEUE_TERMS` in
+`scripts/update-event-history.mjs`, which sums every drainable queue
+into the health chart's `queue` series. That series is all-or-nothing by
+design — a report missing any term yields no value at all — so omitting
+a new queue there silently redefines a published metric from that build
+onward. See `docs/health-coverage-chart.md`.
 
 ## Writing Descriptions
 

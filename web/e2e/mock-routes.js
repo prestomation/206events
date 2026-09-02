@@ -6,6 +6,7 @@ import {
   mockEvents,
   mockVenues,
   mockBuildErrors,
+  mockEventHistory,
   mockIcs,
   streamPairFor,
 } from './fixtures.js'
@@ -60,6 +61,11 @@ export async function installDataMocks(page) {
   await page.route('**/event-descriptions.json', (route) => route.fulfill(json(streamPair.dictionary)))
   await page.route('**/venues.json', (route) => route.fulfill(json(mockVenues)))
   await page.route('**/build-errors.json', (route) => route.fulfill(json(mockBuildErrors)))
+  // Also closes a hermeticity hole: vite.config's outDir is ../output with
+  // emptyOutDir off, so a developer's stale output/event-history.json would
+  // otherwise be served by `vite preview` and the chart would render from real
+  // data locally but not in CI.
+  await page.route('**/event-history.json', (route) => route.fulfill(json(mockEventHistory)))
   await page.route('**/tags.json', (route) => route.fulfill(json([])))
 
   await page.route('**/*.ics', (route) =>
