@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6197166
+  lng: -122.3233324
+  label: "CC's Seattle, 1701 East Olive Way, Seattle, WA 98102"
+  osmType: node
+  osmId: 2158768715
+name: ccs-seattle-naked-monday
+sourceRole: venue
+friendlyname: Naked Monday Meet Up at CC's
+description: Monthly clothing-optional social evening for nudists at CC's, a longtime gay bar on Capitol Hill.
+timezone: America/Los_Angeles
+location: "1701 East Olive Way, Seattle, WA 98102"
+url: https://www.ccsseattle.com/events
+tags:
+  - Nightlife
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: 2nd Monday
+    start_time: "19:00"
+    duration: PT5H

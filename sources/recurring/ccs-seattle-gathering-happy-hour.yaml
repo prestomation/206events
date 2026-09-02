@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6197166
+  lng: -122.3233324
+  label: "CC's Seattle, 1701 East Olive Way, Seattle, WA 98102"
+  osmType: node
+  osmId: 2158768715
+name: ccs-seattle-gathering-happy-hour
+sourceRole: venue
+friendlyname: "The Gathering Happy Hour (PNW Black Pride & ONYX Northwest)"
+description: Monthly happy hour co-hosted by PNW Black Pride and ONYX Northwest, a QTBIPOC social, at CC's on Capitol Hill.
+timezone: America/Los_Angeles
+location: "1701 East Olive Way, Seattle, WA 98102"
+url: https://www.ccsseattle.com/events
+tags:
+  - Nightlife
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: 1st Friday
+    start_time: "18:00"
+    duration: PT2H30M
