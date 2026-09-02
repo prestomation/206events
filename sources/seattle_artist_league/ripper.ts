@@ -65,7 +65,9 @@ const TITLE_DATE_PATTERN = /(\d{1,2})\.(\d{1,2})(?!\d)/g;
 
 const TIME_TOKEN_PATTERN = /(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)/gi;
 // Shorthand range where only the end time states am/pm (e.g. "6:00 – 8:30
-// pm") - the start time shares the end time's meridiem.
+// pm", "10:00 – 1:00 pm"). The start hour's meridiem is ambiguous from text
+// alone - parseTimeRange resolves it by trying the end's meridiem first,
+// then the other, keeping whichever produces a plausible span.
 const TIME_RANGE_SHORTHAND = /(\d{1,2})(?::(\d{2}))?\s*[-–—]\s*(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)/i;
 
 // Known label bullets seen in short_description, used only to bound where a
