@@ -1,0 +1,14 @@
+name: jazz-alley
+sourceRole: venue
+description: "Dimitriou's Jazz Alley"
+url: "https://www.jazzalley.com/www-home/calendar.jsp"
+friendlyLink: "https://www.jazzalley.com/www-home/calendar.jsp"
+geo:
+  lat: 47.6145805
+  lng: -122.3391523
+  label: "Dimitriou's Jazz Alley, 2033 6th Ave, Seattle, WA 98121"
+tags: ["Music", "Belltown"]
+calendars:
+  - name: jazz-alley
+    friendlyname: "Dimitriou's Jazz Alley"
+    timezone: America/Los_Angeles
