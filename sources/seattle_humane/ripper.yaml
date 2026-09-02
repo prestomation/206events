@@ -1,0 +1,21 @@
+# verified 2026-09-02: live HTML fetch of the events page returned 4
+# upcoming dated community events (PAX West kitten booths, Cider Summit
+# Seattle, Together for Pets Luncheon, Sea-Meow Con) plus one non-dated
+# "Summer Camp" registration blurb, which the ripper skips (no date line).
+# Headquartered in Bellevue, but events are mostly at Seattle venues (WA
+# State Convention Center, South Lake Union Discovery Center Lawn, Seattle
+# Center Exhibition Hall), with one at a Bellevue hotel — acceptable per
+# AGENTS.md's "a few events outside city limits is OK" rule.
+name: seattle-humane
+sourceRole: venue
+description: "Seattle Humane"
+url: "https://www.seattlehumane.org/ways-to-give/events/"
+friendlyLink: https://www.seattlehumane.org/ways-to-give/events/
+tags: ["Community"]
+# Events are held at rotating community venues (convention center, festival
+# lawn, hotel), not a single fixed address.
+geo: null
+calendars:
+  - name: seattle-humane
+    friendlyname: "Seattle Humane"
+    timezone: America/Los_Angeles
