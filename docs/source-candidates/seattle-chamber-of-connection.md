@@ -1,7 +1,7 @@
 ---
 name: Seattle Chamber of Connection
 status: added
-platform: Squarespace
+platform: Luma (ICS)
 url: https://www.seattlechamberofconnection.org/event-calendar
 tags: [Community, Learning]
 firstSeen: 2026-08-14
