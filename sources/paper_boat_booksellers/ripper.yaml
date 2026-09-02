@@ -1,6 +1,9 @@
 name: paper-boat-booksellers
 sourceRole: venue
 type: squarespace
+# All events (book clubs, reading time, author talks, book swaps) have no
+# ticketUrl or ticketCost in Squarespace; bookstore community events are free.
+cost: free
 description: "Paper Boat Booksellers"
 url: "https://www.paperboatbooksellers.com/calendar/events"
 friendlyLink: https://www.paperboatbooksellers.com/calendar

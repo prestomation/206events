@@ -66194,10 +66194,14 @@
       "reason": "CitySpark API missing cost fields (Free/Price/IsTicketed all absent); event page is JS-rendered embed not fetchable without browser"
     },
     "seatoday:cityspark-19762808": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-02",
       "source": "agent",
-      "reason": "CitySpark API missing cost fields (Free/Price/IsTicketed all absent); event page is JS-rendered embed not fetchable without browser"
+      "evidence": "Description on ICS output: \"RSVP for free: https://www.startup425.org/event-details/...\""
     },
     "seatoday:cityspark-19689632": {
       "unresolvable": true,
@@ -66206,16 +66210,292 @@
       "reason": "CitySpark API missing cost fields (Free/Price/IsTicketed all absent); event page is JS-rendered embed not fetchable without browser"
     },
     "seatoday:cityspark-19671018": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-02",
       "source": "agent",
-      "reason": "CitySpark API missing cost fields (Free/Price/IsTicketed all absent); event page is JS-rendered embed not fetchable without browser"
+      "evidence": "Description on ICS output states \"Event Registration: Free\" and \"Fees: Free\""
     },
     "seatoday:cityspark-19728086": {
       "unresolvable": true,
       "resolvedAt": "2026-09-02",
       "source": "agent",
       "reason": "CitySpark API missing cost fields (Free/Price/IsTicketed all absent); event page is JS-rendered embed not fetchable without browser"
+    },
+    "watershed-pub:watershed-pub-live_at_the_shed_daniel_rapport-2026-09-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "watershedpub.com/events: \"Live at the Shed\" events listed as \"(no cover, all ages)\""
+    },
+    "watershed-pub:watershed-pub-live_at_the_shed_ron_weinstein_marco_de_carvalho-2026-09-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "watershedpub.com/events: \"Live at the Shed\" events listed as \"(no cover, all ages)\""
+    },
+    "watershed-pub:watershed-pub-maple_leaf_silent_book_club-2026-09-20": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "watershedpub.com/events: Silent Book Club listed without cover charge"
+    },
+    "watershed-pub:watershed-pub-13_th_annual_alpenfire_cider_dinner_orchard_to_island-2026-09-23": {
+      "fields": {
+        "cost": {
+          "min": 100.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "watershedpub.com/events: \"$100 (including tax & gratuity) includes 6 ciders and gluten free hawaiian-inspired food pairings\""
+    },
+    "stg:tm-vvG1HZ_2UsNaPt": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "STG Ticketmaster show; price not fetchable (403)"
+    },
+    "stg:tm-vvG1HZ_5mUzHoZ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "STG Ticketmaster show; price not fetchable (403)"
+    },
+    "stg:tm-vvG1HZ_owjO1--": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "STG Ticketmaster show; price not fetchable (403)"
+    },
+    "watershed-pub:watershed-pub-cider_tasting_sundays_september_26-2026-09-20": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "watershedpub.com/events: Cider Tasting Sundays - no cover charge; guests pay per pour/flight only"
+    },
+    "watershed-pub:watershed-pub-convergence_129_odd_otter_brewing_seattle_neighborhood_farmers_markets-2026-09-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "EverOut/web search confirm Convergence at Watershed is no-cover free-to-attend monthly brewery fundraiser event"
+    },
+    "watershed-pub:watershed-pub-pickle_fest_ready_for_brine_time-2026-09-04": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "watershedpub.com/events: PickleFest listed as pub event with pickle foods/drinks - free entry, you pay for food and drinks"
+    },
+    "danceus-swing:danceus-165480871911716-2026-09-02": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "swingitseattle.com: Swing It Wednesdays at Polish Cultural Center 5/evening dance social"
+    },
+    "danceus-swing:danceus-165480872035224-2026-09-02": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "swingitseattle.com: Swing It Saturdays at Polish Cultural Center 0/evening"
+    },
+    "danceus-swing:danceus-16548087208160-2026-09-03": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "seattleswingdanceclub.com: Dance Every First & Third SSDC Sunday - dance-only 5 for guests (non-members); member dance 0"
+    },
+    "danceus-swing:danceus-165480872789424-2026-09-05": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "swingdancesct.com: Swing Saturdays @ Salsa Con Todo 5 general admission (0 with student ID)"
+    },
+    "chihuly-garden-and-glass:chihuly-canvas-cocktails-20260927": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "chihulygardenandglass.com: Canvas & Cocktails is ticketed; ticket includes exhibition + 1 drink + painting materials. Specific price not listed publicly - purchase online via siaticketing.com"
+    },
+    "chihuly-garden-and-glass:chihuly-canvas-cocktails-20261025": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "chihulygardenandglass.com: Canvas & Cocktails is ticketed; ticket includes exhibition + 1 drink + painting materials. Specific price not listed publicly"
+    },
+    "chihuly-garden-and-glass:chihuly-evening-yoga-in-the-glasshouse-10-20261021": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "Multiple Chihuly yoga event listings confirm 0/person ticket (Haute Yoga Queen Anne: $42.50). Includes exhibition admission + 45-min class."
+    },
+    "chihuly-garden-and-glass:chihuly-evening-yoga-in-the-glasshouse-10-20261118": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "Multiple Chihuly yoga event listings confirm 0/person ticket (Haute Yoga Queen Anne: $42.50). Includes exhibition admission + 45-min class."
+    },
+    "chihuly-garden-and-glass:chihuly-gather-kick-off-party-for-refract-20261015": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "chihulygardenandglass.com: GATHER opening night party for REFRACT is ticketed; price not publicly listed"
+    },
+    "chihuly-garden-and-glass:chihuly-pilates-in-the-glasshouse-3-20261006": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "chihulygardenandglass.com: Pilates in the Glasshouse is ticketed (includes exhibition + 50-min class). Specific price not listed; expected similar to yoga (~$40-49)"
+    },
+    "chihuly-garden-and-glass:chihuly-pilates-in-the-glasshouse-3-20261103": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "chihulygardenandglass.com: Pilates in the Glasshouse is ticketed (includes exhibition + 50-min class). Specific price not listed; expected similar to yoga (~$40-49)"
+    },
+    "chihuly-garden-and-glass:chihuly-pilates-in-the-glasshouse-3-20261201": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "chihulygardenandglass.com: Pilates in the Glasshouse is ticketed (includes exhibition + 50-min class). Specific price not listed; expected similar to yoga (~$40-49)"
+    },
+    "chihuly-garden-and-glass:chihuly-yoga-in-the-glasshouse-12-20260906": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "Multiple Chihuly yoga-in-the-glasshouse listings confirm $40/person (one source: $42.50). Includes exhibition admission + yoga class."
+    },
+    "chihuly-garden-and-glass:chihuly-yoga-in-the-glasshouse-12-20261004": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "Multiple Chihuly yoga-in-the-glasshouse listings confirm $40/person (one source: $42.50). Includes exhibition admission + yoga class."
+    },
+    "chihuly-garden-and-glass:chihuly-yoga-in-the-glasshouse-12-20261018": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "Multiple Chihuly yoga-in-the-glasshouse listings confirm $40/person (one source: $42.50). Includes exhibition admission + yoga class."
+    },
+    "chihuly-garden-and-glass:chihuly-yoga-in-the-glasshouse-12-20261101": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "Multiple Chihuly yoga-in-the-glasshouse listings confirm $40/person (one source: $42.50). Includes exhibition admission + yoga class."
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 25200,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-02",
+      "source": "agent",
+      "evidence": "udistrictseattle.com/bobafest: Seattle Boba Fest - free community festival, typically 11am-7pm (7 hours)"
     }
   }
 }
