@@ -3,6 +3,9 @@ description: "Tabletop Village"
 url: "https://tabletopvillage.com/pages/events"
 friendlyLink: "https://tabletopvillage.com/pages/events"
 sourceRole: venue
+imageUrl: "https://tabletopvillage.com/cdn/shop/files/tabletop_village_logo_500x_2x_f34fd6c2-cbdf-4871-b15a-0c40b62a3ef2.png?v=1618877676"
+# Events all link to the main events page, not individual event pages — no per-event images exist.
+skipEventPhotos: true
 geo:
   lat: 47.5970231
   lng: -122.3221329

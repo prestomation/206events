@@ -5,6 +5,9 @@ url: "https://www.clubsake.com/events/list"
 friendlyLink: "https://www.clubsake.com/events/list"
 tags: ["Sports", "Outdoors"]
 geo: null
+imageUrl: "https://cdn.revolutionise.com.au/logos/eux2cx1aqmdnhoco.png"
+# Event pages show only the club logo, not per-event images.
+skipEventPhotos: true
 calendars:
   - name: club-sake
     friendlyname: "Seattle SAKE Paddling Club"
