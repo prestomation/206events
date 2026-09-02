@@ -1,0 +1,11 @@
+name: danceus-swing
+sourceRole: aggregator
+description: "DanceUS Seattle Swing Calendar"
+url: "https://www.danceus.org/events/swing/seattle-wa-swing-calendar"
+friendlyLink: "https://www.danceus.org/events/swing/seattle-wa-swing-calendar"
+geo: null
+tags: ["Dance"]
+calendars:
+  - name: danceus-swing
+    friendlyname: "DanceUS Seattle Swing Calendar"
+    timezone: America/Los_Angeles
