@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback, startTransition } from 'react'
 import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
-import { AttributionChips } from './components/AttributionChips.jsx'
 import { AddToCalendar } from './components/AddToCalendar.jsx'
 import { EventDescription } from './components/EventDescription.jsx'
 import { LoadingScreen } from './components/LoadingScreen.jsx'

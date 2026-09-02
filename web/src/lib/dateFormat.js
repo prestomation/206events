@@ -22,3 +22,34 @@ export function cachedDateTimeFormat(locale, options = {}) {
   }
   return fmt
 }
+
+// Split a js-joda-style date string ("…T19:00:00-07:00[America/Los_Angeles]")
+// into the display parts the map surface needs. Returns null when unparseable,
+// so callers can fall back to the raw string.
+//
+// `dayIndex` is a whole-day counter derived from the LOCAL calendar date, so
+// differencing two of them gives a DST-safe day gap — `(b - a) / 864e5` on the
+// raw timestamps is off by an hour across a US DST boundary and rounds wrong.
+// Every field formats through `cachedDateTimeFormat`, which is the whole reason
+// this module exists: the map pipeline calls this per instance.
+export function eventDateParts(dateStr) {
+  const cleaned = String(dateStr ?? '').replace(/\[.*\]$/, '')
+  const d = new Date(cleaned)
+  if (Number.isNaN(d.getTime())) return null
+  return {
+    date: d,
+    dow: cachedDateTimeFormat('en-US', { weekday: 'short' }).format(d),
+    dowLong: cachedDateTimeFormat('en-US', { weekday: 'long' }).format(d),
+    day: cachedDateTimeFormat('en-US', { day: 'numeric' }).format(d),
+    dayMonth: cachedDateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(d),
+    time: cachedDateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }).format(d),
+    monthLabel: cachedDateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(d),
+    dayIndex: Math.round(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5),
+  }
+}
+
+// Whole-day counter for a Date in the local calendar — the same scale as
+// `eventDateParts().dayIndex`, for "how far off is this" arithmetic.
+export function localDayIndex(d = new Date()) {
+  return Math.round(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5)
+}

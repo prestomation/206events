@@ -4,6 +4,8 @@ import {
   quantizeCoord,
   groupKey,
   groupEvents,
+  groupByVenue,
+  venueNameKey,
   GROUP_COORD_EPSILON_DEG,
 } from './event-grouping.js'
 
@@ -192,5 +194,152 @@ describe('groupEvents', () => {
     ]
     const keys = groupEvents(events).map((g) => g.summary)
     expect(keys).toEqual(['Zeta Show', 'Alpha Show'])
+  })
+})
+
+describe('groupByVenue', () => {
+  // ~1km east of VENUE — comfortably outside the ~50m identity grid.
+  const OTHER = { lat: 47.6163, lng: -122.3075 }
+
+  it('merges series from DIFFERENT source feeds at one coordinate', () => {
+    // The whole point of dropping icsUrl from the venue key: two feeds listing
+    // shows at Neumos are one place, not two pins.
+    const venues = groupByVenue(groupEvents([
+      ev({ icsUrl: 'a.ics', summary: 'Jazz Night', location: 'Neumos, Capitol Hill' }),
+      ev({ icsUrl: 'b.ics', summary: 'Punk Matinee', location: 'Neumos, Capitol Hill' }),
+    ]))
+    expect(venues).toHaveLength(1)
+    expect(venues[0].seriesCount).toBe(2)
+    expect(venues[0].label).toBe('Neumos, Capitol Hill')
+  })
+
+  it('keeps distant coordinates as separate venues', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'Here' }),
+      ev({ summary: 'There', ...OTHER }),
+    ]))
+    expect(venues).toHaveLength(2)
+  })
+
+  it('merges coordinates within the identity grid (geocoding jitter)', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'One' }),
+      ev({ summary: 'Two', lat: VENUE.lat + GROUP_COORD_EPSILON_DEG / 3 }),
+    ]))
+    expect(venues).toHaveLength(1)
+    expect(venues[0].seriesCount).toBe(2)
+  })
+
+  it('sums dateCount across every series and counts the series', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'Long Run', date: '2026-07-01T19:00:00-07:00' }),
+      ev({ summary: 'Long Run', date: '2026-07-02T19:00:00-07:00' }),
+      ev({ summary: 'Long Run', date: '2026-07-03T19:00:00-07:00' }),
+      ev({ summary: 'One Off', date: '2026-07-05T19:00:00-07:00' }),
+    ]))
+    expect(venues).toHaveLength(1)
+    expect(venues[0].seriesCount).toBe(2)
+    expect(venues[0].dateCount).toBe(4)
+  })
+
+  it('picks the MODAL location so one mislabelled instance cannot rename the venue', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'A', date: '2026-07-01T19:00:00-07:00', location: 'Neumos, Capitol Hill' }),
+      ev({ summary: 'A', date: '2026-07-08T19:00:00-07:00', location: 'Neumos, Capitol Hill' }),
+      ev({ summary: 'B', date: '2026-07-02T19:00:00-07:00', location: 'neumos (typo)' }),
+    ]))
+    expect(venues[0].label).toBe('Neumos, Capitol Hill')
+  })
+
+  it('falls back to an empty label when no instance carries a location', () => {
+    const venues = groupByVenue(groupEvents([ev({ location: undefined })]))
+    expect(venues[0].label).toBe('')
+  })
+
+  it('orders series earliest-first, breaking ties on date count then input order', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'Later', date: '2026-07-20T19:00:00-07:00' }),
+      ev({ summary: 'Earlier', date: '2026-07-02T19:00:00-07:00' }),
+    ]))
+    expect(venues[0].series.map((g) => g.summary)).toEqual(['Earlier', 'Later'])
+  })
+
+  it('is deterministic across a shuffled input', () => {
+    const events = [
+      ev({ summary: 'Alpha', date: '2026-07-03T19:00:00-07:00' }),
+      ev({ summary: 'Beta', date: '2026-07-01T19:00:00-07:00' }),
+      ev({ summary: 'Gamma', date: '2026-07-02T19:00:00-07:00' }),
+    ]
+    const a = groupByVenue(groupEvents(events)).map((v) => v.series.map((g) => g.summary))
+    const b = groupByVenue(groupEvents([...events].reverse())).map((v) => v.series.map((g) => g.summary))
+    expect(a).toEqual(b)
+    expect(a).toEqual([['Beta', 'Gamma', 'Alpha']])
+  })
+
+  // Regression: `discover-slu` declares one ripper-level `geo` (its office) and
+  // stamps it on all 43 events it publishes, which actually happen at 17
+  // different places. Keying on the coordinate alone merged the whole
+  // neighbourhood into one pin and named it after whichever location string was
+  // most common, so the South Lake Union Farmers Market at The Spheres was
+  // filed under "The Behnke Family Gallery".
+  it('does NOT merge differently-named places that share one stamped coordinate', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'Farmers Market', location: 'The Spheres, South Lake Union, Seattle, WA' }),
+      ev({ summary: 'Gallery Walk', location: 'The Behnke Family Gallery, South Lake Union, Seattle, WA' }),
+      ev({ summary: 'Trivia', location: 'Tapster, South Lake Union, Seattle, WA' }),
+    ]))
+    expect(venues).toHaveLength(3)
+    expect(venues.map((v) => v.label.split(',')[0]).sort())
+      .toEqual(['Tapster', 'The Behnke Family Gallery', 'The Spheres'])
+  })
+
+  it('still merges one place named slightly differently by two feeds', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ icsUrl: 'a.ics', summary: 'One', location: 'Seattle Center, 305 Harrison St, Seattle, WA 98109' }),
+      ev({ icsUrl: 'b.ics', summary: 'Two', location: 'Seattle Center' }),
+    ]))
+    expect(venues).toHaveLength(1)
+    expect(venues[0].seriesCount).toBe(2)
+  })
+
+  it('groups by coordinate alone when no event names a place', () => {
+    const venues = groupByVenue(groupEvents([
+      ev({ summary: 'One', location: undefined }),
+      ev({ summary: 'Two', location: '' }),
+    ]))
+    expect(venues).toHaveLength(1)
+    expect(venues[0].seriesCount).toBe(2)
+  })
+
+  it('returns an empty array for empty input', () => {
+    expect(groupByVenue([])).toEqual([])
+  })
+
+  it('carries the representative coordinate onto the venue', () => {
+    const venues = groupByVenue(groupEvents([ev()]))
+    expect(venues[0].lat).toBe(VENUE.lat)
+    expect(venues[0].lng).toBe(VENUE.lng)
+  })
+})
+
+describe('venueNameKey', () => {
+  it('keeps only the leading segment, so an address tail does not split a place', () => {
+    expect(venueNameKey('Seattle Center, 305 Harrison St, Seattle, WA 98109'))
+      .toBe(venueNameKey('Seattle Center'))
+  })
+
+  it('ignores a leading "the", case and punctuation', () => {
+    expect(venueNameKey('The Spheres')).toBe(venueNameKey('spheres'))
+    expect(venueNameKey("Glazer's Camera")).toBe(venueNameKey('Glazers Camera'))
+  })
+
+  it('keeps genuinely different places apart', () => {
+    expect(venueNameKey('The Spheres, South Lake Union'))
+      .not.toBe(venueNameKey('The Behnke Family Gallery, South Lake Union'))
+  })
+
+  it('is empty when nothing is named', () => {
+    expect(venueNameKey('')).toBe('')
+    expect(venueNameKey(undefined)).toBe('')
   })
 })

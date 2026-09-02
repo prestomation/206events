@@ -1,6 +1,6 @@
 // App shell chrome: top bar, desktop rail, mobile bottom nav, map panel, toast.
 
-import { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, lazy, Suspense } from 'react'
 import { Ico } from './icons.jsx'
 import { useApp206 } from './context.js'
 import { Brand } from './atoms.jsx'
@@ -11,7 +11,17 @@ import { eventKey } from '../lib/eventKey.js'
 // never reveal the map; even when shown, the app becomes interactive before the
 // ~150 KB+ map engine parses. See docs/web-performance-plan.md N-1.
 const EventsMap = lazy(() => import('../components/EventsMap.jsx').then((m) => ({ default: m.EventsMap })))
+// The pin popups ride in the same lazy tier: nothing renders them until a pin
+// is clicked, which can only happen once the map chunk has already landed.
+const MapPopupHost = lazy(() => import('../components/map/MapPopupHost.jsx').then((m) => ({ default: m.MapPopupHost })))
+// Not lazy: the panel needs to know which edge the card will dock to in order
+// to place the floating chrome, on the same render that mounts it.
+import { popupShell } from '../components/map/MapPopupHost.jsx'
 import { DATE_WINDOW_STOPS, describeWindow, isDateRange, normalizeDateRange } from './viewModels.js'
+
+// Smallest strip of map worth panning a clicked pin into. Below this the popup
+// has effectively taken over the surface and moving the viewport is churn.
+const MIN_MAP_STRIP = 160
 
 const NAV_ITEMS = [
   { id: 'discover', label: 'Discover', icon: Ico.spark },
@@ -461,17 +471,94 @@ function MapResizeHandle({ panelRef, setMapWidth, mapWidth }) {
 export function MapPanel({ mobile = false }) {
   const app = useApp206()
   const panelRef = useRef(null)
-  // Only the persistent desktop panel drives the shared map ref / expand state;
-  // the mobile view is a separate instance and must not clobber the ref.
+  // Only the persistent desktop panel drives the shared map ref / expand state.
+  // The mobile view is a separate Leaflet instance, so it gets its own ref
+  // rather than clobbering the shared one — which also means the mobile map can
+  // finally pan a tapped pin out from under the bottom sheet, something the
+  // previous `mapRef={undefined}` made impossible.
+  const localMapRef = useRef(null)
+  const mapRef = mobile ? localMapRef : app.mapRef
   const expanded = !mobile && app.mapExpanded
 
+  // The clicked pin's popup: { venue, group?, selected? }. It lives HERE rather
+  // than inside EventsMap so that following a calendar (or picking a date)
+  // re-renders the popup while EventsMap's props stay referentially identical —
+  // React then skips the whole memoized marker subtree.
+  const [selection, setSelection] = useState(null)
+  const [popupNode, setPopupNode] = useState(null)
+  const closePopup = useCallback(() => setSelection(null), [])
+  const onSelectVenue = useCallback((venue) => setSelection({ venue }), [])
+
+  // Layout follows the room available; `popupShell` then says what the popup
+  // will ACTUALLY commit to, which differs when a venue declines the wide card.
+  const offered = mobile ? 'sheet' : expanded ? 'wide' : 'panel'
+  const shell = selection ? popupShell(offered, selection) : null
+
+  // Re-report the open venue whenever the corpus rebuilds. `eventsIndex` is
+  // replaced several times after first paint (the "soon" payload, the full
+  // index, then again once descriptions land), and a selection captured at
+  // click time would stay frozen on the generation it was opened from — so a
+  // popup opened during load would never show the description it is holding
+  // space for. Re-resolves the drilled series and picked date by their own
+  // keys, and falls back to the venue level if either has gone.
+  const onRefreshVenue = useCallback((venue) => {
+    setSelection((prev) => {
+      if (!prev || prev.venue.key !== venue.key) return prev
+      const group = prev.group ? venue.series.find((g) => g.key === prev.group.key) || null : null
+      const selected = prev.selected && group
+        ? group.instances.find((i) => i.date === prev.selected.date) || null
+        : null
+      return { venue, group, selected }
+    })
+  }, [])
+
+  // A scope change rebuilds every venue group, so a popup left open from the
+  // previous scope would keep rendering stale series and stale dates.
+  const scopeKey = `${app.openCh || ''}|${app.section}|${app.mapScope}|${app.dateWindow}|${app.query}`
+  useEffect(() => { setSelection(null) }, [scopeKey])
+
+  // Pan the clicked pin out from behind the popup, measuring the popup that
+  // actually committed rather than trusting a hand-maintained width constant.
+  // `popupNode` is a callback ref, so this re-runs when the lazy popup chunk
+  // finally mounts — not just when the selection changes.
+  //
+  // Leaflet's panInside reads `paddingTopLeft` / `paddingBottomRight` and
+  // silently ignores anything else (Map.js). The previous code passed
+  // paddingTopRight / paddingBottomLeft, so this never panned at all — a
+  // clicked pin just stayed hidden behind the panel.
+  useLayoutEffect(() => {
+    const map = mapRef?.current
+    const venue = selection?.venue
+    if (!map || !popupNode || venue?.lat == null) return
+    const r = popupNode.getBoundingClientRect()
+    const size = map.getSize()
+    const w = Math.round(r.width) + 24
+    const h = Math.round(r.height) + 24
+    // Only pan when the popup leaves a usable strip of map to pan INTO. In the
+    // docked desktop column the card covers nearly the whole map, so there is
+    // nowhere to put the pin and re-centring would churn the viewport for
+    // nothing.
+    const room = (available) => available >= MIN_MAP_STRIP
+    const pad = shell === 'sheet'
+      // Sheet along the bottom: reserve height below the pin.
+      ? (room(size.y - h) ? { paddingTopLeft: [24, 24], paddingBottomRight: [24, h] } : null)
+      : shell === 'wide'
+        // Wide card docked left: reserve width to the left of the pin.
+        ? (room(size.x - w) ? { paddingTopLeft: [w, 24], paddingBottomRight: [24, 24] } : null)
+        // Panel docked right: reserve width to the right of the pin.
+        : (room(size.x - w) ? { paddingTopLeft: [24, 24], paddingBottomRight: [w, 24] } : null)
+    if (pad) map.panInside([venue.lat, venue.lng], pad)
+  }, [popupNode, selection, shell, mapRef])
+
   // Esc collapses the expanded desktop map.
+  // Esc collapses the expanded desktop map — but not while a popup owns it.
+  // Otherwise one press both steps the popup back and collapses the map.
   useEffect(() => {
-    if (!expanded) return
+    if (!expanded || selection) return
     const onKey = (e) => { if (e.key === 'Escape') app.toggleMapExpand() }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
-  }, [expanded, app])
+  }, [expanded, selection, app])
 
   // Scope the map to the personal feed. Desktop strictly mirrors the section
   // (favorites-only on Following); mobile uses the persistent `mapScope` toggle
@@ -506,14 +593,41 @@ export function MapPanel({ mobile = false }) {
         calendarTagsByIcsUrl={app.calendarTagsByIcsUrl}
         selectedTag={null}
         calendarNameByIcsUrl={app.calendarNameByIcsUrl}
+        venueByIcsUrl={app.venueByIcsUrl}
         eventAttributions={app.eventAttributions}
         dateInScope={app.inScope}
         feedOnly={feedOnly}
         queryKeySet={app.queryKeySet}
-        mapRef={mobile ? undefined : app.mapRef}
+        mapRef={mapRef}
+        selectedVenueKey={selection?.venue?.key || null}
+        onSelectVenue={onSelectVenue}
+        onRefreshVenue={onRefreshVenue}
       />
     </Suspense>
   )
+
+  const popup = selection ? (
+    <Suspense fallback={null}>
+      <MapPopupHost
+        rootRef={setPopupNode}
+        selection={selection}
+        layout={offered}
+        escapeEnabled={!app.lightbox}
+        venueByIcsUrl={app.venueByIcsUrl}
+        channelByIcsUrl={app.channelByIcsUrl}
+        calendarNameByIcsUrl={app.calendarNameByIcsUrl}
+        eventAttributions={app.eventAttributions}
+        favoritesSet={app.favoritesSet}
+        calendarAddMode={app.calendarAddMode}
+        descriptionsPending={!app.fullEventsLoaded}
+        onToggleFollow={app.toggleFollow}
+        onOpenEvent={app.openEvent}
+        onZoomImage={app.openLightbox}
+        onSelect={setSelection}
+        onClose={closePopup}
+      />
+    </Suspense>
+  ) : null
   // Mobile gets an explicit All/Following toggle since the Map tab has no section
   // context to mirror. It rides inside the floating filter bar (an overlay) next
   // to the date slider, so it costs no map height. Reuses the segmented styles.
@@ -546,17 +660,23 @@ export function MapPanel({ mobile = false }) {
     </div>
   )
   if (mobile) {
-    return <div className="a-mapview">{map}{filterBar}</div>
+    return <div className="a-mapview">{map}{filterBar}{popup}</div>
   }
   return (
-    <div className="a-mappanel" ref={panelRef}>
+    <div
+      className={`a-mappanel${shell ? ` a-mappanel--popup a-mappanel--popup${shell === 'wide' ? 'left' : 'right'}` : ''}`}
+      ref={panelRef}
+    >
       <MapResizeHandle panelRef={panelRef} setMapWidth={app.setMapWidth} mapWidth={app.mapWidth} />
       {map}
       {filterBar}
+      {popup}
       <div className="a-mapbar">
+        {/* Eyebrow above title, matching the popups. The count string is
+            unchanged: cross-source-dedup.spec.js asserts it verbatim. */}
         <div>
-          <div className="a-h2" style={{ fontSize: 15 }}>{query ? <>Matching “{query}”</> : feedOnly ? 'Your feed' : 'Near you'}</div>
-          <div className="mk-tag" style={{ marginTop: 2 }}>{shownCount} EVENTS</div>
+          <div className="mk-tag">{shownCount} EVENTS</div>
+          <div className="a-h2">{query ? <>Matching “{query}”</> : feedOnly ? 'Your feed' : 'Near you'}</div>
         </div>
         <div className="a-mapbar-actions">
           <button className="a-iconbtn a-mapexpand" onClick={app.toggleMapExpand}

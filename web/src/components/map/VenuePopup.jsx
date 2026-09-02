@@ -1,0 +1,101 @@
+import { MapPopup, Rule } from './MapPopup.jsx'
+import { EventDateList } from './EventDateList.jsx'
+import { SeriesRow } from './SeriesRow.jsx'
+import { MapFollowPill } from './MapFollowPill.jsx'
+import { MapButton } from './MapButton.jsx'
+import { MapChips } from './MapChips.jsx'
+import { cadence } from '../../lib/eventCadence.js'
+import { Ico } from '../../redesign/icons.jsx'
+
+/**
+ * A pin is a place, so a venue popup answers "what is at this dot": the
+ * address, then every series running there with a peek at its next dates.
+ *
+ * Following in this app is per-CALENDAR, not per-venue. When every series at a
+ * venue comes from one feed, the venue-level pill is unambiguous and shows;
+ * when the venue's series span several feeds there is no single thing to
+ * follow, so the pill is omitted and each series row leads to an event popup
+ * where following means exactly one calendar.
+ */
+export function VenuePopup({
+  venue, layout = 'panel', following = false, followTarget, peek = 3,
+  attributions, mapsUrl, seriesColor,
+  onFollow, onOpenSeries, onClose, onPickDate, rootRef, escapeEnabled,
+}) {
+  if (!venue) return null
+  // A venue's content is ONE list, so it is never handed the two-column `wide`
+  // layout — see `popupShell` in MapPopupHost, which makes that call once so
+  // the map chrome can retreat to the same side the card lands on.
+  const rich = layout !== 'sheet'
+  const { name, address, series, seriesCount, dateCount } = venue
+
+  const list = (
+    <>
+      <div className="mp-listhead">
+        <span>{rich ? "What's on" : `${seriesCount} series here`}</span>
+        {rich && <span className="mp-listhead-n">{dateCount} dates</span>}
+      </div>
+      <div className={`mp-serieslist${rich ? ' mp-serieslist--peek' : ''}`}>
+        {series.map((g) => (
+          <div key={g.key}>
+            <SeriesRow
+              title={g.summary}
+              // A single date is stated once. In the rich layouts the peek row
+              // below carries it (with how far off it is, and the way in), so
+              // the meta line stays quiet; in the sheet there is no peek, so
+              // the meta says it. Either way "1 DATE" under a line that already
+              // names the date is noise.
+              meta={rich && g.count === 1 ? null : cadence(g.instances)}
+              note={g.count === 1 ? null : `${g.count} dates`}
+              imageUrl={g.instances[0]?.imageUrl}
+              color={seriesColor ? seriesColor(g) : undefined}
+              size={rich ? 40 : 44}
+              onClick={onOpenSeries ? () => onOpenSeries(g) : undefined}
+            />
+            {rich && (
+              <EventDateList
+                instances={g.instances}
+                variant="rows"
+                max={peek}
+                showMonths={false}
+                onPick={onPickDate ? (inst) => onPickDate(g, inst) : undefined}
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    </>
+  )
+
+  return (
+    <MapPopup
+      rootRef={rootRef}
+      escapeEnabled={escapeEnabled}
+      layout={layout}
+      eyebrow="Venue"
+      title={name}
+      subtitle={address}
+      onClose={onClose}
+      aside={list}
+      dialogLabel={name}
+    >
+      <MapChips attributions={attributions} />
+      <div className="mp-venue-actions">
+        {followTarget && (
+          <MapFollowPill
+            on={following}
+            label="Follow venue"
+            title={following ? `Following ${followTarget}` : `Follow ${followTarget}`}
+            onClick={onFollow}
+          />
+        )}
+        {mapsUrl && (
+          <MapButton href={mapsUrl} target="_blank" title="Open this venue in Google Maps">
+            {Ico.pin}<span>Open in maps</span>
+          </MapButton>
+        )}
+      </div>
+      <Rule />
+    </MapPopup>
+  )
+}
