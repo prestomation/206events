@@ -98,18 +98,8 @@ export default class DanceUSSwingRipper implements IRipper {
     parsePageHtml(html: string): RipperEvent[] {
         const results: RipperEvent[] = [];
 
-        const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-        if (!ldMatch) {
-            return [{ type: 'ParseError', reason: 'No JSON-LD event data found on page', context: undefined }];
-        }
-
-        let ldEvents: LdEvent[];
-        try {
-            const parsed = JSON.parse(ldMatch[1].trim());
-            ldEvents = Array.isArray(parsed) ? parsed : [parsed];
-        } catch (err) {
-            return [{ type: 'ParseError', reason: `Failed to parse JSON-LD: ${err}`, context: ldMatch[1].slice(0, 200) }];
-        }
+        const ldEvents = this.extractLdEvents(html);
+        if ('type' in ldEvents) return [ldEvents];
 
         const doc = parseHtml(html);
         const cardMeta = this.parseCardMeta(doc);
@@ -119,6 +109,35 @@ export default class DanceUSSwingRipper implements IRipper {
         }
 
         return results;
+    }
+
+    // Scans every JSON-LD script block on the page (not just the first) and
+    // returns the one whose parsed content is Event data, since a page can
+    // carry other JSON-LD (breadcrumbs, org schema) alongside the event list.
+    private extractLdEvents(html: string): LdEvent[] | RipperError {
+        const scriptRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+        let match: RegExpExecArray | null;
+        let sawJson = false;
+
+        while ((match = scriptRegex.exec(html)) !== null) {
+            let parsed: unknown;
+            try {
+                parsed = JSON.parse(match[1].trim());
+            } catch {
+                continue;
+            }
+            sawJson = true;
+            const items = Array.isArray(parsed) ? parsed : [parsed];
+            const events = items.filter((item): item is LdEvent =>
+                typeof item === 'object' && item !== null && (item as { '@type'?: string })['@type'] === 'Event');
+            if (events.length > 0) return events;
+        }
+
+        return {
+            type: 'ParseError',
+            reason: sawJson ? 'No JSON-LD Event data found on page' : 'No parsable JSON-LD found on page',
+            context: undefined,
+        };
     }
 
     private buildEvent(ld: LdEvent, cardMeta: Map<string, CardMeta>): RipperEvent[] {
@@ -163,7 +182,14 @@ export default class DanceUSSwingRipper implements IRipper {
 
         const cost: EventCost | undefined = meta?.price !== undefined ? { min: meta.price } : undefined;
 
-        const id = `${slugify(ld.name)}-${slugify(venueName ?? '')}-${ld.startDate}`;
+        // DanceUS's numeric event id (from the url path, e.g.
+        // /event/1788244188752938/...) identifies the recurring listing
+        // itself, not a specific date — the same id reappears in next week's
+        // build for the same class. Combine it with the date so each
+        // occurrence still gets a distinct, stable id, per the repo's Stable
+        // Event IDs convention.
+        const sourceId = href.match(/^\/event\/([^/]+)\//)?.[1] ?? slugify(ld.name);
+        const id = `danceus-${sourceId}-${ld.startDate}`;
 
         const event: RipperCalendarEvent = {
             id,
@@ -183,6 +209,9 @@ export default class DanceUSSwingRipper implements IRipper {
 
         // Push both: the event (with a placeholder noon start) and the
         // Uncertainty error the infra layer merges against the cache.
+        // partialFingerprint is the raw displayed time text; if DanceUS
+        // later lists a real time for this occurrence, the fingerprint
+        // changes and the cached resolution is invalidated.
         const unknownFields: UncertaintyField[] = ['startTime', 'duration'];
         return [event, {
             type: 'Uncertainty',
@@ -190,6 +219,7 @@ export default class DanceUSSwingRipper implements IRipper {
             source: 'danceus-swing',
             unknownFields,
             event,
+            partialFingerprint: meta?.time ?? 'no-time-listed',
         }];
     }
 

@@ -86,10 +86,26 @@ describe('DanceUSSwingRipper.parsePageHtml', () => {
         expect(event!.cost).toBeUndefined();
     });
 
-    it('gives every event a stable, unique id', () => {
+    it('gives every event a stable, unique id derived from the source url', () => {
         const ids = events.map(e => e.id);
         expect(new Set(ids).size).toBe(ids.length);
         for (const id of ids) expect(id).toMatch(/^[a-z0-9-]+$/);
+
+        const event = events.find(e => e.summary === 'Lindy Hop Level 1');
+        expect(event!.id).toBe('danceus-1788244188752938-2026-09-01');
+    });
+
+    it('ignores an unrelated JSON-LD block (e.g. breadcrumbs) and finds the Event array', () => {
+        const html = `
+            <script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[]}</script>
+            ${loadSampleHtml().match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/)![0]}
+        `;
+        const result = ripper.parsePageHtml(html);
+        const parsedEvents = result.filter(isEvent);
+        // The doc passed here has no visible event cards, so every event
+        // falls back to the unknown-time placeholder — just confirm the
+        // Event JSON-LD block was found and parsed, not the breadcrumb one.
+        expect(parsedEvents.length).toBeGreaterThan(0);
     });
 
     it('returns a ParseError when JSON-LD is missing', () => {
