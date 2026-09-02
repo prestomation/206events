@@ -147,8 +147,9 @@ export function CoverageChart({ history }) {
     const rect = svgRef.current?.getBoundingClientRect()
     const { geom: g, positions: pos } = liveRef.current
     const i = indexFromClientX(clientX, rect, g, pos)
+    if (i === null) return // unmeasurable right now; keep the current selection
     // Only re-render when the index actually changes: otherwise every pointer
-    // move is a React render and an aria-live announcement.
+    // move is a React render.
     setSel((prev) => (prev === i ? prev : i))
   }
 
@@ -266,6 +267,16 @@ export function CoverageChart({ history }) {
     ...SERIES.map((s) => ({ key: s.key, label: s.label, color: s.color, dash: s.dash })),
     ...READOUT_ONLY.map((m) => ({ key: m.key, label: m.label, color: null })),
   ], [])
+
+  // Spoken form of the selected point: the date plus every metric, so a
+  // keyboard user hears what the visible readout shows.
+  const announcement = [
+    fmtFullDate(point.date),
+    ...readoutRows.map((row) => {
+      const v = point[row.key]
+      return `${row.label} ${Number.isFinite(v) ? v.toLocaleString() : 'not recorded'}`
+    }),
+  ].join(', ')
 
   // Memoized: this is history.length x 6 cells (~800 today) and none of it
   // depends on the selection, so rebuilding it on every scrub frame would
@@ -425,12 +436,16 @@ export function CoverageChart({ history }) {
         </svg>
       </div>
 
-      <div
-        className="health-chart-readout"
-        id={readoutId}
-        role="status"
-        aria-live={keyboardDriven ? 'polite' : 'off'}
-      >
+      {/* The announcement lives in its own always-live region rather than on
+          the visible readout. Flipping aria-live on the readout in the same
+          commit that changes its text races assistive tech that registers live
+          regions before observing mutations, so the first keypress went
+          unannounced; and leaving it live for pointer input queued one
+          announcement per data point across a single sweep. */}
+      <div className="health-visually-hidden" role="status" aria-live="polite">
+        {keyboardDriven ? announcement : ''}
+      </div>
+      <div className="health-chart-readout" id={readoutId}>
         <div className="health-chart-readout-date">{fmtFullDate(point.date)}</div>
         <dl className="health-chart-readout-grid">
           {readoutRows.map((row) => {

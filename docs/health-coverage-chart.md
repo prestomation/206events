@@ -2,7 +2,7 @@
 
 The chart at the top of the health dashboard showing how coverage has moved
 over time. Component: `web/src/components/HealthDashboard.jsx` (`CoverageChart`),
-with geometry and formatting in `web/src/components/coverageChart.js`.
+with geometry and formatting in `web/src/lib/coverageChart.js`.
 
 ## Form: small multiples, not a dual axis
 
@@ -44,10 +44,11 @@ would not have earned their space.
 
 ## Interaction
 
-- **Pointer.** One transparent hit rect spanning the whole SVG. Nearest-point
-  is a single `Math.round`, so per-point targets would buy nothing, and a tap
-  below the axis still selects. Hover-scrubs with a mouse, drag-scrubs with a
-  finger, and the selection **persists after the finger lifts**.
+- **Pointer.** One transparent hit rect spanning the whole SVG, with a scan for
+  the nearest point (points are spaced by time, so a uniform index no longer
+  finds it). A tap below the axis still selects. Hover-scrubs with a mouse,
+  drag-scrubs with a finger, and the selection **persists after the finger
+  lifts**.
 - **`touch-action: pan-y`** on the plot: a horizontal drag scrubs, a vertical
   one still scrolls the page. Never `preventDefault()` on touch here.
 - **Keyboard.** The plot wrapper is `role="slider"` (arrows, Home/End,
@@ -55,16 +56,24 @@ would not have earned their space.
   identically.
 - **Default state** shows the latest point with no crosshair, so the card
   always shows current numbers and the readout has a constant height.
-- State only updates when the selected *index* changes — otherwise every
-  pointer move is a React render and an `aria-live` announcement.
+- State only updates when the selected *index* changes, and the static plot
+  body is memoized — otherwise every pointer move re-renders and re-diffs the
+  whole chart.
 
 ### Accessibility
 
-The SVG is `aria-hidden` decoration. Every number it shows is also text: the
-readout is a `role="status"` live region, and a visually-hidden `<table>`
-carries every point (also making the data Ctrl-F-able and copy-pasteable).
-`aria-valuetext` deliberately carries the **date only** — the live region
-announces the numbers, and saying them in both places double-announces.
+The SVG is `aria-hidden` decoration. Every number it shows is also text: a
+visually-hidden `<table>` carries every point (also making the data Ctrl-F-able
+and copy-pasteable), and a separate visually-hidden `role="status"` region
+announces the selected point.
+
+That region is **always** live, but carries text only while the selection is
+keyboard-driven. Two reasons: a pointer sweep changes the index once per data
+point, so an unconditional announcement queues one per point across a single
+drag; and toggling `aria-live` in the same commit that changes the text races
+assistive tech that registers live regions before observing mutations, so the
+first keypress would go unannounced. `aria-valuetext` on the slider carries the
+**date only**, so it does not double-announce with that region.
 
 ## Rendering and responsiveness
 
@@ -73,14 +82,23 @@ measured container width. The previous fixed `0 0 760 260` viewBox scaled to
 ~0.4× on a phone, rendering 11px axis text at ~4.5px. Measuring also means hit
 testing is `clientX - rect.left` with no CTM inverse — which is what makes the
 interaction unit-testable, since jsdom has no `getScreenCTM`. `layout()` picks
-narrower margins, 3 gridlines instead of 5, and compact `11.2k` axis labels
-below 520px.
+narrower margins and 3 gridlines instead of 5 below 520px; axis labels
+abbreviate to `16k` only when that axis reaches the thousands, decided per axis
+so one axis never mixes `16k` with `8,000`.
 
-On mobile the chart is **edge-to-edge**. That is done by moving padding off
-`.health-dashboard` and onto its in-flow children, **not** with negative
-margins: `.health-dashboard` sets `overflow-y: auto`, so `overflow-x` computes
-to `auto` rather than `visible`, and a negative-margin child would be clipped
-on the left and add a horizontal scrollbar on the right.
+Points are spaced by **elapsed time**, not array index. Index spacing gives a
+day with no recorded build zero width, which quietly undoes the gap handling:
+the 67-day outage recovered below would have rendered as a single step with an
+unbroken line across it.
+
+On mobile the chart is **edge-to-edge**. The gutter moves off
+`.health-dashboard` onto its children — as a **margin**, since padding sits
+inside the border box and a child with a border (`.health-tabs`) would keep
+drawing it across the full viewport. Children opt out with
+`.health-full-bleed`. Not negative margins: `.health-dashboard` sets
+`overflow-y: auto`, so `overflow-x` computes to `auto` rather than `visible`,
+and a negative-margin child would be clipped on the left and add a horizontal
+scrollbar.
 
 ## Data: `event-history.json`
 
@@ -150,7 +168,14 @@ advances it automatically (no workflow in this repo pushes commits), so it
 otherwise freezes at whatever the last human PR wrote while the live series
 grows in the cache and on the site.
 
-Two guards back that up. The script refuses to write a series with fewer dates
+A build where **no** merge source could be read fails outright
+(`--require-merge-source`). Otherwise the merge would collapse to the committed
+baseline plus today and republish that — dropping every date since the baseline
+from both the cache and the site, which is the original failure exactly. The
+shrink guard cannot catch that case, because it only knows about inputs it
+managed to read.
+
+Two further guards back that up. The script refuses to write a series with fewer dates
 than any of its inputs — a defensive invariant rather than a live recovery
 path, since the merge cannot produce that while it behaves as documented; it is
 there so a future change that started dropping dates fails the build instead of
@@ -199,7 +224,7 @@ date, so it would systematically understate the past.
 
 ## Tests
 
-- `web/src/components/coverageChart.test.js` — geometry, scaling, gap
+- `web/src/lib/coverageChart.test.js` — geometry, scaling, gap
   splitting, tick culling, hit testing.
 - `web/src/components/HealthDashboard.test.jsx` — rendering, keyboard scrubbing,
   the em-dash path, and a guard that **no coordinate is ever `NaN`** when a

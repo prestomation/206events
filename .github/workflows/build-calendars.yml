@@ -251,8 +251,15 @@ jobs:
         # This repo is a city template, and a fork without vars.SITE_URL set
         # would otherwise fetch 206.events and permanently merge Seattle's
         # coverage series into its own history.
-        SITE_URL="${SITE_URL_OVERRIDE:-$(npx tsx scripts/print-city-config.ts site.productionUrl)}"
+        # Substitution on its own line with `|| true`: under the default
+        # `bash -e`, a failing print-city-config inside the assignment aborts
+        # the step outright, so neither the fallback nor its warning would run.
+        SITE_URL="$SITE_URL_OVERRIDE"
         if [ -z "$SITE_URL" ]; then
+          SITE_URL="$(npx tsx scripts/print-city-config.ts site.productionUrl || true)"
+        fi
+        if [ -z "$SITE_URL" ]; then
+          echo "::warning::Could not resolve the site URL; the published-history merge layer is unavailable this build."
           echo "No site URL resolved; skipping the published-history merge layer."
           exit 0
         fi
@@ -269,13 +276,17 @@ jobs:
 
     - name: Update event history
       if: github.event_name != 'pull_request'
-      # Merge order is increasing authority: committed file, then cache, then
-      # the published copy, then this build's own numbers.
+      # Increasing authority: cache, then the published copy, then the
+      # COMMITTED file, then this build's own numbers. Committed outranks both
+      # machine layers so a value corrected in a PR is not reverted by the
+      # site on the next build — do not reorder these without reading
+      # docs/health-coverage-chart.md.
       run: |
         node scripts/update-event-history.mjs \
           --merge cached-event-history.json \
           --merge published-event-history.json \
-          --cache-out cached-event-history.json
+          --cache-out cached-event-history.json \
+          --require-merge-source
 
     # PR builds render the chart from the committed baseline. Deliberately no
     # network call here: previews get a slightly stale chart rather than every
@@ -293,6 +304,15 @@ jobs:
       with:
         path: cached-event-history.json
         key: event-history-v2-${{ github.run_id }}
+
+    # Asserted here rather than in check-missing-urls' REQUIRED_DATA_FILES:
+    # every file on that list is produced by the build itself, so adding this
+    # one would fail a plain local build. It has gone missing silently once, so
+    # it is still worth failing CI over.
+    - name: Assert event history was published
+      run: |
+        test -s output/event-history.json \
+          || { echo "::error::output/event-history.json is missing or empty"; exit 1; }
 
     - name: Validate discovery API
       run: npm run check-discovery-api

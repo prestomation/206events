@@ -56,6 +56,10 @@ if (!Number.isInteger(MAX_PR) || !Number.isInteger(MIN_PR) || MIN_PR < 1 || MAX_
   console.error(`Invalid PR range: MIN_PR=${positional[1] ?? 1} MAX_PR=${positional[0] ?? 1400}`);
   process.exit(1);
 }
+if (hostIdx >= 0 && (!args[hostIdx + 1] || args[hostIdx + 1].startsWith('--'))) {
+  console.error('--preview-host requires a URL pattern, e.g. https://pr-{n}.example.pages.dev');
+  process.exit(1);
+}
 const BASE_URL = hostIdx >= 0 ? args[hostIdx + 1] : defaultPreviewHost();
 
 async function fetchJson(url) {

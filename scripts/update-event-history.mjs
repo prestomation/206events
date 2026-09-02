@@ -198,9 +198,12 @@ function readJsonObject(file) {
 function parseArgs(argv) {
   const merges = [];
   let cacheOut = null;
+  let requireMergeSource = false;
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
-    if (arg === '--merge' || arg === '--cache-out') {
+    if (arg === '--require-merge-source') {
+      requireMergeSource = true;
+    } else if (arg === '--merge' || arg === '--cache-out') {
       const value = argv[i + 1];
       if (!value || value.startsWith('--')) throw new Error(`${arg} requires a path`);
       i++;
@@ -210,11 +213,11 @@ function parseArgs(argv) {
       throw new Error(`Unknown argument: ${arg}`);
     }
   }
-  return { merges, cacheOut };
+  return { merges, cacheOut, requireMergeSource };
 }
 
 export function main(argv, { root = '' } = {}) {
-  const { merges, cacheOut } = parseArgs(argv);
+  const { merges, cacheOut, requireMergeSource } = parseArgs(argv);
 
   const manifest = readJsonObject(at(root, MANIFEST_FILE));
   const buildErrors = readJsonObject(at(root, BUILD_ERRORS_FILE));
@@ -256,6 +259,7 @@ export function main(argv, { root = '' } = {}) {
   // file gets re-saved to the cache and restored again next time.
   const distinctDates = (points) => new Set(points.map((p) => p?.date).filter(Boolean)).size;
   let largestInput = distinctDates(committed);
+  let mergedAny = false;
 
   for (const file of merges) {
     const read = readJsonArray(at(root, file));
@@ -271,8 +275,23 @@ export function main(argv, { root = '' } = {}) {
       continue;
     }
     console.log(`Merging ${read.points.length} points from ${file}`);
+    mergedAny = true;
     largestInput = Math.max(largestInput, distinctDates(read.points));
     history = mergeHistory(history, read.points);
+  }
+
+  // With every recovery layer gone, the merge collapses to the committed
+  // baseline plus today — and the shrink guard cannot see it, because it only
+  // knows about inputs it managed to read. Republishing that would drop every
+  // date between the baseline and now from the cache AND the site, which is
+  // precisely how the original 67 days were lost. Refuse instead.
+  if (requireMergeSource && merges.length > 0 && !mergedAny) {
+    console.error(
+      '::error::No merge source could be read (' + merges.join(', ') + '). ' +
+        'Refusing to republish from the committed baseline alone, which would ' +
+        'truncate the series to whatever was last committed.'
+    );
+    return 1;
   }
   // Committed last of the three, so the repo stays authoritative over its own
   // data file; today's own measurements then win over everything.

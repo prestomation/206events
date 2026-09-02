@@ -104,8 +104,15 @@ export function segments(history, key) {
 
 // Axis tick values for a panel: 0, midpoint, max (narrow) or quarters (wide).
 export function axisTicks(max, steps) {
-  const fractions = steps === 3 ? [0, 0.5, 1] : [0, 0.25, 0.5, 0.75, 1]
-  return fractions.map((t) => ({ t, val: Math.round(t * max) }))
+  // Derived from `steps` rather than special-casing 3 vs 5: a third breakpoint
+  // returning gridSteps 4 would otherwise silently fall through to quarters
+  // while niceCeil sized the maximum for thirds, giving ragged labels with
+  // nothing failing.
+  const n = Math.max(2, steps)
+  return Array.from({ length: n }, (_, i) => {
+    const t = i / (n - 1)
+    return { t, val: Math.round(t * max) }
+  })
 }
 
 // Compact axis labels so a narrow panel doesn't need a wide left margin.
@@ -313,9 +320,13 @@ export function minPointGap(positions, PW) {
 // With time-spaced points a linear index is no longer the answer, so this scans
 // for the closest position — the reader aims at a date, and the nearest
 // recorded build to that date is what they mean.
+// Returns null when the position cannot be resolved (no rect, or a container
+// momentarily zero-width during a tab or panel transition). Callers must treat
+// that as "no change" — returning 0 would snap the crosshair to the oldest date
+// mid-gesture.
 export function indexFromClientX(clientX, rect, { W, ML, PW }, positions) {
   const n = positions?.length ?? 0
-  if (!rect || !rect.width || n === 0) return 0
+  if (!rect || !rect.width || n === 0) return null
   if (n === 1) return 0
   const x = (clientX - rect.left) * (W / rect.width)
   const t = (x - ML) / PW

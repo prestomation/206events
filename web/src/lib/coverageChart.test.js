@@ -362,9 +362,15 @@ describe('indexFromClientX', () => {
     expect(indexFromClientX(340, rect, geom, uneven)).toBe(2)
   })
 
-  it('returns 0 for a missing rect, an empty series, or a single point', () => {
-    expect(indexFromClientX(100, null, geom, even)).toBe(0)
-    expect(indexFromClientX(100, rect, geom, [])).toBe(0)
+  // null, not 0: returning the first index would snap the crosshair to the
+  // oldest date when the container is momentarily unmeasurable mid-gesture.
+  it('returns null when the position cannot be resolved', () => {
+    expect(indexFromClientX(100, null, geom, even)).toBeNull()
+    expect(indexFromClientX(100, { left: 0, width: 0 }, geom, even)).toBeNull()
+    expect(indexFromClientX(100, rect, geom, [])).toBeNull()
+  })
+
+  it('still resolves a single-point series', () => {
     expect(indexFromClientX(100, rect, geom, [0])).toBe(0)
   })
 })

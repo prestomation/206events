@@ -188,11 +188,12 @@ async function main() {
 
   // Required non-ICS data files. These are part of the public contract
   // that LLM crawlers and downstream consumers rely on, so the build must
-  // fail if any of them go missing. Everything here except
-  // `event-history.json` is linked from `index.json` and crawled by
-  // check-discovery-api; the coverage series is deliberately outside the
-  // discovery graph (it is the health dashboard's own data, not a consumer
-  // entry point) but is required on disk because it has gone missing once.
+  // fail if any of them go missing. Kept in sync with `index.json`'s links.
+  //
+  // Deliberately NOT including event-history.json: every file here is produced
+  // by the build itself, whereas the coverage series is written by a workflow
+  // step, so requiring it here would fail a plain local `npm run build` +
+  // check. The workflow asserts it separately, right after writing it.
   const REQUIRED_DATA_FILES = [
     "index.json",
     "llms.txt",
@@ -205,10 +206,6 @@ async function main() {
     "event-descriptions.json",
     "build-errors.json",
     "geo-cache.json",
-    // The health dashboard's coverage series. Listed here because it has gone
-    // missing silently once before; both build paths produce it (the main
-    // build writes it, PR builds copy the committed baseline).
-    "event-history.json",
     "sitemap.xml",
   ];
   const missingDataFiles: string[] = [];

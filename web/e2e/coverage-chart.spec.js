@@ -131,12 +131,19 @@ test.describe('mobile', () => {
     expect(box.x).toBeLessThanOrEqual(1)
     expect(box.width).toBeGreaterThanOrEqual(389)
 
-    // Guards against anyone "fixing" full-bleed with negative margins, which
-    // .health-dashboard's overflow-y would clip on the left.
-    const overflows = await page.evaluate(
-      () => document.documentElement.scrollWidth > window.innerWidth
-    )
-    expect(overflows).toBe(false)
+    // Guards against anyone "fixing" full-bleed with negative margins. Measured
+    // on .health-dashboard, not the document: that element is itself the scroll
+    // container (overflow-y: auto, height: 100%), so a child pulled out with a
+    // negative margin overflows INSIDE it and never touches documentElement's
+    // scrollWidth — the assertion would pass while the bug shipped.
+    const overflows = await page.evaluate(() => {
+      const el = document.querySelector('.health-dashboard')
+      return {
+        dashboard: el.scrollWidth > el.clientWidth,
+        document: document.documentElement.scrollWidth > window.innerWidth,
+      }
+    })
+    expect(overflows).toEqual({ dashboard: false, document: false })
     await screenshotStable(page, 'e2e/screenshots/coverage-chart-mobile.png')
   })
 

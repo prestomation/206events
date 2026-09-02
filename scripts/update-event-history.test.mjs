@@ -344,6 +344,27 @@ describe('main', () => {
     }
   })
 
+  // The shrink guard cannot see this case — it only knows about inputs it
+  // managed to read — so republishing would drop every date between the
+  // committed baseline and today from both the cache and the site.
+  it('refuses to republish when no merge source can be read', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+    expect(run(['--merge', 'gone.json', '--merge', 'also-gone.json', '--require-merge-source'])).toBe(1)
+    expect(readHistory()).toEqual([{ date: '2026-04-13', events: 100 }]) // untouched
+  })
+
+  it('proceeds when at least one merge source is readable', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+    write('cached.json', [{ date: '2026-05-01', events: 200 }])
+    expect(run(['--merge', 'gone.json', '--merge', 'cached.json', '--require-merge-source'])).toBe(0)
+    expect(readHistory().length).toBe(3)
+  })
+
+  it('does not require a merge source when none were asked for', () => {
+    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
+    expect(run(['--require-merge-source'])).toBe(0)
+  })
+
   it('skips a corrupt merge source without failing', () => {
     write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
     write('cached.json', 'truncated{{{')

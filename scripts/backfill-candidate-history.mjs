@@ -29,6 +29,10 @@ const VIABLE = [...VIABLE_STATUSES].join('|');
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 const refIdx = args.indexOf('--ref');
+if (refIdx >= 0 && (!args[refIdx + 1] || args[refIdx + 1].startsWith('--'))) {
+  console.error('--ref requires a git ref, e.g. --ref origin/main');
+  process.exit(1);
+}
 const REF = refIdx >= 0 ? args[refIdx + 1] : 'origin/main';
 
 function git(...a) {
@@ -74,6 +78,19 @@ const history = JSON.parse(readFileSync(HISTORY_FILE, 'utf-8'));
 // the cheaper method, because a silent divergence would mean the backfilled
 // points and the live points measure subtly different things.
 function assertCountersAgree() {
+  // The frontmatter scan reads the WORKING TREE while git grep reads HEAD, so
+  // an uncommitted candidate edit would fail this check with a diagnosis
+  // ("a status: line in the prose body") that has nothing to do with the real
+  // cause. Say what is actually wrong instead.
+  const dirty = gitQuiet('status', '--porcelain', '--', DIR).trim();
+  if (dirty) {
+    console.error(
+      `::error::Uncommitted changes under ${DIR}:\n${dirty}\n\n` +
+        'The historical counts come from git, so commit or stash these first — ' +
+        'otherwise the working tree and HEAD measure different things.'
+    );
+    process.exit(1);
+  }
   const live = countViableCandidates(DIR);
   const viaGrep = countAt(git('rev-parse', 'HEAD').trim());
   if (live === undefined || viaGrep === undefined) return; // nothing to compare
