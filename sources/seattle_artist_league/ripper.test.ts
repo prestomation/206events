@@ -180,21 +180,34 @@ describe('SeattleArtistLeagueRipper', () => {
         expect(valid[0].duration.toHours()).toBe(3);
     });
 
-    test('ignores a session-length decimal ("3.5 hour workshop") that trails the real start date in the title', async () => {
+    test('ignores a session-length decimal ("3.5 hour workshop") regardless of whether it precedes or trails the real start date', async () => {
         const ripper = new SeattleArtistLeagueRipper();
-        const workshop = {
+        // Real fixture title: the decimal happens to precede the date, which
+        // the old last-match-wins logic already got right by coincidence.
+        const decimalFirst = {
             ...CLASS_WITH_TIME_BULLET,
             id: 12,
             name: "FREE No Tears Critique SATURDAY MORNING 3.5 hour workshop 9.5",
             slug: "free-no-tears-critique-saturday-morning-3-5-hour-workshop-9-5",
             short_description: "<ul><li>Time: 9:30 &#8211; 1:00 pm</li></ul>",
         };
-        const events = await ripper.parseEvents(buildJsonData([workshop]), testDate, {});
+        // The regression this fix actually targets: a decimal *after* the
+        // real date used to win under plain last-match selection.
+        const decimalTrailing = {
+            ...CLASS_WITH_TIME_BULLET,
+            id: 13,
+            name: "FREE No Tears Critique SATURDAY MORNING begins 9.5, 3.5 hour workshop",
+            slug: "free-no-tears-critique-saturday-morning-begins-9-5-3-5-hour-workshop",
+            short_description: "<ul><li>Time: 9:30 &#8211; 1:00 pm</li></ul>",
+        };
+        const events = await ripper.parseEvents(buildJsonData([decimalFirst, decimalTrailing]), testDate, {});
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
-        expect(valid).toHaveLength(1);
-        expect(valid[0].date.monthValue()).toBe(9);
-        expect(valid[0].date.dayOfMonth()).toBe(5);
+        expect(valid).toHaveLength(2);
+        for (const event of valid) {
+            expect(event.date.monthValue()).toBe(9);
+            expect(event.date.dayOfMonth()).toBe(5);
+        }
     });
 
     test('falls back to the default venue address when the entire "Where:" value is the bare "FREE" bullet', async () => {
