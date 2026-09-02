@@ -6,7 +6,7 @@ url: https://www.danceus.org/events/argentine-tango/seattle-wa-tango-calendar/
 tags: [Dance]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-02
-pr: TBD
+pr: 1346
 ---
 
 Discovered via aggregator gap analysis. 7 events in the Seattle
