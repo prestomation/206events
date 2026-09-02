@@ -10,6 +10,7 @@ geo:
   lat: 47.5970231
   lng: -122.3221329
   label: "Tabletop Village, 616 8th Ave S, Seattle, WA 98104"
+  osmChecked: 2026-09-02
 tags: ["Gaming", "International District"]
 calendars:
   - name: tabletop-village
