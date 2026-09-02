@@ -6,7 +6,7 @@ url: https://www.salsavida.com/guides/washington/seattle
 tags: [Dance]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-02
-pr:
+pr: 1350
 ---
 
 Guide to salsa dancing events and venues in Seattle.
