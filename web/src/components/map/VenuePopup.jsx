@@ -40,8 +40,13 @@ export function VenuePopup({
           <div key={g.key}>
             <SeriesRow
               title={g.summary}
-              meta={cadence(g.instances)}
-              note={`${g.count} date${g.count === 1 ? '' : 's'}`}
+              // A single date is stated once. In the rich layouts the peek row
+              // below carries it (with how far off it is, and the way in), so
+              // the meta line stays quiet; in the sheet there is no peek, so
+              // the meta says it. Either way "1 DATE" under a line that already
+              // names the date is noise.
+              meta={rich && g.count === 1 ? null : cadence(g.instances)}
+              note={g.count === 1 ? null : `${g.count} dates`}
               imageUrl={g.instances[0]?.imageUrl}
               color={seriesColor ? seriesColor(g) : undefined}
               size={rich ? 40 : 44}

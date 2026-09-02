@@ -48,9 +48,27 @@ describe('VenuePopup', () => {
     expect(rows[0]).toHaveTextContent('Jazz Night')
     expect(rows[0]).toHaveTextContent('Every Thursday')
     expect(rows[0]).toHaveTextContent('3 dates')
-    // A one-date series names the date instead of the useless words "One date".
-    expect(rows[1]).toHaveTextContent('Sat Jul 4')
+    // The one-date series carries no rhythm and no "1 DATE" note -- its date is
+    // stated once, in the peek row below it (see the dedicated test).
+    expect(rows[1]).toHaveTextContent('Punk Matinee')
     expect(rows[1]).not.toHaveTextContent('One date')
+    expect(rows[1]).not.toHaveTextContent('1 date')
+  })
+
+  // The date is stated once per row: the peek carries it where there is one,
+  // the meta line where there is not.
+  it('does not state a single date twice when the peek already shows it', () => {
+    const rich = render(
+      <VenuePopup layout="panel" venue={venue([series('Poetry Slam', [4])])} />,
+    )
+    expect(rich.container.querySelector('.mp-series-meta')).toBeNull()
+    expect(rich.container.querySelector('.mp-daterow')).toHaveTextContent('Sat Jul 4')
+
+    const sheet = render(
+      <VenuePopup layout="sheet" venue={venue([series('Poetry Slam', [4])])} />,
+    )
+    expect(sheet.container.querySelector('.mp-daterow')).toBeNull()
+    expect(sheet.container.querySelector('.mp-series-meta')).toHaveTextContent('Sat Jul 4')
   })
 
   it('peeks at each series’ next dates in the rich layouts, capped by `peek`', () => {
