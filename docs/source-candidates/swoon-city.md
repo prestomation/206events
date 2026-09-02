@@ -3,7 +3,7 @@ name: Swoon City
 status: added
 platform: Eventbrite
 url: https://www.eventbrite.com/o/swoon-city-116050962771
-tags: [Books, Creation, Ballard]
+tags: [Books, Workshops, Ballard]
 firstSeen: 2026-09-02
 lastChecked: 2026-09-02
 pr: 1349
