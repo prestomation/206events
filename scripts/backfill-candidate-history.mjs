@@ -133,7 +133,10 @@ function countAt(sha) {
       // `status: candidate-followup` as viable here while the live counter,
       // which tests exact membership, would not — and assertCountersAgree only
       // compares HEAD, so a past divergence would go unnoticed.
-      'grep', '-l', '-E', `^status: *(${VIABLE})[[:space:]]*$`, sha, '--',
+      // Quotes and a trailing comment allowed, mirroring countViableCandidates:
+      // `status: "candidate"` is valid YAML, and the two counters measuring
+      // different things is exactly what assertCountersAgree exists to catch.
+      'grep', '-l', '-E', `^status: *["']?(${VIABLE})["']?[[:space:]]*(#.*)?$`, sha, '--',
       `${DIR}/*.md`,
       // README.md documents the schema with a literal `status: candidate`
       // example line, which would otherwise count as a real candidate.

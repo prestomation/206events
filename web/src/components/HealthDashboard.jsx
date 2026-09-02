@@ -3,6 +3,7 @@ import {
   SERIES,
   READOUT_ONLY,
   READOUT_ROWS,
+  normalizeHistory,
   niceCeil,
   maxOf,
   hasSeries,
@@ -90,6 +91,12 @@ export function CoverageChart({ history }) {
   // null = nothing picked; the readout falls back to the latest point so the
   // card always shows current numbers and has a constant height.
   const [sel, setSel] = useState(null)
+  // A pointer sweep changes the index once per data point, so an unconditional
+  // live region announces once per point across a single drag. The region
+  // carries text only while the selection is keyboard-driven, where there is
+  // nothing to see on screen. Declared with the other state rather than between
+  // the handlers that set it, since hook order here is load-bearing.
+  const [keyboardDriven, setKeyboardDriven] = useState(false)
   const draggingRef = useRef(false)
   const rafRef = useRef(0)
   const pendingRef = useRef(0)
@@ -202,12 +209,6 @@ export function CoverageChart({ history }) {
     cancelQueued()
     setSel(null)
   }
-  // A pointer sweep changes the index once per data point. With an
-  // unconditional live region that is one announcement per point — 137 of them
-  // for a single drag — so the region is only live while the selection is being
-  // driven from the keyboard, where there is nothing to see on screen.
-  const [keyboardDriven, setKeyboardDriven] = useState(false)
-
   const onKeyDown = (e) => {
     const at = sel ?? n - 1
     let next = null
@@ -233,7 +234,6 @@ export function CoverageChart({ history }) {
       ...s,
       top,
       max,
-      startsAt: firstDefinedIndex(history, s.key),
       yOf: (v) => top + panelH - (v / max) * panelH,
       runs: segments(history, s.key),
     }
@@ -245,7 +245,7 @@ export function CoverageChart({ history }) {
   // backfill would have crossed — making every dot vanish at once. Measured
   // from the TIGHTEST adjacent gap: with time spacing the average says nothing
   // about whether a dense cluster overlaps.
-  const showDots = minPointGap(positions, PW) >= 6
+  const showDots = useMemo(() => minPointGap(positions, PW) >= 6, [positions, PW])
   // Only flagged when a plotted series starts late, so nobody reads its
   // absence as "the backlog was zero back then".
   // Covers readout-only metrics as well: `queue` only exists from the build
@@ -529,7 +529,13 @@ export function HealthDashboard({
   useEffect(() => {
     fetch('./event-history.json')
       .then(r => r.ok ? r.json() : null)
-      .then(data => { if (Array.isArray(data) && data.length > 0) setEventHistory(data) })
+      // Normalised at the boundary: drops malformed entries, dedupes by date and
+      // sorts, so the chart's geometry can assume what it needs instead of
+      // guarding at every dereference.
+      .then(data => {
+        const points = normalizeHistory(data)
+        if (points.length > 0) setEventHistory(points)
+      })
       .catch(() => {})
   }, [])
 

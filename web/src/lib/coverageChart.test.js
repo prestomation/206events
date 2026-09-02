@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import {
+  normalizeHistory,
   niceCeil,
   maxOf,
   hasSeries,
@@ -21,6 +22,41 @@ import {
 } from './coverageChart.js'
 
 const pt = (date, fields = {}) => ({ date, ...fields })
+
+describe('normalizeHistory', () => {
+  it('drops entries that are not usable points', () => {
+    const out = normalizeHistory([
+      { date: '2026-05-01', events: 1 },
+      null,
+      'nope',
+      { events: 2 },                 // no date
+      { date: 20260502, events: 3 },  // not a string
+      { date: 'not-a-date', events: 4 },
+    ])
+    expect(out).toEqual([{ date: '2026-05-01', events: 1 }])
+  })
+
+  it('sorts ascending, so the geometry can assume monotonic dates', () => {
+    const out = normalizeHistory([
+      { date: '2026-07-01' }, { date: '2026-05-01' }, { date: '2026-06-01' },
+    ])
+    expect(out.map((p) => p.date)).toEqual(['2026-05-01', '2026-06-01', '2026-07-01'])
+  })
+
+  // Duplicate dates would give two table rows the same identity and break the
+  // one-point-per-day assumption the x-scale rests on.
+  it('dedupes by date, last write winning', () => {
+    const out = normalizeHistory([
+      { date: '2026-05-01', events: 1 },
+      { date: '2026-05-01', events: 2 },
+    ])
+    expect(out).toEqual([{ date: '2026-05-01', events: 2 }])
+  })
+
+  it('returns an empty array for anything that is not an array', () => {
+    for (const v of [null, undefined, {}, 'x', 42]) expect(normalizeHistory(v)).toEqual([])
+  })
+})
 
 describe('niceCeil', () => {
   it('covers the data without wasting the panel', () => {

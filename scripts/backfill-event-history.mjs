@@ -22,7 +22,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { execFileSync } from 'child_process';
-import { openWorkQueue, definedFields, mergeHistory, countCalendars } from './update-event-history.mjs';
+import { openWorkQueue, definedFields, mergeHistory, countCalendars, distinctDates } from './update-event-history.mjs';
 
 const HISTORY_FILE = 'docs/event-history.json';
 
@@ -146,7 +146,6 @@ if (existsSync(HISTORY_FILE)) {
     process.exit(1);
   }
 }
-const distinctDates = (points) => new Set(points.map((p) => p?.date).filter(Boolean)).size;
 const prs = Array.from({ length: MAX_PR - MIN_PR + 1 }, (_, i) => i + MIN_PR);
 
 console.log(`Sweeping PR #${MIN_PR}-#${MAX_PR} at ${BASE_URL} (${prs.length} PRs, concurrency=${CONCURRENCY})...`);
@@ -202,6 +201,22 @@ console.log('Date range:', merged[0]?.date, '->', merged[merged.length - 1]?.dat
 
 // Distinct DATES, not raw entries: mergeHistory keys by date, so one duplicated
 // entry in the committed file would otherwise abort a perfectly good backfill.
+// A whole sweep with no hits means the host is wrong, not that there is nothing
+// to recover: defaultPreviewHost() guesses the Cloudflare project slug from the
+// domain, and a fork whose project is named differently gets 404s for all of
+// them. Reporting that as a clean run is the "no-op reported as success" shape
+// the argument validation above exists to avoid.
+if (hits === 0) {
+  console.error(
+    `::error::No preview build responded across PR #${MIN_PR}-#${MAX_PR}. ` +
+      `Check the preview host (${BASE_URL}) — pass --preview-host if the ` +
+      'Cloudflare Pages project name differs from the site domain.'
+  );
+  process.exit(1);
+}
+
+// Defensive invariant, not a live path: `existing` is the higher-authority side
+// of the merge, so every date in it survives by construction.
 if (merged.length < distinctDates(existing)) {
   console.error('::error::Merged series covers fewer dates than the committed one. Refusing to write.');
   process.exit(1);

@@ -263,6 +263,11 @@ jobs:
           echo "No site URL resolved; skipping the published-history merge layer."
           exit 0
         fi
+        # Trailing slash tolerated: a fork setting SITE_URL=https://x.org/ (or a
+        # productionUrl written that way) would otherwise request //event-history.json,
+        # which both Cloudflare and GitHub Pages 404 — in the step whose whole
+        # purpose is making forks work.
+        SITE_URL="${SITE_URL%/}"
         echo "Fetching published history from $SITE_URL"
         if ! curl -fsSL --max-time 30 "$SITE_URL/event-history.json" \
           -o published-event-history.json; then
@@ -285,8 +290,7 @@ jobs:
         node scripts/update-event-history.mjs \
           --merge cached-event-history.json \
           --merge published-event-history.json \
-          --cache-out cached-event-history.json \
-          --require-merge-source
+          --cache-out cached-event-history.json
 
     # PR builds render the chart from the committed baseline. Deliberately no
     # network call here: previews get a slightly stale chart rather than every

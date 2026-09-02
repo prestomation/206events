@@ -124,7 +124,11 @@ export function countViableCandidates(dir = CANDIDATES_DIR) {
     // the file would vanish from the count with no error anywhere.
     const end = lines.findIndex((l, i) => i > 0 && l.trim() === '---');
     if (end === -1) continue;
-    const match = /^status:\s*([a-z-]+)/m.exec(lines.slice(1, end).join('\n'));
+    // Optional quotes: `status: "candidate"` is valid YAML, and the old
+    // pattern matched neither the quote nor the word after it, so the file was
+    // dropped from the count entirely — silently, since `parsed === 0` only
+    // fires when EVERY file fails.
+    const match = /^status:\s*["']?([a-z-]+)["']?\s*(?:#.*)?$/m.exec(lines.slice(1, end).join('\n'));
     if (!match) continue;
     parsed++;
     if (VIABLE_STATUSES.has(match[1])) viable++;
@@ -133,6 +137,13 @@ export function countViableCandidates(dir = CANDIDATES_DIR) {
 }
 
 // ------------------------------------------------------------------ merge
+
+// How many distinct dates a series covers. The shrink guards compare THIS, not
+// raw entry count: mergeHistory keys by date, so one duplicated entry in an
+// input is not truncation.
+export function distinctDates(points) {
+  return new Set((points ?? []).map((p) => p?.date).filter(Boolean)).size;
+}
 
 // Drop undefined/null so a source that doesn't know a field can never erase
 // one that does.
@@ -198,12 +209,9 @@ function readJsonObject(file) {
 function parseArgs(argv) {
   const merges = [];
   let cacheOut = null;
-  let requireMergeSource = false;
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
-    if (arg === '--require-merge-source') {
-      requireMergeSource = true;
-    } else if (arg === '--merge' || arg === '--cache-out') {
+    if (arg === '--merge' || arg === '--cache-out') {
       const value = argv[i + 1];
       if (!value || value.startsWith('--')) throw new Error(`${arg} requires a path`);
       i++;
@@ -213,11 +221,11 @@ function parseArgs(argv) {
       throw new Error(`Unknown argument: ${arg}`);
     }
   }
-  return { merges, cacheOut, requireMergeSource };
+  return { merges, cacheOut };
 }
 
 export function main(argv, { root = '' } = {}) {
-  const { merges, cacheOut, requireMergeSource } = parseArgs(argv);
+  const { merges, cacheOut } = parseArgs(argv);
 
   const manifest = readJsonObject(at(root, MANIFEST_FILE));
   const buildErrors = readJsonObject(at(root, BUILD_ERRORS_FILE));
@@ -257,7 +265,6 @@ export function main(argv, { root = '' } = {}) {
   // source carrying one duplicated or date-less entry would otherwise look
   // like truncation and fail the build on every subsequent run — the poisoned
   // file gets re-saved to the cache and restored again next time.
-  const distinctDates = (points) => new Set(points.map((p) => p?.date).filter(Boolean)).size;
   let largestInput = distinctDates(committed);
   let mergedAny = false;
 
@@ -288,20 +295,28 @@ export function main(argv, { root = '' } = {}) {
   // knows about inputs it managed to read. Republishing that would drop every
   // date between the baseline and now from the cache AND the site, which is
   // precisely how the original 67 days were lost. Refuse instead.
-  // Only when there is actually something to lose. On a cold start — a fresh
-  // city copy whose committed baseline is empty and whose site does not serve
-  // the file yet — failing here would be a deadlock: the build fails, so the
-  // cache is never seeded, so the next build fails identically forever.
-  if (requireMergeSource && merges.length > 0 && !mergedAny && distinctDates(committed) > 0) {
-    console.error(
-      '::error::No merge source carried any dates (' + merges.join(', ') + '). ' +
-        'Refusing to republish from the committed baseline alone, which would ' +
-        'drop every date accumulated since it was last committed.'
-    );
-    return 1;
-  }
-  if (!mergedAny && merges.length > 0) {
-    console.log('Cold start: no merge source carried dates, and the committed baseline is empty.');
+  // Loud, but never fatal. When neither recovery layer is readable the series
+  // republishes from the committed baseline plus today, which can drop the
+  // dates accumulated since that baseline — recoverable with
+  // scripts/backfill-event-history.mjs, and the committed file now outranks the
+  // machine layers so a corrected value sticks.
+  //
+  // Deliberately NOT a build failure: this is the health dashboard's chart, and
+  // aborting here would skip the deploy and publish no calendars at all — the
+  // site's actual purpose held hostage by one diagnostic JSON file. It would
+  // also deadlock a cold start, since the cache is only seeded by a successful
+  // run. What was missing when 67 days were lost was a signal, not a veto.
+  if (merges.length > 0 && !mergedAny) {
+    if (distinctDates(committed) > 0) {
+      console.log(
+        `::warning::No merge source carried any dates (${merges.join(', ')}). ` +
+          'Republishing from the committed baseline alone — dates added since it ' +
+          'was last committed may be dropped. Re-run scripts/backfill-event-history.mjs ' +
+          'if the series looks short.'
+      );
+    } else {
+      console.log('Cold start: no merge source carried dates and the committed baseline is empty.');
+    }
   }
   // Committed last of the three, so the repo stays authoritative over its own
   // data file; today's own measurements then win over everything.

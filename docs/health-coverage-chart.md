@@ -109,6 +109,12 @@ One point per build day, published at `/event-history.json`:
   "candidates": 264, "queue": 1636, "errors": 348 }
 ```
 
+The client normalises the fetched array once at the boundary
+(`normalizeHistory`): malformed entries dropped, deduped by date, sorted
+ascending. The geometry then assumes those invariants rather than guarding at
+every dereference — one missed guard unmounts the whole dashboard, which is
+worse than the blank chart the guarding was for.
+
 Every field except `date` is **optional**. A field a build could not compute is
 absent, never `0` — the chart renders a gap and the readout an em-dash. Series
 are drawn as one polyline per run of consecutive defined points (`segments()`),
@@ -168,14 +174,16 @@ advances it automatically (no workflow in this repo pushes commits), so it
 otherwise freezes at whatever the last human PR wrote while the live series
 grows in the cache and on the site.
 
-A build where **no** merge source could be read fails outright
-(`--require-merge-source`). Otherwise the merge would collapse to the committed
-baseline plus today and republish that — dropping every date since the baseline
-from both the cache and the site, which is the original failure exactly. The
-shrink guard cannot catch that case, because it only knows about inputs it
-managed to read.
+When **no** merge source can be read, the build emits a `::warning::` and
+republishes from the committed baseline plus today, which can drop the dates
+accumulated since that baseline. Deliberately a warning and not a failure:
+aborting would skip the deploy and publish no calendars at all — the site's
+actual purpose held hostage by one diagnostic file — and it would deadlock a
+cold start, since the cache is only ever seeded by a successful run. What was
+missing when 67 days were lost was a signal, not a veto, and
+`scripts/backfill-event-history.mjs` can recover the window afterwards.
 
-Two further guards back that up. The script refuses to write a series with fewer dates
+Two guards back that up. The script refuses to write a series with fewer dates
 than any of its inputs — a defensive invariant rather than a live recovery
 path, since the merge cannot produce that while it behaves as documented; it is
 there so a future change that started dropping dates fails the build instead of

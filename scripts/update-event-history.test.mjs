@@ -151,6 +151,17 @@ describe('countViableCandidates', () => {
     expect(countViableCandidates(dir)).toBe(1)
   })
 
+  // Valid YAML that the old pattern silently dropped — and `parsed === 0` only
+  // fires when EVERY file fails, so a handful of these would just publish a
+  // count that is quietly low.
+  it('accepts quoted status values and trailing comments', () => {
+    write('a.md', '---\nstatus: "candidate"\n---\n\nProse.\n')
+    write('b.md', "---\nstatus: 'investigating'\n---\n\nProse.\n")
+    write('c.md', '---\nstatus: candidate  # still looking\n---\n\nProse.\n')
+    write('d.md', '---\nstatus: "added"\n---\n\nProse.\n')
+    expect(countViableCandidates(dir)).toBe(3)
+  })
+
   it('returns undefined for a missing directory, never 0', () => {
     expect(countViableCandidates(path.join(dir, 'nope'))).toBeUndefined()
   })
@@ -344,25 +355,12 @@ describe('main', () => {
     }
   })
 
-  // The shrink guard cannot see this case — it only knows about inputs it
-  // managed to read — so republishing would drop every date between the
-  // committed baseline and today from both the cache and the site.
-  it('refuses to republish when no merge source can be read', () => {
+  // No merge source readable is a warning, not a failure: aborting would skip
+  // the deploy and publish no calendars, and would deadlock a cold start.
+  it('warns but still publishes when no merge source can be read', () => {
     write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
-    expect(run(['--merge', 'gone.json', '--merge', 'also-gone.json', '--require-merge-source'])).toBe(1)
-    expect(readHistory()).toEqual([{ date: '2026-04-13', events: 100 }]) // untouched
-  })
-
-  it('proceeds when at least one merge source is readable', () => {
-    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
-    write('cached.json', [{ date: '2026-05-01', events: 200 }])
-    expect(run(['--merge', 'gone.json', '--merge', 'cached.json', '--require-merge-source'])).toBe(0)
-    expect(readHistory().length).toBe(3)
-  })
-
-  it('does not require a merge source when none were asked for', () => {
-    write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
-    expect(run(['--require-merge-source'])).toBe(0)
+    expect(run(['--merge', 'gone.json', '--merge', 'also-gone.json'])).toBe(0)
+    expect(readHistory().length).toBe(2) // baseline plus today
   })
 
   it('skips a corrupt merge source without failing', () => {

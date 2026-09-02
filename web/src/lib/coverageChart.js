@@ -35,6 +35,27 @@ export const READOUT_ROWS = [
   ...READOUT_ONLY.map((m) => ({ key: m.key, label: m.label, color: null })),
 ]
 
+// Make a fetched series safe to render.
+//
+// event-history.json comes off the network and is only checked with
+// Array.isArray, so it can carry nulls, non-string or unparseable dates,
+// duplicates, or arrive unsorted. Every helper here guards individually, but
+// the component then has to guard at each of a dozen dereferences — and one
+// missed spot unmounts the whole health dashboard, which is worse than the
+// blank chart the guarding was for. Normalise once, at the boundary, and the
+// invariants the geometry assumes (sorted, dated, unique) are true rather than
+// hoped for.
+export function normalizeHistory(raw) {
+  if (!Array.isArray(raw)) return []
+  const byDate = new Map()
+  for (const p of raw) {
+    if (!p || typeof p !== 'object') continue
+    if (typeof p.date !== 'string' || !Number.isFinite(dayNumber(p.date))) continue
+    byDate.set(p.date, p) // last write wins, matching the server-side merge
+  }
+  return [...byDate.values()].sort((a, b) => a.date.localeCompare(b.date))
+}
+
 // Round up to a friendly axis maximum that divides evenly into `intervals`
 // gridline steps, so the intermediate labels are round too.
 //
