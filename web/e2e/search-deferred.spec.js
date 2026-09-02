@@ -2,6 +2,11 @@ import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
+// The content column. Event titles now appear twice on the page — once in the
+// list and once as a map pin label (labelled pins, docs/map-design-system.md) —
+// so assertions about the LIST scope here rather than matching either copy.
+const list = (page) => page.locator('.a-content')
+
 // Live search is deferred (useDeferredValue in App206) so the expensive Fuse
 // pass + dependent re-renders run at low priority and never block typing. This
 // asserts the search still converges to the right filtered set and that the
@@ -24,8 +29,8 @@ test('deferred search converges to the filtered set and is clearable', async ({ 
   await expect(page.getByText('Neumos')).toBeVisible()
 
   await page.getByText('Events', { exact: true }).first().click()
-  await expect(page.getByText('Jazz Night')).toBeVisible()
-  await expect(page.getByText('Movie Premiere')).toBeVisible()
+  await expect(list(page).getByText('Jazz Night')).toBeVisible()
+  await expect(list(page).getByText('Movie Premiere')).toBeVisible()
 
   // Type a query. The deferred match-set settles asynchronously; Playwright's
   // web-first assertions retry until it lands, which is exactly the deferred
@@ -35,8 +40,8 @@ test('deferred search converges to the filtered set and is clearable', async ({ 
   await input.fill('jazz')
   await expect(input).toHaveValue('jazz')
   await expect(page.getByText(/Searching:/)).toBeVisible()
-  await expect(page.getByText('Jazz Night')).toBeVisible()
-  await expect(page.getByText('Movie Premiere')).toHaveCount(0)
+  await expect(list(page).getByText('Jazz Night')).toBeVisible()
+  await expect(list(page).getByText('Movie Premiere')).toHaveCount(0)
 
   await screenshotStable(page, 'e2e/screenshots/search-deferred.png')
 
@@ -45,7 +50,7 @@ test('deferred search converges to the filtered set and is clearable', async ({ 
   // empties and the full list returns.
   await page.locator('.a-fchip--search button.a-fchip-x').click()
   await expect(input).toHaveValue('')
-  await expect(page.getByText('Movie Premiere')).toBeVisible()
+  await expect(list(page).getByText('Movie Premiere')).toBeVisible()
 })
 
 test('deferred search also filters the Following feed', async ({ page }) => {
@@ -61,10 +66,10 @@ test('deferred search also filters the Following feed', async ({ page }) => {
   await expect(page.getByText('Neumos')).toBeVisible()
 
   await page.getByText('Following', { exact: true }).first().click()
-  await expect(page.getByText('Jazz Night')).toBeVisible()
-  await expect(page.getByText('Movie Premiere')).toBeVisible()
+  await expect(list(page).getByText('Jazz Night')).toBeVisible()
+  await expect(list(page).getByText('Movie Premiere')).toBeVisible()
 
   await page.getByPlaceholder('Search events & venues…').fill('jazz')
-  await expect(page.getByText('Jazz Night')).toBeVisible()
-  await expect(page.getByText('Movie Premiere')).toHaveCount(0)
+  await expect(list(page).getByText('Jazz Night')).toBeVisible()
+  await expect(list(page).getByText('Movie Premiere')).toHaveCount(0)
 })

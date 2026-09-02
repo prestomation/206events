@@ -23,7 +23,13 @@ export function VenuePopup({
   onFollow, onOpenSeries, onClose, onPickDate, rootRef,
 }) {
   if (!venue) return null
-  const rich = layout !== 'sheet'
+  // A venue's content is ONE list, so it declines the two-column `wide` layout
+  // the expanded map offers: splitting it leaves a header and two buttons
+  // stranded in a 376px column of nothing. The event popup does have two
+  // columns' worth (copy and the next date on one side, every date and the
+  // venue's other series on the other), so `wide` still earns its keep there.
+  const shell = layout === 'wide' ? 'panel' : layout
+  const rich = shell !== 'sheet'
   const { name, address, series, seriesCount, dateCount } = venue
 
   const list = (
@@ -62,7 +68,7 @@ export function VenuePopup({
   return (
     <MapPopup
       rootRef={rootRef}
-      layout={layout}
+      layout={shell}
       eyebrow="Venue"
       title={name}
       subtitle={address}
@@ -86,7 +92,7 @@ export function VenuePopup({
           </MapButton>
         )}
       </div>
-      {layout === 'wide' ? null : <Rule />}
+      <Rule />
     </MapPopup>
   )
 }

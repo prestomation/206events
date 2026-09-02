@@ -21,13 +21,17 @@ function isHttpUrl(u) {
  * instance that carries its own event-page URL also gets a trailing external
  * link, so the row is the selector and the icon is the only navigation. That
  * split is the same idiom the app already uses for location lines.
+ *
+ * Nothing is marked selected unless `value` says so. A venue popup peeking at
+ * three separate series has no selection to show, and highlighting each list's
+ * first row there would claim a choice the reader never made.
  */
 export function EventDateList({
   instances = [], variant = 'rows', value, max = MAX_GROUP_DATES, onPick, showMonths = true,
 }) {
   const shown = instances.slice(0, max)
   const overflow = instances.length - shown.length
-  const selected = value || instances[0]?.date
+  const selected = value
 
   if (variant === 'chips') {
     return (

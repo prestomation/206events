@@ -24,6 +24,17 @@ export async function screenshotStable(page, path, opts = {}) {
   // Fonts: a capture mid font-swap renders fallback metrics.
   await page.evaluate(() => document.fonts.ready)
 
+  // Animations: an entrance transition (the map popup fades and slides in over
+  // ~200ms) otherwise captures half-transparent, which reads as a rendering
+  // bug in a PR body. Only FINITE animations are waited on — the spinner and
+  // other infinite loops would never settle.
+  await page.waitForFunction(() => document.getAnimations()
+    .filter((a) => {
+      const t = a.effect && a.effect.getComputedTiming()
+      return t && Number.isFinite(t.activeDuration)
+    })
+    .every((a) => a.playState !== 'running'))
+
   // Images: every <img> settled. `complete` is true for both loaded and
   // failed images, so a dead src can't hang the wait. Deferred
   // loading="lazy" images far below the fold never start loading and would

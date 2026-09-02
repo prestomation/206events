@@ -16,6 +16,10 @@ const EventsMap = lazy(() => import('../components/EventsMap.jsx').then((m) => (
 const MapPopupHost = lazy(() => import('../components/map/MapPopupHost.jsx').then((m) => ({ default: m.MapPopupHost })))
 import { DATE_WINDOW_STOPS, describeWindow, isDateRange, normalizeDateRange } from './viewModels.js'
 
+// Smallest strip of map worth panning a clicked pin into. Below this the popup
+// has effectively taken over the surface and moving the viewport is churn.
+const MIN_MAP_STRIP = 160
+
 const NAV_ITEMS = [
   { id: 'discover', label: 'Discover', icon: Ico.spark },
   { id: 'map', label: 'Map', icon: Ico.map, mobileOnly: true },
@@ -491,17 +495,39 @@ export function MapPanel({ mobile = false }) {
   // actually committed rather than trusting a hand-maintained width constant.
   // `popupNode` is a callback ref, so this re-runs when the lazy popup chunk
   // finally mounts — not just when the selection changes.
+  //
+  // Leaflet's panInside reads `paddingTopLeft` / `paddingBottomRight` and
+  // silently ignores anything else (Map.js). The previous code passed
+  // paddingTopRight / paddingBottomLeft, so this never panned at all — a
+  // clicked pin just stayed hidden behind the panel.
   useLayoutEffect(() => {
     const map = mapRef?.current
     const venue = selection?.venue
     if (!map || !popupNode || venue?.lat == null) return
     const r = popupNode.getBoundingClientRect()
-    const pad = mobile
-      ? { paddingTopRight: [24, 24], paddingBottomLeft: [24, Math.round(r.height) + 24] }
-      : expanded
-        ? { paddingTopRight: [24, 24], paddingBottomLeft: [Math.round(r.width) + 24, 24] }
-        : { paddingTopRight: [Math.round(r.width) + 24, 24], paddingBottomLeft: [24, 24] }
-    map.panInside([venue.lat, venue.lng], pad)
+    const size = map.getSize()
+    const w = Math.round(r.width) + 24
+    const h = Math.round(r.height) + 24
+    // Which edge the card is docked to comes from the COMMITTED node, not from
+    // `mobile`/`expanded`: a popup may shell itself differently than the layout
+    // it was handed (a venue declines the two-column wide card), and guessing
+    // wrong reserves space on the opposite side from the card.
+    const sheet = popupNode.classList.contains('mp-popup--sheet')
+    const wide = popupNode.classList.contains('mp-popup--wide')
+    // Only pan when the popup leaves a usable strip of map to pan INTO. In the
+    // docked desktop column the card covers nearly the whole map, so there is
+    // nowhere to put the pin and re-centring would churn the viewport for
+    // nothing.
+    const room = (available) => available >= MIN_MAP_STRIP
+    const pad = sheet
+      // Sheet along the bottom: reserve height below the pin.
+      ? (room(size.y - h) ? { paddingTopLeft: [24, 24], paddingBottomRight: [24, h] } : null)
+      : wide
+        // Wide card docked left: reserve width to the left of the pin.
+        ? (room(size.x - w) ? { paddingTopLeft: [w, 24], paddingBottomRight: [24, 24] } : null)
+        // Panel docked right: reserve width to the right of the pin.
+        : (room(size.x - w) ? { paddingTopLeft: [24, 24], paddingBottomRight: [w, 24] } : null)
+    if (pad) map.panInside([venue.lat, venue.lng], pad)
   }, [popupNode, selection, mobile, expanded, mapRef])
 
   // Esc collapses the expanded desktop map.
@@ -615,7 +641,10 @@ export function MapPanel({ mobile = false }) {
     return <div className="a-mapview">{map}{filterBar}{popup}</div>
   }
   return (
-    <div className="a-mappanel" ref={panelRef}>
+    <div
+      className={`a-mappanel${selection ? (expanded ? ' a-mappanel--popupwide' : ' a-mappanel--popup') : ''}`}
+      ref={panelRef}
+    >
       <MapResizeHandle panelRef={panelRef} setMapWidth={app.setMapWidth} mapWidth={app.mapWidth} />
       {map}
       {filterBar}

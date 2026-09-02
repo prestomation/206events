@@ -64,13 +64,15 @@ describe('EventDateList (rows)', () => {
     expect(screen.getByText('+2 more dates')).toBeInTheDocument()
   })
 
-  it('marks the first instance selected by default and follows `value`', () => {
+  // A venue popup peeks at several series at once and has no selection to show,
+  // so nothing is highlighted until the caller names a date.
+  it('marks nothing selected without a `value`, and follows one when given', () => {
     const list = [inst(1), inst(2)]
     const a = render(<EventDateList instances={list} />)
-    expect(a.container.querySelectorAll('.mp-daterow--on')).toHaveLength(1)
-    expect(a.container.querySelector('.mp-daterow--on')).toHaveTextContent('Jul 1')
+    expect(a.container.querySelectorAll('.mp-daterow--on')).toHaveLength(0)
 
     const b = render(<EventDateList instances={list} value={list[1].date} />)
+    expect(b.container.querySelectorAll('.mp-daterow--on')).toHaveLength(1)
     expect(b.container.querySelector('.mp-daterow--on')).toHaveTextContent('Jul 2')
   })
 
@@ -103,6 +105,7 @@ describe('EventDateList (chips)', () => {
     const { container } = render(
       <EventDateList variant="chips" instances={list} value={list[1].date} onPick={onPick} />,
     )
+    expect(container.querySelectorAll('.mp-chip--on')).toHaveLength(1)
     expect(container.querySelector('.mp-chip--on')).toHaveTextContent('Jul 2')
     fireEvent.click(container.querySelectorAll('.mp-chip')[0])
     expect(onPick.mock.calls[0][0].date).toContain('2026-07-01')

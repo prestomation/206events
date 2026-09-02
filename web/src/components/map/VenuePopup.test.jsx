@@ -97,6 +97,16 @@ describe('VenuePopup', () => {
     expect(container.querySelector('.mp-follow--on')).toHaveTextContent('Following')
   })
 
+  // The expanded map offers a two-column card; a venue's single list declines it.
+  it('declines the wide layout and stays one column', () => {
+    const { container } = render(
+      <VenuePopup layout="wide" venue={venue([series('Jazz Night', [2]), series('Punk', [4])])} />,
+    )
+    expect(container.querySelector('.mp-popup').className).toContain('mp-popup--panel')
+    expect(container.querySelector('.mp-split')).toBeNull()
+    expect(container.querySelectorAll('.mp-series')).toHaveLength(2)
+  })
+
   it('sums the venue’s dates in the rich list head', () => {
     const { container } = render(
       <VenuePopup layout="panel" venue={venue([series('Jazz Night', [2, 9]), series('Punk', [4])])} />,

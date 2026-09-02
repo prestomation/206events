@@ -42,10 +42,13 @@ export function sharedTime(instances = []) {
  * Wednesday", "Monthly on Sundays", "Nightly", or a plain "5 dates" when the
  * gaps are irregular. Instances are expected pre-sorted by date ascending
  * (which is what `groupEvents` hands back).
+ *
+ * `withTime: false` drops the trailing start time, for callers that already
+ * show it on the line above and would otherwise print it twice.
  */
-export function cadence(instances = []) {
+export function cadence(instances = [], { withTime = true } = {}) {
   const parts = instances.map((i) => eventDateParts(i?.date)).filter(Boolean)
-  const time = sharedTime(instances)
+  const time = withTime ? sharedTime(instances) : null
   const suffix = time ? ` · ${time}` : ''
   if (parts.length === 0) return ''
   if (parts.length === 1) return `One date${suffix}`

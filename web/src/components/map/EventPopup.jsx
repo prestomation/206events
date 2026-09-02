@@ -33,6 +33,9 @@ export function EventPopup({
   const sel = selected || rep
   const selParts = eventDateParts(sel?.date)
   const rhythm = cadence(instances)
+  // The next-date line right above already carries the start time, so the
+  // rhythm beside it drops its own copy rather than saying 7:00 PM twice.
+  const rhythmNoTime = cadence(instances, { withTime: false })
 
   const media = (
     <MapMedia
@@ -52,7 +55,7 @@ export function EventPopup({
           {selParts ? `${selParts.dow}, ${selParts.dayMonth} · ${selParts.time}` : 'No upcoming dates'}
         </div>
         {rich && selParts && (
-          <div className="mp-next-rel">{relativeDay(sel.date)}{rhythm ? ` · ${rhythm}` : ''}</div>
+          <div className="mp-next-rel">{relativeDay(sel.date)}{rhythmNoTime ? ` · ${rhythmNoTime}` : ''}</div>
         )}
       </div>
       <AddToCalendar
@@ -153,7 +156,7 @@ export function EventPopup({
           <Rule />
           {rhythm && (
             <div className="mp-cadence">
-              {rhythm}
+              {rhythmNoTime}
               {count > 1 && <> · <b>{count} dates</b></>}
             </div>
           )}

@@ -4613,7 +4613,11 @@ html, body, #root { height: 100%; }
 /* While dragging, keep the col-resize cursor and stop text selection / map
    iframe interactions from hijacking the drag. */
 body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select: none !important; }
-.app206 .a-mapbar { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border: 1px solid var(--line-2); border-radius: var(--map-popup-radius); padding: 9px 14px; box-shadow: var(--map-shadow); z-index: 500; }
+/* left clears Leaflet's zoom control, which sits at the map's top-left with a
+   10px margin and renders ABOVE this bar (Leaflet controls are z-1000). Before
+   this the control sat on top of the bar's eyebrow and title, clipping them to
+   "EVENTS" and "ear you". */
+.app206 .a-mapbar { position: absolute; top: 16px; left: 54px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border: 1px solid var(--line-2); border-radius: var(--map-popup-radius); padding: 9px 14px; box-shadow: var(--map-shadow); z-index: 500; }
 .app206 .a-mapbar-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
 /* Mono eyebrow above a display title — the pairing the popups use, so the bar
    reads as part of the same surface rather than a separate widget. */
@@ -4630,6 +4634,16 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
    slider (using its empty horizontal space), so the map keeps full height. */
 .app206 .a-mapfilter .a-datewindow { flex: 1 1 180px; min-width: 0; }
 .app206 .a-mapfilter .a-mapscope { flex: 0 0 auto; }
+/* With a popup open, the floating bars must not sit behind it — "Save this
+   area" and the expand toggle would be unreachable for as long as a pin is
+   open. In the docked column a 412px popup leaves ~45px, which is no room for
+   a bar at all, so the chrome stands down and the popup IS the panel (closing
+   it brings the chrome back). Expanded to full screen there is real room
+   beside it, so the bars just retreat to the right of the card. */
+.app206 .a-mappanel--popup .a-mapbar,
+.app206 .a-mappanel--popup .a-mapfilter { display: none; }
+.app206 .a-mappanel--popupwide .a-mapbar,
+.app206 .a-mappanel--popupwide .a-mapfilter { left: calc(min(var(--map-popup-w-wide), 100% - 64px) + 16px); }
 /* Active-search hint chip in the map's floating filter bar (desktop + mobile).
    Flows inline beside the slider/scope toggle and wraps to its own line when
    space is tight; the pill stays content-width (never stretches full-bar). */

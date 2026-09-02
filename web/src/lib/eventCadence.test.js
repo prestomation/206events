@@ -96,6 +96,12 @@ describe('cadence', () => {
     expect(cadence(days.map((date) => ({ date })))).toContain(`Every ${weekday}`)
   })
 
+  it('can drop the time for a caller that already shows it', () => {
+    const days = [at('2026-07-02'), at('2026-07-09')]
+    expect(cadence(days)).toBe('Every Thursday · 7:00 PM')
+    expect(cadence(days, { withTime: false })).toBe('Every Thursday')
+  })
+
   it('is empty for no instances', () => {
     expect(cadence([])).toBe('')
   })

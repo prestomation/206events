@@ -57,11 +57,15 @@ describe('EventPopup', () => {
     expect(picked.container.querySelector('.mp-next-when')).toHaveTextContent('Jul 8')
   })
 
-  it('spells out the rhythm in the rich layouts', () => {
+  it('spells out the rhythm in the rich layouts, without repeating the time', () => {
     const { container } = render(
       <EventPopup layout="panel" group={group([inst(2), inst(9), inst(16)])} venue={VENUE} />,
     )
-    expect(container.querySelector('.mp-next-rel')).toHaveTextContent('Every Thursday')
+    const rel = container.querySelector('.mp-next-rel')
+    expect(rel).toHaveTextContent('Every Thursday')
+    // The next-date line right above already says 7:00 PM.
+    expect(rel.textContent).not.toContain('PM')
+    expect(container.querySelector('.mp-next-when')).toHaveTextContent('PM')
   })
 
   it('gives the sheet a chip strip and a cadence line instead of date rows', () => {
