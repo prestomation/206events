@@ -1,0 +1,17 @@
+name: watershed-pub
+friendlyname: "The Watershed Pub & Kitchen"
+sourceRole: venue
+description: "The Watershed Pub & Kitchen"
+url: "https://www.watershedpub.com/events"
+friendlyLink: https://www.watershedpub.com/events
+tags: ["Nightlife", "Northgate"]
+geo:
+  lat: 47.7019150
+  lng: -122.3255337
+  label: "The Watershed Pub & Kitchen, 10104 3rd Ave NE, Seattle, WA 98125"
+  osmType: node
+  osmId: 2461755878
+calendars:
+  - name: watershed-pub
+    friendlyname: "The Watershed Pub & Kitchen"
+    timezone: America/Los_Angeles
