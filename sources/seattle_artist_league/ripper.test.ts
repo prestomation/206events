@@ -180,6 +180,39 @@ describe('SeattleArtistLeagueRipper', () => {
         expect(valid[0].duration.toHours()).toBe(3);
     });
 
+    test('ignores a session-length decimal ("3.5 hour workshop") that trails the real start date in the title', async () => {
+        const ripper = new SeattleArtistLeagueRipper();
+        const workshop = {
+            ...CLASS_WITH_TIME_BULLET,
+            id: 12,
+            name: "FREE No Tears Critique SATURDAY MORNING 3.5 hour workshop 9.5",
+            slug: "free-no-tears-critique-saturday-morning-3-5-hour-workshop-9-5",
+            short_description: "<ul><li>Time: 9:30 &#8211; 1:00 pm</li></ul>",
+        };
+        const events = await ripper.parseEvents(buildJsonData([workshop]), testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(valid).toHaveLength(1);
+        expect(valid[0].date.monthValue()).toBe(9);
+        expect(valid[0].date.dayOfMonth()).toBe(5);
+    });
+
+    test('falls back to the default venue address when the entire "Where:" value is the bare "FREE" bullet', async () => {
+        const ripper = new SeattleArtistLeagueRipper();
+        const freeNoAddress = {
+            ...CLASS_WITH_TIME_BULLET,
+            id: 13,
+            name: "FREE Community Night TUESDAY EVENING begins 9.15",
+            slug: "free-community-night-tuesday-evening-begins-9-15",
+            short_description: "<ul><li>Time: 6:00 &#8211; 8:00 pm</li><li>Where: FREE</li></ul>",
+        };
+        const events = await ripper.parseEvents(buildJsonData([freeNoAddress]), testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(valid).toHaveLength(1);
+        expect(valid[0].location).toBe('Seattle Artist League, 5516 4th Ave S, Seattle, WA 98108');
+    });
+
     test('skips ONLINE classes (not a physical Seattle event) without emitting an error', async () => {
         const ripper = new SeattleArtistLeagueRipper();
         const events = await ripper.parseEvents(buildJsonData([ONLINE_CLASS]), testDate, {});

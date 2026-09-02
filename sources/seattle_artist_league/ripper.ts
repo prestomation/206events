@@ -57,11 +57,13 @@ const DEFAULT_DURATION = Duration.ofHours(2);
 // specific recurrence.
 const PAST_TOLERANCE_DAYS = 3;
 
-// The class start date is always the last "M.D" token in the title (e.g.
-// "begins 10.28", "on 9.2 12.4"). Course-length/week-count mentions
-// ("8 classes", "4-Week", "10 Weeks") never contain a literal ".", so this
-// reliably isolates the real date even with extra title text after it.
-const TITLE_DATE_PATTERN = /(\d{1,2})\.(\d{1,2})(?!\d)/g;
+// The class start date is the last "M.D" token in the title (e.g. "begins
+// 10.28", "on 9.2 12.4"). Course-length/week-count mentions ("8 classes",
+// "4-Week", "10 Weeks") never contain a literal ".", but a session-length
+// decimal ("3.5 hour workshop") does and would be misread as March 5th if
+// it happened to trail the real date - excluded via the negative lookahead
+// below rather than relied on to always come first in the title.
+const TITLE_DATE_PATTERN = /(\d{1,2})\.(\d{1,2})(?!\d)(?!\s*hours?\b)/gi;
 
 const TIME_TOKEN_PATTERN = /(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)/gi;
 // Shorthand range where only the end time states am/pm (e.g. "6:00 – 8:30
@@ -216,9 +218,13 @@ export default class SeattleArtistLeagueRipper extends JSONRipper {
 
                 // The bare "FREE" bullet sometimes immediately follows Where:
                 // in the source's list markup with no label of its own to
-                // bound the capture on - strip it off rather than publishing
-                // it as part of the address.
-                const where = fieldAfterLabel(flatDescription, "Where")?.replace(/\s+FREE$/i, "");
+                // bound the capture on - strip it off (whether trailing an
+                // address or standing alone as the entire captured value)
+                // rather than publishing it as part of, or in place of, the
+                // location.
+                const where = fieldAfterLabel(flatDescription, "Where")
+                    ?.replace(/(^|\s+)FREE$/i, "")
+                    .trim() || undefined;
 
                 const priceRaw = product.prices ? parseInt(product.prices.price, 10) : NaN;
                 const minorUnit = product.prices?.currency_minor_unit ?? 2;
