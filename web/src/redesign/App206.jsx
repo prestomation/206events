@@ -174,18 +174,6 @@ export function App206(props) {
     else if (section === 'discover') setMapScope('all')
   }, [section])
 
-  // Map popups are hand-built DOM (outside React, see EventsMap.renderPopupHtml),
-  // so wire their photo into the lightbox via a delegated click listener rather
-  // than a per-popup React handler.
-  useEffect(() => {
-    const onClick = (e) => {
-      const img = e.target.closest && e.target.closest('.map-popup-image')
-      if (img && img.src) openLightbox(img.src, img.alt || '')
-    }
-    document.addEventListener('click', onClick)
-    return () => document.removeEventListener('click', onClick)
-  }, [openLightbox])
-
   const flash = useCallback((msg) => {
     setToast(msg)
     clearTimeout(toastT.current)

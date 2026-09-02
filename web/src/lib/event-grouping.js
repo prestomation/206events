@@ -213,3 +213,92 @@ export function groupEvents(events) {
 
   return groups
 }
+
+// ---------------------------------------------------------------------------
+// Venue grouping — one map pin per PLACE, not per series.
+//
+// `groupEvents` above buckets by venue AND source feed, so three different
+// shows at Neumos (or one show listed by two feeds) produce three markers
+// stacked on one coordinate. The map surface treats a pin as a place, so this
+// second pass collapses those into a single venue whose popup lists every
+// series running there.
+//
+// Keyed on the quantized coordinate ALONE — dropping `icsUrl` is the whole
+// point: a venue is a place, and which feed happened to publish a show is not
+// part of its identity. This runs on `groupEvents` output, never on raw events,
+// so it inherits the same post-`isMappable` scoping and changes nothing about
+// membership.
+// ---------------------------------------------------------------------------
+
+// First non-empty `location` string across a venue's instances, picking the
+// most common one so a single mislabelled instance can't rename the venue.
+// Ties resolve to first-seen, keeping the result deterministic.
+function modalLocation(series) {
+  const counts = new Map()
+  for (const g of series) {
+    for (const inst of g.instances) {
+      const loc = String(inst?.location ?? '').trim()
+      if (!loc) continue
+      counts.set(loc, (counts.get(loc) || 0) + 1)
+    }
+  }
+  let best = ''
+  let bestCount = 0
+  for (const [loc, n] of counts) {
+    if (n > bestCount) { best = loc; bestCount = n }
+  }
+  return best
+}
+
+/**
+ * Collapse temporal groups sharing a coordinate into one entry per venue.
+ *
+ * Returns Array<{ key, lat, lng, label, series, seriesCount, dateCount }>:
+ *   key         stable `${lat}|${lng}` grid token
+ *   label       the venue's modal location string ('' when none carry one)
+ *   series      the venue's groups, earliest first (ties: more dates first,
+ *               then input order) — deterministic for a given input
+ *   seriesCount series.length; 1 means the pin opens an event popup directly
+ *   dateCount   total instances across every series, for the pin's count badge
+ *
+ * Venue order is first-seen by input order, matching `groupEvents`.
+ */
+export function groupByVenue(groups) {
+  const buckets = new Map() // venue key -> { key, lat, lng, series[] }
+  const order = []
+
+  for (const g of groups) {
+    const key = `${quantizeCoord(g?.lat)}|${quantizeCoord(g?.lng)}`
+    let bucket = buckets.get(key)
+    if (!bucket) {
+      bucket = { key, lat: g.lat, lng: g.lng, series: [] }
+      buckets.set(key, bucket)
+      order.push(key)
+    }
+    bucket.series.push(g)
+  }
+
+  return order.map((key) => {
+    const bucket = buckets.get(key)
+    // Decorate with the input index so the sort stays stable across engines
+    // (Array#sort is spec-stable in modern JS, but the map pipeline is hot
+    // enough that being explicit is cheaper than trusting it later).
+    const series = bucket.series
+      .map((g, i) => ({ g, i }))
+      .sort((a, b) => (
+        compareByDate(a.g.instances[0], b.g.instances[0])
+        || (b.g.count - a.g.count)
+        || (a.i - b.i)
+      ))
+      .map((x) => x.g)
+    return {
+      key: bucket.key,
+      lat: bucket.lat,
+      lng: bucket.lng,
+      label: modalLocation(series),
+      series,
+      seriesCount: series.length,
+      dateCount: series.reduce((n, g) => n + g.count, 0),
+    }
+  })
+}

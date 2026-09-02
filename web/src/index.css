@@ -3964,6 +3964,20 @@ html, body, #root { height: 100%; }
   --c-music:#7c3aed; --c-art:#c2410c; --c-film:#0e7490; --c-market:#15803d;
   --c-talk:#b45309; --c-comedy:#be185d; --c-community:#4d7c0f;
   --pad:18px; --maxcol:1;
+
+  /* Soft grounds derived from hues the warm palette already carries, so each
+     follows its base token into dark mode. No new hex enters the system. */
+  --free-soft: color-mix(in srgb, var(--free) 14%, var(--surface));
+  --danger-soft: color-mix(in srgb, var(--danger) 14%, var(--surface));
+  --pin-soft: color-mix(in srgb, var(--pin) 14%, var(--surface));
+
+  /* Map surface geometry (design-system port -- docs/map-design-system.md).
+     Dimensions and one elevation; the only colour here is the shadow's tint. */
+  --map-pin-h:30px; --map-pin-max-w:190px;
+  --map-popup-w:366px; --map-popup-w-wide:668px; --map-popup-w-panel:412px;
+  --map-popup-aside-w:292px; --map-popup-radius:16px; --map-popup-pad-x:15px;
+  --map-chip-w:58px; --map-chip-h:50px;
+  --map-shadow:0 18px 44px rgba(26,26,46,.18);
   font-family: var(--font-sans);
   color: var(--ink);
   background: var(--paper);
@@ -3982,7 +3996,12 @@ html, body, #root { height: 100%; }
     --free:#4caf6a; /* free-admission accent (dark mode) */
     --c-music:#a78bfa; --c-art:#e08a4f; --c-film:#3db9cf; --c-market:#4caf6a;
     --c-talk:#d99a4e; --c-comedy:#ec5f95; --c-community:#94c14d;
+    --map-shadow:0 18px 44px rgba(0,0,0,.5);
   }
+}
+/* Touch devices: map pins and date chips grow back to a real target. */
+@media (pointer: coarse) {
+  .app206 { --map-pin-h:36px; --map-chip-h:56px; }
 }
 .app206 *, .app206 *::before, .app206 *::after { box-sizing: border-box; margin: 0; padding: 0; }
 .app206 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
@@ -4606,7 +4625,6 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
 @keyframes a-lightbox-fade { from { opacity: 0; } to { opacity: 1; } }
 
 /* Map popup photo: click to enlarge in the lightbox (handler delegated in App206). */
-.map-popup-image { cursor: zoom-in; }
 
 /* Feedback modal (FeedbackModal.jsx) — centered sheet over a dimmed backdrop. */
 .app206 .a-modal-backdrop { position: fixed; inset: 0; z-index: 2100; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; padding: 20px; animation: a-lightbox-fade 140ms ease; }
