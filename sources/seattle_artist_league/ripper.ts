@@ -115,40 +115,56 @@ function parseStartDate(title: string, today: LocalDate): LocalDate | null {
     return resolveYear(month, day, today);
 }
 
-function parseTimeToken(match: RegExpMatchArray): LocalTime {
-    let hour = parseInt(match[1]);
-    const minute = match[2] ? parseInt(match[2]) : 0;
-    const meridiem = match[3].toLowerCase().replace(/\./g, "");
+function toLocalTime(hourStr: string, minuteStr: string | undefined, meridiemRaw: string): LocalTime {
+    let hour = parseInt(hourStr);
+    const minute = minuteStr ? parseInt(minuteStr) : 0;
+    const meridiem = meridiemRaw.toLowerCase().replace(/\./g, "");
     if (meridiem === "pm" && hour !== 12) hour += 12;
     if (meridiem === "am" && hour === 12) hour = 0;
     return LocalTime.of(hour, minute);
 }
 
+function parseTimeToken(match: RegExpMatchArray): LocalTime {
+    return toLocalTime(match[1], match[2], match[3]);
+}
+
+// A start/end pair is only accepted when it produces a same-day, sub-12-hour
+// span - long enough to rule out an accidental wraparound (e.g. reading
+// "10:00" as 10pm) while still covering the rare all-day workshop.
+function isPlausibleSpan(start: LocalTime, end: LocalTime): boolean {
+    const duration = Duration.between(start, end);
+    return !duration.isNegative() && !duration.isZero() && duration.toHours() <= 12;
+}
+
 // Returns null when no usable "Time:" range was found - the caller falls
 // back to a placeholder and flags the event uncertain rather than guessing.
 function parseTimeRange(description: string): { start: LocalTime; end: LocalTime } | null {
-    let timeField = fieldAfterLabel(description, "Time");
+    const timeField = fieldAfterLabel(description, "Time");
     if (!timeField) return null;
 
-    let tokens = [...timeField.matchAll(TIME_TOKEN_PATTERN)];
-    if (tokens.length < 2) {
-        const shorthand = timeField.match(TIME_RANGE_SHORTHAND);
-        if (shorthand) {
-            const [, startHour, startMin, endHour, endMin, meridiem] = shorthand;
-            timeField = timeField.replace(
-                TIME_RANGE_SHORTHAND,
-                `${startHour}${startMin ? ":" + startMin : ""}${meridiem}-${endHour}${endMin ? ":" + endMin : ""}${meridiem}`
-            );
-            tokens = [...timeField.matchAll(TIME_TOKEN_PATTERN)];
-        }
+    const tokens = [...timeField.matchAll(TIME_TOKEN_PATTERN)];
+    if (tokens.length >= 2) {
+        const start = parseTimeToken(tokens[0]);
+        const end = parseTimeToken(tokens[tokens.length - 1]);
+        return isPlausibleSpan(start, end) ? { start, end } : null;
     }
-    if (tokens.length < 2) return null;
 
-    const start = parseTimeToken(tokens[0]);
-    const end = parseTimeToken(tokens[tokens.length - 1]);
-    const duration = Duration.between(start, end);
-    if (duration.isNegative() || duration.isZero()) return null;
-    return { start, end };
+    // Shorthand range where only the end time states am/pm, e.g.
+    // "10:00 – 1:00 pm". The start hour's meridiem is ambiguous from text
+    // alone (10am, not 10pm, is what makes this span sensible) - try the
+    // end's own meridiem first, then the other, and keep whichever produces
+    // a plausible span rather than assuming they always match.
+    const shorthand = timeField.match(TIME_RANGE_SHORTHAND);
+    if (!shorthand) return null;
+    const [, startHour, startMin, endHour, endMin, endMeridiem] = shorthand;
+    const end = toLocalTime(endHour, endMin, endMeridiem);
+    const endMeridiemNormalized = endMeridiem.toLowerCase().replace(/\./g, "");
+    const otherMeridiem = endMeridiemNormalized === "am" ? "pm" : "am";
+    for (const meridiem of [endMeridiemNormalized, otherMeridiem]) {
+        const start = toLocalTime(startHour, startMin, meridiem);
+        if (isPlausibleSpan(start, end)) return { start, end };
+    }
+    return null;
 }
 
 export default class SeattleArtistLeagueRipper extends JSONRipper {

@@ -29,7 +29,8 @@ inside `short_description`. Custom `JSONRipper` added at
 categories and ONLINE-titled classes (not physical Seattle events), parses
 the trailing `M.D` date token from the title, and falls back to a
 placeholder time + `UncertaintyError` when no `Time:` bullet is present.
-Live build (`ONLY_SOURCE=seattle-artist-league`) confirmed 65 events, 17
-pending time uncertainties, and 7 legitimate ParseErrors (gift certificates,
-the certificate program, drop-in sessions, kits, independent study — real
-catalog entries with no class date).
+Live build (`ONLY_SOURCE=seattle-artist-league`) confirmed 65 events, 5
+pending time uncertainties (listings with no `Time:` bullet at all), and 7
+legitimate ParseErrors (gift certificates, the certificate program, drop-in
+sessions, kits, independent study — real catalog entries with no class
+date).

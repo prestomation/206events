@@ -160,6 +160,26 @@ describe('SeattleArtistLeagueRipper', () => {
         expect(uncertain[0].event.id).toBe(valid[0].id);
     });
 
+    test('resolves a morning-to-afternoon shorthand range ("10:00 – 1:00 pm") to 10am, not 10pm', async () => {
+        const ripper = new SeattleArtistLeagueRipper();
+        const morningClass = {
+            ...CLASS_WITH_TIME_BULLET,
+            id: 11,
+            name: "Beginning Wheel 2 SUNDAY MORNING begins 10.4",
+            slug: "beginning-wheel-2-sunday-morning-begins-10-4",
+            short_description: "<ul><li>Time: 10:00 &#8211; 1:00 pm</li></ul>",
+        };
+        const events = await ripper.parseEvents(buildJsonData([morningClass]), testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const uncertain = events.filter(e => 'type' in e && (e as any).type === 'Uncertainty');
+
+        expect(valid).toHaveLength(1);
+        expect(uncertain).toHaveLength(0);
+        expect(valid[0].date.hour()).toBe(10);
+        expect(valid[0].date.minute()).toBe(0);
+        expect(valid[0].duration.toHours()).toBe(3);
+    });
+
     test('skips ONLINE classes (not a physical Seattle event) without emitting an error', async () => {
         const ripper = new SeattleArtistLeagueRipper();
         const events = await ripper.parseEvents(buildJsonData([ONLINE_CLASS]), testDate, {});
@@ -237,6 +257,7 @@ describe('SeattleArtistLeagueRipper', () => {
         const jsonData = loadSampleData();
         const events = await ripper.parseEvents(jsonData, testDate, {});
         const errors = events.filter(e => 'type' in e && (e as any).type !== 'Uncertainty') as RipperError[];
+        const uncertain = events.filter(e => 'type' in e && (e as any).type === 'Uncertainty');
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         // A handful of real catalog entries (gift certificates, the
@@ -244,6 +265,11 @@ describe('SeattleArtistLeagueRipper', () => {
         // are genuinely undated products, not classes - they're expected to
         // surface as ParseErrors rather than being silently dropped.
         expect(valid.length).toBeGreaterThan(50);
+        // Only listings with no "Time:" bullet at all should end up
+        // uncertain - a regression that mis-parses a *present* bullet (e.g.
+        // misreading "10:00 – 1:00 pm" as 10pm instead of 10am) would
+        // silently inflate this count instead of failing loudly.
+        expect(uncertain.length).toBeLessThanOrEqual(6);
         for (const error of errors) {
             expect(error.type).toBe('ParseError');
         }
